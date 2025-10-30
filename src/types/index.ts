@@ -1,4 +1,3 @@
-export * from "./order";
 
 export interface FiringArc {
   /**
@@ -46,3 +45,5 @@ export interface FormationTemplate {
 }
 
 export type EntityId = number;
+
+export * from "./order";
