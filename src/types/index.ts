@@ -1,3 +1,5 @@
+export * from "./order";
+
 export interface FiringArc {
   /**
    * Direction of the firing arc in radians, relative to the unit's rotation.
@@ -42,3 +44,5 @@ export interface FormationTemplate {
    */
   firingArcs?: FiringArc[];
 }
+
+export type EntityId = number;
