@@ -118,4 +118,5 @@ export interface OrderConfig {
   keepsEnemyRun?: boolean;
   receivedOrgDamage?: number;
   ammoConsumptionModifier?: number;
+  canFocusLocation?: boolean;
 }
