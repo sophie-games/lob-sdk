@@ -107,8 +107,9 @@ export type PathOrderType =
 
 export type PathOrder = WalkOrder | FallbackOrder | FireAndAdvanceOnPathOrder;
 
-export interface OrderConfig {
-  type: OrderType;
+export interface OrderTemplate {
+  id: OrderType;
+  name: string;
   rangedDamageModifier?: number;
   speedModifier?: number;
   speedModifierWhenShooting?: number;
