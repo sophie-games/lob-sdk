@@ -22,8 +22,24 @@ export interface FormationTemplate {
   rangedDamageResistance?: number;
   rangedOrgResistance?: number;
 
+  /**
+   * The shooting angle is the angle in degrees that the unit can shoot at.
+   * Default is 90.
+   */
   shootingAngle?: number;
+
+  /**
+   * The maximum number of targets that the unit can shoot at.
+   * Default is 1.
+   */
   shootingMaxTargets?: number;
+
+  /**
+   * The angle margin is the minimum angle difference there must be
+   * between the current target and the rest of the targets to be shot.
+   * Default is 0.
+   */
+  shootingAngleMargin?: number;
 }
 
 export type EntityId = number;
