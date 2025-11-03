@@ -15,72 +15,100 @@ interface BaseOrder {
   id: EntityId;
 }
 
+interface ExclusiveOrderProps {
+  targetId?: never;
+  path?: never;
+  pos?: never;
+}
+
 export type OrderPathPoint = [number, number]; // [x, y]
 
-export interface WalkOrder extends BaseOrder {
+export interface WalkOrder
+  extends BaseOrder,
+    Omit<ExclusiveOrderProps, "path"> {
   type: OrderType.Walk;
   path: OrderPathPoint[];
   /** Final rotation */
   rotation?: number;
 }
 
-export interface WalkFollowOrder extends BaseOrder {
+export interface WalkFollowOrder
+  extends BaseOrder,
+    Omit<ExclusiveOrderProps, "targetId"> {
   type: OrderType.Walk;
   targetId: EntityId;
 }
 
-export interface FallbackOrder extends BaseOrder {
+export interface FallbackOrder
+  extends BaseOrder,
+    Omit<ExclusiveOrderProps, "path"> {
   type: OrderType.Fallback;
   path: OrderPathPoint[];
   /** Final rotation */
   rotation?: number;
 }
 
-export interface RunOrder extends BaseOrder {
+export interface RunOrder extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
   type: OrderType.Run;
   path: OrderPathPoint[];
   /** Final rotation */
   rotation?: number;
 }
 
-export interface RunFollowOrder extends BaseOrder {
+export interface RunFollowOrder
+  extends BaseOrder,
+    Omit<ExclusiveOrderProps, "targetId"> {
   type: OrderType.Run;
   targetId: EntityId;
 }
 
-export interface ShootTargetOrder extends BaseOrder {
+export interface ShootTargetOrder
+  extends BaseOrder,
+    Omit<ExclusiveOrderProps, "targetId"> {
   type: OrderType.Shoot;
   targetId: EntityId;
 }
 
-export interface ShootLocationOrder extends BaseOrder {
+export interface ShootLocationOrder
+  extends BaseOrder,
+    Omit<ExclusiveOrderProps, "pos"> {
   type: OrderType.Shoot;
   pos: [number, number];
 }
 
-export interface FaceTargetOrder extends BaseOrder {
+export interface FaceTargetOrder
+  extends BaseOrder,
+    Omit<ExclusiveOrderProps, "targetId"> {
   type: OrderType.Face;
   targetId: EntityId;
 }
 
-export interface FaceLocationOrder extends BaseOrder {
+export interface FaceLocationOrder
+  extends BaseOrder,
+    Omit<ExclusiveOrderProps, "pos"> {
   type: OrderType.Face;
   pos: [number, number];
 }
 
-export interface FireAndAdvanceToTargetOrder extends BaseOrder {
+export interface FireAndAdvanceToTargetOrder
+  extends BaseOrder,
+    Omit<ExclusiveOrderProps, "targetId"> {
   type: OrderType.FireAndAdvance;
   targetId: EntityId;
 }
 
-export interface FireAndAdvanceOnPathOrder extends BaseOrder {
+export interface FireAndAdvanceOnPathOrder
+  extends BaseOrder,
+    Omit<ExclusiveOrderProps, "path"> {
   type: OrderType.FireAndAdvance;
   path: OrderPathPoint[];
   /** Final rotation */
   rotation?: number;
 }
 
-export interface PlaceEntityOrder extends BaseOrder {
+export interface PlaceEntityOrder
+  extends BaseOrder,
+    Omit<ExclusiveOrderProps, "pos"> {
   type: OrderType.PlaceEntity;
   pos: [number, number];
   rotation?: number;
