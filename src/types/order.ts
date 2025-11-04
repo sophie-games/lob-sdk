@@ -1,14 +1,13 @@
 import { EntityId } from ".";
 
 export enum OrderType {
-  NoOrder = 0,
   Walk = 1,
   Run = 2,
   Shoot = 3,
   FireAndAdvance = 4,
   PlaceEntity = 5,
   Fallback = 6,
-  Face = 7,
+  Rotate = 7,
 }
 
 interface BaseOrder {
@@ -76,17 +75,17 @@ export interface ShootLocationOrder
   pos: [number, number];
 }
 
-export interface FaceTargetOrder
+export interface RotateTargetOrder
   extends BaseOrder,
     Omit<ExclusiveOrderProps, "targetId"> {
-  type: OrderType.Face;
+  type: OrderType.Rotate;
   targetId: EntityId;
 }
 
-export interface FaceLocationOrder
+export interface RotateLocationOrder
   extends BaseOrder,
     Omit<ExclusiveOrderProps, "pos"> {
-  type: OrderType.Face;
+  type: OrderType.Rotate;
   pos: [number, number];
 }
 
@@ -121,8 +120,8 @@ export type AnyOrder =
   | RunFollowOrder
   | ShootTargetOrder
   | ShootLocationOrder
-  | FaceTargetOrder
-  | FaceLocationOrder
+  | RotateTargetOrder
+  | RotateLocationOrder
   | FireAndAdvanceToTargetOrder
   | FireAndAdvanceOnPathOrder
   | PlaceEntityOrder
