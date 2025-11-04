@@ -40,6 +40,12 @@ export interface FormationTemplate {
    * Default is 0.
    */
   shootingAngleMargin?: number;
+
+  /**
+   * The damage will be split by the number of sides or the number of shots,
+   * whichever is greater. Default is 1.
+   */
+  shootingSides?: number;
 }
 
 export type EntityId = number;
