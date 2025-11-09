@@ -65,10 +65,4 @@ export interface FormationTemplate {
 
 export type EntityId = number;
 
-export interface Point2 {
-  x: number;
-  y: number;
-}
-
 export * from "./order";
-export * from "./unit";

@@ -1,5 +1,5 @@
 import { PriorityQueue } from "@lob-sdk/priority-queue/priority-queue";
-import { Point2 } from "@lob-sdk/types";
+import { Point2 } from "@lob-sdk/vector";
 
 class Node {
   public x: number;

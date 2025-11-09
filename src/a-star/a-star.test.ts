@@ -1,4 +1,4 @@
-import { Point2 } from "@lob-sdk/types";
+import { Point2 } from "@lob-sdk/vector";
 import { AStar } from "./a-star";
 import Table from "cli-table3";
 
