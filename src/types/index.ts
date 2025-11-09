@@ -1,19 +1,3 @@
-export interface FiringArc {
-  /**
-   * Angle of the firing arc in degrees, centered at the front of the unit.
-   * For example, 90 means 90 degrees total (45 degrees on each side of the front).
-   * 360 means full circle (can fire in all directions).
-   * Stored in degrees in game data JSON files.
-   */
-  angle: number;
-  /**
-   * Limit on the number of discrete firing directions the arc can engage within a full rotation (360 degrees).
-   * This determines the damage multiplier (1 / multiTargetLimit) and snap behavior.
-   * For example, 4 means the arc can shoot in 4 directions (every 90 degrees), dealing 1/4 damage each.
-   */
-  multiTargetLimit?: number;
-}
-
 export interface FormationTemplate {
   id: string;
   frontBackArc: number;
@@ -39,13 +23,47 @@ export interface FormationTemplate {
   rangedOrgResistance?: number;
 
   /**
-   * Custom firing arc for this formation.
-   * If defined, replaces the default firing angle calculation.
-   * The arc is centered at the front of the unit (0 degrees relative to unit rotation).
+   * The shooting angle is the angle in degrees that the unit can shoot at.
+   * Default is 90.
    */
-  firingArc?: FiringArc;
+  shootingAngle?: number;
+
+  /**
+   * The maximum number of targets that the unit can shoot at.
+   * Default is 1.
+   */
+  shootingMaxTargets?: number;
+
+  /**
+   * The angle margin is the minimum angle difference there must be
+   * between the current target and the rest of the targets to be shot.
+   * Default is 0.
+   */
+  shootingAngleMargin?: number;
+
+  /**
+   * The damage will be split by the number of sides or the number of shots,
+   * whichever is greater. Default is 1.
+   */
+  shootingSides?: number;
+
+  /**
+   * Time in ticks to form this formation.
+   */
+  timeToForm?: number;
+
+  /**
+   * Time in ticks to unform from this formation.
+   */
+  timeToUnform?: number;
+
+  /**
+   * Speed modifier when a unit is changing to this formation.
+   */
+  formingSpeedModifier?: number;
 }
 
 export type EntityId = number;
 
 export * from "./order";
+export * from "./unit";
