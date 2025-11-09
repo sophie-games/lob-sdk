@@ -46,8 +46,29 @@ export interface FormationTemplate {
    * whichever is greater. Default is 1.
    */
   shootingSides?: number;
+
+  /**
+   * Time in ticks to form this formation.
+   */
+  timeToForm?: number;
+
+  /**
+   * Time in ticks to unform from this formation.
+   */
+  timeToUnform?: number;
+
+  /**
+   * Speed modifier when a unit is changing to this formation.
+   */
+  formingSpeedModifier?: number;
 }
 
 export type EntityId = number;
 
+export interface Point2 {
+  x: number;
+  y: number;
+}
+
 export * from "./order";
+export * from "./unit";
