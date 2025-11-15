@@ -27,12 +27,16 @@ interface CachedPath {
 }
 
 export class AStar {
-  // Pre-computed neighbor directions (8-directional movement) as [dx, dy] tuples
-  private static readonly NEIGHBOR_DIRECTIONS: readonly [number, number][] = [
+  // Pre-computed neighbor directions (4-directional movement) as [dx, dy] tuples
+  private static readonly CARDINAL_DIRECTIONS: readonly [number, number][] = [
     [0, -1], // up
     [0, 1], // down
     [-1, 0], // left
     [1, 0], // right
+  ] as const;
+
+  // Pre-computed neighbor directions (8-directional movement) as [dx, dy] tuples
+  private static readonly DIAGONAL_DIRECTIONS: readonly [number, number][] = [
     [-1, -1], // up-left
     [1, -1], // up-right
     [-1, 1], // down-left
@@ -43,6 +47,7 @@ export class AStar {
   private height: number;
   private getStepCost: (from: Point2, to: Point2) => number;
   private readonly DIAGONAL_COST: number = 1.41421356237; // √2
+  private neighborDirections: readonly [number, number][];
   private pathCache: Map<number, CachedPath | null> = new Map();
   // Optimized subpath lookup: Map<startKey, Set<CachedPath>> for O(1) start lookup, then O(k) waypoint check
   private subpathCache: Map<number, Set<CachedPath>> = new Map();
@@ -62,12 +67,19 @@ export class AStar {
   constructor(
     width: number,
     height: number,
-    getStepCost: (from: Point2, to: Point2) => number
+    getStepCost: (from: Point2, to: Point2) => number,
+    useDiagonals: boolean = true
   ) {
     this.width = width;
     this.height = height;
     this.getStepCost = getStepCost;
     this.maxKey = width * height; // Cache maxKey calculation
+
+    // Initialize neighbor directions based on useDiagonals setting
+    this.neighborDirections = useDiagonals
+      ? [...AStar.CARDINAL_DIRECTIONS, ...AStar.DIAGONAL_DIRECTIONS]
+      : AStar.CARDINAL_DIRECTIONS;
+
     // Initialize reusable data structures
     this.openList = new PriorityQueue<Node>((a, b) => a - b);
     this.openSet = new Set<number>();
@@ -280,8 +292,8 @@ export class AStar {
     const height = this.height;
 
     // Use pre-computed directions
-    for (let i = 0; i < AStar.NEIGHBOR_DIRECTIONS.length; i++) {
-      const [dx, dy] = AStar.NEIGHBOR_DIRECTIONS[i];
+    for (let i = 0; i < this.neighborDirections.length; i++) {
+      const [dx, dy] = this.neighborDirections[i];
       const x = nodeX + dx;
       const y = nodeY + dy;
 
