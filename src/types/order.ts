@@ -132,7 +132,11 @@ export type PathOrderType =
   | OrderType.FireAndAdvance
   | OrderType.Fallback;
 
-export type PathOrder = WalkOrder | FallbackOrder | FireAndAdvanceOnPathOrder;
+export type PathOrder =
+  | WalkOrder
+  | RunOrder
+  | FallbackOrder
+  | FireAndAdvanceOnPathOrder;
 
 export interface OrderTemplate {
   id: OrderType;
