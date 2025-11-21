@@ -51,6 +51,153 @@ describe("PriorityQueue", () => {
     });
   });
 
+  describe("peek", () => {
+    it("should return undefined for empty queue", () => {
+      const queue = new PriorityQueue<number>();
+      expect(queue.peek()).toBeUndefined();
+    });
+
+    it("should return the top item without removing it", () => {
+      const queue = new PriorityQueue<number>();
+      queue.enqueue(1, 10);
+      queue.enqueue(2, 5);
+      queue.enqueue(3, 15);
+
+      expect(queue.peek()).toBe(2); // Lowest priority (5)
+      expect(queue.size()).toBe(3); // Size unchanged
+      expect(queue.dequeue()).toBe(2); // Can still dequeue the same item
+    });
+
+    it("should return the same item on multiple peeks", () => {
+      const queue = new PriorityQueue<number>();
+      queue.enqueue(42, 1);
+      expect(queue.peek()).toBe(42);
+      expect(queue.peek()).toBe(42);
+      expect(queue.peek()).toBe(42);
+      expect(queue.size()).toBe(1);
+    });
+
+    it("should update after dequeuing", () => {
+      const queue = new PriorityQueue<number>();
+      queue.enqueue(1, 10);
+      queue.enqueue(2, 5);
+      queue.enqueue(3, 3);
+
+      expect(queue.peek()).toBe(3); // priority 3
+      queue.dequeue();
+      expect(queue.peek()).toBe(2); // priority 5
+      queue.dequeue();
+      expect(queue.peek()).toBe(1); // priority 10
+    });
+
+    it("should work with custom comparator", () => {
+      const queue = new PriorityQueue<number>((a, b) => b - a); // Max-heap
+      queue.enqueue(1, 10);
+      queue.enqueue(2, 5);
+      queue.enqueue(3, 15);
+
+      expect(queue.peek()).toBe(3); // Highest priority (15)
+      expect(queue.size()).toBe(3);
+    });
+
+    it("should return undefined after clearing", () => {
+      const queue = new PriorityQueue<number>();
+      queue.enqueue(1, 10);
+      queue.enqueue(2, 5);
+      expect(queue.peek()).toBe(2);
+      queue.clear();
+      expect(queue.peek()).toBeUndefined();
+    });
+  });
+
+  describe("size", () => {
+    it("should return 0 for empty queue", () => {
+      const queue = new PriorityQueue<number>();
+      expect(queue.size()).toBe(0);
+    });
+
+    it("should return correct size after enqueuing", () => {
+      const queue = new PriorityQueue<number>();
+      expect(queue.size()).toBe(0);
+      queue.enqueue(1, 10);
+      expect(queue.size()).toBe(1);
+      queue.enqueue(2, 5);
+      expect(queue.size()).toBe(2);
+      queue.enqueue(3, 15);
+      expect(queue.size()).toBe(3);
+    });
+
+    it("should return correct size after dequeuing", () => {
+      const queue = new PriorityQueue<number>();
+      queue.enqueue(1, 10);
+      queue.enqueue(2, 5);
+      queue.enqueue(3, 15);
+      expect(queue.size()).toBe(3);
+
+      queue.dequeue();
+      expect(queue.size()).toBe(2);
+      queue.dequeue();
+      expect(queue.size()).toBe(1);
+      queue.dequeue();
+      expect(queue.size()).toBe(0);
+    });
+
+    it("should return 0 after clearing", () => {
+      const queue = new PriorityQueue<number>();
+      queue.enqueue(1, 10);
+      queue.enqueue(2, 5);
+      queue.enqueue(3, 15);
+      expect(queue.size()).toBe(3);
+
+      queue.clear();
+      expect(queue.size()).toBe(0);
+    });
+
+    it("should handle interleaved operations", () => {
+      const queue = new PriorityQueue<number>();
+      expect(queue.size()).toBe(0);
+
+      queue.enqueue(1, 10);
+      expect(queue.size()).toBe(1);
+
+      queue.enqueue(2, 5);
+      expect(queue.size()).toBe(2);
+
+      queue.dequeue();
+      expect(queue.size()).toBe(1);
+
+      queue.enqueue(3, 3);
+      queue.enqueue(4, 7);
+      expect(queue.size()).toBe(3);
+
+      queue.dequeue();
+      queue.dequeue();
+      expect(queue.size()).toBe(1);
+
+      queue.dequeue();
+      expect(queue.size()).toBe(0);
+    });
+
+    it("should handle large number of items", () => {
+      const queue = new PriorityQueue<number>();
+      const count = 100;
+
+      for (let i = 0; i < count; i++) {
+        queue.enqueue(i, i);
+        expect(queue.size()).toBe(i + 1);
+      }
+
+      expect(queue.size()).toBe(count);
+
+      for (let i = 0; i < count; i++) {
+        queue.dequeue();
+        expect(queue.size()).toBe(count - i - 1);
+      }
+
+      expect(queue.size()).toBe(0);
+    });
+  });
+
   describe("clear", () => {
     it("should clear all items from queue", () => {
       const queue = new PriorityQueue<number>();

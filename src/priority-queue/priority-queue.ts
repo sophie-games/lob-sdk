@@ -12,20 +12,32 @@ export class PriorityQueue<T> {
   }
 
   dequeue(): T | undefined {
-    if (this.isEmpty()) return undefined;
+    const length = this.items.length;
+    if (length === 0) return undefined;
 
     const root = this.items[0].item;
-    const last = this.items.pop();
-    if (this.isEmpty()) return root;
+    if (length === 1) {
+      this.items.pop();
+      return root;
+    }
 
-    this.items[0] = last!;
+    const last = this.items.pop()!;
+    this.items[0] = last;
     this.heapifyDown(0);
 
     return root;
   }
 
+  peek(): T | undefined {
+    return this.items.length > 0 ? this.items[0].item : undefined;
+  }
+
   isEmpty(): boolean {
     return this.items.length === 0;
+  }
+
+  size(): number {
+    return this.items.length;
   }
 
   clear(): void {
@@ -33,53 +45,52 @@ export class PriorityQueue<T> {
   }
 
   private heapifyUp(index: number): void {
-    const parentIndex = Math.floor((index - 1) / 2);
-    if (
-      index > 0 &&
-      this.compare(
-        this.items[index].priority,
-        this.items[parentIndex].priority
-      ) < 0
-    ) {
-      [this.items[index], this.items[parentIndex]] = [
-        this.items[parentIndex],
-        this.items[index],
-      ];
-      this.heapifyUp(parentIndex);
+    const items = this.items;
+    const compare = this.compare;
+    let current = index;
+
+    while (current > 0) {
+      const parent = (current - 1) >> 1; // Bit shift is faster than Math.floor
+      if (compare(items[current].priority, items[parent].priority) >= 0) {
+        break;
+      }
+
+      // Swap using temporary variable (faster than destructuring)
+      const temp = items[current];
+      items[current] = items[parent];
+      items[parent] = temp;
+      current = parent;
     }
   }
 
   private heapifyDown(index: number): void {
-    const leftIndex = 2 * index + 1;
-    const rightIndex = 2 * index + 2;
-    let smallest = index;
+    const items = this.items;
+    const length = items.length;
+    const compare = this.compare;
+    let current = index;
 
-    if (
-      leftIndex < this.items.length &&
-      this.compare(
-        this.items[leftIndex].priority,
-        this.items[smallest].priority
-      ) < 0
-    ) {
-      smallest = leftIndex;
-    }
+    while (true) {
+      const left = (current << 1) + 1; // Bit shift is faster than multiplication
+      const right = left + 1;
+      let smallest = current;
 
-    if (
-      rightIndex < this.items.length &&
-      this.compare(
-        this.items[rightIndex].priority,
-        this.items[smallest].priority
-      ) < 0
-    ) {
-      smallest = rightIndex;
-    }
+      if (left < length && compare(items[left].priority, items[smallest].priority) < 0) {
+        smallest = left;
+      }
 
-    if (smallest !== index) {
-      [this.items[index], this.items[smallest]] = [
-        this.items[smallest],
-        this.items[index],
-      ];
-      this.heapifyDown(smallest);
+      if (right < length && compare(items[right].priority, items[smallest].priority) < 0) {
+        smallest = right;
+      }
+
+      if (smallest === current) {
+        break;
+      }
+
+      // Swap using temporary variable (faster than destructuring)
+      const temp = items[current];
+      items[current] = items[smallest];
+      items[smallest] = temp;
+      current = smallest;
     }
   }
 }
