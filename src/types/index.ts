@@ -87,6 +87,18 @@ export interface FormationTemplate {
    * Speed modifier when a unit is changing to this formation.
    */
   formingSpeedModifier?: number;
+
+  /**
+   * Modifier for the damage received by a unit when it is in this formation.
+   * Default is 0.
+   */
+  receivedMeleeDamageModifier?: number;
+
+  /**
+   * Minimum movement modifier for this formation.
+   * Default is 0.
+   */
+  minMovementModifier?: number;
 }
 
 export type EntityId = number;
