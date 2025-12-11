@@ -99,6 +99,17 @@ export interface FormationTemplate {
    * Default is 0.
    */
   minMovementModifier?: number;
+
+  /**
+   * Damage types that this formation is immune to from friendly fire.
+   */
+  friendlyFireImmuneDamageTypes?: string[];
+
+  /**
+   * Projectile pass through value for this formation (0-1).
+   * Higher values mean projectiles pass through with less damage reduction.
+   */
+  projectilePassThrough?: number;
 }
 
 export type EntityId = number;

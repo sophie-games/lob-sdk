@@ -188,7 +188,6 @@ interface BaseUnitTemplate {
   premiumPrice?: number;
   locked?: boolean;
   hasSkirmishers?: boolean;
-  friendlyFireImmuneDamageTypes?: string[];
   canDeployForward?: boolean;
 
   /**
@@ -273,4 +272,9 @@ export interface IUnit {
   formationChangeTicksRemaining: number;
 
   supply: number | null;
+  /**
+   * Supply consumption per turn for this unit.
+   * Defaults to 0 if not specified.
+   */
+  supplyConsumption?: number;
 }
