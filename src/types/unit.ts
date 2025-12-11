@@ -149,8 +149,8 @@ interface BaseUnitTemplate {
   startsRunning?: boolean;
   hp: number;
   org: number;
-  stamina: number | null;
-  supply?: number | null;
+  stamina?: number;
+  supply?: number;
   /**
    * Supply consumption per turn for this unit.
    * Defaults to 0 if not specified.
