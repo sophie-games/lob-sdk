@@ -34,6 +34,7 @@ export interface FormationTemplate {
   chargeBonusModifier?: number;
   chargePenetrationModifier?: number;
   chargeResistanceModifier?: number;
+  pushStrengthModifier?: number;
 
   disablesFlankMelee?: boolean;
   disablesRearMelee?: boolean;
