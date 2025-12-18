@@ -1,4 +1,4 @@
-import { EntityId } from ".";
+import { EntityId, UnitCategoryId } from ".";
 
 export enum OrderType {
   Walk = 1,
@@ -151,4 +151,5 @@ export interface OrderTemplate {
   receivedOrgDamage?: number;
   canFocusLocation?: boolean;
   orgRegainModifier?: number;
+  rangedDamageModifierByCategory?: Partial<Record<UnitCategoryId, number>>;
 }
