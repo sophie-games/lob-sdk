@@ -121,6 +121,7 @@ export type UnitType = number;
 export type UnitCategoryId = string;
 
 export interface UnitFormationTemplate {
+  /** Formation ID */
   id: string;
   /**
    * Base sprite name for this formation. This can vary by unit type.
@@ -130,6 +131,11 @@ export interface UnitFormationTemplate {
    * Overlay sprite name for this formation. This can vary by unit type.
    */
   overlaySprite?: string;
+  /**
+   * Change animations for this unit type.
+   * The key is the formation ID, and the value is the animation name.
+   */
+  changeAnimations?: Record<string, string>;
 }
 
 interface BaseUnitTemplate {
