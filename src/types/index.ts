@@ -1,3 +1,33 @@
+import { AnyAction } from "./action";
+import { TurnSubmission } from "./order";
+import { PlayerInfo } from "./player";
+import { GameScenarioType } from "./scenario";
+import { GameState, PlayerSetup } from "./server-game";
+import { GameClientEventDto } from "./trigger";
+import { UnitType } from "./unit";
+
+export * from "./order";
+export * from "./unit";
+export * from "./objective";
+export * from "./server-game";
+export * from "./action";
+export * from "./trigger";
+export * from "./scenario";
+export * from "./fog-of-war";
+export * from "./vp-service";
+export * from "./order-manager";
+export * from "./game-data-manager";
+export * from "./organization-system";
+export * from "./attack-system";
+export * from "./movement-system";
+export * from "./player";
+
+export enum TurnStatus {
+  InProgress = "IN_PROGRESS",
+  Completed = "COMPLETED",
+  TimedOut = "TIMED_OUT",
+}
+
 export interface FormationTemplate {
   id: string;
   frontBackArc: number;
@@ -115,9 +145,21 @@ export interface FormationTemplate {
 
 export type EntityId = number;
 
-export * from "./order";
-export * from "./unit";
-export * from "./objective";
+export enum GameEndReason {
+  Victory = "victory",
+  MaxTurn = "max_turn",
+  Cancelled = "cancelled",
+  DrawByAgreement = "draw_by_agreement",
+}
+
+export enum DynamicBattleType {
+  Clash = "clash",
+  Combat = "combat",
+  Battle = "battle",
+  GrandBattle = "grand_battle",
+}
+
+export type UnitCounts = Record<UnitType, number>;
 
 /**
  * Points used to check what terrain the unit is on.
@@ -136,4 +178,87 @@ export interface FormationCheckPoint {
 
 export interface FormationCheckPointWithProportion extends FormationCheckPoint {
   proportion: number;
+}
+
+export enum Direction {
+  Front,
+  Right,
+  Back,
+  Left,
+}
+
+export type GameEra = "napoleonic" | "ww2";
+
+export type GameUserResult = "win" | "lose" | "tie";
+
+export enum UserTier {
+  Free = "free",
+  Bronze = "bronze",
+  Silver = "silver",
+  Gold = "gold",
+}
+
+export type GameLocales = {
+  [language: string]: Record<string, string>;
+};
+
+/**
+ * Metadata column in the games table.
+ */
+export interface GameMetadata {
+  conquestVictory?: boolean;
+  locales?: GameLocales;
+  vars?: Record<string, number>;
+}
+
+/**
+ * Game data that will be saved in the DB.
+ */
+export interface GameData {
+  era: GameEra;
+  scenarioName: string;
+  scenarioType: GameScenarioType;
+
+  /**
+   * Current state of the game.
+   */
+  gameState: GameState;
+
+  /**
+   * Last actions executed. It will be null if it is the first turn.
+   */
+  lastActions: AnyAction[] | null;
+
+  /**
+   * Previous state of the game. It will be null if it is the first turn.
+   */
+  prevGameState: GameState | null;
+
+  players: PlayerInfo[];
+
+  turnNumber: number;
+  started: boolean;
+  finished: boolean;
+  ranked: boolean;
+  endReason: GameEndReason | null;
+
+  /**
+   * Timestamp in seconds for the start of the current turn.
+   */
+  turnStartedTime: number;
+
+  /**
+   * Turn duration limit in seconds.
+   */
+  turnTimeLimit: number;
+
+  dynamicBattleType: DynamicBattleType | null;
+  maxTurn: number;
+  playerSetups: PlayerSetup[];
+  drawUnlockTurn: number;
+  clientEvents: GameClientEventDto[] | null;
+  fogOfWar: boolean;
+  tournamentId?: number; // required for the client knowing a game is a tournament game
+  createdAt: number; // in seconds
+  metadata?: GameMetadata;
 }
