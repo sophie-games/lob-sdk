@@ -1,1 +1,1 @@
-export interface VpService {}
+export interface IVpService {}

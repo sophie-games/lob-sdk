@@ -1,1 +1,1 @@
-export interface OrganizationSystem {}
+export interface IOrganizationSystem {}

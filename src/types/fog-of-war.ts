@@ -12,4 +12,4 @@ export interface FogOfWarResult {
   unitVisionLevels: Map<EntityId, VisionLevel>; // Map of unit IDs to their vision levels
 }
 
-export interface ServerFogOfWarService {}
+export interface IServerFogOfWarService {}

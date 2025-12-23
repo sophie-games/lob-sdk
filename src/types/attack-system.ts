@@ -1,1 +1,1 @@
-export interface AttackSystem {}
+export interface IAttackSystem {}

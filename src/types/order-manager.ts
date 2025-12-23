@@ -1,1 +1,1 @@
-export interface OrderManager {}
+export interface IOrderManager {}

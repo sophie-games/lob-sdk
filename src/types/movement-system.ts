@@ -1,1 +1,1 @@
-export interface MovementSystem {}
+export interface IMovementSystem {}

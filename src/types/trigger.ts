@@ -237,7 +237,7 @@ export interface GameTrigger {
   once?: boolean; // Whether the trigger fires only once
 }
 
-export interface TriggerSystem {}
+export interface ITriggerSystem {}
 
 export enum GameClientEventType {
   Message = "message",

@@ -1,1 +1,1 @@
-export interface GameDataManager {}
+export interface IGameDataManager {}

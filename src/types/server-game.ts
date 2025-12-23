@@ -8,7 +8,7 @@ import {
   GameLocales,
   GameClientEventDto,
   GameTrigger,
-  TriggerSystem,
+  ITriggerSystem,
   UnitDtoPartialId,
   UnitType,
   UnitDto,
@@ -19,13 +19,13 @@ import {
   GameMap,
   TerrainType,
   FogOfWarResult,
-  ServerFogOfWarService,
-  VpService,
-  OrderManager,
-  GameDataManager,
-  OrganizationSystem,
-  AttackSystem,
-  MovementSystem,
+  IServerFogOfWarService,
+  IVpService,
+  IOrderManager,
+  IGameDataManager,
+  IOrganizationSystem,
+  IAttackSystem,
+  IMovementSystem,
   Player,
 } from "@lob-sdk/types";
 import { Point2, Vector2 } from "@lob-sdk/vector";
@@ -266,25 +266,25 @@ export interface IServerGame {
   /** Set of pending melee attack data */
   pendingMeleeAttacks: Set<PendingMeleeAttackData>;
   /** Victory points service for tracking VP */
-  vpService: VpService;
+  vpService: IVpService;
   /** Manager for handling unit orders */
-  orderManager: OrderManager;
+  orderManager: IOrderManager;
   /** System for managing unit organization */
-  organizationSystem: OrganizationSystem;
+  organizationSystem: IOrganizationSystem;
   /** System for handling combat attacks */
-  attackSystem: AttackSystem;
+  attackSystem: IAttackSystem;
   /** System for managing unit movement */
-  movementSystem: MovementSystem;
+  movementSystem: IMovementSystem;
   /** Turn number when draw offers become available */
   drawUnlockTurn: number;
   /** System for handling game triggers and events */
-  triggerSystem: TriggerSystem;
+  triggerSystem: ITriggerSystem;
   /** Client events to be sent to players */
   clientEvents: GameClientEventDto[] | null;
   /** Client events pending to be saved */
   clientEventsToSave: Set<Omit<GameClientEventDto, "id">>;
   /** Service for calculating fog of war visibility */
-  fogOfWarService: ServerFogOfWarService;
+  fogOfWarService: IServerFogOfWarService;
 
   /**
    * Gets the team number for a player
@@ -517,7 +517,7 @@ export interface IServerGame {
    * @returns The shoot result, or null if shot is invalid
    */
   shoot(
-    gameDataManager: GameDataManager,
+    gameDataManager: IGameDataManager,
     unit: IUnit,
     targetPosition: Vector2
   ): ShootResult | null;
