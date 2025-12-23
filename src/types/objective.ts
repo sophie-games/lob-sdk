@@ -1,5 +1,5 @@
 import { Point2, Vector2 } from "@lob-sdk/vector";
-import { EntityId } from ".";
+import { EntityId } from "./server-game";
 
 export enum ObjectiveType {
   Small = 1,

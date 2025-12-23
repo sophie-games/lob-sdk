@@ -1,5 +1,13 @@
-import { GameUserResult, UnitCounts, UserTier } from ".";
 import { TurnSubmission } from "./order";
+import { UnitCounts } from "./unit";
+import { GameUserResult } from "./server-game";
+
+export enum UserTier {
+  Free = "free",
+  Bronze = "bronze",
+  Silver = "silver",
+  Gold = "gold",
+}
 
 export interface Player {
   userId: number;

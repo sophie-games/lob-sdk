@@ -1,28 +1,12 @@
-import {
-  EntityId,
-  UnitDtoPartialId,
-  UnitType,
-  AnyAction,
-  IUnit,
-  ObjectiveDto,
-  UnitDto,
-  GameTrigger,
-  UnitCounts,
-  IObjective,
-  TriggerSystem,
-  Direction,
-  GameClientEventDto,
-  GameData,
-  GameEndReason,
-  TurnSubmission,
-  PlayerInfo,
-  TurnStatus,
-  DynamicBattleType,
-  UserTier,
-  RangedAttackAction,
-} from "@lob-sdk/types";
+import { AnyAction, RangedAttackAction } from "./action";
+import { TurnSubmission } from "./order";
+import { PlayerInfo, UserTier } from "./player";
+import { GameScenarioType, GameLocales } from "./scenario";
+import { GameClientEventDto, GameTrigger, TriggerSystem } from "./trigger";
+import { UnitDtoPartialId, UnitType, UnitDto, IUnit, UnitCounts } from "./unit";
+import { ObjectiveDto, IObjective } from "./objective";
 import { Point2, Vector2 } from "@lob-sdk/vector";
-import { GameMap, GameScenarioType } from "./scenario";
+import { GameMap } from "./scenario";
 import { TerrainType } from "./terrain";
 import { FogOfWarResult, ServerFogOfWarService } from "./fog-of-war";
 import { VpService } from "./vp-service";
@@ -32,6 +16,100 @@ import { OrganizationSystem } from "./organization-system";
 import { AttackSystem } from "./attack-system";
 import { MovementSystem } from "./movement-system";
 import { Player } from "./player";
+
+export type EntityId = number;
+
+export enum TurnStatus {
+  InProgress = "IN_PROGRESS",
+  Completed = "COMPLETED",
+  TimedOut = "TIMED_OUT",
+}
+
+export enum GameEndReason {
+  Victory = "victory",
+  MaxTurn = "max_turn",
+  Cancelled = "cancelled",
+  DrawByAgreement = "draw_by_agreement",
+}
+
+export enum DynamicBattleType {
+  Clash = "clash",
+  Combat = "combat",
+  Battle = "battle",
+  GrandBattle = "grand_battle",
+}
+
+export enum Direction {
+  Front,
+  Right,
+  Back,
+  Left,
+}
+
+export type GameEra = "napoleonic" | "ww2";
+
+export type GameUserResult = "win" | "lose" | "tie";
+
+/**
+ * Metadata column in the games table.
+ */
+export interface GameMetadata {
+  conquestVictory?: boolean;
+  locales?: GameLocales;
+  vars?: Record<string, number>;
+}
+
+/**
+ * Game data that will be saved in the DB.
+ */
+export interface GameData {
+  era: GameEra;
+  scenarioName: string;
+  scenarioType: GameScenarioType;
+
+  /**
+   * Current state of the game.
+   */
+  gameState: GameState;
+
+  /**
+   * Last actions executed. It will be null if it is the first turn.
+   */
+  lastActions: AnyAction[] | null;
+
+  /**
+   * Previous state of the game. It will be null if it is the first turn.
+   */
+  prevGameState: GameState | null;
+
+  players: PlayerInfo[];
+
+  turnNumber: number;
+  started: boolean;
+  finished: boolean;
+  ranked: boolean;
+  endReason: GameEndReason | null;
+
+  /**
+   * Timestamp in seconds for the start of the current turn.
+   */
+  turnStartedTime: number;
+
+  /**
+   * Turn duration limit in seconds.
+   */
+  turnTimeLimit: number;
+
+  dynamicBattleType: DynamicBattleType | null;
+  maxTurn: number;
+  playerSetups: PlayerSetup[];
+  drawUnlockTurn: number;
+  clientEvents: GameClientEventDto[] | null;
+  fogOfWar: boolean;
+  tournamentId?: number; // required for the client knowing a game is a tournament game
+  createdAt: number; // in seconds
+  metadata?: GameMetadata;
+}
 
 export interface ShootResult {
   action: RangedAttackAction;

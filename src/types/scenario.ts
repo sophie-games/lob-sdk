@@ -1,12 +1,13 @@
-import {
-  GameLocales,
-  GameTrigger,
-  ObjectiveDto,
-  PlayerSetup,
-  UnitDtoPartialId,
-} from "@lob-sdk/types";
+import { GameTrigger } from "./trigger";
+import { ObjectiveDto } from "./objective";
+import { PlayerSetup } from "./server-game";
+import { UnitDtoPartialId } from "./unit";
 import { TerrainType } from "./terrain";
 import { AnyInstruction } from "./instruction";
+
+export type GameLocales = {
+  [language: string]: Record<string, string>;
+};
 
 export interface MapSize {
   width: number;

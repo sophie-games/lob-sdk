@@ -1,4 +1,5 @@
-import { EntityId, UnitCategoryId } from ".";
+import { EntityId } from "./server-game";
+import { UnitCategoryId } from "./unit";
 
 export enum OrderType {
   Walk = 1,

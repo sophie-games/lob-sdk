@@ -1,4 +1,4 @@
-import { EntityId } from ".";
+import { EntityId } from "./server-game";
 
 export enum VisionLevel {
   NotVisible = 0,
