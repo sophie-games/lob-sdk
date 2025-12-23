@@ -1,8 +1,12 @@
 import { Point2 } from "@lob-sdk/vector";
-import { TerrainType } from "./terrain";
-import { GameMap, MapSize, ProceduralScenario } from "./scenario";
-import { DynamicBattleType } from "./server-game";
-import { ObjectiveDto } from "./objective";
+import {
+  TerrainType,
+  GameMap,
+  MapSize,
+  ProceduralScenario,
+  DynamicBattleType,
+  ObjectiveDto,
+} from "@lob-sdk/types";
 
 export interface GenerateRandomMapProps {
   scenario: ProceduralScenario;

@@ -1,5 +1,4 @@
-import { EntityId, UnitDto, UnitStatus } from "@lob-sdk/types";
-import { ObjectiveDto } from "./objective";
+import { EntityId, UnitDto, UnitStatus, ObjectiveDto } from "@lob-sdk/types";
 
 export enum ActionType {
   TickAction = 1,

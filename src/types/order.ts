@@ -1,5 +1,4 @@
-import { EntityId } from "./server-game";
-import { UnitCategoryId } from "./unit";
+import { EntityId, UnitCategoryId } from "@lob-sdk/types";
 
 export enum OrderType {
   Walk = 1,

@@ -1,6 +1,4 @@
-import { TurnSubmission } from "./order";
-import { UnitCounts } from "./unit";
-import { GameUserResult } from "./server-game";
+import { TurnSubmission, UnitCounts, GameUserResult } from "@lob-sdk/types";
 
 export enum UserTier {
   Free = "free",

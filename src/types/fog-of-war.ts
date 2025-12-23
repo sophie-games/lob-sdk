@@ -1,4 +1,4 @@
-import { EntityId } from "./server-game";
+import { EntityId } from "@lob-sdk/types";
 
 export enum VisionLevel {
   NotVisible = 0,
