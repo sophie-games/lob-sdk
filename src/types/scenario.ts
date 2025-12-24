@@ -94,3 +94,5 @@ export type GameScenario =
   | ClassicScenario;
 
 export type ProceduralScenario = RandomScenario | ClassicScenario;
+
+export type ScenarioName = string;
