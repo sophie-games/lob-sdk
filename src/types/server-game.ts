@@ -53,6 +53,20 @@ export enum DynamicBattleType {
   GrandBattle = "grand_battle",
 }
 
+export interface BattleTypeTemplate {
+  manpower: number;
+  gold: number;
+  ammoReserve: number;
+  goldToAmmoRate: number;
+  skirmisherRatio?: number[];
+  fogOfWar: boolean;
+  unitCaps: Record<UnitType, number>;
+  eloKFactor: number;
+  ticksToCaptureSmall: number;
+  ticksToCaptureBig: number;
+  defaultArmy: UnitCounts;
+}
+
 export enum Direction {
   Front,
   Right,
@@ -890,4 +904,11 @@ export interface UnitTerrainCheck {
 export interface UnitTerrainProportion {
   terrain: TerrainType;
   proportion: number;
+}
+
+export interface Zone {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
 }

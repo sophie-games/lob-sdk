@@ -6,3 +6,4 @@ export * from "./event-emitter";
 export * from "./utils";
 export * from "./bot";
 export * from "./douglas-peucker";
+export * from "./army-deployer";
