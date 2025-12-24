@@ -177,9 +177,9 @@ export interface HandleTurnStatusOptions {
 /**
  * Used for backend collision detection and processing.
  */
-export interface CollisionData {
-  unitA: IUnit;
-  unitB: IUnit;
+export interface CollisionData<T extends IUnit = IUnit> {
+  unitA: T;
+  unitB: T;
   /** The position where unit A is placed when the collision happens */
   pointA: Vector2;
   /** The position where unit B is placed when the collision happens */
