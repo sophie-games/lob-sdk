@@ -1,4 +1,4 @@
-import { EntityId, UnitCategoryId } from ".";
+import { EntityId, UnitCategoryId } from "@lob-sdk/types";
 
 export enum OrderType {
   Walk = 1,
@@ -152,4 +152,26 @@ export interface OrderTemplate {
   canFocusLocation?: boolean;
   orgRegainModifier?: number;
   rangedDamageModifierByCategory?: Partial<Record<UnitCategoryId, number>>;
+}
+
+export interface TurnSubmission {
+  turn: number;
+  orders: AnyOrder[];
+  autofireConfigChanges?: UnitAutofireConfigChange[];
+  formationChanges?: UnitFormationChange[];
+}
+
+export interface UnitAutofireConfigChange {
+  unitId: EntityId;
+  /**
+   * These are the damage types that are disabled for autofire.
+   * By default, all damage types are enabled for autofire. We made it this way to avoid
+   * sending a lot of data over the network.
+   */
+  holdFireDamageTypes: number[];
+}
+
+export interface UnitFormationChange {
+  unitId: EntityId;
+  formationId: string;
 }
