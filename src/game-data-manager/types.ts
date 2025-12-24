@@ -1,32 +1,9 @@
-import { ScenarioName } from "./scenario";
-import { BattleTypeTemplate, DynamicBattleType } from "./server-game";
-import { SkinTier } from "./skin";
-import { TerrainType } from "./terrain";
 import {
-  FormationTemplate,
+  ScenarioName,
+  SkinTier,
   UnitCategoryId,
-  UnitFormationTemplate,
-  UnitTemplate,
   UnitType,
-} from "./unit";
-
-export interface IGameDataManager {
-  era: GameEra;
-  getGameConstants(): GameConstants;
-  getUnitDimensions(
-    unitType: UnitType,
-    formationId?: string
-  ): {
-    width: number;
-    height: number;
-  };
-  getMovementModifier(terrain: TerrainType, category: UnitCategoryId): number;
-  isPassable(terrain: TerrainType): boolean;
-  getBattleType(type: DynamicBattleType): BattleTypeTemplate;
-  getUnitTemplateManager(): IUnitTemplateManager;
-  getGameRules(): GameRules;
-  getUnitCategoryTemplate(category: UnitCategoryId): UnitCategoryTemplate;
-}
+} from "@lob-sdk/types";
 
 export type GameEra = "napoleonic" | "ww2";
 
@@ -596,21 +573,4 @@ export interface UnitSkin {
   attackColor?: string;
   locked?: boolean;
   discount?: number;
-}
-
-export interface IUnitTemplateManager {
-  load(templates: UnitTemplate[]): void;
-
-  getTemplate<T extends UnitTemplate = UnitTemplate>(type: UnitType): T;
-
-  getTemplates(): UnitTemplate[];
-
-  getFormation(
-    type: UnitType,
-    formationId: string
-  ): UnitFormationTemplate | null;
-
-  getDefaultFormation(type: UnitType): UnitFormationTemplate;
-
-  getAvailableFormations(unitType: UnitType): UnitFormationTemplate[];
 }

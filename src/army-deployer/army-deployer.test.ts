@@ -1,88 +1,9 @@
-import {
-  IGameDataManager,
-  UnitCounts,
-  Zone,
-  UnitType,
-  UnitCategoryId,
-  DynamicBattleType,
-} from "@lob-sdk/types";
+import { UnitCounts, Zone } from "@lob-sdk/types";
 import { ArmyDeployer } from "./army-deployer";
+import { GameDataManager } from "@lob-sdk/game-data-manager";
 
 describe("ArmyDeployer", () => {
-  const createMockGameDataManager = (): IGameDataManager => {
-    const mockUnitTemplates = new Map<UnitType, any>();
-
-    // Create mock unit templates for the test units (types 1, 3, 11)
-    mockUnitTemplates.set(1, {
-      type: 1,
-      category: "infantry" as UnitCategoryId,
-      canDeployForward: false,
-      hasSkirmishers: false,
-    });
-    mockUnitTemplates.set(3, {
-      type: 3,
-      category: "infantry" as UnitCategoryId,
-      canDeployForward: false,
-      hasSkirmishers: false,
-    });
-    mockUnitTemplates.set(11, {
-      type: 11,
-      category: "infantry" as UnitCategoryId,
-      canDeployForward: false,
-      hasSkirmishers: false,
-    });
-
-    return {
-      era: "napoleonic",
-      getGameConstants: () =>
-        ({
-          FORWARD_DEPLOYMENT_ZONE_OFFSET: 0,
-        } as any),
-      getUnitTemplateManager: () => ({
-        getTemplate: (type: UnitType) => {
-          return (
-            mockUnitTemplates.get(type) || {
-              type,
-              category: "infantry" as UnitCategoryId,
-              canDeployForward: false,
-              hasSkirmishers: false,
-            }
-          );
-        },
-        getTemplates: () => Array.from(mockUnitTemplates.values()),
-        load: () => {},
-        getFormation: () => null,
-        getDefaultFormation: () => ({} as any),
-        getAvailableFormations: () => [],
-      }),
-      getGameRules: () => ({
-        objectives: {} as any,
-        organization: {} as any,
-      }),
-      getUnitCategoryTemplate: (category: UnitCategoryId) => ({
-        id: category,
-        firingAltitude: 0,
-        deploymentSection: "center" as const,
-      }),
-      getBattleType: (type: DynamicBattleType) => ({
-        manpower: 0,
-        gold: 0,
-        ammoReserve: 0,
-        goldToAmmoRate: 0,
-        fogOfWar: false,
-        unitCaps: {} as Record<UnitType, number>,
-        eloKFactor: 0,
-        ticksToCaptureSmall: 0,
-        ticksToCaptureBig: 0,
-        defaultArmy: {} as UnitCounts,
-      }),
-      getUnitDimensions: () => ({ width: 0, height: 0 }),
-      getMovementModifier: () => 1,
-      isPassable: () => true,
-    };
-  };
-
-  const gameDataManager = createMockGameDataManager();
+  const gameDataManager = GameDataManager.get("napoleonic");
 
   describe("calculateSectionMetrics()", () => {
     it("should have space for all the units", () => {

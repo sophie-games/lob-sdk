@@ -1,7 +1,6 @@
 export * from "./action";
 export * from "./attack-system";
 export * from "./fog-of-war";
-export * from "./game-data-manager";
 export * from "./instruction";
 export * from "./movement-system";
 export * from "./objective";
@@ -16,3 +15,4 @@ export * from "./trigger";
 export * from "./unit";
 export * from "./vp-service";
 export * from "./skin";
+export * from "./army";

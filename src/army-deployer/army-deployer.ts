@@ -1,13 +1,6 @@
-import {
-  UnitCategoryId,
-  UnitDtoPartialId,
-  UnitType,
-  UnitCounts,
-  DeploymentSection,
-  DynamicBattleType,
-  IGameDataManager,
-  Zone,
-} from "@lob-sdk/types";
+import { UnitCategoryId, UnitDtoPartialId, UnitType, UnitCounts, DynamicBattleType, Zone,  } from "@lob-sdk/types"
+import { GameDataManager } from "@lob-sdk/game-data-manager"
+import { DeploymentSection } from "@lob-sdk/game-data-manager";
 import { divideArrayInHalf, getClosestPointInsideZone } from "@lob-sdk/utils";
 
 /**
@@ -68,7 +61,7 @@ export class ArmyDeployer {
   private readonly forwardDeploymentZoneOffset: number;
 
   constructor(
-    private gameDataManager: IGameDataManager,
+    private gameDataManager: GameDataManager,
     units: UnitCounts,
     deploymentZone: Zone,
     player: number,
@@ -432,7 +425,7 @@ export class ArmyDeployer {
   }
 
   static getSkirmishersAmount(
-    gameDataManager: IGameDataManager,
+    gameDataManager: GameDataManager,
     units: UnitCounts,
     dynamicBattleType: DynamicBattleType
   ) {
@@ -465,7 +458,7 @@ export class ArmyDeployer {
   }
 
   private getArmyCompositionByCategory(
-    gameDataManager: IGameDataManager,
+    gameDataManager: GameDataManager,
     units: UnitCounts
   ) {
     const unitsByCategory: Partial<Record<UnitCategoryId, UnitType[]>> = {};

@@ -1,3 +1,4 @@
+import { DEG_TO_RAD, TWO_PI } from "@lob-sdk/constants";
 import { Zone } from "@lob-sdk/types";
 import { Point2, Vector2 } from "@lob-sdk/vector";
 
@@ -53,3 +54,33 @@ export const getClosestPointInsideZone = (
   );
   return new Vector2(clampedX, clampedY);
 };
+
+/**
+ * Converts radians to degrees and ensures the result is within the range [0, 360).
+ */
+export function radiansToDegreesNormalized(radians: number): number {
+  let degrees = radians * (180 / Math.PI);
+  degrees = degrees % 360; // Ensure the result is within 0-360
+  if (degrees < 0) {
+    degrees += 360; // Adjust if the result is negative
+  }
+  return Math.round(degrees);
+}
+
+export function degreesToRadians(degrees: number): number {
+  return degrees * DEG_TO_RAD;
+}
+
+/**
+ * Converts degrees to radians with full normalization.
+ * Handles values outside [0, 360) range correctly.
+ * Use this when the input might be negative or > 360.
+ */
+export function degreesToRadiansNormalized(degrees: number): number {
+  let radians = degrees * DEG_TO_RAD;
+  radians = radians % TWO_PI; // Ensure the result is within 0-2PI
+  if (radians < 0) {
+    radians += TWO_PI; // Adjust if the result is negative
+  }
+  return radians;
+}

@@ -1,12 +1,5 @@
-import {
-  AnyOrder,
-  IGameDataManager,
-  IServerGame,
-  IUnit,
-  OrderPathPoint,
-  OrderType,
-  UnitCategoryId,
-} from "@lob-sdk/types";
+import { AnyOrder, IServerGame, IUnit, OrderPathPoint, OrderType, UnitCategoryId,  } from "@lob-sdk/types"
+import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { Point2, Vector2 } from "@lob-sdk/vector";
 import { UnitGroup } from "./unit-group";
 import { TurnSubmission } from "@lob-sdk/types";
@@ -82,7 +75,7 @@ export class BotNapoleonic implements IBot {
   }
 
   constructor(
-    private gameDataManager: IGameDataManager,
+    private gameDataManager: GameDataManager,
     private game: IServerGame,
     private playerNumber: number
   ) {

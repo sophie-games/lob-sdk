@@ -16,5 +16,5 @@
       "@lob-sdk/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "src/**/*.json"]
 }

@@ -1,34 +1,6 @@
-import {
-  AnyAction,
-  RangedAttackAction,
-  TurnSubmission,
-  PlayerInfo,
-  UserTier,
-  GameScenarioType,
-  GameLocales,
-  GameClientEventDto,
-  GameTrigger,
-  ITriggerSystem,
-  UnitDtoPartialId,
-  UnitType,
-  UnitDto,
-  IUnit,
-  UnitCounts,
-  ObjectiveDto,
-  IObjective,
-  GameMap,
-  TerrainType,
-  FogOfWarResult,
-  IServerFogOfWarService,
-  IVpService,
-  IOrderManager,
-  IGameDataManager,
-  IOrganizationSystem,
-  IAttackSystem,
-  IMovementSystem,
-  Player,
-  GameEra,
-} from "@lob-sdk/types";
+import { AnyAction, RangedAttackAction, TurnSubmission, PlayerInfo, UserTier, GameScenarioType, GameLocales, GameClientEventDto, GameTrigger, ITriggerSystem, UnitDtoPartialId, UnitType, UnitDto, IUnit, UnitCounts, ObjectiveDto, IObjective, GameMap, TerrainType, FogOfWarResult, IServerFogOfWarService, IVpService, IOrderManager, IOrganizationSystem, IAttackSystem, IMovementSystem, Player,  } from "@lob-sdk/types"
+import { GameDataManager } from "@lob-sdk/game-data-manager"
+import { GameEra } from "@lob-sdk/game-data-manager";
 import { Point2, Vector2 } from "@lob-sdk/vector";
 
 export type EntityId = number;
@@ -530,7 +502,7 @@ export interface IServerGame {
    * @returns The shoot result, or null if shot is invalid
    */
   shoot(
-    gameDataManager: IGameDataManager,
+    gameDataManager: GameDataManager,
     unit: IUnit,
     targetPosition: Vector2
   ): ShootResult | null;

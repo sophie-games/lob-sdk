@@ -7,3 +7,5 @@ export * from "./utils";
 export * from "./bot";
 export * from "./douglas-peucker";
 export * from "./army-deployer";
+export * from "./game-data-manager";
+export * from "./constants";

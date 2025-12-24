@@ -1,0 +1,132 @@
+import { GameDataManager } from "@lob-sdk/game-data-manager";
+import { UnitType } from "@lob-sdk/types";
+import { DamageTypeTemplate } from "@lob-sdk/game-data-manager";
+import { generateDefaultArmy } from "@lob-sdk/army-deployer";
+
+describe("GameDataManager", () => {
+  const gameDataManager = GameDataManager.get("napoleonic");
+
+  describe("getBattleType", () => {
+    describe("default armies respect unit caps from battle-types.json", () => {
+      const battleTypes = gameDataManager.getAllDynamicBattleTypes();
+
+      battleTypes.forEach((battleType) => {
+        it(`default army for ${battleType} respects unit caps`, () => {
+          const battleTypeConfig = gameDataManager.getBattleType(battleType);
+          const defaultArmy = generateDefaultArmy(gameDataManager, battleType);
+
+          // Check each unit type in the default army against its cap
+          Object.entries(defaultArmy.units).forEach(([unitTypeStr, count]) => {
+            const unitType: UnitType = Number(unitTypeStr);
+            const unitCap = battleTypeConfig.unitCaps[unitType];
+
+            if (unitCap !== undefined) {
+              expect(count).toBeLessThanOrEqual(unitCap);
+            }
+          });
+        });
+      });
+    });
+  });
+
+  describe("Damage Type Methods", () => {
+    describe("damageTypeNameToId mapping", () => {
+      it("should map every DamageType to its corresponding id", () => {
+        const ids = new Set<number>();
+        const damageTypes = gameDataManager.getDamageTypes();
+
+        damageTypes.forEach((type) => {
+          const id = gameDataManager.damageTypeNameToId(type.name);
+          expect(id).toBeDefined();
+          expect(typeof id).toBe("number");
+
+          ids.add(id);
+        });
+
+        expect(ids.size).toBe(damageTypes.length);
+      });
+    });
+
+    describe("bidirectional mapping consistency", () => {
+      it("should maintain consistency between typeToNumeric and numericToType", () => {
+        const damageTypes = gameDataManager.getDamageTypes();
+        damageTypes.forEach((type) => {
+          const id = gameDataManager.damageTypeNameToId(type.name);
+          const backToName = gameDataManager.damageTypeIdToName(id);
+          expect(backToName).toBe(type.name);
+        });
+      });
+
+      describe("damage type retrieval", () => {
+        it("should return defined damage type templates for all damage types", () => {
+          const types = gameDataManager.getDamageTypes();
+
+          types.forEach((type) => {
+            const damageTypeTemplate =
+              gameDataManager.getDamageTypeByName<DamageTypeTemplate>(
+                type.name
+              );
+            expect(damageTypeTemplate).toBeDefined();
+          });
+        });
+      });
+    });
+  });
+
+  describe("Unit Skins", () => {
+    it("should not have repeated skin ids", () => {
+      const ids = new Set<number>();
+      const skins = gameDataManager.getUnitSkins();
+
+      skins.forEach((skin) => {
+        expect(ids.has(skin.id)).toBe(false);
+        ids.add(skin.id);
+      });
+    });
+
+    it("should not have undefined formations in any unit skin", () => {
+      const skins = gameDataManager.getUnitSkins();
+
+      skins.forEach((skin) => {
+        // Check that formations object exists
+        expect(skin.formations).toBeDefined();
+        expect(skin.formations).not.toBeNull();
+
+        // Check that formations is an object
+        expect(typeof skin.formations).toBe("object");
+
+        // Check each formation in the formations object
+        Object.entries(skin.formations).forEach(([formationId, formation]) => {
+          // Check that formation is not undefined
+          expect(formation).toBeDefined();
+          expect(formation).not.toBeNull();
+
+          // Check that formation is an object
+          expect(typeof formation).toBe("object");
+
+          // Check that formation has valid structure
+          if (formation.base) {
+            expect(formation.base).toBeDefined();
+            expect(typeof formation.base).toBe("string");
+          }
+
+          if (formation.overlay !== undefined && formation.overlay !== null) {
+            expect(typeof formation.overlay).toBe("string");
+          }
+        });
+      });
+    });
+  });
+
+  describe("Avatars", () => {
+    it("should not have repeated avatar ids", () => {
+      const ids = new Set<number>();
+      const avatars = gameDataManager.getAvatars();
+
+      avatars.forEach((avatar) => {
+        expect(ids.has(avatar.id)).toBe(false);
+        ids.add(avatar.id);
+      });
+    });
+  });
+});
