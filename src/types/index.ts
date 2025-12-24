@@ -16,3 +16,4 @@ export * from "./unit";
 export * from "./vp-service";
 export * from "./skin";
 export * from "./army";
+export * from "./util-types";

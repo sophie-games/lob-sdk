@@ -9,3 +9,8 @@ export * from "./douglas-peucker";
 export * from "./army-deployer";
 export * from "./game-data-manager";
 export * from "./constants";
+export * from "./seed";
+export * from "./random-map";
+export * from "./flat-coords-array";
+export * from "./simplex-noise";
+export * from "./data-structures";
