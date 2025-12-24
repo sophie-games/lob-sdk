@@ -194,9 +194,9 @@ export interface CollisionData {
   totalOverlap: number;
 }
 
-export interface PendingMeleeAttackData {
-  unit1: IUnit;
-  unit2: IUnit;
+export interface PendingMeleeAttackData<T extends IUnit = IUnit> {
+  unit1: T;
+  unit2: T;
   collision: CollisionData;
   charge?: boolean;
 }
