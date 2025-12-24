@@ -27,6 +27,7 @@ import {
   IAttackSystem,
   IMovementSystem,
   Player,
+  GameEra,
 } from "@lob-sdk/types";
 import { Point2, Vector2 } from "@lob-sdk/vector";
 
@@ -58,8 +59,6 @@ export enum Direction {
   Back,
   Left,
 }
-
-export type GameEra = "napoleonic" | "ww2";
 
 export type GameUserResult = "win" | "lose" | "tie";
 
@@ -849,4 +848,9 @@ export interface IServerGame {
    * @returns Age of the game in seconds
    */
   age(): number;
+
+  getNearbyUnits<T extends IUnit = IUnit>(
+    position: Point2,
+    height: number
+  ): T[];
 }

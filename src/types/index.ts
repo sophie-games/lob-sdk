@@ -15,3 +15,4 @@ export * from "./terrain";
 export * from "./trigger";
 export * from "./unit";
 export * from "./vp-service";
+export * from "./skin";

@@ -265,8 +265,11 @@ export type UnitTemplates = Record<UnitType, UnitTemplate>;
 
 export interface IUnit {
   id: EntityId;
+  type: UnitType;
+  category: UnitCategoryId;
   player: number;
   team: number;
+  org: number;
   template: UnitTemplate;
   position: Vector2;
   currentFormation: string;
@@ -283,6 +286,10 @@ export interface IUnit {
    * Defaults to 0 if not specified.
    */
   supplyConsumption?: number;
+
+  getMaxRange: () => number;
+  isRouting: () => boolean;
+  isRoutingOrRecovering: () => boolean;
 }
 
 /**
