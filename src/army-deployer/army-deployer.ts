@@ -43,6 +43,10 @@ interface SectionMetrics {
   flankY: number;
 }
 
+/**
+ * Handles the deployment of units within a deployment zone, organizing them into sections
+ * (flank, center, forward, front) based on their unit categories.
+ */
 export class ArmyDeployer {
   private readonly DEFAULT_UNIT_HEIGHT = 24;
   private readonly MIN_SPACING = 8;
@@ -60,6 +64,15 @@ export class ArmyDeployer {
 
   private readonly forwardDeploymentZoneOffset: number;
 
+  /**
+   * Creates a new ArmyDeployer instance.
+   * @param gameDataManager - The game data manager instance.
+   * @param units - A record mapping unit types to their counts.
+   * @param deploymentZone - The zone where units should be deployed.
+   * @param player - The player number.
+   * @param team - The team number (1 or 2).
+   * @param dynamicBattleType - The battle type (defaults to Combat).
+   */
   constructor(
     private gameDataManager: GameDataManager,
     units: UnitCounts,
@@ -82,6 +95,10 @@ export class ArmyDeployer {
     this.forwardDeploymentZoneOffset = FORWARD_DEPLOYMENT_ZONE_OFFSET;
   }
 
+  /**
+   * Deploys all units in the deployment zone according to their categories and deployment sections.
+   * @returns An array of unit DTOs with their positions and rotations set.
+   */
   public deploy(): UnitDtoPartialId[] {
     const unitsByCategory = this.getArmyCompositionByCategory(
       this.gameDataManager,
@@ -128,6 +145,12 @@ export class ArmyDeployer {
     return grouped;
   }
 
+  /**
+   * Adds a unit to the deployment list at the specified position.
+   * @param type - The unit type to deploy.
+   * @param x - The x coordinate.
+   * @param y - The y coordinate.
+   */
   private addUnit(type: UnitType, x: number, y: number) {
     const template = this.gameDataManager
       .getUnitTemplateManager()
@@ -145,6 +168,16 @@ export class ArmyDeployer {
     });
   }
 
+  /**
+   * Deploys units in multiple lines within a section.
+   * @param units - The units to deploy.
+   * @param baseY - The base Y coordinate for deployment.
+   * @param startX - The starting X coordinate.
+   * @param sectionWidth - The width of the section.
+   * @param maxUnitsPerRow - The maximum number of units per row.
+   * @param spacing - The spacing between units.
+   * @param reverseY - Whether to reverse the Y direction for deployment.
+   */
   private deployUnitsInLines(
     units: UnitType[],
     baseY: number,
@@ -189,6 +222,10 @@ export class ArmyDeployer {
     }
   }
 
+  /**
+   * Calculates metrics for each deployment section (left flank, center, right flank).
+   * @returns A SectionMetrics object containing calculated dimensions and positions.
+   */
   calculateSectionMetrics(): SectionMetrics {
     const { x, y, width, height } = this.deploymentZone;
     const leftFlankWidth = width * 0.25;
@@ -267,6 +304,10 @@ export class ArmyDeployer {
     };
   }
 
+  /**
+   * Deploys units in the flank sections (left and right).
+   * @param flankUnits - The units to deploy in the flanks.
+   */
   private deployFlank(flankUnits: UnitType[]) {
     const unitsWithBuffer: UnitType[] = [];
     const unitsWithoutBuffer: UnitType[] = [];
@@ -327,6 +368,10 @@ export class ArmyDeployer {
     );
   }
 
+  /**
+   * Deploys units in the center section.
+   * @param centerUnits - The units to deploy in the center.
+   */
   private deployCenter(centerUnits: UnitType[]) {
     const unitsWithBuffer: UnitType[] = [];
     const unitsWithoutBuffer: UnitType[] = [];
@@ -363,6 +408,10 @@ export class ArmyDeployer {
     );
   }
 
+  /**
+   * Deploys units in the forward section (e.g., skirmishers).
+   * @param forwardUnits - The units to deploy forward.
+   */
   private deployForward(forwardUnits: UnitType[]) {
     const { skirmisherSpawning } = this.gameDataManager.getGameRules();
 
@@ -388,6 +437,10 @@ export class ArmyDeployer {
     );
   }
 
+  /**
+   * Deploys units in the front section.
+   * @param frontUnits - The units to deploy in the front.
+   */
   private deployFront(frontUnits: UnitType[]) {
     const frontWithBuffer: UnitType[] = [];
     const frontWithoutBuffer: UnitType[] = [];
@@ -424,6 +477,13 @@ export class ArmyDeployer {
     );
   }
 
+  /**
+   * Calculates the number of additional skirmishers to spawn based on the battle type and unit composition.
+   * @param gameDataManager - The game data manager instance.
+   * @param units - A record mapping unit types to their counts.
+   * @param dynamicBattleType - The battle type.
+   * @returns The number of skirmishers to spawn.
+   */
   static getSkirmishersAmount(
     gameDataManager: GameDataManager,
     units: UnitCounts,
@@ -457,6 +517,12 @@ export class ArmyDeployer {
     return skirmishers;
   }
 
+  /**
+   * Groups units by their category ID.
+   * @param gameDataManager - The game data manager instance.
+   * @param units - A record mapping unit types to their counts.
+   * @returns A record mapping category IDs to arrays of unit types.
+   */
   private getArmyCompositionByCategory(
     gameDataManager: GameDataManager,
     units: UnitCounts

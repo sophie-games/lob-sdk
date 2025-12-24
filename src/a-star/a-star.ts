@@ -1,31 +1,57 @@
 import { PriorityQueue } from "@lob-sdk/priority-queue/priority-queue";
 import { Point2 } from "@lob-sdk/vector";
 
+/**
+ * A node in the A* pathfinding algorithm representing a position in the grid.
+ */
 class Node {
+  /** The x coordinate of the node. */
   public x: number;
+  /** The y coordinate of the node. */
   public y: number;
+  /** The cost from the start node to this node. */
   public g: number = 0;
+  /** The heuristic cost from this node to the goal. */
   public h: number = 0;
+  /** The total cost (g + h) for this node. */
   public f: number = 0;
+  /** The parent node in the path. */
   public parent: Node | null = null;
 
+  /**
+   * Creates a new Node instance.
+   * @param x - The x coordinate.
+   * @param y - The y coordinate.
+   */
   constructor(x: number, y: number) {
     this.x = x;
     this.y = y;
   }
 
-  // Encode coordinates as single number for efficient hashing/lookup
+  /**
+   * Encodes the node's coordinates as a single number for efficient hashing and lookup.
+   * @param width - The width of the grid.
+   * @returns A unique numeric key for this node's position.
+   */
   public getKey(width: number): number {
     return this.y * width + this.x;
   }
 }
 
+/**
+ * A cached path result with metadata for efficient subpath lookups.
+ */
 interface CachedPath {
+  /** The path as an array of points. */
   path: Point2[];
-  // Map of encoded coordinates to their index in the path for fast lookup
+  /** Map of encoded coordinates to their index in the path for fast lookup. */
   pointToIndex: Map<number, number>;
 }
 
+/**
+ * An optimized A* pathfinding algorithm implementation with caching and subpath reuse.
+ * Supports both 4-directional and 8-directional movement.
+ */
 export class AStar {
   // Pre-computed neighbor directions (4-directional movement) as [dx, dy] tuples
   private static readonly CARDINAL_DIRECTIONS: readonly [number, number][] = [
@@ -64,6 +90,13 @@ export class AStar {
   private nodePool: Node[] = [];
   private nodePoolIndex: number = 0;
 
+  /**
+   * Creates a new AStar pathfinding instance.
+   * @param width - The width of the grid in tiles.
+   * @param height - The height of the grid in tiles.
+   * @param getStepCost - A function that returns the cost to move from one point to another. Returns Infinity for impassable terrain.
+   * @param useDiagonals - Whether to allow diagonal movement (8-directional) or only cardinal directions (4-directional). Defaults to true.
+   */
   constructor(
     width: number,
     height: number,
@@ -88,16 +121,22 @@ export class AStar {
   }
 
   /**
-   * Clears the path cache
+   * Clears the path cache, freeing memory used by cached paths.
    */
   public clearCache(): void {
     this.pathCache.clear();
     this.subpathCache.clear();
   }
 
-  // Use Chebyshev distance (max of dx, dy) for 8-directional movement
-  // This is faster than Euclidean and still admissible
-  // Optimized: accept coordinates directly to avoid object property access
+  /**
+   * Calculates the heuristic distance between two points using Chebyshev distance for 8-directional movement.
+   * This is faster than Euclidean distance and still admissible.
+   * @param x1 - The x coordinate of the first point.
+   * @param y1 - The y coordinate of the first point.
+   * @param x2 - The x coordinate of the second point.
+   * @param y2 - The y coordinate of the second point.
+   * @returns The heuristic distance estimate.
+   */
   private heuristic(x1: number, y1: number, x2: number, y2: number): number {
     const dx = x1 > x2 ? x1 - x2 : x2 - x1; // Faster than Math.abs
     const dy = y1 > y2 ? y1 - y2 : y2 - y1;
@@ -106,12 +145,22 @@ export class AStar {
       : dy + (this.DIAGONAL_COST - 1) * dx; // Avoid Math.max/Math.min
   }
 
-  // Encode coordinates as single number for efficient hashing
+  /**
+   * Encodes coordinates as a single number for efficient hashing.
+   * @param x - The x coordinate.
+   * @param y - The y coordinate.
+   * @returns A unique numeric key for the position.
+   */
   private encodeKey(x: number, y: number): number {
     return y * this.width + x;
   }
 
-  // Get a Node from the pool or create a new one
+  /**
+   * Gets a Node from the pool or creates a new one for memory efficiency.
+   * @param x - The x coordinate.
+   * @param y - The y coordinate.
+   * @returns A Node instance for the given coordinates.
+   */
   private getNode(x: number, y: number): Node {
     if (this.nodePoolIndex < this.nodePool.length) {
       const node = this.nodePool[this.nodePoolIndex++];
@@ -133,6 +182,13 @@ export class AStar {
     return node;
   }
 
+  /**
+   * Finds the optimal path from start to end using the A* algorithm.
+   * Uses caching and subpath reuse for improved performance.
+   * @param start - The starting point.
+   * @param end - The destination point.
+   * @returns An array of points representing the path, or null if no path exists.
+   */
   public findPath(start: Point2, end: Point2): Point2[] | null {
     if (!this.isValidPoint(start) || !this.isValidPoint(end)) {
       return null;
@@ -280,6 +336,11 @@ export class AStar {
     return null;
   }
 
+  /**
+   * Gets all valid neighboring points for a given node.
+   * @param node - The node to get neighbors for.
+   * @returns An array of valid neighboring points.
+   */
   private getNeighbors(node: Node): Point2[] {
     // Reuse array to avoid allocations, but return a copy to avoid mutation
     this.neighborsArray.length = 0;
@@ -308,6 +369,11 @@ export class AStar {
     return neighbors.slice();
   }
 
+  /**
+   * Checks if a point is within the valid bounds of the grid.
+   * @param point - The point to validate.
+   * @returns True if the point is valid, false otherwise.
+   */
   private isValidPoint(point: Point2): boolean {
     return (
       point.x >= 0 &&
@@ -317,6 +383,11 @@ export class AStar {
     );
   }
 
+  /**
+   * Reconstructs the path from the goal node back to the start by following parent pointers.
+   * @param node - The goal node.
+   * @returns An array of points representing the path from start to goal.
+   */
   private reconstructPath(node: Node): Point2[] {
     // Reuse array to avoid allocations
     this.pathArray.length = 0;

@@ -8,7 +8,12 @@ import { AStar } from "@lob-sdk/a-star";
 import { getSquaredDistance } from "@lob-sdk/utils";
 import { douglasPeucker } from "@lob-sdk/douglas-peucker";
 
+/**
+ * A bot implementation for Napoleonic era gameplay.
+ * Uses unit grouping and strategic decision-making to control units.
+ */
 export class BotNapoleonic implements IBot {
+  /** The team number this bot belongs to. */
   public team: number;
   private allyGroups: UnitGroup[] = [];
   private enemyGroups: UnitGroup[] = [];
@@ -74,6 +79,12 @@ export class BotNapoleonic implements IBot {
     return strategy.groupCohesion;
   }
 
+  /**
+   * Creates a new BotNapoleonic instance.
+   * @param gameDataManager - The game data manager instance.
+   * @param game - The server game instance.
+   * @param playerNumber - The player number this bot controls.
+   */
   constructor(
     private gameDataManager: GameDataManager,
     private game: IServerGame,
@@ -82,15 +93,28 @@ export class BotNapoleonic implements IBot {
     this.team = this.game.getPlayerTeam(this.playerNumber);
   }
 
+  /**
+   * Sets a custom bot play script that overrides the default bot behavior.
+   * @param onBotPlayScript - The custom script function.
+   * @param scriptName - Optional name for the script.
+   */
   setOnBotPlayScript(onBotPlayScript: OnBotPlayScript, scriptName?: string) {
     this.onBotPlayScript = onBotPlayScript;
     this.scriptName = scriptName || null;
   }
 
+  /**
+   * Gets the name of the currently set bot script, if any.
+   * @returns The script name, or null if no custom script is set.
+   */
   getScriptName(): string | null {
     return this.scriptName;
   }
 
+  /**
+   * Executes the bot's turn, generating orders for all controlled units.
+   * @returns A promise that resolves to the turn submission with orders.
+   */
   async play(): Promise<TurnSubmission> {
     if (this.onBotPlayScript) {
       try {
@@ -509,10 +533,18 @@ export class BotNapoleonic implements IBot {
     return cost;
   }
 
+  /**
+   * Gets the player number this bot controls.
+   * @returns The player number.
+   */
   getPlayerNumber(): number {
     return this.playerNumber;
   }
 
+  /**
+   * Gets the team number this bot belongs to.
+   * @returns The team number.
+   */
   getTeam(): number {
     return this.team;
   }

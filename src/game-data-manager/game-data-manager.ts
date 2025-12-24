@@ -102,7 +102,9 @@ import { UnitTemplateManager } from "./unit-template-manager";
 import { degreesToRadians } from "@lob-sdk/utils";
 
 /**
- * Centralized lazy-loading game data manager
+ * Centralized lazy-loading game data manager.
+ * Provides access to all game data including units, formations, terrains, battle types, and more.
+ * Uses a singleton pattern per era to ensure efficient memory usage.
  */
 export class GameDataManager {
   readonly era: GameEra;
@@ -173,6 +175,12 @@ export class GameDataManager {
 
   private _headOnCollisionCosineThresholdSquared: number = -1;
 
+  /**
+   * Gets or creates a GameDataManager instance for the specified era.
+   * Uses a singleton pattern to ensure only one instance exists per era.
+   * @param era - The game era ("napoleonic" or "ww2").
+   * @returns The GameDataManager instance for the era.
+   */
   public static get(era: GameEra): GameDataManager {
     if (!GameDataManager.instances.has(era)) {
       const instance = new GameDataManager(era);
@@ -182,10 +190,19 @@ export class GameDataManager {
     return GameDataManager.instances.get(era)!;
   }
 
+  /**
+   * Clears all cached GameDataManager instances.
+   * Useful for testing or memory management.
+   */
   static clear() {
     GameDataManager.instances.clear();
   }
 
+  /**
+   * Creates a new GameDataManager instance for the specified era.
+   * Private constructor to enforce singleton pattern via get() method.
+   * @param era - The game era ("napoleonic" or "ww2").
+   */
   private constructor(era: GameEra) {
     this.era = era;
     this.loadEraData(era);
@@ -344,7 +361,12 @@ export class GameDataManager {
     });
   }
 
-  // Synchronous battle type method for backward compatibility
+  /**
+   * Gets a battle type template by battle type.
+   * @param battleType - The dynamic battle type.
+   * @returns The battle type template.
+   * @throws Error if the battle type is not found.
+   */
   public getBattleType(battleType: DynamicBattleType): BattleTypeTemplate {
     const battleTypeData = this.battleTypes[battleType];
 
@@ -355,14 +377,26 @@ export class GameDataManager {
     return battleTypeData;
   }
 
+  /**
+   * Gets the game constants for the current era.
+   * @returns The game constants object.
+   */
   public getGameConstants(): GameConstants {
     return this.gameConstants as GameConstants;
   }
 
+  /**
+   * Gets the game rules for the current era.
+   * @returns The game rules object.
+   */
   public getGameRules(): GameRules {
     return this.gameRules as GameRules;
   }
 
+  /**
+   * Gets all game constant category names.
+   * @returns An array of sorted category names.
+   */
   public getGameConstantCategories(): string[] {
     const categories = new Set<string>();
     Object.values(this.gameConstantCategories).forEach((category) => {
@@ -371,50 +405,96 @@ export class GameDataManager {
     return Array.from(categories).sort();
   }
 
+  /**
+   * Gets the category name for a game constant key.
+   * @param constantKey - The constant key to look up.
+   * @returns The category name, or undefined if not found.
+   */
   public getGameConstantCategory(constantKey: string): string | undefined {
     return this.gameConstantCategories[constantKey];
   }
 
+  /**
+   * Gets all available avatars for the current era.
+   * @returns An array of avatar objects.
+   */
   public getAvatars(): Avatar[] {
     return this.avatars;
   }
 
+  /**
+   * Gets a specific avatar by ID.
+   * @param avatarId - The avatar ID.
+   * @returns The avatar object, or undefined if not found.
+   */
   public getAvatar(avatarId?: number): Avatar | undefined {
     return this.avatarMap.get(avatarId!);
   }
 
+  /**
+   * Gets all damage type templates for the current era.
+   * @returns An array of damage type templates.
+   */
   public getDamageTypes(): DamageTypeTemplate[] {
     return this.damageTypes;
   }
 
+  /**
+   * Gets all terrain configurations for the current era.
+   * @returns An array of terrain configurations.
+   */
   public getTerrains() {
     return this.terrains!;
   }
 
+  /**
+   * Gets all terrain category configurations for the current era.
+   * @returns A record mapping terrain category types to their configurations.
+   */
   public getTerrainCategories() {
     return this.terrainCategories!;
   }
 
+  /**
+   * Gets all objective skins for the current era.
+   * @returns An array of objective skin objects.
+   */
   public getObjectiveSkins(): ObjectiveSkin[] {
     return this.objectiveSkins;
   }
 
+  /**
+   * Gets a specific objective skin by ID.
+   * @param skinId - The objective skin ID.
+   * @returns The objective skin object, or undefined if not found.
+   */
   public getObjectiveSkin(skinId?: number): ObjectiveSkin | undefined {
     return this.objectiveSkinMap.get(skinId!);
   }
 
+  /**
+   * Gets all unit skins for the current era.
+   * @returns An array of unit skin objects.
+   */
   public getUnitSkins(): UnitSkin[] {
     return this.unitSkins;
   }
 
   /**
-   * Get a specific unit skin by ID
+   * Gets a specific unit skin by ID.
+   * @param skinId - The unit skin ID.
+   * @returns The unit skin object, or undefined if not found.
    */
   public getUnitSkin(skinId?: number): UnitSkin | undefined {
     return this.unitSkinMap.get(skinId!);
   }
 
-  // Synchronous unit category methods for backward compatibility
+  /**
+   * Gets a unit category template by category ID.
+   * @param unitCategory - The unit category ID.
+   * @returns The unit category template.
+   * @throws Error if the category template is not found.
+   */
   public getUnitCategoryTemplate(
     unitCategory: UnitCategoryId
   ): UnitCategoryTemplate {
@@ -437,14 +517,26 @@ export class GameDataManager {
     return template;
   }
 
+  /**
+   * Gets all unit category templates for the current era.
+   * @returns An array of unit category templates.
+   */
   public getUnitCategories(): UnitCategoryTemplate[] {
     return this.unitCategories;
   }
 
+  /**
+   * Gets the unit template manager instance.
+   * @returns The UnitTemplateManager instance.
+   */
   getUnitTemplateManager() {
     return this._unitTemplateManager;
   }
 
+  /**
+   * Gets the formation manager instance.
+   * @returns The FormationManager instance.
+   */
   public getFormationManager() {
     return this._formationManager;
   }

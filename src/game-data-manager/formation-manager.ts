@@ -10,8 +10,15 @@ export class FormationManager {
   private _friendlyFireImmuneDamageTypes: Map<string, Set<DamageTypeName>> =
     new Map();
 
+  /**
+   * Creates a new FormationManager instance.
+   */
   constructor() {}
 
+  /**
+   * Loads formation templates into the manager.
+   * @param _templates - An array of formation templates to load.
+   */
   load(_templates: FormationTemplate[]) {
     for (const formation of _templates) {
       this._formationMap.set(formation.id, formation);
@@ -28,10 +35,21 @@ export class FormationManager {
     }
   }
 
+  /**
+   * Gets a formation template by ID.
+   * @param id - The formation ID.
+   * @returns The formation template, or null if not found.
+   */
   getTemplate(id: string | null): FormationTemplate | null {
     return this._formationMap.get(id!) ?? null;
   }
 
+  /**
+   * Checks if a damage type is immune to friendly fire for a given formation.
+   * @param id - The formation ID.
+   * @param damageType - The damage type name to check.
+   * @returns True if the damage type is immune to friendly fire for this formation, false otherwise.
+   */
   isFriendlyFireImmune(id: string, damageType: DamageTypeName): boolean {
     return (
       this._friendlyFireImmuneDamageTypes.get(id)?.has(damageType) ?? false
