@@ -854,3 +854,40 @@ export interface IServerGame {
     height: number
   ): T[];
 }
+
+export interface ServerGameProps {
+  id: GameId;
+  era: GameEra;
+  scenarioName: string;
+  dynamicBattleType: DynamicBattleType | null;
+  scenarioType: GameScenarioType;
+  turnNumber: number;
+  state: GameState<true> | GameState<false>;
+  previousState?: GameState | null;
+  players: Player[];
+  turnStartedTime: number;
+  turnTimeLimit: number;
+  started: boolean;
+  finished: boolean;
+  ranked: boolean;
+  givesRewards: boolean;
+  maxTurn: number;
+  playerSetups?: PlayerSetup[];
+  tournamentId?: number;
+  drawUnlockTurn: number;
+  lastActions?: AnyAction[] | null;
+  clientEvents?: GameClientEventDto[] | null;
+  fogOfWar?: boolean;
+  createdAt?: number;
+  metadata?: GameMetadata;
+}
+
+export interface UnitTerrainCheck {
+  terrain: TerrainType;
+  weight: number;
+}
+
+export interface UnitTerrainProportion {
+  terrain: TerrainType;
+  proportion: number;
+}
