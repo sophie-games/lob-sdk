@@ -1,5 +1,5 @@
 import { GameDataManager } from "@lob-sdk/game-data-manager";
-import { UnitType } from "@lob-sdk/types";
+import { UnitType, TerrainType } from "@lob-sdk/types";
 import { DamageTypeTemplate } from "@lob-sdk/game-data-manager";
 import { generateDefaultArmy } from "@lob-sdk/army-deployer";
 
@@ -126,6 +126,47 @@ describe("GameDataManager", () => {
       avatars.forEach((avatar) => {
         expect(ids.has(avatar.id)).toBe(false);
         ids.add(avatar.id);
+      });
+    });
+  });
+
+  describe("Terrain Methods", () => {
+    const terrains = Object.values(TerrainType).filter(
+      (value) => typeof value === "number"
+    );
+
+    terrains.forEach((type) => {
+      it(`should have a config for terrain ${type}`, () => {
+        const terrains = gameDataManager.getTerrains();
+        const terrain = terrains[type];
+        expect(terrain).toBeDefined();
+      });
+    });
+
+    it("should have all terrain types from TerrainType enum", () => {
+      const allTerrainTypes = Object.values(TerrainType).filter(
+        (value) => typeof value === "number"
+      ) as TerrainType[];
+
+      const terrains = gameDataManager.getTerrains();
+      allTerrainTypes.forEach((terrainType) => {
+        const terrain = terrains[terrainType];
+        expect(terrain).toBeDefined();
+      });
+
+      // Verify we have exactly the same number of terrains as defined in the enum
+      expect(Object.values(terrains).length).toBe(allTerrainTypes.length);
+    });
+
+    it("should not have any extra terrain types beyond the enum", () => {
+      const allTerrainTypes = Object.values(TerrainType).filter(
+        (value) => typeof value === "number"
+      ) as TerrainType[];
+
+      const terrains = gameDataManager.getTerrains();
+      // Check that every terrain in the service exists in the enum
+      Object.values(terrains).forEach((terrain) => {
+        expect(allTerrainTypes).toContain(terrain.id);
       });
     });
   });

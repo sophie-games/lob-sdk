@@ -272,3 +272,19 @@ export const pack4D = (sx: number, sy: number, tx: number, ty: number) =>
   (pack2D(sx, sy) << 16) | pack2D(tx, ty);
 
 export const nowInSeconds = () => Math.floor(Date.now() / 1000);
+
+/**
+ * Rounds a number probabilistically based on its decimal part.
+ *
+ * If the number is, for example, 1.1, there is a 90% chance of rounding it down to 1
+ * and a 10% chance of rounding it up to 2.
+ */
+export function probabilisticRound(number: number): number {
+  const lower = Math.floor(number);
+  const upper = Math.ceil(number);
+
+  const chance = number - lower;
+  const random = Math.random();
+
+  return random < chance ? upper : lower;
+}
