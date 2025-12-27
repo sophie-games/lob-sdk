@@ -70,6 +70,7 @@ import napoleonicClassicTundra from "@lob-sdk/game-data/eras/napoleonic/scenario
 import napoleonicSilvaSanctorum from "@lob-sdk/game-data/eras/napoleonic/scenarios/silva-sanctorum.json";
 import napoleonicAndesAndValley from "@lob-sdk/game-data/eras/napoleonic/scenarios/andes-and-valley.json";
 import napoleonicLowCountries from "@lob-sdk/game-data/eras/napoleonic/scenarios/low-countries.json";
+import napoleonicHedgerows from "@lob-sdk/game-data/eras/napoleonic/scenarios/hedgerows.json";
 import napoleonicTutorialBasicControls from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-basic-controls.json";
 import napoleonicTutorialControlGroups from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-control-groups.json";
 import napoleonicTutorialInfantryFormations from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-infantry-formations.json";
@@ -247,6 +248,7 @@ export class GameDataManager {
           plains: napoleonicPlains as GameScenario,
           hills: napoleonicHills as GameScenario,
           city: napoleonicCity as GameScenario,
+          hedgerows: napoleonicHedgerows as GameScenario,
           "low-countries": napoleonicLowCountries as GameScenario,
           lake: napoleonicLake as GameScenario,
           tundra: napoleonicTundra as GameScenario,
@@ -282,8 +284,7 @@ export class GameDataManager {
             napoleonicTutorialInfantryFormations as GameScenario,
           "tutorial-unit-management":
             napoleonicTutorialUnitManagement as GameScenario,
-          "tutorial-charges":
-            napoleonicTutorialCharges as GameScenario,
+          "tutorial-charges": napoleonicTutorialCharges as GameScenario,
         };
 
         break;

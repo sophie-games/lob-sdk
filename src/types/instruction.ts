@@ -6,6 +6,7 @@ import {
   ProceduralScenario,
   DynamicBattleType,
   ObjectiveDto,
+  ObjectiveType,
 } from "@lob-sdk/types";
 
 /**
@@ -83,6 +84,8 @@ export enum InstructionType {
   Objective = "OBJECTIVE",
   /** Instruction to generate a lake. */
   Lake = "LAKE",
+  /** Instruction to place an objective layer. */
+  ObjectiveLayer = "OBJECTIVE_LAYER",
 }
 
 /**
@@ -314,7 +317,7 @@ export interface InstructionConnectClusters extends BaseInstruction {
 /**
  * Instruction to place an objective on the map.
  */
-export interface InstructionObjective {
+export interface InstructionObjective extends BaseInstruction {
   /** Instruction type is Objective. */
   type: InstructionType.Objective;
   /** Position to place the objective (exact or range). */
@@ -327,7 +330,7 @@ export interface InstructionObjective {
  * Instruction to generate a lake with organic shape.
  * Creates a procedurally generated lake with deep, shallow, and shore areas.
  */
-export interface InstructionLake {
+export interface InstructionLake extends BaseInstruction {
   /** Instruction type is Lake. */
   type: InstructionType.Lake;
   /**
@@ -355,6 +358,26 @@ export interface InstructionLake {
 }
 
 /**
+ * Instruction to place an objective layer on the map.
+ */
+export interface InstructionObjectiveLayer extends BaseInstruction {
+  /** Instruction type is ObjectiveLayer. */
+  type: InstructionType.ObjectiveLayer;
+  /** Player that owns this objective layer. */
+  player: number;
+  /** Type of objective that this objective layer can place. */
+  objectiveType: ObjectiveType;
+  /** Optional - Number between 0 and 100 indicating the chance of this objective layer being placed. */
+  chance?: number;
+  /** Optional - Terrains that this objective layer can be placed on. */
+  terrains?: TerrainType[];
+  /** Optional - Heights that this objective layer can be placed on. */
+  heights?: [{ min: number; max: number }];
+  /** Optional - Minimum distance between this objective layer and the nearest objective. */
+  minDistance?: number;
+}
+
+/**
  * Union type representing any valid procedural generation instruction.
  */
 export type AnyInstruction =
@@ -365,4 +388,5 @@ export type AnyInstruction =
   | InstructionNaturalPath
   | InstructionConnectClusters
   | InstructionObjective
-  | InstructionLake;
+  | InstructionLake
+  | InstructionObjectiveLayer;

@@ -20,6 +20,7 @@ import { TerrainRectangleExecutor } from "./executors/terrain-rectangle";
 import { NaturalPathExecutor } from "./executors/natural-path";
 import { ConnectClustersExecutor } from "./executors/connect-clusters";
 import { ObjectiveExecutor } from "./executors/objective";
+import { ObjectiveLayerExecutor } from "./executors/objective-layer";
 import { LakeExecutor } from "./executors/lake";
 import { generateRandomSeed } from "@lob-sdk/seed";
 
@@ -77,19 +78,9 @@ export class RandomMapGenerator {
       heightMap,
       objectives,
       width,
-      height
+      height,
+      tileSize
     );
-
-    // smoothenTerrains(terrains, tilesX, tilesY, scenario.terrains, baseTerrain);
-
-    // Generate borders for terrain types that have border configuration
-    // generateTerrainBorders(
-    //   terrains,
-    //   heightMap,
-    //   scenario.terrains,
-    //   tilesX,
-    //   tilesY
-    // );
 
     return {
       map: {
@@ -111,7 +102,8 @@ export class RandomMapGenerator {
     heightMap: number[][],
     objectives: ObjectiveDto<false>[],
     width: number,
-    height: number
+    height: number,
+    tileSize: number
   ) {
     scenario.instructions.forEach(
       (instruction: AnyInstruction, index: number) => {
@@ -202,6 +194,21 @@ export class RandomMapGenerator {
               index,
               terrains,
               heightMap
+            ).execute();
+            break;
+          }
+          case InstructionType.ObjectiveLayer: {
+            new ObjectiveLayerExecutor(
+              instruction,
+              tileSize,
+              scenario,
+              seed,
+              index,
+              terrains,
+              heightMap,
+              objectives,
+              width,
+              height
             ).execute();
             break;
           }
