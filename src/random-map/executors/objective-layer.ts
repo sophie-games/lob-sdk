@@ -116,10 +116,5 @@ export class ObjectiveLayerExecutor {
         });
       }
     }
-
-    // If no valid positions, return early
-    if (validPositions.length === 0) {
-      return;
-    }
   }
 }
