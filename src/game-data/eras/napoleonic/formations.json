@@ -12,8 +12,8 @@
     "shootingAngle": 90,
     "shootingMaxTargets": 2,
     "disablesEnfiladeFire": true,
-    "rangedDamageResistance": -0.15,
-    "rangedOrgResistance": 0.2,
+    "rangedDamageResistance": -0.1,
+    "rangedOrgResistance": 0.25,
     "flankChargeResistance": -0.35,
     "rearChargeResistance": -0.5,
     "timeToForm": 1,
@@ -168,6 +168,7 @@
     "disablesEnfiladeFire": true,
     "disablesFlankMelee": true,
     "disablesRearFire": true,
+    "flankChargeResistance": -0.25,
     "shootingAngle": 360,
     "shootingMaxTargets": 1,
     "minMovementModifier": -0.3
