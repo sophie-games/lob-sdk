@@ -839,7 +839,7 @@
     "id": 27,
     "name": "rocket",
     "ranged": true,
-    "orgDamageRatio": 450,
+    "orgDamageRatio": 600,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
     "projectileWidth": 24,
@@ -852,18 +852,18 @@
       {
         "start": 0,
         "end": 80,
-        "startMod": 1.5,
-        "endMod": 1.5
+        "startMod": 1.75,
+        "endMod": 1.75
       },
       {
         "start": 80,
-        "end": 160,
-        "startMod": 1.5,
-        "endMod": 0.35,
+        "end": 150,
+        "startMod": 1.75,
+        "endMod": 0.75,
         "name": "close"
       }
     ],
-    "arcHeight": 0.3,
+    "arcHeight": 0.75,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.5,
     "areaOfEffect": {
@@ -871,7 +871,7 @@
       "ranges": [
         {
           "start": 18,
-          "end": 175,
+          "end": 150,
           "startRadius": 18,
           "endRadius": 32
         }
@@ -882,7 +882,7 @@
     "shotSound": "rocket-volley",
     "shotAnim": "rocketVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 280,
+    "ammoCost": 320,
     "extendRange": false
   },
   {
@@ -890,7 +890,7 @@
     "name": "rocket-long",
     "ranged": true,
     "orgDamageRatio": 360,
-    "reorgDebuff": 0.8,
+    "reorgDebuff": 0.9,
     "attackEffectDuration": 4,
     "projectileWidth": 24,
     "diminishByTargetOrg": {
@@ -900,7 +900,7 @@
     },
     "ranges": [
       {
-        "start": 160,
+        "start": 150,
         "end": 450,
         "startMod": 0.35,
         "endMod": -0.9,
@@ -914,7 +914,7 @@
       "type": "circular",
       "ranges": [
         {
-          "start": 160,
+          "start": 150,
           "end": 450,
           "startRadius": 32,
           "endRadius": 58
@@ -926,7 +926,7 @@
     "shotSound": "rocket-volley",
     "shotAnim": "rocketVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 180,
+    "ammoCost": 160,
     "extendRange": false
   }
 ]
