@@ -153,7 +153,7 @@
     "name": "18lb-cannon-ball",
     "ranged": true,
     "orgDamageRatio": 210,
-    "reorgDebuff": 0.75,
+    "reorgDebuff": 0.8,
     "attackEffectDuration": 32,
     "projectileWidth": 12,
     "diminishByTargetOrg": {
@@ -165,7 +165,7 @@
     "arcHeight": 0.5,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.5,
+    "projectilePenetration": 0.75,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -176,8 +176,8 @@
           "endTopWidth": 50,
           "startBottomWidth": 20,
           "endBottomWidth": 38,
-          "startHeight": 40,
-          "endHeight": 60
+          "startHeight": 44,
+          "endHeight": 68
         }
       ],
       "absorptionModifier": 2,
@@ -199,7 +199,7 @@
     "name": "12lb-cannon-ball",
     "ranged": true,
     "orgDamageRatio": 210,
-    "reorgDebuff": 0.75,
+    "reorgDebuff": 0.8,
     "attackEffectDuration": 32,
     "projectileWidth": 12,
     "diminishByTargetOrg": {
@@ -213,14 +213,14 @@
         "start": 250,
         "end": 500,
         "startMod": -0.05,
-        "endMod": -0.6,
+        "endMod": -0.55,
         "name": "long"
       }
     ],
     "arcHeight": 0.5,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.5,
+    "projectilePenetration": 0.75,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -231,8 +231,8 @@
           "endTopWidth": 74,
           "startBottomWidth": 18,
           "endBottomWidth": 58,
-          "startHeight": 58,
-          "endHeight": 86
+          "startHeight": 72,
+          "endHeight": 96
         }
       ],
       "absorptionModifier": 2,
@@ -254,7 +254,7 @@
     "name": "10lb-cannon-ball",
     "ranged": true,
     "orgDamageRatio": 210,
-    "reorgDebuff": 0.75,
+    "reorgDebuff": 0.8,
     "attackEffectDuration": 32,
     "projectileWidth": 12,
     "diminishByTargetOrg": {
@@ -266,7 +266,7 @@
     "arcHeight": 0.5,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.5,
+    "projectilePenetration": 0.75,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -277,8 +277,8 @@
           "endTopWidth": 40,
           "startBottomWidth": 16,
           "endBottomWidth": 32,
-          "startHeight": 26,
-          "endHeight": 44
+          "startHeight": 36,
+          "endHeight": 56
         }
       ],
       "absorptionModifier": 2,
@@ -300,7 +300,7 @@
     "name": "8lb-cannon-ball",
     "ranged": true,
     "orgDamageRatio": 210,
-    "reorgDebuff": 0.75,
+    "reorgDebuff": 0.8,
     "attackEffectDuration": 32,
     "projectileWidth": 12,
     "diminishByTargetOrg": {
@@ -313,15 +313,15 @@
       {
         "start": 240,
         "end": 435,
-        "startMod": 0,
-        "endMod": -0.6,
+        "startMod": -0.05,
+        "endMod": -0.55,
         "name": "long"
       }
     ],
     "arcHeight": 0.5,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.5,
+    "projectilePenetration": 0.75,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -332,8 +332,8 @@
           "endTopWidth": 66,
           "startBottomWidth": 18,
           "endBottomWidth": 48,
-          "startHeight": 44,
-          "endHeight": 72
+          "startHeight": 56,
+          "endHeight": 84
         }
       ],
       "absorptionModifier": 2,
@@ -376,7 +376,7 @@
     "arcHeight": 0.5,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.5,
+    "projectilePenetration": 0.75,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -387,8 +387,8 @@
           "endTopWidth": 54,
           "startBottomWidth": 16,
           "endBottomWidth": 38,
-          "startHeight": 34,
-          "endHeight": 68
+          "startHeight": 48,
+          "endHeight": 72
         }
       ],
       "absorptionModifier": 2.0,
@@ -431,7 +431,7 @@
     "arcHeight": 0.5,
     "enfiladeFire": true,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.5,
+    "projectilePenetration": 0.75,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -574,7 +574,7 @@
     ],
     "arcHeight": 2.25,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.5,
+    "projectilePenetration": 0.75,
     "areaOfEffect": {
       "type": "circular",
       "ranges": [
@@ -626,7 +626,7 @@
     ],
     "enfiladeFire": true,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.5,
+    "projectilePenetration": 0.75,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 280,
@@ -658,7 +658,7 @@
     ],
     "enfiladeFire": true,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.5,
+    "projectilePenetration": 0.75,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 260,
@@ -690,7 +690,7 @@
     ],
     "enfiladeFire": true,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.5,
+    "projectilePenetration": 0.75,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 256,
@@ -722,7 +722,7 @@
     ],
     "enfiladeFire": true,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.5,
+    "projectilePenetration": 0.75,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 240,
@@ -754,7 +754,7 @@
     ],
     "enfiladeFire": true,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.5,
+    "projectilePenetration": 0.75,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 224,
@@ -786,7 +786,7 @@
     ],
     "enfiladeFire": true,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.5,
+    "projectilePenetration": 0.75,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 232,
@@ -811,7 +811,7 @@
     ],
     "enfiladeFire": true,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.5,
+    "projectilePenetration": 0.75,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 356,
@@ -865,7 +865,7 @@
     ],
     "arcHeight": 0.75,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.5,
+    "projectilePenetration": 0.75,
     "areaOfEffect": {
       "type": "circular",
       "ranges": [
@@ -909,7 +909,7 @@
     ],
     "arcHeight": 1,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.5,
+    "projectilePenetration": 0.75,
     "areaOfEffect": {
       "type": "circular",
       "ranges": [
