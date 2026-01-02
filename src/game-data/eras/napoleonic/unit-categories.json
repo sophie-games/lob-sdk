@@ -117,7 +117,7 @@
     },
     "autofirePriority": {
       "artillery": -1,
-      "antry": -2
+      "skirmishInfantry": -2
     },
     "impactAltitude": 1.1,
     "grazingAltitude": 1.2,
@@ -294,7 +294,7 @@
       "orgModifier": 1.75
     },
     "autofirePriority": {
-      "antry": -1
+      "skirmishInfantry": -1
     },
     "impactAltitude": 1.1,
     "grazingAltitude": 2.5,
@@ -309,7 +309,7 @@
     ]
   },
   {
-    "id": "antry",
+    "id": "skirmishInfantry",
     "deploymentSection": "forward",
     "firingAltitude": 0.9,
     "allyCollisionLevel": -1,
