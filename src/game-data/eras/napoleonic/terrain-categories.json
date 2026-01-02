@@ -98,9 +98,9 @@
       "heavyCavalry": -0.3
     },
     "chargeBonusModifier": {
-      "infantry": -0.9,
-      "skirmishInfantry": -0.9,
-      "militiaInfantry": -0.9,
+      "infantry": -1.25,
+      "skirmishInfantry": -1.25,
+      "militiaInfantry": -1.25,
       "midCavalry": -0.8,
       "lightCavalry": -0.8,
       "scoutCavalry": -0.8,
@@ -176,9 +176,9 @@
       "heavyCavalry": -0.4
     },
     "chargeBonusModifier": {
-      "infantry": -0.8,
-      "skirmishInfantry": -0.9,
-      "militiaInfantry": -0.8,
+      "infantry": -1.25,
+      "skirmishInfantry": -1.25,
+      "militiaInfantry": -1.25,
       "midCavalry": -0.8,
       "lightCavalry": -0.8,
       "scoutCavalry": -0.8,
@@ -191,7 +191,7 @@
 
   "path": {
     "color": "#c9be98",
-    "staminaCostModifier": -0.5,
+    "staminaCostModifier": -0.65,
     "prioritizeMovement": true,
     "canPlaceObjectives": true,
     "movementModifier": {
@@ -405,7 +405,7 @@
     "color": "#A9866D",
     "heightOffset": -0.5,
     "hitboxHeight": 0.6,
-    "staminaCostModifier": -0.5,
+    "staminaCostModifier": -0.65,
     "movementModifier": {
       "infantry": 0.3,
       "skirmishInfantry": 0.3,
