@@ -133,10 +133,6 @@ export class BotWW2 implements IBot {
 
     const orders = turnSubmission.orders;
 
-    if (enemies.length === 0) {
-      return turnSubmission;
-    }
-
     // Reset groups
     this.allyGroups = this.formGroups(myUnits);
     this.enemyGroups = this.formGroups(enemies);

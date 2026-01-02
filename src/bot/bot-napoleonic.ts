@@ -1,4 +1,11 @@
-import { AnyOrder, IServerGame, IUnit, OrderPathPoint, OrderType, UnitCategoryId,  } from "@lob-sdk/types"
+import {
+  AnyOrder,
+  IServerGame,
+  IUnit,
+  OrderPathPoint,
+  OrderType,
+  UnitCategoryId,
+} from "@lob-sdk/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { Point2, Vector2 } from "@lob-sdk/vector";
 import { UnitGroup } from "./unit-group";
@@ -143,10 +150,6 @@ export class BotNapoleonic implements IBot {
     };
 
     const orders = turnSubmission.orders;
-
-    if (enemies.length === 0) {
-      return turnSubmission;
-    }
 
     // Reset groups
     this.allyGroups = this.formGroups(myUnits);
