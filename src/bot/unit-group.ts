@@ -1,13 +1,14 @@
-import { IUnit, UnitCategoryId } from "@lob-sdk/types";
+import { UnitCategoryId } from "@lob-sdk/types";
+import { BaseUnit } from "@lob-sdk/unit";
 import { medianPoint } from "@lob-sdk/utils";
 import { Vector2 } from "@lob-sdk/vector";
 
 /**
  * Represents a group of units that belong to the same category and are typically positioned near each other.
  * Used by bot AI for grouping units and making strategic decisions.
- * @template T - The type of unit, must extend IUnit.
+ * @template T - The type of unit, must extend BaseUnit.
  */
-export class UnitGroup<T extends IUnit = IUnit> {
+export class UnitGroup<T extends BaseUnit = BaseUnit> {
   /** Cached center position of the group. */
   cachedCenter: Vector2 | null = null;
   /** The player number that owns all units in this group. */

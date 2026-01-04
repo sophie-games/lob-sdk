@@ -184,7 +184,6 @@ export interface GameConstants {
 
   HAS_TAKEN_FIRE_SPEED_MODIFIER: number;
 
-  EFFECT_HAS_FIRED_TICKS: number;
   EFFECT_HAS_RAN_TICKS: number;
   EFFECT_STARTED_ROUTING_TICKS: number;
 

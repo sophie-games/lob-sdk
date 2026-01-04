@@ -11,8 +11,6 @@ import {
   ITriggerSystem,
   UnitDtoPartialId,
   UnitType,
-  UnitDto,
-  IUnit,
   UnitCounts,
   ObjectiveDto,
   IObjective,
@@ -26,10 +24,12 @@ import {
   IAttackSystem,
   IMovementSystem,
   Player,
+  UnitDto,
 } from "@lob-sdk/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { GameEra } from "@lob-sdk/game-data-manager";
 import { Point2, Vector2 } from "@lob-sdk/vector";
+import { BaseUnit } from "@lob-sdk/unit";
 
 /**
  * A unique identifier for game entities (units, objectives, etc.).
@@ -305,7 +305,7 @@ export interface HandleTurnStatusOptions {
 /**
  * Used for backend collision detection and processing.
  */
-export interface CollisionData<T extends IUnit = IUnit> {
+export interface CollisionData<T extends BaseUnit = BaseUnit> {
   unitA: T;
   unitB: T;
   /** The position where unit A is placed when the collision happens */
@@ -324,9 +324,9 @@ export interface CollisionData<T extends IUnit = IUnit> {
 
 /**
  * Data for a pending melee attack between two units.
- * @template T - The type of unit, must extend IUnit.
+ * @template T - The type of unit, must extend BaseUnit.
  */
-export interface PendingMeleeAttackData<T extends IUnit = IUnit> {
+export interface PendingMeleeAttackData<T extends BaseUnit = BaseUnit> {
   /** The first unit in the melee attack. */
   unit1: T;
   /** The second unit in the melee attack. */
@@ -390,7 +390,7 @@ export interface IServerGame {
   readonly givesRewards: boolean;
 
   /** Map of all units in the game, keyed by entity ID */
-  units: Map<EntityId, IUnit>;
+  units: Map<EntityId, BaseUnit>;
   /** Current turn number */
   turnNumber: number;
   /** Whether the game has started */
@@ -414,7 +414,7 @@ export interface IServerGame {
   /** Previous game state, used for state comparisons */
   previousState: GameState | null;
   /** Set of units that are currently attacking */
-  attackingUnits: Set<IUnit>;
+  attackingUnits: Set<BaseUnit>;
   /** Set of pending melee attack data */
   pendingMeleeAttacks: Set<PendingMeleeAttackData>;
   /** Victory points service for tracking VP */
@@ -458,7 +458,7 @@ export interface IServerGame {
    * @param unitDtos - Optional array of unit data transfer objects
    * @returns Array of created ServerUnit instances
    */
-  createUnits(unitDtos?: UnitDtoPartialId[]): IUnit[];
+  createUnits(unitDtos?: UnitDtoPartialId[]): BaseUnit[];
   /**
    * Creates objectives from objective DTOs
    * @param objectiveDtos - Array of objective data transfer objects
@@ -560,7 +560,7 @@ export interface IServerGame {
    * Adds one or more units to the game
    * @param units - Units to add
    */
-  addUnit(...units: IUnit[]): void;
+  addUnit(...units: BaseUnit[]): void;
   /**
    * Adds one or more objectives to the game
    * @param objectives - Objectives to add
@@ -575,7 +575,7 @@ export interface IServerGame {
    * Gets all units in the game
    * @returns Array of all units
    */
-  getUnits(): IUnit[];
+  getUnits(): BaseUnit[];
   /**
    * Gets the set of unit types owned by a player
    * @param playerNumber - The player number
@@ -622,7 +622,7 @@ export interface IServerGame {
    * Removes a unit from the game
    * @param unit - The unit to remove
    */
-  removeUnit(unit: IUnit): void;
+  removeUnit(unit: BaseUnit): void;
   /**
    * Removes all units from the game
    */
@@ -632,20 +632,20 @@ export interface IServerGame {
    * @param id - The entity ID
    * @returns The unit, or undefined if not found
    */
-  getUnit(id: number): IUnit | undefined;
+  getUnit(id: number): BaseUnit | undefined;
   /**
    * Gets a unit by its name
    * @param name - The unit name
    * @returns The unit, or undefined if not found
    */
-  getUnitByName(name: string): IUnit | undefined;
+  getUnitByName(name: string): BaseUnit | undefined;
   /**
    * Gets the closest unit to a position from a list of units
    * @param position - The position to measure from
    * @param units - The units to search through
    * @returns The closest unit, or null if no units provided
    */
-  getClosestUnitOf(position: Vector2, units: IUnit[]): IUnit | null;
+  getClosestUnitOf(position: Vector2, units: BaseUnit[]): BaseUnit | null;
 
   /**
    * Calculates the trajectory for a shot from a unit to a target position
@@ -656,7 +656,7 @@ export interface IServerGame {
    * @returns The shot trajectory data
    */
   getShotTrajectory(
-    unit: IUnit,
+    unit: BaseUnit,
     targetPosition: Vector2,
     ignoreEffects?: boolean,
     forAutofire?: boolean
@@ -670,7 +670,7 @@ export interface IServerGame {
    */
   shoot(
     gameDataManager: GameDataManager,
-    unit: IUnit,
+    unit: BaseUnit,
     targetPosition: Vector2
   ): ShootResult | null;
   /**
@@ -682,8 +682,8 @@ export interface IServerGame {
    * @returns The damage hit result
    */
   calculateRangedDamage(
-    shooter: IUnit,
-    target: IUnit,
+    shooter: BaseUnit,
+    target: BaseUnit,
     damageType: string,
     stepStrength: number
   ): DamageHit;
@@ -696,8 +696,8 @@ export interface IServerGame {
    * @returns The damage hit result, or null if attack is invalid
    */
   calculateMeleeDamage(
-    attacker: IUnit,
-    defender: IUnit,
+    attacker: BaseUnit,
+    defender: BaseUnit,
     side: Direction,
     isCharging: boolean
   ): DamageHit | null;
@@ -750,14 +750,14 @@ export interface IServerGame {
    * @param player - The player number
    * @returns Array of units owned by the player
    */
-  getUnitsOfPlayer(player: number): IUnit[];
+  getUnitsOfPlayer(player: number): BaseUnit[];
 
   /**
    * Gets the terrain type at a unit's position
    * @param unit - The unit to check
    * @returns The terrain type
    */
-  getUnitTerrain(unit: IUnit): TerrainType;
+  getUnitTerrain(unit: BaseUnit): TerrainType;
   /**
    * Checks if a point is outside the map boundaries
    * @param point - The point to check
@@ -870,7 +870,7 @@ export interface IServerGame {
    * @param playerNumber - The player number to check visibility for
    * @returns Array of visible enemy units
    */
-  getVisibleEnemyUnits(playerNumber: number): IUnit[];
+  getVisibleEnemyUnits(playerNumber: number): BaseUnit[];
   /**
    * Gets nearby units visible to a specific player based on fog of war
    * @param playerNumber - The player number to check visibility for
@@ -882,7 +882,7 @@ export interface IServerGame {
     playerNumber: number,
     position: Vector2,
     range: number
-  ): IUnit[];
+  ): BaseUnit[];
   /**
    * Gets the closest unit from a list, but only if it's visible to the player
    * @param playerNumber - The player number to check visibility for
@@ -893,15 +893,15 @@ export interface IServerGame {
   getVisibleClosestUnitOf(
     playerNumber: number,
     position: Vector2,
-    units: IUnit[]
-  ): IUnit | null;
+    units: BaseUnit[]
+  ): BaseUnit | null;
 
   /**
    * Gets an entity (unit or objective) by its entity ID
    * @param entityId - The entity ID
    * @returns The entity (unit or objective), or undefined if not found
    */
-  getEntity(entityId: EntityId): IUnit | IObjective | undefined;
+  getEntity(entityId: EntityId): BaseUnit | IObjective | undefined;
   /**
    * Gets the army composition for a player
    * @param playerNumber - The player number
@@ -914,13 +914,13 @@ export interface IServerGame {
    * @param unit - The unit that took damage
    * @param collidedWithEnemy - Whether the unit collided with an enemy
    */
-  applyUnitDamageTaken(unit: IUnit, collidedWithEnemy: boolean): void;
+  applyUnitDamageTaken(unit: BaseUnit, collidedWithEnemy: boolean): void;
   /**
    * Records damage taken by a unit for a player
    * @param unit - The unit that took damage
    * @param damage - The amount of damage taken
    */
-  recordUnitDamageForPlayer(unit: IUnit, damage: number): void;
+  recordUnitDamageForPlayer(unit: BaseUnit, damage: number): void;
   /**
    * Gets the total damage taken by a player's units
    * @param playerNumber - The player number
@@ -943,7 +943,7 @@ export interface IServerGame {
    * @param unit - The unit to check
    * @returns True if the unit can shoot
    */
-  canUnitShoot(unit: IUnit): boolean;
+  canUnitShoot(unit: BaseUnit): boolean;
 
   /**
    * Offers a draw from a player
@@ -1007,9 +1007,9 @@ export interface IServerGame {
    * @param position - The position to search from.
    * @param height - The height/distance to search within.
    * @returns Array of nearby units.
-   * @template T - The type of unit to return, must extend IUnit.
+   * @template T - The type of unit to return, must extend BaseUnit.
    */
-  getNearbyUnits<T extends IUnit = IUnit>(
+  getNearbyUnits<T extends BaseUnit = BaseUnit>(
     position: Point2,
     height: number
   ): T[];

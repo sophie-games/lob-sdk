@@ -1,5 +1,6 @@
-import { DEG_TO_RAD, TWO_PI } from "@lob-sdk/constants";
-import { Zone } from "@lob-sdk/types";
+import { DEG_TO_RAD, NO_COLLISION_LEVEL, TWO_PI } from "@lob-sdk/constants";
+import { GameDataManager } from "@lob-sdk/game-data-manager";
+import { Direction, Zone } from "@lob-sdk/types";
 import { Point2, Vector2 } from "@lob-sdk/vector";
 
 /**
@@ -287,4 +288,127 @@ export function probabilisticRound(number: number): number {
   const random = Math.random();
 
   return random < chance ? upper : lower;
+}
+
+/**
+ * Checks if a collision occurs between two collision levels.
+ * Returns true if both collisionLevel1 and collisionLevel2 are non-zero
+ * and collisionLevel1 is greater than or equal to collisionLevel2.
+ */
+export const checkCollision = (
+  collisionLevel1: number,
+  collisionLevel2: number
+) => {
+  return (
+    collisionLevel1 !== NO_COLLISION_LEVEL &&
+    collisionLevel2 !== NO_COLLISION_LEVEL &&
+    collisionLevel1 >= collisionLevel2
+  );
+};
+
+/**
+ * Determines the relative direction from a unit's position to a target point,
+ * taking into account the unit's rotation and front/back arc configuration.
+ *
+ * @param from - The unit's current position (Point2 with x, y coordinates).
+ * @param to - The target point to determine direction to (Point2 with x, y coordinates).
+ * @param rotation - The unit's current rotation angle in radians (0 = facing right/east, π/2 = facing up/north).
+ * @param frontBackArc - The angular width in radians for both the front and back arcs.
+ *                       The remaining space is divided between left and right sides.
+ * @returns The direction enum value: `Direction.Front`, `Direction.Back`, `Direction.Left`, or `Direction.Right`.
+ */
+export const getDirectionToPoint = (
+  from: Point2,
+  to: Point2,
+  rotation: number,
+  frontBackArc: number
+) => {
+  const translatedPoint: Point2 = {
+    x: to.x - from.x,
+    y: to.y - from.y,
+  };
+
+  const angle = normalizeAngle(
+    Math.atan2(translatedPoint.y, translatedPoint.x) - rotation
+  );
+
+  // Calculate arc boundaries
+  const frontStart = (TWO_PI - frontBackArc / 2) % TWO_PI;
+  const frontEnd = (frontBackArc / 2) % TWO_PI;
+  const backStart = (Math.PI - frontBackArc / 2 + TWO_PI) % TWO_PI;
+  const backEnd = (Math.PI + frontBackArc / 2) % TWO_PI;
+
+  // Helper to check if angle is within an arc
+  function inArc(a: number, start: number, end: number) {
+    if (start < end) return a >= start && a <= end;
+    return a >= start || a <= end;
+  }
+
+  if (inArc(angle, frontStart, frontEnd)) {
+    return Direction.Front;
+  } else if (inArc(angle, backStart, backEnd)) {
+    return Direction.Back;
+  } else if (angle > frontEnd && angle < backStart) {
+    return Direction.Right;
+  } else {
+    return Direction.Left;
+  }
+};
+
+export function getMaxOrgProportionDebuff(
+  gameDataManager: GameDataManager,
+  hpProportion: number,
+  staminaProportion: number
+): number {
+  const { organization } = gameDataManager.getGameRules();
+  if (!organization) {
+    throw new Error(
+      `organization rule is required in game rules for era ${gameDataManager.era}`
+    );
+  }
+  const MAX_ORG_DEBUFF_MIN_HP_PROPORTION =
+    organization.maxOrgDebuffMinHpProportion;
+  const MAX_ORG_DEBUFF_HP = organization.maxOrgDebuffHp;
+  const MAX_ORG_DEBUFF_STAMINA_HIGH_PROPORTION =
+    organization.maxOrgDebuffStaminaHighProportion;
+  const MAX_ORG_DEBUFF_STAMINA_LOW_PROPORTION =
+    organization.maxOrgDebuffStaminaLowProportion;
+  const MAX_ORG_DEBUFF_STAMINA = organization.maxOrgDebuffStamina;
+
+  // Calculate HP debuff
+  let hpDebuff = 0;
+  if (hpProportion > MAX_ORG_DEBUFF_MIN_HP_PROPORTION) {
+    // Scale linearly from 0 to MAX_ORG_DEBUFF_HP
+    hpDebuff =
+      ((1 - hpProportion) * MAX_ORG_DEBUFF_HP) /
+      (1 - MAX_ORG_DEBUFF_MIN_HP_PROPORTION);
+  } else {
+    // Clamp to MAX_ORG_DEBUFF_HP for hpProportion <= MIN_HP
+    hpDebuff = MAX_ORG_DEBUFF_HP;
+  }
+
+  // Calculate stamina debuff
+  let staminaDebuff = 0;
+  if (staminaProportion < MAX_ORG_DEBUFF_STAMINA_HIGH_PROPORTION) {
+    // Linearly scale stamina debuff from 0 at high stamina to MAX_ORG_DEBUFF_STAMINA at low stamina
+    const clampedStamina = Math.max(
+      staminaProportion,
+      MAX_ORG_DEBUFF_STAMINA_LOW_PROPORTION
+    );
+    staminaDebuff =
+      ((MAX_ORG_DEBUFF_STAMINA_HIGH_PROPORTION - clampedStamina) /
+        (MAX_ORG_DEBUFF_STAMINA_HIGH_PROPORTION -
+          MAX_ORG_DEBUFF_STAMINA_LOW_PROPORTION)) *
+      MAX_ORG_DEBUFF_STAMINA;
+  }
+
+  // Combine debuffs
+  return hpDebuff + staminaDebuff;
+}
+
+/**
+ * Helper function to normalize an angle to be between 0 and 2π
+ */
+export function normalizeAngle(angle: number): number {
+  return ((angle % TWO_PI) + TWO_PI) % TWO_PI;
 }

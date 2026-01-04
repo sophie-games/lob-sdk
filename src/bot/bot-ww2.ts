@@ -1,7 +1,6 @@
 import {
   AnyOrder,
   IServerGame,
-  IUnit,
   OrderPathPoint,
   OrderType,
   UnitCategoryId,
@@ -14,6 +13,7 @@ import { BotConfig, BotUnitCategory, IBot, OnBotPlayScript } from "./types";
 import { AStar } from "@lob-sdk/a-star";
 import { getSquaredDistance } from "@lob-sdk/utils";
 import { douglasPeucker } from "@lob-sdk/douglas-peucker";
+import { BaseUnit } from "@lob-sdk/unit";
 
 /**
  * A bot implementation for WW2 era gameplay.
@@ -200,7 +200,7 @@ export class BotWW2 implements IBot {
   }
 
   private processUnit(
-    unit: IUnit,
+    unit: BaseUnit,
     groupType: BotUnitCategory,
     strategy: any,
     targetPosition: Vector2,
@@ -232,8 +232,8 @@ export class BotWW2 implements IBot {
   }
 
   private processUnitByStrategy(
-    unit: IUnit,
-    closestEnemy: IUnit | null,
+    unit: BaseUnit,
+    closestEnemy: BaseUnit | null,
     strategy: any,
     targetPosition: Vector2,
     orders: AnyOrder[]
@@ -366,7 +366,7 @@ export class BotWW2 implements IBot {
     return this._botConfig.strategies[groupType];
   }
 
-  private formGroups(units: IUnit[]) {
+  private formGroups(units: BaseUnit[]) {
     const { TILE_SIZE } = this.gameDataManager.getGameConstants();
 
     const groups: UnitGroup[] = [];
@@ -421,7 +421,7 @@ export class BotWW2 implements IBot {
   }
 
   private getMovementPath(
-    unit: IUnit,
+    unit: BaseUnit,
     { x: endX, y: endY }: Point2
   ): OrderPathPoint[] {
     const { TILE_SIZE } = this.gameDataManager.getGameConstants();
@@ -455,7 +455,7 @@ export class BotWW2 implements IBot {
       // Use unit's actual height for nearby units search
       const unitHeight = formationDimensions.height;
       const alliedUnits = this.game
-        .getNearbyUnits<IUnit>(positionToCheck, unitHeight)
+        .getNearbyUnits<BaseUnit>(positionToCheck, unitHeight)
         .filter(
           (u) =>
             u.team === unit.team &&

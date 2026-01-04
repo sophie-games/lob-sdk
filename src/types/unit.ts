@@ -270,37 +270,6 @@ export interface RangeUnitTemplate extends BaseUnitTemplate {
 export type UnitTemplate = Readonly<BaseUnitTemplate | RangeUnitTemplate>;
 export type UnitTemplates = Record<UnitType, UnitTemplate>;
 
-export interface IUnit {
-  id: EntityId;
-  type: UnitType;
-  category: UnitCategoryId;
-  player: number;
-  team: number;
-  org: number;
-  template: UnitTemplate;
-  position: Vector2;
-  currentFormation: string;
-  pendingFormationId: string | null;
-  /**
-   * Remaining ticks for formation change. Formation changes cannot last more
-   * than 1 turn.
-   */
-  formationChangeTicksRemaining: number;
-
-  supply: number | null;
-
-  totalAllyOverlap: number;
-
-  getMaxRange: () => number;
-  isRouting: () => boolean;
-  isRoutingOrRecovering: () => boolean;
-  isMoving: () => boolean;
-  /**
-   * Is the unit in melee combat?
-   */
-  inMelee: () => boolean;
-}
-
 /**
  * Points used to check what terrain the unit is on.
  * Each point has an offset relative to the formation center and a weight
