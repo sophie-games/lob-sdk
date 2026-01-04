@@ -1,9 +1,6 @@
 import { UnitEffectDto } from "@lob-sdk/types";
 import { UnitEffectDisplayStat } from "./types";
-import {
-  GameDataManager,
-  RangedDamageTypeTemplate,
-} from "@lob-sdk/game-data-manager";
+import { RangedDamageTypeTemplate } from "@lob-sdk/game-data-manager";
 import { BaseUnit } from "@lob-sdk/unit/base-unit";
 
 /**

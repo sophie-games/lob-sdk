@@ -10,15 +10,6 @@ import { EntityId } from "@lob-sdk/types";
  */
 export type UnitEffectDto = Array<number>;
 
-export enum UnitEffectId {
-  Rotated180 = 1,
-  BeenInMelee = 2,
-  HasRan = 3,
-  StartedRouting = 4,
-  TakenFire = 5,
-  HasFired = 6,
-}
-
 export interface UnitDto {
   id: EntityId;
   name?: string;
@@ -402,6 +393,15 @@ export interface FormationTemplate {
    * Higher values mean projectiles pass through with less damage reduction.
    */
   projectilePassThrough?: number;
+
+  /**
+   * Effects applied when a unit switches to this formation.
+   */
+  effects?: Array<{
+    name: string;
+    duration: number;
+    args?: number[];
+  }>;
 }
 
 export type UnitCounts = Record<UnitType, number>;

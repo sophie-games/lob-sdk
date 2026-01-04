@@ -1,19 +1,6 @@
 import { BaseUnitEffect } from "./base-unit-effect";
 import { UnitEffectDto } from "@lob-sdk/types";
-
-/**
- * Type for unit effect constructors that must accept duration as first parameter
- * and may accept additional parameters of any type.
- *
- * Note: We use `args[]` for rest parameters because different effect classes
- * have different constructor signatures that cannot be known at compile time.
- * The first parameter (duration) is still type-safe, and the registry ensures
- * correct instantiation at runtime.
- */
-type UnitEffectConstructor = new (
-  duration: number,
-  ...args: number[]
-) => BaseUnitEffect;
+import { UnitEffectConstructor } from "./types";
 
 /**
  * Registry that maps effect IDs to their string names and vice versa.
@@ -145,5 +132,28 @@ export class UnitEffectRegistry {
     }
 
     return Reflect.construct(effectClass, args);
+  }
+
+  /**
+   * Creates a unit effect instance from a name, duration, and optional args.
+   * @param name - The effect name (e.g., "has_ran")
+   * @param duration - The effect duration in ticks
+   * @param args - Optional additional arguments for the effect
+   * @returns A new instance of the effect
+   * @throws Error if the effect name is not registered
+   */
+  static createFromName(
+    name: string,
+    duration: number,
+    args: number[] = []
+  ): BaseUnitEffect {
+    const effectId = this.nameToIdOrThrow(name);
+    const effectClass = this.getEffectClass(effectId);
+
+    if (!effectClass) {
+      throw new Error(`Unknown unit effect: ${effectId}`);
+    }
+
+    return new effectClass(duration, ...args);
   }
 }
