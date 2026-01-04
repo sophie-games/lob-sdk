@@ -252,7 +252,8 @@ export interface GameConstants {
    * ===== Victory points =====
    * ================================
    */
-  VP_TOTAL_OBJECTIVE_POINTS: number;
+  VP_TOTAL_SMALL_OBJECTIVE_POINTS: number;
+  VP_TOTAL_BIG_OBJECTIVE_POINTS: number;
   VP_BASE_POINTS: number;
   VP_POINTS_TO_TIE_BREAK: number;
 

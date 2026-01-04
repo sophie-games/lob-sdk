@@ -15,8 +15,12 @@ export interface IObjective {
   logistics?: number;
   manpowerPerTurn?: number;
   goldPerTurn?: number;
-  manpower?: number; // Accumulated manpower resources
-  gold?: number; // Accumulated gold resources
+  /** Accumulated manpower resources */
+  manpower?: number;
+  /** Accumulated gold resources */
+  gold?: number;
+  /** Victory points */
+  victoryPoints?: number;
 }
 
 export interface ObjectiveDtoBase {
@@ -27,10 +31,16 @@ export interface ObjectiveDtoBase {
   captureProgress?: number;
   type?: ObjectiveType;
   lo?: number;
-  mp?: number; // manpowerPerTurn
-  gp?: number; // goldPerTurn
-  m?: number; // manpower (accumulated)
-  g?: number; // gold (accumulated)
+  /** Manpower generated per turn */
+  mp?: number;
+  /** Gold generated per turn */
+  gp?: number;
+  /** Accumulated manpower resources */
+  m?: number;
+  /** Accumulated gold resources */
+  g?: number;
+  /** Victory points */
+  vp?: number;
 }
 
 export type ObjectiveDto<T extends boolean = true> = T extends true

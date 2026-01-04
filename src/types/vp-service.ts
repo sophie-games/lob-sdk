@@ -2,7 +2,8 @@ export interface IVpService {
   getTeamVictoryPoints(team: number): number;
   getTeamVictoryStats(
     team: number,
-    objectiveProportion: number
+    smallObjectiveProportion: number,
+    bigObjectiveProportion: number
   ): GetVictoryPointsTeam;
   getAllTeamsVictoryStats(): GetVictoryPointsTeam[];
   getVictoryPointDifference(team: number): number;
@@ -23,6 +24,7 @@ export interface ArmyPowerStats {
 export interface GetVictoryPointsTeam {
   initialArmyPower: number;
   currentArmyPower: number;
-  objectiveProportion: number;
+  smallObjectiveProportion: number;
+  bigObjectiveProportion: number;
   ticksUnderPressure: number | null;
 }
