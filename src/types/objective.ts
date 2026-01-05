@@ -20,8 +20,6 @@ export interface IObjective {
   manpower?: number;
   /** Accumulated gold resources */
   gold?: number;
-  /** Victory points (raw value, may be 0 or undefined to use defaults) */
-  victoryPoints: number;
   /**
    * Gets the effective victory points for this objective.
    * If victoryPoints is 0 or undefined, returns the default value based on objective type.
