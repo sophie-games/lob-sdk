@@ -169,6 +169,7 @@
         {
           "type": "spawnNeutralObjectives",
           "value": {
+            "orientation": "parallel",
             "spacing": 0.75,
             "amount": {
               "clash": 2,
