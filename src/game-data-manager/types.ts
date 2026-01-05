@@ -252,12 +252,16 @@ export interface GameConstants {
    * ===== Victory points =====
    * ================================
    */
-  VP_TOTAL_SMALL_OBJECTIVE_POINTS: number;
-  VP_TOTAL_BIG_OBJECTIVE_POINTS: number;
+
+  /** Base victory points per team */
   VP_BASE_POINTS: number;
+  /** Max loss ratio victory points per team */
   VP_LOSS_RATIO_POINTS: number;
+  /** Points to tie break when reaching the max turn limit */
   VP_POINTS_TO_TIE_BREAK: number;
+  /** Default victory points per big objective */
   VP_BIG_DEFAULT_POINTS: number;
+  /** Default victory points per small objective */
   VP_SMALL_DEFAULT_POINTS: number;
 
   PRESET_SCENARIO_ELO_K_FACTOR: number;
