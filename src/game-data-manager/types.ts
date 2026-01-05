@@ -253,15 +253,47 @@ export interface GameConstants {
    * ================================
    */
 
-  /** Base victory points per team */
+  /**
+   * Starting victory points for each team at the beginning of the game.
+   * Both teams start with this base amount, and then additional points are added or subtracted
+   * based on objectives captured, loss ratios, and other factors.
+   */
   VP_BASE_POINTS: number;
-  /** Max loss ratio victory points per team */
+
+  /**
+   * Maximum victory points that can be awarded based on loss ratio comparison.
+   * The proportion of casualties (power lost) between teams is compared.
+   * The team with fewer casualties receives positive points, while the team with more casualties receives negative points.
+   * Points are distributed proportionally based on the difference in loss ratios, up to this maximum value.
+   *
+   * Example: If this is 10, and Team 1 lost 20% while Team 2 lost 40%, the difference is 20% (0.2),
+   * so Team 1 gets +2 points and Team 2 gets -2 points. The maximum of 10 would only be reached if
+   * one team lost 0% and the other lost 100% (difference of 1.0).
+   */
   VP_LOSS_RATIO_POINTS: number;
-  /** Points to tie break when reaching the max turn limit */
+
+  /**
+   * Margin of victory points used to determine the winner when the max turn limit is reached.
+   * A team is defeated if their VP difference (their points minus opponent's points) plus this value <= 0.
+   * A team can be behind by up to this many points and still avoid defeat; otherwise they lose and the game ends.
+   *
+   * Example: If this is 10, Team 1 with 45 points vs Team 2 with 50 points: -5 + 10 = 5 > 0, so it's a tie.
+   * But if Team 1 had 40 points: -10 + 10 = 0 <= 0, so Team 1 is defeated.
+   */
   VP_POINTS_TO_TIE_BREAK: number;
-  /** Default victory points per big objective */
+
+  /**
+   * Default victory points awarded for capturing a big objective.
+   * Used when an objective doesn't have custom victory points explicitly set.
+   * Big objectives are typically more strategically important than small objectives.
+   */
   VP_BIG_DEFAULT_POINTS: number;
-  /** Default victory points per small objective */
+
+  /**
+   * Default victory points awarded for capturing a small objective.
+   * Used when an objective doesn't have custom victory points explicitly set.
+   * Small objectives typically award fewer points than big objectives.
+   */
   VP_SMALL_DEFAULT_POINTS: number;
 
   PRESET_SCENARIO_ELO_K_FACTOR: number;
