@@ -1,32 +1,9 @@
-import { Point2, Vector2 } from "@lob-sdk/vector";
+import { Point2 } from "@lob-sdk/vector";
 import { EntityId } from "@lob-sdk/types";
-import { GameDataManager } from "@lob-sdk/game-data-manager";
 
 export enum ObjectiveType {
   Small = 1,
   Big = 2,
-}
-
-export interface IObjective {
-  id: EntityId;
-  position: Vector2;
-  player: number;
-  team: number;
-  type: ObjectiveType;
-  logistics?: number;
-  manpowerPerTurn?: number;
-  goldPerTurn?: number;
-  /** Accumulated manpower resources */
-  manpower?: number;
-  /** Accumulated gold resources */
-  gold?: number;
-  /**
-   * Gets the effective victory points for this objective.
-   * If victoryPoints undefined, returns the default value based on objective type.
-   * @param gameDataManager - The game data manager to access game constants
-   * @returns The effective victory points value
-   */
-  getVictoryPoints(gameDataManager: GameDataManager): number;
 }
 
 export interface ObjectiveDtoBase {
