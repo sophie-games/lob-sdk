@@ -1,11 +1,6 @@
 export interface IVpService {
   getTeamVictoryPoints(team: number): number;
-  getTeamVictoryStats(
-    team: number,
-    smallObjectiveProportion: number,
-    bigObjectiveProportion: number
-  ): GetVictoryPointsTeam;
-  getAllTeamsVictoryStats(): GetVictoryPointsTeam[];
+  getTeamsVictoryStats(): GetVictoryPointsTeam[];
   getVictoryPointDifference(team: number): number;
   getPlayerTicksUnderPressure(playerNumber: number): number;
   clearTurnCache(): void;
@@ -13,7 +8,6 @@ export interface IVpService {
   getPlayerBaseArmyPower(playerNumber: number): number;
   getPlayerArmyPower(playerNumber: number): number;
   getTeamArmyPower(team: number): number;
-  getObjectivesProportion(team: number): number;
 }
 
 export interface ArmyPowerStats {
@@ -22,9 +16,9 @@ export interface ArmyPowerStats {
 }
 
 export interface GetVictoryPointsTeam {
+  team: number;
   initialArmyPower: number;
   currentArmyPower: number;
-  smallObjectiveProportion: number;
-  bigObjectiveProportion: number;
   ticksUnderPressure: number | null;
+  objectiveVps: number;
 }

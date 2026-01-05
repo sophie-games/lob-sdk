@@ -255,7 +255,10 @@ export interface GameConstants {
   VP_TOTAL_SMALL_OBJECTIVE_POINTS: number;
   VP_TOTAL_BIG_OBJECTIVE_POINTS: number;
   VP_BASE_POINTS: number;
+  VP_LOSS_RATIO_POINTS: number;
   VP_POINTS_TO_TIE_BREAK: number;
+  VP_BIG_DEFAULT_POINTS: number;
+  VP_SMALL_DEFAULT_POINTS: number;
 
   PRESET_SCENARIO_ELO_K_FACTOR: number;
   /** Multiplier for ELO K factor in cancelled ranked games (e.g., 0.5 = 50% of normal K factor) */
