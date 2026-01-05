@@ -1,0 +1,66 @@
+import { PlayerSetup } from "@lob-sdk/types";
+import { GetVictoryPointsTeam } from "./types";
+
+export abstract class BaseVpService {
+  cachedAverageVps: number | null = null;
+  cachedVictoryPoints: number[] | null = null;
+  cachedBaseArmyPower: Record<number, number> | null = null;
+  cachedArmiesPower: Record<number, number> | null = null;
+
+  abstract getTeamVictoryPoints(team: number): number;
+  abstract getTeamsVictoryStats(): GetVictoryPointsTeam[];
+  abstract getVictoryPointDifference(team: number): number;
+  abstract getPlayerTicksUnderPressure(playerNumber: number): number;
+  abstract getPlayerBaseArmyPower(playerNumber: number): number;
+
+  clearTurnCache() {
+    this.cachedArmiesPower = null;
+    this.cachedVictoryPoints = null;
+    this.cachedBaseArmyPower = null;
+    this.cachedAverageVps = null;
+  }
+
+  /**
+   * Gets the average victory points across all teams.
+   * Caches the result to avoid recalculating multiple times per turn.
+   */
+  getAverageVictoryPoints(playerSetups: PlayerSetup[]): number {
+    if (this.cachedAverageVps !== null) {
+      return this.cachedAverageVps;
+    }
+
+    // Get all unique teams from playerSetups
+    const allTeams = new Set<number>();
+    for (const setup of playerSetups) {
+      allTeams.add(setup.team);
+    }
+
+    // Calculate average VP of all teams
+    let totalVps = 0;
+    let teamCount = 0;
+    for (const team of allTeams) {
+      totalVps += this.getTeamVictoryPoints(team);
+      teamCount++;
+    }
+
+    this.cachedAverageVps = teamCount > 0 ? totalVps / teamCount : 0;
+    return this.cachedAverageVps;
+  }
+
+  /**
+   * Calculates the proportional victory points difference for a team compared to the average of all teams.
+   * Returns a positive value if the team has more VPs than average, negative if less.
+   * Uses cached average VPs to avoid recalculating multiple times per turn.
+   */
+  getVictoryPointsDifferenceFromAverage(
+    playerSetups: PlayerSetup[],
+    team: number
+  ): number {
+    const teamVps = this.getTeamVictoryPoints(team);
+    const avgVps = this.getAverageVictoryPoints(playerSetups);
+
+    // Proportional difference: (teamVps - avgVps) / avgVps
+    // If avgVps is 0, use absolute difference to avoid division by zero
+    return avgVps > 0 ? (teamVps - avgVps) / avgVps : teamVps - avgVps;
+  }
+}

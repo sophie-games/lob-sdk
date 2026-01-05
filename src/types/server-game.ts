@@ -18,7 +18,6 @@ import {
   TerrainType,
   FogOfWarResult,
   IServerFogOfWarService,
-  IVpService,
   IOrderManager,
   IOrganizationSystem,
   IAttackSystem,
@@ -30,6 +29,7 @@ import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { GameEra } from "@lob-sdk/game-data-manager";
 import { Point2, Vector2 } from "@lob-sdk/vector";
 import { BaseUnit } from "@lob-sdk/unit";
+import { BaseVpService } from "@lob-sdk/vp-service";
 
 /**
  * A unique identifier for game entities (units, objectives, etc.).
@@ -420,7 +420,7 @@ export interface IServerGame {
   /** Set of pending melee attack data */
   pendingMeleeAttacks: Set<PendingMeleeAttackData>;
   /** Victory points service for tracking VP */
-  vpService: IVpService;
+  vpService: BaseVpService;
   /** Manager for handling unit orders */
   orderManager: IOrderManager;
   /** System for managing unit organization */
