@@ -22,7 +22,7 @@ export interface IObjective {
   gold?: number;
   /**
    * Gets the effective victory points for this objective.
-   * If victoryPoints is 0 or undefined, returns the default value based on objective type.
+   * If victoryPoints undefined, returns the default value based on objective type.
    * @param gameDataManager - The game data manager to access game constants
    * @returns The effective victory points value
    */
