@@ -100,8 +100,6 @@ export interface BattleTypeTemplate {
   ticksToCaptureSmall: number;
   /** Number of ticks required to capture big objectives. */
   ticksToCaptureBig: number;
-  /** Victory points per small objective. */
-  smallVps: number;
   /** Victory points per big objective. */
   bigVps: number;
   /** Default army composition for this battle type. */
