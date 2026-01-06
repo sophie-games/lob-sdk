@@ -65,16 +65,7 @@ export enum GameEndReason {
 /**
  * Dynamic battle type configuration.
  */
-export enum DynamicBattleType {
-  /** Smallest battle type. */
-  Clash = "clash",
-  /** Standard battle type. */
-  Combat = "combat",
-  /** Large battle type. */
-  Battle = "battle",
-  /** Largest battle type. */
-  GrandBattle = "grand_battle",
-}
+export type DynamicBattleType = string;
 
 /**
  * Template configuration for a battle type, defining resources, unit limits, and game rules.
