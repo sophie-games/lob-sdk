@@ -27,6 +27,27 @@ describe("GameDataManager", () => {
         });
       });
     });
+
+    describe("DEFAULT_BATTLE_TYPE exists for all eras", () => {
+      const eras = GameDataManager.getAvailableEras();
+
+      eras.forEach((era) => {
+        it(`DEFAULT_BATTLE_TYPE exists in getBattleType for ${era} era`, () => {
+          const eraGameDataManager = GameDataManager.get(era);
+          const gameConstants = eraGameDataManager.getGameConstants();
+          const defaultBattleType = gameConstants.DEFAULT_BATTLE_TYPE;
+
+          // Verify that getBattleType doesn't throw an error
+          expect(() => {
+            eraGameDataManager.getBattleType(defaultBattleType);
+          }).not.toThrow();
+
+          // Verify that the battle type is actually returned
+          const battleType = eraGameDataManager.getBattleType(defaultBattleType);
+          expect(battleType).toBeDefined();
+        });
+      });
+    });
   });
 
   describe("Damage Type Methods", () => {

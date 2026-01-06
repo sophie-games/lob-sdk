@@ -1084,7 +1084,7 @@ export class GameDataManager {
   }
 
   getAllDynamicBattleTypes = (): DynamicBattleType[] => {
-    return Object.keys(this.battleTypes) as DynamicBattleType[];
+    return Object.keys(this.battleTypes);
   };
 
   getBot() {}

@@ -32,28 +32,32 @@ export const getDeploymentZoneBySize = (
 
 export const getBattleSizeByMode = (
   dynamicBattleType: DynamicBattleType,
-  players: number
+  players: number,
+  era: GameEra
 ): Size => {
+  const gameDataManager = GameDataManager.get(era);
+  const { DEFAULT_BATTLE_TYPE } = gameDataManager.getGameConstants();
+  
   switch (dynamicBattleType) {
-    case DynamicBattleType.Clash: {
+    case "clash": {
       if (players > 2) return Size.Medium;
 
       return Size.Small;
     }
 
-    case DynamicBattleType.Combat: {
+    case DEFAULT_BATTLE_TYPE: {
       if (players > 2) return Size.Large;
 
       return Size.Medium;
     }
 
-    case DynamicBattleType.Battle: {
+    case "battle": {
       if (players > 2) return Size.ExtraLarge;
 
       return Size.Large;
     }
 
-    case DynamicBattleType.GrandBattle: {
+    case "grand_battle": {
       return Size.ExtraLarge;
     }
 

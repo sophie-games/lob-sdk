@@ -32,7 +32,7 @@ export class RandomMapGenerator {
     tilesX,
     tilesY,
   }: GenerateRandomMapProps): GenerateRandomMapResult {
-    const battleSize = getBattleSizeByMode(dynamicBattleType, maxPlayers);
+    const battleSize = getBattleSizeByMode(dynamicBattleType, maxPlayers, era);
     const mapSizes = GameDataManager.get(era).getMapSizes();
     const { map } = mapSizes[battleSize];
 

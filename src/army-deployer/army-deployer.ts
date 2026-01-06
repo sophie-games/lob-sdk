@@ -79,13 +79,13 @@ export class ArmyDeployer {
     deploymentZone: Zone,
     player: number,
     team: number,
-    dynamicBattleType: DynamicBattleType = DynamicBattleType.Combat
+    dynamicBattleType?: DynamicBattleType
   ) {
     this.units = units;
     this.deploymentZone = deploymentZone;
     this.player = player;
     this.team = team;
-    this.dynamicBattleType = dynamicBattleType;
+    this.dynamicBattleType = dynamicBattleType ?? gameDataManager.getGameConstants().DEFAULT_BATTLE_TYPE;
     this.rotation =
       this.team === 1 ? 270 * (Math.PI / 180) : 90 * (Math.PI / 180);
     this.metrics = this.calculateSectionMetrics();

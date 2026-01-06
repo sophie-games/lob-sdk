@@ -1,4 +1,5 @@
 import {
+  DynamicBattleType,
   ScenarioName,
   SkinTier,
   UnitCategoryId,
@@ -318,6 +319,11 @@ export interface GameConstants {
 
   UNKNOWN_UNIT_TYPE: UnitType;
   DEFAULT_SCENARIO: ScenarioName;
+
+  /**
+   * Default selected battle type.
+   */
+  DEFAULT_BATTLE_TYPE: DynamicBattleType;
 
   /**
    * Routing units will switch to this formation when they start routing.

@@ -24,7 +24,7 @@ import { GameDataManager } from "@lob-sdk/game-data-manager";
  */
 describe("RandomMapGenerator", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
-  const { TILE_SIZE } = gameDataManager.getGameConstants();
+  const { TILE_SIZE, DEFAULT_BATTLE_TYPE } = gameDataManager.getGameConstants();
 
   describe("generate all random scenarios", () => {
     // Get all scenario names dynamically from the GameDataManager
@@ -43,10 +43,10 @@ describe("RandomMapGenerator", () => {
 
     // Test all dynamic battle types
     const dynamicBattleTypes: DynamicBattleType[] = [
-      DynamicBattleType.Clash,
-      DynamicBattleType.Combat,
-      DynamicBattleType.Battle,
-      DynamicBattleType.GrandBattle,
+      "clash",
+      DEFAULT_BATTLE_TYPE,
+      "battle",
+      "grand_battle",
     ];
 
     // Test different player counts
@@ -127,7 +127,7 @@ describe("RandomMapGenerator", () => {
         // Generate the same scenario twice with the same seed
         const result1 = mapGenerator.generate({
           scenario: randomScenario,
-          dynamicBattleType: DynamicBattleType.Combat,
+          dynamicBattleType: DEFAULT_BATTLE_TYPE,
           maxPlayers: 2,
           seed: testSeed,
           tileSize: TILE_SIZE,
@@ -136,7 +136,7 @@ describe("RandomMapGenerator", () => {
 
         const result2 = mapGenerator.generate({
           scenario: randomScenario,
-          dynamicBattleType: DynamicBattleType.Combat,
+          dynamicBattleType: DEFAULT_BATTLE_TYPE,
           maxPlayers: 2,
           seed: testSeed,
           tileSize: TILE_SIZE,
@@ -162,7 +162,7 @@ describe("RandomMapGenerator", () => {
         expect(() => {
           const result = mapGenerator.generate({
             scenario: randomScenario,
-            dynamicBattleType: DynamicBattleType.Combat,
+            dynamicBattleType: DEFAULT_BATTLE_TYPE,
             maxPlayers: 2,
             tileSize: TILE_SIZE,
             era: "napoleonic",
@@ -211,7 +211,7 @@ describe("RandomMapGenerator", () => {
       customSizes.forEach(({ tilesX, tilesY }) => {
         const result = mapGenerator.generate({
           scenario: randomScenario,
-          dynamicBattleType: DynamicBattleType.Combat,
+          dynamicBattleType: DEFAULT_BATTLE_TYPE,
           maxPlayers: 2,
           seed: 12345,
           tileSize: TILE_SIZE,
@@ -282,7 +282,7 @@ describe("RandomMapGenerator", () => {
 
       const result = mapGenerator.generate({
         scenario: testScenario,
-        dynamicBattleType: DynamicBattleType.Combat,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
         maxPlayers: 2,
         seed: 12345,
         tileSize: TILE_SIZE,
@@ -358,7 +358,7 @@ describe("RandomMapGenerator", () => {
 
       const result = mapGenerator.generate({
         scenario: testScenario,
-        dynamicBattleType: DynamicBattleType.Combat,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
         maxPlayers: 2,
         seed: 12345,
         tileSize: TILE_SIZE,
@@ -440,7 +440,7 @@ describe("RandomMapGenerator", () => {
 
       const result = mapGenerator.generate({
         scenario: testScenario,
-        dynamicBattleType: DynamicBattleType.Combat,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
         maxPlayers: 2,
         seed: 12345,
         tileSize: TILE_SIZE,
