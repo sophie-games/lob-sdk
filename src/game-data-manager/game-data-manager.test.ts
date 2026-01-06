@@ -60,20 +60,16 @@ describe("GameDataManager", () => {
 
           battleTypes.forEach((battleType) => {
             const battleTypeConfig = eraGameDataManager.getBattleType(battleType);
-            const mapSize2Players = battleTypeConfig.mapSize[0] as string;
-            const mapSizeMoreThan2Players = battleTypeConfig.mapSize[1] as string;
 
-            // Verify that mapSize for 2 players exists in mapSizes
-            expect(mapSizes).toHaveProperty(mapSize2Players);
-            expect(mapSize2Players in mapSizes).toBe(true);
-            expect(mapSizes[mapSize2Players as keyof typeof mapSizes]).toBeDefined();
-
-            // Verify that mapSize for more than 2 players exists in mapSizes
-            expect(mapSizes).toHaveProperty(mapSizeMoreThan2Players);
-            expect(mapSizeMoreThan2Players in mapSizes).toBe(true);
-            expect(
-              mapSizes[mapSizeMoreThan2Players as keyof typeof mapSizes]
-            ).toBeDefined();
+            // Verify that all mapSize values in the array exist in mapSizes
+            battleTypeConfig.mapSize.forEach((mapSize, index) => {
+              const mapSizeValue = mapSize as string;
+              expect(mapSizes).toHaveProperty(mapSizeValue);
+              expect(mapSizeValue in mapSizes).toBe(true);
+              expect(
+                mapSizes[mapSizeValue as keyof typeof mapSizes]
+              ).toBeDefined();
+            });
           });
         });
       });

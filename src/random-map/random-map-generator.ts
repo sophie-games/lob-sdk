@@ -1,4 +1,4 @@
-import { getDeploymentZoneBySize } from "./map-size";
+import { getDeploymentZoneBySize, getMapSizeIndex } from "./map-size";
 import { Size } from "@lob-sdk/types";
 import {
   ObjectiveDto,
@@ -35,9 +35,8 @@ export class RandomMapGenerator {
   }: GenerateRandomMapProps): GenerateRandomMapResult {
     const gameDataManager = GameDataManager.get(era);
     const battleType = gameDataManager.getBattleType(dynamicBattleType);
-    const battleSize = (maxPlayers > 2
-      ? battleType.mapSize[1]
-      : battleType.mapSize[0]) as Size;
+    const mapSizeIndex = getMapSizeIndex(maxPlayers, battleType.mapSize.length);
+    const battleSize = battleType.mapSize[mapSizeIndex] as Size;
     const mapSizes = gameDataManager.getMapSizes();
     const { map } = mapSizes[battleSize];
 
