@@ -326,8 +326,12 @@ export interface ActionSpawnNeutralObjectives {
     minY?: number;
     /** Maximum Y position as percentage of map height (0-1). */
     maxY?: number;
-    /** Orientation relative to the line between team objectives: "perpendicular" or "parallel". */
-    orientation?: "perpendicular" | "parallel";
+    /** Orientation relative to the line between team objectives:
+     * - "perpendicular": spawn objectives perpendicular to the line between team objectives
+     * - "parallel": spawn objectives parallel to the line between team objectives
+     * - "circle": spawn objectives in a circle around the line between team objectives
+     */
+    orientation?: "perpendicular" | "parallel" | "circle";
   };
 }
 
