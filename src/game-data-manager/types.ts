@@ -296,6 +296,15 @@ export interface GameConstants {
    */
   VP_SMALL_DEFAULT_POINTS: number;
 
+  /**
+   * Base value for calculating victory points penalty from ticks under pressure.
+   * The penalty is calculated as: -(ticksUnderPressure * (VP_TICKS_UNDER_PRESSURE_BASE / TICKS_PER_TURN))
+   * This represents the base VP penalty per tick. When divided by TICKS_PER_TURN, it gives the VP penalty per turn.
+   *
+   * Example: If this is 0.5 and TICKS_PER_TURN is 16, the penalty is 0.5/16 = 0.03125 VP per tick, or 0.5 VP per turn.
+   */
+  VP_TICKS_UNDER_PRESSURE_BASE: number;
+
   PRESET_SCENARIO_ELO_K_FACTOR: number;
   /** Multiplier for ELO K factor in cancelled ranked games (e.g., 0.5 = 50% of normal K factor) */
   CANCELLED_RANKED_GAME_ELO_K_FACTOR_MULTIPLIER: number;

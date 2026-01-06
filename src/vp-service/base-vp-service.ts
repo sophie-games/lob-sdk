@@ -4,8 +4,8 @@ import { GetVictoryPointsTeam } from "./types";
 export abstract class BaseVpService {
   cachedAverageVps: number | null = null;
   cachedVictoryPoints: number[] | null = null;
-  cachedBaseArmyPower: Record<number, number> | null = null;
-  cachedArmiesPower: Record<number, number> | null = null;
+  cachedBaseArmyPower = new Map<number, number>();
+  cachedArmiesPower = new Map<number, number>();
 
   abstract getTeamVictoryPoints(team: number): number;
   abstract getTeamsVictoryStats(): GetVictoryPointsTeam[];
@@ -15,9 +15,9 @@ export abstract class BaseVpService {
   abstract getTeamArmyPower(team: number): number;
 
   clearTurnCache() {
-    this.cachedArmiesPower = null;
+    this.cachedArmiesPower.clear();
     this.cachedVictoryPoints = null;
-    this.cachedBaseArmyPower = null;
+    this.cachedBaseArmyPower.clear();
     this.cachedAverageVps = null;
   }
 

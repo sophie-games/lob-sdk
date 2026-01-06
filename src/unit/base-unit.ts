@@ -166,15 +166,18 @@ export abstract class BaseUnit extends Entity {
     return this.org / this.template.org;
   }
 
+  /**
+   * Returns the power of the unit (float).
+   */
   getPower() {
     const basePower =
       BaseUnit.getBasePower(this.template) * this.getHpProportion();
 
     if (this.isRouting()) {
-      return Math.round(basePower * 0.5);
+      return basePower * 0.5;
     }
 
-    return Math.round(basePower);
+    return basePower;
   }
 
   get meleeDamageType() {
