@@ -833,12 +833,6 @@ export interface IServerGame {
    */
   hasBigObjectives(team: number): boolean;
   /**
-   * Checks if a team should lose for having no big objectives
-   * @param team - The team number
-   * @returns True if the team should lose
-   */
-  shouldTeamLoseForNoBigObjectives(team: number): boolean;
-  /**
    * Gets the closest objective to a position matching a condition
    * @param position - The position to measure from
    * @param condition - Function to filter objectives
