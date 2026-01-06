@@ -1,7 +1,7 @@
 {
   "clash": {
-    "manpower": 2150,
-    "gold": 1000,
+    "manpower": 2250,
+    "gold": 950,
     "ammoReserve": 1200,
     "goldToAmmoRate": 18,
     "skirmisherRatio": [1, 2],
@@ -16,15 +16,13 @@
     "defaultArmy": {
       "1": 6,
       "14": 2,
-      "2": 2,
-      "11": 1,
-      "12": 1,
-      "18": 1
+      "11": 4,
+      "18": 2
     }
   },
   "combat": {
     "manpower": 4500,
-    "gold": 2250,
+    "gold": 2000,
     "ammoReserve": 2250,
     "goldToAmmoRate": 16,
     "skirmisherRatio": [2, 4],
@@ -37,12 +35,11 @@
     "ticksToCaptureSmall": 64,
     "ticksToCaptureBig": 576,
     "defaultArmy": {
-      "1": 11,
-      "14": 5,
-      "2": 5,
-      "11": 2,
-      "12": 2,
-      "18": 3
+      "1": 12,
+      "14": 4,
+      "2": 4
+      "11": 4,
+      "18": 4
     }
   },
   "battle": {
@@ -60,12 +57,11 @@
     "ticksToCaptureSmall": 64,
     "ticksToCaptureBig": 640,
     "defaultArmy": {
-      "1": 22,
-      "14": 10,
-      "2": 10,
-      "11": 4,
-      "12": 4,
-      "18": 6
+      "1": 24,
+      "14": 8,
+      "2": 8,
+      "11": 8,
+      "18": 8
     }
   },
   "grand_battle": {
@@ -83,12 +79,11 @@
     "ticksToCaptureSmall": 64,
     "ticksToCaptureBig": 704,
     "defaultArmy": {
-      "1": 44,
-      "14": 20,
-      "2": 20,
-      "11": 8,
-      "12": 8,
-      "18": 12
+      "1": 56,
+      "14": 16,
+      "2": 16,
+      "11": 16,
+      "18": 16
     }
   }
 }
