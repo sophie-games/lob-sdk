@@ -48,6 +48,36 @@ describe("GameDataManager", () => {
         });
       });
     });
+
+    describe("all mapSizes in battle types exist in mapSizes", () => {
+      const eras = GameDataManager.getAvailableEras();
+
+      eras.forEach((era) => {
+        it(`all mapSizes from battle types exist in mapSizes for ${era} era`, () => {
+          const eraGameDataManager = GameDataManager.get(era);
+          const mapSizes = eraGameDataManager.getMapSizes();
+          const battleTypes = eraGameDataManager.getAllDynamicBattleTypes();
+
+          battleTypes.forEach((battleType) => {
+            const battleTypeConfig = eraGameDataManager.getBattleType(battleType);
+            const mapSize2Players = battleTypeConfig.mapSize[0] as string;
+            const mapSizeMoreThan2Players = battleTypeConfig.mapSize[1] as string;
+
+            // Verify that mapSize for 2 players exists in mapSizes
+            expect(mapSizes).toHaveProperty(mapSize2Players);
+            expect(mapSize2Players in mapSizes).toBe(true);
+            expect(mapSizes[mapSize2Players as keyof typeof mapSizes]).toBeDefined();
+
+            // Verify that mapSize for more than 2 players exists in mapSizes
+            expect(mapSizes).toHaveProperty(mapSizeMoreThan2Players);
+            expect(mapSizeMoreThan2Players in mapSizes).toBe(true);
+            expect(
+              mapSizes[mapSizeMoreThan2Players as keyof typeof mapSizes]
+            ).toBeDefined();
+          });
+        });
+      });
+    });
   });
 
   describe("Damage Type Methods", () => {

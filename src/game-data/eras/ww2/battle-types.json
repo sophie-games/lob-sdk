@@ -18,7 +18,8 @@
       "1": 10,
       "2": 2
     },
-    "logistics": 100
+    "logistics": 100,
+    "mapSize": ["s", "m"]
   },
   "combat": {
     "manpower": 6000,
@@ -39,7 +40,8 @@
       "1": 18,
       "2": 4
     },
-    "logistics": 200
+    "logistics": 200,
+    "mapSize": ["m", "l"]
   },
   "battle": {
     "manpower": 10000,
@@ -60,7 +62,8 @@
       "1": 28,
       "2": 6
     },
-    "logistics": 300
+    "logistics": 300,
+    "mapSize": ["l", "xl"]
   },
   "grand_battle": {
     "manpower": 17500,
@@ -81,6 +84,7 @@
       "1": 60,
       "2": 4
     },
-    "logistics": 400
+    "logistics": 400,
+    "mapSize": ["xl", "xl"]
   }
 }

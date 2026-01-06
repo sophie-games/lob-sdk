@@ -99,6 +99,8 @@ export interface BattleTypeTemplate {
   defaultArmy: UnitCounts;
   /** If Supply Lines rule enabled, this will be the logistics per big objective. */
   logistics?: number;
+  /** Map size based on player count. [2 players, more than 2 players] */
+  mapSize: [string, string];
 }
 
 /**

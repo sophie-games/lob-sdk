@@ -1,4 +1,4 @@
-import { TeamDeploymentZone, DynamicBattleType, Size } from "@lob-sdk/types";
+import { TeamDeploymentZone, Size } from "@lob-sdk/types";
 import { GameEra, GameDataManager } from "@lob-sdk/game-data-manager";
 
 export const getDeploymentZoneBySize = (
@@ -28,40 +28,4 @@ export const getDeploymentZoneBySize = (
       : (mapHeight - totalHeight) / 2;
 
   return { team, width: zoneWidth, height: zoneHeight, x, y };
-};
-
-export const getBattleSizeByMode = (
-  dynamicBattleType: DynamicBattleType,
-  players: number,
-  era: GameEra
-): Size => {
-  const gameDataManager = GameDataManager.get(era);
-  const { DEFAULT_BATTLE_TYPE } = gameDataManager.getGameConstants();
-  
-  switch (dynamicBattleType) {
-    case "clash": {
-      if (players > 2) return Size.Medium;
-
-      return Size.Small;
-    }
-
-    case DEFAULT_BATTLE_TYPE: {
-      if (players > 2) return Size.Large;
-
-      return Size.Medium;
-    }
-
-    case "battle": {
-      if (players > 2) return Size.ExtraLarge;
-
-      return Size.Large;
-    }
-
-    case "grand_battle": {
-      return Size.ExtraLarge;
-    }
-
-    default:
-      return Size.Medium;
-  }
 };
