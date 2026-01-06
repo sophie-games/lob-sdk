@@ -573,10 +573,10 @@ export interface OrganizationRule {
   routingOrgRecoveryModifier: number;
   /** Maximum organization recovery modifier based on HP proportion (negative value reduces recovery at low HP) */
   maxOrgRecoveryByHpModifier: number;
-  /** Victory points threshold above which no organization modifier is applied */
-  victoryPointsThreshold: number;
+  /** Max VP ratio difference below which no organization modifier is applied */
+  vpRatioDebuffThreshold: number;
   /** Multiplier for victory points-based organization modifier calculation */
-  vpsModifierMultiplier: number;
+  vpModifierMultiplier: number;
 }
 
 export interface GameRules {

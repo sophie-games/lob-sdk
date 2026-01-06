@@ -24,7 +24,7 @@
   },
   "objectives": {
     "radius": 24,
-    "pressureThreshold": 0.10
+    "pressureThreshold": 0.1
   },
   "organization": {
     "speedModifier": -0.15,
@@ -56,8 +56,8 @@
     "distantThreatDistance": 96,
     "routingOrgRecoveryModifier": -0.5,
     "maxOrgRecoveryByHpModifier": -0.95,
-    "victoryPointsThreshold": 40,
-    "vpsModifierMultiplier": 1.0
+    "vpRatioDebuffThreshold": 0.2,
+    "vpModifierMultiplier": 2.0
   },
   "tutorial": {
     "scenarios": []
