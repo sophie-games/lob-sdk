@@ -516,24 +516,30 @@
   ],
   "triggers": [
     {
-      "event": "onTurnStart",
-      "conditions": [{ "type": "isTurn", "value": 1 }],
+      "event": "onTurnEnd",
+      "conditions": [
+        {
+          "type": "isTurn",
+          "value": 0
+        }
+      ],
       "conditionLogic": "AND",
       "actions": [
         {
           "type": "spawnNeutralObjectives",
           "value": {
+            "orientation": "circle",
             "spacing": 0.75,
             "amount": {
-              "clash": 2,
-              "combat": 2,
-              "battle": 3,
-              "grand_battle": 3
+              "clash": 4,
+              "combat": 4,
+              "battle": 4,
+              "grand_battle": 4
             },
-            "minX": 0.2,
-            "maxX": 0.8,
-            "minY": 0.4,
-            "maxY": 0.6
+            "minX": 0.25,
+            "maxX": 0.75,
+            "minY": 0.3,
+            "maxY": 0.7
           }
         }
       ],

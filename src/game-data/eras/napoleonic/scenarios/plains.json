@@ -157,11 +157,11 @@
   ],
   "triggers": [
     {
-      "event": "onTurnStart",
+      "event": "onTurnEnd",
       "conditions": [
         {
           "type": "isTurn",
-          "value": 1
+          "value": 0
         }
       ],
       "conditionLogic": "AND",
