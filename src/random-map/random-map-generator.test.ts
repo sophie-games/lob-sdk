@@ -42,12 +42,8 @@ describe("RandomMapGenerator", () => {
     });
 
     // Test all dynamic battle types
-    const dynamicBattleTypes: DynamicBattleType[] = [
-      "clash",
-      DEFAULT_BATTLE_TYPE,
-      "battle",
-      "grand_battle",
-    ];
+    const dynamicBattleTypes: DynamicBattleType[] =
+      gameDataManager.getAllDynamicBattleTypes();
 
     // Test different player counts
     const playerCounts = [2, 4, 6, 8];
