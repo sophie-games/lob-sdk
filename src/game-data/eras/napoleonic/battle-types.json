@@ -1,4 +1,27 @@
 {
+  "micro": {
+    "manpower": 1475,
+    "gold": 625,
+    "ammoReserve": 900,
+    "goldToAmmoRate": 18,
+    "skirmisherRatio": [1, 4],
+    "fogOfWar": true,
+    "unitCaps": {
+      "17": 4,
+      "19": 1
+    },
+    "eloKFactor": 12,
+    "ticksToCaptureSmall": 64,
+    "ticksToCaptureBig": 448,
+    "bigVps": 60,
+    "smallVps": 10,
+    "defaultArmy": {
+      "1": 6,
+      "2": 2,
+      "3": 1
+    },
+    "mapSize": ["s"]
+  },
   "clash": {
     "manpower": 3200,
     "gold": 1450,
@@ -100,6 +123,6 @@
       "12": 9,
       "18": 8
     },
-    "mapSize": ["xl", "xl"]
+    "mapSize": ["xl"]
   }
 }
