@@ -3,14 +3,13 @@
     "id": 1,
     "name": "german-infantry",
     "tier": 1,
-    "premiumPrice": 150,
+    "premiumPrice": 200,
     "unitType": 1,
     "formations": {
       "default": {
         "overlay": "german-infantry"
       }
-    },
-    "locked": true
+    }
   },
   {
     "id": 2,
@@ -22,8 +21,7 @@
       "default": {
         "overlay": "french-infantry"
       }
-    },
-    "locked": true
+    }
   },
   {
     "id": 3,
@@ -35,8 +33,7 @@
       "default": {
         "overlay": "british-infantry"
       }
-    },
-    "locked": true
+    }
   },
   {
     "id": 4,
@@ -48,34 +45,31 @@
       "default": {
         "overlay": "american-infantry"
       }
-    },
-    "locked": true
+    }
   },
   {
     "id": 5,
     "name": "soviet-infantry",
     "tier": 1,
-    "premiumPrice": 150,
+    "premiumPrice": 200,
     "unitType": 1,
     "formations": {
       "default": {
         "overlay": "soviet-infantry"
       }
-    },
-    "locked": true
+    }
   },
   {
     "id": 6,
     "name": "italian-infantry",
     "tier": 1,
-    "premiumPrice": 150,
+    "premiumPrice": 100,
     "unitType": 1,
     "formations": {
       "default": {
         "overlay": "italian-infantry"
       }
-    },
-    "locked": true
+    }
   },
   {
     "id": 7,
@@ -87,7 +81,18 @@
       "default": {
         "overlay": "japanese-infantry"
       }
-    },
-    "locked": true
+    }
+  },
+  {
+    "id": 8,
+    "name": "chinese-infantry",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 1,
+    "formations": {
+      "default": {
+        "overlay": "chinese-infantry"
+      }
+    }
   }
 ]
