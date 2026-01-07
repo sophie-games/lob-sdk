@@ -393,6 +393,17 @@ export class GameDataManager {
   }
 
   /**
+   * Tries to get a battle type template by battle type.
+   * @param battleType - The dynamic battle type.
+   * @returns The battle type template, or undefined if not found.
+   */
+  public tryGetBattleType(
+    battleType: DynamicBattleType
+  ): BattleTypeTemplate | undefined {
+    return this.battleTypes[battleType];
+  }
+
+  /**
    * Gets the game constants for the current era.
    * @returns The game constants object.
    */
@@ -1084,7 +1095,7 @@ export class GameDataManager {
   }
 
   getAllDynamicBattleTypes = (): DynamicBattleType[] => {
-    return Object.keys(this.battleTypes) as DynamicBattleType[];
+    return Object.keys(this.battleTypes);
   };
 
   getBot() {}

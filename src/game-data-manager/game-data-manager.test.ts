@@ -27,6 +27,53 @@ describe("GameDataManager", () => {
         });
       });
     });
+
+    describe("DEFAULT_BATTLE_TYPE exists for all eras", () => {
+      const eras = GameDataManager.getAvailableEras();
+
+      eras.forEach((era) => {
+        it(`DEFAULT_BATTLE_TYPE exists in getBattleType for ${era} era`, () => {
+          const eraGameDataManager = GameDataManager.get(era);
+          const gameConstants = eraGameDataManager.getGameConstants();
+          const defaultBattleType = gameConstants.DEFAULT_BATTLE_TYPE;
+
+          // Verify that getBattleType doesn't throw an error
+          expect(() => {
+            eraGameDataManager.getBattleType(defaultBattleType);
+          }).not.toThrow();
+
+          // Verify that the battle type is actually returned
+          const battleType = eraGameDataManager.getBattleType(defaultBattleType);
+          expect(battleType).toBeDefined();
+        });
+      });
+    });
+
+    describe("all mapSizes in battle types exist in mapSizes", () => {
+      const eras = GameDataManager.getAvailableEras();
+
+      eras.forEach((era) => {
+        it(`all mapSizes from battle types exist in mapSizes for ${era} era`, () => {
+          const eraGameDataManager = GameDataManager.get(era);
+          const mapSizes = eraGameDataManager.getMapSizes();
+          const battleTypes = eraGameDataManager.getAllDynamicBattleTypes();
+
+          battleTypes.forEach((battleType) => {
+            const battleTypeConfig = eraGameDataManager.getBattleType(battleType);
+
+            // Verify that all mapSize values in the array exist in mapSizes
+            battleTypeConfig.mapSize.forEach((mapSize, index) => {
+              const mapSizeValue = mapSize as string;
+              expect(mapSizes).toHaveProperty(mapSizeValue);
+              expect(mapSizeValue in mapSizes).toBe(true);
+              expect(
+                mapSizes[mapSizeValue as keyof typeof mapSizes]
+              ).toBeDefined();
+            });
+          });
+        });
+      });
+    });
   });
 
   describe("Damage Type Methods", () => {

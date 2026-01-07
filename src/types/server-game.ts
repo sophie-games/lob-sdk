@@ -65,16 +65,7 @@ export enum GameEndReason {
 /**
  * Dynamic battle type configuration.
  */
-export enum DynamicBattleType {
-  /** Smallest battle type. */
-  Clash = "clash",
-  /** Standard battle type. */
-  Combat = "combat",
-  /** Large battle type. */
-  Battle = "battle",
-  /** Largest battle type. */
-  GrandBattle = "grand_battle",
-}
+export type DynamicBattleType = string;
 
 /**
  * Template configuration for a battle type, defining resources, unit limits, and game rules.
@@ -108,6 +99,11 @@ export interface BattleTypeTemplate {
   defaultArmy: UnitCounts;
   /** If Supply Lines rule enabled, this will be the logistics per big objective. */
   logistics?: number;
+  /**
+   * Determines the map size from the player count.
+   * The index increases by 1 for every 2 players, up to the last available index.
+   */
+  mapSize: Array<string>;
 }
 
 /**
