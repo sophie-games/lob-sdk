@@ -25,9 +25,9 @@
   },
   "clash": {
     "manpower": 3350,
-    "gold": 1350,
-    "ammoReserve": 1000,
-    "goldToAmmoRate": 16,
+    "gold": 1450,
+    "ammoReserve": 900,
+    "goldToAmmoRate": 15,
     "skirmisherRatio": [1, 2],
     "fogOfWar": true,
     "unitCaps": {
@@ -50,7 +50,7 @@
   "combat": {
     "manpower": 6000,
     "gold": 3000,
-    "ammoReserve": 2250,
+    "ammoReserve": 2000,
     "goldToAmmoRate": 15,
     "skirmisherRatio": [1, 2],
     "fogOfWar": true,
@@ -68,15 +68,15 @@
       "14": 2,
       "2": 6,
       "11": 4,
-      "12": 3,
-      "18": 4
+      "12": 2,
+      "18": 6
     },
     "mapSize": ["m", "l"]
   },
   "battle": {
     "manpower": 10000,
     "gold": 5000,
-    "ammoReserve": 2750,
+    "ammoReserve": 2250,
     "goldToAmmoRate": 14,
     "skirmisherRatio": [2, 5],
     "fogOfWar": true,
@@ -102,7 +102,7 @@
   "grand_battle": {
     "manpower": 18000,
     "gold": 9000,
-    "ammoReserve": 3500,
+    "ammoReserve": 3250,
     "goldToAmmoRate": 12,
     "skirmisherRatio": [1, 3],
     "fogOfWar": true,
@@ -116,7 +116,7 @@
     "bigVps": 60,
     "smallVps": 10,
     "defaultArmy": {
-      "1": 60,
+      "1": 50,
       "14": 8,
       "2": 30,
       "11": 12,
