@@ -191,7 +191,7 @@
 
   "path": {
     "color": "#c9be98",
-    "staminaCostModifier": -0.65,
+    "staminaCostModifier": -0.75,
     "prioritizeMovement": true,
     "canPlaceObjectives": true,
     "movementModifier": {
@@ -405,7 +405,7 @@
     "color": "#A9866D",
     "heightOffset": -0.5,
     "hitboxHeight": 0.6,
-    "staminaCostModifier": -0.65,
+    "staminaCostModifier": -0.75,
     "movementModifier": {
       "infantry": 0.3,
       "skirmishInfantry": 0.3,
