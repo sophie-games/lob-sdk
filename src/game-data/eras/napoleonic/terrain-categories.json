@@ -235,16 +235,16 @@
 
   "shallowWater": {
     "color": "#3e5b7e",
-    "staminaCostModifier": 1,
+    "staminaCostModifier": 1.5,
     "movementModifier": {
-      "infantry": -0.8,
-      "skirmishInfantry": -0.75,
-      "militiaInfantry": -0.8,
-      "midCavalry": -0.6,
-      "lightCavalry": -0.6,
-      "scoutCavalry": -0.6,
-      "heavyCavalry": -0.6,
-      "artillery": -0.6
+      "infantry": -0.6,
+      "skirmishInfantry": -0.5,
+      "militiaInfantry": -0.7,
+      "midCavalry": -0.75,
+      "lightCavalry": -0.75,
+      "scoutCavalry": -0.75,
+      "heavyCavalry": -0.75,
+      "artillery": -0.7
     },
     "attackModifier": {
       "infantry": -0.8,
