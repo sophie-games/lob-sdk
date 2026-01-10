@@ -104,9 +104,9 @@
     "premiumCurrencyChance": 15
   },
   "grand_battle": {
-    "manpower": 18000,
-    "gold": 9000,
-    "ammoReserve": 3250,
+    "manpower": 20000,
+    "gold": 10000,
+    "ammoReserve": 3600,
     "goldToAmmoRate": 14,
     "skirmisherRatio": [1, 3],
     "fogOfWar": true,
@@ -121,11 +121,11 @@
     "smallVps": 10,
     "defaultArmy": {
       "1": 50,
-      "14": 8,
+      "14": 12,
       "2": 24,
-      "11": 18,
-      "12": 10,
-      "18": 10
+      "11": 26,
+      "12": 8,
+      "18": 14
     },
     "mapSize": ["xl"],
     "premiumCurrencyChance": 15
