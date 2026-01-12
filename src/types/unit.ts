@@ -336,7 +336,8 @@ export interface FormationTemplate {
 
   disablesFlankMelee?: boolean;
   disablesRearMelee?: boolean;
-  disablesEnfiladeRearFire?: boolean;
+  disablesEnfiladeFire?: boolean;
+  disablesRearFire?: boolean;
 
   flankChargeResistance?: number;
   rearChargeResistance?: number;
