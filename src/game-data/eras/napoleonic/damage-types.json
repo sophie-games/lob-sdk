@@ -441,7 +441,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 148,
+    "ammoCost": 136,
     "extendRange": false
   },
   {
@@ -912,14 +912,14 @@
         "start": 0,
         "end": 80,
         "startMod": 1.75,
-        "endMod": 1.75
+        "endMod": 1.75,
+        "name": "close"
       },
       {
         "start": 80,
         "end": 150,
         "startMod": 1.75,
-        "endMod": 0.75,
-        "name": "close"
+        "endMod": 0.75
       }
     ],
     "arcHeight": 0.75,
@@ -966,7 +966,7 @@
         "name": "long"
       }
     ],
-    "arcHeight": 1,
+    "arcHeight": 0.75,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.75,
     "areaOfEffect": {
