@@ -26,8 +26,8 @@
   },
   "ammo": {
     "baseReserve": 3500,
-    "regenerationBaseRate": 0.04,
-    "regenerationBonusRate": 0.03,
+    "regenerationBaseRate": 0.025,
+    "regenerationBonusRate": 0.075,
     "maxHpConsumptionReduction": -0.75
   },
   "skirmisherSpawning": {
