@@ -18,11 +18,11 @@
   {
     "id": 4,
     "name": "fireAndAdvance",
-    "speedModifierWhenShooting": -0.15,
+    "speedModifierWhenShooting": -0.1,
     "allowFireWhenMoving": true,
-    "orgRegainModifier": -0.05,
+    "orgRegainModifier": -0.15,
     "rangedDamageModifierByCategory": {
-      "infantry": -0.25,
+      "infantry": -0.2,
       "artillery": -0.4,
       "militiaInfantry": -0.25,
       "skirmishInfantry": -0.5
