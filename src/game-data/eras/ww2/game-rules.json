@@ -7,8 +7,8 @@
     "defaultLogistics": 500,
     "defaultManpowerPerTurn": 100000,
     "defaultGoldPerTurn": 50000,
-    "noSupplyHpAttrition": 0.05,
-    "noSupplyOrgAttrition": 0.05,
+    "noSupplyHpAttrition": 0.1,
+    "noSupplyOrgAttrition": 0.25,
     "reinforcementRate": 0.02
   },
   "entrenchment": {
@@ -18,9 +18,9 @@
       { "min": 5, "max": 6, "color": "E1C095" },
       { "min": 7, "max": 8, "color": "F3E3C5" }
     ],
-    "meleeAttackBonusPerLevel": 1,
-    "meleeDefenseBonusPerLevel": 1,
-    "pushStrengthModifierPerLevel": 0.15
+    "meleeAttackBonusPerLevel": 2,
+    "meleeDefenseBonusPerLevel": 8,
+    "pushStrengthModifierPerLevel": 10
   },
   "allyCollision": {
     "collisionBounceScale": 0.02,
