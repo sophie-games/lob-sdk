@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "bayonet",
-    "orgDamageRatio": 275,
+    "orgDamageRatio": 320,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 4,
     "cannotChargeAgainst": [
@@ -51,7 +51,7 @@
     "id": 7,
     "name": "musket",
     "ranged": true,
-    "orgDamageRatio": 275,
+    "orgDamageRatio": 320,
     "reorgDebuff": 0.8,
     "attackEffectDuration": 8,
     "projectileWidth": 16,
@@ -107,8 +107,8 @@
     "projectileWidth": 12,
     "orgModifierByTargetOrg": {
       "start": 0.8,
-      "end": 0.6,
-      "modifier": -0.75
+      "end": 0.5,
+      "modifier": -0.65
     },
     "ranges": [
       {
@@ -143,8 +143,8 @@
     "projectileWidth": 12,
     "orgModifierByTargetOrg": {
       "start": 0.75,
-      "end": 0.6,
-      "modifier": -0.75
+      "end": 0.5,
+      "modifier": -0.65
     },
     "ranges": [
       { "start": 0, "end": 65, "startMod": 1.75, "endMod": 0.75 },
@@ -663,7 +663,7 @@
     "id": 19,
     "name": "18lb-canister-fire",
     "ranged": true,
-    "orgDamageRatio": 275,
+    "orgDamageRatio": 320,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
     "projectileWidth": 18,
@@ -671,15 +671,15 @@
       {
         "start": 0,
         "end": 69,
-        "startMod": 4.75,
-        "endMod": 4.35,
+        "startMod": 4,
+        "endMod":3,
         "name": "close"
       },
       {
         "start": 69,
         "end": 110,
-        "startMod": 3.75,
-        "endMod": 2.6,
+        "startMod": 2.5,
+        "endMod": 1.9,
         "name": "long"
       }
     ],
@@ -695,7 +695,7 @@
     "id": 20,
     "name": "12lb-canister-fire",
     "ranged": true,
-    "orgDamageRatio": 275,
+    "orgDamageRatio": 320,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
     "projectileWidth": 18,
@@ -704,14 +704,14 @@
         "start": 0,
         "end": 69,
         "startMod": 2.8,
-        "endMod": 2.6,
+        "endMod": 2,
         "name": "close"
       },
       {
         "start": 69,
         "end": 145,
-        "startMod": 1.75,
-        "endMod": 1.2,
+        "startMod": 1.5,
+        "endMod": 1,
         "name": "long"
       }
     ],
@@ -727,7 +727,7 @@
     "id": 21,
     "name": "10lb-canister-fire",
     "ranged": true,
-    "orgDamageRatio": 275,
+    "orgDamageRatio": 320,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
     "projectileWidth": 18,
@@ -735,15 +735,15 @@
       {
         "start": 0,
         "end": 69,
-        "startMod": 3.8,
-        "endMod": 3.6,
+        "startMod": 3.5,
+        "endMod": 2.8,
         "name": "close"
       },
       {
         "start": 69,
         "end": 105,
-        "startMod": 2.75,
-        "endMod": 2.35,
+        "startMod": 2.25,
+        "endMod": 1.8,
         "name": "long"
       }
     ],
@@ -759,7 +759,7 @@
     "id": 22,
     "name": "8lb-canister-fire",
     "ranged": true,
-    "orgDamageRatio": 275,
+    "orgDamageRatio": 320,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
     "projectileWidth": 18,
@@ -767,15 +767,15 @@
       {
         "start": 0,
         "end": 69,
-        "startMod": 2.6,
-        "endMod": 2.35,
+        "startMod": 2,
+        "endMod": 1.5,
         "name": "close"
       },
       {
         "start": 69,
         "end": 135,
-        "startMod": 1.6,
-        "endMod": 1,
+        "startMod": 1.5,
+        "endMod": 0.75,
         "name": "long"
       }
     ],
@@ -791,7 +791,7 @@
     "id": 23,
     "name": "6lb-canister-fire",
     "ranged": true,
-    "orgDamageRatio": 275,
+    "orgDamageRatio": 320,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
     "projectileWidth": 18,
@@ -806,8 +806,8 @@
       {
         "start": 69,
         "end": 120,
-        "startMod": 1.4,
-        "endMod": 1,
+        "startMod": 1.25,
+        "endMod": 0.75,
         "name": "long"
       }
     ],
@@ -823,7 +823,7 @@
     "id": 24,
     "name": "4lb-canister-fire",
     "ranged": true,
-    "orgDamageRatio": 275,
+    "orgDamageRatio": 320,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
     "projectileWidth": 18,
@@ -831,15 +831,15 @@
       {
         "start": 0,
         "end": 69,
-        "startMod": 1.75,
-        "endMod": 1.5,
+        "startMod": 1.5,
+        "endMod": 1.25,
         "name": "close"
       },
       {
         "start": 69,
         "end": 110,
-        "startMod": 1,
-        "endMod": 0.75,
+        "startMod": 0.75,
+        "endMod": 0.5,
         "name": "long"
       }
     ],
@@ -855,7 +855,7 @@
     "id": 25,
     "name": "howitzer-canister",
     "ranged": true,
-    "orgDamageRatio": 325,
+    "orgDamageRatio": 350,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
     "projectileWidth": 18,
@@ -863,8 +863,8 @@
       {
         "start": 0,
         "end": 69,
-        "startMod": 9,
-        "endMod": 8.75,
+        "startMod": 8,
+        "endMod": 7,
         "name": "close"
       }
     ],
