@@ -46,7 +46,7 @@
         "overlaySprite": null
       }
     ],
-    "pushStrength": 10,
+    "pushStrength": 28,
     "pushDistance": 2,
     "maxEntrenchment": 8
   },
@@ -98,16 +98,16 @@
         "overlaySprite": "armored"
       }
     ],
-    "pushStrength": 25,
-    "pushDistance": 4,
+    "pushStrength": 36,
+    "pushDistance": 6,
     "maxEntrenchment": 8
   },
   {
     "name": "motorized_division",
     "type": 3,
     "category": "motorized",
-    "meleeAttack": 32,
-    "meleeDefense": 36,
+    "meleeAttack": 36,
+    "meleeDefense": 48,
     "meleeDamageType": "soft_attack",
     "chargeBonus": 80,
     "chargeResistance": -0.35,
@@ -139,7 +139,7 @@
     "runRotationSpeed": 100,
     "turningDelay": 0,
     "reportStats": {
-      "men": 14000
+      "men": 17000
     },
     "defaultFormation": "default",
     "formations": [
@@ -149,8 +149,8 @@
         "overlaySprite": "motorized"
       }
     ],
-    "pushStrength": 20,
-    "pushDistance": 1,
+    "pushStrength": 28,
+    "pushDistance": 2,
     "maxEntrenchment": 8
   },
   {
