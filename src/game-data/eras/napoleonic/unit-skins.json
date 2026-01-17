@@ -1708,7 +1708,8 @@
     "unitType": 14,
     "formations": {
       "mass": {
-        "base": "ornate-base2"
+        "base": "ornate-base2",
+        "overlay": "ornate-middle-guard"
       }
     },
     "discount": 0.5
@@ -1721,7 +1722,8 @@
     "unitType": 7,
     "formations": {
       "mass": {
-        "base": "ornate-base3"
+        "base": "ornate-base3",
+        "overlay": "ornate-young-guard"
       }
     },
     "discount": 0.5
@@ -2482,8 +2484,9 @@
     "premiumPrice": 1250,
     "unitType": 11,
     "formations": {
-      "mass": {
-        "base": "ornate-chasseurs-e-cheval"
+      "cavalry": {
+        "base": "ornate-chasseurs-e-cheval",
+        "overlay": "ornate-chasseurs-e-cheval"
       }
     },
     "discount": 0.5
@@ -2495,8 +2498,9 @@
     "premiumPrice": 1250,
     "unitType": 2,
     "formations": {
-      "mass": {
-        "base": "ornate-empress-dragoons"
+      "cavalry": {
+        "base": "ornate-empress-dragoons",
+        "overlay": "ornate-empress-dragoons"
       }
     },
     "discount": 0.5
@@ -2508,8 +2512,9 @@
     "premiumPrice": 1250,
     "unitType": 8,
     "formations": {
-      "mass": {
-        "base": "ornate-grenadiers-a-cheval"
+      "cavalry": {
+        "base": "ornate-grenadiers-a-cheval",
+        "overlay": "ornate-grenadiers-a-cheval"
       }
     },
     "discount": 0.5
@@ -2521,8 +2526,9 @@
     "premiumPrice": 1250,
     "unitType": 5,
     "formations": {
-      "mass": {
-        "base": "ornate-polish-lancers"
+      "cavalry": {
+        "base": "ornate-polish-lancers",
+        "overlay": "ornate-polish-lancers"
       }
     },
     "discount": 0.5
@@ -2549,7 +2555,8 @@
     "unitType": 7,
     "locked": true,
     "formations": {
-      "mass": {
+      "cavalry": {
+        "mass": "ornate-russian-lifeguard-jagers",
         "overlay": "ornate-russian-lifeguard-jagers"
       }
     },
@@ -2576,8 +2583,9 @@
     "premiumPrice": 3750,
     "unitType": 16,
     "formations": {
-      "mass": {
-        "base": "farg-forg-ferg"
+      "skirmish": {
+        "base": "farg-forg-ferg",
+        "overlay": "farg-forg-ferg"
       }
     },
     "discount": 0.5
@@ -2645,8 +2653,9 @@
     "premiumPrice": 1250,
     "unitType": 8,
     "formations": {
-      "mass": {
-        "base": "ornate-russian-cuirassiers"
+      "cavalry": {
+        "base": "ornate-russian-cuirassiers",
+        "overlay": "ornate-russian-cuirassiers"
       }
     },
     "discount": 0.5
@@ -2658,8 +2667,9 @@
     "premiumPrice": 1250,
     "unitType": 2,
     "formations": {
-      "mass": {
-        "base": "ornate-russian-dragoons"
+      "cavalry": {
+        "base": "ornate-russian-dragoons",
+        "overlay": "ornate-russian-dragoons"
       }
     },
     "discount": 0.5
@@ -2672,7 +2682,8 @@
     "unitType": 14,
     "formations": {
       "mass": {
-        "base": "ornate-russian-grenadiers"
+        "base": "ornate-russian-grenadiers",
+        "overlay": "ornate-russian-grenadiers"
       }
     },
     "discount": 0.5
@@ -2685,7 +2696,8 @@
     "unitType": 4,
     "formations": {
       "mass": {
-        "base": "ornate-russian-guards"
+        "base": "ornate-russian-guards",
+        "overlay": "ornate-russian-guards"
       }
     },
     "discount": 0.5
@@ -2697,8 +2709,9 @@
     "premiumPrice": 1250,
     "unitType": 5,
     "formations": {
-      "mass": {
-        "base": "ornate-russian-lancers"
+      "cavalry": {
+        "base": "ornate-russian-lancers",
+        "overlay": "ornate-russian-lancers"
       }
     },
     "discount": 0.5
@@ -2710,8 +2723,9 @@
     "premiumPrice": 1250,
     "unitType": 11,
     "formations": {
-      "mass": {
-        "base": "ornate-russian-hussars"
+      "cavalry": {
+        "base": "ornate-russian-hussars",
+        "overlay": "ornate-russian-hussars"
       }
     },
     "discount": 0.5
@@ -2788,8 +2802,9 @@
     "premiumPrice": 1250,
     "unitType": 11,
     "formations": {
-      "mass": {
-        "base": "headless-hussarman"
+      "cavalry": {
+        "base": "headless-hussarman",
+        "overlay": "headless-hussarman"
       }
     },
     "discount": 0.5
@@ -2815,6 +2830,7 @@
     "unitType": 1,
     "formations": {
       "mass": {
+        "base": "roman-legion",
         "overlay": "roman-legion"
       }
     },
