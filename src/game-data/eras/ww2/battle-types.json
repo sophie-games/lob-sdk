@@ -1,25 +1,23 @@
 {
   "operational": {
-    "manpower": 10000,
-    "gold": 4750,
+    "manpower": 5400,
+    "gold": 1200,
     "ammoReserve": 2800,
     "goldToAmmoRate": 13,
     "fogOfWar": true,
-    "unitCaps": {
-      "17": 6,
-      "19": 2
-    },
+    "unitCaps": {},
     "eloKFactor": 32,
     "ticksToCaptureSmall": 2,
     "ticksToCaptureBig": 4,
-    "bigVps": 20,
-    "smallVps": 4,
+    "bigVps": 30,
+    "smallVps": 3,
     "defaultArmy": {
-      "1": 28,
-      "2": 6
+      "1": 30,
+      "2": 6,
+      "3": 4
     },
     "logistics": 300,
-    "mapSize": ["l", "xl"],
-    "premiumCurrencyChance": 5
+    "mapSize": ["m", "l"],
+    "premiumCurrencyChance": 10
   }
 }
