@@ -49,7 +49,8 @@ describe("BaseUnit", () => {
     orgRadiusBonus: number = 0;
     chargeResistance: number = 0;
     runChargeResistanceModifier: number = -0.75;
-    totalAllyOverlap: number = 0;
+    hardAllyOverlap: number = 0;
+    softAllyOverlap: number = 0;
     /**
      * These are the damage types that are disabled for autofire.
      * By default, all damage types are enabled for autofire. We made it this way to avoid
