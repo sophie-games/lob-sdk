@@ -60,7 +60,13 @@ export abstract class BaseUnit extends Entity {
   abstract orgRadiusBonus: number;
   abstract chargeResistance: number;
   abstract runChargeResistanceModifier: number;
-  abstract totalAllyOverlap: number;
+  abstract hardAllyOverlap: number;
+  abstract softAllyOverlap: number;
+
+  get totalAllyOverlap(): number {
+    return this.hardAllyOverlap + this.softAllyOverlap;
+  }
+
   abstract allyCollisionLevel: number;
   abstract enemyCollisionLevel: number;
   abstract autofirePriority: Partial<Record<UnitCategoryId, number>> | null;
