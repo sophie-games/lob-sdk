@@ -321,7 +321,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 118,
+    "ammoCost": 108,
     "extendRange": false
   },
   {
@@ -508,7 +508,7 @@
     "id": 16,
     "name": "18lb-explosive-shell",
     "ranged": true,
-    "orgDamageRatio": 205,
+    "orgDamageRatio": 215,
     "reorgDebuff": 0.9,
     "attackEffectDuration": 10,
     "projectileWidth": 12,
@@ -526,8 +526,8 @@
       {
         "start": 250,
         "end": 550,
-        "startMod": -0.2,
-        "endMod": -0.55,
+        "startMod": -0.05,
+        "endMod": -0.65,
         "name": "long"
       }
     ],
@@ -540,8 +540,8 @@
         {
           "start": 250,
           "end": 550,
-          "startRadius": 26,
-          "endRadius": 52
+          "startRadius": 18,
+          "endRadius": 64
         }
       ],
       "edgeDamageModifier": -0.25,
@@ -550,14 +550,14 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 172,
+    "ammoCost": 180,
     "extendRange": false
   },
   {
     "id": 17,
     "name": "10lb-explosive-shell",
     "ranged": true,
-    "orgDamageRatio": 195,
+    "orgDamageRatio": 205,
     "reorgDebuff": 0.85,
     "attackEffectDuration": 10,
     "projectileWidth": 12,
@@ -567,16 +567,16 @@
       "modifier": -0.2
     },
     "orgModifierByTargetOrg": {
-      "start": 0.9,
-      "end": 0.65,
+      "start": 0.8,
+      "end": 0.6,
       "modifier": -0.35
     },
     "ranges": [
       {
         "start": 220,
         "end": 425,
-        "startMod": -0.25,
-        "endMod": -0.4,
+        "startMod": -0.05,
+        "endMod": -0.25,
         "name": "long"
       }
     ],
@@ -590,7 +590,7 @@
           "start": 250,
           "end": 425,
           "startRadius": 24,
-          "endRadius": 48
+          "endRadius": 36
         }
       ],
       "edgeDamageModifier": -0.2,
@@ -599,14 +599,14 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 128,
+    "ammoCost": 108,
     "extendRange": false
   },
   {
     "id": 18,
     "name": "explosive-shell",
     "ranged": true,
-    "orgDamageRatio": 220,
+    "orgDamageRatio": 230,
     "reorgDebuff": 0.95,
     "attackEffectDuration": 10,
     "projectileWidth": 12,
@@ -622,12 +622,12 @@
     },
     "ranges": [
       { "start": 0, "end": 69, "startMod": 0, "endMod": 0, "name": "close" },
-      { "start": 69, "end": 200, "startMod": 0.15, "endMod": 0 },
+      { "start": 69, "end": 200, "startMod": 0.1, "endMod": 0 },
       {
         "start": 200,
         "end": 340,
-        "startMod": 0,
-        "endMod": -0.2,
+        "startMod": -0.2,
+        "endMod": -0.35,
         "name": "long"
       }
     ],
@@ -640,14 +640,14 @@
         {
           "start": 69,
           "end": 200,
-          "startRadius": 18,
-          "endRadius": 24
+          "startRadius": 24,
+          "endRadius": 32
         },
         {
           "start": 200,
           "end": 340,
-          "startRadius": 26,
-          "endRadius": 48
+          "startRadius": 36,
+          "endRadius": 54
         }
       ],
       "edgeDamageModifier": -0.2,
@@ -656,7 +656,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 196,
+    "ammoCost": 240,
     "extendRange": false
   },
   {
