@@ -526,8 +526,8 @@
       {
         "start": 250,
         "end": 550,
-        "startMod": -0.2,
-        "endMod": -0.6,
+        "startMod": -0.05,
+        "endMod": -0.65,
         "name": "long"
       }
     ],
@@ -540,8 +540,8 @@
         {
           "start": 250,
           "end": 550,
-          "startRadius": 26,
-          "endRadius": 52
+          "startRadius": 18,
+          "endRadius": 64
         }
       ],
       "edgeDamageModifier": -0.25,
@@ -550,7 +550,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 156,
+    "ammoCost": 180,
     "extendRange": false
   },
   {
@@ -568,15 +568,15 @@
     },
     "orgModifierByTargetOrg": {
       "start": 0.8,
-      "end": 0.55,
+      "end": 0.6,
       "modifier": -0.35
     },
     "ranges": [
       {
         "start": 220,
         "end": 425,
-        "startMod": -0.1,
-        "endMod": -0.3,
+        "startMod": -0.05,
+        "endMod": -0.25,
         "name": "long"
       }
     ],
@@ -590,7 +590,7 @@
           "start": 250,
           "end": 425,
           "startRadius": 24,
-          "endRadius": 48
+          "endRadius": 36
         }
       ],
       "edgeDamageModifier": -0.2,
@@ -599,14 +599,14 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 116,
+    "ammoCost": 108,
     "extendRange": false
   },
   {
     "id": 18,
     "name": "explosive-shell",
     "ranged": true,
-    "orgDamageRatio": 250,
+    "orgDamageRatio": 230,
     "reorgDebuff": 0.95,
     "attackEffectDuration": 10,
     "projectileWidth": 12,
@@ -622,12 +622,12 @@
     },
     "ranges": [
       { "start": 0, "end": 69, "startMod": 0, "endMod": 0, "name": "close" },
-      { "start": 69, "end": 200, "startMod": 0.15, "endMod": 0 },
+      { "start": 69, "end": 200, "startMod": 0.1, "endMod": 0 },
       {
         "start": 200,
         "end": 340,
-        "startMod": 0,
-        "endMod": -0.15,
+        "startMod": -0.2,
+        "endMod": -0.35,
         "name": "long"
       }
     ],
@@ -640,13 +640,13 @@
         {
           "start": 69,
           "end": 200,
-          "startRadius": 18,
-          "endRadius": 28
+          "startRadius": 24,
+          "endRadius": 32
         },
         {
           "start": 200,
           "end": 340,
-          "startRadius": 28,
+          "startRadius": 36,
           "endRadius": 54
         }
       ],
@@ -656,7 +656,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 196,
+    "ammoCost": 240,
     "extendRange": false
   },
   {
