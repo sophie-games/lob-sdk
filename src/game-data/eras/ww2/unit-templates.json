@@ -4,7 +4,7 @@
     "type": 1,
     "category": "infantry",
     "meleeAttack": 56,
-    "meleeDefense": 48,
+    "meleeDefense": 40,
     "meleeDamageType": "soft_attack",
     "chargeBonus": 80,
     "chargeResistance": -0.35,
@@ -48,7 +48,7 @@
     ],
     "pushStrength": 28,
     "pushDistance": 2,
-    "maxEntrenchment": 8
+    "maxEntrenchment": 6
   },
   {
     "name": "armored_division",
@@ -98,7 +98,7 @@
         "overlaySprite": "armored"
       }
     ],
-    "pushStrength": 36,
+    "pushStrength": 32,
     "pushDistance": 6,
     "maxEntrenchment": 1
   },
@@ -107,7 +107,7 @@
     "type": 3,
     "category": "motorized",
     "meleeAttack": 56,
-    "meleeDefense": 48,
+    "meleeDefense": 40,
     "meleeDamageType": "soft_attack",
     "chargeBonus": 80,
     "chargeResistance": -0.35,
@@ -151,7 +151,7 @@
     ],
     "pushStrength": 28,
     "pushDistance": 2,
-    "maxEntrenchment": 8
+    "maxEntrenchment": 6
   },
   {
     "name": "unknown",
