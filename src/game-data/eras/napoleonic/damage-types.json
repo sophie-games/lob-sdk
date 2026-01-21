@@ -15,21 +15,21 @@
   {
     "id": 2,
     "name": "cavalry-sabre",
-    "orgDamageRatio": 290,
+    "orgDamageRatio": 310,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 4
   },
   {
     "id": 3,
     "name": "cavalry-sword",
-    "orgDamageRatio": 290,
+    "orgDamageRatio": 310,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 4
   },
   {
     "id": 4,
     "name": "dragoon-sword",
-    "orgDamageRatio": 290,
+    "orgDamageRatio": 310,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6
   },
@@ -43,7 +43,7 @@
   {
     "id": 6,
     "name": "cavalry-lance",
-    "orgDamageRatio": 290,
+    "orgDamageRatio": 310,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6
   },
@@ -52,7 +52,7 @@
     "name": "musket",
     "ranged": true,
     "orgDamageRatio": 320,
-    "reorgDebuff": 0.8,
+    "reorgDebuff": 0.76,
     "attackEffectDuration": 8,
     "projectileWidth": 16,
     "damageModifierByTargetHp": {
@@ -102,7 +102,7 @@
     "name": "marksman-musket",
     "ranged": true,
     "orgDamageRatio": 600,
-    "reorgDebuff": 0.75,
+    "reorgDebuff": 0.72,
     "attackEffectDuration": 12,
     "projectileWidth": 12,
     "orgModifierByTargetOrg": {
@@ -138,7 +138,7 @@
     "name": "rifle",
     "ranged": true,
     "orgDamageRatio": 725,
-    "reorgDebuff": 0.75,
+    "reorgDebuff": 0.72,
     "attackEffectDuration": 12,
     "projectileWidth": 12,
     "orgModifierByTargetOrg": {
@@ -167,7 +167,7 @@
     "name": "18lb-cannon-ball",
     "ranged": true,
     "orgDamageRatio": 210,
-    "reorgDebuff": 0.8,
+    "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
@@ -218,7 +218,7 @@
     "name": "12lb-cannon-ball",
     "ranged": true,
     "orgDamageRatio": 210,
-    "reorgDebuff": 0.8,
+    "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
@@ -278,7 +278,7 @@
     "name": "10lb-cannon-ball",
     "ranged": true,
     "orgDamageRatio": 210,
-    "reorgDebuff": 0.8,
+    "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
@@ -329,7 +329,7 @@
     "name": "8lb-cannon-ball",
     "ranged": true,
     "orgDamageRatio": 210,
-    "reorgDebuff": 0.8,
+    "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
@@ -389,7 +389,7 @@
     "name": "6lb-cannon-ball",
     "ranged": true,
     "orgDamageRatio": 210,
-    "reorgDebuff": 0.75,
+    "reorgDebuff": 0.74,
     "attackEffectDuration": 16,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
@@ -449,7 +449,7 @@
     "name": "4lb-cannon-ball",
     "ranged": true,
     "orgDamageRatio": 210,
-    "reorgDebuff": 0.75,
+    "reorgDebuff": 0.74,
     "attackEffectDuration": 12,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
@@ -509,7 +509,7 @@
     "name": "18lb-explosive-shell",
     "ranged": true,
     "orgDamageRatio": 215,
-    "reorgDebuff": 0.9,
+    "reorgDebuff": 0.86,
     "attackEffectDuration": 10,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
@@ -558,7 +558,7 @@
     "name": "10lb-explosive-shell",
     "ranged": true,
     "orgDamageRatio": 205,
-    "reorgDebuff": 0.85,
+    "reorgDebuff": 0.82,
     "attackEffectDuration": 10,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
@@ -607,7 +607,7 @@
     "name": "explosive-shell",
     "ranged": true,
     "orgDamageRatio": 230,
-    "reorgDebuff": 0.95,
+    "reorgDebuff": 0.92,
     "attackEffectDuration": 10,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
