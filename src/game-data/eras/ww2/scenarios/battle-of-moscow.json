@@ -2789,11 +2789,7 @@
     {
       "name": "Vitebsk",
       "player": 1,
-      "pos": { "x": 10.19, "y": 732.06 },
-      "type": 2,
-      "lo": 2000,
-      "mp": 500,
-      "gp": 250
+      "pos": { "x": 10.19, "y": 732.06 }
     },
     {
       "name": "Moscow",
@@ -2885,9 +2881,9 @@
       "player": 1,
       "pos": { "x": 75.89, "y": 318.06 },
       "type": 2,
-      "lo": 2000,
-      "mp": 500,
-      "gp": 250
+      "lo": 5000,
+      "mp": 3000,
+      "gp": 1200
     },
     { "name": "Roslavl'", "player": 1, "pos": { "x": 546.93, "y": 1168.03 } },
     { "name": "Olenino", "player": 2, "pos": { "x": 663.28, "y": 356.67 } },
@@ -2901,23 +2897,19 @@
     {
       "name": "Mogilyov",
       "player": 1,
-      "pos": { "x": 41.73, "y": 1184.37 },
-      "type": 2,
-      "lo": 2000,
-      "mp": 500,
-      "gp": 250
+      "pos": { "x": 41.73, "y": 1184.37 }
     },
     {
       "name": "Orsha",
       "player": 1,
       "pos": { "x": 62.06, "y": 971.15 },
       "type": 2,
-      "lo": 2000,
-      "mp": 500,
-      "gp": 250
+      "lo": 25000,
+      "mp": 12000,
+      "gp": 5000
     },
     { "name": "Kozel'sk", "player": 2, "pos": { "x": 1145.33, "y": 1133.93 } },
-    { "name": "Belev", "player": 2, "pos": { "x": 1191.7, "y": 1175.89 } },
+    { "name": "Belyov", "player": 2, "pos": { "x": 1191.7, "y": 1175.89 } },
     { "name": "Yefremov", "player": 2, "pos": { "x": 1603.79, "y": 1423.55 } },
     {
       "name": "Bogoroditsk",
@@ -2944,7 +2936,6 @@
     { "name": "Likhvin", "player": 2, "pos": { "x": 1211.64, "y": 1112.46 } },
     { "name": "Lyubertsy", "player": 2, "pos": { "x": 1561.7, "y": 543.08 } },
     { "name": "Kirzhach", "player": 2, "pos": { "x": 1729.04, "y": 368.53 } },
-    { "player": 2, "pos": { "x": 1729.04, "y": 368.53 } },
     {
       "name": "Yuriev-Pol'skiy",
       "player": 2,
@@ -2977,9 +2968,9 @@
       "name": "Oryol",
       "player": 2,
       "pos": { "x": 1193.95, "y": 1510.06 },
-      "lo": 750,
-      "mp": 7000,
-      "gp": 3500
+      "lo": 3000,
+      "mp": 2000,
+      "gp": 1200
     },
     { "name": "Unecha", "player": 1, "pos": { "x": 653.4, "y": 1513.27 } },
     { "name": "Surazh", "player": 1, "pos": { "x": 510.11, "y": 1426.01 } },
@@ -3005,7 +2996,7 @@
     },
     { "name": "Golitsyno", "player": 2, "pos": { "x": 1386.06, "y": 581.86 } },
     {
-      "name": "Ordzhonokidzegrad",
+      "name": "Ordzhonikidzegrad",
       "player": 2,
       "pos": { "x": 799.81, "y": 1359.39 }
     },
@@ -3022,20 +3013,18 @@
     { "name": "Lopasnya", "player": 2, "pos": { "x": 1463.09, "y": 728.44 } },
     { "name": "Noginsk", "player": 2, "pos": { "x": 1624.76, "y": 505.2 } },
     { "name": "Ozyory", "player": 2, "pos": { "x": 1657.44, "y": 841.58 } },
-    { "player": 2, "pos": { "x": 1657.44, "y": 841.58 } },
     { "name": "Medyn'", "player": 2, "pos": { "x": 1130.64, "y": 807.83 } },
     { "name": "Alexin", "player": 2, "pos": { "x": 1402.77, "y": 969.91 } },
     { "name": "Chechersk", "player": 1, "pos": { "x": 146.07, "y": 1515.38 } },
     { "name": "Lebedyan'", "player": 2, "pos": { "x": 1809.56, "y": 1485.95 } },
     { "name": "Ranenburg", "player": 2, "pos": { "x": 1883.25, "y": 1496.05 } },
     {
-      "name": "st. Lomonosovo",
+      "name": "Lomonosovo",
       "player": 1,
       "pos": { "x": 436.03, "y": 552.93 }
     },
     { "name": "Pochep", "player": 2, "pos": { "x": 774.04, "y": 1509.13 } },
     { "name": "Zaraysk", "player": 2, "pos": { "x": 1735.9, "y": 902.74 } },
-    { "player": 2, "pos": { "x": 1735.9, "y": 902.74 } },
     {
       "name": "Serebryaniye Prudy",
       "player": 2,
@@ -3045,7 +3034,6 @@
     { "name": "Dovsk", "player": 1, "pos": { "x": 76.1, "y": 1416.1 } },
     { "name": "Shklov", "player": 1, "pos": { "x": 23.83, "y": 1062.95 } },
     { "name": "Bikhov", "player": 1, "pos": { "x": 21.99, "y": 1319.51 } },
-    { "player": 1, "pos": { "x": 21.99, "y": 1319.51 } },
     { "name": "Beliy", "player": 2, "pos": { "x": 586.15, "y": 498.05 } },
     { "name": "Zemtsy", "player": 2, "pos": { "x": 456.71, "y": 329.15 } }
   ],
@@ -4066,7 +4054,7 @@
           "type": "objectiveBelongsTo",
           "value": { "name": "Moscow", "team": 2 }
         },
-        { "type": "isTurn", "value": 51 }
+        { "type": "isTurn", "value": 49 }
       ],
       "conditionLogic": "AND",
       "actions": [
@@ -4192,11 +4180,11 @@
   ],
   "locales": {
     "en": {
-      "description": "September 30, 1941. Operation \\\"Typhoon\\\" has begun. German tank spearheads are ready to crush the Soviet defenses. However, German time and resources are limited, while the Red Army command intends to hold Moscow at any cost. Will Moscow fall?\\n\\nA limit of 50 moves or more is highly recommended. - Fat_Jabka, map creator",
+      "description": "September 30, 1941. Operation \"Typhoon\" has begun. German tank spearheads are ready to crush the Soviet defenses. However, German time and resources are limited, while the Red Army command intends to hold Moscow at any cost. Will Moscow fall?\n\nA limit of 50 moves or more is highly recommended. - Fat_Jabka, map creator",
       "name": "Battle of Moscow"
     },
     "ru": {
-      "description": "30 сентября 1941 года. Операция \\\"Тайфун\\\" началась. Немецкие танковые клинья готовы сокрушить советскую оборону. Однако, время и ресурсы Германии ограничены, а командование Красной Армии намерено удержать Москву любой ценой . Падёт ли Москва?\\n\\nРекомендуемый лимит ходов - 50 или более. - Fat_Jabka, создатель карты",
+      "description": "30 сентября 1941 года. Операция \"Тайфун\" началась. Немецкие танковые клинья готовы сокрушить советскую оборону. Однако, время и ресурсы Германии ограничены, а командование Красной Армии намерено удержать Москву любой ценой . Падёт ли Москва?\n\nРекомендую лимит в 50 ходов. - Fat_Jabka, создатель карты",
       "name": "Битва за Москву"
     }
   }
