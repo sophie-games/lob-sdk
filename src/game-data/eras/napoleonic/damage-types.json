@@ -291,7 +291,7 @@
       "end": 0.65,
       "modifier": -0.25
     },
-    "ranges": [{ "start": 105, "end": 250, "startMod": 0.2, "endMod": 0.1 }],
+    "ranges": [{ "start": 85, "end": 250, "startMod": 0.1, "endMod": 0.05 }],
     "arcHeight": 0.5,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
@@ -403,7 +403,7 @@
       "modifier": -0.25
     },
     "ranges": [
-      { "start": 120, "end": 220, "startMod": 0.15, "endMod": 0 },
+      { "start": 120, "end": 220, "startMod": 0.2, "endMod": 0 },
       {
         "start": 225,
         "end": 400,
@@ -599,7 +599,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 108,
+    "ammoCost": 116,
     "extendRange": false
   },
   {
@@ -741,8 +741,8 @@
       },
       {
         "start": 69,
-        "end": 105,
-        "startMod": 2.25,
+        "end": 85,
+        "startMod": 2.2,
         "endMod": 1.8,
         "name": "long"
       }
