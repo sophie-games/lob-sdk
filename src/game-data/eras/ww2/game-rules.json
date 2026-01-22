@@ -2,14 +2,14 @@
   "supplyLines": {
     "roadTerrainTypes": [3, 7, 15],
     "influenceRadius": 3,
-    "supplyHubRadius": 8,
-    "supplyHubRadiusWithInfluence": 16,
+    "supplyHubRadius": 10,
+    "supplyHubRadiusWithInfluence": 20,
     "defaultLogistics": 500,
     "defaultManpowerPerTurn": 100000,
     "defaultGoldPerTurn": 50000,
-    "noSupplyHpAttrition": 0.1,
-    "noSupplyOrgAttrition": 0.25,
-    "reinforcementRate": 0.02
+    "noSupplyHpAttrition": 0.15,
+    "noSupplyOrgAttrition": 0.15,
+    "reinforcementRate": 0.05
   },
   "entrenchment": {
     "ranges": [
