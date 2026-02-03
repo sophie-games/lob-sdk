@@ -7,9 +7,9 @@
     "defaultLogistics": 500,
     "defaultManpowerPerTurn": 100000,
     "defaultGoldPerTurn": 50000,
-    "noSupplyHpAttrition": 0.15,
+    "noSupplyHpAttrition": 0.18,
     "noSupplyOrgAttrition": 0.15,
-    "reinforcementRate": 0.05
+    "reinforcementRate": 0.04
   },
   "entrenchment": {
     "ranges": [
@@ -61,7 +61,7 @@
     "safeDistance": 184,
     "distantThreatOrgRecoveryModifier": 0.3,
     "distantThreatDistance": 96,
-    "routingOrgRecoveryModifier": -0.5,
+    "routingOrgRecoveryModifier": -0.05,
     "maxOrgRecoveryByHpModifier": -0.95,
     "vpDebuffGraceZone": 0.2,
     "vpDebuffMultiplier": 2.0
