@@ -3052,8 +3052,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "Moscow Militia Divisions",
-            "message": "On October 11th, after accelerated training, four Militia divisions were formed in Moscow."
+            "title": "trigger.moscow_militia.title",
+            "message": "trigger.moscow_militia.message"
           }
         },
         {
@@ -3128,8 +3128,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "Defence of Kalinin!",
-            "message": "The city of Kalinin (currently - Tver') is a major hub on the railway Moscow-Leningrad (currently - St. Petersburg). To prevent the Germans from capturing Kalinin, the 5th Rifle Division was transferred from the reserve of Stavka to the city. Vatutin's task force, formed from reserve units of the Northwestern Front, soon arrived in the Torzhok area. Furthermore, a people's militia, reinforced by cadets, was urgently formed in the city itself."
+            "title": "trigger.kalinin_defence.title",
+            "message": "trigger.kalinin_defence.message"
           }
         },
         {
@@ -3224,8 +3224,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "Breakthrough in the South!",
-            "message": "On October 3, the German 2nd Tank Group succeeded in making a major breakthrough on the southern flank of the Bryansk Front. After advancing hundreds of kilometers, the 4th Panzer Division managed to capture the city of Oryol completely defenceless."
+            "title": "trigger.south_breakthrough.title",
+            "message": "trigger.south_breakthrough.message"
           }
         },
         {
@@ -3254,8 +3254,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "Guderian Exploits the Breakthrough!",
-            "message": "After successful capture of the city of Oryol, H. Guderian, commander of the 2nd Tank Group, reinforced the resulting breakthrough by sending three Panzer and one motorized division."
+            "title": "trigger.guderian_exploits.title",
+            "message": "trigger.guderian_exploits.message"
           }
         },
         {
@@ -3317,8 +3317,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "The Soviet Response to the Breakthrough",
-            "message": "After the capture of the city of Oryol by Germans, the road to Tula and Moscow was practically unguarded. Stavka urgently deployed from reserves two Tank Brigades, 1st Rifle Corps and 5th Airborne Corps in the Mtsensk area."
+            "title": "trigger.soviet_response.title",
+            "message": "trigger.soviet_response.message"
           }
         },
         {
@@ -3418,8 +3418,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "G. Zhukov Arrives!",
-            "message": "After the disaster at Vyazma, J. Stalin ordered the recall of G. Zhukov from Leningrad (currently St. Petersburg) to organize the defense of Moscow as quickly as possible. Zhukov's first decision was to deploy the few recently replenished divisions on the southwestern approaches to Moscow."
+            "title": "trigger.zhukov_arrives.title",
+            "message": "trigger.zhukov_arrives.message"
           }
         },
         {
@@ -3546,8 +3546,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "Defence of Tula!",
-            "message": "Tula, the City of Gunsmiths, is a key industrial center and logistics hub on the southern approaches to Moscow. To prevent its capture by Guderian's Panzer Group, Stavka transferred the 260th Rifle Division to the city. Furthermore, the Tula Workers' Regiment was urgently created in the city, reinforced by the 156th NKVD Regiment and local police forces."
+            "title": "trigger.tula_defence.title",
+            "message": "trigger.tula_defence.message"
           }
         },
         {
@@ -3601,8 +3601,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "Divisions from the Far East arrive  at Tula!",
-            "message": "To reinforce the defence of the key city of Tula and its eastern approaches, Stavka decided to send arriving from the Far East 239th and 413th Rifle Divisions to Tula and Stalinogorsk."
+            "title": "trigger.far_east_divisions.title",
+            "message": "trigger.far_east_divisions.message"
           }
         },
         {
@@ -3648,8 +3648,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "Soviet Tank Wave!",
-            "message": "By the end of October 1941, despite a severe shortage of tanks, the Soviet command had formed or replenished up to 30 tank brigades. These units were armed with the latest T-34 and KV tanks. A significant portion of the new tank units were formed near Moscow and immediately sent to the front."
+            "title": "trigger.tank_wave.title",
+            "message": "trigger.tank_wave.message"
           }
         },
         {
@@ -3728,8 +3728,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "Soviet Counteroffensive in the North!",
-            "message": "By the end of November 1941, the Soviet command was concentrating troops of the newly formed 20th Army and the 1st Shock Army in the Zagorsk (now Sergiev Posad) area. Stavka planned to launch these armies into a counteroffensive north of Moscow in early December. However, the German breakthrough near Yakhroma forced the immediate deployment of the 1st Shock Army to eliminate the breakthrough."
+            "title": "trigger.north_counteroffensive.title",
+            "message": "trigger.north_counteroffensive.message"
           }
         },
         {
@@ -3813,8 +3813,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "Soviet Reinforcements in the South-East!",
-            "message": "By the end of November 1941, the Soviet command had formed 13 rifle and 4 cavalry divisions in the Volga Military District. They took part in the Red Army's winter counteroffensive on the southern flank of the Western Front."
+            "title": "trigger.reinforcements_southeast.title",
+            "message": "trigger.reinforcements_southeast.message"
           }
         },
         {
@@ -4019,8 +4019,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "The Eastern Front",
-            "message": "Despite the stunning successes of the first months of the war, the pace of the German advance in the central sector slowed significantly, and losses were unexpectedly high. Near Smolensk, the Germans were even forced to go on the defensive for a time. However, by constantly counterattacking and pinning down the enemy, the Red Army also suffered huge losses.\n\nOn September 30, Wehrmacht launched Operation \"Typhoon\", its General Offensive on Moscow. According to the German plan, Reinhardt's 3rd Panzer Group attacked from the north toward Sichevka, and Hoepner's 4th Panzer Group attacked south toward Spas-Demensk; the groups were to link up near Vyaz'ma, encircling the Soviet Western Front. At the same time, Guderian's 2nd Panzer Group attacked south toward Oryol.\n\nBut although the Wehrmacht outnumbers the Red Army, German supply lines are already severely stretched, and operational reserves are depleted — reinforcements are not expected. The Soviet command on the other hand is busily forming new divisions. The front-line units just need to win as much time as possible until they arrive.\n\nThe German command must capture Moscow in 50 moves, while the Soviet command must hold the city at any cost."
+            "title": "trigger.intro.title",
+            "message": "trigger.intro.message"
           }
         }
       ],
@@ -4040,8 +4040,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "The Fall of Moscow!",
-            "message": "Despite desperate resistance, Moscow fell under the decisive blow of German troops! The Soviet Union's most important political, industrial, and logistical center lies in German hands. The morale of the Soviet troops was completely undermined, and all attempts by Soviet counterattacks on the city were repelled."
+            "title": "trigger.fall_of_moscow.title",
+            "message": "trigger.fall_of_moscow.message"
           }
         }
       ],
@@ -4061,8 +4061,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "Soviet Victory in the Battle of Moscow!",
-            "message": "Despite the catastrophes of the first months of the war and countless losses, the Red Army was able to defend Moscow and repel the German offensive. The German strategy of blitzkrieg was thwarted – however, a significant portion of the USSR is still under German control, and complete victory in the war has not yet been achieved."
+            "title": "trigger.soviet_victory.title",
+            "message": "trigger.soviet_victory.message"
           }
         },
         { "type": "defeatPlayer", "value": 1 }
@@ -4105,8 +4105,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "Survivors of the Bryansk encirclement",
-            "message": "Some units of the Soviet 3rd Army, surrounded south of Bryansk, were able to break through after the most difficult battles!"
+            "title": "trigger.bryansk_survivors.title",
+            "message": "trigger.bryansk_survivors.message"
           }
         },
         {
@@ -4149,8 +4149,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "GERMAN ARMY ANNIHILATED!",
-            "message": "The efforts of NKVD agents and spies were initially unnoticed. However, over time, the Wehrmacht's staff work was either disrupted or diverted to the Soviets' advantage. As a result, Operation Typhoon became the largest catastrophe in German history. The Red Army captured Berlin, Vienna, and Budapest by the summer of 1942, and by 1944 had captured all of Europe!"
+            "title": "trigger.german_annihilated.title",
+            "message": "trigger.german_annihilated.message"
           }
         },
         { "type": "defeatPlayer", "value": 1 }
@@ -4170,8 +4170,8 @@
         {
           "type": "showMessage",
           "value": {
-            "title": "FROG IS MAD!",
-            "message": "C'mon Player 2, play better!"
+            "title": "trigger.frog_mad.title",
+            "message": "trigger.frog_mad.message"
           }
         }
       ],
@@ -4180,12 +4180,118 @@
   ],
   "locales": {
     "en": {
+      "name": "Battle of Moscow",
       "description": "September 30, 1941. Operation \"Typhoon\" has begun. German tank spearheads are ready to crush the Soviet defenses. However, German time and resources are limited, while the Red Army command intends to hold Moscow at any cost. Will Moscow fall?\n\nA limit of 50 moves or more is highly recommended. - Fat_Jabka, map creator",
-      "name": "Battle of Moscow"
+      "trigger.moscow_militia.title": "Moscow Militia Divisions",
+      "trigger.moscow_militia.message": "On October 11th, after accelerated training, four Militia divisions were formed in Moscow.",
+      "trigger.kalinin_defence.title": "Defence of Kalinin!",
+      "trigger.kalinin_defence.message": "The city of Kalinin (currently - Tver') is a major hub on the railway Moscow-Leningrad (currently - St. Petersburg). To prevent the Germans from capturing Kalinin, the 5th Rifle Division was transferred from the reserve of Stavka to the city. Vatutin's task force, formed from reserve units of the Northwestern Front, soon arrived in the Torzhok area. Furthermore, a people's militia, reinforced by cadets, was urgently formed in the city itself.",
+      "trigger.south_breakthrough.title": "Breakthrough in the South!",
+      "trigger.south_breakthrough.message": "On October 3, the German 2nd Tank Group succeeded in making a major breakthrough on the southern flank of the Bryansk Front. After advancing hundreds of kilometers, the 4th Panzer Division managed to capture the city of Oryol completely defenceless.",
+      "trigger.guderian_exploits.title": "Guderian Exploits the Breakthrough!",
+      "trigger.guderian_exploits.message": "After successful capture of the city of Oryol, H. Guderian, commander of the 2nd Tank Group, reinforced the resulting breakthrough by sending three Panzer and one motorized division.",
+      "trigger.soviet_response.title": "The Soviet Response to the Breakthrough",
+      "trigger.soviet_response.message": "After the capture of the city of Oryol by Germans, the road to Tula and Moscow was practically unguarded. Stavka urgently deployed from reserves two Tank Brigades, 1st Rifle Corps and 5th Airborne Corps in the Mtsensk area.",
+      "trigger.zhukov_arrives.title": "G. Zhukov Arrives!",
+      "trigger.zhukov_arrives.message": "After the disaster at Vyazma, J. Stalin ordered the recall of G. Zhukov from Leningrad (currently St. Petersburg) to organize the defense of Moscow as quickly as possible. Zhukov's first decision was to deploy the few recently replenished divisions on the southwestern approaches to Moscow.",
+      "trigger.tula_defence.title": "Defence of Tula!",
+      "trigger.tula_defence.message": "Tula, the City of Gunsmiths, is a key industrial center and logistics hub on the southern approaches to Moscow. To prevent its capture by Guderian's Panzer Group, Stavka transferred the 260th Rifle Division to the city. Furthermore, the Tula Workers' Regiment was urgently created in the city, reinforced by the 156th NKVD Regiment and local police forces.",
+      "trigger.far_east_divisions.title": "Divisions from the Far East arrive  at Tula!",
+      "trigger.far_east_divisions.message": "To reinforce the defence of the key city of Tula and its eastern approaches, Stavka decided to send arriving from the Far East 239th and 413th Rifle Divisions to Tula and Stalinogorsk.",
+      "trigger.tank_wave.title": "Soviet Tank Wave!",
+      "trigger.tank_wave.message": "By the end of October 1941, despite a severe shortage of tanks, the Soviet command had formed or replenished up to 30 tank brigades. These units were armed with the latest T-34 and KV tanks. A significant portion of the new tank units were formed near Moscow and immediately sent to the front.",
+      "trigger.north_counteroffensive.title": "Soviet Counteroffensive in the North!",
+      "trigger.north_counteroffensive.message": "By the end of November 1941, the Soviet command was concentrating troops of the newly formed 20th Army and the 1st Shock Army in the Zagorsk (now Sergiev Posad) area. Stavka planned to launch these armies into a counteroffensive north of Moscow in early December. However, the German breakthrough near Yakhroma forced the immediate deployment of the 1st Shock Army to eliminate the breakthrough.",
+      "trigger.reinforcements_southeast.title": "Soviet Reinforcements in the South-East!",
+      "trigger.reinforcements_southeast.message": "By the end of November 1941, the Soviet command had formed 13 rifle and 4 cavalry divisions in the Volga Military District. They took part in the Red Army's winter counteroffensive on the southern flank of the Western Front.",
+      "trigger.intro.title": "The Eastern Front",
+      "trigger.intro.message": "Despite the stunning successes of the first months of the war, the pace of the German advance in the central sector slowed significantly, and losses were unexpectedly high. Near Smolensk, the Germans were even forced to go on the defensive for a time. However, by constantly counterattacking and pinning down the enemy, the Red Army also suffered huge losses.\n\nOn September 30, Wehrmacht launched Operation \"Typhoon\", its General Offensive on Moscow. According to the German plan, Reinhardt's 3rd Panzer Group attacked from the north toward Sichevka, and Hoepner's 4th Panzer Group attacked south toward Spas-Demensk; the groups were to link up near Vyaz'ma, encircling the Soviet Western Front. At the same time, Guderian's 2nd Panzer Group attacked south toward Oryol.\n\nBut although the Wehrmacht outnumbers the Red Army, German supply lines are already severely stretched, and operational reserves are depleted — reinforcements are not expected. The Soviet command on the other hand is busily forming new divisions. The front-line units just need to win as much time as possible until they arrive.\n\nThe German command must capture Moscow in 50 moves, while the Soviet command must hold the city at any cost.",
+      "trigger.fall_of_moscow.title": "The Fall of Moscow!",
+      "trigger.fall_of_moscow.message": "Despite desperate resistance, Moscow fell under the decisive blow of German troops! The Soviet Union's most important political, industrial, and logistical center lies in German hands. The morale of the Soviet troops was completely undermined, and all attempts by Soviet counterattacks on the city were repelled.",
+      "trigger.soviet_victory.title": "Soviet Victory in the Battle of Moscow!",
+      "trigger.soviet_victory.message": "Despite the catastrophes of the first months of the war and countless losses, the Red Army was able to defend Moscow and repel the German offensive. The German strategy of blitzkrieg was thwarted – however, a significant portion of the USSR is still under German control, and complete victory in the war has not yet been achieved.",
+      "trigger.bryansk_survivors.title": "Survivors of the Bryansk encirclement",
+      "trigger.bryansk_survivors.message": "Some units of the Soviet 3rd Army, surrounded south of Bryansk, were able to break through after the most difficult battles!",
+      "trigger.german_annihilated.title": "GERMAN ARMY ANNIHILATED!",
+      "trigger.german_annihilated.message": "The efforts of NKVD agents and spies were initially unnoticed. However, over time, the Wehrmacht's staff work was either disrupted or diverted to the Soviets' advantage. As a result, Operation Typhoon became the largest catastrophe in German history. The Red Army captured Berlin, Vienna, and Budapest by the summer of 1942, and by 1944 had captured all of Europe!",
+      "trigger.frog_mad.title": "FROG IS MAD!",
+      "trigger.frog_mad.message": "C'mon Player 2, play better!"
+    },
+    "es": {
+      "name": "Batalla de Moscú",
+      "description": "30 de septiembre de 1941. Ha comenzado la Operación \"Tifón\". Las puntas de lanza de los tanques alemanes están listas para aplastar las defensas soviéticas. Sin embargo, el tiempo y los recursos alemanes son limitados, mientras que el mando del Ejército Rojo tiene la intención de conservar Moscú a toda costa. ¿Caerá Moscú?\n\nSe recomienda encarecidamente un límite de 50 movimientos o más. - Fat_Jabka, creador del mapa",
+      "trigger.reinforcements_southeast.title": "¡Refuerzos soviéticos en el sureste!",
+      "trigger.reinforcements_southeast.message": "A finales de noviembre de 1941, el mando soviético había formado 13 divisiones de fusileros y 4 de caballería en el Distrito Militar del Volga. Participaron en la contraofensiva de invierno del Ejército Rojo en el flanco sur del Frente Occidental.",
+      "trigger.intro.title": "El Frente Oriental",
+      "trigger.intro.message": "A pesar de los asombrosos éxitos de los primeros meses de la guerra, el ritmo del avance alemán en el sector central se ralentizó significativamente y las pérdidas fueron inesperadamente altas. Cerca de Smolensk, los alemanes se vieron incluso obligados a pasar a la defensiva por un tiempo. Sin embargo, al contraatacar constantemente y inmovilizar al enemigo, el Ejército Rojo también sufrió enormes pérdidas.\n\nEl 30 de septiembre, la Wehrmacht lanzó la Operación \"Tifón\", su ofensiva general sobre Moscú. Según el plan alemán, el 3.er Grupo Panzer de Reinhardt atacó desde el norte hacia Sichevka, y el 4.º Grupo Panzer de Hoepner atacó hacia el sur hacia Spas-Demensk; los grupos debían unirse cerca de Vyaz'ma, rodeando el Frente Occidental soviético. Al mismo tiempo, el 2.º Grupo Panzer de Guderian atacó hacia el sur, hacia Orel.\n\nPero aunque la Wehrmacht supera en número al Ejército Rojo, las líneas de suministro alemanas ya están severamente estiradas y las reservas operativas están agotadas: no se esperan refuerzos. El mando soviético, por otro lado, está ocupado formando nuevas divisiones. Las unidades de primera línea solo necesitan ganar el mayor tiempo posible hasta que lleguen.\n\nEl mando alemán debe capturar Moscú en 50 movimientos, mientras que el mando soviético debe mantener la ciudad a toda costa.",
+      "trigger.fall_of_moscow.title": "¡La Caída de Moscú!",
+      "trigger.fall_of_moscow.message": "¡A pesar de la resistencia desesperada, Moscú cayó bajo el golpe decisivo de las tropas alemanas! El centro político, industrial y logístico más importante de la Unión Soviética está en manos alemanas. La moral de las tropas soviéticas fue completamente socavada y todos los intentos de contraataques soviéticos en la ciudad fueron repelidos.",
+      "trigger.soviet_victory.title": "¡Victoria soviética en la Batalla de Moscú!",
+      "trigger.soviet_victory.message": "A pesar de las catástrofes de los primeros meses de la guerra y las innumerables pérdidas, el Ejército Rojo pudo defender Moscú y repeler la ofensiva alemana. La estrategia alemana de la guerra relámpago se vio frustrada; sin embargo, una parte significativa de la URSS todavía está bajo control alemán y aún no se ha logrado la victoria completa en la guerra.",
+      "trigger.bryansk_survivors.title": "Sobrevivientes del cerco de Briansk",
+      "trigger.bryansk_survivors.message": "¡Algunas unidades del 3.er Ejército soviético, rodeadas al sur de Briansk, pudieron abrirse paso después de las batallas más difíciles!",
+      "trigger.german_annihilated.title": "¡EJÉRCITO ALEMÁN ANIQUILADO!",
+      "trigger.german_annihilated.message": "Los esfuerzos de los agentes y espías de la NKVD pasaron inicialmente desapercibidos. Sin embargo, con el tiempo, el trabajo del estado mayor de la Wehrmacht se vio interrumpido o desviado en beneficio de los soviéticos. Como resultado, la Operación Tifón se convirtió en la mayor catástrofe de la historia alemana. ¡El Ejército Rojo capturó Berlín, Viena y Budapest en el verano de 1942 y en 1944 había capturado toda Europa!",
+      "trigger.frog_mad.title": "¡FROG ESTÁ LOCO!",
+      "trigger.frog_mad.message": "¡Vamos Jugador 2, juega mejor!",
+      "trigger.moscow_militia.title": "Divisiones de Milicia de Moscú",
+      "trigger.moscow_militia.message": "El 11 de octubre, tras un entrenamiento acelerado, se formaron cuatro divisiones de Milicia en Moscú.",
+      "trigger.kalinin_defence.title": "¡Defensa de Kalinin!",
+      "trigger.kalinin_defence.message": "La ciudad de Kalinin (actualmente Tver) es un importante centro ferroviario en la línea Moscú-Leningrado (actualmente San Petersburgo). Para evitar que los alemanes capturaran Kalinin, la 5ª División de Fusileros fue transferida de la reserva de la Stavka a la ciudad. El grupo de trabajo de Vatutin, formado por unidades de reserva del Frente Noroeste, llegó pronto a la zona de Torzhok. Además, se formó urgentemente una milicia popular, reforzada por cadetes, en la propia ciudad.",
+      "trigger.south_breakthrough.title": "¡Ruptura en el Sur!",
+      "trigger.south_breakthrough.message": "El 3 de octubre, el 2.º Grupo de Tanques alemán logró realizar una importante ruptura en el flanco sur del Frente de Briansk. Tras avanzar cientos de kilómetros, la 4.ª División Panzer logró capturar la ciudad de Orel completamente indefensa.",
+      "trigger.guderian_exploits.title": "¡Guderian explota la ruptura!",
+      "trigger.guderian_exploits.message": "Tras la exitosa captura de la ciudad de Orel, H. Guderian, comandante del 2.º Grupo de Tanques, reforzó la ruptura resultante enviando tres divisiones Panzer y una motorizada.",
+      "trigger.soviet_response.title": "La respuesta soviética a la ruptura",
+      "trigger.soviet_response.message": "Tras la captura de la ciudad de Orel por los alemanes, el camino a Tula y Moscú estaba prácticamente desprotegido. La Stavka desplegó urgentemente de las reservas dos Brigadas de Tanques, el 1.er Cuerpo de Fusileros y el 5.º Cuerpo Aerotransportado en la zona de Mtsensk.",
+      "trigger.zhukov_arrives.title": "¡Llega G. Zhukov!",
+      "trigger.zhukov_arrives.message": "Tras el desastre de Vyazma, J. Stalin ordenó llamar a G. Zhukov desde Leningrado (actualmente San Petersburgo) para organizar la defensa de Moscú lo antes posible. La primera decisión de Zhukov fue desplegar las pocas divisiones recién reabastecidas en los accesos suroeste de Moscú.",
+      "trigger.tula_defence.title": "¡Defensa de Tula!",
+      "trigger.tula_defence.message": "Tula, la Ciudad de los Armeros, es un centro industrial y logístico clave en los accesos meridionales a Moscú. Para evitar su captura por el Grupo Panzer de Guderian, la Stavka transfirió la 260.ª División de Fusileros a la ciudad. Además, se creó urgentemente el Regimiento de Trabajadores de Tula en la ciudad, reforzado por el 156.º Regimiento de la NKVD y las fuerzas policiales locales.",
+      "trigger.far_east_divisions.title": "¡Llegan divisiones del Lejano Oriente a Tula!",
+      "trigger.far_east_divisions.message": "Para reforzar la defensa de la ciudad clave de Tula y sus accesos orientales, la Stavka decidió enviar las 239.ª y 413.ª Divisiones de Fusileros que llegaban del Lejano Oriente a Tula y Stalinogorsk.",
+      "trigger.tank_wave.title": "¡Ola de tanques soviéticos!",
+      "trigger.tank_wave.message": "A finales de octubre de 1941, a pesar de una grave escasez de tanques, el mando soviético había formado o reabastecido hasta 30 brigadas de tanques. Estas unidades estaban armadas con los últimos tanques T-34 y KV. Una parte importante de las nuevas unidades de tanques se formó cerca de Moscú y se envió inmediatamente al frente.",
+      "trigger.north_counteroffensive.title": "¡Contraofensiva soviética en el Norte!",
+      "trigger.north_counteroffensive.message": "A finales de noviembre de 1941, el mando soviético estaba concentrando tropas del recién formado 20.º Ejército y el 1.er Ejército de Choque en la zona de Zagorsk (ahora Sergiev Posad). La Stavka planeaba lanzar estos ejércitos en una contraofensiva al norte de Moscú a principios de diciembre. Sin embargo, la ruptura alemana cerca de Yakhroma obligó al despliegue inmediato del 1.er Ejército de Choque para eliminar la ruptura."
     },
     "ru": {
+      "name": "Битва за Москву",
       "description": "30 сентября 1941 года. Операция \"Тайфун\" началась. Немецкие танковые клинья готовы сокрушить советскую оборону. Однако, время и ресурсы Германии ограничены, а командование Красной Армии намерено удержать Москву любой ценой . Падёт ли Москва?\n\nРекомендую лимит в 50 ходов. - Fat_Jabka, создатель карты",
-      "name": "Битва за Москву"
+      "trigger.reinforcements_southeast.title": "Советские подкрепления на юго-востоке!",
+      "trigger.reinforcements_southeast.message": "К концу ноября 1941 года советское командование сформировало 13 стрелковых и 4 кавалерийские дивизии в Приволжском военном округе. Они приняли участие в зимнем контрнаступлении Красной Армии на южном фланге Западного фронта.",
+      "trigger.intro.title": "Восточный фронт",
+      "trigger.intro.message": "Несмотря на ошеломляющие успехи первых месяцев войны, темп немецкого наступления на центральном участке значительно снизился, а потери оказались неожиданно высокими. Под Смоленском немцы даже были вынуждены на время перейти к обороне. Однако, постоянно контратакуя и сковывая противника, Красная Армия также несла огромные потери.\n\n30 сентября Вермахт начал операцию «Тайфун» — генеральное наступление на Москву. По немецкому плану 3-я танковая группа Рейнхардта наступала с севера на Сычевку, а 4-я танковая группа Гёпнера — с юга на Спас-Деменск; группы должны были соединиться в районе Вязьмы, окружив советский Западный фронт. Одновременно 2-я танковая группа Гудериана наступала на юг, на Орел.\n\nНо хотя Вермахт численно превосходит Красную Армию, немецкие линии снабжения уже сильно растянуты, а оперативные резервы истощены — подкреплений не ожидается. Советское командование, напротив, спешно формирует новые дивизии. Частям на передовой нужно лишь выиграть как можно больше времени до их прибытия.\n\nНемецкое командование должно захватить Москву за 50 ходов, а советское командование — удержать город любой ценой.",
+      "trigger.fall_of_moscow.title": "Падение Москвы!",
+      "trigger.fall_of_moscow.message": "Несмотря на отчаянное сопротивление, Москва пала под решительным ударом немецких войск! Важнейший политический, промышленный и логистический центр Советского Союза находится в руках немцев. Моральный дух советских войск был полностью подорван, а все попытки советских контратак на город были отбиты.",
+      "trigger.soviet_victory.title": "Советская победа в битве за Москву!",
+      "trigger.soviet_victory.message": "Несмотря на катастрофы первых месяцев войны и бесчисленные потери, Красная Армия смогла отстоять Москву и отразить немецкое наступление. Немецкая стратегия блицкрига была сорвана — однако значительная часть СССР все еще находится под контролем немцев, и полная победа в войне еще не достигнута.",
+      "trigger.bryansk_survivors.title": "Выжившие из Брянского котла",
+      "trigger.bryansk_survivors.message": "Некоторые части советской 3-й армии, окруженные южнее Брянска, смогли прорваться после тяжелейших боев!",
+      "trigger.german_annihilated.title": "НЕМЕЦКАЯ АРМИЯ УНИЧТОЖЕНА!",
+      "trigger.german_annihilated.message": "Усилия агентов и шпионов НКВД поначалу оставались незамеченными. Однако со временем работа штаба Вермахта была либо сорвана, либо перенаправлена в пользу Советов. В результате операция «Тайфун» стала крупнейшей катастрофой в истории Германии. Красная Армия захватила Берлин, Вену и Будапешт к лету 1942 года, а к 1944 году захватила всю Европу!",
+      "trigger.frog_mad.title": "ЛЯГУШКА В ЯРОСТИ!",
+      "trigger.frog_mad.message": "Давай, Игрок 2, играй лучше!",
+      "trigger.moscow_militia.title": "Московские дивизии народного ополчения",
+      "trigger.moscow_militia.message": "11 октября, после ускоренного обучения, в Москве были сформированы четыре дивизии народного ополчения.",
+      "trigger.kalinin_defence.title": "Оборона Калинина!",
+      "trigger.kalinin_defence.message": "Город Калинин (ныне Тверь) — крупный узел на железной дороге Москва-Ленинград (ныне Санкт-Петербург). Чтобы не допустить захвата Калинина немцами, в город была переброшена 5-я стрелковая дивизия из резерва Ставки. Вскоре в район Торжка прибыла оперативная группа Ватутина, сформированная из резервных частей Северо-Западного фронта. Кроме того, в самом городе было срочно сформировано народное ополчение, усиленное курсантами.",
+      "trigger.south_breakthrough.title": "Прорыв на юге!",
+      "trigger.south_breakthrough.message": "3 октября 2-я танковая группа немцев сумела осуществить крупный прорыв на южном фланге Брянского фронта. Продвинувшись на сотни километров, 4-я танковая дивизия сумела захватить город Орел, который был совершенно беззащитен.",
+      "trigger.guderian_exploits.title": "Гудериан развивает прорыв!",
+      "trigger.guderian_exploits.message": "После успешного захвата города Орел Г. Гудериан, командующий 2-й танковой группой, усилил образовавшийся прорыв, послав три танковые и одну моторизованную дивизии.",
+      "trigger.soviet_response.title": "Советский ответ на прорыв",
+      "trigger.soviet_response.message": "После захвата немцами города Орел дорога на Тулу и Москву оказалась практически без охраны. Ставка срочно перебросила из резервов две танковые бригады, 1-й стрелковый корпус и 5-й воздушно-десантный корпус в район Мценска.",
+      "trigger.zhukov_arrives.title": "Прибытие Г. Жукова!",
+      "trigger.zhukov_arrives.message": "После катастрофы под Вязьмой И. Сталин приказал отозвать Г. Жукова из Ленинграда (ныне Санкт-Петербург), чтобы как можно быстрее организовать оборону Москвы. Первым решением Жукова было развертывание немногих недавно пополненных дивизий на юго-западных подступах к Москве.",
+      "trigger.tula_defence.title": "Оборона Тулы!",
+      "trigger.tula_defence.message": "Тула, город оружейников, является ключевым промышленным центром и логистическим узлом на южных подступах к Москве. Чтобы не допустить ее захвата танковой группой Гудериана, Ставка перебросила в город 260-ю стрелковую дивизию. Кроме того, в городе был срочно создан Тульский рабочий полк, усиленный 156-м полком НКВД и местными силами милиции.",
+      "trigger.far_east_divisions.title": "Дивизии с Дальнего Востока прибывают в Тулу!",
+      "trigger.far_east_divisions.message": "Чтобы усилить оборону ключевого города Тулы и его восточных подступов, Ставка решила направить прибывающие с Дальнего Востока 239-ю и 413-ю стрелковые дивизии в Тулу и Сталиногорск.",
+      "trigger.tank_wave.title": "Советская танковая волна!",
+      "trigger.tank_wave.message": "К концу октября 1941 года, несмотря на острую нехватку танков, советское командование сформировало или пополнило до 30 танковых бригад. Эти части были вооружены новейшими танками Т-34 и КВ. Значительная часть новых танковых частей была сформирована под Москвой и немедленно отправлена на фронт.",
+      "trigger.north_counteroffensive.title": "Советское контрнаступление на севере!",
+      "trigger.north_counteroffensive.message": "К концу ноября 1941 года советское командование сосредоточило войска вновь сформированной 20-й армии и 1-й ударной армии в районе Загорска (ныне Сергиев Посад). Ставка планировала бросить эти армии в контрнаступление севернее Москвы в начале декабря. Однако немецкий прорыв под Яхромой вынудил немедленно задействовать 1-ю ударную армию для ликвидации прорыва."
     }
   }
 }

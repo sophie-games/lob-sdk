@@ -19,6 +19,7 @@ export interface Avatar {
   tier: SkinTier;
   premiumPrice: number;
   discount?: number;
+  locked?: boolean;
 }
 
 export interface ObjectiveSkin {
