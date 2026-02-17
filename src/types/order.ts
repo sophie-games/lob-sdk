@@ -88,6 +88,18 @@ export interface FallbackOrder
 }
 
 /**
+ * Order to fall back while following a target unit (keeping distance).
+ */
+export interface FallbackFollowOrder
+  extends BaseOrder,
+    Omit<ExclusiveOrderProps, "targetId"> {
+  /** Order type is Fallback. */
+  type: OrderType.Fallback;
+  /** Entity ID of the target unit to keep distance from. */
+  targetId: EntityId;
+}
+
+/**
  * Order to run along a specified path.
  */
 export interface RunOrder extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
@@ -214,7 +226,8 @@ export type AnyOrder =
   | FireAndAdvanceToTargetOrder
   | FireAndAdvanceOnPathOrder
   | PlaceEntityOrder
-  | FallbackOrder;
+  | FallbackOrder
+  | FallbackFollowOrder;
 
 /**
  * Order types that use paths for movement.
