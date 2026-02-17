@@ -62,21 +62,11 @@ export class CavalryStrategy implements NapoleonicBotStrategy {
     const chargerCounts = new Map<EntityId, number>();
 
     if (!context.isRetreating) {
-      const potentialCharges: { unit: BaseUnit; target: BaseUnit; dist: number }[] = [];
-
-      for (const unit of allCavalry) {
-        for (const enemy of visibleEnemies) {
-          const dist = unit.position.distanceTo(enemy.position);
-          if (dist > CavalryStrategy.MAX_CHARGE_DISTANCE) continue;
-
-          if (this._isPriorityTarget(unit, enemy, formationCenter, visibleEnemies) && !this._isPathBlocked(unit, enemy, visibleEnemies)) {
-            potentialCharges.push({ unit, target: enemy, dist });
-          }
-        }
-      }
-
-      // Sort by distance to prioritize closer charges
-      potentialCharges.sort((a, b) => a.dist - b.dist);
+      const potentialCharges = this._getPotentialCharges(
+        allCavalry,
+        visibleEnemies,
+        formationCenter,
+      );
 
       for (const charge of potentialCharges) {
         const unitId = charge.unit.id;
@@ -92,67 +82,12 @@ export class CavalryStrategy implements NapoleonicBotStrategy {
       }
     }
 
-    cavalrySplit.left.forEach((unit, i) => {
-      const assignedTarget = chargeAssignments.get(unit.id);
-      let targetPos = leftPositions[i];
-      let orderType: OrderType = OrderType.Walk;
-      let targetRotation = direction.angle();
-
-      if (context.isRetreating) {
-        let movesTowardsEnemyObjective = false;
-        if (context.closestEnemyObjectivePos && targetPos) {
-          const currentDist = unit.position.distanceTo(context.closestEnemyObjectivePos);
-          const targetDist = targetPos.distanceTo(context.closestEnemyObjectivePos);
-          movesTowardsEnemyObjective = targetDist < currentDist - 1;
-        }
-        orderType = movesTowardsEnemyObjective ? OrderType.Walk : OrderType.Fallback;
-      } else if (assignedTarget) {
-        targetPos = assignedTarget.position;
-        orderType = OrderType.Run;
-        targetRotation = targetPos.subtract(unit.position).angle();
-      }
-
-      if (!targetPos) return;
-
-      if (assignedTarget) {
-        orders.push({
-          id: unit.id,
-          type: OrderType.Run,
-          targetId: assignedTarget.id,
-        });
-      } else {
-        if (targetPos && !context.isRetreating) {
-          targetPos = findPreferredTerrain(
-            targetPos,
-            game,
-            this._bot.getGameDataManager(),
-            this.getTerrainPreference(),
-            3
-          );
-        }
-        orders.push({
-          id: unit.id,
-          type: orderType,
-          path: calculatePath(
-            unit.position,
-            targetPos,
-            unit,
-            game,
-            this._bot.getGameDataManager()
-          ).map(p => p.toArray()),
-          rotation: targetRotation,
-        });
-      }
-
-      // Target formation for cavalry
-      const targetFormation = "line";
-      if (unit.currentFormation !== targetFormation) {
-        formationChanges.push({
-          unitId: unit.id,
-          formationId: targetFormation,
-        });
-      }
-    });
+    this._assignFlankOrders(
+      cavalrySplit.left,
+      leftPositions,
+      chargeAssignments,
+      context,
+    );
 
     // Right Flank
     const rightPositions = calculateFlankPositions(
@@ -167,20 +102,43 @@ export class CavalryStrategy implements NapoleonicBotStrategy {
       CavalryStrategy.REAR_OFFSET
     );
 
-    cavalrySplit.right.forEach((unit, i) => {
+    this._assignFlankOrders(
+      cavalrySplit.right,
+      rightPositions,
+      chargeAssignments,
+      context,
+    );
+  }
+
+  private _assignFlankOrders(
+    units: BaseUnit[],
+    positions: Vector2[],
+    chargeAssignments: Map<EntityId, BaseUnit>,
+    context: NapoleonicBotStrategyContext,
+  ): void {
+    const { game, orders, formationChanges, direction } = context;
+
+    units.forEach((unit, i) => {
       const assignedTarget = chargeAssignments.get(unit.id);
-      let targetPos = rightPositions[i];
+      let targetPos = positions[i];
       let orderType: OrderType = OrderType.Walk;
       let targetRotation = direction.angle();
 
+      // Refers to the current AI retreating
       if (context.isRetreating) {
         let movesTowardsEnemyObjective = false;
         if (context.closestEnemyObjectivePos && targetPos) {
-          const currentDist = unit.position.distanceTo(context.closestEnemyObjectivePos);
-          const targetDist = targetPos.distanceTo(context.closestEnemyObjectivePos);
+          const currentDist = unit.position.distanceTo(
+            context.closestEnemyObjectivePos,
+          );
+          const targetDist = targetPos.distanceTo(
+            context.closestEnemyObjectivePos,
+          );
           movesTowardsEnemyObjective = targetDist < currentDist - 1;
         }
-        orderType = movesTowardsEnemyObjective ? OrderType.Walk : OrderType.Fallback;
+        orderType = movesTowardsEnemyObjective
+          ? OrderType.Walk
+          : OrderType.Fallback;
       } else if (assignedTarget) {
         targetPos = assignedTarget.position;
         orderType = OrderType.Run;
@@ -202,7 +160,7 @@ export class CavalryStrategy implements NapoleonicBotStrategy {
             game,
             this._bot.getGameDataManager(),
             this.getTerrainPreference(),
-            3
+            3,
           );
         }
         orders.push({
@@ -213,8 +171,8 @@ export class CavalryStrategy implements NapoleonicBotStrategy {
             targetPos,
             unit,
             game,
-            this._bot.getGameDataManager()
-          ).map(p => p.toArray()),
+            this._bot.getGameDataManager(),
+          ).map((p) => p.toArray()),
           rotation: targetRotation,
         });
       }
@@ -241,6 +199,37 @@ export class CavalryStrategy implements NapoleonicBotStrategy {
         [TerrainCategoryType.ShallowWater]: 4,
       },
     };
+  }
+
+  private _getPotentialCharges(
+    myUnits: BaseUnit[],
+    visibleEnemies: BaseUnit[],
+    formationCenter: Vector2,
+  ): { unit: BaseUnit; target: BaseUnit; dist: number }[] {
+    const potentialCharges: { unit: BaseUnit; target: BaseUnit; dist: number }[] =
+      [];
+
+    for (const unit of myUnits) {
+      for (const enemy of visibleEnemies) {
+        const dist = unit.position.distanceTo(enemy.position);
+        if (dist > CavalryStrategy.MAX_CHARGE_DISTANCE) continue;
+
+        if (
+          this._isPriorityTarget(
+            unit,
+            enemy,
+            formationCenter,
+            visibleEnemies,
+          ) &&
+          !this._isPathBlocked(unit, enemy, visibleEnemies)
+        ) {
+          potentialCharges.push({ unit, target: enemy, dist });
+        }
+      }
+    }
+
+    // Sort by distance to prioritize closer charges
+    return potentialCharges.sort((a, b) => a.dist - b.dist);
   }
 
   private _isPriorityTarget(unit: BaseUnit, enemy: BaseUnit, formationCenter: Vector2, visibleEnemies: BaseUnit[]): boolean {

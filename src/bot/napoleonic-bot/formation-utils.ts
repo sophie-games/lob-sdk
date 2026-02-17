@@ -40,7 +40,7 @@ export function splitCavalry(units: BaseUnit[]) {
 }
 
 /**
- * Calculates positions for units in a line and calls a callback for each.
+ * Calculates positions for units in a line and returns them.
  */
 export function calculateLinePositions(
   units: BaseUnit[],
