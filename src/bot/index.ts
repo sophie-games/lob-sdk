@@ -1,3 +1,3 @@
-export * from "./bot-napoleonic";
-export * from "./bot-ww2";
+export * from "./napoleonic-bot";
+export * from "./ww2-bot";
 export * from "./types";

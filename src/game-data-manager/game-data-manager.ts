@@ -482,8 +482,8 @@ export class GameDataManager {
    * @param avatarId - The avatar ID.
    * @returns The avatar object, or undefined if not found.
    */
-  public getAvatar(avatarId?: number): Avatar | undefined {
-    return this.avatarMap.get(avatarId!);
+  public getAvatar(avatarId?: number | null): Avatar | undefined {
+    return this.avatarMap.get(avatarId as number);
   }
 
   /**

@@ -69,7 +69,8 @@
     "id": 5,
     "name": "hawke",
     "tier": 1,
-    "premiumPrice": 100
+    "premiumPrice": 100,
+    "locked": true
   },
   {
     "id": 13,
@@ -243,7 +244,8 @@
     "id": 41,
     "name": "lobster-hawke",
     "tier": 4,
-    "premiumPrice": 3750
+    "premiumPrice": 3750,
+    "locked": true
   },
   {
     "id": 42,
@@ -416,6 +418,13 @@
   {
     "id": 70,
     "name": "freedom-in-the-andes",
+    "tier": 1,
+ 
+    "premiumPrice": 100
+  },
+   {
+    "id": 71,
+    "name": "general-santino",
     "tier": 1,
     "premiumPrice": 100
   }
