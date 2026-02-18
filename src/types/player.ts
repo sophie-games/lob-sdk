@@ -50,10 +50,10 @@ export interface PlayerInfo {
   avatarId?: number;
   turnSubmission: TurnSubmission | null;
   wantsDraw: boolean;
-  unitSkins: number[];
+  unitSkins?: number[];
   discordId?: string;
   discordUsername?: string;
-  objectiveSkins: number[];
+  objectiveSkins?: number[];
   armyComposition: UnitCounts | null;
   unitDamageTaken: UnitCounts | null;
   unitsGained: UnitCounts | null;
