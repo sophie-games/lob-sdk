@@ -69,9 +69,6 @@ import napoleonicDresden from "@lob-sdk/game-data/eras/napoleonic/scenarios/dres
 import napoleonicBlackForest from "@lob-sdk/game-data/eras/napoleonic/scenarios/black-forest.json";
 import napoleonicLake from "@lob-sdk/game-data/eras/napoleonic/scenarios/lake.json";
 import napoleonicAntioch from "@lob-sdk/game-data/eras/napoleonic/scenarios/antioch.json";
-import napoleonicClassicPlains from "@lob-sdk/game-data/eras/napoleonic/scenarios/classic-plains.json";
-import napoleonicClassicHills from "@lob-sdk/game-data/eras/napoleonic/scenarios/classic-hills.json";
-import napoleonicClassicTundra from "@lob-sdk/game-data/eras/napoleonic/scenarios/classic-tundra.json";
 import napoleonicSilvaSanctorum from "@lob-sdk/game-data/eras/napoleonic/scenarios/silva-sanctorum.json";
 import napoleonicAndesAndValley from "@lob-sdk/game-data/eras/napoleonic/scenarios/andes-and-valley.json";
 import napoleonicLowCountries from "@lob-sdk/game-data/eras/napoleonic/scenarios/low-countries.json";
@@ -278,9 +275,6 @@ export class GameDataManager {
           lake: napoleonicLake as GameScenario,
           tundra: napoleonicTundra as GameScenario,
           "black-forest": napoleonicBlackForest as GameScenario,
-          "classic-plains": napoleonicClassicPlains as GameScenario,
-          "classic-hills": napoleonicClassicHills as GameScenario,
-          "classic-tundra": napoleonicClassicTundra as GameScenario,
           "silva-sanctorum": napoleonicSilvaSanctorum as GameScenario,
           "andes-and-valley": napoleonicAndesAndValley as GameScenario,
           "lines-of-legends": napoleonicLinesOfLegends as GameScenario,
