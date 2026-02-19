@@ -25,8 +25,6 @@ export enum GameScenarioType {
   Random = "random",
   /** Hybrid scenario combining preset and random elements. */
   Hybrid = "hybrid",
-  /** Classic scenario type. */
-  Classic = "classic",
 }
 
 /**
@@ -138,33 +136,19 @@ export interface RandomScenario extends BaseScenario {
 }
 
 /**
- * A classic scenario type with procedural generation.
- * Similar to RandomScenario but with classic generation rules.
- */
-export interface ClassicScenario extends BaseScenario {
-  /** Type is always Classic for classic scenarios. */
-  type: GameScenarioType.Classic;
-  /** Base terrain type to use for generation. */
-  baseTerrain?: TerrainType;
-  /** Instructions for procedural generation of the scenario. */
-  instructions: AnyInstruction[];
-}
-
-/**
  * Union type representing any game scenario.
- * Can be a PresetScenario, RandomScenario, HybridScenario, or ClassicScenario.
+ * Can be a PresetScenario, RandomScenario, or HybridScenario.
  */
 export type GameScenario =
   | PresetScenario
   | RandomScenario
-  | HybridScenario
-  | ClassicScenario;
+  | HybridScenario;
 
 /**
  * Union type representing procedurally generated scenarios.
- * Includes RandomScenario and ClassicScenario types.
+ * Includes RandomScenario types.
  */
-export type ProceduralScenario = RandomScenario | ClassicScenario;
+export type ProceduralScenario = RandomScenario;
 
 /**
  * Name identifier for a scenario (string).
