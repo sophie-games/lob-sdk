@@ -21,9 +21,7 @@
 
   "DEFAULT_MAP_WIDTH": "mapDimensions",
   "DEFAULT_MAP_HEIGHT": "mapDimensions",
-  "DEFAULT_DEPLOYMENT_ZONE_WIDTH": "mapDimensions",
-  "DEFAULT_DEPLOYMENT_ZONE_HEIGHT": "mapDimensions",
-  "DEFAULT_DEPLOYMENT_ZONE_SEPARATION": "mapDimensions",
+  "DEFAULT_DEPLOYMENT_ZONE_RADIUS": "mapDimensions",
 
   "MAX_PLAYERS": "gameLimits",
   "MIN_FOLLOW_ALLY_DISTANCE_SQUARED": "allyBehavior",
@@ -100,7 +98,6 @@
   "HEIGHT_CHANGE_RUNNING_STAMINA_COST": "stamina",
   "WALKING_STAMINA_REGAIN_MODIFIER": "stamina",
 
-  "FORWARD_DEPLOYMENT_ZONE_OFFSET": "deployment",
 
   "UNIT_FRONT_ARC_RADIANS": "unitDimensions",
   "UNIT_BACK_ARC_RADIANS": "unitDimensions",

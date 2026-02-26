@@ -64,8 +64,8 @@ export function divideArrayInHalf<T>(array: T[]): [T[], T[]] {
 }
 
 /**
- * Gets the closest point inside a zone to a given point, clamping the point to the zone boundaries.
- * @param zone - The zone to clamp the point to.
+ * Gets the closest point inside a circular zone to a given point, clamping the point to the zone boundaries.
+ * @param zone - The circular zone to clamp the point to.
  * @param point - The point to clamp.
  * @param buffer - An optional buffer value to expand the zone boundaries (default: 0).
  * @returns A Vector2 representing the closest point inside the zone.
@@ -75,14 +75,26 @@ export const getClosestPointInsideZone = (
   point: Point2,
   buffer: number = 0
 ) => {
-  const clampedX = Math.max(
-    zone.x - buffer,
-    Math.min(point.x, zone.x + zone.width + buffer)
-  );
-  const clampedY = Math.max(
-    zone.y - buffer,
-    Math.min(point.y, zone.y + zone.height + buffer)
-  );
+  // x and y represent the center of the zone
+  const centerX = zone.x;
+  const centerY = zone.y;
+  const effectiveRadius = zone.radius + buffer;
+  
+  // Calculate distance from point to zone center
+  const dx = point.x - centerX;
+  const dy = point.y - centerY;
+  const distance = Math.sqrt(dx * dx + dy * dy);
+  
+  // If point is inside the circle, return it as-is
+  if (distance <= effectiveRadius) {
+    return new Vector2(point.x, point.y);
+  }
+  
+  // Otherwise, clamp to the circle boundary
+  const angle = Math.atan2(dy, dx);
+  const clampedX = centerX + effectiveRadius * Math.cos(angle);
+  const clampedY = centerY + effectiveRadius * Math.sin(angle);
+  
   return new Vector2(clampedX, clampedY);
 };
 

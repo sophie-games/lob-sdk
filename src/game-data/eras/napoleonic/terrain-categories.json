@@ -69,7 +69,7 @@
     },
     "rangedAttackModifier": {
       "artillery": -0.3,
-      "skirmishInfantry": 0.25,
+      "skirmishInfantry": -0.1,
       "infantry": -0.1,
       "militiaInfantry": -0.1
     },
@@ -147,9 +147,9 @@
     },
     "rangedAttackModifier": {
       "artillery": -0.3,
-      "skirmishInfantry": 0.75,
+      "skirmishInfantry": -0.2,
       "infantry": -0.2,
-      "militiaInfantry": -0.1
+      "militiaInfantry": -0.2
     },
     "projectileAbsorption": {
       "musket": 0.75,

@@ -122,6 +122,9 @@ export class ObjectiveLayerExecutor {
       return matchingCount >= minAmount;
     };
 
+    const widthPx = this.tilesX * tileSize;
+    const heightPx = this.tilesY * tileSize;
+
     for (let x = 0; x < this.tilesX; x++) {
       for (let y = 0; y < this.tilesY; y++) {
         // Check terrain filter constraint
@@ -146,6 +149,18 @@ export class ObjectiveLayerExecutor {
         // Calculate the position (center of tile)
         const positionX = x * tileSize + tileSize / 2;
         const positionY = y * tileSize + tileSize / 2;
+
+        // Ensure objectives stay within map bounds
+        // Objectives have a radius, so we need to leave some margin
+        const radius = 32; // Approximate radius of an objective
+        if (
+          positionX < radius ||
+          positionX > widthPx - radius ||
+          positionY < radius ||
+          positionY > heightPx - radius
+        ) {
+          continue; // Skip positions that would place objectives outside map
+        }
 
         // Check minDistance constraint if provided (minDistance is in tile units)
         if (minDistanceSquaredInTiles > 0) {

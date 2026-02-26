@@ -56,28 +56,28 @@
     "attackEffectDuration": 8,
     "projectileWidth": 16,
     "damageModifierByTargetHp": {
-      "start": 1,
+      "start": 0.8,
       "end": 0.5,
-      "modifier": -0.2
+      "modifier": -0.15
     },
     "orgModifierByTargetOrg": {
-      "start": 0.95,
-      "end": 0.65,
+      "start": 0.9,
+      "end": 0.5,
       "modifier": -0.25
     },
     "ranges": [
       {
         "start": 0,
         "end": 24,
-        "startMod": 6.5,
-        "endMod": 6,
+        "startMod": 6,
+        "endMod": 4,
         "name": "pointBlank"
       },
       {
         "start": 24,
         "end": 44,
-        "startMod": 6,
-        "endMod": 2,
+        "startMod": 4,
+        "endMod": 1.5,
         "name": "close"
       },
       { "start": 44, "end": 64, "startMod": 1.5, "endMod": -0.5 },
@@ -103,6 +103,11 @@
     "reorgDebuff": 0.72,
     "attackEffectDuration": 12,
     "projectileWidth": 12,
+    "damageModifierByTargetHp": {
+      "start": 0.8,
+      "end": 0.5,
+      "modifier": -0.1
+    },
     "orgModifierByTargetOrg": {
       "start": 0.8,
       "end": 0.5,
@@ -139,6 +144,11 @@
     "reorgDebuff": 0.72,
     "attackEffectDuration": 12,
     "projectileWidth": 12,
+    "damageModifierByTargetHp": {
+      "start": 0.8,
+      "end": 0.5,
+      "modifier": -0.1
+    },
     "orgModifierByTargetOrg": {
       "start": 0.75,
       "end": 0.5,
@@ -169,9 +179,9 @@
     "attackEffectDuration": 16,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
-      "start": 1,
+      "start": 0.9,
       "end": 0.5,
-      "modifier": -0.25
+      "modifier": -0.15
     },
     "orgModifierByTargetOrg": {
       "start": 0.9,
@@ -179,8 +189,8 @@
       "modifier": -0.25
     },
     "ranges": [{ "start": 110, "end": 250, "startMod": 0.15, "endMod": 0 }],
-    "arcHeight": 0,
-    "enfiladeFire": false,
+    "arcHeight": 0.001,
+    "enfiladeFire": true,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.75,
     "areaOfEffect": {
@@ -220,9 +230,9 @@
     "attackEffectDuration": 16,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
-      "start": 1,
+      "start": 0.9,
       "end": 0.5,
-      "modifier": -0.25
+      "modifier": -0.15
     },
     "orgModifierByTargetOrg": {
       "start": 0.9,
@@ -239,8 +249,8 @@
         "name": "long"
       }
     ],
-    "arcHeight": 0.0,
-    "enfiladeFire": false,
+    "arcHeight": 0.001,
+    "enfiladeFire": true,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.75,
     "areaOfEffect": {
@@ -280,18 +290,18 @@
     "attackEffectDuration": 16,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
-      "start": 1,
+      "start": 0.9,
       "end": 0.5,
-      "modifier": -0.25
+      "modifier": -0.9
     },
     "orgModifierByTargetOrg": {
       "start": 0.9,
       "end": 0.65,
       "modifier": -0.25
     },
-    "ranges": [{ "start": 85, "end": 250, "startMod": 0.1, "endMod": 0.05 }],
-    "arcHeight": 0,
-    "enfiladeFire": false,
+    "ranges": [{ "start": 90, "end": 250, "startMod": 0.1, "endMod": 0.05 }],
+    "arcHeight": 0.001,
+    "enfiladeFire": true,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.75,
     "areaOfEffect": {
@@ -331,9 +341,9 @@
     "attackEffectDuration": 16,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
-      "start": 1,
+      "start": 0.9,
       "end": 0.5,
-      "modifier": -0.25
+      "modifier": -0.15
     },
     "orgModifierByTargetOrg": {
       "start": 0.9,
@@ -345,13 +355,13 @@
       {
         "start": 240,
         "end": 435,
-        "startMod": -0.25,
-        "endMod": -0.75,
+        "startMod": -0.2,
+        "endMod": -0.65,
         "name": "long"
       }
     ],
-    "arcHeight": 0,
-    "enfiladeFire": false,
+    "arcHeight": 0.001,
+    "enfiladeFire": true,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.75,
     "areaOfEffect": {
@@ -391,9 +401,9 @@
     "attackEffectDuration": 16,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
-      "start": 1,
+      "start": 0.9,
       "end": 0.5,
-      "modifier": -0.25
+      "modifier": -0.15
     },
     "orgModifierByTargetOrg": {
       "start": 0.9,
@@ -405,14 +415,14 @@
       {
         "start": 225,
         "end": 400,
-        "startMod": -0.25,
-        "endMod": -0.75,
+        "startMod": -0.2,
+        "endMod": -0.65,
         "name": "long"
       }
     ],
-    "arcHeight": 0,
-    "enfiladeFire": false,
-    "cannotUseAfterRun": true,
+    "arcHeight": 0.001,
+    "enfiladeFire": true,
+    "cannotUseAfterRun": false,
     "projectilePenetration": 0.75,
     "areaOfEffect": {
       "type": "trapezoidal",
@@ -451,9 +461,9 @@
     "attackEffectDuration": 12,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
-      "start": 1,
+      "start": 0.9,
       "end": 0.5,
-      "modifier": -0.25
+      "modifier": -0.15
     },
     "orgModifierByTargetOrg": {
       "start": 0.9,
@@ -465,14 +475,14 @@
       {
         "start": 200,
         "end": 375,
-        "startMod": -0.3,
-        "endMod": -0.8,
+        "startMod": -0.25,
+        "endMod": -0.6,
         "name": "long"
       }
     ],
-    "arcHeight": 0,
+    "arcHeight": 0.001,
     "enfiladeFire": true,
-    "cannotUseAfterRun": true,
+    "cannotUseAfterRun": false,
     "projectilePenetration": 0.75,
     "areaOfEffect": {
       "type": "trapezoidal",
@@ -511,7 +521,7 @@
     "attackEffectDuration": 10,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
-      "start": 1,
+      "start": 0.9,
       "end": 0.5,
       "modifier": -0.15
     },
@@ -560,9 +570,9 @@
     "attackEffectDuration": 10,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
-      "start": 1,
+      "start": 0.9,
       "end": 0.5,
-      "modifier": -0.2
+      "modifier": -0.15
     },
     "orgModifierByTargetOrg": {
       "start": 0.8,
@@ -609,14 +619,14 @@
     "attackEffectDuration": 10,
     "projectileWidth": 12,
     "damageModifierByTargetHp": {
-      "start": 1,
+      "start": 0.9,
       "end": 0.5,
       "modifier": -0.1
     },
     "orgModifierByTargetOrg": {
       "start": 0.9,
       "end": 0.65,
-      "modifier": -0.35
+      "modifier": -0.25
     },
     "ranges": [
       { "start": 0, "end": 69, "startMod": 0, "endMod": 0, "name": "close" },
@@ -739,7 +749,7 @@
       },
       {
         "start": 69,
-        "end": 85,
+        "end": 90,
         "startMod": 2.2,
         "endMod": 1.8,
         "name": "long"
@@ -810,7 +820,7 @@
       }
     ],
     "enfiladeFire": true,
-    "cannotUseAfterRun": true,
+    "cannotUseAfterRun": false,
     "projectilePenetration": 0.75,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
@@ -829,20 +839,20 @@
       {
         "start": 0,
         "end": 69,
-        "startMod": 1.5,
-        "endMod": 1.25,
+        "startMod": 1.75,
+        "endMod": 1.5,
         "name": "close"
       },
       {
         "start": 69,
         "end": 110,
-        "startMod": 0.75,
-        "endMod": 0.5,
+        "startMod": 1,
+        "endMod": 0.75,
         "name": "long"
       }
     ],
     "enfiladeFire": true,
-    "cannotUseAfterRun": true,
+    "cannotUseAfterRun": false,
     "projectilePenetration": 0.75,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
@@ -920,7 +930,7 @@
         "endMod": 0.75
       }
     ],
-    "arcHeight": 0.75,
+    "arcHeight": 0,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.75,
     "areaOfEffect": {

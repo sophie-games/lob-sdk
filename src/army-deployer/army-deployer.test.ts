@@ -1,4 +1,4 @@
-import { UnitCounts, Zone } from "@lob-sdk/types";
+import { DeploymentZone, UnitCounts, Zone } from "@lob-sdk/types";
 import { ArmyDeployer } from "./army-deployer";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 
@@ -13,11 +13,12 @@ describe("ArmyDeployer", () => {
         "11": 6,
       };
 
-      const deploymentZone: Zone = {
+      const deploymentZone: DeploymentZone = {
+        player: 1,
         x: 1508.5714285714284,
         y: 48,
-        width: 43.42857142857143,
-        height: 304,
+        radius: 128,
+        capacity: 0,
       };
 
       const armyDeployer = new ArmyDeployer(

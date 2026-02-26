@@ -1,18 +1,18 @@
 {
   "s": {
     "map": { "tilesX": 80, "tilesY": 80 },
-    "deployment": { "tilesX": 65, "tilesY": 6, "zoneSeparation": 50 }
+    "deployment": { "radius": 32 }
   },
   "m": {
     "map": { "tilesX": 96, "tilesY": 96 },
-    "deployment": { "tilesX": 80, "tilesY": 7, "zoneSeparation": 58 }
+    "deployment": { "radius": 40 }
   },
   "l": {
     "map": { "tilesX": 112, "tilesY": 112 },
-    "deployment": { "tilesX": 100, "tilesY": 11, "zoneSeparation": 71 }
+    "deployment": { "radius": 50 }
   },
   "xl": {
     "map": { "tilesX": 128, "tilesY": 128 },
-    "deployment": { "tilesX": 112, "tilesY": 14, "zoneSeparation": 80 }
+    "deployment": { "radius": 56 }
   }
 }

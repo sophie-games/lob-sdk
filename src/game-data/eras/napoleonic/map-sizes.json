@@ -1,18 +1,18 @@
 {
   "s": {
-    "map": { "tilesX": 90, "tilesY": 68 },
-    "deployment": { "tilesX": 65, "tilesY": 6, "zoneSeparation": 44 }
+    "map": { "tilesX": 80, "tilesY": 80 },
+    "deployment": { "radius": 12 }
   },
   "m": {
-    "map": { "tilesX": 109, "tilesY": 88 },
-    "deployment": { "tilesX": 100, "tilesY": 8, "zoneSeparation": 62 }
+    "map": { "tilesX": 96, "tilesY": 96 },
+    "deployment": { "radius": 8 }
   },
   "l": {
-    "map": { "tilesX": 118, "tilesY": 100 },
-    "deployment": { "tilesX": 100, "tilesY": 10, "zoneSeparation": 70 }
+    "map": { "tilesX": 112, "tilesY": 112 },
+    "deployment": { "radius": 8 }
   },
   "xl": {
-    "map": { "tilesX": 140, "tilesY": 112 },
-    "deployment": { "tilesX": 120, "tilesY": 14, "zoneSeparation": 74 }
+    "map": { "tilesX": 192, "tilesY": 192 },
+    "deployment": { "radius": 20 }
   }
 }

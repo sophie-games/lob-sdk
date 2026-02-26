@@ -32,8 +32,20 @@ export class ObjectiveExecutor {
       random
     );
 
+    // Clamp objectives to ensure they stay within map bounds
+    // Objectives have a radius, so we need to leave some margin
+    const objectiveRadius = 32; // Approximate radius of an objective
+    const clampedX = Math.max(
+      objectiveRadius,
+      Math.min(positionX, widthPx - objectiveRadius)
+    );
+    const clampedY = Math.max(
+      objectiveRadius,
+      Math.min(positionY, heightPx - objectiveRadius)
+    );
+
     objectives.push({
-      pos: { x: positionX, y: positionY },
+      pos: { x: clampedX, y: clampedY },
       player: player,
     });
   }

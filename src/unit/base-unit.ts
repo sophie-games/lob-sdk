@@ -523,11 +523,7 @@ export abstract class BaseUnit extends Entity {
   }
 
   getDeploymentBuffer() {
-    const { FORWARD_DEPLOYMENT_ZONE_OFFSET } = GameDataManager.get(
-      this.era
-    ).getGameConstants();
-
-    return this.template.canDeployForward ? FORWARD_DEPLOYMENT_ZONE_OFFSET : 0;
+    return 0;
   }
 
   /** Routing units cannot see */

@@ -46,6 +46,7 @@
         "overlaySprite": null
       }
     ],
+    "deploymentCost": 100,
     "pushStrength": 28,
     "pushDistance": 2,
     "maxEntrenchment": 6
@@ -98,6 +99,7 @@
         "overlaySprite": "armored"
       }
     ],
+    "deploymentCost": 100,
     "pushStrength": 32,
     "pushDistance": 6,
     "maxEntrenchment": 1
@@ -149,6 +151,7 @@
         "overlaySprite": "motorized"
       }
     ],
+    "deploymentCost": 100,
     "pushStrength": 28,
     "pushDistance": 2,
     "maxEntrenchment": 6
@@ -196,6 +199,7 @@
       }
     ],
     "pushStrength": 0,
-    "pushDistance": 0
+    "pushDistance": 0,
+    "deploymentCost": 100
   }
 ]

@@ -4,6 +4,13 @@
   "type": "random",
   "baseTerrain": 0,
   "ranked": true,
+  "forwardDeploymentZones": {
+    "amount": 3,
+    "radiusRatio": 0.4,
+    "distanceRatio": 0.6,
+    "capacity": 50,
+    "spacingRatio": 2.0
+  },
   "instructions": [
     {
       "type": "HEIGHT_NOISE",

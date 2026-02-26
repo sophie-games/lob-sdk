@@ -1,7 +1,35 @@
-import { UnitCategoryId, UnitDtoPartialId, UnitType, UnitCounts, DynamicBattleType, Zone,  } from "@lob-sdk/types"
-import { GameDataManager } from "@lob-sdk/game-data-manager"
+import {
+  UnitCategoryId,
+  UnitDtoPartialId,
+  UnitType,
+  UnitCounts,
+  DynamicBattleType,
+  Zone,
+  DeploymentZone,
+} from "@lob-sdk/types";
+import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { DeploymentSection } from "@lob-sdk/game-data-manager";
 import { divideArrayInHalf, getClosestPointInsideZone } from "@lob-sdk/utils";
+
+/**
+ * Gets the deployment cost for a unit type.
+ * @param gameDataManager - The game data manager.
+ * @param unitType - The unit type.
+ * @returns The deployment cost (defaults to 1 if not specified).
+ */
+function getUnitDeploymentCost(
+  gameDataManager: GameDataManager,
+  unitType: number
+): number {
+  try {
+    const template = gameDataManager
+      .getUnitTemplateManager()
+      .getTemplate(unitType);
+    return template.deploymentCost ?? 1;
+  } catch {
+    return 1;
+  }
+}
 
 /**
  * Metrics for calculating unit deployment positions within the deployment zone.
@@ -35,8 +63,6 @@ interface SectionMetrics {
   rightFlankSpacing: number;
   /** Y coordinate for deploying units in the center section. */
   centerY: number;
-  /** Y coordinate for deploying forward units (e.g., skirmishers). */
-  forwardY: number;
   /** Y coordinate for deploying front units. */
   frontY: number;
   /** Y coordinate for deploying flank units. */
@@ -45,7 +71,7 @@ interface SectionMetrics {
 
 /**
  * Handles the deployment of units within a deployment zone, organizing them into sections
- * (flank, center, forward, front) based on their unit categories.
+ * (flank, center, front) based on their unit categories.
  */
 export class ArmyDeployer {
   private readonly DEFAULT_UNIT_HEIGHT = 24;
@@ -53,7 +79,9 @@ export class ArmyDeployer {
   private readonly MARGIN = 12;
 
   private readonly units: UnitCounts;
-  private readonly deploymentZone: Zone;
+  private readonly deploymentZone: DeploymentZone;
+  private readonly allDeploymentZones: DeploymentZone[];
+  private readonly forwardZones: DeploymentZone[];
   private readonly player: number;
   private readonly team: number;
   private readonly dynamicBattleType: DynamicBattleType;
@@ -61,38 +89,53 @@ export class ArmyDeployer {
 
   private readonly metrics: SectionMetrics;
   private readonly rotation: number;
-
-  private readonly forwardDeploymentZoneOffset: number;
+  private currentDeploymentCost: number = 0;
+  private forwardZoneCosts: Map<DeploymentZone, number> = new Map();
 
   /**
    * Creates a new ArmyDeployer instance.
    * @param gameDataManager - The game data manager instance.
    * @param units - A record mapping unit types to their counts.
-   * @param deploymentZone - The zone where units should be deployed.
+   * @param deploymentZone - The main zone where units should be deployed.
    * @param player - The player number.
    * @param team - The team number (1 or 2).
    * @param dynamicBattleType - The battle type (defaults to Combat).
+   * @param allDeploymentZones - Optional array of all deployment zones for this player. Forward zones (capacity != 0) will be automatically detected.
    */
   constructor(
     private gameDataManager: GameDataManager,
     units: UnitCounts,
-    deploymentZone: Zone,
+    deploymentZone: DeploymentZone,
     player: number,
     team: number,
-    dynamicBattleType?: DynamicBattleType
+    dynamicBattleType?: DynamicBattleType,
+    allDeploymentZones?: DeploymentZone[]
   ) {
     this.units = units;
     this.deploymentZone = deploymentZone;
+    this.allDeploymentZones = allDeploymentZones || [deploymentZone];
+
+    // Automatically detect forward zones: zones with capacity != 0 that are not the main zone
+    this.forwardZones = this.allDeploymentZones.filter(
+      (zone) => zone !== deploymentZone && zone.capacity !== 0
+    );
+
     this.player = player;
     this.team = team;
-    this.dynamicBattleType = dynamicBattleType ?? gameDataManager.getGameConstants().DEFAULT_BATTLE_TYPE;
-    this.rotation =
-      this.team === 1 ? 270 * (Math.PI / 180) : 90 * (Math.PI / 180);
-    this.metrics = this.calculateSectionMetrics();
+    this.dynamicBattleType =
+      dynamicBattleType ??
+      gameDataManager.getGameConstants().DEFAULT_BATTLE_TYPE;
 
-    const { FORWARD_DEPLOYMENT_ZONE_OFFSET = 0 } =
-      gameDataManager.getGameConstants();
-    this.forwardDeploymentZoneOffset = FORWARD_DEPLOYMENT_ZONE_OFFSET;
+    // Use zone rotation if available, otherwise fall back to team-based rotation
+    if (deploymentZone.rotation !== undefined) {
+      this.rotation = deploymentZone.rotation;
+    } else {
+      // Fallback: use team-based rotation for backward compatibility
+      this.rotation =
+        this.team === 1 ? 270 * (Math.PI / 180) : 90 * (Math.PI / 180);
+    }
+
+    this.metrics = this.calculateSectionMetrics();
   }
 
   /**
@@ -111,8 +154,8 @@ export class ArmyDeployer {
 
     this.deployFlank(unitsByDeploymentSection.flank);
     this.deployCenter(unitsByDeploymentSection.center);
-    this.deployForward(unitsByDeploymentSection.forward);
     this.deployFront(unitsByDeploymentSection.front);
+    this.deployForward(unitsByDeploymentSection.forward);
     return this.unitDtos;
   }
 
@@ -147,25 +190,81 @@ export class ArmyDeployer {
 
   /**
    * Adds a unit to the deployment list at the specified position.
+   * Checks deployment capacity before adding the unit.
    * @param type - The unit type to deploy.
-   * @param x - The x coordinate.
-   * @param y - The y coordinate.
+   * @param x - The x coordinate (in zone-local coordinates, not rotated).
+   * @param y - The y coordinate (in zone-local coordinates, not rotated).
+   * @param zone - Optional zone to use for capacity checking and positioning. Defaults to main deploymentZone.
+   * @returns True if the unit was added, false if capacity was exceeded.
    */
-  private addUnit(type: UnitType, x: number, y: number) {
-    const template = this.gameDataManager
-      .getUnitTemplateManager()
-      .getTemplate(type);
-    // Apply a buffer for units that can deploy forward
-    let buffer = 0;
-    if (template.canDeployForward) {
-      buffer = this.forwardDeploymentZoneOffset;
+  private addUnit(type: UnitType, x: number, y: number, zone?: DeploymentZone): boolean {
+    const targetZone = zone || this.deploymentZone;
+
+    // Check deployment capacity if zone has a capacity limit (0 = infinite)
+    if (targetZone.capacity > 0) {
+      const unitCost = getUnitDeploymentCost(this.gameDataManager, type);
+
+      // Use zone-specific cost tracking for forward zones
+      if (zone && zone !== this.deploymentZone) {
+        const currentCost = this.forwardZoneCosts.get(zone) || 0;
+        if (currentCost + unitCost > zone.capacity) {
+          // Capacity would be exceeded, skip this unit
+          return false;
+        }
+        this.forwardZoneCosts.set(zone, currentCost + unitCost);
+      } else {
+        // Main zone capacity tracking
+        if (this.currentDeploymentCost + unitCost > targetZone.capacity) {
+          // Capacity would be exceeded, skip this unit
+          return false;
+        }
+        this.currentDeploymentCost += unitCost;
+      }
     }
+    // x and y represent the center of the zone
+    const zoneCenterX = targetZone.x;
+    const zoneCenterY = targetZone.y;
+
+    // For circular zones, always use getClosestPointInsideZone which handles circles
+    const clamped = getClosestPointInsideZone(targetZone, { x, y }, 0);
+
+    let finalX = clamped.x;
+    let finalY = clamped.y;
+
+    // If zone is rotated, rotate the clamped position around the zone center
+    if (targetZone.rotation !== undefined) {
+      // Convert to coordinates relative to zone center
+      const localX = finalX - zoneCenterX;
+      const localY = finalY - zoneCenterY;
+
+      // Rotate around zone center
+      const cos = Math.cos(targetZone.rotation);
+      const sin = Math.sin(targetZone.rotation);
+      const rotatedX = localX * cos - localY * sin;
+      const rotatedY = localX * sin + localY * cos;
+
+      // Convert back to global coordinates
+      finalX = rotatedX + zoneCenterX;
+      finalY = rotatedY + zoneCenterY;
+
+      // Re-clamp to circle after rotation
+      const reClamped = getClosestPointInsideZone(
+        targetZone,
+        { x: finalX, y: finalY },
+        0
+      );
+      finalX = reClamped.x;
+      finalY = reClamped.y;
+    }
+
     this.unitDtos.push({
       player: this.player,
-      pos: getClosestPointInsideZone(this.deploymentZone, { x, y }, buffer),
-      rotation: this.rotation,
+      pos: { x: finalX, y: finalY },
+      rotation: this.rotation + Math.PI / 2,
       type,
     });
+
+    return true;
   }
 
   /**
@@ -176,7 +275,6 @@ export class ArmyDeployer {
    * @param sectionWidth - The width of the section.
    * @param maxUnitsPerRow - The maximum number of units per row.
    * @param spacing - The spacing between units.
-   * @param reverseY - Whether to reverse the Y direction for deployment.
    */
   private deployUnitsInLines(
     units: UnitType[],
@@ -184,8 +282,7 @@ export class ArmyDeployer {
     startX: number,
     sectionWidth: number,
     maxUnitsPerRow: number,
-    spacing: number,
-    reverseY: boolean
+    spacing: number
   ) {
     const unitCount = units.length;
     const lines = Math.ceil(unitCount / maxUnitsPerRow);
@@ -202,22 +299,14 @@ export class ArmyDeployer {
       for (let i = 0; i < unitsInLine; i++) {
         const unitIndex = lineIndex * maxUnitsPerRow + i;
         const unitType = units[unitIndex];
-        const template = this.gameDataManager
-          .getUnitTemplateManager()
-          .getTemplate(unitType);
-        const deploymentBuffer = template.canDeployForward
-          ? this.forwardDeploymentZoneOffset
-          : 0;
         const posX = lineStartX + i * (this.DEFAULT_UNIT_HEIGHT + spacing);
-        const posY = reverseY
-          ? baseY -
-            lineIndex * (this.DEFAULT_UNIT_HEIGHT + this.MARGIN) +
-            deploymentBuffer
-          : baseY +
-            lineIndex * (this.DEFAULT_UNIT_HEIGHT + this.MARGIN) -
-            deploymentBuffer;
+        const posY =
+          baseY + lineIndex * (this.DEFAULT_UNIT_HEIGHT + this.MARGIN);
 
-        this.addUnit(unitType, posX, posY);
+        if (!this.addUnit(unitType, posX, posY)) {
+          // Capacity exceeded, stop deploying units
+          return;
+        }
       }
     }
   }
@@ -227,14 +316,22 @@ export class ArmyDeployer {
    * @returns A SectionMetrics object containing calculated dimensions and positions.
    */
   calculateSectionMetrics(): SectionMetrics {
-    const { x, y, width, height } = this.deploymentZone;
-    const leftFlankWidth = width * 0.25;
-    const centerWidth = width * 0.5;
-    const rightFlankWidth = width * 0.25;
+    const { x, y, radius } = this.deploymentZone;
+    // x and y represent the center of the zone
+    const zoneCenterX = x;
+    const zoneCenterY = y;
 
-    const leftFlankStartX = x;
-    const centerStartX = x + leftFlankWidth;
-    const rightFlankStartX = x + leftFlankWidth + centerWidth;
+    // For circular zones, we'll use the diameter to calculate section widths
+    // The sections are arranged horizontally across the circle, centered on the zone center
+    const diameter = radius * 2;
+    const leftFlankWidth = diameter * 0.25;
+    const centerWidth = diameter * 0.5;
+    const rightFlankWidth = diameter * 0.25;
+
+    // Center sections around the zone center
+    const leftFlankStartX = zoneCenterX - centerWidth / 2 - leftFlankWidth;
+    const centerStartX = zoneCenterX - centerWidth / 2;
+    const rightFlankStartX = zoneCenterX + centerWidth / 2;
 
     // Ensure at least one unit if the section width can accommodate a unit
     const leftFlankMaxUnits = Math.max(
@@ -256,33 +353,33 @@ export class ArmyDeployer {
     const leftFlankSpacing =
       leftFlankMaxUnits > 0
         ? Math.max(
-            this.MIN_SPACING,
-            (leftFlankWidth - leftFlankMaxUnits * this.DEFAULT_UNIT_HEIGHT) /
-              (leftFlankMaxUnits > 1 ? leftFlankMaxUnits - 1 : 1)
-          )
+          this.MIN_SPACING,
+          (leftFlankWidth - leftFlankMaxUnits * this.DEFAULT_UNIT_HEIGHT) /
+          (leftFlankMaxUnits > 1 ? leftFlankMaxUnits - 1 : 1)
+        )
         : this.MIN_SPACING;
     const centerSpacing =
       centerMaxUnits > 0
         ? Math.max(
-            this.MIN_SPACING,
-            (centerWidth - centerMaxUnits * this.DEFAULT_UNIT_HEIGHT) /
-              (centerMaxUnits > 1 ? centerMaxUnits - 1 : 1)
-          )
+          this.MIN_SPACING,
+          (centerWidth - centerMaxUnits * this.DEFAULT_UNIT_HEIGHT) /
+          (centerMaxUnits > 1 ? centerMaxUnits - 1 : 1)
+        )
         : this.MIN_SPACING;
     const rightFlankSpacing =
       rightFlankMaxUnits > 0
         ? Math.max(
-            this.MIN_SPACING,
-            (rightFlankWidth - rightFlankMaxUnits * this.DEFAULT_UNIT_HEIGHT) /
-              (rightFlankMaxUnits > 1 ? rightFlankMaxUnits - 1 : 1)
-          )
+          this.MIN_SPACING,
+          (rightFlankWidth - rightFlankMaxUnits * this.DEFAULT_UNIT_HEIGHT) /
+          (rightFlankMaxUnits > 1 ? rightFlankMaxUnits - 1 : 1)
+        )
         : this.MIN_SPACING;
 
-    const topY = this.team === 1 ? y + this.MARGIN : y + height - this.MARGIN;
-    const centerY = this.team === 1 ? topY + this.MARGIN : topY - this.MARGIN;
-    const forwardY = this.team === 1 ? topY - this.MARGIN : topY + this.MARGIN;
-    const frontY = this.team === 1 ? topY - this.MARGIN : topY + this.MARGIN;
-    const flankY = this.team === 1 ? topY - this.MARGIN : topY + this.MARGIN;
+    // Calculate Y positions centered around the zone center
+    // Center section is at the zone center, front and flank are distributed around it
+    const centerY = zoneCenterY;
+    const frontY = zoneCenterY + this.MARGIN * 2; // Front units below center (towards map center)
+    const flankY = zoneCenterY + this.MARGIN * 2;
 
     return {
       leftFlankWidth,
@@ -298,7 +395,6 @@ export class ArmyDeployer {
       centerSpacing,
       rightFlankSpacing,
       centerY,
-      forwardY,
       frontY,
       flankY,
     };
@@ -306,113 +402,143 @@ export class ArmyDeployer {
 
   /**
    * Deploys units in the flank sections (left and right).
+   * The formations are centered vertically around the zone center.
    * @param flankUnits - The units to deploy in the flanks.
    */
   private deployFlank(flankUnits: UnitType[]) {
-    const unitsWithBuffer: UnitType[] = [];
-    const unitsWithoutBuffer: UnitType[] = [];
+    const [flankLeft, flankRight] = divideArrayInHalf(flankUnits);
 
-    flankUnits.forEach((type) => {
-      const template = this.gameDataManager
-        .getUnitTemplateManager()
-        .getTemplate(type);
-      if (template.canDeployForward) {
-        unitsWithBuffer.push(type);
-      } else {
-        unitsWithoutBuffer.push(type);
-      }
-    });
-
-    const [flankLeft, flankRight] = divideArrayInHalf(unitsWithoutBuffer);
-    const [lightFlankLeft, lightFlankRight] =
-      divideArrayInHalf(unitsWithBuffer);
-
-    this.deployUnitsInLines(
+    // Deploy left flank
+    this.deployFlankSection(
       flankLeft,
-      this.metrics.flankY,
       this.metrics.leftFlankStartX,
       this.metrics.leftFlankWidth,
       this.metrics.leftFlankMaxUnits,
-      this.metrics.leftFlankSpacing,
-      this.team !== 1
+      this.metrics.leftFlankSpacing
     );
 
-    this.deployUnitsInLines(
+    // Deploy right flank
+    this.deployFlankSection(
       flankRight,
-      this.metrics.flankY,
       this.metrics.rightFlankStartX,
       this.metrics.rightFlankWidth,
       this.metrics.rightFlankMaxUnits,
-      this.metrics.rightFlankSpacing,
-      this.team !== 1
+      this.metrics.rightFlankSpacing
     );
+  }
 
-    this.deployUnitsInLines(
-      lightFlankLeft,
-      this.metrics.flankY,
-      this.metrics.leftFlankStartX,
-      this.metrics.leftFlankWidth,
-      this.metrics.leftFlankMaxUnits,
-      this.metrics.leftFlankSpacing,
-      this.team !== 1
-    );
+  /**
+   * Deploys a single flank section (left or right), centered vertically around the zone center.
+   */
+  private deployFlankSection(
+    units: UnitType[],
+    startX: number,
+    sectionWidth: number,
+    maxUnitsPerRow: number,
+    spacing: number
+  ) {
+    const unitCount = units.length;
+    const lines = Math.ceil(unitCount / maxUnitsPerRow);
 
-    this.deployUnitsInLines(
-      lightFlankRight,
-      this.metrics.flankY,
-      this.metrics.rightFlankStartX,
-      this.metrics.rightFlankWidth,
-      this.metrics.rightFlankMaxUnits,
-      this.metrics.rightFlankSpacing,
-      this.team !== 1
-    );
+    // Calculate the total height of all lines to center them vertically
+    const totalFormationHeight =
+      lines * this.DEFAULT_UNIT_HEIGHT + (lines - 1) * this.MARGIN;
+
+    // Start Y position so that the center of the formation is at zone center Y
+    const zoneCenterY = this.deploymentZone.y;
+    const startY =
+      zoneCenterY - totalFormationHeight / 2 + this.DEFAULT_UNIT_HEIGHT / 2;
+
+    for (let lineIndex = 0; lineIndex < lines; lineIndex++) {
+      const unitsInLine = Math.min(
+        maxUnitsPerRow,
+        unitCount - lineIndex * maxUnitsPerRow
+      );
+      const totalLineWidth =
+        unitsInLine * (this.DEFAULT_UNIT_HEIGHT + spacing) - spacing;
+
+      // Center the line horizontally within its section
+      const lineStartX = startX + (sectionWidth - totalLineWidth) / 2;
+      const lineY =
+        startY + lineIndex * (this.DEFAULT_UNIT_HEIGHT + this.MARGIN);
+
+      for (let i = 0; i < unitsInLine; i++) {
+        const unitIndex = lineIndex * maxUnitsPerRow + i;
+        const unitType = units[unitIndex];
+        const posX = lineStartX + i * (this.DEFAULT_UNIT_HEIGHT + spacing);
+
+        if (!this.addUnit(unitType, posX, lineY)) {
+          // Capacity exceeded, stop deploying units
+          return;
+        }
+      }
+    }
   }
 
   /**
    * Deploys units in the center section.
+   * The center of the formation (both horizontally and vertically) will be at the zone center.
    * @param centerUnits - The units to deploy in the center.
    */
   private deployCenter(centerUnits: UnitType[]) {
-    const unitsWithBuffer: UnitType[] = [];
-    const unitsWithoutBuffer: UnitType[] = [];
+    const unitCount = centerUnits.length;
+    const lines = Math.ceil(unitCount / this.metrics.centerMaxUnits);
 
-    centerUnits.forEach((type) => {
-      const template = this.gameDataManager
-        .getUnitTemplateManager()
-        .getTemplate(type);
-      if (template.canDeployForward) {
-        unitsWithBuffer.push(type);
-      } else {
-        unitsWithoutBuffer.push(type);
+    // Calculate the total height of all lines to center them vertically
+    const totalFormationHeight =
+      lines * this.DEFAULT_UNIT_HEIGHT + (lines - 1) * this.MARGIN;
+
+    // Start Y position so that the center of the formation is at centerY
+    const startY =
+      this.metrics.centerY -
+      totalFormationHeight / 2 +
+      this.DEFAULT_UNIT_HEIGHT / 2;
+
+    // Deploy units, ensuring horizontal center is at zoneCenterX
+    const zoneCenterX = this.deploymentZone.x;
+
+    for (let lineIndex = 0; lineIndex < lines; lineIndex++) {
+      const unitsInLine = Math.min(
+        this.metrics.centerMaxUnits,
+        unitCount - lineIndex * this.metrics.centerMaxUnits
+      );
+      const totalLineWidth =
+        unitsInLine * (this.DEFAULT_UNIT_HEIGHT + this.metrics.centerSpacing) -
+        this.metrics.centerSpacing;
+
+      // Center the line horizontally at zoneCenterX
+      const lineStartX = zoneCenterX - totalLineWidth / 2;
+      const lineY =
+        startY + lineIndex * (this.DEFAULT_UNIT_HEIGHT + this.MARGIN);
+
+      for (let i = 0; i < unitsInLine; i++) {
+        const unitIndex = lineIndex * this.metrics.centerMaxUnits + i;
+        const unitType = centerUnits[unitIndex];
+        const posX =
+          lineStartX +
+          i * (this.DEFAULT_UNIT_HEIGHT + this.metrics.centerSpacing);
+
+        if (!this.addUnit(unitType, posX, lineY)) {
+          // Capacity exceeded, stop deploying units
+          return;
+        }
       }
-    });
+    }
+  }
 
-    this.deployUnitsInLines(
-      unitsWithBuffer,
-      this.metrics.centerY,
-      this.metrics.centerStartX,
-      this.metrics.centerWidth,
-      this.metrics.centerMaxUnits,
-      this.metrics.centerSpacing,
-      this.team !== 1
-    );
-
-    this.deployUnitsInLines(
-      unitsWithoutBuffer,
-      this.metrics.centerY,
-      this.metrics.centerStartX,
-      this.metrics.centerWidth,
-      this.metrics.centerMaxUnits,
-      this.metrics.centerSpacing,
-      this.team !== 1
-    );
+  private deployFront(frontUnits: UnitType[]) {
+    // Deploy front units (like Artillery) regardless of forward zones
+    this.deployFrontToMainZone(frontUnits);
   }
 
   /**
-   * Deploys units in the forward section (e.g., skirmishers).
-   * @param forwardUnits - The units to deploy forward.
+   * Deploys units in the forward section.
+   * If forward zones are available, distributes units across them.
+   * Otherwise, deploys in the main zone.
+   * @param forwardUnits - The units to deploy in the forward section.
    */
   private deployForward(forwardUnits: UnitType[]) {
+    // Add additional skirmishers if skirmisher spawning is enabled
     const { skirmisherSpawning } = this.gameDataManager.getGameRules();
 
     if (skirmisherSpawning) {
@@ -426,55 +552,148 @@ export class ArmyDeployer {
       }
     }
 
-    this.deployUnitsInLines(
-      forwardUnits,
-      this.metrics.forwardY,
-      this.metrics.centerStartX,
-      this.metrics.centerWidth,
-      this.metrics.centerMaxUnits,
-      this.metrics.centerSpacing,
-      this.team !== 1
-    );
+    // If forward zones are available, deploy forward units into them
+    if (this.forwardZones.length > 0) {
+      this.deployForwardToForwardZones(forwardUnits);
+    } else {
+      // Fall back to deploying in main zone
+      this.deployFrontToMainZone(forwardUnits);
+    }
   }
 
   /**
-   * Deploys units in the front section.
+   * Deploys forward units into forward zones, distributing them across available zones.
+   * @param forwardUnits - The units to deploy.
+   */
+  private deployForwardToForwardZones(forwardUnits: UnitType[]) {
+    // Distribute units across forward zones
+    const unitsPerZone = Math.ceil(
+      forwardUnits.length / this.forwardZones.length
+    );
+
+    for (let zoneIndex = 0; zoneIndex < this.forwardZones.length; zoneIndex++) {
+      const zone = this.forwardZones[zoneIndex];
+      const startIndex = zoneIndex * unitsPerZone;
+      const endIndex = Math.min(startIndex + unitsPerZone, forwardUnits.length);
+      const zoneUnits = forwardUnits.slice(startIndex, endIndex);
+
+      if (zoneUnits.length === 0) break;
+
+      // Deploy units in this forward zone
+      this.deployUnitsInForwardZone(zoneUnits, zone);
+    }
+  }
+
+  /**
+   * Deploys units into a specific forward zone.
+   * @param units - The units to deploy.
+   * @param zone - The forward zone to deploy into.
+   */
+  private deployUnitsInForwardZone(units: UnitType[], zone: DeploymentZone) {
+    // x and y represent the center of the zone
+    const zoneCenterX = zone.x;
+    const zoneCenterY = zone.y;
+    const zoneRadius = zone.radius;
+
+    // Calculate how many units can fit in a row based on zone radius
+    const maxUnitsPerRow = Math.max(
+      1,
+      Math.floor((zoneRadius * 2) / (this.DEFAULT_UNIT_HEIGHT + this.MIN_SPACING))
+    );
+    const spacing = Math.max(
+      this.MIN_SPACING,
+      maxUnitsPerRow > 1
+        ? ((zoneRadius * 2) - maxUnitsPerRow * this.DEFAULT_UNIT_HEIGHT) /
+        (maxUnitsPerRow - 1)
+        : this.MIN_SPACING
+    );
+
+    const unitCount = units.length;
+    const lines = Math.ceil(unitCount / maxUnitsPerRow);
+
+    // Calculate the total height of all lines to center them vertically
+    const totalFormationHeight =
+      lines * this.DEFAULT_UNIT_HEIGHT + (lines - 1) * this.MARGIN;
+
+    // Start Y position so that the center of the formation is at zone center Y
+    const startY =
+      zoneCenterY - totalFormationHeight / 2 + this.DEFAULT_UNIT_HEIGHT / 2;
+
+    for (let lineIndex = 0; lineIndex < lines; lineIndex++) {
+      const unitsInLine = Math.min(
+        maxUnitsPerRow,
+        unitCount - lineIndex * maxUnitsPerRow
+      );
+      const totalLineWidth =
+        unitsInLine * (this.DEFAULT_UNIT_HEIGHT + spacing) - spacing;
+
+      // Center the line horizontally at zoneCenterX
+      const lineStartX = zoneCenterX - totalLineWidth / 2;
+      const lineY =
+        startY + lineIndex * (this.DEFAULT_UNIT_HEIGHT + this.MARGIN);
+
+      for (let i = 0; i < unitsInLine; i++) {
+        const unitIndex = lineIndex * maxUnitsPerRow + i;
+        const unitType = units[unitIndex];
+        const posX = lineStartX + i * (this.DEFAULT_UNIT_HEIGHT + spacing);
+
+        if (!this.addUnit(unitType, posX, lineY, zone)) {
+          // Capacity exceeded for this zone, stop deploying units in this zone
+          return;
+        }
+      }
+    }
+  }
+
+  /**
+   * Deploys front units in the main zone (fallback when no forward zones available).
+   * The formation is centered horizontally at the zone center, positioned forward from center.
    * @param frontUnits - The units to deploy in the front.
    */
-  private deployFront(frontUnits: UnitType[]) {
-    const frontWithBuffer: UnitType[] = [];
-    const frontWithoutBuffer: UnitType[] = [];
+  private deployFrontToMainZone(frontUnits: UnitType[]) {
+    const unitCount = frontUnits.length;
+    const lines = Math.ceil(unitCount / this.metrics.centerMaxUnits);
 
-    frontUnits.forEach((type) => {
-      const template = this.gameDataManager
-        .getUnitTemplateManager()
-        .getTemplate(type);
-      if (template.canDeployForward) {
-        frontWithBuffer.push(type);
-      } else {
-        frontWithoutBuffer.push(type);
+    // Calculate the total height of all lines to center them vertically
+    const totalFormationHeight =
+      lines * this.DEFAULT_UNIT_HEIGHT + (lines - 1) * this.MARGIN;
+
+    // Start Y position so that the center of the formation is at frontY
+    const startY =
+      this.metrics.frontY -
+      totalFormationHeight / 2 +
+      this.DEFAULT_UNIT_HEIGHT / 2;
+
+    // Deploy units, ensuring horizontal center is at zoneCenterX
+    const zoneCenterX = this.deploymentZone.x;
+
+    for (let lineIndex = 0; lineIndex < lines; lineIndex++) {
+      const unitsInLine = Math.min(
+        this.metrics.centerMaxUnits,
+        unitCount - lineIndex * this.metrics.centerMaxUnits
+      );
+      const totalLineWidth =
+        unitsInLine * (this.DEFAULT_UNIT_HEIGHT + this.metrics.centerSpacing) -
+        this.metrics.centerSpacing;
+
+      // Center the line horizontally at zoneCenterX
+      const lineStartX = zoneCenterX - totalLineWidth / 2;
+      const lineY =
+        startY + lineIndex * (this.DEFAULT_UNIT_HEIGHT + this.MARGIN);
+
+      for (let i = 0; i < unitsInLine; i++) {
+        const unitIndex = lineIndex * this.metrics.centerMaxUnits + i;
+        const unitType = frontUnits[unitIndex];
+        const posX =
+          lineStartX +
+          i * (this.DEFAULT_UNIT_HEIGHT + this.metrics.centerSpacing);
+
+        if (!this.addUnit(unitType, posX, lineY)) {
+          // Capacity exceeded, stop deploying units
+          return;
+        }
       }
-    });
-
-    this.deployUnitsInLines(
-      frontWithBuffer,
-      this.metrics.frontY,
-      this.metrics.centerStartX,
-      this.metrics.centerWidth,
-      this.metrics.centerMaxUnits,
-      this.metrics.centerSpacing,
-      this.team !== 1
-    );
-
-    this.deployUnitsInLines(
-      frontWithoutBuffer,
-      this.metrics.frontY,
-      this.metrics.centerStartX,
-      this.metrics.centerWidth,
-      this.metrics.centerMaxUnits,
-      this.metrics.centerSpacing,
-      this.team !== 1
-    );
+    }
   }
 
   /**

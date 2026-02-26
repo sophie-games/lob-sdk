@@ -1,8 +1,7 @@
-import { getDeploymentZoneBySize, getMapSizeIndex } from "./map-size";
-import { Size } from "@lob-sdk/types";
+import { getMapSizeIndex } from "./map-size";
+import { DeploymentZone, Size } from "@lob-sdk/types";
 import {
   ObjectiveDto,
-  TeamDeploymentZone,
   GenerateRandomMapResult,
   GenerateRandomMapProps,
   InstructionType,
@@ -19,8 +18,12 @@ import { ConnectClustersExecutor } from "./executors/connect-clusters";
 import { ObjectiveExecutor } from "./executors/objective";
 import { ObjectiveLayerExecutor } from "./executors/objective-layer";
 import { LakeExecutor } from "./executors/lake";
-import { generateRandomSeed } from "@lob-sdk/seed";
+import { generateRandomSeed, randomSeeded, deriveSeed } from "@lob-sdk/seed";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
+import {
+  addForwardDeploymentZones,
+  calculateCircularPlayerDeploymentZone,
+} from "./deployment";
 
 export class RandomMapGenerator {
   generate({
@@ -32,6 +35,7 @@ export class RandomMapGenerator {
     era,
     tilesX,
     tilesY,
+    playerSetups,
   }: GenerateRandomMapProps): GenerateRandomMapResult {
     const gameDataManager = GameDataManager.get(era);
     const battleType = gameDataManager.getBattleType(dynamicBattleType);
@@ -50,13 +54,66 @@ export class RandomMapGenerator {
     const widthPx = tilesX * tileSize;
     const heightPx = tilesY * tileSize;
 
-    const deploymentZones: [TeamDeploymentZone, TeamDeploymentZone] = [
-      getDeploymentZoneBySize(battleSize, widthPx, heightPx, 1, era, tileSize),
-      getDeploymentZoneBySize(battleSize, widthPx, heightPx, 2, era, tileSize),
-    ];
-    const objectives: ObjectiveDto<false>[] = [];
+    // Generate deployment zones per player if playerSetups is provided
+    // Otherwise fall back to team-based zones for backward compatibility
+    let deploymentZones: DeploymentZone[];
 
+    // Get zone radius from map-sizes.json based on battle size
+    const zoneSettings = mapSizes[battleSize].deployment;
+    const zoneRadius = zoneSettings.radius * tileSize;
+
+    // Calculate initial rotation for deployment zones based on seed
+    // This rotates the entire circle of zones randomly
     const mapSeed = seed ?? generateRandomSeed();
+    const deploymentRotationRandom = randomSeeded(deriveSeed(mapSeed, 123));
+    const initialRotation = deploymentRotationRandom() * 2 * Math.PI; // Random rotation 0-2π
+
+    if (playerSetups && playerSetups.length > 0) {
+      // Use the radius from map-sizes.json for player-based zones
+      const sortedPlayers = [...playerSetups].sort(
+        (a, b) => a.player - b.player
+      );
+      const numPlayers = sortedPlayers.length;
+
+      deploymentZones = sortedPlayers.map((playerSetup) => {
+        const zone = calculateCircularPlayerDeploymentZone(
+          playerSetup.player,
+          numPlayers,
+          widthPx,
+          heightPx,
+          zoneRadius,
+          initialRotation
+        );
+
+        return {
+          player: playerSetup.player,
+          x: zone.x,
+          y: zone.y,
+          radius: zone.radius,
+          ...(zone.rotation !== undefined && { rotation: zone.rotation }),
+          capacity: zone.capacity ?? 0, // 0 = infinite capacity
+        };
+      });
+    } else {
+      throw new Error("Player setups are required");
+    }
+
+    // Add forward deployment zones for skirmishers if enabled in scenario
+    if (
+      scenario.forwardDeploymentZones &&
+      playerSetups &&
+      playerSetups.length > 0
+    ) {
+      deploymentZones = addForwardDeploymentZones(
+        deploymentZones,
+        playerSetups,
+        widthPx,
+        heightPx,
+        scenario.forwardDeploymentZones
+      );
+    }
+
+    const objectives: ObjectiveDto<false>[] = [];
 
     const terrains: TerrainType[][] = [];
     const heightMap: number[][] = [];

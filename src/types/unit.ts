@@ -208,7 +208,6 @@ interface BaseUnitTemplate {
   premiumPrice?: number;
   locked?: boolean;
   hasSkirmishers?: boolean;
-  canDeployForward?: boolean;
 
   /**
    * Custom visibility range in tiles for this unit.
@@ -262,6 +261,13 @@ interface BaseUnitTemplate {
    * Max entrenchment level.
    */
   maxEntrenchment?: number;
+
+  /**
+   * Deployment cost for this unit type.
+   * Used to calculate if a deployment zone's capacity is exceeded.
+   * If not set, defaults to 1.
+   */
+  deploymentCost?: number;
 }
 
 export interface RangeUnitTemplate extends BaseUnitTemplate {

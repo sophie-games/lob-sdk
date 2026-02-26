@@ -1094,15 +1094,16 @@ export interface UnitTerrainProportion {
 }
 
 /**
- * Represents a rectangular zone with position and dimensions.
+ * Represents a circular zone with position and radius.
+ * The zone center is at (x + radius, y + radius).
  */
 export interface Zone {
-  /** X coordinate of the zone's top-left corner. */
+  /** X coordinate of the zone's top-left corner (zone center - radius). */
   x: number;
-  /** Y coordinate of the zone's top-left corner. */
+  /** Y coordinate of the zone's top-left corner (zone center - radius). */
   y: number;
-  /** Width of the zone. */
-  width: number;
-  /** Height of the zone. */
-  height: number;
+  /** Radius of the circular zone. */
+  radius: number;
+  /** Optional rotation angle in radians. Zone will be rotated around its center. */
+  rotation?: number;
 }

@@ -275,9 +275,10 @@ export class GameDataManager {
           lake: napoleonicLake as GameScenario,
           tundra: napoleonicTundra as GameScenario,
           "black-forest": napoleonicBlackForest as GameScenario,
-          "silva-sanctorum": napoleonicSilvaSanctorum as GameScenario,
-          "andes-and-valley": napoleonicAndesAndValley as GameScenario,
-          "lines-of-legends": napoleonicLinesOfLegends as GameScenario,
+          // TODO: update these scenarios
+          // "silva-sanctorum": napoleonicSilvaSanctorum as GameScenario,
+          // "andes-and-valley": napoleonicAndesAndValley as GameScenario,
+          // "lines-of-legends": napoleonicLinesOfLegends as GameScenario,
           "river-valley": napoleonicRiverValley as GameScenario,
           "saand-lakes": napoleonicSaandLakes as GameScenario,
           "faucon-river-valley": napoleonicFauconRiverValley as GameScenario,

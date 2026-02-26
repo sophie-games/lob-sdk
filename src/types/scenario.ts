@@ -28,19 +28,21 @@ export enum GameScenarioType {
 }
 
 /**
- * Represents a deployment zone for a specific team.
+ * Represents a deployment zone for a specific player.
  */
-export interface TeamDeploymentZone {
-  /** The team number this zone belongs to. */
-  team: number;
-  /** X coordinate of the zone's top-left corner. */
+export interface DeploymentZone {
+  /** The player number this zone belongs to. */
+  player: number;
+  /** X coordinate of the zone's top-left corner (zone center - radius). */
   x: number;
-  /** Y coordinate of the zone's top-left corner. */
+  /** Y coordinate of the zone's top-left corner (zone center - radius). */
   y: number;
-  /** Width of the deployment zone. */
-  width: number;
-  /** Height of the deployment zone. */
-  height: number;
+  /** Radius of the circular deployment zone. */
+  radius: number;
+  /** Optional rotation angle in radians. Zone will be rotated around its center. */
+  rotation?: number;
+  /** Deployment capacity. If 0, capacity is infinite. If set to a positive value, total deploymentCost of units in this zone cannot exceed this value. */
+  capacity: number;
 }
 
 /**
@@ -51,8 +53,8 @@ export interface GameMap {
   width: number;
   /** Height of the map in tiles. */
   height: number;
-  /** Optional deployment zones for each team. */
-  deploymentZones?: TeamDeploymentZone[];
+  /** Optional deployment zones for each player. */
+  deploymentZones?: DeploymentZone[];
   /** 2D array of terrain types, indexed by [x][y]. */
   terrains: TerrainType[][];
   /** 2D array of height values, indexed by [x][y]. */
@@ -88,6 +90,22 @@ interface BaseScenario {
    * Common keys: "name", "description", and trigger message keys like "trigger.1.title", "trigger.1.message", etc.
    */
   locales?: GameLocales;
+  /**
+   * Configuration for forward deployment zones (for skirmishers).
+   * If provided, small deployment zones will be added around each player's main zone.
+   */
+  forwardDeploymentZones?: {
+    /** Number of small zones to create around the circumference for each player (default: 6). */
+    amount?: number;
+    /** Radius of the small forward zones (as percentage of main zone radius, default: 0.3). */
+    radiusRatio?: number;
+    /** Distance from main zone edge (as percentage of main zone radius, default: 0.2). */
+    distanceRatio?: number;
+    /** Deployment capacity for each forward zone. If 0, capacity is infinite. If set to a positive value, total deploymentCost of units in each forward zone cannot exceed this value. */
+    capacity?: number;
+    /** Spacing between zones along the arc (as percentage of main zone radius, default: uses distanceRatio). If set, zones will be spaced this distance apart along the arc circumference. */
+    spacingRatio?: number;
+  };
 }
 
 /**

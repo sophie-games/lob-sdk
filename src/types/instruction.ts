@@ -29,6 +29,8 @@ export interface GenerateRandomMapProps {
   tilesX?: number;
   /* Optional number of tiles on the Y axis. If not provided, the map size will be used. */
   tilesY?: number;
+  /** Optional array of player setups for circular deployment zone distribution. If not provided, defaults to teams [1, 2]. */
+  playerSetups?: Array<{ player: number; team: number }>;
 }
 
 /**

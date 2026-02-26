@@ -8,7 +8,7 @@
   "stamina": {
     "meleeTurnCost": 200,
     "rangedTurnCost": 50,
-    "hasRanMeleeStaminaCostModifier": 1.0,
+    "hasRanMeleeStaminaCostModifier": 0.5,
     "regainRates": {
       "range1": 0.048,
       "range2": 0.072,
@@ -46,7 +46,7 @@
   },
   "objectives": {
     "radius": 64,
-    "pressureThreshold": 0.3
+    "pressureThreshold": 0.41
   },
   "organization": {
     "speedModifier": -0.15,
@@ -64,9 +64,13 @@
     "nearbyUnitsDistance": 64,
     "nearbyUnitsPositiveOrgBonusCap": 56,
     "nearbyUnitsNegativeOrgBonusCap": -56,
-    "nearbyUnitsOrgDamageModifierCap": 0.4,
+    "nearbyUnitsOrgDamageModifierCap": 0.2,
     "routingUnitNearbyUnitsOrgBonus": 5,
-    "startedRoutingOrgRadiusModifier": -4,
+    "startedRoutingOrgRadiusModifier": -2,
+    "startedRoutingOrgRadiusDistance": 64,
+    "startedRoutingOrgRadiusDistanceRunSpeedBonus": 1.5,
+    "routingRunCostModifier": 0.1,
+    "startedRoutingRunCostModifier": 2,
     "orgRadiusBonusHpLossReduction": 0.8,
     "safeOrgRecoveryModifier": 0.3,
     "safeDistance": 144,
