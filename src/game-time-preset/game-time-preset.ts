@@ -145,22 +145,65 @@ export class GameTimePresetManager {
     }
     return result;
   }
+
+  /**
+   * Returns the per-turn hard limit in seconds for a preset.
+   */
+  public getPresetTurnDurationSeconds(id: GameTimePresetId): number {
+    const preset = this.get(id);
+    return preset.turnCapSeconds || preset.bankTimeSeconds;
+  }
+
+  public calculateTimeRemaining(
+    id: GameTimePresetId | null | undefined,
+    turnStartedTime: number | null | undefined,
+    nowSeconds: number
+  ): number {
+    if (!id || turnStartedTime === null || turnStartedTime === undefined) {
+      return Infinity;
+    }
+
+    try {
+      const limit = this.getPresetTurnDurationSeconds(id);
+      return turnStartedTime + limit - nowSeconds;
+    } catch (e) {
+      return Infinity;
+    }
+  }
+
+  public isRancid(
+    id: GameTimePresetId | null | undefined,
+    turnStartedTime: number | null | undefined,
+    nowSeconds: number,
+    marginSeconds: number
+  ): boolean {
+    if (!id || turnStartedTime === null || turnStartedTime === undefined) {
+      return false;
+    }
+
+    try {
+      const limit = this.getPresetTurnDurationSeconds(id);
+      return turnStartedTime + limit + marginSeconds < nowSeconds;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  public orderActiveGames<
+    T extends { passed: boolean; started: boolean; timeRemaining: number }
+  >(games: T[]): T[] {
+    return games.sort((a, b) => {
+      if (a.passed !== b.passed) return a.passed ? 1 : -1;
+      if (a.started !== b.started) return a.started ? -1 : 1;
+      return a.timeRemaining - b.timeRemaining;
+    });
+  }
 }
 
 export enum GameSpeed {
   Fast = "fast",
   Slow = "slow",
 }
-
-/**
- * Returns the per-turn hard limit in seconds for a preset.
- * For fast presets this is turnCapSeconds; for slow presets (turnCapSeconds = 0, no cap) it falls
- * back to bankTimeSeconds so that DB turn_duration_limit stays meaningful.
- */
-export const getPresetTurnDurationSeconds = (id: GameTimePresetId): number => {
-  const preset = GameTimePresetManager.getInstance().get(id);
-  return preset.turnCapSeconds || preset.bankTimeSeconds;
-};
 
 
 /** Converts seconds to a compact, human-readable label for preset cards. */
