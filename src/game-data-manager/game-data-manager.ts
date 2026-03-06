@@ -1135,7 +1135,8 @@ export class GameDataManager {
   ): number {
     const supplyLines = this.getGameRules().supplyLines;
     if (
-      !supplyLines?.noSupplyMovementPenalty ||
+      !supplyLines ||
+      !supplyLines.noSupplyMovementPenalty ||
       supply === null ||
       maxSupply === null ||
       maxSupply === 0

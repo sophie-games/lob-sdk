@@ -217,4 +217,92 @@ describe("GameDataManager", () => {
       });
     });
   });
+
+  describe("getSupplyMovementModifier", () => {
+    describe("WW2 era", () => {
+      const ww2DataManager = GameDataManager.get("ww2");
+
+      it("should return 0 when supply is at maximum (1.0 proportion)", () => {
+        const modifier = ww2DataManager.getSupplyMovementModifier(
+          "armored",
+          100,
+          100
+        );
+        expect(modifier).toBeCloseTo(0);
+      });
+
+      it("should return the full penalty when supply is 0", () => {
+        const modifier = ww2DataManager.getSupplyMovementModifier(
+          "armored",
+          0,
+          100
+        );
+        // WW2 armored penalty is -0.5
+        expect(modifier).toBe(-0.5);
+      });
+
+      it("should scale linearly for partial supply", () => {
+        const modifier = ww2DataManager.getSupplyMovementModifier(
+          "armored",
+          50,
+          100
+        );
+        // (1 - 50/100) * -0.5 = 0.5 * -0.5 = -0.25
+        expect(modifier).toBe(-0.25);
+      });
+
+      it("should return 0 for categories without penalty", () => {
+        const modifier = ww2DataManager.getSupplyMovementModifier(
+          "infantry",
+          0,
+          100
+        );
+        expect(modifier).toBeCloseTo(0);
+      });
+    });
+
+    describe("Napoleonic era", () => {
+      const napoleonicDataManager = GameDataManager.get("napoleonic");
+
+      it("should return 0 since Napoleonic era has no movement penalties defined", () => {
+        const modifier = napoleonicDataManager.getSupplyMovementModifier(
+          "infantry",
+          0,
+          100
+        );
+        expect(modifier).toBeCloseTo(0);
+      });
+    });
+
+    describe("Edge Cases", () => {
+      const ww2DataManager = GameDataManager.get("ww2");
+
+      it("should return 0 if supply is null", () => {
+        const modifier = ww2DataManager.getSupplyMovementModifier(
+          "armored",
+          null,
+          100
+        );
+        expect(modifier).toBeCloseTo(0);
+      });
+
+      it("should return 0 if maxSupply is null", () => {
+        const modifier = ww2DataManager.getSupplyMovementModifier(
+          "armored",
+          50,
+          null
+        );
+        expect(modifier).toBeCloseTo(0);
+      });
+
+      it("should return 0 if maxSupply is 0", () => {
+        const modifier = ww2DataManager.getSupplyMovementModifier(
+          "armored",
+          50,
+          0
+        );
+        expect(modifier).toBeCloseTo(0);
+      });
+    });
+  });
 });
