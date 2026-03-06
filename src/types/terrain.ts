@@ -71,11 +71,6 @@ export interface TerrainCategoryConfig {
   fixedEnemyCollisionLevel?: number;
   prioritizeMovement?: boolean;
   supplyRoute?: boolean;
-  /**
-   * List of unit categories for which this terrain is impassable.
-   * If not specified, the terrain follows the standard impassable flag.
-   */
-  impassableFor?: UnitCategoryId[];
 }
 
 export type TerrainCategories = Record<

@@ -931,21 +931,13 @@ export class GameDataManager {
   }
 
   /**
-   * Check if terrain is passable for a specific unit category
+   * Check if terrain is passable
    */
-  public isPassable(
-    terrainType: TerrainType,
-    unitCategory?: UnitCategoryId
-  ): boolean {
+  public isPassable(terrainType: TerrainType): boolean {
     const category = this.getCategoryByTerrain(terrainType);
     const terrainCategory = this.terrainCategories![category];
-    if (terrainCategory?.impassable) {
-      return false;
-    }
-    if (unitCategory && terrainCategory?.impassableFor?.includes(unitCategory)) {
-      return false;
-    }
-    return true;
+
+    return !terrainCategory?.impassable;
   }
 
   /**

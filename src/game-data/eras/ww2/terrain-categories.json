@@ -241,10 +241,9 @@
       "scoutCavalry": -0.6,
       "heavyCavalry": -0.6,
       "artillery": -0.6,
-      "armored": -1,
-      "motorized": -1
+      "armored": -10,
+      "motorized": -10
     },
-    "impassableFor": ["armored", "motorized"],
     "attackModifier": {
       "infantry": -0.8,
       "skirmishInfantry": -0.7,
@@ -295,7 +294,10 @@
   },
 
   "cliff": {
-    "impassableFor": ["armored", "motorized"]
+    "movementModifier": {
+      "armored": -10,
+      "motorized": -10
+    }
   },
 
   "farm": {
