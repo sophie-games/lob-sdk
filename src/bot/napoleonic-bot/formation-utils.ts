@@ -1,4 +1,4 @@
-import { IServerGame, TerrainType, UnitCategoryId } from "@lob-sdk/types";
+import { IServerGame, UnitCategoryId } from "@lob-sdk/types";
 import { BaseUnit } from "@lob-sdk/unit";
 import { Vector2 } from "@lob-sdk/vector";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
@@ -192,12 +192,20 @@ export function findPreferredTerrain(
 export function findHighGroundNearby(
   pos: Vector2,
   game: IServerGame,
+  unitCategory: UnitCategoryId,
   searchRadiusTiles: number = 3,
 ): Vector2 {
-  return findPreferredTerrain(pos, game, GameDataManager.get("napoleonic"), {
-    preferHighGround: true,
-    categoryPriority: {} // No preference
-  }, "infantry" as UnitCategoryId, searchRadiusTiles);
+  return findPreferredTerrain(
+    pos,
+    game,
+    GameDataManager.get("napoleonic"),
+    {
+      preferHighGround: true,
+      categoryPriority: {}, // No preference
+    },
+    unitCategory,
+    searchRadiusTiles,
+  );
 }
 
 /**
@@ -206,16 +214,24 @@ export function findHighGroundNearby(
 export function findCoverNearby(
   pos: Vector2,
   game: IServerGame,
+  unitCategory: UnitCategoryId,
   searchRadiusTiles: number = 3,
 ): Vector2 {
   const { TerrainCategoryType } = require("@lob-sdk/types");
-  return findPreferredTerrain(pos, game, GameDataManager.get("napoleonic"), {
-    preferHighGround: false,
-    categoryPriority: {
-      [TerrainCategoryType.Building]: 1,
-      [TerrainCategoryType.Forest]: 1
-    }
-  }, "infantry" as UnitCategoryId, searchRadiusTiles);
+  return findPreferredTerrain(
+    pos,
+    game,
+    GameDataManager.get("napoleonic"),
+    {
+      preferHighGround: false,
+      categoryPriority: {
+        [TerrainCategoryType.Building]: 1,
+        [TerrainCategoryType.Forest]: 1,
+      },
+    },
+    unitCategory,
+    searchRadiusTiles,
+  );
 }
 
 /**

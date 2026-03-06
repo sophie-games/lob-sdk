@@ -117,11 +117,12 @@ export class SkirmisherStrategy implements NapoleonicBotStrategy {
 
         // Prefers cover (forests, buildings) if nearby
         targetPos = findPreferredTerrain(
-          targetPos, 
-          game, 
+          targetPos,
+          game,
           gameDataManager,
           this.getTerrainPreference(),
-          4
+          unit.category,
+          4,
         );
 
         const staminaProportion = unit.getStaminaProportion();

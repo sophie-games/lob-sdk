@@ -323,6 +323,7 @@ export class InfantryStrategy implements NapoleonicBotStrategy {
         game,
         this._bot.getGameDataManager(),
         this.getTerrainPreference(),
+        unit.category,
         2, // Smaller radius for infantry to keep formation cohesion
       );
     }
@@ -456,6 +457,7 @@ export class InfantryStrategy implements NapoleonicBotStrategy {
           e.position,
           game,
           this._bot.getGameDataManager(),
+          unit.category,
         )
       )
         return false;

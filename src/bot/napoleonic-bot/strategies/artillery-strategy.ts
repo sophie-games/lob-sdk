@@ -53,11 +53,12 @@ export class ArtilleryStrategy implements NapoleonicBotStrategy {
 
       // 1. Terrain Preference
       targetPos = findPreferredTerrain(
-        targetPos, 
-        game, 
+        targetPos,
+        game,
         this._bot.getGameDataManager(),
         this.getTerrainPreference(),
-        4
+        unit.category,
+        4,
       );
 
       let targetRotation = direction.angle();
