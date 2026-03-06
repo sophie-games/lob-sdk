@@ -872,24 +872,15 @@ export class GameDataManager {
   }
 
   /**
-   * Get movement modifier for terrain and unit category.
-   * If no category is provided, it falls back to the supplyLines.movementCategory or "infantry".
+   * Get movement modifier for terrain and unit category
    */
   public getMovementModifier(
     terrainType: TerrainType,
-    unitCategory?: UnitCategoryId,
+    unitCategory: UnitCategoryId
   ): number {
     const category = this.getCategoryByTerrain(terrainType);
-    const terrainCategory = this.terrainCategories![category];
-    
-    const categoryToUse =
-      unitCategory ?? this.getGameRules().supplyLines?.movementCategory;
-
-    if (!categoryToUse) {
-      return 0;
-    }
-
-    return terrainCategory?.movementModifier?.[categoryToUse] ?? 0;
+    const terrainCategory = this.terrainCategories![category]; // This indirection on lookup is painful, becuase its done many times. Replace with direct lookup
+    return terrainCategory?.movementModifier?.[unitCategory] ?? 0;  // these conditionals cause big-suck on performance, set defaults at initialization
   }
 
   /**
@@ -949,7 +940,7 @@ export class GameDataManager {
    * If no category is provided, it falls back to the supplyLines.movementCategory or "infantry".
    * Terrain is considered impassable if the movement modifier is -10 or less.
    */
-  public isPassable(terrainType: TerrainType, unitCategory?: UnitCategoryId): boolean {
+  public isPassable(terrainType: TerrainType, unitCategory: UnitCategoryId): boolean {
     const modifier = this.getMovementModifier(terrainType, unitCategory);
     return modifier > GameDataManager.IMPASSABLE_THRESHOLD;
   }

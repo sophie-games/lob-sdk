@@ -519,9 +519,8 @@ export interface SupplyLinesRule {
   noSupplyMovementPenalty?: Partial<Record<UnitCategoryId, number>>;
   /**
    * The unit category to use for passability checks when expanding supply.
-   * If not set, the supply system will use its own internal logic or a default.
    */
-  movementCategory?: UnitCategoryId;
+  movementCategory: UnitCategoryId;
 }
 
 export interface EntrenchmentRule {

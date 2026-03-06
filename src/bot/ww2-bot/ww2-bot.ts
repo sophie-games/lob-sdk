@@ -482,7 +482,7 @@ export class Ww2Bot implements IBot {
         unit.category,
       );
 
-      const isPassable = this._gameDataManager.isPassable(terrain);
+      const isPassable = this._gameDataManager.isPassable(terrain, unit.category);
 
       if (!isPassable) {
         return Infinity;
