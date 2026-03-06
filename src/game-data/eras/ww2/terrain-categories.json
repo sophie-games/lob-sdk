@@ -291,12 +291,13 @@
 
   "deepWater": {
     "movementModifier": {
-      "infantry": -10
+      "*": -10
     }
   },
 
   "cliff": {
     "movementModifier": {
+      "infantry": -0.5,
       "armored": -10,
       "motorized": -10
     }
