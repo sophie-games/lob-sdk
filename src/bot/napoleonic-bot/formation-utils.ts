@@ -410,8 +410,6 @@ export function calculatePath(
     const terrainConfig = terrains.find((t) => t.id === terrainType);
     if (!terrainConfig) return Infinity;
 
-    const terrainCategory = terrainCategories[terrainConfig.category];
-
     // 2. Prevent diagonal clipping
     const dx = to.x - from.x;
     const dy = to.y - from.y;
@@ -426,8 +424,6 @@ export function calculatePath(
     if (!gameDataManager.isPassable(terrainType, unitCategory)) return Infinity;
     
     const stepModifier = gameDataManager.getMovementModifier(terrainType, unitCategory);
-    // Use the unified impassable threshold for pathfinding
-    if (stepModifier <= GameDataManager.IMPASSABLE_THRESHOLD) return Infinity;
 
     // Speed factor: 1 is base, higher is faster (lower cost)
     return 1 / (1 + stepModifier);
