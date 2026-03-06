@@ -1,6 +1,6 @@
 {
-  "name": "Plains",
-  "description": "Smooth rolling hills cut apart by rivers and dotted by various forests and towns, connected together by extensive roads.",
+  "name": "name",
+  "description": "description",
   "type": "random",
   "baseTerrain": 0,
   "ranked": true,
@@ -3056,5 +3056,83 @@
       ],
       "once": true
     }
-  ]
+  ],
+  "locales": {
+    "en": {
+      "name": "Plains",
+      "description": "Smooth rolling hills cut apart by rivers and dotted by various forests and towns, connected together by extensive roads."
+    },
+    "ru": {
+      "name": "Равнина",
+      "description": "На усеянной гладкими холмами и прорезанной реками местности рассыпаны леса и здания, соединённые между собой протяжёнными дорогами."
+    },
+    "es": {
+      "name": "Llanuras",
+      "description": "Suaves colinas cortadas por ríos y salpicadas por varios bosques y pueblos, conectadas entre sí por extensas carreteras."
+    },
+    "de": {
+      "name": "Ebenen",
+      "description": "Glatte Hügel, die von Flüssen durchzogen sind und mit verschiedenen Wäldern und Städten übersät sind, die durch lange Straßen miteinander verbunden sind."
+    },
+    "fr": {
+      "name": "Plaines",
+      "description": "Des collines lisses, coupées par des rivières et parsemées de forêts et de villes différentes, reliées entre elles par de longues routes."
+    },
+    "it": {
+      "name": "Pianure",
+      "description": "Colline lisce tagliate da fiumi e punteggiate da vari boschi e borghi collegati tra loro da lunghe strade."
+    },
+    "pl": {
+      "name": "Równina",
+      "description": "Gładkie wzgórza, poprzecinane rzekami i usiane różnymi lasami i miasteczkami połączonymi ze sobą długimi drogami."
+    },
+    "ar": {
+      "name": "السهول",
+      "description": "تقطع التلال الملساء الأنهار وتنتشر فيها غابات وبلدات مختلفة متصلة بطرق طويلة."
+    },
+    "el": {
+      "name": "Πεδιάδα",
+      "description": "Ομαλοί λόφοι που διασχίζονται από ποτάμια και είναι διάσπαρτοι με διάφορα δάση και πόλεις που συνδέονται με μεγάλους δρόμους."
+    },
+    "hi": {
+      "name": "मैदानों",
+      "description": "चिकनी पहाड़ियों को नदियों के माध्यम से काटा जाता है और लंबी सड़कों से जुड़े विभिन्न जंगलों और कस्बों के साथ बिंदीदार होता है । "
+    },
+    "hu": {
+      "name": "A Síkság",
+      "description": "Sima dombok, amelyeket folyók vágnak át, és különböző erdők és városok tarkítják, amelyeket hosszú utak kötnek össze."
+    },
+    "id": {
+      "name": "Dataran",
+      "description": "Perbukitan halus yang dilintasi sungai dan dihiasi dengan berbagai hutan dan kota yang dihubungkan oleh jalan yang panjang."
+    },
+    "ja": {
+      "name": "平野",
+      "description": "滑らかな丘は川によって切り裂かれ、長い道路で結ばれた様々な森や町が点在しています。"
+    },
+    "kr": {
+      "name": "평원",
+      "description": "부드러운 언덕은 강에 의해 절단하고 긴 도로로 연결된 다양한 숲과 마을이 점재."
+    },
+    "pt": {
+      "name": "Planície",
+      "description": "Colinas lisas, cortadas por rios e salpicadas de várias florestas e cidades conectadas por longas estradas."
+    },
+    "tr": {
+      "name": "Ovalar",
+      "description": "Nehirlerle yarılmış ve çeşitli ormanlarla ve kasabalarla dolu, birbirinden uzun yollarla bağlanmış pürüzsüz tepeler."
+    },
+    "uk": {
+      "name": "Рівнина",
+      "description": "Гладкі пагорби, прорізані річками і усіяні різними лісами і містечками, з'єднаними між собою протяжними дорогами."
+    },
+    "vi": {
+      "name": "Đơn giản",
+      "description": "Những ngọn đồi mịn màng cắt qua sông và rải rác với nhiều khu rừng và thị trấn được kết nối bởi những con đường dài."
+    },
+    "zh": {
+      "name": "平原",
+      "description": "光滑的山丘被河流穿过，点缀着各种森林和由长长的道路连接的城镇。"
+    }
+  }    
 }
