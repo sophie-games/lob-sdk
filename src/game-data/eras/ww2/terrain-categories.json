@@ -12,13 +12,6 @@
     "defenseModifier": {},
     "movementModifier": {
       "infantry": -0.2,
-      "skirmishInfantry": -0.2,
-      "militiaInfantry": -0.2,
-      "midCavalry": -0.2,
-      "lightCavalry": -0.2,
-      "scoutCavalry": -0.2,
-      "heavyCavalry": -0.2,
-      "artillery": -0.2,
       "armored": -0.6,
       "motorized": -0.6
     },
@@ -38,40 +31,17 @@
     "visionAbsorption": 32,
     "movementModifier": {
       "infantry": -0.4,
-      "skirmishInfantry": -0.1,
-      "militiaInfantry": -0.3,
-      "midCavalry": -0.6,
-      "lightCavalry": -0.6,
-      "scoutCavalry": -0.6,
-      "heavyCavalry": -0.6,
-      "artillery": -0.5,
       "armored": -0.7,
       "motorized": -0.7
     },
     "attackModifier": {
-      "infantry": 0.4,
-      "skirmishInfantry": 1,
-      "militiaInfantry": 0.4,
-      "midCavalry": -0.75,
-      "lightCavalry": -0.75,
-      "scoutCavalry": -0.75,
-      "heavyCavalry": -0.75
+      "infantry": 0.4
     },
     "defenseModifier": {
-      "infantry": 0.5,
-      "skirmishInfantry": 3,
-      "militiaInfantry": 0.1,
-      "midCavalry": -0.5,
-      "lightCavalry": -0.5,
-      "scoutCavalry": -0.5,
-      "heavyCavalry": -0.5,
-      "artillery": -0.75
+      "infantry": 0.5
     },
     "rangedAttackModifier": {
-      "artillery": -0.3,
-      "skirmishInfantry": 0.15,
-      "infantry": -0.1,
-      "militiaInfantry": -0.1
+      "infantry": -0.1
     },
     "projectileAbsorption": {
       "musket": 0.3,
@@ -89,22 +59,10 @@
       "howitzer-canister": 0.2
     },
     "chargeResistanceModifier": {
-      "infantry": 0.5,
-      "skirmishInfantry": 1,
-      "militiaInfantry": 0.75,
-      "midCavalry": -0.3,
-      "lightCavalry": -0.3,
-      "scoutCavalry": -0.3,
-      "heavyCavalry": -0.3
+      "infantry": 0.5
     },
     "chargeBonusModifier": {
-      "infantry": -0.9,
-      "skirmishInfantry": -0.9,
-      "militiaInfantry": -0.9,
-      "midCavalry": -0.8,
-      "lightCavalry": -0.8,
-      "scoutCavalry": -0.8,
-      "heavyCavalry": -0.8
+      "infantry": -0.9
     },
     "fixedEnemyCollisionLevel": 2
   },
@@ -117,40 +75,17 @@
     "supplyRoute": true,
     "movementModifier": {
       "infantry": -0.35,
-      "skirmishInfantry": -0.1,
-      "militiaInfantry": -0.25,
-      "midCavalry": -0.6,
-      "lightCavalry": -0.6,
-      "scoutCavalry": -0.6,
-      "heavyCavalry": -0.6,
-      "artillery": -0.3,
       "armored": -0.7,
       "motorized": -0.7
     },
     "attackModifier": {
-      "infantry": 0.4,
-      "skirmishInfantry": 1.25,
-      "militiaInfantry": 0.4,
-      "midCavalry": -0.9,
-      "lightCavalry": -0.9,
-      "scoutCavalry": -0.9,
-      "heavyCavalry": -0.9
+      "infantry": 0.4
     },
     "defenseModifier": {
-      "infantry": 0.8,
-      "skirmishInfantry": 3.5,
-      "militiaInfantry": 1,
-      "midCavalry": -0.75,
-      "lightCavalry": -0.75,
-      "scoutCavalry": -0.75,
-      "heavyCavalry": -0.75,
-      "artillery": -0.8
+      "infantry": 0.8
     },
     "rangedAttackModifier": {
-      "artillery": -0.3,
-      "skirmishInfantry": 0.25,
-      "infantry": -0.2,
-      "militiaInfantry": -0.1
+      "infantry": -0.2
     },
     "projectileAbsorption": {
       "musket": 0.75,
@@ -168,22 +103,10 @@
       "howitzer-canister": 0.6
     },
     "chargeResistanceModifier": {
-      "infantry": 0.65,
-      "skirmishInfantry": 1,
-      "militiaInfantry": 0.9,
-      "midCavalry": -0.4,
-      "lightCavalry": -0.4,
-      "scoutCavalry": -0.4,
-      "heavyCavalry": -0.4
+      "infantry": 0.65
     },
     "chargeBonusModifier": {
-      "infantry": -0.8,
-      "skirmishInfantry": -0.9,
-      "militiaInfantry": -0.8,
-      "midCavalry": -0.8,
-      "lightCavalry": -0.8,
-      "scoutCavalry": -0.8,
-      "heavyCavalry": -0.8
+      "infantry": -0.8
     },
     "fixedEnemyCollisionLevel": 2
   },
@@ -193,14 +116,7 @@
     "staminaCostModifier": -0.5,
     "prioritizeMovement": true,
     "movementModifier": {
-      "infantry": 0.3,
-      "skirmishInfantry": 0.3,
-      "militiaInfantry": 0.3,
-      "midCavalry": 0.2,
-      "lightCavalry": 0.2,
-      "scoutCavalry": 0.2,
-      "heavyCavalry": 0.2,
-      "artillery": 0.3
+      "infantry": 0.3
     }
   },
 
@@ -218,14 +134,7 @@
     "canPlaceObjectives": true,
     "supplyRoute": true,
     "movementModifier": {
-      "infantry": 0.3,
-      "skirmishInfantry": 0.3,
-      "militiaInfantry": 0.3,
-      "midCavalry": 0.2,
-      "lightCavalry": 0.2,
-      "scoutCavalry": 0.2,
-      "heavyCavalry": 0.2,
-      "artillery": 0.3
+      "infantry": 0.3
     }
   },
 
@@ -234,58 +143,23 @@
     "staminaCostModifier": 1,
     "movementModifier": {
       "infantry": -0.8,
-      "skirmishInfantry": -0.75,
-      "militiaInfantry": -0.8,
-      "midCavalry": -0.6,
-      "lightCavalry": -0.6,
-      "scoutCavalry": -0.6,
-      "heavyCavalry": -0.6,
-      "artillery": -0.6,
       "armored": -10,
       "motorized": -10
     },
     "attackModifier": {
-      "infantry": -0.8,
-      "skirmishInfantry": -0.7,
-      "militiaInfantry": -0.85,
-      "midCavalry": -0.8,
-      "lightCavalry": -0.8,
-      "scoutCavalry": -0.8,
-      "heavyCavalry": -0.8,
-      "artillery": -0.8
+      "infantry": -0.8
     },
     "defenseModifier": {
-      "infantry": -0.5,
-      "skirmishInfantry": -1,
-      "militiaInfantry": -0.5,
-      "midCavalry": -0.5,
-      "lightCavalry": -0.5,
-      "scoutCavalry": -0.5,
-      "heavyCavalry": -0.5,
-      "artillery": -0.5
+      "infantry": -0.5
     },
     "rangedAttackModifier": {
-      "artillery": -1,
-      "infantry": -0.5,
-      "militiaInfantry": -0.5,
-      "skirmishInfantry": -0.4
+      "infantry": -0.5
     },
     "chargeResistanceModifier": {
-      "artillery": -1,
-      "infantry": -0.5,
-      "militiaInfantry": -0.5,
-      "midCavalry": -0.8,
-      "lightCavalry": -0.8,
-      "scoutCavalry": -0.8,
-      "heavyCavalry": -0.8
+      "infantry": -0.5
     },
     "chargeBonusModifier": {
-      "infantry": -0.75,
-      "militiaInfantry": -0.75,
-      "midCavalry": -0.8,
-      "lightCavalry": -0.8,
-      "scoutCavalry": -0.8,
-      "heavyCavalry": -0.8
+      "infantry": -0.75
     }
   },
 
@@ -346,25 +220,13 @@
       "howitzer-canister": 0.15
     },
     "defenseModifier": {
-      "infantry": 0.5,
-      "skirmishInfantry": 1,
-      "militiaInfantry": 0.5,
-      "artillery": 3
+      "infantry": 0.5
     },
     "chargeBonusModifier": {
-      "infantry": -0.8,
-      "skirmishInfantry": -0.9,
-      "militiaInfantry": -0.8,
-      "midCavalry": -0.8,
-      "lightCavalry": -0.8,
-      "scoutCavalry": -0.8,
-      "heavyCavalry": -0.8
+      "infantry": -0.8
     },
     "chargeResistanceModifier": {
-      "infantry": 0.15,
-      "skirmishInfantry": 0.75,
-      "militiaInfantry": 0.4,
-      "artillery": 1.5
+      "infantry": 0.15
     },
     "fixedEnemyCollisionLevel": 2
   },
@@ -388,18 +250,10 @@
       "howitzer-canister": 0.15
     },
     "chargeBonusModifier": {
-      "infantry": -0.8,
-      "skirmishInfantry": -0.9,
-      "militiaInfantry": -0.8,
-      "midCavalry": -0.8,
-      "lightCavalry": -0.8,
-      "scoutCavalry": -0.8,
-      "heavyCavalry": -0.8
+      "infantry": -0.8
     },
     "chargeResistanceModifier": {
-      "infantry": 0.15,
-      "skirmishInfantry": 0.75,
-      "militiaInfantry": 0.4
+      "infantry": 0.15
     }
   },
 
@@ -409,14 +263,7 @@
     "hitboxHeight": 0.6,
     "staminaCostModifier": -0.5,
     "movementModifier": {
-      "infantry": 0.3,
-      "skirmishInfantry": 0.3,
-      "militiaInfantry": 0.3,
-      "midCavalry": 0.2,
-      "lightCavalry": 0.2,
-      "scoutCavalry": 0.2,
-      "heavyCavalry": 0.2,
-      "artillery": 0.3
+      "infantry": 0.3
     },
     "projectileAbsorption": {
       "musket": 0.15,
@@ -433,18 +280,10 @@
       "howitzer-canister": 0.15
     },
     "chargeBonusModifier": {
-      "infantry": -0.8,
-      "skirmishInfantry": -0.9,
-      "militiaInfantry": -0.8,
-      "midCavalry": -0.8,
-      "lightCavalry": -0.8,
-      "scoutCavalry": -0.8,
-      "heavyCavalry": -0.8
+      "infantry": -0.8
     },
     "chargeResistanceModifier": {
-      "infantry": 0.15,
-      "skirmishInfantry": 0.75,
-      "militiaInfantry": 0.4
+      "infantry": 0.15
     }
   }
 }
