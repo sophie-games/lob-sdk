@@ -13,14 +13,7 @@
     "canPlaceObjectives": true,
     "defenseModifier": {},
     "movementModifier": {
-      "infantry": -0.2,
-      "skirmishInfantry": -0.2,
-      "militiaInfantry": -0.2,
-      "midCavalry": -0.2,
-      "lightCavalry": -0.2,
-      "scoutCavalry": -0.2,
-      "heavyCavalry": -0.2,
-      "artillery": -0.2
+      "*": -0.2
     },
     "projectileAbsorption": {
       "explosive-shell": 0.3,
@@ -195,14 +188,11 @@
     "prioritizeMovement": true,
     "canPlaceObjectives": true,
     "movementModifier": {
-      "infantry": 0.3,
-      "skirmishInfantry": 0.3,
-      "militiaInfantry": 0.3,
+      "*": 0.3,
       "midCavalry": 0.2,
       "lightCavalry": 0.2,
       "scoutCavalry": 0.2,
-      "heavyCavalry": 0.2,
-      "artillery": 0.3
+      "heavyCavalry": 0.2
     },
     "pushStrengthModifier": 0.2,
     "pushDistanceModifier": 0.2
@@ -222,14 +212,11 @@
     "canPlaceObjectives": true,
     "supplyRoute": true,
     "movementModifier": {
-      "infantry": 0.3,
-      "skirmishInfantry": 0.3,
-      "militiaInfantry": 0.3,
+      "*": 0.3,
       "midCavalry": 0.2,
       "lightCavalry": 0.2,
       "scoutCavalry": 0.2,
-      "heavyCavalry": 0.2,
-      "artillery": 0.3
+      "heavyCavalry": 0.2
     }
   },
 
@@ -295,13 +282,13 @@
 
   "deepWater": {
     "movementModifier": {
-      "infantry": -10
+      "*": -10
     }
   },
 
   "cliff": {
     "movementModifier": {
-      "infantry": -10
+      "*": -10
     }
   },
 
@@ -413,14 +400,11 @@
     "hitboxHeight": 0.6,
     "staminaCostModifier": -0.75,
     "movementModifier": {
-      "infantry": 0.3,
-      "skirmishInfantry": 0.3,
-      "militiaInfantry": 0.3,
+      "*": 0.3,
       "midCavalry": 0.2,
       "lightCavalry": 0.2,
       "scoutCavalry": 0.2,
-      "heavyCavalry": 0.2,
-      "artillery": 0.3
+      "heavyCavalry": 0.2
     },
     "projectileAbsorption": {
       "musket": 0.15,

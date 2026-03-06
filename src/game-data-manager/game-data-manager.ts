@@ -391,6 +391,51 @@ export class GameDataManager {
       this._damageTypeMap.set(damageType.id, damageType);
       this._damageTypeNameMap.set(damageType.name, damageType);
     });
+
+    this.expandTerrainCategoryWildcards();
+  }
+
+  /**
+   * Expands wildcard '*' in terrain category modifiers to all unit categories.
+   */
+  private expandTerrainCategoryWildcards(): void {
+    if (!this.terrainCategories) {
+      throw new Error("Terrain Categories should be defined");
+    }
+
+    // Narrowing the keys to those that share the modifier map shape.
+    // 'as const' allows TS to know exactly which strings are in the array.
+    const modifierFields = [
+      "movementModifier",
+      "attackModifier",
+      "defenseModifier",
+      "rangedAttackModifier",
+      "chargeResistanceModifier",
+      "chargeBonusModifier",
+    ] as const;
+
+    // Using Object.values avoids the need to cast keys from 'for...in'
+    for (const category of Object.values(this.terrainCategories)) {
+      if (!category) continue;
+
+      for (const field of modifierFields) {
+        // Because all keys in 'modifierFields' map to the same type in 
+        // TerrainCategoryConfig, TS safely resolves the common return type.
+        const modifierMap = category[field];
+
+        if (modifierMap && "*" in modifierMap) {
+          const defaultValue = modifierMap["*"];
+          if (defaultValue === undefined) continue;
+
+          for (const unitCategory of this.unitCategories) {
+            // UnitCategoryId is a string, so bracket access is safe and supported.
+            if (!(unitCategory.id in modifierMap)) {
+              modifierMap[unitCategory.id] = defaultValue;
+            }
+          }
+        }
+      }
+    }
   }
 
   /**

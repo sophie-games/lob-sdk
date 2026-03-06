@@ -216,6 +216,36 @@ describe("GameDataManager", () => {
         expect(allTerrainTypes).toContain(terrain.id);
       });
     });
+
+    it("should expand wildcard '*' in terrain modifiers to all unit categories", () => {
+      const terrainCategories = gameDataManager.getTerrainCategories();
+      const unitCategories = gameDataManager.getUnitCategories();
+
+      // Check deepWater category (pure wildcard)
+      const deepWater = terrainCategories.deepWater;
+      expect(deepWater).toBeDefined();
+      if (deepWater && deepWater.movementModifier) {
+        // All unit categories should have the -10 modifier
+        unitCategories.forEach((category) => {
+          expect(deepWater.movementModifier![category.id]).toBe(-10);
+        });
+        // Wildcard remains in the map for better JIT optimization
+        expect("*" in deepWater.movementModifier).toBe(true);
+      }
+
+      // Check path category (wildcard + explicit overrides)
+      const path = terrainCategories.path;
+      expect(path).toBeDefined();
+      if (path && path.movementModifier) {
+        // Overridden categories
+        expect(path.movementModifier.midCavalry).toBe(0.2);
+        expect(path.movementModifier.heavyCavalry).toBe(0.2);
+        
+        // Inherited categories
+        expect(path.movementModifier.infantry).toBe(0.3);
+        expect(path.movementModifier.artillery).toBe(0.3);
+      }
+    });
   });
 
   describe("getSupplyMovementModifier", () => {
