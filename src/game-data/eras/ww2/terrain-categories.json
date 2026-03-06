@@ -290,7 +290,9 @@
   },
 
   "deepWater": {
-    "impassable": true
+    "movementModifier": {
+      "infantry": -10
+    }
   },
 
   "cliff": {

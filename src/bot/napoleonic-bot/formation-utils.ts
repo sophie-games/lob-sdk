@@ -259,10 +259,7 @@ export function isPassable(
   const checkTile = (x: number, y: number) => {
     if (x < 0 || x >= tilesX || y < 0 || y >= tilesY) return false;
     const terrainType = game.map.terrains[x][y];
-    return (
-      gameDataManager.isPassable(terrainType) &&
-      gameDataManager.getMovementModifier(terrainType, unitCategory) > -1
-    );
+    return gameDataManager.isPassable(terrainType, unitCategory);
   };
 
   if (!checkTile(tx, ty)) return false;
@@ -410,8 +407,7 @@ export function calculatePath(
     const terrainConfig = terrains.find((t) => t.id === terrainType);
     if (!terrainConfig) return Infinity;
 
-    const categoryConfig = terrainCategories[terrainConfig.category];
-    if (categoryConfig?.impassable) return Infinity;
+    const terrainCategory = terrainCategories[terrainConfig.category];
 
     // 2. Prevent diagonal clipping
     const dx = to.x - from.x;
@@ -424,9 +420,14 @@ export function calculatePath(
       }
     }
 
-    const moveModifier = categoryConfig?.movementModifier?.[unitCategory] || 0;
+    if (!gameDataManager.isPassable(terrainType, unitCategory)) return Infinity;
+    
+    const stepModifier = gameDataManager.getMovementModifier(terrainType, unitCategory);
+    // Even if passable (> -10), if speed is 0 or less (modifier <= -1), it's impassable for pathfinding
+    if (stepModifier <= -1) return Infinity;
+
     // Speed factor: 1 is base, higher is faster (lower cost)
-    return 1 / (1 + moveModifier);
+    return 1 / (1 + stepModifier);
   });
 
   const startTile = { x: Math.floor(start.x / tileSize), y: Math.floor(start.y / tileSize) };

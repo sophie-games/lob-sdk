@@ -517,6 +517,11 @@ export interface SupplyLinesRule {
    * Speed scales linearly from 100% at max supply to (1 + penalty) at zero supply.
    */
   noSupplyMovementPenalty?: Partial<Record<UnitCategoryId, number>>;
+  /**
+   * The unit category to use for passability checks when expanding supply.
+   * If not set, the supply system will use its own internal logic or a default.
+   */
+  movementCategory?: UnitCategoryId;
 }
 
 export interface EntrenchmentRule {

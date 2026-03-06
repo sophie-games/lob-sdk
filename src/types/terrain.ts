@@ -67,7 +67,6 @@ export interface TerrainCategoryConfig {
   chargeBonusModifier?: Partial<Record<UnitCategoryId, number>>;
   pushStrengthModifier?: number;
   pushDistanceModifier?: number;
-  impassable?: boolean;
   fixedEnemyCollisionLevel?: number;
   prioritizeMovement?: boolean;
   supplyRoute?: boolean;

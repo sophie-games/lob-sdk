@@ -294,18 +294,24 @@
   },
 
   "deepWater": {
-    "impassable": true
+    "movementModifier": {
+      "infantry": -10
+    }
   },
 
   "cliff": {
-    "impassable": true
+    "movementModifier": {
+      "infantry": -10
+    }
   },
 
   "farm": {
     "visionAbsorption": 16
   },
   "city": {
-    "impassable": true,
+    "movementModifier": {
+      "infantry": -10
+    },
     "hitboxHeight": 1.3,
     "staminaCostModifier": 1,
     "visionAbsorption": 64,

@@ -117,6 +117,11 @@ export class GameDataManager {
   readonly era: GameEra;
   private static instances: Map<GameEra, GameDataManager> = new Map();
 
+  /**
+   * Terrain is considered globally impassable (e.g., Deep Water) if the modifier is this or less.
+   */
+  public static readonly IMPASSABLE_THRESHOLD = -10;
+
   // Centralized data cache
   private battleTypes: Record<DynamicBattleType, BattleTypeTemplate> =
     {} as Record<DynamicBattleType, BattleTypeTemplate>;
@@ -867,15 +872,24 @@ export class GameDataManager {
   }
 
   /**
-   * Get movement modifier for terrain and unit category
+   * Get movement modifier for terrain and unit category.
+   * If no category is provided, it falls back to the supplyLines.movementCategory or "infantry".
    */
   public getMovementModifier(
     terrainType: TerrainType,
-    unitCategory: UnitCategoryId
+    unitCategory?: UnitCategoryId,
   ): number {
     const category = this.getCategoryByTerrain(terrainType);
-    const terrainCategory = this.terrainCategories![category]; // This indirection on lookup is painful, becuase its done many times. Replace with direct lookup
-    return terrainCategory?.movementModifier?.[unitCategory] ?? 0;  // these conditionals cause big-suck on performance, set defaults at initialization
+    const terrainCategory = this.terrainCategories![category];
+    
+    const categoryToUse =
+      unitCategory ?? this.getGameRules().supplyLines?.movementCategory;
+
+    if (!categoryToUse) {
+      return 0;
+    }
+
+    return terrainCategory?.movementModifier?.[categoryToUse] ?? 0;
   }
 
   /**
@@ -931,13 +945,13 @@ export class GameDataManager {
   }
 
   /**
-   * Check if terrain is passable
+   * Check if terrain is passable.
+   * If no category is provided, it falls back to the supplyLines.movementCategory or "infantry".
+   * Terrain is considered impassable if the movement modifier is -10 or less.
    */
-  public isPassable(terrainType: TerrainType): boolean {
-    const category = this.getCategoryByTerrain(terrainType);
-    const terrainCategory = this.terrainCategories![category];
-
-    return !terrainCategory?.impassable;
+  public isPassable(terrainType: TerrainType, unitCategory?: UnitCategoryId): boolean {
+    const modifier = this.getMovementModifier(terrainType, unitCategory);
+    return modifier > GameDataManager.IMPASSABLE_THRESHOLD;
   }
 
   /**

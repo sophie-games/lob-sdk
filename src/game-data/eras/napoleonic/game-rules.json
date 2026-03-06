@@ -81,6 +81,18 @@
     "vpDebuffGraceZone": 0.25,
     "vpDebuffMultiplier": 1.5
   },
+  "supplyLines": {
+    "influenceRadius": 10,
+    "supplyHubRadius": 16,
+    "supplyHubRadiusWithInfluence": 24,
+    "defaultLogistics": 500,
+    "defaultManpowerPerTurn": 100000,
+    "defaultGoldPerTurn": 50000,
+    "noSupplyHpAttrition": 0.1,
+    "noSupplyOrgAttrition": 0.1,
+    "reinforcementRate": 0.02,
+    "movementCategory": "infantry"
+  },
   "tutorial": {
     "scenarios": [
       "tutorial-basic-controls",
