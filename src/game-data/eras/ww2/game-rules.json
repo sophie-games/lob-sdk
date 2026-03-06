@@ -9,7 +9,11 @@
     "defaultGoldPerTurn": 50000,
     "noSupplyHpAttrition": 0.18,
     "noSupplyOrgAttrition": 0.15,
-    "reinforcementRate": 0.04
+    "reinforcementRate": 0.04,
+    "noSupplyMovementPenalty": {
+      "armored": -0.5,
+      "motorized": -0.5
+    }
   },
   "entrenchment": {
     "ranges": [

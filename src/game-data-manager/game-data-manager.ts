@@ -931,12 +931,21 @@ export class GameDataManager {
   }
 
   /**
-   * Check if terrain is passable
+   * Check if terrain is passable for a specific unit category
    */
-  public isPassable(terrainType: TerrainType): boolean {
+  public isPassable(
+    terrainType: TerrainType,
+    unitCategory?: UnitCategoryId
+  ): boolean {
     const category = this.getCategoryByTerrain(terrainType);
-    const terrainCategory = this.terrainCategories![category]; // This indirection on lookup is painful, becuase its done many times. Replace with direct lookup
-    return !terrainCategory?.impassable;  // these conditionals cause big-suck on performance, set defaults at initialization
+    const terrainCategory = this.terrainCategories![category];
+    if (terrainCategory?.impassable) {
+      return false;
+    }
+    if (unitCategory && terrainCategory?.impassableFor?.includes(unitCategory)) {
+      return false;
+    }
+    return true;
   }
 
   /**
@@ -1117,5 +1126,32 @@ export class GameDataManager {
    */
   public getMatchmakingPresets(): MatchmakingPresetsData {
     return this.matchmakingPresets!;
+  }
+
+  /**
+   * Gets movement speed modifier based on current supply for mechanized units.
+   */
+  public getSupplyMovementModifier(
+    unitCategory: UnitCategoryId,
+    supply: number | null,
+    maxSupply: number | null
+  ): number {
+    const supplyLines = this.getGameRules().supplyLines;
+    if (
+      !supplyLines?.noSupplyMovementPenalty ||
+      supply === null ||
+      maxSupply === null ||
+      maxSupply === 0
+    ) {
+      return 0;
+    }
+
+    const penalty = supplyLines.noSupplyMovementPenalty[unitCategory];
+    if (penalty !== undefined) {
+      // Speed scales linearly based on supply proportion
+      return penalty * (1 - supply / maxSupply);
+    }
+
+    return 0;
   }
 }

@@ -18,7 +18,9 @@
       "lightCavalry": -0.2,
       "scoutCavalry": -0.2,
       "heavyCavalry": -0.2,
-      "artillery": -0.2
+      "artillery": -0.2,
+      "armored": -0.6,
+      "motorized": -0.6
     },
     "projectileAbsorption": {
       "explosive-shell": 0.3,
@@ -42,7 +44,9 @@
       "lightCavalry": -0.6,
       "scoutCavalry": -0.6,
       "heavyCavalry": -0.6,
-      "artillery": -0.5
+      "artillery": -0.5,
+      "armored": -0.7,
+      "motorized": -0.7
     },
     "attackModifier": {
       "infantry": 0.4,
@@ -119,7 +123,9 @@
       "lightCavalry": -0.6,
       "scoutCavalry": -0.6,
       "heavyCavalry": -0.6,
-      "artillery": -0.3
+      "artillery": -0.3,
+      "armored": -0.7,
+      "motorized": -0.7
     },
     "attackModifier": {
       "infantry": 0.4,
@@ -234,8 +240,11 @@
       "lightCavalry": -0.6,
       "scoutCavalry": -0.6,
       "heavyCavalry": -0.6,
-      "artillery": -0.6
+      "artillery": -0.6,
+      "armored": -1,
+      "motorized": -1
     },
+    "impassableFor": ["armored", "motorized"],
     "attackModifier": {
       "infantry": -0.8,
       "skirmishInfantry": -0.7,
@@ -286,7 +295,7 @@
   },
 
   "cliff": {
-    "impassable": true
+    "impassableFor": ["armored", "motorized"]
   },
 
   "farm": {

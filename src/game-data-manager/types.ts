@@ -512,6 +512,11 @@ export interface SupplyLinesRule {
   supplyGoldCost?: number;
   /** Reinforcement rate (0-1) applied per turn. Defaults to 0.02 */
   reinforcementRate?: number;
+  /**
+   * Movement penalty (0 to -1) applied at zero supply for specific unit categories.
+   * Speed scales linearly from 100% at max supply to (1 + penalty) at zero supply.
+   */
+  noSupplyMovementPenalty?: Partial<Record<UnitCategoryId, number>>;
 }
 
 export interface EntrenchmentRule {
