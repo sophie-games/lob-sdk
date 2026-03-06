@@ -277,6 +277,9 @@ export function isPassable(
   return true;
 }
 
+/**
+ * Checks if there is a clear straight path between two positions.
+ */
 export function isPathClear(
   start: Vector2,
   end: Vector2,
@@ -423,8 +426,8 @@ export function calculatePath(
     if (!gameDataManager.isPassable(terrainType, unitCategory)) return Infinity;
     
     const stepModifier = gameDataManager.getMovementModifier(terrainType, unitCategory);
-    // Even if passable (> -10), if speed is 0 or less (modifier <= -1), it's impassable for pathfinding
-    if (stepModifier <= -1) return Infinity;
+    // Use the unified impassable threshold for pathfinding
+    if (stepModifier <= GameDataManager.IMPASSABLE_THRESHOLD) return Infinity;
 
     // Speed factor: 1 is base, higher is faster (lower cost)
     return 1 / (1 + stepModifier);
