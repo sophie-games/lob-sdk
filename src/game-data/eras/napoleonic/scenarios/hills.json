@@ -1,6 +1,6 @@
 {
-  "name": "Hills",
-  "description": "Flat grasslands where tactical battles take place on randomly generated maps. The hills may include patches of forests and scattered buildings, adding strategic depth to unit positioning and gameplay.",
+  "name": "name",
+  "description": "description",
   "type": "random",
   "ranked": true,
   "instructions": [
@@ -223,5 +223,83 @@
       ],
       "once": true
     }
-  ]
+  ],
+  "locales": {
+    "en": {
+      "name": "Hills",
+      "description": "Flat grasslands where tactical battles take place on randomly generated maps. The hills may include patches of forests and scattered buildings, adding strategic depth to unit positioning and gameplay."
+    },
+    "ru": {
+      "name": "Холмы",
+      "description": "Случайно сгенерированная холмистая карта с участками леса и зданиями предлагает стратегическую глубину и тактическое разнообразие игрового процесса. "
+    },
+    "ar": {
+      "name": "التلال",
+      "description": "الأراضي العشبية المسطحة حيث تجري المعارك التكتيكية على خرائط تم إنشاؤها عشوائيا. قد تشمل التلال بقعا من الغابات والمباني المتناثرة ، مما يضيف عمقا استراتيجيا إلى تحديد موقع الوحدة وطريقة اللعب."
+    },
+    "de": {
+      "name": "Hügel",
+      "description": "Flaches Grasland, in dem taktische Schlachten auf zufällig generierten Karten stattfinden. Die Hügel können Waldstücke und verstreute Gebäude enthalten, was der Positionierung und dem Gameplay der Einheiten strategische Tiefe verleiht."
+    },
+    "el": {
+      "name": "Λόφους",
+      "description": "Επίπεδα λιβάδια όπου πραγματοποιούνται τακτικές μάχες σε τυχαία δημιουργημένους χάρτες. Οι λόφοι μπορεί να περιλαμβάνουν κομμάτια δασών και διάσπαρτα κτίρια, προσθέτοντας στρατηγικό βάθος στην τοποθέτηση και το παιχνίδι της μονάδας."
+    },
+    "es": {
+      "name": "Colinas",
+      "description": "Praderas planas donde se llevan a cabo batallas tácticas en mapas generados aleatoriamente. Las colinas pueden incluir parches de bosques y edificios dispersos, lo que agrega profundidad estratégica al posicionamiento y la jugabilidad de las unidades."
+    },
+    "fr": {
+      "name": "Collines",
+      "description": "Prairies plates où des batailles tactiques se déroulent sur des cartes générées aléatoirement. Les collines peuvent inclure des parcelles de forêts et des bâtiments dispersés, ajoutant une profondeur stratégique au positionnement et au gameplay de l'unité."
+    },
+    "hi": {
+      "name": "पहाड़ियों",
+      "description": "समतल घास के मैदान जहां बेतरतीब ढंग से उत्पन्न मानचित्रों पर सामरिक लड़ाई होती है ।  पहाड़ियों में जंगलों और बिखरी हुई इमारतों के पैच शामिल हो सकते हैं, जो यूनिट पोजिशनिंग और गेमप्ले में रणनीतिक गहराई जोड़ते हैं । "
+    },
+    "hu": {
+      "name": "Dombok",
+      "description": "Sík gyepek, ahol taktikai csaták zajlanak véletlenszerűen generált térképeken. A dombok erdőket és szétszórt épületeket tartalmazhatnak, stratégiai mélységet adva az egység pozícionálásához és a játékmenethez."
+    },
+    "id": {
+      "name": "Bukit",
+      "description": "Padang rumput datar tempat pertempuran taktis berlangsung di peta yang dibuat secara acak. Perbukitan mungkin termasuk petak hutan dan bangunan yang tersebar, menambah kedalaman strategis pada posisi unit dan gameplay."
+    },
+    "it": {
+      "name": "Collina",
+      "description": "Praterie piatte dove si svolgono battaglie tattiche su mappe generate casualmente. Le colline possono includere zone di foreste e edifici sparsi, aggiungendo profondità strategica al posizionamento delle unità e al gameplay."
+    },
+    "ja": {
+      "name": "ザ-ヒルズ",
+      "description": "ランダムに生成されたマップ上で戦術的な戦いが行われる平らな草原。 丘には森林や散在する建物のパッチが含まれている場合があり、ユニットの配置とゲームプレイに戦略的な深さを追加します。"
+    },
+    "kr": {
+      "name": "언덕",
+      "description": "전술 전투가 무작위로 생성 된지도에서 일어나는 평평한 초원. 언덕에는 숲과 산란한 건물들이 포함될 수 있으며,유닛 위치와 게임 플레이에 전략적 깊이를 더합니다."
+    },
+    "pl": {
+      "name": "Wzgórza",
+      "description": "Płaskie łąki, na których toczą się bitwy taktyczne na losowo generowanych mapach. Wzgórza mogą zawierać skrawki lasów i rozproszone budynki, dodając strategiczną głębię pozycjonowaniu jednostek i rozgrywce."
+    },
+    "pt": {
+     "name": "Colinas",
+      "description": "Pastagens planas onde as batalhas táticas ocorrem em mapas gerados aleatoriamente. As colinas podem incluir manchas de florestas e edifícios dispersos, adicionando profundidade estratégica ao posicionamento da unidade e jogabilidade."
+    },
+    "tr": {
+      "name": "Tepeler",
+      "description": "Taktiksel savaşların rastgele oluşturulan haritalarda gerçekleştiği düz otlaklar. Tepeler, orman parçaları ve dağınık binalar içerebilir; bu da birim konumlandırması ve oynanışa stratejik derinlik katar."
+    },
+    "uk": {
+      "name": "Пагорби",
+      "description": "Рівнинні луки, на яких відбуваються тактичні битви на випадково згенерованих картах. Пагорби можуть включати ділянки лісів та розкидані будівлі, що надає стратегічну глибину позиціонуванню підрозділів та геймплею."
+    },
+    "vi": {
+      "name": "Đồi",
+      "description": "Đồng cỏ bằng phẳng nơi các trận chiến chiến thuật diễn ra trên các bản đồ được tạo ngẫu nhiên. Những ngọn đồi có thể bao gồm các mảng rừng và các tòa nhà rải rác, thêm chiều sâu chiến lược để định vị đơn vị và lối chơi."
+    },
+    "zh": {
+      "name": "山丘",
+      "description": "在随机生成的地图上进行战术战斗的平坦草原。 山丘可能包括森林补丁和分散的建筑物，为单位定位和游戏玩法增加了战略深度。"
+    }
+  }
 }
