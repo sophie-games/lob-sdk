@@ -2,6 +2,8 @@
 export const SECONDS_PER_MINUTE = 60;
 /** Seconds per hour. */
 export const SECONDS_PER_HOUR = 3600;
+/** Seconds to be considered slow. */
+export const SECONDS_TO_BE_SLOW = 7200; // 2 hours
 /** Seconds per day (24 × 3600). */
 export const SECONDS_PER_DAY = 86400;
 /** Seconds per year (365 × 24 × 3600). Used as threshold for "no timing" / unlimited (e.g. offline). */
@@ -38,7 +40,7 @@ export const getGameSpeed = (
   bankTimeSeconds: number,
   turnCapSeconds: number,
 ): GameSpeed =>
-  bankTimeSeconds >= SECONDS_PER_DAY || turnCapSeconds >= SECONDS_PER_DAY
+  bankTimeSeconds >= SECONDS_TO_BE_SLOW || turnCapSeconds >= SECONDS_TO_BE_SLOW
     ? GameSpeed.Slow
     : GameSpeed.Fast;
 

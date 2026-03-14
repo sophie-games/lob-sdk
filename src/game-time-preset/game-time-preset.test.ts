@@ -15,18 +15,19 @@ describe("GameTimePresetManager", () => {
     });
 
     it("should calculate time remaining correctly", () => {
-      // blitz: turnCapSeconds: 180
-      const now = 1000;
       const turnStartedTime = 900;
-      // 900 + 180 - 1000 = 80
-      expect(manager.calculateTimeRemaining("blitz", turnStartedTime, now)).toBe(80);
+      const now = 1000;
+      const limit = manager.getPresetTurnDurationSeconds("blitz");
+      const expected = turnStartedTime + limit - now;
+      expect(manager.calculateTimeRemaining("blitz", turnStartedTime, now)).toBe(expected);
     });
 
     it("should return negative value if time is up", () => {
-      const now = 1200;
       const turnStartedTime = 900;
-      // 900 + 180 - 1200 = -120
-      expect(manager.calculateTimeRemaining("blitz", turnStartedTime, now)).toBe(-120);
+      const now = 1200;
+      const limit = manager.getPresetTurnDurationSeconds("blitz");
+      const expected = turnStartedTime + limit - now;
+      expect(manager.calculateTimeRemaining("blitz", turnStartedTime, now)).toBe(expected);
     });
   });
 
@@ -37,16 +38,19 @@ describe("GameTimePresetManager", () => {
     });
 
     it("should return true if turn time + margin has passed", () => {
-      // blitz limit = 180. margin = 10. Total = 190.
       const turnStartedTime = 900;
-      const now = 900 + 180 + 10 + 1; // 1091
-      expect(manager.isRancid("blitz", turnStartedTime, now, 10)).toBe(true);
+      const margin = 10;
+      const limit = manager.getPresetTurnDurationSeconds("blitz");
+      const now = turnStartedTime + limit + margin + 1;
+      expect(manager.isRancid("blitz", turnStartedTime, now, margin)).toBe(true);
     });
 
     it("should return false if turn time + margin has not passed", () => {
       const turnStartedTime = 900;
-      const now = 900 + 180 + 10 - 1; // 1089
-      expect(manager.isRancid("blitz", turnStartedTime, now, 10)).toBe(false);
+      const margin = 10;
+      const limit = manager.getPresetTurnDurationSeconds("blitz");
+      const now = turnStartedTime + limit + margin - 1;
+      expect(manager.isRancid("blitz", turnStartedTime, now, margin)).toBe(false);
     });
   });
 
