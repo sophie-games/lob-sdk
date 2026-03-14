@@ -82,8 +82,6 @@ export interface BattleTypeTemplate {
   goldToAmmoRate: number;
   /** Optional ratio for spawning skirmishers [skirmisherRatio, coreUnitsRatio]. */
   skirmisherRatio?: number[];
-  /** Whether fog of war is enabled. */
-  fogOfWar: boolean;
   /** Maximum number of each unit type allowed. */
   unitCaps: Record<UnitType, number>;
   /** ELO K-factor for rating calculations. */
