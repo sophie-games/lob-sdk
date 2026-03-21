@@ -1,6 +1,6 @@
 {
-  "name": "Tundra",
-  "description": "A windswept, frozen tundra with vast snowfields, scattered icy lakes, and sparse winter forests. Vegetation is rare and the landscape is mostly flat, with occasional rocky outcrops.",
+  "name": "name",
+  "description": "description",
   "type": "random",
   "ranked": true,
   "baseTerrain": 8,
@@ -89,5 +89,83 @@
       ],
       "once": true
     }
-  ]
+  ],
+  "locales": {
+    "en": {
+      "name": "Tundra",
+      "description": "A windswept, frozen tundra with vast snowfields, scattered icy lakes, and sparse winter forests. Vegetation is rare and the landscape is mostly flat, with occasional rocky outcrops."
+    },
+    "ru": {
+      "name": "Тундра",
+      "description": "Широкая снежная пустошь с редкими замёрзшими озёрами и заснеженными лесами. Плоский безжизненный ландшафт кое-где прорезан высокими холмами."
+    },
+    "ar": {
+      "name": "التندرا",
+      "description": "تندرا مجمدة تعصف بها الرياح مع حقول ثلجية شاسعة وبحيرات جليدية متناثرة وغابات شتوية متفرقة. الغطاء النباتي نادر والمناظر الطبيعية مسطحة في الغالب ، مع نتوءات صخرية عرضية."
+    },
+    "de": {
+      "name": "Tundra",
+      "description": "Eine windgepeitschte, gefrorene Tundra mit riesigen Schneefeldern, vereinzelten eisigen Seen und spärlichen Winterwäldern. Vegetation ist selten und die Landschaft ist meist flach, mit gelegentlichen Felsvorsprüngen."
+    },
+    "el": {
+      "name": "Τούνδρα",
+      "description": "Μια ανεμοδαρμένη, παγωμένη τούνδρα με τεράστια χιονισμένα πεδία, διάσπαρτες παγωμένες λίμνες και αραιά χειμωνιάτικα δάση. Η βλάστηση είναι σπάνια και το τοπίο είναι κυρίως επίπεδο, με περιστασιακά βραχώδη προεξοχές."
+    },
+    "es": {
+      "name": "Tundra",
+      "description": "Una tundra helada azotada por el viento con vastos campos de nieve, lagos helados dispersos y bosques invernales dispersos. La vegetación es escasa y el paisaje es mayormente llano, con ocasionales afloramientos rocosos."
+    },
+    "fr": {
+      "name": "Tundra",
+      "description": "Une toundra gelée balayée par le vent avec de vastes champs de neige, des lacs glacés éparpillés et des forêts hivernales clairsemées. La végétation est rare et le paysage est principalement plat, avec des affleurements rocheux occasionnels."
+    },
+    "hi": {
+      "name": "टुंड्रा",
+      "description": "एक विंडस्वेप्ट, विशाल बर्फ के मैदानों के साथ जमे हुए टुंड्रा, बिखरी हुई बर्फीली झीलें और विरल सर्दियों के जंगल ।  वनस्पति दुर्लभ है और परिदृश्य ज्यादातर सपाट है, कभी-कभी चट्टानी बहिर्वाह के साथ । "
+    },
+    "hu": {
+      "name": "Tundra",
+      "description": "Szélfútta, fagyott tundra hatalmas hómezőkkel, szétszórt jeges tavakkal és ritka téli erdőkkel. A növényzet ritka, a táj többnyire lapos, alkalmanként sziklás kiemelkedésekkel."
+    },
+    "id": {
+      "name": "Tundra",
+      "description": "Tundra beku yang tertiup angin dengan ladang salju yang luas, danau es yang tersebar, dan hutan musim dingin yang jarang. Vegetasi jarang terjadi dan sebagian besar lanskapnya datar, dengan singkapan berbatu sesekali."
+    },
+    "it": {
+      "name": "Tundra",
+      "description": "Una tundra ghiacciata e spazzata dal vento con vasti nevai, laghi ghiacciati sparsi e foreste invernali sparse. La vegetazione è rara e il paesaggio è prevalentemente pianeggiante, con sporadici affioramenti rocciosi."
+    },
+    "ja": {
+      "name": "ツンドラ ",
+      "description": "広大な雪原、散在する氷の湖、まばらな冬の森を持つ吹きさらしの凍ったツンドラ。 植生はまれであり、風景は時折岩の露頭で、ほとんど平坦です。"
+    },
+    "kr": {
+      "name": "툰드라 ",
+      "description": "광대 한 설원,흩어져있는 얼음 호수 및 드문 드문 겨울 숲이있는 바람에 휩싸인 얼어 붙은 툰드라. 식물성 은 드물고 경관은 대부분 평평하며 가끔 바위 덩어리 가 있다."
+    },
+    "pl": {
+      "name": "Tundra",
+      "description": "Smagana wiatrem, zamarznięta tundra z rozległymi polami śnieżnymi, rozproszonymi lodowatymi jeziorami i rzadkimi zimowymi lasami. Roślinność jest rzadka, a krajobraz jest w większości płaski, z okazjonalnymi skalistymi wychodniami."
+    },
+    "pt": {
+      "name": "Tundra",
+      "description": "Uma tundra congelada e varrida pelo vento com vastos campos de neve, lagos gelados dispersos e florestas de Inverno esparsas. A vegetação é rara e a paisagem é maioritariamente plana, com afloramentos rochosos ocasionais."
+    },
+    "tr": {
+      "name": "Tundra",
+      "description": "Rüzgârın savurduğu, donmuş bir tundra; geniş kar alanları, dağınık buzlu göller ve seyrek kış ormanları. Bitki örtüsü seyrek, manzara çoğunlukla düz olup ara sıra kayalık çıkıntılar görülür."
+    },
+    "uk": {
+      "name": "Тундра",
+      "description": "Продувається всіма вітрами, замерзла тундра з великими сніговими полями, розкиданими крижаними озерами і рідкісними зимовими лісами. Рослинність тут рідкісна, а ландшафт переважно рівнинний, з рідкісними скелястими виступами."
+    },
+    "vi": {
+      "name": "Lãnh nguyên",
+      "description": "Một vùng lãnh nguyên lộng gió, băng giá với những cánh đồng tuyết rộng lớn, những hồ nước băng giá rải rác và những khu rừng mùa đông thưa thớt. Thảm thực vật rất hiếm và cảnh quan chủ yếu bằng phẳng, thỉnh thoảng có các mỏm đá."
+    },
+    "zh": {
+      "name": "苔原",
+      "description": "一个被风吹拂的冰冻苔原，拥有广阔的雪原，散落的冰冷湖泊和稀疏的冬季森林。 植被稀少，景观大多平坦，偶尔有岩石露头。"
+    }
+  }
 }
