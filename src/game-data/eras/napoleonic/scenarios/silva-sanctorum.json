@@ -1,6 +1,6 @@
 {
-  "name": "Silva Sanctorum",
-  "description": "A claustrophobic battle amidst the hedgerows. Designed by Discord user and top player EvictedSaint.",
+  "name": "name",
+  "description": "description",
   "type": "hybrid",
   "ranked": true,
   "map": {
@@ -1933,5 +1933,83 @@
     { "pos": { "x": 1682.64, "y": 914.92 } },
     { "pos": { "x": 314.85, "y": 910.27 } }
   ],
-  "triggers": []
+  "triggers": [],
+  "locales": {
+    "en": {
+      "name": "Silva Sanctorum",
+      "description": "A claustrophobic battle amidst the hedgerows. Designed by Discord user and top player EvictedSaint."
+    },
+    "ru": {
+      "name": "Храм Сильвы",
+      "description": "Эта гибридная карта со множеством закрытых живыми изгородями участков создана одним из лучших игроков и участником сервера Discord игры EvictedSaint."
+    },
+    "ar": {
+      "name": "سيلفا سانكتوروم",
+      "description": "معركة خانقة وسط السياج. صممه Discord وأفضل لاعب EvictedSaint."
+    },
+    "de": {
+      "name": "Silva Sanctorum",
+      "description": "Eine klaustrophobische Schlacht inmitten der Hecken. Entworfen von Discord-Benutzer und Top-Spieler EvictedSaint."
+    },
+    "el": {
+      "name": "Σίλβα Σανκτόρουμ",
+      "description": "Μια κλειστοφοβική μάχη ανάμεσα στους φράκτες. Σχεδιασμένο από τον χρήστη Discord και τον κορυφαίο παίκτη EvictedSaint."
+    },
+    "es": {
+      "name": "Silva Sanctorum",
+      "description": "Una batalla claustrofóbica en medio de los setos. Diseñado por el usuario de Discord y mejor jugador EvictedSaint."
+    },
+    "fr": {
+      "name": "Silva Sanctorum",
+      "description": "Une bataille claustrophobe au milieu des haies. Conçu par l'utilisateur Discord et le meilleur joueur EvictedSaint."
+    },
+    "hi": {
+      "name": "सिल्वा सैंक्टोरम",
+      "description": "हेजर्स के बीच एक क्लॉस्ट्रोफोबिक लड़ाई ।  डिस्कॉर्ड उपयोगकर्ता और शीर्ष खिलाड़ी बेदखल संत द्वारा डिज़ाइन किया गया ।"
+    },
+    "hu": {
+      "name": "Silva Sanctorum",
+      "description": "Klausztrofóbiás csata a sövények között. Tervezte Discord felhasználó és a legjobb játékos EvictedSaint."
+    },
+    "id": {
+      "name": "Silva Sanctorum",
+      "description": "Pertempuran sesak di tengah pagar tanaman. Dirancang oleh pengguna Discord dan pemain top EvictedSaint."
+    },
+    "it": {
+      "name": "Silva Sanctorum",
+      "description": "Una battaglia claustrofobica tra le siepi. Progettato da Discord utente e top player EvictedSaint."
+    },
+    "ja": {
+      "name": "シルバ-サンクトルム",
+      "description": "生け垣の中の閉所恐怖症の戦い。 Discordユーザーとトッププレーヤーによって設計されたEvictedSaint。"
+    },
+    "kr": {
+      "name": "실바 산크토럼",
+      "description": "울타리 속에서 밀실 공포증 전투. 불화 사용자 및 최고의 플레이어가 디자인했습니다."
+    },
+    "pl": {
+      "name": "Silva Sanctorum",
+      "description": "Klaustrofobiczna Bitwa pośród żywopłotów. Zaprojektowany przez użytkownika Discord i najlepszego gracza EvictedSaint."
+    },
+    "pt": {
+      "name": "Silva Sanctorum",
+      "description": "Uma batalha claustrofóbica entre as sebes. Projetado pelo usuário do Discord e melhor jogador EvictedSaint."
+    },
+    "tr": {
+      "name": "Silva Sanctorum",
+      "description": "Çalılıklar arasında klostrofobik bir mücadele. Discord kullanıcısı ve üst düzey oyuncu EvictedSaint tarafından tasarlandı."
+    },
+    "uk": {
+      "name": "Святилище Сільви",
+      "description": "Викликає клаустрофобію бій серед живоплотів. Розроблено Користувачем Discord та найкращим гравцем EvictedSaint."
+    },
+    "vi": {
+      "name": "Silva Sanctorum",
+      "description": "Một trận chiến ngột ngạt giữa hàng rào. Được thiết kế bởi Người Dùng Discord và người chơi Hàng đầu EvictedSaint."
+    },
+    "zh": {
+      "name": "席尔瓦圣所",
+      "description": "一场在树篱中幽闭恐怖的战斗。 由Discord用户和顶级玩家EvictedSaint设计。"
+    }
+  }
 }
