@@ -1,6 +1,6 @@
 {
-  "name": "Iberia",
-  "description": "Fight across the ridges of the Iberian Peninsular",
+  "name": "name",
+  "description": "description",
   "type": "random",
   "baseTerrain": 0,
   "ranked": true,
@@ -1074,5 +1074,83 @@
         "max": [35, 65]
       }
     }
-  ]
+  ],
+  "locales": {
+    "en": {
+      "name": "Iberia",
+      "description": "Fight across the ridges of the Iberian Peninsular"
+    },
+    "ru": {
+      "name": "Иберия",
+      "description": "Хребты Пиренейского полуострова замерли в ожидании боя"
+    },
+    "ar": {
+      "name": "ايبيريا",
+      "description": "قتال عبر التلال من شبه الجزيرة الايبيرية"
+    },
+    "de": {
+      "name": "Iberia",
+      "description": "Kämpfe über die Kämme der Iberischen Halbinsel"
+    },
+    "el": {
+      "name": "Ιβηρία",
+      "description": "Καταπολέμηση στις κορυφογραμμές της Ιβηρικής Χερσονήσου"
+    },
+    "es": {
+      "name": "Iberia",
+      "description": "Lucha por las cordilleras de la Península Ibérica"
+    },
+    "fr": {
+      "name": "Ibérie",
+      "description": "Combattez à travers les crêtes de la péninsule ibérique"
+    },
+    "hi": {
+      "name": "आइबेरिया",
+      "description": "इबेरियन प्रायद्वीपीय की लकीरों के पार लड़ो"
+    },
+    "hu": {
+      "name": "Iberia",
+      "description": "Küzdelem az Ibériai-félsziget gerincén"
+    },
+    "id": {
+      "name": "Iberia",
+      "description": "Bertarung melintasi punggung bukit Semenanjung Iberia"
+    },
+    "it": {
+      "name": "Iberia",
+      "description": "Lotta attraverso le creste della penisola iberica"
+    },
+    "ja": {
+      "name": "イベリア",
+      "description": "イベリア半島の尾根を越えて戦う"
+    },
+    "kr": {
+      "name": "이베리아",
+      "description": "이베리아 반도의 능선을 가로 질러 싸우십시오"
+    },
+    "pl": {
+      "name": "Iberia",
+      "description": "Walcz przez grzbiety Półwyspu Iberyjskiego"
+    },
+    "pt": {
+      "name": "Ibéria",
+      "description": "Luta através dos cumes da Península Ibérica"
+    },
+    "tr": {
+      "name": "İberya",
+      "description": "İber Yarımadası'nın sıradağlarında mücadele edin"
+    },
+    "uk": {
+      "name": "Іберія",
+      "description": "Боріться на гірських хребтах Піренейського півострова"
+    },
+    "vi": {
+      "name": "Iberia",
+      "description": "Chiến đấu trên các rặng núi Của Bán Đảo Iberia"
+    },
+    "zh": {
+      "name": "伊比利亚",
+      "description": "跨越伊比利亚半岛的山脊战斗"
+    }
+  }
 }
