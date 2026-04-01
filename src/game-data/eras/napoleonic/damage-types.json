@@ -54,7 +54,7 @@
     "orgDamageRatio": 320,
     "reorgDebuff": 0.72,
     "attackEffectDuration": 8,
-    "projectileWidth": 16,
+    "projectileWidth": 20,
     "damageModifierByTargetHp": {
       "start": 0.8,
       "end": 0.5,
@@ -90,7 +90,7 @@
       }
     ],
     "enfiladeFire": true,
-    "projectilePenetration": 0.3,
+    "projectilePenetration": 0,
     "shotSound": "musket-volley",
     "shotAnim": "musketVolley",
     "extendRange": true
@@ -131,7 +131,7 @@
       }
     ],
     "enfiladeFire": true,
-    "projectilePenetration": 0.04,
+    "projectilePenetration": 0,
     "shotSound": "musket-volley",
     "shotAnim": "musketVolley",
     "extendRange": false
@@ -165,7 +165,7 @@
       }
     ],
     "enfiladeFire": true,
-    "projectilePenetration": 0.04,
+    "projectilePenetration": 0,
     "shotSound": "musket-volley",
     "shotAnim": "musketVolley",
     "extendRange": false
@@ -192,7 +192,7 @@
     "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.9,
+    "projectilePenetration": 0.85,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -247,7 +247,7 @@
     ],
     "enfiladeFire": true,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.3,
+    "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 260,
@@ -275,7 +275,7 @@
     "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.9,
+    "projectilePenetration": 0.85,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -335,7 +335,7 @@
     "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.9,
+    "projectilePenetration": 0.85,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -382,17 +382,17 @@
       "end": 0.65,
       "modifier": -0.25
     },
-    "ranges": [{ "start": 90, "end": 250, "startMod": 0.1, "endMod": 0.05 }],
+    "ranges": [{ "start": 90, "end": 200, "startMod": 0.1, "endMod": 0.05 }],
     "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.75,
+    "projectilePenetration": 0.65,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
         {
           "start": 90,
-          "end": 220,
+          "end": 200,
           "startTopWidth": 32,
           "endTopWidth": 44,
           "startBottomWidth": 24,
@@ -441,7 +441,7 @@
     ],
     "enfiladeFire": true,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.3,
+    "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 250,
@@ -469,7 +469,7 @@
     "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.75,
+    "projectilePenetration": 0.65,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -529,7 +529,7 @@
     "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.75,
+    "projectilePenetration": 0.65,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -584,7 +584,7 @@
     ],
     "enfiladeFire": true,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.3,
+    "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 210,
@@ -612,7 +612,7 @@
     "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.6,
+    "projectilePenetration": 0.4,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -672,7 +672,7 @@
     "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.6,
+    "projectilePenetration": 0.4,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -727,7 +727,7 @@
     ],
     "enfiladeFire": true,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.3,
+    "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 220,
@@ -755,7 +755,7 @@
     "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.6,
+    "projectilePenetration": 0.4,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -815,7 +815,7 @@
     "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.6,
+    "projectilePenetration": 0.4,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -873,7 +873,7 @@
     ],
     "arcHeight": 3.5,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.85,
+    "projectilePenetration": 0.8,
     "areaOfEffect": {
       "type": "circular",
       "ranges": [
@@ -884,7 +884,7 @@
           "endRadius": 64
         }
       ],
-      "edgeDamageModifier": -0.25,
+      "edgeDamageModifier": -0.1,
       "absorptionModifier": 1.25
     },
     "shotSound": "artillery-fire",
@@ -922,7 +922,7 @@
     ],
     "arcHeight": 2.5,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.85,
+    "projectilePenetration": 0.8,
     "areaOfEffect": {
       "type": "circular",
       "ranges": [
@@ -933,7 +933,7 @@
           "endRadius": 36
         }
       ],
-      "edgeDamageModifier": -0.2,
+      "edgeDamageModifier": -0.1,
       "absorptionModifier": 1.25
     },
     "shotSound": "artillery-fire",
@@ -972,7 +972,7 @@
     ],
     "arcHeight": 4.5,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.85,
+    "projectilePenetration": 0.8,
     "areaOfEffect": {
       "type": "circular",
       "ranges": [
@@ -989,7 +989,7 @@
           "endRadius": 48
         }
       ],
-      "edgeDamageModifier": -0.2,
+      "edgeDamageModifier": -0.1,
       "absorptionModifier": 1.25
     },
     "shotSound": "artillery-fire",
@@ -1024,7 +1024,7 @@
     ],
     "enfiladeFire": true,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.3,
+    "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 260,
@@ -1056,7 +1056,7 @@
     ],
     "enfiladeFire": true,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.3,
+    "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 250,
@@ -1081,7 +1081,7 @@
     ],
     "enfiladeFire": true,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.3,
+    "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 356,

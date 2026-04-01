@@ -174,7 +174,9 @@ export interface GameConstants {
   NEARBY_UNITS_DISTANCE: number;
 
   NEARBY_UNITS_CHARGE_RESISTANCE_MODIFIER_CAP: number;
+  NEARBY_UNITS_CHARGE_RESISTANCE_MODIFIER_PENALTY_CAP: number; // is expected to be <= 0
   NEARBY_UNITS_CHARGE_PENETRATION_MODIFIER_CAP: number;
+  NEARBY_UNITS_CHARGE_PENETRATION_MODIFIER_PENALTY_CAP: number; // is expected to be <= 0
 
   MIN_EFFECTIVE_VPS: number;
 
@@ -589,6 +591,8 @@ export interface OrganizationRule {
   nearbyUnitsNegativeOrgBonusCap: number;
   /** Maximum organization damage modifier from nearby units */
   nearbyUnitsOrgDamageModifierCap: number;
+  /** Maximum organization damage modifier penalty from nearby units. Expected to be <=  */
+  nearbyUnitsOrgDamageModifierPenaltyCap: number;
   /** Organization bonus multiplier for routing units within organization radius */
   routingUnitNearbyUnitsOrgBonus: number;
   /** Organization radius modifier applied when unit has StartedRouting effect */

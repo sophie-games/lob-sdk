@@ -18,7 +18,8 @@
     "flankChargeResistance": -0.25,
     "timeToForm": 6,
     "timeToUnform": 2,
-    "minMovementModifier": -0.4
+    "minMovementModifier": -0.4,
+    "projectilePassThrough": 0.1
   },
   {
     "id": "column",
@@ -46,7 +47,9 @@
     "flankChargeResistance": -0.35,
     "timeToForm": 4,
     "timeToUnform": 2,
-    "minMovementModifier": -0.5
+    "minMovementModifier": -0.5,
+    "receivedMeleeDamageModifier": -0.1,
+    "projectilePassThrough": 0.1
   },
   {
     "id": "line",
@@ -74,7 +77,8 @@
     "shootingAngleMargin": 0,
     "timeToForm": 8,
     "timeToUnform": 8,
-    "minMovementModifier": -0.8
+    "minMovementModifier": -0.8,
+    "projectilePassThrough": 0.05
   },
   {
     "id": "square",
@@ -103,7 +107,8 @@
     "timeToUnform": 0,
     "formingSpeedModifier": -1,
     "minMovementModifier": -1,
-    "pushStrengthModifier": -0.5
+    "pushStrengthModifier": -0.5,
+    "projectilePassThrough": 0.5
   },
   {
     "id": "artillery",
@@ -124,7 +129,8 @@
     "shootingMaxTargets": 1,
     "minMovementModifier": -0.25,
     "disable180Turnaround": true,
-    "friendlyFireImmuneDamageTypes": ["musket", "marksman-musket", "rifle"]
+    "friendlyFireImmuneDamageTypes": ["musket", "marksman-musket", "rifle"],
+    "projectilePassThrough": 0.3
   },
   {
     "id": "skirmish",
@@ -190,8 +196,8 @@
     "flankChargeResistance": -0.2,
     "shootingAngle": 360,
     "shootingMaxTargets": 1,
-    "projectilePassThrough": 0.5,
-    "minMovementModifier": -0.3
+    "minMovementModifier": -0.3,
+    "projectilePassThrough": 0.5
   },
   {
     "id": "unknown",
@@ -221,7 +227,7 @@
     "timeToUnform": 1,
     "receivedMeleeDamageModifier": 0.35,
     "minMovementModifier": -0.5,
-    "projectilePassThrough": 0.8,
+    "projectilePassThrough": 0.85,
     "friendlyFireImmuneDamageTypes": [
       "musket",
       "marksman-musket",
@@ -253,7 +259,7 @@
     "effects": [
       {
         "name": "can_pass_through_enemies",
-        "duration": 4
+        "duration": 12
       }
     ]
   }
