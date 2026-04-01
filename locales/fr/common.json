@@ -62,7 +62,10 @@
     "classic": "Classique",
     "daily": "Quotidien",
     "correspondence": "Par correspondance",
-    "extended": "Étendu"
+    "extended": "Étendu",
+    "blitz": "Blitz",
+    "rapid": "Rapide",
+    "marathon": "Marathon"
   },
   "battleType": "Type de bataille",
   "matchmaking": "Partie classée",
@@ -566,7 +569,14 @@
     "inArenaGameModalTitle": "Vous êtes dans une partie d'arène",
     "inArenaGameModalMessage": "Vous êtes actuellement dans une partie d'arène. Allez au jeu pour jouer votre tour.",
     "goToGame": "Aller au jeu",
-    "howArenasWork": "Les arènes sont des sessions compétitives limitées dans le temps d'une heure. Ouvrez une arène et rejoignez-la quand elle est active pour entrer dans le lobby ; vous serez apparié avec d'autres joueurs, jouerez des parties et grimperez au classement."
+    "howArenasWork": "Les arènes sont des sessions compétitives limitées dans le temps d'une heure. Ouvrez une arène et rejoignez-la quand elle est active pour entrer dans le lobby ; vous serez apparié avec d'autres joueurs, jouerez des parties et grimperez au classement.",
+    "ruleDuration": "Durée : {{hours}}h",
+    "ruleMaxGames": "Max {{games}} parties",
+    "ruleNoRepeat": "Adversaires uniques",
+    "ruleDurationTooltip": "La durée totale de l'arène. Une fois terminée, le classement est finalisé.",
+    "ruleMaxGamesTooltip": "Le nombre maximum de parties que vous pouvez jouer dans cette arène.",
+    "ruleNoRepeatTooltip": "Vous ne serez pas associé deux fois au même joueur dans cette arène.",
+    "ruleDurationRemainingTooltip": "Le temps restant avant la fin de l'arène."
   },
   "hasPassword": "A un mot de passe",
   "optional": "Optionnel",

@@ -74,7 +74,10 @@
     "classic": "Klasik",
     "daily": "Harian",
     "correspondence": "Korespondensi",
-    "extended": "Diperpanjang"
+    "extended": "Diperpanjang",
+    "blitz": "Blitz",
+    "rapid": "Cepat",
+    "marathon": "Maraton"
   },
   "battleType": "Jenis pertempuran",
   "matchmaking": "Pencarian Permainan",
@@ -599,7 +602,14 @@
     "inArenaGameModalTitle": "Anda sedang dalam pertandingan arena",
     "inArenaGameModalMessage": "Anda sedang dalam pertandingan arena. Buka gim untuk melakukan giliran Anda.",
     "goToGame": "Ke gim",
-    "howArenasWork": "Arena adalah sesi kompetitif terbatas waktu yang berlangsung 1 jam. Buka arena dan bergabung saat aktif untuk masuk ke lobi; Anda akan dipasangkan dengan pemain lain, bermain game, dan naik di papan peringkat."
+    "howArenasWork": "Arena adalah sesi kompetitif terbatas waktu yang berlangsung 24 jam. Buka arena dan bergabung saat aktif untuk masuk ke lobi; Anda akan dipasangkan dengan pemain lain, bermain game, dan naik di papan peringkat.",
+    "ruleDuration": "Durasi: {{hours}}h",
+    "ruleMaxGames": "Maks. {{games}} game",
+    "ruleNoRepeat": "Lawan unik",
+    "ruleDurationTooltip": "Durasi total arena. Setelah berakhir, papan peringkat akan difinalkan.",
+    "ruleMaxGamesTooltip": "Jumlah maksimum game yang bisa kamu mainkan di arena ini.",
+    "ruleNoRepeatTooltip": "Kamu tidak akan dipasangkan melawan pemain yang sama dua kali di arena ini.",
+    "ruleDurationRemainingTooltip": "Sisa waktu hingga arena berakhir."
   },
   "era": "Era",
   "hasPassword": "Memiliki kata sandi",

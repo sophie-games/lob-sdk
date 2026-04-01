@@ -73,7 +73,10 @@
     "classic": "Clássico",
     "daily": "Diário",
     "correspondence": "Correspondência",
-    "extended": "Estendido"
+    "extended": "Estendido",
+    "blitz": "Blitz",
+    "rapid": "Rápido",
+    "marathon": "Maratona"
   },
   "battleType": "Tipo de batalha",
   "matchmaking": "Matchmaking",
@@ -588,7 +591,14 @@
     "inArenaGameModalTitle": "Você está em uma partida de arena",
     "inArenaGameModalMessage": "Você está em uma partida de arena. Vá ao jogo para fazer sua jogada.",
     "goToGame": "Ir ao jogo",
-    "howArenasWork": "As arenas são sessões competitivas com tempo limitado de 1 hora. Abra uma arena e entre quando estiver ativa para acessar o lobby; você será pareado com outros jogadores, jogará partidas e subirá no ranking."
+    "howArenasWork": "As arenas são sessões competitivas com tempo limitado de 24 hora. Abra uma arena e entre quando estiver ativa para acessar o lobby; você será pareado com outros jogadores, jogará partidas e subirá no ranking.",
+    "ruleDuration": "Duração: {{hours}}h",
+    "ruleMaxGames": "Máx. {{games}} partidas",
+    "ruleNoRepeat": "Oponentes únicos",
+    "ruleDurationTooltip": "A duração total da arena. Quando terminar, o placar será finalizado.",
+    "ruleMaxGamesTooltip": "O número máximo de partidas que você pode jogar nesta arena.",
+    "ruleNoRepeatTooltip": "Você não será pareado com o mesmo jogador duas vezes nesta arena.",
+    "ruleDurationRemainingTooltip": "O tempo restante até a arena terminar."
   },
   "era": "Era",
   "hasPassword": "Tem senha",

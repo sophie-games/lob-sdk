@@ -73,7 +73,10 @@
     "classic": "Klasszikus",
     "daily": "Napi",
     "correspondence": "Levelezési",
-    "extended": "Kiterjesztett"
+    "extended": "Kiterjesztett",
+    "blitz": "Blitz",
+    "rapid": "Gyors",
+    "marathon": "Maraton"
   },
   "battleType": "Csata típusa",
   "matchmaking": "Meccskeresés",
@@ -500,7 +503,14 @@
     "inArenaGameModalTitle": "Aréna mérkőzésben vagy",
     "inArenaGameModalMessage": "Jelenleg egy aréna mérkőzésben vagy. Menj a játékhoz, hogy lépj.",
     "goToGame": "Ugrás a játékhoz",
-    "howArenasWork": "Az arénák időkorlátos versenyhelyszínek, 1 óráig tartanak. Nyiss egy arénát és csatlakozz, amikor aktív, hogy belépj a lobbyba; más játékosokkal párosítanak, játszol, és felmászol a rangsorban."
+    "howArenasWork": "Az arénák időkorlátos versenyhelyszínek, 24 óráig tartanak. Nyiss egy arénát és csatlakozz, amikor aktív, hogy belépj a lobbyba; más játékosokkal párosítanak, játszol, és felmászol a rangsorban.",
+    "ruleDuration": "Időtartam: {{hours}}h",
+    "ruleMaxGames": "Max. {{games}} játék",
+    "ruleNoRepeat": "Egyedi ellenfelek",
+    "ruleDurationTooltip": "Az aréna teljes időtartama. Amikor véget ér, a ranglista véglegesül.",
+    "ruleMaxGamesTooltip": "Ebben az arénában ennyi játékot játszhatsz legfeljebb.",
+    "ruleNoRepeatTooltip": "Ebben az arénában nem kerülsz össze ugyanazzal a játékossal kétszer.",
+    "ruleDurationRemainingTooltip": "A hátralévő idő az aréna végéig."
   },
   "era": "Korszak",
   "hasPassword": "Jelszóval védett",

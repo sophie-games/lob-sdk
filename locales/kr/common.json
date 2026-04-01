@@ -74,7 +74,10 @@
     "classic": "클래식",
     "daily": "데일리",
     "correspondence": "서신",
-    "extended": "확장"
+    "extended": "확장",
+    "blitz": "블리츠",
+    "rapid": "래피드",
+    "marathon": "마라톤"
   },
   "battleType": "전투 유형",
   "matchmaking": "경기 탐색",
@@ -594,7 +597,14 @@
     "inArenaGameModalTitle": "아레나 대전 중입니다",
     "inArenaGameModalMessage": "현재 아레나 대전 중입니다. 게임으로 이동해 차례를 진행하세요.",
     "goToGame": "게임으로 이동",
-    "howArenasWork": "아레나는 1시간 동안 진행되는 제한 시간 경쟁 세션입니다. 아레나를 열고 활성화되면 참가해 로비에 입장하세요. 다른 플레이어와 매칭되어 게임을 플레이하고 순위표를 올라갈 수 있습니다."
+    "howArenasWork": "아레나는 24시간 동안 진행되는 제한 시간 경쟁 세션입니다. 아레나를 열고 활성화되면 참가해 로비에 입장하세요. 다른 플레이어와 매칭되어 게임을 플레이하고 순위표를 올라갈 수 있습니다.",
+    "ruleDuration": "기간: {{hours}}h",
+    "ruleMaxGames": "최대 {{games}}게임",
+    "ruleNoRepeat": "중복 없는 상대",
+    "ruleDurationTooltip": "아레나의 전체 진행 시간입니다. 종료되면 리더보드가 확정됩니다.",
+    "ruleMaxGamesTooltip": "이 아레나에서 플레이할 수 있는 최대 게임 수입니다.",
+    "ruleNoRepeatTooltip": "이 아레나에서는 같은 플레이어와 두 번 매칭되지 않습니다.",
+    "ruleDurationRemainingTooltip": "아레나가 끝날 때까지 남은 시간입니다."
   },
   "open": "열기",
   "closed": "닫기",

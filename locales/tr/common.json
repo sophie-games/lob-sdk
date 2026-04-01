@@ -73,7 +73,10 @@
     "classic": "Klasik",
     "daily": "Günlük",
     "correspondence": "Mektuplaşma",
-    "extended": "Uzatılmış"
+    "extended": "Uzatılmış",
+    "blitz": "Blitz",
+    "rapid": "Hızlı",
+    "marathon": "Maraton"
   },
   "battleType": "Savaş türü",
   "matchmaking": "Eşleştirme",
@@ -589,7 +592,14 @@
     "inArenaGameModalTitle": "Bir arena maçındasınız",
     "inArenaGameModalMessage": "Şu anda bir arena maçındasınız. Hamlenizi yapmak için oyuna gidin.",
     "goToGame": "Oyuna git",
-    "howArenasWork": "Arenalar 1 saat süren zaman sınırlı rekabetçi oturumlardır. Lobide girmek için bir arena açın ve aktif olduğunda katılın; diğer oyuncılarla eşleştirilecek, oyunlar oynayacak ve sıralamada yükseleceksiniz."
+    "howArenasWork": "Arenalar 24 saat süren zaman sınırlı rekabetçi oturumlardır. Lobide girmek için bir arena açın ve aktif olduğunda katılın; diğer oyuncılarla eşleştirilecek, oyunlar oynayacak ve sıralamada yükseleceksiniz.",
+    "ruleDuration": "Süre: {{hours}}h",
+    "ruleMaxGames": "Maks. {{games}} oyun",
+    "ruleNoRepeat": "Benzersiz rakipler",
+    "ruleDurationTooltip": "Arenanın toplam süresi. Sona erdiğinde liderlik tablosu kesinleşir.",
+    "ruleMaxGamesTooltip": "Bu arenada oynayabileceğin maksimum oyun sayısı.",
+    "ruleNoRepeatTooltip": "Bu arenada aynı oyuncuyla iki kez eşleştirilmeyeceksin.",
+    "ruleDurationRemainingTooltip": "Arenanın bitmesine kalan süre."
   },
   "era": "Dönem",
   "hasPassword": "Şifre var",

@@ -74,7 +74,10 @@
     "classic": "Classic",
     "daily": "Daily",
     "correspondence": "Correspondence",
-    "extended": "Extended"
+    "extended": "Extended",
+    "blitz": "Blitz",
+    "rapid": "Rapid",
+    "marathon": "Marathon"
   },
   "battleType": "Battle type",
   "matchmaking": "Matchmaking",
@@ -603,7 +606,14 @@
     "inArenaGameModalTitle": "You're in an arena game",
     "inArenaGameModalMessage": "You are currently in an arena game. Go to the game to take your turn.",
     "goToGame": "Go to game",
-    "howArenasWork": "Arenas are time-limited competitive sessions that last 1 hour. Open an arena and join when it's active to enter the lobby; you'll be matched with other players, play games, and climb the leaderboard."
+    "howArenasWork": "Arenas are time-limited competitive sessions that last 24 hours. Open an arena and join when it's active to enter the lobby; you'll be matched with other players, play up to 5 games, and climb the leaderboard.",
+    "ruleDuration": "Duration: {{hours}}h",
+    "ruleMaxGames": "Max {{games}} games",
+    "ruleNoRepeat": "Unique opponents",
+    "ruleDurationTooltip": "The total duration of the arena. Once it ends, the leaderboard is finalized.",
+    "ruleMaxGamesTooltip": "The maximum number of games you can play in this arena.",
+    "ruleNoRepeatTooltip": "You won't be matched against the same player twice in this arena.",
+    "ruleDurationRemainingTooltip": "The remaining time until the arena ends."
   },
   "open": "Open",
   "closed": "Closed",
@@ -877,5 +887,13 @@
   "recent": "Recent",
   "clear": "Clear",
   "privacy": "Privacy",
-  "showCountry": "Show country"
+  "showCountry": "Show country",
+  "notAvailableForAllUnits": "Not available for all units",
+  "unitsHaveDifferentFormations": "Selected units have different formations",
+  "profileChart": {
+    "rankedWinrate": "Ranked",
+    "arenaWinrate": "Arena",
+    "wins": "Wins",
+    "losses": "Losses"
+  }
 }

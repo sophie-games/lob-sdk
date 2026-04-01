@@ -74,7 +74,10 @@
     "classic": "Klasyczna",
     "daily": "Dzienny",
     "correspondence": "Korespondencyjna",
-    "extended": "Rozszerzony"
+    "extended": "Rozszerzony",
+    "blitz": "Blitz",
+    "rapid": "Szybka",
+    "marathon": "Maraton"
   },
   "battleType": "Tryb bitwy",
   "matchmaking": "Losowa Partia",
@@ -578,7 +581,14 @@
     "inArenaGameModalTitle": "Jesteś w grze arenowej",
     "inArenaGameModalMessage": "Jesteś obecnie w grze arenowej. Przejdź do gry, aby wykonać swój ruch.",
     "goToGame": "Przejdź do gry",
-    "howArenasWork": "Areny to limitowane czasowo sesje rywalizacji trwające 1 godzinę. Otwórz arenę i dołącz, gdy jest aktywna, by wejść do lobby; zostaniesz dobrany z innymi graczami, zagrasz partie i wspinasz się po tabeli liderów."
+    "howArenasWork": "Areny to limitowane czasowo sesje rywalizacji trwające 24 godzinę. Otwórz arenę i dołącz, gdy jest aktywna, by wejść do lobby; zostaniesz dobrany z innymi graczami, zagrasz partie i wspinasz się po tabeli liderów.",
+    "ruleDuration": "Czas: {{hours}}h",
+    "ruleMaxGames": "Maks. {{games}} gier",
+    "ruleNoRepeat": "Unikalni przeciwnicy",
+    "ruleDurationTooltip": "Całkowity czas trwania areny. Po jej zakończeniu ranking zostaje zatwierdzony.",
+    "ruleMaxGamesTooltip": "Maksymalna liczba gier, jakie możesz rozegrać na tej arenie.",
+    "ruleNoRepeatTooltip": "Na tej arenie nie zostaniesz dobrany do tego samego gracza dwa razy.",
+    "ruleDurationRemainingTooltip": "Pozostały czas do zakończenia areny."
   },
   "open": "Otwarty",
   "closed": "Zamknięty",

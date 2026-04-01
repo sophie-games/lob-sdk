@@ -74,7 +74,10 @@
     "classic": "经典",
     "daily": "每日",
     "correspondence": "通信",
-    "extended": "扩展"
+    "extended": "扩展",
+    "blitz": "闪电战",
+    "rapid": "快棋",
+    "marathon": "马拉松"
   },
   "battleType": "战斗规模",
   "matchmaking": "匹配",
@@ -603,7 +606,14 @@
     "inArenaGameModalTitle": "您正在竞技场对局中",
     "inArenaGameModalMessage": "您正在竞技场对局中。请进入对局进行您的回合。",
     "goToGame": "进入对局",
-    "howArenasWork": "竞技场是限时一小时的竞技对局。打开竞技场并在其开放时加入以进入大厅；系统将为您匹配其他玩家，进行对局并提升排行榜名次。"
+    "howArenasWork": "竞技场是限时一小时的竞技对局。打开竞技场并在其开放时加入以进入大厅；系统将为您匹配其他玩家，进行对局并提升排行榜名次。",
+    "ruleDuration": "持续时间: {{hours}}h",
+    "ruleMaxGames": "最多{{games}}场比赛",
+    "ruleNoRepeat": "不重复的对手",
+    "ruleDurationTooltip": "竞技场的总时长。结束后，排行榜将被最终确定。",
+    "ruleMaxGamesTooltip": "你在此竞技场中可进行的最大对局数。",
+    "ruleNoRepeatTooltip": "在此竞技场中，你不会与同一位玩家匹配两次。",
+    "ruleDurationRemainingTooltip": "距离竞技场结束的剩余时间。"
   },
   "open": "开放",
   "closed": "已关闭",
@@ -877,5 +887,7 @@
   "privacy": "隐私",
   "showCountry": "显示国家",
   "switchToEra": "切换到 {{era}}",
-  "goHome": "返回主页"
+  "goHome": "返回主页",
+  "notAvailableForAllUnits": "不适用于所有单位",
+  "unitsHaveDifferentFormations": "已选择单位的阵型不一致"
 }

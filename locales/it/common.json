@@ -73,7 +73,10 @@
     "classic": "Classico",
     "daily": "Giornaliero",
     "correspondence": "Per corrispondenza",
-    "extended": "Esteso"
+    "extended": "Esteso",
+    "blitz": "Blitz",
+    "rapid": "Rapido",
+    "marathon": "Maratona"
   },
   "battleType": "Tipo di battaglia",
   "matchmaking": "Matchmaking",
@@ -554,7 +557,14 @@
     "inArenaGameModalTitle": "Sei in una partita d'arena",
     "inArenaGameModalMessage": "Sei attualmente in una partita d'arena. Vai alla partita per fare la tua mossa.",
     "goToGame": "Vai alla partita",
-    "howArenasWork": "Le arene sono sessioni competitive a tempo limitato della durata di 1 ora. Apri un'arena e unisciti quando è attiva per entrare nella lobby; verrai abbinato ad altri giocatori, giocherai partite e salirai in classifica."
+    "howArenasWork": "Le arene sono sessioni competitive a tempo limitato della durata di 24 ora. Apri un'arena e unisciti quando è attiva per entrare nella lobby; verrai abbinato ad altri giocatori, giocherai partite e salirai in classifica.",
+    "ruleDuration": "Durata: {{hours}}h",
+    "ruleMaxGames": "Max {{games}} partite",
+    "ruleNoRepeat": "Avversari unici",
+    "ruleDurationTooltip": "La durata totale dell'arena. Una volta terminata, la classifica viene finalizzata.",
+    "ruleMaxGamesTooltip": "Il numero massimo di partite che puoi giocare in questa arena.",
+    "ruleNoRepeatTooltip": "In questa arena non verrai abbinato due volte allo stesso giocatore.",
+    "ruleDurationRemainingTooltip": "Il tempo rimanente prima della fine dell'arena."
   },
   "hasPassword": "Ha password",
   "optional": "Opzionale",

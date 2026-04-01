@@ -73,7 +73,10 @@
     "classic": "クラシック",
     "daily": "デイリー",
     "correspondence": "通信",
-    "extended": "拡張"
+    "extended": "拡張",
+    "blitz": "ブリッツ",
+    "rapid": "ラピッド",
+    "marathon": "マラソン"
   },
   "battleType": "戦闘タイプ",
   "matchmaking": "マッチメイキング",
@@ -587,7 +590,14 @@
     "inArenaGameModalTitle": "アリーナの対戦中です",
     "inArenaGameModalMessage": "現在アリーナの対戦中です。手番を行うにはゲームに移動してください。",
     "goToGame": "ゲームへ",
-    "howArenasWork": "アリーナは1時間の制限付き競技セッションです。アリーナを開き、アクティブになったら参加してロビーに入室してください。他のプレイヤーとマッチングされ、ゲームをプレイしてランキングを上げられます。"
+    "howArenasWork": "アリーナは24時間の制限付き競技セッションです。アリーナを開き、アクティブになったら参加してロビーに入室してください。他のプレイヤーとマッチングされ、ゲームをプレイしてランキングを上げられます。",
+    "ruleDuration": "期間: {{hours}}時間",
+    "ruleMaxGames": "最大{{games}}試合",
+    "ruleNoRepeat": "重複しない対戦相手",
+    "ruleDurationTooltip": "アリーナの合計開催時間です。終了すると、ランキングが確定します。",
+    "ruleMaxGamesTooltip": "このアリーナでプレイできる最大試合数です。",
+    "ruleNoRepeatTooltip": "このアリーナでは同じプレイヤーと2回マッチしません。",
+    "ruleDurationRemainingTooltip": "アリーナ終了までの残り時間です。"
   },
   "era": "時代",
   "hasPassword": "パスワードあり",

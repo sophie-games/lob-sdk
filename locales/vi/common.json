@@ -74,7 +74,10 @@
     "classic": "Cổ điển",
     "daily": "Hàng ngày",
     "correspondence": "Thư tín",
-    "extended": "Mở rộng"
+    "extended": "Mở rộng",
+    "blitz": "Blitz",
+    "rapid": "Nhanh",
+    "marathon": "Marathon"
   },
   "battleType": "Loại trận chiến",
   "matchmaking": "Ghép trận",
@@ -601,7 +604,14 @@
     "inArenaGameModalTitle": "Bạn đang trong trận đấu trường",
     "inArenaGameModalMessage": "Bạn đang trong trận đấu trường. Vào trò chơi để thực hiện lượt của bạn.",
     "goToGame": "Đi đến trò chơi",
-    "howArenasWork": "Đấu trường là các phiên thi đấu có giới hạn thời gian kéo dài 1 giờ. Mở đấu trường và tham gia khi nó đang hoạt động để vào sảnh chờ; bạn sẽ được ghép với người chơi khác, chơi game và leo bảng xếp hạng."
+    "howArenasWork": "Đấu trường là các phiên thi đấu có giới hạn thời gian kéo dài 24 giờ. Mở đấu trường và tham gia khi nó đang hoạt động để vào sảnh chờ; bạn sẽ được ghép với người chơi khác, chơi game và leo bảng xếp hạng.",
+    "ruleDuration": "Thời lượng: {{hours}}h",
+    "ruleMaxGames": "Tố đa {{games}} trận",
+    "ruleNoRepeat": "Đối thủ duy nhất",
+    "ruleDurationTooltip": "Tổng thời gian của đấu trường. Khi kết thúc, bảng xếp hạng sẽ được chốt.",
+    "ruleMaxGamesTooltip": "Số trận tối đa bạn có thể chơi trong đấu trường này.",
+    "ruleNoRepeatTooltip": "Bạn sẽ không được ghép gặp cùng một người chơi hai lần trong đấu trường này.",
+    "ruleDurationRemainingTooltip": "Thời gian còn lại cho đến khi đấu trường kết thúc."
   },
   "open": "Mở",
   "closed": "Đóng",

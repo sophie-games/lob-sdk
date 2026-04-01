@@ -73,7 +73,10 @@
     "classic": "Klassisch",
     "daily": "Täglich",
     "correspondence": "Fernschach",
-    "extended": "Erweitert"
+    "extended": "Erweitert",
+    "blitz": "Blitz",
+    "rapid": "Schnell",
+    "marathon": "Marathon"
   },
   "battleType": "Schlachttypen",
   "matchmaking": "Spielsuche",
@@ -553,7 +556,14 @@
     "inArenaGameModalTitle": "Du bist in einem Arena-Spiel",
     "inArenaGameModalMessage": "Du bist derzeit in einem Arena-Spiel. Gehe zum Spiel, um deinen Zug zu machen.",
     "goToGame": "Zum Spiel",
-    "howArenasWork": "Arenen sind zeitlich begrenzte Wettkampfsitzungen von 1 Stunde. Öffne eine Arena und tritt bei, wenn sie aktiv ist, um in die Lobby zu gelangen; du wirst mit anderen Spielern gematcht, spielst Partien und kletterst die Bestenliste hinauf."
+    "howArenasWork": "Arenen sind zeitlich begrenzte Wettkampfsitzungen von 24 Stunde. Öffne eine Arena und tritt bei, wenn sie aktiv ist, um in die Lobby zu gelangen; du wirst mit anderen Spielern gematcht, spielst Partien und kletterst die Bestenliste hinauf.",
+    "ruleDuration": "Dauer: {{hours}}h",
+    "ruleMaxGames": "Max. {{games}} Spiele",
+    "ruleNoRepeat": "Einmalige Gegner",
+    "ruleDurationTooltip": "Die Gesamtdauer der Arena. Sobald sie endet, wird die Rangliste finalisiert.",
+    "ruleMaxGamesTooltip": "Die maximale Anzahl an Spielen, die du in dieser Arena spielen kannst.",
+    "ruleNoRepeatTooltip": "In dieser Arena wirst du nicht zweimal gegen denselben Spieler gematcht.",
+    "ruleDurationRemainingTooltip": "Die verbleibende Zeit bis zum Ende der Arena."
   },
   "hasPassword": "Hat Passwort",
   "optional": "Optional",
