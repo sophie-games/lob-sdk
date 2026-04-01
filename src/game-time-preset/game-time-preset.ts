@@ -295,11 +295,13 @@ export class GameTimePresetManager {
   }
 
   public orderActiveGames<
-    T extends { passed: boolean; started: boolean; timeRemaining: number },
+    T extends { passed: boolean; startedAt: string | null; timeRemaining: number },
   >(games: T[]): T[] {
     return games.sort((a, b) => {
       if (a.passed !== b.passed) return a.passed ? 1 : -1;
-      if (a.started !== b.started) return a.started ? -1 : 1;
+      const aStarted = a.startedAt !== null;
+      const bStarted = b.startedAt !== null;
+      if (aStarted !== bStarted) return aStarted ? -1 : 1;
       return a.timeRemaining - b.timeRemaining;
     });
   }

@@ -172,9 +172,9 @@ export interface GameData {
   /** Current turn number. */
   turnNumber: number;
   /** Whether the game has started. */
-  started: boolean;
+  startedAt: number | null;
   /** Whether the game has finished. */
-  finished: boolean;
+  finishedAt: number | null;
   /** Whether this is a ranked game. */
   ranked: boolean;
   /** Reason why the game ended, if finished. */
@@ -404,10 +404,10 @@ export interface IServerGame {
   units: Map<EntityId, BaseUnit>;
   /** Current turn number */
   turnNumber: number;
-  /** Whether the game has started */
-  started: boolean;
-  /** Whether the game has finished */
-  finished: boolean;
+  /** Timestamp (milliseconds) when the game started */
+  startedAt: number | null;
+  /** Timestamp (milliseconds) when the game finished */
+  finishedAt: number | null;
   /** Reason why the game ended, if finished */
   endReason: GameEndReason | null;
   /** Configuration for all players in the game */
@@ -1060,9 +1060,9 @@ export interface ServerGameProps {
   /** ELO K-factor persisted for this game (matches {@link GameTimePreset.kFactor} at creation). */
   kFactor?: number;
   /** Whether the game has started. */
-  started: boolean;
+  startedAt: number | null;
   /** Whether the game has finished. */
-  finished: boolean;
+  finishedAt: number | null;
   /** Whether this is a ranked game. */
   ranked: boolean;
   /** Whether this game gives rewards to players. */

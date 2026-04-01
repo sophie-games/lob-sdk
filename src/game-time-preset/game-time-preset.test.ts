@@ -55,10 +55,12 @@ describe("GameTimePresetManager", () => {
   });
 
   describe("orderActiveGames", () => {
+    const startedIso = "2020-01-01T00:00:00.000Z";
+
     it("should sort unplayed games first", () => {
       const games = [
-        { passed: true, started: true, timeRemaining: 10 },
-        { passed: false, started: true, timeRemaining: 100 },
+        { passed: true, startedAt: startedIso, timeRemaining: 10 },
+        { passed: false, startedAt: startedIso, timeRemaining: 100 },
       ];
       const sorted = manager.orderActiveGames([...games]);
       expect(sorted[0].passed).toBe(false);
@@ -66,17 +68,17 @@ describe("GameTimePresetManager", () => {
 
     it("should sort by started status second (started first)", () => {
       const games = [
-        { passed: false, started: false, timeRemaining: 100 },
-        { passed: false, started: true, timeRemaining: 10 },
+        { passed: false, startedAt: null, timeRemaining: 100 },
+        { passed: false, startedAt: startedIso, timeRemaining: 10 },
       ];
       const sorted = manager.orderActiveGames([...games]);
-      expect(sorted[0].started).toBe(true);
+      expect(sorted[0].startedAt).toBe(startedIso);
     });
 
     it("should sort by timeRemaining third", () => {
       const games = [
-        { passed: false, started: true, timeRemaining: 100 },
-        { passed: false, started: true, timeRemaining: 10 },
+        { passed: false, startedAt: startedIso, timeRemaining: 100 },
+        { passed: false, startedAt: startedIso, timeRemaining: 10 },
       ];
       const sorted = manager.orderActiveGames([...games]);
       expect(sorted[0].timeRemaining).toBe(10);
