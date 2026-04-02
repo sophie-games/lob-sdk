@@ -74,6 +74,7 @@ import napoleonicSilvaSanctorum from "@lob-sdk/game-data/eras/napoleonic/scenari
 import napoleonicAndesAndValley from "@lob-sdk/game-data/eras/napoleonic/scenarios/andes-and-valley.json";
 import napoleonicLowCountries from "@lob-sdk/game-data/eras/napoleonic/scenarios/low-countries.json";
 import napoleonicHedgerows from "@lob-sdk/game-data/eras/napoleonic/scenarios/hedgerows.json";
+import napoleonicLeipzig from "@lob-sdk/game-data/eras/napoleonic/scenarios/leipzig.json";
 import napoleonicTutorialBasicControls from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-basic-controls.json";
 import napoleonicTutorialControlGroups from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-control-groups.json";
 import napoleonicTutorialInfantryFormations from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-infantry-formations.json";
@@ -298,6 +299,7 @@ export class GameDataManager {
           "grobes-schlachtfeld": napoleonicGrobesSchlachtfeld as GameScenario,
           antioch: napoleonicAntioch as GameScenario,
           waterloo: napoleonicWaterloo as GameScenario,
+          leipzig: napoleonicLeipzig as GameScenario,
           borodino: napoleonicBorodino as GameScenario,
           "combat-at-mollwitz": napoleonicCombatAtMollwitz as GameScenario,
           "clash-at-chelmnitz": napoleonicClashAtChelmnitz as GameScenario,
