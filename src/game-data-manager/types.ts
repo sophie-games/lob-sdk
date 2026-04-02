@@ -304,9 +304,6 @@ export interface GameConstants {
    */
   VP_TICKS_UNDER_PRESSURE_BASE: number;
 
-  /** Multiplier for ELO K factor in cancelled ranked games (e.g., 0.5 = 50% of normal K factor) */
-  CANCELLED_RANKED_GAME_ELO_K_FACTOR_MULTIPLIER: number;
-
   /** Experience required to reach level 2 */
   PLAYER_EXPERIENCE_BASE: number;
   /** Experience factor for each level */
