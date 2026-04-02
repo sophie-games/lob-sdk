@@ -1,6 +1,6 @@
 {
-  "name": "Low Countries",
-  "description": "Battle through the canals of the low countries.",
+  "name": "name",
+  "description": "description",
   "type": "random",
   "ranked": true,
   "baseTerrain": 0,
@@ -490,5 +490,83 @@
         "max": [70, 55]
       }
     }
-  ]
+  ],
+  "locales": {
+    "en": {
+      "name": "Low Countries",
+      "description": "Battle through the canals of the low countries."
+    },
+    "ru": {
+      "name": "Нижние Земли",
+      "description": "Поле боя преграждено извитыми каналами Нидерландов."
+    },
+    "ar": {
+      "name": "البلدان المنخفضة",
+      "description": "معركة من خلال قنوات البلدان المنخفضة"
+    },
+    "de": {
+      "name": "Niedrige Länder",
+      "description": "Kämpfe dich durch die Kanäle der Niederlande."
+    },
+    "el": {
+      "name": "Κάτω Χώρες",
+      "description": "Μάχη μέσα από τα κανάλια των Κάτω Χωρών."
+    },
+    "es": {
+      "name": "Países Bajos",
+      "description": "Lucha a través de los canales de los países bajos."
+    },
+    "fr": {
+      "name": "Pays - Bas",
+      "description": "Bataille à travers les canaux des Pays-bas."
+    },
+    "hi": {
+      "name": "निम्न देश",
+      "description": "निम्न देशों की नहरों के माध्यम से लड़ाई ।"
+    },
+    "hu": {
+      "name": "Alacsony Országok",
+      "description": "Csata az alacsony országok csatornáin keresztül."
+    },
+    "id": {
+      "name": "Negara-negara Rendah",
+      "description": "Pertempuran melalui kanal-kanal di negara-negara dataran rendah."
+    },
+    "it": {
+      "name": "Paesi bassi",
+      "description": "Battaglia attraverso i canali dei paesi bassi."
+    },
+    "ja": {
+      "name": "低い国",
+      "description": "低い国の運河を通って戦います"
+    },
+    "kr": {
+      "name": "낮은 국가",
+      "description": "낮은 국가의 운하를 통해 전투."
+    },
+    "pl": {
+      "name": "Kraje Niskie",
+      "description": "Walcz kanałami Niderlandów."
+    },
+    "pt": {
+      "name": "Países Baixos",
+      "description": "Batalha através dos canais dos Países Baixos."
+    },
+    "tr": {
+      "name": "Alçak Ülkeler",
+      "description": "Alçak ülkelerin kanallarında mücadele edin."
+    },
+    "uk": {
+      "name": "Нідерланди",
+      "description": "Боріться по каналах Нідерландів."
+    },
+    "vi": {
+      "name": "Các Nước Thấp",
+      "description": "Chiến đấu qua các kênh đào của các nước thấp."
+    },
+    "zh": {
+      "name": "低的国家",
+      "description": "通过低地国家的运河战斗。"
+    }
+  }
 }
