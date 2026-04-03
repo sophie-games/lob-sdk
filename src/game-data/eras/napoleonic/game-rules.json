@@ -4,11 +4,11 @@
     "rangedTurnCost": 50,
     "hasRanMeleeStaminaCostModifier": 0.5,
     "regainRates": {
-      "range1": 0.048,
-      "range2": 0.072,
-      "range3": 0.048,
-      "range4": 0.024,
-      "range5": 0.012
+      "range1": 100,
+      "range2": 75,
+      "range3": 50,
+      "range4": 35,
+      "range5": 25
     },
     "upperModifierLimit": 0.8,
     "lowerModifierLimit": 0.2,
