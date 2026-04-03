@@ -51,8 +51,7 @@ export type OrderPathPoint = [number, number]; // [x, y]
  * Order to walk along a specified path.
  */
 export interface WalkOrder
-  extends BaseOrder,
-    Omit<ExclusiveOrderProps, "path"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
   /** Order type is Walk. */
   type: OrderType.Walk;
   /** Path points to follow, in order. */
@@ -65,8 +64,7 @@ export interface WalkOrder
  * Order to walk while following a target unit.
  */
 export interface WalkFollowOrder
-  extends BaseOrder,
-    Omit<ExclusiveOrderProps, "targetId"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "targetId"> {
   /** Order type is Walk. */
   type: OrderType.Walk;
   /** Entity ID of the target unit to follow. */
@@ -77,8 +75,7 @@ export interface WalkFollowOrder
  * Order to fall back along a specified path.
  */
 export interface FallbackOrder
-  extends BaseOrder,
-    Omit<ExclusiveOrderProps, "path"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
   /** Order type is Fallback. */
   type: OrderType.Fallback;
   /** Path points to fall back along, in order. */
@@ -91,8 +88,7 @@ export interface FallbackOrder
  * Order to fall back while following a target unit (keeping distance).
  */
 export interface FallbackFollowOrder
-  extends BaseOrder,
-    Omit<ExclusiveOrderProps, "targetId"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "targetId"> {
   /** Order type is Fallback. */
   type: OrderType.Fallback;
   /** Entity ID of the target unit to keep distance from. */
@@ -115,8 +111,7 @@ export interface RunOrder extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
  * Order to run while following a target unit.
  */
 export interface RunFollowOrder
-  extends BaseOrder,
-    Omit<ExclusiveOrderProps, "targetId"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "targetId"> {
   /** Order type is Run. */
   type: OrderType.Run;
   /** Entity ID of the target unit to follow. */
@@ -127,8 +122,7 @@ export interface RunFollowOrder
  * Order to shoot at a target unit.
  */
 export interface ShootTargetOrder
-  extends BaseOrder,
-    Omit<ExclusiveOrderProps, "targetId"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "targetId"> {
   /** Order type is Shoot. */
   type: OrderType.Shoot;
   /** Entity ID of the target unit to shoot at. */
@@ -139,8 +133,7 @@ export interface ShootTargetOrder
  * Order to shoot at a specific location.
  */
 export interface ShootLocationOrder
-  extends BaseOrder,
-    Omit<ExclusiveOrderProps, "pos"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "pos"> {
   /** Order type is Shoot. */
   type: OrderType.Shoot;
   /** Target position as [x, y] coordinates. */
@@ -151,8 +144,7 @@ export interface ShootLocationOrder
  * Order to rotate toward a target unit.
  */
 export interface RotateTargetOrder
-  extends BaseOrder,
-    Omit<ExclusiveOrderProps, "targetId"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "targetId"> {
   /** Order type is Rotate. */
   type: OrderType.Rotate;
   /** Entity ID of the target unit to rotate toward. */
@@ -163,8 +155,7 @@ export interface RotateTargetOrder
  * Order to rotate toward a specific location.
  */
 export interface RotateLocationOrder
-  extends BaseOrder,
-    Omit<ExclusiveOrderProps, "pos"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "pos"> {
   /** Order type is Rotate. */
   type: OrderType.Rotate;
   /** Target position as [x, y] coordinates. */
@@ -175,8 +166,7 @@ export interface RotateLocationOrder
  * Order to fire and advance toward a target unit.
  */
 export interface FireAndAdvanceToTargetOrder
-  extends BaseOrder,
-    Omit<ExclusiveOrderProps, "targetId"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "targetId"> {
   /** Order type is FireAndAdvance. */
   type: OrderType.FireAndAdvance;
   /** Entity ID of the target unit to advance toward. */
@@ -187,8 +177,7 @@ export interface FireAndAdvanceToTargetOrder
  * Order to fire and advance along a specified path.
  */
 export interface FireAndAdvanceOnPathOrder
-  extends BaseOrder,
-    Omit<ExclusiveOrderProps, "path"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
   /** Order type is FireAndAdvance. */
   type: OrderType.FireAndAdvance;
   /** Path points to advance along while firing, in order. */
@@ -201,8 +190,7 @@ export interface FireAndAdvanceOnPathOrder
  * Order to place an entity at a specific location.
  */
 export interface PlaceEntityOrder
-  extends BaseOrder,
-    Omit<ExclusiveOrderProps, "pos"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "pos"> {
   /** Order type is PlaceEntity. */
   type: OrderType.PlaceEntity;
   /** Position to place the entity at as [x, y] coordinates. */
@@ -257,10 +245,16 @@ export interface OrderTemplate {
   name: string;
   /** Modifier for ranged damage dealt while executing this order. */
   rangedDamageModifier?: number;
+  /** Ranged damage modifier per unit category. Overides default but falls back if no category is provided */
+  rangedDamageModifierByCategory?: Partial<Record<UnitCategoryId, number>>;
   /** Modifier for movement speed while executing this order. */
   speedModifier?: number;
-  /** Modifier for movement speed when shooting while executing this order. */
+  /** Modifier for movement speed while executing this order. Overrides default but falls back if no category is provided*/
+  speedModifierByCategory?: Partial<Record<UnitCategoryId, number>>;
+  /** Modifier for movement speed when shooting while executing this order and shooting. */
   speedModifierWhenShooting?: number;
+  /** Modifier for movement speed per unit category. Overrides default but falls back if no category is provided */
+  speedModifierWhenShootingByCategory?: Partial<Record<UnitCategoryId, number>>;
   /** Modifier for damage received while executing this order. */
   receivedDamageModifier?: number;
   /** Whether the unit can fire while moving (0 = false, 1 = true). */
@@ -275,8 +269,6 @@ export interface OrderTemplate {
   canFocusLocation?: boolean;
   /** Modifier for organization regain rate while executing this order. */
   orgRegainModifier?: number;
-  /** Ranged damage modifier per unit category. */
-  rangedDamageModifierByCategory?: Partial<Record<UnitCategoryId, number>>;
 }
 
 /**

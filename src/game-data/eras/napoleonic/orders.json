@@ -19,14 +19,21 @@
     "id": 4,
     "name": "fireAndAdvance",
     "speedModifierWhenShooting": -0.1,
+    "speedModifierWhenShootingByCategory": {
+      "infantry": -0.1,
+      "guardsInfantry": -0.1,
+      "artillery": -0.1,
+      "militiaInfantry": -0.1,
+      "skirmishInfantry": -0.4
+    },
     "allowFireWhenMoving": true,
     "orgRegainModifier": -0.15,
     "rangedDamageModifierByCategory": {
       "infantry": -0.2,
       "guardsInfantry": -0.2,
       "artillery": -0.4,
-      "militiaInfantry": -0.25,
-      "skirmishInfantry": -0.3
+      "militiaInfantry": -0.2,
+      "skirmishInfantry": -0.2
     }
   },
   {
@@ -36,11 +43,25 @@
   {
     "id": 6,
     "name": "fallback",
-    "rangedDamageModifier": -0.5,
+    "rangedDamageModifierByCategory": {
+      "infantry": -0.35,
+      "guardsInfantry": -0.35,
+      "militiaInfantry": -0.35,
+      "skirmishInfantry": -0.35,
+      "artillery": -0.8
+    },
+    "speedModifierByCategory": {
+      "infantry": -0.35,
+      "guardsInfantry": -0.35,
+      "artillery": -0.8,
+      "militiaInfantry": -0.35,
+      "skirmishInfantry": -0.35
+    },
     "speedModifier": -0.3,
-    "chargeResistance": -0.5,
+    "chargeResistance": -0.2,
     "allowFireWhenMoving": true,
-    "receivedOrgDamage": 0.05
+    "receivedOrgDamage": 0.15,
+    "orgRegainModifier": -0.15
   },
   {
     "id": 7,

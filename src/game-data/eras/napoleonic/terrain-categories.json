@@ -58,20 +58,20 @@
       "artillery": -0.5
     },
     "attackModifier": {
-      "infantry": 0.4,
-      "guardsInfantry": 0.4,
-      "skirmishInfantry": 2,
-      "militiaInfantry": 0.4,
+      "infantry": 0.3,
+      "guardsInfantry": 0.3,
+      "skirmishInfantry": 1.5,
+      "militiaInfantry": 0.3,
       "midCavalry": -0.75,
       "lightCavalry": -0.75,
       "scoutCavalry": -0.75,
       "heavyCavalry": -0.75
     },
     "defenseModifier": {
-      "infantry": 0.5,
-      "guardsInfantry": 0.5,
-      "skirmishInfantry": 4,
-      "militiaInfantry": 0.5,
+      "infantry": 0.4,
+      "guardsInfantry": 0.4,
+      "skirmishInfantry": 3,
+      "militiaInfantry": 0.4,
       "midCavalry": -0.5,
       "lightCavalry": -0.5,
       "scoutCavalry": -0.5,
@@ -81,9 +81,9 @@
     "rangedAttackModifier": {
       "artillery": -0.3,
       "skirmishInfantry": 0,
-      "infantry": -0.1,
-      "guardsInfantry": -0.1,
-      "militiaInfantry": -0.1
+      "infantry": -0.25,
+      "guardsInfantry": -0.25,
+      "militiaInfantry": -0.2
     },
     "projectileAbsorption": {
       "musket": 0.3,
@@ -175,9 +175,9 @@
     "rangedAttackModifier": {
       "artillery": -0.3,
       "skirmishInfantry": 0,
-      "infantry": -0.2,
-      "guardsInfantry": -0.2,
-      "militiaInfantry": -0.2
+      "infantry": -0.5,
+      "guardsInfantry": -0.5,
+      "militiaInfantry": -0.3
     },
     "projectileAbsorption": {
       "musket": 0.75,
