@@ -2,7 +2,7 @@
   "requiredScenarios": [],
   "presets": [
     {
-      "id": "ranked_operational_1v1_1m_ww2",
+      "id": "ranked_operational_bullet_1v1_ww2",
       "image": "operational",
       "gameTimePresets": ["bullet"],
       "scenarios": ["fields"],
@@ -11,16 +11,25 @@
       "isRanked": true
     },
     {
-      "id": "ranked_operational_1v1_2m_ww2",
+      "id": "ranked_operational_standard_1v1_ww2",
       "image": "operational",
-      "gameTimePresets": ["bullet"],
+      "gameTimePresets": ["standard"],
       "scenarios": ["fields"],
       "dynamicBattleTypes": ["operational"],
       "teamSizes": ["1v1"],
       "isRanked": true
     },
     {
-      "id": "ranked_operational_2v2_1m_ww2",
+      "id": "ranked_operational_classic_1v1_ww2",
+      "image": "operational",
+      "gameTimePresets": ["classic"],
+      "scenarios": ["fields"],
+      "dynamicBattleTypes": ["operational"],
+      "teamSizes": ["1v1"],
+      "isRanked": true
+    },
+    {
+      "id": "ranked_operational_bullet_2v2_ww2",
       "image": "operational",
       "gameTimePresets": ["bullet"],
       "scenarios": ["fields"],
@@ -29,16 +38,25 @@
       "isRanked": true
     },
     {
-      "id": "ranked_operational_2v2_2m_ww2",
+      "id": "ranked_operational_standard_2v2_ww2",
       "image": "operational",
-      "gameTimePresets": ["bullet"],
+      "gameTimePresets": ["standard"],
       "scenarios": ["fields"],
       "dynamicBattleTypes": ["operational"],
       "teamSizes": ["2v2"],
       "isRanked": true
     },
     {
-      "id": "unranked_regular_operational_1v1_1m_ww2",
+      "id": "ranked_operational_classic_2v2_ww2",
+      "image": "operational",
+      "gameTimePresets": ["classic"],
+      "scenarios": ["fields"],
+      "dynamicBattleTypes": ["operational"],
+      "teamSizes": ["2v2"],
+      "isRanked": true
+    },
+    {
+      "id": "unranked_operational_bullet_1v1_ww2",
       "image": "operational",
       "gameTimePresets": ["bullet"],
       "scenarios": ["fields"],
@@ -47,16 +65,25 @@
       "isRanked": false
     },
     {
-      "id": "unranked_regular_operational_1v1_2m_ww2",
+      "id": "unranked_operational_standard_1v1_ww2",
       "image": "operational",
-      "gameTimePresets": ["bullet"],
+      "gameTimePresets": ["standard"],
       "scenarios": ["fields"],
       "dynamicBattleTypes": ["operational"],
       "teamSizes": ["1v1"],
       "isRanked": false
     },
     {
-      "id": "unranked_regular_operational_2v2_1m_ww2",
+      "id": "unranked_operational_classic_1v1_ww2",
+      "image": "operational",
+      "gameTimePresets": ["classic"],
+      "scenarios": ["fields"],
+      "dynamicBattleTypes": ["operational"],
+      "teamSizes": ["1v1"],
+      "isRanked": false
+    },
+    {
+      "id": "unranked_operational_bullet_2v2_ww2",
       "image": "operational",
       "gameTimePresets": ["bullet"],
       "scenarios": ["fields"],
@@ -65,9 +92,18 @@
       "isRanked": false
     },
     {
-      "id": "unranked_regular_operational_2v2_2m_ww2",
+      "id": "unranked_operational_standard_2v2_ww2",
       "image": "operational",
-      "gameTimePresets": ["bullet"],
+      "gameTimePresets": ["standard"],
+      "scenarios": ["fields"],
+      "dynamicBattleTypes": ["operational"],
+      "teamSizes": ["2v2"],
+      "isRanked": false
+    },
+    {
+      "id": "unranked_operational_classic_2v2_ww2",
+      "image": "operational",
+      "gameTimePresets": ["classic"],
       "scenarios": ["fields"],
       "dynamicBattleTypes": ["operational"],
       "teamSizes": ["2v2"],
