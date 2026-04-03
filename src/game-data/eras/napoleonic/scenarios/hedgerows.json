@@ -4,7 +4,177 @@
   "type": "random",
   "ranked": true,
   "baseTerrain": 0,
+
+  "defaultDeploymentZones": {
+    "topMainDeploymentZone": {
+      "minX": 5,
+      "maxX": 5,
+      "minY": 3,
+      "maxY": 3,
+      "width": 90,
+      "height": 10
+    },
+    "topForwardDeploymentZone": {
+      "minX": 5,
+      "maxX": 5,
+      "minY": 18,
+      "maxY": 18,
+      "width": 90,
+      "height": 10
+    },
+    "bottomMainDeploymentZone": {
+      "minX": 5,
+      "maxX": 5,
+      "minY": 90,
+      "maxY": 90,
+      "width": 90,
+      "height": 10
+    },
+    "bottomForwardDeploymentZone": {
+      "minX": 5,
+      "maxX": 5,
+      "minY": 76,
+      "maxY": 76,
+      "width": 90,
+      "height": 10
+    }
+  },
+
   "instructions": [
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 22,
+      "position": { "type": "range", "min": [20, 26], "max": [24, 30] },
+      "width": 5,
+      "height": 5
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 22,
+      "position": { "type": "range", "min": [45, 26], "max": [55, 30] },
+      "width": 5,
+      "height": 5
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 22,
+      "position": { "type": "range", "min": [76, 26], "max": [80, 30] },
+      "width": 5,
+      "height": 5
+    },
+
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 23,
+      "position": { "type": "range", "min": [20, 70], "max": [24, 74] },
+      "width": 5,
+      "height": 5
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 23,
+      "position": { "type": "range", "min": [45, 70], "max": [55, 74] },
+      "width": 5,
+      "height": 5
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 23,
+      "position": { "type": "range", "min": [76, 70], "max": [80, 74] },
+      "width": 5,
+      "height": 5
+    },
+
+    {
+      "type": "OBJECTIVE_LAYER",
+      "player": 1,
+      "xBounds": { "min": 20, "max": 100 },
+      "yBounds": { "min": 0, "max": 100 },
+      "terrainFilter": {
+        "terrains": [23],
+        "searchRadius": 1,
+        "minAmount": 1
+      },
+      "minDistance": 15,
+      "objectiveType": 2,
+      "maxObj": 1
+    },
+    {
+      "type": "OBJECTIVE_LAYER",
+      "xBounds": { "min": 20, "max": 100 },
+      "yBounds": { "min": 0, "max": 100 },
+      "terrainFilter": {
+        "terrains": [23],
+        "searchRadius": 1,
+        "minAmount": 1
+      },
+      "minDistance": 15,
+      "objectiveType": 1,
+      "maxObj": 2
+    },
+    {
+      "type": "OBJECTIVE_LAYER",
+      "player": 2,
+      "xBounds": { "min": 20, "max": 100 },
+      "yBounds": { "min": 0, "max": 100 },
+      "terrainFilter": {
+        "terrains": [22],
+        "searchRadius": 1,
+        "minAmount": 1
+      },
+      "minDistance": 15,
+      "objectiveType": 2,
+      "maxObj": 1
+    },
+    {
+      "type": "OBJECTIVE_LAYER",
+      "xBounds": { "min": 20, "max": 100 },
+      "yBounds": { "min": 0, "max": 100 },
+      "terrainFilter": {
+        "terrains": [22],
+        "searchRadius": 1,
+        "minAmount": 1
+      },
+      "minDistance": 15,
+      "objectiveType": 1,
+      "maxObj": 2
+    },
+
+    {
+      "type": "OBJECTIVE",
+      "player": 0,
+      "position": {
+        "type": "range",
+        "min": [17, 47],
+        "max": [27, 53]
+      }
+    },
+    {
+      "type": "OBJECTIVE",
+      "player": 0,
+      "position": {
+        "type": "range",
+        "min": [42, 47],
+        "max": [58, 53]
+      }
+    },
+    {
+      "type": "OBJECTIVE",
+      "player": 0,
+      "position": {
+        "type": "range",
+        "min": [73, 47],
+        "max": [83, 55]
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 0,
+      "scale": 1,
+      "ranges": [{ "min": 0, "max": 1 }],
+      "multiplier": 1
+    },
+
     {
       "type": "HEIGHT_NOISE",
       "noises": [
@@ -429,6 +599,7 @@
       "terrainCosts": [
         { "terrain": 0, "cost": 3 },
         { "terrain": 1, "cost": 8 },
+        { "terrain": 3, "cost": 0 },
         { "terrain": 4, "cost": 10 },
         { "terrain": 5, "cost": 10 },
         { "terrain": 9, "cost": 3 },
@@ -458,6 +629,7 @@
       "terrainCosts": [
         { "terrain": 0, "cost": 3 },
         { "terrain": 1, "cost": 8 },
+        { "terrain": 3, "cost": 0 },
         { "terrain": 4, "cost": 10 },
         { "terrain": 5, "cost": 10 },
         { "terrain": 9, "cost": 3 },
@@ -487,6 +659,7 @@
       "terrainCosts": [
         { "terrain": 0, "cost": 3 },
         { "terrain": 1, "cost": 8 },
+        { "terrain": 3, "cost": 0 },
         { "terrain": 4, "cost": 10 },
         { "terrain": 5, "cost": 10 },
         { "terrain": 9, "cost": 3 },
@@ -498,110 +671,84 @@
     }
   ],
 
-  "triggers": [
-    {
-      "event": "onTurnEnd",
-      "conditions": [{ "type": "isTurn", "value": 0 }],
-      "conditionLogic": "AND",
-      "actions": [
-        {
-          "type": "spawnNeutralObjectives",
-          "value": {
-            "orientation": "circle",
-            "spacing": 0.75,
-            "amount": {
-              "micro": 4,
-              "clash": 4,
-              "combat": 4,
-              "battle": 4,
-              "grand_battle": 4
-            },
-            "minX": 0.25,
-            "maxX": 0.75,
-            "minY": 0.3,
-            "maxY": 0.7
-          }
-        }
-      ],
-      "once": true
-    }
-  ],
+  "triggers": [],
+
   "locales": {
-        "en": {
-            "name": "Hedgerows",
-            "description": "Chaotic, clausterphobic farms hemmed in by hedges on every side."
-        },
-        "ru": {
-           "name": "Бокажи",
-            "description": "Высокие живые изгороди со всех сторон огораживают хаотично расположенные поля."
-        },
-        "ar": {
-           "name": "سياج",
-            "description": "مزارع فوضوية خانقة محاطة بتحوطات من كل جانب."
-        },
-        "de": {
-           "name": "Hecke",
-            "description": "Chaotische, klausterphobische Farmen, die auf allen Seiten von Hecken gesäumt sind."
-        },
-        "el": {
-           "name": "Φράχτες",
-            "description": "Χαοτικές, κλαουστερφοβικές φάρμες που περιβάλλονται από φράκτες από κάθε πλευρά."
-        },
-        "es": {
-           "name": "Setos",
-            "description": "Granjas caóticas y claustrofóbicas rodeadas de setos por todos lados."
-        },
-        "fr": {
-           "name": "Haies",
-            "description": "Des fermes chaotiques et clausterphobes entourées de haies de tous côtés."
-        },
-        "hi": {
-           "name": "हेडगेवार",
-            "description": "अराजक, क्लॉस्टरफोबिक खेतों को हर तरफ हेजेज द्वारा घेर लिया गया ।"
-        },
-        "hu": {
-           "name": "Sövény",
-            "description": "Kaotikus, klausterfóbiás gazdaságok sövényekkel szegélyezve minden oldalon."
-        },
-        "id": {
-           "name": "Pagar tanaman",
-            "description": "Peternakan yang kacau dan sesak dikelilingi oleh pagar tanaman di setiap sisinya."
-        },
-        "it": {
-           "name": "Siepe",
-            "description": "Fattorie caotiche e claustrofobiche circondate da siepi su ogni lato."
-        },
-        "ja": {
-           "name": "生け垣",
-            "description": "混沌とした農場はあらゆる側のヘッジによって縁取られました。"
-        },
-        "kr": {
-           "name": "울타리",
-            "description": "혼란스럽고 폐쇄적인 농장은 모든 쪽에서 울타리로 둘러싸여 있습니다."
-        },
-        "pl": {
-           "name": "Żywopłoty",
-            "description": "Chaotyczne, klausterfobiczne farmy otoczone żywopłotami z każdej strony."
-        },
-        "pt": {
-           "name": "Sebes",
-            "description": "Fazendas caóticas e clausterfóbicas cercadas por sebes de todos os lados."
-        },
-        "tr": {
-           "name": "Çitli tarlalar",
-            "description": "Her tarafı çitlerle çevrili, kaotik ve dar alanlı çiftlikler."
-        },
-        "uk": {
-           "name": "Живопліт",
-            "description": "Хаотичні ферми, що викликають клаустрофобію, оточені з усіх боків живоплотами."
-        },
-        "vi": {
-           "name": "Hàng rào",
-            "description": "Các trang trại hỗn loạn, ngột ngạt được bao bọc bởi hàng rào ở mọi phía."
-        },
-        "zh": {
-           "name": "树篱",
-            "description": "混乱的、令人厌烦的农场被两边的树篱围住了."
-        }
+    "en": {
+      "name": "Hedgerows",
+      "description": "Chaotic, clausterphobic farms hemmed in by hedges on every side."
+    },
+    "ru": {
+      "name": "Бокажи",
+      "description": "Высокие живые изгороди со всех сторон огораживают хаотично расположенные поля."
+    },
+    "ar": {
+      "name": "سياج",
+      "description": "مزارع فوضوية خانقة محاطة بتحوطات من كل جانب."
+    },
+    "de": {
+      "name": "Hecke",
+      "description": "Chaotische, klausterphobische Farmen, die auf allen Seiten von Hecken gesäumt sind."
+    },
+    "el": {
+      "name": "Φράχτες",
+      "description": "Χαοτικές, κλαουστερφοβικές φάρμες που περιβάλλονται από φράκτες από κάθε πλευρά."
+    },
+    "es": {
+      "name": "Setos",
+      "description": "Granjas caóticas y claustrofóbicas rodeadas de setos por todos lados."
+    },
+    "fr": {
+      "name": "Haies",
+      "description": "Des fermes chaotiques et clausterphobes entourées de haies de tous côtés."
+    },
+    "hi": {
+      "name": "हेडगेवार",
+      "description": "अराजक, क्लॉस्टरफोबिक खेतों को हर तरफ हेजेज द्वारा घेर लिया गया ।"
+    },
+    "hu": {
+      "name": "Sövény",
+      "description": "Kaotikus, klausterfóbiás gazdaságok sövényekkel szegélyezve minden oldalon."
+    },
+    "id": {
+      "name": "Pagar tanaman",
+      "description": "Peternakan yang kacau dan sesak dikelilingi oleh pagar tanaman di setiap sisinya."
+    },
+    "it": {
+      "name": "Siepe",
+      "description": "Fattorie caotiche e claustrofobiche circondate da siepi su ogni lato."
+    },
+    "ja": {
+      "name": "生け垣",
+      "description": "混沌とした農場はあらゆる側のヘッジによって縁取られました。"
+    },
+    "kr": {
+      "name": "울타리",
+      "description": "혼란스럽고 폐쇄적인 농장은 모든 쪽에서 울타리로 둘러싸여 있습니다."
+    },
+    "pl": {
+      "name": "Żywopłoty",
+      "description": "Chaotyczne, klausterfobiczne farmy otoczone żywopłotami z każdej strony."
+    },
+    "pt": {
+      "name": "Sebes",
+      "description": "Fazendas caóticas e clausterfóbicas cercadas por sebes de todos os lados."
+    },
+    "tr": {
+      "name": "Çitli tarlalar",
+      "description": "Her tarafı çitlerle çevrili, kaotik ve dar alanlı çiftlikler."
+    },
+    "uk": {
+      "name": "Живопліт",
+      "description": "Хаотичні ферми, що викликають клаустрофобію, оточені з усіх боків живоплотами."
+    },
+    "vi": {
+      "name": "Hàng rào",
+      "description": "Các trang trại hỗn loạn, ngột ngạt được bao bọc bởi hàng rào ở mọi phía."
+    },
+    "zh": {
+      "name": "树篱",
+      "description": "混乱的、令人厌烦的农场被两边的树篱围住了."
     }
+  }
 }

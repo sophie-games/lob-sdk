@@ -1,11 +1,11 @@
 {
-  "requiredScenarios": ["plains", "hills", "iberia"],
+  "requiredScenarios": ["plains", "hills", "iberia", "tundra"],
   "presets": [
     {
       "id": "ranked_clash_1v1_1m_napoleonic",
       "image": "clash",
       "gameTimePresets": ["bullet"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["clash"],
       "teamSizes": ["1v1"],
       "isRanked": true
@@ -14,7 +14,7 @@
       "id": "ranked_clash_1v1_2m_napoleonic",
       "image": "clash",
       "gameTimePresets": ["bullet"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["clash"],
       "teamSizes": ["1v1"],
       "isRanked": true
@@ -23,7 +23,7 @@
       "id": "ranked_clash_2v2_1m_napoleonic",
       "image": "clash",
       "gameTimePresets": ["bullet"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["clash"],
       "teamSizes": ["2v2"],
       "isRanked": true
@@ -32,7 +32,7 @@
       "id": "ranked_clash_2v2_2m_napoleonic",
       "image": "clash",
       "gameTimePresets": ["bullet"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["clash"],
       "teamSizes": ["2v2"],
       "isRanked": true
@@ -41,7 +41,7 @@
       "id": "ranked_combat_1v1_2m_napoleonic",
       "image": "combat",
       "gameTimePresets": ["bullet"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["combat"],
       "teamSizes": ["1v1"],
       "isRanked": true
@@ -50,7 +50,7 @@
       "id": "ranked_combat_1v1_3m_napoleonic",
       "image": "combat",
       "gameTimePresets": ["standard"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["combat"],
       "teamSizes": ["1v1"],
       "isRanked": true
@@ -59,7 +59,7 @@
       "id": "ranked_combat_2v2_2m_napoleonic",
       "image": "combat",
       "gameTimePresets": ["bullet"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["combat"],
       "teamSizes": ["2v2"],
       "isRanked": true
@@ -68,7 +68,7 @@
       "id": "ranked_combat_2v2_3m_napoleonic",
       "image": "combat",
       "gameTimePresets": ["standard"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["combat"],
       "teamSizes": ["2v2"],
       "isRanked": true
@@ -77,7 +77,7 @@
       "id": "ranked_battle_1v1_3m_napoleonic",
       "image": "battle",
       "gameTimePresets": ["classic"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["battle"],
       "teamSizes": ["1v1"],
       "isRanked": true
@@ -86,7 +86,7 @@
       "id": "ranked_battle_1v1_5m_napoleonic",
       "image": "battle",
       "gameTimePresets": ["classic"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["battle"],
       "teamSizes": ["1v1"],
       "isRanked": true
@@ -95,7 +95,7 @@
       "id": "ranked_battle_2v2_3m_napoleonic",
       "image": "battle",
       "gameTimePresets": ["classic"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["battle"],
       "teamSizes": ["2v2"],
       "isRanked": true
@@ -104,7 +104,7 @@
       "id": "ranked_battle_2v2_5m_napoleonic",
       "image": "battle",
       "gameTimePresets": ["classic"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["battle"],
       "teamSizes": ["2v2"],
       "isRanked": true
@@ -113,7 +113,7 @@
       "id": "ranked_grandBattle_1v1_3m_napoleonic",
       "image": "grand_battle",
       "gameTimePresets": ["classic"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["grand_battle"],
       "teamSizes": ["1v1"],
       "isRanked": true
@@ -122,7 +122,7 @@
       "id": "ranked_grandBattle_1v1_5m_napoleonic",
       "image": "grand_battle",
       "gameTimePresets": ["classic"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["grand_battle"],
       "teamSizes": ["1v1"],
       "isRanked": true
@@ -131,7 +131,7 @@
       "id": "ranked_grandBattle_2v2_3m_napoleonic",
       "image": "grand_battle",
       "gameTimePresets": ["classic"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["grand_battle"],
       "teamSizes": ["2v2"],
       "isRanked": true
@@ -140,7 +140,7 @@
       "id": "ranked_grandBattle_2v2_5m_napoleonic",
       "image": "grand_battle",
       "gameTimePresets": ["classic"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["grand_battle"],
       "teamSizes": ["2v2"],
       "isRanked": true
@@ -150,7 +150,7 @@
       "id": "unranked_regular_clash_1v1_1m_napoleonic",
       "image": "clash",
       "gameTimePresets": ["bullet"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["clash"],
       "teamSizes": ["1v1"],
       "isRanked": false
@@ -159,7 +159,7 @@
       "id": "unranked_regular_clash_1v1_2m_napoleonic",
       "image": "clash",
       "gameTimePresets": ["bullet"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["clash"],
       "teamSizes": ["1v1"],
       "isRanked": false
@@ -168,7 +168,7 @@
       "id": "unranked_regular_clash_2v2_1m_napoleonic",
       "image": "clash",
       "gameTimePresets": ["bullet"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["clash"],
       "teamSizes": ["2v2"],
       "isRanked": false
@@ -177,7 +177,7 @@
       "id": "unranked_regular_clash_2v2_2m_napoleonic",
       "image": "clash",
       "gameTimePresets": ["bullet"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["clash"],
       "teamSizes": ["2v2"],
       "isRanked": false
@@ -186,7 +186,7 @@
       "id": "unranked_regular_combat_1v1_2m_napoleonic",
       "image": "combat",
       "gameTimePresets": ["bullet"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["combat"],
       "teamSizes": ["1v1"],
       "isRanked": false
@@ -195,7 +195,7 @@
       "id": "unranked_regular_combat_1v1_3m_napoleonic",
       "image": "combat",
       "gameTimePresets": ["standard"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["combat"],
       "teamSizes": ["1v1"],
       "isRanked": false
@@ -204,7 +204,7 @@
       "id": "unranked_regular_combat_2v2_2m_napoleonic",
       "image": "combat",
       "gameTimePresets": ["bullet"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["combat"],
       "teamSizes": ["2v2"],
       "isRanked": false
@@ -213,7 +213,7 @@
       "id": "unranked_regular_combat_2v2_3m_napoleonic",
       "image": "combat",
       "gameTimePresets": ["standard"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["combat"],
       "teamSizes": ["2v2"],
       "isRanked": false
@@ -222,7 +222,7 @@
       "id": "unranked_regular_battle_1v1_3m_napoleonic",
       "image": "battle",
       "gameTimePresets": ["classic"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["battle"],
       "teamSizes": ["1v1"],
       "isRanked": false
@@ -231,7 +231,7 @@
       "id": "unranked_regular_battle_1v1_5m_napoleonic",
       "image": "battle",
       "gameTimePresets": ["classic"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["battle"],
       "teamSizes": ["1v1"],
       "isRanked": false
@@ -240,7 +240,7 @@
       "id": "unranked_regular_battle_2v2_3m_napoleonic",
       "image": "battle",
       "gameTimePresets": ["classic"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["battle"],
       "teamSizes": ["2v2"],
       "isRanked": false
@@ -249,7 +249,7 @@
       "id": "unranked_regular_battle_2v2_5m_napoleonic",
       "image": "battle",
       "gameTimePresets": ["classic"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["battle"],
       "teamSizes": ["2v2"],
       "isRanked": false
@@ -258,7 +258,7 @@
       "id": "unranked_regular_grandBattle_1v1_3m_napoleonic",
       "image": "grand_battle",
       "gameTimePresets": ["classic"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["grand_battle"],
       "teamSizes": ["1v1"],
       "isRanked": false
@@ -267,7 +267,7 @@
       "id": "unranked_regular_grandBattle_1v1_5m_napoleonic",
       "image": "grand_battle",
       "gameTimePresets": ["classic"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["grand_battle"],
       "teamSizes": ["1v1"],
       "isRanked": false
@@ -276,7 +276,7 @@
       "id": "unranked_regular_grandBattle_2v2_3m_napoleonic",
       "image": "grand_battle",
       "gameTimePresets": ["classic"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["grand_battle"],
       "teamSizes": ["2v2"],
       "isRanked": false
@@ -285,7 +285,7 @@
       "id": "unranked_regular_grandBattle_2v2_5m_napoleonic",
       "image": "grand_battle",
       "gameTimePresets": ["classic"],
-      "scenarios": ["plains", "hills", "iberia"],
+      "scenarios": ["plains", "hills", "iberia", "tundra"],
       "dynamicBattleTypes": ["grand_battle"],
       "teamSizes": ["2v2"],
       "isRanked": false
