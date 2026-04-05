@@ -5,5 +5,12 @@
   "USER_IS_BANNED": "Người dùng bị cấm",
   "auth": {
     "OAUTH_ACCOUNT": "Tài khoản này đã được đăng ký với Google. Vui lòng sử dụng phương thức đăng nhập Google."
-  }
+  },
+  "NOT_CUSTOM_GAME": "Chỉ trò chơi tùy chỉnh mới có thể bắt đầu trước khi phòng đầy.",
+  "GAME_ALREADY_STARTED": "Trò chơi này đã bắt đầu.",
+  "GAME_ALREADY_FINISHED": "Trò chơi này đã kết thúc.",
+  "NOT_GAME_CREATOR": "Chỉ người tạo trò chơi mới có thể bắt đầu sớm.",
+  "MISSING_TEAM_PLAYERS": "Trước khi bắt đầu, mỗi đội phải có ít nhất một người chơi tham gia.",
+  "GAME_DOES_NOT_EXIST": "Trò chơi này không còn tồn tại.",
+  "ERROR_STARTING_GAME": "Đã xảy ra lỗi khi bắt đầu trò chơi. Vui lòng thử lại."
 }

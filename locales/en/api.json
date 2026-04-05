@@ -5,5 +5,12 @@
   "USER_IS_BANNED": "User is banned",
   "auth": {
     "OAUTH_ACCOUNT": "This account was registered with Google. Please use the Google login method."
-  }
+  },
+  "NOT_CUSTOM_GAME": "Only custom games can be started before the lobby is full.",
+  "GAME_ALREADY_STARTED": "This game has already started.",
+  "GAME_ALREADY_FINISHED": "This game has already finished.",
+  "NOT_GAME_CREATOR": "Only the player who created the game can start it early.",
+  "MISSING_TEAM_PLAYERS": "At least one player must have joined on each team before you can start.",
+  "GAME_DOES_NOT_EXIST": "This game no longer exists.",
+  "ERROR_STARTING_GAME": "Something went wrong while starting the game. Please try again."
 }

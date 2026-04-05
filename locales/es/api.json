@@ -1,5 +1,12 @@
 {
   "USER_REGISTERED": "¡Tu registro está completo! Revisa tu email para encontrar un link de confirmación. Si no lo encuentras de inmediato, revisa tu carpeta de spam.",
   "INCORRECT_PASSWORD": "Contraseña incorrecta",
-  "START_TIME_MUST_BE_IN_THE_FUTURE": "La hora de inicio debe ser en el futuro"
+  "START_TIME_MUST_BE_IN_THE_FUTURE": "La hora de inicio debe ser en el futuro",
+  "NOT_CUSTOM_GAME": "Solo las partidas personalizadas pueden empezar antes de llenar la sala.",
+  "GAME_ALREADY_STARTED": "Esta partida ya ha comenzado.",
+  "GAME_ALREADY_FINISHED": "Esta partida ya ha terminado.",
+  "NOT_GAME_CREATOR": "Solo quien creó la partida puede empezarla antes de tiempo.",
+  "MISSING_TEAM_PLAYERS": "Tiene que haber al menos un jugador en cada equipo antes de poder empezar.",
+  "GAME_DOES_NOT_EXIST": "Esta partida ya no existe.",
+  "ERROR_STARTING_GAME": "Algo salió mal al empezar la partida. Inténtalo de nuevo."
 }

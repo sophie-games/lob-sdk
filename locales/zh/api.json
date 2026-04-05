@@ -5,5 +5,12 @@
   "auth": {
     "OAUTH_ACCOUNT": "该账号已使用谷歌账号注册过。请使用谷歌账号登录。"
   },
-  "USER_IS_BANNED": "用户被封禁"
+  "USER_IS_BANNED": "用户被封禁",
+  "NOT_CUSTOM_GAME": "只有自定义对局可以在大厅未满时开始。",
+  "GAME_ALREADY_STARTED": "本场对局已开始。",
+  "GAME_ALREADY_FINISHED": "本场对局已结束。",
+  "NOT_GAME_CREATOR": "只有创建对局的玩家可以提前开始。",
+  "MISSING_TEAM_PLAYERS": "开始前，每支队伍至少需要有一名玩家加入。",
+  "GAME_DOES_NOT_EXIST": "本场对局已不存在。",
+  "ERROR_STARTING_GAME": "开始对局时出现问题，请重试。"
 }
