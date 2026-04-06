@@ -49,7 +49,6 @@
   "randomGameInfo": "A véletlenszerűen generált pályákon az általad adott játékmódra előre meghatározott seregek állnak rendelkezésedre. A seregedet a <0>Seregek összetételénél</0> tudod módosítani és megtekinteni. Ha még nem állítottál be speciális összeállítást, az alapból beállított sereggel kell játszanod.",
   "selectGameMode": "Válassz az alábbi opciók közül!",
   "or": "Vagy",
-  "quickMatchmaking": "Gyors Párosítás",
   "ranked": "Rangsorolt",
   "rankedTooltip": "A történelem nem emlékszik az óvatosakra. Jelöld be ezt, ha van bátorságod tűzvonalba tenni az Elódat.",
   "unranked": "Nem Rangsorolt",
@@ -80,6 +79,8 @@
   },
   "battleType": "Csata típusa",
   "matchmaking": "Meccskeresés",
+  "addMatchmakingConfig": "Meccskeresési beállítás hozzáadása",
+  "matchmakingModeSwitchWarning": "A gyors és lassú konfigurációk nem küldhetők el együtt. Ha átváltasz {{mode}} módra, a többi konfiguráció alaphelyzetbe áll. Szeretnéd folytatni?",
   "matchmakingDescription": "A meccskereső lehetővé teszi, hogy rövid idő alatt játékba került idegen játékosokkal.",
   "requiredInMatchmakingQueue": "Mindig a sorban",
   "requiredScenarioBadge": "Kötelező",
@@ -566,8 +567,6 @@
     "unknown": "Ismeretlen ok."
   },
   "range": "Távolság",
-  "quickPlay": "Gyors játék",
-  "quickPlayWithCount": "Gyors játék ({{count}})",
   "discord": {
     "link": "Discord összekapcsolása",
     "unlink": "Discord leválasztása",
