@@ -787,11 +787,11 @@ export interface IServerGame {
    */
   isPointOutsideMap(point: Point2): boolean;
   /**
-   * Checks if a player has any active (non-routing) units
+   * Checks if a player has any units
    * @param playerNumber - The player number to check
    * @returns True if the player has active units
    */
-  hasActiveUnits(playerNumber: number): boolean;
+  hasPlayerUnits(playerNumber: number): boolean;
   /**
    * Checks if the turn timeout has been exceeded
    * @param wsServerTimestamp - WebSocket server timestamp, or null
