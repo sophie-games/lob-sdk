@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "composite": true,
     "declaration": true,
     "declarationMap": true,
@@ -13,8 +14,11 @@
     "outDir": "dist",
     "resolveJsonModule": true,
     "paths": {
-      "@lob-sdk/*": ["./src/*"]
+      "@lob-sdk/*": ["src/*"]
     }
   },
-  "include": ["src/**/*", "src/**/*.json"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.json"
+  ]
 }
