@@ -76,6 +76,9 @@
     "title": "Pokaż siatkę",
     "description": "Wyświetla nakładkę siatki płytek na mapie."
   },
+  "gridOpacity": {
+    "title": "Nieprzezroczystość siatki"
+  },
   "showDebugShapes": {
     "title": "Pokaż kształty debugowania",
     "description": "Pokazuje kształty debugowania na jednostkach, w tym kształty kolizji i punkty sprawdzania terenu."
@@ -105,6 +108,10 @@
   "straightLineTolerance": "Tolerancja linii prostej",
   "spaceBetweenUnits": "Odległość między jednostkami",
   "spaceBetweenLines": "Odległość między liniami",
+  "idleSelectionIncludeCarryoverOrders": {
+    "title": "Wybór bezczynnych obejmuje niezmienione rozkazy",
+    "description": "Wył.: tylko jednostki bez rozkazów. Wł.: także jednostki, które nadal mają rozkaz z poprzedniej tury, jeśli nie zmieniłeś go w tej turze."
+  },
   "keybindings": {
     "title": "Skróty klawiszowe",
     "pressAKey": "Wciśnij przycisk...",

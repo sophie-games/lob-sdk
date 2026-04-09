@@ -49,7 +49,6 @@
   "createNewGame": "Create new game",
   "randomGameInfo": "For randomly generated games, the game will use the army you've created for the selected battle mode. You can view and manage your armies in the <0>Army Compositions</0>. If you haven't created any armies for that mode yet, a default army will be used.",
   "selectGameMode": "Select the game mode from the options below.",
-  "quickMatchmaking": "Quick Matchmaking",
   "ranked": "Ranked",
   "rankedTooltip": "History does not remember the prudent. Check this box if you have the courage to put your Elo on the line of fire.",
   "unranked": "Unranked",
@@ -81,6 +80,8 @@
   },
   "battleType": "Battle type",
   "matchmaking": "Matchmaking",
+  "addMatchmakingConfig": "Add matchmaking configuration",
+  "matchmakingModeSwitchWarning": "Fast and Slow configurations cannot be sent together. If you change to {{mode}}, the other configuration(s) will be reset. Do you want to proceed?",
   "matchmakingDescription": "Matchmaking mode lets you quickly join a game with random players using predefined settings.",
   "requiredInMatchmakingQueue": "Always in queue",
   "requiredScenarioBadge": "Required",
@@ -331,7 +332,8 @@
   },
   "needsUpdateModal": {
     "title": "Update required",
-    "message": "A new version of LoB is available! Please update to the latest version to continue playing online."
+    "message": "A new version of LoB is available! Please update to the latest version to continue playing online.",
+    "versionDetails": "Client: {{client}} · Server: {{server}}"
   },
   "update": "Update!",
   "yourArmyCompositionsFor": "Your Army Compositions for",
@@ -537,7 +539,7 @@
     "p1": {
       "sent": "Orders sent to the server.",
       "received": "Orders received by the server.",
-      "processed": "Orders processed by the server. Now, wait for the others to make their move."
+      "processed": "Orders processed by the server."
     },
     "p2": "Checking for the opponent's orders in {{value}} seconds",
     "b": "Check Now"
@@ -569,7 +571,6 @@
     "matchingWhenAvailable": "You're in the lobby. We'll match you with another available player when we find one.",
     "searchingForPlayer": "Searching for another player for you",
     "leaderboard": "Leaderboard",
-    "loadingArenas": "Loading arenas...",
     "noArenas": "No active or scheduled arenas.",
     "failedToLoadArenas": "Failed to load arenas",
     "failedToRejoin": "Failed to rejoin",
@@ -594,6 +595,7 @@
     "invalidEra": "Invalid era",
     "invalidGameTimePreset": "Invalid time preset",
     "invalidScenarioName": "Invalid scenario",
+    "invalidBattleType": "Invalid battle type",
     "createArenaError": "Failed to create arena",
     "joinOnlyWhenActive": "You can only join active arenas; wait for it to start.",
     "activeArenaBanner": "An arena is open! Join now and compete.",
@@ -613,7 +615,9 @@
     "ruleDurationTooltip": "The total duration of the arena. Once it ends, the leaderboard is finalized.",
     "ruleMaxGamesTooltip": "The maximum number of games you can play in this arena.",
     "ruleNoRepeatTooltip": "You won't be matched against the same player twice in this arena.",
-    "ruleDurationRemainingTooltip": "The remaining time until the arena ends."
+    "ruleDurationRemainingTooltip": "The remaining time until the arena ends.",
+    "rejoinQuestion": "Do you want to rejoin the arena? You have {{count}} matches left.",
+    "rejoinTitle": "Rejoin Arena"
   },
   "open": "Open",
   "closed": "Closed",
@@ -746,6 +750,8 @@
   "invitationCopied": "Link copied! Send it to a friend.",
   "inviteFriend": "Invite a friend",
   "checkStarted": "Check if started",
+  "startGameNow": "Start game now?",
+  "startGameNowTooltip": "Units that are not assigned to any player will be split evenly among the connected players on the same team as those units.",
   "errorWhenSubmittingOrders": "Error when submitting orders",
   "syncGame": "Sync game",
   "copyLogs": "Copy logs",
@@ -848,8 +854,6 @@
   "banned": "Banned",
   "baseAmmo": "Base ammo",
   "range": "Range",
-  "quickPlay": "Quick play",
-  "quickPlayWithCount": "Quick play ({{count}})",
   "show": "Show",
   "hide": "Hide",
   "discord": {

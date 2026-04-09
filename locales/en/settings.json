@@ -87,6 +87,9 @@
     "title": "Show grid",
     "description": "Show a tile grid overlay on the map."
   },
+  "gridOpacity": {
+    "title": "Grid Opacity"
+  },
   "showDebugShapes": {
     "title": "Show debug shapes",
     "description": "Shows debug shapes on units including collision shapes and terrain check points."
@@ -132,6 +135,10 @@
   "spaceBetweenLines": "Space between lines",
   "showSelectIdleUnitButton": {
     "title": "Show select idle unit button"
+  },
+  "idleSelectionIncludeCarryoverOrders": {
+    "title": "Idle selection includes unchanged orders",
+    "description": "Off: only units with no orders. On: also units that still have last turn's order if you did not change it this turn."
   },
   "showChat": {
     "title": "Show chat"

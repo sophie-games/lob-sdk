@@ -49,7 +49,6 @@
   "createNewGame": "Tạo trò chơi mới",
   "randomGameInfo": "Đối với các trò chơi được tạo ngẫu nhiên, trò chơi sẽ sử dụng quân đội bạn đã tạo cho chế độ chiến đấu đã chọn. Bạn có thể xem và quản lý quân đội của mình trong <0>Cấu trúc quân đội</0>. Nếu bạn chưa tạo quân đội nào cho chế độ đó, quân đội mặc định sẽ được sử dụng.",
   "selectGameMode": "Chọn chế độ trò chơi từ các tùy chọn bên dưới.",
-  "quickMatchmaking": "Ghép nhanh",
   "ranked": "Có xếp hạng",
   "rankedTooltip": "Lịch sử không nhớ những kẻ thận trọng. Hãy đánh dấu ô này nếu bạn đủ can đảm đặt Elo của mình vào làn đạn.",
   "unranked": "Không xếp hạng",
@@ -81,6 +80,8 @@
   },
   "battleType": "Loại trận chiến",
   "matchmaking": "Ghép trận",
+  "addMatchmakingConfig": "Thêm cấu hình ghép trận",
+  "matchmakingModeSwitchWarning": "Không thể gửi cùng lúc các cấu hình nhanh và chậm. Nếu bạn chuyển sang chế độ {{mode}}, các cấu hình khác sẽ bị đặt lại. Bạn có muốn tiếp tục không?",
   "matchmakingDescription": "Chế độ ghép trận cho phép bạn nhanh chóng tham gia trò chơi với người chơi ngẫu nhiên sử dụng cài đặt được định sẵn.",
   "requiredInMatchmakingQueue": "Luôn có trong hàng chờ",
   "requiredScenarioBadge": "Bắt buộc",
@@ -326,7 +327,8 @@
   },
   "needsUpdateModal": {
     "title": "Cần cập nhật",
-    "message": "Phiên bản mới của LoB đã có sẵn! Vui lòng cập nhật lên phiên bản mới nhất để tiếp tục chơi trực tuyến."
+    "message": "Phiên bản mới của LoB đã có sẵn! Vui lòng cập nhật lên phiên bản mới nhất để tiếp tục chơi trực tuyến.",
+    "versionDetails": "Ứng dụng: {{client}} · Máy chủ: {{server}}"
   },
   "update": "Cập nhật!",
   "yourArmyCompositionsFor": "Cấu trúc quân đội của bạn cho",
@@ -534,7 +536,7 @@
     "p1": {
       "sent": "Lệnh đã gửi đến máy chủ.",
       "received": "Lệnh đã được máy chủ nhận.",
-      "processed": "Lệnh đã được máy chủ xử lý. Bây giờ, chờ những người khác thực hiện nước đi của họ."
+      "processed": "Lệnh đã được máy chủ xử lý."
     },
     "p2": "Kiểm tra lệnh của đối thủ trong {{value}} giây",
     "b": "Kiểm tra ngay"
@@ -567,7 +569,6 @@
     "matchingWhenAvailable": "Bạn đang ở trong phòng chờ. Chúng tôi sẽ ghép bạn với người chơi khác khi tìm được.",
     "searchingForPlayer": "Đang tìm người chơi khác cho bạn",
     "leaderboard": "Bảng xếp hạng",
-    "loadingArenas": "Đang tải đấu trường…",
     "noArenas": "Không có đấu trường đang hoạt động hoặc đã lên lịch.",
     "failedToLoadArenas": "Không tải được đấu trường",
     "failedToRejoin": "Không tham gia lại được",
@@ -592,6 +593,7 @@
     "invalidEra": "Thời đại không hợp lệ",
     "invalidGameTimePreset": "Cài đặt thời gian không hợp lệ",
     "invalidScenarioName": "Kịch bản không hợp lệ",
+    "invalidBattleType": "Loại trận chiến không hợp lệ",
     "createArenaError": "Không tạo được đấu trường",
     "joinOnlyWhenActive": "Bạn chỉ có thể tham gia đấu trường đang hoạt động; chờ khi bắt đầu.",
     "activeArenaBanner": "Đấu trường đang mở! Tham gia và thi đấu ngay.",
@@ -611,7 +613,9 @@
     "ruleDurationTooltip": "Tổng thời gian của đấu trường. Khi kết thúc, bảng xếp hạng sẽ được chốt.",
     "ruleMaxGamesTooltip": "Số trận tối đa bạn có thể chơi trong đấu trường này.",
     "ruleNoRepeatTooltip": "Bạn sẽ không được ghép gặp cùng một người chơi hai lần trong đấu trường này.",
-    "ruleDurationRemainingTooltip": "Thời gian còn lại cho đến khi đấu trường kết thúc."
+    "ruleDurationRemainingTooltip": "Thời gian còn lại cho đến khi đấu trường kết thúc.",
+    "rejoinQuestion": "Bạn có muốn tham gia lại đấu trường không? Bạn còn {{count}} trận.",
+    "rejoinTitle": "Tham gia lại đấu trường"
   },
   "open": "Mở",
   "closed": "Đóng",
@@ -739,6 +743,8 @@
   "invitationCopied": "Liên kết đã sao chép! Gửi cho bạn bè.",
   "inviteFriend": "Mời bạn bè",
   "checkStarted": "Kiểm tra đã bắt đầu",
+  "startGameNow": "Bắt đầu trò chơi ngay?",
+  "startGameNowTooltip": "Các đơn vị chưa được gán cho người chơi nào sẽ được chia đều giữa những người chơi đã kết nối cùng đội với các đơn vị đó.",
   "errorWhenSubmittingOrders": "Lỗi khi gửi lệnh",
   "syncGame": "Đồng bộ trò chơi",
   "copyLogs": "Sao chép nhật ký",
@@ -838,8 +844,6 @@
   "banned": "Bị cấm",
   "baseAmmo": "Đạn cơ sở",
   "range": "Tầm",
-  "quickPlay": "Chơi nhanh",
-  "quickPlayWithCount": "Chơi nhanh ({{count}})",
   "discord": {
     "link": "Liên kết Discord",
     "unlink": "Hủy liên kết Discord",

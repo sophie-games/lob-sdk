@@ -49,7 +49,6 @@
   "randomGameInfo": "Para jogos gerados aleatoriamente, o jogo usará o exército que você criou para o modo de batalha selecionado. Você pode visualizar e gerenciar seus exércitos em <0>Composições de Exército</0>. Se você ainda não criou exércitos para esse modo, um exército padrão será usado.",
   "selectGameMode": "Selecione o modo de jogo nas opções abaixo.",
   "or": "Ou",
-  "quickMatchmaking": "Matchmaking Rápido",
   "ranked": "Classificado",
   "rankedTooltip": "A história não se lembra dos prudentes. Marque esta caixa se tiver coragem de colocar seu Elo na linha de fogo.",
   "unranked": "Não Classificado",
@@ -80,6 +79,8 @@
   },
   "battleType": "Tipo de batalha",
   "matchmaking": "Matchmaking",
+  "addMatchmakingConfig": "Adicionar configuração de matchmaking",
+  "matchmakingModeSwitchWarning": "Configurações rápidas e lentas não podem ser enviadas juntas. Se você mudar para o modo {{mode}}, as outras configurações serão redefinidas. Deseja continuar?",
   "matchmakingDescription": "O modo de matchmaking permite que você entre rapidamente em um jogo com jogadores aleatórios usando configurações predefinidas.",
   "requiredInMatchmakingQueue": "Sempre na fila",
   "requiredScenarioBadge": "Obrigatório",
@@ -286,7 +287,8 @@
   },
   "needsUpdateModal": {
     "title": "Atualização necessária",
-    "message": "Uma nova versão do LoB está disponível! Por favor, atualize para a versão mais recente para continuar jogando online."
+    "message": "Uma nova versão do LoB está disponível! Por favor, atualize para a versão mais recente para continuar jogando online.",
+    "versionDetails": "Cliente: {{client}} · Servidor: {{server}}"
   },
   "update": "Atualizar!",
   "yourArmyCompositionsFor": "Sua Composição de Exército para",
@@ -487,7 +489,7 @@
     "p1": {
       "sent": "Ordens enviadas ao servidor.",
       "received": "Ordens recebidas pelo servidor.",
-      "processed": "Ordens processadas pelo servidor. Agora, espere os outros fazerem seu movimento."
+      "processed": "Ordens processadas pelo servidor."
     },
     "p2": "Verificando atualizações em {{value}} segundos",
     "b": "Verificar Agora"
@@ -554,7 +556,6 @@
     "matchingWhenAvailable": "Você está no lobby. Vamos emparelhá-lo com outro jogador disponível quando encontrarmos um.",
     "searchingForPlayer": "Procurando outro jogador para você",
     "leaderboard": "Classificação",
-    "loadingArenas": "Carregando arenas…",
     "noArenas": "Nenhuma arena ativa ou agendada.",
     "failedToLoadArenas": "Falha ao carregar arenas",
     "failedToRejoin": "Falha ao reentrar",
@@ -579,6 +580,7 @@
     "invalidEra": "Era inválida",
     "invalidGameTimePreset": "Predefinição de tempo inválida",
     "invalidScenarioName": "Cenário inválido",
+    "invalidBattleType": "Tipo de batalha inválido",
     "createArenaError": "Falha ao criar arena",
     "joinOnlyWhenActive": "Só é possível entrar em arenas ativas; aguarde o início.",
     "activeArenaBanner": "Uma arena está aberta! Entre e compita.",
@@ -598,7 +600,9 @@
     "ruleDurationTooltip": "A duração total da arena. Quando terminar, o placar será finalizado.",
     "ruleMaxGamesTooltip": "O número máximo de partidas que você pode jogar nesta arena.",
     "ruleNoRepeatTooltip": "Você não será pareado com o mesmo jogador duas vezes nesta arena.",
-    "ruleDurationRemainingTooltip": "O tempo restante até a arena terminar."
+    "ruleDurationRemainingTooltip": "O tempo restante até a arena terminar.",
+    "rejoinQuestion": "Deseja voltar a entrar na arena? Você tem {{count}} partidas restantes.",
+    "rejoinTitle": "Voltar à arena"
   },
   "era": "Era",
   "hasPassword": "Tem senha",
@@ -610,8 +614,6 @@
   "banned": "Banido",
   "baseAmmo": "Munição base",
   "range": "Alcance",
-  "quickPlay": "Jogo rápido",
-  "quickPlayWithCount": "Jogo rápido ({{count}})",
   "discord": {
     "link": "Vincular Discord",
     "unlink": "Desvincular Discord",
@@ -658,5 +660,7 @@
   "goHome": "Ir para o Início",
   "sendFailed": "Falha ao enviar mensagem",
   "chatUnreadCount": "{{count}} não lidos",
+  "startGameNow": "Iniciar a partida agora?",
+  "startGameNowTooltip": "Unidades não atribuídas a nenhum jogador serão divididas igualmente entre os jogadores conectados no mesmo time dessas unidades.",
   "user": "Usuário"
 }

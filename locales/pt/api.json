@@ -1,3 +1,15 @@
 {
-  "USER_REGISTERED": "Seu registro está concluído! Verifique seu e-mail para um link de confirmação. Se não o encontrar imediatamente, verifique sua pasta de spam."
+  "USER_REGISTERED": "Seu registro está concluído! Verifique seu e-mail para um link de confirmação. Se não o encontrar imediatamente, verifique sua pasta de spam.",
+  "NOT_CUSTOM_GAME": "Apenas partidas personalizadas podem ser iniciadas antes do lobby encher.",
+  "GAME_ALREADY_STARTED": "Esta partida já começou.",
+  "GAME_ALREADY_FINISHED": "Esta partida já terminou.",
+  "NOT_GAME_CREATOR": "Apenas quem criou a partida pode iniciá-la antecipadamente.",
+  "MISSING_TEAM_PLAYERS": "É necessário pelo menos um jogador em cada time antes de iniciar.",
+  "GAME_DOES_NOT_EXIST": "Esta partida não existe mais.",
+  "ERROR_STARTING_GAME": "Ocorreu um erro ao iniciar a partida. Tente novamente.",
+  "ORDERS_ALREADY_SUBMITTED": "As ordens para este turno já foram recebidas.",
+  "ORDERS_STALE_TURN": "O turno já avançou. Por favor, sincronize o jogo.",
+  "ORDERS_GAME_NOT_ACTIVE": "Esta partida não está ativa.",
+  "ORDERS_NOT_ACCEPTED": "Não foi possível enviar as ordens. Tente novamente.",
+  "ERROR_SUBMITTING_ORDERS": "Ocorreu um erro ao enviar as ordens. Tente novamente."
 }

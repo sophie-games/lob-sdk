@@ -251,7 +251,7 @@ export class CavalryStrategy implements NapoleonicBotStrategy {
       if (enemy.isRouting()) {
         // If routing, only charge if isolated from non-routing allies
         const isSupported = visibleEnemies.some(other => {
-          if (other.id === enemy.id || other.player !== enemy.player) return false;
+          if (other.id === enemy.id || other.team !== enemy.team) return false;
           if (other.isRouting()) return false;
           return other.position.distanceTo(enemy.position) <= CavalryStrategy.ISOLATION_RADIUS;
         });
@@ -260,7 +260,7 @@ export class CavalryStrategy implements NapoleonicBotStrategy {
       } else if (enemyGroup === "artillery" || enemyGroup === "skirmishers") {
         // If it's a healthy support unit, still check if it's isolated from main combat units
         const isSupported = visibleEnemies.some(other => {
-          if (other.id === enemy.id || other.player !== enemy.player) return false;
+          if (other.id === enemy.id || other.team !== enemy.team) return false;
           if (other.isRouting()) return false;
           const oGroup = this._bot.getGroup(other.category);
           if (oGroup !== "infantry" && oGroup !== "cavalry") return false;

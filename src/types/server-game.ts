@@ -214,6 +214,8 @@ export interface GameData {
   createdAt: number;
   /** Additional metadata for the game. */
   metadata?: GameMetadata;
+  /** User id of the player who created the game (custom lobby host). Omitted in some offline/test payloads. */
+  creatorId?: number;
 }
 
 /**
@@ -401,6 +403,8 @@ export interface IServerGame {
   readonly givesRewards: boolean;
   /** ELO K-factor for this game (from time control at creation). */
   readonly kFactor: number;
+  /** User id of the player who created the game. */
+  readonly creatorId: number;
 
   /** Map of all units in the game, keyed by entity ID */
   units: Map<EntityId, BaseUnit>;
@@ -783,11 +787,11 @@ export interface IServerGame {
    */
   isPointOutsideMap(point: Point2): boolean;
   /**
-   * Checks if a player has any active (non-routing) units
+   * Checks if a player has any units
    * @param playerNumber - The player number to check
    * @returns True if the player has active units
    */
-  hasActiveUnits(playerNumber: number): boolean;
+  hasPlayerUnits(playerNumber: number): boolean;
   /**
    * Checks if the turn timeout has been exceeded
    * @param wsServerTimestamp - WebSocket server timestamp, or null
@@ -1093,6 +1097,8 @@ export interface ServerGameProps {
   metadata?: GameMetadata;
   /** Reason why the game ended, if finished. */
   endReason?: GameEndReason | null;
+  /** User id of the player who created the game. Defaults to 0 when unknown (e.g. tests). */
+  creatorId?: number;
 }
 
 /**

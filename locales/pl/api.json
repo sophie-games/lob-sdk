@@ -5,5 +5,17 @@
   "USER_IS_BANNED": "Użytkownik zablokowany",
   "auth": {
     "OAUTH_ACCOUNT": "To konto zostało zarejestrowane przez Google. Proszę użyć logowania przez Google"
-  }
+  },
+  "NOT_CUSTOM_GAME": "Tylko gry niestandardowe można rozpocząć, zanim lobby się zapełni.",
+  "GAME_ALREADY_STARTED": "Ta gra już się rozpoczęła.",
+  "GAME_ALREADY_FINISHED": "Ta gra już się zakończyła.",
+  "NOT_GAME_CREATOR": "Tylko twórca gry może rozpocząć ją wcześniej.",
+  "MISSING_TEAM_PLAYERS": "Przed rozpoczęciem co najmniej jeden gracz musi dołączyć do każdej drużyny.",
+  "GAME_DOES_NOT_EXIST": "Ta gra już nie istnieje.",
+  "ERROR_STARTING_GAME": "Coś poszło nie tak podczas uruchamiania gry. Spróbuj ponownie.",
+  "ORDERS_ALREADY_SUBMITTED": "Rozkazy na tę turę zostały już odebrane.",
+  "ORDERS_STALE_TURN": "Tura już się zakończyła. Zsynchronizuj grę.",
+  "ORDERS_GAME_NOT_ACTIVE": "Ta gra nie jest aktywna.",
+  "ORDERS_NOT_ACCEPTED": "Nie można było wysłać rozkazów. Spróbuj ponownie.",
+  "ERROR_SUBMITTING_ORDERS": "Coś poszło nie tak podczas wysyłania rozkazów. Spróbuj ponownie."
 }

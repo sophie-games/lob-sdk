@@ -76,6 +76,9 @@
     "title": "Rács megjelenítése",
     "description": "Csempe rács réteget jelenít meg a térképen."
   },
+  "gridOpacity": {
+    "title": "Rács fedettsége"
+  },
   "showDebugShapes": {
     "title": "Hibakeresési alakzatok megjelenítése",
     "description": "Hibakeresési alakzatokat jelenít meg az egységeken, beleértve az ütközési alakzatokat és a terepellenőrzési pontokat."
@@ -105,6 +108,10 @@
   "straightLineTolerance": "Egyenes vonal tűrés",
   "spaceBetweenUnits": "Egységek közötti távolság",
   "spaceBetweenLines": "Sorok közötti távolság",
+  "idleSelectionIncludeCarryoverOrders": {
+    "title": "A tétlen kiválasztás a változatlan parancsokat is tartalmazza",
+    "description": "Ki: csak parancs nélküli egységek. Be: azok az egységek is, amelyeknek még megvan az előző kör parancsa, ha ebben a körben nem módosítottad."
+  },
   "keybindings": {
     "title": "Billentyűparancsok",
     "pressAKey": "Nyomj meg egy billentyűt...",

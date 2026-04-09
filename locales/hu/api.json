@@ -1,3 +1,15 @@
 {
-  "USER_REGISTERED": "A regisztrációd befejeződött! Ellenőrizd az emailjeidet egy megerősítő linkért. Ha nem találod meg azonnal, nézd meg a spam mappádat."
+  "USER_REGISTERED": "A regisztrációd befejeződött! Ellenőrizd az emailjeidet egy megerősítő linkért. Ha nem találod meg azonnal, nézd meg a spam mappádat.",
+  "NOT_CUSTOM_GAME": "Csak egyéni játékok indíthatók a lobby megtelte előtt.",
+  "GAME_ALREADY_STARTED": "Ez a játék már elkezdődött.",
+  "GAME_ALREADY_FINISHED": "Ez a játék már véget ért.",
+  "NOT_GAME_CREATOR": "Csak a játék készítője indíthatja el korábban.",
+  "MISSING_TEAM_PLAYERS": "Indítás előtt minden csapatban legalább egy játékosnak csatlakoznia kell.",
+  "GAME_DOES_NOT_EXIST": "Ez a játék már nem létezik.",
+  "ERROR_STARTING_GAME": "Hiba történt a játék indítása közben. Kérjük, próbáld újra.",
+  "ORDERS_ALREADY_SUBMITTED": "A parancsok erre a körre már megérkeztek.",
+  "ORDERS_STALE_TURN": "A kör már továbblépett. Kérjük, szinkronizáld a játékot.",
+  "ORDERS_GAME_NOT_ACTIVE": "Ez a játék nem aktív.",
+  "ORDERS_NOT_ACCEPTED": "A parancsokat nem sikerült elküldeni. Kérjük, próbáld újra.",
+  "ERROR_SUBMITTING_ORDERS": "Hiba történt a parancsok küldése közben. Kérjük, próbáld újra."
 }

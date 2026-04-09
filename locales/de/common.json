@@ -49,7 +49,6 @@
   "randomGameInfo": "Für zufallsgenerierte Spiele, werden Armeen verwendet, die Sie für diesen Spielmodus vorbereitet haben. Sie können Ihre Armeen in <0>Armeezusammensetzung</0>. Wenn Sie noch keine Armeen für einen Modus erstellt haben, dann wird die Standardarmee benutzt.",
   "selectGameMode": "Wähle den Spielmodus von den unten angezeigten Optionen.",
   "or": "Oder",
-  "quickMatchmaking": "Schnelles Matchmaking",
   "ranked": "Bewertet",
   "rankedTooltip": "Die Geschichte erinnert sich nicht an die Vorsichtigen. Aktiviere dieses Kästchen, wenn du den Mut hast, dein Elo an die Front zu bringen.",
   "unranked": "Unbewertet",
@@ -80,6 +79,8 @@
   },
   "battleType": "Schlachttypen",
   "matchmaking": "Spielsuche",
+  "addMatchmakingConfig": "Matchmaking-Konfiguration hinzufügen",
+  "matchmakingModeSwitchWarning": "Schnelle und langsame Konfigurationen können nicht zusammen gesendet werden. Wenn Sie in den Modus {{mode}} wechseln, werden die anderen Konfigurationen zurückgesetzt. Möchten Sie fortfahren?",
   "matchmakingDescription": "Spielsuchemodus erlaubt Ihnen schnell einem Spiel mit zufälligen Spielern und voreingestellten Einstellungen beizutreten.",
   "requiredInMatchmakingQueue": "Immer in der Warteschlange",
   "requiredScenarioBadge": "Pflicht",
@@ -286,7 +287,8 @@
   },
   "needsUpdateModal": {
     "title": "Update notwendig",
-    "message": "Eine neue Version von LoB ist verfügbar! Bitte updaten Sie auf die neuste Version, um weiter online spielen zu können."
+    "message": "Eine neue Version von LoB ist verfügbar! Bitte updaten Sie auf die neuste Version, um weiter online spielen zu können.",
+    "versionDetails": "Client: {{client}} · Server: {{server}}"
   },
   "update": "Update!",
   "yourArmyCompositionsFor": "Ihre Armeezusammensetzung für",
@@ -486,7 +488,7 @@
     "p1": {
       "sent": "Befehle an den Server gesendet.",
       "received": "Befehle vom Server empfangen.",
-      "processed": "Befehle vom Server verarbeitet. Warten Sie jetzt darauf, dass die anderen ihren Zug machen."
+      "processed": "Befehle vom Server verarbeitet."
     },
     "p2": "Überprüfung der Befehle des Gegners in {{value}} Sekunden",
     "b": "Jetzt prüfen"
@@ -519,7 +521,6 @@
     "matchingWhenAvailable": "Du bist in der Lobby. Wir werden dich mit einem anderen verfügbaren Spieler verbinden, sobald wir einen finden.",
     "searchingForPlayer": "Suche einen anderen Spieler für dich",
     "leaderboard": "Bestenliste",
-    "loadingArenas": "Arenen werden geladen…",
     "noArenas": "Keine aktiven oder geplanten Arenen.",
     "failedToLoadArenas": "Arenen konnten nicht geladen werden",
     "failedToRejoin": "Wiedereintritt fehlgeschlagen",
@@ -544,6 +545,7 @@
     "invalidEra": "Ungültige Epoche",
     "invalidGameTimePreset": "Ungültige Zeitvoreinstellung",
     "invalidScenarioName": "Ungültiges Szenario",
+    "invalidBattleType": "Ungültiger Schlacht-Typ",
     "createArenaError": "Arena konnte nicht erstellt werden",
     "joinOnlyWhenActive": "Du kannst nur aktiven Arenen beitreten; warte auf den Start.",
     "activeArenaBanner": "Eine Arena ist offen! Tritt bei und kämpfe mit.",
@@ -563,7 +565,9 @@
     "ruleDurationTooltip": "Die Gesamtdauer der Arena. Sobald sie endet, wird die Rangliste finalisiert.",
     "ruleMaxGamesTooltip": "Die maximale Anzahl an Spielen, die du in dieser Arena spielen kannst.",
     "ruleNoRepeatTooltip": "In dieser Arena wirst du nicht zweimal gegen denselben Spieler gematcht.",
-    "ruleDurationRemainingTooltip": "Die verbleibende Zeit bis zum Ende der Arena."
+    "ruleDurationRemainingTooltip": "Die verbleibende Zeit bis zum Ende der Arena.",
+    "rejoinQuestion": "Möchtest du der Arena wieder beitreten? Du hast noch {{count}} Partien übrig.",
+    "rejoinTitle": "Arena erneut beitreten"
   },
   "hasPassword": "Hat Passwort",
   "optional": "Optional",
@@ -609,8 +613,6 @@
   "banned": "Gesperrt",
   "baseAmmo": "Grundmunition",
   "range": "Reichweite",
-  "quickPlay": "Schnelles Spiel",
-  "quickPlayWithCount": "Schnelles Spiel ({{count}})",
   "discord": {
     "link": "Discord verknüpfen",
     "unlink": "Discord trennen",
@@ -657,5 +659,7 @@
   "goHome": "Zur Startseite",
   "sendFailed": "Nachricht konnte nicht gesendet werden",
   "chatUnreadCount": "{{count}} ungelesen",
+  "startGameNow": "Spiel jetzt starten?",
+  "startGameNowTooltip": "Einheiten, die keinem Spieler zugewiesen sind, werden gleichmäßig auf die verbundenen Spieler in derselben Mannschaft wie diese Einheiten aufgeteilt.",
   "user": "Benutzer"
 }

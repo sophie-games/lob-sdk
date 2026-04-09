@@ -49,7 +49,6 @@
   "randomGameInfo": "Rastgele oluşturulan oyunlar için, oyun seçtiğiniz savaş modu için oluşturduğunuz orduyu kullanır. Ordularınızı <0>Ordu Kompozisyonları</0> bölümünde görüntüleyebilir ve yönetebilirsiniz. Eğer o mod için henüz bir ordu oluşturmadıysanız, varsayılan bir ordu kullanılacaktır.",
   "selectGameMode": "Aşağıdaki seçeneklerden oyun modunu seçin.",
   "or": "Veya",
-  "quickMatchmaking": "Hızlı Eşleşme",
   "ranked": "Sıralı",
   "rankedTooltip": "Tarih ihtiyatlıları hatırlamaz. Elo'nu ateş hattına koyacak cesaretin varsa bu kutuyu işaretle.",
   "unranked": "Sırasız",
@@ -80,6 +79,8 @@
   },
   "battleType": "Savaş türü",
   "matchmaking": "Eşleştirme",
+  "addMatchmakingConfig": "Eşleştirme yapılandırması ekle",
+  "matchmakingModeSwitchWarning": "Hızlı ve yavaş yapılandırmalar birlikte gönderilemez. {{mode}} moduna geçerseniz, diğer yapılandırmalar sıfırlanacaktır. Devam etmek istiyor musunuz?",
   "matchmakingDescription": "Eşleştirme modu, önceden tanımlanmış ayarlarla rastgele oyuncularla hızlıca bir oyuna katılmanızı sağlar.",
   "requiredInMatchmakingQueue": "Her zaman kuyrukta",
   "requiredScenarioBadge": "Zorunlu",
@@ -286,7 +287,8 @@
   },
   "needsUpdateModal": {
     "title": "Güncelleme gerekli",
-    "message": "LoB'nin yeni bir sürümü mevcut! Çevrimiçi oynamaya devam etmek için lütfen en son sürüme güncelleyin."
+    "message": "LoB'nin yeni bir sürümü mevcut! Çevrimiçi oynamaya devam etmek için lütfen en son sürüme güncelleyin.",
+    "versionDetails": "İstemci: {{client}} · Sunucu: {{server}}"
   },
   "update": "Güncelle!",
   "yourArmyCompositionsFor": "{{mode}} için Ordu Kompozisyonunuz",
@@ -488,7 +490,7 @@
     "p1": {
       "sent": "Emirler sunucuya gönderildi.",
       "received": "Emirler sunucu tarafından alındı.",
-      "processed": "Emirler sunucu tarafından işlendi. Şimdi diğerlerinin hamle yapmasını bekleyin."
+      "processed": "Emirler sunucu tarafından işlendi."
     },
     "p2": "{{value}} saniye içinde güncellemeler kontrol ediliyor",
     "b": "Şimdi Kontrol Et"
@@ -555,7 +557,6 @@
     "matchingWhenAvailable": "Lobidesiniz. Uygun bir oyuncu bulduğumuzda sizi eşleştireceğiz.",
     "searchingForPlayer": "Sizin için başka bir oyuncu aranıyor",
     "leaderboard": "Liderlik tablosu",
-    "loadingArenas": "Arenalar yükleniyor…",
     "noArenas": "Aktif veya planlanmış arena yok.",
     "failedToLoadArenas": "Arenalar yüklenemedi",
     "failedToRejoin": "Yeniden katılım başarısız",
@@ -580,6 +581,7 @@
     "invalidEra": "Geçersiz dönem",
     "invalidGameTimePreset": "Geçersiz süre ön ayarı",
     "invalidScenarioName": "Geçersiz senaryo",
+    "invalidBattleType": "Geçersiz savaş türü",
     "createArenaError": "Arena oluşturulamadı",
     "joinOnlyWhenActive": "Yalnızca aktif arenalara katılabilirsiniz; başlamasını bekleyin.",
     "activeArenaBanner": "Arena açık! Katılın ve yarışın.",
@@ -599,7 +601,9 @@
     "ruleDurationTooltip": "Arenanın toplam süresi. Sona erdiğinde liderlik tablosu kesinleşir.",
     "ruleMaxGamesTooltip": "Bu arenada oynayabileceğin maksimum oyun sayısı.",
     "ruleNoRepeatTooltip": "Bu arenada aynı oyuncuyla iki kez eşleştirilmeyeceksin.",
-    "ruleDurationRemainingTooltip": "Arenanın bitmesine kalan süre."
+    "ruleDurationRemainingTooltip": "Arenanın bitmesine kalan süre.",
+    "rejoinQuestion": "Areneye yeniden katılmak ister misiniz? {{count}} maçınız kaldı.",
+    "rejoinTitle": "Areneye yeniden katıl"
   },
   "era": "Dönem",
   "hasPassword": "Şifre var",
@@ -611,8 +615,6 @@
   "banned": "Yasaklandı",
   "baseAmmo": "Temel cephane",
   "range": "Menzil",
-  "quickPlay": "Hızlı oyun",
-  "quickPlayWithCount": "Hızlı oyun ({{count}})",
   "discord": {
     "link": "Discord Bağla",
     "unlink": "Discord Bağlantısını Kes",
@@ -659,5 +661,7 @@
   "goHome": "Ana Sayfaya Git",
   "sendFailed": "İleti gönderilemedi",
   "chatUnreadCount": "{{count}} okunmamış",
+  "startGameNow": "Oyunu şimdi başlat?",
+  "startGameNowTooltip": "Hiçbir oyuncuya atanmamış birimler, o birimlerle aynı takımdaki bağlı oyuncular arasında eşit şekilde bölüştürülür.",
   "user": "Kullanıcı"
 }

@@ -418,8 +418,17 @@ interface TerrainFilter {
 export interface InstructionObjectiveLayer extends BaseInstruction {
   /** Instruction type is ObjectiveLayer. */
   type: InstructionType.ObjectiveLayer;
-  /** Player that owns this objective layer. */
-  player: number;
+  /**
+   * Player slot that owns objectives placed by this layer. Team is taken from game
+   * {@link PlayerSetup} for that slot. If this is defined, {@link team} must not be.
+   */
+  player?: number;
+  /**
+   * Team that owns objectives placed by this layer. At game init, the owning player number
+   * is the first {@link PlayerSetup} in game order on this team. If this is defined,
+   * {@link player} must not be.
+   */
+  team?: number;
   /** Type of objective that this objective layer can place. */
   objectiveType: ObjectiveType;
   /** Optional - Number between 0 and 100 indicating the chance of this objective layer being placed. */

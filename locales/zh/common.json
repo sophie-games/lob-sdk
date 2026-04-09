@@ -49,7 +49,6 @@
   "createNewGame": "创建新对局",
   "randomGameInfo": "在随机生成地图的对局中，游戏会使用你在对应模式里预先配置的军队。你可以在<0>军队配置</0>里查看并管理你的军队配置。如果你还没有创建任何军队配置，游戏会按默认方案给你提供配置。",
   "selectGameMode": "从以下选项中选择游戏模式。",
-  "quickMatchmaking": "快速匹配",
   "ranked": "排位模式",
   "rankedTooltip": "历史不会记住谨慎者。如果你有勇气把自己的 Elo 置于火线上，就勾选此框。",
   "unranked": "非排位",
@@ -81,6 +80,8 @@
   },
   "battleType": "战斗规模",
   "matchmaking": "匹配",
+  "addMatchmakingConfig": "添加匹配配置",
+  "matchmakingModeSwitchWarning": "快速和慢速配置不能同时发送。如果您更改为{{mode}}模式，其他配置将被重置。您要继续吗？",
   "matchmakingDescription": "匹配模式下能让你快速找到一个随机的对手，并使用预先配置好的军队战斗。",
   "requiredInMatchmakingQueue": "始终在匹配队列中",
   "requiredScenarioBadge": "必选",
@@ -331,7 +332,8 @@
   },
   "needsUpdateModal": {
     "title": "需要更新",
-    "message": "全新版本的LoB已经发布！请更新到最新版本以继续在线游玩。"
+    "message": "全新版本的LoB已经发布！请更新到最新版本以继续在线游玩。",
+    "versionDetails": "客户端：{{client}} · 服务器：{{server}}"
   },
   "update": "更新！",
   "yourArmyCompositionsFor": "选择要调整哪个规模下的军队配置",
@@ -537,7 +539,7 @@
     "p1": {
       "sent": "指令已发送到服务器。",
       "received": "服务器已接收指令。",
-      "processed": "服务器已处理指令。现在请等待其它玩家作出行动。"
+      "processed": "服务器已处理指令。"
     },
     "p2": "{{value}}秒后检查更新",
     "b": "立刻检查"
@@ -569,7 +571,6 @@
     "matchingWhenAvailable": "你在大厅中。找到可用玩家后我们会为你匹配。",
     "searchingForPlayer": "正在为你寻找其他玩家",
     "leaderboard": "排行榜",
-    "loadingArenas": "正在加载竞技场…",
     "noArenas": "没有进行中或已安排的竞技场。",
     "failedToLoadArenas": "加载竞技场失败",
     "failedToRejoin": "重新加入失败",
@@ -594,6 +595,7 @@
     "invalidEra": "时代无效",
     "invalidGameTimePreset": "时间预设无效",
     "invalidScenarioName": "剧本无效",
+    "invalidBattleType": "无效的战斗类型",
     "createArenaError": "创建竞技场失败",
     "joinOnlyWhenActive": "只能加入进行中的竞技场；请等待开始。",
     "activeArenaBanner": "竞技场已开放！立即加入竞技。",
@@ -613,7 +615,9 @@
     "ruleDurationTooltip": "竞技场的总时长。结束后，排行榜将被最终确定。",
     "ruleMaxGamesTooltip": "你在此竞技场中可进行的最大对局数。",
     "ruleNoRepeatTooltip": "在此竞技场中，你不会与同一位玩家匹配两次。",
-    "ruleDurationRemainingTooltip": "距离竞技场结束的剩余时间。"
+    "ruleDurationRemainingTooltip": "距离竞技场结束的剩余时间。",
+    "rejoinQuestion": "是否要重新加入竞技场？您还剩 {{count}} 场比赛。",
+    "rejoinTitle": "重新加入竞技场"
   },
   "open": "开放",
   "closed": "已关闭",
@@ -744,6 +748,8 @@
   "invitationCopied": "链接已复制！把它发给好友吧。",
   "inviteFriend": "邀请朋友",
   "checkStarted": "检查是否已开始",
+  "startGameNow": "立即开始游戏？",
+  "startGameNowTooltip": "未分配给任何玩家的单位将在与这些单位同队、且已连接的玩家之间平均分配。",
   "errorWhenSubmittingOrders": "提交指令时出现错误",
   "syncGame": "同步对局",
   "copyLogs": "复制日志",
@@ -846,8 +852,6 @@
   "banned": "封禁",
   "baseAmmo": "基础弹药",
   "range": "距离",
-  "quickPlay": "快速游戏",
-  "quickPlayWithCount": "快速游戏（{{count}}）",
   "show": "显示",
   "hide": "隐藏",
   "discord": {

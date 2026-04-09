@@ -110,6 +110,7 @@ export class NapoleonicBot implements INapoleonicBot {
     }
 
     const myUnits = this._getMyUnits();
+    const allyUnits = this._getAllyUnits();
     const enemies = this._getEnemyUnits();
 
     const turnSubmission: TurnSubmission = {
@@ -246,7 +247,8 @@ export class NapoleonicBot implements INapoleonicBot {
       const strategyContext: NapoleonicBotStrategyContext = {
         game: this._game,
         visibleEnemies: enemies,
-        allyUnits: myUnits, // passing all global units for threat detection
+        myUnits,
+        allyUnits,
         orders,
         formationChanges,
         formationCenter,
@@ -405,6 +407,12 @@ export class NapoleonicBot implements INapoleonicBot {
     return this._game
       .getUnits()
       .filter((unit) => unit.player === this._playerNumber);
+  }
+
+  private _getAllyUnits() {
+    return this._game
+      .getUnits()
+      .filter((unit) => unit.team === this._team);
   }
 
   private _getEnemyUnits() {

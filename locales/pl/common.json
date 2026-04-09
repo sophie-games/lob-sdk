@@ -50,7 +50,6 @@
   "randomGameInfo": "Dla losowo wygenerowanych partii, gra użyje stworzonych przez Ciebie armii do wybranego trybu bitwy. Możesz zobaczyć i edytować swoje armie w <0>Układzie Armii</0>. Jeżeli nie stworzyłeś(łaś) jeszcze armii do danego trybu, użyta będzie domyślna armia.",
   "selectGameMode": "Wybierz tryb gry z poniższych opcji.",
   "or": "Albo",
-  "quickMatchmaking": "Szybkie Dopasowanie",
   "ranked": "Rankingowe",
   "rankedTooltip": "Historia nie pamięta ostrożnych. Zaznacz to pole, jeśli masz odwagę wystawić swoje Elo na linię ognia.",
   "unranked": "Nierankingowe",
@@ -81,6 +80,8 @@
   },
   "battleType": "Tryb bitwy",
   "matchmaking": "Losowa Partia",
+  "addMatchmakingConfig": "Dodaj konfigurację matchmakingu",
+  "matchmakingModeSwitchWarning": "Szybkie i wolne konfiguracje nie mogą być wpisane razem. Jeśli zmienisz tryb na {{mode}}, pozostałe konfiguracje zostaną zresetowane. Czy chcesz kontynuować?",
   "matchmakingDescription": "Tryb Losowa Partia pozwala na szybkie stworzenie partii z losowymi graczami używając wcześniej ustalonych ustawień.",
   "requiredInMatchmakingQueue": "Zawsze w kolejce",
   "requiredScenarioBadge": "Wymagane",
@@ -303,7 +304,8 @@
   },
   "needsUpdateModal": {
     "title": "Wymagana Aktualizacja",
-    "message": "Nowa wersja Lines of Battle jest dostępna! Proszę zaktualizować do najnowszej wersji by móc grać online."
+    "message": "Nowa wersja Lines of Battle jest dostępna! Proszę zaktualizować do najnowszej wersji by móc grać online.",
+    "versionDetails": "Klient: {{client}} · Serwer: {{server}}"
   },
   "update": "Aktualizacja!",
   "yourArmyCompositionsFor": "Kompozycja Twojej armii dla: ",
@@ -511,7 +513,7 @@
     "p1": {
       "sent": "Rozkazy wysłane do serwera.",
       "received": "Rozkazy otrzymane przez serwer.",
-      "processed": "Rozkazy przetworzone przez serwer. Teraz poczekaj, aż inni wykonają swój ruch."
+      "processed": "Rozkazy przetworzone przez serwer."
     },
     "p2": "Aktualizacja rozkazów za {{value}}s",
     "b": "Aktualizowanie rozkazów"
@@ -544,7 +546,6 @@
     "matchingWhenAvailable": "Jesteś na lobby. Dopasujemy cię z innym dostępnym graczem, gdy któregoś znajdziemy.",
     "searchingForPlayer": "Szukam innego gracza dla ciebie",
     "leaderboard": "Ranking",
-    "loadingArenas": "Ładowanie aren…",
     "noArenas": "Brak aktywnych ani zaplanowanych aren.",
     "failedToLoadArenas": "Nie udało się załadować aren",
     "failedToRejoin": "Nie udało się dołączyć ponownie",
@@ -569,6 +570,7 @@
     "invalidEra": "Nieprawidłowa era",
     "invalidGameTimePreset": "Nieprawidłowy preset czasu",
     "invalidScenarioName": "Nieprawidłowy scenariusz",
+    "invalidBattleType": "Nieprawidłowy typ bitwy",
     "createArenaError": "Nie udało się utworzyć areny",
     "joinOnlyWhenActive": "Możesz dołączyć tylko do aktywnych aren; poczekaj na start.",
     "activeArenaBanner": "Arena jest otwarta! Dołącz i rywalizuj.",
@@ -588,7 +590,9 @@
     "ruleDurationTooltip": "Całkowity czas trwania areny. Po jej zakończeniu ranking zostaje zatwierdzony.",
     "ruleMaxGamesTooltip": "Maksymalna liczba gier, jakie możesz rozegrać na tej arenie.",
     "ruleNoRepeatTooltip": "Na tej arenie nie zostaniesz dobrany do tego samego gracza dwa razy.",
-    "ruleDurationRemainingTooltip": "Pozostały czas do zakończenia areny."
+    "ruleDurationRemainingTooltip": "Pozostały czas do zakończenia areny.",
+    "rejoinQuestion": "Czy chcesz ponownie wrócić na arenę? Pozostało ci {{count}} meczów.",
+    "rejoinTitle": "Wróć do areny"
   },
   "open": "Otwarty",
   "closed": "Zamknięty",
@@ -710,6 +714,8 @@
   "invitationCopied": "Link skopiowany, wyślij go znajomemu.",
   "inviteFriend": "Zaproś znajomego",
   "checkStarted": "Zobacz czy się rozpoczęło",
+  "startGameNow": "Rozpocząć grę teraz?",
+  "startGameNowTooltip": "Jednostki nieprzypisane do żadnego gracza zostaną równomiernie podzielone między połączonych graczy z tej samej drużyny co te jednostki.",
   "errorWhenSubmittingOrders": "Błąd przy wysyłaniu rozkazów",
   "syncGame": "Synchronizuj grę",
   "copyLogs": "Skopiuj logi",
@@ -759,8 +765,6 @@
   "banned": "Zablokowany",
   "baseAmmo": "Podstawowa amunicja",
   "range": "Zasięg",
-  "quickPlay": "Szybka gra",
-  "quickPlayWithCount": "Szybka gra ({{count}})",
   "discord": {
     "link": "Połącz Discord",
     "unlink": "Rozłącz Discord",

@@ -1,3 +1,15 @@
 {
-  "USER_REGISTERED": "Votre inscription est terminée ! Vérifiez votre boîte de réception pour un lien de confirmation. Si vous ne le trouvez pas immédiatement, vérifiez votre dossier de spam."
+  "USER_REGISTERED": "Votre inscription est terminée ! Vérifiez votre boîte de réception pour un lien de confirmation. Si vous ne le trouvez pas immédiatement, vérifiez votre dossier de spam.",
+  "NOT_CUSTOM_GAME": "Seules les parties personnalisées peuvent être lancées avant que le salon soit plein.",
+  "GAME_ALREADY_STARTED": "Cette partie a déjà commencé.",
+  "GAME_ALREADY_FINISHED": "Cette partie est déjà terminée.",
+  "NOT_GAME_CREATOR": "Seul le créateur de la partie peut la lancer avant l'heure.",
+  "MISSING_TEAM_PLAYERS": "Au moins un joueur doit avoir rejoint chaque équipe avant de pouvoir lancer.",
+  "GAME_DOES_NOT_EXIST": "Cette partie n'existe plus.",
+  "ERROR_STARTING_GAME": "Un problème est survenu au démarrage de la partie. Veuillez réessayer.",
+  "ORDERS_ALREADY_SUBMITTED": "Les ordres pour ce tour ont déjà été reçus.",
+  "ORDERS_STALE_TURN": "Le tour est déjà passé. Veuillez synchroniser la partie.",
+  "ORDERS_GAME_NOT_ACTIVE": "Cette partie n'est pas active.",
+  "ORDERS_NOT_ACCEPTED": "Les ordres n'ont pas pu être envoyés. Veuillez réessayer.",
+  "ERROR_SUBMITTING_ORDERS": "Un problème est survenu lors de l'envoi des ordres. Veuillez réessayer."
 }

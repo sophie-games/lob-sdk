@@ -437,7 +437,7 @@ export class InfantryStrategy implements NapoleonicBotStrategy {
       if (eGroup === "skirmishers") {
         const isolationRadius = 160;
         const isSupported = visibleEnemies.some((other) => {
-          if (other.id === e.id || other.player !== e.player) return false;
+          if (other.id === e.id || other.team !== e.team) return false;
           if (other.isRouting()) return false;
           return other.position.distanceTo(e.position) <= isolationRadius;
         });
@@ -564,7 +564,7 @@ export class InfantryStrategy implements NapoleonicBotStrategy {
             return false;
           }
 
-          if (ally.player !== unit.player || ally.id === unit.id) return false;
+          if (ally.team !== unit.team || ally.id === unit.id) return false;
           if (!isCoreUnit(ally)) return false;
           const relPos = ally.position.subtract(unit.position);
           return (

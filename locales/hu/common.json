@@ -49,7 +49,6 @@
   "randomGameInfo": "A véletlenszerűen generált pályákon az általad adott játékmódra előre meghatározott seregek állnak rendelkezésedre. A seregedet a <0>Seregek összetételénél</0> tudod módosítani és megtekinteni. Ha még nem állítottál be speciális összeállítást, az alapból beállított sereggel kell játszanod.",
   "selectGameMode": "Válassz az alábbi opciók közül!",
   "or": "Vagy",
-  "quickMatchmaking": "Gyors Párosítás",
   "ranked": "Rangsorolt",
   "rankedTooltip": "A történelem nem emlékszik az óvatosakra. Jelöld be ezt, ha van bátorságod tűzvonalba tenni az Elódat.",
   "unranked": "Nem Rangsorolt",
@@ -80,6 +79,8 @@
   },
   "battleType": "Csata típusa",
   "matchmaking": "Meccskeresés",
+  "addMatchmakingConfig": "Meccskeresési beállítás hozzáadása",
+  "matchmakingModeSwitchWarning": "A gyors és lassú konfigurációk nem küldhetők el együtt. Ha átváltasz {{mode}} módra, a többi konfiguráció alaphelyzetbe áll. Szeretnéd folytatni?",
   "matchmakingDescription": "A meccskereső lehetővé teszi, hogy rövid idő alatt játékba került idegen játékosokkal.",
   "requiredInMatchmakingQueue": "Mindig a sorban",
   "requiredScenarioBadge": "Kötelező",
@@ -286,7 +287,8 @@
   },
   "needsUpdateModal": {
     "title": "Frissítés szükséges",
-    "message": "A LoB egy új verziója elérhető! Kérlek frissíts, hogy tovább élvezhesd a játékot."
+    "message": "A LoB egy új verziója elérhető! Kérlek frissíts, hogy tovább élvezhesd a játékot.",
+    "versionDetails": "Kliens: {{client}} · Szerver: {{server}}"
   },
   "update": "Frissítés!",
   "yourArmyCompositionsFor": "A sereged összetétele a következő módra: ",
@@ -439,7 +441,7 @@
     "p1": {
       "sent": "Parancsok elküldve a szervernek.",
       "received": "Parancsok megérkeztek a szerverhez.",
-      "processed": "Parancsok feldolgozva a szerver által. Most várj a többi játékos lépésére."
+      "processed": "Parancsok feldolgozva a szerver által."
     },
     "p2": "Ellenfél parancsainak ellenőrzése {{value}} másodperc múlva",
     "b": "Most ellenőriz"
@@ -466,7 +468,6 @@
     "matchingWhenAvailable": "A lobbyban vagy. Párosítani fogunk egy másik elérhető játékossal, amint találunk egyet.",
     "searchingForPlayer": "Másik játékost keresünk neked",
     "leaderboard": "Ranglista",
-    "loadingArenas": "Arénák betöltése…",
     "noArenas": "Nincs aktív vagy ütemezett aréna.",
     "failedToLoadArenas": "Arénák betöltése sikertelen",
     "failedToRejoin": "Újracsatlakozás sikertelen",
@@ -491,6 +492,7 @@
     "invalidEra": "Érvénytelen korszak",
     "invalidGameTimePreset": "Érvénytelen idő előbeállítás",
     "invalidScenarioName": "Érvénytelen forgatókönyv",
+    "invalidBattleType": "Érvénytelen csatatípus",
     "createArenaError": "Aréna létrehozása sikertelen",
     "joinOnlyWhenActive": "Csak aktív arénákhoz csatlakozhatsz; várj a kezdésre.",
     "activeArenaBanner": "Nyitva van egy aréna! Csatlakozz és versenyezz.",
@@ -510,7 +512,9 @@
     "ruleDurationTooltip": "Az aréna teljes időtartama. Amikor véget ér, a ranglista véglegesül.",
     "ruleMaxGamesTooltip": "Ebben az arénában ennyi játékot játszhatsz legfeljebb.",
     "ruleNoRepeatTooltip": "Ebben az arénában nem kerülsz össze ugyanazzal a játékossal kétszer.",
-    "ruleDurationRemainingTooltip": "A hátralévő idő az aréna végéig."
+    "ruleDurationRemainingTooltip": "A hátralévő idő az aréna végéig.",
+    "rejoinQuestion": "Szeretnél újra csatlakozni az arénához? Még {{count}} meccsed van hátra.",
+    "rejoinTitle": "Újracsatlakozás az arénához"
   },
   "era": "Korszak",
   "hasPassword": "Jelszóval védett",
@@ -564,8 +568,6 @@
     "unknown": "Ismeretlen ok."
   },
   "range": "Távolság",
-  "quickPlay": "Gyors játék",
-  "quickPlayWithCount": "Gyors játék ({{count}})",
   "discord": {
     "link": "Discord összekapcsolása",
     "unlink": "Discord leválasztása",
@@ -612,5 +614,7 @@
   "goHome": "Kezdőlap",
   "sendFailed": "Az üzenet küldése sikertelen",
   "chatUnreadCount": "{{count}} olvasatlan",
+  "startGameNow": "Elindítod a játékot most?",
+  "startGameNowTooltip": "Azok az egységek, amelyek nincsenek játékoshoz rendelve, egyenletesen oszlanak meg azok között a csatlakozott játékosok között, akik ugyanabban a csapatban vannak, mint ezek az egységek.",
   "user": "Felhasználó"
 }

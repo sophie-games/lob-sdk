@@ -38,7 +38,6 @@
   "randomGameInfo": "Dans les parties générées aléatoirement, vous utiliserez l'ordre de bataille que vous avez créé pour ce type de bataille. Vous pouvez voir et gérez la composition de vos armées dans le menu <0>Ordre de bataille</0>. Si vous n'avez pas encore créé d'ordre de bataille, le jeu en sélectionnera une par défaut.",
   "selectGameMode": "Sélectionner le mode de jeu grâce aux options ci-dessous.",
   "or": "Ou",
-  "quickMatchmaking": "Appariement Rapide",
   "ranked": "Classé",
   "rankedTooltip": "L'histoire ne se souvient pas des prudents. Coche cette case si tu as le courage de mettre ton Elo sur la ligne de feu.",
   "unranked": "Non Classé",
@@ -69,6 +68,8 @@
   },
   "battleType": "Type de bataille",
   "matchmaking": "Partie classée",
+  "addMatchmakingConfig": "Ajouter une configuration d'appariement",
+  "matchmakingModeSwitchWarning": "Les configurations rapides et lentes ne peuvent pas être envoyées ensemble. Si vous passez au mode {{mode}}, les autres configurations seront réinitialisées. Voulez-vous continuer ?",
   "matchmakingDescription": "Le mode classé vous permet de rejoindre une bataille contre des joueurs inconnus en utilisant des réglages prédéfinis.",
   "requiredInMatchmakingQueue": "Toujours dans la file",
   "requiredScenarioBadge": "Requis",
@@ -275,7 +276,8 @@
   },
   "needsUpdateModal": {
     "title": "Mise à jour requise",
-    "message": "Une nouvelle version de Lob est disponible! Veuillez installer la dernière version pour pouvoir jouer en ligne."
+    "message": "Une nouvelle version de Lob est disponible! Veuillez installer la dernière version pour pouvoir jouer en ligne.",
+    "versionDetails": "Client : {{client}} · Serveur : {{server}}"
   },
   "update": "Mise à jour!",
   "yourArmyCompositionsFor": "Votre ordre de bataille pour",
@@ -490,7 +492,7 @@
     "p1": {
       "sent": "Ordres envoyés au serveur.",
       "received": "Ordres reçus par le serveur.",
-      "processed": "Ordres traités par le serveur. Maintenant, attendez que les autres fassent leur mouvement."
+      "processed": "Ordres traités par le serveur."
     },
     "p2": "Vérification des mises à jour dans {{value}} secondes",
     "b": "Vérifier maintenant"
@@ -532,7 +534,6 @@
     "matchingWhenAvailable": "Vous êtes dans le lobby. Nous vous mettrons en relation avec un autre joueur disponible dès que nous en trouverons un.",
     "searchingForPlayer": "Recherche d'un autre joueur pour vous",
     "leaderboard": "Classement",
-    "loadingArenas": "Chargement des arènes…",
     "noArenas": "Aucune arène active ou programmée.",
     "failedToLoadArenas": "Échec du chargement des arènes",
     "failedToRejoin": "Échec de la reconnexion",
@@ -557,6 +558,7 @@
     "invalidEra": "Époque invalide",
     "invalidGameTimePreset": "Préréglage de temps invalide",
     "invalidScenarioName": "Scénario invalide",
+    "invalidBattleType": "Type de bataille invalide",
     "createArenaError": "Échec de la création d'arène",
     "joinOnlyWhenActive": "Vous ne pouvez rejoindre que les arènes actives ; attendez le début.",
     "activeArenaBanner": "Une arène est ouverte ! Rejoignez et competez.",
@@ -576,7 +578,9 @@
     "ruleDurationTooltip": "La durée totale de l'arène. Une fois terminée, le classement est finalisé.",
     "ruleMaxGamesTooltip": "Le nombre maximum de parties que vous pouvez jouer dans cette arène.",
     "ruleNoRepeatTooltip": "Vous ne serez pas associé deux fois au même joueur dans cette arène.",
-    "ruleDurationRemainingTooltip": "Le temps restant avant la fin de l'arène."
+    "ruleDurationRemainingTooltip": "Le temps restant avant la fin de l'arène.",
+    "rejoinQuestion": "Souhaitez-vous réintégrer l'arène ? Il vous reste {{count}} matchs.",
+    "rejoinTitle": "Revenir à l'arène"
   },
   "hasPassword": "A un mot de passe",
   "optional": "Optionnel",
@@ -622,8 +626,6 @@
   "banned": "Banni",
   "baseAmmo": "Munitions de base",
   "range": "Portée",
-  "quickPlay": "Jeu rapide",
-  "quickPlayWithCount": "Jeu rapide ({{count}})",
   "discord": {
     "link": "Lier Discord",
     "unlink": "Délier Discord",
@@ -670,5 +672,7 @@
   "goHome": "Retourner à l'accueil",
   "sendFailed": "Échec de l'envoi du message",
   "chatUnreadCount": "{{count}} non lu(s)",
+  "startGameNow": "Lancer la partie maintenant ?",
+  "startGameNowTooltip": "Les unités non assignées à un joueur seront réparties équitablement entre les joueurs connectés de la même équipe que ces unités.",
   "user": "Utilisateur"
 }

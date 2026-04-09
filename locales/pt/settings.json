@@ -76,6 +76,9 @@
     "title": "Mostrar grade",
     "description": "Mostra uma sobreposição de grade de blocos no mapa."
   },
+  "gridOpacity": {
+    "title": "Opacidade da grade"
+  },
   "showDebugShapes": {
     "title": "Mostrar formas de depuração",
     "description": "Mostra formas de depuração nas unidades incluindo formas de colisão e pontos de verificação de terreno."
@@ -105,6 +108,10 @@
   "straightLineTolerance": "Tolerância de linha reta",
   "spaceBetweenUnits": "Espaço entre unidades",
   "spaceBetweenLines": "Espaço entre linhas",
+  "idleSelectionIncludeCarryoverOrders": {
+    "title": "A seleção de ociosas inclui ordens inalteradas",
+    "description": "Desligado: apenas unidades sem ordens. Ligado: também unidades que ainda têm a ordem do turno anterior se você não a alterou neste turno."
+  },
   "keybindings": {
     "title": "Atalhos de teclado",
     "pressAKey": "Pressione uma tecla...",

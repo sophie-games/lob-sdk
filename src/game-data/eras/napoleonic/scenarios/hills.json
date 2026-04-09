@@ -84,7 +84,7 @@
 
     {
       "type": "OBJECTIVE_LAYER",
-      "player": 1,
+      "team": 1,
       "xBounds": { "min": 20, "max": 100 },
       "yBounds": { "min": 0, "max": 100 },
       "terrainFilter": {
@@ -111,7 +111,7 @@
     },
     {
       "type": "OBJECTIVE_LAYER",
-      "player": 2,
+      "team": 2,
       "xBounds": { "min": 20, "max": 100 },
       "yBounds": { "min": 0, "max": 100 },
       "terrainFilter": {

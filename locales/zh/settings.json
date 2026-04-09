@@ -87,6 +87,9 @@
     "title": "显示网格",
     "description": "在地图上显示瓦片网格叠加层。"
   },
+  "gridOpacity": {
+    "title": "网格不透明度"
+  },
   "showDebugShapes": {
     "title": "显示调试图形",
     "description": "显示调试所需的图形，例如碰撞体积和地形判定点。"
@@ -132,6 +135,10 @@
   "spaceBetweenLines": "前后列之间的间距",
   "showSelectIdleUnitButton": {
     "title": "显示选择闲置单位的按钮"
+  },
+  "idleSelectionIncludeCarryoverOrders": {
+    "title": "待选空闲单位包含未更改的命令",
+    "description": "关：仅无命令的单位。开：若本回合未修改，仍保留上回合命令的单位也会被选中。"
   },
   "showChat": {
     "title": "显示聊天栏"

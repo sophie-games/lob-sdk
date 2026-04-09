@@ -37,6 +37,7 @@ export class ObjectiveLayerExecutor {
 
     const {
       player,
+      team,
       objectiveType,
       chance,
       terrainFilter,
@@ -199,11 +200,17 @@ export class ObjectiveLayerExecutor {
           }
         }
 
-        objectives.push({
+        const dto: ObjectiveDto<false> = {
           pos: { x: positionX, y: positionY },
-          player: player,
           type: objectiveType,
-        });
+        };
+        if (team !== undefined) {
+          dto.team = team;
+        }
+        if (player !== undefined) {
+          dto.player = player;
+        }
+        objectives.push(dto);
         objectivesAdded++;
         if (objectivesAdded >= maxObj) {
           return;

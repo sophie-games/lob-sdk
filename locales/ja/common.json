@@ -49,7 +49,6 @@
   "randomGameInfo": "ランダム生成ゲームでは、選択した戦闘モードの軍編成が使用されます。「軍編成」で管理・確認できます。軍編成が未作成の場合、デフォルトの編成が使用されます。",
   "selectGameMode": "以下のオプションからゲームモードを選択してください。",
   "or": "または",
-  "quickMatchmaking": "クイックマッチメイキング",
   "ranked": "ランク戦",
   "rankedTooltip": "歴史は慎重な者を覚えていない。あなたのEloを火線にさらす勇気があるなら、このチェックを入れてください。",
   "unranked": "非ランク",
@@ -80,6 +79,8 @@
   },
   "battleType": "戦闘タイプ",
   "matchmaking": "マッチメイキング",
+  "addMatchmakingConfig": "マッチメイキング設定を追加",
+  "matchmakingModeSwitchWarning": "高速と低速の設定を同時に送信することはできません。{{mode}}モードに変更すると、他の設定はリセットされます。続行しますか？",
   "matchmakingDescription": "マッチメイキングモードでは、設定済みの条件でランダムなプレイヤーとすぐに対戦できます。",
   "requiredInMatchmakingQueue": "常にマッチング対象",
   "requiredScenarioBadge": "必須",
@@ -286,7 +287,8 @@
   },
   "needsUpdateModal": {
     "title": "更新が必要です",
-    "message": "LoBの新しいバージョンが利用可能です！オンラインでプレイを続けるために最新バージョンに更新してください。"
+    "message": "LoBの新しいバージョンが利用可能です！オンラインでプレイを続けるために最新バージョンに更新してください。",
+    "versionDetails": "クライアント：{{client}} · サーバー：{{server}}"
   },
   "update": "更新！",
   "yourArmyCompositionsFor": "あなたの軍編成: ",
@@ -486,7 +488,7 @@
     "p1": {
       "sent": "サーバーに命令が送信されました。",
       "received": "サーバーが命令を受信しました。",
-      "processed": "サーバーが命令を処理しました。他のプレイヤーが手を打つまでお待ちください。"
+      "processed": "サーバーが命令を処理しました。"
     },
     "p2": "{{value}}秒後に相手の命令を確認中",
     "b": "今すぐ確認"
@@ -553,7 +555,6 @@
     "matchingWhenAvailable": "ロビーにいます。他のプレイヤーが見つかり次第、マッチングします。",
     "searchingForPlayer": "他のプレイヤーを探しています",
     "leaderboard": "リーダーボード",
-    "loadingArenas": "アリーナを読み込み中…",
     "noArenas": "アクティブまたは予定されているアリーナはありません。",
     "failedToLoadArenas": "アリーナの読み込みに失敗しました",
     "failedToRejoin": "再参加に失敗しました",
@@ -578,6 +579,7 @@
     "invalidEra": "無効な時代",
     "invalidGameTimePreset": "無効な時間プリセット",
     "invalidScenarioName": "無効なシナリオ",
+    "invalidBattleType": "無効な戦闘タイプ",
     "createArenaError": "アリーナの作成に失敗しました",
     "joinOnlyWhenActive": "参加できるのはアクティブなアリーナのみです。開始をお待ちください。",
     "activeArenaBanner": "アリーナがオープンしました！今すぐ参加して競い合いましょう。",
@@ -597,7 +599,9 @@
     "ruleDurationTooltip": "アリーナの合計開催時間です。終了すると、ランキングが確定します。",
     "ruleMaxGamesTooltip": "このアリーナでプレイできる最大試合数です。",
     "ruleNoRepeatTooltip": "このアリーナでは同じプレイヤーと2回マッチしません。",
-    "ruleDurationRemainingTooltip": "アリーナ終了までの残り時間です。"
+    "ruleDurationRemainingTooltip": "アリーナ終了までの残り時間です。",
+    "rejoinQuestion": "アリーナに再参加しますか？あと{{count}}試合残っています。",
+    "rejoinTitle": "アリーナに再参加"
   },
   "era": "時代",
   "hasPassword": "パスワードあり",
@@ -609,8 +613,6 @@
   "banned": "禁止",
   "baseAmmo": "基本弾薬",
   "range": "射程",
-  "quickPlay": "クイックプレイ",
-  "quickPlayWithCount": "クイックプレイ ({{count}})",
   "discord": {
     "link": "Discordをリンク",
     "unlink": "Discordのリンクを解除",
@@ -657,5 +659,7 @@
   "goHome": "ホームに戻る",
   "sendFailed": "メッセージの送信に失敗しました",
   "chatUnreadCount": "{{count}}件の未読",
+  "startGameNow": "今すぐゲームを開始しますか？",
+  "startGameNowTooltip": "どのプレイヤーにも割り当てられていないユニットは、それらのユニットと同じチームの接続中プレイヤーに均等に振り分けられます。",
   "user": "ユーザー"
 }

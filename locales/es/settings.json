@@ -76,6 +76,9 @@
     "title": "Mostrar cuadrícula",
     "description": "Muestra una superposición de cuadrícula de baldosas en el mapa."
   },
+  "gridOpacity": {
+    "title": "Opacidad de la cuadrícula"
+  },
   "showDebugShapes": {
     "title": "Mostrar formas de depuración",
     "description": "Muestra formas de depuración en las unidades incluyendo formas de colisión y puntos de verificación de terreno."
@@ -105,6 +108,10 @@
   "straightLineTolerance": "Tolerancia de línea recta",
   "spaceBetweenUnits": "Espacio entre unidades",
   "spaceBetweenLines": "Espacio entre líneas",
+  "idleSelectionIncludeCarryoverOrders": {
+    "title": "La selección de inactivos incluye órdenes sin cambios",
+    "description": "Desactivado: solo unidades sin órdenes. Activado: también unidades que aún tienen la orden del turno anterior si no la cambiaste en este turno."
+  },
   "showChat": {
     "title": "Mostrar chat"
   },

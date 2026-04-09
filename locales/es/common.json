@@ -38,7 +38,6 @@
   "randomGameInfo": "Para los juegos generados aleatoriamente, el juego utilizará el ejército que has creado para el modo de batalla seleccionado. Puedes ver y gestionar tus ejércitos en las <0>Composiciones de Ejército</0>. Si no has creado ejércitos para ese modo aún, se usará un ejército predeterminado.",
   "selectGameMode": "Selecciona el modo de juego de las opciones a continuación.",
   "or": "O",
-  "quickMatchmaking": "Emparejamiento Rápido",
   "ranked": "Clasificado",
   "rankedTooltip": "La historia no recuerda a los prudentes. Marca esta casilla si tienes el coraje de poner tu Elo en la línea de fuego.",
   "unranked": "No Clasificado",
@@ -69,6 +68,8 @@
   },
   "battleType": "Tipo de batalla",
   "matchmaking": "Emparejamiento",
+  "addMatchmakingConfig": "Agregar configuración de matchmaking",
+  "matchmakingModeSwitchWarning": "Las configuraciones rápidas (fast) y lentas (slow) no se pueden enviar juntas. Si cambias a modo {{mode}} se resetearán las configuraciones. ¿Deseas hacerlo?",
   "matchmakingDescription": "El modo de emparejamiento te permite unirte rápidamente a un juego con jugadores aleatorios usando configuraciones predefinidas.",
   "requiredInMatchmakingQueue": "Siempre en la cola",
   "requiredScenarioBadge": "Obligatorio",
@@ -288,7 +289,8 @@
   },
   "needsUpdateModal": {
     "title": "Requiere actualización",
-    "message": "Hay una nueva versión de LoB disponible! Actualizá la app para seguir jugando en línea."
+    "message": "Hay una nueva versión de LoB disponible! Actualizá la app para seguir jugando en línea.",
+    "versionDetails": "Cliente: {{client}} · Servidor: {{server}}"
   },
   "update": "Actualizar!",
   "yourArmyCompositionsFor": "Tu composiciones de ejército para",
@@ -502,7 +504,7 @@
     "p1": {
       "sent": "Órdenes enviadas al servidor.",
       "received": "Órdenes recibidas por el servidor.",
-      "processed": "Órdenes procesadas por el servidor. Ahora, espera a que los demás hagan su movimiento."
+      "processed": "Órdenes procesadas por el servidor."
     },
     "p2": "Chequeando las órdenes del oponente en {{value}} segundos",
     "b": "Chequear ahora"
@@ -535,7 +537,6 @@
     "matchingWhenAvailable": "Estás en el lobby. Te emparejaremos con otro jugador disponible cuando encontremos uno.",
     "searchingForPlayer": "Buscando otro jugador para vos",
     "leaderboard": "Clasificación",
-    "loadingArenas": "Cargando arenas…",
     "noArenas": "No hay arenas activas o programadas.",
     "failedToLoadArenas": "Error al cargar arenas",
     "failedToRejoin": "Error al volver a unirse",
@@ -560,6 +561,7 @@
     "invalidEra": "Época no válida",
     "invalidGameTimePreset": "Preset de tiempo no válido",
     "invalidScenarioName": "Escenario no válido",
+    "invalidBattleType": "Tipo de batalla no válido",
     "createArenaError": "Error al crear arena",
     "joinOnlyWhenActive": "Solo puedes unirte a arenas activas; espera a que comience.",
     "activeArenaBanner": "¡Hay una arena abierta! Únete y compite.",
@@ -579,7 +581,9 @@
     "ruleDurationTooltip": "La duración total de la arena. Una vez finalizada, se cierra la clasificación.",
     "ruleMaxGamesTooltip": "El número máximo de partidas que puedes jugar en esta arena.",
     "ruleNoRepeatTooltip": "No te enfrentarás al mismo jugador dos veces en esta arena.",
-    "ruleDurationRemainingTooltip": "El tiempo restante hasta que finalice la arena."
+    "ruleDurationRemainingTooltip": "El tiempo restante hasta que finalice la arena.",
+    "rejoinQuestion": "¿Quieres reincorporarte a la arena? Te quedan {{count}} partidas.",
+    "rejoinTitle": "Volver a la arena"
   },
   "open": "Abierto",
   "closed": "Cerrado",
@@ -679,6 +683,8 @@
   "invitationCopied": "¡Enlace copiado! Envíalo a un amigo.",
   "inviteFriend": "Invitar a un amigo",
   "checkStarted": "Verificar si ha comenzado",
+  "startGameNow": "¿Empezar el juego ahora?",
+  "startGameNowTooltip": "Las unidades que no estén asignadas a ningún jugador se repartirán de forma equitativa entre los jugadores conectados del mismo equipo que esas unidades.",
   "serverUpdating": {
     "title": "Servidor en actualización",
     "message": "El servidor se está actualizando. Por favor, inténtalo de nuevo en unos minutos."
@@ -724,8 +730,6 @@
   "banned": "Baneado",
   "baseAmmo": "Munición base",
   "range": "Alcance",
-  "quickPlay": "Juego rápido",
-  "quickPlayWithCount": "Juego rápido ({{count}})",
   "show": "Mostrar",
   "hide": "Ocultar",
   "discord": {

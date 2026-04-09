@@ -1,3 +1,15 @@
 {
-  "USER_REGISTERED": "La tua registrazione è completata! Controlla la tua email per un link di conferma. Se non lo trovi immediatamente, controlla la cartella dello spam."
+  "USER_REGISTERED": "La tua registrazione è completata! Controlla la tua email per un link di conferma. Se non lo trovi immediatamente, controlla la cartella dello spam.",
+  "NOT_CUSTOM_GAME": "Solo le partite personalizzate possono iniziare prima che la lobby sia piena.",
+  "GAME_ALREADY_STARTED": "Questa partita è già iniziata.",
+  "GAME_ALREADY_FINISHED": "Questa partita è già terminata.",
+  "NOT_GAME_CREATOR": "Solo il creatore della partita può avviarla in anticipo.",
+  "MISSING_TEAM_PLAYERS": "Prima di iniziare, almeno un giocatore deve essersi unito a ogni squadra.",
+  "GAME_DOES_NOT_EXIST": "Questa partita non esiste più.",
+  "ERROR_STARTING_GAME": "Si è verificato un errore durante l'avvio della partita. Riprova.",
+  "ORDERS_ALREADY_SUBMITTED": "Gli ordini per questo turno sono già stati ricevuti.",
+  "ORDERS_STALE_TURN": "Il turno è già avanzato. Sincronizza la partita.",
+  "ORDERS_GAME_NOT_ACTIVE": "Questa partita non è attiva.",
+  "ORDERS_NOT_ACCEPTED": "Impossibile inviare gli ordini. Riprova.",
+  "ERROR_SUBMITTING_ORDERS": "Si è verificato un errore durante l'invio degli ordini. Riprova."
 }

@@ -76,6 +76,9 @@
     "title": "Raster anzeigen",
     "description": "Zeigt ein Kachelraster-Overlay auf der Karte an."
   },
+  "gridOpacity": {
+    "title": "Rasterdeckkraft"
+  },
   "showDebugShapes": {
     "title": "Debug-Formen anzeigen",
     "description": "Zeigt Debug-Formen auf Einheiten an, einschließlich Kollisionsformen und Geländeprüfpunkten."
@@ -105,6 +108,10 @@
   "straightLineTolerance": "Geradlinigkeitstoleranz",
   "spaceBetweenUnits": "Abstand zwischen Einheiten",
   "spaceBetweenLines": "Abstand zwischen Linien",
+  "idleSelectionIncludeCarryoverOrders": {
+    "title": "Leerlaufauswahl schließt unveränderte Befehle ein",
+    "description": "Aus: nur Einheiten ohne Befehle. Ein: auch Einheiten, die noch den Befehl der letzten Runde haben, wenn Sie ihn in dieser Runde nicht geändert haben."
+  },
   "showChat": {
     "title": "Chat anzeigen"
   },

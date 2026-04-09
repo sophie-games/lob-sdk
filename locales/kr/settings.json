@@ -87,6 +87,9 @@
     "title": "그리드 표시",
     "description": "지도에 타일 그리드 오버레이를 표시합니다."
   },
+  "gridOpacity": {
+    "title": "그리드 불투명도"
+  },
   "showDebugShapes": {
     "title": "디버그 모양 표시",
     "description": "부대에 충돌 범위 및 지형 확인 지점을 포함한 디버그 모양을 표시합니다."
@@ -128,6 +131,10 @@
   "spaceBetweenLines": "선형진 간 공간",
   "showSelectIdleUnitButton": {
     "title": "유휴 부대 선택 버튼 표시"
+  },
+  "idleSelectionIncludeCarryoverOrders": {
+    "title": "대기 선택에 변경되지 않은 명령 포함",
+    "description": "끔: 명령이 없는 유닛만. 켬: 이번 턴에 바꾸지 않았다면 지난 턴 명령이 그대로인 유닛도 포함합니다."
   },
   "showChat": {
     "title": "채팅 보기"

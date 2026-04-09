@@ -87,6 +87,9 @@
     "title": "Hiển thị lưới",
     "description": "Hiển thị lớp phủ lưới ô vuông trên bản đồ."
   },
+  "gridOpacity": {
+    "title": "Độ mờ lưới"
+  },
   "showDebugShapes": {
     "title": "Hiển thị hình dạng debug",
     "description": "Hiển thị hình dạng debug trên các đơn vị bao gồm hình dạng va chạm và điểm kiểm tra địa hình."
@@ -128,6 +131,10 @@
   "spaceBetweenLines": "Khoảng cách giữa các hàng",
   "showSelectIdleUnitButton": {
     "title": "Hiển thị nút chọn đơn vị rảnh"
+  },
+  "idleSelectionIncludeCarryoverOrders": {
+    "title": "Chọn đơn vị rảnh gồm cả lệnh không đổi",
+    "description": "Tắt: chỉ đơn vị không có lệnh. Bật: cả đơn vị vẫn giữ lệnh lượt trước nếu bạn chưa sửa trong lượt này."
   },
   "showChat": {
     "title": "Hiển thị trò chuyện"

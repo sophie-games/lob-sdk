@@ -49,7 +49,6 @@
   "createNewGame": "새 경기 생성",
   "randomGameInfo": "무작위 생성 경기에 경우, 미리 생성한 선택한 전투 유형용 편제가 사용됩니다. <0>편제</0>에서 편제를 확인 및 관리할 수 있습니다. 선택한 전투 유형용 편제를 아직 생성하지 않았다면 기본 편제가 사용됩니다.",
   "selectGameMode": "아래에서 게임 유형을 선택하세요.",
-  "quickMatchmaking": "빠른 탐색",
   "ranked": "순위전",
   "unranked": "비순위전",
   "or": "또는",
@@ -81,6 +80,8 @@
   },
   "battleType": "전투 유형",
   "matchmaking": "경기 탐색",
+  "addMatchmakingConfig": "경기 탐색 설정 추가",
+  "matchmakingModeSwitchWarning": "빠른 모드와 느린 모드 설정을 동시에 보낼 수 없습니다. {{mode}} 모드로 변경하면 다른 설정이 초기화됩니다. 계속하시겠습니까?",
   "matchmakingDescription": "경기 탐색을 통해 미리 설정된 설정으로 무작위 플레이어와 빠르게 경기할 수 있습니다.",
   "requiredInMatchmakingQueue": "항상 대기열에 포함",
   "requiredScenarioBadge": "필수",
@@ -322,7 +323,8 @@
   },
   "needsUpdateModal": {
     "title": "업데이트 필요",
-    "message": "라오배의 새 버전이 출시되었습니다! 온라인 경기를 계속하려면 최신 버전으로 업데이트하세요."
+    "message": "라오배의 새 버전이 출시되었습니다! 온라인 경기를 계속하려면 최신 버전으로 업데이트하세요.",
+    "versionDetails": "클라이언트: {{client}} · 서버: {{server}}"
   },
   "update": "업데이트!",
   "yourArmyCompositionsFor": "편제",
@@ -527,7 +529,7 @@
     "p1": {
       "sent": "서버에 전달된 명령.",
       "received": "서버가 받은 명령.",
-      "processed": "서버에서 명령을 처리 중입니다. 상대의 명령이 처리될 때까지 대기하십시오."
+      "processed": "서버에서 명령이 처리되었습니다."
     },
     "p2": "{{value}}초 뒤 하달 여부 확인",
     "b": "지금 확인"
@@ -560,7 +562,6 @@
     "matchingWhenAvailable": "로비에 있습니다. 다른 플레이어를 찾는 대로 매칭해 드리겠습니다.",
     "searchingForPlayer": "다른 플레이어를 찾는 중입니다",
     "leaderboard": "리더보드",
-    "loadingArenas": "아레나 불러오는 중…",
     "noArenas": "진행 중이거나 예정된 아레나가 없습니다.",
     "failedToLoadArenas": "아레나 불러오기 실패",
     "failedToRejoin": "재참가 실패",
@@ -585,6 +586,7 @@
     "invalidEra": "잘못된 시대",
     "invalidGameTimePreset": "잘못된 시간 프리셋",
     "invalidScenarioName": "잘못된 시나리오",
+    "invalidBattleType": "잘못된 전투 유형",
     "createArenaError": "아레나 생성 실패",
     "joinOnlyWhenActive": "진행 중인 아레나에만 참가할 수 있습니다. 시작할 때까지 기다려 주세요.",
     "activeArenaBanner": "아레나가 열렸습니다! 지금 참가하여 경쟁하세요.",
@@ -604,7 +606,9 @@
     "ruleDurationTooltip": "아레나의 전체 진행 시간입니다. 종료되면 리더보드가 확정됩니다.",
     "ruleMaxGamesTooltip": "이 아레나에서 플레이할 수 있는 최대 게임 수입니다.",
     "ruleNoRepeatTooltip": "이 아레나에서는 같은 플레이어와 두 번 매칭되지 않습니다.",
-    "ruleDurationRemainingTooltip": "아레나가 끝날 때까지 남은 시간입니다."
+    "ruleDurationRemainingTooltip": "아레나가 끝날 때까지 남은 시간입니다.",
+    "rejoinQuestion": "아레나에 다시 참가하시겠습니까? 남은 매치는 {{count}}회입니다.",
+    "rejoinTitle": "아레나 다시 참가"
   },
   "open": "열기",
   "closed": "닫기",
@@ -735,6 +739,8 @@
   "invitationCopied": "링크가 복사되었습니다! 친구에게 보내세요.",
   "inviteFriend": "친구 초대",
   "checkStarted": "시작 여부 확인",
+  "startGameNow": "지금 게임을 시작할까요?",
+  "startGameNowTooltip": "플레이어에게 배정되지 않은 유닛은 해당 유닛과 같은 팀에 접속한 플레이어들에게 균등하게 나뉩니다.",
   "errorWhenSubmittingOrders": "명령 하달 중 오류",
   "syncGame": "게임 동기화",
   "copyLogs": "로그 복사",
@@ -834,8 +840,6 @@
   "banned": "차단됨",
   "baseAmmo": "기본 탄약",
   "range": "범위",
-  "quickPlay": "빠른 플레이",
-  "quickPlayWithCount": "빠른 플레이 ({{count}})",
   "discord": {
     "link": "Discord 연결",
     "unlink": "Discord 연결 해제",

@@ -50,7 +50,6 @@
   "randomGameInfo": "Untuk permainan yang dibuat secara acak, permainan akan menggunakan pasukan yang telah kamu buat untuk mode pertempuran yang dipilih. kamu dapat melihat dan mengelola pasukan kamu di <0>Army Compositions</0>. Jika kamu belum membuat pasukan apa pun untuk mode tersebut, pasukan default akan digunakan.",
   "selectGameMode": "Pilih mode permainan dari pilihan di bawah ini.",
   "or": "Atau",
-  "quickMatchmaking": "Pencocokan Cepat",
   "ranked": "Berperingkat",
   "rankedTooltip": "Sejarah tidak mengingat mereka yang berhati-hati. Centang kotak ini jika kamu punya keberanian untuk menaruh Elo-mu di garis tembak.",
   "unranked": "Tidak Berperingkat",
@@ -81,6 +80,8 @@
   },
   "battleType": "Jenis pertempuran",
   "matchmaking": "Pencarian Permainan",
+  "addMatchmakingConfig": "Tambah konfigurasi pencarian permainan",
+  "matchmakingModeSwitchWarning": "Konfigurasi cepat dan lambat tidak dapat dikirim bersamaan. Jika Anda mengubah ke mode {{mode}}, konfigurasi lainnya akan disetel ulang. Apakah Anda ingin melanjutkan?",
   "matchmakingDescription": "Pencarian Permainan memungkinkan kamu untuk dengan cepat bergabung dalam permainan dengan pemain acak menggunakan pengaturan yang telah ditentukan sebelumnya.",
   "requiredInMatchmakingQueue": "Selalu dalam antrean",
   "requiredScenarioBadge": "Wajib",
@@ -287,7 +288,8 @@
   },
   "needsUpdateModal": {
     "title": "Diperlukan pembaruan",
-    "message": "Versi baru LoB telah tersedia! Harap perbarui ke versi terbaru untuk terus bermain offline."
+    "message": "Versi baru LoB telah tersedia! Harap perbarui ke versi terbaru untuk terus bermain offline.",
+    "versionDetails": "Klien: {{client}} · Server: {{server}}"
   },
   "update": "Update!",
   "yourArmyCompositionsFor": "Komposisi pasukan kamu untuk",
@@ -490,7 +492,7 @@
     "p1": {
       "sent": "Perintah dikirim ke server.",
       "received": "Perintah diterima oleh server.",
-      "processed": "Perintah diproses oleh server. Sekarang, tunggu pemain lain untuk membuat perintah mereka."
+      "processed": "Perintah diproses oleh server."
     },
     "p2": "Cek pembeharuan dalam {{value}} detik",
     "b": "Cek Sekarang"
@@ -565,7 +567,6 @@
     "matchingWhenAvailable": "Anda di lobi. Kami akan mencocokkan Anda dengan pemain lain yang tersedia ketika kami menemukannya.",
     "searchingForPlayer": "Mencari pemain lain untuk Anda",
     "leaderboard": "Papan peringkat",
-    "loadingArenas": "Memuat arena...",
     "noArenas": "Tidak ada arena aktif atau terjadwal.",
     "failedToLoadArenas": "Gagal memuat arena",
     "failedToRejoin": "Gagal bergabung kembali",
@@ -590,6 +591,7 @@
     "invalidEra": "Era tidak valid",
     "invalidGameTimePreset": "Preset waktu tidak valid",
     "invalidScenarioName": "Skenario tidak valid",
+    "invalidBattleType": "Tipe pertempuran tidak valid",
     "createArenaError": "Gagal membuat arena",
     "joinOnlyWhenActive": "Kamu hanya bisa bergabung arena aktif; tunggu sampai dimulai.",
     "activeArenaBanner": "Arena terbuka! Bergabung dan berkompetisi sekarang.",
@@ -609,7 +611,9 @@
     "ruleDurationTooltip": "Durasi total arena. Setelah berakhir, papan peringkat akan difinalkan.",
     "ruleMaxGamesTooltip": "Jumlah maksimum game yang bisa kamu mainkan di arena ini.",
     "ruleNoRepeatTooltip": "Kamu tidak akan dipasangkan melawan pemain yang sama dua kali di arena ini.",
-    "ruleDurationRemainingTooltip": "Sisa waktu hingga arena berakhir."
+    "ruleDurationRemainingTooltip": "Sisa waktu hingga arena berakhir.",
+    "rejoinQuestion": "Apakah Anda ingin bergabung kembali ke arena? Anda memiliki {{count}} pertandingan tersisa.",
+    "rejoinTitle": "Gabung Kembali Arena"
   },
   "era": "Era",
   "hasPassword": "Memiliki kata sandi",
@@ -621,8 +625,6 @@
   "banned": "Dilarang",
   "baseAmmo": "Ammunisi dasar",
   "range": "Jangkauan",
-  "quickPlay": "Main cepat",
-  "quickPlayWithCount": "Main cepat ({{count}})",
   "discord": {
     "link": "Tautkan Discord",
     "unlink": "Putuskan Discord",
@@ -663,5 +665,7 @@
   "goHome": "Ke Beranda",
   "sendFailed": "Gagal mengirim pesan",
   "chatUnreadCount": "{{count}} belum dibaca",
+  "startGameNow": "Mulai permainan sekarang?",
+  "startGameNowTooltip": "Unit yang belum ditetapkan ke pemain mana pun akan dibagi rata di antara pemain yang terhubung di tim yang sama dengan unit tersebut.",
   "user": "Pengguna"
 }
