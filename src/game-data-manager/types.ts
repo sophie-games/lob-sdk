@@ -470,7 +470,7 @@ export interface StaminaRule {
   runningMovementPenalty: number;
   rangedAttackPenalty: number;
   meleeAttackPenalty: number;
-  meleeDefensePenalty: number;
+  meleeDefensePenalty: number; // lashback damage penalty
 }
 
 export interface AmmoRule {

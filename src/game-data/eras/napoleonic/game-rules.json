@@ -10,13 +10,13 @@
       "range4": 35,
       "range5": 25
     },
-    "upperModifierLimit": 0.8,
-    "lowerModifierLimit": 0.2,
-    "chargeResistanceModifier": -0.4,
-    "runningMovementPenalty": -1.0,
-    "rangedAttackPenalty": -0.25,
+    "upperModifierLimit": 0.85,
+    "lowerModifierLimit": 0.4,
+    "chargeResistanceModifier": -0.5,
+    "runningMovementPenalty": -0.8,
+    "rangedAttackPenalty": -0.3,
     "meleeAttackPenalty": -0.4,
-    "meleeDefensePenalty": -0.6
+    "meleeDefensePenalty": -0.5
   },
   "ammo": {
     "baseReserve": 2500,
@@ -60,7 +60,7 @@
     "nearbyUnitsNegativeOrgBonusCap": -56,
     "nearbyUnitsOrgDamageModifierCap": 0.25,
     "nearbyUnitsOrgDamageModifierPenaltyCap": -0.1,
-    "routingUnitNearbyUnitsOrgBonus": 8,
+    "routingUnitNearbyUnitsOrgBonus": 4,
     "startedRoutingOrgRadiusModifier": -2,
     "startedRoutingOrgRadiusDistance": 64,
     "startedRoutingOrgRadiusDistanceRunSpeedBonus": 1.5,
