@@ -105,7 +105,12 @@ import ww2France from "@lob-sdk/game-data/eras/ww2/scenarios/battle-of-france.js
 
 // Shared
 import gameConstantCategories from "@lob-sdk/game-data/shared/game-constant-categories.json";
-import { FormationTemplate, OrderTemplate, OrderType } from "@lob-sdk/types";
+import {
+  FormationTemplate,
+  OrderTemplate,
+  OrderType,
+  ScenarioCustomGameData,
+} from "@lob-sdk/types";
 import { FormationManager } from "./formation-manager";
 import { UnitTemplateManager } from "./unit-template-manager";
 import { degreesToRadians } from "@lob-sdk/utils";
@@ -224,6 +229,30 @@ export class GameDataManager {
         GameDataManager.instances.delete(key);
       }
     });
+  }
+
+  /**
+   * Creates a new GameDataManager instance with custom game data overlaid on top of
+   * the base era data. The returned instance is NOT registered in the singleton map —
+   * it is intended for use within a single game session.
+   *
+   * @param era - The game era.
+   * @param customGameData - Custom game data to merge (e.g., custom unit templates).
+   * @returns A new GameDataManager instance with merged data.
+   */
+  static createWithOverrides(
+    era: GameEra,
+    customGameData: ScenarioCustomGameData,
+  ): GameDataManager {
+    const instance = new GameDataManager(era);
+
+    if (customGameData.unitTemplates?.length) {
+      instance._unitTemplateManager.mergeCustomTemplates(
+        customGameData.unitTemplates,
+      );
+    }
+
+    return instance;
   }
 
   /**

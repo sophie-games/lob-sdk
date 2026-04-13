@@ -3,6 +3,7 @@ import {
   ObjectiveDto,
   PlayerSetup,
   UnitDtoPartialId,
+  UnitTemplate,
   TerrainType,
   AnyInstruction,
   Range,
@@ -98,6 +99,21 @@ interface BaseScenario {
    * Common keys: "name", "description", and trigger message keys like "trigger.1.title", "trigger.1.message", etc.
    */
   locales?: GameLocales;
+  /**
+   * Custom game data overrides for this scenario.
+   * Allows scenarios to define their own unit templates that are used
+   * only within matches playing this scenario.
+   */
+  customGameData?: ScenarioCustomGameData;
+}
+
+/**
+ * Custom game data that a scenario can carry to override or extend
+ * the base era game data for matches using this scenario.
+ */
+export interface ScenarioCustomGameData {
+  /** Custom unit templates. Types matching built-in IDs override them; types >= CUSTOM_UNIT_TYPE_OFFSET are new. */
+  unitTemplates?: UnitTemplate[];
 }
 
 /**

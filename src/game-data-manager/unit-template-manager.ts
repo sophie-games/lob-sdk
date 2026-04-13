@@ -90,4 +90,32 @@ export class UnitTemplateManager {
     const template = this.getTemplate(unitType);
     return template.formations;
   }
+
+  /**
+   * Merges custom unit templates into the manager.
+   * Templates with matching type IDs replace existing ones; new type IDs are added.
+   * @param customTemplates - Custom unit templates to merge.
+   */
+  mergeCustomTemplates(customTemplates: UnitTemplate[]) {
+    for (const template of customTemplates) {
+      // Replace or add in the templates array
+      const existingIndex = this._templates.findIndex(
+        (t) => t.type === template.type,
+      );
+      if (existingIndex >= 0) {
+        this._templates[existingIndex] = template;
+      } else {
+        this._templates.push(template);
+      }
+
+      // Update lookup maps
+      this._map.set(template.type, template);
+
+      const formationMap = new Map<string, UnitFormationTemplate>();
+      for (const formation of template.formations) {
+        formationMap.set(formation.id, formation);
+      }
+      this._formations.set(template.type, formationMap);
+    }
+  }
 }

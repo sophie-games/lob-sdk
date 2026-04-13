@@ -1099,6 +1099,9 @@ export interface ServerGameProps {
   endReason?: GameEndReason | null;
   /** User id of the player who created the game. Defaults to 0 when unknown (e.g. tests). */
   creatorId?: number;
+  /** Per-game GameDataManager instance. When a scenario defines custom game data,
+   *  this carries the overlaid manager. Falls back to the era singleton if omitted. */
+  gameDataManager?: GameDataManager;
 }
 
 /**
