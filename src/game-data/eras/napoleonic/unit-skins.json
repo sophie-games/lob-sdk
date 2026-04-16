@@ -1037,7 +1037,16 @@
     "unitType": 1,
     "formations": {
       "mass": {
-        "overlay": "argentinian-patricians"
+        "overlay": "argentinian-patricians-mass"
+      },
+      "line": {
+        "overlay": "argentinian-patricians-line"
+      },
+      "square": {
+        "overlay": "argentinian-patricians-square"
+      },
+      "column": {
+        "overlay": "argentinian-patricians-column"
       }
     }
   },
