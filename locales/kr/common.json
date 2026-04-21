@@ -723,6 +723,16 @@
   "preset": "표준",
   "hybrid": "혼합",
   "random": "무작위",
+  "scenarioFeatures": "특징",
+  "scenarioFeature": {
+    "fixedMap": "고정 맵",
+    "proceduralMap": "절차적으로 생성된 맵",
+    "fixedArmy": "고정 군대",
+    "dynamicArmy": "동적 군대",
+    "fixedPlayers": "고정 플레이어",
+    "objectives": "목표",
+    "scriptedEvents": "스크립트 이벤트"
+  },
   "projectileWidth": "발사체 너비",
   "allyCollisionLevel": "동맹 충돌 수준",
   "enemyCollisionLevel": "적 충돌 수준",

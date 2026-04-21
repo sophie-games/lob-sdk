@@ -737,6 +737,16 @@
   "preset": "Preset",
   "hybrid": "Hybrid",
   "random": "Random",
+  "scenarioFeatures": "Features",
+  "scenarioFeature": {
+    "fixedMap": "Fixed map",
+    "proceduralMap": "Procedurally generated map",
+    "fixedArmy": "Fixed army",
+    "dynamicArmy": "Dynamic army",
+    "fixedPlayers": "Fixed players",
+    "objectives": "Objectives",
+    "scriptedEvents": "Scripted events"
+  },
   "projectileWidth": "Projectile width",
   "allyCollisionLevel": "Ally collision level",
   "enemyCollisionLevel": "Enemy collision level",

@@ -1,7 +1,7 @@
 {
+  "version": 1,
   "name": "Großes Schlachtfeld",
   "description": "A huge, winding battlefield fit for whole armies to clash. Created by Discord user MooPro.",
-  "type": "hybrid",
   "map": {
     "width": 2200,
     "height": 1800,
@@ -1984,5 +1984,6 @@
     { "pos": { "x": 935.98, "y": 996.77 } },
     { "pos": { "x": 1671.62, "y": 923.5 } }
   ],
-  "triggers": []
+  "triggers": [],
+  "allowDynamicArmy": true
 }

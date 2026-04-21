@@ -728,6 +728,16 @@
   "preset": "पूर्वनिर्धारित",
   "hybrid": "हाइब्रिड",
   "random": "यादृच्छिक",
+  "scenarioFeatures": "विशेषताएँ",
+  "scenarioFeature": {
+    "fixedMap": "स्थिर मानचित्र",
+    "proceduralMap": "प्रक्रियात्मक रूप से उत्पन्न मानचित्र",
+    "fixedArmy": "स्थिर सेना",
+    "dynamicArmy": "गतिशील सेना",
+    "fixedPlayers": "स्थिर खिलाड़ी",
+    "objectives": "लक्ष्य",
+    "scriptedEvents": "स्क्रिप्टेड घटनाएँ"
+  },
   "projectileWidth": "प्रोजेक्टाइल चौड़ाई",
   "allyCollisionLevel": "सहयोगी टकराव स्तर",
   "enemyCollisionLevel": "दुश्मन टकराव स्तर",

@@ -1,10 +1,10 @@
 {
+  "version": 1,
   "name": "name",
   "description": "description",
-  "type": "hybrid",
-  "fixedArmy": true,
   "ranked": false,
   "hidden": true,
+  "allowDynamicArmy": false,
   "locales": {
     "en": {
       "name": "Tutorial",
@@ -8547,100 +8547,224 @@
     {
       "name": "line-inf-1",
       "player": 1,
-      "pos": {
-        "x": 240,
-        "y": 900
-      },
+      "pos": { "x": 160, "y": 880 },
       "rotation": 0,
       "type": 1
     },
     {
       "name": "line-inf-2",
       "player": 1,
-      "pos": {
-        "x": 400,
-        "y": 900
-      },
+      "pos": { "x": 260, "y": 880 },
       "rotation": 0,
       "type": 1
     },
     {
       "name": "line-inf-3",
       "player": 1,
-      "pos": {
-        "x": 560,
-        "y": 900
-      },
+      "pos": { "x": 360, "y": 880 },
+      "rotation": 0,
+      "type": 1
+    },
+    {
+      "name": "line-inf-4",
+      "player": 1,
+      "pos": { "x": 460, "y": 880 },
+      "rotation": 0,
+      "type": 1
+    },
+    {
+      "name": "line-inf-5",
+      "player": 1,
+      "pos": { "x": 560, "y": 880 },
+      "rotation": 0,
+      "type": 1
+    },
+    {
+      "name": "line-inf-6",
+      "player": 1,
+      "pos": { "x": 660, "y": 880 },
+      "rotation": 0,
+      "type": 1
+    },
+    {
+      "name": "line-inf-7",
+      "player": 1,
+      "pos": { "x": 760, "y": 880 },
+      "rotation": 0,
+      "type": 1
+    },
+    {
+      "name": "line-inf-8",
+      "player": 1,
+      "pos": { "x": 860, "y": 880 },
       "rotation": 0,
       "type": 1
     },
     {
       "name": "cap-1",
       "player": 1,
-      "pos": {
-        "x": 720,
-        "y": 900
-      },
+      "pos": { "x": 220, "y": 950 },
       "rotation": 0,
       "type": 2
     },
     {
+      "name": "cap-2",
+      "player": 1,
+      "pos": { "x": 420, "y": 950 },
+      "rotation": 0,
+      "type": 2
+    },
+    {
+      "name": "cap-3",
+      "player": 1,
+      "pos": { "x": 620, "y": 950 },
+      "rotation": 0,
+      "type": 2
+    },
+    {
+      "name": "cap-4",
+      "player": 1,
+      "pos": { "x": 820, "y": 950 },
+      "rotation": 0,
+      "type": 2
+    },
+    {
+      "name": "art-1",
+      "player": 1,
+      "pos": { "x": 340, "y": 960 },
+      "rotation": 0,
+      "type": 3
+    },
+    {
+      "name": "art-2",
+      "player": 1,
+      "pos": { "x": 680, "y": 960 },
+      "rotation": 0,
+      "type": 3
+    },
+    {
       "name": "skirm-1",
       "player": 1,
-      "pos": {
-        "x": 160,
-        "y": 870
-      },
+      "pos": { "x": 320, "y": 780 },
+      "rotation": 0,
+      "type": 16
+    },
+    {
+      "name": "skirm-2",
+      "player": 1,
+      "pos": { "x": 700, "y": 780 },
       "rotation": 0,
       "type": 16
     },
     {
       "name": "enemy-inf-1",
       "player": 2,
-      "pos": {
-        "x": 240,
-        "y": 100
-      },
+      "pos": { "x": 160, "y": 120 },
       "rotation": 180,
       "type": 1
     },
     {
       "name": "enemy-inf-2",
       "player": 2,
-      "pos": {
-        "x": 400,
-        "y": 100
-      },
+      "pos": { "x": 260, "y": 120 },
       "rotation": 180,
       "type": 1
     },
     {
       "name": "enemy-inf-3",
       "player": 2,
-      "pos": {
-        "x": 560,
-        "y": 100
-      },
+      "pos": { "x": 360, "y": 120 },
+      "rotation": 180,
+      "type": 1
+    },
+    {
+      "name": "enemy-inf-4",
+      "player": 2,
+      "pos": { "x": 460, "y": 120 },
+      "rotation": 180,
+      "type": 1
+    },
+    {
+      "name": "enemy-inf-5",
+      "player": 2,
+      "pos": { "x": 560, "y": 120 },
+      "rotation": 180,
+      "type": 1
+    },
+    {
+      "name": "enemy-inf-6",
+      "player": 2,
+      "pos": { "x": 660, "y": 120 },
+      "rotation": 180,
+      "type": 1
+    },
+    {
+      "name": "enemy-inf-7",
+      "player": 2,
+      "pos": { "x": 760, "y": 120 },
+      "rotation": 180,
+      "type": 1
+    },
+    {
+      "name": "enemy-inf-8",
+      "player": 2,
+      "pos": { "x": 860, "y": 120 },
       "rotation": 180,
       "type": 1
     },
     {
       "name": "enemy-cap-1",
       "player": 2,
-      "pos": {
-        "x": 720,
-        "y": 100
-      },
+      "pos": { "x": 220, "y": 50 },
       "rotation": 180,
       "type": 2
     },
     {
+      "name": "enemy-cap-2",
+      "player": 2,
+      "pos": { "x": 420, "y": 50 },
+      "rotation": 180,
+      "type": 2
+    },
+    {
+      "name": "enemy-cap-3",
+      "player": 2,
+      "pos": { "x": 620, "y": 50 },
+      "rotation": 180,
+      "type": 2
+    },
+    {
+      "name": "enemy-cap-4",
+      "player": 2,
+      "pos": { "x": 820, "y": 50 },
+      "rotation": 180,
+      "type": 2
+    },
+    {
+      "name": "enemy-art-1",
+      "player": 2,
+      "pos": { "x": 340, "y": 40 },
+      "rotation": 180,
+      "type": 3
+    },
+    {
+      "name": "enemy-art-2",
+      "player": 2,
+      "pos": { "x": 680, "y": 40 },
+      "rotation": 180,
+      "type": 3
+    },
+    {
       "name": "enemy-skirm-1",
       "player": 2,
-      "pos": {
-        "x": 160,
-        "y": 130
-      },
+      "pos": { "x": 320, "y": 220 },
+      "rotation": 180,
+      "type": 16
+    },
+    {
+      "name": "enemy-skirm-2",
+      "player": 2,
+      "pos": { "x": 700, "y": 220 },
       "rotation": 180,
       "type": 16
     }

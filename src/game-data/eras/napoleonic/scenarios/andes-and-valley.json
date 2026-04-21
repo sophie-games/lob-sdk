@@ -1,7 +1,7 @@
 {
+  "version": 1,
   "name": "Andes & Valley",
   "description": "Andes Valley: a narrow pass between mountains marked by a raging river. Along its banks lie small villages and farms that sustain life in the valley. A finely balanced battlefield where no army holds the advantage of terrain.",
-  "type": "hybrid",
   "map": {
     "width": 1804,
     "height": 1612,
@@ -1633,5 +1633,6 @@
     { "pos": { "x": 1381.84, "y": 992.19 } },
     { "pos": { "x": 587.84, "y": 711.98 } }
   ],
-  "triggers": []
+  "triggers": [],
+  "allowDynamicArmy": true
 }

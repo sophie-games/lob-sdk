@@ -1,7 +1,7 @@
 {
+  "version": 1,
   "name": "Lake",
   "description": "A scenic landscape featuring a large central lake with organic shorelines and natural depth variation. The terrain includes lush forests and gentle hills surrounding the water feature.",
-  "type": "random",
   "baseTerrain": 0,
   "instructions": [
     {
@@ -60,5 +60,6 @@
         "coords": [80, 50]
       }
     }
-  ]
+  ],
+  "allowDynamicArmy": true
 }

@@ -1,8 +1,8 @@
 {
+  "version": 1,
   "name": "name",
   "description": "description",
   "ranked": true,
-  "type": "random",
   "baseTerrain": 0,
   "instructions": [
     {
@@ -803,5 +803,6 @@
       "name": "平原",
       "description": "光滑的山丘被河流穿过，点缀着各种森林和由长长的道路连接的城镇。"
     }
-  }
+  },
+  "allowDynamicArmy": true
 }

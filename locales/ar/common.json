@@ -728,6 +728,16 @@
   "preset": "محدد مسبقاً",
   "hybrid": "مختلط",
   "random": "عشوائي",
+  "scenarioFeatures": "الميزات",
+  "scenarioFeature": {
+    "fixedMap": "خريطة ثابتة",
+    "proceduralMap": "خريطة مولدة إجرائياً",
+    "fixedArmy": "جيش ثابت",
+    "dynamicArmy": "جيش ديناميكي",
+    "fixedPlayers": "لاعبون ثابتون",
+    "objectives": "الأهداف",
+    "scriptedEvents": "أحداث مكتوبة"
+  },
   "projectileWidth": "عرض المقذوف",
   "allyCollisionLevel": "مستوى تصادم الحلفاء",
   "enemyCollisionLevel": "مستوى تصادم الأعداء",

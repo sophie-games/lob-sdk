@@ -1,7 +1,7 @@
 {
+  "version": 1,
   "name": "name",
   "description": "description",
-  "type": "hybrid",
   "ranked": true,
   "map": {
     "width": 2000,
@@ -2011,5 +2011,6 @@
       "name": "席尔瓦圣所",
       "description": "一场在树篱中幽闭恐怖的战斗。 由Discord用户和顶级玩家EvictedSaint设计。"
     }
-  }
+  },
+  "allowDynamicArmy": true
 }

@@ -1,11 +1,11 @@
 {
+  "version": 1,
   "name": "name",
   "description": "description",
-  "type": "random",
   "ranked": true,
   "baseTerrain": 0,
 
-  "defaultDeploymentZones": {
+  "randomDeploymentZones": {
     "topMainDeploymentZone": {
       "minX": 5,
       "maxX": 5,
@@ -750,5 +750,6 @@
       "name": "树篱",
       "description": "混乱的、令人厌烦的农场被两边的树篱围住了."
     }
-  }
+  },
+  "allowDynamicArmy": true
 }
