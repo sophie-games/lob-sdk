@@ -13,6 +13,7 @@ import {
   TerrainConfig,
   Size,
 } from "@lob-sdk/types";
+import { RawScenarioInput } from "@lob-sdk/scenario";
 import {
   GameConstants,
   GameEra,
@@ -75,12 +76,7 @@ import napoleonicAndesAndValley from "@lob-sdk/game-data/eras/napoleonic/scenari
 import napoleonicLowCountries from "@lob-sdk/game-data/eras/napoleonic/scenarios/low-countries.json";
 import napoleonicHedgerows from "@lob-sdk/game-data/eras/napoleonic/scenarios/hedgerows.json";
 import napoleonicLeipzig from "@lob-sdk/game-data/eras/napoleonic/scenarios/leipzig.json";
-import napoleonicTutorialBasicControls from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-basic-controls.json";
-import napoleonicTutorialControlGroups from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-control-groups.json";
-import napoleonicTutorialInfantryFormations from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-infantry-formations.json";
-import napoleonicTutorialUnitManagement from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-unit-management.json";
-import napoleonicTutorialCharges from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-charges.json";
-import napoleonicTutorialHoldFire from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-hold-fire.json";
+import napoleonicTutorial from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial.json";
 
 import ww2BattleTypes from "@lob-sdk/game-data/eras/ww2/battle-types.json";
 import ww2Orders from "@lob-sdk/game-data/eras/ww2/orders.json";
@@ -177,7 +173,8 @@ export class GameDataManager {
   // Formations
   private _formationManager = new FormationManager();
 
-  // Scenarios
+  // Scenarios — raw imports (may be legacy or current schema). Consumers that
+  // need the normalized shape should call `normalizeScenario` themselves.
   private scenarios: Record<ScenarioName, GameScenario> = {};
 
   // Map sizes
@@ -304,16 +301,7 @@ export class GameDataManager {
           "combat-at-mollwitz": napoleonicCombatAtMollwitz as GameScenario,
           "clash-at-chelmnitz": napoleonicClashAtChelmnitz as GameScenario,
           dresden: napoleonicDresden as GameScenario,
-          "tutorial-basic-controls":
-            napoleonicTutorialBasicControls as GameScenario,
-          "tutorial-control-groups":
-            napoleonicTutorialControlGroups as GameScenario,
-          "tutorial-infantry-formations":
-            napoleonicTutorialInfantryFormations as GameScenario,
-          "tutorial-unit-management":
-            napoleonicTutorialUnitManagement as GameScenario,
-          "tutorial-charges": napoleonicTutorialCharges as GameScenario,
-          "tutorial-hold-fire": napoleonicTutorialHoldFire as GameScenario,
+          tutorial: napoleonicTutorial as GameScenario,
         };
 
         break;
@@ -1107,24 +1095,24 @@ export class GameDataManager {
   }
 
   /**
-   * Get a scenario by name
+   * Get a scenario by name. Returns the raw scenario (legacy or current schema).
+   * Callers that need the new {@link Scenario} shape (game init, scenario
+   * editor) should pipe the result through `normalizeScenario`.
    */
-  public getScenario<T extends GameScenario>(scenarioName: ScenarioName): T {
+  public getScenario(scenarioName: ScenarioName): RawScenarioInput {
     const scenario = this.scenarios[scenarioName];
     if (!scenario) {
       throw new Error(`Scenario ${scenarioName} not found for era ${this.era}`);
     }
-    return scenario as T;
+    return scenario;
   }
 
   /**
-   * Try to get a scenario by name
+   * Try to get a scenario by name. Returns `null` if missing; otherwise the
+   * raw scenario (legacy or current schema).
    */
-  public tryGetScenario<T extends GameScenario>(
-    scenarioName: ScenarioName,
-  ): T | null {
-    const scenario = this.scenarios[scenarioName];
-    return (scenario ?? null) as T | null;
+  public tryGetScenario(scenarioName: ScenarioName): RawScenarioInput | null {
+    return this.scenarios[scenarioName] ?? null;
   }
 
   public getScenarios(): Array<ScenarioName> {

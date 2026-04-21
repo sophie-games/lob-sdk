@@ -1,11 +1,13 @@
 import { RandomMapGenerator } from "./random-map-generator";
 import {
   RandomScenario,
+  Scenario,
   GameScenarioType,
   InstructionType,
   ScenarioName,
   DynamicBattleType,
   TerrainType,
+  SCENARIO_SCHEMA_VERSION,
 } from "@lob-sdk/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 
@@ -480,6 +482,151 @@ describe("RandomMapGenerator", () => {
       expect(hasUnaffectedHeight).toBe(true);
       // Should have heights in the affected ranges
       expect(hasAffectedHeight).toBe(true);
+    });
+  });
+
+  describe("Scenario.map (handcrafted) short-circuit", () => {
+    const TILES_X = 10;
+    const TILES_Y = 8;
+
+    const buildBakedTerrains = (): TerrainType[][] => {
+      const terrains: TerrainType[][] = [];
+      for (let x = 0; x < TILES_X; x++) {
+        terrains[x] = [];
+        for (let y = 0; y < TILES_Y; y++) {
+          terrains[x][y] = TerrainType.Grass;
+        }
+      }
+      // Mark a single tile so we can assert the baked map is preserved verbatim.
+      terrains[3][4] = TerrainType.ShallowWater;
+      return terrains;
+    };
+
+    const buildBakedHeightMap = (): number[][] => {
+      const heightMap: number[][] = [];
+      for (let x = 0; x < TILES_X; x++) {
+        heightMap[x] = [];
+        for (let y = 0; y < TILES_Y; y++) {
+          heightMap[x][y] = 7;
+        }
+      }
+      return heightMap;
+    };
+
+    it("returns the prebaked map terrains/heightMap verbatim", () => {
+      const generator = new RandomMapGenerator();
+      const terrains = buildBakedTerrains();
+      const heightMap = buildBakedHeightMap();
+
+      const scenario: Scenario = {
+        version: SCENARIO_SCHEMA_VERSION,
+        name: "fixed-map-test",
+        description: "test",
+        map: {
+          width: TILES_X * TILE_SIZE,
+          height: TILES_Y * TILE_SIZE,
+          terrains,
+          heightMap,
+          seed: 9999,
+        },
+      };
+
+      const result = generator.generate({
+        scenario,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
+        maxPlayers: 2,
+        tileSize: TILE_SIZE,
+        era: "napoleonic",
+      });
+
+      expect(result.map.width).toBe(TILES_X * TILE_SIZE);
+      expect(result.map.height).toBe(TILES_Y * TILE_SIZE);
+      expect(result.map.terrains).toEqual(terrains);
+      expect(result.map.heightMap).toEqual(heightMap);
+      expect(result.map.seed).toBe(9999);
+      expect(result.map.terrains[3][4]).toBe(TerrainType.ShallowWater);
+    });
+
+    it("does not mutate the prebaked arrays when overlays run", () => {
+      const generator = new RandomMapGenerator();
+      const terrains = buildBakedTerrains();
+      const heightMap = buildBakedHeightMap();
+      const originalTerrainsSnapshot = terrains.map((row) => [...row]);
+      const originalHeightMapSnapshot = heightMap.map((row) => [...row]);
+
+      const scenario: Scenario = {
+        version: SCENARIO_SCHEMA_VERSION,
+        name: "fixed-map-with-overlay",
+        description: "test",
+        map: {
+          width: TILES_X * TILE_SIZE,
+          height: TILES_Y * TILE_SIZE,
+          terrains,
+          heightMap,
+          seed: 1234,
+        },
+        instructions: [
+          {
+            type: InstructionType.HeightNoise,
+            noises: [{ scale: 4, multiplier: 1, offset: 0, reversed: false }],
+            mergeStrategy: "max",
+            min: 0,
+            max: 10,
+          },
+        ],
+      };
+
+      generator.generate({
+        scenario,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
+        maxPlayers: 2,
+        tileSize: TILE_SIZE,
+        era: "napoleonic",
+      });
+
+      expect(terrains).toEqual(originalTerrainsSnapshot);
+      expect(heightMap).toEqual(originalHeightMapSnapshot);
+    });
+
+    it("uses scenario.map.deploymentZones when present", () => {
+      const generator = new RandomMapGenerator();
+      const terrains = buildBakedTerrains();
+      const heightMap = buildBakedHeightMap();
+      const bakedZones = [
+        {
+          team: 1,
+          mainZone: { team: 1, x: 0, y: 0, width: 32, height: 32 },
+          forwardZone: { team: 1, x: 0, y: 32, width: 32, height: 32 },
+        },
+        {
+          team: 2,
+          mainZone: { team: 2, x: 64, y: 0, width: 32, height: 32 },
+          forwardZone: { team: 2, x: 64, y: 32, width: 32, height: 32 },
+        },
+      ];
+
+      const scenario: Scenario = {
+        version: SCENARIO_SCHEMA_VERSION,
+        name: "fixed-map-zones",
+        description: "test",
+        map: {
+          width: TILES_X * TILE_SIZE,
+          height: TILES_Y * TILE_SIZE,
+          terrains,
+          heightMap,
+          deploymentZones: bakedZones,
+        },
+      };
+
+      const result = generator.generate({
+        scenario,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
+        maxPlayers: 2,
+        tileSize: TILE_SIZE,
+        era: "napoleonic",
+      });
+
+      expect(result.map.deploymentZones).toEqual(bakedZones);
     });
   });
 });

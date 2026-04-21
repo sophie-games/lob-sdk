@@ -1,5 +1,10 @@
 import { getDeploymentZonesByMapSize, getMapSizeIndex } from "./map-size";
-import { RandomScenario, Size, TeamDeploymentZones } from "@lob-sdk/types";
+import {
+  GameMap,
+  RandomTeamDeploymentZones,
+  Size,
+  TeamDeploymentZones,
+} from "@lob-sdk/types";
 import {
   ObjectiveDto,
   TeamDeploymentZone,
@@ -42,32 +47,47 @@ export class RandomMapGenerator {
     const mapSizes = gameDataManager.getMapSizes();
     const { map } = mapSizes[battleSize];
 
-    if (!tilesX) {
-      tilesX = map.tilesX;
-    }
-    if (!tilesY) {
-      tilesY = map.tilesY;
-    }
-
-    const widthPx = tilesX * tileSize;
-    const heightPx = tilesY * tileSize;
-
     const objectives: ObjectiveDto<false>[] = [];
 
-    const mapSeed = seed ?? generateRandomSeed();
+    // Caller-supplied seed wins; otherwise prefer the baked map's seed; else random.
+    const fixedMap: GameMap | undefined = scenario.map;
+    const mapSeed = seed ?? fixedMap?.seed ?? generateRandomSeed();
 
-    const terrains: TerrainType[][] = [];
-    const heightMap: number[][] = [];
+    let terrains: TerrainType[][];
+    let heightMap: number[][];
+    let widthPx: number;
+    let heightPx: number;
 
-    // Initialize arrays
-    for (let x = 0; x < tilesX; x++) {
-      terrains[x] = [];
-      heightMap[x] = [];
-      for (let y = 0; y < tilesY; y++) {
-        terrains[x][y] = scenario.baseTerrain ?? TerrainType.Grass;
-        heightMap[x][y] = 0;
+    if (fixedMap) {
+      // Deep-copy to avoid mutating frozen JSON imports when overlays run.
+      terrains = fixedMap.terrains.map((row) => [...row]);
+      heightMap = fixedMap.heightMap.map((row) => [...row]);
+      widthPx = fixedMap.width;
+      heightPx = fixedMap.height;
+    } else {
+      if (!tilesX) {
+        tilesX = map.tilesX;
+      }
+      if (!tilesY) {
+        tilesY = map.tilesY;
+      }
+
+      widthPx = tilesX * tileSize;
+      heightPx = tilesY * tileSize;
+
+      terrains = [];
+      heightMap = [];
+      for (let x = 0; x < tilesX; x++) {
+        terrains[x] = [];
+        heightMap[x] = [];
+        for (let y = 0; y < tilesY; y++) {
+          terrains[x][y] = scenario.baseTerrain ?? TerrainType.Grass;
+          heightMap[x][y] = 0;
+        }
       }
     }
+
+    const instructionsToRun: AnyInstruction[] = scenario.instructions ?? [];
 
     this.executeInstructions(
       scenario,
@@ -79,11 +99,13 @@ export class RandomMapGenerator {
       heightPx,
       tileSize,
       battleSize,
+      instructionsToRun,
     );
 
     const deploymentZones: [TeamDeploymentZones, TeamDeploymentZones] =
-      this.getDeploymentZones(
+      this.resolveDeploymentZones(
         scenario,
+        fixedMap,
         battleSize,
         widthPx,
         heightPx,
@@ -95,8 +117,8 @@ export class RandomMapGenerator {
 
     return {
       map: {
-        width: tilesX * tileSize,
-        height: tilesY * tileSize,
+        width: widthPx,
+        height: heightPx,
         terrains,
         heightMap,
         deploymentZones,
@@ -106,17 +128,58 @@ export class RandomMapGenerator {
     };
   }
 
-  private getDeploymentZones(
-    scenario: RandomScenario,
+  /** Reads pixel zones (Scenario only — RandomScenario declares this as `never`). */
+  private _getPixelZones(
+    scenario: ProceduralScenario,
+  ): TeamDeploymentZones[] | undefined {
+    return scenario.deploymentZones;
+  }
+
+  /** Reads percentage-based zones from either Scenario or RandomScenario. */
+  private _getRandomZones(
+    scenario: ProceduralScenario,
+  ): RandomTeamDeploymentZones | undefined {
+    return scenario.randomDeploymentZones ?? scenario.defaultDeploymentZones;
+  }
+
+  private _getScaledZones(
+    scenario: ProceduralScenario,
+  ): Record<Size, RandomTeamDeploymentZones> | undefined {
+    return scenario.scaledDeploymentZones;
+  }
+
+  /**
+   * Precedence: scenario.map.deploymentZones > scenario.deploymentZones >
+   *             scenario.scaledDeploymentZones[battleSize] >
+   *             scenario.randomDeploymentZones / defaultDeploymentZones >
+   *             built-in defaults from getDeploymentZonesByMapSize.
+   */
+  private resolveDeploymentZones(
+    scenario: ProceduralScenario,
+    fixedMap: GameMap | undefined,
     battleSize: Size,
     widthPx: number,
     heightPx: number,
     era: GameEra,
     tileSize: number,
     terrains: TerrainType[][],
-    seed: number,
+    mapSeed: number,
   ): [TeamDeploymentZones, TeamDeploymentZones] {
-    if (!scenario.defaultDeploymentZones) {
+    const bakedZones = fixedMap?.deploymentZones;
+    if (bakedZones && bakedZones.length >= 2) {
+      return [bakedZones[0], bakedZones[1]];
+    }
+
+    const pixelZones = this._getPixelZones(scenario);
+    if (pixelZones && pixelZones.length >= 2) {
+      return [pixelZones[0], pixelZones[1]];
+    }
+
+    const randomZones =
+      this._getScaledZones(scenario)?.[battleSize] ??
+      this._getRandomZones(scenario);
+
+    if (!randomZones) {
       return [
         getDeploymentZonesByMapSize(
           battleSize,
@@ -136,11 +199,17 @@ export class RandomMapGenerator {
         ),
       ];
     }
-    const deploymentZones =
-      scenario.scaledDeploymentZones?.[battleSize] ??
-      scenario.defaultDeploymentZones;
-    const random = randomSeeded(deriveSeed(seed, 0));
 
+    return this._computePercentZones(randomZones, terrains, tileSize, mapSeed);
+  }
+
+  private _computePercentZones(
+    deploymentZones: RandomTeamDeploymentZones,
+    terrains: TerrainType[][],
+    tileSize: number,
+    seed: number,
+  ): [TeamDeploymentZones, TeamDeploymentZones] {
+    const random = randomSeeded(deriveSeed(seed, 0));
     return [
       {
         team: 1,
@@ -313,8 +382,9 @@ export class RandomMapGenerator {
     heightPx: number,
     tileSize: number,
     battleSize: Size,
+    instructions: AnyInstruction[],
   ) {
-    scenario.instructions.forEach(
+    instructions.forEach(
       (instruction: AnyInstruction, index: number) => {
         let boundedTerrains = terrains;
         let boundedHeightMap = heightMap;
@@ -440,10 +510,10 @@ export class RandomMapGenerator {
             ).execute();
             break;
           }
-
           default: {
+            const _exhaustive: never = instruction;
             throw new Error(
-              `Unknown instruction type: ${(instruction as any)?.type}`,
+              `Unknown instruction type: ${JSON.stringify(_exhaustive)}`,
             );
           }
         }

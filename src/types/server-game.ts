@@ -148,8 +148,6 @@ export interface GameData {
   era: GameEra;
   /** Name of the scenario being played. */
   scenarioName: string;
-  /** Type of scenario (e.g., tutorial, skirmish, campaign). */
-  scenarioType: GameScenarioType;
 
   /**
    * Current state of the game.
@@ -393,8 +391,6 @@ export interface IServerGame {
   readonly scenarioName: string;
   /** Dynamic battle type configuration, if applicable */
   readonly dynamicBattleType: DynamicBattleType | null;
-  /** Type of scenario (e.g., tutorial, skirmish, campaign) */
-  readonly scenarioType: GameScenarioType;
   /** Whether fog of war is enabled for this game */
   readonly fogOfWar: boolean;
   /** Whether this is a ranked game */
@@ -1049,8 +1045,6 @@ export interface ServerGameProps {
   scenarioName: string;
   /** Dynamic battle type configuration, if applicable. */
   dynamicBattleType: DynamicBattleType | null;
-  /** Type of scenario (e.g., tutorial, skirmish, campaign). */
-  scenarioType: GameScenarioType;
   /** Current turn number. */
   turnNumber: number;
   /** Current game state. */
