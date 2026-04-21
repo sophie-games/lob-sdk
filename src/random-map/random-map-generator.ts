@@ -102,18 +102,17 @@ export class RandomMapGenerator {
       instructionsToRun,
     );
 
-    const deploymentZones: [TeamDeploymentZones, TeamDeploymentZones] =
-      this.resolveDeploymentZones(
-        scenario,
-        fixedMap,
-        battleSize,
-        widthPx,
-        heightPx,
-        era,
-        tileSize,
-        terrains,
-        mapSeed,
-      );
+    const deploymentZones = this.resolveDeploymentZones(
+      scenario,
+      fixedMap,
+      battleSize,
+      widthPx,
+      heightPx,
+      era,
+      tileSize,
+      terrains,
+      mapSeed,
+    );
 
     return {
       map: {
@@ -121,7 +120,7 @@ export class RandomMapGenerator {
         height: heightPx,
         terrains,
         heightMap,
-        deploymentZones,
+        ...(deploymentZones ? { deploymentZones } : {}),
         seed: mapSeed,
       },
       objectives,
@@ -152,7 +151,12 @@ export class RandomMapGenerator {
    * Precedence: scenario.map.deploymentZones > scenario.deploymentZones >
    *             scenario.scaledDeploymentZones[battleSize] >
    *             scenario.randomDeploymentZones / defaultDeploymentZones >
-   *             built-in defaults from getDeploymentZonesByMapSize.
+   *             battle-size defaults (procedural only).
+   *
+   * Returns `undefined` when the scenario ships a handcrafted `map` but
+   * declares no zones anywhere. Battle-size defaults assume procedural
+   * dimensions; for author-sized maps the consumer picks the right default
+   * (era-wide constants centered on the fixed map).
    */
   private resolveDeploymentZones(
     scenario: ProceduralScenario,
@@ -164,7 +168,7 @@ export class RandomMapGenerator {
     tileSize: number,
     terrains: TerrainType[][],
     mapSeed: number,
-  ): [TeamDeploymentZones, TeamDeploymentZones] {
+  ): [TeamDeploymentZones, TeamDeploymentZones] | undefined {
     const bakedZones = fixedMap?.deploymentZones;
     if (bakedZones && bakedZones.length >= 2) {
       return [bakedZones[0], bakedZones[1]];
@@ -179,28 +183,38 @@ export class RandomMapGenerator {
       this._getScaledZones(scenario)?.[battleSize] ??
       this._getRandomZones(scenario);
 
-    if (!randomZones) {
-      return [
-        getDeploymentZonesByMapSize(
-          battleSize,
-          widthPx,
-          heightPx,
-          1,
-          era,
-          tileSize,
-        ),
-        getDeploymentZonesByMapSize(
-          battleSize,
-          widthPx,
-          heightPx,
-          2,
-          era,
-          tileSize,
-        ),
-      ];
+    if (randomZones) {
+      return this._computePercentZones(
+        randomZones,
+        terrains,
+        tileSize,
+        mapSeed,
+      );
     }
 
-    return this._computePercentZones(randomZones, terrains, tileSize, mapSeed);
+    // Handcrafted map with no declarations: let the consumer decide.
+    if (fixedMap) {
+      return undefined;
+    }
+
+    return [
+      getDeploymentZonesByMapSize(
+        battleSize,
+        widthPx,
+        heightPx,
+        1,
+        era,
+        tileSize,
+      ),
+      getDeploymentZonesByMapSize(
+        battleSize,
+        widthPx,
+        heightPx,
+        2,
+        era,
+        tileSize,
+      ),
+    ];
   }
 
   private _computePercentZones(

@@ -628,5 +628,33 @@ describe("RandomMapGenerator", () => {
 
       expect(result.map.deploymentZones).toEqual(bakedZones);
     });
+
+    it("leaves deploymentZones undefined when a handcrafted map declares none", () => {
+      const generator = new RandomMapGenerator();
+      const terrains = buildBakedTerrains();
+      const heightMap = buildBakedHeightMap();
+
+      const scenario: Scenario = {
+        version: SCENARIO_SCHEMA_VERSION,
+        name: "fixed-map-no-zones",
+        description: "test",
+        map: {
+          width: TILES_X * TILE_SIZE,
+          height: TILES_Y * TILE_SIZE,
+          terrains,
+          heightMap,
+        },
+      };
+
+      const result = generator.generate({
+        scenario,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
+        maxPlayers: 2,
+        tileSize: TILE_SIZE,
+        era: "napoleonic",
+      });
+
+      expect(result.map.deploymentZones).toBeUndefined();
+    });
   });
 });
