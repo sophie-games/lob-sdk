@@ -1,14 +1,14 @@
 import { RandomMapGenerator } from "./random-map-generator";
 import {
-  RandomScenario,
+  LegacyRandomScenario,
   Scenario,
   GameScenarioType,
   InstructionType,
   ScenarioName,
   DynamicBattleType,
   TerrainType,
-  SCENARIO_SCHEMA_VERSION,
 } from "@lob-sdk/types";
+import { SCENARIO_SCHEMA_VERSION } from "@lob-sdk/scenario";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 
 /**
@@ -67,8 +67,8 @@ describe("RandomMapGenerator", () => {
         // Verify it's actually a random scenario
         expect(scenario.type).toBe(GameScenarioType.Random);
 
-        // Type assertion to RandomScenario since we've verified it's a random scenario
-        const randomScenario = scenario as RandomScenario;
+        // Type assertion to LegacyRandomScenario since we've verified it's a random scenario
+        const randomScenario = scenario as LegacyRandomScenario;
 
         // Test with each battle type and player count
         dynamicBattleTypes.forEach((battleType) => {
@@ -125,7 +125,7 @@ describe("RandomMapGenerator", () => {
 
       testScenarios.forEach((scenarioName) => {
         const scenario = gameDataManager.getScenario(scenarioName);
-        const randomScenario = scenario as RandomScenario;
+        const randomScenario = scenario as LegacyRandomScenario;
 
         // Generate the same scenario twice with the same seed
         const result1 = mapGenerator.generate({
@@ -160,7 +160,7 @@ describe("RandomMapGenerator", () => {
 
       randomScenarioNames.forEach((scenarioName) => {
         const scenario = gameDataManager.getScenario(scenarioName);
-        const randomScenario = scenario as RandomScenario;
+        const randomScenario = scenario as LegacyRandomScenario;
 
         expect(() => {
           const result = mapGenerator.generate({
@@ -213,7 +213,7 @@ describe("RandomMapGenerator", () => {
       const mapGenerator = new RandomMapGenerator();
       const testScenario = randomScenarioNames[0];
       const scenario = gameDataManager.getScenario(testScenario);
-      const randomScenario = scenario as RandomScenario;
+      const randomScenario = scenario as LegacyRandomScenario;
 
       // Test with different custom dimensions
       const customSizes = [
@@ -267,7 +267,7 @@ describe("RandomMapGenerator", () => {
       const mapGenerator = new RandomMapGenerator();
 
       // Create a simple test scenario with reversed noise
-      const testScenario: RandomScenario = {
+      const testScenario: LegacyRandomScenario = {
         type: GameScenarioType.Random,
         name: "test-reversed-noise" as ScenarioName,
         description: "Test scenario for reversed noise functionality",
@@ -332,7 +332,7 @@ describe("RandomMapGenerator", () => {
       const mapGenerator = new RandomMapGenerator();
 
       // Create a test scenario with height noise that only affects specific height ranges
-      const testScenario: RandomScenario = {
+      const testScenario: LegacyRandomScenario = {
         type: GameScenarioType.Random,
         name: "test-height-ranges" as ScenarioName,
         description: "Test scenario for height noise ranges functionality",
@@ -411,7 +411,7 @@ describe("RandomMapGenerator", () => {
     it("should handle multiple ranges correctly", () => {
       const mapGenerator = new RandomMapGenerator();
 
-      const testScenario: RandomScenario = {
+      const testScenario: LegacyRandomScenario = {
         type: GameScenarioType.Random,
         name: "test-multiple-ranges" as ScenarioName,
         description: "Test scenario for multiple height ranges",

@@ -104,7 +104,7 @@ interface BaseScenario {
  * A preset scenario with a fixed map, unit placement, and objectives.
  * All game elements are predefined and static.
  */
-export interface PresetScenario extends BaseScenario {
+export interface LegacyPresetScenario extends BaseScenario {
   /** Type is always Preset for preset scenarios. */
   type: GameScenarioType.Preset;
   /** Discriminator: legacy types never carry a schema version. */
@@ -123,7 +123,7 @@ export interface PresetScenario extends BaseScenario {
  * A hybrid scenario that combines preset map elements with optional random unit placement.
  * The map is fixed, but units and objectives may be procedurally generated.
  */
-export interface HybridScenario extends BaseScenario {
+export interface LegacyHybridScenario extends BaseScenario {
   /** Type is always Hybrid for hybrid scenarios. */
   type: GameScenarioType.Hybrid;
   /** Discriminator: legacy types never carry a schema version. */
@@ -181,7 +181,7 @@ export interface RandomTeamDeploymentZones {
  * A randomly generated scenario created procedurally from instructions.
  * The map, terrain, and game elements are generated based on the instructions.
  */
-export interface RandomScenario extends BaseScenario {
+export interface LegacyRandomScenario extends BaseScenario {
   /** Type is always Random for random scenarios. */
   type: GameScenarioType.Random;
   /** Discriminator: legacy types never carry a schema version. */
@@ -204,27 +204,20 @@ export interface RandomScenario extends BaseScenario {
 
 /**
  * Union type representing any game scenario.
- * Can be a PresetScenario, RandomScenario, or HybridScenario.
+ * Can be a LegacyPresetScenario, LegacyRandomScenario, or LegacyHybridScenario.
  */
-export type GameScenario = PresetScenario | RandomScenario | HybridScenario;
+export type GameScenario = LegacyPresetScenario | LegacyRandomScenario | LegacyHybridScenario;
 
 /**
  * Union type representing procedurally generated scenarios.
- * Includes RandomScenario types and the new feature-based Scenario.
+ * Includes LegacyRandomScenario types and the new feature-based Scenario.
  */
-export type ProceduralScenario = RandomScenario | Scenario;
+export type ProceduralScenario = LegacyRandomScenario | Scenario;
 
 /**
  * Name identifier for a scenario (string).
  */
 export type ScenarioName = string;
-
-/**
- * Current schema version for the new feature-based Scenario format.
- * Bump when introducing breaking field changes; loaders detect absence to
- * apply legacy normalization.
- */
-export const SCENARIO_SCHEMA_VERSION = 1;
 
 /**
  * Feature-based scenario schema (replaces the legacy preset/hybrid/random union).
@@ -291,7 +284,7 @@ export interface Scenario {
    * on top of {@link units}. If false/absent: {@link units} defines the full
    * roster and no auto-deployment occurs (deployment phase is skipped).
    *
-   * Inverse of the legacy {@link HybridScenario.fixedArmy} flag.
+   * Inverse of the legacy {@link LegacyHybridScenario.fixedArmy} flag.
    */
   allowDynamicArmy?: boolean;
 }

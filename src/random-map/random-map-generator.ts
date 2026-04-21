@@ -128,14 +128,14 @@ export class RandomMapGenerator {
     };
   }
 
-  /** Reads pixel zones (Scenario only — RandomScenario declares this as `never`). */
+  /** Reads pixel zones (Scenario only — LegacyRandomScenario declares this as `never`). */
   private _getPixelZones(
     scenario: ProceduralScenario,
   ): TeamDeploymentZones[] | undefined {
     return scenario.deploymentZones;
   }
 
-  /** Reads percentage-based zones from either Scenario or RandomScenario. */
+  /** Reads percentage-based zones from either Scenario or LegacyRandomScenario. */
   private _getRandomZones(
     scenario: ProceduralScenario,
   ): RandomTeamDeploymentZones | undefined {
