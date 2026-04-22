@@ -8,6 +8,7 @@ import {
   Range,
   Size,
 } from "@lob-sdk/types";
+import { Tutorial } from "./tutorial";
 
 /**
  * Translations for scenario content, organized by language.
@@ -287,4 +288,11 @@ export interface Scenario {
    * Inverse of the legacy {@link LegacyHybridScenario.fixedArmy} flag.
    */
   allowDynamicArmy?: boolean;
+
+  /**
+   * Data-driven tutorial overlays. Evaluated client-side by the TutorialRunner
+   * independently of {@link triggers}; the generic trigger system never sees
+   * this field. Safe to omit for non-tutorial scenarios.
+   */
+  tutorial?: Tutorial;
 }

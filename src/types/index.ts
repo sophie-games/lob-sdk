@@ -12,6 +12,7 @@ export * from "./scenario";
 export * from "./server-game";
 export * from "./terrain";
 export * from "./trigger";
+export * from "./tutorial";
 export * from "./unit";
 export * from "./skin";
 export * from "./army";

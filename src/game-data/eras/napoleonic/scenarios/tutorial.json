@@ -5,6 +5,20 @@
   "baseTerrain": 0,
   "ranked": false,
   "hidden": true,
+  "players": [
+    {
+      "player": 1,
+      "team": 1,
+      "role": "human",
+      "units": { "1": 8, "2": 4, "3": 2, "16": 2 }
+    },
+    {
+      "player": 2,
+      "team": 2,
+      "role": "bot",
+      "units": { "1": 8, "2": 4, "3": 2, "16": 2 }
+    }
+  ],
   "randomDeploymentZones": {
     "topMainDeploymentZone": {
       "minX": 5,
@@ -1770,123 +1784,57 @@
       "max": 1
     }
   ],
+  "tutorial": {
+    "chapters": [
+      {
+        "id": "deploy",
+        "fireOn": { "turn": 0 },
+        "beats": [
+          {
+            "copy": "tutorial.deploy.intro",
+            "advanceOn": "button"
+          },
+          {
+            "copy": "tutorial.deploy.selectInfantry",
+            "highlight": { "targetId": "deployment-zone-friendly", "style": "spotlight" },
+            "gesture": "selectionBox",
+            "advanceOn": "unitSelected"
+          },
+          {
+            "copy": "tutorial.deploy.positionInfantry",
+            "highlight": { "targetId": "deployment-zone-friendly", "style": "spotlight" },
+            "gesture": "moveUnit",
+            "advanceOn": "unitRepositioned"
+          },
+          {
+            "copy": "tutorial.deploy.confirm",
+            "highlight": { "targetId": "hud-submit-orders", "style": "spotlight" },
+            "advanceOn": "deploymentConfirmed"
+          }
+        ]
+      },
+      { "id": "move", "fireOn": { "turn": 1 }, "beats": [{ "copy": "tutorial.move.message" }] },
+      { "id": "stamina", "fireOn": { "turn": 2 }, "beats": [{ "copy": "tutorial.stamina.message" }] },
+      { "id": "shoot", "fireOn": { "turn": 3 }, "beats": [{ "copy": "tutorial.shoot.message" }] },
+      { "id": "charge", "fireOn": { "turn": 4 }, "beats": [{ "copy": "tutorial.charge.message" }] },
+      { "id": "objectives", "fireOn": { "turn": 5 }, "beats": [{ "copy": "tutorial.objectives.message" }] },
+      { "id": "formation", "fireOn": { "turn": 8 }, "beats": [{ "copy": "tutorial.formation.message" }] },
+      { "id": "morale", "fireOn": { "turn": 12 }, "beats": [{ "copy": "tutorial.morale.message" }] },
+      { "id": "finalPush", "fireOn": { "turn": 18 }, "beats": [{ "copy": "tutorial.finalPush.message" }] }
+    ]
+  },
   "triggers": [
     {
       "event": "onTurnStart",
       "conditions": [
-        { "type": "isTurn", "value": 0 },
-        { "type": "isVar", "value": { "name": "t_deploy", "not": true, "value": true } }
-      ],
-      "conditionLogic": "AND",
-      "once": true,
-      "actions": [
-        { "type": "setVar", "value": { "name": "t_deploy", "value": true } },
-        { "type": "showMessage", "value": { "title": "tutorial.deploy.title", "message": "tutorial.deploy.message" } }
-      ]
-    },
-    {
-      "event": "onTurnStart",
-      "conditions": [
-        { "type": "isTurn", "value": 1 },
-        { "type": "isVar", "value": { "name": "t_move", "not": true, "value": true } }
-      ],
-      "conditionLogic": "AND",
-      "once": true,
-      "actions": [
-        { "type": "setVar", "value": { "name": "t_move", "value": true } },
-        { "type": "showMessage", "value": { "title": "tutorial.move.title", "message": "tutorial.move.message" } }
-      ]
-    },
-    {
-      "event": "onTurnStart",
-      "conditions": [
-        { "type": "isTurn", "value": 2 },
-        { "type": "isVar", "value": { "name": "t_stamina", "not": true, "value": true } }
-      ],
-      "conditionLogic": "AND",
-      "once": true,
-      "actions": [
-        { "type": "setVar", "value": { "name": "t_stamina", "value": true } },
-        { "type": "showMessage", "value": { "title": "tutorial.stamina.title", "message": "tutorial.stamina.message" } }
-      ]
-    },
-    {
-      "event": "onTurnStart",
-      "conditions": [
-        { "type": "isTurn", "value": 3 },
-        { "type": "isVar", "value": { "name": "t_shoot", "not": true, "value": true } }
-      ],
-      "conditionLogic": "AND",
-      "once": true,
-      "actions": [
-        { "type": "setVar", "value": { "name": "t_shoot", "value": true } },
-        { "type": "showMessage", "value": { "title": "tutorial.shoot.title", "message": "tutorial.shoot.message" } }
-      ]
-    },
-    {
-      "event": "onTurnStart",
-      "conditions": [
-        { "type": "isTurn", "value": 4 },
-        { "type": "isVar", "value": { "name": "t_charge", "not": true, "value": true } }
-      ],
-      "conditionLogic": "AND",
-      "once": true,
-      "actions": [
-        { "type": "setVar", "value": { "name": "t_charge", "value": true } },
-        { "type": "showMessage", "value": { "title": "tutorial.charge.title", "message": "tutorial.charge.message" } }
-      ]
-    },
-    {
-      "event": "onTurnStart",
-      "conditions": [
         { "type": "isTurn", "value": 5 },
-        { "type": "isVar", "value": { "name": "t_objectives", "not": true, "value": true } }
+        { "type": "isVar", "value": { "name": "t_objectives_cam", "not": true, "value": true } }
       ],
       "conditionLogic": "AND",
       "once": true,
       "actions": [
-        { "type": "setVar", "value": { "name": "t_objectives", "value": true } },
-        { "type": "moveCamera", "value": { "x": 512, "y": 512, "zoom": 1, "duration": 800 } },
-        { "type": "showMessage", "value": { "title": "tutorial.objectives.title", "message": "tutorial.objectives.message" } }
-      ]
-    },
-    {
-      "event": "onTurnStart",
-      "conditions": [
-        { "type": "isTurn", "value": 8 },
-        { "type": "isVar", "value": { "name": "t_formation", "not": true, "value": true } }
-      ],
-      "conditionLogic": "AND",
-      "once": true,
-      "actions": [
-        { "type": "setVar", "value": { "name": "t_formation", "value": true } },
-        { "type": "showMessage", "value": { "title": "tutorial.formation.title", "message": "tutorial.formation.message" } }
-      ]
-    },
-    {
-      "event": "onTurnStart",
-      "conditions": [
-        { "type": "isTurn", "value": 12 },
-        { "type": "isVar", "value": { "name": "t_morale", "not": true, "value": true } }
-      ],
-      "conditionLogic": "AND",
-      "once": true,
-      "actions": [
-        { "type": "setVar", "value": { "name": "t_morale", "value": true } },
-        { "type": "showMessage", "value": { "title": "tutorial.morale.title", "message": "tutorial.morale.message" } }
-      ]
-    },
-    {
-      "event": "onTurnStart",
-      "conditions": [
-        { "type": "isTurn", "value": 18 },
-        { "type": "isVar", "value": { "name": "t_finalPush", "not": true, "value": true } }
-      ],
-      "conditionLogic": "AND",
-      "once": true,
-      "actions": [
-        { "type": "setVar", "value": { "name": "t_finalPush", "value": true } },
-        { "type": "showMessage", "value": { "title": "tutorial.finalPush.title", "message": "tutorial.finalPush.message" } }
+        { "type": "setVar", "value": { "name": "t_objectives_cam", "value": true } },
+        { "type": "moveCamera", "value": { "x": 512, "y": 512, "zoom": 1, "duration": 800 } }
       ]
     }
   ],
@@ -1894,23 +1842,17 @@
     "en": {
       "name": "Tutorial",
       "description": "Learn the game in a full battle.",
-      "tutorial.deploy.title": "Deploy your army",
-      "tutorial.deploy.message": "Drag your units into the green zone. Put line infantry up front, artillery behind them, and use the forward zone if you want dragoons or skirmishers ahead of the line. Hit confirm when you're ready.",
-      "tutorial.move.title": "Move your units",
+      "tutorial.deploy.intro": "This is the deployment stage. Your army is pre-placed inside the zone — you can reposition any unit before the battle starts. The layout you pick shapes how the fight begins.",
+      "tutorial.deploy.selectInfantry": "Let's start by selecting your line infantry. {input.selectUnits} over them to draw a selection box.",
+      "tutorial.deploy.positionInfantry": "Now move them up front. {input.moveUnit} a selected unit to reposition it inside the zone.",
+      "tutorial.deploy.confirm": "When the line looks good, hit Start to begin the battle.",
       "tutorial.move.message": "Right-click where you want a unit to go. Drag a box with left-click to grab a few of them at once. Head for the flags in the middle. That's what this fight is about.",
-      "tutorial.stamina.title": "Walk, don't sprint",
       "tutorial.stamina.message": "Running burns stamina. Tired units hit softer and rout faster. Walk into position and save the sprint for when it actually matters.",
-      "tutorial.shoot.title": "Ranged fire",
       "tutorial.shoot.message": "Skirmishers and artillery shoot on their own once an enemy walks into range. Skirmishers hit hard at distance but fold in melee, so keep them behind your line. Artillery reaches the furthest. Don't let cavalry get close to it.",
-      "tutorial.charge.title": "Cavalry charge",
       "tutorial.charge.message": "Hold Shift when you order a dragoon and it'll charge instead of walking in. A good charge can break an infantry line, but it wears your horses out fast. Pick the moment.",
-      "tutorial.objectives.title": "Capture the flags",
       "tutorial.objectives.message": "Each flag you hold gives you Victory Points every turn and brings in manpower for replacements. Whoever ends the battle with more VP wins. That's the whole game.",
-      "tutorial.formation.title": "Keep formation",
       "tutorial.formation.message": "A supported line is hard to break. Don't leave skirmishers or artillery on their own. One cavalry charge into an isolated unit is enough to end it. Screen with line infantry and anchor with artillery.",
-      "tutorial.morale.title": "Morale breaks before men do",
       "tutorial.morale.message": "Units rout when their organization collapses. Losses, a flank attack, or plain exhaustion can all do it. A routing unit won't fight. Pull tired units back to recover and send fresh ones up.",
-      "tutorial.finalPush.title": "Final push",
       "tutorial.finalPush.message": "Clock's almost out. Whoever has more VP when it hits zero wins. Pick the flag that decides it and throw everything at that one. Don't try to hold everywhere."
     }
   },
