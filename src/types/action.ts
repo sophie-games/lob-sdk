@@ -55,6 +55,13 @@ export interface TurnAction extends BaseAction {
     team: number;
     /** Total army power of the team. */
     armyPower: number;
+    /**
+     * Team's ticks under pressure (first player of the team, matching
+     * the VP rule). Carried so replay scrubbing can restore the
+     * victory-bar state. Omitted when 0 to save bytes — consumers
+     * treat absent as 0. Absent on older replays.
+     */
+    ticksUnderPressure?: number;
   }[];
 }
 
