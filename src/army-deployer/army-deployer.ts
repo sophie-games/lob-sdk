@@ -413,11 +413,8 @@ export class ArmyDeployer {
       const template = gameDataManager
         .getUnitTemplateManager()
         .getTemplate(unitType);
-      if (template.hasSkirmishers) {
-        coreUnits +=
-          unitType === 10 || unitType === 17
-            ? units[unitType] * 0.5
-            : units[unitType]; // TODO: quick testing half skirms for militia/rifles
+      if (template.skirmisherRatio) {
+        coreUnits += units[unitType] * template.skirmisherRatio;
       }
     }
 
