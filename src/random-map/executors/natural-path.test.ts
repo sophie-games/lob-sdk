@@ -2,7 +2,7 @@ import { NaturalPathExecutor } from "./natural-path";
 import {
   InstructionType,
   InstructionNaturalPath,
-  RandomScenario,
+  LegacyRandomScenario,
   TerrainType,
   Size,
 } from "@lob-sdk/types";
@@ -23,7 +23,7 @@ function createInstruction(
 }
 
 // Mock scenario for testing
-const mockScenario: RandomScenario = {
+const mockScenario: LegacyRandomScenario = {
   type: "RANDOM" as any,
   name: "Test Scenario",
   description: "Test scenario for unit tests",

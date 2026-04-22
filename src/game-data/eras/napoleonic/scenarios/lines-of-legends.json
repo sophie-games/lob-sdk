@@ -1,7 +1,7 @@
 {
+  "version": 1,
   "name": "Lines of Legends",
   "description": "Welcome to MOBA-LOB!",
-  "type": "hybrid",
   "map": {
     "width": 1600,
     "height": 1600,
@@ -1469,5 +1469,6 @@
     { "team": 2, "pos": { "x": 1528.53, "y": 423.61 } },
     { "team": 2, "pos": { "x": 1176.67, "y": 71.75 } }
   ],
-  "triggers": []
+  "triggers": [],
+  "allowDynamicArmy": true
 }

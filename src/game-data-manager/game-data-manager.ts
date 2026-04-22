@@ -3,7 +3,6 @@ import {
   UnitType,
   UnitCategoryId,
   RangeUnitTemplate,
-  GameScenario,
   ScenarioName,
   BattleTypeTemplate,
   DynamicBattleType,
@@ -13,6 +12,7 @@ import {
   TerrainConfig,
   Size,
 } from "@lob-sdk/types";
+import { RawScenarioInput } from "@lob-sdk/scenario";
 import {
   GameConstants,
   GameEra,
@@ -75,12 +75,7 @@ import napoleonicAndesAndValley from "@lob-sdk/game-data/eras/napoleonic/scenari
 import napoleonicLowCountries from "@lob-sdk/game-data/eras/napoleonic/scenarios/low-countries.json";
 import napoleonicHedgerows from "@lob-sdk/game-data/eras/napoleonic/scenarios/hedgerows.json";
 import napoleonicLeipzig from "@lob-sdk/game-data/eras/napoleonic/scenarios/leipzig.json";
-import napoleonicTutorialBasicControls from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-basic-controls.json";
-import napoleonicTutorialControlGroups from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-control-groups.json";
-import napoleonicTutorialInfantryFormations from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-infantry-formations.json";
-import napoleonicTutorialUnitManagement from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-unit-management.json";
-import napoleonicTutorialCharges from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-charges.json";
-import napoleonicTutorialHoldFire from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-hold-fire.json";
+import napoleonicTutorial from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial.json";
 
 import ww2BattleTypes from "@lob-sdk/game-data/eras/ww2/battle-types.json";
 import ww2Orders from "@lob-sdk/game-data/eras/ww2/orders.json";
@@ -177,8 +172,9 @@ export class GameDataManager {
   // Formations
   private _formationManager = new FormationManager();
 
-  // Scenarios
-  private scenarios: Record<ScenarioName, GameScenario> = {};
+  // Scenarios — raw imports (may be legacy or current schema). Consumers that
+  // need the normalized shape should call `normalizeScenario` themselves.
+  private scenarios: Record<ScenarioName, RawScenarioInput> = {};
 
   // Map sizes
   private mapSizes: Record<Size, MapSizeTemplate> | null = null;
@@ -274,46 +270,37 @@ export class GameDataManager {
         this.matchmakingPresets =
           napoleonicMatchmakingPresets as MatchmakingPresetsData;
         this.scenarios = {
-          plains: napoleonicPlains as GameScenario,
-          hills: napoleonicHills as GameScenario,
-          iberia: napoleonicIberia as GameScenario,
-          tundra: napoleonicTundra as GameScenario,
-          city: napoleonicCity as GameScenario,
-          hedgerows: napoleonicHedgerows as GameScenario,
-          "low-countries": napoleonicLowCountries as GameScenario,
-          lake: napoleonicLake as GameScenario,
-          "black-forest": napoleonicBlackForest as GameScenario,
-          "silva-sanctorum": napoleonicSilvaSanctorum as GameScenario,
-          "andes-and-valley": napoleonicAndesAndValley as GameScenario,
-          "lines-of-legends": napoleonicLinesOfLegends as GameScenario,
-          "river-valley": napoleonicRiverValley as GameScenario,
-          "saand-lakes": napoleonicSaandLakes as GameScenario,
-          "faucon-river-valley": napoleonicFauconRiverValley as GameScenario,
-          "amnis-nucum": napoleonicAmnisNucum as GameScenario,
-          "road-to-amnis-nucum": napoleonicRoadToAmnisNucum as GameScenario,
-          "aestate-villas": napoleonicAestateVillas as GameScenario,
-          "citta-dei-falchi": napoleonicCittaDeiFalchi as GameScenario,
-          "rural-alpine": napoleonicRuralAlpine as GameScenario,
-          "mediterranea-nucum": napoleonicMediterraneaNucum as GameScenario,
-          falkenhugel: napoleonicFalkenhugel as GameScenario,
-          "grobes-schlachtfeld": napoleonicGrobesSchlachtfeld as GameScenario,
-          antioch: napoleonicAntioch as GameScenario,
-          waterloo: napoleonicWaterloo as GameScenario,
-          leipzig: napoleonicLeipzig as GameScenario,
-          borodino: napoleonicBorodino as GameScenario,
-          "combat-at-mollwitz": napoleonicCombatAtMollwitz as GameScenario,
-          "clash-at-chelmnitz": napoleonicClashAtChelmnitz as GameScenario,
-          dresden: napoleonicDresden as GameScenario,
-          "tutorial-basic-controls":
-            napoleonicTutorialBasicControls as GameScenario,
-          "tutorial-control-groups":
-            napoleonicTutorialControlGroups as GameScenario,
-          "tutorial-infantry-formations":
-            napoleonicTutorialInfantryFormations as GameScenario,
-          "tutorial-unit-management":
-            napoleonicTutorialUnitManagement as GameScenario,
-          "tutorial-charges": napoleonicTutorialCharges as GameScenario,
-          "tutorial-hold-fire": napoleonicTutorialHoldFire as GameScenario,
+          plains: napoleonicPlains as RawScenarioInput,
+          hills: napoleonicHills as RawScenarioInput,
+          iberia: napoleonicIberia as RawScenarioInput,
+          tundra: napoleonicTundra as RawScenarioInput,
+          city: napoleonicCity as RawScenarioInput,
+          hedgerows: napoleonicHedgerows as RawScenarioInput,
+          "low-countries": napoleonicLowCountries as RawScenarioInput,
+          lake: napoleonicLake as RawScenarioInput,
+          "black-forest": napoleonicBlackForest as RawScenarioInput,
+          "silva-sanctorum": napoleonicSilvaSanctorum as RawScenarioInput,
+          "andes-and-valley": napoleonicAndesAndValley as RawScenarioInput,
+          "lines-of-legends": napoleonicLinesOfLegends as RawScenarioInput,
+          "river-valley": napoleonicRiverValley as RawScenarioInput,
+          "saand-lakes": napoleonicSaandLakes as RawScenarioInput,
+          "faucon-river-valley": napoleonicFauconRiverValley as RawScenarioInput,
+          "amnis-nucum": napoleonicAmnisNucum as RawScenarioInput,
+          "road-to-amnis-nucum": napoleonicRoadToAmnisNucum as RawScenarioInput,
+          "aestate-villas": napoleonicAestateVillas as RawScenarioInput,
+          "citta-dei-falchi": napoleonicCittaDeiFalchi as RawScenarioInput,
+          "rural-alpine": napoleonicRuralAlpine as RawScenarioInput,
+          "mediterranea-nucum": napoleonicMediterraneaNucum as RawScenarioInput,
+          falkenhugel: napoleonicFalkenhugel as RawScenarioInput,
+          "grobes-schlachtfeld": napoleonicGrobesSchlachtfeld as RawScenarioInput,
+          antioch: napoleonicAntioch as RawScenarioInput,
+          waterloo: napoleonicWaterloo as RawScenarioInput,
+          leipzig: napoleonicLeipzig as RawScenarioInput,
+          borodino: napoleonicBorodino as RawScenarioInput,
+          "combat-at-mollwitz": napoleonicCombatAtMollwitz as RawScenarioInput,
+          "clash-at-chelmnitz": napoleonicClashAtChelmnitz as RawScenarioInput,
+          dresden: napoleonicDresden as RawScenarioInput,
+          tutorial: napoleonicTutorial as RawScenarioInput,
         };
 
         break;
@@ -341,9 +328,9 @@ export class GameDataManager {
         this.matchmakingPresets =
           ww2MatchmakingPresets as MatchmakingPresetsData;
         this.scenarios = {
-          fields: ww2Fields as GameScenario,
-          "battle-of-france": ww2France as GameScenario,
-          "battle-of-moscow": ww2BattleOfMoscow as GameScenario,
+          fields: ww2Fields as RawScenarioInput,
+          "battle-of-france": ww2France as RawScenarioInput,
+          "battle-of-moscow": ww2BattleOfMoscow as RawScenarioInput,
         };
 
         break;
@@ -1107,24 +1094,24 @@ export class GameDataManager {
   }
 
   /**
-   * Get a scenario by name
+   * Get a scenario by name. Returns the raw scenario (legacy or current schema).
+   * Callers that need the new {@link Scenario} shape (game init, scenario
+   * editor) should pipe the result through `normalizeScenario`.
    */
-  public getScenario<T extends GameScenario>(scenarioName: ScenarioName): T {
+  public getScenario(scenarioName: ScenarioName): RawScenarioInput {
     const scenario = this.scenarios[scenarioName];
     if (!scenario) {
       throw new Error(`Scenario ${scenarioName} not found for era ${this.era}`);
     }
-    return scenario as T;
+    return scenario;
   }
 
   /**
-   * Try to get a scenario by name
+   * Try to get a scenario by name. Returns `null` if missing; otherwise the
+   * raw scenario (legacy or current schema).
    */
-  public tryGetScenario<T extends GameScenario>(
-    scenarioName: ScenarioName,
-  ): T | null {
-    const scenario = this.scenarios[scenarioName];
-    return (scenario ?? null) as T | null;
+  public tryGetScenario(scenarioName: ScenarioName): RawScenarioInput | null {
+    return this.scenarios[scenarioName] ?? null;
   }
 
   public getScenarios(): Array<ScenarioName> {

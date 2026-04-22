@@ -698,6 +698,16 @@
   "preset": "Preset",
   "hybrid": "Hybrydowy",
   "random": "Losowy",
+  "scenarioFeatures": "Cechy",
+  "scenarioFeature": {
+    "fixedMap": "Stała mapa",
+    "proceduralMap": "Mapa generowana proceduralnie",
+    "fixedArmy": "Stała armia",
+    "dynamicArmy": "Dynamiczna armia",
+    "fixedPlayers": "Stali gracze",
+    "objectives": "Cele",
+    "scriptedEvents": "Zdarzenia skryptowe"
+  },
   "projectileWidth": "Szerokość pocisku",
   "allyCollisionLevel": "Poziom sojuszniczych kolizji",
   "enemyCollisionLevel": "Poziom wrogich kolizji",

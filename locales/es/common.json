@@ -680,6 +680,16 @@
   "preset": "Preestablecido",
   "hybrid": "Híbrido",
   "random": "Aleatorio",
+  "scenarioFeatures": "Características",
+  "scenarioFeature": {
+    "fixedMap": "Mapa fijo",
+    "proceduralMap": "Mapa generado proceduralmente",
+    "fixedArmy": "Ejército fijo",
+    "dynamicArmy": "Ejército dinámico",
+    "fixedPlayers": "Jugadores fijos",
+    "objectives": "Objetivos",
+    "scriptedEvents": "Eventos con guion"
+  },
   "join": "Unirse",
   "spectate": "Espectar",
   "gameIsNotFull": "El juego aún no está lleno",

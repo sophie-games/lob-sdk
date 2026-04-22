@@ -16,4 +16,5 @@ export * from "./data-structures";
 export * from "./unit-effects";
 export * from "./unit";
 export * from "./vp-service";
-export * from "./game-time-preset"
+export * from "./game-time-preset";
+export * from "./scenario";

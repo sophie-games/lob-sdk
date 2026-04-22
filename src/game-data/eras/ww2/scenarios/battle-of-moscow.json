@@ -1,7 +1,7 @@
 {
+  "version": 1,
   "name": "name",
   "description": "description",
-  "type": "preset",
   "players": [
     { "player": 1, "team": 1, "ammoReserve": 500, "baseAmmoReserve": 500 },
     { "player": 2, "team": 2, "ammoReserve": 500, "baseAmmoReserve": 500 }
@@ -4407,5 +4407,6 @@
       "trigger.north_counteroffensive.title": "Радянський контрнаступ на півночі!",
       "trigger.north_counteroffensive.message": "До кінця листопада 1941 року радянське командування зосередило війська новоствореної 20-ї армії і 1-ї ударної армії в районі Загорська (нині Сергієв Посад). Ставка планувала кинути ці армії в контрнаступ на північ від Москви на початку грудня. Однак німецький прорив під Яхромою змусив негайно задіяти 1-у ударну армію для ліквідації прориву."
     }
-  }
+  },
+  "allowDynamicArmy": false
 }

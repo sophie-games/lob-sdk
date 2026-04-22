@@ -1,7 +1,7 @@
 {
+  "version": 1,
   "name": "City",
   "description": "A city stands near the field of battle.",
-  "type": "random",
   "baseTerrain": 0,
   "instructions": [
     {
@@ -929,5 +929,6 @@
         "max": [70, 60]
       }
     }
-  ]
+  ],
+  "allowDynamicArmy": true
 }

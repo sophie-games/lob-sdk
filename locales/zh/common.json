@@ -732,6 +732,16 @@
   "preset": "预设",
   "hybrid": "混合",
   "random": "随机",
+  "scenarioFeatures": "特性",
+  "scenarioFeature": {
+    "fixedMap": "固定地图",
+    "proceduralMap": "程序生成地图",
+    "fixedArmy": "固定军队",
+    "dynamicArmy": "动态军队",
+    "fixedPlayers": "固定玩家",
+    "objectives": "目标",
+    "scriptedEvents": "脚本事件"
+  },
   "projectileWidth": "射击宽度",
   "allyCollisionLevel": "友军碰撞等级",
   "enemyCollisionLevel": "敌军碰撞等级",

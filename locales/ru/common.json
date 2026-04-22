@@ -732,6 +732,16 @@
   "preset": "Фиксированный сценарий",
   "hybrid": "Гибридная карта",
   "random": "Случайная карта",
+  "scenarioFeatures": "Особенности",
+  "scenarioFeature": {
+    "fixedMap": "Фиксированная карта",
+    "proceduralMap": "Процедурно сгенерированная карта",
+    "fixedArmy": "Фиксированная армия",
+    "dynamicArmy": "Динамическая армия",
+    "fixedPlayers": "Фиксированные игроки",
+    "objectives": "Цели",
+    "scriptedEvents": "Скриптовые события"
+  },
   "projectileWidth": "Ширина области огня",
   "allyCollisionLevel": "Уровень столкновения с союзниками",
   "enemyCollisionLevel": "Уровень столкновения с врагом",

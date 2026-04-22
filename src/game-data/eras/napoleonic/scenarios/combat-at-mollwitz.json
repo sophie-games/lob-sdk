@@ -1,7 +1,7 @@
 {
+    "version": 1,
     "name": "name",
     "description": "description",
-    "type": "preset",
     "players": [
         {
             "player": 1,
@@ -1574,5 +1574,6 @@
             "name": "莫尔维茨的战斗",
             "description": "这是一个历史场景，描绘了第一次西里西亚战争中的莫尔维茨战役，一支奥地利救济部队（玩家1）对抗征服普鲁士（玩家2）的弗雷德里克二世军队。"
         }
-    }
+    },
+    "allowDynamicArmy": false
 }
