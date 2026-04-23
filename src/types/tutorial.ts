@@ -1,3 +1,5 @@
+import { OrderType } from "./order";
+
 /**
  * Data-driven tutorial schema.
  *
@@ -20,6 +22,8 @@ export type TutorialBeatAdvance =
   | "unitRepositioned" // first reposition committed in the deployment phase
   | "deploymentConfirmed" // turn-0 submit-orders press
   | "orderPlaced" // a movement order was drawn on the map
+  | "orderTypeModalOpened" // SelectOrderModal opens; auto-skipped if hud.orderType already matches
+  | "orderTypeSelected" // hud.orderType changed to one that matches; auto-skipped if already matching on activation
   | "ordersSubmitted"; // submit-orders press on a battle turn (turn > 0)
 
 /**
@@ -81,6 +85,19 @@ export type TutorialBeat = {
    */
   moveDestination?: TutorialMoveDestination;
   /**
+   * Filters order-related advance modes:
+   *  - `orderPlaced`: only orders of this type dismiss the beat.
+   *  - `orderTypeModalOpened`: auto-skip on activation if `hud.orderType`
+   *    already matches, otherwise advance the first time the modal opens.
+   *  - `orderTypeSelected`: auto-skip on activation if `hud.orderType`
+   *    already matches, otherwise advance when the order type changes to a
+   *    matching value.
+   * Ignored for other advance modes. Numeric values come from {@link OrderType}:
+   * Walk=1, Run=2, Shoot=3, FireAndAdvance=4, PlaceEntity=5, Fallback=6,
+   * Rotate=7.
+   */
+  orderType?: OrderType | OrderType[];
+  /**
    * Input schemes this beat applies to. When omitted, the beat runs for all
    * schemes. When present, the beat is skipped if the active scheme is not
    * listed. Used for mechanics that only one input style needs to learn
@@ -91,10 +108,13 @@ export type TutorialBeat = {
   /**
    * UI element ids to hide while this beat is active (blacklist).
    *
-   * Currently supported:
+   * Supported ids:
    *  - Bottom button ids: "chat", "selectIdle", "formation", "orderType",
    *    "deselect", "removeOrders", "submitOrders"
-   *  - "bottomButtons" — shorthand for all bottom buttons
+   *  - "bottomButtons" — shorthand for all bottom button ids above
+   *  - "topButtons" — all top circular buttons (menu, replay, info, etc.)
+   *  - "victoryBar" — the score / victory-point strip
+   *  - "unitSummary" — the DOM unit-summary dialog
    *
    * Buttons that are also highlighted by this beat's `highlight.targetId`
    * are auto-shown regardless.

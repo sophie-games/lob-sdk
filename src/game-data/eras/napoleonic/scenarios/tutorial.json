@@ -3639,7 +3639,7 @@
           {
             "copy": "tutorial.deploy.intro",
             "advanceOn": "button",
-            "hideUiElements": ["bottomButtons"]
+            "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           },
           {
             "copy": "tutorial.deploy.selectInfantry",
@@ -3650,7 +3650,7 @@
             "gesture": "selectionBox",
             "advanceOn": "unitSelected",
             "unitCategory": "infantry",
-            "hideUiElements": ["bottomButtons"]
+            "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           },
           {
             "copy": "tutorial.deploy.positionInfantry",
@@ -3667,7 +3667,7 @@
               "width": 240,
               "height": 30
             },
-            "hideUiElements": ["bottomButtons"]
+            "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           },
           {
             "copy": "tutorial.deploy.deselectBeforeNext",
@@ -3678,7 +3678,7 @@
             "placement": "top",
             "advanceOn": "unitsDeselected",
             "inputSchemes": ["touch"],
-            "hideUiElements": ["bottomButtons"]
+            "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           },
           {
             "copy": "tutorial.deploy.selectCavalry",
@@ -3689,7 +3689,7 @@
             "gesture": "selectionBox",
             "advanceOn": "unitSelected",
             "unitCategory": "midCavalry",
-            "hideUiElements": ["bottomButtons"]
+            "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           },
           {
             "copy": "tutorial.deploy.positionCavalry",
@@ -3706,7 +3706,7 @@
               "width": 120,
               "height": 20
             },
-            "hideUiElements": ["bottomButtons"]
+            "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           },
           {
             "copy": "tutorial.deploy.deselectBeforeNext",
@@ -3717,7 +3717,7 @@
             "placement": "top",
             "advanceOn": "unitsDeselected",
             "inputSchemes": ["touch"],
-            "hideUiElements": ["bottomButtons"]
+            "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           },
           {
             "copy": "tutorial.deploy.selectArtillery",
@@ -3728,7 +3728,7 @@
             "gesture": "selectionBox",
             "advanceOn": "unitSelected",
             "unitCategory": "artillery",
-            "hideUiElements": ["bottomButtons"]
+            "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           },
           {
             "copy": "tutorial.deploy.positionArtillery",
@@ -3745,7 +3745,7 @@
               "width": 120,
               "height": 20
             },
-            "hideUiElements": ["bottomButtons"]
+            "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           },
           {
             "copy": "tutorial.deploy.deselectBeforeNext",
@@ -3756,7 +3756,7 @@
             "placement": "top",
             "advanceOn": "unitsDeselected",
             "inputSchemes": ["touch"],
-            "hideUiElements": ["bottomButtons"]
+            "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           },
           {
             "copy": "tutorial.deploy.selectSkirmishers",
@@ -3767,7 +3767,7 @@
             "gesture": "selectionBox",
             "advanceOn": "unitSelected",
             "unitCategory": "skirmishInfantry",
-            "hideUiElements": ["bottomButtons"]
+            "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           },
           {
             "copy": "tutorial.deploy.positionSkirmishers",
@@ -3784,7 +3784,7 @@
               "width": 120,
               "height": 40
             },
-            "hideUiElements": ["bottomButtons"]
+            "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           },
           {
             "copy": "tutorial.deploy.confirm",
@@ -3798,7 +3798,7 @@
             },
             "placement": "top",
             "advanceOn": "deploymentConfirmed",
-            "hideUiElements": ["bottomButtons"]
+            "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           }
         ]
       },
@@ -3810,7 +3810,8 @@
         "beats": [
           {
             "copy": "tutorial.move.intro",
-            "advanceOn": "button"
+            "advanceOn": "button",
+            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
           },
           {
             "copy": "tutorial.move.selectInfantry",
@@ -3821,15 +3822,193 @@
               "targetId": "tutorial-units-to-select",
               "style": "spotlight"
             },
-            "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders"]
+            "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
           },
           {
-            "copy": "tutorial.move.drawOrder",
+            "copy": "tutorial.move.clickOrderTypeInfantry",
+            "advanceOn": "orderTypeModalOpened",
+            "orderType": 4,
+            "placement": "top",
+            "highlight": {
+              "targetId": "hud-order-type",
+              "style": "ring"
+            },
+            "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.chooseOrderInfantry",
+            "advanceOn": "orderTypeSelected",
+            "orderType": 4,
+            "highlight": {
+              "targetId": "orderType-option-4",
+              "style": "ring"
+            },
+            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.orderInfantry",
             "advanceOn": "orderPlaced",
             "unitCategory": "infantry",
+            "orderType": 4,
             "gesture": "moveUnit",
-            "moveDestination": { "x": 392, "y": 550, "width": 240, "height": 30 },
-            "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders"]
+            "moveDestination": { "x": 380, "y": 650, "width": 260, "height": 30 },
+            "hideUiElements": ["chat", "selectIdle", "formation", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.deselectBeforeNext",
+            "highlight": {
+              "targetId": "hud-deselect",
+              "style": "spotlight"
+            },
+            "placement": "top",
+            "advanceOn": "unitsDeselected",
+            "inputSchemes": ["touch"],
+            "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.selectCavalry",
+            "advanceOn": "unitSelected",
+            "unitCategory": "midCavalry",
+            "gesture": "selectionBox",
+            "highlight": {
+              "targetId": "tutorial-units-to-select",
+              "style": "spotlight"
+            },
+            "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.clickOrderTypeCavalry",
+            "advanceOn": "orderTypeModalOpened",
+            "orderType": 1,
+            "placement": "top",
+            "highlight": {
+              "targetId": "hud-order-type",
+              "style": "ring"
+            },
+            "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.chooseOrderCavalry",
+            "advanceOn": "orderTypeSelected",
+            "orderType": 1,
+            "highlight": {
+              "targetId": "orderType-option-1",
+              "style": "ring"
+            },
+            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.orderCavalry",
+            "advanceOn": "orderPlaced",
+            "unitCategory": "midCavalry",
+            "orderType": 1,
+            "gesture": "moveUnit",
+            "moveDestination": { "x": 720, "y": 700, "width": 220, "height": 30 },
+            "hideUiElements": ["chat", "selectIdle", "formation", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.deselectBeforeNext",
+            "highlight": {
+              "targetId": "hud-deselect",
+              "style": "spotlight"
+            },
+            "placement": "top",
+            "advanceOn": "unitsDeselected",
+            "inputSchemes": ["touch"],
+            "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.selectArtillery",
+            "advanceOn": "unitSelected",
+            "unitCategory": "artillery",
+            "gesture": "selectionBox",
+            "highlight": {
+              "targetId": "tutorial-units-to-select",
+              "style": "spotlight"
+            },
+            "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.clickOrderTypeArtillery",
+            "advanceOn": "orderTypeModalOpened",
+            "orderType": 2,
+            "placement": "top",
+            "highlight": {
+              "targetId": "hud-order-type",
+              "style": "ring"
+            },
+            "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.chooseOrderArtillery",
+            "advanceOn": "orderTypeSelected",
+            "orderType": 2,
+            "highlight": {
+              "targetId": "orderType-option-2",
+              "style": "ring"
+            },
+            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.orderArtillery",
+            "advanceOn": "orderPlaced",
+            "unitCategory": "artillery",
+            "orderType": 2,
+            "gesture": "moveUnit",
+            "moveDestination": { "x": 440, "y": 820, "width": 200, "height": 20 },
+            "hideUiElements": ["chat", "selectIdle", "formation", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.deselectBeforeNext",
+            "highlight": {
+              "targetId": "hud-deselect",
+              "style": "spotlight"
+            },
+            "placement": "top",
+            "advanceOn": "unitsDeselected",
+            "inputSchemes": ["touch"],
+            "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.selectSkirmishers",
+            "advanceOn": "unitSelected",
+            "unitCategory": "skirmishInfantry",
+            "gesture": "selectionBox",
+            "highlight": {
+              "targetId": "tutorial-units-to-select",
+              "style": "spotlight"
+            },
+            "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.clickOrderTypeSkirmishers",
+            "advanceOn": "orderTypeModalOpened",
+            "orderType": 2,
+            "placement": "top",
+            "highlight": {
+              "targetId": "hud-order-type",
+              "style": "ring"
+            },
+            "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.chooseOrderSkirmishers",
+            "advanceOn": "orderTypeSelected",
+            "orderType": 2,
+            "highlight": {
+              "targetId": "orderType-option-2",
+              "style": "ring"
+            },
+            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.move.orderSkirmishers",
+            "advanceOn": "orderPlaced",
+            "unitCategory": "skirmishInfantry",
+            "orderType": 2,
+            "gesture": "moveUnit",
+            "moveDestination": { "x": 350, "y": 560, "width": 320, "height": 60 },
+            "hideUiElements": ["chat", "selectIdle", "formation", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
           },
           {
             "copy": "tutorial.move.submit",
@@ -3838,7 +4017,7 @@
               "targetId": "hud-submit-orders",
               "style": "ring"
             },
-            "hideUiElements": ["bottomButtons"]
+            "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           }
         ]
       },
@@ -3849,7 +4028,8 @@
         },
         "beats": [
           {
-            "copy": "tutorial.stamina.message"
+            "copy": "tutorial.stamina.message",
+            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
           }
         ]
       },
@@ -3860,7 +4040,8 @@
         },
         "beats": [
           {
-            "copy": "tutorial.shoot.message"
+            "copy": "tutorial.shoot.message",
+            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
           }
         ]
       },
@@ -3871,7 +4052,8 @@
         },
         "beats": [
           {
-            "copy": "tutorial.charge.message"
+            "copy": "tutorial.charge.message",
+            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
           }
         ]
       },
@@ -3882,7 +4064,8 @@
         },
         "beats": [
           {
-            "copy": "tutorial.objectives.message"
+            "copy": "tutorial.objectives.message",
+            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
           }
         ]
       },
@@ -3893,7 +4076,8 @@
         },
         "beats": [
           {
-            "copy": "tutorial.formation.message"
+            "copy": "tutorial.formation.message",
+            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
           }
         ]
       },
@@ -3904,7 +4088,8 @@
         },
         "beats": [
           {
-            "copy": "tutorial.morale.message"
+            "copy": "tutorial.morale.message",
+            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
           }
         ]
       },
@@ -3915,7 +4100,8 @@
         },
         "beats": [
           {
-            "copy": "tutorial.finalPush.message"
+            "copy": "tutorial.finalPush.message",
+            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
           }
         ]
       }
@@ -3975,10 +4161,25 @@
       "tutorial.deploy.positionSkirmishers": "Tuck them near trees or broken ground. Skirmishers use cover to harass enemies from a distance, and they fold in melee \u2014 so keep them supported. {input.moveUnit} to reposition.",
       "tutorial.deploy.deselectBeforeNext": "Clear your current selection first — {input.deselect} before picking up the next unit type.",
       "tutorial.deploy.confirm": "When the army looks good, hit Submit orders to begin the battle.",
-      "tutorial.move.intro": "The battle starts now. Each turn you pick units, draw orders, and submit. The flags in the middle are the objective — whoever holds them wins.",
-      "tutorial.move.selectInfantry": "Grab your line infantry first. {input.selectUnits} over them to draw a selection box.",
-      "tutorial.move.drawOrder": "Now advance toward the flags. {input.moveUnit} on the map to draw a path for your infantry.",
-      "tutorial.move.submit": "Orders are set. Hit Submit orders to end your turn and watch them move.",
+      "tutorial.move.intro": "Push toward the neutral flags {icon.targetFlag} in the center. Each unit type has a different order.",
+      "tutorial.move.selectInfantry": "Line infantry: {input.selectUnits} over them.",
+      "tutorial.move.clickOrderTypeInfantry": "Open the order menu to pick FAA {icon.fireAdvance}.",
+      "tutorial.move.chooseOrderInfantry": "Pick FAA {icon.fireAdvance} — fires while advancing if enemies appear in the path.",
+      "tutorial.move.orderInfantry": "Now {input.moveUnit} toward the center flag.",
+      "tutorial.move.selectCavalry": "Cavalry: {input.selectUnits} over them.",
+      "tutorial.move.clickOrderTypeCavalry": "Open the order menu to switch to Walk {icon.walk}.",
+      "tutorial.move.chooseOrderCavalry": "Pick Walk {icon.walk} — saves stamina for a charge later.",
+      "tutorial.move.orderCavalry": "Now {input.moveUnit} to the flank.",
+      "tutorial.move.selectArtillery": "Artillery: {input.selectUnits} over them.",
+      "tutorial.move.clickOrderTypeArtillery": "Open the order menu to switch to Run {icon.run}.",
+      "tutorial.move.chooseOrderArtillery": "Pick Run {icon.run} — limbers up: faster, no stamina cost, but delayed shooting after stopping.",
+      "tutorial.move.orderArtillery": "Keep line of sight {icon.lineOfSight} clean and don't push too far. {input.moveUnit} to draw the path.",
+      "tutorial.move.selectSkirmishers": "Skirmishers: {input.selectUnits} over them.",
+      "tutorial.move.clickOrderTypeSkirmishers": "Open the order menu to switch to Run {icon.run}.",
+      "tutorial.move.chooseOrderSkirmishers": "Pick Run {icon.run} — take woods and villages fast, but don't sprint, they tire.",
+      "tutorial.move.orderSkirmishers": "Push into cover {icon.building} {icon.forest}. {input.moveUnit} to the band.",
+      "tutorial.move.deselectBeforeNext": "{input.deselect} before picking the next unit type.",
+      "tutorial.move.submit": "All set. Submit orders to end the turn.",
       "tutorial.stamina.message": "Running burns stamina. Tired units hit softer and rout faster. Walk into position and save the sprint for when it actually matters.",
       "tutorial.shoot.message": "Skirmishers and artillery shoot on their own once an enemy walks into range. Skirmishers hit hard at distance but fold in melee, so keep them behind your line. Artillery reaches the furthest. Don't let cavalry get close to it.",
       "tutorial.charge.message": "Hold Shift when you order a dragoon and it'll charge instead of walking in. A good charge can break an infantry line, but it wears your horses out fast. Pick the moment.",
