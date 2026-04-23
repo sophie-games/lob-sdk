@@ -18,7 +18,9 @@ export type TutorialBeatAdvance =
   | "unitSelected" // first UNIT_SELECTED event on the client
   | "unitsDeselected" // first UNIT_DESELECTED event that leaves selection empty
   | "unitRepositioned" // first reposition committed in the deployment phase
-  | "deploymentConfirmed"; // turn-0 submit-orders press
+  | "deploymentConfirmed" // turn-0 submit-orders press
+  | "orderPlaced" // a movement order was drawn on the map
+  | "ordersSubmitted"; // submit-orders press on a battle turn (turn > 0)
 
 /**
  * Input scheme the player is using. Mirrors the client-side type but lives in
@@ -38,7 +40,7 @@ export type TutorialHighlight = {
   style?: TutorialHighlightStyle;
 };
 
-export type TutorialGesture = "selectionBox" | "moveUnit";
+export type TutorialGesture = "selectionBox" | "moveUnit" | "drawOrder";
 
 export type TutorialBeatPlacement = "top" | "bottom" | "left" | "right";
 
