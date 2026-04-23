@@ -3660,9 +3660,9 @@
             "advanceOn": "unitRepositioned",
             "unitCategory": "infantry",
             "moveDestination": {
-              "x": 272,
-              "y": 900,
-              "width": 480,
+              "x": 392,
+              "y": 930,
+              "width": 240,
               "height": 30
             }
           },
@@ -3686,10 +3686,10 @@
             "advanceOn": "unitRepositioned",
             "unitCategory": "midCavalry",
             "moveDestination": {
-              "x": 272,
-              "y": 935,
-              "width": 480,
-              "height": 30
+              "x": 392,
+              "y": 965,
+              "width": 240,
+              "height": 20
             }
           },
           {
@@ -3712,10 +3712,10 @@
             "advanceOn": "unitRepositioned",
             "unitCategory": "artillery",
             "moveDestination": {
-              "x": 272,
-              "y": 965,
-              "width": 480,
-              "height": 25
+              "x": 392,
+              "y": 900,
+              "width": 240,
+              "height": 20
             }
           },
           {
@@ -3738,9 +3738,9 @@
             "advanceOn": "unitRepositioned",
             "unitCategory": "skirmishInfantry",
             "moveDestination": {
-              "x": 272,
+              "x": 392,
               "y": 760,
-              "width": 480,
+              "width": 240,
               "height": 40
             }
           },
@@ -3896,7 +3896,7 @@
       "tutorial.deploy.selectCavalry": "Now grab your dragoons. {input.selectUnits} over them.",
       "tutorial.deploy.positionCavalry": "Place them behind your infantry line \u2014 kept in reserve they can charge through gaps or plug a break. {input.moveUnit} to reposition.",
       "tutorial.deploy.selectArtillery": "Select your artillery. {input.selectUnits} over them.",
-      "tutorial.deploy.positionArtillery": "Push the guns forward, behind the line where they have range and line of sight. Artillery reaches the farthest \u2014 don't leave it exposed. {input.moveUnit} to reposition.",
+      "tutorial.deploy.positionArtillery": "Push the guns to the very front of your line so they have a clean shot downrange. Artillery reaches the farthest, but keep the infantry close behind to screen it. {input.moveUnit} to reposition.",
       "tutorial.deploy.selectSkirmishers": "Last, pick up your skirmishers. {input.selectUnits} over them.",
       "tutorial.deploy.positionSkirmishers": "Tuck them near trees or broken ground. Skirmishers use cover to harass enemies from a distance, and they fold in melee \u2014 so keep them supported. {input.moveUnit} to reposition.",
       "tutorial.deploy.confirm": "When the line looks good, hit Submit orders to begin the battle.",
