@@ -35,6 +35,20 @@ export type TutorialGesture = "selectionBox" | "moveUnit";
 
 export type TutorialBeatPlacement = "top" | "bottom" | "left" | "right";
 
+/**
+ * World-space rect describing where the tutorial wants the player to end up
+ * placing the units selected by this beat. Used by the moveUnit gesture hint
+ * (positions the animation over the destination, not the full deployment
+ * zone) and by the ghost-projection layer (renders semi-transparent unit
+ * silhouettes inside this rect).
+ */
+export type TutorialMoveDestination = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
+
 export type TutorialBeat = {
   /** Locale key resolved from `scenario.locales`. Token-substituted at render. */
   copy: string;
@@ -51,6 +65,12 @@ export type TutorialBeat = {
    * `"skirmishInfantry"`).
    */
   unitCategory?: string | string[];
+  /**
+   * Destination rect for a `moveUnit` beat. Scoped to world coords (same
+   * space as units / deployment zones). Only meaningful when `gesture` is
+   * `"moveUnit"`.
+   */
+  moveDestination?: TutorialMoveDestination;
 };
 
 export type TutorialFireOn =
