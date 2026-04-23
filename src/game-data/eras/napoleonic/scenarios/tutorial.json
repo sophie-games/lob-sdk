@@ -19,40 +19,23 @@
       "units": { "1": 8, "2": 4, "3": 2, "16": 2 }
     }
   ],
-  "randomDeploymentZones": {
-    "topMainDeploymentZone": {
-      "minX": 5,
-      "maxX": 5,
-      "minY": 3,
-      "maxY": 3,
-      "width": 90,
-      "height": 10
+  "fixedSize": { "tilesX": 64, "tilesY": 64 },
+  "deploymentZones": [
+    {
+      "team": 1,
+      "zones": [
+        { "team": 1, "type": "main",    "x": 32, "y": 896, "width": 960, "height": 96 },
+        { "team": 1, "type": "forward", "x": 32, "y": 736, "width": 960, "height": 96 }
+      ]
     },
-    "topForwardDeploymentZone": {
-      "minX": 5,
-      "maxX": 5,
-      "minY": 18,
-      "maxY": 18,
-      "width": 90,
-      "height": 10
-    },
-    "bottomMainDeploymentZone": {
-      "minX": 5,
-      "maxX": 5,
-      "minY": 90,
-      "maxY": 90,
-      "width": 90,
-      "height": 10
-    },
-    "bottomForwardDeploymentZone": {
-      "minX": 5,
-      "maxX": 5,
-      "minY": 76,
-      "maxY": 76,
-      "width": 90,
-      "height": 10
+    {
+      "team": 2,
+      "zones": [
+        { "team": 2, "type": "main",    "x": 32, "y": 32,  "width": 960, "height": 96 },
+        { "team": 2, "type": "forward", "x": 32, "y": 192, "width": 960, "height": 96 }
+      ]
     }
-  },
+  ],
 
   "instructions": [
     {

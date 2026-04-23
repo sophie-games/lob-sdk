@@ -31,11 +31,20 @@ export enum GameScenarioType {
 }
 
 /**
- * Represents a deployment zone for a specific team.
+ * Role of a deployment zone — decides which units can deploy there. Units whose
+ * template has `canDeployForward: true` go in `forward` zones; the rest go in
+ * `main` zones.
+ */
+export type DeploymentZoneType = "main" | "forward";
+
+/**
+ * A single deployment zone rectangle belonging to a team.
  */
 export interface TeamDeploymentZone {
   /** The team number this zone belongs to. */
   team: number;
+  /** Whether the zone is a main or a forward (skirmisher-allowed) zone. */
+  type: DeploymentZoneType;
   /** X coordinate of the zone's top-left corner. */
   x: number;
   /** Y coordinate of the zone's top-left corner. */
@@ -44,15 +53,55 @@ export interface TeamDeploymentZone {
   width: number;
   /** Height of the deployment zone. */
   height: number;
-  /** Type of the deployment zone */
-  // type: "forward" | "main"; // For future build, put type here and allow an arbritrary number of deployment zones.
 }
 
+/**
+ * All deployment zones that belong to a team. The array may contain N zones of
+ * each type; consumers should filter by {@link DeploymentZoneType}.
+ */
 export interface TeamDeploymentZones {
   team: number;
-  mainZone: TeamDeploymentZone;
-  forwardZone: TeamDeploymentZone;
+  zones: TeamDeploymentZone[];
 }
+
+/** Returns the first zone of the given type, or undefined if none exist. */
+export const getDeploymentZone = (
+  tdz: TeamDeploymentZones,
+  type: DeploymentZoneType,
+): TeamDeploymentZone | undefined =>
+  tdz.zones.find((zone) => zone.type === type);
+
+/** Returns all zones of the given type (empty array if none). */
+export const getDeploymentZonesOfType = (
+  tdz: TeamDeploymentZones,
+  type: DeploymentZoneType,
+): TeamDeploymentZone[] => tdz.zones.filter((zone) => zone.type === type);
+
+/**
+ * Returns the first main zone. Throws if none — callers assume every team has
+ * at least one main zone (the default scenario contract).
+ */
+export const getMainZone = (tdz: TeamDeploymentZones): TeamDeploymentZone => {
+  const zone = getDeploymentZone(tdz, "main");
+  if (!zone) {
+    throw new Error(`Team ${tdz.team} has no main deployment zone`);
+  }
+  return zone;
+};
+
+/**
+ * Returns the first forward zone. Throws if none — every team is expected to
+ * have at least one forward zone (skirmisher deployment).
+ */
+export const getForwardZone = (
+  tdz: TeamDeploymentZones,
+): TeamDeploymentZone => {
+  const zone = getDeploymentZone(tdz, "forward");
+  if (!zone) {
+    throw new Error(`Team ${tdz.team} has no forward deployment zone`);
+  }
+  return zone;
+};
 
 /**
  * Represents the game map with terrain, height data, and deployment zones.
@@ -201,6 +250,8 @@ export interface LegacyRandomScenario extends BaseScenario {
   randomDeploymentZones?: never;
   /** Discriminator: random scenarios always generate the map procedurally. */
   map?: never;
+  /** Discriminator: random scenarios take dimensions from the battle type. */
+  fixedSize?: never;
 }
 
 /**
@@ -264,6 +315,13 @@ export interface Scenario {
   baseTerrain?: TerrainType;
 
   /**
+   * Pins map dimensions for procedural generation (ignored when {@link map} is
+   * set). Use to get deterministic pixel-based {@link deploymentZones}
+   * independent of the matchmaking-derived battle type.
+   */
+  fixedSize?: { tilesX: number; tilesY: number };
+
+  /**
    * Pixel-based deployment zones (used by legacy preset/hybrid scenarios after normalization).
    * Mutually exclusive with {@link randomDeploymentZones}.
    */
@@ -288,6 +346,15 @@ export interface Scenario {
    * Inverse of the legacy {@link LegacyHybridScenario.fixedArmy} flag.
    */
   allowDynamicArmy?: boolean;
+
+  /**
+   * When true, the scenario starts at turn 0 with a deployment phase so the
+   * player can reposition their pre-placed {@link units} inside the declared
+   * deployment zones before the battle begins. Only meaningful for fixed-roster
+   * scenarios (`allowDynamicArmy: false` or absent); dynamic-army scenarios
+   * already run a deployment phase on top of the auto-deployer's output.
+   */
+  allowDeploymentPhase?: boolean;
 
   /**
    * Data-driven tutorial overlays. Evaluated client-side by the TutorialRunner

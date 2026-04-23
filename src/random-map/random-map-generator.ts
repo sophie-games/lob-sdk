@@ -65,11 +65,13 @@ export class RandomMapGenerator {
       widthPx = fixedMap.width;
       heightPx = fixedMap.height;
     } else {
+      // Precedence: caller-supplied tilesX/tilesY (scenario editor) >
+      // scenario.fixedSize (pinned dimensions) > battle-size defaults.
       if (!tilesX) {
-        tilesX = map.tilesX;
+        tilesX = scenario.fixedSize?.tilesX ?? map.tilesX;
       }
       if (!tilesY) {
-        tilesY = map.tilesY;
+        tilesY = scenario.fixedSize?.tilesY ?? map.tilesY;
       }
 
       widthPx = tilesX * tileSize;
@@ -224,160 +226,46 @@ export class RandomMapGenerator {
     seed: number,
   ): [TeamDeploymentZones, TeamDeploymentZones] {
     const random = randomSeeded(deriveSeed(seed, 0));
+    const tilesX = terrains.length;
+    const tilesY = terrains[0].length;
+
+    const build = (
+      team: number,
+      type: "main" | "forward",
+      zone: RandomTeamDeploymentZones[keyof RandomTeamDeploymentZones],
+    ): TeamDeploymentZone => ({
+      team,
+      type,
+      x:
+        getRandomInt(
+          this.percentToTiles(zone.minX, tilesX),
+          this.percentToTiles(zone.maxX, tilesX),
+          random,
+        ) * tileSize,
+      y:
+        getRandomInt(
+          this.percentToTiles(zone.minY, tilesY),
+          this.percentToTiles(zone.maxY, tilesY),
+          random,
+        ) * tileSize,
+      width: this.percentToTiles(zone.width, tilesX) * tileSize,
+      height: this.percentToTiles(zone.height, tilesY) * tileSize,
+    });
+
     return [
       {
         team: 1,
-        mainZone: {
-          team: 1,
-          x:
-            getRandomInt(
-              this.percentToTiles(
-                deploymentZones.bottomMainDeploymentZone.minX,
-                terrains.length,
-              ),
-              this.percentToTiles(
-                deploymentZones.bottomMainDeploymentZone.maxX,
-                terrains.length,
-              ),
-              random,
-            ) * tileSize,
-          y:
-            getRandomInt(
-              this.percentToTiles(
-                deploymentZones.bottomMainDeploymentZone.minY,
-                terrains[0].length,
-              ),
-              this.percentToTiles(
-                deploymentZones.bottomMainDeploymentZone.maxY,
-                terrains[0].length,
-              ),
-              random,
-            ) * tileSize,
-          width:
-            this.percentToTiles(
-              deploymentZones.bottomMainDeploymentZone.width,
-              terrains.length,
-            ) * tileSize,
-          height:
-            this.percentToTiles(
-              deploymentZones.bottomMainDeploymentZone.height,
-              terrains[0].length,
-            ) * tileSize,
-        },
-        forwardZone: {
-          team: 1,
-          x:
-            getRandomInt(
-              this.percentToTiles(
-                deploymentZones.bottomForwardDeploymentZone.minX,
-                terrains.length,
-              ),
-              this.percentToTiles(
-                deploymentZones.bottomForwardDeploymentZone.maxX,
-                terrains.length,
-              ),
-              random,
-            ) * tileSize,
-          y:
-            getRandomInt(
-              this.percentToTiles(
-                deploymentZones.bottomForwardDeploymentZone.minY,
-                terrains[0].length,
-              ),
-              this.percentToTiles(
-                deploymentZones.bottomForwardDeploymentZone.maxY,
-                terrains[0].length,
-              ),
-              random,
-            ) * tileSize,
-          width:
-            this.percentToTiles(
-              deploymentZones.bottomForwardDeploymentZone.width,
-              terrains.length,
-            ) * tileSize,
-          height:
-            this.percentToTiles(
-              deploymentZones.bottomForwardDeploymentZone.height,
-              terrains[0].length,
-            ) * tileSize,
-        },
+        zones: [
+          build(1, "main", deploymentZones.bottomMainDeploymentZone),
+          build(1, "forward", deploymentZones.bottomForwardDeploymentZone),
+        ],
       },
       {
         team: 2,
-        mainZone: {
-          team: 2,
-          x:
-            getRandomInt(
-              this.percentToTiles(
-                deploymentZones.topMainDeploymentZone.minX,
-                terrains.length,
-              ),
-              this.percentToTiles(
-                deploymentZones.topMainDeploymentZone.maxX,
-                terrains.length,
-              ),
-              random,
-            ) * tileSize,
-          y:
-            getRandomInt(
-              this.percentToTiles(
-                deploymentZones.topMainDeploymentZone.minY,
-                terrains[0].length,
-              ),
-              this.percentToTiles(
-                deploymentZones.topMainDeploymentZone.maxY,
-                terrains[0].length,
-              ),
-              random,
-            ) * tileSize,
-          width:
-            this.percentToTiles(
-              deploymentZones.topMainDeploymentZone.width,
-              terrains.length,
-            ) * tileSize,
-          height:
-            this.percentToTiles(
-              deploymentZones.topMainDeploymentZone.height,
-              terrains[0].length,
-            ) * tileSize,
-        },
-        forwardZone: {
-          team: 2,
-          x:
-            getRandomInt(
-              this.percentToTiles(
-                deploymentZones.topForwardDeploymentZone.minX,
-                terrains.length,
-              ),
-              this.percentToTiles(
-                deploymentZones.topForwardDeploymentZone.maxX,
-                terrains.length,
-              ),
-              random,
-            ) * tileSize,
-          y:
-            getRandomInt(
-              this.percentToTiles(
-                deploymentZones.topForwardDeploymentZone.minY,
-                terrains[0].length,
-              ),
-              this.percentToTiles(
-                deploymentZones.topForwardDeploymentZone.maxY,
-                terrains[0].length,
-              ),
-              random,
-            ) * tileSize,
-          width:
-            this.percentToTiles(
-              deploymentZones.topForwardDeploymentZone.width,
-              terrains.length,
-            ) * tileSize,
-          height:
-            this.percentToTiles(
-              deploymentZones.topForwardDeploymentZone.height,
-              terrains[0].length,
-            ) * tileSize,
-        },
+        zones: [
+          build(2, "main", deploymentZones.topMainDeploymentZone),
+          build(2, "forward", deploymentZones.topForwardDeploymentZone),
+        ],
       },
     ];
   }

@@ -28,13 +28,17 @@ const buildPresetMap = (): GameMap => ({
   deploymentZones: [
     {
       team: 1,
-      mainZone: { team: 1, x: 0, y: 0, width: 32, height: 32 },
-      forwardZone: { team: 1, x: 0, y: 32, width: 32, height: 32 },
+      zones: [
+        { team: 1, type: "main", x: 0, y: 0, width: 32, height: 32 },
+        { team: 1, type: "forward", x: 0, y: 32, width: 32, height: 32 },
+      ],
     },
     {
       team: 2,
-      mainZone: { team: 2, x: 64, y: 0, width: 32, height: 32 },
-      forwardZone: { team: 2, x: 64, y: 32, width: 32, height: 32 },
+      zones: [
+        { team: 2, type: "main", x: 64, y: 0, width: 32, height: 32 },
+        { team: 2, type: "forward", x: 64, y: 32, width: 32, height: 32 },
+      ],
     },
   ],
 });
@@ -96,15 +100,34 @@ const buildRandom = (
 });
 
 describe("normalizeScenario", () => {
-  it("returns current-schema scenarios unchanged", () => {
+  it("returns current-schema scenarios unchanged when allowDeploymentPhase is already set", () => {
     const scenario: Scenario = {
       version: SCENARIO_SCHEMA_VERSION,
       name: "already-current",
       description: "test",
       instructions: [],
       allowDynamicArmy: true,
+      allowDeploymentPhase: true,
     };
     expect(normalizeScenario(scenario)).toBe(scenario);
+  });
+
+  it("backfills allowDeploymentPhase from allowDynamicArmy on current-schema scenarios without it", () => {
+    const dynamic: Scenario = {
+      version: SCENARIO_SCHEMA_VERSION,
+      name: "dynamic",
+      description: "",
+      instructions: [],
+      allowDynamicArmy: true,
+    };
+    const preset: Scenario = {
+      version: SCENARIO_SCHEMA_VERSION,
+      name: "preset",
+      description: "",
+      allowDynamicArmy: false,
+    };
+    expect(normalizeScenario(dynamic).allowDeploymentPhase).toBe(true);
+    expect(normalizeScenario(preset).allowDeploymentPhase).toBe(false);
   });
 
   it("throws on an unknown scenario shape", () => {
@@ -124,6 +147,7 @@ describe("normalizeScenario", () => {
 
       expect(result.version).toBe(SCENARIO_SCHEMA_VERSION);
       expect(result.allowDynamicArmy).toBe(false);
+      expect(result.allowDeploymentPhase).toBe(false);
       expect(result.map).toBe(preset.map);
       expect(result.map?.terrains).toBe(preset.map.terrains);
       expect(result.map?.deploymentZones).toEqual(preset.map.deploymentZones);
@@ -148,6 +172,15 @@ describe("normalizeScenario", () => {
       expect(result.allowDynamicArmy).toBe(true);
     });
 
+    it("legacy hybrid scenarios opt into a deployment phase", () => {
+      expect(
+        normalizeScenario(buildHybrid({ fixedArmy: true })).allowDeploymentPhase,
+      ).toBe(true);
+      expect(
+        normalizeScenario(buildHybrid({ fixedArmy: false })).allowDeploymentPhase,
+      ).toBe(true);
+    });
+
     it("attaches the hybrid map and defaults missing units/objectives to empty", () => {
       const hybrid = buildHybrid();
       const result = normalizeScenario(hybrid);
@@ -162,6 +195,7 @@ describe("normalizeScenario", () => {
     it("preserves instructions and baseTerrain, sets allowDynamicArmy:true", () => {
       const result = normalizeScenario(buildRandom());
       expect(result.allowDynamicArmy).toBe(true);
+      expect(result.allowDeploymentPhase).toBe(true);
       expect(result.baseTerrain).toBe(TerrainType.Grass);
       expect(result.instructions).toHaveLength(1);
       expect(result.instructions?.[0].type).toBe(InstructionType.HeightNoise);

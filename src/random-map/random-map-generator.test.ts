@@ -8,7 +8,7 @@ import {
   DynamicBattleType,
   TerrainType,
 } from "@lob-sdk/types";
-import { SCENARIO_SCHEMA_VERSION } from "@lob-sdk/scenario";
+import { SCENARIO_SCHEMA_VERSION, normalizeScenario } from "@lob-sdk/scenario";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 
 /**
@@ -595,13 +595,17 @@ describe("RandomMapGenerator", () => {
       const bakedZones = [
         {
           team: 1,
-          mainZone: { team: 1, x: 0, y: 0, width: 32, height: 32 },
-          forwardZone: { team: 1, x: 0, y: 32, width: 32, height: 32 },
+          zones: [
+            { team: 1, type: "main" as const, x: 0, y: 0, width: 32, height: 32 },
+            { team: 1, type: "forward" as const, x: 0, y: 32, width: 32, height: 32 },
+          ],
         },
         {
           team: 2,
-          mainZone: { team: 2, x: 64, y: 0, width: 32, height: 32 },
-          forwardZone: { team: 2, x: 64, y: 32, width: 32, height: 32 },
+          zones: [
+            { team: 2, type: "main" as const, x: 64, y: 0, width: 32, height: 32 },
+            { team: 2, type: "forward" as const, x: 64, y: 32, width: 32, height: 32 },
+          ],
         },
       ];
 
@@ -655,6 +659,77 @@ describe("RandomMapGenerator", () => {
       });
 
       expect(result.map.deploymentZones).toBeUndefined();
+    });
+  });
+
+  describe("Scenario.fixedSize", () => {
+    it("pins tile dimensions independent of the battle type", () => {
+      const generator = new RandomMapGenerator();
+
+      const scenario: Scenario = {
+        version: SCENARIO_SCHEMA_VERSION,
+        name: "fixed-size-test",
+        description: "test",
+        baseTerrain: TerrainType.Grass,
+        fixedSize: { tilesX: 64, tilesY: 64 },
+      };
+
+      const result = generator.generate({
+        scenario,
+        dynamicBattleType: "grand_battle",
+        maxPlayers: 8,
+        tileSize: TILE_SIZE,
+        era: "napoleonic",
+      });
+
+      expect(result.map.width).toBe(64 * TILE_SIZE);
+      expect(result.map.height).toBe(64 * TILE_SIZE);
+      expect(result.map.terrains.length).toBe(64);
+      expect(result.map.terrains[0].length).toBe(64);
+    });
+
+    it("is overridden by caller-supplied tilesX/tilesY", () => {
+      const generator = new RandomMapGenerator();
+
+      const scenario: Scenario = {
+        version: SCENARIO_SCHEMA_VERSION,
+        name: "fixed-size-overridden",
+        description: "test",
+        baseTerrain: TerrainType.Grass,
+        fixedSize: { tilesX: 64, tilesY: 64 },
+      };
+
+      const result = generator.generate({
+        scenario,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
+        maxPlayers: 2,
+        tileSize: TILE_SIZE,
+        era: "napoleonic",
+        tilesX: 40,
+        tilesY: 40,
+      });
+
+      expect(result.map.width).toBe(40 * TILE_SIZE);
+      expect(result.map.height).toBe(40 * TILE_SIZE);
+    });
+  });
+
+  describe("tutorial scenario", () => {
+    it("generates a 64x64 map with the declared pixel deployment zones", () => {
+      const generator = new RandomMapGenerator();
+      const tutorial = normalizeScenario(gameDataManager.getScenario("tutorial"));
+
+      const result = generator.generate({
+        scenario: tutorial,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
+        maxPlayers: 2,
+        tileSize: TILE_SIZE,
+        era: "napoleonic",
+      });
+
+      expect(result.map.width).toBe(64 * TILE_SIZE);
+      expect(result.map.height).toBe(64 * TILE_SIZE);
+      expect(result.map.deploymentZones).toEqual(tutorial.deploymentZones);
     });
   });
 });
