@@ -3789,11 +3789,7 @@
           {
             "copy": "tutorial.deploy.confirm",
             "highlight": {
-              "targetId": [
-                "hud-submit-orders",
-                "deployment-zone-main-friendly",
-                "deployment-zone-forward-friendly"
-              ],
+              "targetId": "hud-submit-orders",
               "style": "spotlight"
             },
             "placement": "top",
@@ -3818,10 +3814,6 @@
             "advanceOn": "unitSelected",
             "unitCategory": "infantry",
             "gesture": "selectionBox",
-            "highlight": {
-              "targetId": "tutorial-units-to-select",
-              "style": "spotlight"
-            },
             "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
           },
           {
@@ -3870,10 +3862,6 @@
             "advanceOn": "unitSelected",
             "unitCategory": "midCavalry",
             "gesture": "selectionBox",
-            "highlight": {
-              "targetId": "tutorial-units-to-select",
-              "style": "spotlight"
-            },
             "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
           },
           {
@@ -3922,10 +3910,6 @@
             "advanceOn": "unitSelected",
             "unitCategory": "artillery",
             "gesture": "selectionBox",
-            "highlight": {
-              "targetId": "tutorial-units-to-select",
-              "style": "spotlight"
-            },
             "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
           },
           {
@@ -3974,10 +3958,6 @@
             "advanceOn": "unitSelected",
             "unitCategory": "skirmishInfantry",
             "gesture": "selectionBox",
-            "highlight": {
-              "targetId": "tutorial-units-to-select",
-              "style": "spotlight"
-            },
             "hideUiElements": ["chat", "selectIdle", "formation", "orderType", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
           },
           {
