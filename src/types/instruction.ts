@@ -368,6 +368,10 @@ export interface InstructionObjective extends BaseInstruction {
   position: PositionData;
   /** Player number that owns this objective initially. */
   player: number;
+  /** Optional team that owns this objective. */
+  team?: number;
+  /** Optional objective type (Small or Big). Defaults to Small. */
+  objectiveType?: ObjectiveType;
 }
 
 /**

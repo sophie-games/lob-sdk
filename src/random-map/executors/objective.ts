@@ -23,7 +23,7 @@ export class ObjectiveExecutor {
 
   execute() {
     const { widthPx, heightPx, objectives, random } = this;
-    const { position, player } = this.instruction;
+    const { position, player, team, objectiveType } = this.instruction;
 
     const [positionX, positionY] = getPosition(
       position,
@@ -35,6 +35,8 @@ export class ObjectiveExecutor {
     objectives.push({
       pos: { x: positionX, y: positionY },
       player: player,
+      ...(team !== undefined ? { team } : {}),
+      ...(objectiveType !== undefined ? { type: objectiveType } : {}),
     });
   }
 }

@@ -181,90 +181,38 @@
       "height": 5
     },
     {
-      "type": "OBJECTIVE_LAYER",
-      "team": 1,
-      "xBounds": {
-        "min": 20,
-        "max": 100
-      },
-      "yBounds": {
-        "min": 0,
-        "max": 100
-      },
-      "terrainFilter": {
-        "terrains": [
-          23
-        ],
-        "searchRadius": 1,
-        "minAmount": 1
-      },
-      "minDistance": 15,
-      "objectiveType": 2,
-      "maxObj": 1
-    },
-    {
-      "type": "OBJECTIVE_LAYER",
-      "xBounds": {
-        "min": 20,
-        "max": 100
-      },
-      "yBounds": {
-        "min": 0,
-        "max": 100
-      },
-      "terrainFilter": {
-        "terrains": [
-          23
-        ],
-        "searchRadius": 1,
-        "minAmount": 1
-      },
-      "minDistance": 15,
-      "objectiveType": 1,
-      "maxObj": 2
-    },
-    {
-      "type": "OBJECTIVE_LAYER",
+      "type": "OBJECTIVE",
+      "player": 2,
       "team": 2,
-      "xBounds": {
-        "min": 20,
-        "max": 100
-      },
-      "yBounds": {
-        "min": 0,
-        "max": 100
-      },
-      "terrainFilter": {
-        "terrains": [
-          22
-        ],
-        "searchRadius": 1,
-        "minAmount": 1
-      },
-      "minDistance": 15,
       "objectiveType": 2,
-      "maxObj": 1
+      "position": {
+        "type": "range",
+        "min": [
+          45,
+          14
+        ],
+        "max": [
+          55,
+          18
+        ]
+      }
     },
     {
-      "type": "OBJECTIVE_LAYER",
-      "xBounds": {
-        "min": 20,
-        "max": 100
-      },
-      "yBounds": {
-        "min": 0,
-        "max": 100
-      },
-      "terrainFilter": {
-        "terrains": [
-          22
+      "type": "OBJECTIVE",
+      "player": 1,
+      "team": 1,
+      "objectiveType": 2,
+      "position": {
+        "type": "range",
+        "min": [
+          45,
+          82
         ],
-        "searchRadius": 1,
-        "minAmount": 1
-      },
-      "minDistance": 15,
-      "objectiveType": 1,
-      "maxObj": 2
+        "max": [
+          55,
+          86
+        ]
+      }
     },
     {
       "type": "OBJECTIVE",
@@ -272,11 +220,11 @@
       "position": {
         "type": "range",
         "min": [
-          17,
+          20,
           47
         ],
         "max": [
-          27,
+          30,
           53
         ]
       }
@@ -287,27 +235,12 @@
       "position": {
         "type": "range",
         "min": [
-          42,
+          70,
           47
         ],
         "max": [
-          58,
+          80,
           53
-        ]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [
-          73,
-          47
-        ],
-        "max": [
-          83,
-          55
         ]
       }
     },
@@ -3677,7 +3610,6 @@
             },
             "placement": "top",
             "advanceOn": "unitsDeselected",
-            "inputSchemes": ["touch"],
             "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           },
           {
