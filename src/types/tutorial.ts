@@ -22,8 +22,12 @@ export type TutorialBeatAdvance =
 export type TutorialHighlightStyle = "spotlight" | "ring";
 
 export type TutorialHighlight = {
-  /** Must match a target registered in the client tutorial-target-registry. */
-  targetId: string;
+  /**
+   * One or more targets registered in the client tutorial-target-registry.
+   * When an array is provided, the overlay renders a highlight per resolved
+   * target and uses the first target for bubble/gesture placement.
+   */
+  targetId: string | string[];
   style?: TutorialHighlightStyle;
 };
 

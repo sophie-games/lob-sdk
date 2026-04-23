@@ -1808,7 +1808,10 @@
           },
           {
             "copy": "tutorial.deploy.confirm",
-            "highlight": { "targetId": "hud-submit-orders", "style": "spotlight" },
+            "highlight": {
+              "targetId": ["deployment-zone-friendly", "hud-submit-orders"],
+              "style": "spotlight"
+            },
             "advanceOn": "deploymentConfirmed"
           }
         ]
@@ -1845,7 +1848,7 @@
       "tutorial.deploy.intro": "This is the deployment stage. Your army is pre-placed inside the zone — you can reposition any unit before the battle starts. The layout you pick shapes how the fight begins.",
       "tutorial.deploy.selectInfantry": "Let's start by selecting your line infantry. {input.selectUnits} over them to draw a selection box.",
       "tutorial.deploy.positionInfantry": "Now move them up front. {input.moveUnit} a selected unit to reposition it inside the zone.",
-      "tutorial.deploy.confirm": "When the line looks good, hit Start to begin the battle.",
+      "tutorial.deploy.confirm": "When the line looks good, hit Submit orders to begin the battle.",
       "tutorial.move.message": "Right-click where you want a unit to go. Drag a box with left-click to grab a few of them at once. Head for the flags in the middle. That's what this fight is about.",
       "tutorial.stamina.message": "Running burns stamina. Tired units hit softer and rout faster. Walk into position and save the sprint for when it actually matters.",
       "tutorial.shoot.message": "Skirmishers and artillery shoot on their own once an enemy walks into range. Skirmishers hit hard at distance but fold in melee, so keep them behind your line. Artillery reaches the furthest. Don't let cavalry get close to it.",
