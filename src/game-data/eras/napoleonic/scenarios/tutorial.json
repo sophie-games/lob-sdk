@@ -3667,6 +3667,16 @@
             }
           },
           {
+            "copy": "tutorial.deploy.deselectBeforeNext",
+            "highlight": {
+              "targetId": "hud-deselect",
+              "style": "spotlight"
+            },
+            "placement": "top",
+            "advanceOn": "unitsDeselected",
+            "inputSchemes": ["touch"]
+          },
+          {
             "copy": "tutorial.deploy.selectCavalry",
             "highlight": {
               "targetId": "deployment-zone-friendly",
@@ -3693,6 +3703,16 @@
             }
           },
           {
+            "copy": "tutorial.deploy.deselectBeforeNext",
+            "highlight": {
+              "targetId": "hud-deselect",
+              "style": "spotlight"
+            },
+            "placement": "top",
+            "advanceOn": "unitsDeselected",
+            "inputSchemes": ["touch"]
+          },
+          {
             "copy": "tutorial.deploy.selectArtillery",
             "highlight": {
               "targetId": "deployment-zone-friendly",
@@ -3717,6 +3737,16 @@
               "width": 120,
               "height": 20
             }
+          },
+          {
+            "copy": "tutorial.deploy.deselectBeforeNext",
+            "highlight": {
+              "targetId": "hud-deselect",
+              "style": "spotlight"
+            },
+            "placement": "top",
+            "advanceOn": "unitsDeselected",
+            "inputSchemes": ["touch"]
           },
           {
             "copy": "tutorial.deploy.selectSkirmishers",
@@ -3900,6 +3930,7 @@
       "tutorial.deploy.positionArtillery": "Push the guns to the very front of your line so they have a clean shot downrange. Artillery reaches the farthest, but keep the infantry close behind to screen it. {input.moveUnit} to reposition.",
       "tutorial.deploy.selectSkirmishers": "Last, pick up your skirmishers. {input.selectUnits} over them.",
       "tutorial.deploy.positionSkirmishers": "Tuck them near trees or broken ground. Skirmishers use cover to harass enemies from a distance, and they fold in melee \u2014 so keep them supported. {input.moveUnit} to reposition.",
+      "tutorial.deploy.deselectBeforeNext": "Clear your current selection first — {input.deselect} before picking up the next unit type.",
       "tutorial.deploy.confirm": "When the line looks good, hit Submit orders to begin the battle.",
       "tutorial.move.message": "Right-click where you want a unit to go. Drag a box with left-click to grab a few of them at once. Head for the flags in the middle. That's what this fight is about.",
       "tutorial.stamina.message": "Running burns stamina. Tired units hit softer and rout faster. Walk into position and save the sprint for when it actually matters.",

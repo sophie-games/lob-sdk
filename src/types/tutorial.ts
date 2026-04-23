@@ -16,8 +16,15 @@ export type TutorialBeatAdvance =
   | "click" // any click on the overlay dismisses (default for info bubbles)
   | "button" // bubble shows an explicit Continue button
   | "unitSelected" // first UNIT_SELECTED event on the client
+  | "unitsDeselected" // first UNIT_DESELECTED event that leaves selection empty
   | "unitRepositioned" // first reposition committed in the deployment phase
   | "deploymentConfirmed"; // turn-0 submit-orders press
+
+/**
+ * Input scheme the player is using. Mirrors the client-side type but lives in
+ * the schema because beats can opt into a subset of schemes via `inputSchemes`.
+ */
+export type TutorialInputScheme = "mouse" | "touch";
 
 export type TutorialHighlightStyle = "spotlight" | "ring";
 
@@ -71,6 +78,14 @@ export type TutorialBeat = {
    * `"moveUnit"`.
    */
   moveDestination?: TutorialMoveDestination;
+  /**
+   * Input schemes this beat applies to. When omitted, the beat runs for all
+   * schemes. When present, the beat is skipped if the active scheme is not
+   * listed. Used for mechanics that only one input style needs to learn
+   * (e.g. tapping deselect between selections on touch, which on mouse is
+   * unnecessary because drag-in-empty-space replaces the selection).
+   */
+  inputSchemes?: TutorialInputScheme[];
 };
 
 export type TutorialFireOn =
