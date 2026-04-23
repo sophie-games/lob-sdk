@@ -43,6 +43,14 @@ export type TutorialBeat = {
   /** Defaults to "click" when omitted. */
   advanceOn?: TutorialBeatAdvance;
   placement?: TutorialBeatPlacement;
+  /**
+   * Filters the unit-bound advance modes (`unitSelected`, `unitRepositioned`)
+   * so only events that carry a unit of one of these categories dismiss the
+   * beat. Unused for other advance modes. Category ids come from the era's
+   * unit-categories JSON (e.g. `"infantry"`, `"midCavalry"`, `"artillery"`,
+   * `"skirmishInfantry"`).
+   */
+  unitCategory?: string | string[];
 };
 
 export type TutorialFireOn =

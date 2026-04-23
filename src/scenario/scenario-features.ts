@@ -6,9 +6,20 @@ export class ScenarioFeatures {
     return scenario.allowDynamicArmy === true;
   }
 
-  /** Scenario ships with a locked unit set; deployment phase is skipped. */
+  /** Scenario ships with a locked unit set. */
   static hasFixedRoster(scenario: Scenario): boolean {
     return !ScenarioFeatures.hasDynamicArmy(scenario);
+  }
+
+  /**
+   * Scenario opens with a deployment phase (turn 0) so players can reposition
+   * their army inside the deployment zones. Orthogonal to `allowDynamicArmy`
+   * — a scenario can ship with a fixed roster and still grant a deployment
+   * phase (set the flag in JSON) or ship a dynamic army without one. Legacy
+   * random/hybrid scenarios get this set automatically in `normalizeScenario`.
+   */
+  static hasDeploymentPhase(scenario: Scenario): boolean {
+    return scenario.allowDeploymentPhase === true;
   }
 
   /** Player slots and teams are baked in; matchmaking can't reshape them. */
@@ -18,7 +29,7 @@ export class ScenarioFeatures {
 
   /** Where gameplay starts — scenarios with a deployment phase begin at turn 0. */
   static getInitialTurnNumber(scenario: Scenario): number {
-    return ScenarioFeatures.hasFixedRoster(scenario) ? 1 : 0;
+    return ScenarioFeatures.hasDeploymentPhase(scenario) ? 0 : 1;
   }
 
   /** Gates a requested battle type — fixed-roster scenarios can't carry one. */

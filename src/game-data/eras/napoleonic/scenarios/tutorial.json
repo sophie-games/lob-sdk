@@ -10,85 +10,191 @@
       "player": 1,
       "team": 1,
       "role": "human",
-      "units": { "1": 8, "2": 4, "3": 2, "16": 2 }
+      "units": {
+        "1": 8,
+        "2": 4,
+        "3": 2,
+        "16": 2
+      }
     },
     {
       "player": 2,
       "team": 2,
       "role": "bot",
-      "units": { "1": 8, "2": 4, "3": 2, "16": 2 }
+      "units": {
+        "1": 8,
+        "2": 4,
+        "3": 2,
+        "16": 2
+      }
     }
   ],
-  "fixedSize": { "tilesX": 64, "tilesY": 64 },
+  "fixedSize": {
+    "tilesX": 64,
+    "tilesY": 64
+  },
   "deploymentZones": [
     {
       "team": 1,
       "zones": [
-        { "team": 1, "type": "main",    "x": 32, "y": 896, "width": 960, "height": 96 },
-        { "team": 1, "type": "forward", "x": 32, "y": 736, "width": 960, "height": 96 }
+        {
+          "team": 1,
+          "type": "main",
+          "x": 32,
+          "y": 896,
+          "width": 960,
+          "height": 96
+        },
+        {
+          "team": 1,
+          "type": "forward",
+          "x": 32,
+          "y": 736,
+          "width": 960,
+          "height": 96
+        }
       ]
     },
     {
       "team": 2,
       "zones": [
-        { "team": 2, "type": "main",    "x": 32, "y": 32,  "width": 960, "height": 96 },
-        { "team": 2, "type": "forward", "x": 32, "y": 192, "width": 960, "height": 96 }
+        {
+          "team": 2,
+          "type": "main",
+          "x": 32,
+          "y": 32,
+          "width": 960,
+          "height": 96
+        },
+        {
+          "team": 2,
+          "type": "forward",
+          "x": 32,
+          "y": 192,
+          "width": 960,
+          "height": 96
+        }
       ]
     }
   ],
-
   "instructions": [
     {
       "type": "TERRAIN_RECTANGLE",
       "terrain": 22,
-      "position": { "type": "range", "min": [20, 26], "max": [24, 30] },
+      "position": {
+        "type": "range",
+        "min": [
+          20,
+          26
+        ],
+        "max": [
+          24,
+          30
+        ]
+      },
       "width": 5,
       "height": 5
     },
     {
       "type": "TERRAIN_RECTANGLE",
       "terrain": 22,
-      "position": { "type": "range", "min": [45, 26], "max": [55, 30] },
+      "position": {
+        "type": "range",
+        "min": [
+          45,
+          26
+        ],
+        "max": [
+          55,
+          30
+        ]
+      },
       "width": 5,
       "height": 5
     },
     {
       "type": "TERRAIN_RECTANGLE",
       "terrain": 22,
-      "position": { "type": "range", "min": [76, 26], "max": [80, 30] },
-      "width": 5,
-      "height": 5
-    },
-
-    {
-      "type": "TERRAIN_RECTANGLE",
-      "terrain": 23,
-      "position": { "type": "range", "min": [20, 70], "max": [24, 74] },
-      "width": 5,
-      "height": 5
-    },
-    {
-      "type": "TERRAIN_RECTANGLE",
-      "terrain": 23,
-      "position": { "type": "range", "min": [45, 70], "max": [55, 74] },
+      "position": {
+        "type": "range",
+        "min": [
+          76,
+          26
+        ],
+        "max": [
+          80,
+          30
+        ]
+      },
       "width": 5,
       "height": 5
     },
     {
       "type": "TERRAIN_RECTANGLE",
       "terrain": 23,
-      "position": { "type": "range", "min": [76, 70], "max": [80, 74] },
+      "position": {
+        "type": "range",
+        "min": [
+          20,
+          70
+        ],
+        "max": [
+          24,
+          74
+        ]
+      },
       "width": 5,
       "height": 5
     },
-
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 23,
+      "position": {
+        "type": "range",
+        "min": [
+          45,
+          70
+        ],
+        "max": [
+          55,
+          74
+        ]
+      },
+      "width": 5,
+      "height": 5
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 23,
+      "position": {
+        "type": "range",
+        "min": [
+          76,
+          70
+        ],
+        "max": [
+          80,
+          74
+        ]
+      },
+      "width": 5,
+      "height": 5
+    },
     {
       "type": "OBJECTIVE_LAYER",
       "team": 1,
-      "xBounds": { "min": 20, "max": 100 },
-      "yBounds": { "min": 0, "max": 100 },
+      "xBounds": {
+        "min": 20,
+        "max": 100
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
       "terrainFilter": {
-        "terrains": [23],
+        "terrains": [
+          23
+        ],
         "searchRadius": 1,
         "minAmount": 1
       },
@@ -98,10 +204,18 @@
     },
     {
       "type": "OBJECTIVE_LAYER",
-      "xBounds": { "min": 20, "max": 100 },
-      "yBounds": { "min": 0, "max": 100 },
+      "xBounds": {
+        "min": 20,
+        "max": 100
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
       "terrainFilter": {
-        "terrains": [23],
+        "terrains": [
+          23
+        ],
         "searchRadius": 1,
         "minAmount": 1
       },
@@ -112,10 +226,18 @@
     {
       "type": "OBJECTIVE_LAYER",
       "team": 2,
-      "xBounds": { "min": 20, "max": 100 },
-      "yBounds": { "min": 0, "max": 100 },
+      "xBounds": {
+        "min": 20,
+        "max": 100
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
       "terrainFilter": {
-        "terrains": [22],
+        "terrains": [
+          22
+        ],
         "searchRadius": 1,
         "minAmount": 1
       },
@@ -125,10 +247,18 @@
     },
     {
       "type": "OBJECTIVE_LAYER",
-      "xBounds": { "min": 20, "max": 100 },
-      "yBounds": { "min": 0, "max": 100 },
+      "xBounds": {
+        "min": 20,
+        "max": 100
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
       "terrainFilter": {
-        "terrains": [22],
+        "terrains": [
+          22
+        ],
         "searchRadius": 1,
         "minAmount": 1
       },
@@ -136,14 +266,19 @@
       "objectiveType": 1,
       "maxObj": 2
     },
-
     {
       "type": "OBJECTIVE",
       "player": 0,
       "position": {
         "type": "range",
-        "min": [17, 47],
-        "max": [27, 53]
+        "min": [
+          17,
+          47
+        ],
+        "max": [
+          27,
+          53
+        ]
       }
     },
     {
@@ -151,8 +286,14 @@
       "player": 0,
       "position": {
         "type": "range",
-        "min": [42, 47],
-        "max": [58, 53]
+        "min": [
+          42,
+          47
+        ],
+        "max": [
+          58,
+          53
+        ]
       }
     },
     {
@@ -160,29 +301,57 @@
       "player": 0,
       "position": {
         "type": "range",
-        "min": [73, 47],
-        "max": [83, 55]
+        "min": [
+          73,
+          47
+        ],
+        "max": [
+          83,
+          55
+        ]
       }
     },
     {
       "type": "TERRAIN_NOISE",
       "terrain": 0,
       "scale": 1,
-      "ranges": [{ "min": 0, "max": 1 }],
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
       "multiplier": 1
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "noises": [{ "scale": { "x": 44, "y": 53 }, "multiplier": 20 }],
+      "noises": [
+        {
+          "scale": {
+            "x": 44,
+            "y": 53
+          },
+          "multiplier": 20
+        }
+      ],
       "mergeStrategy": "round",
       "min": 0,
       "max": 2
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1, "max": 1 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "max",
       "min": 1.7,
       "max": 1.7
@@ -190,18 +359,39 @@
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
-        { "min": 0, "max": 0.69 },
-        { "min": 1, "max": 2 }
+        {
+          "min": 0,
+          "max": 0.69
+        },
+        {
+          "min": 1,
+          "max": 2
+        }
       ],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "max",
       "min": 1,
       "max": 1
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 0.69, "max": 0.71 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 0.69,
+          "max": 0.71
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "max",
       "min": 1.7,
       "max": 1.7
@@ -210,21 +400,34 @@
       "type": "TERRAIN_NOISE",
       "terrain": 3,
       "scale": 1,
-      "ranges": [{ "min": 0, "max": 1 }],
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
       "multiplier": 1,
       "height": {
         "min": 1.69,
         "max": 1.91
       }
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 3,
       "between": "top-bottom",
-      "xBounds": { "min": 10, "max": 50 },
-      "yBounds": { "min": 0, "max": 100 },
-      "range": { "min": 20, "max": 80 },
+      "xBounds": {
+        "min": 10,
+        "max": 50
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "range": {
+        "min": 20,
+        "max": 80
+      },
       "amount": {
         "min": 1,
         "max": 1,
@@ -242,10 +445,21 @@
         }
       },
       "height": 2,
-      "terrainReplacements": [{ "fromTerrain": 7, "toTerrain": 7 }],
+      "terrainReplacements": [
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
       "terrainCosts": [
-        { "terrain": 0, "cost": 7 },
-        { "terrain": 3, "cost": 1.31 }
+        {
+          "terrain": 0,
+          "cost": 7
+        },
+        {
+          "terrain": 3,
+          "cost": 1.31
+        }
       ],
       "distance weight": 1,
       "curveLen": 15,
@@ -257,9 +471,18 @@
       "type": "NATURAL_PATH",
       "terrain": 3,
       "between": "top-bottom",
-      "xBounds": { "min": 5, "max": 25 },
-      "yBounds": { "min": 0, "max": 100 },
-      "range": { "min": 20, "max": 80 },
+      "xBounds": {
+        "min": 5,
+        "max": 25
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "range": {
+        "min": 20,
+        "max": 80
+      },
       "amount": {
         "min": 1,
         "max": 1,
@@ -277,10 +500,21 @@
         }
       },
       "height": 2,
-      "terrainReplacements": [{ "fromTerrain": 7, "toTerrain": 7 }],
+      "terrainReplacements": [
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
       "terrainCosts": [
-        { "terrain": 0, "cost": 7 },
-        { "terrain": 3, "cost": 1.31 }
+        {
+          "terrain": 0,
+          "cost": 7
+        },
+        {
+          "terrain": 3,
+          "cost": 1.31
+        }
       ],
       "distance weight": 1,
       "curveLen": 15,
@@ -292,9 +526,18 @@
       "type": "NATURAL_PATH",
       "terrain": 3,
       "between": "top-bottom",
-      "xBounds": { "min": 25, "max": 50 },
-      "yBounds": { "min": 0, "max": 100 },
-      "range": { "min": 20, "max": 80 },
+      "xBounds": {
+        "min": 25,
+        "max": 50
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "range": {
+        "min": 20,
+        "max": 80
+      },
       "amount": {
         "min": 1,
         "max": 1,
@@ -312,10 +555,21 @@
         }
       },
       "height": 2,
-      "terrainReplacements": [{ "fromTerrain": 7, "toTerrain": 7 }],
+      "terrainReplacements": [
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
       "terrainCosts": [
-        { "terrain": 0, "cost": 7 },
-        { "terrain": 3, "cost": 1.31 }
+        {
+          "terrain": 0,
+          "cost": 7
+        },
+        {
+          "terrain": 3,
+          "cost": 1.31
+        }
       ],
       "distance weight": 1,
       "curveLen": 15,
@@ -323,14 +577,22 @@
       "noiseWeight": 2.1,
       "noiseSmoothness": 10
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 3,
       "between": "top-bottom",
-      "xBounds": { "min": 50, "max": 90 },
-      "yBounds": { "min": 0, "max": 100 },
-      "range": { "min": 20, "max": 80 },
+      "xBounds": {
+        "min": 50,
+        "max": 90
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "range": {
+        "min": 20,
+        "max": 80
+      },
       "amount": {
         "min": 1,
         "max": 1,
@@ -348,10 +610,21 @@
         }
       },
       "height": 2,
-      "terrainReplacements": [{ "fromTerrain": 7, "toTerrain": 7 }],
+      "terrainReplacements": [
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
       "terrainCosts": [
-        { "terrain": 0, "cost": 7 },
-        { "terrain": 3, "cost": 1.31 }
+        {
+          "terrain": 0,
+          "cost": 7
+        },
+        {
+          "terrain": 3,
+          "cost": 1.31
+        }
       ],
       "distance weight": 1,
       "curveLen": 15,
@@ -363,9 +636,18 @@
       "type": "NATURAL_PATH",
       "terrain": 3,
       "between": "top-bottom",
-      "xBounds": { "min": 75, "max": 95 },
-      "yBounds": { "min": 0, "max": 100 },
-      "range": { "min": 20, "max": 80 },
+      "xBounds": {
+        "min": 75,
+        "max": 95
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "range": {
+        "min": 20,
+        "max": 80
+      },
       "amount": {
         "min": 1,
         "max": 1,
@@ -383,10 +665,21 @@
         }
       },
       "height": 2,
-      "terrainReplacements": [{ "fromTerrain": 7, "toTerrain": 7 }],
+      "terrainReplacements": [
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
       "terrainCosts": [
-        { "terrain": 0, "cost": 7 },
-        { "terrain": 3, "cost": 1.31 }
+        {
+          "terrain": 0,
+          "cost": 7
+        },
+        {
+          "terrain": 3,
+          "cost": 1.31
+        }
       ],
       "distance weight": 1,
       "curveLen": 15,
@@ -398,9 +691,18 @@
       "type": "NATURAL_PATH",
       "terrain": 3,
       "between": "top-bottom",
-      "xBounds": { "min": 50, "max": 75 },
-      "yBounds": { "min": 0, "max": 100 },
-      "range": { "min": 20, "max": 80 },
+      "xBounds": {
+        "min": 50,
+        "max": 75
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "range": {
+        "min": 20,
+        "max": 80
+      },
       "amount": {
         "min": 1,
         "max": 1,
@@ -418,10 +720,21 @@
         }
       },
       "height": 2,
-      "terrainReplacements": [{ "fromTerrain": 7, "toTerrain": 7 }],
+      "terrainReplacements": [
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
       "terrainCosts": [
-        { "terrain": 0, "cost": 7 },
-        { "terrain": 3, "cost": 1.31 }
+        {
+          "terrain": 0,
+          "cost": 7
+        },
+        {
+          "terrain": 3,
+          "cost": 1.31
+        }
       ],
       "distance weight": 1,
       "curveLen": 15,
@@ -429,14 +742,22 @@
       "noiseWeight": 2.1,
       "noiseSmoothness": 10
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 3,
       "between": "top-bottom",
-      "xBounds": { "min": 30, "max": 70 },
-      "yBounds": { "min": 0, "max": 100 },
-      "range": { "min": 20, "max": 80 },
+      "xBounds": {
+        "min": 30,
+        "max": 70
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "range": {
+        "min": 20,
+        "max": 80
+      },
       "amount": {
         "min": 1,
         "max": 1,
@@ -454,10 +775,21 @@
         }
       },
       "height": 2,
-      "terrainReplacements": [{ "fromTerrain": 7, "toTerrain": 7 }],
+      "terrainReplacements": [
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
       "terrainCosts": [
-        { "terrain": 0, "cost": 7 },
-        { "terrain": 3, "cost": 1.31 }
+        {
+          "terrain": 0,
+          "cost": 7
+        },
+        {
+          "terrain": 3,
+          "cost": 1.31
+        }
       ],
       "distance weight": 1,
       "curveLen": 15,
@@ -465,74 +797,145 @@
       "noiseWeight": 2.1,
       "noiseSmoothness": 10
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1, "max": 1 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.95,
       "max": 1.95
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 2, "max": 2 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2.9,
       "max": 2.9
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 2.89, "max": 2.91 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 2.89,
+          "max": 2.91
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2,
       "max": 2
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 2, "max": 2 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.7,
       "max": 1.7
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
-        { "min": 0, "max": 1.69 },
-        { "min": 1.71, "max": 1.89 },
-        { "min": 1.91, "max": 2 }
+        {
+          "min": 0,
+          "max": 1.69
+        },
+        {
+          "min": 1.71,
+          "max": 1.89
+        },
+        {
+          "min": 1.91,
+          "max": 2
+        }
       ],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1,
       "max": 1
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 3,
       "scale": 1,
-      "ranges": [{ "min": 0, "max": 1 }],
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
       "multiplier": 1,
       "height": {
         "min": 1.69,
         "max": 1.91
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.89, "max": 1.91 }],
-      "xBounds": { "min": 10, "max": 90 },
-      "yBounds": { "min": 20, "max": 80 },
+      "ranges": [
+        {
+          "min": 1.89,
+          "max": 1.91
+        }
+      ],
+      "xBounds": {
+        "min": 10,
+        "max": 90
+      },
+      "yBounds": {
+        "min": 20,
+        "max": 80
+      },
       "noises": [
-        { "scale": 3, "multiplier": 100 },
-        { "scale": 5, "multiplier": 100 }
+        {
+          "scale": 3,
+          "multiplier": 100
+        },
+        {
+          "scale": 5,
+          "multiplier": 100
+        }
       ],
       "mergeStrategy": "max",
       "min": 1.4,
@@ -540,28 +943,21 @@
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.89, "max": 1.91 }],
-      "noises": [
-        { "scale": 3, "multiplier": 100 },
-        { "scale": 1, "multiplier": 100 }
+      "ranges": [
+        {
+          "min": 1.89,
+          "max": 1.91
+        }
       ],
-      "mergeStrategy": "min",
-      "min": 1.4,
-      "max": 1.8
-    },
-
-    {
-      "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.69, "max": 1.71 }],
-      "xBounds": { "min": 10, "max": 90 },
-      "yBounds": { "min": 20, "max": 80 },
       "noises": [
-        { "scale": 1, "multiplier": 100 },
-        { "scale": 2, "multiplier": 100 },
-        { "scale": 3, "multiplier": 100 },
-        { "scale": 4, "multiplier": 100 },
-        { "scale": 5, "multiplier": 100 },
-        { "scale": 6, "multiplier": 100 }
+        {
+          "scale": 3,
+          "multiplier": 100
+        },
+        {
+          "scale": 1,
+          "multiplier": 100
+        }
       ],
       "mergeStrategy": "min",
       "min": 1.4,
@@ -569,76 +965,208 @@
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.69, "max": 1.71 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.69,
+          "max": 1.71
+        }
+      ],
+      "xBounds": {
+        "min": 10,
+        "max": 90
+      },
+      "yBounds": {
+        "min": 20,
+        "max": 80
+      },
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 100
+        },
+        {
+          "scale": 2,
+          "multiplier": 100
+        },
+        {
+          "scale": 3,
+          "multiplier": 100
+        },
+        {
+          "scale": 4,
+          "multiplier": 100
+        },
+        {
+          "scale": 5,
+          "multiplier": 100
+        },
+        {
+          "scale": 6,
+          "multiplier": 100
+        }
+      ],
+      "mergeStrategy": "min",
+      "min": 1.4,
+      "max": 1.8
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "ranges": [
+        {
+          "min": 1.69,
+          "max": 1.71
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "min",
       "min": 1.4,
       "max": 1.4
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.79, "max": 1.81 }],
-      "noises": [{ "scale": 10, "multiplier": 300 }],
+      "ranges": [
+        {
+          "min": 1.79,
+          "max": 1.81
+        }
+      ],
+      "noises": [
+        {
+          "scale": 10,
+          "multiplier": 300
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.8,
       "max": 1.76
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.79, "max": 1.81 }],
-      "noises": [{ "scale": 1, "multiplier": 100 }],
+      "ranges": [
+        {
+          "min": 1.79,
+          "max": 1.81
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 100
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.8,
       "max": 1.76
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.75, "max": 1.77 }],
-      "noises": [{ "scale": 1, "multiplier": 100 }],
+      "ranges": [
+        {
+          "min": 1.75,
+          "max": 1.77
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 100
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.8,
       "max": 1.4
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.79, "max": 1.81 }],
-      "noises": [{ "scale": 1, "multiplier": 0.8 }],
+      "ranges": [
+        {
+          "min": 1.79,
+          "max": 1.81
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 0.8
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2.5,
       "max": 1.7
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.39, "max": 1.41 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.39,
+          "max": 1.41
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2.23,
       "max": 2.23
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 2.22, "max": 2.24 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 2.22,
+          "max": 2.24
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.4,
       "max": 1.4
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.69, "max": 1.71 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.69,
+          "max": 1.71
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2.24,
       "max": 2.24
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.225, "max": 1.235 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.225,
+          "max": 1.235
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1,
       "max": 1
@@ -647,18 +1175,32 @@
       "type": "TERRAIN_NOISE",
       "terrain": 2,
       "scale": 1,
-      "ranges": [{ "min": 0, "max": 0.75 }],
+      "ranges": [
+        {
+          "min": 0,
+          "max": 0.75
+        }
+      ],
       "multiplier": 1,
       "height": {
         "min": 1.23,
         "max": 1.25
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 2.49, "max": 2.51 }],
-      "noises": [{ "scale": 5, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 2.49,
+          "max": 2.51
+        }
+      ],
+      "noises": [
+        {
+          "scale": 5,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 3.3,
       "max": 3.3
@@ -667,7 +1209,12 @@
       "type": "TERRAIN_NOISE",
       "terrain": 2,
       "scale": 1,
-      "ranges": [{ "min": 0, "max": 1 }],
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
       "multiplier": 1,
       "height": {
         "min": 3.29,
@@ -678,7 +1225,12 @@
       "type": "TERRAIN_NOISE",
       "terrain": 2,
       "scale": 1,
-      "ranges": [{ "min": 0, "max": 0.5 }],
+      "ranges": [
+        {
+          "min": 0,
+          "max": 0.5
+        }
+      ],
       "multiplier": 1,
       "height": {
         "min": 3.29,
@@ -689,7 +1241,12 @@
       "type": "TERRAIN_NOISE",
       "terrain": 2,
       "scale": 1,
-      "ranges": [{ "min": 0, "max": 0.6 }],
+      "ranges": [
+        {
+          "min": 0,
+          "max": 0.6
+        }
+      ],
       "multiplier": 1,
       "height": {
         "min": 1.29,
@@ -700,21 +1257,34 @@
       "type": "TERRAIN_NOISE",
       "terrain": 3,
       "scale": 1,
-      "ranges": [{ "min": 0, "max": 1 }],
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
       "multiplier": 1,
       "height": {
         "min": 2.29,
         "max": 2.31
       }
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 3,
       "between": "left-right",
-      "range": { "min": 20, "max": 80 },
-      "xBounds": { "min": 0, "max": 100 },
-      "yBounds": { "min": 1, "max": 50 },
+      "range": {
+        "min": 20,
+        "max": 80
+      },
+      "xBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "yBounds": {
+        "min": 1,
+        "max": 50
+      },
       "amount": {
         "min": 1,
         "max": 2,
@@ -732,10 +1302,21 @@
         }
       },
       "height": 2,
-      "terrainReplacements": [{ "fromTerrain": 7, "toTerrain": 7 }],
+      "terrainReplacements": [
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
       "terrainCosts": [
-        { "terrain": 0, "cost": 7 },
-        { "terrain": 3, "cost": 1.31 }
+        {
+          "terrain": 0,
+          "cost": 7
+        },
+        {
+          "terrain": 3,
+          "cost": 1.31
+        }
       ],
       "distance weight": 1,
       "curveLen": 15,
@@ -747,9 +1328,18 @@
       "type": "NATURAL_PATH",
       "terrain": 3,
       "between": "left-right",
-      "range": { "min": 20, "max": 80 },
-      "xBounds": { "min": 0, "max": 100 },
-      "yBounds": { "min": 50, "max": 99 },
+      "range": {
+        "min": 20,
+        "max": 80
+      },
+      "xBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "yBounds": {
+        "min": 50,
+        "max": 99
+      },
       "amount": {
         "min": 1,
         "max": 2,
@@ -767,10 +1357,21 @@
         }
       },
       "height": 2,
-      "terrainReplacements": [{ "fromTerrain": 7, "toTerrain": 7 }],
+      "terrainReplacements": [
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
       "terrainCosts": [
-        { "terrain": 0, "cost": 7 },
-        { "terrain": 3, "cost": 1.31 }
+        {
+          "terrain": 0,
+          "cost": 7
+        },
+        {
+          "terrain": 3,
+          "cost": 1.31
+        }
       ],
       "distance weight": 1,
       "curveLen": 13,
@@ -782,9 +1383,18 @@
       "type": "NATURAL_PATH",
       "terrain": 3,
       "between": "left-right",
-      "range": { "min": 20, "max": 80 },
-      "xBounds": { "min": 0, "max": 100 },
-      "yBounds": { "min": 45, "max": 55 },
+      "range": {
+        "min": 20,
+        "max": 80
+      },
+      "xBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "yBounds": {
+        "min": 45,
+        "max": 55
+      },
       "amount": {
         "min": 1,
         "max": 1,
@@ -802,10 +1412,21 @@
         }
       },
       "height": 2,
-      "terrainReplacements": [{ "fromTerrain": 7, "toTerrain": 7 }],
+      "terrainReplacements": [
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
       "terrainCosts": [
-        { "terrain": 0, "cost": 7 },
-        { "terrain": 3, "cost": 1.31 }
+        {
+          "terrain": 0,
+          "cost": 7
+        },
+        {
+          "terrain": 3,
+          "cost": 1.31
+        }
       ],
       "distance weight": 1,
       "curveLen": 13,
@@ -813,97 +1434,198 @@
       "noiseWeight": 2.1,
       "noiseSmoothness": 10
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.39, "max": 1.41 }],
+      "ranges": [
+        {
+          "min": 1.39,
+          "max": 1.41
+        }
+      ],
       "noises": [
-        { "scale": 38, "multiplier": 100 },
-        { "scale": 38, "multiplier": 100 },
-        { "scale": 38, "multiplier": 100 }
+        {
+          "scale": 38,
+          "multiplier": 100
+        },
+        {
+          "scale": 38,
+          "multiplier": 100
+        },
+        {
+          "scale": 38,
+          "multiplier": 100
+        }
       ],
       "mergeStrategy": "max",
       "min": 1.4,
       "max": 1.5
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.49, "max": 1.51 }],
+      "ranges": [
+        {
+          "min": 1.49,
+          "max": 1.51
+        }
+      ],
       "noises": [
-        { "scale": 1, "multiplier": 20 },
-        { "scale": 1, "multiplier": 20 },
-        { "scale": 1, "multiplier": 20 }
+        {
+          "scale": 1,
+          "multiplier": 20
+        },
+        {
+          "scale": 1,
+          "multiplier": 20
+        },
+        {
+          "scale": 1,
+          "multiplier": 20
+        }
       ],
       "mergeStrategy": "max",
       "min": 1.4,
       "max": 1.5
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.49, "max": 1.51 }],
-      "noises": [{ "scale": 6, "multiplier": 600 }],
+      "ranges": [
+        {
+          "min": 1.49,
+          "max": 1.51
+        }
+      ],
+      "noises": [
+        {
+          "scale": 6,
+          "multiplier": 600
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.5,
       "max": 1.48
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.47, "max": 1.49 }],
-      "noises": [{ "scale": 6, "multiplier": 100 }],
+      "ranges": [
+        {
+          "min": 1.47,
+          "max": 1.49
+        }
+      ],
+      "noises": [
+        {
+          "scale": 6,
+          "multiplier": 100
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.48,
       "max": 1.46
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.49, "max": 1.51 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.49,
+          "max": 1.51
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2.05,
       "max": 2.05
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.39, "max": 1.41 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.39,
+          "max": 1.41
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2.01,
       "max": 2.01
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1, "max": 1 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.1,
       "max": 1.1
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.04, "max": 1.06 }],
-      "noises": [{ "scale": 1, "multiplier": 24 }],
+      "ranges": [
+        {
+          "min": 1.04,
+          "max": 1.06
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 24
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.1,
       "max": 2.03
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.009, "max": 1.011 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.009,
+          "max": 1.011
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.13,
       "max": 1.13
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.029, "max": 1.031 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.029,
+          "max": 1.031
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.93,
       "max": 1.93
@@ -911,104 +1633,205 @@
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
-        { "min": 1.929, "max": 1.931 },
-        { "min": 2.029, "max": 2.031 }
+        {
+          "min": 1.929,
+          "max": 1.931
+        },
+        {
+          "min": 2.029,
+          "max": 2.031
+        }
       ],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2.12,
       "max": 2.12
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 2.119, "max": 2.121 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 2.119,
+          "max": 2.121
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.126,
       "max": 1.126
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.129, "max": 1.131 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.129,
+          "max": 1.131
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.1,
       "max": 1.1
     },
-
-    {
-      "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.119, "max": 1.121 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
-      "mergeStrategy": "round",
-      "min": 1.92,
-      "max": 1.92
-    },
-    {
-      "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.919, "max": 1.921 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
-      "mergeStrategy": "round",
-      "min": 2.12,
-      "max": 2.12
-    },
-    {
-      "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.119, "max": 1.121 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
-      "mergeStrategy": "round",
-      "min": 1.92,
-      "max": 1.92
-    },
-    {
-      "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.919, "max": 1.921 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
-      "mergeStrategy": "round",
-      "min": 2.12,
-      "max": 2.12
-    },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
-        { "min": 2.009, "max": 2.011 },
-        { "min": 2.049, "max": 2.051 }
+        {
+          "min": 1.119,
+          "max": 1.121
+        }
       ],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "round",
+      "min": 1.92,
+      "max": 1.92
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "ranges": [
+        {
+          "min": 1.919,
+          "max": 1.921
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "round",
+      "min": 2.12,
+      "max": 2.12
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "ranges": [
+        {
+          "min": 1.119,
+          "max": 1.121
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "round",
+      "min": 1.92,
+      "max": 1.92
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "ranges": [
+        {
+          "min": 1.919,
+          "max": 1.921
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "round",
+      "min": 2.12,
+      "max": 2.12
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "ranges": [
+        {
+          "min": 2.009,
+          "max": 2.011
+        },
+        {
+          "min": 2.049,
+          "max": 2.051
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.4,
       "max": 1.4
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 2.119, "max": 2.121 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 2.119,
+          "max": 2.121
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.12,
       "max": 1.12
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
-        { "min": 1.099, "max": 1.11 },
-        { "min": 1.129, "max": 1.131 }
+        {
+          "min": 1.099,
+          "max": 1.11
+        },
+        {
+          "min": 1.129,
+          "max": 1.131
+        }
       ],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1,
       "max": 1
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 18,
       "scale": 1,
-      "ranges": [{ "min": 0, "max": 1 }],
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
       "multiplier": 1,
       "height": {
         "min": 1.11,
@@ -1018,63 +1841,128 @@
         "minSurrounding": 2
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.11, "max": 1.13 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.11,
+          "max": 1.13
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.4,
       "max": 1.4
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.47, "max": 1.49 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.47,
+          "max": 1.49
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2.05,
       "max": 2.05
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.39, "max": 1.41 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.39,
+          "max": 1.41
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2.01,
       "max": 2.01
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1, "max": 1 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.1,
       "max": 1.1
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.04, "max": 1.06 }],
-      "noises": [{ "scale": 1, "multiplier": 24 }],
+      "ranges": [
+        {
+          "min": 1.04,
+          "max": 1.06
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 24
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.1,
       "max": 2.03
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.009, "max": 1.011 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.009,
+          "max": 1.011
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.13,
       "max": 1.13
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.029, "max": 1.031 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.029,
+          "max": 1.031
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.93,
       "max": 1.93
@@ -1082,104 +1970,205 @@
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
-        { "min": 1.929, "max": 1.931 },
-        { "min": 2.029, "max": 2.031 }
+        {
+          "min": 1.929,
+          "max": 1.931
+        },
+        {
+          "min": 2.029,
+          "max": 2.031
+        }
       ],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2.12,
       "max": 2.12
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 2.119, "max": 2.121 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 2.119,
+          "max": 2.121
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.126,
       "max": 1.126
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.129, "max": 1.131 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.129,
+          "max": 1.131
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.1,
       "max": 1.1
     },
-
-    {
-      "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.119, "max": 1.121 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
-      "mergeStrategy": "round",
-      "min": 1.92,
-      "max": 1.92
-    },
-    {
-      "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.919, "max": 1.921 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
-      "mergeStrategy": "round",
-      "min": 2.12,
-      "max": 2.12
-    },
-    {
-      "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.119, "max": 1.121 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
-      "mergeStrategy": "round",
-      "min": 1.92,
-      "max": 1.92
-    },
-    {
-      "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.919, "max": 1.921 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
-      "mergeStrategy": "round",
-      "min": 2.12,
-      "max": 2.12
-    },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
-        { "min": 2.009, "max": 2.011 },
-        { "min": 2.049, "max": 2.051 }
+        {
+          "min": 1.119,
+          "max": 1.121
+        }
       ],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "round",
+      "min": 1.92,
+      "max": 1.92
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "ranges": [
+        {
+          "min": 1.919,
+          "max": 1.921
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "round",
+      "min": 2.12,
+      "max": 2.12
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "ranges": [
+        {
+          "min": 1.119,
+          "max": 1.121
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "round",
+      "min": 1.92,
+      "max": 1.92
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "ranges": [
+        {
+          "min": 1.919,
+          "max": 1.921
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "round",
+      "min": 2.12,
+      "max": 2.12
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "ranges": [
+        {
+          "min": 2.009,
+          "max": 2.011
+        },
+        {
+          "min": 2.049,
+          "max": 2.051
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.4,
       "max": 1.4
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 2.119, "max": 2.121 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 2.119,
+          "max": 2.121
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.12,
       "max": 1.12
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
-        { "min": 1.099, "max": 1.11 },
-        { "min": 1.129, "max": 1.131 }
+        {
+          "min": 1.099,
+          "max": 1.11
+        },
+        {
+          "min": 1.129,
+          "max": 1.131
+        }
       ],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1,
       "max": 1
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 11,
       "scale": 1,
-      "ranges": [{ "min": 0, "max": 1 }],
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
       "multiplier": 1,
       "height": {
         "min": 1.11,
@@ -1189,63 +2178,128 @@
         "minSurrounding": 2
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.11, "max": 1.13 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.11,
+          "max": 1.13
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.4,
       "max": 1.4
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.45, "max": 1.47 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.45,
+          "max": 1.47
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2.05,
       "max": 2.05
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.39, "max": 1.41 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.39,
+          "max": 1.41
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2.01,
       "max": 2.01
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1, "max": 1 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.1,
       "max": 1.1
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.04, "max": 1.06 }],
-      "noises": [{ "scale": 1, "multiplier": 24 }],
+      "ranges": [
+        {
+          "min": 1.04,
+          "max": 1.06
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 24
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.1,
       "max": 2.03
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.009, "max": 1.011 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.009,
+          "max": 1.011
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.13,
       "max": 1.13
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.029, "max": 1.031 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.029,
+          "max": 1.031
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.93,
       "max": 1.93
@@ -1253,104 +2307,205 @@
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
-        { "min": 1.929, "max": 1.931 },
-        { "min": 2.029, "max": 2.031 }
+        {
+          "min": 1.929,
+          "max": 1.931
+        },
+        {
+          "min": 2.029,
+          "max": 2.031
+        }
       ],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2.12,
       "max": 2.12
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 2.119, "max": 2.121 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 2.119,
+          "max": 2.121
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.126,
       "max": 1.126
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.129, "max": 1.131 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.129,
+          "max": 1.131
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.1,
       "max": 1.1
     },
-
-    {
-      "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.119, "max": 1.121 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
-      "mergeStrategy": "round",
-      "min": 1.92,
-      "max": 1.92
-    },
-    {
-      "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.919, "max": 1.921 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
-      "mergeStrategy": "round",
-      "min": 2.12,
-      "max": 2.12
-    },
-    {
-      "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.119, "max": 1.121 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
-      "mergeStrategy": "round",
-      "min": 1.92,
-      "max": 1.92
-    },
-    {
-      "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.919, "max": 1.921 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
-      "mergeStrategy": "round",
-      "min": 2.12,
-      "max": 2.12
-    },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
-        { "min": 2.009, "max": 2.011 },
-        { "min": 2.049, "max": 2.051 }
+        {
+          "min": 1.119,
+          "max": 1.121
+        }
       ],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "round",
+      "min": 1.92,
+      "max": 1.92
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "ranges": [
+        {
+          "min": 1.919,
+          "max": 1.921
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "round",
+      "min": 2.12,
+      "max": 2.12
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "ranges": [
+        {
+          "min": 1.119,
+          "max": 1.121
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "round",
+      "min": 1.92,
+      "max": 1.92
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "ranges": [
+        {
+          "min": 1.919,
+          "max": 1.921
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "round",
+      "min": 2.12,
+      "max": 2.12
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "ranges": [
+        {
+          "min": 2.009,
+          "max": 2.011
+        },
+        {
+          "min": 2.049,
+          "max": 2.051
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.4,
       "max": 1.4
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 2.119, "max": 2.121 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 2.119,
+          "max": 2.121
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.12,
       "max": 1.12
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
-        { "min": 1.099, "max": 1.11 },
-        { "min": 1.129, "max": 1.131 }
+        {
+          "min": 1.099,
+          "max": 1.11
+        },
+        {
+          "min": 1.129,
+          "max": 1.131
+        }
       ],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1,
       "max": 1
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 17,
       "scale": 1,
-      "ranges": [{ "min": 0, "max": 1 }],
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
       "multiplier": 1,
       "height": {
         "min": 1.11,
@@ -1360,20 +2515,38 @@
         "minSurrounding": 2
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.11, "max": 1.13 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.11,
+          "max": 1.13
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.4,
       "max": 1.4
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 3, "max": 3.31 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 3,
+          "max": 3.31
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2.37,
       "max": 2.37
@@ -1381,28 +2554,51 @@
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
-        { "min": 1.01, "max": 1.41 },
-        { "min": 2, "max": 2.4 }
+        {
+          "min": 1.01,
+          "max": 1.41
+        },
+        {
+          "min": 2,
+          "max": 2.4
+        }
       ],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.77,
       "max": 1.77
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1, "max": 1 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.7,
       "max": 1.7
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 3,
       "between": "edges",
-      "range": { "min": 15, "max": 85 },
+      "range": {
+        "min": 15,
+        "max": 85
+      },
       "amount": {
         "min": 1,
         "max": 1,
@@ -1420,33 +2616,75 @@
         }
       },
       "height": 1,
-      "terrainReplacements": [{ "fromTerrain": 7, "toTerrain": 7 }],
+      "terrainReplacements": [
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
       "terrainCosts": [
-        { "terrain": 0, "cost": 7 },
-        { "terrain": 3, "cost": 1.31 },
-        { "terrain": 2, "cost": 20 },
-        { "terrain": 12, "cost": 20 },
-        { "terrain": 11, "cost": 20 },
-        { "terrain": 17, "cost": 20 },
-        { "terrain": 18, "cost": 20 },
-        { "terrain": 12, "cost": 10 }
+        {
+          "terrain": 0,
+          "cost": 7
+        },
+        {
+          "terrain": 3,
+          "cost": 1.31
+        },
+        {
+          "terrain": 2,
+          "cost": 20
+        },
+        {
+          "terrain": 12,
+          "cost": 20
+        },
+        {
+          "terrain": 11,
+          "cost": 20
+        },
+        {
+          "terrain": 17,
+          "cost": 20
+        },
+        {
+          "terrain": 18,
+          "cost": 20
+        },
+        {
+          "terrain": 12,
+          "cost": 10
+        }
       ]
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1, "max": 1 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.77,
       "max": 1.77
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 1,
       "scale": 3,
-      "ranges": [{ "min": 0, "max": 0.15 }],
+      "ranges": [
+        {
+          "min": 0,
+          "max": 0.15
+        }
+      ],
       "multiplier": 100,
       "height": {
         "min": 1.69,
@@ -1458,9 +2696,18 @@
       "terrain": 1,
       "scale": 24,
       "ranges": [
-        { "min": 0, "max": 0.15 },
-        { "min": 0.16, "max": 0.17 },
-        { "min": 0.175, "max": 0.18 }
+        {
+          "min": 0,
+          "max": 0.15
+        },
+        {
+          "min": 0.16,
+          "max": 0.17
+        },
+        {
+          "min": 0.175,
+          "max": 0.18
+        }
       ],
       "multiplier": 1,
       "height": {
@@ -1468,12 +2715,14 @@
         "max": 1.71
       }
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 4,
       "between": "edges",
-      "range": { "min": 38, "max": 62 },
+      "range": {
+        "min": 38,
+        "max": 62
+      },
       "amount": {
         "min": 0,
         "max": 1,
@@ -1491,23 +2740,69 @@
         }
       },
       "height": 0.9,
-      "startHeightRanges": [{ "min": 0, "max": 1.71 }],
-      "endHeightRanges": [{ "min": 0, "max": 1.71 }],
+      "startHeightRanges": [
+        {
+          "min": 0,
+          "max": 1.71
+        }
+      ],
+      "endHeightRanges": [
+        {
+          "min": 0,
+          "max": 1.71
+        }
+      ],
       "terrainCosts": [
-        { "terrain": 0, "cost": 2 },
-        { "terrain": 1, "cost": 300 },
-        { "terrain": 2, "cost": 5 },
-        { "terrain": 3, "cost": 500 },
-        { "terrain": 4, "cost": 1 },
-        { "terrain": 7, "cost": 1 },
-        { "terrain": 11, "cost": 400 },
-        { "terrain": 17, "cost": 400 },
-        { "terrain": 18, "cost": 400 },
-        { "terrain": 12, "cost": 700 }
+        {
+          "terrain": 0,
+          "cost": 2
+        },
+        {
+          "terrain": 1,
+          "cost": 300
+        },
+        {
+          "terrain": 2,
+          "cost": 5
+        },
+        {
+          "terrain": 3,
+          "cost": 500
+        },
+        {
+          "terrain": 4,
+          "cost": 1
+        },
+        {
+          "terrain": 7,
+          "cost": 1
+        },
+        {
+          "terrain": 11,
+          "cost": 400
+        },
+        {
+          "terrain": 17,
+          "cost": 400
+        },
+        {
+          "terrain": 18,
+          "cost": 400
+        },
+        {
+          "terrain": 12,
+          "cost": 700
+        }
       ],
       "terrainReplacements": [
-        { "fromTerrain": 3, "toTerrain": 7 },
-        { "fromTerrain": 7, "toTerrain": 7 }
+        {
+          "fromTerrain": 3,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
       ],
       "distance weight": 1,
       "curveLen": 1,
@@ -1515,12 +2810,16 @@
       "noiseWeight": 5,
       "noiseSmoothness": 1
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 0,
       "scale": 1,
-      "ranges": [{ "min": 0, "max": 1 }],
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
       "multiplier": 1,
       "height": {
         "min": 1.69,
@@ -1529,35 +2828,73 @@
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 0.89, "max": 0.91 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 0.89,
+          "max": 0.91
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 0,
       "max": 0
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1, "max": 1 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 0.93,
       "max": 0.93
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.69, "max": 1.71 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.69,
+          "max": 1.71
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1,
       "max": 1
     },
-
     {
       "type": "TERRAIN_RECTANGLE",
       "terrain": 2,
       "heightFilter": 1,
-      "position": { "type": "range", "min": [10, 10], "max": [40, 40] },
+      "position": {
+        "type": "range",
+        "min": [
+          10,
+          10
+        ],
+        "max": [
+          40,
+          40
+        ]
+      },
       "width": 1,
       "height": 1
     },
@@ -1565,7 +2902,17 @@
       "type": "TERRAIN_RECTANGLE",
       "terrain": 2,
       "heightFilter": 1,
-      "position": { "type": "range", "min": [10, 60], "max": [40, 90] },
+      "position": {
+        "type": "range",
+        "min": [
+          10,
+          60
+        ],
+        "max": [
+          40,
+          90
+        ]
+      },
       "width": 1,
       "height": 1
     },
@@ -1573,7 +2920,17 @@
       "type": "TERRAIN_RECTANGLE",
       "terrain": 2,
       "heightFilter": 1,
-      "position": { "type": "range", "min": [60, 10], "max": [90, 40] },
+      "position": {
+        "type": "range",
+        "min": [
+          60,
+          10
+        ],
+        "max": [
+          90,
+          40
+        ]
+      },
       "width": 1,
       "height": 1
     },
@@ -1581,37 +2938,81 @@
       "type": "TERRAIN_RECTANGLE",
       "terrain": 2,
       "heightFilter": 1,
-      "position": { "type": "range", "min": [60, 60], "max": [90, 90] },
+      "position": {
+        "type": "range",
+        "min": [
+          60,
+          60
+        ],
+        "max": [
+          90,
+          90
+        ]
+      },
       "width": 1,
       "height": 1
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1, "max": 1 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1.7,
       "max": 1.7
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 0.93, "max": 0.93 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 0.93,
+          "max": 0.93
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1,
       "max": 1
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 1,
       "scale": 27,
       "ranges": [
-        { "min": 0.95, "max": 1 },
-        { "min": 0.93, "max": 0.945 },
-        { "min": 0.92, "max": 0.925 },
-        { "min": 0, "max": 0.05 },
-        { "min": 0.065, "max": 0.075 }
+        {
+          "min": 0.95,
+          "max": 1
+        },
+        {
+          "min": 0.93,
+          "max": 0.945
+        },
+        {
+          "min": 0.92,
+          "max": 0.925
+        },
+        {
+          "min": 0,
+          "max": 0.05
+        },
+        {
+          "min": 0.065,
+          "max": 0.075
+        }
       ],
       "multiplier": 1.02,
       "height": {
@@ -1624,10 +3025,22 @@
       "terrain": 1,
       "scale": 18,
       "ranges": [
-        { "min": 0, "max": 0.06 },
-        { "min": 0.94, "max": 1 },
-        { "min": 0.92, "max": 0.935 },
-        { "min": 0.91, "max": 0.915 }
+        {
+          "min": 0,
+          "max": 0.06
+        },
+        {
+          "min": 0.94,
+          "max": 1
+        },
+        {
+          "min": 0.92,
+          "max": 0.935
+        },
+        {
+          "min": 0.91,
+          "max": 0.915
+        }
       ],
       "multiplier": 1.015,
       "height": {
@@ -1635,143 +3048,593 @@
         "max": 1.71
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1, "max": 1 }],
-      "noises": [{ "scale": 15, "multiplier": 100 }],
+      "ranges": [
+        {
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "noises": [
+        {
+          "scale": 15,
+          "multiplier": 100
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1,
       "max": 0.9
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 0.89, "max": 0.91 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 0.89,
+          "max": 0.91
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 0,
       "max": 0
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1, "max": 1 }],
-      "noises": [{ "scale": 15, "multiplier": 100 }],
+      "ranges": [
+        {
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "noises": [
+        {
+          "scale": 15,
+          "multiplier": 100
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1,
       "max": 0.9
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 0.89, "max": 0.91 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 0.89,
+          "max": 0.91
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 0,
       "max": 0
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1, "max": 1 }],
-      "noises": [{ "scale": 10, "multiplier": 100 }],
+      "ranges": [
+        {
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "noises": [
+        {
+          "scale": 10,
+          "multiplier": 100
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1,
       "max": 0.9
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 0.89, "max": 0.91 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 0.89,
+          "max": 0.91
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 0,
       "max": 0
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1, "max": 1 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 0.97,
       "max": 0.97
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.69, "max": 1.8 }],
+      "ranges": [
+        {
+          "min": 1.69,
+          "max": 1.8
+        }
+      ],
       "noises": [
-        { "scale": { "x": 80, "y": 43 }, "multiplier": 0.35, "offset": 2.75 },
-        { "scale": { "x": 57, "y": 28 }, "multiplier": 1.75, "offset": -0.75 },
-        { "scale": { "x": 41, "y": 26 }, "multiplier": 1.5 }
+        {
+          "scale": {
+            "x": 80,
+            "y": 43
+          },
+          "multiplier": 0.35,
+          "offset": 2.75
+        },
+        {
+          "scale": {
+            "x": 57,
+            "y": 28
+          },
+          "multiplier": 1.75,
+          "offset": -0.75
+        },
+        {
+          "scale": {
+            "x": 41,
+            "y": 26
+          },
+          "multiplier": 1.5
+        }
       ],
       "mergeStrategy": "avg",
       "min": 0.8,
       "max": 2.6
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 2, "max": 3 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2,
       "max": 2
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1, "max": 1.99 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1,
+          "max": 1.99
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1,
       "max": 1
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 0, "max": 0.99 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 0,
+          "max": 0.99
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 0,
       "max": 0
     },
-
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1, "max": 1 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 0.8,
       "max": 0.8
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 2, "max": 2 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2.9,
       "max": 2.9
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 1.89, "max": 2.91 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 1.89,
+          "max": 2.91
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 2,
       "max": 2
     },
     {
       "type": "HEIGHT_NOISE",
-      "ranges": [{ "min": 0.79, "max": 1.91 }],
-      "noises": [{ "scale": 1, "multiplier": 1 }],
+      "ranges": [
+        {
+          "min": 0.79,
+          "max": 1.91
+        }
+      ],
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
       "mergeStrategy": "round",
       "min": 1,
       "max": 1
+    }
+  ],
+  "units": [
+    {
+      "player": 1,
+      "pos": {
+        "x": 96,
+        "y": 912
+      },
+      "rotation": 4.71238898038469,
+      "type": 1
+    },
+    {
+      "player": 1,
+      "pos": {
+        "x": 128,
+        "y": 912
+      },
+      "rotation": 4.71238898038469,
+      "type": 1
+    },
+    {
+      "player": 1,
+      "pos": {
+        "x": 160,
+        "y": 912
+      },
+      "rotation": 4.71238898038469,
+      "type": 1
+    },
+    {
+      "player": 1,
+      "pos": {
+        "x": 192,
+        "y": 912
+      },
+      "rotation": 4.71238898038469,
+      "type": 1
+    },
+    {
+      "player": 1,
+      "pos": {
+        "x": 96,
+        "y": 944
+      },
+      "rotation": 4.71238898038469,
+      "type": 1
+    },
+    {
+      "player": 1,
+      "pos": {
+        "x": 128,
+        "y": 944
+      },
+      "rotation": 4.71238898038469,
+      "type": 1
+    },
+    {
+      "player": 1,
+      "pos": {
+        "x": 160,
+        "y": 944
+      },
+      "rotation": 4.71238898038469,
+      "type": 1
+    },
+    {
+      "player": 1,
+      "pos": {
+        "x": 192,
+        "y": 944
+      },
+      "rotation": 4.71238898038469,
+      "type": 1
+    },
+    {
+      "player": 1,
+      "pos": {
+        "x": 272,
+        "y": 912
+      },
+      "rotation": 4.71238898038469,
+      "type": 2
+    },
+    {
+      "player": 1,
+      "pos": {
+        "x": 304,
+        "y": 912
+      },
+      "rotation": 4.71238898038469,
+      "type": 2
+    },
+    {
+      "player": 1,
+      "pos": {
+        "x": 272,
+        "y": 944
+      },
+      "rotation": 4.71238898038469,
+      "type": 2
+    },
+    {
+      "player": 1,
+      "pos": {
+        "x": 304,
+        "y": 944
+      },
+      "rotation": 4.71238898038469,
+      "type": 2
+    },
+    {
+      "player": 1,
+      "pos": {
+        "x": 400,
+        "y": 912
+      },
+      "rotation": 4.71238898038469,
+      "type": 3
+    },
+    {
+      "player": 1,
+      "pos": {
+        "x": 432,
+        "y": 912
+      },
+      "rotation": 4.71238898038469,
+      "type": 3
+    },
+    {
+      "player": 1,
+      "pos": {
+        "x": 192,
+        "y": 784
+      },
+      "rotation": 4.71238898038469,
+      "type": 16
+    },
+    {
+      "player": 1,
+      "pos": {
+        "x": 288,
+        "y": 784
+      },
+      "rotation": 4.71238898038469,
+      "type": 16
+    },
+    {
+      "player": 2,
+      "pos": {
+        "x": 96,
+        "y": 48
+      },
+      "rotation": 1.5707963267948966,
+      "type": 1
+    },
+    {
+      "player": 2,
+      "pos": {
+        "x": 128,
+        "y": 48
+      },
+      "rotation": 1.5707963267948966,
+      "type": 1
+    },
+    {
+      "player": 2,
+      "pos": {
+        "x": 160,
+        "y": 48
+      },
+      "rotation": 1.5707963267948966,
+      "type": 1
+    },
+    {
+      "player": 2,
+      "pos": {
+        "x": 192,
+        "y": 48
+      },
+      "rotation": 1.5707963267948966,
+      "type": 1
+    },
+    {
+      "player": 2,
+      "pos": {
+        "x": 96,
+        "y": 80
+      },
+      "rotation": 1.5707963267948966,
+      "type": 1
+    },
+    {
+      "player": 2,
+      "pos": {
+        "x": 128,
+        "y": 80
+      },
+      "rotation": 1.5707963267948966,
+      "type": 1
+    },
+    {
+      "player": 2,
+      "pos": {
+        "x": 160,
+        "y": 80
+      },
+      "rotation": 1.5707963267948966,
+      "type": 1
+    },
+    {
+      "player": 2,
+      "pos": {
+        "x": 192,
+        "y": 80
+      },
+      "rotation": 1.5707963267948966,
+      "type": 1
+    },
+    {
+      "player": 2,
+      "pos": {
+        "x": 272,
+        "y": 48
+      },
+      "rotation": 1.5707963267948966,
+      "type": 2
+    },
+    {
+      "player": 2,
+      "pos": {
+        "x": 304,
+        "y": 48
+      },
+      "rotation": 1.5707963267948966,
+      "type": 2
+    },
+    {
+      "player": 2,
+      "pos": {
+        "x": 272,
+        "y": 80
+      },
+      "rotation": 1.5707963267948966,
+      "type": 2
+    },
+    {
+      "player": 2,
+      "pos": {
+        "x": 304,
+        "y": 80
+      },
+      "rotation": 1.5707963267948966,
+      "type": 2
+    },
+    {
+      "player": 2,
+      "pos": {
+        "x": 400,
+        "y": 48
+      },
+      "rotation": 1.5707963267948966,
+      "type": 3
+    },
+    {
+      "player": 2,
+      "pos": {
+        "x": 432,
+        "y": 48
+      },
+      "rotation": 1.5707963267948966,
+      "type": 3
+    },
+    {
+      "player": 2,
+      "pos": {
+        "x": 192,
+        "y": 240
+      },
+      "rotation": 1.5707963267948966,
+      "type": 16
+    },
+    {
+      "player": 2,
+      "pos": {
+        "x": 288,
+        "y": 240
+      },
+      "rotation": 1.5707963267948966,
+      "type": 16
     }
   ],
   "tutorial": {
     "chapters": [
       {
         "id": "deploy",
-        "fireOn": { "turn": 0 },
+        "fireOn": {
+          "turn": 0
+        },
         "beats": [
           {
             "copy": "tutorial.deploy.intro",
@@ -1779,48 +3642,223 @@
           },
           {
             "copy": "tutorial.deploy.selectInfantry",
-            "highlight": { "targetId": "deployment-zone-friendly", "style": "spotlight" },
+            "highlight": {
+              "targetId": "deployment-zone-friendly",
+              "style": "spotlight"
+            },
             "gesture": "selectionBox",
-            "advanceOn": "unitSelected"
+            "advanceOn": "unitSelected",
+            "unitCategory": "infantry"
           },
           {
             "copy": "tutorial.deploy.positionInfantry",
-            "highlight": { "targetId": "deployment-zone-friendly", "style": "spotlight" },
+            "highlight": {
+              "targetId": "deployment-zone-friendly",
+              "style": "spotlight"
+            },
             "gesture": "moveUnit",
-            "advanceOn": "unitRepositioned"
+            "advanceOn": "unitRepositioned",
+            "unitCategory": "infantry"
+          },
+          {
+            "copy": "tutorial.deploy.selectCavalry",
+            "highlight": {
+              "targetId": "deployment-zone-friendly",
+              "style": "spotlight"
+            },
+            "gesture": "selectionBox",
+            "advanceOn": "unitSelected",
+            "unitCategory": "midCavalry"
+          },
+          {
+            "copy": "tutorial.deploy.positionCavalry",
+            "highlight": {
+              "targetId": "deployment-zone-friendly",
+              "style": "spotlight"
+            },
+            "gesture": "moveUnit",
+            "advanceOn": "unitRepositioned",
+            "unitCategory": "midCavalry"
+          },
+          {
+            "copy": "tutorial.deploy.selectArtillery",
+            "highlight": {
+              "targetId": "deployment-zone-friendly",
+              "style": "spotlight"
+            },
+            "gesture": "selectionBox",
+            "advanceOn": "unitSelected",
+            "unitCategory": "artillery"
+          },
+          {
+            "copy": "tutorial.deploy.positionArtillery",
+            "highlight": {
+              "targetId": "deployment-zone-friendly",
+              "style": "spotlight"
+            },
+            "gesture": "moveUnit",
+            "advanceOn": "unitRepositioned",
+            "unitCategory": "artillery"
+          },
+          {
+            "copy": "tutorial.deploy.selectSkirmishers",
+            "highlight": {
+              "targetId": "deployment-zone-friendly",
+              "style": "spotlight"
+            },
+            "gesture": "selectionBox",
+            "advanceOn": "unitSelected",
+            "unitCategory": "skirmishInfantry"
+          },
+          {
+            "copy": "tutorial.deploy.positionSkirmishers",
+            "highlight": {
+              "targetId": "deployment-zone-friendly",
+              "style": "spotlight"
+            },
+            "gesture": "moveUnit",
+            "advanceOn": "unitRepositioned",
+            "unitCategory": "skirmishInfantry"
           },
           {
             "copy": "tutorial.deploy.confirm",
             "highlight": {
-              "targetId": ["deployment-zone-friendly", "hud-submit-orders"],
+              "targetId": [
+                "deployment-zone-friendly",
+                "hud-submit-orders"
+              ],
               "style": "spotlight"
             },
             "advanceOn": "deploymentConfirmed"
           }
         ]
       },
-      { "id": "move", "fireOn": { "turn": 1 }, "beats": [{ "copy": "tutorial.move.message" }] },
-      { "id": "stamina", "fireOn": { "turn": 2 }, "beats": [{ "copy": "tutorial.stamina.message" }] },
-      { "id": "shoot", "fireOn": { "turn": 3 }, "beats": [{ "copy": "tutorial.shoot.message" }] },
-      { "id": "charge", "fireOn": { "turn": 4 }, "beats": [{ "copy": "tutorial.charge.message" }] },
-      { "id": "objectives", "fireOn": { "turn": 5 }, "beats": [{ "copy": "tutorial.objectives.message" }] },
-      { "id": "formation", "fireOn": { "turn": 8 }, "beats": [{ "copy": "tutorial.formation.message" }] },
-      { "id": "morale", "fireOn": { "turn": 12 }, "beats": [{ "copy": "tutorial.morale.message" }] },
-      { "id": "finalPush", "fireOn": { "turn": 18 }, "beats": [{ "copy": "tutorial.finalPush.message" }] }
+      {
+        "id": "move",
+        "fireOn": {
+          "turn": 1
+        },
+        "beats": [
+          {
+            "copy": "tutorial.move.message"
+          }
+        ]
+      },
+      {
+        "id": "stamina",
+        "fireOn": {
+          "turn": 2
+        },
+        "beats": [
+          {
+            "copy": "tutorial.stamina.message"
+          }
+        ]
+      },
+      {
+        "id": "shoot",
+        "fireOn": {
+          "turn": 3
+        },
+        "beats": [
+          {
+            "copy": "tutorial.shoot.message"
+          }
+        ]
+      },
+      {
+        "id": "charge",
+        "fireOn": {
+          "turn": 4
+        },
+        "beats": [
+          {
+            "copy": "tutorial.charge.message"
+          }
+        ]
+      },
+      {
+        "id": "objectives",
+        "fireOn": {
+          "turn": 5
+        },
+        "beats": [
+          {
+            "copy": "tutorial.objectives.message"
+          }
+        ]
+      },
+      {
+        "id": "formation",
+        "fireOn": {
+          "turn": 8
+        },
+        "beats": [
+          {
+            "copy": "tutorial.formation.message"
+          }
+        ]
+      },
+      {
+        "id": "morale",
+        "fireOn": {
+          "turn": 12
+        },
+        "beats": [
+          {
+            "copy": "tutorial.morale.message"
+          }
+        ]
+      },
+      {
+        "id": "finalPush",
+        "fireOn": {
+          "turn": 18
+        },
+        "beats": [
+          {
+            "copy": "tutorial.finalPush.message"
+          }
+        ]
+      }
     ]
   },
   "triggers": [
     {
       "event": "onTurnStart",
       "conditions": [
-        { "type": "isTurn", "value": 5 },
-        { "type": "isVar", "value": { "name": "t_objectives_cam", "not": true, "value": true } }
+        {
+          "type": "isTurn",
+          "value": 5
+        },
+        {
+          "type": "isVar",
+          "value": {
+            "name": "t_objectives_cam",
+            "not": true,
+            "value": true
+          }
+        }
       ],
       "conditionLogic": "AND",
       "once": true,
       "actions": [
-        { "type": "setVar", "value": { "name": "t_objectives_cam", "value": true } },
-        { "type": "moveCamera", "value": { "x": 512, "y": 512, "zoom": 1, "duration": 800 } }
+        {
+          "type": "setVar",
+          "value": {
+            "name": "t_objectives_cam",
+            "value": true
+          }
+        },
+        {
+          "type": "moveCamera",
+          "value": {
+            "x": 512,
+            "y": 512,
+            "zoom": 1,
+            "duration": 800
+          }
+        }
       ]
     }
   ],
@@ -1828,9 +3866,15 @@
     "en": {
       "name": "Tutorial",
       "description": "Learn the game in a full battle.",
-      "tutorial.deploy.intro": "This is the deployment stage. Your army is pre-placed inside the zone — you can reposition any unit before the battle starts. The layout you pick shapes how the fight begins.",
-      "tutorial.deploy.selectInfantry": "Let's start by selecting your line infantry. {input.selectUnits} over them to draw a selection box.",
-      "tutorial.deploy.positionInfantry": "Now move them up front. {input.moveUnit} a selected unit to reposition it inside the zone.",
+      "tutorial.deploy.intro": "This is the deployment stage. Your army is stacked on the left of your zone, grouped by type. Spread it across the zone before the battle starts \u2014 the layout you pick shapes how the fight begins.",
+      "tutorial.deploy.selectInfantry": "Start with your line infantry. {input.selectUnits} over a block of them to draw a selection box.",
+      "tutorial.deploy.positionInfantry": "Move them up to form the front line. {input.moveUnit} a selected unit to reposition it inside the zone.",
+      "tutorial.deploy.selectCavalry": "Now grab your dragoons. {input.selectUnits} over them.",
+      "tutorial.deploy.positionCavalry": "Send them to the flanks \u2014 split a pair each side. Cavalry on the wings can threaten the enemy line or screen yours. {input.moveUnit} to reposition.",
+      "tutorial.deploy.selectArtillery": "Select your artillery. {input.selectUnits} over them.",
+      "tutorial.deploy.positionArtillery": "Push the guns forward, behind the line where they have range and line of sight. Artillery reaches the farthest \u2014 don't leave it exposed. {input.moveUnit} to reposition.",
+      "tutorial.deploy.selectSkirmishers": "Last, pick up your skirmishers. {input.selectUnits} over them.",
+      "tutorial.deploy.positionSkirmishers": "Tuck them near trees or broken ground. Skirmishers use cover to harass enemies from a distance, and they fold in melee \u2014 so keep them supported. {input.moveUnit} to reposition.",
       "tutorial.deploy.confirm": "When the line looks good, hit Submit orders to begin the battle.",
       "tutorial.move.message": "Right-click where you want a unit to go. Drag a box with left-click to grab a few of them at once. Head for the flags in the middle. That's what this fight is about.",
       "tutorial.stamina.message": "Running burns stamina. Tired units hit softer and rout faster. Walk into position and save the sprint for when it actually matters.",
@@ -1842,5 +3886,6 @@
       "tutorial.finalPush.message": "Clock's almost out. Whoever has more VP when it hits zero wins. Pick the flag that decides it and throw everything at that one. Don't try to hold everywhere."
     }
   },
-  "allowDynamicArmy": true
+  "allowDynamicArmy": false,
+  "allowDeploymentPhase": true
 }
