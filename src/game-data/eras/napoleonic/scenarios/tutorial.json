@@ -3638,7 +3638,8 @@
         "beats": [
           {
             "copy": "tutorial.deploy.intro",
-            "advanceOn": "button"
+            "advanceOn": "button",
+            "hideUiElements": ["bottomButtons"]
           },
           {
             "copy": "tutorial.deploy.selectInfantry",
@@ -3648,7 +3649,8 @@
             },
             "gesture": "selectionBox",
             "advanceOn": "unitSelected",
-            "unitCategory": "infantry"
+            "unitCategory": "infantry",
+            "hideUiElements": ["bottomButtons"]
           },
           {
             "copy": "tutorial.deploy.positionInfantry",
@@ -3664,7 +3666,8 @@
               "y": 930,
               "width": 240,
               "height": 30
-            }
+            },
+            "hideUiElements": ["bottomButtons"]
           },
           {
             "copy": "tutorial.deploy.deselectBeforeNext",
@@ -3674,7 +3677,8 @@
             },
             "placement": "top",
             "advanceOn": "unitsDeselected",
-            "inputSchemes": ["touch"]
+            "inputSchemes": ["touch"],
+            "hideUiElements": ["bottomButtons"]
           },
           {
             "copy": "tutorial.deploy.selectCavalry",
@@ -3684,7 +3688,8 @@
             },
             "gesture": "selectionBox",
             "advanceOn": "unitSelected",
-            "unitCategory": "midCavalry"
+            "unitCategory": "midCavalry",
+            "hideUiElements": ["bottomButtons"]
           },
           {
             "copy": "tutorial.deploy.positionCavalry",
@@ -3700,7 +3705,8 @@
               "y": 965,
               "width": 120,
               "height": 20
-            }
+            },
+            "hideUiElements": ["bottomButtons"]
           },
           {
             "copy": "tutorial.deploy.deselectBeforeNext",
@@ -3710,7 +3716,8 @@
             },
             "placement": "top",
             "advanceOn": "unitsDeselected",
-            "inputSchemes": ["touch"]
+            "inputSchemes": ["touch"],
+            "hideUiElements": ["bottomButtons"]
           },
           {
             "copy": "tutorial.deploy.selectArtillery",
@@ -3720,7 +3727,8 @@
             },
             "gesture": "selectionBox",
             "advanceOn": "unitSelected",
-            "unitCategory": "artillery"
+            "unitCategory": "artillery",
+            "hideUiElements": ["bottomButtons"]
           },
           {
             "copy": "tutorial.deploy.positionArtillery",
@@ -3736,7 +3744,8 @@
               "y": 900,
               "width": 120,
               "height": 20
-            }
+            },
+            "hideUiElements": ["bottomButtons"]
           },
           {
             "copy": "tutorial.deploy.deselectBeforeNext",
@@ -3746,7 +3755,8 @@
             },
             "placement": "top",
             "advanceOn": "unitsDeselected",
-            "inputSchemes": ["touch"]
+            "inputSchemes": ["touch"],
+            "hideUiElements": ["bottomButtons"]
           },
           {
             "copy": "tutorial.deploy.selectSkirmishers",
@@ -3756,7 +3766,8 @@
             },
             "gesture": "selectionBox",
             "advanceOn": "unitSelected",
-            "unitCategory": "skirmishInfantry"
+            "unitCategory": "skirmishInfantry",
+            "hideUiElements": ["bottomButtons"]
           },
           {
             "copy": "tutorial.deploy.positionSkirmishers",
@@ -3772,7 +3783,8 @@
               "y": 760,
               "width": 120,
               "height": 40
-            }
+            },
+            "hideUiElements": ["bottomButtons"]
           },
           {
             "copy": "tutorial.deploy.confirm",
@@ -3785,7 +3797,8 @@
               "style": "spotlight"
             },
             "placement": "top",
-            "advanceOn": "deploymentConfirmed"
+            "advanceOn": "deploymentConfirmed",
+            "hideUiElements": ["bottomButtons"]
           }
         ]
       },

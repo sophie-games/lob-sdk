@@ -86,6 +86,18 @@ export type TutorialBeat = {
    * unnecessary because drag-in-empty-space replaces the selection).
    */
   inputSchemes?: TutorialInputScheme[];
+  /**
+   * UI element ids to hide while this beat is active (blacklist).
+   *
+   * Currently supported:
+   *  - Bottom button ids: "chat", "selectIdle", "formation", "orderType",
+   *    "deselect", "removeOrders", "submitOrders"
+   *  - "bottomButtons" — shorthand for all bottom buttons
+   *
+   * Buttons that are also highlighted by this beat's `highlight.targetId`
+   * are auto-shown regardless.
+   */
+  hideUiElements?: string[];
 };
 
 export type TutorialFireOn =
