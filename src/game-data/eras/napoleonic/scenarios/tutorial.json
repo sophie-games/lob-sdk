@@ -3916,10 +3916,17 @@
             ]
           },
           {
-            "copy": "tutorial.move.selectSkirmishers",
+            "copy": "tutorial.move.selectSkirmisherA",
             "advanceOn": "unitSelected",
             "unitCategory": "skirmishInfantry",
-            "gesture": "selectionBox"
+            "highlight": {
+              "targetSelector": {
+                "kind": "unit",
+                "category": "skirmishInfantry",
+                "pick": "firstUnordered"
+              },
+              "style": "spotlight"
+            }
           },
           {
             "copy": "tutorial.move.clickOrderTypeSkirmishers",
@@ -3941,16 +3948,75 @@
             }
           },
           {
-            "copy": "tutorial.move.orderSkirmishers",
+            "copy": "tutorial.move.orderSkirmisherA",
             "advanceOn": "orderPlaced",
             "unitCategory": "skirmishInfantry",
             "orderType": 2,
-            "gesture": "moveUnit",
-            "moveDestination": {
-              "x": 560,
-              "y": 430,
-              "width": 280,
-              "height": 80
+            "gesture": "tap",
+            "highlight": {
+              "targetSelector": [
+                {
+                  "kind": "terrainNearObjectives",
+                  "terrain": ["forest", "building"],
+                  "objective": "neutral",
+                  "radiusTiles": 15
+                },
+                {
+                  "kind": "objectives",
+                  "objective": "neutral",
+                  "radiusTiles": 8
+                }
+              ],
+              "style": "spotlight"
+            }
+          },
+          {
+            "copy": "tutorial.move.deselectBeforeNext",
+            "highlight": {
+              "targetId": "hud-deselect",
+              "style": "spotlight"
+            },
+            "placement": "top",
+            "advanceOn": "unitsDeselected",
+            "inputSchemes": [
+              "touch"
+            ]
+          },
+          {
+            "copy": "tutorial.move.selectSkirmisherB",
+            "advanceOn": "unitSelected",
+            "unitCategory": "skirmishInfantry",
+            "highlight": {
+              "targetSelector": {
+                "kind": "unit",
+                "category": "skirmishInfantry",
+                "pick": "firstUnordered"
+              },
+              "style": "spotlight"
+            }
+          },
+          {
+            "copy": "tutorial.move.orderSkirmisherB",
+            "advanceOn": "orderPlaced",
+            "unitCategory": "skirmishInfantry",
+            "orderType": 2,
+            "gesture": "tap",
+            "gestureTargetIndex": 1,
+            "highlight": {
+              "targetSelector": [
+                {
+                  "kind": "terrainNearObjectives",
+                  "terrain": ["forest", "building"],
+                  "objective": "neutral",
+                  "radiusTiles": 15
+                },
+                {
+                  "kind": "objectives",
+                  "objective": "neutral",
+                  "radiusTiles": 8
+                }
+              ],
+              "style": "spotlight"
             }
           },
           {
@@ -3960,7 +4026,9 @@
               "style": "ring"
             },
             "placement": "top",
-            "advanceOn": "button"
+            "advanceOn": "button",
+            "regressOnOrderRemoved": true,
+            "oncePerChapter": true
           },
           {
             "copy": "tutorial.move.submit",
@@ -4000,56 +4068,6 @@
             "advanceOn": "button",
             "revealUiElements": [
               "victoryBar"
-            ]
-          },
-          {
-            "copy": "tutorial.enemyContact.selectSkirmishers",
-            "advanceOn": "unitSelected",
-            "unitCategory": "skirmishInfantry",
-            "gesture": "selectionBox"
-          },
-          {
-            "copy": "tutorial.enemyContact.clickOrderTypeSkirmishers",
-            "advanceOn": "orderTypeModalOpened",
-            "orderType": 2,
-            "placement": "top",
-            "highlight": {
-              "targetId": "hud-order-type",
-              "style": "ring"
-            }
-          },
-          {
-            "copy": "tutorial.enemyContact.chooseOrderSkirmishers",
-            "advanceOn": "orderTypeSelected",
-            "orderType": 2,
-            "highlight": {
-              "targetId": "orderType-option-2",
-              "style": "ring"
-            }
-          },
-          {
-            "copy": "tutorial.enemyContact.orderSkirmishers",
-            "advanceOn": "orderPlaced",
-            "unitCategory": "skirmishInfantry",
-            "orderType": 2,
-            "gesture": "moveUnit",
-            "moveDestination": {
-              "x": 460,
-              "y": 310,
-              "width": 120,
-              "height": 40
-            }
-          },
-          {
-            "copy": "tutorial.move.deselectBeforeNext",
-            "highlight": {
-              "targetId": "hud-deselect",
-              "style": "spotlight"
-            },
-            "placement": "top",
-            "advanceOn": "unitsDeselected",
-            "inputSchemes": [
-              "touch"
             ]
           },
           {
@@ -4255,20 +4273,18 @@
       "tutorial.move.clickOrderTypeArtillery": "Open the order menu to switch to Run {icon.run}.",
       "tutorial.move.chooseOrderArtillery": "Pick Run {icon.run} — limbers up: faster, no stamina cost, but delayed shooting after stopping.",
       "tutorial.move.orderArtillery": "Keep line of sight {icon.lineOfSight} clean and don't push too far. {input.moveUnit} to draw the path.",
-      "tutorial.move.selectSkirmishers": "Skirmishers: {input.selectUnits} over them.",
+      "tutorial.move.selectSkirmisherA": "Pick up the highlighted skirmisher — {input.selectUnits} on it.",
       "tutorial.move.clickOrderTypeSkirmishers": "Open the order menu to switch to Run {icon.run}.",
       "tutorial.move.chooseOrderSkirmishers": "Pick Run {icon.run} — take woods and villages fast, but don't sprint, they tire.",
-      "tutorial.move.orderSkirmishers": "Push into cover {icon.building} {icon.forest}. {input.moveUnit} to the band.",
+      "tutorial.move.orderSkirmisherA": "Push this skirmisher into the highlighted cover {icon.forest} {icon.building} near the neutral objectives. {input.moveUnit} to draw the path.",
+      "tutorial.move.selectSkirmisherB": "Now grab the other skirmisher — {input.selectUnits} on it.",
+      "tutorial.move.orderSkirmisherB": "Send this one into different cover. Skirmishers work best when they're spread out.",
       "tutorial.move.deselectBeforeNext": "{input.deselect} before picking the next unit type.",
       "tutorial.move.selectIdleInfo": "Shortcut: Select Idle jumps straight to the next unit waiting for orders — handy once you have a big army.",
       "tutorial.move.removeOrdersInfo": "Changed your mind? Remove Orders clears the orders on the selected units so you can redraw them.",
       "tutorial.move.submit": "All set. Submit orders to end the turn. Keep submitting until you spot the enemy — your units will follow the orders you set.",
       "tutorial.advance.noEnemy": "No enemies in sight — keep advancing. Give your units orders and submit to end the turn.",
       "tutorial.enemyContact.intro": "Enemy in sight — form up.",
-      "tutorial.enemyContact.selectSkirmishers": "Skirmishers first: {input.selectUnits} over them.",
-      "tutorial.enemyContact.clickOrderTypeSkirmishers": "Open the order menu and pick Run {icon.run}.",
-      "tutorial.enemyContact.chooseOrderSkirmishers": "Pick Run {icon.run} — get into cover fast.",
-      "tutorial.enemyContact.orderSkirmishers": "Push them into the nearest {icon.forest} woods or {icon.building} building toward the enemy. {input.moveUnit} to draw the path.",
       "tutorial.enemyContact.selectInfantry": "Line infantry next: {input.selectUnits} over them.",
       "tutorial.enemyContact.openFormationInfantry": "Open the formations menu — time to deploy in line.",
       "tutorial.enemyContact.pickLineInfantry": "Pick Line. Wider frontage, maximum firepower facing the enemy.",

@@ -36,17 +36,65 @@ export type TutorialInputScheme = "mouse" | "touch";
 
 export type TutorialHighlightStyle = "spotlight" | "ring";
 
+/**
+ * Dynamic target selector: resolved at runtime against the current game state.
+ * Use when the beat needs to point at something only known at runtime (e.g.
+ * procedurally-generated terrain, objectives whose owner changes between
+ * matches). A tagged union so adding new kinds is an additive schema change;
+ * the client dispatches by `kind` and the type-checker enforces exhaustiveness.
+ */
+export type TutorialHighlightSelector =
+  | {
+      kind: "terrainNearObjectives";
+      /** Terrain categories to match (matches `TerrainCategoryType`). */
+      terrain: ("forest" | "building")[];
+      /** Which objectives to anchor the search on. */
+      objective: "neutral" | "friendly" | "enemy";
+      /** Tile-space search radius from each matching objective's center. */
+      radiusTiles: number;
+      /** Min cluster size (tiles) to highlight. Filters out noise. Defaults to 2. */
+      minTiles?: number;
+      /** Hard cap on rendered clusters. Defaults to 12. */
+      maxClusters?: number;
+    }
+  | {
+      kind: "objectives";
+      objective: "neutral" | "friendly" | "enemy";
+      /** Tile-space radius around each objective for the highlight rect. Defaults to 6. */
+      radiusTiles?: number;
+    }
+  | {
+      /**
+       * Single player-owned unit matching `category`. The highlight follows
+       * the unit each frame (so it tracks movement/rotation). Use
+       * `pick: "firstUnordered"` to highlight the next skirmisher the player
+       * hasn't drawn an order for yet — makes a "one unit at a time" beat
+       * sequence compose without hardcoding unit ids.
+       */
+      kind: "unit";
+      category: string | string[];
+      pick: "firstUnordered" | "first";
+    };
+
 export type TutorialHighlight = {
   /**
-   * One or more targets registered in the client tutorial-target-registry.
+   * One or more static targets registered in the client tutorial-target-registry.
    * When an array is provided, the overlay renders a highlight per resolved
    * target and uses the first target for bubble/gesture placement.
    */
-  targetId: string | string[];
+  targetId?: string | string[];
+  /**
+   * Runtime-resolved target(s). Single selector, or an ordered fallback chain:
+   * the first entry that resolves to ≥1 rect wins. Later entries are
+   * fallbacks for edge cases (e.g. "no forests near the neutral objectives").
+   */
+  targetSelector?: TutorialHighlightSelector | TutorialHighlightSelector[];
   style?: TutorialHighlightStyle;
+  /** When true, camera fits to the highlighted region. Defaults to true for selectors. */
+  fitCamera?: boolean;
 };
 
-export type TutorialGesture = "selectionBox" | "moveUnit" | "drawOrder";
+export type TutorialGesture = "selectionBox" | "moveUnit" | "drawOrder" | "tap";
 
 export type TutorialBeatPlacement = "top" | "bottom" | "left" | "right";
 
@@ -110,6 +158,29 @@ export type TutorialBeat = {
    * (e.g. `"line"`, `"column"`).
    */
   formationId?: string | string[];
+  /**
+   * Index into the resolved highlight rect list that the gesture hint and
+   * bubble anchor on. Defaults to 0 (first rect). Useful when a beat wants
+   * to point at a *different* cluster than the previous beat — e.g. the
+   * second skirmisher order beat suggests a different forest/building than
+   * the first. Silently falls back to rect 0 when the index is out of range.
+   */
+  gestureTargetIndex?: number;
+  /**
+   * When true, removing any order while this beat is active rewinds the
+   * chapter to the preceding `orderPlaced` beat so the player can re-draw.
+   * Used on the info beat that explains the remove-orders button: if they
+   * actually remove the order they just drew, the tutorial puts them back
+   * on the draw-order step instead of stranding them.
+   */
+  regressOnOrderRemoved?: boolean;
+  /**
+   * When true, the beat is played at most once per chapter run: once it
+   * has been dismissed, the queue auto-skips it if the cursor lands on it
+   * again (e.g. after a regress-then-advance cycle). Use for info beats
+   * that become redundant the second time through.
+   */
+  oncePerChapter?: boolean;
   /**
    * Input schemes this beat applies to. When omitted, the beat runs for all
    * schemes. When present, the beat is skipped if the active scheme is not
