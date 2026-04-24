@@ -140,7 +140,14 @@ export type TutorialBeat = {
 
 export type TutorialFireOn =
   /** Fires when the client enters the given turn number (including turn 0). */
-  { turn: number };
+  | { turn: number }
+  /**
+   * Fires the first frame any enemy unit is visible to the local player
+   * through the fog of war. Only fires once per chapter (id-deduped like all
+   * chapters). Use for tactical chapters that should appear on first contact
+   * rather than at a hard-coded turn.
+   */
+  | { enemyVisible: true };
 
 export type TutorialChapter = {
   /** Stable identifier used as dedup key — once a chapter fires, it never re-fires. */

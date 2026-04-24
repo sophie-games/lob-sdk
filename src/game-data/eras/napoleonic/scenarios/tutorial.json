@@ -3799,7 +3799,7 @@
             "unitCategory": "infantry",
             "orderType": 4,
             "gesture": "moveUnit",
-            "moveDestination": { "x": 380, "y": 650, "width": 260, "height": 30 },
+            "moveDestination": { "x": 300, "y": 470, "width": 300, "height": 80 },
             "hideUiElements": ["chat", "selectIdle", "formation", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
           },
           {
@@ -3847,7 +3847,7 @@
             "unitCategory": "midCavalry",
             "orderType": 1,
             "gesture": "moveUnit",
-            "moveDestination": { "x": 720, "y": 700, "width": 220, "height": 30 },
+            "moveDestination": { "x": 760, "y": 460, "width": 200, "height": 100 },
             "hideUiElements": ["chat", "selectIdle", "formation", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
           },
           {
@@ -3895,7 +3895,7 @@
             "unitCategory": "artillery",
             "orderType": 2,
             "gesture": "moveUnit",
-            "moveDestination": { "x": 440, "y": 820, "width": 200, "height": 20 },
+            "moveDestination": { "x": 400, "y": 580, "width": 240, "height": 60 },
             "hideUiElements": ["chat", "selectIdle", "formation", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
           },
           {
@@ -3943,7 +3943,7 @@
             "unitCategory": "skirmishInfantry",
             "orderType": 2,
             "gesture": "moveUnit",
-            "moveDestination": { "x": 350, "y": 560, "width": 320, "height": 60 },
+            "moveDestination": { "x": 560, "y": 430, "width": 280, "height": 80 },
             "hideUiElements": ["chat", "selectIdle", "formation", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
           },
           {
@@ -3954,6 +3954,19 @@
               "style": "ring"
             },
             "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
+          }
+        ]
+      },
+      {
+        "id": "enemyContact",
+        "fireOn": {
+          "enemyVisible": true
+        },
+        "beats": [
+          {
+            "copy": "tutorial.enemyContact.message",
+            "advanceOn": "button",
+            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
           }
         ]
       },
@@ -4079,7 +4092,8 @@
       "tutorial.move.chooseOrderSkirmishers": "Pick Run {icon.run} — take woods and villages fast, but don't sprint, they tire.",
       "tutorial.move.orderSkirmishers": "Push into cover {icon.building} {icon.forest}. {input.moveUnit} to the band.",
       "tutorial.move.deselectBeforeNext": "{input.deselect} before picking the next unit type.",
-      "tutorial.move.submit": "All set. Submit orders to end the turn.",
+      "tutorial.move.submit": "All set. Submit orders to end the turn. Keep submitting until you spot the enemy — your units will follow the orders you set.",
+      "tutorial.enemyContact.message": "Enemy in sight. Time to form a line: skirmishers into woods to harass, artillery with clear line of sight, cavalry on the flank ready to charge when their organization breaks.",
       "tutorial.stamina.message": "Running burns stamina. Tired units hit softer and rout faster. Walk into position and save the sprint for when it actually matters.",
       "tutorial.shoot.message": "Skirmishers and artillery shoot on their own once an enemy walks into range. Skirmishers hit hard at distance but fold in melee, so keep them behind your line. Artillery reaches the furthest. Don't let cavalry get close to it.",
       "tutorial.charge.message": "Hold Shift when you order a dragoon and it'll charge instead of walking in. A good charge can break an infantry line, but it wears your horses out fast. Pick the moment.",
