@@ -3603,6 +3603,30 @@
             "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           },
           {
+            "copy": "tutorial.deploy.openFormationInfantry",
+            "highlight": {
+              "targetId": "hud-formation",
+              "style": "spotlight"
+            },
+            "placement": "top",
+            "advanceOn": "formationModalOpened",
+            "unitCategory": "infantry",
+            "formationId": "column",
+            "hideUiElements": ["chat", "selectIdle", "orderType", "deselect", "removeOrders", "submitOrders", "topButtons", "victoryBar", "unitSummary"]
+          },
+          {
+            "copy": "tutorial.deploy.pickColumnInfantry",
+            "highlight": {
+              "targetId": "formation-option-column",
+              "style": "spotlight"
+            },
+            "placement": "left",
+            "advanceOn": "formationSelected",
+            "unitCategory": "infantry",
+            "formationId": "column",
+            "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
+          },
+          {
             "copy": "tutorial.deploy.deselectBeforeNext",
             "highlight": {
               "targetId": "hud-deselect",
@@ -4019,45 +4043,7 @@
       }
     ]
   },
-  "triggers": [
-    {
-      "event": "onTurnStart",
-      "conditions": [
-        {
-          "type": "isTurn",
-          "value": 5
-        },
-        {
-          "type": "isVar",
-          "value": {
-            "name": "t_objectives_cam",
-            "not": true,
-            "value": true
-          }
-        }
-      ],
-      "conditionLogic": "AND",
-      "once": true,
-      "actions": [
-        {
-          "type": "setVar",
-          "value": {
-            "name": "t_objectives_cam",
-            "value": true
-          }
-        },
-        {
-          "type": "moveCamera",
-          "value": {
-            "x": 512,
-            "y": 512,
-            "zoom": 1,
-            "duration": 800
-          }
-        }
-      ]
-    }
-  ],
+  "triggers": [],
   "locales": {
     "en": {
       "name": "Tutorial",
@@ -4065,6 +4051,8 @@
       "tutorial.deploy.intro": "This is the deployment stage. Your army is stacked on the left of your zone, grouped by type. Spread it across the zone before the battle starts \u2014 the layout you pick shapes how the fight begins.",
       "tutorial.deploy.selectInfantry": "Start with your line infantry. {input.selectUnits} over a block of them to draw a selection box.",
       "tutorial.deploy.positionInfantry": "Move them up to form the front line. {input.moveUnit} a selected unit to reposition it inside the zone.",
+      "tutorial.deploy.openFormationInfantry": "Open the formations menu — line infantry can switch between line and column.",
+      "tutorial.deploy.pickColumnInfantry": "Pick Column. Narrower frontage, deeper file — moves faster but fires fewer muskets.",
       "tutorial.deploy.selectCavalry": "Now grab your dragoons. {input.selectUnits} over them.",
       "tutorial.deploy.positionCavalry": "Place them behind your infantry line \u2014 kept in reserve they can charge through gaps or plug a break. {input.moveUnit} to reposition.",
       "tutorial.deploy.selectArtillery": "Select your artillery. {input.selectUnits} over them.",

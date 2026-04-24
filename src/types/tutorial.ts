@@ -24,6 +24,8 @@ export type TutorialBeatAdvance =
   | "orderPlaced" // a movement order was drawn on the map
   | "orderTypeModalOpened" // SelectOrderModal opens; auto-skipped if hud.orderType already matches
   | "orderTypeSelected" // hud.orderType changed to one that matches; auto-skipped if already matching on activation
+  | "formationModalOpened" // FormationModal opens; auto-skipped if all selected units already have the matching formation
+  | "formationSelected" // a formation was applied that matches; auto-skipped if already matching on activation
   | "ordersSubmitted"; // submit-orders press on a battle turn (turn > 0)
 
 /**
@@ -98,6 +100,17 @@ export type TutorialBeat = {
    */
   orderType?: OrderType | OrderType[];
   /**
+   * Filters formation-related advance modes:
+   *  - `formationModalOpened`: auto-skip on activation if every currently
+   *    selected unit (filtered by `unitCategory` when set) already has a
+   *    matching formation.
+   *  - `formationSelected`: advance only when the formation chosen in the
+   *    modal matches; same auto-skip behavior on activation.
+   * Ignored for other advance modes. Values are formation template ids
+   * (e.g. `"line"`, `"column"`).
+   */
+  formationId?: string | string[];
+  /**
    * Input schemes this beat applies to. When omitted, the beat runs for all
    * schemes. When present, the beat is skipped if the active scheme is not
    * listed. Used for mechanics that only one input style needs to learn
@@ -111,6 +124,9 @@ export type TutorialBeat = {
    * Supported ids:
    *  - Bottom button ids: "chat", "selectIdle", "formation", "orderType",
    *    "deselect", "removeOrders", "submitOrders"
+   *  Note: when a beat highlights `hud-formation`, the formation button is
+   *  auto-shown for the rest of the chapter (same persistence as deselect /
+   *  orderType).
    *  - "bottomButtons" — shorthand for all bottom button ids above
    *  - "topButtons" — all top circular buttons (menu, replay, info, etc.)
    *  - "victoryBar" — the score / victory-point strip
