@@ -3739,7 +3739,7 @@
           {
             "copy": "tutorial.move.intro",
             "advanceOn": "button",
-            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
+            "hideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"]
           },
           {
             "copy": "tutorial.move.selectInfantry",
