@@ -119,23 +119,27 @@ export type TutorialBeat = {
    */
   inputSchemes?: TutorialInputScheme[];
   /**
-   * UI element ids to hide while this beat is active (blacklist).
+   * Monotonic unlock list for tutorial-controlled UI elements. Ids listed
+   * here become visible from this beat onwards and never disappear again —
+   * once a control is introduced to the player we never re-hide it.
+   *
+   * While a tutorial is active, every id in the controlled vocabulary starts
+   * hidden; beats and {@link Tutorial.revealUiElements} accumulate the set
+   * that is *shown*.
    *
    * Supported ids:
-   *  - Bottom button ids: "chat", "selectIdle", "formation", "orderType",
+   *  - Bottom-bar buttons: "chat", "selectIdle", "formation", "orderType",
    *    "deselect", "removeOrders", "submitOrders"
-   *  Note: when a beat highlights `hud-formation`, the formation button is
-   *  auto-shown for the rest of the chapter (same persistence as deselect /
-   *  orderType).
-   *  - "bottomButtons" — shorthand for all bottom button ids above
+   *  - "bottomButtons" — shorthand for all bottom-bar buttons
    *  - "topButtons" — all top circular buttons (menu, replay, info, etc.)
    *  - "victoryBar" — the score / victory-point strip
    *  - "unitSummary" — the DOM unit-summary dialog
    *
-   * Buttons that are also highlighted by this beat's `highlight.targetId`
-   * are auto-shown regardless.
+   * Elements targeted by this beat's `highlight.targetId` (e.g.
+   * `hud-submit-orders`) are auto-revealed regardless, so they don't need to
+   * be repeated here.
    */
-  hideUiElements?: string[];
+  revealUiElements?: string[];
 };
 
 export type TutorialFireOn =
@@ -147,10 +151,19 @@ export type TutorialFireOn =
    * chapters). Use for tactical chapters that should appear on first contact
    * rather than at a hard-coded turn.
    */
-  | { enemyVisible: true };
+  | { enemyVisible: true }
+  /**
+   * Fires on every turn transition as long as no enemy unit is visible to the
+   * local player, starting at `fromTurn` (inclusive, default 0). Stops
+   * matching once any enemy is seen. Unlike other fireOn variants, chapters
+   * using this one are not added to the fired-chapters set and may re-fire
+   * each turn. Use for idle-advance prompts between scripted beats and first
+   * contact.
+   */
+  | { eachTurnWhileEnemyHidden: true; fromTurn?: number };
 
 export type TutorialChapter = {
-  /** Stable identifier used as dedup key — once a chapter fires, it never re-fires. */
+  /** Stable identifier used as dedup key — once a chapter fires, it never re-fires (except for `eachTurnWhileEnemyHidden` fireOn). */
   id: string;
   fireOn: TutorialFireOn;
   beats: TutorialBeat[];
@@ -159,10 +172,10 @@ export type TutorialChapter = {
 export type Tutorial = {
   chapters: TutorialChapter[];
   /**
-   * UI element ids to hide from the moment the tutorial scenario loads,
-   * before any beat has fired. Same vocabulary as `TutorialBeat.hideUiElements`.
-   * Covers the window between game mount and the first beat so elements
-   * don't flash visible during that gap.
+   * Seed for the monotonic revealed-elements set. Same vocabulary as
+   * {@link TutorialBeat.revealUiElements}. Everything in the controlled
+   * vocabulary that is not listed here (and not later added by a beat or
+   * highlight auto-reveal) stays hidden for the whole tutorial.
    */
-  initialHideUiElements?: string[];
+  revealUiElements?: string[];
 };
