@@ -158,4 +158,11 @@ export type TutorialChapter = {
 
 export type Tutorial = {
   chapters: TutorialChapter[];
+  /**
+   * UI element ids to hide from the moment the tutorial scenario loads,
+   * before any beat has fired. Same vocabulary as `TutorialBeat.hideUiElements`.
+   * Covers the window between game mount and the first beat so elements
+   * don't flash visible during that gap.
+   */
+  initialHideUiElements?: string[];
 };

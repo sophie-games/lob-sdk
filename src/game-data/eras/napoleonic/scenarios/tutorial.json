@@ -3562,6 +3562,7 @@
     }
   ],
   "tutorial": {
+    "initialHideUiElements": ["bottomButtons", "topButtons", "victoryBar", "unitSummary"],
     "chapters": [
       {
         "id": "deploy",
@@ -3966,91 +3967,7 @@
           {
             "copy": "tutorial.enemyContact.message",
             "advanceOn": "button",
-            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
-          }
-        ]
-      },
-      {
-        "id": "stamina",
-        "fireOn": {
-          "turn": 2
-        },
-        "beats": [
-          {
-            "copy": "tutorial.stamina.message",
-            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
-          }
-        ]
-      },
-      {
-        "id": "shoot",
-        "fireOn": {
-          "turn": 3
-        },
-        "beats": [
-          {
-            "copy": "tutorial.shoot.message",
-            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
-          }
-        ]
-      },
-      {
-        "id": "charge",
-        "fireOn": {
-          "turn": 4
-        },
-        "beats": [
-          {
-            "copy": "tutorial.charge.message",
-            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
-          }
-        ]
-      },
-      {
-        "id": "objectives",
-        "fireOn": {
-          "turn": 5
-        },
-        "beats": [
-          {
-            "copy": "tutorial.objectives.message",
-            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
-          }
-        ]
-      },
-      {
-        "id": "formation",
-        "fireOn": {
-          "turn": 8
-        },
-        "beats": [
-          {
-            "copy": "tutorial.formation.message",
-            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
-          }
-        ]
-      },
-      {
-        "id": "morale",
-        "fireOn": {
-          "turn": 12
-        },
-        "beats": [
-          {
-            "copy": "tutorial.morale.message",
-            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
-          }
-        ]
-      },
-      {
-        "id": "finalPush",
-        "fireOn": {
-          "turn": 18
-        },
-        "beats": [
-          {
-            "copy": "tutorial.finalPush.message",
-            "hideUiElements": ["topButtons", "victoryBar", "unitSummary"]
+            "hideUiElements": ["topButtons", "unitSummary"]
           }
         ]
       }
