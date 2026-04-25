@@ -9,37 +9,45 @@
     "deploymentZones": [
       {
         "team": 1,
-        "mainZone": {
-          "team": 1,
-          "x": 394,
-          "y": 1444,
-          "width": 1200,
-          "height": 192
-        },
-        "forwardZone": {
-          "team": 1,
-          "x": 346,
-          "y": 1388,
-          "width": 1296,
-          "height": 288
-        }
+        "zones": [
+          {
+            "team": 1,
+            "x": 394,
+            "y": 1444,
+            "width": 1200,
+            "height": 192,
+            "type": "main"
+          },
+          {
+            "team": 1,
+            "x": 346,
+            "y": 1388,
+            "width": 1296,
+            "height": 288,
+            "type": "forward"
+          }
+        ]
       },
       {
         "team": 2,
-        "mainZone": {
-          "team": 2,
-          "x": 394,
-          "y": 164,
-          "width": 1200,
-          "height": 192
-        },
-        "forwardZone": {
-          "team": 2,
-          "x": 346,
-          "y": 116,
-          "width": 1296,
-          "height": 288
-        }
+        "zones": [
+          {
+            "team": 2,
+            "x": 394,
+            "y": 164,
+            "width": 1200,
+            "height": 192,
+            "type": "main"
+          },
+          {
+            "team": 2,
+            "x": 346,
+            "y": 116,
+            "width": 1296,
+            "height": 288,
+            "type": "forward"
+          }
+        ]
       }
     ],
     "terrains": [

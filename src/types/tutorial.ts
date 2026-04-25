@@ -58,6 +58,20 @@ export type TutorialHighlightSelector =
       maxClusters?: number;
     }
   | {
+      /**
+       * Forest/building tile clusters near visible enemy units. Same shape
+       * as `terrainNearObjectives` but anchored on enemies — used by the
+       * skirmisher beats to point at cover within reach of the closest
+       * enemy.
+       */
+      kind: "terrainNearEnemy";
+      terrain: ("forest" | "building")[];
+      /** World-px search radius from each enemy unit. */
+      radiusPx: number;
+      minTiles?: number;
+      maxClusters?: number;
+    }
+  | {
       kind: "objectives";
       objective: "neutral" | "friendly" | "enemy";
       /** Tile-space radius around each objective for the highlight rect. Defaults to 6. */
@@ -74,6 +88,16 @@ export type TutorialHighlightSelector =
       kind: "unit";
       category: string | string[];
       pick: "firstUnordered" | "first";
+    }
+  | {
+      /**
+       * Visible enemy units. Each enemy produces one tight world-space rect
+       * centered on its position. Used as a fallback in selector chains
+       * when no terrain cover is reachable.
+       */
+      kind: "enemyUnits";
+      /** Optional category filter. Defaults to any enemy unit. */
+      category?: string | string[];
     };
 
 export type TutorialHighlight = {
@@ -94,7 +118,12 @@ export type TutorialHighlight = {
   fitCamera?: boolean;
 };
 
-export type TutorialGesture = "selectionBox" | "moveUnit" | "drawOrder" | "tap";
+export type TutorialGesture =
+  | "selectionBox"
+  | "selectGroup"
+  | "moveUnit"
+  | "drawOrder"
+  | "tap";
 
 export type TutorialBeatPlacement = "top" | "bottom" | "left" | "right";
 
@@ -104,12 +133,189 @@ export type TutorialBeatPlacement = "top" | "bottom" | "left" | "right";
  * (positions the animation over the destination, not the full deployment
  * zone) and by the ghost-projection layer (renders semi-transparent unit
  * silhouettes inside this rect).
+ *
+ * Two flavors:
+ *  - **Static rect** (default; `kind` omitted or `"rect"`): hard-coded coords.
+ *  - **Selector**: resolved at chapter activation against current game state.
+ *    Used by adaptive chapters that re-fire each turn.
  */
-export type TutorialMoveDestination = {
+export type TutorialMoveDestinationStatic = {
+  kind?: "rect";
   x: number;
   y: number;
   width: number;
   height: number;
+};
+
+/**
+ * Runtime-resolved destinations. The resolver takes the live game state plus
+ * a small per-chapter context (so artillery beats can read the rect that
+ * infantry beats already produced) and emits a static rect.
+ */
+export type TutorialMoveDestinationSelector =
+  | {
+      /**
+       * Wraparound band that wraps the visible enemy from the player's side
+       * at `minClearancePx` from the closest enemy edge. The output is an
+       * axis-aligned rect facing the enemy — projection-sync distributes
+       * units along it the same way it does for any wide line.
+       */
+      kind: "arcAroundEnemyCenter";
+      /** Min world-px clearance from the closest enemy edge. Default 64. */
+      minClearancePx?: number;
+      /** Band thickness (world px). Default 30. */
+      bandThicknessPx?: number;
+      /** Half-arc length cap (world px). Default 240. */
+      maxHalfWidthPx?: number;
+    }
+  | {
+      /**
+       * Small rect centered at the closest weak enemy. "Weak" means an enemy
+       * whose category is in `alwaysWeakCategories` OR whose org% is at
+       * least `orgGapPp` percentage points lower than this player's unit.
+       */
+      kind: "weakEnemyTarget";
+      /** Search radius from the player's units of the beat's `unitCategory`. */
+      withinPx: number;
+      /** Org gap in percentage points (0..100). Default 40. */
+      orgGapPp?: number;
+      /** Categories that always count as weak. Default skirmisher + artillery. */
+      alwaysWeakCategories?: string[];
+      /** Output rect side length (world px). Default 48. */
+      rectSizePx?: number;
+    }
+  | {
+      /**
+       * Band parallel to the player↔enemy axis, offset onto the player's
+       * side at `distancePx` from the nearest enemy. Used when cavalry has
+       * no charge target and should hold a stand-off line.
+       */
+      kind: "maintainDistanceFromEnemy";
+      /** Distance from the nearest enemy unit, world px. */
+      distancePx: number;
+      bandThicknessPx?: number;
+      bandWidthPx?: number;
+    }
+  | {
+      /**
+       * Band a short distance ahead of the player's frontmost line-infantry,
+       * facing the enemy. Used for artillery default placement. When no
+       * infantry destination has been resolved earlier in the chapter and no
+       * line infantry exists, the resolver falls back to a band on the
+       * player side near the enemy.
+       */
+      kind: "aheadOfInfantryLine";
+      /** Forward offset from the infantry line, world px. Default 32. */
+      aheadPx?: number;
+      bandThicknessPx?: number;
+      bandWidthPx?: number;
+    }
+  | {
+      /** Band a short distance behind the player's infantry line. */
+      kind: "behindInfantryLine";
+      /** Back offset from the infantry line, world px. Default 48. */
+      behindPx?: number;
+      bandThicknessPx?: number;
+      bandWidthPx?: number;
+    }
+  | {
+      /**
+       * Forest/building cluster near any visible enemy unit. Same algorithm
+       * as the `terrainNearEnemy` highlight selector; emitted as a single
+       * rect centered on the closest qualifying cluster.
+       */
+      kind: "terrainNearEnemy";
+      terrain: ("forest" | "building")[];
+      radiusPx: number;
+      minTiles?: number;
+    };
+
+export type TutorialMoveDestination =
+  | TutorialMoveDestinationStatic
+  | TutorialMoveDestinationSelector;
+
+/**
+ * Predicate evaluated at beat activation. When false, the runner silently
+ * dismisses the beat without showing it (the queue cursor advances). Used
+ * to model parallel branches inside one chapter (e.g. cavalry Run vs
+ * Maintain) without a state machine — the player only sees the branch
+ * whose condition holds in the current battlefield.
+ */
+export type TutorialBeatCondition =
+  | {
+      /**
+       * True iff at least one player unit of `unitCategory` has a "weak"
+       * enemy in range. Same `alwaysWeakCategories` / `orgGapPp` semantics
+       * as the `weakEnemyTarget` move destination.
+       */
+      kind: "anyUnitHasWeakTargetInRange";
+      unitCategory: string | string[];
+      withinPx: number;
+      orgGapPp?: number;
+      alwaysWeakCategories?: string[];
+    }
+  | {
+      /** Negation of `anyUnitHasWeakTargetInRange`. */
+      kind: "noUnitHasWeakTargetInRange";
+      unitCategory: string | string[];
+      withinPx: number;
+      orgGapPp?: number;
+      alwaysWeakCategories?: string[];
+    }
+  | {
+      /**
+       * True iff at least one enemy unit (default: any infantry/cavalry)
+       * with org% ≥ `minOrgPp` is within `withinPx` of any player artillery.
+       * Gates the "pull artillery back" override.
+       */
+      kind: "enemyPressingArtillery";
+      withinPx: number;
+      /** Min enemy org% (0..100) to count as a threat. Default 25. */
+      minOrgPp?: number;
+      /** Enemy categories that count as a threat. Default infantry + cavalry. */
+      enemyCategory?: string | string[];
+    }
+  | {
+      /** Negation of `enemyPressingArtillery`. */
+      kind: "noEnemyPressingArtillery";
+      withinPx: number;
+      minOrgPp?: number;
+      enemyCategory?: string | string[];
+    }
+  | {
+      /**
+       * True iff at least one player unit of `unitCategory` does NOT have a
+       * pending order this turn whose type is in `orderType`. Used by
+       * Run-1+ silent hint beats to skip themselves once the player has
+       * already covered every unit in the category — no flicker, no noise.
+       */
+      kind: "anyUnitInCategoryNeedsOrder";
+      unitCategory: string | string[];
+      orderType: OrderType | OrderType[];
+    }
+  | {
+      /**
+       * Logical AND. Use to compose a branch gate (e.g.
+       * `anyUnitHasWeakTargetInRange`) with a skip-already-done check
+       * (`anyUnitInCategoryNeedsOrder`) so the beat only surfaces when both
+       * the situation matches AND there's still work for the player to do.
+       */
+      kind: "andAll";
+      all: TutorialBeatCondition[];
+    };
+
+/**
+ * Per-chapter run-count filter. The runner tracks how many times each
+ * `eachTurnWhile*` chapter has fired (Run 0 = first fire). Beats whose
+ * filter excludes the current count are dropped at chapter-build time.
+ *
+ * Lets a single chapter pack a verbose Run-0 path and a silent Run-1+ hint
+ * path without splitting into two chapters.
+ */
+export type TutorialRunFilter = {
+  only?: number[];
+  from?: number;
+  until?: number;
 };
 
 export type TutorialBeat = {
@@ -129,11 +335,19 @@ export type TutorialBeat = {
    */
   unitCategory?: string | string[];
   /**
-   * Destination rect for a `moveUnit` beat. Scoped to world coords (same
-   * space as units / deployment zones). Only meaningful when `gesture` is
-   * `"moveUnit"`.
+   * Destination for a `moveUnit` beat. Scoped to world coords (same space as
+   * units / deployment zones). Only meaningful when `gesture` is `"moveUnit"`.
+   * Either a static rect (`{x, y, width, height}`, optionally `kind: "rect"`)
+   * or a runtime selector (e.g. `{kind: "arcAroundEnemyCenter"}`).
    */
   moveDestination?: TutorialMoveDestination;
+  /**
+   * Predicate evaluated at activation. When false, the beat is auto-dismissed
+   * without ever being shown — used for branching beats whose condition
+   * depends on the current battlefield (e.g. cavalry Run branch vs
+   * Maintain branch).
+   */
+  showWhen?: TutorialBeatCondition;
   /**
    * Filters order-related advance modes:
    *  - `orderPlaced`: only orders of this type dismiss the beat.
@@ -181,6 +395,22 @@ export type TutorialBeat = {
    * that become redundant the second time through.
    */
   oncePerChapter?: boolean;
+  /**
+   * Filters this beat against the chapter's run count (0-based). Only
+   * meaningful for re-fireable chapters (`eachTurnWhile*`). When omitted
+   * the beat plays on every run. Beats whose filter excludes the current
+   * count are dropped at chapter-build time so they never reach the queue.
+   */
+  showOnRun?: TutorialRunFilter;
+  /**
+   * When true, the overlay does NOT render the bubble for this beat —
+   * highlights and ghost projection still render via the sync layers, but
+   * there is no text, no Continue button, no dim-layer dismissal. Used by
+   * Run-1+ hint beats: pure visual coaching once the player has already
+   * been taught the verbose flow on Run 0. The beat still dismisses via
+   * `advanceOn` (typically `orderPlaced`) or `showWhen` skip.
+   */
+  silent?: boolean;
   /**
    * Input schemes this beat applies to. When omitted, the beat runs for all
    * schemes. When present, the beat is skipped if the active scheme is not
@@ -231,7 +461,17 @@ export type TutorialFireOn =
    * each turn. Use for idle-advance prompts between scripted beats and first
    * contact.
    */
-  | { eachTurnWhileEnemyHidden: true; fromTurn?: number };
+  | { eachTurnWhileEnemyHidden: true; fromTurn?: number }
+  /**
+   * Mirror of `eachTurnWhileEnemyHidden` for the post-contact phase. Fires
+   * on every turn transition as long as at least one enemy unit is visible
+   * to the local player, starting at `fromTurn` (inclusive, default 0).
+   * Chapters using this variant are not added to the fired-chapters set and
+   * re-fire each turn so their dynamic destinations re-resolve against the
+   * current battlefield. Use for adaptive per-turn guidance after first
+   * contact.
+   */
+  | { eachTurnWhileEnemyVisible: true; fromTurn?: number };
 
 export type TutorialChapter = {
   /** Stable identifier used as dedup key — once a chapter fires, it never re-fires (except for `eachTurnWhileEnemyHidden` fireOn). */
