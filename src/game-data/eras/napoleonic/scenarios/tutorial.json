@@ -3966,7 +3966,7 @@
             "copy": "tutorial.enemyContact.selectInfantry",
             "advanceOn": "unitSelected",
             "unitCategory": "infantry",
-            "gesture": "selectionBox"
+            "gesture": "selectGroup"
           },
           {
             "copy": "tutorial.enemyContact.openFormationInfantry",
@@ -4036,7 +4036,7 @@
             "copy": "tutorial.enemyContact.selectCavalry",
             "advanceOn": "unitSelected",
             "unitCategory": "midCavalry",
-            "gesture": "selectionBox"
+            "gesture": "selectGroup"
           },
           {
             "copy": "tutorial.enemyContact.clickOrderTypeCavalry",
@@ -4084,7 +4084,7 @@
             "copy": "tutorial.enemyContact.selectArtillery",
             "advanceOn": "unitSelected",
             "unitCategory": "artillery",
-            "gesture": "selectionBox"
+            "gesture": "selectGroup"
           },
           {
             "copy": "tutorial.enemyContact.clickOrderTypeArtillery",
@@ -4193,17 +4193,17 @@
       "tutorial.move.submit": "All set. Submit orders to end the turn. Keep submitting until you spot the enemy — your units will follow the orders you set.",
       "tutorial.advance.noEnemy": "No enemies in sight — keep advancing. Give your units orders and submit to end the turn.",
       "tutorial.enemyContact.intro": "Enemy in sight — form up.",
-      "tutorial.enemyContact.selectInfantry": "Line infantry next: {input.selectUnits} over them.",
+      "tutorial.enemyContact.selectInfantry": "Line infantry first. {input.selectGroup} on one to grab the whole group.",
       "tutorial.enemyContact.openFormationInfantry": "Open the formations menu — time to deploy in line.",
       "tutorial.enemyContact.pickLineInfantry": "Pick Line. Wider frontage, maximum firepower facing the enemy.",
       "tutorial.enemyContact.clickOrderTypeInfantry": "Open the order menu and pick FAA {icon.fireAdvance}.",
       "tutorial.enemyContact.chooseOrderInfantry": "Pick FAA {icon.fireAdvance} — fires while advancing.",
       "tutorial.enemyContact.orderInfantry": "Draw a wide line facing the enemy. {input.moveUnit} from flank to flank.",
-      "tutorial.enemyContact.selectCavalry": "Cavalry: {input.selectUnits} over them.",
+      "tutorial.enemyContact.selectCavalry": "Cavalry now. {input.selectGroup} on one to grab the whole group.",
       "tutorial.enemyContact.clickOrderTypeCavalry": "Open the order menu and pick Walk {icon.walk}.",
       "tutorial.enemyContact.chooseOrderCavalry": "Pick Walk {icon.walk} — saves stamina for the charge.",
       "tutorial.enemyContact.orderCavalry": "Keep them behind the infantry line, ready to exploit a break. {input.moveUnit} to place them in reserve.",
-      "tutorial.enemyContact.selectArtillery": "Artillery: {input.selectUnits} over them.",
+      "tutorial.enemyContact.selectArtillery": "Artillery now. {input.selectGroup} on one to grab the whole group.",
       "tutorial.enemyContact.clickOrderTypeArtillery": "Open the order menu and pick FAA {icon.fireAdvance}.",
       "tutorial.enemyContact.chooseOrderArtillery": "Pick FAA {icon.fireAdvance} — advance while keeping fire on the enemy.",
       "tutorial.enemyContact.orderArtillery": "Push the guns ahead of your infantry line for a clean line of sight {icon.lineOfSight}. {input.moveUnit} to draw the path.",
