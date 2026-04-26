@@ -113,6 +113,29 @@ export type TutorialHighlightSelector =
       kind: "enemyUnits";
       /** Optional category filter. Defaults to any enemy unit. */
       category?: string | string[];
+    }
+  | {
+      /**
+       * The player unit (of `category`) closest to a visible enemy. When
+       * `threatCategory` is set, only enemies of that category count toward
+       * the closest-pair search. Used by situational chapters to highlight
+       * the unit the lesson is about (e.g. the skirmisher near an enemy
+       * battery, the infantry threatened by cavalry on its flank).
+       */
+      kind: "playerUnitNearestThreat";
+      category: string | string[];
+      threatCategory?: string | string[];
+    }
+  | {
+      /**
+       * The visible enemy unit closest to a player unit of `playerCategory`,
+       * optionally filtered by `enemyCategory`. Pairs with
+       * `playerUnitNearestThreat` so a chapter can highlight both sides of
+       * the threat with consistent picks.
+       */
+      kind: "nearestEnemyTo";
+      playerCategory: string | string[];
+      enemyCategory?: string | string[];
     };
 
 export type TutorialHighlight = {
@@ -483,6 +506,20 @@ export type TutorialBeat = {
   revealUiElements?: string[];
 };
 
+/**
+ * Situational predicate keys for chapters that watch the live game state and
+ * fire when a teachable moment appears. Each key has a corresponding
+ * predicate registered client-side. Extending this union without registering
+ * a predicate is a compile error.
+ */
+export type TutorialSituationKey =
+  | "skirmisherThreatenedByArtillery"
+  | "skirmisherThreatenedByCavalry"
+  | "skirmisherThreatenedByInfantry"
+  | "infantryThreatenedByCavalryFrontal"
+  | "infantryThreatenedByCavalryFlank"
+  | "artilleryCanFireButCannot";
+
 export type TutorialFireOn =
   /** Fires when the client enters the given turn number (including turn 0). */
   | { turn: number }
@@ -511,7 +548,19 @@ export type TutorialFireOn =
    * current battlefield. Use for adaptive per-turn guidance after first
    * contact.
    */
-  | { eachTurnWhileEnemyVisible: true; fromTurn?: number };
+  | { eachTurnWhileEnemyVisible: true; fromTurn?: number }
+  /**
+   * Fires the first frame the situation predicate becomes true. Default is
+   * once per game (joins the fired-chapters set). With `oncePerTurn: true`
+   * the chapter re-fires on each turn transition while the situation still
+   * holds — same semantics as `eachTurnWhile*`. `fromTurn` (inclusive) gates
+   * the earliest turn the chapter is allowed to fire on.
+   */
+  | {
+      situation: TutorialSituationKey;
+      oncePerTurn?: boolean;
+      fromTurn?: number;
+    };
 
 export type TutorialChapter = {
   /** Stable identifier used as dedup key — once a chapter fires, it never re-fires (except for `eachTurnWhileEnemyHidden` fireOn). */

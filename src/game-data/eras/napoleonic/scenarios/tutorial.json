@@ -3326,8 +3326,8 @@
     {
       "player": 2,
       "pos": {
-        "x": 96,
-        "y": 48
+        "x": 512,
+        "y": 163
       },
       "rotation": 1.5707963267948966,
       "type": 1
@@ -3335,8 +3335,8 @@
     {
       "player": 2,
       "pos": {
-        "x": 128,
-        "y": 48
+        "x": 512,
+        "y": 163
       },
       "rotation": 1.5707963267948966,
       "type": 1
@@ -3344,8 +3344,8 @@
     {
       "player": 2,
       "pos": {
-        "x": 160,
-        "y": 48
+        "x": 512,
+        "y": 163
       },
       "rotation": 1.5707963267948966,
       "type": 1
@@ -3353,8 +3353,8 @@
     {
       "player": 2,
       "pos": {
-        "x": 192,
-        "y": 48
+        "x": 512,
+        "y": 163
       },
       "rotation": 1.5707963267948966,
       "type": 1
@@ -3362,8 +3362,8 @@
     {
       "player": 2,
       "pos": {
-        "x": 96,
-        "y": 80
+        "x": 512,
+        "y": 163
       },
       "rotation": 1.5707963267948966,
       "type": 1
@@ -3371,8 +3371,8 @@
     {
       "player": 2,
       "pos": {
-        "x": 128,
-        "y": 80
+        "x": 512,
+        "y": 163
       },
       "rotation": 1.5707963267948966,
       "type": 1
@@ -3380,8 +3380,8 @@
     {
       "player": 2,
       "pos": {
-        "x": 160,
-        "y": 80
+        "x": 512,
+        "y": 163
       },
       "rotation": 1.5707963267948966,
       "type": 1
@@ -3389,8 +3389,8 @@
     {
       "player": 2,
       "pos": {
-        "x": 192,
-        "y": 80
+        "x": 512,
+        "y": 163
       },
       "rotation": 1.5707963267948966,
       "type": 1
@@ -3398,8 +3398,8 @@
     {
       "player": 2,
       "pos": {
-        "x": 272,
-        "y": 48
+        "x": 512,
+        "y": 163
       },
       "rotation": 1.5707963267948966,
       "type": 2
@@ -3407,8 +3407,8 @@
     {
       "player": 2,
       "pos": {
-        "x": 304,
-        "y": 48
+        "x": 512,
+        "y": 163
       },
       "rotation": 1.5707963267948966,
       "type": 2
@@ -3416,8 +3416,8 @@
     {
       "player": 2,
       "pos": {
-        "x": 272,
-        "y": 80
+        "x": 512,
+        "y": 163
       },
       "rotation": 1.5707963267948966,
       "type": 2
@@ -3425,8 +3425,8 @@
     {
       "player": 2,
       "pos": {
-        "x": 304,
-        "y": 80
+        "x": 512,
+        "y": 163
       },
       "rotation": 1.5707963267948966,
       "type": 2
@@ -3434,8 +3434,8 @@
     {
       "player": 2,
       "pos": {
-        "x": 400,
-        "y": 48
+        "x": 512,
+        "y": 163
       },
       "rotation": 1.5707963267948966,
       "type": 3
@@ -3443,8 +3443,8 @@
     {
       "player": 2,
       "pos": {
-        "x": 432,
-        "y": 48
+        "x": 512,
+        "y": 163
       },
       "rotation": 1.5707963267948966,
       "type": 3
@@ -3452,8 +3452,8 @@
     {
       "player": 2,
       "pos": {
-        "x": 192,
-        "y": 240
+        "x": 512,
+        "y": 163
       },
       "rotation": 1.5707963267948966,
       "type": 16
@@ -3461,8 +3461,8 @@
     {
       "player": 2,
       "pos": {
-        "x": 288,
-        "y": 240
+        "x": 512,
+        "y": 163
       },
       "rotation": 1.5707963267948966,
       "type": 16
@@ -3847,7 +3847,6 @@
             "advanceOn": "orderPlaced",
             "unitCategory": "skirmishInfantry",
             "orderType": 2,
-            "gesture": "tap",
             "highlight": {
               "targetSelector": [
                 {
@@ -3894,7 +3893,6 @@
             "advanceOn": "orderPlaced",
             "unitCategory": "skirmishInfantry",
             "orderType": 2,
-            "gesture": "tap",
             "highlight": {
               "targetSelector": [
                 {
@@ -3960,13 +3958,23 @@
           {
             "copy": "tutorial.enemyContact.intro",
             "advanceOn": "button",
+            "highlight": {
+              "targetSelector": {
+                "kind": "enemyUnits"
+              },
+              "style": "ring"
+            },
             "revealUiElements": ["victoryBar"]
           },
           {
             "copy": "tutorial.enemyContact.selectInfantry",
             "advanceOn": "unitSelected",
             "unitCategory": "infantry",
-            "gesture": "selectGroup"
+            "gesture": "selectGroup",
+            "highlight": {
+              "targetId": "tutorial-unit-to-double-click",
+              "style": "ring"
+            }
           },
           {
             "copy": "tutorial.enemyContact.openFormationInfantry",
@@ -3989,142 +3997,6 @@
             "advanceOn": "formationSelected",
             "unitCategory": "infantry",
             "formationId": "line"
-          },
-          {
-            "copy": "tutorial.enemyContact.clickOrderTypeInfantry",
-            "advanceOn": "orderTypeModalOpened",
-            "orderType": 4,
-            "placement": "top",
-            "highlight": {
-              "targetId": "hud-order-type",
-              "style": "ring"
-            }
-          },
-          {
-            "copy": "tutorial.enemyContact.chooseOrderInfantry",
-            "advanceOn": "orderTypeSelected",
-            "orderType": 4,
-            "highlight": {
-              "targetId": "orderType-option-4",
-              "style": "ring"
-            }
-          },
-          {
-            "copy": "tutorial.enemyContact.orderInfantry",
-            "advanceOn": "orderPlaced",
-            "unitCategory": "infantry",
-            "orderType": 4,
-            "gesture": "moveUnit",
-            "moveDestination": {
-              "x": 280,
-              "y": 390,
-              "width": 460,
-              "height": 30
-            }
-          },
-          {
-            "copy": "tutorial.move.deselectBeforeNext",
-            "highlight": {
-              "targetId": "hud-deselect",
-              "style": "spotlight"
-            },
-            "placement": "top",
-            "advanceOn": "unitsDeselected",
-            "inputSchemes": ["touch"]
-          },
-          {
-            "copy": "tutorial.enemyContact.selectCavalry",
-            "advanceOn": "unitSelected",
-            "unitCategory": "midCavalry",
-            "gesture": "selectGroup"
-          },
-          {
-            "copy": "tutorial.enemyContact.clickOrderTypeCavalry",
-            "advanceOn": "orderTypeModalOpened",
-            "orderType": 1,
-            "placement": "top",
-            "highlight": {
-              "targetId": "hud-order-type",
-              "style": "ring"
-            }
-          },
-          {
-            "copy": "tutorial.enemyContact.chooseOrderCavalry",
-            "advanceOn": "orderTypeSelected",
-            "orderType": 1,
-            "highlight": {
-              "targetId": "orderType-option-1",
-              "style": "ring"
-            }
-          },
-          {
-            "copy": "tutorial.enemyContact.orderCavalry",
-            "advanceOn": "orderPlaced",
-            "unitCategory": "midCavalry",
-            "orderType": 1,
-            "gesture": "moveUnit",
-            "moveDestination": {
-              "x": 432,
-              "y": 460,
-              "width": 160,
-              "height": 30
-            }
-          },
-          {
-            "copy": "tutorial.move.deselectBeforeNext",
-            "highlight": {
-              "targetId": "hud-deselect",
-              "style": "spotlight"
-            },
-            "placement": "top",
-            "advanceOn": "unitsDeselected",
-            "inputSchemes": ["touch"]
-          },
-          {
-            "copy": "tutorial.enemyContact.selectArtillery",
-            "advanceOn": "unitSelected",
-            "unitCategory": "artillery",
-            "gesture": "selectGroup"
-          },
-          {
-            "copy": "tutorial.enemyContact.clickOrderTypeArtillery",
-            "advanceOn": "orderTypeModalOpened",
-            "orderType": 4,
-            "placement": "top",
-            "highlight": {
-              "targetId": "hud-order-type",
-              "style": "ring"
-            }
-          },
-          {
-            "copy": "tutorial.enemyContact.chooseOrderArtillery",
-            "advanceOn": "orderTypeSelected",
-            "orderType": 4,
-            "highlight": {
-              "targetId": "orderType-option-4",
-              "style": "ring"
-            }
-          },
-          {
-            "copy": "tutorial.enemyContact.orderArtillery",
-            "advanceOn": "orderPlaced",
-            "unitCategory": "artillery",
-            "orderType": 4,
-            "gesture": "moveUnit",
-            "moveDestination": {
-              "x": 400,
-              "y": 340,
-              "width": 240,
-              "height": 20
-            }
-          },
-          {
-            "copy": "tutorial.enemyContact.submit",
-            "advanceOn": "ordersSubmitted",
-            "highlight": {
-              "targetId": "hud-submit-orders",
-              "style": "ring"
-            }
           }
         ]
       },
@@ -4145,6 +4017,196 @@
               "flankThreatPx": 100,
               "currentFormationNot": "line"
             }
+          }
+        ]
+      },
+      {
+        "id": "skirmisherVsArtillery",
+        "fireOn": { "situation": "skirmisherThreatenedByArtillery" },
+        "beats": [
+          {
+            "copy": "tutorial.situational.skirmisherVsArtillery.intro",
+            "advanceOn": "button",
+            "highlight": {
+              "targetSelector": [
+                {
+                  "kind": "playerUnitNearestThreat",
+                  "category": "skirmishInfantry",
+                  "threatCategory": "artillery"
+                },
+                {
+                  "kind": "nearestEnemyTo",
+                  "playerCategory": "skirmishInfantry",
+                  "enemyCategory": "artillery"
+                }
+              ],
+              "style": "ring"
+            }
+          },
+          {
+            "copy": "tutorial.situational.skirmisherVsArtillery.useFAA",
+            "advanceOn": "orderTypeSelected",
+            "unitCategory": "skirmishInfantry",
+            "orderType": 4,
+            "highlight": {
+              "targetId": "hud-order-type",
+              "style": "spotlight"
+            },
+            "placement": "top"
+          }
+        ]
+      },
+      {
+        "id": "skirmisherVsCavalry",
+        "fireOn": { "situation": "skirmisherThreatenedByCavalry" },
+        "beats": [
+          {
+            "copy": "tutorial.situational.skirmisherVsCavalry.intro",
+            "advanceOn": "button",
+            "highlight": {
+              "targetSelector": [
+                {
+                  "kind": "playerUnitNearestThreat",
+                  "category": "skirmishInfantry",
+                  "threatCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"]
+                },
+                {
+                  "kind": "nearestEnemyTo",
+                  "playerCategory": "skirmishInfantry",
+                  "enemyCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"]
+                }
+              ],
+              "style": "ring"
+            }
+          },
+          {
+            "copy": "tutorial.situational.skirmisherVsCavalry.useFallback",
+            "advanceOn": "orderTypeSelected",
+            "unitCategory": "skirmishInfantry",
+            "orderType": 6,
+            "highlight": {
+              "targetId": "hud-order-type",
+              "style": "spotlight"
+            },
+            "placement": "top"
+          }
+        ]
+      },
+      {
+        "id": "skirmisherVsInfantry",
+        "fireOn": { "situation": "skirmisherThreatenedByInfantry" },
+        "beats": [
+          {
+            "copy": "tutorial.situational.skirmisherVsInfantry.intro",
+            "advanceOn": "button",
+            "highlight": {
+              "targetSelector": [
+                {
+                  "kind": "playerUnitNearestThreat",
+                  "category": "skirmishInfantry",
+                  "threatCategory": ["infantry", "guardsInfantry", "militiaInfantry"]
+                },
+                {
+                  "kind": "nearestEnemyTo",
+                  "playerCategory": "skirmishInfantry",
+                  "enemyCategory": ["infantry", "guardsInfantry", "militiaInfantry"]
+                }
+              ],
+              "style": "ring"
+            }
+          },
+          {
+            "copy": "tutorial.situational.skirmisherVsInfantry.useFallback",
+            "advanceOn": "orderTypeSelected",
+            "unitCategory": "skirmishInfantry",
+            "orderType": 6,
+            "highlight": {
+              "targetId": "hud-order-type",
+              "style": "spotlight"
+            },
+            "placement": "top"
+          }
+        ]
+      },
+      {
+        "id": "infantryVsCavalryFrontal",
+        "fireOn": { "situation": "infantryThreatenedByCavalryFrontal" },
+        "beats": [
+          {
+            "copy": "tutorial.situational.infantryVsCavalryFrontal.intro",
+            "advanceOn": "button",
+            "highlight": {
+              "targetSelector": {
+                "kind": "playerUnitNearestThreat",
+                "category": ["infantry", "guardsInfantry", "militiaInfantry"],
+                "threatCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"]
+              },
+              "style": "ring"
+            }
+          }
+        ]
+      },
+      {
+        "id": "infantryVsCavalryFlank",
+        "fireOn": { "situation": "infantryThreatenedByCavalryFlank" },
+        "beats": [
+          {
+            "copy": "tutorial.situational.infantryVsCavalryFlank.intro",
+            "advanceOn": "button",
+            "highlight": {
+              "targetSelector": [
+                {
+                  "kind": "playerUnitNearestThreat",
+                  "category": ["infantry", "guardsInfantry", "militiaInfantry"],
+                  "threatCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"]
+                },
+                {
+                  "kind": "nearestEnemyTo",
+                  "playerCategory": ["infantry", "guardsInfantry", "militiaInfantry"],
+                  "enemyCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"]
+                }
+              ],
+              "style": "ring"
+            }
+          },
+          {
+            "copy": "tutorial.situational.infantryVsCavalryFlank.formSquare",
+            "advanceOn": "formationSelected",
+            "unitCategory": ["infantry", "guardsInfantry", "militiaInfantry"],
+            "formationId": "square",
+            "highlight": {
+              "targetId": "hud-formation",
+              "style": "spotlight"
+            },
+            "placement": "top"
+          }
+        ]
+      },
+      {
+        "id": "artilleryRotateToFire",
+        "fireOn": { "situation": "artilleryCanFireButCannot" },
+        "beats": [
+          {
+            "copy": "tutorial.situational.artilleryRotateToFire.intro",
+            "advanceOn": "button",
+            "highlight": {
+              "targetSelector": {
+                "kind": "playerUnitNearestThreat",
+                "category": "artillery"
+              },
+              "style": "ring"
+            }
+          },
+          {
+            "copy": "tutorial.situational.artilleryRotateToFire.useRotate",
+            "advanceOn": "orderTypeSelected",
+            "unitCategory": "artillery",
+            "orderType": 7,
+            "highlight": {
+              "targetId": "hud-order-type",
+              "style": "spotlight"
+            },
+            "placement": "top"
           }
         ]
       }
@@ -4196,18 +4258,6 @@
       "tutorial.enemyContact.selectInfantry": "Line infantry first. {input.selectGroup} on one to grab the whole group.",
       "tutorial.enemyContact.openFormationInfantry": "Open the formations menu — time to deploy in line.",
       "tutorial.enemyContact.pickLineInfantry": "Pick Line. Wider frontage, maximum firepower facing the enemy.",
-      "tutorial.enemyContact.clickOrderTypeInfantry": "Open the order menu and pick FAA {icon.fireAdvance}.",
-      "tutorial.enemyContact.chooseOrderInfantry": "Pick FAA {icon.fireAdvance} — fires while advancing.",
-      "tutorial.enemyContact.orderInfantry": "Draw a wide line facing the enemy. {input.moveUnit} from flank to flank.",
-      "tutorial.enemyContact.selectCavalry": "Cavalry now. {input.selectGroup} on one to grab the whole group.",
-      "tutorial.enemyContact.clickOrderTypeCavalry": "Open the order menu and pick Walk {icon.walk}.",
-      "tutorial.enemyContact.chooseOrderCavalry": "Pick Walk {icon.walk} — saves stamina for the charge.",
-      "tutorial.enemyContact.orderCavalry": "Keep them behind the infantry line, ready to exploit a break. {input.moveUnit} to place them in reserve.",
-      "tutorial.enemyContact.selectArtillery": "Artillery now. {input.selectGroup} on one to grab the whole group.",
-      "tutorial.enemyContact.clickOrderTypeArtillery": "Open the order menu and pick FAA {icon.fireAdvance}.",
-      "tutorial.enemyContact.chooseOrderArtillery": "Pick FAA {icon.fireAdvance} — advance while keeping fire on the enemy.",
-      "tutorial.enemyContact.orderArtillery": "Push the guns ahead of your infantry line for a clean line of sight {icon.lineOfSight}. {input.moveUnit} to draw the path.",
-      "tutorial.enemyContact.submit": "Orders set. Submit to end the turn.",
       "tutorial.firefight.switchToLine": "You're in musket range with your flanks covered — switch your infantry to line. Wider frontage means double the muskets firing, with extra resistance to incoming fire. Keep an eye on those flanks: a line that gets charged from the side breaks fast.",
       "tutorial.stamina.message": "Running burns stamina. Tired units hit softer and rout faster. Walk into position and save the sprint for when it actually matters.",
       "tutorial.shoot.message": "Skirmishers and artillery shoot on their own once an enemy walks into range. Skirmishers hit hard at distance but fold in melee, so keep them behind your line. Artillery reaches the furthest. Don't let cavalry get close to it.",
@@ -4215,7 +4265,18 @@
       "tutorial.objectives.message": "Each flag you hold gives you Victory Points every turn and brings in manpower for replacements. Whoever ends the battle with more VP wins. That's the whole game.",
       "tutorial.formation.message": "A supported line is hard to break. Don't leave skirmishers or artillery on their own. One cavalry charge into an isolated unit is enough to end it. Screen with line infantry and anchor with artillery.",
       "tutorial.morale.message": "Units rout when their organization collapses. Losses, a flank attack, or plain exhaustion can all do it. A routing unit won't fight. Pull tired units back to recover and send fresh ones up.",
-      "tutorial.finalPush.message": "Clock's almost out. Whoever has more VP when it hits zero wins. Pick the flag that decides it and throw everything at that one. Don't try to hold everywhere."
+      "tutorial.finalPush.message": "Clock's almost out. Whoever has more VP when it hits zero wins. Pick the flag that decides it and throw everything at that one. Don't try to hold everywhere.",
+      "tutorial.situational.skirmisherVsArtillery.intro": "Enemy battery in your skirmisher's reach. Pour fire into the gun crew — light infantry shred unprotected artillery before it can answer.",
+      "tutorial.situational.skirmisherVsArtillery.useFAA": "Pick FAA {icon.fireAdvance} so the skirmisher closes and fires on the way in.",
+      "tutorial.situational.skirmisherVsCavalry.intro": "Cavalry near your skirmisher — they'll get ridden down in the open. Break contact now, before the charge lands.",
+      "tutorial.situational.skirmisherVsCavalry.useFallback": "Pick Fallback {icon.fallback} and pull the skirmisher away from the horsemen. Aim for ~128 px back, opposite the threat.",
+      "tutorial.situational.skirmisherVsInfantry.intro": "Enemy infantry on top of your skirmisher. Skirmishers fold in melee — pull back before bayonets reach.",
+      "tutorial.situational.skirmisherVsInfantry.useFallback": "Pick Fallback {icon.fallback} and disengage. Get out of musket-rush range.",
+      "tutorial.situational.infantryVsCavalryFrontal.intro": "Cavalry charging your front. Hold the line — line infantry facing a frontal charge can stand and fire. Don't form square or you'll lose your firepower.",
+      "tutorial.situational.infantryVsCavalryFlank.intro": "Cavalry coming at your flank or rear. A line gets ridden over from the side — form square so every face has muskets out.",
+      "tutorial.situational.infantryVsCavalryFlank.formSquare": "Open the formation menu and pick Square. All-around defense, no exposed flank.",
+      "tutorial.situational.artilleryRotateToFire.intro": "Your cannon has a clean shot but it's still moving. Stop the march and turn the gun — autofire will engage next turn.",
+      "tutorial.situational.artilleryRotateToFire.useRotate": "Pick Rotate {icon.rotate} and aim at the enemy. The gun stops, faces the target, and gets to fire."
     }
   },
   "allowDynamicArmy": false,
