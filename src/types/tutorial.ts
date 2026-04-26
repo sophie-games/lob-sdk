@@ -50,12 +50,27 @@ export type TutorialHighlightSelector =
       terrain: ("forest" | "building")[];
       /** Which objectives to anchor the search on. */
       objective: "neutral" | "friendly" | "enemy";
+      /**
+       * Restrict the anchor set to a single objective by name (set via the
+       * scenario's objective instruction). Useful when a beat needs to
+       * point at a specific side (e.g. the left-side skirmisher should
+       * head to the left-side objective). Beats matching no named
+       * objective resolve to null and the fallback chain advances.
+       */
+      objectiveName?: string;
       /** Tile-space search radius from each matching objective's center. */
       radiusTiles: number;
       /** Min cluster size (tiles) to highlight. Filters out noise. Defaults to 2. */
       minTiles?: number;
       /** Hard cap on rendered clusters. Defaults to 12. */
       maxClusters?: number;
+      /**
+       * World-pixel rect that gates which terrain tiles are considered. A
+       * tile counts only when its pixel rect overlaps these bounds; tiles
+       * outside are invisible to both the radius check and the flood fill,
+       * so multi-tile clusters straddling the bounds get clipped.
+       */
+      worldBounds?: { x: number; y: number; width: number; height: number };
     }
   | {
       /**
@@ -87,7 +102,7 @@ export type TutorialHighlightSelector =
        */
       kind: "unit";
       category: string | string[];
-      pick: "firstUnordered" | "first";
+      pick: "firstUnordered" | "first" | "leftmostUnordered" | "rightmostUnordered";
     }
   | {
       /**
@@ -292,6 +307,31 @@ export type TutorialBeatCondition =
       kind: "anyUnitInCategoryNeedsOrder";
       unitCategory: string | string[];
       orderType: OrderType | OrderType[];
+    }
+  | {
+      /**
+       * True iff at least one player infantry unit is "ready for line": the
+       * nearest visible enemy is within `withinPx` (musket-engagement range)
+       * AND both flanks are secure. Per-unit pairing — A-in-range and
+       * B-flanks-secure does not match. Gates the "switch to line" beat.
+       *
+       * Flank geometry is derived from the bearing to the nearest enemy
+       * (treated as the unit's "front"); the two flanks are the perpendicular
+       * half-planes. A flank counts as secure when either:
+       *  - a friendly infantry unit lies within `flankCoverPx` on that side, OR
+       *  - no enemy unit lies within `flankThreatPx` on that side.
+       */
+      kind: "anyInfantryReadyForLine";
+      withinPx: number;
+      flankCoverPx: number;
+      flankThreatPx: number;
+      /**
+       * If set, only infantry whose `currentFormation` is NOT this id are
+       * considered. Lets a "switch to line" beat go silent once the player
+       * has actually switched, instead of re-firing while the situation
+       * still otherwise matches.
+       */
+      currentFormationNot?: string;
     }
   | {
       /**

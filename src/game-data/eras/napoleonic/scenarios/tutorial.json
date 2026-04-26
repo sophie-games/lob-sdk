@@ -151,8 +151,8 @@
       "objectiveType": 2,
       "position": {
         "type": "range",
-        "min": [45, 14],
-        "max": [55, 18]
+        "min": [50, 16],
+        "max": [50, 16]
       }
     },
     {
@@ -162,8 +162,8 @@
       "objectiveType": 2,
       "position": {
         "type": "range",
-        "min": [45, 82],
-        "max": [55, 86]
+        "min": [50, 84],
+        "max": [50, 84]
       }
     },
     {
@@ -171,17 +171,8 @@
       "player": 0,
       "position": {
         "type": "range",
-        "min": [20, 47],
-        "max": [30, 53]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [70, 47],
-        "max": [80, 53]
+        "min": [50, 50],
+        "max": [50, 50]
       }
     },
     {
@@ -3827,7 +3818,7 @@
               "targetSelector": {
                 "kind": "unit",
                 "category": "skirmishInfantry",
-                "pick": "firstUnordered"
+                "pick": "leftmostUnordered"
               },
               "style": "spotlight"
             }
@@ -3863,7 +3854,8 @@
                   "kind": "terrainNearObjectives",
                   "terrain": ["forest", "building"],
                   "objective": "neutral",
-                  "radiusTiles": 15
+                  "radiusTiles": 4,
+                  "minTiles": 1
                 },
                 {
                   "kind": "objectives",
@@ -3892,7 +3884,7 @@
               "targetSelector": {
                 "kind": "unit",
                 "category": "skirmishInfantry",
-                "pick": "firstUnordered"
+                "pick": "rightmostUnordered"
               },
               "style": "spotlight"
             }
@@ -3903,14 +3895,14 @@
             "unitCategory": "skirmishInfantry",
             "orderType": 2,
             "gesture": "tap",
-            "gestureTargetIndex": 1,
             "highlight": {
               "targetSelector": [
                 {
                   "kind": "terrainNearObjectives",
                   "terrain": ["forest", "building"],
                   "objective": "neutral",
-                  "radiusTiles": 15
+                  "radiusTiles": 4,
+                  "minTiles": 1
                 },
                 {
                   "kind": "objectives",
@@ -4135,6 +4127,26 @@
             }
           }
         ]
+      },
+      {
+        "id": "firefight",
+        "fireOn": {
+          "eachTurnWhileEnemyVisible": true,
+          "fromTurn": 3
+        },
+        "beats": [
+          {
+            "copy": "tutorial.firefight.switchToLine",
+            "advanceOn": "button",
+            "showWhen": {
+              "kind": "anyInfantryReadyForLine",
+              "withinPx": 64,
+              "flankCoverPx": 80,
+              "flankThreatPx": 100,
+              "currentFormationNot": "line"
+            }
+          }
+        ]
       }
     ]
   },
@@ -4172,7 +4184,7 @@
       "tutorial.move.selectSkirmisherA": "Pick up the highlighted skirmisher — {input.selectUnits} on it.",
       "tutorial.move.clickOrderTypeSkirmishers": "Open the order menu to switch to Run {icon.run}.",
       "tutorial.move.chooseOrderSkirmishers": "Pick Run {icon.run} — take woods and villages fast, but don't sprint, they tire.",
-      "tutorial.move.orderSkirmisherA": "Push this skirmisher into the highlighted cover {icon.forest} {icon.building} near the neutral objectives. {input.moveUnit} to draw the path.",
+      "tutorial.move.orderSkirmisherA": "Push this skirmisher into the highlighted cover {icon.forest} {icon.building} near the neutral objective. {input.moveUnit} to draw the path.",
       "tutorial.move.selectSkirmisherB": "Now grab the other skirmisher — {input.selectUnits} on it.",
       "tutorial.move.orderSkirmisherB": "Send this one into different cover. Skirmishers work best when they're spread out.",
       "tutorial.move.deselectBeforeNext": "{input.deselect} before picking the next unit type.",
@@ -4196,6 +4208,7 @@
       "tutorial.enemyContact.chooseOrderArtillery": "Pick FAA {icon.fireAdvance} — advance while keeping fire on the enemy.",
       "tutorial.enemyContact.orderArtillery": "Push the guns ahead of your infantry line for a clean line of sight {icon.lineOfSight}. {input.moveUnit} to draw the path.",
       "tutorial.enemyContact.submit": "Orders set. Submit to end the turn.",
+      "tutorial.firefight.switchToLine": "You're in musket range with your flanks covered — switch your infantry to line. Wider frontage means double the muskets firing, with extra resistance to incoming fire. Keep an eye on those flanks: a line that gets charged from the side breaks fast.",
       "tutorial.stamina.message": "Running burns stamina. Tired units hit softer and rout faster. Walk into position and save the sprint for when it actually matters.",
       "tutorial.shoot.message": "Skirmishers and artillery shoot on their own once an enemy walks into range. Skirmishers hit hard at distance but fold in melee, so keep them behind your line. Artillery reaches the furthest. Don't let cavalry get close to it.",
       "tutorial.charge.message": "Hold Shift when you order a dragoon and it'll charge instead of walking in. A good charge can break an infantry line, but it wears your horses out fast. Pick the moment.",

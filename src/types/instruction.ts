@@ -372,6 +372,8 @@ export interface InstructionObjective extends BaseInstruction {
   team?: number;
   /** Optional objective type (Small or Big). Defaults to Small. */
   objectiveType?: ObjectiveType;
+  /** Optional name used to reference this objective from tutorials/triggers. */
+  name?: string;
 }
 
 /**
