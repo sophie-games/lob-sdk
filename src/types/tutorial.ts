@@ -172,6 +172,7 @@ export type TutorialGesture =
   | "selectGroup"
   | "moveUnit"
   | "drawOrder"
+  | "rotate"
   | "tap";
 
 export type TutorialBeatPlacement = "top" | "bottom" | "left" | "right";
@@ -369,6 +370,27 @@ export type TutorialBeatCondition =
     }
   | {
       /**
+       * True iff the chapter's bound unit (`oncePerUnit` fires) has a
+       * pending movement order. Lets a beat remind the player to clear
+       * the order so the unit can stand still and autofire — auto-skipped
+       * once the order is removed (or for chapters without a bound unit).
+       */
+      kind: "boundUnitHasMovementOrder";
+    }
+  | {
+      /**
+       * True iff at least one player unit in any of the listed categories
+       * has a current/pending formation that is NOT in the listed
+       * formations. Use as `showWhen` to skip formation-change lessons when
+       * the player already complies. Both arrays are required and must be
+       * non-empty.
+       */
+      kind: "anyUnitCategoryNotInFormation";
+      unitCategory: string[];
+      formationId: string[];
+    }
+  | {
+      /**
        * Logical AND. Use to compose a branch gate (e.g.
        * `anyUnitHasWeakTargetInRange`) with a skip-already-done check
        * (`anyUnitInCategoryNeedsOrder`) so the beat only surfaces when both
@@ -478,11 +500,11 @@ export type TutorialBeat = {
   showOnRun?: TutorialRunFilter;
   /**
    * When true, the overlay does NOT render the bubble for this beat —
-   * highlights and ghost projection still render via the sync layers, but
-   * there is no text, no Continue button, no dim-layer dismissal. Used by
-   * Run-1+ hint beats: pure visual coaching once the player has already
-   * been taught the verbose flow on Run 0. The beat still dismisses via
-   * `advanceOn` (typically `orderPlaced`) or `showWhen` skip.
+   * highlights, gesture animations, and ghost projection still render via
+   * the sync layers, but there is no text, no Continue button, no dim-layer
+   * dismissal. Used by Run-1+ hint beats: pure visual coaching once the
+   * player has already been taught the verbose flow on Run 0. The beat still
+   * dismisses via `advanceOn` (typically `orderPlaced`) or `showWhen` skip.
    */
   silent?: boolean;
   /**
@@ -577,7 +599,15 @@ export type TutorialFireOn =
       oncePerTurn?: boolean;
       oncePerUnit?: boolean;
       fromTurn?: number;
-    };
+    }
+  /**
+   * Passive chapter: never enqueued into the chapter queue. The overlay
+   * renders the chapter's first beat as a fallback whenever no real beat is
+   * active. Use for ambient hints (e.g. "submit orders to end the turn") that
+   * should yield to any scripted or situational lesson without being
+   * dismissed by player input.
+   */
+  | { whileIdle: true };
 
 export type TutorialChapter = {
   /** Stable identifier used as dedup key — once a chapter fires, it never re-fires (except for `eachTurnWhileEnemyHidden` fireOn). */

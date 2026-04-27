@@ -3921,31 +3921,6 @@
             "advanceOn": "button",
             "regressOnOrderRemoved": true,
             "oncePerChapter": true
-          },
-          {
-            "copy": "tutorial.move.submit",
-            "advanceOn": "ordersSubmitted",
-            "highlight": {
-              "targetId": "hud-submit-orders",
-              "style": "ring"
-            }
-          }
-        ]
-      },
-      {
-        "id": "advance",
-        "fireOn": {
-          "eachTurnWhileEnemyHidden": true,
-          "fromTurn": 2
-        },
-        "beats": [
-          {
-            "copy": "tutorial.advance.noEnemy",
-            "advanceOn": "ordersSubmitted",
-            "highlight": {
-              "targetId": "hud-submit-orders",
-              "style": "ring"
-            }
           }
         ]
       },
@@ -3974,6 +3949,11 @@
             "highlight": {
               "targetId": "tutorial-unit-to-double-click",
               "style": "ring"
+            },
+            "showWhen": {
+              "kind": "anyUnitCategoryNotInFormation",
+              "unitCategory": ["infantry"],
+              "formationId": ["line"]
             }
           },
           {
@@ -3985,7 +3965,12 @@
             "placement": "top",
             "advanceOn": "formationModalOpened",
             "unitCategory": "infantry",
-            "formationId": "line"
+            "formationId": "line",
+            "showWhen": {
+              "kind": "anyUnitCategoryNotInFormation",
+              "unitCategory": ["infantry"],
+              "formationId": ["line"]
+            }
           },
           {
             "copy": "tutorial.enemyContact.pickLineInfantry",
@@ -3996,7 +3981,12 @@
             "placement": "left",
             "advanceOn": "formationSelected",
             "unitCategory": "infantry",
-            "formationId": "line"
+            "formationId": "line",
+            "showWhen": {
+              "kind": "anyUnitCategoryNotInFormation",
+              "unitCategory": ["infantry"],
+              "formationId": ["line"]
+            }
           }
         ]
       },
@@ -4137,6 +4127,15 @@
               "targetSelector": { "kind": "specificUnit" },
               "style": "ring"
             }
+          },
+          {
+            "copy": "tutorial.situational.infantryVsCavalryFrontal.clearOrder",
+            "advanceOn": "button",
+            "showWhen": { "kind": "boundUnitHasMovementOrder" },
+            "highlight": {
+              "targetSelector": { "kind": "specificUnit" },
+              "style": "ring"
+            }
           }
         ]
       },
@@ -4211,14 +4210,42 @@
             }
           },
           {
-            "copy": "tutorial.situational.artilleryRotateToFire.useRotate",
-            "advanceOn": "orderPlaced",
+            "copy": "tutorial.situational.artilleryRotateToFire.selectCannon",
+            "advanceOn": "unitSelected",
             "unitCategory": "artillery",
-            "orderType": 7,
+            "gesture": "tap",
             "highlight": {
               "targetSelector": { "kind": "specificUnit" },
               "style": "ring"
             }
+          },
+          {
+            "copy": "tutorial.situational.artilleryRotateToFire.useRotate",
+            "advanceOn": "orderPlaced",
+            "unitCategory": "artillery",
+            "orderType": 7,
+            "gesture": "rotate",
+            "silent": true,
+            "highlight": {
+              "targetSelector": { "kind": "specificUnit" },
+              "style": "ring"
+            }
+          }
+        ]
+      },
+      {
+        "id": "submitHint",
+        "fireOn": {
+          "whileIdle": true
+        },
+        "beats": [
+          {
+            "copy": "tutorial.submitHint",
+            "highlight": {
+              "targetId": "hud-submit-orders",
+              "style": "ring"
+            },
+            "placement": "top"
           }
         ]
       }
@@ -4264,8 +4291,7 @@
       "tutorial.move.deselectBeforeNext": "{input.deselect} before picking the next unit type.",
       "tutorial.move.selectIdleInfo": "Shortcut: Select Idle jumps straight to the next unit waiting for orders — handy once you have a big army.",
       "tutorial.move.removeOrdersInfo": "Changed your mind? Remove Orders clears the orders on the selected units so you can redraw them.",
-      "tutorial.move.submit": "All set. Submit orders to end the turn. Keep submitting until you spot the enemy — your units will follow the orders you set.",
-      "tutorial.advance.noEnemy": "No enemies in sight — keep advancing. Give your units orders and submit to end the turn.",
+      "tutorial.submitHint": "When everything's ready, submit orders to advance to the next turn.",
       "tutorial.enemyContact.intro": "Enemy in sight — form up.",
       "tutorial.enemyContact.selectInfantry": "Line infantry first. {input.selectGroup} on one to grab the whole group.",
       "tutorial.enemyContact.openFormationInfantry": "Open the formations menu — time to deploy in line.",
@@ -4285,12 +4311,14 @@
       "tutorial.situational.skirmisherVsInfantry.intro": "Enemy infantry on top of your skirmisher. Skirmishers fold in melee — pull back before bayonets reach.",
       "tutorial.situational.skirmisherVsInfantry.useFallback": "Pick Fallback {icon.fallback} and disengage. Get out of musket-rush range.",
       "tutorial.situational.infantryVsCavalryFrontal.intro": "Cavalry charging your front. Hold the line — line infantry facing a frontal charge can stand and fire. Don't form square or you'll lose your firepower.",
+      "tutorial.situational.infantryVsCavalryFrontal.clearOrder": "This unit has a move order — clear it so it stands still and autofire takes the charge.",
       "tutorial.situational.infantryVsCavalryFlank.intro": "Cavalry coming at your flank or rear. A line gets ridden over from the side — form square so every face has muskets out.",
       "tutorial.situational.infantryVsCavalryFlank.selectUnit": "Click that infantry unit so the formation change applies only to it.",
       "tutorial.situational.infantryVsCavalryFlank.openFormationMenu": "Open the formation menu.",
       "tutorial.situational.infantryVsCavalryFlank.formSquare": "Pick Square. All-around defense, no exposed flank.",
       "tutorial.situational.artilleryRotateToFire.intro": "Your cannon has a clean shot but it's still moving. Stop the march and turn the gun — autofire will engage next turn.",
-      "tutorial.situational.artilleryRotateToFire.useRotate": "Select the cannon, then {input.moveUnit} from it toward the enemy. A cyan Rotate {icon.rotate} arrow draws — the gun stops, faces the target, and fires next turn."
+      "tutorial.situational.artilleryRotateToFire.selectCannon": "Select the cannon.",
+      "tutorial.situational.artilleryRotateToFire.useRotate": "Now {input.moveUnit} from it toward the enemy. A cyan Rotate {icon.rotate} arrow draws — the gun stops, faces the target, and fires next turn."
     }
   },
   "allowDynamicArmy": false,
