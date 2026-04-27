@@ -4031,15 +4031,51 @@
             }
           },
           {
-            "copy": "tutorial.situational.skirmisherVsArtillery.useFAA",
-            "advanceOn": "orderTypeSelected",
+            "copy": "tutorial.situational.skirmisherVsArtillery.select",
+            "advanceOn": "unitSelected",
+            "unitCategory": "skirmishInfantry",
+            "highlight": {
+              "targetSelector": { "kind": "specificUnit" },
+              "style": "spotlight"
+            }
+          },
+          {
+            "copy": "tutorial.situational.skirmisherVsArtillery.openMenu",
+            "advanceOn": "orderTypeModalOpened",
             "unitCategory": "skirmishInfantry",
             "orderType": 4,
             "highlight": {
               "targetId": "hud-order-type",
-              "style": "spotlight"
+              "style": "ring"
             },
             "placement": "top"
+          },
+          {
+            "copy": "tutorial.situational.skirmisherVsArtillery.pickFAA",
+            "advanceOn": "orderTypeSelected",
+            "unitCategory": "skirmishInfantry",
+            "orderType": 4,
+            "highlight": {
+              "targetId": "orderType-option-4",
+              "style": "ring"
+            }
+          },
+          {
+            "copy": "tutorial.situational.skirmisherVsArtillery.drawFAA",
+            "advanceOn": "orderPlaced",
+            "unitCategory": "skirmishInfantry",
+            "orderType": 4,
+            "gesture": "drawOrder",
+            "highlight": {
+              "targetSelector": { "kind": "specificUnit" },
+              "style": "spotlight"
+            },
+            "moveDestination": {
+              "kind": "weakEnemyTarget",
+              "withinPx": 256,
+              "orgGapPp": 100,
+              "alwaysWeakCategories": ["artillery"]
+            }
           }
         ]
       },
@@ -4106,9 +4142,18 @@
               "style": "spotlight"
             },
             "moveDestination": {
-              "kind": "awayFromUnit",
+              "kind": "awayFromThreats",
               "distancePx": 128,
-              "threatCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"]
+              "radiusPx": 256,
+              "threatCategory": [
+                "infantry",
+                "guardsInfantry",
+                "militiaInfantry",
+                "midCavalry",
+                "lightCavalry",
+                "heavyCavalry",
+                "scoutCavalry"
+              ]
             }
           }
         ]
@@ -4176,9 +4221,18 @@
               "style": "spotlight"
             },
             "moveDestination": {
-              "kind": "awayFromUnit",
+              "kind": "awayFromThreats",
               "distancePx": 128,
-              "threatCategory": ["infantry", "guardsInfantry", "militiaInfantry"]
+              "radiusPx": 256,
+              "threatCategory": [
+                "infantry",
+                "guardsInfantry",
+                "militiaInfantry",
+                "midCavalry",
+                "lightCavalry",
+                "heavyCavalry",
+                "scoutCavalry"
+              ]
             }
           }
         ]
@@ -4261,6 +4315,227 @@
               "style": "spotlight"
             },
             "placement": "left"
+          }
+        ]
+      },
+      {
+        "id": "cavalryVsWeakerCavalry",
+        "fireOn": {
+          "situation": "cavalryVsWeakerCavalry",
+          "oncePerUnit": true
+        },
+        "beats": [
+          {
+            "copy": "tutorial.situational.cavalryVsWeakerCavalry.intro",
+            "advanceOn": "button",
+            "highlight": {
+              "targetSelector": [
+                { "kind": "specificUnit" },
+                {
+                  "kind": "nearestEnemyTo",
+                  "playerCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"],
+                  "enemyCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"]
+                }
+              ],
+              "style": "ring"
+            }
+          },
+          {
+            "copy": "tutorial.situational.cavalryVsWeakerCavalry.select",
+            "advanceOn": "unitSelected",
+            "unitCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"],
+            "highlight": {
+              "targetSelector": { "kind": "specificUnit" },
+              "style": "spotlight"
+            }
+          },
+          {
+            "copy": "tutorial.situational.cavalryVsWeakerCavalry.openMenu",
+            "advanceOn": "orderTypeModalOpened",
+            "unitCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"],
+            "orderType": 2,
+            "highlight": {
+              "targetId": "hud-order-type",
+              "style": "ring"
+            },
+            "placement": "top"
+          },
+          {
+            "copy": "tutorial.situational.cavalryVsWeakerCavalry.pickRun",
+            "advanceOn": "orderTypeSelected",
+            "unitCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"],
+            "orderType": 2,
+            "highlight": {
+              "targetId": "orderType-option-2",
+              "style": "ring"
+            }
+          },
+          {
+            "copy": "tutorial.situational.cavalryVsWeakerCavalry.drawCharge",
+            "advanceOn": "orderPlaced",
+            "unitCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"],
+            "orderType": 2,
+            "gesture": "drawOrder",
+            "highlight": {
+              "targetSelector": { "kind": "specificUnit" },
+              "style": "spotlight"
+            },
+            "moveDestination": {
+              "kind": "weakEnemyTarget",
+              "withinPx": 72,
+              "orgGapPp": 10,
+              "alwaysWeakCategories": []
+            }
+          }
+        ]
+      },
+      {
+        "id": "cavalryVsEqualCavalry",
+        "fireOn": {
+          "situation": "cavalryVsEqualCavalry",
+          "oncePerUnit": true
+        },
+        "beats": [
+          {
+            "copy": "tutorial.situational.cavalryVsEqualCavalry.intro",
+            "advanceOn": "button",
+            "highlight": {
+              "targetSelector": [
+                { "kind": "specificUnit" },
+                {
+                  "kind": "nearestEnemyTo",
+                  "playerCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"],
+                  "enemyCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"]
+                }
+              ],
+              "style": "ring"
+            }
+          },
+          {
+            "copy": "tutorial.situational.cavalryVsEqualCavalry.select",
+            "advanceOn": "unitSelected",
+            "unitCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"],
+            "highlight": {
+              "targetSelector": { "kind": "specificUnit" },
+              "style": "spotlight"
+            }
+          },
+          {
+            "copy": "tutorial.situational.cavalryVsEqualCavalry.openMenu",
+            "advanceOn": "orderTypeModalOpened",
+            "unitCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"],
+            "orderType": 1,
+            "highlight": {
+              "targetId": "hud-order-type",
+              "style": "ring"
+            },
+            "placement": "top"
+          },
+          {
+            "copy": "tutorial.situational.cavalryVsEqualCavalry.pickWalk",
+            "advanceOn": "orderTypeSelected",
+            "unitCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"],
+            "orderType": 1,
+            "highlight": {
+              "targetId": "orderType-option-1",
+              "style": "ring"
+            }
+          },
+          {
+            "copy": "tutorial.situational.cavalryVsEqualCavalry.drawWalk",
+            "advanceOn": "orderPlaced",
+            "unitCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"],
+            "orderType": 1,
+            "gesture": "drawOrder",
+            "highlight": {
+              "targetSelector": { "kind": "specificUnit" },
+              "style": "spotlight"
+            },
+            "moveDestination": {
+              "kind": "weakEnemyTarget",
+              "withinPx": 48,
+              "orgGapPp": 100,
+              "alwaysWeakCategories": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"]
+            }
+          }
+        ]
+      },
+      {
+        "id": "cavalryVsStrongerCavalry",
+        "fireOn": {
+          "situation": "cavalryVsStrongerCavalry",
+          "oncePerUnit": true
+        },
+        "beats": [
+          {
+            "copy": "tutorial.situational.cavalryVsStrongerCavalry.intro",
+            "advanceOn": "button",
+            "highlight": {
+              "targetSelector": [
+                { "kind": "specificUnit" },
+                {
+                  "kind": "nearestEnemyTo",
+                  "playerCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"],
+                  "enemyCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"]
+                }
+              ],
+              "style": "ring"
+            }
+          },
+          {
+            "copy": "tutorial.situational.cavalryVsStrongerCavalry.select",
+            "advanceOn": "unitSelected",
+            "unitCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"],
+            "highlight": {
+              "targetSelector": { "kind": "specificUnit" },
+              "style": "spotlight"
+            }
+          },
+          {
+            "copy": "tutorial.situational.cavalryVsStrongerCavalry.openMenu",
+            "advanceOn": "orderTypeModalOpened",
+            "unitCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"],
+            "orderType": 6,
+            "highlight": {
+              "targetId": "hud-order-type",
+              "style": "ring"
+            },
+            "placement": "top"
+          },
+          {
+            "copy": "tutorial.situational.cavalryVsStrongerCavalry.pickFb",
+            "advanceOn": "orderTypeSelected",
+            "unitCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"],
+            "orderType": 6,
+            "highlight": {
+              "targetId": "orderType-option-6",
+              "style": "ring"
+            }
+          },
+          {
+            "copy": "tutorial.situational.cavalryVsStrongerCavalry.drawFb",
+            "advanceOn": "orderPlaced",
+            "unitCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"],
+            "orderType": 6,
+            "gesture": "drawOrder",
+            "highlight": {
+              "targetSelector": { "kind": "specificUnit" },
+              "style": "spotlight"
+            },
+            "moveDestination": {
+              "kind": "awayFromThreats",
+              "distancePx": 96,
+              "radiusPx": 192,
+              "threatCategory": [
+                "infantry",
+                "guardsInfantry",
+                "militiaInfantry",
+                "midCavalry",
+                "lightCavalry",
+                "heavyCavalry",
+                "scoutCavalry"
+              ]
+            }
           }
         ]
       },
@@ -4375,7 +4650,10 @@
       "tutorial.morale.message": "Units rout when their organization collapses. Losses, a flank attack, or plain exhaustion can all do it. A routing unit won't fight. Pull tired units back to recover and send fresh ones up.",
       "tutorial.finalPush.message": "Clock's almost out. Whoever has more VP when it hits zero wins. Pick the flag that decides it and throw everything at that one. Don't try to hold everywhere.",
       "tutorial.situational.skirmisherVsArtillery.intro": "Enemy battery in your skirmisher's reach. Pour fire into the gun crew — light infantry shred unprotected artillery before it can answer.",
-      "tutorial.situational.skirmisherVsArtillery.useFAA": "Pick FAA {icon.fireAdvance} so the skirmisher closes and fires on the way in.",
+      "tutorial.situational.skirmisherVsArtillery.select": "Pick up the highlighted skirmisher — {input.selectUnits} on it.",
+      "tutorial.situational.skirmisherVsArtillery.openMenu": "Open the order menu to switch to FAA {icon.fireAdvance}.",
+      "tutorial.situational.skirmisherVsArtillery.pickFAA": "Pick FAA {icon.fireAdvance} so the skirmisher closes and fires on the way in.",
+      "tutorial.situational.skirmisherVsArtillery.drawFAA": "{input.moveUnit} into the gun crew — fire on the way in.",
       "tutorial.situational.skirmisherVsCavalry.intro": "Cavalry near your skirmisher — they'll get ridden down in the open. Break contact now, before the charge lands.",
       "tutorial.situational.skirmisherVsCavalry.select": "Pick up the highlighted skirmisher — {input.selectUnits} on it.",
       "tutorial.situational.skirmisherVsCavalry.openMenu": "Open the order menu to switch to Fallback {icon.fallback}.",
@@ -4392,6 +4670,21 @@
       "tutorial.situational.infantryVsCavalryFlank.selectUnit": "Click that infantry unit so the formation change applies only to it.",
       "tutorial.situational.infantryVsCavalryFlank.openFormationMenu": "Open the formation menu.",
       "tutorial.situational.infantryVsCavalryFlank.formSquare": "Pick Square. All-around defense, no exposed flank.",
+      "tutorial.situational.cavalryVsWeakerCavalry.intro": "Enemy cavalry within charge range and shaken — your horse is fresher. Press the advantage: charge before they recover.",
+      "tutorial.situational.cavalryVsWeakerCavalry.select": "Pick up the highlighted cavalry — {input.selectUnits} on it.",
+      "tutorial.situational.cavalryVsWeakerCavalry.openMenu": "Open the order menu to switch to Run {icon.run}.",
+      "tutorial.situational.cavalryVsWeakerCavalry.pickRun": "Pick Run {icon.run} — and hold Shift when you draw to commit a charge.",
+      "tutorial.situational.cavalryVsWeakerCavalry.drawCharge": "Hold Shift and {input.moveUnit} into the enemy cavalry — running into contact triggers the charge.",
+      "tutorial.situational.cavalryVsEqualCavalry.intro": "Enemy cavalry in contact and roughly as steady as yours. Don't waste stamina on a charge you can't win — close at a walk and brawl on even footing.",
+      "tutorial.situational.cavalryVsEqualCavalry.select": "Pick up the highlighted cavalry — {input.selectUnits} on it.",
+      "tutorial.situational.cavalryVsEqualCavalry.openMenu": "Open the order menu to switch to Walk {icon.walk}.",
+      "tutorial.situational.cavalryVsEqualCavalry.pickWalk": "Pick Walk {icon.walk} — saves stamina for the charge moment when one side cracks.",
+      "tutorial.situational.cavalryVsEqualCavalry.drawWalk": "{input.moveUnit} alongside the enemy cavalry to engage at melee.",
+      "tutorial.situational.cavalryVsStrongerCavalry.intro": "Enemy cavalry in contact and steadier than yours — a melee here loses. Break off and reset before they commit.",
+      "tutorial.situational.cavalryVsStrongerCavalry.select": "Pick up the highlighted cavalry — {input.selectUnits} on it.",
+      "tutorial.situational.cavalryVsStrongerCavalry.openMenu": "Open the order menu to switch to Fallback {icon.fallback}.",
+      "tutorial.situational.cavalryVsStrongerCavalry.pickFb": "Pick Fallback {icon.fallback} — disengage in good order.",
+      "tutorial.situational.cavalryVsStrongerCavalry.drawFb": "{input.moveUnit} away from the enemy horsemen — draw the path opposite the threat.",
       "tutorial.situational.artilleryRotateToFire.intro": "Your cannon has a clean shot but it's still moving. Stop the march and turn the gun — autofire will engage next turn.",
       "tutorial.situational.artilleryRotateToFire.selectCannon": "Select the cannon.",
       "tutorial.situational.artilleryRotateToFire.useRotate": "Now {input.moveUnit} from it toward the enemy. A cyan Rotate {icon.rotate} arrow draws — the gun stops, faces the target, and fires next turn."

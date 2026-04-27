@@ -295,6 +295,26 @@ export type TutorialMoveDestinationSelector =
       bandWidthPx?: number;
       /** Enemy categories used to pick the threat. Defaults to any visible enemy. */
       threatCategory?: string | string[];
+    }
+  | {
+      /**
+       * Band positioned `distancePx` from the chapter's bound unit, in the
+       * direction that maximizes distance from ALL non-routing threats within
+       * `radiusPx`. Direction is the normalized sum of unit-vectors pointing
+       * from each threat to the bound unit (each threat weighted equally).
+       * Resolves to undefined when the bound unit is gone, no qualifying
+       * threats are within range, or the threats are evenly spread (the sum
+       * vector collapses below epsilon — no clear escape direction).
+       */
+      kind: "awayFromThreats";
+      /** Retreat distance from the bound unit's position, world px. */
+      distancePx: number;
+      /** Search radius for threats around the bound unit, world px. */
+      radiusPx: number;
+      /** Enemy categories that count as threats. Defaults to any visible enemy. */
+      threatCategory?: string | string[];
+      bandThicknessPx?: number;
+      bandWidthPx?: number;
     };
 
 export type TutorialMoveDestination =
@@ -569,7 +589,10 @@ export type TutorialSituationKey =
   | "infantryThreatenedByCavalryFrontal"
   | "infantryThreatenedByCavalryFlank"
   | "artilleryCanFireButCannot"
-  | "infantryReadyForLine";
+  | "infantryReadyForLine"
+  | "cavalryVsWeakerCavalry"
+  | "cavalryVsEqualCavalry"
+  | "cavalryVsStrongerCavalry";
 
 export type TutorialFireOn =
   /** Fires when the client enters the given turn number (including turn 0). */
