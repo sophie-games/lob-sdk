@@ -136,6 +136,17 @@ export type TutorialHighlightSelector =
       kind: "nearestEnemyTo";
       playerCategory: string | string[];
       enemyCategory?: string | string[];
+    }
+  | {
+      /**
+       * The single player unit this chapter run is bound to. Authors leave
+       * `unitId` unset in JSON; the chapter-builder fills it in at activation
+       * for chapters fired with `oncePerUnit` so beats can highlight the
+       * exact unit that triggered the situation. The resolver returns null
+       * when the unit no longer exists, letting fallback chains advance.
+       */
+      kind: "specificUnit";
+      unitId?: number;
     };
 
 export type TutorialHighlight = {
@@ -518,7 +529,8 @@ export type TutorialSituationKey =
   | "skirmisherThreatenedByInfantry"
   | "infantryThreatenedByCavalryFrontal"
   | "infantryThreatenedByCavalryFlank"
-  | "artilleryCanFireButCannot";
+  | "artilleryCanFireButCannot"
+  | "infantryReadyForLine";
 
 export type TutorialFireOn =
   /** Fires when the client enters the given turn number (including turn 0). */
@@ -553,12 +565,17 @@ export type TutorialFireOn =
    * Fires the first frame the situation predicate becomes true. Default is
    * once per game (joins the fired-chapters set). With `oncePerTurn: true`
    * the chapter re-fires on each turn transition while the situation still
-   * holds — same semantics as `eachTurnWhile*`. `fromTurn` (inclusive) gates
-   * the earliest turn the chapter is allowed to fire on.
+   * holds — same semantics as `eachTurnWhile*`. With `oncePerUnit: true`
+   * the chapter is deduped per (chapterId, unitId) pair: it can fire once
+   * for each player unit that ever matches the situation, and at most one
+   * such chapter fires per unit per turn. `fromTurn` (inclusive) gates the
+   * earliest turn the chapter is allowed to fire on. `oncePerTurn` and
+   * `oncePerUnit` are mutually exclusive.
    */
   | {
       situation: TutorialSituationKey;
       oncePerTurn?: boolean;
+      oncePerUnit?: boolean;
       fromTurn?: number;
     };
 

@@ -4003,37 +4003,34 @@
       {
         "id": "firefight",
         "fireOn": {
-          "eachTurnWhileEnemyVisible": true,
+          "situation": "infantryReadyForLine",
+          "oncePerUnit": true,
           "fromTurn": 3
         },
         "beats": [
           {
             "copy": "tutorial.firefight.switchToLine",
             "advanceOn": "button",
-            "showWhen": {
-              "kind": "anyInfantryReadyForLine",
-              "withinPx": 64,
-              "flankCoverPx": 80,
-              "flankThreatPx": 100,
-              "currentFormationNot": "line"
+            "highlight": {
+              "targetSelector": { "kind": "specificUnit" },
+              "style": "ring"
             }
           }
         ]
       },
       {
         "id": "skirmisherVsArtillery",
-        "fireOn": { "situation": "skirmisherThreatenedByArtillery" },
+        "fireOn": {
+          "situation": "skirmisherThreatenedByArtillery",
+          "oncePerUnit": true
+        },
         "beats": [
           {
             "copy": "tutorial.situational.skirmisherVsArtillery.intro",
             "advanceOn": "button",
             "highlight": {
               "targetSelector": [
-                {
-                  "kind": "playerUnitNearestThreat",
-                  "category": "skirmishInfantry",
-                  "threatCategory": "artillery"
-                },
+                { "kind": "specificUnit" },
                 {
                   "kind": "nearestEnemyTo",
                   "playerCategory": "skirmishInfantry",
@@ -4058,18 +4055,17 @@
       },
       {
         "id": "skirmisherVsCavalry",
-        "fireOn": { "situation": "skirmisherThreatenedByCavalry" },
+        "fireOn": {
+          "situation": "skirmisherThreatenedByCavalry",
+          "oncePerUnit": true
+        },
         "beats": [
           {
             "copy": "tutorial.situational.skirmisherVsCavalry.intro",
             "advanceOn": "button",
             "highlight": {
               "targetSelector": [
-                {
-                  "kind": "playerUnitNearestThreat",
-                  "category": "skirmishInfantry",
-                  "threatCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"]
-                },
+                { "kind": "specificUnit" },
                 {
                   "kind": "nearestEnemyTo",
                   "playerCategory": "skirmishInfantry",
@@ -4094,18 +4090,17 @@
       },
       {
         "id": "skirmisherVsInfantry",
-        "fireOn": { "situation": "skirmisherThreatenedByInfantry" },
+        "fireOn": {
+          "situation": "skirmisherThreatenedByInfantry",
+          "oncePerUnit": true
+        },
         "beats": [
           {
             "copy": "tutorial.situational.skirmisherVsInfantry.intro",
             "advanceOn": "button",
             "highlight": {
               "targetSelector": [
-                {
-                  "kind": "playerUnitNearestThreat",
-                  "category": "skirmishInfantry",
-                  "threatCategory": ["infantry", "guardsInfantry", "militiaInfantry"]
-                },
+                { "kind": "specificUnit" },
                 {
                   "kind": "nearestEnemyTo",
                   "playerCategory": "skirmishInfantry",
@@ -4130,17 +4125,16 @@
       },
       {
         "id": "infantryVsCavalryFrontal",
-        "fireOn": { "situation": "infantryThreatenedByCavalryFrontal" },
+        "fireOn": {
+          "situation": "infantryThreatenedByCavalryFrontal",
+          "oncePerUnit": true
+        },
         "beats": [
           {
             "copy": "tutorial.situational.infantryVsCavalryFrontal.intro",
             "advanceOn": "button",
             "highlight": {
-              "targetSelector": {
-                "kind": "playerUnitNearestThreat",
-                "category": ["infantry", "guardsInfantry", "militiaInfantry"],
-                "threatCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"]
-              },
+              "targetSelector": { "kind": "specificUnit" },
               "style": "ring"
             }
           }
@@ -4148,18 +4142,17 @@
       },
       {
         "id": "infantryVsCavalryFlank",
-        "fireOn": { "situation": "infantryThreatenedByCavalryFlank" },
+        "fireOn": {
+          "situation": "infantryThreatenedByCavalryFlank",
+          "oncePerUnit": true
+        },
         "beats": [
           {
             "copy": "tutorial.situational.infantryVsCavalryFlank.intro",
             "advanceOn": "button",
             "highlight": {
               "targetSelector": [
-                {
-                  "kind": "playerUnitNearestThreat",
-                  "category": ["infantry", "guardsInfantry", "militiaInfantry"],
-                  "threatCategory": ["midCavalry", "lightCavalry", "heavyCavalry", "scoutCavalry"]
-                },
+                { "kind": "specificUnit" },
                 {
                   "kind": "nearestEnemyTo",
                   "playerCategory": ["infantry", "guardsInfantry", "militiaInfantry"],
@@ -4184,29 +4177,28 @@
       },
       {
         "id": "artilleryRotateToFire",
-        "fireOn": { "situation": "artilleryCanFireButCannot" },
+        "fireOn": {
+          "situation": "artilleryCanFireButCannot",
+          "oncePerUnit": true
+        },
         "beats": [
           {
             "copy": "tutorial.situational.artilleryRotateToFire.intro",
             "advanceOn": "button",
             "highlight": {
-              "targetSelector": {
-                "kind": "playerUnitNearestThreat",
-                "category": "artillery"
-              },
+              "targetSelector": { "kind": "specificUnit" },
               "style": "ring"
             }
           },
           {
             "copy": "tutorial.situational.artilleryRotateToFire.useRotate",
-            "advanceOn": "orderTypeSelected",
+            "advanceOn": "orderPlaced",
             "unitCategory": "artillery",
             "orderType": 7,
             "highlight": {
-              "targetId": "hud-order-type",
-              "style": "spotlight"
-            },
-            "placement": "top"
+              "targetSelector": { "kind": "specificUnit" },
+              "style": "ring"
+            }
           }
         ]
       }
@@ -4276,7 +4268,7 @@
       "tutorial.situational.infantryVsCavalryFlank.intro": "Cavalry coming at your flank or rear. A line gets ridden over from the side — form square so every face has muskets out.",
       "tutorial.situational.infantryVsCavalryFlank.formSquare": "Open the formation menu and pick Square. All-around defense, no exposed flank.",
       "tutorial.situational.artilleryRotateToFire.intro": "Your cannon has a clean shot but it's still moving. Stop the march and turn the gun — autofire will engage next turn.",
-      "tutorial.situational.artilleryRotateToFire.useRotate": "Pick Rotate {icon.rotate} and aim at the enemy. The gun stops, faces the target, and gets to fire."
+      "tutorial.situational.artilleryRotateToFire.useRotate": "Select the cannon, then {input.moveUnit} from it toward the enemy. A cyan Rotate {icon.rotate} arrow draws — the gun stops, faces the target, and fires next turn."
     }
   },
   "allowDynamicArmy": false,
