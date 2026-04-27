@@ -22,6 +22,7 @@ export type TutorialBeatAdvance =
   | "unitRepositioned" // first reposition committed in the deployment phase
   | "deploymentConfirmed" // turn-0 submit-orders press
   | "orderPlaced" // a movement order was drawn on the map
+  | "orderRemoved" // the bound unit's (or any matching unit's) order was cleared; auto-skipped if no matching order exists
   | "orderTypeModalOpened" // SelectOrderModal opens; auto-skipped if hud.orderType already matches
   | "orderTypeSelected" // hud.orderType changed to one that matches; auto-skipped if already matching on activation
   | "formationModalOpened" // FormationModal opens; auto-skipped if all selected units already have the matching formation
