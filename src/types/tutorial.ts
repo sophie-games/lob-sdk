@@ -278,6 +278,23 @@ export type TutorialMoveDestinationSelector =
       terrain: ("forest" | "building")[];
       radiusPx: number;
       minTiles?: number;
+    }
+  | {
+      /**
+       * Band positioned `distancePx` behind the chapter's bound unit, in the
+       * direction OPPOSITE the nearest visible enemy. Used by skirmisher
+       * fallback beats so the suggested destination pulls the threatened unit
+       * away from the threat that triggered the chapter. Resolves to undefined
+       * when the chapter has no bound unit, the unit is gone, or no
+       * qualifying enemy is visible.
+       */
+      kind: "awayFromUnit";
+      /** Retreat distance from the bound unit's position, world px. */
+      distancePx: number;
+      bandThicknessPx?: number;
+      bandWidthPx?: number;
+      /** Enemy categories used to pick the threat. Defaults to any visible enemy. */
+      threatCategory?: string | string[];
     };
 
 export type TutorialMoveDestination =
