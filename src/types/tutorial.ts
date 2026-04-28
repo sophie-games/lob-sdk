@@ -75,6 +75,15 @@ export type TutorialHighlightSelector =
        * so multi-tile clusters straddling the bounds get clipped.
        */
       worldBounds?: { x: number; y: number; width: number; height: number };
+      /**
+       * Drop clusters whose bbox already contains the destination of a
+       * pending move order from a friendly unit of `category`. Lets a
+       * "send the second skirmisher to a forest" beat avoid spotlighting
+       * the same forest the first skirmisher was just sent to. If every
+       * cluster ends up filtered, the unfiltered list is returned so the
+       * highlight is never empty.
+       */
+      excludeOccupiedBy?: { category: string | string[] };
     }
   | {
       /**
@@ -495,6 +504,17 @@ export type TutorialBeatCondition =
        */
       kind: "anyUnitCategoryNotInFormation";
       unitCategory: string[];
+      formationId: string[];
+    }
+  | {
+      /**
+       * True iff the chapter's bound unit has a current/pending formation
+       * that is NOT in `formationId`. Use as `showWhen` on a beat that only
+       * makes sense when the bound unit still needs the formation change
+       * (e.g. an intro beat that says "switch to column"). Returns false
+       * when there is no bound unit.
+       */
+      kind: "boundUnitNotInFormation";
       formationId: string[];
     }
   | {
