@@ -64,6 +64,8 @@ export abstract class BaseUnit extends Entity {
    */
   abstract currentFormation: string;
   abstract pendingFormationId: string | null;
+  /** Pending formation if queued, else current — reflects player intent. */
+  get effectiveFormation(): string { return this.pendingFormationId ?? this.currentFormation; }
   abstract formationChangeTicksRemaining: number;
   /**
    * These are the damage types that are disabled for autofire.

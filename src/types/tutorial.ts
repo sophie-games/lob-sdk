@@ -27,7 +27,10 @@ export type TutorialBeatAdvance =
   | "orderTypeSelected" // hud.orderType changed to one that matches; auto-skipped if already matching on activation
   | "formationModalOpened" // FormationModal opens; auto-skipped if all selected units already have the matching formation
   | "formationSelected" // a formation was applied that matches; auto-skipped if already matching on activation
-  | "ordersSubmitted"; // submit-orders press on a battle turn (turn > 0)
+  | "ordersSubmitted" // submit-orders press on a battle turn (turn > 0)
+  | "battleReportClosed" // BattleReportModal close (X) was pressed
+  | "gameMenuOpened" // GameMenu modal became visible (HUD menu button pressed)
+  | "gameMenuExited"; // Exit button inside GameMenu was pressed
 
 /**
  * Input scheme the player is using. Mirrors the client-side type but lives in
@@ -137,6 +140,13 @@ export type TutorialHighlightSelector =
       kind: "nearestEnemyTo";
       playerCategory: string | string[];
       enemyCategory?: string | string[];
+      /**
+       * Absolute org threshold in pp (0..100). When set, the highlight
+       * resolves to the closest enemy at or below this org — same picking
+       * function as the `weakEnemyTarget` move destination, so the intro
+       * highlight and the gesture target stay in sync.
+       */
+      maxEnemyOrgPp?: number;
     }
   | {
       /**
@@ -232,6 +242,13 @@ export type TutorialMoveDestinationSelector =
       orgGapPp?: number;
       /** Categories that always count as weak. Default skirmisher + artillery. */
       alwaysWeakCategories?: string[];
+      /** Restrict considered enemies to these categories. */
+      enemyCategory?: string | string[];
+      /**
+       * Absolute org threshold in pp (0..100). When set, an enemy at or below
+       * this org counts as weak — used by "shaken target" lessons.
+       */
+      maxEnemyOrgPp?: number;
       /** Output rect side length (world px). Default 48. */
       rectSizePx?: number;
     }
@@ -316,6 +333,55 @@ export type TutorialMoveDestinationSelector =
       threatCategory?: string | string[];
       bandThicknessPx?: number;
       bandWidthPx?: number;
+    }
+  | {
+      /**
+       * Small rect at `distancePx` from the chapter's bound unit, along the
+       * axis pointing toward the nearest visible enemy. When `distancePx` is
+       * omitted, defaults to the bound unit's `walkMovement` — i.e. the tap
+       * point sits exactly one walk-tick downrange of the unit. Used by
+       * path-draw beats whose gesture is "tap toward the enemy" rather than
+       * "draw a path to a specific spot". Resolves to undefined when the
+       * chapter has no bound unit, the unit is gone, or no enemy is visible.
+       */
+      kind: "towardNearestEnemy";
+      distancePx?: number;
+      rectSizePx?: number;
+    }
+  | {
+      /**
+       * Small rect centered on the closest enemy infantry whose flank is
+       * exposed to the chapter's bound cavalry — i.e. the cavalry sits
+       * outside the infantry's frontal cone (±60°). Skips square-formed
+       * targets and pairings that don't meet the run-up / org-gap thresholds
+       * the situation uses, so the highlighted unit is the same one the
+       * `cavalryVsInfantryFlank` situation matched. Resolves to undefined
+       * when the chapter has no bound unit or no qualifying enemy is in range.
+       */
+      kind: "flankedInfantryTarget";
+      /** Search radius from the cavalry, world px. */
+      withinPx: number;
+      /** Enemy categories that count as infantry. */
+      enemyCategory: string[];
+      /** Min run-up distance, world px. Default 8. */
+      minRunupPx?: number;
+      /** Max abs(org delta) cavalry vs infantry. Default 0.10. */
+      maxOrgGap?: number;
+      /** Output rect side length, world px. Default 48. */
+      rectSizePx?: number;
+    }
+  | {
+      /**
+       * Rect centered on the closest enemy objective. Used by march beats
+       * that want to point the player toward the contested side of the map
+       * without hardcoding scenario coordinates. Resolves to undefined when
+       * no enemy objective exists.
+       */
+      kind: "nearEnemyObjective";
+      /** Output rect width, world px. */
+      widthPx: number;
+      /** Output rect height, world px. */
+      heightPx: number;
     };
 
 export type TutorialMoveDestination =
@@ -341,6 +407,8 @@ export type TutorialBeatCondition =
       withinPx: number;
       orgGapPp?: number;
       alwaysWeakCategories?: string[];
+      enemyCategory?: string | string[];
+      maxEnemyOrgPp?: number;
     }
   | {
       /** Negation of `anyUnitHasWeakTargetInRange`. */
@@ -349,6 +417,8 @@ export type TutorialBeatCondition =
       withinPx: number;
       orgGapPp?: number;
       alwaysWeakCategories?: string[];
+      enemyCategory?: string | string[];
+      maxEnemyOrgPp?: number;
     }
   | {
       /**
@@ -589,11 +659,24 @@ export type TutorialSituationKey =
   | "skirmisherThreatenedByInfantry"
   | "infantryThreatenedByCavalryFrontal"
   | "infantryThreatenedByCavalryFlank"
-  | "artilleryCanFireButCannot"
+  | "infantryShouldFormLineVsCavalryFrontal"
+  | "artilleryCanFireAndAdvance"
+  | "artilleryCanRotateToFire"
   | "infantryReadyForLine"
   | "cavalryVsWeakerCavalry"
   | "cavalryVsEqualCavalry"
-  | "cavalryVsStrongerCavalry";
+  | "cavalryVsStrongerCavalry"
+  | "cavalryVsInfantrySquare"
+  | "cavalryVsInfantryFlank"
+  | "cavalryVsShakenInfantry"
+  | "cavalryVsSkirmishers"
+  | "cavalryVsArtillery"
+  | "infantryFirefightRange"
+  | "infantryBayonetCharge"
+  | "infantryFallback"
+  | "infantryVsSkirmishers"
+  | "infantryVsArtillery"
+  | "infantryColumnMarch";
 
 export type TutorialFireOn =
   /** Fires when the client enters the given turn number (including turn 0). */
@@ -633,13 +716,17 @@ export type TutorialFireOn =
    * for each player unit that ever matches the situation, and at most one
    * such chapter fires per unit per turn. `fromTurn` (inclusive) gates the
    * earliest turn the chapter is allowed to fire on. `oncePerTurn` and
-   * `oncePerUnit` are mutually exclusive.
+   * `oncePerUnit` are mutually exclusive. `afterChapter` gates firing on
+   * a prerequisite chapter id having already fired — typically used to
+   * keep situational lessons quiet until first enemy contact, so they
+   * don't contradict the player's deployment-phase choices.
    */
   | {
       situation: TutorialSituationKey;
       oncePerTurn?: boolean;
       oncePerUnit?: boolean;
       fromTurn?: number;
+      afterChapter?: string;
     }
   /**
    * Passive chapter: never enqueued into the chapter queue. The overlay
@@ -648,7 +735,14 @@ export type TutorialFireOn =
    * should yield to any scripted or situational lesson without being
    * dismissed by player input.
    */
-  | { whileIdle: true };
+  | { whileIdle: true }
+  /**
+   * Fires once when the game finishes and the outcome (vs the client's team)
+   * matches. `"win"` fires only if the client's team has strictly more victory
+   * points than the opposing team; `"lose"` fires for everything else (loss
+   * or draw — the player should be invited to retry either way).
+   */
+  | { gameEnded: "win" | "lose" };
 
 export type TutorialChapter = {
   /** Stable identifier used as dedup key — once a chapter fires, it never re-fires (except for `eachTurnWhileEnemyHidden` fireOn). */
