@@ -26,6 +26,13 @@ import {
   MapSizeTemplate,
   MatchmakingPresetsData,
 } from "./types";
+import {
+  scaleUnitTemplates,
+  scaleDamageTypes,
+  scaleGameRules,
+  scaleGameConstants,
+  scaleBattleTypes,
+} from "./stat-scaling";
 
 // Import all era-specific data synchronously
 import napoleonicBattleTypes from "@lob-sdk/game-data/eras/napoleonic/battle-types.json";
@@ -247,16 +254,19 @@ export class GameDataManager {
     switch (era) {
       case "napoleonic":
         this._orders = napoleonicOrders as OrderTemplate[];
-        this.battleTypes = napoleonicBattleTypes as Record<
-          DynamicBattleType,
-          BattleTypeTemplate
-        >;
-        this._unitTemplateManager.load(
-          napoleonicUnitTemplates as UnitTemplate[],
+        this.battleTypes = scaleBattleTypes(
+          napoleonicBattleTypes as Record<DynamicBattleType, BattleTypeTemplate>,
         );
-        this.gameConstants = napoleonicGameConstants as GameConstants;
+        this._unitTemplateManager.load(
+          scaleUnitTemplates(napoleonicUnitTemplates as UnitTemplate[]),
+        );
+        this.gameConstants = scaleGameConstants(
+          napoleonicGameConstants as GameConstants,
+        );
         this.avatars = napoleonicAvatars as Avatar[];
-        this.damageTypes = napoleonicDamageTypes as DamageTypeTemplate[];
+        this.damageTypes = scaleDamageTypes(
+          napoleonicDamageTypes as DamageTypeTemplate[],
+        );
         this.terrains = napoleonicTerrains as GameDataManager["terrains"];
         this.terrainCategories = napoleonicTerrainCategories as Record<
           TerrainCategoryType,
@@ -266,7 +276,7 @@ export class GameDataManager {
         this.unitCategories =
           napoleonicUnitCategories as UnitCategoryTemplate[];
         this.unitSkins = napoleonicUnitSkinsData as unknown as UnitSkin[];
-        this.gameRules = napoleonicGameRules as GameRules;
+        this.gameRules = scaleGameRules(napoleonicGameRules as GameRules);
         this._formationManager.load(
           napoleonicFormations as FormationTemplate[],
         );
@@ -319,23 +329,26 @@ export class GameDataManager {
         break;
       case "ww2":
         this._orders = ww2Orders as OrderTemplate[];
-        this.battleTypes = ww2BattleTypes as Record<
-          DynamicBattleType,
-          BattleTypeTemplate
-        >;
-        this._unitTemplateManager.load(
-          ww2UnitTemplates as unknown as UnitTemplate[],
+        this.battleTypes = scaleBattleTypes(
+          ww2BattleTypes as Record<DynamicBattleType, BattleTypeTemplate>,
         );
-        this.gameConstants = ww2GameConstants as GameConstants;
+        this._unitTemplateManager.load(
+          scaleUnitTemplates(ww2UnitTemplates as unknown as UnitTemplate[]),
+        );
+        this.gameConstants = scaleGameConstants(
+          ww2GameConstants as GameConstants,
+        );
         this.avatars = ww2Avatars as Avatar[];
-        this.damageTypes = ww2DamageTypes as DamageTypeTemplate[];
+        this.damageTypes = scaleDamageTypes(
+          ww2DamageTypes as DamageTypeTemplate[],
+        );
         this.terrains = ww2Terrains as GameDataManager["terrains"];
         this.terrainCategories =
           ww2TerrainCategories as GameDataManager["terrainCategories"];
         this.objectiveSkins = ww2ObjectiveSkins as ObjectiveSkin[];
         this.unitCategories = ww2UnitCategories as UnitCategoryTemplate[];
         this.unitSkins = ww2UnitSkins as unknown as UnitSkin[];
-        this.gameRules = ww2GameRules as GameRules;
+        this.gameRules = scaleGameRules(ww2GameRules as GameRules);
         this._formationManager.load(ww2Formations as FormationTemplate[]);
         this.mapSizes = ww2MapSizes as Record<Size, MapSizeTemplate>;
         this.matchmakingPresets =

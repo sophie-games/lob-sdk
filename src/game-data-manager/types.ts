@@ -372,6 +372,7 @@ export interface MeleeDamageTypeTemplate {
   id: number;
   name: string;
   ranged?: false;
+  ammoCost?: never;
   damageModifier?: number;
   orgDamageRatio: number;
   cannotChargeAgainst?: UnitCategoryId[];
