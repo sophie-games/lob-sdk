@@ -728,7 +728,9 @@ export class GameDataManager {
   public getUnitBaseTexture(unitType: UnitType, formationId?: string): string {
     const template = this._unitTemplateManager.getTemplate(unitType);
     const formationName = formationId ?? template.defaultFormation;
-    const formation = template.formations.find((f) => f.id === formationName);
+    const formation = template.formations.find(
+      (f) => f.id === formationName,
+    );
 
     if (formation) {
       return formation.baseSprite;

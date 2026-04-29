@@ -80,12 +80,7 @@
         "endMod": 1.5,
         "name": "close"
       },
-      {
-        "start": 44,
-        "end": 64,
-        "startMod": 1.5,
-        "endMod": -0.5
-      },
+      { "start": 44, "end": 64, "startMod": 1.5, "endMod": -0.5 },
       {
         "start": 64,
         "end": 90,
@@ -126,12 +121,7 @@
         "endMod": 1.5,
         "name": "close"
       },
-      {
-        "start": 35,
-        "end": 65,
-        "startMod": 1.5,
-        "endMod": 1
-      },
+      { "start": 35, "end": 65, "startMod": 1.5, "endMod": 1 },
       {
         "start": 65,
         "end": 90,
@@ -165,12 +155,7 @@
       "modifier": -0.5
     },
     "ranges": [
-      {
-        "start": 0,
-        "end": 65,
-        "startMod": 1.25,
-        "endMod": 1
-      },
+      { "start": 0, "end": 65, "startMod": 1.25, "endMod": 1 },
       {
         "start": 65,
         "end": 90,
@@ -203,15 +188,8 @@
       "end": 0.65,
       "modifier": -0.25
     },
-    "ranges": [
-      {
-        "start": 110,
-        "end": 250,
-        "startMod": 0.15,
-        "endMod": 0
-      }
-    ],
-    "arcHeight": 1e-16,
+    "ranges": [{ "start": 110, "end": 250, "startMod": 0.15, "endMod": 0 }],
+    "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.85,
@@ -293,15 +271,8 @@
       "end": 0.65,
       "modifier": -0.25
     },
-    "ranges": [
-      {
-        "start": 145,
-        "end": 250,
-        "startMod": 1,
-        "endMod": 0.55
-      }
-    ],
-    "arcHeight": 1e-16,
+    "ranges": [{ "start": 145, "end": 250, "startMod": 1, "endMod": 0.55 }],
+    "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.85,
@@ -361,7 +332,7 @@
         "name": "long"
       }
     ],
-    "arcHeight": 1e-16,
+    "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.85,
@@ -411,15 +382,8 @@
       "end": 0.65,
       "modifier": -0.25
     },
-    "ranges": [
-      {
-        "start": 90,
-        "end": 200,
-        "startMod": 0.1,
-        "endMod": 0.05
-      }
-    ],
-    "arcHeight": 1e-16,
+    "ranges": [{ "start": 90, "end": 200, "startMod": 0.1, "endMod": 0.05 }],
+    "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.65,
@@ -501,15 +465,8 @@
       "end": 0.65,
       "modifier": -0.25
     },
-    "ranges": [
-      {
-        "start": 135,
-        "end": 240,
-        "startMod": 1,
-        "endMod": 0.55
-      }
-    ],
-    "arcHeight": 1e-16,
+    "ranges": [{ "start": 135, "end": 240, "startMod": 1, "endMod": 0.55 }],
+    "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.65,
@@ -569,7 +526,7 @@
         "name": "long"
       }
     ],
-    "arcHeight": 1e-16,
+    "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.65,
@@ -651,15 +608,8 @@
       "end": 0.65,
       "modifier": -0.25
     },
-    "ranges": [
-      {
-        "start": 120,
-        "end": 220,
-        "startMod": 1,
-        "endMod": 0.55
-      }
-    ],
-    "arcHeight": 1e-16,
+    "ranges": [{ "start": 120, "end": 220, "startMod": 1, "endMod": 0.55 }],
+    "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.4,
@@ -677,7 +627,7 @@
           "endHeight": 105
         }
       ],
-      "absorptionModifier": 2,
+      "absorptionModifier": 2.0,
       "offset": 0.8,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
@@ -719,7 +669,7 @@
         "name": "long"
       }
     ],
-    "arcHeight": 1e-16,
+    "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.4,
@@ -737,7 +687,7 @@
           "endHeight": 120
         }
       ],
-      "absorptionModifier": 2,
+      "absorptionModifier": 2.0,
       "offset": 0.8,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
@@ -801,15 +751,8 @@
       "end": 0.65,
       "modifier": -0.25
     },
-    "ranges": [
-      {
-        "start": 110,
-        "end": 200,
-        "startMod": 1,
-        "endMod": 0.55
-      }
-    ],
-    "arcHeight": 1e-16,
+    "ranges": [{ "start": 110, "end": 200, "startMod": 1, "endMod": 0.55 }],
+    "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.4,
@@ -827,7 +770,7 @@
           "endHeight": 100
         }
       ],
-      "absorptionModifier": 2,
+      "absorptionModifier": 2.0,
       "offset": 0.8,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
@@ -869,7 +812,7 @@
         "name": "long"
       }
     ],
-    "arcHeight": 1e-16,
+    "arcHeight": 0.0000000000000001,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.4,
@@ -887,7 +830,7 @@
           "endHeight": 115
         }
       ],
-      "absorptionModifier": 2,
+      "absorptionModifier": 2.0,
       "offset": 0.8,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
@@ -1018,12 +961,7 @@
       "modifier": -0.15
     },
     "ranges": [
-      {
-        "start": 69,
-        "end": 200,
-        "startMod": 0,
-        "endMod": -0.15
-      },
+      { "start": 69, "end": 200, "startMod": 0.0, "endMod": -0.15 },
       {
         "start": 200,
         "end": 340,
@@ -1175,12 +1113,7 @@
         "endMod": 1.5,
         "name": "close"
       },
-      {
-        "start": 35,
-        "end": 65,
-        "startMod": 1.5,
-        "endMod": 1
-      },
+      { "start": 35, "end": 65, "startMod": 1.5, "endMod": 1 },
       {
         "start": 65,
         "end": 90,
@@ -1264,7 +1197,7 @@
       {
         "start": 150,
         "end": 450,
-        "startMod": 0,
+        "startMod": 0.0,
         "endMod": -0.6,
         "name": "long"
       }

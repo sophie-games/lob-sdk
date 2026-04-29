@@ -1,10 +1,6 @@
 {
   "supplyLines": {
-    "roadTerrainTypes": [
-      3,
-      7,
-      15
-    ],
+    "roadTerrainTypes": [3, 7, 15],
     "influenceRadius": 4,
     "supplyHubRadius": 12,
     "supplyHubRadiusWithInfluence": 18,
@@ -22,26 +18,10 @@
   },
   "entrenchment": {
     "ranges": [
-      {
-        "min": 0,
-        "max": 2,
-        "color": "A67A4F"
-      },
-      {
-        "min": 3,
-        "max": 4,
-        "color": "C79A6B"
-      },
-      {
-        "min": 5,
-        "max": 6,
-        "color": "E1C095"
-      },
-      {
-        "min": 7,
-        "max": 8,
-        "color": "F3E3C5"
-      }
+      { "min": 0, "max": 2, "color": "A67A4F" },
+      { "min": 3, "max": 4, "color": "C79A6B" },
+      { "min": 5, "max": 6, "color": "E1C095" },
+      { "min": 7, "max": 8, "color": "F3E3C5" }
     ],
     "meleeAttackBonusPerLevel": 4,
     "meleeDefenseBonusPerLevel": 12,
@@ -49,14 +29,14 @@
   },
   "allyCollision": {
     "collisionBounceScale": 0.02,
-    "overlapStopCharge": 0,
-    "maxSpeedPenalty": 0,
-    "maxOrgDamageReceived": 0,
-    "maxMeleeAttackPenalty": 0,
-    "maxRangedAttackPenalty": 0,
-    "upperModifierLimit": 1,
-    "lowerModifierLimit": 0,
-    "maxOrgRadiusModifier": 0
+    "overlapStopCharge": 0.0,
+    "maxSpeedPenalty": 0.0,
+    "maxOrgDamageReceived": 0.0,
+    "maxMeleeAttackPenalty": 0.0,
+    "maxRangedAttackPenalty": 0.0,
+    "upperModifierLimit": 1.0,
+    "lowerModifierLimit": 0.0,
+    "maxOrgRadiusModifier": 0.0
   },
   "objectives": {
     "radius": 24,
@@ -94,7 +74,7 @@
     "routingOrgRecoveryModifier": -0.1,
     "maxOrgRecoveryByHpModifier": -0.95,
     "vpDebuffGraceZone": 0.2,
-    "vpDebuffMultiplier": 2
+    "vpDebuffMultiplier": 2.0
   },
   "tutorial": {
     "scenarios": []

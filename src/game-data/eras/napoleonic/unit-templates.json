@@ -7,9 +7,7 @@
     "meleeAttack": 5700,
     "meleeDefense": 3000,
     "meleeDamageType": "bayonet",
-    "rangedDamageTypes": [
-      "musket"
-    ],
+    "rangedDamageTypes": ["musket"],
     "chargeBonus": 6500,
     "chargeResistance": 0.5,
     "runChargeResistanceModifier": -1.5,
@@ -207,9 +205,7 @@
     "meleeAttack": 5900,
     "meleeDefense": 3100,
     "meleeDamageType": "bayonet",
-    "rangedDamageTypes": [
-      "musket"
-    ],
+    "rangedDamageTypes": ["musket"],
     "chargeBonus": 7000,
     "chargeResistance": 0.65,
     "runChargeResistanceModifier": -1,
@@ -413,9 +409,7 @@
     "meleeAttack": 5700,
     "meleeDefense": 3000,
     "meleeDamageType": "bayonet",
-    "rangedDamageTypes": [
-      "musket"
-    ],
+    "rangedDamageTypes": ["musket"],
     "chargeBonus": 6500,
     "chargeResistance": 0.5,
     "runChargeResistanceModifier": -1.5,
@@ -559,10 +553,7 @@
     "meleeAttack": 600,
     "meleeDefense": 700,
     "meleeDamageType": "artillery-sabre",
-    "rangedDamageTypes": [
-      "howitzer-canister",
-      "explosive-shell"
-    ],
+    "rangedDamageTypes": ["howitzer-canister", "explosive-shell"],
     "panicFireDistance": 69,
     "chargeBonus": 500,
     "walkMovement": 80,
@@ -618,9 +609,7 @@
     "meleeAttack": 3600,
     "meleeDefense": 2100,
     "meleeDamageType": "bayonet",
-    "rangedDamageTypes": [
-      "musket"
-    ],
+    "rangedDamageTypes": ["musket"],
     "chargeBonus": 5500,
     "chargeResistance": 0.1,
     "runChargeResistanceModifier": -2,
@@ -799,9 +788,7 @@
     "meleeAttack": 3600,
     "meleeDefense": 2200,
     "meleeDamageType": "cavalry-sabre",
-    "rangedDamageTypes": [
-      "horse-archer-bow"
-    ],
+    "rangedDamageTypes": ["horse-archer-bow"],
     "chargeBonus": 5000,
     "chargeResistance": 0.15,
     "runChargeResistanceModifier": 0.6,
@@ -858,9 +845,7 @@
     "meleeAttack": 6100,
     "meleeDefense": 3300,
     "meleeDamageType": "bayonet",
-    "rangedDamageTypes": [
-      "musket"
-    ],
+    "rangedDamageTypes": ["musket"],
     "chargeBonus": 7000,
     "chargeResistance": 0.7,
     "runChargeResistanceModifier": -0.75,
@@ -1009,9 +994,7 @@
     "meleeAttack": 2200,
     "meleeDefense": 1300,
     "meleeDamageType": "bayonet",
-    "rangedDamageTypes": [
-      "marksman-musket"
-    ],
+    "rangedDamageTypes": ["marksman-musket"],
     "chargeBonus": 0,
     "walkMovement": 70,
     "runMovement": 130,
@@ -1065,9 +1048,7 @@
     "meleeAttack": 2200,
     "meleeDefense": 1300,
     "meleeDamageType": "bayonet",
-    "rangedDamageTypes": [
-      "rifle"
-    ],
+    "rangedDamageTypes": ["rifle"],
     "chargeBonus": 0,
     "walkMovement": 70,
     "runMovement": 135,
@@ -1178,10 +1159,7 @@
     "meleeAttack": 600,
     "meleeDefense": 700,
     "meleeDamageType": "artillery-sabre",
-    "rangedDamageTypes": [
-      "rocket",
-      "rocket-long"
-    ],
+    "rangedDamageTypes": ["rocket", "rocket-long"],
     "panicFireDistance": 150,
     "chargeBonus": 500,
     "walkMovement": 65,
