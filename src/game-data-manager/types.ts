@@ -159,7 +159,8 @@ export interface GameConstants {
   CAN_LEAVE_MAP_MIN_ORG: number;
   CAN_LEAVE_MAP_MIN_HP_PROPORTION: number;
 
-  ATTACK_COOLDOWN: number;
+  /** Full attack cycle in ticks — unit attacks once every ATTACK_PERIOD ticks. */
+  ATTACK_PERIOD: number;
 
   CHARGE_RESISTANCE_LOSS_BY_ORG: number;
 
