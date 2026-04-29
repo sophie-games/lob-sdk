@@ -3,7 +3,7 @@
     "id": 1,
     "name": "bayonet",
     "orgDamageRatio": 32000,
-    "reorgDebuff": 1,
+    "reorgDebuff": 1.0,
     "attackEffectDuration": 4,
     "cannotChargeAgainst": [
       "midCavalry",
@@ -16,35 +16,35 @@
     "id": 2,
     "name": "cavalry-sabre",
     "orgDamageRatio": 31000,
-    "reorgDebuff": 1,
+    "reorgDebuff": 1.0,
     "attackEffectDuration": 4
   },
   {
     "id": 3,
     "name": "cavalry-sword",
     "orgDamageRatio": 31000,
-    "reorgDebuff": 1,
+    "reorgDebuff": 1.0,
     "attackEffectDuration": 4
   },
   {
     "id": 4,
     "name": "dragoon-sword",
     "orgDamageRatio": 31000,
-    "reorgDebuff": 1,
+    "reorgDebuff": 1.0,
     "attackEffectDuration": 6
   },
   {
     "id": 5,
     "name": "artillery-sabre",
     "orgDamageRatio": 29000,
-    "reorgDebuff": 1,
+    "reorgDebuff": 1.0,
     "attackEffectDuration": 6
   },
   {
     "id": 6,
     "name": "cavalry-lance",
     "orgDamageRatio": 31000,
-    "reorgDebuff": 1,
+    "reorgDebuff": 1.0,
     "attackEffectDuration": 6
   },
   {
@@ -248,7 +248,7 @@
     "name": "12lb-canister-fire",
     "ranged": true,
     "orgDamageRatio": 32000,
-    "reorgDebuff": 1,
+    "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
     "ranges": [
@@ -456,7 +456,7 @@
     "name": "8lb-canister-fire",
     "ranged": true,
     "orgDamageRatio": 32000,
-    "reorgDebuff": 1,
+    "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
     "ranges": [
@@ -606,7 +606,7 @@
     "name": "6lb-canister-fire",
     "ranged": true,
     "orgDamageRatio": 32000,
-    "reorgDebuff": 1,
+    "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
     "ranges": [
@@ -756,7 +756,7 @@
     "name": "4lb-canister-fire",
     "ranged": true,
     "orgDamageRatio": 32000,
-    "reorgDebuff": 1,
+    "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
     "ranges": [
@@ -1065,7 +1065,7 @@
     "name": "18lb-canister-fire",
     "ranged": true,
     "orgDamageRatio": 32000,
-    "reorgDebuff": 1,
+    "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
     "projectileWidth": 18,
     "ranges": [
@@ -1097,7 +1097,7 @@
     "name": "10lb-canister-fire",
     "ranged": true,
     "orgDamageRatio": 32000,
-    "reorgDebuff": 1,
+    "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
     "ranges": [
@@ -1129,7 +1129,7 @@
     "name": "howitzer-canister",
     "ranged": true,
     "orgDamageRatio": 35000,
-    "reorgDebuff": 1,
+    "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
     "ranges": [
@@ -1201,7 +1201,7 @@
     "name": "rocket",
     "ranged": true,
     "orgDamageRatio": 200000,
-    "reorgDebuff": 1,
+    "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
     "orgModifierByTargetOrg": {
