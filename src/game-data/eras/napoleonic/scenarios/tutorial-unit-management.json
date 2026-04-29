@@ -8,14 +8,14 @@
     {
       "player": 1,
       "team": 1,
-      "ammoReserve": 3500,
-      "baseAmmoReserve": 3500
+      "ammoReserve": 350000,
+      "baseAmmoReserve": 350000
     },
     {
       "player": 2,
       "team": 2,
-      "ammoReserve": 3500,
-      "baseAmmoReserve": 3500
+      "ammoReserve": 350000,
+      "baseAmmoReserve": 350000
     }
   ],
   "map": {
@@ -445,7 +445,7 @@
       "type": 1
     },
     {
-      "hp": 600,
+      "hp": 60000,
       "name": "enemy_infantry1",
       "player": 2,
       "pos": {
@@ -456,7 +456,7 @@
       "type": 1
     },
     {
-      "hp": 600,
+      "hp": 60000,
       "name": "enemy_infantry2",
       "player": 2,
       "pos": {
@@ -467,7 +467,7 @@
       "type": 1
     },
     {
-      "hp": 600,
+      "hp": 60000,
       "name": "enemy_infantry3",
       "player": 2,
       "pos": {
@@ -478,7 +478,7 @@
       "type": 1
     },
     {
-      "hp": 412,
+      "hp": 41200,
       "name": "enemy_cavalry1",
       "player": 2,
       "pos": {
@@ -487,10 +487,10 @@
       },
       "rotation": 1.57,
       "type": 2,
-      "st": 810
+      "st": 81000
     },
     {
-      "hp": 412,
+      "hp": 41200,
       "name": "enemy_cavalry2",
       "player": 2,
       "pos": {
@@ -499,7 +499,7 @@
       },
       "rotation": 1.57,
       "type": 2,
-      "st": 810
+      "st": 81000
     },
     {
       "name": "cavalry1",
