@@ -12,14 +12,36 @@ import {
 } from "./types";
 
 /**
- * All resource stats (hp, org, stamina, ammo, supply) and their related
- * values (attack, defense, damage ratios, costs, regain rates, etc.) are
- * stored internally multiplied by this factor.
- *
- * This eliminates the need for probabilistic rounding — plain Math.round
- * is precise enough when values are 100× larger.
- *
+ * Stats are stored internally × this factor so plain `Math.round` is precise
+ * enough (no probabilistic rounding needed).
  * Divide by this constant before displaying values in the UI.
+ *
+ * **Scaled stats:**
+ *
+ * *Unit Template* —
+ * `hp`, `org`, `shattersAtOrg`, `routesAtOrg`, `recoversAtOrg`,
+ * `ralliesAtOrg`, `meleeAttack`, `meleeDefense`, `chargeBonus`,
+ * `runCost`, `orgRadiusBonus`, `stamina?`, `supply?`,
+ * `supplyConsumptionIdle?`, `supplyConsumptionMoving?`,
+ * `supplyConsumptionCombating?`, `rangedAttack?` (ranged), `ammo?` (ranged)
+ *
+ * *Damage Types* —
+ * `orgDamageRatio`, `ammoCost?` (ranged)
+ *
+ * *Rules › stamina* —
+ * `meleeTurnCost`, `rangedTurnCost`, `regainRates` (range1–range5)
+ *
+ * *Rules › ammo* — `baseReserve`
+ *
+ * *Rules › organization* —
+ * `nearbyUnitsPositiveOrgBonusCap`, `nearbyUnitsNegativeOrgBonusCap`,
+ * `routingUnitNearbyUnitsOrgBonus`
+ *
+ * *Game Constants* —
+ * `CAN_LEAVE_MAP_MIN_ORG`, `HEIGHT_CHANGE_STAMINA_COST`,
+ * `HEIGHT_CHANGE_RUNNING_STAMINA_COST`
+ *
+ * *Battle Types* — `ammoReserve`, `goldToAmmoRate`
  */
 export const STAT_PRECISION_SCALE = 100;
 
