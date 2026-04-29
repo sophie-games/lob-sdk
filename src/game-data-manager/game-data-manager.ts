@@ -247,8 +247,10 @@ export class GameDataManager {
     switch (era) {
       case "napoleonic":
         this._orders = napoleonicOrders as OrderTemplate[];
-        this.battleTypes =
-          napoleonicBattleTypes as Record<DynamicBattleType, BattleTypeTemplate>;
+        this.battleTypes = napoleonicBattleTypes as Record<
+          DynamicBattleType,
+          BattleTypeTemplate
+        >;
         this._unitTemplateManager.load(
           napoleonicUnitTemplates as UnitTemplate[],
         );
@@ -317,8 +319,10 @@ export class GameDataManager {
         break;
       case "ww2":
         this._orders = ww2Orders as OrderTemplate[];
-        this.battleTypes =
-          ww2BattleTypes as Record<DynamicBattleType, BattleTypeTemplate>;
+        this.battleTypes = ww2BattleTypes as Record<
+          DynamicBattleType,
+          BattleTypeTemplate
+        >;
         this._unitTemplateManager.load(
           ww2UnitTemplates as unknown as UnitTemplate[],
         );
@@ -724,10 +728,8 @@ export class GameDataManager {
   public getUnitBaseTexture(unitType: UnitType, formationId?: string): string {
     const template = this._unitTemplateManager.getTemplate(unitType);
     const formationName = formationId ?? template.defaultFormation;
-    const formation = template.formations.find(
-      (f) => f.id === formationName,
-    );
-    
+    const formation = template.formations.find((f) => f.id === formationName);
+
     if (formation) {
       return formation.baseSprite;
     }
