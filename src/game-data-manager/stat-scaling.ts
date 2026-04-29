@@ -27,12 +27,13 @@ export const STAT_PRECISION_SCALE = 100;
 export const unscaleStat = (v: number): number =>
   Math.round(v / STAT_PRECISION_SCALE);
 
+/** Convert a display-level value to its internally-scaled representation. */
+export const scaleStat = (v: number): number => v * STAT_PRECISION_SCALE;
+
 // ── helpers ──────────────────────────────────────────────────────────
 
-/** Multiply a value by the scale factor (no-op for undefined). */
-const scale = (v: number): number => v * STAT_PRECISION_SCALE;
 const scaleOpt = (v: number | undefined): number | undefined =>
-  v !== undefined ? v * STAT_PRECISION_SCALE : undefined;
+  v !== undefined ? scaleStat(v) : undefined;
 
 // ── Unit Templates ───────────────────────────────────────────────────
 
@@ -42,17 +43,17 @@ const isRanged = (t: UnitTemplate): t is RangeUnitTemplate =>
 export function scaleUnitTemplate(raw: UnitTemplate): UnitTemplate {
   const base: UnitTemplate = {
     ...raw,
-    hp: scale(raw.hp),
-    org: scale(raw.org),
-    shattersAtOrg: scale(raw.shattersAtOrg),
-    routesAtOrg: scale(raw.routesAtOrg),
-    recoversAtOrg: scale(raw.recoversAtOrg),
-    ralliesAtOrg: scale(raw.ralliesAtOrg),
-    meleeAttack: scale(raw.meleeAttack),
-    meleeDefense: scale(raw.meleeDefense),
-    chargeBonus: scale(raw.chargeBonus),
-    runCost: scale(raw.runCost),
-    orgRadiusBonus: scale(raw.orgRadiusBonus),
+    hp: scaleStat(raw.hp),
+    org: scaleStat(raw.org),
+    shattersAtOrg: scaleStat(raw.shattersAtOrg),
+    routesAtOrg: scaleStat(raw.routesAtOrg),
+    recoversAtOrg: scaleStat(raw.recoversAtOrg),
+    ralliesAtOrg: scaleStat(raw.ralliesAtOrg),
+    meleeAttack: scaleStat(raw.meleeAttack),
+    meleeDefense: scaleStat(raw.meleeDefense),
+    chargeBonus: scaleStat(raw.chargeBonus),
+    runCost: scaleStat(raw.runCost),
+    orgRadiusBonus: scaleStat(raw.orgRadiusBonus),
     stamina: scaleOpt(raw.stamina),
     supply: scaleOpt(raw.supply),
     supplyConsumptionIdle: scaleOpt(raw.supplyConsumptionIdle),
@@ -63,7 +64,7 @@ export function scaleUnitTemplate(raw: UnitTemplate): UnitTemplate {
   if (isRanged(raw)) {
     return {
       ...base,
-      rangedAttack: scale(raw.rangedAttack),
+      rangedAttack: scaleStat(raw.rangedAttack),
       ammo: scaleOpt(raw.ammo),
     };
   }
@@ -89,7 +90,7 @@ export function scaleDamageTypes(
   return types.map((dt) => {
     const scaled = {
       ...dt,
-      orgDamageRatio: scale(dt.orgDamageRatio),
+      orgDamageRatio: scaleStat(dt.orgDamageRatio),
     };
 
     if (isRangedDamageType(dt)) {
@@ -108,14 +109,14 @@ export function scaleGameRules(rules: GameRules): GameRules {
   if (rules.stamina) {
     scaled.stamina = {
       ...rules.stamina,
-      meleeTurnCost: scale(rules.stamina.meleeTurnCost),
-      rangedTurnCost: scale(rules.stamina.rangedTurnCost),
+      meleeTurnCost: scaleStat(rules.stamina.meleeTurnCost),
+      rangedTurnCost: scaleStat(rules.stamina.rangedTurnCost),
       regainRates: {
-        range1: scale(rules.stamina.regainRates.range1),
-        range2: scale(rules.stamina.regainRates.range2),
-        range3: scale(rules.stamina.regainRates.range3),
-        range4: scale(rules.stamina.regainRates.range4),
-        range5: scale(rules.stamina.regainRates.range5),
+        range1: scaleStat(rules.stamina.regainRates.range1),
+        range2: scaleStat(rules.stamina.regainRates.range2),
+        range3: scaleStat(rules.stamina.regainRates.range3),
+        range4: scaleStat(rules.stamina.regainRates.range4),
+        range5: scaleStat(rules.stamina.regainRates.range5),
       },
     };
   }
@@ -123,20 +124,20 @@ export function scaleGameRules(rules: GameRules): GameRules {
   if (rules.ammo) {
     scaled.ammo = {
       ...rules.ammo,
-      baseReserve: scale(rules.ammo.baseReserve),
+      baseReserve: scaleStat(rules.ammo.baseReserve),
     };
   }
 
   if (rules.organization) {
     scaled.organization = {
       ...rules.organization,
-      nearbyUnitsPositiveOrgBonusCap: scale(
+      nearbyUnitsPositiveOrgBonusCap: scaleStat(
         rules.organization.nearbyUnitsPositiveOrgBonusCap,
       ),
-      nearbyUnitsNegativeOrgBonusCap: scale(
+      nearbyUnitsNegativeOrgBonusCap: scaleStat(
         rules.organization.nearbyUnitsNegativeOrgBonusCap,
       ),
-      routingUnitNearbyUnitsOrgBonus: scale(
+      routingUnitNearbyUnitsOrgBonus: scaleStat(
         rules.organization.routingUnitNearbyUnitsOrgBonus,
       ),
     };
@@ -150,9 +151,9 @@ export function scaleGameRules(rules: GameRules): GameRules {
 export function scaleGameConstants(constants: GameConstants): GameConstants {
   return {
     ...constants,
-    CAN_LEAVE_MAP_MIN_ORG: scale(constants.CAN_LEAVE_MAP_MIN_ORG),
-    HEIGHT_CHANGE_STAMINA_COST: scale(constants.HEIGHT_CHANGE_STAMINA_COST),
-    HEIGHT_CHANGE_RUNNING_STAMINA_COST: scale(
+    CAN_LEAVE_MAP_MIN_ORG: scaleStat(constants.CAN_LEAVE_MAP_MIN_ORG),
+    HEIGHT_CHANGE_STAMINA_COST: scaleStat(constants.HEIGHT_CHANGE_STAMINA_COST),
+    HEIGHT_CHANGE_RUNNING_STAMINA_COST: scaleStat(
       constants.HEIGHT_CHANGE_RUNNING_STAMINA_COST,
     ),
   };
@@ -167,8 +168,8 @@ export function scaleBattleTypes(
   for (const [key, bt] of Object.entries(battleTypes)) {
     scaled[key] = {
       ...bt,
-      ammoReserve: scale(bt.ammoReserve),
-      goldToAmmoRate: scale(bt.goldToAmmoRate),
+      ammoReserve: scaleStat(bt.ammoReserve),
+      goldToAmmoRate: scaleStat(bt.goldToAmmoRate),
     };
   }
   return scaled;
