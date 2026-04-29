@@ -23,6 +23,10 @@ import {
  */
 export const STAT_PRECISION_SCALE = 100;
 
+/** Convert an internally-scaled stat back to its original display value (rounded). */
+export const unscaleStat = (v: number): number =>
+  Math.round(v / STAT_PRECISION_SCALE);
+
 // ── helpers ──────────────────────────────────────────────────────────
 
 /** Multiply a value by the scale factor (no-op for undefined). */
@@ -159,7 +163,7 @@ export function scaleGameConstants(constants: GameConstants): GameConstants {
 export function scaleBattleTypes(
   battleTypes: Record<DynamicBattleType, BattleTypeTemplate>,
 ): Record<DynamicBattleType, BattleTypeTemplate> {
-  const scaled: Record<DynamicBattleType, BattleTypeTemplate> = {} as any;
+  const scaled: Record<DynamicBattleType, BattleTypeTemplate> = {};
   for (const [key, bt] of Object.entries(battleTypes)) {
     scaled[key] = {
       ...bt,
