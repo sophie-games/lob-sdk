@@ -19,7 +19,7 @@
     "Infantry": {
       "behavior": "balanced",
       "preferFireAndAdvance": true,
-      "chargeThreshold": 250,
+      "chargeThreshold": 25000,
       "groupCohesion": 4
     },
     "Cavalry": {
@@ -36,6 +36,6 @@
     }
   },
   "thresholds": {
-    "orgChargeThreshold": 250
+    "orgChargeThreshold": 25000
   }
 }
