@@ -169,7 +169,7 @@ export type TutorialHighlightSelector =
       unitId?: number;
     };
 
-export type TutorialHighlight = {
+export interface TutorialHighlight {
   /**
    * One or more static targets registered in the client tutorial-target-registry.
    * When an array is provided, the overlay renders a highlight per resolved
@@ -185,7 +185,7 @@ export type TutorialHighlight = {
   style?: TutorialHighlightStyle;
   /** When true, camera fits to the highlighted region. Defaults to true for selectors. */
   fitCamera?: boolean;
-};
+}
 
 export type TutorialGesture =
   | "selectionBox"
@@ -209,13 +209,13 @@ export type TutorialBeatPlacement = "top" | "bottom" | "left" | "right";
  *  - **Selector**: resolved at chapter activation against current game state.
  *    Used by adaptive chapters that re-fire each turn.
  */
-export type TutorialMoveDestinationStatic = {
+export interface TutorialMoveDestinationStatic {
   kind?: "rect";
   x: number;
   y: number;
   width: number;
   height: number;
-};
+}
 
 /**
  * Runtime-resolved destinations. The resolver takes the live game state plus
@@ -536,13 +536,13 @@ export type TutorialBeatCondition =
  * Lets a single chapter pack a verbose Run-0 path and a silent Run-1+ hint
  * path without splitting into two chapters.
  */
-export type TutorialRunFilter = {
+export interface TutorialRunFilter {
   only?: number[];
   from?: number;
   until?: number;
-};
+}
 
-export type TutorialBeat = {
+export interface TutorialBeat {
   /** Locale key resolved from `scenario.locales`. Token-substituted at render. */
   copy: string;
   highlight?: TutorialHighlight;
@@ -665,7 +665,7 @@ export type TutorialBeat = {
    * be repeated here.
    */
   revealUiElements?: string[];
-};
+}
 
 /**
  * Situational predicate keys for chapters that watch the live game state and
@@ -764,14 +764,14 @@ export type TutorialFireOn =
    */
   | { gameEnded: "win" | "lose" };
 
-export type TutorialChapter = {
+export interface TutorialChapter {
   /** Stable identifier used as dedup key — once a chapter fires, it never re-fires (except for `eachTurnWhileEnemyHidden` fireOn). */
   id: string;
   fireOn: TutorialFireOn;
   beats: TutorialBeat[];
-};
+}
 
-export type Tutorial = {
+export interface Tutorial {
   chapters: TutorialChapter[];
   /**
    * Seed for the monotonic revealed-elements set. Same vocabulary as
@@ -780,4 +780,4 @@ export type Tutorial = {
    * highlight auto-reveal) stays hidden for the whole tutorial.
    */
   revealUiElements?: string[];
-};
+}
