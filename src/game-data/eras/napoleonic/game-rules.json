@@ -1,14 +1,14 @@
 {
   "stamina": {
-    "meleeTurnCost": 200,
-    "rangedTurnCost": 50,
+    "meleeTurnCost": 20000,
+    "rangedTurnCost": 5000,
     "hasRanMeleeStaminaCostModifier": 0,
     "regainRates": {
-      "range1": 85,
-      "range2": 75,
-      "range3": 65,
-      "range4": 45,
-      "range5": 35
+      "range1": 8500,
+      "range2": 7500,
+      "range3": 6500,
+      "range4": 4500,
+      "range5": 3500
     },
     "upperModifierLimit": 0.85,
     "lowerModifierLimit": 0.4,
@@ -19,7 +19,7 @@
     "meleeDefensePenalty": -0.5
   },
   "ammo": {
-    "baseReserve": 2500,
+    "baseReserve": 250000,
     "regenerationBaseRate": 0.04,
     "regenerationBonusRate": 0.16,
     "maxHpConsumptionReduction": -0.5
@@ -56,11 +56,11 @@
     "upperModifierLimit": 0.95,
     "lowerModifierLimit": 0.35,
     "nearbyUnitsDistance": 64,
-    "nearbyUnitsPositiveOrgBonusCap": 56,
-    "nearbyUnitsNegativeOrgBonusCap": -56,
+    "nearbyUnitsPositiveOrgBonusCap": 5600,
+    "nearbyUnitsNegativeOrgBonusCap": -5600,
     "nearbyUnitsOrgDamageModifierCap": 0.25,
     "nearbyUnitsOrgDamageModifierPenaltyCap": -0.1,
-    "routingUnitNearbyUnitsOrgBonus": 4,
+    "routingUnitNearbyUnitsOrgBonus": 400,
     "startedRoutingOrgRadiusModifier": -2,
     "startedRoutingOrgRadiusDistance": 64,
     "startedRoutingOrgRadiusDistanceRunSpeedBonus": 1.5,

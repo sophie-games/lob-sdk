@@ -330,6 +330,13 @@ export interface GameConstants {
    * Whether the era is in beta.
    */
   BETA: boolean;
+
+  /**
+   * Divisor for converting internal stat precision to display values.
+   * Stats in the data files are stored ×this factor for integer-math precision.
+   * Divide by this before showing values in the UI.
+   */
+  STAT_DISPLAY_DIVISOR: number;
 }
 
 // Damage Type Types (moved from @common/damage-type)
