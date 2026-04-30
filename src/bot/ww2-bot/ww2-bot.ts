@@ -85,12 +85,12 @@ export class Ww2Bot implements IBot {
       Infantry: {
         behavior: "defensive",
         preferFireAndAdvance: true,
-        chargeThreshold: 200,
+        chargeThreshold: 20000,
         groupCohesion: 3,
       },
     },
     thresholds: {
-      orgChargeThreshold: 200,
+      orgChargeThreshold: 20000,
     },
   };
 
