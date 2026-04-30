@@ -268,22 +268,6 @@ export const unpack2D = (key: number) => ({
 export const nowInSeconds = () => Math.floor(Date.now() / 1000);
 
 /**
- * Rounds a number probabilistically based on its decimal part.
- *
- * If the number is, for example, 1.1, there is a 90% chance of rounding it down to 1
- * and a 10% chance of rounding it up to 2.
- */
-export function probabilisticRound(number: number): number {
-  const lower = Math.floor(number);
-  const upper = Math.ceil(number);
-
-  const chance = number - lower;
-  const random = Math.random();
-
-  return random < chance ? upper : lower;
-}
-
-/**
  * Checks if a collision occurs between two collision levels.
  * Returns true if both collisionLevel1 and collisionLevel2 are non-zero
  * and collisionLevel1 is greater than or equal to collisionLevel2.

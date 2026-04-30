@@ -16,8 +16,8 @@
     "topForwardDeploymentZone": {
       "minX": 5,
       "maxX": 5,
-      "minY": 18,
-      "maxY": 18,
+      "minY": 13,
+      "maxY": 13,
       "width": 90,
       "height": 10
     },
@@ -32,8 +32,8 @@
     "bottomForwardDeploymentZone": {
       "minX": 5,
       "maxX": 5,
-      "minY": 76,
-      "maxY": 76,
+      "minY": 80,
+      "maxY": 80,
       "width": 90,
       "height": 10
     }
@@ -41,111 +41,12 @@
 
   "instructions": [
     {
-      "type": "TERRAIN_RECTANGLE",
-      "terrain": 22,
-      "position": { "type": "range", "min": [20, 26], "max": [24, 30] },
-      "width": 5,
-      "height": 5
-    },
-    {
-      "type": "TERRAIN_RECTANGLE",
-      "terrain": 22,
-      "position": { "type": "range", "min": [45, 26], "max": [55, 30] },
-      "width": 5,
-      "height": 5
-    },
-    {
-      "type": "TERRAIN_RECTANGLE",
-      "terrain": 22,
-      "position": { "type": "range", "min": [76, 26], "max": [80, 30] },
-      "width": 5,
-      "height": 5
-    },
-
-    {
-      "type": "TERRAIN_RECTANGLE",
-      "terrain": 23,
-      "position": { "type": "range", "min": [20, 70], "max": [24, 74] },
-      "width": 5,
-      "height": 5
-    },
-    {
-      "type": "TERRAIN_RECTANGLE",
-      "terrain": 23,
-      "position": { "type": "range", "min": [45, 70], "max": [55, 74] },
-      "width": 5,
-      "height": 5
-    },
-    {
-      "type": "TERRAIN_RECTANGLE",
-      "terrain": 23,
-      "position": { "type": "range", "min": [76, 70], "max": [80, 74] },
-      "width": 5,
-      "height": 5
-    },
-
-    {
-      "type": "OBJECTIVE_LAYER",
-      "team": 1,
-      "xBounds": { "min": 20, "max": 100 },
-      "yBounds": { "min": 0, "max": 100 },
-      "terrainFilter": {
-        "terrains": [23],
-        "searchRadius": 1,
-        "minAmount": 1
-      },
-      "minDistance": 15,
-      "objectiveType": 2,
-      "maxObj": 1
-    },
-    {
-      "type": "OBJECTIVE_LAYER",
-      "xBounds": { "min": 20, "max": 100 },
-      "yBounds": { "min": 0, "max": 100 },
-      "terrainFilter": {
-        "terrains": [23],
-        "searchRadius": 1,
-        "minAmount": 1
-      },
-      "minDistance": 15,
-      "objectiveType": 1,
-      "maxObj": 2
-    },
-    {
-      "type": "OBJECTIVE_LAYER",
-      "team": 2,
-      "xBounds": { "min": 20, "max": 100 },
-      "yBounds": { "min": 0, "max": 100 },
-      "terrainFilter": {
-        "terrains": [22],
-        "searchRadius": 1,
-        "minAmount": 1
-      },
-      "minDistance": 15,
-      "objectiveType": 2,
-      "maxObj": 1
-    },
-    {
-      "type": "OBJECTIVE_LAYER",
-      "xBounds": { "min": 20, "max": 100 },
-      "yBounds": { "min": 0, "max": 100 },
-      "terrainFilter": {
-        "terrains": [22],
-        "searchRadius": 1,
-        "minAmount": 1
-      },
-      "minDistance": 15,
-      "objectiveType": 1,
-      "maxObj": 2
-    },
-
-    {
       "type": "OBJECTIVE",
       "player": 0,
       "position": {
         "type": "range",
-        "min": [17, 47],
-        "max": [27, 53]
+        "min": [37, 37],
+        "max": [37, 37]
       }
     },
     {
@@ -153,8 +54,8 @@
       "player": 0,
       "position": {
         "type": "range",
-        "min": [42, 47],
-        "max": [58, 53]
+        "min": [63, 37],
+        "max": [63, 37]
       }
     },
     {
@@ -162,8 +63,44 @@
       "player": 0,
       "position": {
         "type": "range",
-        "min": [73, 47],
-        "max": [83, 55]
+        "min": [37, 63],
+        "max": [37, 63]
+      }
+    },
+    {
+      "type": "OBJECTIVE",
+      "player": 0,
+      "position": {
+        "type": "range",
+        "min": [63, 63],
+        "max": [63, 63]
+      }
+    },
+    {
+      "type": "OBJECTIVE",
+      "player": 0,
+      "position": {
+        "type": "range",
+        "min": [25, 50],
+        "max": [25, 50]
+      }
+    },
+    {
+      "type": "OBJECTIVE",
+      "player": 0,
+      "position": {
+        "type": "range",
+        "min": [50, 50],
+        "max": [50, 50]
+      }
+    },
+    {
+      "type": "OBJECTIVE",
+      "player": 0,
+      "position": {
+        "type": "range",
+        "min": [75, 50],
+        "max": [75, 50]
       }
     },
     {

@@ -215,7 +215,7 @@ interface BaseUnitTemplate {
   basicPrice?: number;
   premiumPrice?: number;
   locked?: boolean;
-  hasSkirmishers?: boolean;
+  skirmisherRatio?: number;
   canDeployForward?: boolean;
 
   /**

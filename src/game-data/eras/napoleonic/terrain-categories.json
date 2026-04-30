@@ -108,7 +108,7 @@
       "18lb-explosive-shell": 0.1,
       "18lb-cannon-ball": 0.12,
       "18lb-canister-fire": 0.15,
-      "explosive-shell": 0.01,
+      "explosive-shell": -0.05,
       "howitzer-canister": 0.15
     },
     "chargeResistanceModifier": {
@@ -203,7 +203,7 @@
       "4lb-cannon-ball": 0.6,
       "4lb-cannon-ball-long": 0.6,
       "4lb-canister-fire": 0.4,
-      "explosive-shell": 0.04,
+      "explosive-shell": -0.1,
       "howitzer-canister": 0.04
     },
     "chargeResistanceModifier": {
@@ -494,7 +494,7 @@
       "4lb-cannon-ball-long": 0.35,
       "4lb-cannon-ball": 0.35,
       "4lb-canister-fire": 0.35,
-      "explosive-shell": 0.05,
+      "explosive-shell": -0.05,
       "howitzer-canister": 0.3
     },
     "defenseModifier": {
@@ -549,7 +549,7 @@
       "4lb-cannon-ball-long": 0.35,
       "4lb-cannon-ball": 0.35,
       "4lb-canister-fire": 0.35,
-      "explosive-shell": 0.1,
+      "explosive-shell": -0.05,
       "howitzer-canister": 0.3
     },
     "chargeBonusModifier": {

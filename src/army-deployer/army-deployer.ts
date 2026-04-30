@@ -413,13 +413,14 @@ export class ArmyDeployer {
       const template = gameDataManager
         .getUnitTemplateManager()
         .getTemplate(unitType);
-      if (template.hasSkirmishers) {
-        coreUnits += units[unitType];
+      if (template.skirmisherRatio) {
+        coreUnits += units[unitType] * template.skirmisherRatio;
       }
     }
 
     // Calculate skirmishers based on the ratio
-    skirmishers = Math.floor(coreUnits / coreUnitsRatio) * skirmisherRatio;
+    skirmishers =
+      Math.floor(Math.floor(coreUnits) / coreUnitsRatio) * skirmisherRatio;
 
     return skirmishers;
   }
