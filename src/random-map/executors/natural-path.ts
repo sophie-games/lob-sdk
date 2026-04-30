@@ -1,5 +1,5 @@
 import {
-  ProceduralScenario,
+  Scenario,
   InstructionNaturalPath,
   TerrainType,
   Size,
@@ -21,7 +21,7 @@ export class NaturalPathExecutor {
 
   constructor(
     private instruction: InstructionNaturalPath,
-    private scenario: ProceduralScenario,
+    private scenario: Scenario,
     private seed: number,
     private index: number,
     private terrains: TerrainType[][],

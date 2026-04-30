@@ -2,7 +2,7 @@ import { Point2 } from "@lob-sdk/vector";
 import {
   TerrainType,
   GameMap,
-  ProceduralScenario,
+  Scenario,
   DynamicBattleType,
   ObjectiveDto,
   ObjectiveType,
@@ -14,8 +14,8 @@ import { GameEra } from "@lob-sdk/game-data-manager";
  * Properties for generating a random map procedurally.
  */
 export interface GenerateRandomMapProps {
-  /** The procedural scenario containing generation instructions. */
-  scenario: ProceduralScenario;
+  /** The scenario describing map generation (and optional baked map). */
+  scenario: Scenario;
   /** The dynamic battle type configuration. */
   dynamicBattleType: DynamicBattleType;
   /** Maximum number of players for the map. */

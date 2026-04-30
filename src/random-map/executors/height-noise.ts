@@ -1,5 +1,5 @@
 import {
-  ProceduralScenario,
+  Scenario,
   InstructionHeightNoise,
   TerrainType,
 } from "@lob-sdk/types";
@@ -18,7 +18,7 @@ export class HeightNoiseExecutor {
 
   constructor(
     private instruction: InstructionHeightNoise,
-    private scenario: ProceduralScenario,
+    private scenario: Scenario,
     private seed: number,
     private index: number,
     private terrains: TerrainType[][],

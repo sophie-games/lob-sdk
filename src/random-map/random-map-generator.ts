@@ -12,7 +12,7 @@ import {
   GenerateRandomMapProps,
   InstructionType,
   AnyInstruction,
-  ProceduralScenario,
+  Scenario,
   TerrainType,
   Range,
 } from "@lob-sdk/types";
@@ -129,22 +129,22 @@ export class RandomMapGenerator {
     };
   }
 
-  /** Reads pixel zones (Scenario only — LegacyRandomScenario declares this as `never`). */
+  /** Reads pixel zones. */
   private _getPixelZones(
-    scenario: ProceduralScenario,
+    scenario: Scenario,
   ): TeamDeploymentZones[] | undefined {
     return scenario.deploymentZones;
   }
 
-  /** Reads percentage-based zones from either Scenario or LegacyRandomScenario. */
+  /** Reads percentage-based zones. */
   private _getRandomZones(
-    scenario: ProceduralScenario,
+    scenario: Scenario,
   ): RandomTeamDeploymentZones | undefined {
-    return scenario.randomDeploymentZones ?? scenario.defaultDeploymentZones;
+    return scenario.randomDeploymentZones;
   }
 
   private _getScaledZones(
-    scenario: ProceduralScenario,
+    scenario: Scenario,
   ): Record<Size, RandomTeamDeploymentZones> | undefined {
     return scenario.scaledDeploymentZones;
   }
@@ -152,7 +152,7 @@ export class RandomMapGenerator {
   /**
    * Precedence: scenario.map.deploymentZones > scenario.deploymentZones >
    *             scenario.scaledDeploymentZones[battleSize] >
-   *             scenario.randomDeploymentZones / defaultDeploymentZones >
+   *             scenario.randomDeploymentZones >
    *             battle-size defaults (procedural only).
    *
    * Returns `undefined` when the scenario ships a handcrafted `map` but
@@ -161,7 +161,7 @@ export class RandomMapGenerator {
    * (era-wide constants centered on the fixed map).
    */
   private resolveDeploymentZones(
-    scenario: ProceduralScenario,
+    scenario: Scenario,
     fixedMap: GameMap | undefined,
     battleSize: Size,
     widthPx: number,
@@ -275,7 +275,7 @@ export class RandomMapGenerator {
   }
 
   private executeInstructions(
-    scenario: ProceduralScenario,
+    scenario: Scenario,
     seed: number,
     terrains: TerrainType[][],
     heightMap: number[][],

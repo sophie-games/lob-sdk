@@ -1,5 +1,5 @@
 import {
-  ProceduralScenario,
+  Scenario,
   InstructionConnectClusters,
   TerrainType,
 } from "@lob-sdk/types";
@@ -13,7 +13,7 @@ export class ConnectClustersExecutor {
 
   constructor(
     private instruction: InstructionConnectClusters,
-    private scenario: ProceduralScenario,
+    private scenario: Scenario,
     private seed: number,
     private index: number,
     private terrains: TerrainType[][],

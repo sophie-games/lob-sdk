@@ -12,7 +12,8 @@ import {
   TerrainConfig,
   Size,
 } from "@lob-sdk/types";
-import { RawScenarioInput } from "@lob-sdk/scenario";
+import { RawScenarioInput, normalizeScenario } from "@lob-sdk/scenario";
+import { Scenario } from "@lob-sdk/types";
 import {
   GameConstants,
   GameEra,
@@ -172,9 +173,12 @@ export class GameDataManager {
   // Formations
   private _formationManager = new FormationManager();
 
-  // Scenarios — raw imports (may be legacy or current schema). Consumers that
-  // need the normalized shape should call `normalizeScenario` themselves.
+  // Scenarios — raw imports (may be legacy or current schema). Reads go
+  // through {@link getScenario}, which normalizes to the current shape and
+  // caches the result in {@link normalizedScenarios}. Editor flows that still
+  // depend on the legacy `type` discriminator use {@link getRawScenario}.
   private scenarios: Record<ScenarioName, RawScenarioInput> = {};
+  private normalizedScenarios: Map<ScenarioName, Scenario> = new Map();
 
   // Map sizes
   private mapSizes: Record<Size, MapSizeTemplate> | null = null;
@@ -1094,11 +1098,40 @@ export class GameDataManager {
   }
 
   /**
-   * Get a scenario by name. Returns the raw scenario (legacy or current schema).
-   * Callers that need the new {@link Scenario} shape (game init, scenario
-   * editor) should pipe the result through `normalizeScenario`.
+   * Get a scenario by name in the current feature-based {@link Scenario}
+   * shape. Legacy imports are normalized on first access and cached. Editor
+   * flows that still need the legacy `type` discriminator use
+   * {@link getRawScenario}.
    */
-  public getScenario(scenarioName: ScenarioName): RawScenarioInput {
+  public getScenario(scenarioName: ScenarioName): Scenario {
+    const cached = this.normalizedScenarios.get(scenarioName);
+    if (cached) return cached;
+
+    const raw = this.scenarios[scenarioName];
+    if (!raw) {
+      throw new Error(`Scenario ${scenarioName} not found for era ${this.era}`);
+    }
+
+    const normalized = normalizeScenario(raw);
+    this.normalizedScenarios.set(scenarioName, normalized);
+    return normalized;
+  }
+
+  /**
+   * Try to get a normalized scenario by name. Returns `null` if missing.
+   */
+  public tryGetScenario(scenarioName: ScenarioName): Scenario | null {
+    if (!this.scenarios[scenarioName]) return null;
+    return this.getScenario(scenarioName);
+  }
+
+  /**
+   * Returns the raw scenario import (legacy or current schema). Use this only
+   * when the caller genuinely needs the pre-normalize shape — e.g. editor
+   * flows that switch on the legacy `type` field, or JSON download/round-trip
+   * paths. Most callers should use {@link getScenario}.
+   */
+  public getRawScenario(scenarioName: ScenarioName): RawScenarioInput {
     const scenario = this.scenarios[scenarioName];
     if (!scenario) {
       throw new Error(`Scenario ${scenarioName} not found for era ${this.era}`);
@@ -1107,10 +1140,9 @@ export class GameDataManager {
   }
 
   /**
-   * Try to get a scenario by name. Returns `null` if missing; otherwise the
-   * raw scenario (legacy or current schema).
+   * Try to get the raw scenario import. Returns `null` if missing.
    */
-  public tryGetScenario(scenarioName: ScenarioName): RawScenarioInput | null {
+  public tryGetRawScenario(scenarioName: ScenarioName): RawScenarioInput | null {
     return this.scenarios[scenarioName] ?? null;
   }
 

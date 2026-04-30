@@ -6,11 +6,6 @@ export class ScenarioFeatures {
     return scenario.allowDynamicArmy === true;
   }
 
-  /** Scenario ships with a locked unit set. */
-  static hasFixedRoster(scenario: Scenario): boolean {
-    return !ScenarioFeatures.hasDynamicArmy(scenario);
-  }
-
   /**
    * Scenario opens with a deployment phase (turn 0) so players can reposition
    * their army inside the deployment zones. Orthogonal to `allowDynamicArmy`

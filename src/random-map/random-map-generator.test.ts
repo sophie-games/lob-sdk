@@ -1,15 +1,17 @@
 import { RandomMapGenerator } from "./random-map-generator";
 import {
-  LegacyRandomScenario,
   Scenario,
-  GameScenarioType,
   InstructionType,
   ScenarioName,
   DynamicBattleType,
   TerrainType,
 } from "@lob-sdk/types";
-import { SCENARIO_SCHEMA_VERSION, normalizeScenario } from "@lob-sdk/scenario";
+import { SCENARIO_SCHEMA_VERSION } from "@lob-sdk/scenario";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
+
+/** A scenario serves as a procedural map template if it has no baked map and ships generation instructions. */
+const isProceduralTemplate = (s: Scenario): boolean =>
+  !s.map && Array.isArray(s.instructions) && s.instructions.length > 0;
 
 /**
  * Comprehensive test suite for RandomMapGenerator
@@ -33,11 +35,10 @@ describe("RandomMapGenerator", () => {
     // Get all scenario names dynamically from the GameDataManager
     const allScenarioNames = gameDataManager.getScenarioNames();
 
-    // Filter to only random scenarios
+    // Filter to scenarios that act as procedural map templates.
     const randomScenarioNames = allScenarioNames.filter((scenarioName) => {
       try {
-        const scenario = gameDataManager.getScenario(scenarioName);
-        return scenario.type === GameScenarioType.Random;
+        return isProceduralTemplate(gameDataManager.getScenario(scenarioName));
       } catch (error) {
         // If scenario doesn't exist or can't be loaded, skip it
         return false;
@@ -64,12 +65,6 @@ describe("RandomMapGenerator", () => {
         }
         console.log(`Testing random scenario: ${scenarioName}`);
 
-        // Verify it's actually a random scenario
-        expect(scenario.type).toBe(GameScenarioType.Random);
-
-        // Type assertion to LegacyRandomScenario since we've verified it's a random scenario
-        const randomScenario = scenario as LegacyRandomScenario;
-
         // Test with each battle type and player count
         dynamicBattleTypes.forEach((battleType) => {
           playerCounts.forEach((maxPlayers) => {
@@ -77,7 +72,7 @@ describe("RandomMapGenerator", () => {
             if (maxPlayers <= 8) {
               expect(() => {
                 const result = mapGenerator.generate({
-                  scenario: randomScenario,
+                  scenario,
                   dynamicBattleType: battleType,
                   maxPlayers,
                   tileSize: TILE_SIZE,
@@ -125,11 +120,10 @@ describe("RandomMapGenerator", () => {
 
       testScenarios.forEach((scenarioName) => {
         const scenario = gameDataManager.getScenario(scenarioName);
-        const randomScenario = scenario as LegacyRandomScenario;
 
         // Generate the same scenario twice with the same seed
         const result1 = mapGenerator.generate({
-          scenario: randomScenario,
+          scenario,
           dynamicBattleType: DEFAULT_BATTLE_TYPE,
           maxPlayers: 2,
           seed: testSeed,
@@ -138,7 +132,7 @@ describe("RandomMapGenerator", () => {
         });
 
         const result2 = mapGenerator.generate({
-          scenario: randomScenario,
+          scenario,
           dynamicBattleType: DEFAULT_BATTLE_TYPE,
           maxPlayers: 2,
           seed: testSeed,
@@ -160,11 +154,10 @@ describe("RandomMapGenerator", () => {
 
       randomScenarioNames.forEach((scenarioName) => {
         const scenario = gameDataManager.getScenario(scenarioName);
-        const randomScenario = scenario as LegacyRandomScenario;
 
         expect(() => {
           const result = mapGenerator.generate({
-            scenario: randomScenario,
+            scenario,
             dynamicBattleType: DEFAULT_BATTLE_TYPE,
             maxPlayers: 2,
             tileSize: TILE_SIZE,
@@ -210,10 +203,9 @@ describe("RandomMapGenerator", () => {
     });
 
     it("should generate maps with custom tilesX and tilesY dimensions", () => {
+      if (randomScenarioNames.length === 0) return;
       const mapGenerator = new RandomMapGenerator();
-      const testScenario = randomScenarioNames[0];
-      const scenario = gameDataManager.getScenario(testScenario);
-      const randomScenario = scenario as LegacyRandomScenario;
+      const scenario = gameDataManager.getScenario(randomScenarioNames[0]);
 
       // Test with different custom dimensions
       const customSizes = [
@@ -225,7 +217,7 @@ describe("RandomMapGenerator", () => {
 
       customSizes.forEach(({ tilesX, tilesY }) => {
         const result = mapGenerator.generate({
-          scenario: randomScenario,
+          scenario,
           dynamicBattleType: DEFAULT_BATTLE_TYPE,
           maxPlayers: 2,
           seed: 12345,
@@ -267,8 +259,8 @@ describe("RandomMapGenerator", () => {
       const mapGenerator = new RandomMapGenerator();
 
       // Create a simple test scenario with reversed noise
-      const testScenario: LegacyRandomScenario = {
-        type: GameScenarioType.Random,
+      const testScenario: Scenario = {
+        version: SCENARIO_SCHEMA_VERSION,
         name: "test-reversed-noise" as ScenarioName,
         description: "Test scenario for reversed noise functionality",
         instructions: [
@@ -332,8 +324,8 @@ describe("RandomMapGenerator", () => {
       const mapGenerator = new RandomMapGenerator();
 
       // Create a test scenario with height noise that only affects specific height ranges
-      const testScenario: LegacyRandomScenario = {
-        type: GameScenarioType.Random,
+      const testScenario: Scenario = {
+        version: SCENARIO_SCHEMA_VERSION,
         name: "test-height-ranges" as ScenarioName,
         description: "Test scenario for height noise ranges functionality",
         instructions: [
@@ -411,8 +403,8 @@ describe("RandomMapGenerator", () => {
     it("should handle multiple ranges correctly", () => {
       const mapGenerator = new RandomMapGenerator();
 
-      const testScenario: LegacyRandomScenario = {
-        type: GameScenarioType.Random,
+      const testScenario: Scenario = {
+        version: SCENARIO_SCHEMA_VERSION,
         name: "test-multiple-ranges" as ScenarioName,
         description: "Test scenario for multiple height ranges",
         instructions: [
@@ -717,7 +709,7 @@ describe("RandomMapGenerator", () => {
   describe("tutorial scenario", () => {
     it("generates a 64x64 map with the declared pixel deployment zones", () => {
       const generator = new RandomMapGenerator();
-      const tutorial = normalizeScenario(gameDataManager.getScenario("tutorial"));
+      const tutorial = gameDataManager.getScenario("tutorial");
 
       const result = generator.generate({
         scenario: tutorial,

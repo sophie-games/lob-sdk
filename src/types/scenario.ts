@@ -255,18 +255,6 @@ export interface LegacyRandomScenario extends BaseScenario {
 }
 
 /**
- * Union type representing any game scenario.
- * Can be a LegacyPresetScenario, LegacyRandomScenario, or LegacyHybridScenario.
- */
-export type GameScenario = LegacyPresetScenario | LegacyRandomScenario | LegacyHybridScenario;
-
-/**
- * Union type representing procedurally generated scenarios.
- * Includes LegacyRandomScenario types and the new feature-based Scenario.
- */
-export type ProceduralScenario = LegacyRandomScenario | Scenario;
-
-/**
  * Name identifier for a scenario (string).
  */
 export type ScenarioName = string;

@@ -1,7 +1,7 @@
 import {
   InstructionObjective,
   ObjectiveDto,
-  ProceduralScenario,
+  Scenario,
 } from "@lob-sdk/types";
 import { getPosition } from "../utils";
 import { deriveSeed, randomSeeded } from "@lob-sdk/seed";
@@ -11,7 +11,7 @@ export class ObjectiveExecutor {
 
   constructor(
     private instruction: InstructionObjective,
-    private scenario: ProceduralScenario,
+    private scenario: Scenario,
     private seed: number,
     private index: number,
     private widthPx: number,
