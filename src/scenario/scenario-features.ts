@@ -23,7 +23,9 @@ export class ScenarioFeatures {
   }
 
   /** Player slots and teams are baked in; matchmaking can't reshape them. */
-  static hasFixedPlayers(scenario: Scenario): boolean {
+  static hasFixedPlayers(
+    scenario: Scenario,
+  ): scenario is Scenario & { players: NonNullable<Scenario["players"]> } {
     return Array.isArray(scenario.players) && scenario.players.length > 0;
   }
 
