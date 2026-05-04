@@ -1407,7 +1407,7 @@
     "unitType": 10,
     "locked": true,
     "formations": {
-      "mass": {
+      "militia_mass": {
         "overlay": "argentinian-pardos-y-morenos"
       }
     },
@@ -1512,13 +1512,10 @@
     "premiumPrice": 150,
     "unitType": 10,
     "formations": {
-      "mass": {
+      "militia_mass": {
         "overlay": "french-marie-louise"
       },
-      "column": {
-        "overlay": "french-marie-louise-column"
-      },
-      "line": {
+      "militia_line": {
         "overlay": "french-marie-louise-line"
       }
     },
@@ -1531,13 +1528,10 @@
     "premiumPrice": 150,
     "unitType": 10,
     "formations": {
-      "mass": {
+      "militia_mass": {
         "overlay": "french-national-guard"
       },
-      "column": {
-        "overlay": "french-national-guard-column"
-      },
-      "line": {
+      "militia_line": {
         "overlay": "french-national-guard-line"
       }
     },
@@ -1784,7 +1778,7 @@
     "premiumPrice": 150,
     "unitType": 10,
     "formations": {
-      "mass": {
+      "militia_mass": {
         "overlay": "east-india-native-volunteers"
       }
     },
@@ -2025,7 +2019,7 @@
     "premiumPrice": 250,
     "unitType": 10,
     "formations": {
-      "mass": {
+      "militia_mass": {
         "overlay": "xiangqi-militia"
       }
     },
@@ -2385,17 +2379,11 @@
     "premiumPrice": 50,
     "unitType": 10,
     "formations": {
-      "mass": {
+      "militia_mass": {
         "overlay": "silver-militia"
       },
-      "column": {
-        "overlay": "silver-militia-column"
-      },
-      "line": {
+      "militia_line": {
         "overlay": "silver-militia-line"
-      },
-      "square": {
-        "overlay": "silver-militia-square"
       }
     },
     "discount": 0.2
@@ -2532,17 +2520,11 @@
     "unitType": 10,
     "attackColor": "FFD700",
     "formations": {
-      "mass": {
+      "militia_mass": {
         "overlay": "gold-militia"
       },
-      "column": {
-        "overlay": "gold-militia-column"
-      },
-      "line": {
+      "militia_line": {
         "overlay": "gold-militia-line"
-      },
-      "square": {
-        "overlay": "gold-militia-square"
       }
     },
     "discount": 0.2
@@ -2878,17 +2860,11 @@
     "premiumPrice": 25,
     "unitType": 10,
     "formations": {
-      "mass": {
+      "militia_mass": {
         "overlay": "bronze-militia"
       },
-      "column": {
-        "overlay": "bronze-militia-column"
-      },
-      "line": {
+      "militia_line": {
         "overlay": "bronze-militia-line"
-      },
-      "square": {
-        "overlay": "bronze-militia-square"
       }
     },
     "discount": 0.2
@@ -2913,17 +2889,11 @@
     "premiumPrice": 150,
     "unitType": 10,
     "formations": {
-      "mass": {
+      "militia_mass": {
         "overlay": "serbian-revolutionary-militia"
       },
-      "column": {
-        "overlay": "serbian-revolutionary-militia-column"
-      },
-      "line": {
+      "militia_line": {
         "overlay": "serbian-revolutionary-militia-line"
-      },
-      "square": {
-        "overlay": "serbian-revolutionary-militia-square"
       }
     },
     "discount": 0.2
@@ -3486,17 +3456,11 @@
     "premiumPrice": 150,
     "unitType": 10,
     "formations": {
-      "mass": {
+      "militia_mass": {
         "overlay": "chilean-huasos-y-gauchos"
       },
-      "column": {
-        "overlay": "chilean-huasos-y-gauchos-column"
-      },
-      "line": {
+      "militia_line": {
         "overlay": "chilean-huasos-y-gauchos-line"
-      },
-      "square": {
-        "overlay": "chilean-huasos-y-gauchos-square"
       }
     },
     "discount": 0.2
