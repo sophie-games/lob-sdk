@@ -675,6 +675,8 @@ export interface UnitSkin {
       base?: string;
       /** Name of the overlay sprite */
       overlay?: string | null;
+      /** Optional formation-specific attack color override; falls back to the skin-level `attackColor`. */
+      attackColor?: string;
     };
   };
   tier: SkinTier;
