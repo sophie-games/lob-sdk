@@ -3560,16 +3560,20 @@
     "attackColor": "ff0000",
     "formations": {
       "mass": {
-        "overlay": "the-rebellious-ai-grenadiers"
+        "overlay": "the-rebellious-ai-grenadiers",
+        "attackColor": "00ff00"
       },
       "column": {
-        "overlay": "the-rebellious-ai-grenadiers-column"
+        "overlay": "the-rebellious-ai-grenadiers-column",
+        "attackColor": "ff0000"
       },
       "line": {
-        "overlay": "the-rebellious-ai-grenadiers-line"
+        "overlay": "the-rebellious-ai-grenadiers-line",
+        "attackColor": "ffff00"
       },
       "square": {
-        "overlay": "the-rebellious-ai-grenadiers-square"
+        "overlay": "the-rebellious-ai-grenadiers-square",
+        "attackColor": "ff8800"
       }
     },
     "discount": 0.2
@@ -3583,16 +3587,20 @@
     "attackColor": "ff0000",
     "formations": {
       "mass": {
-        "overlay": "the-rebellious-ai-guards"
+        "overlay": "the-rebellious-ai-guards",
+        "attackColor": "0000ff"
       },
       "column": {
-        "overlay": "the-rebellious-ai-guards-column"
+        "overlay": "the-rebellious-ai-guards-column",
+        "attackColor": "ff0000"
       },
       "line": {
-        "overlay": "the-rebellious-ai-guards-line"
+        "overlay": "the-rebellious-ai-guards-line",
+        "attackColor": "ffff00"
       },
       "square": {
-        "overlay": "the-rebellious-ai-guards-square"
+        "overlay": "the-rebellious-ai-guards-square",
+        "attackColor": "ff8800"
       }
     },
     "discount": 0.2
@@ -3606,16 +3614,20 @@
     "attackColor": "ff0000",
     "formations": {
       "mass": {
-        "overlay": "the-rebellious-ai-light-infantry"
+        "overlay": "the-rebellious-ai-light-infantry",
+        "attackColor": "00ff00"
       },
       "column": {
-        "overlay": "the-rebellious-ai-light-infantry-column"
+        "overlay": "the-rebellious-ai-light-infantry-column",
+        "attackColor": "ff0000"
       },
       "line": {
-        "overlay": "the-rebellious-ai-light-infantry-line"
+        "overlay": "the-rebellious-ai-light-infantry-line",
+        "attackColor": "ffff00"
       },
       "square": {
-        "overlay": "the-rebellious-ai-light-infantry-square"
+        "overlay": "the-rebellious-ai-light-infantry-square",
+        "attackColor": "ff8800"
       }
     },
     "discount": 0.2
