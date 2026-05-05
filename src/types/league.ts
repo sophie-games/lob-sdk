@@ -58,6 +58,8 @@ export interface LeagueProgress {
   total: number;
 }
 
+const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
+
 /**
  * ELO bounds for each league, ordered from lowest to highest.
  * Single source of truth for all league-to-ELO mappings.
@@ -110,25 +112,49 @@ export class LeagueManager {
 
   private readonly byType: ReadonlyMap<LeagueType, LeagueBounds>;
 
+  /**
+   * Precomputed elo → league lookup. `bucketSize` is the GCD of every closed
+   * `maxElo`, so each bucket `[k*bucketSize, (k+1)*bucketSize)` is fully
+   * contained in one band — no boundary check needed at lookup time. Buckets
+   * beyond `bucketLookup.length` resolve to the top (open-upper) band.
+   */
+  private readonly bucketSize: number;
+  private readonly bucketLookup: ReadonlyArray<LeagueType>;
+
   private constructor() {
     this.byType = new Map(LEAGUE_ELO_BOUNDS.map((b) => [b.type, b]));
+
+    const closedMaxes = LEAGUE_ELO_BOUNDS.map((b) => b.maxElo).filter(
+      (m): m is number => m !== null,
+    );
+    this.bucketSize = closedMaxes.reduce(gcd);
+
+    const topMax = closedMaxes[closedMaxes.length - 1];
+    const lookup: LeagueType[] = new Array(topMax / this.bucketSize);
+    for (let i = 0; i < lookup.length; i++) {
+      const eloAtBucketStart = i * this.bucketSize;
+      const band = LEAGUE_ELO_BOUNDS.find(
+        (b) =>
+          (b.minElo === null || eloAtBucketStart >= b.minElo) &&
+          (b.maxElo === null || eloAtBucketStart < b.maxElo),
+      )!;
+      lookup[i] = band.type;
+    }
+    this.bucketLookup = lookup;
   }
 
   static getInstance(): LeagueManager {
     return (LeagueManager._instance ??= new LeagueManager());
   }
 
-  /**
-   * Linear scan over `bounds` (ordered low-to-high). Stops at the first band
-   * whose upper bound is above `elo`, or at the open-ended top band. Bounded
-   * to `bounds.length` (currently 19), so call cost is constant in practice.
-   */
+  /** O(1) elo → league lookup. */
   getByElo(elo: number): LeagueType {
-    for (const entry of LEAGUE_ELO_BOUNDS) {
-      if (entry.maxElo === null || elo < entry.maxElo) return entry.type;
+    const bucket = Math.floor(elo / this.bucketSize);
+    if (bucket < 0) return this.bucketLookup[0];
+    if (bucket >= this.bucketLookup.length) {
+      return LEAGUE_ELO_BOUNDS[LEAGUE_ELO_BOUNDS.length - 1].type;
     }
-    // Unreachable: the last entry has maxElo === null.
-    return LEAGUE_ELO_BOUNDS[LEAGUE_ELO_BOUNDS.length - 1].type;
+    return this.bucketLookup[bucket];
   }
 
   /** O(1) bounds lookup for a given league. */
