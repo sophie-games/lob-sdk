@@ -91,12 +91,10 @@ class LeagueManager {
 
   private readonly byType: ReadonlyMap<LeagueType, LeagueBounds>;
   private readonly indexed: ReadonlyArray<LeagueType>;
-  private readonly orderByType: ReadonlyMap<LeagueType, number>;
 
   constructor() {
     this.byType = new Map(LEAGUE_ELO_BOUNDS.map((b) => [b.type, b]));
     this.indexed = LEAGUE_ELO_BOUNDS.map((b) => b.type);
-    this.orderByType = new Map(this.indexed.map((t, i) => [t, i]));
   }
 
   /** O(1) elo → league lookup. */
@@ -135,12 +133,8 @@ class LeagueManager {
    * Used by achievements that fire when a player reaches a given league tier.
    */
   hasReached(elo: number, target: LeagueType): boolean {
-    const currentOrder = this.orderByType.get(this.getByElo(elo))!;
-    const targetOrder = this.orderByType.get(target);
-    if (targetOrder === undefined) {
-      throw new Error(`Unknown league type: ${target}`);
-    }
-    return currentOrder >= targetOrder;
+    const min = this.getBounds(target).minElo;
+    return min === null || elo >= min;
   }
 }
 
