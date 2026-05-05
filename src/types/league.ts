@@ -1,35 +1,47 @@
 export enum LeagueType {
-  // Emperor
+  /** Emperor */
   A = "a",
 
-  // Diamond
+  /** Diamond III */
   B3 = "b3",
+  /** Diamond II */
   B2 = "b2",
+  /** Diamond I */
   B1 = "b1",
 
-  // Platinum
+  /** Platinum III */
   C3 = "c3",
+  /** Platinum II */
   C2 = "c2",
+  /** Platinum I */
   C1 = "c1",
 
-  // Gold
+  /** Gold III */
   D3 = "d3",
+  /** Gold II */
   D2 = "d2",
+  /** Gold I */
   D1 = "d1",
 
-  // Silver
+  /** Silver III */
   E3 = "e3",
+  /** Silver II */
   E2 = "e2",
+  /** Silver I */
   E1 = "e1",
 
-  // Bronze
+  /** Bronze III */
   F3 = "f3",
+  /** Bronze II */
   F2 = "f2",
+  /** Bronze I */
   F1 = "f1",
 
-  // Iron
+  /** Iron III */
   G3 = "g3",
+  /** Iron II */
   G2 = "g2",
+  /** Iron I */
   G1 = "g1",
 }
 
