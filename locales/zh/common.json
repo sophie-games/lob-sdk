@@ -3,6 +3,9 @@
   "home": "主页",
   "language": "语言",
   "tutorial": "教程",
+  "tutorialRequired": "在线游戏前请先完成教程",
+  "tutorialRequiredDescription": "您需要先完成教程,然后才能排队进行在线对战。",
+  "goToTutorial": "前往教程",
   "tutorials": "教程",
   "play": "游玩",
   "ranking": "排行",
@@ -179,6 +182,10 @@
   "offerDraw": "提议和局",
   "replayBattle": "回放战斗",
   "downloadReplay": "下载回放",
+  "stepByTurn": "逐回合(回合之间自动暂停)",
+  "pause": "暂停",
+  "stop": "停止",
+  "restartReplay": "重新开始回放",
   "replayGame": "回放游戏",
   "importReplay": "导入回放",
   "result": "对局结果",
@@ -731,6 +738,16 @@
   "preset": "预设",
   "hybrid": "混合",
   "random": "随机",
+  "scenarioFeatures": "特性",
+  "scenarioFeature": {
+    "fixedMap": "固定地图",
+    "proceduralMap": "程序生成地图",
+    "fixedArmy": "固定军队",
+    "dynamicArmy": "动态军队",
+    "fixedPlayers": "固定玩家",
+    "objectives": "目标",
+    "scriptedEvents": "脚本事件"
+  },
   "projectileWidth": "射击宽度",
   "allyCollisionLevel": "友军碰撞等级",
   "enemyCollisionLevel": "敌军碰撞等级",
@@ -895,5 +912,13 @@
   "switchToEra": "切换到 {{era}}",
   "goHome": "返回主页",
   "notAvailableForAllUnits": "不适用于所有单位",
-  "unitsHaveDifferentFormations": "已选择单位的阵型不一致"
+  "unitsHaveDifferentFormations": "已选择单位的阵型不一致",
+  "profileChart": {
+    "rankedWinrate90d": "排位 (90天)",
+    "arenaWinrate": "竞技场",
+    "wins": "胜利",
+    "losses": "失败",
+    "totalGames_other": "{{count}} 场",
+    "totalArenas_other": "{{count}} 场竞技场"
+  }
 }

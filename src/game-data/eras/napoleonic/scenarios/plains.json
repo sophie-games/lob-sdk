@@ -1,10 +1,10 @@
 {
+  "version": 1,
   "name": "name",
   "description": "description",
-  "type": "random",
   "baseTerrain": 0,
   "ranked": true,
-  "defaultDeploymentZones": {
+  "randomDeploymentZones": {
     "topMainDeploymentZone": {
       "minX": 5,
       "maxX": 5,
@@ -1784,5 +1784,6 @@
       "name": "平原",
       "description": "光滑的山丘被河流穿过，点缀着各种森林和由长长的道路连接的城镇。"
     }
-  }
+  },
+  "allowDynamicArmy": true
 }

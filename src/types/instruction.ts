@@ -2,7 +2,7 @@ import { Point2 } from "@lob-sdk/vector";
 import {
   TerrainType,
   GameMap,
-  ProceduralScenario,
+  Scenario,
   DynamicBattleType,
   ObjectiveDto,
   ObjectiveType,
@@ -14,10 +14,10 @@ import { GameEra } from "@lob-sdk/game-data-manager";
  * Properties for generating a random map procedurally.
  */
 export interface GenerateRandomMapProps {
-  /** The procedural scenario containing generation instructions. */
-  scenario: ProceduralScenario;
-  /** The dynamic battle type configuration. */
-  dynamicBattleType: DynamicBattleType;
+  /** The scenario describing map generation (and optional baked map). */
+  scenario: Scenario;
+  /** The dynamic battle type configuration. `null` for fixed-roster scenarios. */
+  dynamicBattleType: DynamicBattleType | null;
   /** Maximum number of players for the map. */
   maxPlayers: number;
   /** Optional seed for random number generation. If not provided, a random seed will be used. */
@@ -38,7 +38,12 @@ export interface GenerateRandomMapProps {
 export interface GenerateRandomMapResult {
   /** The generated game map. */
   map: GameMap;
-  /** Objectives placed on the generated map. */
+  /**
+   * All objectives on the generated map. Includes scenario.objectives
+   * (pre-placed) followed by objectives produced by Objective /
+   * ObjectiveLayer instructions. Callers should not re-merge
+   * scenario.objectives.
+   */
   objectives: ObjectiveDto<false>[];
 }
 
@@ -368,6 +373,12 @@ export interface InstructionObjective extends BaseInstruction {
   position: PositionData;
   /** Player number that owns this objective initially. */
   player: number;
+  /** Optional team that owns this objective. */
+  team?: number;
+  /** Optional objective type (Small or Big). Defaults to Small. */
+  objectiveType?: ObjectiveType;
+  /** Optional name used to reference this objective from tutorials/triggers. */
+  name?: string;
 }
 
 /**

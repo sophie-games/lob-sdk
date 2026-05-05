@@ -3,6 +3,9 @@
   "home": "Strona Główna",
   "language": "Język",
   "tutorial": "Samouczek",
+  "tutorialRequired": "Ukończ samouczek przed grą online",
+  "tutorialRequiredDescription": "Musisz ukończyć samouczek, zanim będziesz mógł stanąć w kolejce do meczów online.",
+  "goToTutorial": "Przejdź do samouczka",
   "tutorials": "Samouczki",
   "play": "Graj",
   "ranking": "Ranking",
@@ -170,6 +173,10 @@
   "offerDraw": "Zaproponuj remis",
   "replayBattle": "Odtwórz bitwę",
   "downloadReplay": "Pobierz powtórkę",
+  "stepByTurn": "Tura po turze (automatyczna pauza między turami)",
+  "pause": "Pauza",
+  "stop": "Stop",
+  "restartReplay": "Uruchom powtórkę ponownie",
   "replayGame": "Odtwórz grę",
   "importReplay": "Importuj powtórkę",
   "result": "Wynik",
@@ -697,6 +704,16 @@
   "preset": "Preset",
   "hybrid": "Hybrydowy",
   "random": "Losowy",
+  "scenarioFeatures": "Cechy",
+  "scenarioFeature": {
+    "fixedMap": "Stała mapa",
+    "proceduralMap": "Mapa generowana proceduralnie",
+    "fixedArmy": "Stała armia",
+    "dynamicArmy": "Dynamiczna armia",
+    "fixedPlayers": "Stali gracze",
+    "objectives": "Cele",
+    "scriptedEvents": "Zdarzenia skryptowe"
+  },
   "projectileWidth": "Szerokość pocisku",
   "allyCollisionLevel": "Poziom sojuszniczych kolizji",
   "enemyCollisionLevel": "Poziom wrogich kolizji",
@@ -803,5 +820,19 @@
   "goHome": "Strona główna",
   "sendFailed": "Nie udało się wysłać wiadomości",
   "chatUnreadCount": "{{count}} nieprzeczytanych",
-  "user": "Użytkownik"
+  "user": "Użytkownik",
+  "profileChart": {
+    "rankedWinrate90d": "Rankingowe (90d)",
+    "arenaWinrate": "Arena",
+    "wins": "Wygrane",
+    "losses": "Porażki",
+    "totalGames_one": "1 gra",
+    "totalGames_few": "{{count}} gry",
+    "totalGames_many": "{{count}} gier",
+    "totalGames_other": "{{count}} gry",
+    "totalArenas_one": "1 arena",
+    "totalArenas_few": "{{count}} areny",
+    "totalArenas_many": "{{count}} aren",
+    "totalArenas_other": "{{count}} areny"
+  }
 }

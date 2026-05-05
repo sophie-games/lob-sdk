@@ -3,6 +3,9 @@
   "home": "Головна",
   "language": "Мова",
   "tutorial": "Навчання",
+  "tutorialRequired": "Пройдіть навчання перед грою онлайн",
+  "tutorialRequiredDescription": "Вам потрібно завершити навчання, перш ніж стати в чергу на онлайн-матчі.",
+  "goToTutorial": "Перейти до навчання",
   "tutorials": "Навчальні посібники",
   "play": "Грати",
   "ranking": "Рейтинг",
@@ -167,6 +170,10 @@
   "offerDraw": "Запропонувати нічию",
   "replayBattle": "Відтворити битву",
   "downloadReplay": "Завантажити повтор",
+  "stepByTurn": "Покроково (автопауза між ходами)",
+  "pause": "Пауза",
+  "stop": "Зупинити",
+  "restartReplay": "Перезапустити повтор",
   "replayGame": "Повторити гру",
   "importReplay": "Імпортувати повтор",
   "result": "Результати",
@@ -554,6 +561,16 @@
   "preset": "Попередньо встановлений",
   "hybrid": "Гібридний",
   "random": "Випадковий",
+  "scenarioFeatures": "Особливості",
+  "scenarioFeature": {
+    "fixedMap": "Фіксована карта",
+    "proceduralMap": "Процедурно згенерована карта",
+    "fixedArmy": "Фіксована армія",
+    "dynamicArmy": "Динамічна армія",
+    "fixedPlayers": "Фіксовані гравці",
+    "objectives": "Цілі",
+    "scriptedEvents": "Скриптові події"
+  },
   "academy": "Академія",
   "encyclopedia": "Енциклопедія",
   "tutorialTips": "Поради Навчання",
@@ -676,5 +693,19 @@
   "startGameNow": "Почати гру зараз?",
   "startGameNowTooltip": "Підрозділи, не призначені жодному гравцеві, будуть рівномірно розподілені між підключеними гравцями тієї ж команди, що й ці підрозділи.",
   "user": "Користувач",
-  "meleeStaminaCost": "Вартість витривалості рукопашного бою"
+  "meleeStaminaCost": "Вартість витривалості рукопашного бою",
+  "profileChart": {
+    "rankedWinrate90d": "Рейтинг (90д)",
+    "arenaWinrate": "Арена",
+    "wins": "Перемоги",
+    "losses": "Поразки",
+    "totalGames_one": "1 гра",
+    "totalGames_few": "{{count}} гри",
+    "totalGames_many": "{{count}} ігор",
+    "totalGames_other": "{{count}} гри",
+    "totalArenas_one": "1 арена",
+    "totalArenas_few": "{{count}} арени",
+    "totalArenas_many": "{{count}} арен",
+    "totalArenas_other": "{{count}} арени"
+  }
 }

@@ -3,6 +3,9 @@
   "home": "Главная страница",
   "language": "Язык",
   "tutorial": "Руководство",
+  "tutorialRequired": "Пройдите обучение перед игрой онлайн",
+  "tutorialRequiredDescription": "Вам нужно завершить обучение, прежде чем встать в очередь на онлайн-матчи.",
+  "goToTutorial": "Перейти к обучению",
   "tutorials": "Обучение",
   "play": "В бой!",
   "ranking": "Лучшие игроки",
@@ -179,6 +182,10 @@
   "offerDraw": "Предложить ничью",
   "replayBattle": "Воспроизвести ход битвы",
   "downloadReplay": "Скачать повтор",
+  "stepByTurn": "Пошагово (автопауза между ходами)",
+  "pause": "Пауза",
+  "stop": "Стоп",
+  "restartReplay": "Перезапустить повтор",
   "replayGame": "Повторить игру",
   "importReplay": "Импорт повтора",
   "result": "Результат",
@@ -731,6 +738,16 @@
   "preset": "Фиксированный сценарий",
   "hybrid": "Гибридная карта",
   "random": "Случайная карта",
+  "scenarioFeatures": "Особенности",
+  "scenarioFeature": {
+    "fixedMap": "Фиксированная карта",
+    "proceduralMap": "Процедурно сгенерированная карта",
+    "fixedArmy": "Фиксированная армия",
+    "dynamicArmy": "Динамическая армия",
+    "fixedPlayers": "Фиксированные игроки",
+    "objectives": "Цели",
+    "scriptedEvents": "Скриптовые события"
+  },
   "projectileWidth": "Ширина области огня",
   "allyCollisionLevel": "Уровень столкновения с союзниками",
   "enemyCollisionLevel": "Уровень столкновения с врагом",
@@ -895,5 +912,19 @@
   "switchToEra": "Переключиться на {{era}}",
   "goHome": "На главную",
   "notAvailableForAllUnits": "Доступно не для всех отрядов!",
-  "unitsHaveDifferentFormations": "Выбранные отряды имеют разные построения"
+  "unitsHaveDifferentFormations": "Выбранные отряды имеют разные построения",
+  "profileChart": {
+    "rankedWinrate90d": "Рейтинг (90д)",
+    "arenaWinrate": "Арена",
+    "wins": "Победы",
+    "losses": "Поражения",
+    "totalGames_one": "1 игра",
+    "totalGames_few": "{{count}} игры",
+    "totalGames_many": "{{count}} игр",
+    "totalGames_other": "{{count}} игры",
+    "totalArenas_one": "1 арена",
+    "totalArenas_few": "{{count}} арены",
+    "totalArenas_many": "{{count}} арен",
+    "totalArenas_other": "{{count}} арены"
+  }
 }

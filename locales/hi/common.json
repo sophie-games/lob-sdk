@@ -3,6 +3,9 @@
   "home": "होम",
   "language": "भाषा",
   "tutorial": "ट्यूटोरियल",
+  "tutorialRequired": "ऑनलाइन खेलने से पहले ट्यूटोरियल पूरा करें",
+  "tutorialRequiredDescription": "ऑनलाइन मैचों के लिए कतार में लगने से पहले आपको ट्यूटोरियल पूरा करना होगा।",
+  "goToTutorial": "ट्यूटोरियल पर जाएं",
   "tutorials": "ट्यूटोरियल",
   "play": "खेलें",
   "ranking": "रैंकिंग",
@@ -179,6 +182,10 @@
   "offerDraw": "ड्रॉ की पेशकश करें",
   "replayBattle": "लड़ाई दोहराएं",
   "downloadReplay": "रिप्ले डाउनलोड करें",
+  "stepByTurn": "बारी-दर-बारी (बारियों के बीच ऑटो-पॉज़)",
+  "pause": "रोकें",
+  "stop": "बंद करें",
+  "restartReplay": "रिप्ले पुनः प्रारंभ करें",
   "replayGame": "गेम दोहराएं",
   "importReplay": "रिप्ले आयात करें",
   "result": "परिणाम",
@@ -727,6 +734,16 @@
   "preset": "पूर्वनिर्धारित",
   "hybrid": "हाइब्रिड",
   "random": "यादृच्छिक",
+  "scenarioFeatures": "विशेषताएँ",
+  "scenarioFeature": {
+    "fixedMap": "स्थिर मानचित्र",
+    "proceduralMap": "प्रक्रियात्मक रूप से उत्पन्न मानचित्र",
+    "fixedArmy": "स्थिर सेना",
+    "dynamicArmy": "गतिशील सेना",
+    "fixedPlayers": "स्थिर खिलाड़ी",
+    "objectives": "लक्ष्य",
+    "scriptedEvents": "स्क्रिप्टेड घटनाएँ"
+  },
   "projectileWidth": "प्रोजेक्टाइल चौड़ाई",
   "allyCollisionLevel": "सहयोगी टकराव स्तर",
   "enemyCollisionLevel": "दुश्मन टकराव स्तर",
@@ -878,5 +895,15 @@
   "privacy": "गोपनीयता",
   "showCountry": "देश दिखाएं",
   "switchToEra": "{{era}} पर स्विच करें",
-  "goHome": "मुख्य पृष्ठ पर जाएं"
+  "goHome": "मुख्य पृष्ठ पर जाएं",
+  "profileChart": {
+    "rankedWinrate90d": "रैंक्ड (90 दिन)",
+    "arenaWinrate": "अरेना",
+    "wins": "जीत",
+    "losses": "हार",
+    "totalGames_one": "1 गेम",
+    "totalGames_other": "{{count}} गेम",
+    "totalArenas_one": "1 अरेना",
+    "totalArenas_other": "{{count}} अरेना"
+  }
 }

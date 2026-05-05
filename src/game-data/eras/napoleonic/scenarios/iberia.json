@@ -1,10 +1,10 @@
 {
+  "version": 1,
   "name": "name",
   "description": "description",
-  "type": "random",
   "baseTerrain": 0,
   "ranked": true,
-  "defaultDeploymentZones": {
+  "randomDeploymentZones": {
     "topMainDeploymentZone": {
       "minX": 5,
       "maxX": 5,
@@ -1384,5 +1384,6 @@
       "name": "伊比利亚",
       "description": "跨越伊比利亚半岛的山脊战斗"
     }
-  }
+  },
+  "allowDynamicArmy": true
 }

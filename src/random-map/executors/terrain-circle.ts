@@ -1,5 +1,5 @@
 import {
-  ProceduralScenario,
+  Scenario,
   InstructionTerrainCircle,
   TerrainType,
 } from "@lob-sdk/types";
@@ -14,7 +14,7 @@ export class TerrainCircleExecutor {
 
   constructor(
     private instruction: InstructionTerrainCircle,
-    private scenario: ProceduralScenario,
+    private scenario: Scenario,
     private seed: number,
     private index: number,
     private terrains: TerrainType[][],

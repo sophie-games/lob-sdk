@@ -1,10 +1,10 @@
 {
+  "version": 1,
   "name": "name",
   "description": "description",
-  "type": "preset",
   "players": [
-    { "player": 1, "team": 1, "ammoReserve": 500, "baseAmmoReserve": 500 },
-    { "player": 2, "team": 2, "ammoReserve": 500, "baseAmmoReserve": 500 }
+    { "player": 1, "team": 1, "ammoReserve": 50000, "baseAmmoReserve": 50000 },
+    { "player": 2, "team": 2, "ammoReserve": 50000, "baseAmmoReserve": 50000 }
   ],
   "map": {
     "width": 2160,
@@ -4146,5 +4146,6 @@
       "name": "Μάχη της Γαλλίας",
       "description": "Η Μάχη της Γαλλίας (Μάιος–Ιούνιος 1940) ήταν μια γρήγορη γερμανική νίκη χρησιμοποιώντας τακτικές Blitzkrieg. Η Γερμανία παρακάμψε τη Γραμμή Μαζινό, νίκησε τις συμμαχικές δυνάμεις, εκκένωσε τη Βρετανία στο Δουνκέρκη και ανάγκασε τη Γαλλία να παραδοθεί σε έξι εβδομάδες."
     }
-  }
+  },
+  "allowDynamicArmy": false
 }

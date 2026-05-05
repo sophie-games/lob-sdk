@@ -1,9 +1,9 @@
 {
+  "version": 1,
   "name": "name",
   "description": "description",
-  "type": "random",
   "ranked": true,
-  "defaultDeploymentZones": {
+  "randomDeploymentZones": {
     "topMainDeploymentZone": {
       "minX": 5,
       "maxX": 5,
@@ -976,5 +976,6 @@
       "name": "山丘",
       "description": "在随机生成的地图上进行战术战斗的平坦草原。 山丘可能包括森林补丁和分散的建筑物，为单位定位和游戏玩法增加了战略深度。"
     }
-  }
+  },
+  "allowDynamicArmy": true
 }

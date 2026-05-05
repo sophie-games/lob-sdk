@@ -3,6 +3,9 @@
   "home": "홈",
   "language": "언어",
   "tutorial": "배우기",
+  "tutorialRequired": "온라인 플레이 전에 튜토리얼을 완료하세요",
+  "tutorialRequiredDescription": "온라인 매치에 대기하려면 먼저 튜토리얼을 완료해야 합니다.",
+  "goToTutorial": "튜토리얼로 이동",
   "tutorials": "튜토리얼",
   "play": "시작",
   "ranking": "순위",
@@ -178,6 +181,10 @@
   "resume": "계속",
   "offerDraw": "무승부 제안",
   "replayBattle": "전투 복기",
+  "stepByTurn": "턴별 진행 (턴 사이 자동 일시정지)",
+  "pause": "일시정지",
+  "stop": "정지",
+  "restartReplay": "리플레이 재시작",
   "result": "결과",
   "exit": "나가기",
   "attackColor": "공격 색상",
@@ -722,6 +729,16 @@
   "preset": "표준",
   "hybrid": "혼합",
   "random": "무작위",
+  "scenarioFeatures": "특징",
+  "scenarioFeature": {
+    "fixedMap": "고정 맵",
+    "proceduralMap": "절차적으로 생성된 맵",
+    "fixedArmy": "고정 군대",
+    "dynamicArmy": "동적 군대",
+    "fixedPlayers": "고정 플레이어",
+    "objectives": "목표",
+    "scriptedEvents": "스크립트 이벤트"
+  },
   "projectileWidth": "발사체 너비",
   "allyCollisionLevel": "동맹 충돌 수준",
   "enemyCollisionLevel": "적 충돌 수준",
@@ -873,5 +890,13 @@
   "privacy": "개인정보",
   "showCountry": "국가 표시",
   "switchToEra": "{{era}}(으)로 전환",
-  "goHome": "홈페이지로 이동"
+  "goHome": "홈페이지로 이동",
+  "profileChart": {
+    "rankedWinrate90d": "랭크 (90일)",
+    "arenaWinrate": "아레나",
+    "wins": "승리",
+    "losses": "패배",
+    "totalGames_other": "{{count}}게임",
+    "totalArenas_other": "{{count}}아레나"
+  }
 }

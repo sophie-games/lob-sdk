@@ -1,6 +1,6 @@
 import {
   InstructionTerrainNoise,
-  ProceduralScenario,
+  Scenario,
   TerrainType,
 } from "@lob-sdk/types";
 import { deriveSeed, randomSeeded } from "@lob-sdk/seed";
@@ -12,7 +12,7 @@ export class TerrainNoiseExecutor {
 
   constructor(
     private instruction: InstructionTerrainNoise,
-    private scenario: ProceduralScenario,
+    private scenario: Scenario,
     private seed: number,
     private index: number,
     private terrains: TerrainType[][],

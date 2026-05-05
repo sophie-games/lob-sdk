@@ -3,6 +3,9 @@
   "home": "Inicio",
   "language": "Idioma",
   "tutorial": "Tutorial",
+  "tutorialRequired": "Completa el tutorial antes de jugar en línea",
+  "tutorialRequiredDescription": "Debes terminar el tutorial antes de poder ponerte en cola para partidas en línea.",
+  "goToTutorial": "Ir al tutorial",
   "tutorials": "Tutoriales",
   "play": "Jugar",
   "ranking": "Ranking",
@@ -165,6 +168,10 @@
   "offerDraw": "Ofrecer empate",
   "replayBattle": "Repetir batalla",
   "downloadReplay": "Descargar repetición",
+  "stepByTurn": "Paso a paso (pausa automática entre turnos)",
+  "pause": "Pausar",
+  "stop": "Detener",
+  "restartReplay": "Reiniciar repetición",
   "replayGame": "Repetir juego",
   "importReplay": "Importar repetición",
   "result": "Resultado",
@@ -680,6 +687,16 @@
   "preset": "Preestablecido",
   "hybrid": "Híbrido",
   "random": "Aleatorio",
+  "scenarioFeatures": "Características",
+  "scenarioFeature": {
+    "fixedMap": "Mapa fijo",
+    "proceduralMap": "Mapa generado proceduralmente",
+    "fixedArmy": "Ejército fijo",
+    "dynamicArmy": "Ejército dinámico",
+    "fixedPlayers": "Jugadores fijos",
+    "objectives": "Objetivos",
+    "scriptedEvents": "Eventos con guion"
+  },
   "join": "Unirse",
   "spectate": "Espectar",
   "gameIsNotFull": "El juego aún no está lleno",
@@ -771,5 +788,15 @@
   "showCountry": "Mostrar país",
   "sendFailed": "Error al enviar el mensaje",
   "chatUnreadCount": "{{count}} sin leer",
-  "user": "Usuario"
+  "user": "Usuario",
+  "profileChart": {
+    "rankedWinrate90d": "Clasificatoria (90d)",
+    "arenaWinrate": "Arena",
+    "wins": "Victorias",
+    "losses": "Derrotas",
+    "totalGames_one": "1 partida",
+    "totalGames_other": "{{count}} partidas",
+    "totalArenas_one": "1 arena",
+    "totalArenas_other": "{{count}} arenas"
+  }
 }

@@ -1,7 +1,7 @@
 {
+  "version": 1,
   "name": "name",
   "description": "description",
-  "type": "random",
   "ranked": false,
   "baseTerrain": 0,
   "instructions": [
@@ -568,5 +568,6 @@
       "name": "低的国家",
       "description": "通过低地国家的运河战斗。"
     }
-  }
+  },
+  "allowDynamicArmy": true
 }

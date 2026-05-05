@@ -3,6 +3,9 @@
   "home": "Início",
   "language": "Idioma",
   "tutorial": "Tutorial",
+  "tutorialRequired": "Complete o tutorial antes de jogar online",
+  "tutorialRequiredDescription": "Você precisa terminar o tutorial antes de entrar na fila para partidas online.",
+  "goToTutorial": "Ir para o tutorial",
   "tutorials": "Tutoriais",
   "play": "Jogar",
   "ranking": "Classificação",
@@ -167,6 +170,10 @@
   "offerDraw": "Oferecer empate",
   "replayBattle": "Repetir batalha",
   "downloadReplay": "Baixar replay",
+  "stepByTurn": "Passo a passo (pausa automática entre turnos)",
+  "pause": "Pausar",
+  "stop": "Parar",
+  "restartReplay": "Reiniciar replay",
   "replayGame": "Repetir jogo",
   "importReplay": "Importar replay",
   "result": "Resultado",
@@ -537,6 +544,16 @@
   "preset": "Predefinido",
   "hybrid": "Híbrido",
   "random": "Aleatório",
+  "scenarioFeatures": "Recursos",
+  "scenarioFeature": {
+    "fixedMap": "Mapa fixo",
+    "proceduralMap": "Mapa gerado proceduralmente",
+    "fixedArmy": "Exército fixo",
+    "dynamicArmy": "Exército dinâmico",
+    "fixedPlayers": "Jogadores fixos",
+    "objectives": "Objetivos",
+    "scriptedEvents": "Eventos roteirizados"
+  },
   "academy": "Academia",
   "encyclopedia": "Enciclopédia",
   "tutorialTips": "Dicas do Tutorial",
@@ -665,5 +682,15 @@
   "startGameNow": "Iniciar a partida agora?",
   "startGameNowTooltip": "Unidades não atribuídas a nenhum jogador serão divididas igualmente entre os jogadores conectados no mesmo time dessas unidades.",
   "user": "Usuário",
-  "meleeStaminaCost": "Custo de resistência corpo a corpo"
+  "meleeStaminaCost": "Custo de resistência corpo a corpo",
+  "profileChart": {
+    "rankedWinrate90d": "Ranqueada (90d)",
+    "arenaWinrate": "Arena",
+    "wins": "Vitórias",
+    "losses": "Derrotas",
+    "totalGames_one": "1 partida",
+    "totalGames_other": "{{count}} partidas",
+    "totalArenas_one": "1 arena",
+    "totalArenas_other": "{{count}} arenas"
+  }
 }

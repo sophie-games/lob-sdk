@@ -3,6 +3,9 @@
   "home": "Trang chủ",
   "language": "Ngôn ngữ",
   "tutorial": "Hướng dẫn",
+  "tutorialRequired": "Hoàn thành hướng dẫn trước khi chơi trực tuyến",
+  "tutorialRequiredDescription": "Bạn cần hoàn thành hướng dẫn trước khi có thể xếp hàng cho các trận đấu trực tuyến.",
+  "goToTutorial": "Đến hướng dẫn",
   "tutorials": "Hướng dẫn",
   "play": "Chơi",
   "ranking": "Xếp hạng",
@@ -179,6 +182,10 @@
   "offerDraw": "Đề nghị hòa",
   "replayBattle": "Xem lại trận chiến",
   "downloadReplay": "Tải xuống bản ghi",
+  "stepByTurn": "Theo lượt (tự động tạm dừng giữa các lượt)",
+  "pause": "Tạm dừng",
+  "stop": "Dừng",
+  "restartReplay": "Khởi động lại bản ghi",
   "replayGame": "Xem lại trò chơi",
   "importReplay": "Nhập bản ghi",
   "result": "Kết quả",
@@ -726,6 +733,16 @@
   "preset": "Định sẵn",
   "hybrid": "Lai",
   "random": "Ngẫu nhiên",
+  "scenarioFeatures": "Tính năng",
+  "scenarioFeature": {
+    "fixedMap": "Bản đồ cố định",
+    "proceduralMap": "Bản đồ tạo theo thủ tục",
+    "fixedArmy": "Quân đội cố định",
+    "dynamicArmy": "Quân đội linh hoạt",
+    "fixedPlayers": "Người chơi cố định",
+    "objectives": "Mục tiêu",
+    "scriptedEvents": "Sự kiện theo kịch bản"
+  },
   "projectileWidth": "Chiều rộng đạn",
   "allyCollisionLevel": "Mức va chạm đồng minh",
   "enemyCollisionLevel": "Mức va chạm kẻ thù",
@@ -877,5 +894,13 @@
   "privacy": "Quyền riêng tư",
   "showCountry": "Hiển thị quốc gia",
   "switchToEra": "Chuyển sang {{era}}",
-  "goHome": "Về trang chủ"
+  "goHome": "Về trang chủ",
+  "profileChart": {
+    "rankedWinrate90d": "Xếp hạng (90n)",
+    "arenaWinrate": "Đấu trường",
+    "wins": "Thắng",
+    "losses": "Thua",
+    "totalGames_other": "{{count}} trận",
+    "totalArenas_other": "{{count}} đấu trường"
+  }
 }

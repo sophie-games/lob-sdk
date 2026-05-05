@@ -103,21 +103,23 @@ export interface RotateAction extends BaseAction {
 /**
  * Result of an attack action for a single unit.
  */
-export interface AttackActionResult {
+export interface MeleeAttackActionResult {
   /** Entity ID of the unit involved in the attack. */
   unitId: EntityId;
   /** Whether this was a charge attack. */
   charge?: boolean;
+  /** Damage dealt by this unit. */
+  d?: number;
 }
 
 /**
  * Action representing a melee attack between two units.
  */
-export interface AttackAction extends BaseAction {
+export interface MeleeAttackAction extends BaseAction {
   /** Action type is Attack. */
   type: ActionType.Attack;
   /** Attack results for both units involved [unit1, unit2]. */
-  result: [AttackActionResult, AttackActionResult];
+  result: [MeleeAttackActionResult, MeleeAttackActionResult];
 }
 
 /**
@@ -250,7 +252,7 @@ export interface FormationChangeAction extends BaseAction {
 export type AnyAction =
   | MoveAction
   | RotateAction
-  | AttackAction
+  | MeleeAttackAction
   | RangedAttackAction
   | UnitDestroyedAction
   | UpdateUnitStateAction

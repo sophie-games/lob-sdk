@@ -3,7 +3,6 @@ import {
   UnitType,
   UnitCategoryId,
   RangeUnitTemplate,
-  GameScenario,
   ScenarioName,
   BattleTypeTemplate,
   DynamicBattleType,
@@ -13,6 +12,8 @@ import {
   TerrainConfig,
   Size,
 } from "@lob-sdk/types";
+import { RawScenarioInput, normalizeScenario } from "@lob-sdk/scenario";
+import { Scenario } from "@lob-sdk/types";
 import {
   GameConstants,
   GameEra,
@@ -23,6 +24,7 @@ import {
   UnitSkin,
   ObjectiveSkin,
   Avatar,
+  Achievement,
   MapSizeTemplate,
   MatchmakingPresetsData,
 } from "./types";
@@ -33,6 +35,7 @@ import napoleonicOrders from "@lob-sdk/game-data/eras/napoleonic/orders.json";
 import napoleonicUnitTemplates from "@lob-sdk/game-data/eras/napoleonic/unit-templates.json";
 import napoleonicGameConstants from "@lob-sdk/game-data/eras/napoleonic/game-constants.json";
 import napoleonicAvatars from "@lob-sdk/game-data/eras/napoleonic/avatars.json";
+import napoleonicAchievements from "@lob-sdk/game-data/eras/napoleonic/achievements.json";
 import napoleonicDamageTypes from "@lob-sdk/game-data/eras/napoleonic/damage-types.json";
 import napoleonicTerrains from "@lob-sdk/game-data/eras/napoleonic/terrains.json";
 import napoleonicTerrainCategories from "@lob-sdk/game-data/eras/napoleonic/terrain-categories.json";
@@ -75,18 +78,14 @@ import napoleonicAndesAndValley from "@lob-sdk/game-data/eras/napoleonic/scenari
 import napoleonicLowCountries from "@lob-sdk/game-data/eras/napoleonic/scenarios/low-countries.json";
 import napoleonicHedgerows from "@lob-sdk/game-data/eras/napoleonic/scenarios/hedgerows.json";
 import napoleonicLeipzig from "@lob-sdk/game-data/eras/napoleonic/scenarios/leipzig.json";
-import napoleonicTutorialBasicControls from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-basic-controls.json";
-import napoleonicTutorialControlGroups from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-control-groups.json";
-import napoleonicTutorialInfantryFormations from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-infantry-formations.json";
-import napoleonicTutorialUnitManagement from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-unit-management.json";
-import napoleonicTutorialCharges from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-charges.json";
-import napoleonicTutorialHoldFire from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial-hold-fire.json";
+import napoleonicTutorial from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial.json";
 
 import ww2BattleTypes from "@lob-sdk/game-data/eras/ww2/battle-types.json";
 import ww2Orders from "@lob-sdk/game-data/eras/ww2/orders.json";
 import ww2UnitTemplates from "@lob-sdk/game-data/eras/ww2/unit-templates.json";
 import ww2GameConstants from "@lob-sdk/game-data/eras/ww2/game-constants.json";
 import ww2Avatars from "@lob-sdk/game-data/eras/ww2/avatars.json";
+import ww2Achievements from "@lob-sdk/game-data/eras/ww2/achievements.json";
 import ww2DamageTypes from "@lob-sdk/game-data/eras/ww2/damage-types.json";
 import ww2Terrains from "@lob-sdk/game-data/eras/ww2/terrains.json";
 import ww2TerrainCategories from "@lob-sdk/game-data/eras/ww2/terrain-categories.json";
@@ -146,6 +145,10 @@ export class GameDataManager {
   private avatars: Avatar[] = [];
   private avatarMap: Map<number, Avatar> = new Map();
 
+  // Achievements
+  private achievements: Achievement[] = [];
+  private achievementMap: Map<number, Achievement> = new Map();
+
   // Damage types
   private damageTypes: DamageTypeTemplate[] = [];
   private _damageTypeMap = new Map<number, DamageTypeTemplate>();
@@ -177,8 +180,12 @@ export class GameDataManager {
   // Formations
   private _formationManager = new FormationManager();
 
-  // Scenarios
-  private scenarios: Record<ScenarioName, GameScenario> = {};
+  // Scenarios — raw imports (may be legacy or current schema). Reads go
+  // through {@link getScenario}, which normalizes to the current shape and
+  // caches the result in {@link normalizedScenarios}. Editor flows that still
+  // depend on the legacy `type` discriminator use {@link getRawScenario}.
+  private scenarios: Record<ScenarioName, RawScenarioInput> = {};
+  private normalizedScenarios: Map<ScenarioName, Scenario> = new Map();
 
   // Map sizes
   private mapSizes: Record<Size, MapSizeTemplate> | null = null;
@@ -256,6 +263,7 @@ export class GameDataManager {
         );
         this.gameConstants = napoleonicGameConstants as GameConstants;
         this.avatars = napoleonicAvatars as Avatar[];
+        this.achievements = napoleonicAchievements as Achievement[];
         this.damageTypes = napoleonicDamageTypes as DamageTypeTemplate[];
         this.terrains = napoleonicTerrains as GameDataManager["terrains"];
         this.terrainCategories = napoleonicTerrainCategories as Record<
@@ -274,46 +282,37 @@ export class GameDataManager {
         this.matchmakingPresets =
           napoleonicMatchmakingPresets as MatchmakingPresetsData;
         this.scenarios = {
-          plains: napoleonicPlains as GameScenario,
-          hills: napoleonicHills as GameScenario,
-          iberia: napoleonicIberia as GameScenario,
-          tundra: napoleonicTundra as GameScenario,
-          city: napoleonicCity as GameScenario,
-          hedgerows: napoleonicHedgerows as GameScenario,
-          "low-countries": napoleonicLowCountries as GameScenario,
-          lake: napoleonicLake as GameScenario,
-          "black-forest": napoleonicBlackForest as GameScenario,
-          "silva-sanctorum": napoleonicSilvaSanctorum as GameScenario,
-          "andes-and-valley": napoleonicAndesAndValley as GameScenario,
-          "lines-of-legends": napoleonicLinesOfLegends as GameScenario,
-          "river-valley": napoleonicRiverValley as GameScenario,
-          "saand-lakes": napoleonicSaandLakes as GameScenario,
-          "faucon-river-valley": napoleonicFauconRiverValley as GameScenario,
-          "amnis-nucum": napoleonicAmnisNucum as GameScenario,
-          "road-to-amnis-nucum": napoleonicRoadToAmnisNucum as GameScenario,
-          "aestate-villas": napoleonicAestateVillas as GameScenario,
-          "citta-dei-falchi": napoleonicCittaDeiFalchi as GameScenario,
-          "rural-alpine": napoleonicRuralAlpine as GameScenario,
-          "mediterranea-nucum": napoleonicMediterraneaNucum as GameScenario,
-          falkenhugel: napoleonicFalkenhugel as GameScenario,
-          "grobes-schlachtfeld": napoleonicGrobesSchlachtfeld as GameScenario,
-          antioch: napoleonicAntioch as GameScenario,
-          waterloo: napoleonicWaterloo as GameScenario,
-          leipzig: napoleonicLeipzig as GameScenario,
-          borodino: napoleonicBorodino as GameScenario,
-          "combat-at-mollwitz": napoleonicCombatAtMollwitz as GameScenario,
-          "clash-at-chelmnitz": napoleonicClashAtChelmnitz as GameScenario,
-          dresden: napoleonicDresden as GameScenario,
-          "tutorial-basic-controls":
-            napoleonicTutorialBasicControls as GameScenario,
-          "tutorial-control-groups":
-            napoleonicTutorialControlGroups as GameScenario,
-          "tutorial-infantry-formations":
-            napoleonicTutorialInfantryFormations as GameScenario,
-          "tutorial-unit-management":
-            napoleonicTutorialUnitManagement as GameScenario,
-          "tutorial-charges": napoleonicTutorialCharges as GameScenario,
-          "tutorial-hold-fire": napoleonicTutorialHoldFire as GameScenario,
+          plains: napoleonicPlains as RawScenarioInput,
+          hills: napoleonicHills as RawScenarioInput,
+          iberia: napoleonicIberia as RawScenarioInput,
+          tundra: napoleonicTundra as RawScenarioInput,
+          city: napoleonicCity as RawScenarioInput,
+          hedgerows: napoleonicHedgerows as RawScenarioInput,
+          "low-countries": napoleonicLowCountries as RawScenarioInput,
+          lake: napoleonicLake as RawScenarioInput,
+          "black-forest": napoleonicBlackForest as RawScenarioInput,
+          "silva-sanctorum": napoleonicSilvaSanctorum as RawScenarioInput,
+          "andes-and-valley": napoleonicAndesAndValley as RawScenarioInput,
+          "lines-of-legends": napoleonicLinesOfLegends as RawScenarioInput,
+          "river-valley": napoleonicRiverValley as RawScenarioInput,
+          "saand-lakes": napoleonicSaandLakes as RawScenarioInput,
+          "faucon-river-valley": napoleonicFauconRiverValley as RawScenarioInput,
+          "amnis-nucum": napoleonicAmnisNucum as RawScenarioInput,
+          "road-to-amnis-nucum": napoleonicRoadToAmnisNucum as RawScenarioInput,
+          "aestate-villas": napoleonicAestateVillas as RawScenarioInput,
+          "citta-dei-falchi": napoleonicCittaDeiFalchi as RawScenarioInput,
+          "rural-alpine": napoleonicRuralAlpine as RawScenarioInput,
+          "mediterranea-nucum": napoleonicMediterraneaNucum as RawScenarioInput,
+          falkenhugel: napoleonicFalkenhugel as RawScenarioInput,
+          "grobes-schlachtfeld": napoleonicGrobesSchlachtfeld as RawScenarioInput,
+          antioch: napoleonicAntioch as RawScenarioInput,
+          waterloo: napoleonicWaterloo as RawScenarioInput,
+          leipzig: napoleonicLeipzig as RawScenarioInput,
+          borodino: napoleonicBorodino as RawScenarioInput,
+          "combat-at-mollwitz": napoleonicCombatAtMollwitz as RawScenarioInput,
+          "clash-at-chelmnitz": napoleonicClashAtChelmnitz as RawScenarioInput,
+          dresden: napoleonicDresden as RawScenarioInput,
+          tutorial: napoleonicTutorial as RawScenarioInput,
         };
 
         break;
@@ -328,6 +327,7 @@ export class GameDataManager {
         );
         this.gameConstants = ww2GameConstants as GameConstants;
         this.avatars = ww2Avatars as Avatar[];
+        this.achievements = ww2Achievements as Achievement[];
         this.damageTypes = ww2DamageTypes as DamageTypeTemplate[];
         this.terrains = ww2Terrains as GameDataManager["terrains"];
         this.terrainCategories =
@@ -341,9 +341,9 @@ export class GameDataManager {
         this.matchmakingPresets =
           ww2MatchmakingPresets as MatchmakingPresetsData;
         this.scenarios = {
-          fields: ww2Fields as GameScenario,
-          "battle-of-france": ww2France as GameScenario,
-          "battle-of-moscow": ww2BattleOfMoscow as GameScenario,
+          fields: ww2Fields as RawScenarioInput,
+          "battle-of-france": ww2France as RawScenarioInput,
+          "battle-of-moscow": ww2BattleOfMoscow as RawScenarioInput,
         };
 
         break;
@@ -381,6 +381,7 @@ export class GameDataManager {
 
     // Build avatar map for O(1) lookup
     this.avatarMap = new Map(this.avatars.map((a) => [a.id, a]));
+    this.achievementMap = new Map(this.achievements.map((a) => [a.id, a]));
 
     this.objectiveSkins.forEach((objectiveSkin) => {
       this.objectiveSkinMap.set(objectiveSkin.id, objectiveSkin);
@@ -532,6 +533,14 @@ export class GameDataManager {
    */
   public getAvatar(avatarId?: number | null): Avatar | undefined {
     return this.avatarMap.get(avatarId as number);
+  }
+
+  public getAchievements(): Achievement[] {
+    return this.achievements;
+  }
+
+  public getAchievement(achievementId?: number | null): Achievement | undefined {
+    return this.achievementMap.get(achievementId as number);
   }
 
   /**
@@ -731,7 +740,7 @@ export class GameDataManager {
     const formation = template.formations.find(
       (f) => f.id === formationName,
     );
-    
+
     if (formation) {
       return formation.baseSprite;
     }
@@ -758,6 +767,16 @@ export class GameDataManager {
    */
   static getAvailableEras(): GameEra[] {
     return ["napoleonic", "ww2"];
+  }
+
+  /**
+   * Eras whose game rules define a tutorial scenario. Matchmaking and arenas
+   * for these eras are gated on per-era tutorial completion.
+   */
+  static getErasRequiringTutorial(): GameEra[] {
+    return GameDataManager.getAvailableEras().filter(
+      (era) => GameDataManager.get(era).getGameRules().tutorial?.scenario != null,
+    );
   }
 
   // Damage type methods (moved from DamageTypeService)
@@ -809,6 +828,28 @@ export class GameDataManager {
     unitCategory: UnitCategoryId,
   ): Array<OrderType> {
     return Array.from(this._unitCategoryAllowedOrders.get(unitCategory) ?? []);
+  }
+
+  // Order IDs defined in the era's orders.json, in declaration order. Eras
+  // omit orders they don't support so the UI can derive its selectable
+  // list from the data instead of hardcoding per era.
+  public getOrderTypes(): OrderType[] {
+    return this._orders.map((order) => order.id);
+  }
+
+  // Subset of `getOrderTypes()` the player can pick from the order selector.
+  // Excludes orders flagged `userSelectable: false` (system orders like
+  // placeEntity, rotate) so the UI doesn't expose them.
+  public getUserSelectableOrderTypes(): OrderType[] {
+    return this._orders
+      .filter((order) => order.userSelectable !== false)
+      .map((order) => order.id);
+  }
+
+  // Order flagged with `isDefault: true` in the era's orders.json. Returns
+  // null if no order is flagged so callers can fall back as they prefer.
+  public getDefaultOrderType(): OrderType | null {
+    return this._orders.find((order) => order.isDefault)?.id ?? null;
   }
 
   public canUseOrder(
@@ -1097,24 +1138,52 @@ export class GameDataManager {
   }
 
   /**
-   * Get a scenario by name
+   * Get a scenario by name in the current feature-based {@link Scenario}
+   * shape. Legacy imports are normalized on first access and cached. Editor
+   * flows that still need the legacy `type` discriminator use
+   * {@link getRawScenario}.
    */
-  public getScenario<T extends GameScenario>(scenarioName: ScenarioName): T {
+  public getScenario(scenarioName: ScenarioName): Scenario {
+    const cached = this.normalizedScenarios.get(scenarioName);
+    if (cached) return cached;
+
+    const raw = this.scenarios[scenarioName];
+    if (!raw) {
+      throw new Error(`Scenario ${scenarioName} not found for era ${this.era}`);
+    }
+
+    const normalized = normalizeScenario(raw);
+    this.normalizedScenarios.set(scenarioName, normalized);
+    return normalized;
+  }
+
+  /**
+   * Try to get a normalized scenario by name. Returns `null` if missing.
+   */
+  public tryGetScenario(scenarioName: ScenarioName): Scenario | null {
+    if (!this.scenarios[scenarioName]) return null;
+    return this.getScenario(scenarioName);
+  }
+
+  /**
+   * Returns the raw scenario import (legacy or current schema). Use this only
+   * when the caller genuinely needs the pre-normalize shape — e.g. editor
+   * flows that switch on the legacy `type` field, or JSON download/round-trip
+   * paths. Most callers should use {@link getScenario}.
+   */
+  public getRawScenario(scenarioName: ScenarioName): RawScenarioInput {
     const scenario = this.scenarios[scenarioName];
     if (!scenario) {
       throw new Error(`Scenario ${scenarioName} not found for era ${this.era}`);
     }
-    return scenario as T;
+    return scenario;
   }
 
   /**
-   * Try to get a scenario by name
+   * Try to get the raw scenario import. Returns `null` if missing.
    */
-  public tryGetScenario<T extends GameScenario>(
-    scenarioName: ScenarioName,
-  ): T | null {
-    const scenario = this.scenarios[scenarioName];
-    return (scenario ?? null) as T | null;
+  public tryGetRawScenario(scenarioName: ScenarioName): RawScenarioInput | null {
+    return this.scenarios[scenarioName] ?? null;
   }
 
   public getScenarios(): Array<ScenarioName> {

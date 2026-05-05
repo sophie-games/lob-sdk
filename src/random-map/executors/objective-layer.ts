@@ -1,7 +1,7 @@
 import {
   InstructionObjectiveLayer,
   ObjectiveDto,
-  ProceduralScenario,
+  Scenario,
   TerrainType,
 } from "@lob-sdk/types";
 import { deriveSeed, randomSeeded } from "@lob-sdk/seed";
@@ -19,7 +19,7 @@ export class ObjectiveLayerExecutor {
   constructor(
     private instruction: InstructionObjectiveLayer,
     private tileSize: number,
-    private scenario: ProceduralScenario,
+    private scenario: Scenario,
     private seed: number,
     private index: number,
     private terrains: TerrainType[][],

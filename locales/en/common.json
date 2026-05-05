@@ -1,5 +1,6 @@
 {
   "appLoadingMessage": "Welcome to Lines of Battle!",
+  "continue": "Continue",
   "home": "Home",
   "language": "Language",
   "tutorial": "Tutorial",
@@ -83,6 +84,9 @@
   "addMatchmakingConfig": "Add matchmaking configuration",
   "matchmakingModeSwitchWarning": "Fast and Slow configurations cannot be sent together. If you change to {{mode}}, the other configuration(s) will be reset. Do you want to proceed?",
   "matchmakingDescription": "Matchmaking mode lets you quickly join a game with random players using predefined settings.",
+  "tutorialRequired": "Complete the tutorial before playing online",
+  "tutorialRequiredDescription": "You need to finish the tutorial before you can queue for online matches.",
+  "goToTutorial": "Go to tutorial",
   "requiredInMatchmakingQueue": "Always in queue",
   "requiredScenarioBadge": "Required",
   "onlyPartyLeaderCanSearch": "Only the party leader can search for a match.",
@@ -179,6 +183,10 @@
   "offerDraw": "Offer draw",
   "replayBattle": "Replay battle",
   "downloadReplay": "Download Replay",
+  "stepByTurn": "Step by turn (auto-pause between turns)",
+  "pause": "Pause",
+  "stop": "Stop",
+  "restartReplay": "Restart replay",
   "replayGame": "Replay Game",
   "importReplay": "Import Replay",
   "result": "Result",
@@ -733,6 +741,16 @@
   "preset": "Preset",
   "hybrid": "Hybrid",
   "random": "Random",
+  "scenarioFeatures": "Features",
+  "scenarioFeature": {
+    "fixedMap": "Fixed map",
+    "proceduralMap": "Procedurally generated map",
+    "fixedArmy": "Fixed army",
+    "dynamicArmy": "Dynamic army",
+    "fixedPlayers": "Fixed players",
+    "objectives": "Objectives",
+    "scriptedEvents": "Scripted events"
+  },
   "projectileWidth": "Projectile width",
   "allyCollisionLevel": "Ally collision level",
   "enemyCollisionLevel": "Enemy collision level",
@@ -897,9 +915,13 @@
   "notAvailableForAllUnits": "Not available for all units",
   "unitsHaveDifferentFormations": "Selected units have different formations",
   "profileChart": {
-    "rankedWinrate": "Ranked",
+    "rankedWinrate90d": "Ranked (90d)",
     "arenaWinrate": "Arena",
     "wins": "Wins",
-    "losses": "Losses"
+    "losses": "Losses",
+    "totalGames_one": "1 game",
+    "totalGames_other": "{{count}} games",
+    "totalArenas_one": "1 arena",
+    "totalArenas_other": "{{count}} arenas"
   }
 }

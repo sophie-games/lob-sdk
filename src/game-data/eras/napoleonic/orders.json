@@ -1,23 +1,8 @@
 [
   {
-    "id": 1,
-    "name": "walk",
-    "orgRegainModifier": -0.15
-  },
-  {
-    "id": 2,
-    "name": "run",
-    "receivedOrgDamage": 0.05,
-    "orgRegainModifier": -0.15
-  },
-  {
-    "id": 3,
-    "name": "shoot",
-    "canFocusLocation": true
-  },
-  {
     "id": 4,
     "name": "fireAndAdvance",
+    "isDefault": true,
     "speedModifierWhenShooting": -0.1,
     "speedModifierWhenShootingByCategory": {
       "infantry": -0.1,
@@ -37,8 +22,25 @@
     }
   },
   {
+    "id": 2,
+    "name": "run",
+    "receivedOrgDamage": 0.05,
+    "orgRegainModifier": -0.15
+  },
+  {
+    "id": 3,
+    "name": "shoot",
+    "canFocusLocation": true
+  },
+  {
+    "id": 1,
+    "name": "walk",
+    "orgRegainModifier": -0.15
+  },
+  {
     "id": 5,
-    "name": "placeEntity"
+    "name": "placeEntity",
+    "userSelectable": false
   },
   {
     "id": 6,
@@ -57,6 +59,9 @@
       "militiaInfantry": -0.35,
       "skirmishInfantry": -0.35
     },
+    "maxMovementPerCategory": {
+      "artillery": 32
+    },
     "speedModifier": -0.3,
     "chargeResistance": -0.2,
     "allowFireWhenMoving": true,
@@ -66,6 +71,7 @@
   {
     "id": 7,
     "name": "rotate",
+    "userSelectable": false,
     "allowFireWhenMoving": true,
     "canFocusLocation": true
   }

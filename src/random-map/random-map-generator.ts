@@ -1,5 +1,10 @@
 import { getDeploymentZonesByMapSize, getMapSizeIndex } from "./map-size";
-import { RandomScenario, Size, TeamDeploymentZones } from "@lob-sdk/types";
+import {
+  GameMap,
+  RandomTeamDeploymentZones,
+  Size,
+  TeamDeploymentZones,
+} from "@lob-sdk/types";
 import {
   ObjectiveDto,
   TeamDeploymentZone,
@@ -7,7 +12,7 @@ import {
   GenerateRandomMapProps,
   InstructionType,
   AnyInstruction,
-  ProceduralScenario,
+  Scenario,
   TerrainType,
   Range,
 } from "@lob-sdk/types";
@@ -36,38 +41,66 @@ export class RandomMapGenerator {
     tilesY,
   }: GenerateRandomMapProps): GenerateRandomMapResult {
     const gameDataManager = GameDataManager.get(era);
-    const battleType = gameDataManager.getBattleType(dynamicBattleType);
+    // Fixed-roster scenarios (tutorial, presets) pass `dynamicBattleType: null`.
+    // Fall back to the era's DEFAULT_BATTLE_TYPE so downstream consumers
+    // (NaturalPath amount scaling, scaledZones, procedural-zone defaults,
+    // procedural-tile defaults) always have a battleSize to work with.
+    const resolvedBattleType =
+      dynamicBattleType ??
+      gameDataManager.getGameConstants().DEFAULT_BATTLE_TYPE;
+    const battleType = gameDataManager.getBattleType(resolvedBattleType);
     const mapSizeIndex = getMapSizeIndex(maxPlayers, battleType.mapSize.length);
-    const battleSize = battleType.mapSize[mapSizeIndex] as Size;
-    const mapSizes = gameDataManager.getMapSizes();
-    const { map } = mapSizes[battleSize];
+    const battleSize = battleType.mapSize[mapSizeIndex];
+    const { map } = gameDataManager.getMapSizes()[battleSize];
 
-    if (!tilesX) {
-      tilesX = map.tilesX;
-    }
-    if (!tilesY) {
-      tilesY = map.tilesY;
-    }
+    // Pre-placed objectives from the scenario seed the result; instruction
+    // executors append on top. Callers should NOT merge `scenario.objectives`
+    // again — the SDK owns the merge.
+    const objectives: ObjectiveDto<false>[] = [
+      ...(scenario.objectives ?? []),
+    ];
 
-    const widthPx = tilesX * tileSize;
-    const heightPx = tilesY * tileSize;
+    // Caller-supplied seed wins; otherwise prefer the baked map's seed; else random.
+    const fixedMap: GameMap | undefined = scenario.map;
+    const mapSeed = seed ?? fixedMap?.seed ?? generateRandomSeed();
 
-    const objectives: ObjectiveDto<false>[] = [];
+    let terrains: TerrainType[][];
+    let heightMap: number[][];
+    let widthPx: number;
+    let heightPx: number;
 
-    const mapSeed = seed ?? generateRandomSeed();
+    if (fixedMap) {
+      // Deep-copy to avoid mutating frozen JSON imports when overlays run.
+      terrains = fixedMap.terrains.map((row) => [...row]);
+      heightMap = fixedMap.heightMap.map((row) => [...row]);
+      widthPx = fixedMap.width;
+      heightPx = fixedMap.height;
+    } else {
+      // Precedence: caller-supplied tilesX/tilesY (scenario editor) >
+      // scenario.fixedSize (pinned dimensions) > battle-size defaults.
+      if (!tilesX) {
+        tilesX = scenario.fixedSize?.tilesX ?? map.tilesX;
+      }
+      if (!tilesY) {
+        tilesY = scenario.fixedSize?.tilesY ?? map.tilesY;
+      }
 
-    const terrains: TerrainType[][] = [];
-    const heightMap: number[][] = [];
+      widthPx = tilesX * tileSize;
+      heightPx = tilesY * tileSize;
 
-    // Initialize arrays
-    for (let x = 0; x < tilesX; x++) {
-      terrains[x] = [];
-      heightMap[x] = [];
-      for (let y = 0; y < tilesY; y++) {
-        terrains[x][y] = scenario.baseTerrain ?? TerrainType.Grass;
-        heightMap[x][y] = 0;
+      terrains = [];
+      heightMap = [];
+      for (let x = 0; x < tilesX; x++) {
+        terrains[x] = [];
+        heightMap[x] = [];
+        for (let y = 0; y < tilesY; y++) {
+          terrains[x][y] = scenario.baseTerrain ?? TerrainType.Grass;
+          heightMap[x][y] = 0;
+        }
       }
     }
+
+    const instructionsToRun: AnyInstruction[] = scenario.instructions ?? [];
 
     this.executeInstructions(
       scenario,
@@ -79,222 +112,171 @@ export class RandomMapGenerator {
       heightPx,
       tileSize,
       battleSize,
+      instructionsToRun,
     );
 
-    const deploymentZones: [TeamDeploymentZones, TeamDeploymentZones] =
-      this.getDeploymentZones(
-        scenario,
-        battleSize,
-        widthPx,
-        heightPx,
-        era,
-        tileSize,
-        terrains,
-        mapSeed,
-      );
+    const deploymentZones = this.resolveDeploymentZones(
+      scenario,
+      fixedMap,
+      battleSize,
+      widthPx,
+      heightPx,
+      era,
+      tileSize,
+      terrains,
+      mapSeed,
+    );
 
     return {
       map: {
-        width: tilesX * tileSize,
-        height: tilesY * tileSize,
+        width: widthPx,
+        height: heightPx,
         terrains,
         heightMap,
-        deploymentZones,
+        ...(deploymentZones ? { deploymentZones } : {}),
         seed: mapSeed,
       },
       objectives,
     };
   }
 
-  private getDeploymentZones(
-    scenario: RandomScenario,
+  /** Reads pixel zones. */
+  private _getPixelZones(
+    scenario: Scenario,
+  ): TeamDeploymentZones[] | undefined {
+    return scenario.deploymentZones;
+  }
+
+  /** Reads percentage-based zones. */
+  private _getRandomZones(
+    scenario: Scenario,
+  ): RandomTeamDeploymentZones | undefined {
+    return scenario.randomDeploymentZones;
+  }
+
+  private _getScaledZones(
+    scenario: Scenario,
+  ): Record<Size, RandomTeamDeploymentZones> | undefined {
+    return scenario.scaledDeploymentZones;
+  }
+
+  /**
+   * Precedence: scenario.map.deploymentZones > scenario.deploymentZones >
+   *             scenario.scaledDeploymentZones[battleSize] >
+   *             scenario.randomDeploymentZones >
+   *             battle-size defaults (procedural only).
+   *
+   * Returns `undefined` when the scenario ships a handcrafted `map` but
+   * declares no zones anywhere. Battle-size defaults assume procedural
+   * dimensions; for author-sized maps the consumer picks the right default
+   * (era-wide constants centered on the fixed map).
+   */
+  private resolveDeploymentZones(
+    scenario: Scenario,
+    fixedMap: GameMap | undefined,
     battleSize: Size,
     widthPx: number,
     heightPx: number,
     era: GameEra,
     tileSize: number,
     terrains: TerrainType[][],
+    mapSeed: number,
+  ): [TeamDeploymentZones, TeamDeploymentZones] | undefined {
+    const bakedZones = fixedMap?.deploymentZones;
+    if (bakedZones && bakedZones.length >= 2) {
+      return [bakedZones[0], bakedZones[1]];
+    }
+
+    const pixelZones = this._getPixelZones(scenario);
+    if (pixelZones && pixelZones.length >= 2) {
+      return [pixelZones[0], pixelZones[1]];
+    }
+
+    const randomZones =
+      this._getScaledZones(scenario)?.[battleSize] ??
+      this._getRandomZones(scenario);
+
+    if (randomZones) {
+      return this._computePercentZones(
+        randomZones,
+        terrains,
+        tileSize,
+        mapSeed,
+      );
+    }
+
+    // Handcrafted map with no declarations: let the consumer decide.
+    if (fixedMap) {
+      return undefined;
+    }
+
+    return [
+      getDeploymentZonesByMapSize(
+        battleSize,
+        widthPx,
+        heightPx,
+        1,
+        era,
+        tileSize,
+      ),
+      getDeploymentZonesByMapSize(
+        battleSize,
+        widthPx,
+        heightPx,
+        2,
+        era,
+        tileSize,
+      ),
+    ];
+  }
+
+  private _computePercentZones(
+    deploymentZones: RandomTeamDeploymentZones,
+    terrains: TerrainType[][],
+    tileSize: number,
     seed: number,
   ): [TeamDeploymentZones, TeamDeploymentZones] {
-    if (!scenario.defaultDeploymentZones) {
-      return [
-        getDeploymentZonesByMapSize(
-          battleSize,
-          widthPx,
-          heightPx,
-          1,
-          era,
-          tileSize,
-        ),
-        getDeploymentZonesByMapSize(
-          battleSize,
-          widthPx,
-          heightPx,
-          2,
-          era,
-          tileSize,
-        ),
-      ];
-    }
-    const deploymentZones =
-      scenario.scaledDeploymentZones?.[battleSize] ??
-      scenario.defaultDeploymentZones;
     const random = randomSeeded(deriveSeed(seed, 0));
+    const tilesX = terrains.length;
+    const tilesY = terrains[0].length;
+
+    const build = (
+      team: number,
+      type: "main" | "forward",
+      zone: RandomTeamDeploymentZones[keyof RandomTeamDeploymentZones],
+    ): TeamDeploymentZone => ({
+      team,
+      type,
+      x:
+        getRandomInt(
+          this.percentToTiles(zone.minX, tilesX),
+          this.percentToTiles(zone.maxX, tilesX),
+          random,
+        ) * tileSize,
+      y:
+        getRandomInt(
+          this.percentToTiles(zone.minY, tilesY),
+          this.percentToTiles(zone.maxY, tilesY),
+          random,
+        ) * tileSize,
+      width: this.percentToTiles(zone.width, tilesX) * tileSize,
+      height: this.percentToTiles(zone.height, tilesY) * tileSize,
+    });
 
     return [
       {
         team: 1,
-        mainZone: {
-          team: 1,
-          x:
-            getRandomInt(
-              this.percentToTiles(
-                deploymentZones.bottomMainDeploymentZone.minX,
-                terrains.length,
-              ),
-              this.percentToTiles(
-                deploymentZones.bottomMainDeploymentZone.maxX,
-                terrains.length,
-              ),
-              random,
-            ) * tileSize,
-          y:
-            getRandomInt(
-              this.percentToTiles(
-                deploymentZones.bottomMainDeploymentZone.minY,
-                terrains[0].length,
-              ),
-              this.percentToTiles(
-                deploymentZones.bottomMainDeploymentZone.maxY,
-                terrains[0].length,
-              ),
-              random,
-            ) * tileSize,
-          width:
-            this.percentToTiles(
-              deploymentZones.bottomMainDeploymentZone.width,
-              terrains.length,
-            ) * tileSize,
-          height:
-            this.percentToTiles(
-              deploymentZones.bottomMainDeploymentZone.height,
-              terrains[0].length,
-            ) * tileSize,
-        },
-        forwardZone: {
-          team: 1,
-          x:
-            getRandomInt(
-              this.percentToTiles(
-                deploymentZones.bottomForwardDeploymentZone.minX,
-                terrains.length,
-              ),
-              this.percentToTiles(
-                deploymentZones.bottomForwardDeploymentZone.maxX,
-                terrains.length,
-              ),
-              random,
-            ) * tileSize,
-          y:
-            getRandomInt(
-              this.percentToTiles(
-                deploymentZones.bottomForwardDeploymentZone.minY,
-                terrains[0].length,
-              ),
-              this.percentToTiles(
-                deploymentZones.bottomForwardDeploymentZone.maxY,
-                terrains[0].length,
-              ),
-              random,
-            ) * tileSize,
-          width:
-            this.percentToTiles(
-              deploymentZones.bottomForwardDeploymentZone.width,
-              terrains.length,
-            ) * tileSize,
-          height:
-            this.percentToTiles(
-              deploymentZones.bottomForwardDeploymentZone.height,
-              terrains[0].length,
-            ) * tileSize,
-        },
+        zones: [
+          build(1, "main", deploymentZones.bottomMainDeploymentZone),
+          build(1, "forward", deploymentZones.bottomForwardDeploymentZone),
+        ],
       },
       {
         team: 2,
-        mainZone: {
-          team: 2,
-          x:
-            getRandomInt(
-              this.percentToTiles(
-                deploymentZones.topMainDeploymentZone.minX,
-                terrains.length,
-              ),
-              this.percentToTiles(
-                deploymentZones.topMainDeploymentZone.maxX,
-                terrains.length,
-              ),
-              random,
-            ) * tileSize,
-          y:
-            getRandomInt(
-              this.percentToTiles(
-                deploymentZones.topMainDeploymentZone.minY,
-                terrains[0].length,
-              ),
-              this.percentToTiles(
-                deploymentZones.topMainDeploymentZone.maxY,
-                terrains[0].length,
-              ),
-              random,
-            ) * tileSize,
-          width:
-            this.percentToTiles(
-              deploymentZones.topMainDeploymentZone.width,
-              terrains.length,
-            ) * tileSize,
-          height:
-            this.percentToTiles(
-              deploymentZones.topMainDeploymentZone.height,
-              terrains[0].length,
-            ) * tileSize,
-        },
-        forwardZone: {
-          team: 2,
-          x:
-            getRandomInt(
-              this.percentToTiles(
-                deploymentZones.topForwardDeploymentZone.minX,
-                terrains.length,
-              ),
-              this.percentToTiles(
-                deploymentZones.topForwardDeploymentZone.maxX,
-                terrains.length,
-              ),
-              random,
-            ) * tileSize,
-          y:
-            getRandomInt(
-              this.percentToTiles(
-                deploymentZones.topForwardDeploymentZone.minY,
-                terrains[0].length,
-              ),
-              this.percentToTiles(
-                deploymentZones.topForwardDeploymentZone.maxY,
-                terrains[0].length,
-              ),
-              random,
-            ) * tileSize,
-          width:
-            this.percentToTiles(
-              deploymentZones.topForwardDeploymentZone.width,
-              terrains.length,
-            ) * tileSize,
-          height:
-            this.percentToTiles(
-              deploymentZones.topForwardDeploymentZone.height,
-              terrains[0].length,
-            ) * tileSize,
-        },
+        zones: [
+          build(2, "main", deploymentZones.topMainDeploymentZone),
+          build(2, "forward", deploymentZones.topForwardDeploymentZone),
+        ],
       },
     ];
   }
@@ -304,7 +286,7 @@ export class RandomMapGenerator {
   }
 
   private executeInstructions(
-    scenario: ProceduralScenario,
+    scenario: Scenario,
     seed: number,
     terrains: TerrainType[][],
     heightMap: number[][],
@@ -313,8 +295,9 @@ export class RandomMapGenerator {
     heightPx: number,
     tileSize: number,
     battleSize: Size,
+    instructions: AnyInstruction[],
   ) {
-    scenario.instructions.forEach(
+    instructions.forEach(
       (instruction: AnyInstruction, index: number) => {
         let boundedTerrains = terrains;
         let boundedHeightMap = heightMap;
@@ -440,10 +423,10 @@ export class RandomMapGenerator {
             ).execute();
             break;
           }
-
           default: {
+            const _exhaustive: never = instruction;
             throw new Error(
-              `Unknown instruction type: ${(instruction as any)?.type}`,
+              `Unknown instruction type: ${JSON.stringify(_exhaustive)}`,
             );
           }
         }

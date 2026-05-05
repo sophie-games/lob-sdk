@@ -1,44 +1,52 @@
 {
+  "version": 1,
   "name": "Lines of Legends",
   "description": "Welcome to MOBA-LOB!",
-  "type": "hybrid",
   "map": {
     "width": 1600,
     "height": 1600,
     "deploymentZones": [
       {
         "team": 1,
-        "mainZone": {
-          "team": 1,
-          "x": 48,
-          "y": 1248,
-          "width": 304,
-          "height": 304
-        },
-        "forwardZone": {
-          "team": 1,
-          "x": 1,
-          "y": 1200,
-          "width": 400,
-          "height": 400
-        }
+        "zones": [
+          {
+            "team": 1,
+            "x": 48,
+            "y": 1248,
+            "width": 304,
+            "height": 304,
+            "type": "main"
+          },
+          {
+            "team": 1,
+            "x": 1,
+            "y": 1200,
+            "width": 400,
+            "height": 400,
+            "type": "forward"
+          }
+        ]
       },
       {
         "team": 2,
-        "mainZone": {
-          "team": 2,
-          "x": 1248,
-          "y": 48,
-          "width": 304,
-          "height": 304
-        },
-        "forwardZone": {
-          "team": 2,
-          "x": 1200,
-          "y": 1,
-          "width": 400,
-          "height": 400
-        }
+        "zones": [
+          {
+            "team": 2,
+            "x": 1248,
+            "y": 48,
+            "width": 304,
+            "height": 304,
+            "type": "main"
+          },
+          {
+            "team": 2,
+            "x": 1200,
+            "y": 1,
+            "width": 400,
+            "height": 400,
+            "type": "forward"
+          }
+        ]
       }
     ],
     "terrains": [
@@ -1469,5 +1477,6 @@
     { "team": 2, "pos": { "x": 1528.53, "y": 423.61 } },
     { "team": 2, "pos": { "x": 1176.67, "y": 71.75 } }
   ],
-  "triggers": []
+  "triggers": [],
+  "allowDynamicArmy": true
 }

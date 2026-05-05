@@ -1,7 +1,7 @@
 import { Point2 } from "@lob-sdk/vector";
 import {
   InstructionLake,
-  ProceduralScenario,
+  Scenario,
   TerrainType,
 } from "@lob-sdk/types";
 import { getPosition } from "../utils";
@@ -24,7 +24,7 @@ export class LakeExecutor {
 
   constructor(
     private instruction: InstructionLake,
-    private scenario: ProceduralScenario,
+    private scenario: Scenario,
     private seed: number,
     private index: number,
     private terrains: TerrainType[][],

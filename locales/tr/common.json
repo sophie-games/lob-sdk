@@ -3,6 +3,9 @@
   "home": "Ana Sayfa",
   "language": "Dil",
   "tutorial": "Eğitim",
+  "tutorialRequired": "Çevrimiçi oynamadan önce eğitimi tamamlayın",
+  "tutorialRequiredDescription": "Çevrimiçi maçlar için sıraya girmeden önce eğitimi bitirmeniz gerekir.",
+  "goToTutorial": "Eğitime git",
   "tutorials": "Öğreticiler",
   "play": "Oyna",
   "ranking": "Sıralama",
@@ -167,6 +170,10 @@
   "offerDraw": "Beraberlik Teklif Et",
   "replayBattle": "Savaşı Tekrar Oyna",
   "downloadReplay": "Tekrarı İndir",
+  "stepByTurn": "Tur tur (turlar arası otomatik duraklatma)",
+  "pause": "Duraklat",
+  "stop": "Durdur",
+  "restartReplay": "Tekrarı yeniden başlat",
   "replayGame": "Oyunu Tekrar Oyna",
   "importReplay": "Tekrarı İçe Aktar",
   "result": "Sonuç",
@@ -538,6 +545,16 @@
   "preset": "Önceden ayarlanmış",
   "hybrid": "Hibrit",
   "random": "Rastgele",
+  "scenarioFeatures": "Özellikler",
+  "scenarioFeature": {
+    "fixedMap": "Sabit harita",
+    "proceduralMap": "Prosedürel oluşturulmuş harita",
+    "fixedArmy": "Sabit ordu",
+    "dynamicArmy": "Dinamik ordu",
+    "fixedPlayers": "Sabit oyuncular",
+    "objectives": "Hedefler",
+    "scriptedEvents": "Senaryolu olaylar"
+  },
   "academy": "Akademi",
   "encyclopedia": "Ansiklopedi",
   "tutorialTips": "Eğitim İpuçları",
@@ -666,5 +683,13 @@
   "startGameNow": "Oyunu şimdi başlat?",
   "startGameNowTooltip": "Hiçbir oyuncuya atanmamış birimler, o birimlerle aynı takımdaki bağlı oyuncular arasında eşit şekilde bölüştürülür.",
   "user": "Kullanıcı",
-  "meleeStaminaCost": "Yakın dövüş dayanıklılık maliyeti"
+  "meleeStaminaCost": "Yakın dövüş dayanıklılık maliyeti",
+  "profileChart": {
+    "rankedWinrate90d": "Dereceli (90g)",
+    "arenaWinrate": "Arena",
+    "wins": "Galibiyetler",
+    "losses": "Mağlubiyetler",
+    "totalGames_other": "{{count}} oyun",
+    "totalArenas_other": "{{count}} arena"
+  }
 }

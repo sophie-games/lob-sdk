@@ -3,6 +3,9 @@
   "home": "ホーム",
   "language": "言語",
   "tutorial": "チュートリアル",
+  "tutorialRequired": "オンラインプレイの前にチュートリアルを完了してください",
+  "tutorialRequiredDescription": "オンラインマッチのキューに入る前にチュートリアルを終了する必要があります。",
+  "goToTutorial": "チュートリアルへ",
   "tutorials": "チュートリアル",
   "play": "プレイ",
   "ranking": "ランキング",
@@ -167,6 +170,10 @@
   "offerDraw": "引き分けを提案",
   "replayBattle": "戦闘をリプレイ",
   "downloadReplay": "リプレイをダウンロード",
+  "stepByTurn": "ターンごと(ターン間で自動一時停止)",
+  "pause": "一時停止",
+  "stop": "停止",
+  "restartReplay": "リプレイを最初から",
   "replayGame": "ゲームをリプレイ",
   "importReplay": "リプレイをインポート",
   "result": "結果",
@@ -536,6 +543,16 @@
   "preset": "プリセット",
   "hybrid": "ハイブリッド",
   "random": "ランダム",
+  "scenarioFeatures": "特徴",
+  "scenarioFeature": {
+    "fixedMap": "固定マップ",
+    "proceduralMap": "自動生成マップ",
+    "fixedArmy": "固定軍",
+    "dynamicArmy": "動的な軍",
+    "fixedPlayers": "固定プレイヤー",
+    "objectives": "目標",
+    "scriptedEvents": "スクリプト化イベント"
+  },
   "academy": "アカデミー",
   "encyclopedia": "百科事典",
   "tutorialTips": "チュートリアルのヒント",
@@ -664,5 +681,13 @@
   "startGameNow": "今すぐゲームを開始しますか？",
   "startGameNowTooltip": "どのプレイヤーにも割り当てられていないユニットは、それらのユニットと同じチームの接続中プレイヤーに均等に振り分けられます。",
   "user": "ユーザー",
-  "meleeStaminaCost": "白兵スタミナコスト"
+  "meleeStaminaCost": "白兵スタミナコスト",
+  "profileChart": {
+    "rankedWinrate90d": "ランク戦 (90日)",
+    "arenaWinrate": "アリーナ",
+    "wins": "勝利",
+    "losses": "敗北",
+    "totalGames_other": "{{count}} 試合",
+    "totalArenas_other": "{{count}} アリーナ"
+  }
 }

@@ -1,7 +1,7 @@
 import {
   InstructionObjective,
   ObjectiveDto,
-  ProceduralScenario,
+  Scenario,
 } from "@lob-sdk/types";
 import { getPosition } from "../utils";
 import { deriveSeed, randomSeeded } from "@lob-sdk/seed";
@@ -11,7 +11,7 @@ export class ObjectiveExecutor {
 
   constructor(
     private instruction: InstructionObjective,
-    private scenario: ProceduralScenario,
+    private scenario: Scenario,
     private seed: number,
     private index: number,
     private widthPx: number,
@@ -23,7 +23,11 @@ export class ObjectiveExecutor {
 
   execute() {
     const { widthPx, heightPx, objectives, random } = this;
-    const { position, player } = this.instruction;
+    // TODO: validate `objectiveType` (must be ObjectiveType.Small | Big),
+    // `team` (finite positive int), and `name` (length cap). Punted to a
+    // future zod-based scenario validation pass that covers all instruction
+    // executors uniformly — patching only this site is inconsistent.
+    const { position, player, team, objectiveType, name } = this.instruction;
 
     const [positionX, positionY] = getPosition(
       position,
@@ -35,6 +39,9 @@ export class ObjectiveExecutor {
     objectives.push({
       pos: { x: positionX, y: positionY },
       player: player,
+      ...(team !== undefined ? { team } : {}),
+      ...(objectiveType !== undefined ? { type: objectiveType } : {}),
+      ...(name !== undefined ? { name } : {}),
     });
   }
 }

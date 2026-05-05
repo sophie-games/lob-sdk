@@ -3,6 +3,9 @@
   "home": "Menu",
   "language": "Langue",
   "tutorial": "Tutoriel",
+  "tutorialRequired": "Terminez le tutoriel avant de jouer en ligne",
+  "tutorialRequiredDescription": "Vous devez terminer le tutoriel avant de pouvoir rejoindre la file d'attente pour les matchs en ligne.",
+  "goToTutorial": "Aller au tutoriel",
   "tutorials": "Tutoriels",
   "play": "Jouer",
   "ranking": "Classement",
@@ -156,6 +159,10 @@
   "offerDraw": "Proposer un match nul",
   "replayBattle": "Replay de la bataille",
   "downloadReplay": "Télécharger le replay",
+  "stepByTurn": "Tour par tour (pause auto entre les tours)",
+  "pause": "Pause",
+  "stop": "Arrêter",
+  "restartReplay": "Redémarrer le replay",
   "replayGame": "Rejouer la partie",
   "importReplay": "Importer le replay",
   "result": "Résultat",
@@ -614,6 +621,16 @@
   "preset": "Prédéfini",
   "hybrid": "Hybride",
   "random": "Aléatoire",
+  "scenarioFeatures": "Caractéristiques",
+  "scenarioFeature": {
+    "fixedMap": "Carte fixe",
+    "proceduralMap": "Carte générée procéduralement",
+    "fixedArmy": "Armée fixe",
+    "dynamicArmy": "Armée dynamique",
+    "fixedPlayers": "Joueurs fixes",
+    "objectives": "Objectifs",
+    "scriptedEvents": "Événements scénarisés"
+  },
   "academy": "Académie",
   "encyclopedia": "Encyclopédie",
   "tutorialTips": "Conseils du Tutoriel",
@@ -677,5 +694,15 @@
   "startGameNow": "Lancer la partie maintenant ?",
   "startGameNowTooltip": "Les unités non assignées à un joueur seront réparties équitablement entre les joueurs connectés de la même équipe que ces unités.",
   "user": "Utilisateur",
-  "meleeStaminaCost": "Coût d'endurance au corps à corps"
+  "meleeStaminaCost": "Coût d'endurance au corps à corps",
+  "profileChart": {
+    "rankedWinrate90d": "Classé (90j)",
+    "arenaWinrate": "Arène",
+    "wins": "Victoires",
+    "losses": "Défaites",
+    "totalGames_one": "1 partie",
+    "totalGames_other": "{{count}} parties",
+    "totalArenas_one": "1 arène",
+    "totalArenas_other": "{{count}} arènes"
+  }
 }

@@ -3,6 +3,9 @@
   "home": "Home",
   "language": "Nyelv",
   "tutorial": "Tutorial",
+  "tutorialRequired": "Fejezd be a tutorialt, mielőtt online játszanál",
+  "tutorialRequiredDescription": "Be kell fejezned a tutorialt, mielőtt sorba állhatnál az online meccsekhez.",
+  "goToTutorial": "Ugrás a tutorialra",
   "tutorials": "Oktatóanyagok",
   "play": "Játék",
   "ranking": "Toplista",
@@ -167,6 +170,10 @@
   "offerDraw": "Döntetlen felajánlása",
   "replayBattle": "Visszajátszás",
   "downloadReplay": "Replay letöltése",
+  "stepByTurn": "Körönként (automatikus szünet körök között)",
+  "pause": "Szünet",
+  "stop": "Leállítás",
+  "restartReplay": "Visszajátszás újraindítása",
   "replayGame": "Játék visszajátszása",
   "importReplay": "Replay importálása",
   "result": "Eredmények",
@@ -548,6 +555,16 @@
   "preset": "Előre beállított",
   "hybrid": "Hibrid",
   "random": "Véletlenszerű",
+  "scenarioFeatures": "Jellemzők",
+  "scenarioFeature": {
+    "fixedMap": "Rögzített térkép",
+    "proceduralMap": "Eljárásosan generált térkép",
+    "fixedArmy": "Rögzített hadsereg",
+    "dynamicArmy": "Dinamikus hadsereg",
+    "fixedPlayers": "Rögzített játékosok",
+    "objectives": "Célok",
+    "scriptedEvents": "Szkriptelt események"
+  },
   "academy": "Akadémia",
   "encyclopedia": "Enciklopédia",
   "tutorialTips": "Oktatóanyag Tippek",
@@ -619,5 +636,15 @@
   "startGameNow": "Elindítod a játékot most?",
   "startGameNowTooltip": "Azok az egységek, amelyek nincsenek játékoshoz rendelve, egyenletesen oszlanak meg azok között a csatlakozott játékosok között, akik ugyanabban a csapatban vannak, mint ezek az egységek.",
   "user": "Felhasználó",
-  "meleeStaminaCost": "Közelharci kitartás költség"
+  "meleeStaminaCost": "Közelharci kitartás költség",
+  "profileChart": {
+    "rankedWinrate90d": "Rangsorolt (90n)",
+    "arenaWinrate": "Aréna",
+    "wins": "Győzelmek",
+    "losses": "Vereségek",
+    "totalGames_one": "1 játék",
+    "totalGames_other": "{{count}} játék",
+    "totalArenas_one": "1 aréna",
+    "totalArenas_other": "{{count}} aréna"
+  }
 }

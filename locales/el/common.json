@@ -3,6 +3,9 @@
   "home": "Σπίτι",
   "language": "Γλώσσα",
   "tutorial": "Δοκιμαστικό.",
+  "tutorialRequired": "Ολοκληρώστε το tutorial πριν παίξετε online",
+  "tutorialRequiredDescription": "Πρέπει να ολοκληρώσετε το tutorial πριν μπείτε στην ουρά για online παιχνίδια.",
+  "goToTutorial": "Μετάβαση στο tutorial",
   "tutorials": "Σεμινάρια",
   "play": "παίξε",
   "ranking": "Νούμερο",
@@ -178,6 +181,10 @@
   "offerDraw": "Προσφέρετε Ισοπαλία",
   "replayBattle": "Replay battle",
   "downloadReplay": "Λήψη επανάληψης",
+  "stepByTurn": "Βήμα προς βήμα (αυτόματη παύση μεταξύ γύρων)",
+  "pause": "Παύση",
+  "stop": "Διακοπή",
+  "restartReplay": "Επανεκκίνηση επανάληψης",
   "replayGame": "Επανάληψη παιχνιδιού",
   "importReplay": "Εισαγωγή επανάληψης",
   "result": "Αποτέλεσμα",
@@ -709,6 +716,16 @@
   "preset": "Προεπιλέξτε",
   "hybrid": "Υβρίδικο",
   "random": "Τυχαίο",
+  "scenarioFeatures": "Χαρακτηριστικά",
+  "scenarioFeature": {
+    "fixedMap": "Σταθερός χάρτης",
+    "proceduralMap": "Διαδικαστικά δημιουργημένος χάρτης",
+    "fixedArmy": "Σταθερός στρατός",
+    "dynamicArmy": "Δυναμικός στρατός",
+    "fixedPlayers": "Σταθεροί παίκτες",
+    "objectives": "Στόχοι",
+    "scriptedEvents": "Σεναριακά συμβάντα"
+  },
   "projectileWidth": "Πλάτος βλήματος",
   "allyCollisionLevel": "Επίπεδο σύγκρουσης συμμάχου",
   "enemyCollisionLevel": "Επίπεδο σύγκρουσης εχθρού",
@@ -828,5 +845,15 @@
   "privacy": "Απορρήτου",
   "showCountry": "Εμφάνιση χώρας",
   "switchToEra": "Αλλαγή σε {{era}}",
-  "goHome": "Μετάβαση στην Αρχική"
+  "goHome": "Μετάβαση στην Αρχική",
+  "profileChart": {
+    "rankedWinrate90d": "Κατάταξη (90η)",
+    "arenaWinrate": "Αρένα",
+    "wins": "Νίκες",
+    "losses": "Ήττες",
+    "totalGames_one": "1 παιχνίδι",
+    "totalGames_other": "{{count}} παιχνίδια",
+    "totalArenas_one": "1 αρένα",
+    "totalArenas_other": "{{count}} αρένες"
+  }
 }

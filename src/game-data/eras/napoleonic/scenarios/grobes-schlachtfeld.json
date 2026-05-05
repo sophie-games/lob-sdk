@@ -1,44 +1,52 @@
 {
+  "version": 1,
   "name": "Großes Schlachtfeld",
   "description": "A huge, winding battlefield fit for whole armies to clash. Created by Discord user MooPro.",
-  "type": "hybrid",
   "map": {
     "width": 2200,
     "height": 1800,
     "deploymentZones": [
       {
         "team": 1,
-        "mainZone": {
-          "team": 1,
-          "x": 500,
-          "y": 1350,
-          "width": 1200,
-          "height": 150
-        },
-        "forwardZone": {
-          "team": 1,
-          "x": 452,
-          "y": 1302,
-          "width": 1296,
-          "height": 246
-        }
+        "zones": [
+          {
+            "team": 1,
+            "x": 500,
+            "y": 1350,
+            "width": 1200,
+            "height": 150,
+            "type": "main"
+          },
+          {
+            "team": 1,
+            "x": 452,
+            "y": 1302,
+            "width": 1296,
+            "height": 246,
+            "type": "forward"
+          }
+        ]
       },
       {
         "team": 2,
-        "mainZone": {
-          "team": 2,
-          "x": 500,
-          "y": 300,
-          "width": 1200,
-          "height": 150
-        },
-        "forwardZone": {
-          "team": 2,
-          "x": 452,
-          "y": 96,
-          "width": 1296,
-          "height": 246
-        }
+        "zones": [
+          {
+            "team": 2,
+            "x": 500,
+            "y": 300,
+            "width": 1200,
+            "height": 150,
+            "type": "main"
+          },
+          {
+            "team": 2,
+            "x": 452,
+            "y": 96,
+            "width": 1296,
+            "height": 246,
+            "type": "forward"
+          }
+        ]
       }
     ],
     "terrains": [
@@ -1984,5 +1992,6 @@
     { "pos": { "x": 935.98, "y": 996.77 } },
     { "pos": { "x": 1671.62, "y": 923.5 } }
   ],
-  "triggers": []
+  "triggers": [],
+  "allowDynamicArmy": true
 }

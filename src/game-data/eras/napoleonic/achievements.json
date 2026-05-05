@@ -1,0 +1,10 @@
+[
+  { "id": 1, "name": "tutorial-completed", "trigger": { "type": "tutorial_completed" } },
+  { "id": 2, "name": "first-victory", "trigger": { "type": "ranked_wins_total", "threshold": 1 } },
+  { "id": 3, "name": "veteran-i", "trigger": { "type": "ranked_wins_total", "threshold": 10 } },
+  { "id": 4, "name": "veteran-ii", "trigger": { "type": "ranked_wins_total", "threshold": 50 } },
+  { "id": 5, "name": "veteran-iii", "trigger": { "type": "ranked_wins_total", "threshold": 100 } },
+  { "id": 6, "name": "arena-champion-i", "trigger": { "type": "arenas_won_total", "threshold": 1 } },
+  { "id": 7, "name": "arena-champion-ii", "trigger": { "type": "arenas_won_total", "threshold": 5 } },
+  { "id": 8, "name": "arena-champion-iii", "trigger": { "type": "arenas_won_total", "threshold": 25 } }
+]

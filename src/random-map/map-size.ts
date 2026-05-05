@@ -1,4 +1,9 @@
-import { TeamDeploymentZones, Size, TeamDeploymentZone } from "@lob-sdk/types";
+import {
+  TeamDeploymentZones,
+  Size,
+  TeamDeploymentZone,
+  DeploymentZoneType,
+} from "@lob-sdk/types";
 import { GameEra, GameDataManager } from "@lob-sdk/game-data-manager";
 
 /**
@@ -34,20 +39,24 @@ export const getDeploymentZonesByMapSize = (
 
   return {
     team,
-    mainZone: zoneSize(
-      mapSizes[size].mainDeployment,
-      mapWidth,
-      mapHeight,
-      team,
-      tileSize,
-    ),
-    forwardZone: zoneSize(
-      mapSizes[size].forwardDeployment,
-      mapWidth,
-      mapHeight,
-      team,
-      tileSize,
-    ),
+    zones: [
+      zoneSize(
+        mapSizes[size].mainDeployment,
+        mapWidth,
+        mapHeight,
+        team,
+        tileSize,
+        "main",
+      ),
+      zoneSize(
+        mapSizes[size].forwardDeployment,
+        mapWidth,
+        mapHeight,
+        team,
+        tileSize,
+        "forward",
+      ),
+    ],
   };
 };
 
@@ -57,6 +66,7 @@ function zoneSize(
   mapHeight: number,
   team: number,
   tileSize: number,
+  type: DeploymentZoneType,
 ): TeamDeploymentZone {
   // Convert tiles to pixels
   const zoneWidth = zoneSettings.tilesX * tileSize;
@@ -72,5 +82,5 @@ function zoneSize(
     team === 1
       ? (mapHeight + totalHeight) / 2 - zoneHeight
       : (mapHeight - totalHeight) / 2;
-  return { team, width: zoneWidth, height: zoneHeight, x, y };
+  return { team, type, width: zoneWidth, height: zoneHeight, x, y };
 }

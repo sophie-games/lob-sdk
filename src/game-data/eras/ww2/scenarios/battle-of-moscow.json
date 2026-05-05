@@ -1,10 +1,10 @@
 {
+  "version": 1,
   "name": "name",
   "description": "description",
-  "type": "preset",
   "players": [
-    { "player": 1, "team": 1, "ammoReserve": 500, "baseAmmoReserve": 500 },
-    { "player": 2, "team": 2, "ammoReserve": 500, "baseAmmoReserve": 500 }
+    { "player": 1, "team": 1, "ammoReserve": 50000, "baseAmmoReserve": 50000 },
+    { "player": 2, "team": 2, "ammoReserve": 50000, "baseAmmoReserve": 50000 }
   ],
   "map": {
     "width": 1936,
@@ -1589,7 +1589,7 @@
   },
   "units": [
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "249th Rifle Division",
       "player": 2,
       "pos": { "x": 524.69, "y": 53.82 },
@@ -1598,7 +1598,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "133rd Rifle Division",
       "player": 2,
       "pos": { "x": 432.37, "y": 130.65 },
@@ -1607,7 +1607,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "126th Rifle Division",
       "player": 2,
       "pos": { "x": 437.31, "y": 96.11 },
@@ -1616,7 +1616,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "256th Rifle Division",
       "player": 2,
       "pos": { "x": 465.09, "y": 82.4 },
@@ -1625,7 +1625,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "174th Rifle Division",
       "player": 2,
       "pos": { "x": 446.58, "y": 161.83 },
@@ -1634,7 +1634,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "179th Rifle Division",
       "player": 2,
       "pos": { "x": 428.75, "y": 202.05 },
@@ -1643,7 +1643,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "186th Rifle Division",
       "player": 2,
       "pos": { "x": 428.42, "y": 238.25 },
@@ -1652,7 +1652,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "178th Rifle Division",
       "player": 2,
       "pos": { "x": 415.23, "y": 272.47 },
@@ -1661,7 +1661,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "246th Rifle Division",
       "player": 2,
       "pos": { "x": 423.12, "y": 303.83 },
@@ -1670,7 +1670,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "243rd Rifle Division",
       "player": 2,
       "pos": { "x": 419.12, "y": 338.47 },
@@ -1679,7 +1679,7 @@
       "en": 1
     },
     {
-      "hp": 350,
+      "hp": 35000,
       "name": "107th Mechanized Division",
       "player": 2,
       "pos": { "x": 590.54, "y": 460.3 },
@@ -1688,7 +1688,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "250th Rifle Division",
       "player": 2,
       "pos": { "x": 534.43, "y": 517.24 },
@@ -1697,7 +1697,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "91st Rifle Division",
       "player": 2,
       "pos": { "x": 557.08, "y": 656.16 },
@@ -1706,7 +1706,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "166th Rifle Division",
       "player": 2,
       "pos": { "x": 559.48, "y": 692.25 },
@@ -1715,7 +1715,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "214th Rifle Division",
       "player": 2,
       "pos": { "x": 618.33, "y": 787.49 },
@@ -1724,7 +1724,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "50th Rifle Division",
       "player": 2,
       "pos": { "x": 556.17, "y": 747.71 },
@@ -1733,7 +1733,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "38th Rifle Division",
       "player": 2,
       "pos": { "x": 562.76, "y": 827.67 },
@@ -1742,7 +1742,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "144th Rifle Division",
       "player": 2,
       "pos": { "x": 556.55, "y": 891.08 },
@@ -1751,7 +1751,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "129th Rifle Division",
       "player": 2,
       "pos": { "x": 554.33, "y": 953.39 },
@@ -1760,7 +1760,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "299th Rifle Division",
       "player": 2,
       "pos": { "x": 732.88, "y": 1330.89 },
@@ -1769,7 +1769,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "269th Rifle Division",
       "player": 2,
       "pos": { "x": 725.17, "y": 1482.95 },
@@ -1778,7 +1778,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "280th Rifle Division",
       "player": 2,
       "pos": { "x": 731.19, "y": 1447.77 },
@@ -1787,7 +1787,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "258th Rifle Division",
       "player": 2,
       "pos": { "x": 738.42, "y": 1375.23 },
@@ -1796,7 +1796,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "290th Rifle Division",
       "player": 2,
       "pos": { "x": 716.43, "y": 1300.68 },
@@ -1805,7 +1805,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "278th Rifle Division",
       "player": 2,
       "pos": { "x": 715.92, "y": 1260.34 },
@@ -1814,7 +1814,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "279th Rifle Division",
       "player": 2,
       "pos": { "x": 749.32, "y": 1220.26 },
@@ -1823,7 +1823,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "217th Rifle Division",
       "player": 2,
       "pos": { "x": 731.78, "y": 1185.3 },
@@ -1832,7 +1832,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "309th Rifle Division",
       "player": 2,
       "pos": { "x": 563.99, "y": 984.67 },
@@ -1841,7 +1841,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "53rd Rifle Division",
       "player": 2,
       "pos": { "x": 710.2, "y": 1152.99 },
@@ -1850,7 +1850,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "222nd Rifle Division",
       "player": 2,
       "pos": { "x": 637.71, "y": 1107.04 },
@@ -1859,7 +1859,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "303rd Rifle Division",
       "player": 2,
       "pos": { "x": 638.08, "y": 1065.13 },
@@ -1868,7 +1868,7 @@
       "en": 8
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "19th Rifle Division",
       "player": 2,
       "pos": { "x": 609.19, "y": 1032.35 },
@@ -1877,7 +1877,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "60th Rifle Division",
       "player": 2,
       "pos": { "x": 754.87, "y": 1011.31 },
@@ -1886,7 +1886,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "17th Rifle Division",
       "player": 2,
       "pos": { "x": 756.66, "y": 1058.04 },
@@ -1895,7 +1895,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "149th Rifle Division",
       "player": 2,
       "pos": { "x": 716.05, "y": 1054.07 },
@@ -1904,7 +1904,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "6th People's Militia Division",
       "player": 2,
       "pos": { "x": 621.02, "y": 896.07 },
@@ -1913,7 +1913,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "29th Rifle Division",
       "player": 2,
       "pos": { "x": 623.6, "y": 855.97 },
@@ -1922,7 +1922,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "8th Rifle Division",
       "player": 2,
       "pos": { "x": 668.13, "y": 831.89 },
@@ -1931,7 +1931,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "152nd Rifle Division",
       "player": 2,
       "pos": { "x": 667.85, "y": 782.31 },
@@ -1940,7 +1940,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "2nd Rifle Division",
       "player": 2,
       "pos": { "x": 691.58, "y": 722.4 },
@@ -1949,7 +1949,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "140th Rifle Division",
       "player": 2,
       "pos": { "x": 693.92, "y": 625.42 },
@@ -1958,7 +1958,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "248th Rifle Division",
       "player": 2,
       "pos": { "x": 749.66, "y": 582.88 },
@@ -1967,7 +1967,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "220th Rifle Division",
       "player": 2,
       "pos": { "x": 712.46, "y": 435.34 },
@@ -1976,7 +1976,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "119th Rifle Division",
       "player": 2,
       "pos": { "x": 684.35, "y": 373.68 },
@@ -1985,7 +1985,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "247th Rifle Division",
       "player": 2,
       "pos": { "x": 694.09, "y": 307.03 },
@@ -1994,7 +1994,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "106th Rifle Division",
       "player": 2,
       "pos": { "x": 633.58, "y": 940.6 },
@@ -2003,7 +2003,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "139th Rifle Division",
       "player": 2,
       "pos": { "x": 631.8, "y": 983.92 },
@@ -2012,7 +2012,7 @@
       "en": 1
     },
     {
-      "hp": 300,
+      "hp": 30000,
       "name": "143rd Tank Brigade",
       "player": 2,
       "pos": { "x": 733.06, "y": 698.53 },
@@ -2020,7 +2020,7 @@
       "type": 2
     },
     {
-      "hp": 300,
+      "hp": 30000,
       "name": "147th Tank Brigade",
       "player": 2,
       "pos": { "x": 745.39, "y": 777.19 },
@@ -2028,7 +2028,7 @@
       "type": 2
     },
     {
-      "hp": 300,
+      "hp": 30000,
       "name": "144th Tank Brigade",
       "player": 2,
       "pos": { "x": 664.07, "y": 920.67 },
@@ -2036,7 +2036,7 @@
       "type": 2
     },
     {
-      "hp": 350,
+      "hp": 35000,
       "name": "101st Mechanized Division",
       "player": 2,
       "pos": { "x": 625.43, "y": 705.1 },
@@ -2045,7 +2045,7 @@
       "en": 1
     },
     {
-      "hp": 300,
+      "hp": 30000,
       "name": "127th Tank Brigade",
       "player": 2,
       "pos": { "x": 588.56, "y": 789.06 },
@@ -2053,7 +2053,7 @@
       "type": 2
     },
     {
-      "hp": 300,
+      "hp": 30000,
       "name": "128th Tank Brigade",
       "player": 2,
       "pos": { "x": 637.88, "y": 744.07 },
@@ -2061,7 +2061,7 @@
       "type": 2
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "73rd Rifle Division",
       "player": 2,
       "pos": { "x": 559, "y": 859.5 },
@@ -2070,7 +2070,7 @@
       "en": 1
     },
     {
-      "hp": 300,
+      "hp": 30000,
       "name": "145th Tank Brigade",
       "player": 2,
       "pos": { "x": 673.53, "y": 1078.37 },
@@ -2491,7 +2491,7 @@
       "type": 2
     },
     {
-      "hp": 300,
+      "hp": 30000,
       "name": "42nd Tank Brigade",
       "player": 2,
       "pos": { "x": 885.01, "y": 1524.43 },
@@ -2499,7 +2499,7 @@
       "type": 2
     },
     {
-      "hp": 300,
+      "hp": 30000,
       "name": "108th Tank Division",
       "player": 2,
       "pos": { "x": 774.07, "y": 1525.58 },
@@ -2521,7 +2521,7 @@
       "type": 3
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "252nd Rifle Division",
       "player": 2,
       "pos": { "x": 395.38, "y": 368.73 },
@@ -2530,7 +2530,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "18th Rifle Division",
       "player": 2,
       "pos": { "x": 745.03, "y": 497.58 },
@@ -2539,7 +2539,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "242nd Rifle Division",
       "player": 2,
       "pos": { "x": 562.04, "y": 534.46 },
@@ -2548,7 +2548,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "162nd Rifle Division",
       "player": 2,
       "pos": { "x": 584, "y": 565.27 },
@@ -2557,7 +2557,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "134th Rifle Division",
       "player": 2,
       "pos": { "x": 602.14, "y": 753.49 },
@@ -2566,7 +2566,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "89th Rifle Division",
       "player": 2,
       "pos": { "x": 537.83, "y": 719.28 },
@@ -2575,7 +2575,7 @@
       "en": 1
     },
     {
-      "hp": 300,
+      "hp": 30000,
       "name": "126th Tank Brigade",
       "player": 2,
       "pos": { "x": 597.77, "y": 684.01 },
@@ -2583,7 +2583,7 @@
       "type": 2
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "244th Rifle Division",
       "player": 2,
       "pos": { "x": 555.69, "y": 621.65 },
@@ -2592,7 +2592,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "112th Rifle Division",
       "player": 2,
       "pos": { "x": 554.57, "y": 786.2 },
@@ -2601,7 +2601,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "229th Rifle Division",
       "player": 2,
       "pos": { "x": 553.56, "y": 922.49 },
@@ -2610,7 +2610,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "194th Mountain Rifle Division",
       "player": 2,
       "pos": { "x": 704.78, "y": 671.5 },
@@ -2619,7 +2619,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "113th Rifle Division",
       "player": 2,
       "pos": { "x": 731.29, "y": 1093.4 },
@@ -2628,7 +2628,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "103rd Rifle Division",
       "player": 2,
       "pos": { "x": 598.66, "y": 999.73 },
@@ -2637,7 +2637,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "211th Rifle Division",
       "player": 2,
       "pos": { "x": 680.23, "y": 1123.88 },
@@ -2646,7 +2646,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "173rd Rifle Division",
       "player": 2,
       "pos": { "x": 795.04, "y": 1121.2 },
@@ -2655,7 +2655,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "260th Rifle Division",
       "player": 2,
       "pos": { "x": 737.46, "y": 1413.31 },
@@ -2664,7 +2664,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "154th Rifle Division",
       "player": 2,
       "pos": { "x": 810.22, "y": 1405.7 },
@@ -2689,7 +2689,7 @@
       "en": 3
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "251st Rifle Division",
       "player": 2,
       "pos": { "x": 554.9, "y": 588.6 },
@@ -2705,7 +2705,7 @@
       "type": 2
     },
     {
-      "hp": 300,
+      "hp": 30000,
       "name": "Dovator's Cavalry Group",
       "player": 2,
       "pos": { "x": 385.88, "y": 405.71 },
@@ -2714,7 +2714,7 @@
       "en": 1
     },
     {
-      "hp": 300,
+      "hp": 30000,
       "name": "Dovator's Cavalry Group",
       "player": 2,
       "pos": { "x": 422.63, "y": 437.79 },
@@ -2723,7 +2723,7 @@
       "en": 1
     },
     {
-      "hp": 300,
+      "hp": 30000,
       "name": "Dovator's Cavalry Group",
       "player": 2,
       "pos": { "x": 457.45, "y": 465.56 },
@@ -2732,7 +2732,7 @@
       "en": 1
     },
     {
-      "hp": 300,
+      "hp": 30000,
       "name": "Dovator's Cavalry Group",
       "player": 2,
       "pos": { "x": 505.41, "y": 504.49 },
@@ -2741,7 +2741,7 @@
       "en": 1
     },
     {
-      "hp": 400,
+      "hp": 40000,
       "name": "282nd Rifle Division",
       "player": 2,
       "pos": { "x": 714.95, "y": 1519.41 },
@@ -2750,7 +2750,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "287th Rifle Division",
       "player": 2,
       "pos": { "x": 869.85, "y": 1446.01 },
@@ -2759,7 +2759,7 @@
       "en": 1
     },
     {
-      "hp": 250,
+      "hp": 25000,
       "name": "18th Rifle Division",
       "player": 2,
       "pos": { "x": 806.21, "y": 1181.59 },
@@ -2768,7 +2768,7 @@
       "en": 1
     },
     {
-      "hp": 300,
+      "hp": 30000,
       "name": "148th Tank Brigade",
       "player": 2,
       "pos": { "x": 752.7, "y": 1123.09 },
@@ -2776,7 +2776,7 @@
       "type": 2
     },
     {
-      "hp": 350,
+      "hp": 35000,
       "name": "45th Cavalry Division",
       "player": 2,
       "pos": { "x": 586.42, "y": 721.28 },
@@ -4407,5 +4407,6 @@
       "trigger.north_counteroffensive.title": "Радянський контрнаступ на півночі!",
       "trigger.north_counteroffensive.message": "До кінця листопада 1941 року радянське командування зосередило війська новоствореної 20-ї армії і 1-ї ударної армії в районі Загорська (нині Сергієв Посад). Ставка планувала кинути ці армії в контрнаступ на північ від Москви на початку грудня. Однак німецький прорив під Яхромою змусив негайно задіяти 1-у ударну армію для ліквідації прориву."
     }
-  }
+  },
+  "allowDynamicArmy": false
 }

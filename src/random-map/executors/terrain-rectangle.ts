@@ -1,5 +1,5 @@
 import {
-  ProceduralScenario,
+  Scenario,
   InstructionTerrainRectangle,
   TerrainType,
 } from "@lob-sdk/types";
@@ -11,7 +11,7 @@ export class TerrainRectangleExecutor {
 
   constructor(
     private instruction: InstructionTerrainRectangle,
-    private scenario: ProceduralScenario,
+    private scenario: Scenario,
     private seed: number,
     private index: number,
     private terrains: TerrainType[][],

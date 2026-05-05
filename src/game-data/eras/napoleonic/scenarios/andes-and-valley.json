@@ -1,44 +1,52 @@
 {
+  "version": 1,
   "name": "Andes & Valley",
   "description": "Andes Valley: a narrow pass between mountains marked by a raging river. Along its banks lie small villages and farms that sustain life in the valley. A finely balanced battlefield where no army holds the advantage of terrain.",
-  "type": "hybrid",
   "map": {
     "width": 1804,
     "height": 1612,
     "deploymentZones": [
       {
         "team": 1,
-        "mainZone": {
-          "team": 1,
-          "x": 90,
-          "y": 1310,
-          "width": 1632,
-          "height": 192
-        },
-        "forwardZone": {
-          "team": 1,
-          "x": 44,
-          "y": 1262,
-          "width": 1728,
-          "height": 384
-        }
+        "zones": [
+          {
+            "team": 1,
+            "x": 90,
+            "y": 1310,
+            "width": 1632,
+            "height": 192,
+            "type": "main"
+          },
+          {
+            "team": 1,
+            "x": 44,
+            "y": 1262,
+            "width": 1728,
+            "height": 384,
+            "type": "forward"
+          }
+        ]
       },
       {
         "team": 2,
-        "mainZone": {
-          "team": 2,
-          "x": 90,
-          "y": 100,
-          "width": 1632,
-          "height": 192
-        },
-        "forwardZone": {
-          "team": 2,
-          "x": 44,
-          "y": 4,
-          "width": 1728,
-          "height": 384
-        }
+        "zones": [
+          {
+            "team": 2,
+            "x": 90,
+            "y": 100,
+            "width": 1632,
+            "height": 192,
+            "type": "main"
+          },
+          {
+            "team": 2,
+            "x": 44,
+            "y": 4,
+            "width": 1728,
+            "height": 384,
+            "type": "forward"
+          }
+        ]
       }
     ],
     "terrains": [
@@ -1633,5 +1641,6 @@
     { "pos": { "x": 1381.84, "y": 992.19 } },
     { "pos": { "x": 587.84, "y": 711.98 } }
   ],
-  "triggers": []
+  "triggers": [],
+  "allowDynamicArmy": true
 }

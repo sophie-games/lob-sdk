@@ -3,6 +3,9 @@
   "home": "Halaman Utama",
   "language": "Bahasa",
   "tutorial": "Tutorial",
+  "tutorialRequired": "Selesaikan tutorial sebelum bermain online",
+  "tutorialRequiredDescription": "Anda harus menyelesaikan tutorial sebelum dapat antri untuk pertandingan online.",
+  "goToTutorial": "Ke tutorial",
   "tutorials": "Tutorial",
   "play": "Bermain",
   "ranking": "Ranking",
@@ -168,6 +171,10 @@
   "offerDraw": "Mengajukan seri",
   "replayBattle": "Ulangi Pertempuran",
   "downloadReplay": "Unduh Replay",
+  "stepByTurn": "Per giliran (jeda otomatis antar giliran)",
+  "pause": "Jeda",
+  "stop": "Berhenti",
+  "restartReplay": "Mulai ulang replay",
   "replayGame": "Ulangi Permainan",
   "importReplay": "Impor Replay",
   "result": "Hasil",
@@ -548,6 +555,16 @@
   "preset": "Prasetelan",
   "hybrid": "Hibrida",
   "random": "Acak",
+  "scenarioFeatures": "Fitur",
+  "scenarioFeature": {
+    "fixedMap": "Peta tetap",
+    "proceduralMap": "Peta hasil generasi prosedural",
+    "fixedArmy": "Pasukan tetap",
+    "dynamicArmy": "Pasukan dinamis",
+    "fixedPlayers": "Pemain tetap",
+    "objectives": "Sasaran",
+    "scriptedEvents": "Peristiwa berskrip"
+  },
   "academy": "Akademi",
   "encyclopedia": "Ensiklopedia",
   "tutorialTips": "Tips Tutorial",
@@ -670,5 +687,13 @@
   "startGameNow": "Mulai permainan sekarang?",
   "startGameNowTooltip": "Unit yang belum ditetapkan ke pemain mana pun akan dibagi rata di antara pemain yang terhubung di tim yang sama dengan unit tersebut.",
   "user": "Pengguna",
-  "meleeStaminaCost": "Biaya stamina jarak dekat"
+  "meleeStaminaCost": "Biaya stamina jarak dekat",
+  "profileChart": {
+    "rankedWinrate90d": "Berperingkat (90h)",
+    "arenaWinrate": "Arena",
+    "wins": "Menang",
+    "losses": "Kalah",
+    "totalGames_other": "{{count}} permainan",
+    "totalArenas_other": "{{count}} arena"
+  }
 }

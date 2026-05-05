@@ -3,6 +3,9 @@
   "home": "Startseite",
   "language": "Sprache",
   "tutorial": "Tutorial",
+  "tutorialRequired": "Schließe das Tutorial ab, bevor du online spielst",
+  "tutorialRequiredDescription": "Du musst das Tutorial abschließen, bevor du dich für Online-Matches in die Warteschlange stellen kannst.",
+  "goToTutorial": "Zum Tutorial",
   "tutorials": "Tutorials",
   "play": "Spielen",
   "ranking": "Rangliste",
@@ -167,6 +170,10 @@
   "offerDraw": "Unentschieden anbieten",
   "replayBattle": "Schlacht wiedergeben",
   "downloadReplay": "Replay herunterladen",
+  "stepByTurn": "Zug für Zug (automatische Pause zwischen Zügen)",
+  "pause": "Pause",
+  "stop": "Stopp",
+  "restartReplay": "Wiederholung neu starten",
   "replayGame": "Spiel wiedergeben",
   "importReplay": "Replay importieren",
   "result": "Ergebnis",
@@ -601,6 +608,16 @@
   "preset": "Voreinstellung",
   "hybrid": "Hybrid",
   "random": "Zufällig",
+  "scenarioFeatures": "Merkmale",
+  "scenarioFeature": {
+    "fixedMap": "Feste Karte",
+    "proceduralMap": "Prozedural generierte Karte",
+    "fixedArmy": "Feste Armee",
+    "dynamicArmy": "Dynamische Armee",
+    "fixedPlayers": "Feste Spieler",
+    "objectives": "Ziele",
+    "scriptedEvents": "Skriptereignisse"
+  },
   "academy": "Akademie",
   "encyclopedia": "Enzyklopädie",
   "tutorialTips": "Tutorial-Tipps",
@@ -664,5 +681,15 @@
   "startGameNow": "Spiel jetzt starten?",
   "startGameNowTooltip": "Einheiten, die keinem Spieler zugewiesen sind, werden gleichmäßig auf die verbundenen Spieler in derselben Mannschaft wie diese Einheiten aufgeteilt.",
   "user": "Benutzer",
-  "meleeStaminaCost": "Nahkampf-Ausdauerkosten"
+  "meleeStaminaCost": "Nahkampf-Ausdauerkosten",
+  "profileChart": {
+    "rankedWinrate90d": "Rangliste (90T)",
+    "arenaWinrate": "Arena",
+    "wins": "Siege",
+    "losses": "Niederlagen",
+    "totalGames_one": "1 Spiel",
+    "totalGames_other": "{{count}} Spiele",
+    "totalArenas_one": "1 Arena",
+    "totalArenas_other": "{{count}} Arenen"
+  }
 }
