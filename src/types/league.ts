@@ -1,11 +1,3 @@
-/**
- * League system: maps player ELO to ranked tiers (Iron → Emperor).
- *
- * `LEAGUES` is the single source of truth, ordered low → high and
- * contiguous. Public functions are stateless and degrade gracefully on
- * non-finite input.
- */
-
 export enum LeagueType {
   /** Emperor */
   A = "a",
@@ -54,91 +46,147 @@ export enum LeagueType {
 }
 
 export interface LeagueBounds {
-  readonly type: LeagueType;
-  /** Inclusive lower bound. `null` = open (lowest league). */
-  readonly minElo: number | null;
-  /** Exclusive upper bound. `null` = open (top league). */
-  readonly maxElo: number | null;
+  type: LeagueType;
+  /** Inclusive lower bound. null = no lower bound (lowest league). */
+  minElo: number | null;
+  /** Exclusive upper bound. null = no upper bound (top league). */
+  maxElo: number | null;
 }
 
 export interface LeagueProgress {
-  readonly current: number;
-  readonly total: number;
+  current: number;
+  total: number;
 }
 
-/** All leagues, ordered low → high. Bands are contiguous and disjoint. */
-export const LEAGUES: ReadonlyArray<LeagueBounds> = [
+const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
+
+/**
+ * ELO bounds for each league, ordered from lowest to highest.
+ * Single source of truth for all league-to-ELO mappings.
+ */
+const LEAGUE_ELO_BOUNDS: ReadonlyArray<LeagueBounds> = [
+  // Iron
   { type: LeagueType.G1, minElo: null, maxElo: 550 },
   { type: LeagueType.G2, minElo: 550, maxElo: 650 },
   { type: LeagueType.G3, minElo: 650, maxElo: 750 },
 
+  // Bronze
   { type: LeagueType.F1, minElo: 750, maxElo: 850 },
   { type: LeagueType.F2, minElo: 850, maxElo: 950 },
   { type: LeagueType.F3, minElo: 950, maxElo: 1050 },
 
+  // Silver
   { type: LeagueType.E1, minElo: 1050, maxElo: 1150 },
   { type: LeagueType.E2, minElo: 1150, maxElo: 1250 },
   { type: LeagueType.E3, minElo: 1250, maxElo: 1350 },
 
+  // Gold
   { type: LeagueType.D1, minElo: 1350, maxElo: 1450 },
   { type: LeagueType.D2, minElo: 1450, maxElo: 1550 },
   { type: LeagueType.D3, minElo: 1550, maxElo: 1650 },
 
+  // Platinum
   { type: LeagueType.C1, minElo: 1650, maxElo: 1750 },
   { type: LeagueType.C2, minElo: 1750, maxElo: 1850 },
   { type: LeagueType.C3, minElo: 1850, maxElo: 1950 },
 
+  // Diamond
   { type: LeagueType.B1, minElo: 1950, maxElo: 2050 },
   { type: LeagueType.B2, minElo: 2050, maxElo: 2150 },
   { type: LeagueType.B3, minElo: 2150, maxElo: 2250 },
 
+  // Emperor
   { type: LeagueType.A, minElo: 2250, maxElo: null },
 ];
 
-const TOP_LEAGUE = LEAGUES[LEAGUES.length - 1];
-const BOTTOM_LEAGUE = LEAGUES[0];
-
-/** Lazy type → bounds map; built on first lookup, never if unused. */
-let boundsByTypeCache: ReadonlyMap<LeagueType, LeagueBounds> | null = null;
-const boundsByType = (): ReadonlyMap<LeagueType, LeagueBounds> =>
-  (boundsByTypeCache ??= new Map(LEAGUES.map((b) => [b.type, b])));
-
 /**
- * Resolve the league band that contains `elo`. Read `.type` for the enum value.
- * Non-finite input: `+Infinity` → top, `-Infinity` / `NaN` → bottom.
+ * Lazy singleton — call {@link LeagueManager.getInstance}. The internal
+ * lookup tables are only built on first access, so importing this module
+ * costs nothing if no league logic ends up running.
  */
-export function getLeagueByElo(elo: number): LeagueBounds {
-  if (!Number.isFinite(elo)) {
-    return elo === Number.POSITIVE_INFINITY ? TOP_LEAGUE : BOTTOM_LEAGUE;
+export class LeagueManager {
+  private static _instance: LeagueManager | null = null;
+
+  /** All leagues ordered low-to-high. */
+  readonly bounds: ReadonlyArray<LeagueBounds> = LEAGUE_ELO_BOUNDS;
+
+  private readonly byType: ReadonlyMap<LeagueType, LeagueBounds>;
+
+  /**
+   * Precomputed elo → league lookup. `bucketSize` is the GCD of every closed
+   * `maxElo`, so each bucket `[k*bucketSize, (k+1)*bucketSize)` is fully
+   * contained in one band — no boundary check needed at lookup time. Buckets
+   * beyond `bucketLookup.length` resolve to the top (open-upper) band.
+   */
+  private readonly bucketSize: number;
+  private readonly bucketLookup: ReadonlyArray<LeagueType>;
+
+  private constructor() {
+    this.byType = new Map(LEAGUE_ELO_BOUNDS.map((b) => [b.type, b]));
+
+    const closedMaxes = LEAGUE_ELO_BOUNDS.map((b) => b.maxElo).filter(
+      (m): m is number => m !== null,
+    );
+    this.bucketSize = closedMaxes.reduce(gcd);
+
+    const topMax = closedMaxes[closedMaxes.length - 1];
+    const lookup: LeagueType[] = new Array(topMax / this.bucketSize);
+    for (let i = 0; i < lookup.length; i++) {
+      const eloAtBucketStart = i * this.bucketSize;
+      const band = LEAGUE_ELO_BOUNDS.find(
+        (b) =>
+          (b.minElo === null || eloAtBucketStart >= b.minElo) &&
+          (b.maxElo === null || eloAtBucketStart < b.maxElo),
+      )!;
+      lookup[i] = band.type;
+    }
+    this.bucketLookup = lookup;
   }
-  for (const band of LEAGUES) {
-    if (band.maxElo === null || elo < band.maxElo) return band;
+
+  static getInstance(): LeagueManager {
+    return (LeagueManager._instance ??= new LeagueManager());
   }
-  return TOP_LEAGUE; // unreachable; last band has maxElo === null
+
+  /** O(1) elo → league lookup. */
+  getByElo(elo: number): LeagueType {
+    const bucket = Math.floor(elo / this.bucketSize);
+    if (bucket < 0) return this.bucketLookup[0];
+    if (bucket >= this.bucketLookup.length) {
+      return LEAGUE_ELO_BOUNDS[LEAGUE_ELO_BOUNDS.length - 1].type;
+    }
+    return this.bucketLookup[bucket];
+  }
+
+  /** O(1) bounds lookup for a given league. */
+  getBounds(type: LeagueType): LeagueBounds {
+    const entry = this.byType.get(type);
+    if (!entry) throw new Error(`Unknown league type: ${type}`);
+    return entry;
+  }
+
+  /**
+   * Progress within the current league as `current / total`. Used to show how
+   * close a player is to the next league without exposing the raw ELO number.
+   *
+   * Returns null for the top league (Emperor) since there is no next league.
+   * For the bottom open-ended league, the lower bound is treated as 0.
+   */
+  getProgress(elo: number): LeagueProgress | null {
+    const entry = this.getBounds(this.getByElo(elo));
+    if (entry.maxElo === null) return null;
+    const min = entry.minElo ?? 0;
+    const total = entry.maxElo - min;
+    const current = Math.max(0, Math.min(total, elo - min));
+    return { current, total };
+  }
+
+  /**
+   * True iff `elo` places the player at `target` or any higher league.
+   * Used by achievements that fire when a player reaches a given league tier.
+   */
+  hasReached(elo: number, target: LeagueType): boolean {
+    const min = this.getBounds(target).minElo;
+    return min === null || elo >= min;
+  }
 }
 
-/** O(1) bounds lookup for a given league type. */
-export function getLeagueBounds(type: LeagueType): LeagueBounds {
-  const entry = boundsByType().get(type);
-  if (!entry) throw new Error(`Unknown league type: ${type}`);
-  return entry;
-}
-
-/**
- * Progress within the current league as `current / total`. Returns `null` for
- * the top league. The bottom open-ended league treats its lower bound as 0.
- */
-export function getLeagueProgress(elo: number): LeagueProgress | null {
-  const band = getLeagueByElo(elo);
-  if (band.maxElo === null) return null;
-  const min = band.minElo ?? 0;
-  const total = band.maxElo - min;
-  const current = Math.max(0, Math.min(total, elo - min));
-  return { current, total };
-}
-
-/** True iff `elo` places the player at `target` or any higher league. */
-export function hasReachedLeague(elo: number, target: LeagueType): boolean {
-  const min = getLeagueBounds(target).minElo;
-  return min === null || elo >= min;
-}

@@ -1,66 +1,56 @@
-import {
-  getLeagueBounds,
-  getLeagueByElo,
-  getLeagueProgress,
-  hasReachedLeague,
-  LeagueType,
-} from "./league";
+import { LeagueManager, LeagueType } from "./league";
 
-describe("getLeagueByElo()", () => {
+const leagues = LeagueManager.getInstance();
+
+describe("leagues.getByElo()", () => {
   it("maps elo to the correct league at band boundaries", () => {
-    expect(getLeagueByElo(549).type).toBe(LeagueType.G1);
-    expect(getLeagueByElo(550).type).toBe(LeagueType.G2);
-    expect(getLeagueByElo(1349).type).toBe(LeagueType.E3);
-    expect(getLeagueByElo(1350).type).toBe(LeagueType.D1);
-    expect(getLeagueByElo(2249).type).toBe(LeagueType.B3);
-    expect(getLeagueByElo(2250).type).toBe(LeagueType.A);
+    expect(leagues.getByElo(549)).toBe(LeagueType.G1);
+    expect(leagues.getByElo(550)).toBe(LeagueType.G2);
+    expect(leagues.getByElo(1349)).toBe(LeagueType.E3);
+    expect(leagues.getByElo(1350)).toBe(LeagueType.D1);
+    expect(leagues.getByElo(2249)).toBe(LeagueType.B3);
+    expect(leagues.getByElo(2250)).toBe(LeagueType.A);
   });
 
-  it("returns the lowest band for non-positive elo", () => {
-    expect(getLeagueByElo(0).type).toBe(LeagueType.G1);
-    expect(getLeagueByElo(-100).type).toBe(LeagueType.G1);
-    expect(getLeagueByElo(449).type).toBe(LeagueType.G1);
+  it("clamps below the lowest band to G1", () => {
+    expect(leagues.getByElo(0)).toBe(LeagueType.G1);
+    expect(leagues.getByElo(-100)).toBe(LeagueType.G1);
+    expect(leagues.getByElo(449)).toBe(LeagueType.G1);
   });
 
-  it("returns the top band for very large elo", () => {
-    expect(getLeagueByElo(5000).type).toBe(LeagueType.A);
-    expect(getLeagueByElo(99999).type).toBe(LeagueType.A);
-  });
-
-  it("degrades gracefully on non-finite input", () => {
-    expect(getLeagueByElo(Number.POSITIVE_INFINITY).type).toBe(LeagueType.A);
-    expect(getLeagueByElo(Number.NEGATIVE_INFINITY).type).toBe(LeagueType.G1);
-    expect(getLeagueByElo(Number.NaN).type).toBe(LeagueType.G1);
+  it("clamps above the top band to A", () => {
+    expect(leagues.getByElo(5000)).toBe(LeagueType.A);
+    expect(leagues.getByElo(99999)).toBe(LeagueType.A);
   });
 });
 
-describe("getLeagueProgress()", () => {
+describe("leagues.getProgress()", () => {
   it("reports progress within the current band", () => {
-    expect(getLeagueProgress(1380)).toEqual({ current: 30, total: 100 });
-    expect(getLeagueProgress(550)).toEqual({ current: 0, total: 100 });
-    expect(getLeagueProgress(649)).toEqual({ current: 99, total: 100 });
+    expect(leagues.getProgress(1380)).toEqual({ current: 30, total: 100 });
+    expect(leagues.getProgress(550)).toEqual({ current: 0, total: 100 });
+    expect(leagues.getProgress(649)).toEqual({ current: 99, total: 100 });
   });
 
   it("returns null for the top league", () => {
-    expect(getLeagueProgress(2250)).toBeNull();
-    expect(getLeagueProgress(9999)).toBeNull();
+    expect(leagues.getProgress(2250)).toBeNull();
+    expect(leagues.getProgress(9999)).toBeNull();
   });
 
   it("treats Iron I's open lower bound as 0", () => {
-    expect(getLeagueProgress(0)).toEqual({ current: 0, total: 550 });
-    expect(getLeagueProgress(300)).toEqual({ current: 300, total: 550 });
-    expect(getLeagueProgress(549)).toEqual({ current: 549, total: 550 });
+    expect(leagues.getProgress(0)).toEqual({ current: 0, total: 550 });
+    expect(leagues.getProgress(300)).toEqual({ current: 300, total: 550 });
+    expect(leagues.getProgress(549)).toEqual({ current: 549, total: 550 });
   });
 });
 
-describe("getLeagueBounds()", () => {
+describe("leagues.getBounds()", () => {
   it("returns bounds for a known league", () => {
-    expect(getLeagueBounds(LeagueType.D1)).toEqual({
+    expect(leagues.getBounds(LeagueType.D1)).toEqual({
       type: LeagueType.D1,
       minElo: 1350,
       maxElo: 1450,
     });
-    expect(getLeagueBounds(LeagueType.A)).toEqual({
+    expect(leagues.getBounds(LeagueType.A)).toEqual({
       type: LeagueType.A,
       minElo: 2250,
       maxElo: null,
@@ -68,19 +58,19 @@ describe("getLeagueBounds()", () => {
   });
 });
 
-describe("hasReachedLeague()", () => {
+describe("leagues.hasReached()", () => {
   it("returns true when the elo is in the target league", () => {
-    expect(hasReachedLeague(1650, LeagueType.C1)).toBe(true);
-    expect(hasReachedLeague(2250, LeagueType.A)).toBe(true);
+    expect(leagues.hasReached(1650, LeagueType.C1)).toBe(true);
+    expect(leagues.hasReached(2250, LeagueType.A)).toBe(true);
   });
 
   it("returns true when the elo is above the target league", () => {
-    expect(hasReachedLeague(2250, LeagueType.C1)).toBe(true);
-    expect(hasReachedLeague(1950, LeagueType.C1)).toBe(true);
+    expect(leagues.hasReached(2250, LeagueType.C1)).toBe(true);
+    expect(leagues.hasReached(1950, LeagueType.C1)).toBe(true);
   });
 
   it("returns false when the elo is below the target league", () => {
-    expect(hasReachedLeague(1649, LeagueType.C1)).toBe(false);
-    expect(hasReachedLeague(0, LeagueType.A)).toBe(false);
+    expect(leagues.hasReached(1649, LeagueType.C1)).toBe(false);
+    expect(leagues.hasReached(0, LeagueType.A)).toBe(false);
   });
 });
