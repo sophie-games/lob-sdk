@@ -8,10 +8,6 @@
     "title": "Ordres de chemin multi-tours",
     "description": "Si activé, vous pouvez tracer des chemins de mouvement sur plusieurs tours. Si désactivé, les chemins sont limités à un seul tour."
   },
-  "enableRotateOrder": {
-    "title": "Activer l'ordre de rotation",
-    "description": "Activer ou désactiver la possibilité d'émettre des ordres de rotation en maintenant appuyé et en faisant glisser sur les unités."
-  },
   "edgePanning": {
     "title": "Défilement sur les bords",
     "description": "Active le défilement lorsque la souris atteint les bords de l'écran (PC)."
@@ -139,7 +135,6 @@
     "toggleSmartCurvedMovements": "Basculer les mouvements courbés intelligents",
     "togglePathFinding": "Basculer la recherche de chemin",
     "toggleFowPerspective": "Basculer la perspective de brouillard de guerre",
-    "toggleRotateOrder": "Basculer l'ordre de rotation",
     "toggleMultiTurnPathOrders": "Basculer les ordres de chemin multi-tours",
     "openChat": "Ouvrir le chat",
     "openFormationModal": "Ouvrir la fenêtre de formation",

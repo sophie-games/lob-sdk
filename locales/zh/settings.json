@@ -8,10 +8,6 @@
     "title": "多回合路径指令",
     "description": "启用后可绘制跨越多个回合的移动路径。禁用后，路径仅限单回合。"
   },
-  "enableRotateOrder": {
-    "title": "启用转向指令",
-    "description": "是否开启长按单位并拖拽来下达转向指令的功能"
-  },
   "edgePanning": {
     "title": "边缘平移",
     "description": "当鼠标指针移到画面边缘时移动画面（PC）。"
@@ -170,7 +166,6 @@
     "toggleSmartCurvedMovements": "切换智能曲线移动",
     "togglePathFinding": "切换路径寻找",
     "toggleFowPerspective": "切换战争迷雾视角",
-    "toggleRotateOrder": "切换转向指令",
     "toggleMultiTurnPathOrders": "切换多回合路径指令",
     "openChat": "打开聊天栏",
     "openFormationModal": "打开阵型菜单",
