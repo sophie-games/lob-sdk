@@ -1,6 +1,7 @@
 import { GameTimePresetId } from "@lob-sdk/game-time-preset";
 import {
   DynamicBattleType,
+  LeagueType,
   ScenarioName,
   SkinTier,
   TeamSize,
@@ -25,7 +26,8 @@ export interface Avatar {
 export type AchievementTrigger =
   | { type: "tutorial_completed" }
   | { type: "ranked_wins_total"; threshold: number }
-  | { type: "arenas_won_total"; threshold: number };
+  | { type: "arenas_won_total"; threshold: number }
+  | { type: "league_reached"; league: LeagueType };
 
 export interface Achievement {
   id: number;
