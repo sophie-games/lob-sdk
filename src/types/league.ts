@@ -59,13 +59,6 @@ export interface LeagueProgress {
 }
 
 /**
- * League bands are uniform: every league spans BAND_SIZE elo, starting at MIN_ELO.
- * The indexed lookup in `LeagueManager.getByElo` relies on this invariant.
- */
-const MIN_ELO = 450;
-const BAND_SIZE = 100;
-
-/**
  * ELO bounds for each league, ordered from lowest to highest.
  * Single source of truth for all league-to-ELO mappings.
  */
@@ -116,23 +109,26 @@ export class LeagueManager {
   readonly bounds: ReadonlyArray<LeagueBounds> = LEAGUE_ELO_BOUNDS;
 
   private readonly byType: ReadonlyMap<LeagueType, LeagueBounds>;
-  private readonly indexed: ReadonlyArray<LeagueType>;
 
   private constructor() {
     this.byType = new Map(LEAGUE_ELO_BOUNDS.map((b) => [b.type, b]));
-    this.indexed = LEAGUE_ELO_BOUNDS.map((b) => b.type);
   }
 
   static getInstance(): LeagueManager {
     return (LeagueManager._instance ??= new LeagueManager());
   }
 
-  /** O(1) elo → league lookup. */
+  /**
+   * Linear scan over `bounds` (ordered low-to-high). Stops at the first band
+   * whose upper bound is above `elo`, or at the open-ended top band. Bounded
+   * to `bounds.length` (currently 19), so call cost is constant in practice.
+   */
   getByElo(elo: number): LeagueType {
-    const idx = Math.floor((elo - MIN_ELO) / BAND_SIZE);
-    if (idx <= 0) return this.indexed[0];
-    if (idx >= this.indexed.length) return this.indexed[this.indexed.length - 1];
-    return this.indexed[idx];
+    for (const entry of LEAGUE_ELO_BOUNDS) {
+      if (entry.maxElo === null || elo < entry.maxElo) return entry.type;
+    }
+    // Unreachable: the last entry has maxElo === null.
+    return LEAGUE_ELO_BOUNDS[LEAGUE_ELO_BOUNDS.length - 1].type;
   }
 
   /** O(1) bounds lookup for a given league. */
