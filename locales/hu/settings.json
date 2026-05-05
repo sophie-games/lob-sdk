@@ -8,10 +8,6 @@
     "title": "Többszörös fordulási út parancsok",
     "description": "Bekapcsolva több fordulóra kiterjedő mozgási utakat rajzolhatsz. Kikapcsolva az utak egy fordulóra korlátozódnak."
   },
-  "enableRotateOrder": {
-    "title": "Forgatási parancs engedélyezése",
-    "description": "Engedélyezze vagy tiltsa le a forgatási parancsok kiadásának lehetőségét hosszú nyomvatartással és egységeken való húzással."
-  },
   "edgePanning": {
     "title": "Pálya húzgálása a képernyő szélén",
     "description": "Engedélyezi, hogy a pálya kimozduljon a képernyőnek annak a szélének az irányába, ahol az egér van (PC funkció)."
@@ -139,7 +135,6 @@
     "toggleSmartCurvedMovements": "Okos görbült mozgások váltása",
     "togglePathFinding": "Útvonalkeresés váltása",
     "toggleFowPerspective": "Háborús köd perspektíva váltása",
-    "toggleRotateOrder": "Forgatási parancs váltása",
     "toggleMultiTurnPathOrders": "Többszörös fordulási út parancsok váltása",
     "openChat": "Chat megnyitása",
     "openFormationModal": "Formáció ablak megnyitása",
