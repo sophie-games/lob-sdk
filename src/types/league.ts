@@ -104,16 +104,27 @@ const LEAGUE_ELO_BOUNDS: ReadonlyArray<LeagueBounds> = [
   { type: LeagueType.A, minElo: 2250, maxElo: null },
 ];
 
-class LeagueManager {
+/**
+ * Lazy singleton — call {@link LeagueManager.getInstance}. The internal
+ * lookup tables are only built on first access, so importing this module
+ * costs nothing if no league logic ends up running.
+ */
+export class LeagueManager {
+  private static _instance: LeagueManager | null = null;
+
   /** All leagues ordered low-to-high. */
   readonly bounds: ReadonlyArray<LeagueBounds> = LEAGUE_ELO_BOUNDS;
 
   private readonly byType: ReadonlyMap<LeagueType, LeagueBounds>;
   private readonly indexed: ReadonlyArray<LeagueType>;
 
-  constructor() {
+  private constructor() {
     this.byType = new Map(LEAGUE_ELO_BOUNDS.map((b) => [b.type, b]));
     this.indexed = LEAGUE_ELO_BOUNDS.map((b) => b.type);
+  }
+
+  static getInstance(): LeagueManager {
+    return (LeagueManager._instance ??= new LeagueManager());
   }
 
   /** O(1) elo → league lookup. */
@@ -157,4 +168,3 @@ class LeagueManager {
   }
 }
 
-export const leagues = new LeagueManager();

@@ -1,4 +1,6 @@
-import { LeagueType, leagues } from "./league";
+import { LeagueManager, LeagueType } from "./league";
+
+const leagues = LeagueManager.getInstance();
 
 describe("leagues.getByElo()", () => {
   it("maps elo to the correct league at band boundaries", () => {
