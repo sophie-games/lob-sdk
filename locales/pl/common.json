@@ -26,7 +26,6 @@
   "addPlayer": "Dodaj gracza",
   "credits": "Autorzy",
   "settings": "Ustawienia",
-  "eloDescription": "Elo to system oceny używany do obliczenia względnego poziomu umiejętności graczy. Im wyższe jest twoje Elo, tym lepszy jesteś w porównaniu do innych. Wygrywanie zwiększa twoje Elo, a przegrywanie je zmniejsza.",
   "welcomeName": "Witaj {{name}}!",
   "myGames": "Moje partie",
   "gameStatus": {
@@ -65,7 +64,6 @@
     "extendQueueSuccess": "Szukanie w zasięgu Twojego ELO",
     "cancelledBy": "Kolejka została anulowana przez {{username}}.",
     "playersInQueue": "{{count}} graczy szuka",
-    "searchingEloRange": "<0>{{minElo}}</0> - <1>{{maxElo}}</1> (<2>Ty:</2> <3>{{userElo}}</3>)",
     "disconnectedReconnecting": "Utracono Połączenie. Ponowne Łączenie"
   },
   "fastMode": "Tryb Szybki",
@@ -453,7 +451,6 @@
   "human": "Człowiek",
   "bot": "Bot",
   "armyOfPlayer": "Armia gracza {{player}}",
-  "averageElo": "Średnie Elo",
   "hybridDescription": "Hybrydowe mapy używają ustalonego terenu, ale pozwalają graczom używać własnych armii.",
   "battleReport": "Raport z Bitwy",
   "gameEndReasons": {
@@ -474,7 +471,6 @@
     "leader": "Lider",
     "member": "Członek"
   },
-  "clanElo": "Elo Koalicji: {{elo}}",
   "members": "Członkowie",
   "deleteClan": "Usuń Koalicję",
   "deleteClanModal": {

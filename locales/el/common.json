@@ -26,7 +26,6 @@
   "addPlayer": "Βάλε παίχτη",
   "credits": "Τίτλοι",
   "settings": "Ρυθμίσεις",
-  "eloDescription": "Το Elo είναι ένα σύστημα αξιολόγησης που χρησιμοποιείται για τον υπολογισμό του σχετικού επιπέδου δεξιοτήτων των παικτών. Όσο υψηλότερο είναι το Elo σας, τόσο πιο δυνατοί είστε σε σύγκριση με τους άλλους. Η νίκη αυξάνει το Elo σας, ενώ η ήττα το μειώνει.",
   "welcomeName": "καλωσήρθες {{name}}!",
   "myGames": "τα παιχνίδια μου",
   "gameStatus": {
@@ -65,7 +64,6 @@
     "extendQueueSuccess": "Αναζήτηση σε οποιαδήποτε σειρά Elo.",
     "cancelledBy": "Η ουρά ακυρώθηκε από {{username}}.",
     "playersInQueue": "{{count}} παίκτες αναζητούν",
-    "searchingEloRange": "<0>{{minElo}}</0> - <1>{{maxElo}}</1> (<2>Εσείς:</2> <3>{{userElo}}</3>)",
     "disconnectedReconnecting": "Η Σύνδεση Χάθηκε. Επανασύνδεση"
   },
   "fastMode": "Γρήγορη λειτουργία",
@@ -465,7 +463,6 @@
   "human": "Ανθρώπος",
   "bot": "Ρομπότ",
   "armyOfPlayer": "Στρατός Παίκτη {{player}}",
-  "averageElo": "Μέσο Elo",
   "hybridDescription": "Hybrid maps use non-random, preset terrain, but enable players to use their own custom armies to play.",
   "battleReport": "Αναφορά μάχης",
   "gameEndReasons": {
@@ -486,7 +483,6 @@
     "leader": "Ηγέτης",
     "member": "Μέλος"
   },
-  "clanElo": "Elo συμμαχίας: {{elo}}",
   "members": "Μέλη",
   "deleteClan": "Διαγραφή συμμαχίας",
   "deleteClanModal": {

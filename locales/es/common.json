@@ -14,7 +14,6 @@
   "supporters": "Patrocinadores",
   "credits": "Créditos",
   "settings": "Configuración",
-  "eloDescription": "Elo es un sistema de clasificación utilizado para calcular el nivel relativo de habilidad de los jugadores. Cuanto más alto sea tu Elo, más fuerte eres en comparación con otros. Ganar aumenta tu Elo, mientras que perder lo disminuye.",
   "welcomeName": "Bienvenido {{name}}!",
   "myGames": "Mis juegos",
   "gameStatus": {
@@ -53,7 +52,6 @@
     "extendQueueSuccess": "Buscando en cualquier rango de Elo.",
     "cancelledBy": "La cola fue cancelada por {{username}}.",
     "playersInQueue": "{{count}} jugadores buscando",
-    "searchingEloRange": "<0>{{minElo}}</0> - <1>{{maxElo}}</1> (<2>Tú:</2> <3>{{userElo}}</3>)",
     "disconnectedReconnecting": "Conexión Perdida. Reconectando"
   },
   "fastMode": "Modo rápido",
@@ -445,7 +443,6 @@
   "joinedAt": "Se unió en {{date}}",
   "addPlayer": "Agregar jugador",
   "teams": "Equipos",
-  "averageElo": "Elo promedio",
   "hybridDescription": "Los mapas híbridos usan terreno predefinido no aleatorio, pero permiten a los jugadores usar sus propios ejércitos personalizados para jugar.",
   "battleReport": "Informe de batalla",
   "gameEndReasons": {
@@ -466,7 +463,6 @@
     "leader": "Líder",
     "member": "Miembro"
   },
-  "clanElo": "Elo de la coalición: {{elo}}",
   "members": "Miembros",
   "deleteClan": "Eliminar Coalición",
   "deleteClanModal": {

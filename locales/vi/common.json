@@ -26,7 +26,6 @@
   "addPlayer": "Thêm người chơi",
   "credits": "Ghi công",
   "settings": "Cài đặt",
-  "eloDescription": "Elo là hệ thống xếp hạng được sử dụng để tính toán trình độ kỹ năng tương đối của người chơi. Elo của bạn càng cao, bạn càng mạnh so với những người khác. Thắng sẽ tăng Elo, thua sẽ giảm Elo.",
   "welcomeName": "Chào mừng {{name}}!",
   "myGames": "Trò chơi của tôi",
   "gameStatus": {
@@ -65,7 +64,6 @@
     "extendQueueSuccess": "Tìm kiếm trong mọi phạm vi Elo.",
     "cancelledBy": "Hàng đợi đã bị hủy bởi {{username}}.",
     "playersInQueue": "{{count}} người chơi đang tìm kiếm",
-    "searchingEloRange": "<0>{{minElo}}</0> - <1>{{maxElo}}</1> (<2>Bạn:</2> <3>{{userElo}}</3>)",
     "disconnectedReconnecting": "Mất Kết Nối. Đang Kết Nối Lại"
   },
   "fastMode": "Chế độ nhanh",
@@ -476,7 +474,6 @@
   "human": "Người",
   "bot": "Bot",
   "armyOfPlayer": "Quân đội của người chơi {{player}}",
-  "averageElo": "Elo trung bình",
   "hybridDescription": "Bản đồ lai sử dụng địa hình được định sẵn không ngẫu nhiên, nhưng cho phép người chơi sử dụng quân đội tùy chỉnh của riêng họ để chơi.",
   "battleReport": "Báo cáo trận chiến",
   "gameEndReasons": {
@@ -497,7 +494,6 @@
     "leader": "Thủ lĩnh",
     "member": "Thành viên"
   },
-  "clanElo": "Elo liên minh: {{elo}}",
   "members": "Thành viên",
   "deleteClan": "Xóa liên minh",
   "deleteClanModal": {

@@ -26,7 +26,6 @@
   "addPlayer": "플레이어 추가",
   "credits": "개발진",
   "settings": "설정",
-  "eloDescription": "Elo(엘로)는 플레이어의 상대적인 실력 수준을 계산하는 데 사용되는 등급 체계입니다. Elo가 높을수록 타 플레이어에 비해 강하다는 뜻입니다. 승리하면 Elo가 증가하고, 패배하면 감소합니다.",
   "welcomeName": "{{name}}, 환영합니다!",
   "myGames": "내 경기",
   "gameStatus": {
@@ -65,7 +64,6 @@
     "extendQueueSuccess": "모든 Elo 범위대에서 탐색.",
     "cancelledBy": "{{username}} 님이 대기를 취소했습니다.",
     "playersInQueue": "{{count}} 명의 플레이어가 탐색 중",
-    "searchingEloRange": "<0>{{minElo}}</0> - <1>{{maxElo}}</1> (<2>당신:</2> <3>{{userElo}}</3>)",
     "disconnectedReconnecting": "연결 끔김. 재연결 중"
   },
   "fastMode": "단기전",
@@ -469,7 +467,6 @@
   "human": "인간",
   "bot": "컴퓨터",
   "armyOfPlayer": "{{player}}번 플레이어의 군대",
-  "averageElo": "평균 Elo",
   "hybridDescription": "혼성 지도는 무작위로 생성되는 것이 아닌 미리 설정된 지형을 사용하지만, 플레이어가 자신만의 군대를 사용하여 경기할 수 있습니다.",
   "battleReport": "전투 보고",
   "gameEndReasons": {
@@ -490,7 +487,6 @@
     "leader": "연합주",
     "member": "연합원"
   },
-  "clanElo": "연합 Elo : {{elo}}",
   "members": "연합원",
   "deleteClan": "연합 해체",
   "deleteClanModal": {

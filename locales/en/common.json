@@ -24,7 +24,9 @@
   "addPlayer": "Add player",
   "credits": "Credits",
   "settings": "Settings",
-  "eloDescription": "Elo is a rating system used to calculate the relative skill level of players. The higher your Elo, the stronger you are compared to others. Winning increases your Elo, while losing decreases it.",
+  "leagueDescription": "Your league reflects your skill level. Win games to earn progress within your league, and once you reach the top of a league, you advance to the next one. Lose too many games and you may drop down. Hover the league badge to see your progress to the next league.",
+  "averageLeague": "Average League",
+  "clanLeague": "Coalition League",
   "welcomeName": "Welcome {{name}}!",
   "myGames": "My games",
   "gameStatus": {
@@ -63,7 +65,6 @@
     "extendQueueSuccess": "Searching in any Elo range.",
     "cancelledBy": "The queue was cancelled by {{username}}.",
     "playersInQueue": "{{count}} players searching",
-    "searchingEloRange": "<0>{{minElo}}</0> - <1>{{maxElo}}</1> (<2>You:</2> <3>{{userElo}}</3>)",
     "disconnectedReconnecting": "Connection Lost. Reconnecting"
   },
   "fastMode": "Fast Mode",
@@ -480,7 +481,6 @@
   "human": "Human",
   "bot": "Bot",
   "armyOfPlayer": "Army of Player {{player}}",
-  "averageElo": "Average Elo",
   "hybridDescription": "Hybrid maps use non-random, preset terrain, but enable players to use their own custom armies to play.",
   "battleReport": "Battle Report",
   "gameEndReasons": {
@@ -501,7 +501,6 @@
     "leader": "Leader",
     "member": "Member"
   },
-  "clanElo": "Coalition Elo: {{elo}}",
   "members": "Members",
   "deleteClan": "Delete Coalition",
   "deleteClanModal": {

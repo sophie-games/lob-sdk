@@ -26,7 +26,6 @@
   "addPlayer": "添加玩家",
   "credits": "鸣谢",
   "settings": "设置",
-  "eloDescription": "Elo是一种用来计算玩家水平排名的积分。Elo越高，代表你的能力在玩家中越强。在匹配对局中胜出能增加Elo，失败则会降低。",
   "welcomeName": "欢迎{{name}}！",
   "myGames": "我的对局",
   "gameStatus": {
@@ -65,7 +64,6 @@
     "extendQueueSuccess": "匹配范围已经扩大！正在匹配全分段的对手。",
     "cancelledBy": "匹配被{{username}}取消了。",
     "playersInQueue": "{{count}}名玩家正在匹配",
-    "searchingEloRange": "<0>{{minElo}}</0> - <1>{{maxElo}}</1> (<2>你：</2> <3>{{userElo}}</3>)",
     "disconnectedReconnecting": "连接丢失。正在重新连接"
   },
   "fastMode": "快速模式",
@@ -479,7 +477,6 @@
   "human": "人类",
   "bot": "AI玩家",
   "armyOfPlayer": "玩家{{player}}的军队",
-  "averageElo": "平均Elo",
   "hybridDescription": "复合地图是使用预设地形的非随机地图，但允许玩家使用他们自定义的军队游玩。",
   "battleReport": "战斗简报",
   "gameEndReasons": {
@@ -500,7 +497,6 @@
     "leader": "领袖",
     "member": "成员"
   },
-  "clanElo": "联盟Elo：{{elo}}",
   "members": "成员",
   "deleteClan": "解散联盟",
   "deleteClanModal": {

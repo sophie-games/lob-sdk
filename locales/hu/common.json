@@ -25,7 +25,6 @@
   "addPlayer": "Játékos hozzáadása",
   "credits": "Kreditek",
   "settings": "Beállítások",
-  "eloDescription": "Az Élő (világnyelvi nevén Elo) egy pontozási rendszer - Élő Árpád találmánya - azt a célt szolgálja, hogy összevethesd a teljesítményed más játékosokaiéval. Minél több az Élőd, annál erősebb vagy más játékosokhoz képest. A győzelmeid növelik az Élődet, míg a vereségek csökkentik.",
   "welcomeName": "Üdv {{name}}!",
   "myGames": "Játékaim",
   "gameStatus": {
@@ -64,7 +63,6 @@
     "extendQueueSuccess": "Keresés bármilyen Elo tartományban.",
     "cancelledBy": "A várólistát {{username}} törölte.",
     "playersInQueue": "{{count}} játékos keres",
-    "searchingEloRange": "<0>{{minElo}}</0> - <1>{{maxElo}}</1> (<2>Te:</2> <3>{{userElo}}</3>)",
     "disconnectedReconnecting": "Kapcsolat Megszakadt. Újracsatlakozás"
   },
   "fastMode": "Gyors mód",

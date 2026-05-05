@@ -26,7 +26,6 @@
   "addPlayer": "إضافة لاعب",
   "credits": "الاعتمادات",
   "settings": "الإعدادات",
-  "eloDescription": "Elo هو نظام تقييم يُستخدم لحساب مستوى المهارة النسبي للاعبين. كلما ارتفع تصنيف Elo الخاص بك، كلما كنت أقوى مقارنة بالآخرين. الفوز يزيد من تصنيف Elo الخاص بك، بينما الخسارة تقلله.",
   "welcomeName": "مرحباً {{name}}!",
   "myGames": "ألعابي",
   "gameStatus": {
@@ -65,7 +64,6 @@
     "extendQueueSuccess": "البحث في أي نطاق Elo.",
     "cancelledBy": "تم إلغاء الطابور بواسطة {{username}}.",
     "playersInQueue": "{{count}} لاعب يبحث",
-    "searchingEloRange": "<0>{{minElo}}</0> - <1>{{maxElo}}</1> (<2>أنت:</2> <3>{{userElo}}</3>)",
     "disconnectedReconnecting": "فُقد الاتصال. إعادة الاتصال"
   },
   "fastMode": "الوضع السريع",
@@ -477,7 +475,6 @@
   "human": "بشري",
   "bot": "بوت",
   "armyOfPlayer": "جيش اللاعب {{player}}",
-  "averageElo": "متوسط Elo",
   "hybridDescription": "الخرائط المختلطة تستخدم تضاريس غير عشوائية ومحددة مسبقاً، لكنها تمكن اللاعبين من استخدام جيوشهم المخصصة للعب.",
   "battleReport": "تقرير المعركة",
   "gameEndReasons": {
@@ -498,7 +495,6 @@
     "leader": "قائد",
     "member": "عضو"
   },
-  "clanElo": "Elo التحالف: {{elo}}",
   "members": "الأعضاء",
   "deleteClan": "حذف التحالف",
   "deleteClanModal": {

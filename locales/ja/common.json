@@ -25,7 +25,6 @@
   "addPlayer": "プレイヤーを追加",
   "credits": "クレジット",
   "settings": "設定",
-  "eloDescription": "Eloは、プレイヤーの相対的なスキルレベルを計算するためのレーティングシステムです。Eloが高いほど、他のプレイヤーより強いことを示します。勝利するとEloが上がり、敗北すると下がります。",
   "welcomeName": "ようこそ、{{name}}さん！",
   "myGames": "マイゲーム",
   "gameStatus": {
@@ -64,7 +63,6 @@
     "extendQueueSuccess": "任意のElo範囲で検索中。",
     "cancelledBy": "キューは{{username}}によってキャンセルされました。",
     "playersInQueue": "{{count}}人のプレイヤーが検索中",
-    "searchingEloRange": "<0>{{minElo}}</0> - <1>{{maxElo}}</1> (<2>あなた:</2> <3>{{userElo}}</3>)",
     "disconnectedReconnecting": "接続が切断されました。再接続中"
   },
   "fastMode": "高速モード",
@@ -432,7 +430,6 @@
   "human": "人間",
   "bot": "ボット",
   "armyOfPlayer": "プレイヤー{{player}}の軍",
-  "averageElo": "平均Elo",
   "hybridDescription": "ハイブリッドマップは、ランダムではなく、プリセットの地形を使用しますが、プレイヤーが独自のカスタム軍を使用してプレイできるようにします。",
   "battleReport": "戦闘報告",
   "gameEndReasons": {
@@ -452,7 +449,6 @@
     "leader": "リーダー",
     "member": "メンバー"
   },
-  "clanElo": "連合Elo: {{elo}}",
   "members": "メンバー",
   "deleteClan": "連合を削除",
   "deleteClanModal": {
