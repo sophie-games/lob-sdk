@@ -71,7 +71,7 @@ const BAND_SIZE = 100;
  */
 const LEAGUE_ELO_BOUNDS: ReadonlyArray<LeagueBounds> = [
   // Iron
-  { type: LeagueType.G1, minElo: 450, maxElo: 550 },
+  { type: LeagueType.G1, minElo: null, maxElo: 550 },
   { type: LeagueType.G2, minElo: 550, maxElo: 650 },
   { type: LeagueType.G3, minElo: 650, maxElo: 750 },
 

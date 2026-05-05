@@ -34,8 +34,10 @@ describe("leagues.getProgress()", () => {
     expect(leagues.getProgress(9999)).toBeNull();
   });
 
-  it("clamps to [0, total] for elo outside the league bounds", () => {
-    expect(leagues.getProgress(0)).toEqual({ current: 0, total: 100 });
+  it("treats Iron I's open lower bound as 0", () => {
+    expect(leagues.getProgress(0)).toEqual({ current: 0, total: 550 });
+    expect(leagues.getProgress(300)).toEqual({ current: 300, total: 550 });
+    expect(leagues.getProgress(549)).toEqual({ current: 549, total: 550 });
   });
 });
 
