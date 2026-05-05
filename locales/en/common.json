@@ -566,6 +566,25 @@
   "resetToDefault": "Reset to default",
   "submittingOrders": "Submitting orders...",
   "checkingUpdates": "Checking updates...",
+  "limitedMode": {
+    "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
+    "homeBannerAvailable": "{{title}} mode available to create",
+    "homeBannerJoinable": "Join {{title}}, starts in {{countdown}}",
+    "homeBannerCooldown": "{{title}} unlocks in {{countdown}}",
+    "lobbyCountdown": "Auto-start in {{countdown}}",
+    "create": "Create",
+    "createTitle": "Create {{title}}",
+    "createDescription": "A {{title}} game will be created. The lobby is open to all players until it fills or auto-starts.",
+    "join": "Join",
+    "errors": {
+      "LIMITED_MODE_NOT_FOUND": "This mode is not available.",
+      "LIMITED_MODE_NOT_AVAILABLE": "This mode is currently unavailable.",
+      "LIMITED_MODE_BUSY": "Another player is creating a game right now. Try again in a moment.",
+      "INSUFFICIENT_CURRENCY": "Not enough currency.",
+      "INVALID_CURRENCY_TYPE": "Invalid currency selection.",
+      "INTERNAL_ERROR": "Something went wrong. Try again."
+    }
+  },
   "arenas": "Arenas",
   "arena": {
     "reconnecting": "Reconnecting…",
