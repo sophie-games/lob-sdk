@@ -8,10 +8,6 @@
     "title": "Ordini percorso multi-giro",
     "description": "Se attivo, puoi tracciare percorsi di movimento che si estendono su più turni. Se disattivato, i percorsi sono limitati a un solo turno."
   },
-  "enableRotateOrder": {
-    "title": "Abilita Ordine di Rotazione",
-    "description": "Abilita o disabilita la possibilità di emettere ordini di rotazione premendo a lungo e trascinando sulle unità."
-  },
   "edgePanning": {
     "title": "Scorrimento ai bordi",
     "description": "Abilita lo scorrimento quando il mouse raggiunge i bordi dello schermo (PC)."
@@ -139,7 +135,6 @@
     "toggleSmartCurvedMovements": "Attiva/disattiva movimenti curvi intelligenti",
     "togglePathFinding": "Attiva/disattiva ricerca percorso",
     "toggleFowPerspective": "Cambia prospettiva nebbia di guerra",
-    "toggleRotateOrder": "Attiva/disattiva ordine di rotazione",
     "toggleMultiTurnPathOrders": "Attiva/disattiva ordini percorso multi-giro",
     "openChat": "Apri chat",
     "openFormationModal": "Apri finestra formazione",

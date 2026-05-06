@@ -25,7 +25,9 @@
   "addPlayer": "Oyuncu ekle",
   "credits": "Katkılar",
   "settings": "Ayarlar",
-  "eloDescription": "Elo, oyuncuların göreceli beceri seviyelerini hesaplamak için kullanılan bir derecelendirme sistemidir. Elo'nuz ne kadar yüksekse, diğerlerine göre o kadar güçlüsünüz demektir. Kazanmak Elo'nuzu artırır, kaybetmek ise düşürür.",
+  "leagueDescription": "Liginiz beceri seviyenizi yansıtır. Liginizde ilerlemek için maçları kazanın; zirveye ulaştığınızda bir sonraki lige yükselirsiniz. Çok fazla yenilgi sizi düşürebilir. Bir sonraki lige kalan ilerlemenizi görmek için lig rozetinin üzerine gelin.",
+  "averageLeague": "Ortalama Lig",
+  "clanLeague": "Koalisyon Ligi",
   "welcomeName": "Hoş geldiniz {{name}}!",
   "myGames": "Oyunlarım",
   "gameStatus": {
@@ -64,7 +66,6 @@
     "extendQueueSuccess": "Herhangi bir Elo aralığında aranıyor.",
     "cancelledBy": "Kuyruk {{username}} tarafından iptal edildi.",
     "playersInQueue": "{{count}} oyuncu aranıyor",
-    "searchingEloRange": "<0>{{minElo}}</0> - <1>{{maxElo}}</1> (<2>Sen:</2> <3>{{userElo}}</3>)",
     "disconnectedReconnecting": "Bağlantı Kesildi. Yeniden Bağlanıyor"
   },
   "fastMode": "Hızlı Mod",
@@ -433,7 +434,6 @@
   "human": "İnsan",
   "bot": "Bot",
   "armyOfPlayer": "Oyuncu {{player}}’ın ordusu",
-  "averageElo": "Ortalama Elo",
   "hybridDescription": "Hibrit haritalar rastgele olmayan, önceden ayarlanmış arazi kullanır, ancak oyuncuların kendi özel ordularını kullanmalarına olanak tanır.",
   "battleReport": "Savaş Raporu",
   "gameEndReasons": {
@@ -454,7 +454,6 @@
     "leader": "Lider",
     "member": "Üye"
   },
-  "clanElo": "Koalisyon Elo: {{elo}}",
   "members": "Üyeler",
   "deleteClan": "Koalisyonu Sil",
   "deleteClanModal": {
@@ -691,5 +690,28 @@
     "losses": "Mağlubiyetler",
     "totalGames_other": "{{count}} oyun",
     "totalArenas_other": "{{count}} arena"
+  },
+  "league": {
+    "title": "Lig",
+    "emperor": "İmparator",
+    "diamond-3": "Elmas III",
+    "diamond-2": "Elmas II",
+    "diamond-1": "Elmas I",
+    "platinum-3": "Platin III",
+    "platinum-2": "Platin II",
+    "platinum-1": "Platin I",
+    "gold-3": "Altın III",
+    "gold-2": "Altın II",
+    "gold-1": "Altın I",
+    "silver-3": "Gümüş III",
+    "silver-2": "Gümüş II",
+    "silver-1": "Gümüş I",
+    "bronze-3": "Bronz III",
+    "bronze-2": "Bronz II",
+    "bronze-1": "Bronz I",
+    "iron-3": "Demir III",
+    "iron-2": "Demir II",
+    "iron-1": "Demir I",
+    "unranked": "Derecesiz"
   }
 }

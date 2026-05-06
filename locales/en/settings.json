@@ -8,10 +8,6 @@
     "title": "Multi-turn path orders",
     "description": "When enabled, you can draw movement paths that span multiple turns. When disabled, paths are limited to one turn only."
   },
-  "enableRotateOrder": {
-    "title": "Enable Rotate Order",
-    "description": "Enable or disable the ability to issue rotate orders by long-pressing and dragging on units."
-  },
   "edgePanning": {
     "title": "Edge Panning",
     "description": "Enable panning when mouse reaches screen edges (PC)."
@@ -170,7 +166,6 @@
     "toggleSmartCurvedMovements": "Toggle Smart Curved Movements",
     "togglePathFinding": "Toggle Path finding",
     "toggleFowPerspective": "Toggle Fog of War Perspective",
-    "toggleRotateOrder": "Toggle Rotate Order",
     "toggleMultiTurnPathOrders": "Toggle Multi-turn Path Orders",
     "openChat": "Open chat",
     "openFormationModal": "Open formation modal",
