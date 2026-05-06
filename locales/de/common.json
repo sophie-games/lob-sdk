@@ -596,6 +596,27 @@
   "medium": "Mittel",
   "high": "Hoch",
   "dismiss": "Verwerfen",
+  "lobby": {
+    "autoStartCountdown": "Automatischer Start in {{countdown}}"
+  },
+  "limitedMode": {
+    "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
+    "homeBannerAvailable": "Modus {{title}} verfügbar",
+    "homeBannerJoinable": "{{title}} beitreten, startet in {{countdown}}",
+    "homeBannerCooldown": "{{title}} wird in {{countdown}} freigeschaltet",
+    "create": "Erstellen",
+    "createTitle": "{{title}} erstellen",
+    "createDescription": "Eine {{title}}-Partie wird erstellt. Die Lobby ist für alle Spieler offen, bis sie voll ist oder automatisch startet.",
+    "join": "Beitreten",
+    "errors": {
+      "LIMITED_MODE_NOT_FOUND": "Dieser Modus ist nicht verfügbar.",
+      "LIMITED_MODE_NOT_AVAILABLE": "Dieser Modus ist derzeit nicht verfügbar.",
+      "LIMITED_MODE_BUSY": "Ein anderer Spieler erstellt gerade eine Partie. Versuche es gleich nochmal.",
+      "INSUFFICIENT_CURRENCY": "Nicht genug Währung.",
+      "INVALID_CURRENCY_TYPE": "Ungültige Währungsauswahl.",
+      "INTERNAL_ERROR": "Etwas ist schiefgelaufen. Versuche es nochmal."
+    }
+  },
   "turningDelay": "Drehverzögerung",
   "allyOverlap": "Verbündeten-Überlappung",
   "hard": "Hart",

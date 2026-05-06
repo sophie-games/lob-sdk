@@ -566,6 +566,27 @@
   "submittingOrders": "Отправляем приказы...",
   "checkingUpdates": "Проверяем обновления...",
   "arenas": "Арены",
+  "lobby": {
+    "autoStartCountdown": "Автозапуск через {{countdown}}"
+  },
+  "limitedMode": {
+    "title": "{{playersPerTeam}} на {{playersPerTeam}} {{battleTypeName}}",
+    "homeBannerAvailable": "Режим {{title}} доступен для создания",
+    "homeBannerJoinable": "Присоединиться к {{title}}, начнётся через {{countdown}}",
+    "homeBannerCooldown": "{{title}} разблокируется через {{countdown}}",
+    "create": "Создать",
+    "createTitle": "Создать {{title}}",
+    "createDescription": "Будет создана партия {{title}}. Лобби открыто для всех игроков, пока не заполнится или не начнётся автоматически.",
+    "join": "Присоединиться",
+    "errors": {
+      "LIMITED_MODE_NOT_FOUND": "Этот режим недоступен.",
+      "LIMITED_MODE_NOT_AVAILABLE": "Этот режим сейчас недоступен.",
+      "LIMITED_MODE_BUSY": "Другой игрок сейчас создаёт партию. Попробуйте через мгновение.",
+      "INSUFFICIENT_CURRENCY": "Недостаточно валюты.",
+      "INVALID_CURRENCY_TYPE": "Неверный выбор валюты.",
+      "INTERNAL_ERROR": "Что-то пошло не так. Попробуйте снова."
+    }
+  },
   "arena": {
     "reconnecting": "Переподключение…",
     "inLobbySearching": "В лобби – поиск соперника",

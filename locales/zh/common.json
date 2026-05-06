@@ -566,6 +566,27 @@
   "submittingOrders": "正在提交指令……",
   "checkingUpdates": "检查更新……",
   "arenas": "竞技场",
+  "lobby": {
+    "autoStartCountdown": "{{countdown}} 后自动开始"
+  },
+  "limitedMode": {
+    "title": "{{playersPerTeam}} 对 {{playersPerTeam}} {{battleTypeName}}",
+    "homeBannerAvailable": "{{title}} 模式可创建",
+    "homeBannerJoinable": "加入 {{title}}，{{countdown}} 后开始",
+    "homeBannerCooldown": "{{title}} 将在 {{countdown}} 后解锁",
+    "create": "创建",
+    "createTitle": "创建 {{title}}",
+    "createDescription": "将创建一场 {{title}} 游戏。大厅向所有玩家开放，直至人满或自动开始。",
+    "join": "加入",
+    "errors": {
+      "LIMITED_MODE_NOT_FOUND": "此模式不可用。",
+      "LIMITED_MODE_NOT_AVAILABLE": "此模式当前不可用。",
+      "LIMITED_MODE_BUSY": "另一位玩家正在创建游戏。请稍后再试。",
+      "INSUFFICIENT_CURRENCY": "货币不足。",
+      "INVALID_CURRENCY_TYPE": "货币选择无效。",
+      "INTERNAL_ERROR": "出错了，请重试。"
+    }
+  },
   "arena": {
     "reconnecting": "正在重连…",
     "inLobbySearching": "在大厅 – 正在寻找对手",

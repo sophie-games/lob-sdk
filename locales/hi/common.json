@@ -561,6 +561,27 @@
   "leaveClanModal": {
     "message": "क्या आप वाकई <0>{{clanName}}</0> को छोड़ना चाहते हैं?"
   },
+  "lobby": {
+    "autoStartCountdown": "{{countdown}} में स्वतः शुरू"
+  },
+  "limitedMode": {
+    "title": "{{playersPerTeam}} बनाम {{playersPerTeam}} {{battleTypeName}}",
+    "homeBannerAvailable": "{{title}} मोड बनाने के लिए उपलब्ध",
+    "homeBannerJoinable": "{{title}} में शामिल हों, {{countdown}} में शुरू होगा",
+    "homeBannerCooldown": "{{title}} {{countdown}} में अनलॉक होगा",
+    "create": "बनाएँ",
+    "createTitle": "{{title}} बनाएँ",
+    "createDescription": "एक {{title}} गेम बनाया जाएगा। लॉबी सभी खिलाड़ियों के लिए तब तक खुली है जब तक वह भर न जाए या स्वतः शुरू न हो जाए।",
+    "join": "शामिल हों",
+    "errors": {
+      "LIMITED_MODE_NOT_FOUND": "यह मोड उपलब्ध नहीं है।",
+      "LIMITED_MODE_NOT_AVAILABLE": "यह मोड अभी उपलब्ध नहीं है।",
+      "LIMITED_MODE_BUSY": "एक अन्य खिलाड़ी अभी गेम बना रहा है। एक पल में पुनः प्रयास करें।",
+      "INSUFFICIENT_CURRENCY": "अपर्याप्त मुद्रा।",
+      "INVALID_CURRENCY_TYPE": "अमान्य मुद्रा चयन।",
+      "INTERNAL_ERROR": "कुछ गड़बड़ हो गई। पुनः प्रयास करें।"
+    }
+  },
   "resetToDefault": "डिफ़ॉल्ट पर रीसेट करें",
   "submittingOrders": "आदेश जमा कर रहे हैं...",
   "checkingUpdates": "अपडेट जांच रहे हैं...",

@@ -560,6 +560,27 @@
   "leaveClanModal": {
     "message": "Bạn có chắc chắn muốn rời <0>{{clanName}}</0>?"
   },
+  "lobby": {
+    "autoStartCountdown": "Tự động bắt đầu sau {{countdown}}"
+  },
+  "limitedMode": {
+    "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
+    "homeBannerAvailable": "Chế độ {{title}} khả dụng để tạo",
+    "homeBannerJoinable": "Tham gia {{title}}, bắt đầu sau {{countdown}}",
+    "homeBannerCooldown": "{{title}} mở khóa sau {{countdown}}",
+    "create": "Tạo",
+    "createTitle": "Tạo {{title}}",
+    "createDescription": "Một trận đấu {{title}} sẽ được tạo. Sảnh chờ mở cho tất cả người chơi cho đến khi đầy hoặc tự động bắt đầu.",
+    "join": "Tham gia",
+    "errors": {
+      "LIMITED_MODE_NOT_FOUND": "Chế độ này không khả dụng.",
+      "LIMITED_MODE_NOT_AVAILABLE": "Chế độ này hiện không khả dụng.",
+      "LIMITED_MODE_BUSY": "Một người chơi khác đang tạo trận đấu. Thử lại sau giây lát.",
+      "INSUFFICIENT_CURRENCY": "Không đủ tiền tệ.",
+      "INVALID_CURRENCY_TYPE": "Lựa chọn tiền tệ không hợp lệ.",
+      "INTERNAL_ERROR": "Đã xảy ra lỗi. Vui lòng thử lại."
+    }
+  },
   "resetToDefault": "Đặt lại mặc định",
   "submittingOrders": "Đang gửi lệnh...",
   "checkingUpdates": "Đang kiểm tra cập nhật...",

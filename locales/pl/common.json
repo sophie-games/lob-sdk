@@ -610,6 +610,27 @@
   "hasPassword": "Zabezpieczona hasłem",
   "optional": "Opcjonalne",
   "round": "Runda",
+  "lobby": {
+    "autoStartCountdown": "Automatyczny start za {{countdown}}"
+  },
+  "limitedMode": {
+    "title": "{{playersPerTeam}} na {{playersPerTeam}} {{battleTypeName}}",
+    "homeBannerAvailable": "Tryb {{title}} dostępny do utworzenia",
+    "homeBannerJoinable": "Dołącz do {{title}}, start za {{countdown}}",
+    "homeBannerCooldown": "{{title}} odblokowuje się za {{countdown}}",
+    "create": "Utwórz",
+    "createTitle": "Utwórz {{title}}",
+    "createDescription": "Gra {{title}} zostanie utworzona. Lobby jest otwarte dla wszystkich graczy, dopóki się nie zapełni lub nie rozpocznie automatycznie.",
+    "join": "Dołącz",
+    "errors": {
+      "LIMITED_MODE_NOT_FOUND": "Ten tryb nie jest dostępny.",
+      "LIMITED_MODE_NOT_AVAILABLE": "Ten tryb jest obecnie niedostępny.",
+      "LIMITED_MODE_BUSY": "Inny gracz właśnie tworzy grę. Spróbuj za chwilę.",
+      "INSUFFICIENT_CURRENCY": "Niewystarczająca waluta.",
+      "INVALID_CURRENCY_TYPE": "Nieprawidłowy wybór waluty.",
+      "INTERNAL_ERROR": "Coś poszło nie tak. Spróbuj ponownie."
+    }
+  },
   "current": "Aktualna",
   "minElo": "Min Elo",
   "maxElo": "Max Elo",

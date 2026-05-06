@@ -596,6 +596,27 @@
   "low": "Bassa",
   "medium": "Media",
   "high": "Alta",
+  "lobby": {
+    "autoStartCountdown": "Avvio automatico tra {{countdown}}"
+  },
+  "limitedMode": {
+    "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
+    "homeBannerAvailable": "Modalità {{title}} disponibile",
+    "homeBannerJoinable": "Unisciti a {{title}}, inizia tra {{countdown}}",
+    "homeBannerCooldown": "{{title}} si sblocca tra {{countdown}}",
+    "create": "Crea",
+    "createTitle": "Crea {{title}}",
+    "createDescription": "Verrà creata una partita {{title}}. La lobby è aperta a tutti i giocatori finché non si riempie o si avvia automaticamente.",
+    "join": "Unisciti",
+    "errors": {
+      "LIMITED_MODE_NOT_FOUND": "Questa modalità non è disponibile.",
+      "LIMITED_MODE_NOT_AVAILABLE": "Questa modalità non è attualmente disponibile.",
+      "LIMITED_MODE_BUSY": "Un altro giocatore sta creando una partita. Riprova tra un momento.",
+      "INSUFFICIENT_CURRENCY": "Valuta insufficiente.",
+      "INVALID_CURRENCY_TYPE": "Selezione valuta non valida.",
+      "INTERNAL_ERROR": "Qualcosa è andato storto. Riprova."
+    }
+  },
   "dismiss": "Ignora",
   "turningDelay": "Ritardo di rotazione",
   "allyOverlap": "Sovrapposizione alleati",

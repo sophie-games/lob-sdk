@@ -538,6 +538,27 @@
   "fogOfWar": "Kabut perang",
   "spectatorFullVision": "Visibilitas penuh penonton",
   "kFactorTooltip": "Faktor K ELO (perubahan peringkat maks per pertandingan berperingkat)",
+  "lobby": {
+    "autoStartCountdown": "Mulai otomatis dalam {{countdown}}"
+  },
+  "limitedMode": {
+    "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
+    "homeBannerAvailable": "Mode {{title}} tersedia untuk dibuat",
+    "homeBannerJoinable": "Gabung {{title}}, mulai dalam {{countdown}}",
+    "homeBannerCooldown": "{{title}} terbuka dalam {{countdown}}",
+    "create": "Buat",
+    "createTitle": "Buat {{title}}",
+    "createDescription": "Sebuah permainan {{title}} akan dibuat. Lobi terbuka untuk semua pemain hingga penuh atau mulai otomatis.",
+    "join": "Gabung",
+    "errors": {
+      "LIMITED_MODE_NOT_FOUND": "Mode ini tidak tersedia.",
+      "LIMITED_MODE_NOT_AVAILABLE": "Mode ini saat ini tidak tersedia.",
+      "LIMITED_MODE_BUSY": "Pemain lain sedang membuat permainan. Coba lagi sebentar.",
+      "INSUFFICIENT_CURRENCY": "Mata uang tidak cukup.",
+      "INVALID_CURRENCY_TYPE": "Pilihan mata uang tidak valid.",
+      "INTERNAL_ERROR": "Terjadi kesalahan. Coba lagi."
+    }
+  },
   "prestigeDropChance": "Peluang mendapatkan {{currency}}: {{chance}}% (dari giliran {{turn}})",
   "low": "Rendah",
   "medium": "Sedang",

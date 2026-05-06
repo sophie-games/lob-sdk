@@ -598,6 +598,27 @@
   "measuring": "Mesure...",
   "disconnected": "Déconnecté",
   "reconnected": "Reconnecté",
+  "lobby": {
+    "autoStartCountdown": "Démarrage automatique dans {{countdown}}"
+  },
+  "limitedMode": {
+    "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
+    "homeBannerAvailable": "Mode {{title}} disponible",
+    "homeBannerJoinable": "Rejoignez {{title}}, démarre dans {{countdown}}",
+    "homeBannerCooldown": "{{title}} se débloque dans {{countdown}}",
+    "create": "Créer",
+    "createTitle": "Créer {{title}}",
+    "createDescription": "Une partie {{title}} sera créée. Le salon est ouvert à tous les joueurs jusqu'à ce qu'il soit plein ou démarre automatiquement.",
+    "join": "Rejoindre",
+    "errors": {
+      "LIMITED_MODE_NOT_FOUND": "Ce mode n'est pas disponible.",
+      "LIMITED_MODE_NOT_AVAILABLE": "Ce mode est actuellement indisponible.",
+      "LIMITED_MODE_BUSY": "Un autre joueur est en train de créer une partie. Réessayez dans un instant.",
+      "INSUFFICIENT_CURRENCY": "Monnaie insuffisante.",
+      "INVALID_CURRENCY_TYPE": "Sélection de monnaie invalide.",
+      "INTERNAL_ERROR": "Une erreur est survenue. Réessayez."
+    }
+  },
   "connecting": "Connexion...",
   "disconnecting": "Déconnexion...",
   "unknown": "Inconnu",

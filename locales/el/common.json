@@ -619,6 +619,27 @@
   "viewGame": "Δείτε το παιχνίδι",
   "rank": "Τάξη",
   "maxPlayers": "Μέγιστοι παίκτες",
+  "lobby": {
+    "autoStartCountdown": "Αυτόματη έναρξη σε {{countdown}}"
+  },
+  "limitedMode": {
+    "title": "{{playersPerTeam}} εναντίον {{playersPerTeam}} {{battleTypeName}}",
+    "homeBannerAvailable": "Λειτουργία {{title}} διαθέσιμη",
+    "homeBannerJoinable": "Είσοδος σε {{title}}, ξεκινά σε {{countdown}}",
+    "homeBannerCooldown": "{{title}} ξεκλειδώνει σε {{countdown}}",
+    "create": "Δημιουργία",
+    "createTitle": "Δημιουργία {{title}}",
+    "createDescription": "Θα δημιουργηθεί ένα παιχνίδι {{title}}. Η αίθουσα είναι ανοιχτή σε όλους τους παίκτες μέχρι να γεμίσει ή να ξεκινήσει αυτόματα.",
+    "join": "Είσοδος",
+    "errors": {
+      "LIMITED_MODE_NOT_FOUND": "Αυτή η λειτουργία δεν είναι διαθέσιμη.",
+      "LIMITED_MODE_NOT_AVAILABLE": "Αυτή η λειτουργία δεν είναι διαθέσιμη αυτή τη στιγμή.",
+      "LIMITED_MODE_BUSY": "Ένας άλλος παίκτης δημιουργεί παιχνίδι αυτή τη στιγμή. Δοκιμάστε ξανά σε λίγο.",
+      "INSUFFICIENT_CURRENCY": "Ανεπαρκές νόμισμα.",
+      "INVALID_CURRENCY_TYPE": "Μη έγκυρη επιλογή νομίσματος.",
+      "INTERNAL_ERROR": "Κάτι πήγε στραβά. Δοκιμάστε ξανά."
+    }
+  },
   "hasPassword": "Διαθέτει κωδικό πρόσβασης",
   "optional": "Προαιρετικό",
   "round": "Γύρος",

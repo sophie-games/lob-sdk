@@ -536,6 +536,27 @@
   "allyOverlap": "Sobreposição de aliados",
   "hard": "Dura",
   "soft": "Suave",
+  "lobby": {
+    "autoStartCountdown": "Início automático em {{countdown}}"
+  },
+  "limitedMode": {
+    "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
+    "homeBannerAvailable": "Modo {{title}} disponível para criar",
+    "homeBannerJoinable": "Entre em {{title}}, começa em {{countdown}}",
+    "homeBannerCooldown": "{{title}} desbloqueia em {{countdown}}",
+    "create": "Criar",
+    "createTitle": "Criar {{title}}",
+    "createDescription": "Uma partida {{title}} será criada. O lobby está aberto a todos os jogadores até encher ou iniciar automaticamente.",
+    "join": "Entrar",
+    "errors": {
+      "LIMITED_MODE_NOT_FOUND": "Este modo não está disponível.",
+      "LIMITED_MODE_NOT_AVAILABLE": "Este modo não está disponível no momento.",
+      "LIMITED_MODE_BUSY": "Outro jogador está criando uma partida agora. Tente novamente em um momento.",
+      "INSUFFICIENT_CURRENCY": "Moeda insuficiente.",
+      "INVALID_CURRENCY_TYPE": "Seleção de moeda inválida.",
+      "INTERNAL_ERROR": "Algo deu errado. Tente novamente."
+    }
+  },
   "infantry": "Infantaria",
   "cavalry": "Cavalaria",
   "artillery": "Artilharia",
