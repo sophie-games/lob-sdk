@@ -11,5 +11,11 @@
   "ORDERS_STALE_TURN": "ターンはすでに進んでいます。ゲームを同期してください。",
   "ORDERS_GAME_NOT_ACTIVE": "このゲームはアクティブではありません。",
   "ORDERS_NOT_ACCEPTED": "命令を送信できませんでした。もう一度お試しください。",
-  "ERROR_SUBMITTING_ORDERS": "命令の送信中に問題が発生しました。もう一度お試しください。"
+  "ERROR_SUBMITTING_ORDERS": "命令の送信中に問題が発生しました。もう一度お試しください。",
+  "LIMITED_MODE_NOT_FOUND": "このモードは利用できません。",
+  "LIMITED_MODE_NOT_AVAILABLE": "このモードは現在利用できません。",
+  "LIMITED_MODE_BUSY": "他のプレイヤーが現在ゲームを作成中です。しばらくしてから再試行してください。",
+  "INSUFFICIENT_CURRENCY": "通貨が不足しています。",
+  "INVALID_CURRENCY_TYPE": "通貨の選択が無効です。",
+  "INTERNAL_ERROR": "問題が発生しました。再試行してください。"
 }

@@ -615,15 +615,7 @@
     "create": "Crear",
     "createTitle": "Crear {{title}}",
     "createDescription": "Se creará una partida {{title}}. La sala está abierta a todos los jugadores hasta que se llene o inicie automáticamente.",
-    "join": "Unirse",
-    "errors": {
-      "LIMITED_MODE_NOT_FOUND": "Este modo no está disponible.",
-      "LIMITED_MODE_NOT_AVAILABLE": "Este modo no está disponible actualmente.",
-      "LIMITED_MODE_BUSY": "Otro jugador está creando una partida ahora. Inténtalo de nuevo en un momento.",
-      "INSUFFICIENT_CURRENCY": "Moneda insuficiente.",
-      "INVALID_CURRENCY_TYPE": "Selección de moneda inválida.",
-      "INTERNAL_ERROR": "Algo salió mal. Inténtalo de nuevo."
-    }
+    "join": "Unirse"
   },
   "minElo": "Elo mínimo",
   "maxElo": "Elo máximo",

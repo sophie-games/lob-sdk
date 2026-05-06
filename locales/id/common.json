@@ -549,15 +549,7 @@
     "create": "Buat",
     "createTitle": "Buat {{title}}",
     "createDescription": "Sebuah permainan {{title}} akan dibuat. Lobi terbuka untuk semua pemain hingga penuh atau mulai otomatis.",
-    "join": "Gabung",
-    "errors": {
-      "LIMITED_MODE_NOT_FOUND": "Mode ini tidak tersedia.",
-      "LIMITED_MODE_NOT_AVAILABLE": "Mode ini saat ini tidak tersedia.",
-      "LIMITED_MODE_BUSY": "Pemain lain sedang membuat permainan. Coba lagi sebentar.",
-      "INSUFFICIENT_CURRENCY": "Mata uang tidak cukup.",
-      "INVALID_CURRENCY_TYPE": "Pilihan mata uang tidak valid.",
-      "INTERNAL_ERROR": "Terjadi kesalahan. Coba lagi."
-    }
+    "join": "Gabung"
   },
   "prestigeDropChance": "Peluang mendapatkan {{currency}}: {{chance}}% (dari giliran {{turn}})",
   "low": "Rendah",

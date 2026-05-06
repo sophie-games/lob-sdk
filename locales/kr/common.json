@@ -631,15 +631,7 @@
     "create": "만들기",
     "createTitle": "{{title}} 만들기",
     "createDescription": "{{title}} 게임이 만들어집니다. 로비는 가득 차거나 자동 시작될 때까지 모든 플레이어에게 열려 있습니다.",
-    "join": "참여",
-    "errors": {
-      "LIMITED_MODE_NOT_FOUND": "이 모드는 사용할 수 없습니다.",
-      "LIMITED_MODE_NOT_AVAILABLE": "현재 이 모드는 사용할 수 없습니다.",
-      "LIMITED_MODE_BUSY": "다른 플레이어가 게임을 만들고 있습니다. 잠시 후 다시 시도하세요.",
-      "INSUFFICIENT_CURRENCY": "통화가 부족합니다.",
-      "INVALID_CURRENCY_TYPE": "잘못된 통화 선택입니다.",
-      "INTERNAL_ERROR": "문제가 발생했습니다. 다시 시도하세요."
-    }
+    "join": "참여"
   },
   "viewGame": "관전",
   "rank": "등급",

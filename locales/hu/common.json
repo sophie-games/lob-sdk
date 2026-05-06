@@ -608,15 +608,7 @@
     "create": "Létrehozás",
     "createTitle": "{{title}} létrehozása",
     "createDescription": "Egy {{title}} játék készül. A lobbi minden játékos számára nyitva van, amíg meg nem telik vagy automatikusan elindul.",
-    "join": "Csatlakozás",
-    "errors": {
-      "LIMITED_MODE_NOT_FOUND": "Ez a mód nem érhető el.",
-      "LIMITED_MODE_NOT_AVAILABLE": "Ez a mód jelenleg nem érhető el.",
-      "LIMITED_MODE_BUSY": "Egy másik játékos éppen játékot hoz létre. Próbáld újra hamarosan.",
-      "INSUFFICIENT_CURRENCY": "Nincs elég pénznem.",
-      "INVALID_CURRENCY_TYPE": "Érvénytelen pénznem-választás.",
-      "INTERNAL_ERROR": "Valami elromlott. Próbáld újra."
-    }
+    "join": "Csatlakozás"
   },
   "redirecting": "Átirányítás...",
   "success": "Siker!",

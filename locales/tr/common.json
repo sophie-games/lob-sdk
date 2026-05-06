@@ -546,15 +546,7 @@
     "create": "Oluştur",
     "createTitle": "{{title}} Oluştur",
     "createDescription": "Bir {{title}} oyunu oluşturulacak. Lobi, dolana veya otomatik başlayana kadar tüm oyunculara açıktır.",
-    "join": "Katıl",
-    "errors": {
-      "LIMITED_MODE_NOT_FOUND": "Bu mod kullanılamıyor.",
-      "LIMITED_MODE_NOT_AVAILABLE": "Bu mod şu anda kullanılamıyor.",
-      "LIMITED_MODE_BUSY": "Başka bir oyuncu şu an oyun oluşturuyor. Birazdan tekrar dene.",
-      "INSUFFICIENT_CURRENCY": "Yetersiz para birimi.",
-      "INVALID_CURRENCY_TYPE": "Geçersiz para birimi seçimi.",
-      "INTERNAL_ERROR": "Bir şeyler ters gitti. Tekrar dene."
-    }
+    "join": "Katıl"
   },
   "hard": "Sert",
   "soft": "Yumuşak",

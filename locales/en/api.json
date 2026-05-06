@@ -17,5 +17,11 @@
   "ORDERS_STALE_TURN": "The turn has already advanced. Please sync the game.",
   "ORDERS_GAME_NOT_ACTIVE": "This game is not active.",
   "ORDERS_NOT_ACCEPTED": "Orders could not be submitted. Please try again.",
-  "ERROR_SUBMITTING_ORDERS": "Something went wrong while submitting orders. Please try again."
+  "ERROR_SUBMITTING_ORDERS": "Something went wrong while submitting orders. Please try again.",
+  "LIMITED_MODE_NOT_FOUND": "This mode is not available.",
+  "LIMITED_MODE_NOT_AVAILABLE": "This mode is currently unavailable.",
+  "LIMITED_MODE_BUSY": "Another player is creating a game right now. Try again in a moment.",
+  "INSUFFICIENT_CURRENCY": "Not enough currency.",
+  "INVALID_CURRENCY_TYPE": "Invalid currency selection.",
+  "INTERNAL_ERROR": "Something went wrong. Try again."
 }

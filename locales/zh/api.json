@@ -17,5 +17,11 @@
   "ORDERS_STALE_TURN": "回合已推进，请同步游戏。",
   "ORDERS_GAME_NOT_ACTIVE": "该对局已不活跃。",
   "ORDERS_NOT_ACCEPTED": "无法提交命令，请重试。",
-  "ERROR_SUBMITTING_ORDERS": "提交命令时出现问题，请重试。"
+  "ERROR_SUBMITTING_ORDERS": "提交命令时出现问题，请重试。",
+  "LIMITED_MODE_NOT_FOUND": "此模式不可用。",
+  "LIMITED_MODE_NOT_AVAILABLE": "此模式当前不可用。",
+  "LIMITED_MODE_BUSY": "另一位玩家正在创建游戏。请稍后再试。",
+  "INSUFFICIENT_CURRENCY": "货币不足。",
+  "INVALID_CURRENCY_TYPE": "货币选择无效。",
+  "INTERNAL_ERROR": "出错了，请重试。"
 }

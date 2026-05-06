@@ -572,15 +572,7 @@
     "create": "إنشاء",
     "createTitle": "إنشاء {{title}}",
     "createDescription": "سيتم إنشاء مباراة {{title}}. الردهة مفتوحة لجميع اللاعبين حتى تمتلئ أو تبدأ تلقائيًا.",
-    "join": "انضم",
-    "errors": {
-      "LIMITED_MODE_NOT_FOUND": "هذا الوضع غير متاح.",
-      "LIMITED_MODE_NOT_AVAILABLE": "هذا الوضع غير متاح حاليًا.",
-      "LIMITED_MODE_BUSY": "لاعب آخر يُنشئ مباراة الآن. حاول مرة أخرى بعد لحظة.",
-      "INSUFFICIENT_CURRENCY": "العملة غير كافية.",
-      "INVALID_CURRENCY_TYPE": "اختيار عملة غير صالح.",
-      "INTERNAL_ERROR": "حدث خطأ ما. حاول مرة أخرى."
-    }
+    "join": "انضم"
   },
   "resetToDefault": "إعادة تعيين إلى الافتراضي",
   "submittingOrders": "جاري إرسال الأوامر...",

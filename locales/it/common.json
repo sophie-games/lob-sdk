@@ -607,15 +607,7 @@
     "create": "Crea",
     "createTitle": "Crea {{title}}",
     "createDescription": "Verrà creata una partita {{title}}. La lobby è aperta a tutti i giocatori finché non si riempie o si avvia automaticamente.",
-    "join": "Unisciti",
-    "errors": {
-      "LIMITED_MODE_NOT_FOUND": "Questa modalità non è disponibile.",
-      "LIMITED_MODE_NOT_AVAILABLE": "Questa modalità non è attualmente disponibile.",
-      "LIMITED_MODE_BUSY": "Un altro giocatore sta creando una partita. Riprova tra un momento.",
-      "INSUFFICIENT_CURRENCY": "Valuta insufficiente.",
-      "INVALID_CURRENCY_TYPE": "Selezione valuta non valida.",
-      "INTERNAL_ERROR": "Qualcosa è andato storto. Riprova."
-    }
+    "join": "Unisciti"
   },
   "dismiss": "Ignora",
   "turningDelay": "Ritardo di rotazione",

@@ -547,15 +547,7 @@
     "create": "Criar",
     "createTitle": "Criar {{title}}",
     "createDescription": "Uma partida {{title}} será criada. O lobby está aberto a todos os jogadores até encher ou iniciar automaticamente.",
-    "join": "Entrar",
-    "errors": {
-      "LIMITED_MODE_NOT_FOUND": "Este modo não está disponível.",
-      "LIMITED_MODE_NOT_AVAILABLE": "Este modo não está disponível no momento.",
-      "LIMITED_MODE_BUSY": "Outro jogador está criando uma partida agora. Tente novamente em um momento.",
-      "INSUFFICIENT_CURRENCY": "Moeda insuficiente.",
-      "INVALID_CURRENCY_TYPE": "Seleção de moeda inválida.",
-      "INTERNAL_ERROR": "Algo deu errado. Tente novamente."
-    }
+    "join": "Entrar"
   },
   "infantry": "Infantaria",
   "cavalry": "Cavalaria",

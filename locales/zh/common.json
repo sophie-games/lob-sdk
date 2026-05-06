@@ -577,15 +577,7 @@
     "create": "创建",
     "createTitle": "创建 {{title}}",
     "createDescription": "将创建一场 {{title}} 游戏。大厅向所有玩家开放，直至人满或自动开始。",
-    "join": "加入",
-    "errors": {
-      "LIMITED_MODE_NOT_FOUND": "此模式不可用。",
-      "LIMITED_MODE_NOT_AVAILABLE": "此模式当前不可用。",
-      "LIMITED_MODE_BUSY": "另一位玩家正在创建游戏。请稍后再试。",
-      "INSUFFICIENT_CURRENCY": "货币不足。",
-      "INVALID_CURRENCY_TYPE": "货币选择无效。",
-      "INTERNAL_ERROR": "出错了，请重试。"
-    }
+    "join": "加入"
   },
   "arena": {
     "reconnecting": "正在重连…",
