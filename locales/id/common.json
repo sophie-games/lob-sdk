@@ -26,7 +26,9 @@
   "addPlayer": "Tambah Pemain",
   "credits": "Credits",
   "settings": "Pengaturan",
-  "eloDescription": "Elo adalah sistem peringkat yang digunakan untuk menghitung tingkat keterampilan relatif pemain. Semakin tinggi Elo kamu, semakin kuat kamu dibandingkan dengan pemain lain. Kemenangan akan meningkatkan Elo kamu, sedangkan kekalahan akan menurunkannya.",
+  "leagueDescription": "Liga Anda mencerminkan tingkat keterampilan Anda. Menanglah untuk maju di dalam liga; setelah mencapai puncak, Anda akan naik ke liga berikutnya. Terlalu banyak kekalahan dapat membuat Anda turun. Arahkan kursor ke lencana liga untuk melihat progres ke liga berikutnya.",
+  "averageLeague": "Liga rata-rata",
+  "clanLeague": "Liga koalisi",
   "welcomeName": "Selamat Datang {{name}}!",
   "myGames": "Permainanku",
   "gameStatus": {
@@ -65,7 +67,6 @@
     "extendQueueSuccess": "Mencari dalam rentang Elo apa pun.",
     "cancelledBy": "Antrean dibatalkan oleh {{username}}.",
     "playersInQueue": "{{count}} pemain mencari",
-    "searchingEloRange": "<0>{{minElo}}</0> - <1>{{maxElo}}</1> (<2>Anda:</2> <3>{{userElo}}</3>)",
     "disconnectedReconnecting": "Koneksi Terputus. Menyambung Ulang"
   },
   "fastMode": "Mode Cepat",
@@ -435,7 +436,6 @@
   "human": "Manusia",
   "bot": "Bot",
   "armyOfPlayer": "Pasukan Pemain {{player}}",
-  "averageElo": "Rata-Rata Elo",
   "hybridDescription": "Peta hibrida menggunakan medan yang telah ditetapkan dan tidak acak, \ntetapi memungkinkan pemain untuk menggunakan pasukan khusus mereka sendiri untuk bermain.",
   "battleReport": "Laporan Pertempuran",
   "gameEndReasons": {
@@ -456,7 +456,6 @@
     "leader": "Pemimpin",
     "member": "Anggota"
   },
-  "clanElo": "Koalisi Elo: {{elo}}",
   "members": "Anggota",
   "deleteClan": "Hapus Koalisi",
   "deleteClanModal": {
@@ -695,5 +694,28 @@
     "losses": "Kalah",
     "totalGames_other": "{{count}} permainan",
     "totalArenas_other": "{{count}} arena"
+  },
+  "league": {
+    "title": "Liga",
+    "emperor": "Kaisar",
+    "diamond-3": "Berlian III",
+    "diamond-2": "Berlian II",
+    "diamond-1": "Berlian I",
+    "platinum-3": "Platinum III",
+    "platinum-2": "Platinum II",
+    "platinum-1": "Platinum I",
+    "gold-3": "Emas III",
+    "gold-2": "Emas II",
+    "gold-1": "Emas I",
+    "silver-3": "Perak III",
+    "silver-2": "Perak II",
+    "silver-1": "Perak I",
+    "bronze-3": "Perunggu III",
+    "bronze-2": "Perunggu II",
+    "bronze-1": "Perunggu I",
+    "iron-3": "Besi III",
+    "iron-2": "Besi II",
+    "iron-1": "Besi I",
+    "unranked": "Tidak berperingkat"
   }
 }

@@ -8,10 +8,6 @@
     "title": "Órdenes de camino multi-turnos",
     "description": "Si está activado, puedes dibujar rutas de movimiento que abarquen varios turnos. Si está desactivado, las rutas se limitan a un solo turno."
   },
-  "enableRotateOrder": {
-    "title": "Habilitar Orden de Rotación",
-    "description": "Habilitar o deshabilitar la capacidad de emitir órdenes de rotación manteniendo presionado y arrastrando sobre unidades."
-  },
   "edgePanning": {
     "title": "Desplazamiento en Bordes",
     "description": "Habilitar el desplazamiento cuando el ratón alcanza los bordes de la pantalla (PC)."
@@ -142,7 +138,6 @@
     "toggleSmartCurvedMovements": "Alternar movimientos curvos inteligentes",
     "togglePathFinding": "Alternar búsqueda de ruta",
     "toggleFowPerspective": "Alternar perspectiva de niebla de guerra",
-    "toggleRotateOrder": "Alternar orden de rotación",
     "toggleMultiTurnPathOrders": "Alternar órdenes de camino multi-turnos",
     "openChat": "Abrir chat",
     "openFormationModal": "Abrir ventana de formación",

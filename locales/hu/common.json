@@ -25,7 +25,9 @@
   "addPlayer": "Játékos hozzáadása",
   "credits": "Kreditek",
   "settings": "Beállítások",
-  "eloDescription": "Az Élő (világnyelvi nevén Elo) egy pontozási rendszer - Élő Árpád találmánya - azt a célt szolgálja, hogy összevethesd a teljesítményed más játékosokaiéval. Minél több az Élőd, annál erősebb vagy más játékosokhoz képest. A győzelmeid növelik az Élődet, míg a vereségek csökkentik.",
+  "leagueDescription": "A ligád a tudásszintedet tükrözi. Nyerj mérkőzéseket, hogy haladj a ligában; a csúcsra érve a következő ligába lépsz. Túl sok vereség visszavetheti a rangodat. Mutass az emblémára, hogy lásd a következő ligához tartozó haladásodat.",
+  "averageLeague": "Átlagos liga",
+  "clanLeague": "Koalíciós liga",
   "welcomeName": "Üdv {{name}}!",
   "myGames": "Játékaim",
   "gameStatus": {
@@ -64,7 +66,6 @@
     "extendQueueSuccess": "Keresés bármilyen Elo tartományban.",
     "cancelledBy": "A várólistát {{username}} törölte.",
     "playersInQueue": "{{count}} játékos keres",
-    "searchingEloRange": "<0>{{minElo}}</0> - <1>{{maxElo}}</1> (<2>Te:</2> <3>{{userElo}}</3>)",
     "disconnectedReconnecting": "Kapcsolat Megszakadt. Újracsatlakozás"
   },
   "fastMode": "Gyors mód",
@@ -646,5 +647,28 @@
     "totalGames_other": "{{count}} játék",
     "totalArenas_one": "1 aréna",
     "totalArenas_other": "{{count}} aréna"
+  },
+  "league": {
+    "title": "Liga",
+    "emperor": "Császár",
+    "diamond-3": "Gyémánt III",
+    "diamond-2": "Gyémánt II",
+    "diamond-1": "Gyémánt I",
+    "platinum-3": "Platina III",
+    "platinum-2": "Platina II",
+    "platinum-1": "Platina I",
+    "gold-3": "Arany III",
+    "gold-2": "Arany II",
+    "gold-1": "Arany I",
+    "silver-3": "Ezüst III",
+    "silver-2": "Ezüst II",
+    "silver-1": "Ezüst I",
+    "bronze-3": "Bronz III",
+    "bronze-2": "Bronz II",
+    "bronze-1": "Bronz I",
+    "iron-3": "Vas III",
+    "iron-2": "Vas II",
+    "iron-1": "Vas I",
+    "unranked": "Besorolatlan"
   }
 }

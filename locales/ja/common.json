@@ -25,7 +25,9 @@
   "addPlayer": "プレイヤーを追加",
   "credits": "クレジット",
   "settings": "設定",
-  "eloDescription": "Eloは、プレイヤーの相対的なスキルレベルを計算するためのレーティングシステムです。Eloが高いほど、他のプレイヤーより強いことを示します。勝利するとEloが上がり、敗北すると下がります。",
+  "leagueDescription": "リーグはあなたのスキルレベルを反映します。試合に勝ってリーグ内で進歩を積み、頂点に達すると次のリーグに昇格します。負けが続くと降格することがあります。次のリーグまでの進捗を確認するには、リーグバッジにカーソルを合わせてください。",
+  "averageLeague": "平均リーグ",
+  "clanLeague": "連合リーグ",
   "welcomeName": "ようこそ、{{name}}さん！",
   "myGames": "マイゲーム",
   "gameStatus": {
@@ -64,7 +66,6 @@
     "extendQueueSuccess": "任意のElo範囲で検索中。",
     "cancelledBy": "キューは{{username}}によってキャンセルされました。",
     "playersInQueue": "{{count}}人のプレイヤーが検索中",
-    "searchingEloRange": "<0>{{minElo}}</0> - <1>{{maxElo}}</1> (<2>あなた:</2> <3>{{userElo}}</3>)",
     "disconnectedReconnecting": "接続が切断されました。再接続中"
   },
   "fastMode": "高速モード",
@@ -432,7 +433,6 @@
   "human": "人間",
   "bot": "ボット",
   "armyOfPlayer": "プレイヤー{{player}}の軍",
-  "averageElo": "平均Elo",
   "hybridDescription": "ハイブリッドマップは、ランダムではなく、プリセットの地形を使用しますが、プレイヤーが独自のカスタム軍を使用してプレイできるようにします。",
   "battleReport": "戦闘報告",
   "gameEndReasons": {
@@ -452,7 +452,6 @@
     "leader": "リーダー",
     "member": "メンバー"
   },
-  "clanElo": "連合Elo: {{elo}}",
   "members": "メンバー",
   "deleteClan": "連合を削除",
   "deleteClanModal": {
@@ -689,5 +688,28 @@
     "losses": "敗北",
     "totalGames_other": "{{count}} 試合",
     "totalArenas_other": "{{count}} アリーナ"
+  },
+  "league": {
+    "title": "リーグ",
+    "emperor": "皇帝",
+    "diamond-3": "ダイヤモンド III",
+    "diamond-2": "ダイヤモンド II",
+    "diamond-1": "ダイヤモンド I",
+    "platinum-3": "プラチナ III",
+    "platinum-2": "プラチナ II",
+    "platinum-1": "プラチナ I",
+    "gold-3": "ゴールド III",
+    "gold-2": "ゴールド II",
+    "gold-1": "ゴールド I",
+    "silver-3": "シルバー III",
+    "silver-2": "シルバー II",
+    "silver-1": "シルバー I",
+    "bronze-3": "ブロンズ III",
+    "bronze-2": "ブロンズ II",
+    "bronze-1": "ブロンズ I",
+    "iron-3": "アイアン III",
+    "iron-2": "アイアン II",
+    "iron-1": "アイアン I",
+    "unranked": "ランクなし"
   }
 }

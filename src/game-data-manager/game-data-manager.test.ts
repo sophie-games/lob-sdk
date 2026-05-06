@@ -1,5 +1,5 @@
 import { GameDataManager } from "@lob-sdk/game-data-manager";
-import { UnitType, TerrainType } from "@lob-sdk/types";
+import { LeagueType, UnitType, TerrainType } from "@lob-sdk/types";
 import { DamageTypeTemplate } from "@lob-sdk/game-data-manager";
 import { generateDefaultArmy } from "@lob-sdk/army-deployer";
 
@@ -173,6 +173,53 @@ describe("GameDataManager", () => {
       avatars.forEach((avatar) => {
         expect(ids.has(avatar.id)).toBe(false);
         ids.add(avatar.id);
+      });
+    });
+  });
+
+  describe("Achievements", () => {
+    const achievements = gameDataManager.getAchievements();
+
+    it("should not have repeated ids", () => {
+      const ids = new Set<number>();
+      achievements.forEach((a) => {
+        expect(ids.has(a.id)).toBe(false);
+        ids.add(a.id);
+      });
+    });
+
+    it("should not have repeated names", () => {
+      const names = new Set<string>();
+      achievements.forEach((a) => {
+        expect(names.has(a.name)).toBe(false);
+        names.add(a.name);
+      });
+    });
+
+    it("league_reached triggers reference a valid LeagueType", () => {
+      const validLeagues = new Set(Object.values(LeagueType));
+      const leagueAchievements = achievements.filter(
+        (a) => a.trigger.type === "league_reached"
+      );
+
+      // Sanity check that the catalog actually has league achievements,
+      // so this test fails loudly if they're accidentally removed.
+      expect(leagueAchievements.length).toBeGreaterThan(0);
+
+      leagueAchievements.forEach((a) => {
+        if (a.trigger.type !== "league_reached") return;
+        expect(validLeagues.has(a.trigger.league)).toBe(true);
+      });
+    });
+
+    it("threshold-based triggers have positive thresholds", () => {
+      achievements.forEach((a) => {
+        if (
+          a.trigger.type === "ranked_wins_total" ||
+          a.trigger.type === "arenas_won_total"
+        ) {
+          expect(a.trigger.threshold).toBeGreaterThan(0);
+        }
       });
     });
   });

@@ -25,7 +25,9 @@
   "addPlayer": "Додати гравця",
   "credits": "Автори",
   "settings": "Налаштування",
-  "eloDescription": "Ело - це система оцінювання, що використовується для визначення відносного рівня майстерності гравців. Чим вище ваше Ело, тим сильніші ви в порівнянні з іншими. Перемога підвищує ваше Ело, а поразка знижує його.",
+  "leagueDescription": "Ваша ліга відображає рівень вашої майстерності. Перемагайте, щоб просуватися у своїй лізі; досягнувши вершини, ви перейдете до наступної. Занадто багато поразок можуть призвести до пониження. Наведіть курсор на значок ліги, щоб побачити свій прогрес до наступної.",
+  "averageLeague": "Середня ліга",
+  "clanLeague": "Ліга коаліції",
   "welcomeName": "Ласкаво просимо {{name}}!",
   "myGames": "Мої ігри",
   "noGamesYet": "Ще немає ігор! Натисніть Грати, щоб створити нову.",
@@ -60,7 +62,6 @@
     "extendQueueSuccess": "Пошук у будь-якому діапазоні Elo.",
     "cancelledBy": "Чергу було скасовано {{username}}.",
     "playersInQueue": "{{count}} гравців шукають",
-    "searchingEloRange": "<0>{{minElo}}</0> - <1>{{maxElo}}</1> (<2>Ви:</2> <3>{{userElo}}</3>)",
     "disconnectedReconnecting": "Втрачено З'єднання. Перепідключення"
   },
   "fastMode": "Швидкий режим",
@@ -449,7 +450,6 @@
   "human": "Людина",
   "bot": "Бот",
   "armyOfPlayer": "Військо гравця {{player}}",
-  "averageElo": "Середній рейтинг Elo",
   "hybridDescription": "Hybrid maps use non-random, preset terrain, but enable players to use their own custom armies to play.",
   "battleReport": "Звіт про битву",
   "gameEndReasons": {
@@ -470,7 +470,6 @@
     "leader": "Лідер",
     "member": "Учасник"
   },
-  "clanElo": "Рейтинг коаліції: {{elo}}",
   "members": "Учасники",
   "deleteClan": "Розпустити коаліцію",
   "deleteClanModal": {
@@ -707,5 +706,28 @@
     "totalArenas_few": "{{count}} арени",
     "totalArenas_many": "{{count}} арен",
     "totalArenas_other": "{{count}} арени"
+  },
+  "league": {
+    "title": "Ліга",
+    "emperor": "Імператор",
+    "diamond-3": "Діамант III",
+    "diamond-2": "Діамант II",
+    "diamond-1": "Діамант I",
+    "platinum-3": "Платина III",
+    "platinum-2": "Платина II",
+    "platinum-1": "Платина I",
+    "gold-3": "Золото III",
+    "gold-2": "Золото II",
+    "gold-1": "Золото I",
+    "silver-3": "Срібло III",
+    "silver-2": "Срібло II",
+    "silver-1": "Срібло I",
+    "bronze-3": "Бронза III",
+    "bronze-2": "Бронза II",
+    "bronze-1": "Бронза I",
+    "iron-3": "Залізо III",
+    "iron-2": "Залізо II",
+    "iron-1": "Залізо I",
+    "unranked": "Без рангу"
   }
 }

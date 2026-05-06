@@ -14,7 +14,9 @@
   "supporters": "Contributeurs",
   "credits": "Crédits",
   "settings": "Paramètres",
-  "eloDescription": "Le classement Elo est un système de classement utilisé pour calculer le niveau relatif des joueurs. Gagner des batailles augmente votre Elo tandis qu'en perdre le diminue.",
+  "leagueDescription": "Votre ligue reflète votre niveau de compétence. Gagnez des parties pour progresser dans votre ligue ; une fois au sommet, vous passez à la suivante. Trop de défaites peuvent vous faire descendre. Survolez le badge de la ligue pour voir votre progression vers la prochaine.",
+  "averageLeague": "Ligue moyenne",
+  "clanLeague": "Ligue de la coalition",
   "welcomeName": "Bienvenue {{name}}!",
   "myGames": "Mes parties",
   "gameStatus": {
@@ -53,7 +55,6 @@
     "extendQueueSuccess": "Recherche dans n'importe quelle plage Elo.",
     "cancelledBy": "La file a été annulée par {{username}}.",
     "playersInQueue": "{{count}} joueurs en recherche",
-    "searchingEloRange": "<0>{{minElo}}</0> - <1>{{maxElo}}</1> (<2>Vous:</2> <3>{{userElo}}</3>)",
     "disconnectedReconnecting": "Connexion Perdue. Reconnexion"
   },
   "fastMode": "Partie rapide",
@@ -435,7 +436,6 @@
   "joinedAt": "Inscrit le {{date}}",
   "addPlayer": "Ajouter un joueur",
   "createCustomGame": "Créer un jeu personnalisé",
-  "averageElo": "Elo moyen",
   "hybridDescription": "Les cartes hybrides utilisent un terrain prédéfini non aléatoire, mais permettent aux joueurs d'utiliser leurs propres armées personnalisées pour jouer.",
   "battleReport": "Rapport de bataille",
   "gameEndReasons": {
@@ -456,7 +456,6 @@
     "leader": "Chef",
     "member": "Membre"
   },
-  "clanElo": "Elo de la coalition : {{elo}}",
   "members": "Membres",
   "deleteClan": "Supprimer la coalition",
   "deleteClanModal": {
@@ -704,5 +703,28 @@
     "totalGames_other": "{{count}} parties",
     "totalArenas_one": "1 arène",
     "totalArenas_other": "{{count}} arènes"
+  },
+  "league": {
+    "title": "Ligue",
+    "emperor": "Empereur",
+    "diamond-3": "Diamant III",
+    "diamond-2": "Diamant II",
+    "diamond-1": "Diamant I",
+    "platinum-3": "Platine III",
+    "platinum-2": "Platine II",
+    "platinum-1": "Platine I",
+    "gold-3": "Or III",
+    "gold-2": "Or II",
+    "gold-1": "Or I",
+    "silver-3": "Argent III",
+    "silver-2": "Argent II",
+    "silver-1": "Argent I",
+    "bronze-3": "Bronze III",
+    "bronze-2": "Bronze II",
+    "bronze-1": "Bronze I",
+    "iron-3": "Fer III",
+    "iron-2": "Fer II",
+    "iron-1": "Fer I",
+    "unranked": "Non classé"
   }
 }

@@ -6,5 +6,8 @@
   { "id": 5, "name": "veteran-iii", "trigger": { "type": "ranked_wins_total", "threshold": 100 } },
   { "id": 6, "name": "arena-champion-i", "trigger": { "type": "arenas_won_total", "threshold": 1 } },
   { "id": 7, "name": "arena-champion-ii", "trigger": { "type": "arenas_won_total", "threshold": 5 } },
-  { "id": 8, "name": "arena-champion-iii", "trigger": { "type": "arenas_won_total", "threshold": 25 } }
+  { "id": 8, "name": "arena-champion-iii", "trigger": { "type": "arenas_won_total", "threshold": 25 } },
+  { "id": 9, "name": "league-platinum", "trigger": { "type": "league_reached", "league": "platinum-3" } },
+  { "id": 10, "name": "league-diamond", "trigger": { "type": "league_reached", "league": "diamond-3" } },
+  { "id": 11, "name": "league-emperor", "trigger": { "type": "league_reached", "league": "emperor" } }
 ]
