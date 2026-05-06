@@ -7,50 +7,31 @@
  */
 
 export enum LeagueType {
-  /** Emperor */
-  A = "a",
+  Emperor = "emperor",
 
-  /** Diamond III */
-  B3 = "b3",
-  /** Diamond II */
-  B2 = "b2",
-  /** Diamond I */
-  B1 = "b1",
+  Diamond1 = "diamond-1",
+  Diamond2 = "diamond-2",
+  Diamond3 = "diamond-3",
 
-  /** Platinum III */
-  C3 = "c3",
-  /** Platinum II */
-  C2 = "c2",
-  /** Platinum I */
-  C1 = "c1",
+  Platinum1 = "platinum-1",
+  Platinum2 = "platinum-2",
+  Platinum3 = "platinum-3",
 
-  /** Gold III */
-  D3 = "d3",
-  /** Gold II */
-  D2 = "d2",
-  /** Gold I */
-  D1 = "d1",
+  Gold1 = "gold-1",
+  Gold2 = "gold-2",
+  Gold3 = "gold-3",
 
-  /** Silver III */
-  E3 = "e3",
-  /** Silver II */
-  E2 = "e2",
-  /** Silver I */
-  E1 = "e1",
+  Silver1 = "silver-1",
+  Silver2 = "silver-2",
+  Silver3 = "silver-3",
 
-  /** Bronze III */
-  F3 = "f3",
-  /** Bronze II */
-  F2 = "f2",
-  /** Bronze I */
-  F1 = "f1",
+  Bronze1 = "bronze-1",
+  Bronze2 = "bronze-2",
+  Bronze3 = "bronze-3",
 
-  /** Iron III */
-  G3 = "g3",
-  /** Iron II */
-  G2 = "g2",
-  /** Iron I */
-  G1 = "g1",
+  Iron1 = "iron-1",
+  Iron2 = "iron-2",
+  Iron3 = "iron-3",
 }
 
 export interface LeagueBounds {
@@ -66,33 +47,37 @@ export interface LeagueProgress {
   readonly total: number;
 }
 
-/** All leagues, ordered low → high. Bands are contiguous and disjoint. */
+/**
+ * All leagues, ordered low → high. Bands are contiguous and disjoint.
+ * Within each tier, sub-tier `I` is the top and `III` is the bottom
+ * (Riot convention).
+ */
 export const LEAGUES: ReadonlyArray<LeagueBounds> = [
-  { type: LeagueType.G1, minElo: null, maxElo: 550 },
-  { type: LeagueType.G2, minElo: 550, maxElo: 650 },
-  { type: LeagueType.G3, minElo: 650, maxElo: 750 },
+  { type: LeagueType.Iron3, minElo: null, maxElo: 550 },
+  { type: LeagueType.Iron2, minElo: 550, maxElo: 650 },
+  { type: LeagueType.Iron1, minElo: 650, maxElo: 750 },
 
-  { type: LeagueType.F1, minElo: 750, maxElo: 850 },
-  { type: LeagueType.F2, minElo: 850, maxElo: 950 },
-  { type: LeagueType.F3, minElo: 950, maxElo: 1050 },
+  { type: LeagueType.Bronze3, minElo: 750, maxElo: 850 },
+  { type: LeagueType.Bronze2, minElo: 850, maxElo: 950 },
+  { type: LeagueType.Bronze1, minElo: 950, maxElo: 1050 },
 
-  { type: LeagueType.E1, minElo: 1050, maxElo: 1150 },
-  { type: LeagueType.E2, minElo: 1150, maxElo: 1250 },
-  { type: LeagueType.E3, minElo: 1250, maxElo: 1350 },
+  { type: LeagueType.Silver3, minElo: 1050, maxElo: 1150 },
+  { type: LeagueType.Silver2, minElo: 1150, maxElo: 1250 },
+  { type: LeagueType.Silver1, minElo: 1250, maxElo: 1350 },
 
-  { type: LeagueType.D1, minElo: 1350, maxElo: 1450 },
-  { type: LeagueType.D2, minElo: 1450, maxElo: 1550 },
-  { type: LeagueType.D3, minElo: 1550, maxElo: 1650 },
+  { type: LeagueType.Gold3, minElo: 1350, maxElo: 1450 },
+  { type: LeagueType.Gold2, minElo: 1450, maxElo: 1550 },
+  { type: LeagueType.Gold1, minElo: 1550, maxElo: 1650 },
 
-  { type: LeagueType.C1, minElo: 1650, maxElo: 1750 },
-  { type: LeagueType.C2, minElo: 1750, maxElo: 1850 },
-  { type: LeagueType.C3, minElo: 1850, maxElo: 1950 },
+  { type: LeagueType.Platinum3, minElo: 1650, maxElo: 1750 },
+  { type: LeagueType.Platinum2, minElo: 1750, maxElo: 1850 },
+  { type: LeagueType.Platinum1, minElo: 1850, maxElo: 1950 },
 
-  { type: LeagueType.B1, minElo: 1950, maxElo: 2050 },
-  { type: LeagueType.B2, minElo: 2050, maxElo: 2150 },
-  { type: LeagueType.B3, minElo: 2150, maxElo: 2250 },
+  { type: LeagueType.Diamond3, minElo: 1950, maxElo: 2050 },
+  { type: LeagueType.Diamond2, minElo: 2050, maxElo: 2150 },
+  { type: LeagueType.Diamond1, minElo: 2150, maxElo: 2250 },
 
-  { type: LeagueType.A, minElo: 2250, maxElo: null },
+  { type: LeagueType.Emperor, minElo: 2250, maxElo: null },
 ];
 
 const TOP_LEAGUE = LEAGUES[LEAGUES.length - 1];
