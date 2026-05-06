@@ -613,6 +613,15 @@ export type TutorialBeatCondition =
        */
       kind: "andAll";
       all: TutorialBeatCondition[];
+    }
+  | {
+      /**
+       * True iff the user's `drawLineFormation.enabled` setting is currently
+       * off. Used as `showWhen` on the "activate draw line" prompt so the
+       * beat surfaces only when the player needs to flip the toggle on,
+       * and auto-dismisses the moment they do.
+       */
+      kind: "drawLineDisabled";
     };
 
 /**
@@ -707,6 +716,15 @@ export interface TutorialBeat {
    * on the draw-order step instead of stranding them.
    */
   regressOnOrderRemoved?: boolean;
+  /**
+   * When true, while this beat is active the runner watches the user's
+   * `drawLineFormation.enabled` setting each tick, and rewinds the chapter
+   * to the preceding "activate draw line" beat (i.e. one whose `showWhen`
+   * is `drawLineDisabled`) the moment draw line is turned off. Used on
+   * order-placement beats whose drawing gesture only works with draw line
+   * on, so the player isn't stranded if they toggle it off mid-step.
+   */
+  regressOnDrawLineDisabled?: boolean;
   /**
    * When true, the beat is played at most once per chapter run: once it
    * has been dismissed, the queue auto-skips it if the cursor lands on it
