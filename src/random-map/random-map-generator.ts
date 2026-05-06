@@ -39,6 +39,7 @@ export class RandomMapGenerator {
     era,
     tilesX,
     tilesY,
+    mapSize,
   }: GenerateRandomMapProps): GenerateRandomMapResult {
     const gameDataManager = GameDataManager.get(era);
     // Fixed-roster scenarios (tutorial, presets) pass `dynamicBattleType: null`.
@@ -50,7 +51,9 @@ export class RandomMapGenerator {
       gameDataManager.getGameConstants().DEFAULT_BATTLE_TYPE;
     const battleType = gameDataManager.getBattleType(resolvedBattleType);
     const mapSizeIndex = getMapSizeIndex(maxPlayers, battleType.mapSize.length);
-    const battleSize = battleType.mapSize[mapSizeIndex];
+    // Caller-supplied `mapSize` override wins; otherwise derive from the
+    // player-count heuristic against `battleType.mapSize`.
+    const battleSize = mapSize ?? battleType.mapSize[mapSizeIndex];
     const { map } = gameDataManager.getMapSizes()[battleSize];
 
     // Pre-placed objectives from the scenario seed the result; instruction

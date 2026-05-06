@@ -30,6 +30,12 @@ export interface GenerateRandomMapProps {
   tilesX?: number;
   /* Optional number of tiles on the Y axis. If not provided, the map size will be used. */
   tilesY?: number;
+  /**
+   * Optional map size override. When provided, replaces the value derived from
+   * `battleType.mapSize[mapSizeIndex(maxPlayers)]` and is used everywhere
+   * `battleSize` flows (dimensions, instruction scaling, deployment zones).
+   */
+  mapSize?: Size;
 }
 
 /**
