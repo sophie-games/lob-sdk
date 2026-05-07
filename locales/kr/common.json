@@ -911,5 +911,12 @@
     "losses": "패배",
     "totalGames_other": "{{count}}게임",
     "totalArenas_other": "{{count}}아레나"
+  },
+  "tutorialSummary": {
+    "heading": "튜토리얼 요약",
+    "count": "{{total}}개 중 {{seen}}개 레슨 표시됨",
+    "description": "각 레슨은 알아둘 만한 상황을 다룹니다.",
+    "allSeen": "튜토리얼의 모든 레슨을 보셨습니다.",
+    "viewMissed": "놓친 레슨 보기"
   }
 }
