@@ -6361,7 +6361,10 @@
         "beats": [
           {
             "copy": "tutorial.gameEnded.win",
-            "advanceOn": "button"
+            "advanceOn": "button",
+            "revealUiElements": [
+              "topButtons"
+            ]
           },
           {
             "copy": "tutorial.gameEnded.closeReport",
@@ -6378,10 +6381,7 @@
               "style": "ring"
             },
             "placement": "left",
-            "advanceOn": "gameMenuOpened",
-            "revealUiElements": [
-              "topButtons"
-            ]
+            "advanceOn": "gameMenuOpened"
           },
           {
             "copy": "tutorial.gameEnded.exit",
@@ -6401,7 +6401,10 @@
         "beats": [
           {
             "copy": "tutorial.gameEnded.lose",
-            "advanceOn": "button"
+            "advanceOn": "button",
+            "revealUiElements": [
+              "topButtons"
+            ]
           },
           {
             "copy": "tutorial.gameEnded.closeReport",
@@ -6418,10 +6421,7 @@
               "style": "ring"
             },
             "placement": "left",
-            "advanceOn": "gameMenuOpened",
-            "revealUiElements": [
-              "topButtons"
-            ]
+            "advanceOn": "gameMenuOpened"
           },
           {
             "copy": "tutorial.gameEnded.exitToReplay",
@@ -6458,7 +6458,7 @@
       "tutorial.move.toggleDrawLineInfo": "Draw Line {icon.drawLine}: sketch a reference line on the map to plan formations or measure distance.",
       "tutorial.move.pathFindingInfo": "Path Finding {icon.pathFinding}: when on, units route around obstacles automatically.",
       "tutorial.move.smartCurvedMovementsInfo": "Smart Curved Movements {icon.smartCurvedMovements}: paths bend smoothly so units keep formation.",
-      "tutorial.move.multiSelectInfo": "Multi Select {icon.multiSelect}: when on, clicking a unit adds it to the selection instead of replacing it.",
+      "tutorial.move.multiSelectInfo": "Multi Select {icon.multiSelect}: when on, clicking a unit adds it to the selection instead of replacing it. On desktop, hold Shift while clicking to add a unit without toggling this button.",
       "tutorial.move.activateDrawLine": "Turn on Draw Line {icon.drawLine} to draw the move path.",
       "tutorial.move.selectInfantry": "Line infantry: {input.selectGroup} on one to grab every unit of the same type at once.",
       "tutorial.move.clickOrderTypeInfantry": "Open the order menu to pick FAA {icon.fireAdvance}",
@@ -6623,7 +6623,7 @@
       "tutorial.move.toggleDrawLineInfo": "Dibujar Línea {icon.drawLine}: traza una línea de referencia en el mapa para planear formaciones o medir distancia.",
       "tutorial.move.pathFindingInfo": "Búsqueda de Camino {icon.pathFinding}: si está activo, las unidades rodean los obstáculos automáticamente.",
       "tutorial.move.smartCurvedMovementsInfo": "Movimientos Curvos {icon.smartCurvedMovements}: las trayectorias se curvan suavemente para mantener la formación.",
-      "tutorial.move.multiSelectInfo": "Selección Múltiple {icon.multiSelect}: si está activo, al pulsar una unidad se añade a la selección en vez de reemplazarla.",
+      "tutorial.move.multiSelectInfo": "Selección Múltiple {icon.multiSelect}: si está activo, al pulsar una unidad se añade a la selección en vez de reemplazarla. En escritorio, mantén Shift al hacer clic para añadir sin activar este botón.",
       "tutorial.move.activateDrawLine": "Activa Dibujar Línea {icon.drawLine} para trazar el camino del movimiento.",
       "tutorial.move.selectInfantry": "Infantería de línea: {input.selectGroup} sobre una para coger todas las unidades del mismo tipo a la vez.",
       "tutorial.move.clickOrderTypeInfantry": "Abre el menú de órdenes y elige FAA {icon.fireAdvance}",
