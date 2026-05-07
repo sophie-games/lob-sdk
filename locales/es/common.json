@@ -811,5 +811,12 @@
     "totalGames_other": "{{count}} partidas",
     "totalArenas_one": "1 arena",
     "totalArenas_other": "{{count}} arenas"
+  },
+  "tutorialSummary": {
+    "heading": "Resumen del tutorial",
+    "count": "Se mostraron {{seen}}/{{total}} lecciones",
+    "description": "Cada lección cubre una situación que vale la pena conocer.",
+    "allSeen": "Viste todas las lecciones del tutorial.",
+    "viewMissed": "Ver lecciones que faltan"
   }
 }
