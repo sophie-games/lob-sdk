@@ -379,14 +379,6 @@ export interface PendingMeleeAttackData<T extends BaseUnit = BaseUnit> {
  */
 export type GameId = number;
 
-export const parseGameId = (raw: unknown): GameId => {
-  const n = typeof raw === "number" ? raw : Number(raw);
-  if (!Number.isInteger(n) || n <= 0) {
-    throw new Error(`Invalid gameId: ${JSON.stringify(raw)}`);
-  }
-  return n;
-};
-
 /**
  * Data for a pending shot, representing where a unit is aiming.
  */
