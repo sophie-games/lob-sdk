@@ -30,6 +30,8 @@ function basePlayer(overrides: Partial<PlayerInfo> = {}): PlayerInfo {
     baseAmmoReserve: 0,
     currentTimeBankSeconds: 0,
     submittedAt: null,
+    lostAt: null,
+    lostReason: null,
     ...overrides,
   };
 }

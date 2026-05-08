@@ -7,6 +7,12 @@ export enum UserTier {
   Gold = "gold",
 }
 
+export enum LostReason {
+  Withdrew = 1,
+  TimedOut = 2,
+  Destroyed = 3,
+}
+
 export interface Player {
   userId: number;
   playerNumber: number;
@@ -45,10 +51,15 @@ export interface Player {
    */
   submittedAt: number | null;
   /**
-   * Timestamp when this player withdrew from the game (seconds since epoch).
-   * Null when the player has not withdrawn.
+   * Timestamp when this player exited the game (seconds since epoch).
+   * Null while the player is still in. Always non-null when {@link defeated} is true.
    */
-  withdrawnAt?: number | null;
+  lostAt: number | null;
+  /**
+   * Reason this player exited the game. Null while the player is still in.
+   * Always non-null when {@link lostAt} is non-null.
+   */
+  lostReason: LostReason | null;
 }
 
 export interface PlayerInfo {
@@ -96,10 +107,14 @@ export interface PlayerInfo {
    */
   submittedAt: number | null;
   /**
-   * Timestamp when this player withdrew from the game (seconds since epoch).
-   * Null when the player has not withdrawn.
+   * Timestamp when this player exited the game (seconds since epoch).
+   * Null while the player is still in.
    */
-  withdrawnAt?: number | null;
+  lostAt: number | null;
+  /**
+   * Reason this player exited the game. Null while the player is still in.
+   */
+  lostReason: LostReason | null;
 }
 
 /**
