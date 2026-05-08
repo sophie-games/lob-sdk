@@ -21,6 +21,7 @@ import {
   IOrganizationSystem,
   IAttackSystem,
   IMovementSystem,
+  LostReason,
   Player,
   UnitDto,
   Size,
@@ -755,13 +756,15 @@ export interface IServerGame {
   /**
    * Defeats a player, removing them from the game
    * @param playerNumber - The player number to defeat
+   * @param reason - Why the player exited (sets lostReason)
    */
-  defeatPlayer(playerNumber: number): void;
+  defeatPlayer(playerNumber: number, reason: LostReason): void;
   /**
    * Defeats a player if they exist in the game
    * @param playerNumber - The player number to defeat
+   * @param reason - Why the player exited (sets lostReason)
    */
-  defeatPlayerIfExists(playerNumber: number): void;
+  defeatPlayerIfExists(playerNumber: number, reason: LostReason): void;
   /**
    * Gets the winning team number
    * @returns The winning team number, or null if no winner
