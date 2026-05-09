@@ -121,6 +121,18 @@ export function getLeagueProgress(elo: number): LeagueProgress | null {
   return { current, total };
 }
 
+/**
+ * ELO above the top league's lower bound, or `null` if the player isn't in
+ * the top league. Used to surface progression past the top threshold, since
+ * `getLeagueProgress` returns `null` for the unbounded top band.
+ */
+export function getEloAboveTopLeague(elo: number): number | null {
+  if (!Number.isFinite(elo)) return null;
+  const min = TOP_LEAGUE.minElo;
+  if (min === null || elo < min) return null;
+  return elo - min;
+}
+
 /** True iff `elo` places the player at `target` or any higher league. */
 export function hasReachedLeague(elo: number, target: LeagueType): boolean {
   const min = getLeagueBounds(target).minElo;

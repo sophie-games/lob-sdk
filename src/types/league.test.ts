@@ -1,4 +1,5 @@
 import {
+  getEloAboveTopLeague,
   getLeagueBounds,
   getLeagueByElo,
   getLeagueProgress,
@@ -51,6 +52,26 @@ describe("getLeagueProgress()", () => {
     expect(getLeagueProgress(0)).toEqual({ current: 0, total: 875 });
     expect(getLeagueProgress(300)).toEqual({ current: 300, total: 875 });
     expect(getLeagueProgress(874)).toEqual({ current: 874, total: 875 });
+  });
+});
+
+describe("getEloAboveTopLeague()", () => {
+  it("returns elo over the top league threshold for Emperor players", () => {
+    expect(getEloAboveTopLeague(2025)).toBe(0);
+    expect(getEloAboveTopLeague(2150)).toBe(125);
+    expect(getEloAboveTopLeague(9999)).toBe(7974);
+  });
+
+  it("returns null below the top league", () => {
+    expect(getEloAboveTopLeague(2024)).toBeNull();
+    expect(getEloAboveTopLeague(0)).toBeNull();
+    expect(getEloAboveTopLeague(-100)).toBeNull();
+  });
+
+  it("returns null on non-finite input", () => {
+    expect(getEloAboveTopLeague(Number.POSITIVE_INFINITY)).toBeNull();
+    expect(getEloAboveTopLeague(Number.NEGATIVE_INFINITY)).toBeNull();
+    expect(getEloAboveTopLeague(Number.NaN)).toBeNull();
   });
 });
 
