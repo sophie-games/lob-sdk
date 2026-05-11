@@ -218,6 +218,68 @@ export class GameDataManager {
   }
 
   /**
+   * Builds a fresh non-singleton GameDataManager for the given era and layers
+   * scenario-scoped custom unit templates, damage types, and formations on
+   * top of the era registry. Returns the cached era singleton unchanged when
+   * no custom defs are provided.
+   */
+  public static createWithCustomDefs(
+    era: GameEra,
+    customDefs: {
+      customUnitTemplates?: UnitTemplate[];
+      customDamageTypes?: DamageTypeTemplate[];
+      customUnitFormations?: FormationTemplate[];
+    },
+  ): GameDataManager {
+    const hasCustom = !!(
+      customDefs.customUnitTemplates?.length ||
+      customDefs.customDamageTypes?.length ||
+      customDefs.customUnitFormations?.length
+    );
+
+    if (!hasCustom) {
+      return GameDataManager.get(era);
+    }
+
+    const instance = new GameDataManager(era);
+    instance.loadCustomDefs(customDefs);
+    return instance;
+  }
+
+  /**
+   * Layers scenario-scoped custom defs on top of the era registry already
+   * loaded into this instance. Call only on per-game instances built via
+   * {@link createWithCustomDefs} — mutating an era singleton would leak
+   * scenario state across games.
+   */
+  public loadCustomDefs(customDefs: {
+    customUnitTemplates?: UnitTemplate[];
+    customDamageTypes?: DamageTypeTemplate[];
+    customUnitFormations?: FormationTemplate[];
+  }): void {
+    if (customDefs.customUnitTemplates?.length) {
+      const merged = [
+        ...this._unitTemplateManager.getTemplates(),
+        ...customDefs.customUnitTemplates,
+      ];
+      this._unitTemplateManager = new UnitTemplateManager();
+      this._unitTemplateManager.load(merged);
+    }
+
+    if (customDefs.customDamageTypes?.length) {
+      for (const dt of customDefs.customDamageTypes) {
+        this.damageTypes.push(dt);
+        this._damageTypeMap.set(dt.id, dt);
+        this._damageTypeNameMap.set(dt.name, dt);
+      }
+    }
+
+    if (customDefs.customUnitFormations?.length) {
+      this._formationManager.load(customDefs.customUnitFormations);
+    }
+  }
+
+  /**
    * Clears all cached GameDataManager instances.
    * Useful for testing or memory management.
    */

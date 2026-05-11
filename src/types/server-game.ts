@@ -25,7 +25,10 @@ import {
   Player,
   UnitDto,
   Size,
+  UnitTemplate,
+  FormationTemplate,
 } from "@lob-sdk/types";
+import type { DamageTypeTemplate } from "../game-data-manager/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { GameEra } from "@lob-sdk/game-data-manager";
 import { Point2, Vector2 } from "@lob-sdk/vector";
@@ -139,6 +142,12 @@ export interface GameMetadata {
   locales?: GameLocales;
   /** Custom variables for game tracking. */
   vars?: Record<string, number>;
+  /** Additive unit templates layered on top of the era registry for this game. */
+  customUnitTemplates?: UnitTemplate[];
+  /** Additive damage types layered on top of the era registry for this game. */
+  customDamageTypes?: DamageTypeTemplate[];
+  /** Additive formation templates layered on top of the era registry for this game. */
+  customUnitFormations?: FormationTemplate[];
 }
 
 /**
@@ -1122,6 +1131,14 @@ export interface ServerGameProps {
   endReason?: GameEndReason | null;
   /** User id of the player who created the game. Defaults to 0 when unknown (e.g. tests). */
   creatorId?: number;
+  /**
+   * Pre-built GameDataManager for this game. When the game uses
+   * scenario-scoped custom unit templates, damage types, or formations, the
+   * caller passes a per-game instance built via
+   * {@link GameDataManager.createWithCustomDefs}. Omit to fall back to the
+   * era singleton.
+   */
+  gameDataManager?: GameDataManager;
 }
 
 /**

@@ -7,7 +7,10 @@ import {
   AnyInstruction,
   Range,
   Size,
+  UnitTemplate,
+  FormationTemplate,
 } from "@lob-sdk/types";
+import type { DamageTypeTemplate } from "../game-data-manager/types";
 import { Tutorial } from "./tutorial";
 
 /**
@@ -350,4 +353,26 @@ export interface Scenario {
    * this field. Safe to omit for non-tutorial scenarios.
    */
   tutorial?: Tutorial;
+
+  /**
+   * Additive unit templates scoped to this scenario. Ids must be >= 10000
+   * and unique among custom templates; collisions with era built-ins are
+   * rejected by validation. Resolved at runtime via the per-game
+   * GameDataManager layered on top of the era's templates.
+   */
+  customUnitTemplates?: UnitTemplate[];
+
+  /**
+   * Additive damage types scoped to this scenario. Ids and names must not
+   * collide with era built-ins. Referenced by custom unit templates via
+   * `meleeDamageType` / `rangedDamageTypes`.
+   */
+  customDamageTypes?: DamageTypeTemplate[];
+
+  /**
+   * Additive formation templates scoped to this scenario. Ids must not
+   * collide with era built-ins. Referenced by custom unit templates via
+   * `formations[].id`.
+   */
+  customUnitFormations?: FormationTemplate[];
 }
