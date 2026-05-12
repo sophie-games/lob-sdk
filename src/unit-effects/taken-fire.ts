@@ -3,7 +3,6 @@ import { BaseUnit } from "@lob-sdk/unit";
 import { BaseUnitEffect } from "./base-unit-effect";
 import { UnitEffectRegistry } from "./unit-effect-registry";
 import { UnitEffectDisplayStat } from "./types";
-import { GameDataManager } from "@lob-sdk/game-data-manager";
 
 /**
  * Effect applied when a unit has taken fire from enemies.
@@ -41,7 +40,7 @@ export class TakenFire extends BaseUnitEffect {
   }
 
   getDisplayStats(unit: BaseUnit): UnitEffectDisplayStat[] {
-    const gameDataManager = GameDataManager.get(unit.era);
+    const gameDataManager = unit.gameDataManager;
     const { HAS_TAKEN_FIRE_SPEED_MODIFIER } =
       gameDataManager.getGameConstants();
 

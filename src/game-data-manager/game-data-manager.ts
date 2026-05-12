@@ -208,6 +208,19 @@ export class GameDataManager {
    * Uses a singleton pattern to ensure only one instance exists per era.
    * @param era - The game era ("napoleonic" or "ww2").
    * @returns The GameDataManager instance for the era.
+   *
+   * IMPORTANT: this returns the era SINGLETON, which does NOT know about
+   * scenario-scoped custom defs (custom unit templates, damage types,
+   * formations, unit categories, terrain category overrides). During an
+   * active game, ALWAYS resolve via `game.gameDataManager` /
+   * `unit.gameDataManager` / `editorContext.gameDataManager` instead —
+   * those expose the per-game manager built by {@link createWithCustomDefs}
+   * which is the only manager that knows about the custom defs for that
+   * particular scenario.
+   *
+   * `GameDataManager.get` is only safe in contexts where no game is in
+   * flight: pre-game menus, lobby/matchmaking, REST endpoints reading
+   * era data, scenario-generation utilities, achievements catalogs, etc.
    */
   public static get(era: GameEra): GameDataManager {
     if (!GameDataManager.instances.has(era)) {

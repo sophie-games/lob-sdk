@@ -2,7 +2,6 @@ import { BaseUnit } from "@lob-sdk/unit/base-unit";
 import { BaseUnitEffect } from "./base-unit-effect";
 import { UnitEffectRegistry } from "./unit-effect-registry";
 import { UnitEffectDisplayStat } from "./types";
-import { GameDataManager } from "@lob-sdk/game-data-manager";
 
 /**
  * Effect applied when a unit has been running.
@@ -13,7 +12,7 @@ export class HasRan extends BaseUnitEffect {
   static readonly name = "has_ran";
 
   getDisplayStats(unit: BaseUnit): UnitEffectDisplayStat[] {
-    const gameDataManager = GameDataManager.get(unit.era);
+    const gameDataManager = unit.gameDataManager;
     const { stamina } = gameDataManager.getGameRules();
 
     const stats: UnitEffectDisplayStat[] = [

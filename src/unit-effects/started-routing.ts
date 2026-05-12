@@ -2,7 +2,6 @@ import { BaseUnit } from "@lob-sdk/unit";
 import { BaseUnitEffect } from "./base-unit-effect";
 import { UnitEffectDisplayStat } from "./types";
 import { UnitEffectRegistry } from "./unit-effect-registry";
-import { GameDataManager } from "@lob-sdk/game-data-manager";
 
 /**
  * Effect applied when a unit has started routing.
@@ -19,7 +18,7 @@ export class StartedRouting extends BaseUnitEffect {
   }
 
   getDisplayStats(unit: BaseUnit): UnitEffectDisplayStat[] {
-    const gameDataManager = GameDataManager.get(unit.era);
+    const gameDataManager = unit.gameDataManager;
     const { organization } = gameDataManager.getGameRules();
 
     return [
@@ -58,7 +57,7 @@ export class StartedRouting extends BaseUnitEffect {
   }
 
   getOrgRadiusValue(unit: BaseUnit): number {
-    const gameDataManager = GameDataManager.get(unit.era);
+    const gameDataManager = unit.gameDataManager;
     const { organization } = gameDataManager.getGameRules();
     return organization.startedRoutingOrgRadiusDistance;
   }
