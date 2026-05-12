@@ -1,3 +1,6 @@
+
+// TODO: this file probably shouldn't be here
+
 // Canonical Napoleonic unit-category lists. Single source of truth shared by
 // the tutorial situation predicates AND by tooling/tests that validate the
 // scenario JSON. If you add or rename a unit category, update this file —
