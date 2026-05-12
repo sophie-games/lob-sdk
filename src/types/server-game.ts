@@ -28,7 +28,10 @@ import {
   UnitTemplate,
   FormationTemplate,
 } from "@lob-sdk/types";
-import type { DamageTypeTemplate } from "../game-data-manager/types";
+import type {
+  DamageTypeTemplate,
+  UnitCategoryTemplate,
+} from "../game-data-manager/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { GameEra } from "@lob-sdk/game-data-manager";
 import { Point2, Vector2 } from "@lob-sdk/vector";
@@ -148,6 +151,8 @@ export interface GameMetadata {
   customDamageTypes?: DamageTypeTemplate[];
   /** Additive formation templates layered on top of the era registry for this game. */
   customUnitFormations?: FormationTemplate[];
+  /** Additive unit categories layered on top of the era registry for this game. */
+  customUnitCategories?: UnitCategoryTemplate[];
 }
 
 /**

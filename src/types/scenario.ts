@@ -10,7 +10,10 @@ import {
   UnitTemplate,
   FormationTemplate,
 } from "@lob-sdk/types";
-import type { DamageTypeTemplate } from "../game-data-manager/types";
+import type {
+  DamageTypeTemplate,
+  UnitCategoryTemplate,
+} from "../game-data-manager/types";
 import { Tutorial } from "./tutorial";
 
 /**
@@ -375,4 +378,10 @@ export interface Scenario {
    * `formations[].id`.
    */
   customUnitFormations?: FormationTemplate[];
+
+  /**
+   * Additive unit categories scoped to this scenario. Ids must not collide
+   * with era built-ins. Referenced by custom unit templates via `category`.
+   */
+  customUnitCategories?: UnitCategoryTemplate[];
 }

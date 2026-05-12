@@ -229,12 +229,14 @@ export class GameDataManager {
       customUnitTemplates?: UnitTemplate[];
       customDamageTypes?: DamageTypeTemplate[];
       customUnitFormations?: FormationTemplate[];
+      customUnitCategories?: UnitCategoryTemplate[];
     },
   ): GameDataManager {
     const hasCustom = !!(
       customDefs.customUnitTemplates?.length ||
       customDefs.customDamageTypes?.length ||
-      customDefs.customUnitFormations?.length
+      customDefs.customUnitFormations?.length ||
+      customDefs.customUnitCategories?.length
     );
 
     if (!hasCustom) {
@@ -256,7 +258,28 @@ export class GameDataManager {
     customUnitTemplates?: UnitTemplate[];
     customDamageTypes?: DamageTypeTemplate[];
     customUnitFormations?: FormationTemplate[];
+    customUnitCategories?: UnitCategoryTemplate[];
   }): void {
+    // Load categories first because unit templates may reference them.
+    if (customDefs.customUnitCategories?.length) {
+      for (const category of customDefs.customUnitCategories) {
+        this.unitCategories.push(category);
+        this.unitCategoryMap.set(category.id, category);
+        if (category.allowedOrders) {
+          this._unitCategoryAllowedOrders.set(
+            category.id,
+            new Set(
+              category.allowedOrders.map((order) => {
+                const orderType = this._orderNameMap.get(order);
+                if (orderType !== undefined) return orderType;
+                throw new Error(`Order ${order} not found`);
+              }),
+            ),
+          );
+        }
+      }
+    }
+
     if (customDefs.customUnitTemplates?.length) {
       const merged = [
         ...this._unitTemplateManager.getTemplates(),

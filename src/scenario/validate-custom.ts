@@ -5,7 +5,10 @@ import {
   FormationTemplate,
 } from "@lob-sdk/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
-import type { DamageTypeTemplate } from "../game-data-manager/types";
+import type {
+  DamageTypeTemplate,
+  UnitCategoryTemplate,
+} from "../game-data-manager/types";
 
 /**
  * Lowest unit-type id reserved for scenario-scoped custom unit templates.
@@ -14,7 +17,7 @@ import type { DamageTypeTemplate } from "../game-data-manager/types";
 export const CUSTOM_UNIT_TYPE_MIN = 10000;
 
 export interface CustomDefValidationError {
-  scope: "unitTemplate" | "damageType" | "unitFormation";
+  scope: "unitTemplate" | "damageType" | "unitFormation" | "unitCategory";
   field?: string;
   message: string;
 }
@@ -33,16 +36,21 @@ export function validateScenarioCustomDefs(
   const customUnitTemplates = scenario.customUnitTemplates ?? [];
   const customDamageTypes = scenario.customDamageTypes ?? [];
   const customUnitFormations = scenario.customUnitFormations ?? [];
+  const customUnitCategories = scenario.customUnitCategories ?? [];
 
   errors.push(...validateCustomDamageTypes(customDamageTypes, eraGameDataManager));
   errors.push(
     ...validateCustomUnitFormations(customUnitFormations, eraGameDataManager),
   );
   errors.push(
+    ...validateCustomUnitCategories(customUnitCategories, eraGameDataManager),
+  );
+  errors.push(
     ...validateCustomUnitTemplates(
       customUnitTemplates,
       customDamageTypes,
       customUnitFormations,
+      customUnitCategories,
       eraGameDataManager,
     ),
   );
@@ -126,10 +134,49 @@ function validateCustomUnitFormations(
   return errors;
 }
 
+function validateCustomUnitCategories(
+  customUnitCategories: UnitCategoryTemplate[],
+  eraGameDataManager: GameDataManager,
+): CustomDefValidationError[] {
+  const errors: CustomDefValidationError[] = [];
+  const seenIds = new Set<string>();
+  const builtInIds = new Set(
+    eraGameDataManager.getUnitCategories().map((c) => c.id),
+  );
+
+  for (const category of customUnitCategories) {
+    if (!category.id || category.id.trim() === "") {
+      errors.push({
+        scope: "unitCategory",
+        message: "Unit category id is required",
+      });
+      continue;
+    }
+    if (builtInIds.has(category.id)) {
+      errors.push({
+        scope: "unitCategory",
+        field: category.id,
+        message: `Unit category id "${category.id}" collides with a built-in category`,
+      });
+    }
+    if (seenIds.has(category.id)) {
+      errors.push({
+        scope: "unitCategory",
+        field: category.id,
+        message: `Duplicate custom unit category id "${category.id}"`,
+      });
+    }
+    seenIds.add(category.id);
+  }
+
+  return errors;
+}
+
 function validateCustomUnitTemplates(
   customUnitTemplates: UnitTemplate[],
   customDamageTypes: DamageTypeTemplate[],
   customUnitFormations: FormationTemplate[],
+  customUnitCategories: UnitCategoryTemplate[],
   eraGameDataManager: GameDataManager,
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
@@ -148,6 +195,13 @@ function validateCustomUnitTemplates(
   const customFormationIds = new Set(customUnitFormations.map((f) => f.id));
   const isKnownFormation = (id: string) =>
     formationManager.getTemplate(id) !== null || customFormationIds.has(id);
+
+  const builtInCategoryIds = new Set(
+    eraGameDataManager.getUnitCategories().map((c) => c.id),
+  );
+  const customCategoryIds = new Set(customUnitCategories.map((c) => c.id));
+  const isKnownCategory = (id: string) =>
+    builtInCategoryIds.has(id) || customCategoryIds.has(id);
 
   for (const template of customUnitTemplates) {
     if (template.type < CUSTOM_UNIT_TYPE_MIN) {
@@ -172,6 +226,14 @@ function validateCustomUnitTemplates(
       });
     }
     seenIds.add(template.type);
+
+    if (!isKnownCategory(template.category)) {
+      errors.push({
+        scope: "unitTemplate",
+        field: template.name,
+        message: `category "${template.category}" is not a built-in or custom unit category`,
+      });
+    }
 
     if (!isKnownDamageType(template.meleeDamageType)) {
       errors.push({
