@@ -39,7 +39,7 @@ export abstract class BaseUnit extends Entity {
   readonly entityType = EntityType.Unit;
 
   readonly era: GameEra;
-  protected gameDataManager: GameDataManager;
+  readonly gameDataManager: GameDataManager;
   abstract hp: number;
   abstract org: number;
   abstract stamina: number | null;

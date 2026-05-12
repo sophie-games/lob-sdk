@@ -143,6 +143,12 @@ function validateCustomUnitCategories(
   const builtInIds = new Set(
     eraGameDataManager.getUnitCategories().map((c) => c.id),
   );
+  const knownOrderNames = new Set(
+    eraGameDataManager
+      .getOrderTypes()
+      .map((id) => eraGameDataManager.tryGetOrderTemplate(id)?.name)
+      .filter((name): name is string => !!name),
+  );
 
   for (const category of customUnitCategories) {
     if (!category.id || category.id.trim() === "") {
@@ -167,6 +173,18 @@ function validateCustomUnitCategories(
       });
     }
     seenIds.add(category.id);
+
+    // Catch unknown allowedOrders here so loadCustomDefs doesn't throw at
+    // game-start time when it tries to map names to OrderType ids.
+    for (const orderName of category.allowedOrders ?? []) {
+      if (!knownOrderNames.has(orderName)) {
+        errors.push({
+          scope: "unitCategory",
+          field: category.id,
+          message: `allowedOrders entry "${orderName}" is not a known order for this era`,
+        });
+      }
+    }
   }
 
   return errors;

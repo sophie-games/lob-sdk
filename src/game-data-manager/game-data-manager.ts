@@ -260,7 +260,9 @@ export class GameDataManager {
     customUnitFormations?: FormationTemplate[];
     customUnitCategories?: UnitCategoryTemplate[];
   }): void {
-    // Load categories first because unit templates may reference them.
+    // Order matters: categories → damage types → formations → templates
+    // (templates may reference categories, damage types, and formations).
+
     if (customDefs.customUnitCategories?.length) {
       for (const category of customDefs.customUnitCategories) {
         this.unitCategories.push(category);
@@ -278,15 +280,10 @@ export class GameDataManager {
           );
         }
       }
-    }
-
-    if (customDefs.customUnitTemplates?.length) {
-      const merged = [
-        ...this._unitTemplateManager.getTemplates(),
-        ...customDefs.customUnitTemplates,
-      ];
-      this._unitTemplateManager = new UnitTemplateManager();
-      this._unitTemplateManager.load(merged);
+      // Backfill terrain-category modifier maps that use `*` wildcards so
+      // newly-added unit categories pick up the era's default terrain
+      // movement / attack / defense modifiers.
+      this.expandTerrainCategoryWildcards();
     }
 
     if (customDefs.customDamageTypes?.length) {
@@ -299,6 +296,15 @@ export class GameDataManager {
 
     if (customDefs.customUnitFormations?.length) {
       this._formationManager.load(customDefs.customUnitFormations);
+    }
+
+    if (customDefs.customUnitTemplates?.length) {
+      const merged = [
+        ...this._unitTemplateManager.getTemplates(),
+        ...customDefs.customUnitTemplates,
+      ];
+      this._unitTemplateManager = new UnitTemplateManager();
+      this._unitTemplateManager.load(merged);
     }
   }
 
