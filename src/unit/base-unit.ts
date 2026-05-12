@@ -237,11 +237,10 @@ export abstract class BaseUnit extends Entity {
       return 0;
     }
 
-    const gameDataManager = this.gameDataManager;
-    const { ranges } = gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(
+    const { ranges } = this.gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(
       this.rangedDamageTypes[this.rangedDamageTypes.length - 1],
     );
-    const { UNIT_RANGE_MARGIN } = gameDataManager.getGameConstants();
+    const { UNIT_RANGE_MARGIN } = this.gameDataManager.getGameConstants();
     return ranges[ranges.length - 1].end + UNIT_RANGE_MARGIN;
   }
 
@@ -264,13 +263,12 @@ export abstract class BaseUnit extends Entity {
   }
 
   canUseOrder(orderType: OrderType) {
-    const gameDataManager = this.gameDataManager;
     if (orderType === OrderType.FireAndAdvance && !this.canFireAndAdvance()) {
       // Even if the unit category can fire and advance, if it's not ranged then it won't be able to use it.
       // This is to allow horse archers to use FAA and, at the same time, prevent melee cavalry from using it.
       return false;
     }
-    return gameDataManager.canUseOrder(this.category, orderType);
+    return this.gameDataManager.canUseOrder(this.category, orderType);
   }
 
   getMeleeDamageTypeConfig() {
@@ -279,8 +277,7 @@ export abstract class BaseUnit extends Entity {
 
   private getCorners(): Point2[] {
     // Get unit dimensions from formation template
-    const gameDataManager = this.gameDataManager;
-    const dimensions = gameDataManager.getUnitDimensions(this.type, this.currentFormation);
+    const dimensions = this.gameDataManager.getUnitDimensions(this.type, this.currentFormation);
     
     // Calculate the half-width and half-height
     const halfWidth = dimensions.width / 2;
@@ -361,11 +358,10 @@ export abstract class BaseUnit extends Entity {
   }
 
   isRunning(activeOrder: OrderType | null, accumulatedRun: number = this.accumulatedRun) {
-    const gameDataManager = this.gameDataManager;
     if (this.isRunRouting()) {
       return true;
     }
-    const { stamina } = gameDataManager.getGameRules();
+    const { stamina } = this.gameDataManager.getGameRules();
     return (
       (!stamina || this.getStaminaProportion() > stamina.lowerModifierLimit) &&
       activeOrder === OrderType.Run &&
@@ -385,8 +381,7 @@ export abstract class BaseUnit extends Entity {
   }
 
   calculateCollisionShapes(position = this.position): Circle[] {
-    const gameDataManager = this.gameDataManager;
-    const formationTemplate = gameDataManager.getFormationManager().getTemplate(this.currentFormation);
+    const formationTemplate = this.gameDataManager.getFormationManager().getTemplate(this.currentFormation);
 
     let collisionCircles: number;
     let collisionCircleSize: number;
@@ -447,27 +442,23 @@ export abstract class BaseUnit extends Entity {
 
   protected getCurrentFormationData(): UnitFormationTemplate | null {
     if (!this.currentFormation) return null;
-    const gameDataManager = this.gameDataManager;
-    return gameDataManager.getUnitTemplateManager().getFormation(this.type, this.currentFormation);
+    return this.gameDataManager.getUnitTemplateManager().getFormation(this.type, this.currentFormation);
   }
 
   getAvailableFormations(): UnitFormationTemplate[] {
-    const gameDataManager = this.gameDataManager;
-    return gameDataManager.getUnitTemplateManager().getAvailableFormations(this.type);
+    return this.gameDataManager.getUnitTemplateManager().getAvailableFormations(this.type);
   }
 
   getDirectionToPoint(point: Vector2, frontBackArc?: number) {
     if (frontBackArc === undefined) {
-      const gameDataManager = this.gameDataManager;
-      const formation = gameDataManager.getFormationManager().getTemplate(this.currentFormation);
+      const formation = this.gameDataManager.getFormationManager().getTemplate(this.currentFormation);
       frontBackArc = formation?.frontBackArc ? degreesToRadians(formation.frontBackArc) : degreesToRadians(90);
     }
     return getDirectionToPoint(this.position, point, this.rotation, frontBackArc);
   }
 
   getFlankMod(attackerPoint: Vector2) {
-    const gameDataManager = this.gameDataManager;
-    const formation = gameDataManager.getFormationManager().getTemplate(this.currentFormation);
+    const formation = this.gameDataManager.getFormationManager().getTemplate(this.currentFormation);
     const minFlank = formation?.minFlankAngle ? degreesToRadians(formation.minFlankAngle) : degreesToRadians(45);
     const maxFlank = formation?.maxFlankAngle ? degreesToRadians(formation.maxFlankAngle) : degreesToRadians(135);
     return getFlankingPercent(attackerPoint, this.position, this.rotation, minFlank, maxFlank);
@@ -482,8 +473,7 @@ export abstract class BaseUnit extends Entity {
   }
 
   isFriendlyFireImmune(damageType: string): boolean {
-    const gameDataManager = this.gameDataManager;
-    const formationTemplate = gameDataManager.getFormationManager().getTemplate(this.currentFormation);
+    const formationTemplate = this.gameDataManager.getFormationManager().getTemplate(this.currentFormation);
     return formationTemplate?.friendlyFireImmuneDamageTypes?.includes(damageType) ?? false;
   }
 
@@ -521,8 +511,7 @@ export abstract class BaseUnit extends Entity {
     if (!this.isRouting()) {
       return false;
     }
-    const gameDataManager = this.gameDataManager;
-    const categoryTemplate = gameDataManager.getUnitCategoryTemplate(this.category);
+    const categoryTemplate = this.gameDataManager.getUnitCategoryTemplate(this.category);
     return categoryTemplate.routingBehavior?.baseSpeed === "run";
   }
 
