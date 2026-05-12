@@ -11,6 +11,7 @@ import {
   TerrainType,
   TerrainConfig,
   Size,
+  CustomTerrainCategoryOverride,
 } from "@lob-sdk/types";
 import { RawScenarioInput, normalizeScenario } from "@lob-sdk/scenario";
 import { Scenario } from "@lob-sdk/types";
@@ -230,13 +231,15 @@ export class GameDataManager {
       customDamageTypes?: DamageTypeTemplate[];
       customUnitFormations?: FormationTemplate[];
       customUnitCategories?: UnitCategoryTemplate[];
+      customTerrainCategories?: CustomTerrainCategoryOverride[];
     },
   ): GameDataManager {
     const hasCustom = !!(
       customDefs.customUnitTemplates?.length ||
       customDefs.customDamageTypes?.length ||
       customDefs.customUnitFormations?.length ||
-      customDefs.customUnitCategories?.length
+      customDefs.customUnitCategories?.length ||
+      customDefs.customTerrainCategories?.length
     );
 
     if (!hasCustom) {
@@ -259,11 +262,21 @@ export class GameDataManager {
     customDamageTypes?: DamageTypeTemplate[];
     customUnitFormations?: FormationTemplate[];
     customUnitCategories?: UnitCategoryTemplate[];
+    customTerrainCategories?: CustomTerrainCategoryOverride[];
   }): void {
-    // Order matters: categories → damage types → formations → templates
-    // (templates may reference categories, damage types, and formations).
+    // Order matters: categories → terrain categories → damage types →
+    // formations → templates. Terrain categories slot in after unit
+    // categories so the wildcard expansion has the full set of unit
+    // category ids to populate against.
+    //
+    // IMPORTANT: every container we mutate below points at the JSON-imported
+    // era data which is shared across all GameDataManager instances (the era
+    // loader assigns the imports by reference). We must clone before
+    // appending or overwriting, otherwise per-game custom defs leak into the
+    // era singleton and into every other game built afterwards.
 
     if (customDefs.customUnitCategories?.length) {
+      this.unitCategories = [...this.unitCategories];
       for (const category of customDefs.customUnitCategories) {
         this.unitCategories.push(category);
         this.unitCategoryMap.set(category.id, category);
@@ -286,7 +299,27 @@ export class GameDataManager {
       this.expandTerrainCategoryWildcards();
     }
 
+    if (customDefs.customTerrainCategories?.length) {
+      // Deep-clone so per-game terrain overrides don't bleed into the JSON
+      // import and onto other GameDataManager instances. Shallow `{...src}`
+      // wouldn't be enough because the inner modifier maps are mutated by
+      // expandTerrainCategoryWildcards below.
+      this.terrainCategories = JSON.parse(
+        JSON.stringify(this.terrainCategories ?? {}),
+      ) as Record<TerrainCategoryType, TerrainCategoryConfig>;
+      for (const override of customDefs.customTerrainCategories) {
+        // Replace wholesale, not merge: the editor produces a complete
+        // config seeded from the cloned built-in, so a partial merge would
+        // double-up wildcards from the previous load.
+        this.terrainCategories[override.id as TerrainCategoryType] = override.config;
+      }
+      // Re-expand wildcards on the (possibly overridden) maps so any newly
+      // introduced category id has the right wildcard fallbacks applied.
+      this.expandTerrainCategoryWildcards();
+    }
+
     if (customDefs.customDamageTypes?.length) {
+      this.damageTypes = [...this.damageTypes];
       for (const dt of customDefs.customDamageTypes) {
         this.damageTypes.push(dt);
         this._damageTypeMap.set(dt.id, dt);

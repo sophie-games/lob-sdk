@@ -3,6 +3,7 @@ import {
   UnitTemplate,
   RangeUnitTemplate,
   FormationTemplate,
+  CustomTerrainCategoryOverride,
 } from "@lob-sdk/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import type {
@@ -17,7 +18,12 @@ import type {
 export const CUSTOM_UNIT_TYPE_MIN = 10000;
 
 export interface CustomDefValidationError {
-  scope: "unitTemplate" | "damageType" | "unitFormation" | "unitCategory";
+  scope:
+    | "unitTemplate"
+    | "damageType"
+    | "unitFormation"
+    | "unitCategory"
+    | "terrainCategory";
   field?: string;
   message: string;
 }
@@ -37,6 +43,7 @@ export function validateScenarioCustomDefs(
   const customDamageTypes = scenario.customDamageTypes ?? [];
   const customUnitFormations = scenario.customUnitFormations ?? [];
   const customUnitCategories = scenario.customUnitCategories ?? [];
+  const customTerrainCategories = scenario.customTerrainCategories ?? [];
 
   errors.push(...validateCustomDamageTypes(customDamageTypes, eraGameDataManager));
   errors.push(
@@ -45,6 +52,7 @@ export function validateScenarioCustomDefs(
   errors.push(
     ...validateCustomUnitCategories(customUnitCategories, eraGameDataManager),
   );
+  errors.push(...validateCustomTerrainCategories(customTerrainCategories));
   errors.push(
     ...validateCustomUnitTemplates(
       customUnitTemplates,
@@ -54,6 +62,41 @@ export function validateScenarioCustomDefs(
       eraGameDataManager,
     ),
   );
+
+  return errors;
+}
+
+function validateCustomTerrainCategories(
+  customTerrainCategories: CustomTerrainCategoryOverride[],
+): CustomDefValidationError[] {
+  const errors: CustomDefValidationError[] = [];
+  const seenIds = new Set<string>();
+
+  for (const override of customTerrainCategories) {
+    if (!override.id || override.id.trim() === "") {
+      errors.push({
+        scope: "terrainCategory",
+        message: "Terrain category id is required",
+      });
+      continue;
+    }
+    if (seenIds.has(override.id)) {
+      errors.push({
+        scope: "terrainCategory",
+        field: override.id,
+        message: `Duplicate custom terrain category id "${override.id}"`,
+      });
+    }
+    seenIds.add(override.id);
+
+    if (!override.config) {
+      errors.push({
+        scope: "terrainCategory",
+        field: override.id,
+        message: `Terrain category "${override.id}" is missing its config block`,
+      });
+    }
+  }
 
   return errors;
 }

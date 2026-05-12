@@ -32,6 +32,7 @@ import type {
   DamageTypeTemplate,
   UnitCategoryTemplate,
 } from "../game-data-manager/types";
+import type { CustomTerrainCategoryOverride } from "./scenario";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { GameEra } from "@lob-sdk/game-data-manager";
 import { Point2, Vector2 } from "@lob-sdk/vector";
@@ -153,6 +154,8 @@ export interface GameMetadata {
   customUnitFormations?: FormationTemplate[];
   /** Additive unit categories layered on top of the era registry for this game. */
   customUnitCategories?: UnitCategoryTemplate[];
+  /** Terrain category overrides applied on top of the era registry for this game. */
+  customTerrainCategories?: CustomTerrainCategoryOverride[];
 }
 
 /**

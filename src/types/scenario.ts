@@ -4,6 +4,7 @@ import {
   PlayerSetup,
   UnitDtoPartialId,
   TerrainType,
+  TerrainCategoryConfig,
   AnyInstruction,
   Range,
   Size,
@@ -15,6 +16,17 @@ import type {
   UnitCategoryTemplate,
 } from "../game-data-manager/types";
 import { Tutorial } from "./tutorial";
+
+/**
+ * Scenario-scoped override for a single terrain category. The {@link id}
+ * either matches an era built-in (replacing its config wholesale, useful to
+ * give custom unit categories proper terrain modifiers) or introduces a new
+ * category id that custom terrains can reference.
+ */
+export interface CustomTerrainCategoryOverride {
+  id: string;
+  config: TerrainCategoryConfig;
+}
 
 /**
  * Translations for scenario content, organized by language.
@@ -384,4 +396,15 @@ export interface Scenario {
    * with era built-ins. Referenced by custom unit templates via `category`.
    */
   customUnitCategories?: UnitCategoryTemplate[];
+
+  /**
+   * Per-scenario overrides for terrain category configs. Each entry either
+   * replaces the era's config for an existing terrain category id (so custom
+   * unit categories can get specific movement / attack / defense modifiers
+   * per terrain instead of inheriting the era's `*` wildcard default), or
+   * introduces a brand new category id usable for tooling that wants new
+   * terrain semantics. After loading, the terrain-category wildcard
+   * expansion runs again so newly-added unit categories pick up defaults.
+   */
+  customTerrainCategories?: CustomTerrainCategoryOverride[];
 }
