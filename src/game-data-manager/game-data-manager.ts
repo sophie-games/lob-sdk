@@ -249,7 +249,7 @@ export class GameDataManager {
   /**
    * Layers scenario-scoped custom defs on top of the era registry already
    * loaded into this instance. Call only on per-game instances built via
-   * {@link createWithCustomDefs} — mutating an era singleton would leak
+   * {@link createWithCustomDefs}. Mutating an era singleton would leak
    * scenario state across games.
    */
   public loadCustomDefs(customDefs: {

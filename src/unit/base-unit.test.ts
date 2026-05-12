@@ -68,7 +68,7 @@ describe("BaseUnit", () => {
 
   beforeEach(() => {
     const id = 10;
-    unit = new TestUnit(id, gameDataManager.era);
+    unit = new TestUnit(id, gameDataManager);
   });
 
   describe("hasEffect()", () => {
