@@ -334,6 +334,25 @@ function validateCustomUnitTemplates(
         message: `defaultFormation "${template.defaultFormation}" is not a built-in or custom formation`,
       });
     }
+
+    // The unit starts in `currentFormation = defaultFormation` and looks up
+    // sprite metadata via `formations.find(f => f.id === currentFormation)`.
+    // If defaultFormation points outside the unit's own formations[] list
+    // (e.g. a clone whose formations were rewritten but defaultFormation
+    // wasn't updated), the find returns undefined and rendering falls back
+    // to the "unknown" sprite; collisions also resolve through the wrong
+    // formation template. Catch the mismatch here so it surfaces as a
+    // validation error instead of a silent runtime fallback.
+    if (
+      template.defaultFormation &&
+      !template.formations.some((f) => f.id === template.defaultFormation)
+    ) {
+      errors.push({
+        scope: "unitTemplate",
+        field: template.name,
+        message: `defaultFormation "${template.defaultFormation}" must match one of the unit's formations (${template.formations.map((f) => f.id).join(", ") || "<empty>"})`,
+      });
+    }
   }
 
   return errors;

@@ -409,5 +409,45 @@ describe("validateScenarioCustomDefs", () => {
         ).length,
       ).toBeGreaterThanOrEqual(2);
     });
+
+    it("flags defaultFormation that isn't in the unit's formations[]", () => {
+      // Regression: a clone whose formations array was rewritten ("fly" only)
+      // while defaultFormation still pointed at the original ("mass"). The
+      // global formation manager knows both ids, so the prior check passed,
+      // but the unit's sprite lookup goes through unit.formations.find(...)
+      // and returns undefined — the unit renders as the "unknown" sprite and
+      // collisions use the wrong template. The mismatch must surface here.
+      const tmpl = makeUnitTemplate({
+        formations: [{ id: "line", baseSprite: "infantry/line" }] as any,
+        defaultFormation: "mass", // known to the era, but not in formations[]
+      });
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customUnitTemplates: [tmpl] }),
+        era,
+      );
+      const mismatchErrors = errors.filter(
+        (e) =>
+          e.scope === "unitTemplate" &&
+          e.message.includes("must match one of the unit's formations"),
+      );
+      expect(mismatchErrors).toHaveLength(1);
+    });
+
+    it("accepts defaultFormation that matches one of the unit's formations", () => {
+      const tmpl = makeUnitTemplate({
+        formations: [{ id: "line", baseSprite: "infantry/line" }] as any,
+        defaultFormation: "line",
+      });
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customUnitTemplates: [tmpl] }),
+        era,
+      );
+      const mismatchErrors = errors.filter(
+        (e) =>
+          e.scope === "unitTemplate" &&
+          e.message.includes("must match one of the unit's formations"),
+      );
+      expect(mismatchErrors).toHaveLength(0);
+    });
   });
 });
