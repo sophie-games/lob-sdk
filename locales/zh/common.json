@@ -662,6 +662,12 @@
     "message": "当它找到其它玩家作为对手后，该游戏会出现在主页“我的对局”之下！",
     "found": "该对局已找到对手，你可以<0>点击此处</0>开始游玩。"
   },
+  "matchFoundModal": {
+    "title": "找到对手了！",
+    "message": "你的慢速对局已准备好。",
+    "goToGame": "进入对局",
+    "ignore": "忽略"
+  },
   "active": "进行中",
   "inQueue": "在队列中",
   "playableGamesAvailable": "你有可游玩的对局！",
