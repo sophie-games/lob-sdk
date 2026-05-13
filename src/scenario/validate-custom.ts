@@ -335,14 +335,9 @@ function validateCustomUnitTemplates(
       });
     }
 
-    // The unit starts in `currentFormation = defaultFormation` and looks up
-    // sprite metadata via `formations.find(f => f.id === currentFormation)`.
-    // If defaultFormation points outside the unit's own formations[] list
-    // (e.g. a clone whose formations were rewritten but defaultFormation
-    // wasn't updated), the find returns undefined and rendering falls back
-    // to the "unknown" sprite; collisions also resolve through the wrong
-    // formation template. Catch the mismatch here so it surfaces as a
-    // validation error instead of a silent runtime fallback.
+    // defaultFormation must be in the unit's own formations[] — otherwise
+    // the runtime falls back to the "unknown" sprite and wrong collision
+    // template via `formations.find(f => f.id === currentFormation)`.
     if (
       template.defaultFormation &&
       !template.formations.some((f) => f.id === template.defaultFormation)
