@@ -1,10 +1,9 @@
 import { GameSpeed } from "../game-time-preset/game-time-preset";
 
 /**
- * Matchmaking ELO constants
+ * Matchmaking ELO range constants. The range is uncapped: it grows
+ * indefinitely with time so even rare ELO outliers find matches eventually.
  */
-export const MIN_MATCHMAKING_ELO = 1000;
-export const MAX_MATCHMAKING_ELO = 1650;
 export const BASE_ELO_RANGE = 100;
 export const ELO_RANGE_INCREMENT = 40;
 
