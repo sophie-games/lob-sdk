@@ -254,12 +254,10 @@ function validateCustomUnitTemplates(
   const builtInTemplates = eraGameDataManager.getUnitTemplateManager().getTemplates();
   const builtInIds = new Set(builtInTemplates.map((t) => t.type));
 
-  const builtInDamageTypeNames = new Set(
-    eraGameDataManager.getDamageTypes().map((dt) => dt.name),
-  );
-  const customDamageTypeNames = new Set(customDamageTypes.map((dt) => dt.name));
-  const isKnownDamageType = (name: string) =>
-    builtInDamageTypeNames.has(name) || customDamageTypeNames.has(name);
+  const damageTypeByName = new Map<string, DamageTypeTemplate>();
+  for (const dt of eraGameDataManager.getDamageTypes()) damageTypeByName.set(dt.name, dt);
+  for (const dt of customDamageTypes) damageTypeByName.set(dt.name, dt);
+  const isKnownDamageType = (name: string) => damageTypeByName.has(name);
 
   const formationManager = eraGameDataManager.getFormationManager();
   const customFormationIds = new Set(customUnitFormations.map((f) => f.id));
@@ -314,18 +312,43 @@ function validateCustomUnitTemplates(
     }
 
     const rangedTemplate = template as RangeUnitTemplate;
-    if (rangedTemplate.rangedDamageTypes) {
-      for (const dt of rangedTemplate.rangedDamageTypes) {
-        if (!isKnownDamageType(dt)) {
-          errors.push({
-            scope: "unitTemplate",
-            field: template.name,
-            message: `rangedDamageType "${dt}" is not a built-in or custom damage type`,
-          });
-        }
+    const rangedDamageTypes = rangedTemplate.rangedDamageTypes ?? [];
+    // A ranged unit (rangedAttack > 0) without rangedDamageTypes crashes
+    // BaseUnit.getMaxRange — the empty array is truthy, then ranges[-1] is
+    // undefined and getDamageTypeByName(undefined) throws.
+    if ((rangedTemplate.rangedAttack ?? 0) > 0 && rangedDamageTypes.length === 0) {
+      errors.push({
+        scope: "unitTemplate",
+        field: template.name,
+        message: `rangedAttack > 0 but rangedDamageTypes is empty — runtime will crash on getMaxRange`,
+      });
+    }
+    for (const dtName of rangedDamageTypes) {
+      const dt = damageTypeByName.get(dtName);
+      if (!dt) {
+        errors.push({
+          scope: "unitTemplate",
+          field: template.name,
+          message: `rangedDamageType "${dtName}" is not a built-in or custom damage type`,
+        });
+      } else if (dt.ranged !== true) {
+        // Cross-ref to a melee damage type — the runtime casts to
+        // RangedDamageTypeTemplate and crashes on missing `.ranges`.
+        errors.push({
+          scope: "unitTemplate",
+          field: template.name,
+          message: `rangedDamageType "${dtName}" references a melee damage type`,
+        });
       }
     }
 
+    if (template.formations.length === 0) {
+      errors.push({
+        scope: "unitTemplate",
+        field: template.name,
+        message: `formations is empty — unit needs at least one formation`,
+      });
+    }
     for (const formation of template.formations) {
       if (!isKnownFormation(formation.id)) {
         errors.push({

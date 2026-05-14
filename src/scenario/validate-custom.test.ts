@@ -501,5 +501,77 @@ describe("validateScenarioCustomDefs", () => {
       );
       expect(mismatchErrors).toHaveLength(0);
     });
+
+    it("flags formations: []", () => {
+      const tmpl = makeUnitTemplate({ formations: [] });
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customUnitTemplates: [tmpl] }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "unitTemplate" &&
+            /unit needs at least one formation/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("flags rangedAttack > 0 with empty rangedDamageTypes", () => {
+      const tmpl = makeUnitTemplate({
+        rangedAttack: 100,
+        rangedDamageTypes: [],
+      });
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customUnitTemplates: [tmpl] }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "unitTemplate" &&
+            /runtime will crash on getMaxRange/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("flags a rangedDamageType that references a melee damage type", () => {
+      // Pick any built-in melee damage type by name.
+      const meleeName = era
+        .getDamageTypes()
+        .find((dt) => dt.ranged !== true)!.name;
+      const tmpl = makeUnitTemplate({
+        rangedAttack: 100,
+        rangedDamageTypes: [meleeName],
+      });
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customUnitTemplates: [tmpl] }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "unitTemplate" &&
+            /references a melee damage type/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("accepts a rangedDamageType that references a ranged damage type", () => {
+      const rangedName = era
+        .getDamageTypes()
+        .find((dt) => dt.ranged === true)!.name;
+      const tmpl = makeUnitTemplate({
+        rangedAttack: 100,
+        rangedDamageTypes: [rangedName],
+      });
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customUnitTemplates: [tmpl] }),
+        era,
+      );
+      expect(
+        errors.some((e) => /references a melee damage type/.test(e.message)),
+      ).toBe(false);
+    });
   });
 });
