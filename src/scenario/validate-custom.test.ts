@@ -127,6 +127,58 @@ describe("validateScenarioCustomDefs", () => {
       );
       expect(errors.some((e) => /Duplicate custom damage type name/.test(e.message))).toBe(true);
     });
+
+    it("flags ranged damage types with no range brackets", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customDamageTypes: [
+            {
+              id: 99003,
+              name: "empty-ranged",
+              orgDamageRatio: 0.5,
+              ranged: true,
+              ranges: [],
+              projectileWidth: 4,
+              areaOfEffect: {
+                type: "circular",
+                ranges: [{ start: 0, end: 100, startRadius: 0, endRadius: 0 }],
+                edgeDamageModifier: 1,
+              },
+            } as unknown as DamageTypeTemplate,
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some((e) => /needs at least one range bracket/.test(e.message)),
+      ).toBe(true);
+    });
+
+    it("accepts ranged damage types with at least one range bracket", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customDamageTypes: [
+            {
+              id: 99004,
+              name: "valid-ranged",
+              orgDamageRatio: 0.5,
+              ranged: true,
+              ranges: [{ start: 0, end: 100, startMod: 1, endMod: 1 }],
+              projectileWidth: 4,
+              areaOfEffect: {
+                type: "circular",
+                ranges: [{ start: 0, end: 100, startRadius: 0, endRadius: 0 }],
+                edgeDamageModifier: 1,
+              },
+            } as unknown as DamageTypeTemplate,
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some((e) => /needs at least one range bracket/.test(e.message)),
+      ).toBe(false);
+    });
   });
 
   describe("custom unit formations", () => {

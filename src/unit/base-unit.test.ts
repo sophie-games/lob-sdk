@@ -232,4 +232,43 @@ describe("BaseUnit", () => {
       );
     });
   });
+
+  describe("calculateCollisionShapes()", () => {
+    // Build a per-game manager with a custom formation, then swap the unit's
+    // formation onto it — lets us test zero-knob behavior without touching
+    // built-in formation data.
+    const makeUnitWithFormation = (
+      collisionCircles: number,
+      collisionCircleSize: number,
+    ): TestUnit => {
+      const customManager = GameDataManager.createWithCustomDefs("napoleonic", {
+        customUnitFormations: [
+          {
+            id: "test-no-collision",
+            baseSprite: "infantry/line",
+            collisionCircles,
+            collisionCircleSize,
+          } as never,
+        ],
+      });
+      const u = new TestUnit(20, customManager);
+      u.currentFormation = "test-no-collision";
+      return u;
+    };
+
+    it("returns [] when collisionCircles is 0 (flying/ghost unit)", () => {
+      const flying = makeUnitWithFormation(0, 16);
+      expect(flying.calculateCollisionShapes()).toEqual([]);
+    });
+
+    it("returns [] when collisionCircleSize is 0 (flying/ghost unit)", () => {
+      const flying = makeUnitWithFormation(1, 0);
+      expect(flying.calculateCollisionShapes()).toEqual([]);
+    });
+
+    it("returns non-empty circles when both knobs are positive", () => {
+      const normal = makeUnitWithFormation(3, 8);
+      expect(normal.calculateCollisionShapes().length).toBe(3);
+    });
+  });
 });

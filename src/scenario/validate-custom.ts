@@ -141,6 +141,18 @@ function validateCustomDamageTypes(
         message: `Duplicate custom damage type name "${dt.name}"`,
       });
     }
+    // Range brackets are required for ranged damage types — without them the
+    // range graphic / max-range calc crashes on the first `ranges[last]` read.
+    if (dt.ranged === true) {
+      const ranges = (dt as { ranges?: unknown[] }).ranges;
+      if (!Array.isArray(ranges) || ranges.length === 0) {
+        errors.push({
+          scope: "damageType",
+          field: dt.name,
+          message: `Ranged damage type "${dt.name}" needs at least one range bracket`,
+        });
+      }
+    }
     seenIds.add(dt.id);
     seenNames.add(dt.name);
   }

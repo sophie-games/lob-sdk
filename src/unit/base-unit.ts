@@ -402,6 +402,13 @@ export abstract class BaseUnit extends Entity {
       collisionCirclesVertical = false;
     }
 
+    // Either knob at 0 means "no collision" (flying/ghost units). Bail out
+    // before generating zero-radius circles, which downstream collision
+    // checks can still touch and would skew totalOverlap calcs.
+    if (collisionCircles <= 0 || collisionCircleSize <= 0) {
+      return [];
+    }
+
     const { x: dx, y: dy } = position;
     const radius = collisionCircleSize / 2;
     const circles: Circle[] = [];
