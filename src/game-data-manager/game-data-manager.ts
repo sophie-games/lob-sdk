@@ -947,6 +947,13 @@ export class GameDataManager {
     return template as T;
   }
 
+  /** Like {@link getDamageTypeByName} but returns undefined instead of throwing. */
+  public tryGetDamageTypeByName<T extends DamageTypeTemplate>(
+    name: string,
+  ): T | undefined {
+    return this._damageTypeNameMap.get(name) as T | undefined;
+  }
+
   /**
    * Get unit category resistance for a damage type
    */
