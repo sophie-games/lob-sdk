@@ -23,6 +23,7 @@ import {
   IMovementSystem,
   LostReason,
   Player,
+  PlayerBattleMetadata,
   UnitDto,
   Size,
 } from "@lob-sdk/types";
@@ -967,17 +968,25 @@ export interface IServerGame {
    */
   applyUnitDamageTaken(unit: BaseUnit, collidedWithEnemy: boolean): void;
   /**
-   * Records damage taken by a unit for a player
-   * @param unit - The unit that took damage
-   * @param damage - The amount of damage taken
+   * Records damage taken by a unit for the unit's owner.
+   * Updates `metadata.damageTaken` keyed by the victim unit type.
    */
-  recordUnitDamageForPlayer(unit: BaseUnit, damage: number): void;
+  recordDamageTaken(unit: BaseUnit, damage: number): void;
   /**
-   * Gets the total damage taken by a player's units
-   * @param playerNumber - The player number
-   * @returns Object mapping unit IDs to damage amounts
+   * Records damage dealt by an attacking player. Updates both
+   * `metadata.damageDealt` (keyed by victim type) and
+   * `metadata.damageDealtBy` (keyed by attacker type).
    */
-  getPlayerUnitDamageTaken(playerNumber: number): Record<string, number>;
+  recordDamageDealt(
+    attackerPlayer: number,
+    attackerType: UnitType,
+    victimType: UnitType,
+    damage: number,
+  ): void;
+  /**
+   * Returns a player's battle metadata, initializing it lazily if needed.
+   */
+  getPlayerMetadata(playerNumber: number): PlayerBattleMetadata;
 
   /**
    * Clears all turn-level caches
