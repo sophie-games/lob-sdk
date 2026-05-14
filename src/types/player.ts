@@ -28,6 +28,7 @@ export interface Player {
   wantsDraw: boolean;
   armyComposition: UnitCounts | null;
   unitDamageTaken: UnitCounts | null;
+  unitDamageDealt: UnitCounts | null;
   unitsGained: UnitCounts | null;
   /**
    * Precomputed army power for VP rules when {@link armyComposition} is withheld
@@ -87,6 +88,7 @@ export interface PlayerInfo {
   objectiveSkins?: number[];
   armyComposition: UnitCounts | null;
   unitDamageTaken: UnitCounts | null;
+  unitDamageDealt: UnitCounts | null;
   unitsGained: UnitCounts | null;
   /**
    * Precomputed army power for VP rules when {@link armyComposition} is withheld
@@ -127,6 +129,7 @@ export type PlayerInfoRedactedBattleIntel = PlayerInfo & {
   armyComposition: null;
   unitsGained: null;
   unitDamageTaken: null;
+  unitDamageDealt: null;
   vpBaseArmyPower: number;
 };
 

@@ -25,6 +25,7 @@ function basePlayer(overrides: Partial<PlayerInfo> = {}): PlayerInfo {
     wantsDraw: false,
     armyComposition: {},
     unitDamageTaken: {},
+    unitDamageDealt: {},
     unitsGained: null,
     ammoReserve: 0,
     baseAmmoReserve: 0,
@@ -42,6 +43,7 @@ describe("isPlayerInfoRedactedBattleIntel", () => {
       armyComposition: null,
       unitsGained: null,
       unitDamageTaken: null,
+      unitDamageDealt: null,
       vpBaseArmyPower: 200,
     });
     expect(isPlayerInfoRedactedBattleIntel(p, { finished: false })).toBe(true);

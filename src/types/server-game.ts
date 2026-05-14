@@ -244,6 +244,10 @@ export interface DamageHit {
   backlashHit?: DamageHit;
   /** Whether this was a charge attack. */
   charge?: boolean;
+  /** Player number that dealt the damage. Omitted for environmental damage (attrition, morale shatter). */
+  attackerPlayer?: number;
+  /** Unit type that dealt the damage. Omitted for environmental damage. */
+  attackerType?: UnitType;
 }
 
 /**
