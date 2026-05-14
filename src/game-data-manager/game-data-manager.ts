@@ -947,11 +947,11 @@ export class GameDataManager {
     return template as T;
   }
 
-  /** Like {@link getDamageTypeByName} but returns undefined instead of throwing. */
+  /** Like {@link getDamageTypeByName} but returns null instead of throwing. */
   public tryGetDamageTypeByName<T extends DamageTypeTemplate>(
     name: string,
-  ): T | undefined {
-    return this._damageTypeNameMap.get(name) as T | undefined;
+  ): T | null {
+    return (this._damageTypeNameMap.get(name) as T | undefined) ?? null;
   }
 
   /**

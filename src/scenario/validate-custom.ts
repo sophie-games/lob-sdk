@@ -143,7 +143,7 @@ function validateCustomDamageTypes(
     }
     // Range brackets are required for ranged damage types — without them the
     // range graphic / max-range calc crashes on the first `ranges[last]` read.
-    if (dt.ranged === true && !dt.ranges?.length) {
+    if (dt.ranged === true && dt.ranges.length === 0) {
       errors.push({
         scope: "damageType",
         field: dt.name,
