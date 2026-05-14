@@ -446,7 +446,12 @@ export interface RangedDamageTypeTemplate {
   };
   ranges: DamageTypeRange[];
   arcHeight?: number;
-  areaOfEffect: AoeConfig;
+  /**
+   * Optional — many built-in ranged damage types (musket, rifle,
+   * horse-archer-bow, canister) ship with no AoE at all. Read sites must
+   * guard with `if (areaOfEffect)`.
+   */
+  areaOfEffect?: AoeConfig;
   enfiladeFire?: boolean;
   cannotUseAfterRun?: boolean;
   projectilePenetration?: number;
