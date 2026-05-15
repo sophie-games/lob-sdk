@@ -13,6 +13,29 @@ export enum LostReason {
   Destroyed = 3,
 }
 
+/**
+ * Per-battle stats persisted to `game_users.metadata` JSONB. All sub-objects
+ * are HP-denominated and keyed by {@link UnitType}.
+ */
+export interface PlayerBattleMetadata {
+  /** HP this player lost, keyed by this player's unit type (the victim). */
+  damageTaken?: UnitCounts;
+  /**
+   * HP this player inflicted on enemies, keyed by the enemy (victim) unit type.
+   * Symmetric to opposing players' damageTaken: the sum of all players'
+   * damageDealt for a given unit type equals the sum of their opponents'
+   * damageTaken (minus environmental damage with no attributed attacker).
+   */
+  damageDealt?: UnitCounts;
+  /**
+   * HP this player inflicted on enemies, keyed by this player's (attacker)
+   * unit type. Useful for analytics like "which of my unit types dealt the
+   * most damage" without telling you what type of enemy was on the receiving
+   * end.
+   */
+  damageDealtBy?: UnitCounts;
+}
+
 export interface Player {
   userId: number;
   playerNumber: number;
@@ -27,7 +50,7 @@ export interface Player {
   turnSubmission: TurnSubmission | null;
   wantsDraw: boolean;
   armyComposition: UnitCounts | null;
-  unitDamageTaken: UnitCounts | null;
+  metadata: PlayerBattleMetadata | null;
   unitsGained: UnitCounts | null;
   /**
    * Precomputed army power for VP rules when {@link armyComposition} is withheld
@@ -86,7 +109,7 @@ export interface PlayerInfo {
   discordUsername?: string;
   objectiveSkins?: number[];
   armyComposition: UnitCounts | null;
-  unitDamageTaken: UnitCounts | null;
+  metadata: PlayerBattleMetadata | null;
   unitsGained: UnitCounts | null;
   /**
    * Precomputed army power for VP rules when {@link armyComposition} is withheld
@@ -126,7 +149,7 @@ export interface PlayerInfo {
 export type PlayerInfoRedactedBattleIntel = PlayerInfo & {
   armyComposition: null;
   unitsGained: null;
-  unitDamageTaken: null;
+  metadata: null;
   vpBaseArmyPower: number;
 };
 
