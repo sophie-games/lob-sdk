@@ -63,7 +63,6 @@
   "matchmakingQueue": {
     "inQueue": "現在マッチメイキングキューにいます。同じ設定を選択したプレイヤーを探しています。",
     "matchFound": "マッチが見つかると、自動的にゲームに移動します。",
-    "extendQueue": "キューを拡張",
     "cancelledBy": "キューは{{username}}によってキャンセルされました。",
     "playersInQueue": "{{count}}人のプレイヤーが検索中",
     "disconnectedReconnecting": "接続が切断されました。再接続中"
@@ -735,5 +734,11 @@
     "description": "各レッスンは知っておくべき状況を扱います。",
     "allSeen": "チュートリアルのすべてのレッスンを見ました。",
     "viewMissed": "見逃したレッスンを表示"
+  },
+  "matchFoundModal": {
+    "title": "マッチが見つかりました！",
+    "message": "スローマッチの準備ができました。",
+    "goToGame": "ゲームへ",
+    "ignore": "無視"
   }
 }

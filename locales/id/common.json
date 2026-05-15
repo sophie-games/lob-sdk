@@ -64,7 +64,6 @@
   "matchmakingQueue": {
     "inQueue": "Kamu sekarang berada dalam antrean! Sistem sedang mencari pemain lain yang telah memilih pengaturan yang sama dengan kamu.",
     "matchFound": "Ketika permainan telah ditemukan, kamu akan diarahkan ke permainan.",
-    "extendQueue": "Perluas Antrean",
     "cancelledBy": "Antrean dibatalkan oleh {{username}}.",
     "playersInQueue": "{{count}} pemain mencari",
     "disconnectedReconnecting": "Koneksi Terputus. Menyambung Ulang"
@@ -741,5 +740,11 @@
     "description": "Setiap pelajaran membahas situasi yang patut diketahui.",
     "allSeen": "Kamu telah melihat semua pelajaran tutorial.",
     "viewMissed": "Lihat pelajaran yang terlewat"
+  },
+  "matchFoundModal": {
+    "title": "Pertandingan ditemukan!",
+    "message": "Pertandingan lambatmu siap dimainkan.",
+    "goToGame": "Buka pertandingan",
+    "ignore": "Abaikan"
   }
 }

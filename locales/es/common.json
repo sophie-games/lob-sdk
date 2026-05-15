@@ -52,7 +52,6 @@
   "matchmakingQueue": {
     "inQueue": "¡Ahora estás en la cola de emparejamiento! El sistema está buscando otro jugador que haya seleccionado las mismas configuraciones que tú.",
     "matchFound": "Una vez que se encuentre un emparejamiento, serás redirigido al juego.",
-    "extendQueue": "Extender cola",
     "cancelledBy": "La cola fue cancelada por {{username}}.",
     "playersInQueue": "{{count}} jugadores buscando",
     "disconnectedReconnecting": "Conexión Perdida. Reconectando"
@@ -630,6 +629,12 @@
     "title": "¡Juego añadido a la cola!",
     "message": "Una vez que encuentre al resto de los jugadores, el juego aparecerá en la sección Mis Juegos de Inicio.",
     "found": "Ya se han encontrado otros jugadores para este juego, puedes jugar ahora haciendo <0>clic aquí</0>."
+  },
+  "matchFoundModal": {
+    "title": "¡Partida encontrada!",
+    "message": "Tu partida lenta está lista para jugarse.",
+    "goToGame": "Ir a la partida",
+    "ignore": "Ignorar"
   },
   "active": "Activo",
   "inQueue": "En cola",

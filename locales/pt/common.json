@@ -63,7 +63,6 @@
   "matchmakingQueue": {
     "inQueue": "Você está agora na fila de matchmaking! O sistema está procurando outro jogador que selecionou as mesmas configurações que você.",
     "matchFound": "Assim que uma partida for encontrada, você será redirecionado para o jogo.",
-    "extendQueue": "Estender fila",
     "cancelledBy": "A fila foi cancelada por {{username}}.",
     "playersInQueue": "{{count}} jogadores procurando",
     "disconnectedReconnecting": "Conexão Perdida. Reconectando"
@@ -738,5 +737,11 @@
     "description": "Cada lição cobre uma situação que vale a pena conhecer.",
     "allSeen": "Você viu todas as lições do tutorial.",
     "viewMissed": "Ver lições perdidas"
+  },
+  "matchFoundModal": {
+    "title": "Partida encontrada!",
+    "message": "Sua partida lenta está pronta.",
+    "goToGame": "Ir para a partida",
+    "ignore": "Ignorar"
   }
 }

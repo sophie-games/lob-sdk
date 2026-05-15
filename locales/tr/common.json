@@ -63,7 +63,6 @@
   "matchmakingQueue": {
     "inQueue": "Şimdi eşleştirme kuyruğundasınız! Sistem, sizinle aynı ayarları seçmiş başka bir oyuncu arıyor.",
     "matchFound": "Bir eşleşme bulunduğunda, oyuna yönlendirileceksiniz.",
-    "extendQueue": "Kuyruğu genişlet",
     "cancelledBy": "Kuyruk {{username}} tarafından iptal edildi.",
     "playersInQueue": "{{count}} oyuncu aranıyor",
     "disconnectedReconnecting": "Bağlantı Kesildi. Yeniden Bağlanıyor"
@@ -737,5 +736,11 @@
     "description": "Her ders bilmeye değer bir durumu kapsar.",
     "allSeen": "Eğitimdeki tüm dersleri gördün.",
     "viewMissed": "Kaçırılan dersleri gör"
+  },
+  "matchFoundModal": {
+    "title": "Maç bulundu!",
+    "message": "Yavaş maçın oynamaya hazır.",
+    "goToGame": "Maça git",
+    "ignore": "Yoksay"
   }
 }

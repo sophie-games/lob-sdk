@@ -63,7 +63,6 @@
   "matchmakingQueue": {
     "inQueue": "Sei ora nella coda di matchmaking! Il sistema sta cercando un altro giocatore che ha selezionato le stesse impostazioni di te.",
     "matchFound": "Una volta trovato un avversario, sarai reindirizzato al gioco.",
-    "extendQueue": "Estendi coda",
     "cancelledBy": "La coda è stata cancellata da {{username}}.",
     "playersInQueue": "{{count}} giocatori in ricerca",
     "disconnectedReconnecting": "Connessione Persa. Riconnessione"
@@ -738,5 +737,11 @@
     "description": "Ogni lezione tratta una situazione che vale la pena conoscere.",
     "allSeen": "Hai visto tutte le lezioni del tutorial.",
     "viewMissed": "Vedi lezioni mancate"
+  },
+  "matchFoundModal": {
+    "title": "Partita trovata!",
+    "message": "La tua partita lenta è pronta.",
+    "goToGame": "Vai alla partita",
+    "ignore": "Ignora"
   }
 }

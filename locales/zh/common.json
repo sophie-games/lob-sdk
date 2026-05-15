@@ -64,7 +64,6 @@
   "matchmakingQueue": {
     "inQueue": "你现在在匹配队列中！系统正在寻找和你的对局选项一致的其他玩家。",
     "matchFound": "当搜索到匹配对象时，你会自动进入对局。",
-    "extendQueue": "扩大匹配范围",
     "cancelledBy": "匹配被{{username}}取消了。",
     "playersInQueue": "{{count}}名玩家正在匹配",
     "disconnectedReconnecting": "连接丢失。正在重新连接"
@@ -662,6 +661,12 @@
     "title": "对局已加入匹配队列！",
     "message": "当它找到其它玩家作为对手后，该游戏会出现在主页“我的对局”之下！",
     "found": "该对局已找到对手，你可以<0>点击此处</0>开始游玩。"
+  },
+  "matchFoundModal": {
+    "title": "找到对手了！",
+    "message": "你的慢速对局已准备好。",
+    "goToGame": "进入对局",
+    "ignore": "忽略"
   },
   "active": "进行中",
   "inQueue": "在队列中",

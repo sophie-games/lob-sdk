@@ -52,7 +52,6 @@
   "matchmakingQueue": {
     "inQueue": "Vous êtes désormais dans la file d'attente ! Nous recherchons un adversaire qui a choisi les mêmes paramètres que vous.",
     "matchFound": "Lorsque ce sera fait, vous rejoindrez automatiquement la partie.",
-    "extendQueue": "Étendre la file",
     "cancelledBy": "La file a été annulée par {{username}}.",
     "playersInQueue": "{{count}} joueurs en recherche",
     "disconnectedReconnecting": "Connexion Perdue. Reconnexion"
@@ -750,5 +749,11 @@
     "description": "Chaque leçon couvre une situation qui vaut la peine d'être connue.",
     "allSeen": "Tu as vu toutes les leçons du tutoriel.",
     "viewMissed": "Voir les leçons manquées"
+  },
+  "matchFoundModal": {
+    "title": "Partie trouvée !",
+    "message": "Ta partie lente est prête.",
+    "goToGame": "Aller à la partie",
+    "ignore": "Ignorer"
   }
 }

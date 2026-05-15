@@ -64,7 +64,6 @@
   "matchmakingQueue": {
     "inQueue": "Jesteś teraz w kolejce do losowej partii! System szuka gracza, który wybrał te same ustawienia co ty.",
     "matchFound": "Gdy partia zostanie znaleziona, system przekieruje cię do partii.",
-    "extendQueue": "Rozszerzona Kolejka",
     "cancelledBy": "Kolejka została anulowana przez {{username}}.",
     "playersInQueue": "{{count}} graczy szuka",
     "disconnectedReconnecting": "Utracono Połączenie. Ponowne Łączenie"
@@ -637,6 +636,12 @@
     "title": "Partia dodana do kolejki!",
     "message": "Po znalezieniu pozostałych graczy partia pojawi się w sekcji Moje Partie na Stronie Głównej!",
     "found": "Inni gracze zostali już znalezieni do tej partii, możesz grać teraz, <0>klikając tutaj</0>."
+  },
+  "matchFoundModal": {
+    "title": "Znaleziono mecz!",
+    "message": "Twój wolny mecz jest gotowy do gry.",
+    "goToGame": "Przejdź do gry",
+    "ignore": "Zignoruj"
   },
   "active": "Aktywna",
   "inQueue": "W kolejce",
