@@ -568,7 +568,12 @@
   "submittingOrders": "Submitting orders...",
   "checkingUpdates": "Checking updates...",
   "lobby": {
-    "autoStartCountdown": "Auto-start in {{countdown}}"
+    "autoStartCountdown": "Auto-start in {{countdown}}",
+    "joinTeam": "Join Team {{team}} ({{count}}/{{capacity}})",
+    "teamCount": "Team {{team}}: {{count}}/{{capacity}}",
+    "teamLocked": "Pick the smaller team",
+    "teamFull": "Team is full",
+    "teamNoLongerAvailable": "Someone else joined first. Pick again."
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
