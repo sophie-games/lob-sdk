@@ -537,7 +537,11 @@
   "turningDelay": "Dönüş gecikmesi",
   "allyOverlap": "Müttefik çakışması",
   "lobby": {
-    "autoStartCountdown": "Otomatik başlangıç: {{countdown}}"
+    "autoStartCountdown": "Otomatik başlangıç: {{countdown}}",
+    "joinTeam": "Takım {{team}}'a Katıl ({{count}}/{{capacity}})",
+    "teamLocked": "Daha küçük takımı seç",
+    "teamFull": "Takım dolu",
+    "teamNoLongerAvailable": "Başkası önce katıldı. Tekrar seç."
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",

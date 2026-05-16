@@ -540,7 +540,11 @@
   "spectatorFullVision": "Visibilitas penuh penonton",
   "kFactorTooltip": "Faktor K ELO (perubahan peringkat maks per pertandingan berperingkat)",
   "lobby": {
-    "autoStartCountdown": "Mulai otomatis dalam {{countdown}}"
+    "autoStartCountdown": "Mulai otomatis dalam {{countdown}}",
+    "joinTeam": "Gabung Tim {{team}} ({{count}}/{{capacity}})",
+    "teamLocked": "Pilih tim yang lebih kecil",
+    "teamFull": "Tim sudah penuh",
+    "teamNoLongerAvailable": "Orang lain bergabung lebih dulu. Pilih lagi."
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",

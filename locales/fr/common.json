@@ -600,7 +600,11 @@
   "disconnected": "Déconnecté",
   "reconnected": "Reconnecté",
   "lobby": {
-    "autoStartCountdown": "Démarrage automatique dans {{countdown}}"
+    "autoStartCountdown": "Démarrage automatique dans {{countdown}}",
+    "joinTeam": "Rejoindre l'équipe {{team}} ({{count}}/{{capacity}})",
+    "teamLocked": "Choisissez l'équipe la plus petite",
+    "teamFull": "L'équipe est complète",
+    "teamNoLongerAvailable": "Quelqu'un a rejoint en premier. Choisissez à nouveau."
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",

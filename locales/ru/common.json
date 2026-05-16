@@ -568,7 +568,11 @@
   "checkingUpdates": "Проверяем обновления...",
   "arenas": "Арены",
   "lobby": {
-    "autoStartCountdown": "Автозапуск через {{countdown}}"
+    "autoStartCountdown": "Автозапуск через {{countdown}}",
+    "joinTeam": "Присоединиться к команде {{team}} ({{count}}/{{capacity}})",
+    "teamLocked": "Выберите меньшую команду",
+    "teamFull": "Команда заполнена",
+    "teamNoLongerAvailable": "Кто-то присоединился первым. Выберите снова."
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} на {{playersPerTeam}} {{battleTypeName}}",

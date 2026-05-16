@@ -563,7 +563,11 @@
     "message": "क्या आप वाकई <0>{{clanName}}</0> को छोड़ना चाहते हैं?"
   },
   "lobby": {
-    "autoStartCountdown": "{{countdown}} में स्वतः शुरू"
+    "autoStartCountdown": "{{countdown}} में स्वतः शुरू",
+    "joinTeam": "टीम {{team}} में शामिल हों ({{count}}/{{capacity}})",
+    "teamLocked": "छोटी टीम चुनें",
+    "teamFull": "टीम भरी हुई है",
+    "teamNoLongerAvailable": "कोई और पहले शामिल हो गया। फिर से चुनें।"
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} बनाम {{playersPerTeam}} {{battleTypeName}}",

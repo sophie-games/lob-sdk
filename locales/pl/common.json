@@ -612,7 +612,11 @@
   "optional": "Opcjonalne",
   "round": "Runda",
   "lobby": {
-    "autoStartCountdown": "Automatyczny start za {{countdown}}"
+    "autoStartCountdown": "Automatyczny start za {{countdown}}",
+    "joinTeam": "Dołącz do Drużyny {{team}} ({{count}}/{{capacity}})",
+    "teamLocked": "Wybierz mniejszą drużynę",
+    "teamFull": "Drużyna jest pełna",
+    "teamNoLongerAvailable": "Ktoś inny dołączył pierwszy. Wybierz ponownie."
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} na {{playersPerTeam}} {{battleTypeName}}",

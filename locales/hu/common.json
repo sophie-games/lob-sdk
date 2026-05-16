@@ -598,7 +598,11 @@
     "linkingAccount": "Discord fiók összekapcsolása..."
   },
   "lobby": {
-    "autoStartCountdown": "Automatikus indítás {{countdown}} múlva"
+    "autoStartCountdown": "Automatikus indítás {{countdown}} múlva",
+    "joinTeam": "Csatlakozás a {{team}}. csapathoz ({{count}}/{{capacity}})",
+    "teamLocked": "Válaszd a kisebb csapatot",
+    "teamFull": "A csapat tele van",
+    "teamNoLongerAvailable": "Valaki más csatlakozott először. Válassz újra."
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} a {{playersPerTeam}} ellen {{battleTypeName}}",

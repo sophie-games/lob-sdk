@@ -621,7 +621,11 @@
   "rank": "Τάξη",
   "maxPlayers": "Μέγιστοι παίκτες",
   "lobby": {
-    "autoStartCountdown": "Αυτόματη έναρξη σε {{countdown}}"
+    "autoStartCountdown": "Αυτόματη έναρξη σε {{countdown}}",
+    "joinTeam": "Είσοδος στην Ομάδα {{team}} ({{count}}/{{capacity}})",
+    "teamLocked": "Επίλεξε τη μικρότερη ομάδα",
+    "teamFull": "Η ομάδα είναι γεμάτη",
+    "teamNoLongerAvailable": "Κάποιος μπήκε πρώτος. Επίλεξε ξανά."
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} εναντίον {{playersPerTeam}} {{battleTypeName}}",

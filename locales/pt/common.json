@@ -538,7 +538,11 @@
   "hard": "Dura",
   "soft": "Suave",
   "lobby": {
-    "autoStartCountdown": "Início automático em {{countdown}}"
+    "autoStartCountdown": "Início automático em {{countdown}}",
+    "joinTeam": "Entrar no Time {{team}} ({{count}}/{{capacity}})",
+    "teamLocked": "Escolha o time menor",
+    "teamFull": "O time está cheio",
+    "teamNoLongerAvailable": "Outra pessoa entrou primeiro. Escolha novamente."
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",

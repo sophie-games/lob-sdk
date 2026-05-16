@@ -606,7 +606,11 @@
   "round": "Ronda",
   "current": "Actual",
   "lobby": {
-    "autoStartCountdown": "Inicio automático en {{countdown}}"
+    "autoStartCountdown": "Inicio automático en {{countdown}}",
+    "joinTeam": "Unirse al Equipo {{team}} ({{count}}/{{capacity}})",
+    "teamLocked": "Elige el equipo más pequeño",
+    "teamFull": "El equipo está lleno",
+    "teamNoLongerAvailable": "Alguien se unió primero. Elige de nuevo."
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",

@@ -563,7 +563,11 @@
     "message": "هل أنت متأكد من أنك تريد مغادرة <0>{{clanName}}</0>؟"
   },
   "lobby": {
-    "autoStartCountdown": "البدء التلقائي خلال {{countdown}}"
+    "autoStartCountdown": "البدء التلقائي خلال {{countdown}}",
+    "joinTeam": "انضم إلى الفريق {{team}} ({{count}}/{{capacity}})",
+    "teamLocked": "اختر الفريق الأصغر",
+    "teamFull": "الفريق ممتلئ",
+    "teamNoLongerAvailable": "انضم لاعب آخر أولاً. اختر مرة أخرى."
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} ضد {{playersPerTeam}} {{battleTypeName}}",

@@ -538,7 +538,11 @@
   "soft": "柔らかい",
   "infantry": "歩兵",
   "lobby": {
-    "autoStartCountdown": "{{countdown}}で自動開始"
+    "autoStartCountdown": "{{countdown}}で自動開始",
+    "joinTeam": "チーム{{team}}に参加 ({{count}}/{{capacity}})",
+    "teamLocked": "少ない方のチームを選んでください",
+    "teamFull": "チームは満員です",
+    "teamNoLongerAvailable": "他のプレイヤーが先に参加しました。もう一度選んでください。"
   },
   "limitedMode": {
     "title": "{{playersPerTeam}}対{{playersPerTeam}} {{battleTypeName}}",

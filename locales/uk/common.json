@@ -555,7 +555,11 @@
   "hard": "Жорстκε",
   "soft": "М'яκε",
   "lobby": {
-    "autoStartCountdown": "Автозапуск через {{countdown}}"
+    "autoStartCountdown": "Автозапуск через {{countdown}}",
+    "joinTeam": "Приєднатися до команди {{team}} ({{count}}/{{capacity}})",
+    "teamLocked": "Виберіть меншу команду",
+    "teamFull": "Команда заповнена",
+    "teamNoLongerAvailable": "Хтось приєднався першим. Виберіть знову."
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} на {{playersPerTeam}} {{battleTypeName}}",

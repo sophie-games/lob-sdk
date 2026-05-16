@@ -598,7 +598,11 @@
   "medium": "Media",
   "high": "Alta",
   "lobby": {
-    "autoStartCountdown": "Avvio automatico tra {{countdown}}"
+    "autoStartCountdown": "Avvio automatico tra {{countdown}}",
+    "joinTeam": "Unisciti al Team {{team}} ({{count}}/{{capacity}})",
+    "teamLocked": "Scegli la squadra più piccola",
+    "teamFull": "La squadra è piena",
+    "teamNoLongerAvailable": "Qualcun altro si è unito prima. Scegli di nuovo."
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",

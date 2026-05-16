@@ -568,7 +568,11 @@
   "checkingUpdates": "检查更新……",
   "arenas": "竞技场",
   "lobby": {
-    "autoStartCountdown": "{{countdown}} 后自动开始"
+    "autoStartCountdown": "{{countdown}} 后自动开始",
+    "joinTeam": "加入队伍 {{team}} ({{count}}/{{capacity}})",
+    "teamLocked": "选择人数较少的队伍",
+    "teamFull": "队伍已满",
+    "teamNoLongerAvailable": "有人先加入了。请重新选择。"
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} 对 {{playersPerTeam}} {{battleTypeName}}",

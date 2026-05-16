@@ -562,7 +562,11 @@
     "message": "Bạn có chắc chắn muốn rời <0>{{clanName}}</0>?"
   },
   "lobby": {
-    "autoStartCountdown": "Tự động bắt đầu sau {{countdown}}"
+    "autoStartCountdown": "Tự động bắt đầu sau {{countdown}}",
+    "joinTeam": "Tham gia Đội {{team}} ({{count}}/{{capacity}})",
+    "teamLocked": "Chọn đội nhỏ hơn",
+    "teamFull": "Đội đã đầy",
+    "teamNoLongerAvailable": "Người khác đã tham gia trước. Chọn lại."
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
