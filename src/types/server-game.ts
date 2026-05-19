@@ -990,6 +990,12 @@ export interface IServerGame {
    */
   recordDamageTaken(unit: BaseUnit, damage: number): void;
   /**
+   * Records HP recovered by a unit (e.g. from supply / reinforcement).
+   * Updates `metadata.damageHealed` keyed by the unit type. Used by battle
+   * reports to compute net casualties as `damageTaken - damageHealed`.
+   */
+  recordDamageHealed(unit: BaseUnit, hp: number): void;
+  /**
    * Records damage dealt by an attacking player. Updates both
    * `metadata.damageDealt` (keyed by victim type) and
    * `metadata.damageDealtBy` (keyed by attacker type).

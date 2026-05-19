@@ -18,8 +18,19 @@ export enum LostReason {
  * are HP-denominated and keyed by {@link UnitType}.
  */
 export interface PlayerBattleMetadata {
-  /** HP this player lost, keyed by this player's unit type (the victim). */
+  /**
+   * Gross HP this player lost (cumulative, before any recovery), keyed by this
+   * player's unit type (the victim). For net loss / casualty calculations,
+   * subtract {@link damageHealed} for the same unit type.
+   */
   damageTaken?: UnitCounts;
+  /**
+   * HP this player recovered via the supply / reinforcement system, keyed by
+   * this player's unit type. Always <= {@link damageTaken} for the same key.
+   * Tracked separately so the {@link damageDealt}/{@link damageTaken} invariant
+   * is preserved (recovery doesn't undo an attacker's credited damage).
+   */
+  damageHealed?: UnitCounts;
   /**
    * HP this player inflicted on enemies, keyed by the enemy (victim) unit type.
    * Symmetric to opposing players' damageTaken: the sum of all players'
