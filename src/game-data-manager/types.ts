@@ -125,7 +125,7 @@ export interface GameConstants {
 
   TILE_SIZE: number;
 
-  MAX_RANKED_GAME_TURNS: number;
+  DEFAULT_MAX_TURN: number;
   MIN_CUSTOM_GAME_MAX_TURNS: number;
   MAX_CUSTOM_GAME_MAX_TURNS: number;
   MIN_OFFLINE_GAME_MAX_TURNS: number;

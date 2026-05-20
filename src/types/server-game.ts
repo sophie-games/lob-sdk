@@ -115,7 +115,7 @@ export interface BattleTypeTemplate {
   premiumCurrencyChance: number;
   /** Whether this battle type is allowed in ranked matchmaking (defaults to false when omitted). */
   ranked?: boolean;
-  /** Maximum number of turns for ranked games of this battle type. Falls back to MAX_RANKED_GAME_TURNS when omitted. */
+  /** Maximum number of turns for ranked games of this battle type. Falls back to DEFAULT_MAX_TURN when omitted. */
   maxTurn?: number;
 }
 

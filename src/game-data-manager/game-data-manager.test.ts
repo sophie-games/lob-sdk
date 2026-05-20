@@ -92,17 +92,17 @@ describe("GameDataManager", () => {
         });
       });
 
-      it(`falls back to MAX_RANKED_GAME_TURNS for a null battle type in ${era} era`, () => {
-        const { MAX_RANKED_GAME_TURNS } =
+      it(`falls back to DEFAULT_MAX_TURN for a null battle type in ${era} era`, () => {
+        const { DEFAULT_MAX_TURN } =
           eraGameDataManager.getGameConstants();
-        expect(eraGameDataManager.getMaxTurn(null)).toBe(MAX_RANKED_GAME_TURNS);
+        expect(eraGameDataManager.getMaxTurn(null)).toBe(DEFAULT_MAX_TURN);
       });
 
-      it(`falls back to MAX_RANKED_GAME_TURNS for an unknown battle type in ${era} era`, () => {
-        const { MAX_RANKED_GAME_TURNS } =
+      it(`falls back to DEFAULT_MAX_TURN for an unknown battle type in ${era} era`, () => {
+        const { DEFAULT_MAX_TURN } =
           eraGameDataManager.getGameConstants();
         expect(eraGameDataManager.getMaxTurn("__nonexistent__")).toBe(
-          MAX_RANKED_GAME_TURNS
+          DEFAULT_MAX_TURN
         );
       });
     });
