@@ -76,6 +76,38 @@ describe("GameDataManager", () => {
     });
   });
 
+  describe("getMaxTurn", () => {
+    const eras = GameDataManager.getAvailableEras();
+
+    eras.forEach((era) => {
+      const eraGameDataManager = GameDataManager.get(era);
+
+      it(`returns the battle type's configured maxTurn for ${era} era`, () => {
+        eraGameDataManager.getAllDynamicBattleTypes().forEach((battleType) => {
+          const configured =
+            eraGameDataManager.getBattleType(battleType).maxTurn;
+          if (configured !== undefined) {
+            expect(eraGameDataManager.getMaxTurn(battleType)).toBe(configured);
+          }
+        });
+      });
+
+      it(`falls back to MAX_RANKED_GAME_TURNS for a null battle type in ${era} era`, () => {
+        const { MAX_RANKED_GAME_TURNS } =
+          eraGameDataManager.getGameConstants();
+        expect(eraGameDataManager.getMaxTurn(null)).toBe(MAX_RANKED_GAME_TURNS);
+      });
+
+      it(`falls back to MAX_RANKED_GAME_TURNS for an unknown battle type in ${era} era`, () => {
+        const { MAX_RANKED_GAME_TURNS } =
+          eraGameDataManager.getGameConstants();
+        expect(eraGameDataManager.getMaxTurn("__nonexistent__")).toBe(
+          MAX_RANKED_GAME_TURNS
+        );
+      });
+    });
+  });
+
   describe("Damage Type Methods", () => {
     describe("damageTypeNameToId mapping", () => {
       it("should map every DamageType to its corresponding id", () => {

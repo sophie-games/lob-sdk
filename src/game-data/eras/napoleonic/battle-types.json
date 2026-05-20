@@ -21,6 +21,7 @@
     },
     "mapSize": ["s"],
     "premiumCurrencyChance": 2,
+    "maxTurn": 36,
     "ranked": false
   },
   "clash": {
@@ -47,6 +48,7 @@
     },
     "mapSize": ["s"],
     "premiumCurrencyChance": 4,
+    "maxTurn": 36,
     "ranked": true
   },
   "combat": {
@@ -73,6 +75,7 @@
     },
     "mapSize": ["m"],
     "premiumCurrencyChance": 8,
+    "maxTurn": 36,
     "ranked": true
   },
   "battle": {
@@ -99,6 +102,7 @@
     },
     "mapSize": ["l"],
     "premiumCurrencyChance": 12,
+    "maxTurn": 36,
     "ranked": true
   },
   "grand_battle": {
@@ -125,6 +129,7 @@
     },
     "mapSize": ["xl"],
     "premiumCurrencyChance": 16,
+    "maxTurn": 36,
     "ranked": true
   }
 }
