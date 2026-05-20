@@ -1134,6 +1134,8 @@ export interface ServerGameProps {
   ranked: boolean;
   /** Whether this game gives rewards to players. */
   givesRewards: boolean;
+  /** Whether this custom game is listed in the public lobby. Defaults to false. */
+  isPublic?: boolean;
   /** Maximum number of turns before the game ends. */
   maxTurn: number;
   /** Configuration for all players in the game. */
