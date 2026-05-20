@@ -113,10 +113,10 @@ export interface BattleTypeTemplate {
   mapSize: Array<Size>;
   /** Chance (0-100) to receive premium currency as a reward. */
   premiumCurrencyChance: number;
+  /** Maximum number of turns for this battle type. Falls back to DEFAULT_MAX_TURN when omitted. */
+  maxTurn?: number;
   /** Whether this battle type is allowed in ranked matchmaking (defaults to false when omitted). */
   ranked?: boolean;
-  /** Maximum number of turns for ranked games of this battle type. Falls back to DEFAULT_MAX_TURN when omitted. */
-  maxTurn?: number;
 }
 
 /**
