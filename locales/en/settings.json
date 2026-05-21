@@ -209,6 +209,10 @@
     "title": "Render scale",
     "description": "A high value makes the game look sharper but slower. A low value makes the game look blurrier but faster."
   },
+  "hudScalePercent": {
+    "title": "HUD scale",
+    "description": "Resize the in-game HUD: the action buttons, top buttons, turn indicator and victory bar."
+  },
   "groundQuality": {
     "title": "Ground Quality",
     "description": "Controls the quality of ground textures. Higher quality provides better visual detail but may impact performance. Requires refreshing the map."
