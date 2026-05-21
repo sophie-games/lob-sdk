@@ -178,6 +178,10 @@
     "title": "Skala renderowania",
     "description": "Wysoka wartość sprawia, że gra wygląda ostrzej, ale działa wolniej. Niska wartość sprawia, że jest bardziej rozmyta, ale szybsza."
   },
+  "hudScalePercent": {
+    "title": "Skala HUD",
+    "description": "Zmienia rozmiar HUD w grze: przyciski akcji, górne przyciski, wskaźnik tury i pasek zwycięstwa."
+  },
   "groundQuality": {
     "title": "Jakość terenu",
     "description": "Kontroluje jakość tekstur terenu. Wyższa jakość zapewnia lepsze szczegóły wizualne, ale może wpływać na wydajność. Wymaga odświeżenia mapy."

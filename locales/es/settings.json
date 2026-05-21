@@ -171,6 +171,10 @@
     "title": "Escala de renderizado",
     "description": "Un valor alto hace que el juego se vea más nítido pero más lento. Un valor bajo lo hace más borroso pero más rápido."
   },
+  "hudScalePercent": {
+    "title": "Escala del HUD",
+    "description": "Cambia el tamaño del HUD en partida: los botones de acción, los botones superiores, el indicador de turno y la barra de victoria."
+  },
   "groundQuality": {
     "title": "Calidad del Terreno",
     "description": "Controla la calidad de las texturas del terreno. Mayor calidad proporciona mejor detalle visual pero puede afectar el rendimiento. Requiere refrescar el mapa."

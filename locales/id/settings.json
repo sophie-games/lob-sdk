@@ -178,6 +178,10 @@
     "title": "Skala render",
     "description": "Nilai tinggi membuat tampilan lebih tajam tetapi lebih lambat. Nilai rendah membuat lebih kabur tetapi lebih cepat."
   },
+  "hudScalePercent": {
+    "title": "Skala HUD",
+    "description": "Mengubah ukuran HUD dalam permainan: tombol aksi, tombol atas, indikator giliran, dan bilah kemenangan."
+  },
   "groundQuality": {
     "title": "Kualitas tanah",
     "description": "Mengontrol kualitas tekstur tanah. Kualitas yang lebih tinggi memberikan detail visual yang lebih baik tetapi dapat mempengaruhi kinerja. Memerlukan penyegaran peta."

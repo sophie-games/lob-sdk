@@ -178,6 +178,10 @@
     "title": "Renderelési skála",
     "description": "Magasabb érték: élesebb, de lassabb játék. Alacsonyabb érték: homályosabb, de gyorsabb."
   },
+  "hudScalePercent": {
+    "title": "HUD méretezése",
+    "description": "Átméretezi a játékon belüli HUD-ot: műveletgombok, felső gombok, körjelző és győzelmi sáv."
+  },
   "groundQuality": {
     "title": "Terep minősége",
     "description": "Szabályozza a terep textúrák minőségét. A magasabb minőség jobb vizuális részleteket biztosít, de befolyásolhatja a teljesítményt. Megköveteli a térkép frissítését."

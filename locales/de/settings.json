@@ -171,6 +171,10 @@
     "title": "Render-Skalierung",
     "description": "Ein hoher Wert lässt das Spiel schärfer aussehen, aber langsamer laufen. Ein niedriger Wert macht es unschärfer, aber schneller."
   },
+  "hudScalePercent": {
+    "title": "HUD-Skalierung",
+    "description": "Ändert die Größe des HUD im Spiel: Aktionsschaltflächen, obere Schaltflächen, Rundenanzeige und Siegesleiste."
+  },
   "groundQuality": {
     "title": "Bodenqualität",
     "description": "Steuert die Qualität der Bodenstrukturen. Höhere Qualität bietet bessere visuelle Details, kann aber die Leistung beeinträchtigen. Erfordert das Aktualisieren der Karte."
