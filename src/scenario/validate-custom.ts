@@ -390,16 +390,17 @@ function validateCustomUnitTemplates(
 }
 
 /**
- * Per-sprite byte budget for uploaded custom sprites. The editor re-encodes to
- * webp <= 32KB; this slightly-looser server-side cap is defense-in-depth.
- * Aggregate weight is bounded separately by the 150KB compressed import guard.
+ * Per-sprite byte budget for uploaded custom sprites: the editor re-encodes to
+ * fit this and scenario import re-checks it server-side. Aggregate weight is
+ * bounded separately by the 150KB compressed import guard.
  */
-export const CUSTOM_SPRITE_MAX_BYTES = 48 * 1024;
+export const CUSTOM_SPRITE_MAX_BYTES = 32 * 1024;
 
 /** Prefix the editor gives to uploaded-sprite names so they never collide with built-ins. */
 export const CUSTOM_SPRITE_NAME_PREFIX = "cs_";
 
-function dataUrlByteLength(dataUrl: string): number {
+/** Decoded byte length of a base64 data-URL (without decoding it). */
+export function dataUrlByteLength(dataUrl: string): number {
   const comma = dataUrl.indexOf(",");
   if (comma === -1) return 0;
   const b64 = dataUrl.slice(comma + 1);
