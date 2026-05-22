@@ -219,6 +219,23 @@ describe("GameDataManager custom defs", () => {
       expect(tc.forest.staminaCostModifier).not.toBe(99);
     });
 
+    it("keeps the era singleton's terrain modifier maps free of per-game custom categories", () => {
+      GameDataManager.createWithCustomDefs("napoleonic", {
+        customUnitCategories: [{ id: "drone", firingAltitude: 0 }],
+      });
+      const singleton = GameDataManager.get("napoleonic");
+      const tc = singleton.getTerrainCategories() as Record<string, any>;
+      // expandTerrainCategoryWildcards must run on the per-game clone, not the
+      // shared JSON import: no wildcard modifier map may gain a `drone` key.
+      for (const category of Object.values(tc)) {
+        for (const value of Object.values(category as Record<string, unknown>)) {
+          if (value && typeof value === "object" && "*" in (value as object)) {
+            expect(value).not.toHaveProperty("drone");
+          }
+        }
+      }
+    });
+
     it("re-expands wildcards over the overridden config", () => {
       const m = GameDataManager.createWithCustomDefs("napoleonic", {
         customUnitCategories: [{ id: "drone", firingAltitude: 0 }],

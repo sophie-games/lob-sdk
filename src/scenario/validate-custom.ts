@@ -18,6 +18,18 @@ import type {
  */
 export const CUSTOM_UNIT_TYPE_MIN = 10000;
 
+/**
+ * Hard safety ceilings on how many custom defs a single scenario may carry.
+ * Abuse bounds (independent of tier gating), enforced server-side so a crafted
+ * import can't pack thousands of defs that get re-parsed per game.
+ */
+export const MAX_CUSTOM_UNIT_TEMPLATES = 100;
+export const MAX_CUSTOM_DAMAGE_TYPES = 50;
+export const MAX_CUSTOM_UNIT_FORMATIONS = 50;
+export const MAX_CUSTOM_UNIT_CATEGORIES = 50;
+export const MAX_CUSTOM_TERRAIN_CATEGORIES = 50;
+export const MAX_CUSTOM_SPRITES = 200;
+
 export interface CustomDefValidationError {
   scope:
     | "unitTemplate"
@@ -48,6 +60,24 @@ export function validateScenarioCustomDefs(
   const customTerrainCategories = scenario.customTerrainCategories ?? [];
   const customSprites = scenario.customSprites ?? {};
 
+  // Hard count ceilings (abuse bounds, independent of tier gating). Reject
+  // before the per-def work below so a crafted import can't pack thousands.
+  const countLimits: Array<
+    [number, number, CustomDefValidationError["scope"], string]
+  > = [
+    [customUnitTemplates.length, MAX_CUSTOM_UNIT_TEMPLATES, "unitTemplate", "unit templates"],
+    [customDamageTypes.length, MAX_CUSTOM_DAMAGE_TYPES, "damageType", "damage types"],
+    [customUnitFormations.length, MAX_CUSTOM_UNIT_FORMATIONS, "unitFormation", "unit formations"],
+    [customUnitCategories.length, MAX_CUSTOM_UNIT_CATEGORIES, "unitCategory", "unit categories"],
+    [customTerrainCategories.length, MAX_CUSTOM_TERRAIN_CATEGORIES, "terrainCategory", "terrain categories"],
+    [Object.keys(customSprites).length, MAX_CUSTOM_SPRITES, "customSprite", "custom sprites"],
+  ];
+  for (const [count, max, scope, label] of countLimits) {
+    if (count > max) {
+      errors.push({ scope, message: `Too many custom ${label}: ${count} (max ${max})` });
+    }
+  }
+
   errors.push(...validateCustomDamageTypes(customDamageTypes, eraGameDataManager));
   errors.push(
     ...validateCustomUnitFormations(customUnitFormations, eraGameDataManager),
@@ -77,7 +107,7 @@ function validateCustomTerrainCategories(
   const seenIds = new Set<string>();
 
   for (const override of customTerrainCategories) {
-    if (!override.id || override.id.trim() === "") {
+    if (typeof override.id !== "string" || override.id.trim() === "") {
       errors.push({
         scope: "terrainCategory",
         message: "Terrain category id is required",
@@ -147,7 +177,7 @@ function validateCustomDamageTypes(
     }
     // Range brackets are required for ranged damage types — without them the
     // range graphic / max-range calc crashes on the first `ranges[last]` read.
-    if (dt.ranged === true && dt.ranges.length === 0) {
+    if (dt.ranged === true && (dt.ranges?.length ?? 0) === 0) {
       errors.push({
         scope: "damageType",
         field: dt.name,
@@ -207,7 +237,7 @@ function validateCustomUnitCategories(
   );
 
   for (const category of customUnitCategories) {
-    if (!category.id || category.id.trim() === "") {
+    if (typeof category.id !== "string" || category.id.trim() === "") {
       errors.push({
         scope: "unitCategory",
         message: "Unit category id is required",
@@ -346,14 +376,14 @@ function validateCustomUnitTemplates(
       }
     }
 
-    if (template.formations.length === 0) {
+    if ((template.formations?.length ?? 0) === 0) {
       errors.push({
         scope: "unitTemplate",
         field: template.name,
         message: `formations is empty — unit needs at least one formation`,
       });
     }
-    for (const formation of template.formations) {
+    for (const formation of template.formations ?? []) {
       if (!isKnownFormation(formation.id)) {
         errors.push({
           scope: "unitTemplate",
@@ -374,14 +404,15 @@ function validateCustomUnitTemplates(
     // defaultFormation must be in the unit's own formations[] — otherwise
     // the runtime falls back to the "unknown" sprite and wrong collision
     // template via `formations.find(f => f.id === currentFormation)`.
+    const templateFormations = template.formations ?? [];
     if (
       template.defaultFormation &&
-      !template.formations.some((f) => f.id === template.defaultFormation)
+      !templateFormations.some((f) => f.id === template.defaultFormation)
     ) {
       errors.push({
         scope: "unitTemplate",
         field: template.name,
-        message: `defaultFormation "${template.defaultFormation}" must match one of the unit's formations (${template.formations.map((f) => f.id).join(", ") || "<empty>"})`,
+        message: `defaultFormation "${template.defaultFormation}" must match one of the unit's formations (${templateFormations.map((f) => f.id).join(", ") || "<empty>"})`,
       });
     }
   }
@@ -392,7 +423,8 @@ function validateCustomUnitTemplates(
 /**
  * Per-sprite byte budget for uploaded custom sprites: the editor re-encodes to
  * fit this and scenario import re-checks it server-side. Aggregate weight is
- * bounded separately by the 150KB compressed import guard.
+ * bounded by the per-collection count caps above and the server's
+ * decompressed-payload cap (server/src/api/compress.ts).
  */
 export const CUSTOM_SPRITE_MAX_BYTES = 32 * 1024;
 
@@ -441,7 +473,7 @@ function validateCustomSprites(
 
   // Dangling refs: a formation pointing at a cs_ sprite that was not embedded.
   for (const template of customUnitTemplates) {
-    for (const formation of template.formations) {
+    for (const formation of template.formations ?? []) {
       for (const ref of [formation.baseSprite, formation.overlaySprite]) {
         if (
           typeof ref === "string" &&

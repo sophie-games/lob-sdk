@@ -287,6 +287,13 @@ export class GameDataManager {
     // loader assigns the imports by reference). We must clone before
     // appending or overwriting, otherwise per-game custom defs leak into the
     // era singleton and into every other game built afterwards.
+    //
+    // terrainCategories is the one container mutated in place (its modifier
+    // maps get wildcard-expanded below), so deep-clone it up front regardless
+    // of which custom branch runs.
+    this.terrainCategories = JSON.parse(
+      JSON.stringify(this.terrainCategories ?? {}),
+    ) as Record<TerrainCategoryType, TerrainCategoryConfig>;
 
     if (customDefs.customUnitCategories?.length) {
       this.unitCategories = [...this.unitCategories];
@@ -313,13 +320,8 @@ export class GameDataManager {
     }
 
     if (customDefs.customTerrainCategories?.length) {
-      // Deep-clone so per-game terrain overrides don't bleed into the JSON
-      // import and onto other GameDataManager instances. Shallow `{...src}`
-      // wouldn't be enough because the inner modifier maps are mutated by
-      // expandTerrainCategoryWildcards below.
-      this.terrainCategories = JSON.parse(
-        JSON.stringify(this.terrainCategories ?? {}),
-      ) as Record<TerrainCategoryType, TerrainCategoryConfig>;
+      // terrainCategories is already deep-cloned at the top of this method,
+      // so overriding entries in place here can't leak into the era singleton.
       for (const override of customDefs.customTerrainCategories) {
         // Replace wholesale, not merge: the editor produces a complete
         // config seeded from the cloned built-in, so a partial merge would

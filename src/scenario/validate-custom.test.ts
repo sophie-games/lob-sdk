@@ -154,6 +154,26 @@ describe("validateScenarioCustomDefs", () => {
       ).toBe(true);
     });
 
+    it("flags a ranged damage type with `ranges` omitted entirely (no crash)", () => {
+      const scenario = makeScenario({
+        customDamageTypes: [
+          {
+            id: 99003,
+            name: "missing-ranges",
+            orgDamageRatio: 0.5,
+            ranged: true,
+          } as unknown as DamageTypeTemplate,
+        ],
+      });
+      let errors!: ReturnType<typeof validateScenarioCustomDefs>;
+      expect(() => {
+        errors = validateScenarioCustomDefs(scenario, era);
+      }).not.toThrow();
+      expect(
+        errors.some((e) => /needs at least one range bracket/.test(e.message)),
+      ).toBe(true);
+    });
+
     it("accepts ranged damage types with at least one range bracket", () => {
       const errors = validateScenarioCustomDefs(
         makeScenario({
@@ -508,6 +528,25 @@ describe("validateScenarioCustomDefs", () => {
         makeScenario({ customUnitTemplates: [tmpl] }),
         era,
       );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "unitTemplate" &&
+            /unit needs at least one formation/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("flags a unit template with `formations` omitted entirely (no crash)", () => {
+      const tmpl = makeUnitTemplate();
+      delete (tmpl as { formations?: unknown }).formations;
+      let errors!: ReturnType<typeof validateScenarioCustomDefs>;
+      expect(() => {
+        errors = validateScenarioCustomDefs(
+          makeScenario({ customUnitTemplates: [tmpl] }),
+          era,
+        );
+      }).not.toThrow();
       expect(
         errors.some(
           (e) =>
