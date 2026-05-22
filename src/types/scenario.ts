@@ -280,9 +280,9 @@ export type ScenarioName = string;
 /**
  * A sprite uploaded by a scenario creator, embedded inline as a base64
  * data-URL. Referenced by custom unit formations via `baseSprite`/`overlaySprite`
- * names carrying the `cs_` prefix. Kept small by the editor (re-encoded to webp,
- * <=128x192 px, <=32KB); aggregate weight is bounded by the 150KB compressed
- * import guard.
+ * names carrying the `cs_` prefix. Kept small by the editor (re-encoded to webp
+ * and size-capped); aggregate weight is bounded by the 150KB compressed import
+ * guard.
  */
 export interface CustomSprite {
   /** `data:image/webp;base64,...` (or png). */
