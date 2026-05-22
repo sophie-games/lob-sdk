@@ -4,6 +4,7 @@ import {
   RangeUnitTemplate,
   FormationTemplate,
   CustomTerrainCategoryOverride,
+  CustomSprite,
 } from "@lob-sdk/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import type {
@@ -23,7 +24,8 @@ export interface CustomDefValidationError {
     | "damageType"
     | "unitFormation"
     | "unitCategory"
-    | "terrainCategory";
+    | "terrainCategory"
+    | "customSprite";
   field?: string;
   message: string;
 }
@@ -44,6 +46,7 @@ export function validateScenarioCustomDefs(
   const customUnitFormations = scenario.customUnitFormations ?? [];
   const customUnitCategories = scenario.customUnitCategories ?? [];
   const customTerrainCategories = scenario.customTerrainCategories ?? [];
+  const customSprites = scenario.customSprites ?? {};
 
   errors.push(...validateCustomDamageTypes(customDamageTypes, eraGameDataManager));
   errors.push(
@@ -62,6 +65,7 @@ export function validateScenarioCustomDefs(
       eraGameDataManager,
     ),
   );
+  errors.push(...validateCustomSprites(customSprites, customUnitTemplates));
 
   return errors;
 }
@@ -379,6 +383,77 @@ function validateCustomUnitTemplates(
         field: template.name,
         message: `defaultFormation "${template.defaultFormation}" must match one of the unit's formations (${template.formations.map((f) => f.id).join(", ") || "<empty>"})`,
       });
+    }
+  }
+
+  return errors;
+}
+
+/**
+ * Per-sprite byte budget for uploaded custom sprites. The editor re-encodes to
+ * webp <= 32KB; this slightly-looser server-side cap is defense-in-depth.
+ * Aggregate weight is bounded separately by the 150KB compressed import guard.
+ */
+export const CUSTOM_SPRITE_MAX_BYTES = 48 * 1024;
+
+/** Prefix the editor gives to uploaded-sprite names so they never collide with built-ins. */
+export const CUSTOM_SPRITE_NAME_PREFIX = "cs_";
+
+function dataUrlByteLength(dataUrl: string): number {
+  const comma = dataUrl.indexOf(",");
+  if (comma === -1) return 0;
+  const b64 = dataUrl.slice(comma + 1);
+  const padding = b64.endsWith("==") ? 2 : b64.endsWith("=") ? 1 : 0;
+  return Math.floor((b64.length * 3) / 4) - padding;
+}
+
+function validateCustomSprites(
+  customSprites: Record<string, CustomSprite>,
+  customUnitTemplates: UnitTemplate[],
+): CustomDefValidationError[] {
+  const errors: CustomDefValidationError[] = [];
+
+  for (const [name, sprite] of Object.entries(customSprites)) {
+    if (!/^data:image\/(webp|png);base64,/.test(sprite?.dataUrl ?? "")) {
+      errors.push({
+        scope: "customSprite",
+        field: name,
+        message: `customSprite "${name}" must be a base64 data-URL of image/webp or image/png`,
+      });
+      continue;
+    }
+    if (!(sprite.width > 0) || !(sprite.height > 0)) {
+      errors.push({
+        scope: "customSprite",
+        field: name,
+        message: `customSprite "${name}" must have positive width and height`,
+      });
+    }
+    if (dataUrlByteLength(sprite.dataUrl) > CUSTOM_SPRITE_MAX_BYTES) {
+      errors.push({
+        scope: "customSprite",
+        field: name,
+        message: `customSprite "${name}" exceeds the ${Math.round(CUSTOM_SPRITE_MAX_BYTES / 1024)}KB per-sprite limit`,
+      });
+    }
+  }
+
+  // Dangling refs: a formation pointing at a cs_ sprite that was not embedded.
+  for (const template of customUnitTemplates) {
+    for (const formation of template.formations) {
+      for (const ref of [formation.baseSprite, formation.overlaySprite]) {
+        if (
+          typeof ref === "string" &&
+          ref.startsWith(CUSTOM_SPRITE_NAME_PREFIX) &&
+          !(ref in customSprites)
+        ) {
+          errors.push({
+            scope: "customSprite",
+            field: template.name,
+            message: `formation "${formation.id}" references missing custom sprite "${ref}"`,
+          });
+        }
+      }
     }
   }
 

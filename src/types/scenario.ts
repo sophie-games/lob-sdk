@@ -278,6 +278,22 @@ export interface LegacyRandomScenario extends BaseScenario {
 export type ScenarioName = string;
 
 /**
+ * A sprite uploaded by a scenario creator, embedded inline as a base64
+ * data-URL. Referenced by custom unit formations via `baseSprite`/`overlaySprite`
+ * names carrying the `cs_` prefix. Kept small by the editor (re-encoded to webp,
+ * <=128x192 px, <=32KB); aggregate weight is bounded by the 150KB compressed
+ * import guard.
+ */
+export interface CustomSprite {
+  /** `data:image/webp;base64,...` (or png). */
+  dataUrl: string;
+  /** Intrinsic width in px (used to size the rendered sprite). */
+  width: number;
+  /** Intrinsic height in px. */
+  height: number;
+}
+
+/**
  * Feature-based scenario schema (replaces the legacy preset/hybrid/random union).
  * All maps go through the procedural pipeline; fixed maps are wrapped in a single
  * {@link InstructionStaticMap} as the first instruction.
@@ -407,4 +423,12 @@ export interface Scenario {
    * expansion runs again so newly-added unit categories pick up defaults.
    */
   customTerrainCategories?: CustomTerrainCategoryOverride[];
+
+  /**
+   * Uploaded sprites embedded inline (base64), keyed by a
+   * `cs_<type>_<formationId>_<base|overlay>` name that custom unit formations
+   * reference via `baseSprite`/`overlaySprite`. Registered client-side into the
+   * sprite data service so they render like built-in sprites.
+   */
+  customSprites?: Record<string, CustomSprite>;
 }

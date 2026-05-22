@@ -12,6 +12,7 @@ import {
   TerrainConfig,
   Size,
   CustomTerrainCategoryOverride,
+  CustomSprite,
 } from "@lob-sdk/types";
 import { RawScenarioInput, normalizeScenario } from "@lob-sdk/scenario";
 import { Scenario } from "@lob-sdk/types";
@@ -175,6 +176,9 @@ export class GameDataManager {
   private unitSkins: UnitSkin[] = [];
   private unitSkinMap: Map<number, UnitSkin> = new Map();
 
+  // Scenario-scoped custom sprites (uploaded, inline base64), keyed by name.
+  private customSprites: Record<string, CustomSprite> = {};
+
   // Game rules
   private gameRules: GameRules | null = null;
 
@@ -245,6 +249,7 @@ export class GameDataManager {
       customUnitFormations?: FormationTemplate[];
       customUnitCategories?: UnitCategoryTemplate[];
       customTerrainCategories?: CustomTerrainCategoryOverride[];
+      customSprites?: Record<string, CustomSprite>;
     },
   ): GameDataManager {
     const hasCustom = !!(
@@ -252,7 +257,8 @@ export class GameDataManager {
       customDefs.customDamageTypes?.length ||
       customDefs.customUnitFormations?.length ||
       customDefs.customUnitCategories?.length ||
-      customDefs.customTerrainCategories?.length
+      customDefs.customTerrainCategories?.length ||
+      Object.keys(customDefs.customSprites ?? {}).length
     );
 
     if (!hasCustom) {
@@ -276,6 +282,7 @@ export class GameDataManager {
     customUnitFormations?: FormationTemplate[];
     customUnitCategories?: UnitCategoryTemplate[];
     customTerrainCategories?: CustomTerrainCategoryOverride[];
+    customSprites?: Record<string, CustomSprite>;
   }): void {
     // Order matters: categories → terrain categories → damage types →
     // formations → templates. Terrain categories slot in after unit
@@ -352,6 +359,23 @@ export class GameDataManager {
       this._unitTemplateManager = new UnitTemplateManager();
       this._unitTemplateManager.load(merged);
     }
+
+    if (customDefs.customSprites) {
+      this.customSprites = { ...customDefs.customSprites };
+    }
+  }
+
+  /**
+   * Scenario-scoped uploaded sprites (inline base64), keyed by the name that
+   * custom unit formations reference via baseSprite/overlaySprite. Empty on era
+   * singletons.
+   */
+  public getCustomSprites(): Record<string, CustomSprite> {
+    return this.customSprites;
+  }
+
+  public getCustomSprite(name: string): CustomSprite | undefined {
+    return this.customSprites[name];
   }
 
   /**
