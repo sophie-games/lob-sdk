@@ -60,8 +60,6 @@ export function validateScenarioCustomDefs(
   const customTerrainCategories = scenario.customTerrainCategories ?? [];
   const customSprites = scenario.customSprites ?? {};
 
-  // Hard count ceilings (abuse bounds, independent of tier gating). Reject
-  // before the per-def work below so a crafted import can't pack thousands.
   const countLimits: Array<
     [number, number, CustomDefValidationError["scope"], string]
   > = [

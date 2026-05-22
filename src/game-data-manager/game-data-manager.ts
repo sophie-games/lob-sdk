@@ -320,8 +320,7 @@ export class GameDataManager {
     }
 
     if (customDefs.customTerrainCategories?.length) {
-      // terrainCategories is already deep-cloned at the top of this method,
-      // so overriding entries in place here can't leak into the era singleton.
+      // Safe to mutate in place: terrainCategories was deep-cloned at the top.
       for (const override of customDefs.customTerrainCategories) {
         // Replace wholesale, not merge: the editor produces a complete
         // config seeded from the cloned built-in, so a partial merge would
