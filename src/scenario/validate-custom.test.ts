@@ -575,3 +575,69 @@ describe("validateScenarioCustomDefs", () => {
     });
   });
 });
+
+describe("validateCustomSprites", () => {
+  const validSprite = {
+    dataUrl: "data:image/webp;base64,AAAA",
+    width: 64,
+    height: 96,
+  };
+  const spriteErrors = (partial: Partial<Scenario>) =>
+    validateScenarioCustomDefs(makeScenario(partial), era).filter(
+      (e) => e.scope === "customSprite",
+    );
+
+  it("accepts a valid webp/png data-URL", () => {
+    expect(spriteErrors({ customSprites: { cs_ok: validSprite } })).toEqual([]);
+  });
+
+  it("rejects a non-image data-URL", () => {
+    const errors = spriteErrors({
+      customSprites: {
+        cs_bad: { dataUrl: "data:text/plain;base64,AAAA", width: 1, height: 1 },
+      },
+    });
+    expect(errors).toHaveLength(1);
+    expect(errors[0].field).toBe("cs_bad");
+  });
+
+  it("rejects non-positive dimensions", () => {
+    const errors = spriteErrors({
+      customSprites: {
+        cs_zero: {
+          dataUrl: "data:image/webp;base64,AAAA",
+          width: 0,
+          height: 10,
+        },
+      },
+    });
+    expect(errors.some((e) => e.field === "cs_zero")).toBe(true);
+  });
+
+  it("rejects a sprite over the per-sprite byte cap", () => {
+    const errors = spriteErrors({
+      customSprites: {
+        cs_big: {
+          dataUrl: "data:image/webp;base64," + "A".repeat(70000),
+          width: 10,
+          height: 10,
+        },
+      },
+    });
+    expect(errors.some((e) => /per-sprite/.test(e.message))).toBe(true);
+  });
+
+  it("flags a formation referencing a missing cs_ sprite", () => {
+    const errors = spriteErrors({
+      customUnitTemplates: [
+        makeUnitTemplate({
+          formations: [{ id: "line", baseSprite: "cs_missing" }],
+        }),
+      ],
+      customSprites: {},
+    });
+    expect(errors.some((e) => /missing custom sprite/.test(e.message))).toBe(
+      true,
+    );
+  });
+});
