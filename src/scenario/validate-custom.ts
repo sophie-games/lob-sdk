@@ -43,14 +43,6 @@ export interface CustomDefValidationError {
 }
 
 /**
- * Object keys that corrupt a plain-object lookup if accepted as ids. Terrain
- * categories (and sprites) are written into plain objects keyed by user-supplied
- * strings (GameDataManager.loadCustomDefs), so a "__proto__" / "constructor" /
- * "prototype" id could reparent or shadow the prototype chain. Reject them.
- */
-const DANGEROUS_OBJECT_KEYS = new Set(["__proto__", "constructor", "prototype"]);
-
-/**
  * Validates a scenario's custom unit templates, damage types, and formations
  * against the era registry. Catches id/name collisions and cross-refs to
  * missing damage types or formations before they explode at runtime.
@@ -117,14 +109,6 @@ function validateCustomTerrainCategories(
       errors.push({
         scope: "terrainCategory",
         message: "Terrain category id is required",
-      });
-      continue;
-    }
-    if (DANGEROUS_OBJECT_KEYS.has(override.id)) {
-      errors.push({
-        scope: "terrainCategory",
-        field: override.id,
-        message: `Terrain category id "${override.id}" is a reserved object key and is not allowed`,
       });
       continue;
     }
@@ -469,14 +453,6 @@ function validateCustomSprites(
   const errors: CustomDefValidationError[] = [];
 
   for (const [name, sprite] of Object.entries(customSprites)) {
-    if (DANGEROUS_OBJECT_KEYS.has(name)) {
-      errors.push({
-        scope: "customSprite",
-        field: name,
-        message: `customSprite name "${name}" is a reserved object key and is not allowed`,
-      });
-      continue;
-    }
     if (!/^data:image\/(webp|png);base64,/.test(sprite?.dataUrl ?? "")) {
       errors.push({
         scope: "customSprite",

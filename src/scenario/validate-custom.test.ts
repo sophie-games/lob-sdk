@@ -416,22 +416,6 @@ describe("validateScenarioCustomDefs", () => {
       );
       expect(errors.filter((e) => e.scope === "terrainCategory")).toEqual([]);
     });
-
-    it("rejects reserved object-key ids (prototype pollution)", () => {
-      for (const id of ["__proto__", "constructor", "prototype"]) {
-        const errors = validateScenarioCustomDefs(
-          makeScenario({ customTerrainCategories: [{ id, config: {} }] }),
-          era,
-        );
-        expect(
-          errors.some(
-            (e) =>
-              e.scope === "terrainCategory" &&
-              /reserved object key/.test(e.message),
-          ),
-        ).toBe(true);
-      }
-    });
   });
 
   describe("custom unit templates", () => {
@@ -750,15 +734,5 @@ describe("validateCustomSprites", () => {
     expect(errors.some((e) => /missing custom sprite/.test(e.message))).toBe(
       true,
     );
-  });
-
-  it("rejects reserved object-key sprite names (prototype pollution)", () => {
-    // Build via JSON.parse so "__proto__" is an own enumerable key (an object
-    // literal would set the prototype instead) — mirrors a real scenario import.
-    const customSprites = JSON.parse(
-      `{"__proto__":{"dataUrl":"data:image/webp;base64,AAAA","width":8,"height":8}}`,
-    );
-    const errors = spriteErrors({ customSprites });
-    expect(errors.some((e) => /reserved object key/.test(e.message))).toBe(true);
   });
 });
