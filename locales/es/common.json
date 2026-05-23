@@ -115,7 +115,7 @@
   "avatars": "Avatares",
   "withdraw": "Retirarse",
   "importScenario": "Importar escenario",
-  "importScenarioTooLarge": "Este escenario es demasiado grande para importar. El tamaño máximo es 150 KB.",
+  "importScenarioTooLarge": "Este escenario es demasiado grande para importar. El tamaño máximo es {{maxKb}} KB.",
   "importScenarioModal": {
     "importInfo": "Podés importar cualquier escenario que quieras.",
     "createInfo": "Incluso podés crear tus propios escenarios en el <scenarioEditorLink/>.",

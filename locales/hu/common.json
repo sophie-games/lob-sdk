@@ -118,7 +118,7 @@
   "avatars": "Profilképek",
   "withdraw": "Visszavonulás",
   "importScenario": "Pálya importálása",
-  "importScenarioTooLarge": "Ez a pálya túl nagy az importáláshoz. A maximális méret 150 KB.",
+  "importScenarioTooLarge": "Ez a pálya túl nagy az importáláshoz. A maximális méret {{maxKb}} KB.",
   "importScenarioModal": {
     "importInfo": "Importálhatsz bármilyen pályát, amit csak akarsz",
     "createInfo": "A saját pályáidat is létrehozhatod emitt: <scenarioEditorLink/>."
@@ -715,5 +715,6 @@
     "message": "A lassú meccsed készen áll a játékra.",
     "goToGame": "Ugrás a játékhoz",
     "ignore": "Mellőz"
-  }
+  },
+  "kills": "Megsemmisítések"
 }

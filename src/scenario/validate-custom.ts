@@ -43,6 +43,14 @@ export interface CustomDefValidationError {
 }
 
 /**
+ * Object keys that corrupt a plain-object lookup if accepted as ids. Terrain
+ * categories (and sprites) are written into plain objects keyed by user-supplied
+ * strings (GameDataManager.loadCustomDefs), so a "__proto__" / "constructor" /
+ * "prototype" id could reparent or shadow the prototype chain. Reject them.
+ */
+const DANGEROUS_OBJECT_KEYS = new Set(["__proto__", "constructor", "prototype"]);
+
+/**
  * Validates a scenario's custom unit templates, damage types, and formations
  * against the era registry. Catches id/name collisions and cross-refs to
  * missing damage types or formations before they explode at runtime.
@@ -68,7 +76,7 @@ export function validateScenarioCustomDefs(
     [customUnitFormations.length, MAX_CUSTOM_UNIT_FORMATIONS, "unitFormation", "unit formations"],
     [customUnitCategories.length, MAX_CUSTOM_UNIT_CATEGORIES, "unitCategory", "unit categories"],
     [customTerrainCategories.length, MAX_CUSTOM_TERRAIN_CATEGORIES, "terrainCategory", "terrain categories"],
-    [Object.keys(customSprites).length, MAX_CUSTOM_SPRITES, "customSprite", "custom sprites"],
+    [Object.keys(customSprites).length, MAX_CUSTOM_SPRITES, "customSprite", "sprites"],
   ];
   for (const [count, max, scope, label] of countLimits) {
     if (count > max) {
@@ -109,6 +117,14 @@ function validateCustomTerrainCategories(
       errors.push({
         scope: "terrainCategory",
         message: "Terrain category id is required",
+      });
+      continue;
+    }
+    if (DANGEROUS_OBJECT_KEYS.has(override.id)) {
+      errors.push({
+        scope: "terrainCategory",
+        field: override.id,
+        message: `Terrain category id "${override.id}" is a reserved object key and is not allowed`,
       });
       continue;
     }
@@ -419,6 +435,14 @@ function validateCustomUnitTemplates(
 }
 
 /**
+ * Max size of a *compressed* scenario the client lets the user import, kept as a
+ * margin below the server's 200KB request-body cap (server/src/app.ts). Single
+ * source of truth for the import-size limit: the editor budgets and the
+ * "scenario too large" message all derive from this.
+ */
+export const MAX_COMPRESSED_SCENARIO_IMPORT_BYTES = 150 * 1024;
+
+/**
  * Per-sprite byte budget for uploaded custom sprites: the editor re-encodes to
  * fit this and scenario import re-checks it server-side. Aggregate weight is
  * bounded by the per-collection count caps above and the server's
@@ -445,6 +469,14 @@ function validateCustomSprites(
   const errors: CustomDefValidationError[] = [];
 
   for (const [name, sprite] of Object.entries(customSprites)) {
+    if (DANGEROUS_OBJECT_KEYS.has(name)) {
+      errors.push({
+        scope: "customSprite",
+        field: name,
+        message: `customSprite name "${name}" is a reserved object key and is not allowed`,
+      });
+      continue;
+    }
     if (!/^data:image\/(webp|png);base64,/.test(sprite?.dataUrl ?? "")) {
       errors.push({
         scope: "customSprite",
