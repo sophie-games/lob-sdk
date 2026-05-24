@@ -129,6 +129,84 @@ describe("validateScenarioCustomDefs", () => {
     });
   });
 
+  describe("numeric field bounds", () => {
+    it("flags a non-finite unit-template stat", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customUnitTemplates: [makeUnitTemplate({ hp: Infinity })],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "unitTemplate" &&
+            /hp must be a finite number/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("flags a NaN unit-template stat", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customUnitTemplates: [makeUnitTemplate({ meleeAttack: NaN })],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "unitTemplate" &&
+            /meleeAttack must be a finite number/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("flags a unit-template stat above the magnitude ceiling", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customUnitTemplates: [makeUnitTemplate({ hp: 1e308 })],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "unitTemplate" &&
+            /exceeds the max allowed magnitude/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("flags a non-finite damage-type modifier", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customDamageTypes: [makeMeleeDt({ orgDamageRatio: Infinity })],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "damageType" &&
+            /orgDamageRatio must be a finite number/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("accepts finite, in-range stats", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customUnitTemplates: [makeUnitTemplate({ hp: 500, meleeAttack: 30 })],
+        }),
+        era,
+      );
+      expect(
+        errors.some((e) => /finite number|magnitude/.test(e.message)),
+      ).toBe(false);
+    });
+  });
+
   describe("custom damage types", () => {
     it("flags id collision with a built-in damage type", () => {
       const builtInId = era.getDamageTypes()[0]!.id;
