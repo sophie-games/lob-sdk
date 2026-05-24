@@ -145,6 +145,21 @@ function validateCustomDamageTypes(
   const builtInDamageTypeNames = new Set(builtInDamageTypes.map((dt) => dt.name));
 
   for (const dt of customDamageTypes) {
+    if (typeof dt.id !== "number" || Number.isNaN(dt.id)) {
+      errors.push({
+        scope: "damageType",
+        field: dt.name,
+        message: "Damage type id is required",
+      });
+      continue;
+    }
+    if (typeof dt.name !== "string" || dt.name.trim() === "") {
+      errors.push({
+        scope: "damageType",
+        message: "Damage type name is required",
+      });
+      continue;
+    }
     if (builtInDamageTypeIds.has(dt.id)) {
       errors.push({
         scope: "damageType",

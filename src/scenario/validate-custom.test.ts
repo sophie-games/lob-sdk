@@ -158,6 +158,32 @@ describe("validateScenarioCustomDefs", () => {
       )).toBe(true);
     });
 
+    it("flags a damage type with a missing/non-numeric id", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customDamageTypes: [
+            makeMeleeDt({ id: undefined as unknown as number, name: "x" }),
+          ],
+        }),
+        era,
+      );
+      expect(errors.some((e) =>
+        e.scope === "damageType" && /id is required/.test(e.message),
+      )).toBe(true);
+    });
+
+    it("flags a damage type with a missing name", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customDamageTypes: [makeMeleeDt({ name: "  " })],
+        }),
+        era,
+      );
+      expect(errors.some((e) =>
+        e.scope === "damageType" && /name is required/.test(e.message),
+      )).toBe(true);
+    });
+
     it("flags duplicate ids within the custom list", () => {
       const errors = validateScenarioCustomDefs(
         makeScenario({
