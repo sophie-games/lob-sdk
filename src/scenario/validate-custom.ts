@@ -31,10 +31,9 @@ export const MAX_CUSTOM_TERRAIN_CATEGORIES = 50;
 export const MAX_CUSTOM_SPRITES = 200;
 
 /**
- * Generous magnitude ceiling for any single numeric stat in a custom def. Real
- * unit/damage-type stats sit far below this (built-ins are < 1e7); the bound
- * only rejects NaN/Infinity and absurd values (e.g. 1e308) that would poison
- * the simulation math.
+ * Generous magnitude ceiling for any single numeric stat in a custom def. The
+ * bound only rejects NaN/Infinity and absurd values (e.g. 1e308) that would
+ * poison the simulation math.
  */
 export const MAX_ABS_STAT = 1e9;
 
