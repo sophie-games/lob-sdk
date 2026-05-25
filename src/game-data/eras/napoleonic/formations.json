@@ -2,8 +2,8 @@
   {
     "id": "mass",
     "frontBackArc": 126.87,
-    "flankMin": 45,
-    "flankMax": 135,
+    "minFlankAngle": 45,
+    "maxFlankAngle": 135,
     "collisionCircles": 2,
     "collisionCircleSize": 12,
     "checkPoints": [
@@ -24,8 +24,8 @@
   {
     "id": "column",
     "frontBackArc": 53,
-    "flankMin": 20,
-    "flankMax": 160,
+    "minFlankAngle": 20,
+    "maxFlankAngle": 160,
     "collisionCircles": 2,
     "collisionCircleSize": 12,
     "collisionCirclesVertical": true,
@@ -54,8 +54,8 @@
   {
     "id": "line",
     "frontBackArc": 160,
-    "flankMin": 60,
-    "flankMax": 100,
+    "minFlankAngle": 60,
+    "maxFlankAngle": 100,
     "collisionCircles": 4,
     "collisionCircleSize": 10,
     "checkPoints": [
@@ -83,8 +83,8 @@
   {
     "id": "square",
     "frontBackArc": 90,
-    "flankMin": 180,
-    "flankMax": 180,
+    "minFlankAngle": 180,
+    "maxFlankAngle": 180,
     "collisionCircles": 1,
     "collisionCircleSize": 20,
     "movementModifier": -1,
@@ -113,8 +113,8 @@
   {
     "id": "militia_mass",
     "frontBackArc": 126.87,
-    "flankMin": 45,
-    "flankMax": 135,
+    "minFlankAngle": 45,
+    "maxFlankAngle": 135,
     "collisionCircles": 2,
     "collisionCircleSize": 12,
     "checkPoints": [
@@ -135,8 +135,8 @@
   {
     "id": "militia_line",
     "frontBackArc": 160,
-    "flankMin": 60,
-    "flankMax": 100,
+    "minFlankAngle": 60,
+    "maxFlankAngle": 100,
     "collisionCircles": 4,
     "collisionCircleSize": 10,
     "checkPoints": [
@@ -164,8 +164,8 @@
   {
     "id": "artillery",
     "frontBackArc": 126.87,
-    "flankMin": 180,
-    "flankMax": 180,
+    "minFlankAngle": 180,
+    "maxFlankAngle": 180,
     "collisionCircles": 2,
     "collisionCircleSize": 12,
     "checkPoints": [
@@ -186,8 +186,8 @@
   {
     "id": "skirmish",
     "frontBackArc": 126.87,
-    "flankMin": 180,
-    "flankMax": 180,
+    "minFlankAngle": 180,
+    "maxFlankAngle": 180,
     "checkPoints": [
       { "x": 0, "y": 0, "weight": 2 },
       { "x": 0, "y": -10, "weight": 1 },
@@ -234,8 +234,8 @@
   {
     "id": "cavalry",
     "frontBackArc": 126.87,
-    "flankMin": 75,
-    "flankMax": 145,
+    "minFlankAngle": 75,
+    "maxFlankAngle": 145,
     "collisionCircles": 2,
     "collisionCircleSize": 12,
     "checkPoints": [
@@ -261,8 +261,8 @@
   {
     "id": "dispersed",
     "frontBackArc": 90,
-    "flankMin": 180,
-    "flankMax": 180,
+    "minFlankAngle": 180,
+    "maxFlankAngle": 180,
     "collisionCircles": 2,
     "collisionCircleSize": 12,
     "shootingAngle": 360,
