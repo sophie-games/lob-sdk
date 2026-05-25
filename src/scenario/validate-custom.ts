@@ -135,6 +135,10 @@ function validateCustomTerrainCategories(
         message: `Terrain category "${override.id}" is missing its config block`,
       });
     }
+
+    for (const message of findOutOfRangeNumbers(override, "")) {
+      errors.push({ scope: "terrainCategory", field: override.id, message });
+    }
   }
 
   return errors;
@@ -265,6 +269,10 @@ function validateCustomUnitFormations(
       });
     }
     seenIds.add(formation.id);
+
+    for (const message of findOutOfRangeNumbers(formation, "")) {
+      errors.push({ scope: "unitFormation", field: formation.id, message });
+    }
   }
 
   return errors;
@@ -320,6 +328,10 @@ function validateCustomUnitCategories(
           message: `allowedOrders entry "${orderName}" is not a known order for this era`,
         });
       }
+    }
+
+    for (const message of findOutOfRangeNumbers(category, "")) {
+      errors.push({ scope: "unitCategory", field: category.id, message });
     }
   }
 

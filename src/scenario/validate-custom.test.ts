@@ -194,6 +194,58 @@ describe("validateScenarioCustomDefs", () => {
       ).toBe(true);
     });
 
+    it("flags a non-finite terrain-category config value", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customTerrainCategories: [
+            { id: "forest", config: { staminaCostModifier: Infinity } },
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "terrainCategory" &&
+            /staminaCostModifier must be a finite number/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("flags a non-finite formation stat", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customUnitFormations: [
+            makeFormation({ id: "my-formation", collisionCircleSize: Infinity }),
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "unitFormation" &&
+            /collisionCircleSize must be a finite number/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("flags a non-finite unit-category stat", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customUnitCategories: [makeCategory({ firingAltitude: NaN })],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "unitCategory" &&
+            /firingAltitude must be a finite number/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
     it("accepts finite, in-range stats", () => {
       const errors = validateScenarioCustomDefs(
         makeScenario({
