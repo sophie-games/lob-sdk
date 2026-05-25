@@ -2,7 +2,7 @@
   "version": 1,
   "name": "name",
   "description": "description",
-  "ranked": false,
+  "ranked": true,
   "baseTerrain": 0,
   "instructions": [
     {
@@ -477,8 +477,8 @@
       "player": 0,
       "position": {
         "type": "range",
-        "min": [30, 45],
-        "max": [40, 55]
+        "min": [37, 37],
+        "max": [37, 37]
       }
     },
     {
@@ -486,8 +486,53 @@
       "player": 0,
       "position": {
         "type": "range",
-        "min": [60, 45],
-        "max": [70, 55]
+        "min": [63, 37],
+        "max": [63, 37]
+      }
+    },
+    {
+      "type": "OBJECTIVE",
+      "player": 0,
+      "position": {
+        "type": "range",
+        "min": [37, 63],
+        "max": [37, 63]
+      }
+    },
+    {
+      "type": "OBJECTIVE",
+      "player": 0,
+      "position": {
+        "type": "range",
+        "min": [63, 63],
+        "max": [63, 63]
+      }
+    },
+    {
+      "type": "OBJECTIVE",
+      "player": 0,
+      "position": {
+        "type": "range",
+        "min": [25, 50],
+        "max": [25, 50]
+      }
+    },
+    {
+      "type": "OBJECTIVE",
+      "player": 0,
+      "position": {
+        "type": "range",
+        "min": [50, 50],
+        "max": [50, 50]
+      }
+    },
+    {
+      "type": "OBJECTIVE",
+      "player": 0,
+      "position": {
+        "type": "range",
+        "min": [75, 50],
+        "max": [75, 50]
       }
     }
   ],
