@@ -183,6 +183,124 @@ describe("GameDataManager custom defs", () => {
         m.getUnitTemplateManager().getTemplate(builtInType),
       ).not.toThrow();
     });
+
+    it("overrides a built-in unit template by type id without duplicating it", () => {
+      const eraSingleton = GameDataManager.get("napoleonic");
+      const builtIn = eraSingleton.getUnitTemplateManager().getTemplates()[0]!;
+      const override: UnitTemplate = {
+        ...(JSON.parse(JSON.stringify(builtIn)) as RangeUnitTemplate),
+        // Same type id ⇒ this is an override, not a new template.
+        type: builtIn.type,
+        name: "Overridden",
+        hp: builtIn.hp + 1000,
+      };
+
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customUnitTemplates: [override],
+      });
+
+      // Lookup returns the override.
+      expect(m.getUnitTemplateManager().getTemplate(builtIn.type).name).toBe(
+        "Overridden",
+      );
+      // The merged templates array contains exactly one entry for this type.
+      const all = m.getUnitTemplateManager().getTemplates();
+      expect(all.filter((t) => t.type === builtIn.type).length).toBe(1);
+      // Era singleton stays untouched.
+      expect(
+        eraSingleton.getUnitTemplateManager().getTemplate(builtIn.type).name,
+      ).toBe(builtIn.name);
+    });
+  });
+
+  describe("loadCustomDefs: overrides", () => {
+    it("overrides a built-in damage type by id without duplicating it", () => {
+      const eraSingleton = GameDataManager.get("napoleonic");
+      const builtIn = eraSingleton.getDamageTypes()[0]!;
+      const override: DamageTypeTemplate = {
+        ...builtIn,
+        orgDamageRatio: (builtIn.orgDamageRatio ?? 0) + 0.5,
+      };
+
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customDamageTypes: [override],
+      });
+
+      expect(m.getDamageTypeById(builtIn.id).orgDamageRatio).toBe(
+        (builtIn.orgDamageRatio ?? 0) + 0.5,
+      );
+      expect(
+        m.getDamageTypes().filter((d) => d.id === builtIn.id).length,
+      ).toBe(1);
+      // Singleton untouched.
+      expect(eraSingleton.getDamageTypeById(builtIn.id).orgDamageRatio).toBe(
+        builtIn.orgDamageRatio,
+      );
+    });
+
+    it("overrides a built-in unit category by id without duplicating it", () => {
+      const eraSingleton = GameDataManager.get("napoleonic");
+      const builtIn = eraSingleton.getUnitCategories()[0]!;
+      const override: UnitCategoryTemplate = {
+        ...builtIn,
+        firingAltitude: (builtIn.firingAltitude ?? 0) + 5,
+      };
+
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customUnitCategories: [override],
+      });
+
+      expect(m.getUnitCategoryTemplate(builtIn.id).firingAltitude).toBe(
+        (builtIn.firingAltitude ?? 0) + 5,
+      );
+      expect(
+        m.getUnitCategories().filter((c) => c.id === builtIn.id).length,
+      ).toBe(1);
+    });
+
+    it("overrides a built-in formation by id and clears its FF-immune set when the override drops it", () => {
+      const eraSingleton = GameDataManager.get("napoleonic");
+      // Walk every formation id referenced by any unit template and pull
+      // the full FormationTemplate (not the per-unit UnitFormationTemplate)
+      // so we get at the FF-immune list.
+      const formationIds = new Set(
+        eraSingleton
+          .getUnitTemplateManager()
+          .getTemplates()
+          .flatMap((t) => t.formations.map((f) => f.id)),
+      );
+      let ffImmune: FormationTemplate | null = null;
+      for (const id of formationIds) {
+        const tmpl = eraSingleton.getFormationManager().getTemplate(id);
+        if ((tmpl?.friendlyFireImmuneDamageTypes?.length ?? 0) > 0) {
+          ffImmune = tmpl;
+          break;
+        }
+      }
+      if (!ffImmune) return; // Era has no FF-immune formations; skip.
+
+      const override: FormationTemplate = {
+        ...(JSON.parse(JSON.stringify(ffImmune)) as FormationTemplate),
+        friendlyFireImmuneDamageTypes: [],
+      };
+      const someDamageType = ffImmune.friendlyFireImmuneDamageTypes![0]!;
+
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customUnitFormations: [override],
+      });
+
+      expect(
+        m
+          .getFormationManager()
+          .isFriendlyFireImmune(ffImmune.id, someDamageType),
+      ).toBe(false);
+      // Singleton stays immune.
+      expect(
+        eraSingleton
+          .getFormationManager()
+          .isFriendlyFireImmune(ffImmune.id, someDamageType),
+      ).toBe(true);
+    });
   });
 
   describe("loadCustomDefs: custom terrain categories", () => {

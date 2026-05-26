@@ -173,14 +173,11 @@ function findOutOfRangeNumbers(value: unknown, path: string): string[] {
 
 function validateCustomDamageTypes(
   customDamageTypes: DamageTypeTemplate[],
-  eraGameDataManager: GameDataManager,
+  _eraGameDataManager: GameDataManager,
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
   const seenIds = new Set<number>();
   const seenNames = new Set<string>();
-  const builtInDamageTypes = eraGameDataManager.getDamageTypes();
-  const builtInDamageTypeIds = new Set(builtInDamageTypes.map((dt) => dt.id));
-  const builtInDamageTypeNames = new Set(builtInDamageTypes.map((dt) => dt.name));
 
   for (const dt of customDamageTypes) {
     if (typeof dt.id !== "number" || Number.isNaN(dt.id)) {
@@ -198,20 +195,9 @@ function validateCustomDamageTypes(
       });
       continue;
     }
-    if (builtInDamageTypeIds.has(dt.id)) {
-      errors.push({
-        scope: "damageType",
-        field: dt.name,
-        message: `Damage type id ${dt.id} collides with a built-in damage type`,
-      });
-    }
-    if (builtInDamageTypeNames.has(dt.name)) {
-      errors.push({
-        scope: "damageType",
-        field: dt.name,
-        message: `Damage type name "${dt.name}" collides with a built-in damage type`,
-      });
-    }
+    // Built-in id/name collisions are deliberate overrides — `loadCustomDefs`
+    // replaces the built-in entry on merge, letting scenarios re-tune damage
+    // type stats for balance testing.
     if (seenIds.has(dt.id)) {
       errors.push({
         scope: "damageType",
@@ -247,20 +233,14 @@ function validateCustomDamageTypes(
 
 function validateCustomUnitFormations(
   customUnitFormations: FormationTemplate[],
-  eraGameDataManager: GameDataManager,
+  _eraGameDataManager: GameDataManager,
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
   const seenIds = new Set<string>();
-  const formationManager = eraGameDataManager.getFormationManager();
 
   for (const formation of customUnitFormations) {
-    if (formationManager.getTemplate(formation.id) !== null) {
-      errors.push({
-        scope: "unitFormation",
-        field: formation.id,
-        message: `Formation id "${formation.id}" collides with a built-in formation`,
-      });
-    }
+    // Built-in id collisions are deliberate overrides — `loadCustomDefs` swaps
+    // the built-in formation for the custom one on merge.
     if (seenIds.has(formation.id)) {
       errors.push({
         scope: "unitFormation",
@@ -284,9 +264,6 @@ function validateCustomUnitCategories(
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
   const seenIds = new Set<string>();
-  const builtInIds = new Set(
-    eraGameDataManager.getUnitCategories().map((c) => c.id),
-  );
   const knownOrderNames = new Set(
     eraGameDataManager
       .getOrderTypes()
@@ -302,13 +279,8 @@ function validateCustomUnitCategories(
       });
       continue;
     }
-    if (builtInIds.has(category.id)) {
-      errors.push({
-        scope: "unitCategory",
-        field: category.id,
-        message: `Unit category id "${category.id}" collides with a built-in category`,
-      });
-    }
+    // Built-in id collisions are deliberate overrides; loadCustomDefs replaces
+    // the matching entry on merge.
     if (seenIds.has(category.id)) {
       errors.push({
         scope: "unitCategory",
@@ -347,8 +319,6 @@ function validateCustomUnitTemplates(
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
   const seenIds = new Set<number>();
-  const builtInTemplates = eraGameDataManager.getUnitTemplateManager().getTemplates();
-  const builtInIds = new Set(builtInTemplates.map((t) => t.type));
 
   const damageTypeByName = new Map<string, DamageTypeTemplate>();
   for (const dt of eraGameDataManager.getDamageTypes()) damageTypeByName.set(dt.name, dt);
@@ -368,20 +338,10 @@ function validateCustomUnitTemplates(
     builtInCategoryIds.has(id) || customCategoryIds.has(id);
 
   for (const template of customUnitTemplates) {
-    if (template.type < CUSTOM_UNIT_TYPE_MIN) {
-      errors.push({
-        scope: "unitTemplate",
-        field: template.name,
-        message: `Custom unit type id ${template.type} must be >= ${CUSTOM_UNIT_TYPE_MIN}`,
-      });
-    }
-    if (builtInIds.has(template.type)) {
-      errors.push({
-        scope: "unitTemplate",
-        field: template.name,
-        message: `Custom unit type id ${template.type} collides with a built-in unit type`,
-      });
-    }
+    // A custom may reuse a built-in `type` id to override the built-in's stats
+    // (loadCustomDefs swaps the entry on merge). The `>= CUSTOM_UNIT_TYPE_MIN`
+    // floor is still the editor's default when minting a brand-new id; it just
+    // isn't a hard validation error any more.
     if (seenIds.has(template.type)) {
       errors.push({
         scope: "unitTemplate",

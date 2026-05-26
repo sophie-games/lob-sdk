@@ -266,9 +266,12 @@ export class GameDataManager {
 
   /**
    * Layers scenario-scoped custom defs on top of the era registry already
-   * loaded into this instance. Call only on per-game instances built via
-   * {@link createWithCustomDefs}. Mutating an era singleton would leak
-   * scenario state across games.
+   * loaded into this instance. Each kind of custom def can either add a new
+   * entry (unknown id) or override a built-in (matching id), so balance-
+   * testing scenarios can re-tune existing units, formations, damage types
+   * and categories without forking the era data. Call only on per-game
+   * instances built via {@link createWithCustomDefs}. Mutating an era
+   * singleton would leak scenario state across games.
    */
   public loadCustomDefs(customDefs: {
     customUnitTemplates?: UnitTemplate[];
@@ -296,9 +299,18 @@ export class GameDataManager {
     ) as Record<TerrainCategoryType, TerrainCategoryConfig>;
 
     if (customDefs.customUnitCategories?.length) {
+      // Clone the array, then replace-by-id so an override of a built-in
+      // category doesn't leave both entries side-by-side in `unitCategories`.
       this.unitCategories = [...this.unitCategories];
       for (const category of customDefs.customUnitCategories) {
-        this.unitCategories.push(category);
+        const existingIdx = this.unitCategories.findIndex(
+          (c) => c.id === category.id,
+        );
+        if (existingIdx >= 0) {
+          this.unitCategories[existingIdx] = category;
+        } else {
+          this.unitCategories.push(category);
+        }
         this.unitCategoryMap.set(category.id, category);
         if (category.allowedOrders) {
           this._unitCategoryAllowedOrders.set(
@@ -311,6 +323,10 @@ export class GameDataManager {
               }),
             ),
           );
+        } else {
+          // Override that no longer lists allowedOrders: drop the stale entry
+          // so the built-in's order set doesn't leak into the custom.
+          this._unitCategoryAllowedOrders.delete(category.id);
         }
       }
       // Backfill terrain-category modifier maps that use `*` wildcards so
@@ -333,10 +349,24 @@ export class GameDataManager {
     }
 
     if (customDefs.customDamageTypes?.length) {
+      // Replace-by-id (and re-key by name) so a custom that overrides a
+      // built-in damage type leaves a single entry in `damageTypes`.
       this.damageTypes = [...this.damageTypes];
       for (const dt of customDefs.customDamageTypes) {
-        this.damageTypes.push(dt);
+        const existingIdx = this.damageTypes.findIndex((d) => d.id === dt.id);
+        const previousName =
+          existingIdx >= 0 ? this.damageTypes[existingIdx].name : null;
+        if (existingIdx >= 0) {
+          this.damageTypes[existingIdx] = dt;
+        } else {
+          this.damageTypes.push(dt);
+        }
         this._damageTypeMap.set(dt.id, dt);
+        // If the override renamed the damage type, drop the stale name->dt
+        // pointer so the old name no longer resolves.
+        if (previousName !== null && previousName !== dt.name) {
+          this._damageTypeNameMap.delete(previousName);
+        }
         this._damageTypeNameMap.set(dt.name, dt);
       }
     }
@@ -346,9 +376,20 @@ export class GameDataManager {
     }
 
     if (customDefs.customUnitTemplates?.length) {
+      // Dedupe-by-type so an override of a built-in produces a single
+      // entry in the merged array. Without this, `getTemplates()` would
+      // return both the built-in and the override, and any consumer that
+      // iterates the array (not the lookup map) would see duplicates.
+      const customByType = new Map(
+        customDefs.customUnitTemplates.map((t) => [t.type, t]),
+      );
+      const existing = this._unitTemplateManager.getTemplates();
+      const existingTypes = new Set(existing.map((t) => t.type));
       const merged = [
-        ...this._unitTemplateManager.getTemplates(),
-        ...customDefs.customUnitTemplates,
+        ...existing.map((t) => customByType.get(t.type) ?? t),
+        ...customDefs.customUnitTemplates.filter(
+          (t) => !existingTypes.has(t.type),
+        ),
       ];
       this._unitTemplateManager = new UnitTemplateManager();
       this._unitTemplateManager.load(merged);
