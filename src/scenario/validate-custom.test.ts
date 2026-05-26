@@ -260,32 +260,48 @@ describe("validateScenarioCustomDefs", () => {
   });
 
   describe("custom damage types", () => {
-    it("flags id collision with a built-in damage type", () => {
-      const builtInId = era.getDamageTypes()[0]!.id;
+    it("accepts a custom damage type that overrides a built-in (id AND name both match)", () => {
+      const builtIn = era.getDamageTypes()[0]!;
       const errors = validateScenarioCustomDefs(
         makeScenario({
-          customDamageTypes: [makeMeleeDt({ id: builtInId, name: "x" })],
+          customDamageTypes: [
+            makeMeleeDt({ id: builtIn.id, name: builtIn.name }),
+          ],
         }),
         era,
       );
-      expect(errors.some((e) =>
-        e.scope === "damageType" &&
-        e.message.includes("collides with a built-in"),
-      )).toBe(true);
+      expect(errors.some((e) => e.scope === "damageType")).toBe(false);
     });
 
-    it("flags name collision with a built-in damage type", () => {
-      const builtInName = era.getDamageTypes()[0]!.name;
+    it("rejects a custom damage type that takes a built-in id but renames it", () => {
+      const builtIn = era.getDamageTypes()[0]!;
       const errors = validateScenarioCustomDefs(
         makeScenario({
-          customDamageTypes: [makeMeleeDt({ name: builtInName })],
+          customDamageTypes: [makeMeleeDt({ id: builtIn.id, name: "x" })],
         }),
         era,
       );
-      expect(errors.some((e) =>
-        e.scope === "damageType" &&
-        e.message.includes(`name "${builtInName}"`),
-      )).toBe(true);
+      expect(
+        errors.some((e) =>
+          e.scope === "damageType" && /renames built-in/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("rejects a custom damage type that reuses a built-in name on a new id", () => {
+      const builtIn = era.getDamageTypes()[0]!;
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customDamageTypes: [makeMeleeDt({ name: builtIn.name })],
+        }),
+        era,
+      );
+      expect(
+        errors.some((e) =>
+          e.scope === "damageType" &&
+          /already belongs to built-in/.test(e.message),
+        ),
+      ).toBe(true);
     });
 
     it("flags a damage type with a missing/non-numeric id", () => {
@@ -414,7 +430,7 @@ describe("validateScenarioCustomDefs", () => {
   });
 
   describe("custom unit formations", () => {
-    it("flags collision with a built-in formation id", () => {
+    it("accepts a custom formation that overrides a built-in by id", () => {
       // Find a real built-in formation id (formations are referenced from
       // unit templates).
       const someFormation = era
@@ -427,10 +443,7 @@ describe("validateScenarioCustomDefs", () => {
         }),
         era,
       );
-      expect(errors.some((e) =>
-        e.scope === "unitFormation" &&
-        e.message.includes("collides with a built-in formation"),
-      )).toBe(true);
+      expect(errors.some((e) => e.scope === "unitFormation")).toBe(false);
     });
 
     it("flags duplicate ids within the custom list", () => {
@@ -458,7 +471,7 @@ describe("validateScenarioCustomDefs", () => {
       )).toBe(true);
     });
 
-    it("flags collision with a built-in unit category id", () => {
+    it("accepts a custom category that overrides a built-in by id", () => {
       const builtInId = era.getUnitCategories()[0]!.id;
       const errors = validateScenarioCustomDefs(
         makeScenario({
@@ -466,10 +479,7 @@ describe("validateScenarioCustomDefs", () => {
         }),
         era,
       );
-      expect(errors.some((e) =>
-        e.scope === "unitCategory" &&
-        e.message.includes("collides with a built-in"),
-      )).toBe(true);
+      expect(errors.some((e) => e.scope === "unitCategory")).toBe(false);
     });
 
     it("flags allowedOrders with an unknown order name", () => {
@@ -575,23 +585,20 @@ describe("validateScenarioCustomDefs", () => {
   });
 
   describe("custom unit templates", () => {
-    it("flags type id below CUSTOM_UNIT_TYPE_MIN", () => {
+    it("accepts a custom template with a type id below CUSTOM_UNIT_TYPE_MIN", () => {
+      // Low ids are how scenarios target built-in slots for override (the
+      // editor still defaults new templates to >= CUSTOM_UNIT_TYPE_MIN, but
+      // the validator no longer enforces that floor).
       const errors = validateScenarioCustomDefs(
         makeScenario({
           customUnitTemplates: [makeUnitTemplate({ type: 5 })],
         }),
         era,
       );
-      expect(errors.some((e) =>
-        e.scope === "unitTemplate" &&
-        e.message.includes(`must be >= ${CUSTOM_UNIT_TYPE_MIN}`),
-      )).toBe(true);
+      expect(errors.some((e) => e.scope === "unitTemplate")).toBe(false);
     });
 
-    it("flags type id collision with a built-in", () => {
-      // Pick a real built-in id (the constructor enforces >= 10000 for
-      // customs, but the check still fires on collision before that gate
-      // when a malicious / hand-edited JSON sets a low id).
+    it("accepts a custom template that overrides a built-in by type id", () => {
       const builtInType = era.getUnitTemplateManager().getTemplates()[0]!.type;
       const errors = validateScenarioCustomDefs(
         makeScenario({
@@ -599,10 +606,7 @@ describe("validateScenarioCustomDefs", () => {
         }),
         era,
       );
-      expect(errors.some((e) =>
-        e.scope === "unitTemplate" &&
-        e.message.includes("collides with a built-in unit type"),
-      )).toBe(true);
+      expect(errors.some((e) => e.scope === "unitTemplate")).toBe(false);
     });
 
     it("flags duplicate ids within the custom list", () => {

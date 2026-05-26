@@ -265,10 +265,10 @@ export class GameDataManager {
   }
 
   /**
-   * Layers scenario-scoped custom defs on top of the era registry already
-   * loaded into this instance. Call only on per-game instances built via
-   * {@link createWithCustomDefs}. Mutating an era singleton would leak
-   * scenario state across games.
+   * Layers scenario-scoped custom defs on this instance. Each kind adds
+   * a new entry on unknown id or overrides the built-in on matching id.
+   * Call only on per-game instances from {@link createWithCustomDefs};
+   * mutating an era singleton leaks state across games.
    */
   public loadCustomDefs(customDefs: {
     customUnitTemplates?: UnitTemplate[];
@@ -296,9 +296,17 @@ export class GameDataManager {
     ) as Record<TerrainCategoryType, TerrainCategoryConfig>;
 
     if (customDefs.customUnitCategories?.length) {
+      // Clone, then replace-by-id so override doesn't duplicate the entry.
       this.unitCategories = [...this.unitCategories];
       for (const category of customDefs.customUnitCategories) {
-        this.unitCategories.push(category);
+        const existingIdx = this.unitCategories.findIndex(
+          (c) => c.id === category.id,
+        );
+        if (existingIdx >= 0) {
+          this.unitCategories[existingIdx] = category;
+        } else {
+          this.unitCategories.push(category);
+        }
         this.unitCategoryMap.set(category.id, category);
         if (category.allowedOrders) {
           this._unitCategoryAllowedOrders.set(
@@ -311,6 +319,9 @@ export class GameDataManager {
               }),
             ),
           );
+        } else {
+          // Override dropped allowedOrders; clear so built-in's set doesn't leak.
+          this._unitCategoryAllowedOrders.delete(category.id);
         }
       }
       // Backfill terrain-category modifier maps that use `*` wildcards so
@@ -333,10 +344,22 @@ export class GameDataManager {
     }
 
     if (customDefs.customDamageTypes?.length) {
+      // Replace-by-id (and re-key by name) so override doesn't duplicate.
       this.damageTypes = [...this.damageTypes];
       for (const dt of customDefs.customDamageTypes) {
-        this.damageTypes.push(dt);
+        const existingIdx = this.damageTypes.findIndex((d) => d.id === dt.id);
+        const previousName =
+          existingIdx >= 0 ? this.damageTypes[existingIdx].name : null;
+        if (existingIdx >= 0) {
+          this.damageTypes[existingIdx] = dt;
+        } else {
+          this.damageTypes.push(dt);
+        }
         this._damageTypeMap.set(dt.id, dt);
+        // Drop stale name->dt pointer if the override renamed.
+        if (previousName !== null && previousName !== dt.name) {
+          this._damageTypeNameMap.delete(previousName);
+        }
         this._damageTypeNameMap.set(dt.name, dt);
       }
     }
@@ -346,9 +369,18 @@ export class GameDataManager {
     }
 
     if (customDefs.customUnitTemplates?.length) {
+      // Dedupe-by-type so override produces a single entry; otherwise
+      // `getTemplates()` (which array consumers iterate) double-counts.
+      const customByType = new Map(
+        customDefs.customUnitTemplates.map((t) => [t.type, t]),
+      );
+      const existing = this._unitTemplateManager.getTemplates();
+      const existingTypes = new Set(existing.map((t) => t.type));
       const merged = [
-        ...this._unitTemplateManager.getTemplates(),
-        ...customDefs.customUnitTemplates,
+        ...existing.map((t) => customByType.get(t.type) ?? t),
+        ...customDefs.customUnitTemplates.filter(
+          (t) => !existingTypes.has(t.type),
+        ),
       ];
       this._unitTemplateManager = new UnitTemplateManager();
       this._unitTemplateManager.load(merged);

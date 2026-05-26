@@ -31,6 +31,9 @@ export class FormationManager {
           formation.id,
           new Set(formation.friendlyFireImmuneDamageTypes)
         );
+      } else {
+        // Override may clear the list; drop stale set so built-in doesn't shadow.
+        this._friendlyFireImmuneDamageTypes.delete(formation.id);
       }
     }
   }

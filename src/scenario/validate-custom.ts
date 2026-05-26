@@ -179,8 +179,8 @@ function validateCustomDamageTypes(
   const seenIds = new Set<number>();
   const seenNames = new Set<string>();
   const builtInDamageTypes = eraGameDataManager.getDamageTypes();
-  const builtInDamageTypeIds = new Set(builtInDamageTypes.map((dt) => dt.id));
-  const builtInDamageTypeNames = new Set(builtInDamageTypes.map((dt) => dt.name));
+  const builtInById = new Map(builtInDamageTypes.map((dt) => [dt.id, dt]));
+  const builtInByName = new Map(builtInDamageTypes.map((dt) => [dt.name, dt]));
 
   for (const dt of customDamageTypes) {
     if (typeof dt.id !== "number" || Number.isNaN(dt.id)) {
@@ -198,18 +198,23 @@ function validateCustomDamageTypes(
       });
       continue;
     }
-    if (builtInDamageTypeIds.has(dt.id)) {
+    // Lookup at runtime is by name; id+name must move together (full
+    // override of a built-in, or fully unique) to keep the name->dt map
+    // consistent.
+    const builtInForId = builtInById.get(dt.id);
+    if (builtInForId && builtInForId.name !== dt.name) {
       errors.push({
         scope: "damageType",
         field: dt.name,
-        message: `Damage type id ${dt.id} collides with a built-in damage type`,
+        message: `Custom damage type with id ${dt.id} renames built-in "${builtInForId.name}" to "${dt.name}"; keep the original name when overriding so existing unit templates still resolve.`,
       });
     }
-    if (builtInDamageTypeNames.has(dt.name)) {
+    const builtInForName = builtInByName.get(dt.name);
+    if (builtInForName && builtInForName.id !== dt.id) {
       errors.push({
         scope: "damageType",
         field: dt.name,
-        message: `Damage type name "${dt.name}" collides with a built-in damage type`,
+        message: `Damage type name "${dt.name}" already belongs to built-in id ${builtInForName.id}; set id to ${builtInForName.id} to override that built-in, or pick a different name.`,
       });
     }
     if (seenIds.has(dt.id)) {
@@ -247,20 +252,13 @@ function validateCustomDamageTypes(
 
 function validateCustomUnitFormations(
   customUnitFormations: FormationTemplate[],
-  eraGameDataManager: GameDataManager,
+  _eraGameDataManager: GameDataManager,
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
   const seenIds = new Set<string>();
-  const formationManager = eraGameDataManager.getFormationManager();
 
   for (const formation of customUnitFormations) {
-    if (formationManager.getTemplate(formation.id) !== null) {
-      errors.push({
-        scope: "unitFormation",
-        field: formation.id,
-        message: `Formation id "${formation.id}" collides with a built-in formation`,
-      });
-    }
+    // Built-in id collision is an explicit override (handled in loadCustomDefs).
     if (seenIds.has(formation.id)) {
       errors.push({
         scope: "unitFormation",
@@ -284,9 +282,6 @@ function validateCustomUnitCategories(
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
   const seenIds = new Set<string>();
-  const builtInIds = new Set(
-    eraGameDataManager.getUnitCategories().map((c) => c.id),
-  );
   const knownOrderNames = new Set(
     eraGameDataManager
       .getOrderTypes()
@@ -302,13 +297,7 @@ function validateCustomUnitCategories(
       });
       continue;
     }
-    if (builtInIds.has(category.id)) {
-      errors.push({
-        scope: "unitCategory",
-        field: category.id,
-        message: `Unit category id "${category.id}" collides with a built-in category`,
-      });
-    }
+    // Built-in id collision is an explicit override (handled in loadCustomDefs).
     if (seenIds.has(category.id)) {
       errors.push({
         scope: "unitCategory",
@@ -347,8 +336,6 @@ function validateCustomUnitTemplates(
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
   const seenIds = new Set<number>();
-  const builtInTemplates = eraGameDataManager.getUnitTemplateManager().getTemplates();
-  const builtInIds = new Set(builtInTemplates.map((t) => t.type));
 
   const damageTypeByName = new Map<string, DamageTypeTemplate>();
   for (const dt of eraGameDataManager.getDamageTypes()) damageTypeByName.set(dt.name, dt);
@@ -368,20 +355,8 @@ function validateCustomUnitTemplates(
     builtInCategoryIds.has(id) || customCategoryIds.has(id);
 
   for (const template of customUnitTemplates) {
-    if (template.type < CUSTOM_UNIT_TYPE_MIN) {
-      errors.push({
-        scope: "unitTemplate",
-        field: template.name,
-        message: `Custom unit type id ${template.type} must be >= ${CUSTOM_UNIT_TYPE_MIN}`,
-      });
-    }
-    if (builtInIds.has(template.type)) {
-      errors.push({
-        scope: "unitTemplate",
-        field: template.name,
-        message: `Custom unit type id ${template.type} collides with a built-in unit type`,
-      });
-    }
+    // Reusing a built-in `type` id is an explicit override; CUSTOM_UNIT_TYPE_MIN
+    // is still the editor's default but not a validation floor.
     if (seenIds.has(template.type)) {
       errors.push({
         scope: "unitTemplate",
