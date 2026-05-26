@@ -32,9 +32,7 @@ export class FormationManager {
           new Set(formation.friendlyFireImmuneDamageTypes)
         );
       } else {
-        // Custom-defs reload calls this with overrides that may clear an
-        // immunity list; drop the stale set so the built-in's entry doesn't
-        // shadow the override.
+        // Override may clear the list; drop stale set so built-in doesn't shadow.
         this._friendlyFireImmuneDamageTypes.delete(formation.id);
       }
     }

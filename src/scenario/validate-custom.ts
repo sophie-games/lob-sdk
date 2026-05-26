@@ -198,13 +198,9 @@ function validateCustomDamageTypes(
       });
       continue;
     }
-    // Damage types are resolved by *name* at runtime (BaseUnit/ServerUnit
-    // call `getDamageTypeByName`), so id and name must move together: a
-    // custom either fully overrides a built-in (id AND name both match
-    // that built-in) or fully adds a new one (id AND name both unique).
-    // A half-override — same id different name, or same name different
-    // id — would leave built-in unit templates referencing the old name
-    // resolving to the wrong template (or nothing).
+    // Lookup at runtime is by name; id+name must move together (full
+    // override of a built-in, or fully unique) to keep the name->dt map
+    // consistent.
     const builtInForId = builtInById.get(dt.id);
     if (builtInForId && builtInForId.name !== dt.name) {
       errors.push({
@@ -262,8 +258,7 @@ function validateCustomUnitFormations(
   const seenIds = new Set<string>();
 
   for (const formation of customUnitFormations) {
-    // Built-in id collisions are deliberate overrides — `loadCustomDefs` swaps
-    // the built-in formation for the custom one on merge.
+    // Built-in id collision is an explicit override (handled in loadCustomDefs).
     if (seenIds.has(formation.id)) {
       errors.push({
         scope: "unitFormation",
@@ -302,8 +297,7 @@ function validateCustomUnitCategories(
       });
       continue;
     }
-    // Built-in id collisions are deliberate overrides; loadCustomDefs replaces
-    // the matching entry on merge.
+    // Built-in id collision is an explicit override (handled in loadCustomDefs).
     if (seenIds.has(category.id)) {
       errors.push({
         scope: "unitCategory",
@@ -361,10 +355,8 @@ function validateCustomUnitTemplates(
     builtInCategoryIds.has(id) || customCategoryIds.has(id);
 
   for (const template of customUnitTemplates) {
-    // A custom may reuse a built-in `type` id to override the built-in's stats
-    // (loadCustomDefs swaps the entry on merge). The `>= CUSTOM_UNIT_TYPE_MIN`
-    // floor is still the editor's default when minting a brand-new id; it just
-    // isn't a hard validation error any more.
+    // Reusing a built-in `type` id is an explicit override; CUSTOM_UNIT_TYPE_MIN
+    // is still the editor's default but not a validation floor.
     if (seenIds.has(template.type)) {
       errors.push({
         scope: "unitTemplate",

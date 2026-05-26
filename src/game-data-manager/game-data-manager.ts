@@ -265,13 +265,10 @@ export class GameDataManager {
   }
 
   /**
-   * Layers scenario-scoped custom defs on top of the era registry already
-   * loaded into this instance. Each kind of custom def can either add a new
-   * entry (unknown id) or override a built-in (matching id), so balance-
-   * testing scenarios can re-tune existing units, formations, damage types
-   * and categories without forking the era data. Call only on per-game
-   * instances built via {@link createWithCustomDefs}. Mutating an era
-   * singleton would leak scenario state across games.
+   * Layers scenario-scoped custom defs on this instance. Each kind adds
+   * a new entry on unknown id or overrides the built-in on matching id.
+   * Call only on per-game instances from {@link createWithCustomDefs};
+   * mutating an era singleton leaks state across games.
    */
   public loadCustomDefs(customDefs: {
     customUnitTemplates?: UnitTemplate[];
@@ -299,8 +296,7 @@ export class GameDataManager {
     ) as Record<TerrainCategoryType, TerrainCategoryConfig>;
 
     if (customDefs.customUnitCategories?.length) {
-      // Clone the array, then replace-by-id so an override of a built-in
-      // category doesn't leave both entries side-by-side in `unitCategories`.
+      // Clone, then replace-by-id so override doesn't duplicate the entry.
       this.unitCategories = [...this.unitCategories];
       for (const category of customDefs.customUnitCategories) {
         const existingIdx = this.unitCategories.findIndex(
@@ -324,8 +320,7 @@ export class GameDataManager {
             ),
           );
         } else {
-          // Override that no longer lists allowedOrders: drop the stale entry
-          // so the built-in's order set doesn't leak into the custom.
+          // Override dropped allowedOrders; clear so built-in's set doesn't leak.
           this._unitCategoryAllowedOrders.delete(category.id);
         }
       }
@@ -349,8 +344,7 @@ export class GameDataManager {
     }
 
     if (customDefs.customDamageTypes?.length) {
-      // Replace-by-id (and re-key by name) so a custom that overrides a
-      // built-in damage type leaves a single entry in `damageTypes`.
+      // Replace-by-id (and re-key by name) so override doesn't duplicate.
       this.damageTypes = [...this.damageTypes];
       for (const dt of customDefs.customDamageTypes) {
         const existingIdx = this.damageTypes.findIndex((d) => d.id === dt.id);
@@ -362,8 +356,7 @@ export class GameDataManager {
           this.damageTypes.push(dt);
         }
         this._damageTypeMap.set(dt.id, dt);
-        // If the override renamed the damage type, drop the stale name->dt
-        // pointer so the old name no longer resolves.
+        // Drop stale name->dt pointer if the override renamed.
         if (previousName !== null && previousName !== dt.name) {
           this._damageTypeNameMap.delete(previousName);
         }
@@ -376,10 +369,8 @@ export class GameDataManager {
     }
 
     if (customDefs.customUnitTemplates?.length) {
-      // Dedupe-by-type so an override of a built-in produces a single
-      // entry in the merged array. Without this, `getTemplates()` would
-      // return both the built-in and the override, and any consumer that
-      // iterates the array (not the lookup map) would see duplicates.
+      // Dedupe-by-type so override produces a single entry; otherwise
+      // `getTemplates()` (which array consumers iterate) double-counts.
       const customByType = new Map(
         customDefs.customUnitTemplates.map((t) => [t.type, t]),
       );
