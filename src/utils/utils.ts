@@ -284,6 +284,14 @@ export const checkCollision = (
 };
 
 /**
+ * Relative bearing from `from` to `to`, measured against the unit's `rotation`.
+ * Returns [0, 2π): 0 = directly ahead, π = directly behind. Single source of
+ * truth for getDirectionToPoint (discrete arcs) and getFlankingPercent (ramp).
+ */
+const getRelativeAngle = (from: Point2, to: Point2, rotation: number): number =>
+  normalizeAngle(Math.atan2(to.y - from.y, to.x - from.x) - rotation);
+
+/**
  * Determines the relative direction from a unit's position to a target point,
  * taking into account the unit's rotation and front/back arc configuration.
  *
@@ -300,14 +308,7 @@ export const getDirectionToPoint = (
   rotation: number,
   frontBackArc: number,
 ) => {
-  const translatedPoint: Point2 = {
-    x: to.x - from.x,
-    y: to.y - from.y,
-  };
-
-  const angle = normalizeAngle(
-    Math.atan2(translatedPoint.y, translatedPoint.x) - rotation,
-  );
+  const angle = getRelativeAngle(from, to, rotation);
 
   // Calculate arc boundaries
   const frontStart = (TWO_PI - frontBackArc / 2) % TWO_PI;
@@ -339,11 +340,7 @@ export function getFlankingPercent(
   minAngle: number, // e.g., Math.PI / 4 (45 degrees)
   maxAngle: number, // e.g., Math.PI / 2 (90 degrees)
 ): number {
-  const angleToAttacker = Math.atan2(
-    attackerPos.y - defenderPos.y,
-    attackerPos.x - defenderPos.x,
-  );
-  const rawDiff = normalizeAngle(angleToAttacker - defenderRotation);
+  const rawDiff = getRelativeAngle(defenderPos, attackerPos, defenderRotation);
 
   // This treats left and right side identically
   const theta = Math.abs(normalizeAngle(rawDiff + Math.PI) - Math.PI);
