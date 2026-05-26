@@ -173,11 +173,14 @@ function findOutOfRangeNumbers(value: unknown, path: string): string[] {
 
 function validateCustomDamageTypes(
   customDamageTypes: DamageTypeTemplate[],
-  _eraGameDataManager: GameDataManager,
+  eraGameDataManager: GameDataManager,
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
   const seenIds = new Set<number>();
   const seenNames = new Set<string>();
+  const builtInDamageTypes = eraGameDataManager.getDamageTypes();
+  const builtInById = new Map(builtInDamageTypes.map((dt) => [dt.id, dt]));
+  const builtInByName = new Map(builtInDamageTypes.map((dt) => [dt.name, dt]));
 
   for (const dt of customDamageTypes) {
     if (typeof dt.id !== "number" || Number.isNaN(dt.id)) {
@@ -195,9 +198,29 @@ function validateCustomDamageTypes(
       });
       continue;
     }
-    // Built-in id/name collisions are deliberate overrides — `loadCustomDefs`
-    // replaces the built-in entry on merge, letting scenarios re-tune damage
-    // type stats for balance testing.
+    // Damage types are resolved by *name* at runtime (BaseUnit/ServerUnit
+    // call `getDamageTypeByName`), so id and name must move together: a
+    // custom either fully overrides a built-in (id AND name both match
+    // that built-in) or fully adds a new one (id AND name both unique).
+    // A half-override — same id different name, or same name different
+    // id — would leave built-in unit templates referencing the old name
+    // resolving to the wrong template (or nothing).
+    const builtInForId = builtInById.get(dt.id);
+    if (builtInForId && builtInForId.name !== dt.name) {
+      errors.push({
+        scope: "damageType",
+        field: dt.name,
+        message: `Custom damage type with id ${dt.id} renames built-in "${builtInForId.name}" to "${dt.name}"; keep the original name when overriding so existing unit templates still resolve.`,
+      });
+    }
+    const builtInForName = builtInByName.get(dt.name);
+    if (builtInForName && builtInForName.id !== dt.id) {
+      errors.push({
+        scope: "damageType",
+        field: dt.name,
+        message: `Damage type name "${dt.name}" already belongs to built-in id ${builtInForName.id}; set id to ${builtInForName.id} to override that built-in, or pick a different name.`,
+      });
+    }
     if (seenIds.has(dt.id)) {
       errors.push({
         scope: "damageType",

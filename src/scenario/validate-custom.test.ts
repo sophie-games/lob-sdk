@@ -260,26 +260,48 @@ describe("validateScenarioCustomDefs", () => {
   });
 
   describe("custom damage types", () => {
-    it("accepts a custom damage type that overrides a built-in by id", () => {
-      const builtInId = era.getDamageTypes()[0]!.id;
+    it("accepts a custom damage type that overrides a built-in (id AND name both match)", () => {
+      const builtIn = era.getDamageTypes()[0]!;
       const errors = validateScenarioCustomDefs(
         makeScenario({
-          customDamageTypes: [makeMeleeDt({ id: builtInId, name: "x" })],
+          customDamageTypes: [
+            makeMeleeDt({ id: builtIn.id, name: builtIn.name }),
+          ],
         }),
         era,
       );
       expect(errors.some((e) => e.scope === "damageType")).toBe(false);
     });
 
-    it("accepts a custom damage type that overrides a built-in by name", () => {
-      const builtInName = era.getDamageTypes()[0]!.name;
+    it("rejects a custom damage type that takes a built-in id but renames it", () => {
+      const builtIn = era.getDamageTypes()[0]!;
       const errors = validateScenarioCustomDefs(
         makeScenario({
-          customDamageTypes: [makeMeleeDt({ name: builtInName })],
+          customDamageTypes: [makeMeleeDt({ id: builtIn.id, name: "x" })],
         }),
         era,
       );
-      expect(errors.some((e) => e.scope === "damageType")).toBe(false);
+      expect(
+        errors.some((e) =>
+          e.scope === "damageType" && /renames built-in/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("rejects a custom damage type that reuses a built-in name on a new id", () => {
+      const builtIn = era.getDamageTypes()[0]!;
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customDamageTypes: [makeMeleeDt({ name: builtIn.name })],
+        }),
+        era,
+      );
+      expect(
+        errors.some((e) =>
+          e.scope === "damageType" &&
+          /already belongs to built-in/.test(e.message),
+        ),
+      ).toBe(true);
     });
 
     it("flags a damage type with a missing/non-numeric id", () => {
