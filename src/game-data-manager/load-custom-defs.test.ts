@@ -301,6 +301,43 @@ describe("GameDataManager custom defs", () => {
           .isFriendlyFireImmune(ffImmune.id, someDamageType),
       ).toBe(true);
     });
+
+    it("resolves cross-refs through overrides (built-in unit pulls overridden damage type)", () => {
+      const eraSingleton = GameDataManager.get("napoleonic");
+      // Pick a built-in unit template that has a melee damage type so we can
+      // verify a built-in unit picks up an overridden damage type by name.
+      const builtInUnit = eraSingleton
+        .getUnitTemplateManager()
+        .getTemplates()[0]!;
+      const builtInDt = eraSingleton.getDamageTypeByName(
+        builtInUnit.meleeDamageType,
+      );
+      const dtOverride: DamageTypeTemplate = {
+        ...builtInDt,
+        // Full override: id and name match the built-in, only stats change.
+        orgDamageRatio: (builtInDt.orgDamageRatio ?? 0) + 0.7,
+      };
+
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customDamageTypes: [dtOverride],
+      });
+
+      // The built-in unit (not overridden) still points at the same damage-
+      // type name string, but `getDamageTypeByName` now returns the override.
+      const unitFromPerGame = m
+        .getUnitTemplateManager()
+        .getTemplate(builtInUnit.type);
+      expect(unitFromPerGame.meleeDamageType).toBe(builtInUnit.meleeDamageType);
+      expect(
+        m.getDamageTypeByName(unitFromPerGame.meleeDamageType).orgDamageRatio,
+      ).toBe((builtInDt.orgDamageRatio ?? 0) + 0.7);
+
+      // Era singleton's cross-ref stays on the unmodified damage type.
+      expect(
+        eraSingleton.getDamageTypeByName(builtInUnit.meleeDamageType)
+          .orgDamageRatio,
+      ).toBe(builtInDt.orgDamageRatio);
+    });
   });
 
   describe("loadCustomDefs: custom terrain categories", () => {
