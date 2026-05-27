@@ -135,12 +135,6 @@ export interface GameConstants {
   ROUT_THRESHOLD_TURNS: number;
 
   /**
-   * Collision level for routing units. This ensures routing units always have
-   * a lower collision level than enemies, allowing them to pass through.
-   */
-  ROUTING_COLLISION_LEVEL: number;
-
-  /**
    * Default map width in tiles.
    */
   DEFAULT_MAP_WIDTH: number;
