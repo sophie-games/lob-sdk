@@ -466,8 +466,9 @@ export abstract class BaseUnit extends Entity {
 
   getFlankMod(attackerPoint: Vector2) {
     const formation = this.gameDataManager.getFormationManager().getTemplate(this.currentFormation);
-    const minFlank = formation?.minFlankAngle ? degreesToRadians(formation.minFlankAngle) : degreesToRadians(45);
-    const maxFlank = formation?.maxFlankAngle ? degreesToRadians(formation.maxFlankAngle) : degreesToRadians(135);
+    if (!formation) return 0;
+    const minFlank = degreesToRadians(formation.minFlankAngle);
+    const maxFlank = degreesToRadians(formation.maxFlankAngle);
     return getFlankingPercent(attackerPoint, this.position, this.rotation, minFlank, maxFlank);
   }
 
