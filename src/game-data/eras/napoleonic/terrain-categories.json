@@ -1,11 +1,17 @@
 {
   "land": {
+    "impassable": {
+      "ship": true
+    },
     "color": "#8a9b52",
     "canPlaceObjectives": true,
     "defenseModifier": {}
   },
 
   "mud": {
+    "impassable": {
+      "ship": true
+    },
     "color": "#70543e",
     "hitboxHeight": 0.99,
     "staminaCostModifier": 0.3,
@@ -33,6 +39,9 @@
   },
 
   "snow": {
+    "impassable": {
+      "ship": true
+    },
     "color": "#ffffff",
     "canPlaceObjectives": true,
     "staminaCostModifier": 0.1,
@@ -42,6 +51,9 @@
   },
 
   "forest": {
+    "impassable": {
+      "ship": true
+    },
     "color": "#344c1c",
     "staminaCostModifier": 0.75,
     "hitboxHeight": 1.99,
@@ -137,6 +149,9 @@
   },
 
   "building": {
+    "impassable": {
+      "ship": true
+    },
     "color": "#9a8a70",
     "staminaCostModifier": 0.5,
     "hitboxHeight": 0.99,
@@ -232,6 +247,9 @@
   },
 
   "path": {
+    "impassable": {
+      "ship": true
+    },
     "color": "#c9be98",
     "staminaCostModifier": -0.75,
     "prioritizeMovement": true,
@@ -248,6 +266,9 @@
   },
 
   "trail": {
+    "impassable": {
+      "ship": true
+    },
     "color": "#c9be98",
     "canPlaceObjectives": true,
     "prioritizeMovement": true,
@@ -265,6 +286,9 @@
   },
 
   "railway": {
+    "impassable": {
+      "ship": true
+    },
     "color": "#8b7355",
     "staminaCostModifier": -0.5,
     "supplyRoute": true,
@@ -272,6 +296,9 @@
   },
 
   "railwayRoad": {
+    "impassable": {
+      "ship": true
+    },
     "color": "#a68b6b",
     "staminaCostModifier": -0.5,
     "prioritizeMovement": true,
@@ -354,7 +381,8 @@
 
   "deepWater": {
     "impassable": {
-      "*": true
+      "*": true,
+      "ship": false
     }
   },
 
@@ -365,6 +393,9 @@
   },
 
   "farm": {
+    "impassable": {
+      "ship": true
+    },
     "hitboxHeight": 0.99,
     "canPlaceObjectives": true,
     "staminaCostModifier": 0.1,
@@ -400,6 +431,9 @@
     }
   },
   "farm_growing": {
+    "impassable": {
+      "ship": true
+    },
     "hitboxHeight": 0.99,
     "canPlaceObjectives": true,
     "staminaCostModifier": 0.5,
@@ -469,6 +503,9 @@
     }
   },
   "redoubt": {
+    "impassable": {
+      "ship": true
+    },
     "color": "#A9866D",
     "hitboxHeight": 0.99,
     "projectileAbsorption": {
@@ -525,6 +562,9 @@
   },
 
   "trench": {
+    "impassable": {
+      "ship": true
+    },
     "color": "#A9866D",
     "hitboxHeight": 0.99,
     "projectileAbsorption": {
@@ -571,6 +611,9 @@
   },
 
   "sunkenRoad": {
+    "impassable": {
+      "ship": true
+    },
     "color": "#A9866D",
     "hitboxHeight": 0.99,
     "staminaCostModifier": -0.75,

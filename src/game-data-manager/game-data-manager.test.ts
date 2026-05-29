@@ -304,10 +304,12 @@ describe("GameDataManager", () => {
       const deepWater = terrainCategories.deepWater;
       expect(deepWater).toBeDefined();
       expect(deepWater.impassable).toBeDefined();
-      // All unit categories should be impassable
+      // All unit categories should be impassable, except ships which sail it
+      // (an explicit "ship": false overrides the wildcard).
       unitCategories.forEach((category) => {
-        expect(deepWater.impassable![category.id]).toBe(true);
+        expect(deepWater.impassable![category.id]).toBe(category.id !== "ship");
       });
+      expect(deepWater.impassable!.ship).toBe(false);
       // Wildcard remains in the map for better JIT optimization
       expect("*" in deepWater.impassable!).toBe(true);
 

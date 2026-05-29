@@ -26,7 +26,8 @@
     "22": "Unknown Cavalry",
     "23": "Unknown Artillery",
     "24": "10-lb Licorne",
-    "25": "18-lb Licorne"
+    "25": "18-lb Licorne",
+    "26": "Ship of the Line"
   },
   "battalionName": {
     "1": "{{n}} Line Battalion",
@@ -53,7 +54,8 @@
     "22": "Unknown Cavalry",
     "23": "Unknown Artillery",
     "24": "{{n}} 10lb Licorne",
-    "25": "{{n}} 18lb Licorne"
+    "25": "{{n}} 18lb Licorne",
+    "26": "{{n}} Ship of the Line"
   },
   "unitDescription": {
     "1": "The humble line infantry battalion is the basic unit of the army. The musket is its primary weapon, but it can also fend off cavalry or charge other infantry and artillery with the bayonet.",
@@ -88,7 +90,8 @@
     "lightCavalry": "Light Cavalry",
     "heavyCavalry": "Heavy Cavalry",
     "militiaInfantry": "Militia Infantry",
-    "skirmishInfantry": "Skirmish Infantry"
+    "skirmishInfantry": "Skirmish Infantry",
+    "ship": "Navy"
   },
   "damageType": {
     "musket": "Musket",

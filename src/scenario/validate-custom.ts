@@ -240,6 +240,19 @@ function validateCustomDamageTypes(
         message: `Ranged damage type "${dt.name}" needs at least one range bracket`,
       });
     }
+    // angleOffset re-centers the firing arc relative to the front; keep it
+    // within a full turn so a typo can't point a battery off into nonsense.
+    if (
+      dt.ranged === true &&
+      dt.angleOffset !== undefined &&
+      (dt.angleOffset < -360 || dt.angleOffset > 360)
+    ) {
+      errors.push({
+        scope: "damageType",
+        field: dt.name,
+        message: `Ranged damage type "${dt.name}" angleOffset must be between -360 and 360 degrees`,
+      });
+    }
     for (const message of findOutOfRangeNumbers(dt, "")) {
       errors.push({ scope: "damageType", field: dt.name, message });
     }

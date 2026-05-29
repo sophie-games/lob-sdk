@@ -490,6 +490,8 @@ export class NapoleonicBot implements INapoleonicBot {
     midCavalry: "cavalry",
     heavyCavalry: "cavalry",
     scoutCavalry: "cavalry",
+    // Ships are slow ranged platforms; the bot treats them like artillery.
+    ship: "artillery",
   };
 
   /**

@@ -422,5 +422,25 @@
       "fallback",
       "rotate"
     ]
+  },
+  {
+    "id": "ship",
+    "deploymentSection": "front",
+    "firingAltitude": 0.98,
+    "allyCollisionLevel": -1,
+    "enemyCollisionLevel": 1,
+    "routingBehavior": {
+      "fleeWhenRouted": false
+    },
+    "impactAltitude": 0.99,
+    "grazingAltitude": 1.99,
+    "allowedOrders": [
+      "walk",
+      "run",
+      "shoot",
+      "fireAndAdvance",
+      "fallback",
+      "rotate"
+    ]
   }
 ]

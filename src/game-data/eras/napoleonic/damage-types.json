@@ -1223,5 +1223,80 @@
     "shotImpactAnim": "shellImpact",
     "ammoCost": 5000,
     "extendRange": false
+  },
+  {
+    "id": 33,
+    "name": "ship-cannon-port",
+    "ranged": true,
+    "angleOffset": 90,
+    "orgDamageRatio": 21000,
+    "reorgDebuff": 0.76,
+    "attackEffectDuration": 16,
+    "projectileWidth": 22,
+    "damageModifierByTargetHp": {
+      "start": 0.9,
+      "end": 0.5,
+      "modifier": -0.15
+    },
+    "orgModifierByTargetOrg": {
+      "start": 0.9,
+      "end": 0.65,
+      "modifier": -0.25
+    },
+    "ranges": [
+      {
+        "start": 100,
+        "end": 260,
+        "startMod": 1,
+        "endMod": 0.55
+      }
+    ],
+    "arcHeight": 1e-16,
+    "enfiladeFire": false,
+    "cannotUseAfterRun": false,
+    "projectilePenetration": 0.65,
+    "shotSound": "artillery-fire",
+    "shotAnim": "cannonVolley",
+    "shotImpactAnim": "cannonBallImpact",
+    "ammoCost": 9670,
+    "extendRange": false
+  },
+  {
+    "id": 34,
+    "name": "ship-cannon-starboard",
+    "imageAlias": "ship-cannon-port",
+    "ranged": true,
+    "angleOffset": -90,
+    "orgDamageRatio": 21000,
+    "reorgDebuff": 0.76,
+    "attackEffectDuration": 16,
+    "projectileWidth": 22,
+    "damageModifierByTargetHp": {
+      "start": 0.9,
+      "end": 0.5,
+      "modifier": -0.15
+    },
+    "orgModifierByTargetOrg": {
+      "start": 0.9,
+      "end": 0.65,
+      "modifier": -0.25
+    },
+    "ranges": [
+      {
+        "start": 100,
+        "end": 260,
+        "startMod": 1,
+        "endMod": 0.55
+      }
+    ],
+    "arcHeight": 1e-16,
+    "enfiladeFire": false,
+    "cannotUseAfterRun": false,
+    "projectilePenetration": 0.65,
+    "shotSound": "artillery-fire",
+    "shotAnim": "cannonVolley",
+    "shotImpactAnim": "cannonBallImpact",
+    "ammoCost": 9670,
+    "extendRange": false
   }
 ]

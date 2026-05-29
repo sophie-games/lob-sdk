@@ -1495,5 +1495,46 @@
     ],
     "pushStrength": 0,
     "pushDistance": 0
+  },
+  {
+    "name": "ship",
+    "type": 26,
+    "category": "ship",
+    "rangedAttack": 4000,
+    "meleeAttack": 400,
+    "meleeDefense": 800,
+    "meleeDamageType": "artillery-sabre",
+    "rangedDamageTypes": ["ship-cannon-port", "ship-cannon-starboard"],
+    "chargeBonus": 0,
+    "walkMovement": 25,
+    "runStartUpMovement": 8,
+    "runMovement": 55,
+    "timeToRun": 12,
+    "runCost": 10000,
+    "hp": 200000,
+    "org": 60000,
+    "shattersAtOrg": -30000,
+    "routesAtOrg": 2000,
+    "recoversAtOrg": 5000,
+    "ralliesAtOrg": 10000,
+    "ammo": 60000,
+    "orgRadius": 40,
+    "orgRadiusBonus": 1200,
+    "movementSound": "artillery-movement",
+    "manpower": 200,
+    "gold": 0,
+    "rotationSpeed": 0.1,
+    "rotationMaxThreshold": 3,
+    "runRotationSpeed": 0.2,
+    "defaultFormation": "ship",
+    "formations": [
+      {
+        "id": "ship",
+        "baseSprite": "ship",
+        "overlaySprite": null
+      }
+    ],
+    "pushStrength": 0,
+    "pushDistance": 0
   }
 ]

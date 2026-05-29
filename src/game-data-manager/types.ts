@@ -456,6 +456,14 @@ export interface RangedDamageTypeTemplate {
   reorgDebuff?: number;
   attackEffectDuration?: number;
   extendRange?: boolean;
+  /**
+   * Mounting angle of this battery in degrees, relative to the unit's front
+   * (same unit and convention as the formation `shootingAngle`). 0 (default) =
+   * faces front. A ship's broadsides would use +90 / -90 so each side fires at
+   * targets on that flank. The arc width still comes from the formation; this
+   * only re-centers the arc.
+   */
+  angleOffset?: number;
   /** Use this in case you want to use the image of another damage type */
   imageAlias?: string;
 }
