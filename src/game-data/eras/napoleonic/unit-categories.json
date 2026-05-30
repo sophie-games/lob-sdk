@@ -434,12 +434,12 @@
     },
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
+    "cannotRotateInPlace": true,
     "allowedOrders": [
       "walk",
       "shoot",
       "fireAndAdvance",
-      "fallback",
-      "rotate"
+      "fallback"
     ]
   }
 ]

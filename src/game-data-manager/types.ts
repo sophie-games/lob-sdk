@@ -103,6 +103,13 @@ export interface UnitCategoryTemplate {
    * Grazing hits weaken the projectile but don't deal damage.
    */
   grazingAltitude?: number;
+  /**
+   * If true, units of this category can only turn while making way (moving):
+   * rotation is applied only on ticks where the unit actually advanced, so they
+   * cannot pivot in place. Models ships, which need forward motion to steer.
+   * Default (undefined/false) keeps the normal rotate-in-place behavior.
+   */
+  cannotRotateInPlace?: boolean;
 }
 
 export interface GameConstants {
