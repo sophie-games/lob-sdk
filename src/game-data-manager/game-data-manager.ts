@@ -80,6 +80,7 @@ import napoleonicLowCountries from "@lob-sdk/game-data/eras/napoleonic/scenarios
 import napoleonicHedgerows from "@lob-sdk/game-data/eras/napoleonic/scenarios/hedgerows.json";
 import napoleonicLeipzig from "@lob-sdk/game-data/eras/napoleonic/scenarios/leipzig.json";
 import napoleonicTutorial from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial.json";
+import napoleonicLineOfBattle from "@lob-sdk/game-data/eras/napoleonic/scenarios/line-of-battle.json";
 
 import ww2BattleTypes from "@lob-sdk/game-data/eras/ww2/battle-types.json";
 import ww2Orders from "@lob-sdk/game-data/eras/ww2/orders.json";
@@ -478,6 +479,7 @@ export class GameDataManager {
           "clash-at-chelmnitz": napoleonicClashAtChelmnitz as RawScenarioInput,
           dresden: napoleonicDresden as RawScenarioInput,
           tutorial: napoleonicTutorial as RawScenarioInput,
+          "line-of-battle": napoleonicLineOfBattle as RawScenarioInput,
         };
 
         break;
