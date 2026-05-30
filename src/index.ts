@@ -5,7 +5,6 @@ export * from "./a-star";
 export * from "./priority-queue";
 export * from "./event-emitter";
 export * from "./utils";
-export * from "./bot";
 export * from "./douglas-peucker";
 export * from "./army-deployer";
 export * from "./game-data-manager";

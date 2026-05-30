@@ -1,1 +1,0 @@
-export * from './ww2-bot';
