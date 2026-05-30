@@ -434,7 +434,7 @@
     },
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
-    "cannotRotateInPlace": true,
+    "forwardOnlyMovement": true,
     "allowedOrders": [
       "walk",
       "shoot",

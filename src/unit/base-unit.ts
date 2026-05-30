@@ -157,6 +157,12 @@ export abstract class BaseUnit extends Entity {
   get allyCollisionLevel(): number { return this.categoryTemplate.allyCollisionLevel ?? MIN_COLLISION_LEVEL; }
   get enemyCollisionLevel(): number { return this.categoryTemplate.enemyCollisionLevel ?? MIN_COLLISION_LEVEL; }
   get firingAltitude(): number { return this.categoryTemplate.firingAltitude ?? 0; }
+  /**
+   * Naval-style steering: the unit moves only along its heading (forward, or
+   * astern on fallback) and only turns while making way, so it can't strafe or
+   * pivot in place. See `UnitCategoryTemplate.forwardOnlyMovement`.
+   */
+  get forwardOnlyMovement(): boolean { return this.categoryTemplate.forwardOnlyMovement === true; }
   get autofirePriority(): Partial<Record<UnitCategoryId, number>> | null { return this.categoryTemplate.autofirePriority ?? null; }
   
   get enfiladeFireDamageModifier(): number { return this.categoryTemplate.enfiladeFire?.damageModifier ?? 0; }

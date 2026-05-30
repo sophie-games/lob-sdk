@@ -104,12 +104,14 @@ export interface UnitCategoryTemplate {
    */
   grazingAltitude?: number;
   /**
-   * If true, units of this category can only turn while making way (moving):
-   * rotation is applied only on ticks where the unit actually advanced, so they
-   * cannot pivot in place. Models ships, which need forward motion to steer.
-   * Default (undefined/false) keeps the normal rotate-in-place behavior.
+   * If true, units of this category move only along their heading: velocity is
+   * projected onto the facing direction (forward, or astern on fallback) instead
+   * of pointing straight at the target, and rotation is applied only on ticks
+   * where the unit advanced, so they steer with a turning circle and cannot
+   * strafe or pivot in place. Models ships. Default (undefined/false) keeps the
+   * normal holonomic move-straight-to-target, rotate-in-place behavior.
    */
-  cannotRotateInPlace?: boolean;
+  forwardOnlyMovement?: boolean;
 }
 
 export interface GameConstants {
