@@ -112,6 +112,13 @@ export interface UnitCategoryTemplate {
    * normal holonomic move-straight-to-target, rotate-in-place behavior.
    */
   forwardOnlyMovement?: boolean;
+
+  /**
+   * Rotation, in degrees, applied to this category's sprite in the unit
+   * portrait. Sprite art faces right (0deg); the portrait default makes units
+   * face up. Use 0 to keep them facing right (e.g. ships). Default: -90.
+   */
+  portraitRotation?: number;
 }
 
 export interface GameConstants {
@@ -475,6 +482,12 @@ export interface RangedDamageTypeTemplate {
   angleOffset?: number;
   /** Use this in case you want to use the image of another damage type */
   imageAlias?: string;
+  /**
+   * Overrides the color of this battery's range arc (CSS hex, e.g. "#ffc55c").
+   * A ship's two broadsides set the same color so both cones match; without it
+   * the arc falls back to the per-damage-type palette by index.
+   */
+  rangeColor?: string;
 }
 
 export type DamageTypeTemplate =

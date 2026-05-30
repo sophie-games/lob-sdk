@@ -4,6 +4,7 @@ import { SkirmisherStrategy } from "./strategies/skirmisher-strategy";
 import { ArtilleryStrategy } from "./strategies/artillery-strategy";
 import { InfantryStrategy } from "./strategies/infantry-strategy";
 import { CavalryStrategy } from "./strategies/cavalry-strategy";
+import { ShipStrategy } from "./strategies/ship-strategy";
 
 /**
  * Represents a distinct grouping of units on the battlefield.
@@ -24,6 +25,7 @@ export class ArmyGroup {
       artillery: new ArtilleryStrategy(bot),
       infantry: new InfantryStrategy(bot),
       cavalry: new CavalryStrategy(bot),
+      ships: new ShipStrategy(bot),
     };
   }
 

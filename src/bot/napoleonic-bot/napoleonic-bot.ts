@@ -264,6 +264,7 @@ export class NapoleonicBot implements INapoleonicBot {
       armyGroup.strategies.artillery.assignOrders(groups.artillery, strategyContext);
       armyGroup.strategies.infantry.assignOrders(groups.infantry, strategyContext);
       armyGroup.strategies.cavalry.assignOrders(groups.cavalry, strategyContext);
+      armyGroup.strategies.ships.assignOrders(groups.ships, strategyContext);
     });
 
     turnSubmission.orders = orders;
@@ -382,6 +383,7 @@ export class NapoleonicBot implements INapoleonicBot {
       artillery: [],
       infantry: [],
       cavalry: [],
+      ships: [],
     };
 
     units.forEach((unit) => {
@@ -400,6 +402,7 @@ export class NapoleonicBot implements INapoleonicBot {
       artillery: groups.artillery,
       infantry: groups.infantry,
       cavalry: groups.cavalry,
+      ships: groups.ships,
     };
   }
 
@@ -490,8 +493,8 @@ export class NapoleonicBot implements INapoleonicBot {
     midCavalry: "cavalry",
     heavyCavalry: "cavalry",
     scoutCavalry: "cavalry",
-    // Ships are slow ranged platforms; the bot treats them like artillery.
-    ship: "artillery",
+    // Ships sail a line of battle; they have their own broadside strategy.
+    ship: "ships",
   };
 
   /**

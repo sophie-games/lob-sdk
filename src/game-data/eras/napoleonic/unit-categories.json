@@ -427,14 +427,15 @@
     "id": "ship",
     "deploymentSection": "front",
     "firingAltitude": 0.98,
-    "allyCollisionLevel": -1,
-    "enemyCollisionLevel": 1,
+    "allyCollisionLevel": 2,
+    "enemyCollisionLevel": 2,
     "routingBehavior": {
       "fleeWhenRouted": false
     },
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
     "forwardOnlyMovement": true,
+    "portraitRotation": 0,
     "allowedOrders": [
       "walk",
       "shoot",
