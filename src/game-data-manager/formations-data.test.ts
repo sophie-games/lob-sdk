@@ -20,7 +20,7 @@ describe("napoleonic formation data: flank-angle keys", () => {
     const fm = GameDataManager.get("napoleonic").getFormationManager();
     const line = fm.getTemplate("line");
     expect(line?.minFlankAngle).toBe(60);
-    expect(line?.maxFlankAngle).toBe(100);
+    expect(line?.maxFlankAngle).toBe(120);
     const square = fm.getTemplate("square");
     expect(square?.minFlankAngle).toBe(180);
     expect(square?.maxFlankAngle).toBe(180);
