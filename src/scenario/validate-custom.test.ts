@@ -427,6 +427,60 @@ describe("validateScenarioCustomDefs", () => {
         errors.some((e) => /needs at least one range bracket/.test(e.message)),
       ).toBe(false);
     });
+
+    it("flags a ranged damage type with an out-of-range angleOffset", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customDamageTypes: [
+            {
+              id: 99005,
+              name: "bad-angle",
+              orgDamageRatio: 0.5,
+              ranged: true,
+              ranges: [{ start: 0, end: 100, startMod: 1, endMod: 1 }],
+              angleOffset: 400,
+              projectileWidth: 4,
+              areaOfEffect: {
+                type: "circular",
+                ranges: [{ start: 0, end: 100, startRadius: 0, endRadius: 0 }],
+                edgeDamageModifier: 1,
+              },
+            } as unknown as DamageTypeTemplate,
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some((e) => /angleOffset must be between/.test(e.message)),
+      ).toBe(true);
+    });
+
+    it("accepts a ranged damage type with an in-range angleOffset", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customDamageTypes: [
+            {
+              id: 99006,
+              name: "good-angle",
+              orgDamageRatio: 0.5,
+              ranged: true,
+              ranges: [{ start: 0, end: 100, startMod: 1, endMod: 1 }],
+              angleOffset: 90,
+              projectileWidth: 4,
+              areaOfEffect: {
+                type: "circular",
+                ranges: [{ start: 0, end: 100, startRadius: 0, endRadius: 0 }],
+                edgeDamageModifier: 1,
+              },
+            } as unknown as DamageTypeTemplate,
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some((e) => /angleOffset must be between/.test(e.message)),
+      ).toBe(false);
+    });
   });
 
   describe("custom unit formations", () => {

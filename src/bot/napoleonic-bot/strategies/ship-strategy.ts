@@ -79,7 +79,7 @@ export class ShipStrategy implements NapoleonicBotStrategy {
 
     ships.forEach((unit) => {
       if (isRetreating) {
-        // Disengage toward the rear objective; no broadside keeping.
+        // Disengage toward the formation center; no broadside keeping.
         orders.push({
           id: unit.id,
           type: OrderType.Walk,
