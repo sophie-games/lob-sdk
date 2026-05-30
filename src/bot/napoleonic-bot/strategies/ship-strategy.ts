@@ -30,8 +30,13 @@ export class ShipStrategy implements NapoleonicBotStrategy {
   private static readonly EDGE_MARGIN_TURNS = 2.5;
 
   private _assignedUnits = new KeyedList<EntityId, BaseUnit>();
-  /** Sailing direction along the battle line (+1 / -1), kept across turns. */
-  private _sailSign = 1;
+  /**
+   * Sailing direction along the line (+1 / -1); also selects which broadside the
+   * squadron presents. Randomized per squadron so the fleet isn't always on the
+   * same side, and flips at the map edge. Shared by the whole squadron so the
+   * line stays coherent (opposite signs would sail into each other).
+   */
+  private _sailSign = Math.random() < 0.5 ? 1 : -1;
 
   constructor(private _bot: INapoleonicBot) {}
 

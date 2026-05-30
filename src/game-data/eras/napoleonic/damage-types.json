@@ -1227,6 +1227,7 @@
   {
     "id": 33,
     "name": "ship-cannon-port",
+    "imageAlias": "8lb-cannon-ball",
     "ranged": true,
     "angleOffset": 90,
     "rangeColor": "#ffc55c",
@@ -1265,7 +1266,7 @@
   {
     "id": 34,
     "name": "ship-cannon-starboard",
-    "imageAlias": "ship-cannon-port",
+    "imageAlias": "8lb-cannon-ball",
     "ranged": true,
     "angleOffset": -90,
     "rangeColor": "#ffc55c",

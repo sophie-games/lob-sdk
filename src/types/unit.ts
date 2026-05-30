@@ -248,7 +248,7 @@ interface BaseUnitTemplate {
    */
   turningDelay?: number;
 
-  reportStats?: { [key: string]: number };
+  reportStats?: { [key: string]: number | undefined };
 
   /**
    * Formations available for this unit type.
