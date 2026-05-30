@@ -322,11 +322,11 @@
     "frontBackArc": 90,
     "minFlankAngle": 180,
     "maxFlankAngle": 180,
-    "collisionCircles": 2,
+    "collisionCircles": 1,
     "collisionCircleSize": 16,
     "disablesFlankMelee": true,
     "disable180Turnaround": true,
-    "shootingAngle": 90,
+    "shootingAngle": 45,
     "shootingMaxTargets": 2,
     "shootingSides": 1,
     "minMovementModifier": -0.25
