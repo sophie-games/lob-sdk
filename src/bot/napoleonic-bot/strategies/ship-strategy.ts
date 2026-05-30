@@ -32,11 +32,12 @@ export class ShipStrategy implements NapoleonicBotStrategy {
   private _assignedUnits = new KeyedList<EntityId, BaseUnit>();
   /**
    * Sailing direction along the line (+1 / -1); also selects which broadside the
-   * squadron presents. Randomized per squadron so the fleet isn't always on the
-   * same side, and flips at the map edge. Shared by the whole squadron so the
-   * line stays coherent (opposite signs would sail into each other).
+   * squadron presents, and flips at the map edge. Shared by the whole squadron so
+   * the line stays coherent (opposite signs would sail into each other). Seeded
+   * deterministically from the squadron's position on first use (0 = unseeded),
+   * so the bot stays replay-stable.
    */
-  private _sailSign = Math.random() < 0.5 ? 1 : -1;
+  private _sailSign = 0;
 
   constructor(private _bot: INapoleonicBot) {}
 
@@ -171,6 +172,14 @@ export class ShipStrategy implements NapoleonicBotStrategy {
       centroid.add(
         lineAxis.scale(s * avgWalk * ShipStrategy.LOOKAHEAD_TURNS * 2),
       );
+
+    if (this._sailSign === 0) {
+      // Seed once: sail toward the map center along the line, so the squadron
+      // keeps making way before it has to wear at an edge.
+      const center = new Vector2(game.map.width / 2, game.map.height / 2);
+      const offsetAlongLine = centroid.subtract(center).dot(lineAxis);
+      this._sailSign = offsetAlongLine > 0 ? -1 : 1;
+    }
 
     if (!inBounds(probe(this._sailSign)) && inBounds(probe(-this._sailSign))) {
       this._sailSign = -this._sailSign;

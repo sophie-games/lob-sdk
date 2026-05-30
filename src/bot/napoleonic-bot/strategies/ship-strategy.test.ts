@@ -137,4 +137,24 @@ describe("ShipStrategy", () => {
 
     expect(context.orders[0].type).toBe(OrderType.Walk);
   });
+
+  it("sails deterministically across instances (no random direction)", () => {
+    const run = () => {
+      const context = makeContext({
+        visibleEnemies: [makeShip(99, 430, 700)],
+      });
+      new ShipStrategy(bot).assignOrders(
+        [makeShip(1, 400, 300), makeShip(2, 460, 300)],
+        context,
+      );
+      return context.orders.map((o) => ({
+        type: o.type,
+        rotation: (o as { rotation?: number }).rotation,
+        path: (o as WalkOrder).path,
+      }));
+    };
+
+    // Two independent strategies on the same state must issue identical orders.
+    expect(run()).toEqual(run());
+  });
 });
