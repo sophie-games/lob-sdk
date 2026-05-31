@@ -466,6 +466,20 @@ function validateCustomUnitTemplates(
       });
     }
 
+    // Only runnable units read runCost/walkMovement (and NaN-freeze without them);
+    // immobile units (walls, static artillery) legitimately omit them.
+    if ((template.runMovement ?? 0) > 0) {
+      for (const key of ["runCost", "walkMovement"] as const) {
+        if (typeof template[key] !== "number") {
+          errors.push({
+            scope: "unitTemplate",
+            field: template.name,
+            message: `${key} is required for a unit that can run (runMovement > 0); a missing value freezes stamina with NaN`,
+          });
+        }
+      }
+    }
+
     for (const message of findOutOfRangeNumbers(template, "")) {
       errors.push({ scope: "unitTemplate", field: template.name, message });
     }

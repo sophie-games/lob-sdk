@@ -271,4 +271,47 @@ describe("BaseUnit", () => {
       expect(normal.calculateCollisionShapes().length).toBe(3);
     });
   });
+
+  describe("getFlankMod()", () => {
+    // A malformed custom formation (e.g. legacy flankMin/flankMax keys that
+    // never got migrated to minFlankAngle/maxFlankAngle) leaves the canonical
+    // angles undefined. getFlankMod must not leak a NaN into combat math.
+    const makeUnitWithFlankAngles = (
+      minFlankAngle: number | undefined,
+      maxFlankAngle: number | undefined,
+    ): TestUnit => {
+      const customManager = GameDataManager.createWithCustomDefs("napoleonic", {
+        customUnitFormations: [
+          {
+            id: "test-flank",
+            baseSprite: "infantry/line",
+            collisionCircles: 1,
+            collisionCircleSize: 8,
+            minFlankAngle,
+            maxFlankAngle,
+          } as never,
+        ],
+      });
+      const u = new TestUnit(21, customManager);
+      u.currentFormation = "test-flank";
+      u.position = new Vector2(0, 0);
+      u.rotation = 0;
+      return u;
+    };
+
+    it("returns 0 (not NaN) when the flank angles are undefined", () => {
+      const u = makeUnitWithFlankAngles(undefined, undefined);
+      const mod = u.getFlankMod(new Vector2(10, 10));
+      expect(Number.isNaN(mod)).toBe(false);
+      expect(mod).toBe(0);
+    });
+
+    it("returns a real flanking percentage when the angles are valid", () => {
+      const u = makeUnitWithFlankAngles(60, 120);
+      // Attacker directly behind a unit facing +x is a full flank.
+      const mod = u.getFlankMod(new Vector2(-10, 0));
+      expect(Number.isNaN(mod)).toBe(false);
+      expect(mod).toBe(1);
+    });
+  });
 });

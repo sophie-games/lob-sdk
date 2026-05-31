@@ -475,6 +475,9 @@ export abstract class BaseUnit extends Entity {
     if (!formation) return 0;
     const minFlank = degreesToRadians(formation.minFlankAngle);
     const maxFlank = degreesToRadians(formation.maxFlankAngle);
+    // Undefined angles (malformed custom formation) would make getFlankingPercent
+    // return NaN, which propagates into charge stamina cost and freezes it forever.
+    if (!Number.isFinite(minFlank) || !Number.isFinite(maxFlank)) return 0;
     return getFlankingPercent(attackerPoint, this.position, this.rotation, minFlank, maxFlank);
   }
 

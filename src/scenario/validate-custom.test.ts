@@ -882,6 +882,36 @@ describe("validateScenarioCustomDefs", () => {
         errors.some((e) => /references a melee damage type/.test(e.message)),
       ).toBe(false);
     });
+
+    it("flags a runnable unit (runMovement > 0) missing runCost (the NaN-stamina bug)", () => {
+      const { runCost: _omit, ...tmpl } = makeUnitTemplate({ runMovement: 100 });
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customUnitTemplates: [tmpl as UnitTemplate] }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "unitTemplate" &&
+            /runCost is required for a unit that can run/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("accepts an immobile unit (runMovement 0) missing runCost/walkMovement", () => {
+      // Walls / static artillery legitimately omit movement stats; the engine
+      // never reads runCost for them, so validation must not reject them.
+      const { runCost: _rc, walkMovement: _wm, ...tmpl } = makeUnitTemplate({
+        runMovement: 0,
+      });
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customUnitTemplates: [tmpl as UnitTemplate] }),
+        era,
+      );
+      expect(
+        errors.some((e) => /is required for a unit that can run/.test(e.message)),
+      ).toBe(false);
+    });
   });
 });
 
