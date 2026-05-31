@@ -251,8 +251,6 @@ export interface OrderTemplate {
   speedModifier?: number;
   /** Modifier for movement speed while executing this order. Overrides default but falls back if no category is provided*/
   speedModifierByCategory?: Partial<Record<UnitCategoryId, number>>;
-  /** Hard ceiling on movement distance per turn (in pixels) per unit category while executing this order. */
-  maxMovementPerCategory?: Partial<Record<UnitCategoryId, number>>;
   /** Modifier for movement speed when shooting while executing this order and shooting. */
   speedModifierWhenShooting?: number;
   /** Modifier for movement speed per unit category. Overrides default but falls back if no category is provided */

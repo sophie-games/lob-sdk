@@ -55,13 +55,10 @@
     "speedModifierByCategory": {
       "infantry": -0.35,
       "guardsInfantry": -0.35,
-      "artillery": -0.8,
+      "artillery": -0.55,
       "militiaInfantry": -0.35,
       "skirmishInfantry": -0.35,
       "ship": -0.75
-    },
-    "maxMovementPerCategory": {
-      "artillery": 32
     },
     "speedModifier": -0.3,
     "chargeResistance": -0.2,
