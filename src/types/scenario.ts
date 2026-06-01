@@ -14,7 +14,10 @@ import {
 import type {
   DamageTypeTemplate,
   UnitCategoryTemplate,
+  GameConstants,
+  GameRules,
 } from "../game-data-manager/types";
+import type { DeepPartial } from "../utils/object-merge";
 import { Tutorial } from "./tutorial";
 
 /**
@@ -431,4 +434,19 @@ export interface Scenario {
    * sprite data service so they render like built-in sprites.
    */
   customSprites?: Record<string, CustomSprite>;
+
+  /**
+   * Sparse per-scenario overrides for the era's game constants. Only keys that
+   * differ from the era default are stored (kept sparse by the editor), so
+   * scenarios stay small and survive future era rebalances. Deep-merged onto a
+   * clone of the era constants by the per-game GameDataManager.
+   */
+  customGameConstants?: Partial<GameConstants>;
+
+  /**
+   * Sparse (deep-partial) per-scenario overrides for the era's game rules. Only
+   * changed leaves are stored. Deep-merged onto a clone of the era rules by the
+   * per-game GameDataManager.
+   */
+  customGameRules?: DeepPartial<GameRules>;
 }

@@ -10,7 +10,10 @@ import { GameDataManager } from "@lob-sdk/game-data-manager";
 import type {
   DamageTypeTemplate,
   UnitCategoryTemplate,
+  GameConstants,
+  GameRules,
 } from "../game-data-manager/types";
+import type { DeepPartial } from "../utils/object-merge";
 
 /**
  * Lowest unit-type id reserved for scenario-scoped custom unit templates.
@@ -44,7 +47,9 @@ export interface CustomDefValidationError {
     | "unitFormation"
     | "unitCategory"
     | "terrainCategory"
-    | "customSprite";
+    | "customSprite"
+    | "gameConstants"
+    | "gameRules";
   field?: string;
   message: string;
 }
@@ -66,6 +71,8 @@ export function validateScenarioCustomDefs(
   const customUnitCategories = scenario.customUnitCategories ?? [];
   const customTerrainCategories = scenario.customTerrainCategories ?? [];
   const customSprites = scenario.customSprites ?? {};
+  const customGameConstants = scenario.customGameConstants ?? {};
+  const customGameRules = scenario.customGameRules ?? {};
 
   const countLimits: Array<
     [number, number, CustomDefValidationError["scope"], string]
@@ -101,6 +108,8 @@ export function validateScenarioCustomDefs(
     ),
   );
   errors.push(...validateCustomSprites(customSprites, customUnitTemplates));
+  errors.push(...validateGameConstantOverrides(customGameConstants));
+  errors.push(...validateGameRuleOverrides(customGameRules));
 
   return errors;
 }
@@ -169,6 +178,49 @@ function findOutOfRangeNumbers(value: unknown, path: string): string[] {
     );
   }
   return [];
+}
+
+/**
+ * Game constants whose value drives tick/grid/divisor math; a zero or negative
+ * value crashes the editor preview and the sim. Every other constant stays
+ * freely editable (only NaN/Infinity/absurd magnitudes are rejected).
+ */
+const POSITIVE_GAME_CONSTANT_KEYS: Array<keyof GameConstants> = [
+  "TILE_SIZE",
+  "TICKS_PER_TURN",
+  "STAT_DISPLAY_DIVISOR",
+  "COLLISION_DETECTION_SUBTICKS",
+  "DEFAULT_MAP_WIDTH",
+  "DEFAULT_MAP_HEIGHT",
+];
+
+function validateGameConstantOverrides(
+  customGameConstants: Partial<GameConstants>,
+): CustomDefValidationError[] {
+  const errors: CustomDefValidationError[] = [];
+  for (const message of findOutOfRangeNumbers(customGameConstants, "")) {
+    errors.push({ scope: "gameConstants", message });
+  }
+  for (const key of POSITIVE_GAME_CONSTANT_KEYS) {
+    const value = customGameConstants[key];
+    if (value !== undefined && (typeof value !== "number" || value <= 0)) {
+      errors.push({
+        scope: "gameConstants",
+        field: key,
+        message: `${key} must be a positive number`,
+      });
+    }
+  }
+  return errors;
+}
+
+function validateGameRuleOverrides(
+  customGameRules: DeepPartial<GameRules>,
+): CustomDefValidationError[] {
+  return findOutOfRangeNumbers(customGameRules, "").map((message) => ({
+    scope: "gameRules" as const,
+    message,
+  }));
 }
 
 function validateCustomDamageTypes(

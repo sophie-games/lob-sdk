@@ -979,4 +979,47 @@ describe("validateCustomSprites", () => {
       true,
     );
   });
+
+  describe("game constant & rule overrides", () => {
+    it("accepts a valid sparse override with no errors", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customGameConstants: { ATTACK_PERIOD: 3, TILE_SIZE: 32 },
+          customGameRules: { objectives: { radius: 80 } },
+        }),
+        era,
+      );
+      expect(errors).toEqual([]);
+    });
+
+    it("rejects a non-finite constant override", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customGameConstants: { ATTACK_PERIOD: NaN } }),
+        era,
+      );
+      expect(errors.some((e) => e.scope === "gameConstants")).toBe(true);
+    });
+
+    it("rejects a non-finite nested rule override", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customGameRules: { stamina: { regainRates: { range1: NaN } } },
+        }),
+        era,
+      );
+      expect(errors.some((e) => e.scope === "gameRules")).toBe(true);
+    });
+
+    it("rejects a non-positive divisor/dimension constant", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customGameConstants: { TILE_SIZE: 0 } }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) => e.scope === "gameConstants" && e.field === "TILE_SIZE",
+        ),
+      ).toBe(true);
+    });
+  });
 });

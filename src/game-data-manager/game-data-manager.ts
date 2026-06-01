@@ -109,7 +109,7 @@ import gameConstantCategories from "@lob-sdk/game-data/shared/game-constant-cate
 import { FormationTemplate, OrderTemplate, OrderType } from "@lob-sdk/types";
 import { FormationManager } from "./formation-manager";
 import { UnitTemplateManager } from "./unit-template-manager";
-import { degreesToRadians } from "@lob-sdk/utils";
+import { degreesToRadians, deepMerge, type DeepPartial } from "@lob-sdk/utils";
 
 /**
  * Centralized lazy-loading game data manager.
@@ -241,6 +241,8 @@ export class GameDataManager {
       customUnitFormations?: FormationTemplate[];
       customUnitCategories?: UnitCategoryTemplate[];
       customTerrainCategories?: CustomTerrainCategoryOverride[];
+      customGameConstants?: Partial<GameConstants>;
+      customGameRules?: DeepPartial<GameRules>;
     },
   ): GameDataManager {
     const hasCustom = !!(
@@ -248,7 +250,9 @@ export class GameDataManager {
       customDefs.customDamageTypes?.length ||
       customDefs.customUnitFormations?.length ||
       customDefs.customUnitCategories?.length ||
-      customDefs.customTerrainCategories?.length
+      customDefs.customTerrainCategories?.length ||
+      Object.keys(customDefs.customGameConstants ?? {}).length ||
+      Object.keys(customDefs.customGameRules ?? {}).length
     );
 
     if (!hasCustom) {
@@ -272,6 +276,8 @@ export class GameDataManager {
     customUnitFormations?: FormationTemplate[];
     customUnitCategories?: UnitCategoryTemplate[];
     customTerrainCategories?: CustomTerrainCategoryOverride[];
+    customGameConstants?: Partial<GameConstants>;
+    customGameRules?: DeepPartial<GameRules>;
   }): void {
     // Order matters: categories → terrain categories → damage types →
     // formations → templates. Terrain categories slot in after unit
@@ -380,6 +386,29 @@ export class GameDataManager {
       ];
       this._unitTemplateManager = new UnitTemplateManager();
       this._unitTemplateManager.load(merged);
+    }
+
+    if (
+      customDefs.customGameConstants &&
+      Object.keys(customDefs.customGameConstants).length > 0
+    ) {
+      // deepMerge clones, so the era singleton's constants are never mutated.
+      this.gameConstants = deepMerge<GameConstants>(
+        this.getGameConstants(),
+        customDefs.customGameConstants,
+      );
+      // Recompute the cosine cache in case HEAD_ON_COLLISION_ANGLE_DEGREES changed.
+      this._headOnCollisionCosineThresholdSquared = -1;
+    }
+
+    if (
+      customDefs.customGameRules &&
+      Object.keys(customDefs.customGameRules).length > 0
+    ) {
+      this.gameRules = deepMerge<GameRules>(
+        this.getGameRules(),
+        customDefs.customGameRules,
+      );
     }
   }
 

@@ -428,4 +428,52 @@ describe("GameDataManager custom defs", () => {
       expect(m.isPassable(TerrainType.DeepWater, "drone")).toBe(false);
     });
   });
+
+  describe("loadCustomDefs: game constants & rules", () => {
+    it("applies a constant override without mutating the era singleton", () => {
+      const eraSingleton = GameDataManager.get("napoleonic");
+      const baseTile = eraSingleton.getGameConstants().TILE_SIZE;
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customGameConstants: { TILE_SIZE: baseTile + 16 },
+      });
+      expect(m.getGameConstants().TILE_SIZE).toBe(baseTile + 16);
+      expect(eraSingleton.getGameConstants().TILE_SIZE).toBe(baseTile);
+    });
+
+    it("deep-merges a nested rule override, keeping untouched siblings", () => {
+      const eraSingleton = GameDataManager.get("napoleonic");
+      const baseRadius = eraSingleton.getGameRules().objectives.radius;
+      const baseRegainRate = eraSingleton.getGameRules().organization.regainRate;
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customGameRules: { objectives: { radius: baseRadius + 10 } },
+      });
+      expect(m.getGameRules().objectives.radius).toBe(baseRadius + 10);
+      // Sibling group untouched by the partial merge.
+      expect(m.getGameRules().organization.regainRate).toBe(baseRegainRate);
+      // Singleton untouched.
+      expect(eraSingleton.getGameRules().objectives.radius).toBe(baseRadius);
+    });
+
+    it("recomputes the head-on cosine cache when the angle constant changes", () => {
+      const eraSingleton = GameDataManager.get("napoleonic");
+      const baseCosine = eraSingleton.getHeadOnCollisionCosineThresholdSquared();
+      const baseAngle =
+        eraSingleton.getGameConstants().HEAD_ON_COLLISION_ANGLE_DEGREES;
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customGameConstants: { HEAD_ON_COLLISION_ANGLE_DEGREES: baseAngle / 2 },
+      });
+      expect(m.getHeadOnCollisionCosineThresholdSquared()).not.toBe(baseCosine);
+      expect(eraSingleton.getHeadOnCollisionCosineThresholdSquared()).toBe(
+        baseCosine,
+      );
+    });
+
+    it("treats empty override objects the same as omitted (still singleton)", () => {
+      const a = GameDataManager.createWithCustomDefs("napoleonic", {
+        customGameConstants: {},
+        customGameRules: {},
+      });
+      expect(a).toBe(GameDataManager.get("napoleonic"));
+    });
+  });
 });
