@@ -125,6 +125,8 @@
     "description": "Desligado: apenas unidades sem ordens. Ligado: também unidades que ainda têm a ordem do turno anterior se você não a alterou neste turno."
   },
   "keybindings": {
+    "rotateCameraContinuous": "Girar câmera (segurar)",
+    "rotateCameraSnap": "Girar câmera 90°",
     "title": "Atalhos de teclado",
     "pressAKey": "Pressione uma tecla...",
     "moveUp": "Mover para cima",

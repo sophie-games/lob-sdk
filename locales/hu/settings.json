@@ -125,6 +125,8 @@
     "description": "Ki: csak parancs nélküli egységek. Be: azok az egységek is, amelyeknek még megvan az előző kör parancsa, ha ebben a körben nem módosítottad."
   },
   "keybindings": {
+    "rotateCameraContinuous": "Kamera forgatása (tartsd lenyomva)",
+    "rotateCameraSnap": "Kamera forgatása 90°-kal",
     "title": "Billentyűparancsok",
     "pressAKey": "Nyomj meg egy billentyűt...",
     "moveUp": "Mozgás felfelé",

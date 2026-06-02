@@ -125,6 +125,8 @@
     "description": "オフ：命令のないユニットのみ。オン：今ターンで変更していない場合、前ターンの命令が残っているユニットも含めます。"
   },
   "keybindings": {
+    "rotateCameraContinuous": "カメラ回転（長押し）",
+    "rotateCameraSnap": "カメラを90°回転",
     "title": "キーバインド",
     "pressAKey": "キーを押してください...",
     "moveUp": "上に移動",
