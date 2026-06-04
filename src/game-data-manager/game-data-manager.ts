@@ -243,6 +243,7 @@ export class GameDataManager {
       customTerrainCategories?: CustomTerrainCategoryOverride[];
       customGameConstants?: Partial<GameConstants>;
       customGameRules?: DeepPartial<GameRules>;
+      customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
     },
   ): GameDataManager {
     const hasCustom = !!(
@@ -252,7 +253,8 @@ export class GameDataManager {
       customDefs.customUnitCategories?.length ||
       customDefs.customTerrainCategories?.length ||
       Object.keys(customDefs.customGameConstants ?? {}).length ||
-      Object.keys(customDefs.customGameRules ?? {}).length
+      Object.keys(customDefs.customGameRules ?? {}).length ||
+      Object.keys(customDefs.customOrders ?? {}).length
     );
 
     if (!hasCustom) {
@@ -278,9 +280,12 @@ export class GameDataManager {
     customTerrainCategories?: CustomTerrainCategoryOverride[];
     customGameConstants?: Partial<GameConstants>;
     customGameRules?: DeepPartial<GameRules>;
+    customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
   }): void {
-    // Order matters: categories → terrain categories → damage types →
-    // formations → templates. Terrain categories slot in after unit
+    // Order matters: orders → categories → terrain categories → damage types →
+    // formations → templates. Orders go first so a category's `allowedOrders`
+    // name lookups resolve against any re-keyed order names. Terrain categories
+    // slot in after unit
     // categories so the wildcard expansion has the full set of unit
     // category ids to populate against.
     //
@@ -296,6 +301,29 @@ export class GameDataManager {
     this.terrainCategories = JSON.parse(
       JSON.stringify(this.terrainCategories ?? {}),
     ) as Record<TerrainCategoryType, TerrainCategoryConfig>;
+
+    if (
+      customDefs.customOrders &&
+      Object.keys(customDefs.customOrders).length > 0
+    ) {
+      // Clone the shared era array, then deep-merge each sparse override onto
+      // its order by id (re-keying the id/name maps). Mirrors the sparse merge
+      // used for game constants/rules but scoped per order id; unknown ids are
+      // skipped here and rejected by validateScenarioCustomDefs upstream.
+      this._orders = [...this._orders];
+      for (const [idStr, override] of Object.entries(customDefs.customOrders)) {
+        const id = Number(idStr) as OrderType;
+        const idx = this._orders.findIndex((o) => o.id === id);
+        if (idx < 0) continue;
+        const merged = deepMerge<OrderTemplate>(
+          this._orders[idx],
+          override as DeepPartial<OrderTemplate>,
+        );
+        this._orders[idx] = merged;
+        this._orderMap.set(id, merged);
+        this._orderNameMap.set(merged.name, id);
+      }
+    }
 
     if (customDefs.customUnitCategories?.length) {
       // Clone, then replace-by-id so override doesn't duplicate the entry.

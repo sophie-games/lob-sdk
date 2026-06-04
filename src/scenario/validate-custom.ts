@@ -5,6 +5,8 @@ import {
   FormationTemplate,
   CustomTerrainCategoryOverride,
   CustomSprite,
+  OrderTemplate,
+  OrderType,
 } from "@lob-sdk/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import type {
@@ -32,6 +34,7 @@ export const MAX_CUSTOM_UNIT_FORMATIONS = 50;
 export const MAX_CUSTOM_UNIT_CATEGORIES = 50;
 export const MAX_CUSTOM_TERRAIN_CATEGORIES = 50;
 export const MAX_CUSTOM_SPRITES = 200;
+export const MAX_CUSTOM_ORDERS = 50;
 
 /**
  * Generous magnitude ceiling for any single numeric stat in a custom def. The
@@ -49,7 +52,8 @@ export interface CustomDefValidationError {
     | "terrainCategory"
     | "customSprite"
     | "gameConstants"
-    | "gameRules";
+    | "gameRules"
+    | "order";
   field?: string;
   message: string;
 }
@@ -73,6 +77,7 @@ export function validateScenarioCustomDefs(
   const customSprites = scenario.customSprites ?? {};
   const customGameConstants = scenario.customGameConstants ?? {};
   const customGameRules = scenario.customGameRules ?? {};
+  const customOrders = scenario.customOrders ?? {};
 
   const countLimits: Array<
     [number, number, CustomDefValidationError["scope"], string]
@@ -83,6 +88,7 @@ export function validateScenarioCustomDefs(
     [customUnitCategories.length, MAX_CUSTOM_UNIT_CATEGORIES, "unitCategory", "unit categories"],
     [customTerrainCategories.length, MAX_CUSTOM_TERRAIN_CATEGORIES, "terrainCategory", "terrain categories"],
     [Object.keys(customSprites).length, MAX_CUSTOM_SPRITES, "customSprite", "sprites"],
+    [Object.keys(customOrders).length, MAX_CUSTOM_ORDERS, "order", "order overrides"],
   ];
   for (const [count, max, scope, label] of countLimits) {
     if (count > max) {
@@ -110,6 +116,61 @@ export function validateScenarioCustomDefs(
   errors.push(...validateCustomSprites(customSprites, customUnitTemplates));
   errors.push(...validateGameConstantOverrides(customGameConstants));
   errors.push(...validateGameRuleOverrides(customGameRules));
+  errors.push(...validateCustomOrders(customOrders, eraGameDataManager));
+
+  return errors;
+}
+
+/**
+ * Validates the sparse per-order overrides. Each key must name an existing era
+ * order (overrides modify built-ins; they cannot add new order types), the
+ * identity fields `id`/`name` must not be changed (they key the runtime
+ * lookups), and every numeric leaf must be in range.
+ */
+function validateCustomOrders(
+  customOrders: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>,
+  eraGameDataManager: GameDataManager,
+): CustomDefValidationError[] {
+  const errors: CustomDefValidationError[] = [];
+  const knownIds = new Set<number>(eraGameDataManager.getOrderTypes());
+
+  for (const [idStr, override] of Object.entries(customOrders)) {
+    const id = Number(idStr);
+    if (!Number.isInteger(id) || !knownIds.has(id)) {
+      errors.push({
+        scope: "order",
+        field: idStr,
+        message: `Order id "${idStr}" is not a known order for this era; only existing orders can be overridden`,
+      });
+      continue;
+    }
+    if (!override || typeof override !== "object") {
+      errors.push({
+        scope: "order",
+        field: idStr,
+        message: `Order override "${idStr}" must be an object`,
+      });
+      continue;
+    }
+    const eraName = eraGameDataManager.getOrderTemplate(id).name;
+    if (override.id !== undefined && override.id !== id) {
+      errors.push({
+        scope: "order",
+        field: idStr,
+        message: `Order override "${idStr}" must not change the order id`,
+      });
+    }
+    if (override.name !== undefined && override.name !== eraName) {
+      errors.push({
+        scope: "order",
+        field: idStr,
+        message: `Order override "${idStr}" must not change the order name`,
+      });
+    }
+    for (const message of findOutOfRangeNumbers(override, "")) {
+      errors.push({ scope: "order", field: idStr, message });
+    }
+  }
 
   return errors;
 }

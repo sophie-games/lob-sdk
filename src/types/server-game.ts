@@ -28,6 +28,8 @@ import {
   Size,
   UnitTemplate,
   FormationTemplate,
+  OrderTemplate,
+  OrderType,
 } from "@lob-sdk/types";
 import type {
   DamageTypeTemplate,
@@ -168,6 +170,8 @@ export interface GameMetadata {
   customGameConstants?: Partial<GameConstants>;
   /** Sparse (deep-partial) game-rule overrides layered on the era registry for this game. */
   customGameRules?: DeepPartial<GameRules>;
+  /** Sparse per-order overrides (keyed by OrderType id) deep-merged onto the era orders for this game. */
+  customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
 }
 
 /**

@@ -10,6 +10,8 @@ import {
   Size,
   UnitTemplate,
   FormationTemplate,
+  OrderTemplate,
+  OrderType,
 } from "@lob-sdk/types";
 import type {
   DamageTypeTemplate,
@@ -449,4 +451,14 @@ export interface Scenario {
    * per-game GameDataManager.
    */
   customGameRules?: DeepPartial<GameRules>;
+
+  /**
+   * Sparse per-scenario overrides for the era's built-in orders, keyed by
+   * {@link OrderType} id. Each entry is deep-merged onto the era order by the
+   * per-game GameDataManager, so only changed leaves are stored (e.g. tweak a
+   * single `speedModifierByCategory` entry without re-specifying the rest).
+   * This only modifies existing orders — ids must match an era order, and the
+   * `id`/`name` identity fields must not be changed.
+   */
+  customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
 }

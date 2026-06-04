@@ -2,6 +2,7 @@ import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { CUSTOM_UNIT_TYPE_MIN } from "@lob-sdk/scenario";
 import {
   FormationTemplate,
+  OrderType,
   RangeUnitTemplate,
   TerrainType,
   UnitTemplate,
@@ -472,6 +473,59 @@ describe("GameDataManager custom defs", () => {
       const a = GameDataManager.createWithCustomDefs("napoleonic", {
         customGameConstants: {},
         customGameRules: {},
+      });
+      expect(a).toBe(GameDataManager.get("napoleonic"));
+    });
+  });
+
+  describe("loadCustomDefs: custom orders", () => {
+    it("deep-merges a per-order override without mutating the era singleton", () => {
+      const eraSingleton = GameDataManager.get("napoleonic");
+      const baseRun = eraSingleton.getOrderTemplate(OrderType.Run);
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customOrders: { [OrderType.Run]: { orgRegainModifier: -0.3 } },
+      });
+      expect(m.getOrderTemplate(OrderType.Run).orgRegainModifier).toBe(-0.3);
+      // Sibling field untouched by the partial merge.
+      expect(m.getOrderTemplate(OrderType.Run).receivedOrgDamage).toBe(
+        baseRun.receivedOrgDamage,
+      );
+      // Singleton untouched.
+      expect(eraSingleton.getOrderTemplate(OrderType.Run).orgRegainModifier).toBe(
+        baseRun.orgRegainModifier,
+      );
+    });
+
+    it("deep-merges one category in a by-category map, keeping the others", () => {
+      const eraSingleton = GameDataManager.get("napoleonic");
+      const base = eraSingleton.getOrderTemplate(OrderType.FireAndAdvance)
+        .speedModifierWhenShootingByCategory!;
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customOrders: {
+          [OrderType.FireAndAdvance]: {
+            speedModifierWhenShootingByCategory: { infantry: -0.25 },
+          },
+        },
+      });
+      const merged = m.getOrderTemplate(OrderType.FireAndAdvance)
+        .speedModifierWhenShootingByCategory!;
+      expect(merged.infantry).toBe(-0.25);
+      // Other categories survive the partial merge.
+      expect(merged.skirmishInfantry).toBe(base.skirmishInfantry);
+    });
+
+    it("skips unknown order ids without throwing", () => {
+      const eraSingleton = GameDataManager.get("napoleonic");
+      const before = eraSingleton.getOrderTypes().length;
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customOrders: { 9999: { speedModifier: -0.5 } } as never,
+      });
+      expect(m.getOrderTypes().length).toBe(before);
+    });
+
+    it("treats an empty override map the same as omitted (still singleton)", () => {
+      const a = GameDataManager.createWithCustomDefs("napoleonic", {
+        customOrders: {},
       });
       expect(a).toBe(GameDataManager.get("napoleonic"));
     });

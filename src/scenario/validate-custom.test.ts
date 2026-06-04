@@ -8,6 +8,7 @@ import { GameDataManager } from "@lob-sdk/game-data-manager";
 import {
   CustomTerrainCategoryOverride,
   FormationTemplate,
+  OrderType,
   RangeUnitTemplate,
   Scenario,
   UnitTemplate,
@@ -1020,6 +1021,48 @@ describe("validateCustomSprites", () => {
           (e) => e.scope === "gameConstants" && e.field === "TILE_SIZE",
         ),
       ).toBe(true);
+    });
+  });
+
+  describe("custom orders", () => {
+    it("accepts a valid override of an existing order", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customOrders: { [OrderType.Run]: { orgRegainModifier: -0.3 } },
+        }),
+        era,
+      );
+      expect(errors.some((e) => e.scope === "order")).toBe(false);
+    });
+
+    it("rejects an order id that is not a known era order", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customOrders: { 9999: { speedModifier: -0.5 } } as never }),
+        era,
+      );
+      expect(
+        errors.some((e) => e.scope === "order" && e.field === "9999"),
+      ).toBe(true);
+    });
+
+    it("rejects a non-finite numeric leaf", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customOrders: { [OrderType.Walk]: { orgRegainModifier: NaN } },
+        }),
+        era,
+      );
+      expect(errors.some((e) => e.scope === "order")).toBe(true);
+    });
+
+    it("rejects changing the order's identity name", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customOrders: { [OrderType.Walk]: { name: "sprint" } },
+        }),
+        era,
+      );
+      expect(errors.some((e) => e.scope === "order")).toBe(true);
     });
   });
 });
