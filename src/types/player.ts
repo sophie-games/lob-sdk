@@ -131,6 +131,8 @@ export interface PlayerInfo {
    */
   currentTimeBankSeconds: number;
   countryCode?: string;
+  /** Whether this account carries the verified badge. */
+  isVerified?: boolean;
   /**
    * Timestamp when this player submitted their turn (seconds since epoch).
    * Used for Fischer timing. Null if player hasn't submitted.
