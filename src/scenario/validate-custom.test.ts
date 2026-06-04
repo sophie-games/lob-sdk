@@ -1036,8 +1036,11 @@ describe("validateCustomSprites", () => {
     });
 
     it("rejects an order id that is not a known era order", () => {
+      const customOrders: Record<number, { speedModifier: number }> = {
+        9999: { speedModifier: -0.5 },
+      };
       const errors = validateScenarioCustomDefs(
-        makeScenario({ customOrders: { 9999: { speedModifier: -0.5 } } as never }),
+        makeScenario({ customOrders }),
         era,
       );
       expect(

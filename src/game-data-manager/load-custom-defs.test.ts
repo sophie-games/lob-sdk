@@ -499,7 +499,7 @@ describe("GameDataManager custom defs", () => {
     it("deep-merges one category in a by-category map, keeping the others", () => {
       const eraSingleton = GameDataManager.get("napoleonic");
       const base = eraSingleton.getOrderTemplate(OrderType.FireAndAdvance)
-        .speedModifierWhenShootingByCategory!;
+        .speedModifierWhenShootingByCategory;
       const m = GameDataManager.createWithCustomDefs("napoleonic", {
         customOrders: {
           [OrderType.FireAndAdvance]: {
@@ -508,10 +508,10 @@ describe("GameDataManager custom defs", () => {
         },
       });
       const merged = m.getOrderTemplate(OrderType.FireAndAdvance)
-        .speedModifierWhenShootingByCategory!;
-      expect(merged.infantry).toBe(-0.25);
+        .speedModifierWhenShootingByCategory;
+      expect(merged?.infantry).toBe(-0.25);
       // Other categories survive the partial merge.
-      expect(merged.skirmishInfantry).toBe(base.skirmishInfantry);
+      expect(merged?.skirmishInfantry).toBe(base?.skirmishInfantry);
     });
 
     it("overriding userSelectable removes the order from the selectable set", () => {
@@ -544,8 +544,11 @@ describe("GameDataManager custom defs", () => {
     it("skips unknown order ids without throwing", () => {
       const eraSingleton = GameDataManager.get("napoleonic");
       const before = eraSingleton.getOrderTypes().length;
+      const customOrders: Record<number, { speedModifier: number }> = {
+        9999: { speedModifier: -0.5 },
+      };
       const m = GameDataManager.createWithCustomDefs("napoleonic", {
-        customOrders: { 9999: { speedModifier: -0.5 } } as never,
+        customOrders,
       });
       expect(m.getOrderTypes().length).toBe(before);
     });

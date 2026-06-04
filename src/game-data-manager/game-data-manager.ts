@@ -308,16 +308,13 @@ export class GameDataManager {
       // re-key the maps. Unknown ids are skipped (validation rejects them).
       this._orders = [...this._orders];
       for (const [idStr, override] of Object.entries(customDefs.customOrders)) {
-        const id = Number(idStr) as OrderType;
-        const idx = this._orders.findIndex((o) => o.id === id);
+        if (!override) continue;
+        const idx = this._orders.findIndex((o) => String(o.id) === idStr);
         if (idx < 0) continue;
-        const merged = deepMerge<OrderTemplate>(
-          this._orders[idx],
-          override as DeepPartial<OrderTemplate>,
-        );
+        const merged = deepMerge<OrderTemplate>(this._orders[idx], override);
         this._orders[idx] = merged;
-        this._orderMap.set(id, merged);
-        this._orderNameMap.set(merged.name, id);
+        this._orderMap.set(merged.id, merged);
+        this._orderNameMap.set(merged.name, merged.id);
       }
     }
 
