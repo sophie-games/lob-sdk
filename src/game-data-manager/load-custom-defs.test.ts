@@ -514,6 +514,33 @@ describe("GameDataManager custom defs", () => {
       expect(merged.skirmishInfantry).toBe(base.skirmishInfantry);
     });
 
+    it("overriding userSelectable removes the order from the selectable set", () => {
+      const eraSingleton = GameDataManager.get("napoleonic");
+      expect(eraSingleton.getUserSelectableOrderTypes()).toContain(
+        OrderType.Run,
+      );
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customOrders: { [OrderType.Run]: { userSelectable: false } },
+      });
+      expect(m.getUserSelectableOrderTypes()).not.toContain(OrderType.Run);
+      // Singleton untouched.
+      expect(eraSingleton.getUserSelectableOrderTypes()).toContain(
+        OrderType.Run,
+      );
+    });
+
+    it("overriding isDefault changes the default order", () => {
+      const eraSingleton = GameDataManager.get("napoleonic");
+      expect(eraSingleton.getDefaultOrderType()).toBe(OrderType.FireAndAdvance);
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customOrders: {
+          [OrderType.FireAndAdvance]: { isDefault: false },
+          [OrderType.Walk]: { isDefault: true },
+        },
+      });
+      expect(m.getDefaultOrderType()).toBe(OrderType.Walk);
+    });
+
     it("skips unknown order ids without throwing", () => {
       const eraSingleton = GameDataManager.get("napoleonic");
       const before = eraSingleton.getOrderTypes().length;

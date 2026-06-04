@@ -283,9 +283,7 @@ export class GameDataManager {
     customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
   }): void {
     // Order matters: orders → categories → terrain categories → damage types →
-    // formations → templates. Orders go first so a category's `allowedOrders`
-    // name lookups resolve against any re-keyed order names. Terrain categories
-    // slot in after unit
+    // formations → templates. Terrain categories slot in after unit
     // categories so the wildcard expansion has the full set of unit
     // category ids to populate against.
     //
@@ -306,10 +304,8 @@ export class GameDataManager {
       customDefs.customOrders &&
       Object.keys(customDefs.customOrders).length > 0
     ) {
-      // Clone the shared era array, then deep-merge each sparse override onto
-      // its order by id (re-keying the id/name maps). Mirrors the sparse merge
-      // used for game constants/rules but scoped per order id; unknown ids are
-      // skipped here and rejected by validateScenarioCustomDefs upstream.
+      // Clone the shared era array, then deep-merge each override by id and
+      // re-key the maps. Unknown ids are skipped (validation rejects them).
       this._orders = [...this._orders];
       for (const [idStr, override] of Object.entries(customDefs.customOrders)) {
         const id = Number(idStr) as OrderType;
