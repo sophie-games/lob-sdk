@@ -1,6 +1,6 @@
 [
   {
-    "id": "mass",
+    "id": "line",
     "frontBackArc": 126.87,
     "minFlankAngle": 50,
     "maxFlankAngle": 170,
@@ -53,35 +53,6 @@
     "projectilePassThrough": 0.1
   },
   {
-    "id": "line",
-    "frontBackArc": 160,
-    "minFlankAngle": 60,
-    "maxFlankAngle": 120,
-    "collisionCircles": 4,
-    "collisionCircleSize": 10,
-    "checkPoints": [
-      { "x": 0, "y": -15, "weight": 1 },
-      { "x": 0, "y": -5, "weight": 1 },
-      { "x": 0, "y": 5, "weight": 1 },
-      { "x": 0, "y": 15, "weight": 1 }
-    ],
-    "movementModifier": -0.1,
-    "runMovementModifier": -0.5,
-    "rotationSpeedModifier": -0.65,
-    "rangedAttackModifier": 1,
-    "rangedDamageResistance": 0.3,
-    "disablesEnfiladeFire": true,
-    "rangedOrgResistance": -0.15,
-    "flankChargeResistance": -1,
-    "shootingAngle": 100,
-    "shootingMaxTargets": 1,
-    "shootingAngleMargin": 0,
-    "timeToForm": 8,
-    "timeToUnform": 8,
-    "minMovementModifier": -0.8,
-    "projectilePassThrough": 0.05
-  },
-  {
     "id": "square",
     "frontBackArc": 90,
     "minFlankAngle": 180,
@@ -112,7 +83,7 @@
     "projectilePassThrough": 0.5
   },
   {
-    "id": "militia_mass",
+    "id": "militia_line",
     "frontBackArc": 126.87,
     "minFlankAngle": 45,
     "maxFlankAngle": 135,
@@ -132,35 +103,6 @@
     "timeToUnform": 6,
     "minMovementModifier": -0.4,
     "projectilePassThrough": 0.25
-  },
-  {
-    "id": "militia_line",
-    "frontBackArc": 160,
-    "minFlankAngle": 60,
-    "maxFlankAngle": 100,
-    "collisionCircles": 4,
-    "collisionCircleSize": 10,
-    "checkPoints": [
-      { "x": 0, "y": -15, "weight": 1 },
-      { "x": 0, "y": -5, "weight": 1 },
-      { "x": 0, "y": 5, "weight": 1 },
-      { "x": 0, "y": 15, "weight": 1 }
-    ],
-    "movementModifier": -0.15,
-    "runMovementModifier": -0.5,
-    "rotationSpeedModifier": -0.75,
-    "rangedAttackModifier": 0.75,
-    "rangedDamageResistance": 0.25,
-    "disablesEnfiladeFire": true,
-    "rangedOrgResistance": -0.15,
-    "flankChargeResistance": -0.7,
-    "shootingAngle": 100,
-    "shootingMaxTargets": 1,
-    "shootingAngleMargin": 0,
-    "timeToForm": 10,
-    "timeToUnform": 10,
-    "minMovementModifier": -0.8,
-    "projectilePassThrough": 0.2
   },
   {
     "id": "artillery",

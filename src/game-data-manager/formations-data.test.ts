@@ -19,8 +19,8 @@ describe("napoleonic formation data: flank-angle keys", () => {
   it("exposes the canonical minFlankAngle/maxFlankAngle the engine reads", () => {
     const fm = GameDataManager.get("napoleonic").getFormationManager();
     const line = fm.getTemplate("line");
-    expect(line?.minFlankAngle).toBe(60);
-    expect(line?.maxFlankAngle).toBe(120);
+    expect(line?.minFlankAngle).toBe(50);
+    expect(line?.maxFlankAngle).toBe(170);
     const square = fm.getTemplate("square");
     expect(square?.minFlankAngle).toBe(180);
     expect(square?.maxFlankAngle).toBe(180);

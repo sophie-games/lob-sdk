@@ -42,15 +42,14 @@
       "horse": 0,
       "guns": 0
     },
-    "defaultFormation": "mass",
+    "defaultFormation": "line",
     "formations": [
       {
-        "id": "mass",
+        "id": "line",
         "baseSprite": "mass",
         "overlaySprite": "infantry",
         "changeAnimations": {
           "square": "mass-square",
-          "line": "mass-line",
           "column": "mass-column"
         }
       },
@@ -60,18 +59,7 @@
         "overlaySprite": "infantry-column",
         "changeAnimations": {
           "square": "column-square",
-          "line": "column-line",
-          "mass": "column-mass"
-        }
-      },
-      {
-        "id": "line",
-        "baseSprite": "line",
-        "overlaySprite": "infantry-line",
-        "changeAnimations": {
-          "square": "line-square",
-          "mass": "line-mass",
-          "column": "line-column"
+          "line": "column-mass"
         }
       },
       {
@@ -79,8 +67,7 @@
         "baseSprite": "square",
         "overlaySprite": "infantry-square",
         "changeAnimations": {
-          "mass": "square-mass",
-          "line": "square-line",
+          "line": "square-mass",
           "column": "square-column"
         }
       }
@@ -242,15 +229,14 @@
     "rotationMaxThreshold": 0.523,
     "runRotationSpeed": 0.204,
     "turningDelay": 8,
-    "defaultFormation": "mass",
+    "defaultFormation": "line",
     "formations": [
       {
-        "id": "mass",
+        "id": "line",
         "baseSprite": "mass",
         "overlaySprite": "guards",
         "changeAnimations": {
           "square": "mass-square",
-          "line": "mass-line",
           "column": "mass-column"
         }
       },
@@ -260,18 +246,7 @@
         "overlaySprite": "guards-column",
         "changeAnimations": {
           "square": "column-square",
-          "line": "column-line",
-          "mass": "column-mass"
-        }
-      },
-      {
-        "id": "line",
-        "baseSprite": "line",
-        "overlaySprite": "guards-line",
-        "changeAnimations": {
-          "square": "line-square",
-          "mass": "line-mass",
-          "column": "line-column"
+          "line": "column-mass"
         }
       },
       {
@@ -279,8 +254,7 @@
         "baseSprite": "square",
         "overlaySprite": "guards-square",
         "changeAnimations": {
-          "mass": "square-mass",
-          "line": "square-line",
+          "line": "square-mass",
           "column": "square-column"
         }
       }
@@ -447,15 +421,14 @@
     "rotationMaxThreshold": 0.523,
     "runRotationSpeed": 0.204,
     "turningDelay": 6,
-    "defaultFormation": "mass",
+    "defaultFormation": "line",
     "formations": [
       {
-        "id": "mass",
+        "id": "line",
         "baseSprite": "mass",
         "overlaySprite": "chasseurs",
         "changeAnimations": {
           "square": "mass-square",
-          "line": "mass-line",
           "column": "mass-column"
         }
       },
@@ -465,18 +438,7 @@
         "overlaySprite": "chasseurs-column",
         "changeAnimations": {
           "square": "column-square",
-          "line": "column-line",
-          "mass": "column-mass"
-        }
-      },
-      {
-        "id": "line",
-        "baseSprite": "line",
-        "overlaySprite": "chasseurs-line",
-        "changeAnimations": {
-          "square": "line-square",
-          "mass": "line-mass",
-          "column": "line-column"
+          "line": "column-mass"
         }
       },
       {
@@ -484,8 +446,7 @@
         "baseSprite": "square",
         "overlaySprite": "chasseurs-square",
         "changeAnimations": {
-          "mass": "square-mass",
-          "line": "square-line",
+          "line": "square-mass",
           "column": "square-column"
         }
       }
@@ -646,27 +607,12 @@
     "rotationMaxThreshold": 0.523,
     "runRotationSpeed": 0.204,
     "turningDelay": 10,
-    "defaultFormation": "militia_mass",
+    "defaultFormation": "militia_line",
     "formations": [
       {
-        "id": "militia_mass",
-        "baseSprite": "militia",
-        "overlaySprite": "militia",
-        "changeAnimations": {
-          "line": "mass-line",
-          "column": "mass-column",
-          "square": "mass-square"
-        }
-      },
-      {
         "id": "militia_line",
-        "baseSprite": "militia-line",
-        "overlaySprite": "militia-line",
-        "changeAnimations": {
-          "mass": "line-mass",
-          "column": "line-column",
-          "square": "line-square"
-        }
+        "baseSprite": "militia",
+        "overlaySprite": "militia"
       }
     ],
     "pushStrength": 8,
@@ -880,15 +826,14 @@
     "rotationMaxThreshold": 0.523,
     "runRotationSpeed": 0.204,
     "turningDelay": 8,
-    "defaultFormation": "mass",
+    "defaultFormation": "line",
     "formations": [
       {
-        "id": "mass",
+        "id": "line",
         "baseSprite": "mass",
         "overlaySprite": "grenadiers",
         "changeAnimations": {
           "square": "mass-square",
-          "line": "mass-line",
           "column": "mass-column"
         }
       },
@@ -898,18 +843,7 @@
         "overlaySprite": "grenadiers-column",
         "changeAnimations": {
           "square": "column-square",
-          "line": "column-line",
-          "mass": "column-mass"
-        }
-      },
-      {
-        "id": "line",
-        "baseSprite": "line",
-        "overlaySprite": "grenadiers-line",
-        "changeAnimations": {
-          "square": "line-square",
-          "mass": "line-mass",
-          "column": "line-column"
+          "line": "column-mass"
         }
       },
       {
@@ -917,8 +851,7 @@
         "baseSprite": "square",
         "overlaySprite": "grenadiers-square",
         "changeAnimations": {
-          "mass": "square-mass",
-          "line": "square-line",
+          "line": "square-mass",
           "column": "square-column"
         }
       }
