@@ -2,8 +2,6 @@
   "micro": {
     "manpower": 1600,
     "gold": 700,
-    "ammoReserve": 90000,
-    "goldToAmmoRate": 1400,
     "skirmisherRatio": [1, 2],
     "unitCaps": {
       "17": 2,
@@ -27,8 +25,6 @@
   "clash": {
     "manpower": 3450,
     "gold": 1450,
-    "ammoReserve": 110000,
-    "goldToAmmoRate": 1400,
     "skirmisherRatio": [1, 2],
     "unitCaps": {
       "17": 2,
@@ -54,8 +50,6 @@
   "combat": {
     "manpower": 6000,
     "gold": 3000,
-    "ammoReserve": 190000,
-    "goldToAmmoRate": 1400,
     "skirmisherRatio": [1, 3],
     "unitCaps": {
       "17": 4,
@@ -81,8 +75,6 @@
   "battle": {
     "manpower": 10000,
     "gold": 5000,
-    "ammoReserve": 225000,
-    "goldToAmmoRate": 1400,
     "skirmisherRatio": [1, 3],
     "unitCaps": {
       "17": 6,
@@ -108,8 +100,6 @@
   "grand_battle": {
     "manpower": 18000,
     "gold": 9000,
-    "ammoReserve": 275000,
-    "goldToAmmoRate": 1400,
     "skirmisherRatio": [1, 3],
     "unitCaps": {
       "17": 8,

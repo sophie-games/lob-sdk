@@ -91,10 +91,6 @@ export interface BattleTypeTemplate {
   manpower: number;
   /** Starting gold for players. */
   gold: number;
-  /** Starting ammo reserve for players. */
-  ammoReserve: number;
-  /** Conversion rate from gold to ammo. */
-  goldToAmmoRate: number;
   /** Optional ratio for spawning skirmishers [skirmisherRatio, coreUnitsRatio]. */
   skirmisherRatio?: number[];
   /** Maximum number of each unit type allowed. */

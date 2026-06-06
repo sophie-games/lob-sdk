@@ -527,6 +527,10 @@ export interface AmmoRule {
   baseReserve: number;
   regenerationBaseRate: number;
   regenerationBonusRate: number;
+  /** Starting ammo reserve per dynamic battle type. */
+  ammoReserve: Record<DynamicBattleType, number>;
+  /** Gold-to-ammo conversion rate per dynamic battle type. */
+  goldToAmmoRate: Record<DynamicBattleType, number>;
 }
 
 export interface SkirmishersRule {
