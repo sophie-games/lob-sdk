@@ -1247,6 +1247,12 @@
     },
     "ranges": [
       {
+        "start": 0,
+        "end": 100,
+        "startMod": 1.2,
+        "endMod": 1
+      },
+      {
         "start": 100,
         "end": 260,
         "startMod": 1,
@@ -1254,7 +1260,7 @@
       }
     ],
     "arcHeight": 1e-16,
-    "enfiladeFire": false,
+    "enfiladeFire": true,
     "cannotUseAfterRun": false,
     "projectilePenetration": 0.65,
     "shotSound": "artillery-fire",
@@ -1286,6 +1292,12 @@
     },
     "ranges": [
       {
+        "start": 0,
+        "end": 100,
+        "startMod": 1.2,
+        "endMod": 1
+      },
+      {
         "start": 100,
         "end": 260,
         "startMod": 1,
@@ -1293,7 +1305,7 @@
       }
     ],
     "arcHeight": 1e-16,
-    "enfiladeFire": false,
+    "enfiladeFire": true,
     "cannotUseAfterRun": false,
     "projectilePenetration": 0.65,
     "shotSound": "artillery-fire",

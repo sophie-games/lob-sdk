@@ -430,6 +430,13 @@
     },
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
+    "enfiladeFire": {
+      "damageModifier": 0.5,
+      "orgModifier": 0.5
+    },
+    "rearFire": {
+      "orgModifier": 2.0
+    },
     "forwardOnlyMovement": true,
     "portraitRotation": 0,
     "allowedOrders": [

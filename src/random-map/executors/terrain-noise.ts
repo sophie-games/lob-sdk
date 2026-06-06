@@ -24,7 +24,7 @@ export class TerrainNoiseExecutor {
   execute() {
     const { instruction, terrains, heightMap } = this;
 
-    const { scale, multiplier, offset, ranges, height, terrain, smoothing } =
+    const { scale, multiplier, offset, ranges, height, terrain, smoothing, excludeTerrains } =
       instruction;
 
     const tilesX = this.terrains.length;
@@ -62,10 +62,12 @@ export class TerrainNoiseExecutor {
           const currentHeight = heightMap[x][y];
           const heightConstraint = height;
 
+          // Also skip tiles whose existing terrain is excluded (e.g. keep water clear).
           if (
-            !heightConstraint ||
-            (currentHeight >= heightConstraint.min &&
-              currentHeight <= heightConstraint.max)
+            (!heightConstraint ||
+              (currentHeight >= heightConstraint.min &&
+                currentHeight <= heightConstraint.max)) &&
+            (!excludeTerrains || !excludeTerrains.includes(terrains[x][y]))
           ) {
             terrains[x][y] = terrain;
           }

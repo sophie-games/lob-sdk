@@ -268,6 +268,9 @@ export class NaturalPathGenerator {
   }
 
   private fillPathTiles(path: Neighbor[]) {
+    // Snapshot terrain before drawing so width>1 overlaps don't re-evaluate
+    // replacement rules against tiles this same path already painted.
+    const originalTerrains = this.terrains.map((row) => [...row]);
     for (let i = 0; i < path.length - 1; i++) {
       const start = path[i];
       const end = path[i + 1];
@@ -284,7 +287,7 @@ export class NaturalPathGenerator {
           point.x,
           point.y,
           this.pathTerrain,
-          this.terrains,
+          originalTerrains,
         );
         this.terrains[point.x][point.y] = terrainType;
 
