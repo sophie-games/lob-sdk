@@ -7,9 +7,9 @@
     "collisionCircles": 3,
     "collisionCircleSize": 8,
     "checkPoints": [
-      { "x": 0, "y": 0, "weight": 2 },
-      { "x": 0, "y": -10, "weight": 1 },
-      { "x": 0, "y": 10, "weight": 1 }
+      { "x": 0, "y": 0, "weight": 1 },
+      { "x": 0, "y": -8, "weight": 1 },
+      { "x": 0, "y": 8, "weight": 1 }
     ],
     "shootingAngle": 90,
     "shootingMaxTargets": 1,
@@ -27,13 +27,11 @@
     "frontBackArc": 53,
     "minFlankAngle": 20,
     "maxFlankAngle": 125,
-    "collisionCircles": 1,
+    "collisionCircles": 2,
     "collisionCircleSize": 12,
-    "checkPoints": [
-      { "x": 0, "y": 0, "weight": 2 },
-      { "x": -10, "y": 0, "weight": 1 },
-      { "x": 10, "y": 0, "weight": 1 }
-    ],
+    "collisionCircleDistance": 4,
+    "collisionCirclesVertical": true,
+    "checkPoints": [{ "x": 0, "y": 0, "weight": 1 }],
     "movementModifier": 0.15,
     "runMovementModifier": 0.15,
     "rotationSpeedModifier": 0.1,
@@ -89,9 +87,9 @@
     "collisionCircles": 2,
     "collisionCircleSize": 12,
     "checkPoints": [
-      { "x": 0, "y": 0, "weight": 2 },
-      { "x": 0, "y": -10, "weight": 1 },
-      { "x": 0, "y": 10, "weight": 1 }
+      { "x": 0, "y": 0, "weight": 1 },
+      { "x": 0, "y": -8, "weight": 1 },
+      { "x": 0, "y": 8, "weight": 1 }
     ],
     "shootingAngle": 90,
     "shootingMaxTargets": 1,
@@ -111,9 +109,8 @@
     "collisionCircles": 2,
     "collisionCircleSize": 12,
     "checkPoints": [
-      { "x": 0, "y": 0, "weight": 2 },
-      { "x": 0, "y": -10, "weight": 1 },
-      { "x": 0, "y": 10, "weight": 1 }
+      { "x": 0, "y": -6, "weight": 1 },
+      { "x": 0, "y": 6, "weight": 1 }
     ],
     "disablesFlankMelee": true,
     "disablesEnfiladeFire": true,
@@ -131,9 +128,8 @@
     "minFlankAngle": 180,
     "maxFlankAngle": 180,
     "checkPoints": [
-      { "x": 0, "y": 0, "weight": 2 },
-      { "x": 0, "y": -10, "weight": 1 },
-      { "x": 0, "y": 10, "weight": 1 }
+      { "x": 0, "y": -6, "weight": 1 },
+      { "x": 0, "y": 6, "weight": 1 }
     ],
     "collisionCircles": 2,
     "collisionCircleSize": 12,
@@ -181,9 +177,8 @@
     "collisionCircles": 2,
     "collisionCircleSize": 12,
     "checkPoints": [
-      { "x": 0, "y": 0, "weight": 2 },
-      { "x": 0, "y": -10, "weight": 1 },
-      { "x": 0, "y": 10, "weight": 1 }
+      { "x": 0, "y": -6, "weight": 1 },
+      { "x": 0, "y": 6, "weight": 1 }
     ],
     "disablesEnfiladeFire": true,
     "disablesFlankMelee": false,
