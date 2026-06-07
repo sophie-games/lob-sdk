@@ -4,8 +4,8 @@
     "frontBackArc": 126.87,
     "minFlankAngle": 50,
     "maxFlankAngle": 170,
-    "collisionCircles": 2,
-    "collisionCircleSize": 12,
+    "collisionCircles": 3,
+    "collisionCircleSize": 8,
     "checkPoints": [
       { "x": 0, "y": 0, "weight": 2 },
       { "x": 0, "y": -10, "weight": 1 },
@@ -27,9 +27,8 @@
     "frontBackArc": 53,
     "minFlankAngle": 20,
     "maxFlankAngle": 125,
-    "collisionCircles": 2,
+    "collisionCircles": 1,
     "collisionCircleSize": 12,
-    "collisionCirclesVertical": true,
     "checkPoints": [
       { "x": 0, "y": 0, "weight": 2 },
       { "x": -10, "y": 0, "weight": 1 },
