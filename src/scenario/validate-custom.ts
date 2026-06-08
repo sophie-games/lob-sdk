@@ -603,11 +603,11 @@ function validateCustomUnitTemplates(
 
 /**
  * Max size of a *compressed* scenario the client lets the user import, kept as a
- * margin below the server's 200KB request-body cap (server/src/app.ts). Single
+ * margin below the server's 512KB request-body cap (server/src/app.ts). Single
  * source of truth for the import-size limit: the editor budgets and the
  * "scenario too large" message all derive from this.
  */
-export const MAX_COMPRESSED_SCENARIO_IMPORT_BYTES = 150 * 1024;
+export const MAX_COMPRESSED_SCENARIO_IMPORT_BYTES = 384 * 1024;
 
 /**
  * Per-sprite byte budget for uploaded custom sprites: the editor re-encodes to
