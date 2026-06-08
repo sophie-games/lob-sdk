@@ -303,6 +303,20 @@ export interface FormationCheckPointWithProportion extends FormationCheckPoint {
   proportion: number;
 }
 
+export interface FormationFirePoint {
+  /** Offset in pixels relative to formation center (x = depth, +x is the unit's front; y = frontage). */
+  x: number;
+  /** Offset in pixels relative to formation center. */
+  y: number;
+  /**
+   * Fire-direction offset in degrees from the unit's facing, for points that
+   * fire to a side (e.g. the four sides of a square). Defaults to 0 (straight ahead).
+   */
+  angleOffset?: number;
+  /** Relative weight for distributing fire across points. Defaults to 1. */
+  weight?: number;
+}
+
 export interface FormationTemplate {
   id: string;
   frontBackArc: number;
@@ -336,6 +350,14 @@ export interface FormationTemplate {
    * If not specified, defaults to checking only at the unit's center position.
    */
   checkPoints?: Array<FormationCheckPoint>;
+
+  /**
+   * Local points from which this formation emits ranged fire. Each point is an
+   * offset relative to the formation center (x = depth, +x is the front; y =
+   * frontage), with an optional per-point angleOffset for side-facing fire.
+   * If not specified, fire originates from the unit's center.
+   */
+  firePoints?: Array<FormationFirePoint>;
 
   movementModifier?: number;
   runMovementModifier?: number;

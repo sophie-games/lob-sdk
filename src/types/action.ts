@@ -140,6 +140,13 @@ export interface RangedAttackAction extends BaseAction {
    * Final Shot Segment - the final segment of the shot trajectory as [[x1, y1], [x2, y2]].
    */
   fss: [[number, number], [number, number]];
+
+  /**
+   * Volley segments: one shot segment per active fire point when the unit fires
+   * a distributed volley across its frontage. Absent for single-origin shots,
+   * so older replays still render the single `fss` line.
+   */
+  segs?: Array<[[number, number], [number, number]]>;
 }
 
 /**
