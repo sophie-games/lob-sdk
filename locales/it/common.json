@@ -11,6 +11,8 @@
   "language": "Lingua",
   "tutorial": "Tutorial",
   "tutorialRequired": "Completa il tutorial prima di giocare online",
+  "skipTutorialTitle": "Salta tutorial",
+  "skipTutorialMessage": "Saltare il resto del tutorial e tornare al menu? Non ti verrà più chiesto di completarlo.",
   "tutorialRequiredDescription": "Devi finire il tutorial prima di poterti mettere in coda per le partite online.",
   "goToTutorial": "Vai al tutorial",
   "tutorials": "Tutorial",
@@ -319,8 +321,7 @@
   "welcomeModal": {
     "title": "Benvenuto in Lines of Battle 👋",
     "thanks": "Grazie per esserti unito, {{name}}!",
-    "p1": "Nuovo a <b>Lines of Battle</b>? Ti consiglio di iniziare con un <offlineLink>gioco di pratica offline</offlineLink> contro un bot per familiarizzare con le meccaniche di gioco e sviluppare la tua strategia in un ambiente rilassato.",
-    "p2": "Dato che il gioco è attualmente in beta, ti invito a unirti al <discordLink>server Discord</discordLink> per connetterti con altri giocatori, trovare avversari con cui giocare, segnalare bug e condividere le tue idee per migliorare l'esperienza di gioco per tutti!"
+    "p1": "Nuovo su <b>Lines of Battle</b>? Inizia con il <tutorialLink>tutorial</tutorialLink> per imparare le meccaniche di base prima della tua prima battaglia."
   },
   "turn": "Turno",
   "bank": "Riserva",

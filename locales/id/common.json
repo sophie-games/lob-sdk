@@ -11,6 +11,8 @@
   "language": "Bahasa",
   "tutorial": "Tutorial",
   "tutorialRequired": "Selesaikan tutorial sebelum bermain online",
+  "skipTutorialTitle": "Lewati tutorial",
+  "skipTutorialMessage": "Lewati sisa tutorial dan kembali ke menu? Anda tidak akan diminta menyelesaikannya lagi.",
   "tutorialRequiredDescription": "Anda harus menyelesaikan tutorial sebelum dapat antri untuk pertandingan online.",
   "goToTutorial": "Ke tutorial",
   "tutorials": "Tutorial",
@@ -320,8 +322,7 @@
   "welcomeModal": {
     "title": "Selamat Datang di Lines of Battle 👋",
     "thanks": "Terimakasih sudah bergabung, {{name}}!",
-    "p1": "Baru bermain <b>Lines of Battle</b>? Saya sarankan untuk bermain <offlineLink>latihan permainan offline</offlineLink> melawan bot untuk membiasakan diri dengan mekanisme permainan dan mengembangkan strategi kamu dalam lingkungan yang santai.",
-    "p2": "Karena game ini sedang dalam tahap beta, saya mengundang kamu untuk bergabung di <discordLink>Discord server</discordLink> untuk terhubung dengan pemain lain, temukan lawan untuk bermain, laporkan bug, dan bagikan ide kamu untuk membantu meningkatkan pengalaman bermain bagi semua orang!"
+    "p1": "Baru di <b>Lines of Battle</b>? Mulailah dengan <tutorialLink>tutorial</tutorialLink> untuk mempelajari mekanik dasar sebelum pertempuran pertamamu."
   },
   "turn": "Giliran",
   "bank": "Cadangan",

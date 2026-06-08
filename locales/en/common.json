@@ -91,6 +91,8 @@
   "matchmakingModeSwitchWarning": "Fast and Slow configurations cannot be sent together. If you change to {{mode}}, the other configuration(s) will be reset. Do you want to proceed?",
   "matchmakingDescription": "Matchmaking mode lets you quickly join a game with random players using predefined settings.",
   "tutorialRequired": "Complete the tutorial before playing online",
+  "skipTutorialTitle": "Skip tutorial",
+  "skipTutorialMessage": "Skip the rest of the tutorial and return to the menu? You won't be asked to complete it again.",
   "tutorialRequiredDescription": "You need to finish the tutorial before you can queue for online matches.",
   "goToTutorial": "Go to tutorial",
   "requiredInMatchmakingQueue": "Always in queue",
@@ -365,8 +367,7 @@
   "welcomeModal": {
     "title": "Welcome to Lines of Battle 👋",
     "thanks": "Thank you for joining, {{name}}!",
-    "p1": "New to <b>Lines of Battle</b>? I recommend starting with an <offlineLink>offline practice game</offlineLink> against a bot to familiarize yourself with the game mechanics and develop your strategy in a relaxed environment.",
-    "p2": "Since the game is currently in beta, I invite you to join the <discordLink>Discord server</discordLink> to connect with other players, find opponents to play with, report bugs, and share your ideas to help improve the game experience for everyone!"
+    "p1": "New to <b>Lines of Battle</b>? Start with the <tutorialLink>tutorial</tutorialLink> to learn the core mechanics before your first battle."
   },
   "turn": "Turn",
   "bank": "Bank",
