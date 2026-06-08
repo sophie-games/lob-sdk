@@ -303,18 +303,28 @@ export interface FormationCheckPointWithProportion extends FormationCheckPoint {
   proportion: number;
 }
 
-export interface FormationFirePoint {
+export interface FireFacet {
   /** Offset in pixels relative to formation center (x = depth, +x is the unit's front; y = frontage). */
   x: number;
   /** Offset in pixels relative to formation center. */
   y: number;
   /**
-   * Fire-direction offset in degrees from the unit's facing, for points that
-   * fire to a side (e.g. the four sides of a square). Defaults to 0 (straight ahead).
+   * Fire-direction offset in degrees from the unit's facing, for facets that
+   * fire to a side (e.g. the four sides of a square, or a ship's broadsides).
+   * Defaults to 0 (straight ahead).
    */
   angleOffset?: number;
-  /** Relative weight for distributing fire across points. Defaults to 1. */
-  weight?: number;
+  /**
+   * Full firing-arc width in degrees (NOT a half-width), centered on the facet's
+   * direction. Defaults to the formation's shootingAngle. A square side uses 90.
+   */
+  arc?: number;
+  /**
+   * Damage type id this facet fires. Defaults to the unit's ranged damage type.
+   * Facets sharing a damage type split that weapon's power between them; facets
+   * with distinct damage types are independent batteries (e.g. ship broadsides).
+   */
+  damageType?: string;
 }
 
 export interface FormationTemplate {
@@ -352,12 +362,12 @@ export interface FormationTemplate {
   checkPoints?: Array<FormationCheckPoint>;
 
   /**
-   * Local points from which this formation emits ranged fire. Each point is an
+   * Local facets from which this formation emits ranged fire. Each facet is an
    * offset relative to the formation center (x = depth, +x is the front; y =
-   * frontage), with an optional per-point angleOffset for side-facing fire.
-   * If not specified, fire originates from the unit's center.
+   * frontage), with an optional angleOffset/arc for side-facing fire and an
+   * optional damageType. If not specified, fire originates from the unit's center.
    */
-  firePoints?: Array<FormationFirePoint>;
+  fireFacets?: Array<FireFacet>;
 
   movementModifier?: number;
   runMovementModifier?: number;

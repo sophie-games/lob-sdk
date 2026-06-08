@@ -6,7 +6,7 @@
     "maxFlankAngle": 170,
     "collisionCircles": 3,
     "collisionCircleSize": 8,
-    "firePoints": [
+    "fireFacets": [
       { "x": 4, "y": -8 },
       { "x": 4, "y": 0 },
       { "x": 4, "y": 8 }
@@ -35,7 +35,7 @@
     "collisionCircles": 2,
     "collisionCircleSize": 12,
     "collisionCircleDistance": 4,
-    "firePoints": [{ "x": 8, "y": 0 }],
+    "fireFacets": [{ "x": 8, "y": 0 }],
     "collisionCirclesVertical": true,
     "checkPoints": [{ "x": 0, "y": 0, "weight": 1 }],
     "movementModifier": 0.15,
@@ -74,7 +74,7 @@
     "shootingMaxTargets": 4,
     "shootingAngleMargin": 45,
     "shootingSides": 4,
-    "firePoints": [
+    "fireFacets": [
       { "x": 6, "y": 0, "angleOffset": 0 },
       { "x": 0, "y": 6, "angleOffset": 90 },
       { "x": -6, "y": 0, "angleOffset": 180 },
@@ -103,7 +103,7 @@
       { "x": 0, "y": -8, "weight": 1 },
       { "x": 0, "y": 8, "weight": 1 }
     ],
-    "firePoints": [
+    "fireFacets": [
       { "x": 6, "y": -8 },
       { "x": 6, "y": 0 },
       { "x": 6, "y": 8 }
@@ -133,7 +133,7 @@
     "disablesEnfiladeFire": true,
     "disablesRearFire": true,
     "shootingAngle": 60,
-    "firePoints": [
+    "fireFacets": [
       { "x": 6, "y": -6 },
       { "x": 6, "y": 6 }
     ],
@@ -155,7 +155,7 @@
     "collisionCircles": 2,
     "collisionCircleSize": 12,
     "shootingSides": 2,
-    "firePoints": [
+    "fireFacets": [
       { "x": 0, "y": -6 },
       { "x": 0, "y": 6 }
     ],
@@ -198,7 +198,7 @@
     "id": "cavalry",
     "frontBackArc": 126.87,
     "minFlankAngle": 75,
-    "firePoints": [
+    "fireFacets": [
       { "x": 0, "y": -6 },
       { "x": 0, "y": 6 }
     ],
@@ -233,7 +233,7 @@
     "collisionCircleSize": 12,
     "shootingAngle": 360,
     "rangedAttackModifier": 0.8,
-    "firePoints": [
+    "fireFacets": [
       { "x": 6, "y": -8 },
       { "x": 6, "y": 0 },
       { "x": 6, "y": 8 }
@@ -298,7 +298,7 @@
     "disablesFlankMelee": true,
     "disable180Turnaround": true,
     "shootingAngle": 45,
-    "firePoints": [
+    "fireFacets": [
       { "x": 0, "y": 6, "angleOffset": 90 },
       { "x": 0, "y": -6, "angleOffset": -90 }
     ],
