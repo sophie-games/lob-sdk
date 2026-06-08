@@ -252,14 +252,14 @@ export interface GameData {
 }
 
 /**
- * Result of a ranged attack shot.
+ * Result of a ranged volley fired across a unit's fire facets.
  */
-export interface ShootResult {
-  /** The ranged attack action that was executed. */
-  action: RangedAttackAction;
-  /** Amount of ammo consumed by the shot. */
+export interface FireFacetsResult {
+  /** One ranged attack action per damage type fired this volley. */
+  actions: RangedAttackAction[];
+  /** Amount of ammo consumed by the volley. */
   ammoCost: number;
-  /** Amount of stamina consumed by the shot. */
+  /** Amount of stamina consumed by the volley. */
   staminaCost: number;
 }
 
@@ -744,17 +744,17 @@ export interface IServerGame {
     forAutofire?: boolean,
   ): any;
   /**
-   * Executes a shot from a unit to a target position
+   * Fires a unit's volley across its fire facets at the committed targets.
    * @param gameDataManager - The game data manager
-   * @param unit - The unit shooting
-   * @param targetPosition - The target position
-   * @returns The shoot result, or null if shot is invalid
+   * @param unit - The unit firing
+   * @param targets - The committed target positions for this volley
+   * @returns One action per damage type fired plus the volley cost, or null
    */
-  shoot(
+  fireFacets(
     gameDataManager: GameDataManager,
     unit: BaseUnit,
-    targetPosition: Vector2,
-  ): ShootResult | null;
+    targets: Vector2[],
+  ): FireFacetsResult | null;
   /**
    * Calculates ranged damage between a shooter and target
    * @param shooter - The unit shooting
