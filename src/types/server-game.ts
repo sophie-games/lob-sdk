@@ -146,6 +146,8 @@ export type GameUserResult = "win" | "lose" | "tie";
 export interface GameMetadata {
   /** Whether the game ended with a conquest victory. */
   conquestVictory?: boolean;
+  /** When true, teams are auto-balanced by rating at game start and the lobby hides team choice. */
+  autoBalance?: boolean;
   /** Language locales used in the game. */
   locales?: GameLocales;
   /** Custom variables for game tracking. */
