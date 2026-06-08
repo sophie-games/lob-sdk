@@ -20,6 +20,10 @@
     "title": "Allow Touch Selection Box",
     "description": "Enable selection boxes on touch devices to select multiple units at once."
   },
+  "showControlGroupsBar": {
+    "title": "Control groups bar",
+    "description": "Show the control-groups bar. Turn it off to stop accidental taps from changing your selection on touch devices."
+  },
   "smartCurvedMovements": {
     "title": "Smart Curved Movements",
     "description": "Enable this option to optimize movement paths with smooth curves, minimizing speed loss during rotations."
