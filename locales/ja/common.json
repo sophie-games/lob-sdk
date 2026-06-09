@@ -1,4 +1,8 @@
 {
+  "spectatorDisabledModal": {
+    "title": "観戦は制限されています",
+    "message": "この試合は進行中です。不正行為を防ぐため、ライブ観戦は無効になっており、ユニットは表示されません。試合終了後に、完全なリプレイを視聴できます。"
+  },
   "verified": "認証済みアカウント",
   "tools": "ツール",
   "rotateCamera": "回転",
@@ -91,6 +95,8 @@
   "matchmakingModeSwitchWarning": "高速と低速の設定を同時に送信することはできません。{{mode}}モードに変更すると、他の設定はリセットされます。続行しますか？",
   "matchmakingDescription": "マッチメイキングモードでは、設定済みの条件でランダムなプレイヤーとすぐに対戦できます。",
   "tutorialRequired": "オンラインプレイの前にチュートリアルを完了してください",
+  "skipTutorialTitle": "チュートリアルをスキップ",
+  "skipTutorialMessage": "チュートリアルの残りをスキップしてメニューに戻りますか？再度完了を求められることはありません。",
   "tutorialRequiredDescription": "オンラインマッチのキューに入る前にチュートリアルを終了する必要があります。",
   "goToTutorial": "チュートリアルへ",
   "requiredInMatchmakingQueue": "常にマッチング対象",
@@ -365,8 +371,7 @@
   "welcomeModal": {
     "title": "Lines of Battleへようこそ 👋",
     "thanks": "{{name}}さん、参加ありがとうございます！",
-    "p1": "<b>Lines of Battle</b>を初めてプレイしますか？まずは、<offlineLink>オフラインの練習ゲーム</offlineLink>でボットと戦い、ゲームの仕組みを覚え、リラックスした環境で戦略を練習することをお勧めします。",
-    "p2": "現在ゲームはベータ版のため、<discordLink>Discordサーバー</discordLink>に参加し、他のプレイヤーと交流したり、対戦相手を見つけたり、バグを報告したり、ゲーム体験を向上させるためのアイデアを共有したりすることができます！"
+    "p1": "<b>Lines of Battle</b> は初めてですか？最初の戦いの前に、<tutorialLink>チュートリアル</tutorialLink>で基本の操作を覚えましょう。"
   },
   "turn": "ターン",
   "bank": "予備時間",
@@ -578,6 +583,7 @@
   "submittingOrders": "命令を送信しています...",
   "checkingUpdates": "更新を確認しています...",
   "lobby": {
+    "teamsAutoBalanced": "チームはレーティングに基づいて自動的にバランス調整されます",
     "autoStartCountdown": "{{countdown}}で自動開始",
     "joinTeam": "チーム{{team}}に参加 ({{count}}/{{capacity}})",
     "teamLocked": "少ない方のチームを選んでください",

@@ -1,4 +1,8 @@
 {
+  "spectatorDisabledModal": {
+    "title": "Modo espectador limitado",
+    "message": "Esta partida está em andamento. Para evitar trapaças, assistir ao vivo está desativado, então você não verá as unidades. Você poderá assistir ao replay completo quando a partida terminar."
+  },
   "verified": "Conta verificada",
   "tools": "Ferramentas",
   "rotateCamera": "Girar",
@@ -11,6 +15,8 @@
   "language": "Idioma",
   "tutorial": "Tutorial",
   "tutorialRequired": "Complete o tutorial antes de jogar online",
+  "skipTutorialTitle": "Pular tutorial",
+  "skipTutorialMessage": "Pular o resto do tutorial e voltar ao menu? Você não será solicitado a concluí-lo novamente.",
   "tutorialRequiredDescription": "Você precisa terminar o tutorial antes de entrar na fila para partidas online.",
   "goToTutorial": "Ir para o tutorial",
   "tutorials": "Tutoriais",
@@ -319,8 +325,7 @@
   "welcomeModal": {
     "title": "Bem-vindo ao Lines of Battle 👋",
     "thanks": "Obrigado por se juntar, {{name}}!",
-    "p1": "Novo no <b>Lines of Battle</b>? Recomendo começar com um <offlineLink>jogo de prática offline</offlineLink> contra um bot para se familiarizar com as mecânicas do jogo e desenvolver sua estratégia em um ambiente descontraído.",
-    "p2": "Como o jogo está atualmente em beta, convido você a se juntar ao <discordLink>servidor do Discord</discordLink> para se conectar com outros jogadores, encontrar oponentes para jogar, relatar bugs e compartilhar suas ideias para ajudar a melhorar a experiência de jogo para todos!"
+    "p1": "Novo no <b>Lines of Battle</b>? Comece pelo <tutorialLink>tutorial</tutorialLink> para aprender as mecânicas básicas antes da sua primeira batalha."
   },
   "turn": "Turno",
   "bank": "Reserva",
@@ -556,6 +561,7 @@
   "hard": "Dura",
   "soft": "Suave",
   "lobby": {
+    "teamsAutoBalanced": "As equipes são equilibradas automaticamente por classificação",
     "autoStartCountdown": "Início automático em {{countdown}}",
     "joinTeam": "Entrar no Time {{team}} ({{count}}/{{capacity}})",
     "teamLocked": "Escolha o time menor",

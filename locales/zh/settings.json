@@ -20,6 +20,10 @@
     "title": "允许触控框选",
     "description": "允许在触控设备上使用框选来选择多个单位。"
   },
+  "showControlGroupsBar": {
+    "title": "控制编组栏",
+    "description": "显示控制编组栏。在触摸设备上将其关闭，可避免误触更改你的选择。"
+  },
   "smartCurvedMovements": {
     "title": "智能曲线移动",
     "description": "启用后会自动优化行动路线，让曲线更加平滑来减少单位转向时浪费的速度。"

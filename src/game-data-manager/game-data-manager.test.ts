@@ -415,4 +415,33 @@ describe("GameDataManager", () => {
       });
     });
   });
+
+  describe("getAmmoReserve / getGoldToAmmoRate", () => {
+    it("returns positive configured ammo values for every napoleonic battle type", () => {
+      const napoleonic = GameDataManager.get("napoleonic");
+      // Avoid pinning balance numbers (they change with tuning); assert each
+      // battle type resolves to a real positive value (vs the 0-fallback cases).
+      for (const battleType of napoleonic.getAllDynamicBattleTypes()) {
+        expect(napoleonic.getAmmoReserve(battleType)).toBeGreaterThan(0);
+        expect(napoleonic.getGoldToAmmoRate(battleType)).toBeGreaterThan(0);
+      }
+    });
+
+    it("returns 0 for an era with no ammo rule (ww2)", () => {
+      const ww2 = GameDataManager.get("ww2");
+      expect(ww2.getAmmoReserve("operational")).toBe(0);
+      expect(ww2.getGoldToAmmoRate("operational")).toBe(0);
+    });
+
+    it("returns 0 (does not throw) when a custom ammo rule omits the per-battle-type maps", () => {
+      // A partial customGameRules.ammo override merged onto an era with no base
+      // ammo rule yields an ammo object without ammoReserve/goldToAmmoRate maps.
+      const manager = GameDataManager.createWithCustomDefs("ww2", {
+        customGameRules: { ammo: { baseReserve: 123 } },
+      });
+      expect(() => manager.getAmmoReserve("operational")).not.toThrow();
+      expect(manager.getAmmoReserve("operational")).toBe(0);
+      expect(manager.getGoldToAmmoRate("operational")).toBe(0);
+    });
+  });
 });

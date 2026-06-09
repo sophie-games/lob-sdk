@@ -1,4 +1,8 @@
 {
+  "spectatorDisabledModal": {
+    "title": "Obserwowanie ograniczone",
+    "message": "Ta gra jest w toku. Aby zapobiec oszustwom, obserwowanie na żywo jest wyłączone, więc nie zobaczysz jednostek. Pełną powtórkę będzie można obejrzeć po zakończeniu gry."
+  },
   "verified": "Zweryfikowane konto",
   "tools": "Narzędzia",
   "rotateCamera": "Obróć",
@@ -11,6 +15,8 @@
   "language": "Język",
   "tutorial": "Samouczek",
   "tutorialRequired": "Ukończ samouczek przed grą online",
+  "skipTutorialTitle": "Pomiń samouczek",
+  "skipTutorialMessage": "Pominąć resztę samouczka i wrócić do menu? Nie pojawi się ponownie prośba o jego ukończenie.",
   "tutorialRequiredDescription": "Musisz ukończyć samouczek, zanim będziesz mógł stanąć w kolejce do meczów online.",
   "goToTutorial": "Przejdź do samouczka",
   "tutorials": "Samouczki",
@@ -336,8 +342,7 @@
   "welcomeModal": {
     "title": "Witaj w Lines of Battle 👋",
     "thanks": "Dobrze cię tu widzieć {{name}}!",
-    "p1": "To Twój pierwszy kontakt z <b>Lines of Battle</b>? Jeśli tak, to polecam rozpocząć <offlineLink>Partią Offline</offlineLink> przeciwko botowi, aby zaznajomić się z mechanikami gry i popracować nad strategią w spokojnym środowisku.",
-    "p2": "Dlatego, że gra wciąż jest w fazie beta, zapraszam do dołączenia do <discordLink>Serwera na Discordzie</discordLink> żeby połączyć się z innymi graczami, znaleźć przeciwników do gry, zgłosić błędy, i podzielić się pomysłami, aby polepszyć doświadczenie dla wszystkich graczy!"
+    "p1": "Nowy w <b>Lines of Battle</b>? Zacznij od <tutorialLink>samouczka</tutorialLink>, aby poznać podstawowe mechaniki przed pierwszą bitwą."
   },
   "turn": "Tura",
   "bank": "Rezerwa",
@@ -624,6 +629,7 @@
   "optional": "Opcjonalne",
   "round": "Runda",
   "lobby": {
+    "teamsAutoBalanced": "Drużyny są automatycznie równoważone według rankingu",
     "autoStartCountdown": "Automatyczny start za {{countdown}}",
     "joinTeam": "Dołącz do Drużyny {{team}} ({{count}}/{{capacity}})",
     "teamLocked": "Wybierz mniejszą drużynę",

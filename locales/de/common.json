@@ -1,4 +1,8 @@
 {
+  "spectatorDisabledModal": {
+    "title": "Zuschauen eingeschränkt",
+    "message": "Dieses Spiel läuft bereits. Um Betrug zu verhindern, ist das Live-Zuschauen deaktiviert, daher siehst du die Einheiten nicht. Sobald das Spiel endet, kannst du die vollständige Wiederholung ansehen."
+  },
   "verified": "Verifiziertes Konto",
   "tools": "Werkzeuge",
   "rotateCamera": "Drehen",
@@ -11,6 +15,8 @@
   "language": "Sprache",
   "tutorial": "Tutorial",
   "tutorialRequired": "Schließe das Tutorial ab, bevor du online spielst",
+  "skipTutorialTitle": "Tutorial überspringen",
+  "skipTutorialMessage": "Den Rest des Tutorials überspringen und zum Menü zurückkehren? Du wirst nicht erneut aufgefordert, es abzuschließen.",
   "tutorialRequiredDescription": "Du musst das Tutorial abschließen, bevor du dich für Online-Matches in die Warteschlange stellen kannst.",
   "goToTutorial": "Zum Tutorial",
   "tutorials": "Tutorials",
@@ -319,8 +325,7 @@
   "welcomeModal": {
     "title": "Willkommen bei Lines of Battle 👋",
     "thanks": "Schön das Sie dabei sind, {{name}}!",
-    "p1": "Neu bei <b>Lines of Battle</b>? Ich empfehle mit <offlineLink>Offlinespiel</offlineLink> gegen Bots anzufangen, damit Sie sich mit den Spielmechaniken vertraut machen und in aller Ruhe eine Strategie überlegen können.",
-    "p2": "Da das Spiel zur Zeit noch in der Beta ist, laden wir Sie herzlich ein unserem <discordLink>Discord-Server</discordLink> beizutreten, sich mit anderen Spielern auszutauschen, Gegner zu finden, Bugs zu melden oder Vorschläge zu teilen, wie die Spielerfahrung noch besser werden könnte."
+    "p1": "Neu bei <b>Lines of Battle</b>? Beginne mit dem <tutorialLink>Tutorial</tutorialLink>, um die grundlegenden Mechaniken vor deiner ersten Schlacht zu lernen."
   },
   "turn": "Runde",
   "bank": "Zeitreserve",
@@ -618,6 +623,7 @@
   "high": "Hoch",
   "dismiss": "Verwerfen",
   "lobby": {
+    "teamsAutoBalanced": "Teams werden automatisch nach Wertung ausbalanciert",
     "autoStartCountdown": "Automatischer Start in {{countdown}}",
     "joinTeam": "Team {{team}} beitreten ({{count}}/{{capacity}})",
     "teamLocked": "Wähle das kleinere Team",

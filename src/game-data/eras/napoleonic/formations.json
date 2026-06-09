@@ -30,8 +30,8 @@
   {
     "id": "column",
     "frontBackArc": 53,
-    "minFlankAngle": 20,
-    "maxFlankAngle": 125,
+    "minFlankAngle": 25,
+    "maxFlankAngle": 135,
     "collisionCircles": 2,
     "collisionCircleSize": 12,
     "collisionCircleDistance": 4,
@@ -83,7 +83,7 @@
     "rangedDamageResistance": -0.4,
     "rangedOrgResistance": 0.2,
     "chargeResistanceModifier": 0.3,
-    "receivedMeleeDamageModifier": 0.15,
+    "receivedMeleeDamageModifier": 0.05,
     "timeToForm": 0,
     "timeToUnform": 0,
     "formingSpeedModifier": -1,
@@ -141,7 +141,8 @@
     "minMovementModifier": -0.25,
     "disable180Turnaround": true,
     "friendlyFireImmuneDamageTypes": ["musket", "marksman-musket", "rifle"],
-    "projectilePassThrough": 0.3
+    "projectilePassThrough": 0.3,
+    "rangedOrgResistance": 0.35
   },
   {
     "id": "skirmish",

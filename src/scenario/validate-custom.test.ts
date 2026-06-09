@@ -1069,3 +1069,21 @@ describe("validateCustomSprites", () => {
     });
   });
 });
+
+// Built-in data must satisfy the rule the validator enforces on customs:
+// runnable units need numeric runCost/walkMovement or stamina NaN-freezes.
+// The editor clones built-ins, so a broken one (see 10lb_licorne) propagates.
+describe("built-in unit templates satisfy the runnable-unit requirement", () => {
+  for (const eraName of GameDataManager.getAvailableEras()) {
+    const templates = GameDataManager.get(eraName)
+      .getUnitTemplateManager()
+      .getTemplates();
+    for (const t of templates) {
+      if ((t.runMovement ?? 0) <= 0) continue;
+      it(`${eraName}/${t.name} (type ${t.type}) has numeric runCost and walkMovement`, () => {
+        expect(typeof t.runCost).toBe("number");
+        expect(typeof t.walkMovement).toBe("number");
+      });
+    }
+  }
+});

@@ -1,4 +1,8 @@
 {
+  "spectatorDisabledModal": {
+    "title": "İzleyici modu kısıtlı",
+    "message": "Bu maç devam ediyor. Hile yapılmasını önlemek için canlı izleme devre dışı, bu yüzden birlikleri göremezsiniz. Maç bittikten sonra tam tekrarı izleyebilirsiniz."
+  },
   "verified": "Doğrulanmış hesap",
   "tools": "Araçlar",
   "rotateCamera": "Döndür",
@@ -11,6 +15,8 @@
   "language": "Dil",
   "tutorial": "Eğitim",
   "tutorialRequired": "Çevrimiçi oynamadan önce eğitimi tamamlayın",
+  "skipTutorialTitle": "Eğitimi atla",
+  "skipTutorialMessage": "Eğitimin geri kalanını atlayıp menüye dönmek ister misin? Tamamlaman tekrar istenmeyecek.",
   "tutorialRequiredDescription": "Çevrimiçi maçlar için sıraya girmeden önce eğitimi bitirmeniz gerekir.",
   "goToTutorial": "Eğitime git",
   "tutorials": "Öğreticiler",
@@ -319,8 +325,7 @@
   "welcomeModal": {
     "title": "Savaş Çizgilerine Hoş Geldiniz 👋",
     "thanks": "Katıldığınız için teşekkürler, {{name}}!",
-    "p1": "<b>Savaş Çizgileri</b>'nde yeni misiniz? Oyun mekaniklerini öğrenmek ve rahat bir ortamda stratejinizi geliştirmek için bir <offlineLink>çevrimdışı pratik oyunu</offlineLink> ile başlamanızı öneririm.",
-    "p2": "Oyun şu anda beta aşamasında olduğu için, diğer oyuncularla bağlantı kurmak, rakipler bulmak, hataları bildirmek ve oyun deneyimini herkes için iyileştirmek için fikirlerinizi paylaşmak adına <discordLink>Discord sunucusuna</discordLink> katılmaya davetlisiniz!"
+    "p1": "<b>Lines of Battle</b>'da yeni misin? İlk savaşından önce temel mekanikleri öğrenmek için <tutorialLink>eğitimle</tutorialLink> başla."
   },
   "turn": "Tur",
   "bank": "Rezerv",
@@ -555,6 +560,7 @@
   "turningDelay": "Dönüş gecikmesi",
   "allyOverlap": "Müttefik çakışması",
   "lobby": {
+    "teamsAutoBalanced": "Takımlar puana göre otomatik dengelenir",
     "autoStartCountdown": "Otomatik başlangıç: {{countdown}}",
     "joinTeam": "Takım {{team}}'a Katıl ({{count}}/{{capacity}})",
     "teamLocked": "Daha küçük takımı seç",

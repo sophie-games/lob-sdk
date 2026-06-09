@@ -1,4 +1,8 @@
 {
+  "spectatorDisabledModal": {
+    "title": "Modo espectador limitado",
+    "message": "Esta partida ya está en curso. Para evitar trampas, el modo espectador en vivo está deshabilitado, por lo que no verás las unidades. Podrás ver la repetición completa cuando la partida termine."
+  },
   "verified": "Cuenta verificada",
   "tools": "Herramientas",
   "rotateCamera": "Rotar",
@@ -11,6 +15,8 @@
   "language": "Idioma",
   "tutorial": "Tutorial",
   "tutorialRequired": "Completa el tutorial antes de jugar en línea",
+  "skipTutorialTitle": "Saltar tutorial",
+  "skipTutorialMessage": "¿Saltar el resto del tutorial y volver al menú? No se te volverá a pedir que lo completes.",
   "tutorialRequiredDescription": "Debes terminar el tutorial antes de poder ponerte en cola para partidas en línea.",
   "goToTutorial": "Ir al tutorial",
   "tutorials": "Tutoriales",
@@ -321,8 +327,7 @@
   "welcomeModal": {
     "title": "Bienvenido a Lines of Battle 👋!",
     "thanks": "Gracias por sumarte, {{name}}!",
-    "p1": "Sos nuevo en <b>Lines of Battle</b>? Te recomiendo empezar con una <offlineLink>partida de práctica offline</offlineLink> contra un bot para familiarizarte con la mecánica del juego y desarrollar tu estrategia en un ambiente relajado.",
-    "p2": "Como el juego todavía está en beta, te invito a unirte al <discordLink>servidor de Discord</discordLink> para conectarte con otros jugadores, encontrar rivales, reportar bugs y compartir tus ideas para ayudar a mejorar la experiencia para todos."
+    "p1": "¿Nuevo en <b>Lines of Battle</b>? Empieza con el <tutorialLink>tutorial</tutorialLink> para aprender las mecánicas básicas antes de tu primera batalla."
   },
   "turn": "Turno",
   "bank": "Reserva",
@@ -618,6 +623,7 @@
   "round": "Ronda",
   "current": "Actual",
   "lobby": {
+    "teamsAutoBalanced": "Los equipos se equilibran automáticamente por nivel",
     "autoStartCountdown": "Inicio automático en {{countdown}}",
     "joinTeam": "Unirse al Equipo {{team}} ({{count}}/{{capacity}})",
     "teamLocked": "Elige el equipo más pequeño",

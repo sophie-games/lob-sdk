@@ -1,4 +1,8 @@
 {
+  "spectatorDisabledModal": {
+    "title": "Mode spectateur limité",
+    "message": "Cette partie est en cours. Pour empêcher la triche, le mode spectateur en direct est désactivé, vous ne verrez donc pas les unités. Vous pourrez regarder le replay complet une fois la partie terminée."
+  },
   "verified": "Compte vérifié",
   "tools": "Outils",
   "rotateCamera": "Pivoter",
@@ -11,6 +15,8 @@
   "language": "Langue",
   "tutorial": "Tutoriel",
   "tutorialRequired": "Terminez le tutoriel avant de jouer en ligne",
+  "skipTutorialTitle": "Passer le tutoriel",
+  "skipTutorialMessage": "Passer le reste du tutoriel et revenir au menu ? Il ne vous sera plus demandé de le terminer.",
   "tutorialRequiredDescription": "Vous devez terminer le tutoriel avant de pouvoir rejoindre la file d'attente pour les matchs en ligne.",
   "goToTutorial": "Aller au tutoriel",
   "tutorials": "Tutoriels",
@@ -308,8 +314,7 @@
   "welcomeModal": {
     "title": "Bienvenue sur Lines of Battle 👋",
     "thanks": "Merci de nous joindre, {{name}}!",
-    "p1": "Nouveau sur <b>Lines of Battle</b>? je vous recommande de commencer avec une <offlineLink>partie hors-ligne</offlineLink> contre l'ordinateur pour vous familiariser avec les mécaniques dans un environnement calme.",
-    "p2": "Comme le jeu est actuellement en bêta, je vous invite a rejoindre le <discordLink>Serveur Discord</discordLink> pour rencontrer les autres joueurs, trouver des adversaires, signaler les bogues, et partager vos idées pour améliorer l'expérience de jeu!"
+    "p1": "Nouveau sur <b>Lines of Battle</b> ? Commencez par le <tutorialLink>tutoriel</tutorialLink> pour apprendre les mécaniques de base avant votre première bataille."
   },
   "turn": "Tour",
   "bank": "Réserve",
@@ -612,6 +617,7 @@
   "disconnected": "Déconnecté",
   "reconnected": "Reconnecté",
   "lobby": {
+    "teamsAutoBalanced": "Les équipes sont équilibrées automatiquement selon le classement",
     "autoStartCountdown": "Démarrage automatique dans {{countdown}}",
     "joinTeam": "Rejoindre l'équipe {{team}} ({{count}}/{{capacity}})",
     "teamLocked": "Choisissez l'équipe la plus petite",

@@ -703,6 +703,24 @@ export class GameDataManager {
   }
 
   /**
+   * Gets the starting ammo reserve for a dynamic battle type from the game rules.
+   * @param battleType - The dynamic battle type.
+   * @returns The ammo reserve, or 0 if not configured for this battle type.
+   */
+  public getAmmoReserve(battleType: DynamicBattleType): number {
+    return this.getGameRules().ammo?.ammoReserve?.[battleType] ?? 0;
+  }
+
+  /**
+   * Gets the gold-to-ammo conversion rate for a dynamic battle type from the game rules.
+   * @param battleType - The dynamic battle type.
+   * @returns The conversion rate, or 0 if not configured for this battle type.
+   */
+  public getGoldToAmmoRate(battleType: DynamicBattleType): number {
+    return this.getGameRules().ammo?.goldToAmmoRate?.[battleType] ?? 0;
+  }
+
+  /**
    * Gets the maximum number of turns for a battle type, falling back to the
    * era's DEFAULT_MAX_TURN when the battle type is null or has no maxTurn.
    * @param battleType - The dynamic battle type, or null for preset scenarios.

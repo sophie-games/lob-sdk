@@ -1,4 +1,8 @@
 {
+  "spectatorDisabledModal": {
+    "title": "Chế độ xem bị giới hạn",
+    "message": "Trận đấu này đang diễn ra. Để ngăn gian lận, việc xem trực tiếp bị vô hiệu hóa, nên bạn sẽ không thấy các đơn vị. Bạn có thể xem lại toàn bộ trận đấu sau khi nó kết thúc."
+  },
   "verified": "Tài khoản đã xác minh",
   "tools": "Công cụ",
   "rotateCamera": "Xoay",
@@ -11,6 +15,8 @@
   "language": "Ngôn ngữ",
   "tutorial": "Hướng dẫn",
   "tutorialRequired": "Hoàn thành hướng dẫn trước khi chơi trực tuyến",
+  "skipTutorialTitle": "Bỏ qua hướng dẫn",
+  "skipTutorialMessage": "Bỏ qua phần còn lại của hướng dẫn và quay lại menu? Bạn sẽ không được yêu cầu hoàn thành lại.",
   "tutorialRequiredDescription": "Bạn cần hoàn thành hướng dẫn trước khi có thể xếp hàng cho các trận đấu trực tuyến.",
   "goToTutorial": "Đến hướng dẫn",
   "tutorials": "Hướng dẫn",
@@ -359,8 +365,7 @@
   "welcomeModal": {
     "title": "Chào mừng đến với Lines of Battle 👋",
     "thanks": "Cảm ơn bạn đã tham gia, {{name}}!",
-    "p1": "Mới với <b>Lines of Battle</b>? Tôi khuyên bạn nên bắt đầu với <offlineLink>trò chơi luyện tập ngoại tuyến</offlineLink> chống lại bot để làm quen với cơ chế trò chơi và phát triển chiến lược trong môi trường thoải mái.",
-    "p2": "Vì trò chơi hiện đang trong giai đoạn beta, tôi mời bạn tham gia <discordLink>máy chủ Discord</discordLink> để kết nối với người chơi khác, tìm đối thủ để chơi, báo cáo lỗi và chia sẻ ý tưởng để giúp cải thiện trải nghiệm trò chơi cho mọi người!"
+    "p1": "Mới chơi <b>Lines of Battle</b>? Hãy bắt đầu với <tutorialLink>hướng dẫn</tutorialLink> để nắm các cơ chế cốt lõi trước trận đầu tiên của bạn."
   },
   "turn": "Lượt",
   "bank": "Dự trữ",
@@ -572,6 +577,7 @@
     "message": "Bạn có chắc chắn muốn rời <0>{{clanName}}</0>?"
   },
   "lobby": {
+    "teamsAutoBalanced": "Các đội được tự động cân bằng theo xếp hạng",
     "autoStartCountdown": "Tự động bắt đầu sau {{countdown}}",
     "joinTeam": "Tham gia Đội {{team}} ({{count}}/{{capacity}})",
     "teamLocked": "Chọn đội nhỏ hơn",

@@ -1,4 +1,8 @@
 {
+  "spectatorDisabledModal": {
+    "title": "A megfigyelés korlátozott",
+    "message": "Ez a meccs folyamatban van. A csalás megelőzése érdekében az élő megfigyelés le van tiltva, így nem fogod látni az egységeket. A meccs befejezése után megnézheted a teljes visszajátszást."
+  },
   "verified": "Hitelesített fiók",
   "tools": "Eszközök",
   "rotateCamera": "Forgatás",
@@ -11,6 +15,8 @@
   "language": "Nyelv",
   "tutorial": "Tutorial",
   "tutorialRequired": "Fejezd be a tutorialt, mielőtt online játszanál",
+  "skipTutorialTitle": "Oktatóanyag kihagyása",
+  "skipTutorialMessage": "Kihagyod az oktatóanyag további részét és visszatérsz a menübe? Nem fogjuk újra kérni, hogy fejezd be.",
   "tutorialRequiredDescription": "Be kell fejezned a tutorialt, mielőtt sorba állhatnál az online meccsekhez.",
   "goToTutorial": "Ugrás a tutorialra",
   "tutorials": "Oktatóanyagok",
@@ -319,8 +325,7 @@
   "welcomeModal": {
     "title": "Üdv a Lines of Battle játékban 👋",
     "thanks": "Köszönöm, hogy csatlakoztál, {{name}}!",
-    "p1": "Új vagy a <b>Lines of Battle</b>-ben? Javaslom, hogy először vessd próbára magad az <offlineLink>offline gyakorlásban</offlineLink> botok ellen, hogy megismerkedj a játékmechanikákkal, és hogy kidolgozhasd a stragédiádat egy nyugodt környezetben.",
-    "p2": "Mivel a játék még bétában van, meghívlak, hogy csatlakozz a <discordLink>Discord szerverünkre</discordLink> hogy részesévé válj a közösségnek, könnyebben találj ellenfeleket, hibákat jelenthess, és hogy mindenkivel megoszthatsd az ötleteidet a játékélmény javításáról!"
+    "p1": "Új vagy a <b>Lines of Battle</b> világában? Kezdd az <tutorialLink>oktatóanyaggal</tutorialLink>, hogy megismerd az alapvető mechanikákat az első csatád előtt."
   },
   "turn": "Kör",
   "bank": "Tartalék",
@@ -619,6 +624,7 @@
     "linkingAccount": "Discord fiók összekapcsolása..."
   },
   "lobby": {
+    "teamsAutoBalanced": "A csapatokat értékelés alapján automatikusan kiegyensúlyozzuk",
     "autoStartCountdown": "Automatikus indítás {{countdown}} múlva",
     "joinTeam": "Csatlakozás a {{team}}. csapathoz ({{count}}/{{capacity}})",
     "teamLocked": "Válaszd a kisebb csapatot",

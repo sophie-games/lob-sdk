@@ -16,10 +16,6 @@
     "rearFire": {
       "orgModifier": 1.5
     },
-    "autofirePriority": {
-      "artillery": 1,
-      "skirmishInfantry": 0
-    },
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
     "allowedOrders": [
@@ -49,10 +45,6 @@
     "rearFire": {
       "orgModifier": 1.5
     },
-    "autofirePriority": {
-      "artillery": 1,
-      "skirmishInfantry": -1
-    },
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
     "allowedOrders": [
@@ -77,7 +69,7 @@
     "damageTypeResistances": {
       "bayonet": 0,
       "cavalry-sabre": 0,
-      "cavalry-lance": 0.3,
+      "cavalry-lance": 0.15,
       "musket": -0.5,
       "marksman-musket": -0.35,
       "rifle": -0.35,
@@ -101,7 +93,9 @@
       "18lb-canister-fire": -0.4,
       "6lb-canister-fire": -0.4,
       "4lb-canister-fire": -0.4,
-      "howitzer-canister": -0.4
+      "howitzer-canister": -0.4,
+      "cavalry-sword": 0,
+      "dragoon-sword": 0
     },
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
@@ -183,7 +177,7 @@
     },
     "damageTypeResistances": {
       "bayonet": 0,
-      "cavalry-lance": 0.3,
+      "cavalry-lance": 0.15,
       "dragoon-sword": 0,
       "cavalry-sword": 0,
       "musket": -0.6,
@@ -208,7 +202,8 @@
       "18lb-canister-fire": -0.4,
       "6lb-canister-fire": -0.4,
       "4lb-canister-fire": -0.4,
-      "howitzer-canister": -0.4
+      "howitzer-canister": -0.4,
+      "cavalry-sabre": 0
     },
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
@@ -233,7 +228,7 @@
     },
     "damageTypeResistances": {
       "bayonet": 0,
-      "cavalry-lance": 0.3,
+      "cavalry-lance": 0.15,
       "cavalry-sword": 0,
       "dragoon-sword": 0,
       "cavalry-sabre": 0,
@@ -285,7 +280,7 @@
     "damageTypeResistances": {
       "bayonet": 0,
       "cavalry-sabre": 0,
-      "cavalry-lance": 0.3,
+      "cavalry-lance": 0.15,
       "dragoon-sword": 0,
       "musket": -0.5,
       "marksman-musket": -0.35,
@@ -309,7 +304,8 @@
       "18lb-canister-fire": -0.4,
       "6lb-canister-fire": -0.4,
       "4lb-canister-fire": -0.4,
-      "howitzer-canister": -0.4
+      "howitzer-canister": -0.4,
+      "cavalry-sword": 0
     },
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
@@ -397,7 +393,7 @@
       "6lb-canister-fire": 0.75,
       "4lb-cannon-ball-long": 0.75,
       "4lb-cannon-ball": 0.75,
-      "4lb-canister-fire": 0.05,
+      "4lb-canister-fire": 0.75,
       "explosive-shell": 0.75,
       "howitzer-canister": 0.75,
       "rocket": 0.9,
@@ -430,6 +426,13 @@
     },
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
+    "enfiladeFire": {
+      "damageModifier": 0.5,
+      "orgModifier": 0.5
+    },
+    "rearFire": {
+      "orgModifier": 2.0
+    },
     "forwardOnlyMovement": true,
     "portraitRotation": 0,
     "allowedOrders": [

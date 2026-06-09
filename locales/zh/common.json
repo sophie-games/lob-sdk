@@ -1,4 +1,8 @@
 {
+  "spectatorDisabledModal": {
+    "title": "观战受限",
+    "message": "本场对局正在进行中。为防止作弊，实时观战已被禁用，因此你将看不到单位。对局结束后，你可以观看完整回放。"
+  },
   "verified": "已验证账户",
   "tools": "工具",
   "rotateCamera": "旋转",
@@ -11,6 +15,8 @@
   "language": "语言",
   "tutorial": "教程",
   "tutorialRequired": "在线游戏前请先完成教程",
+  "skipTutorialTitle": "跳过教程",
+  "skipTutorialMessage": "跳过剩余的教程并返回菜单？系统不会再要求你完成它。",
   "tutorialRequiredDescription": "您需要先完成教程,然后才能排队进行在线对战。",
   "goToTutorial": "前往教程",
   "tutorials": "教程",
@@ -364,8 +370,7 @@
   "welcomeModal": {
     "title": "欢迎来到 战线统帅：拿破仑 👋",
     "thanks": "欢迎您的加入，{{name}}！",
-    "p1": "是第一次玩<b>战线统帅：拿破仑</b>吗？推荐你先试着和电脑玩一局<offlineLink>离线对局</offlineLink>以熟悉游戏机制并在较为轻松的环境下研究你的战术。",
-    "p2": "由于这个游戏尚在beta测试阶段，欢迎你加入我们的<discordLink>Discord服务器</discordLink>和其它玩家一起交流讨论，互相对局，报告bug，以及分享你对游戏建议，让大家的游戏体验越来越好！"
+    "p1": "初次接触 <b>Lines of Battle</b>？先从<tutorialLink>教程</tutorialLink>开始，在首场战斗前掌握核心机制。"
   },
   "turn": "回合",
   "bank": "储备",
@@ -578,6 +583,7 @@
   "checkingUpdates": "检查更新……",
   "arenas": "竞技场",
   "lobby": {
+    "teamsAutoBalanced": "队伍将根据评分自动平衡",
     "autoStartCountdown": "{{countdown}} 后自动开始",
     "joinTeam": "加入队伍 {{team}} ({{count}}/{{capacity}})",
     "teamLocked": "选择人数较少的队伍",
