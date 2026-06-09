@@ -386,8 +386,11 @@ export abstract class BaseUnit extends Entity {
     return this.team === unit.team;
   }
 
-  calculateCollisionShapes(position = this.position): Circle[] {
-    const formationTemplate = this.gameDataManager.getFormationManager().getTemplate(this.currentFormation);
+  calculateCollisionShapes(
+    position = this.position,
+    formationId: string = this.currentFormation,
+  ): Circle[] {
+    const formationTemplate = this.gameDataManager.getFormationManager().getTemplate(formationId);
 
     let collisionCircles: number;
     let collisionCircleSize: number;
