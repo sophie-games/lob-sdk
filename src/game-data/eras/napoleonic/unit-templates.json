@@ -46,8 +46,8 @@
     "formations": [
       {
         "id": "line",
-        "baseSprite": "mass",
-        "overlaySprite": "infantry",
+        "baseSprite": "line",
+        "overlaySprite": "infantry-line",
         "changeAnimations": {
           "square": "mass-square",
           "column": "mass-column"
@@ -233,8 +233,8 @@
     "formations": [
       {
         "id": "line",
-        "baseSprite": "mass",
-        "overlaySprite": "guards",
+        "baseSprite": "line",
+        "overlaySprite": "guards-line",
         "changeAnimations": {
           "square": "mass-square",
           "column": "mass-column"
@@ -425,8 +425,8 @@
     "formations": [
       {
         "id": "line",
-        "baseSprite": "mass",
-        "overlaySprite": "chasseurs",
+        "baseSprite": "line",
+        "overlaySprite": "chasseurs-line",
         "changeAnimations": {
           "square": "mass-square",
           "column": "mass-column"
@@ -611,8 +611,8 @@
     "formations": [
       {
         "id": "militia_line",
-        "baseSprite": "militia",
-        "overlaySprite": "militia"
+        "baseSprite": "militia-line",
+        "overlaySprite": "militia-line"
       }
     ],
     "pushStrength": 8,
@@ -830,8 +830,8 @@
     "formations": [
       {
         "id": "line",
-        "baseSprite": "mass",
-        "overlaySprite": "grenadiers",
+        "baseSprite": "line",
+        "overlaySprite": "grenadiers-line",
         "changeAnimations": {
           "square": "mass-square",
           "column": "mass-column"
