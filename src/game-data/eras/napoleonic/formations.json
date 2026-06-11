@@ -4,17 +4,17 @@
     "frontBackArc": 126.87,
     "minFlankAngle": 50,
     "maxFlankAngle": 170,
-    "collisionCircles": 3,
-    "collisionCircleSize": 10,
+    "collisionCircles": 4,
+    "collisionCircleSize": 8,
     "fireFacets": [
-      { "x": 5, "y": -10 },
-      { "x": 5, "y": 0 },
-      { "x": 5, "y": 10 }
+      { "x": 4, "y": -11 },
+      { "x": 4, "y": 0 },
+      { "x": 4, "y": 11 }
     ],
     "checkPoints": [
       { "x": 0, "y": 0, "weight": 1 },
-      { "x": 0, "y": -10, "weight": 1 },
-      { "x": 0, "y": 10, "weight": 1 }
+      { "x": 0, "y": -11, "weight": 1 },
+      { "x": 0, "y": 11, "weight": 1 }
     ],
     "shootingAngle": 90,
     "shootingMaxTargets": 1,
@@ -34,8 +34,8 @@
     "maxFlankAngle": 135,
     "collisionCircles": 2,
     "collisionCircleSize": 14,
-    "collisionCircleDistance": 0,
-    "fireFacets": [{ "x": 7, "y": 0 }],
+    "collisionCircleDistance": 4,
+    "fireFacets": [{ "x": 9, "y": 0 }],
     "collisionCirclesVertical": true,
     "checkPoints": [{ "x": 0, "y": 0, "weight": 1 }],
     "movementModifier": 0.15,
@@ -61,7 +61,7 @@
     "minFlankAngle": 180,
     "maxFlankAngle": 180,
     "collisionCircles": 1,
-    "collisionCircleSize": 14,
+    "collisionCircleSize": 16,
     "movementModifier": -1,
     "runMovementModifier": -1,
     "rotationSpeedModifier": 20,
@@ -75,10 +75,10 @@
     "shootingAngleMargin": 45,
     "shootingSides": 4,
     "fireFacets": [
-      { "x": 7, "y": 0, "angleOffset": 0 },
-      { "x": 0, "y": 7, "angleOffset": 90 },
-      { "x": -7, "y": 0, "angleOffset": 180 },
-      { "x": 0, "y": -7, "angleOffset": -90 }
+      { "x": 8, "y": 0, "angleOffset": 0 },
+      { "x": 0, "y": 8, "angleOffset": 90 },
+      { "x": -8, "y": 0, "angleOffset": 180 },
+      { "x": 0, "y": -8, "angleOffset": -90 }
     ],
     "rangedDamageResistance": -0.4,
     "rangedOrgResistance": 0.2,
@@ -125,17 +125,18 @@
     "maxFlankAngle": 180,
     "collisionCircles": 2,
     "collisionCircleSize": 12,
+    "collisionCirclesVertical": true,
     "checkPoints": [
-      { "x": 0, "y": -6, "weight": 1 },
-      { "x": 0, "y": 6, "weight": 1 }
+      { "x": 0, "y": -3, "weight": 1 },
+      { "x": 0, "y": 3, "weight": 1 }
     ],
     "disablesFlankMelee": true,
     "disablesEnfiladeFire": true,
     "disablesRearFire": true,
     "shootingAngle": 60,
     "fireFacets": [
-      { "x": 6, "y": -6 },
-      { "x": 6, "y": 6 }
+      { "x": 12, "y": -3 },
+      { "x": 12, "y": 3 }
     ],
     "shootingMaxTargets": 1,
     "minMovementModifier": -0.25,
@@ -150,15 +151,16 @@
     "minFlankAngle": 180,
     "maxFlankAngle": 180,
     "checkPoints": [
-      { "x": 0, "y": -6, "weight": 1 },
-      { "x": 0, "y": 6, "weight": 1 }
+      { "x": 0, "y": -2, "weight": 1 },
+      { "x": 0, "y": 2, "weight": 1 }
     ],
-    "collisionCircles": 2,
-    "collisionCircleSize": 12,
+    "collisionCircles": 3,
+    "collisionCircleSize": 8,
+    "collisionCirclesVertical": true,
     "shootingSides": 2,
     "fireFacets": [
-      { "x": 0, "y": -6 },
-      { "x": 0, "y": 6 }
+      { "x": 0, "y": -2 },
+      { "x": 0, "y": 2 }
     ],
     "disablesFlankMelee": true,
     "disablesEnfiladeFire": true,
@@ -200,15 +202,16 @@
     "frontBackArc": 126.87,
     "minFlankAngle": 75,
     "fireFacets": [
-      { "x": 0, "y": -6 },
-      { "x": 0, "y": 6 }
+      { "x": 0, "y": -4 },
+      { "x": 0, "y": 4 }
     ],
     "maxFlankAngle": 145,
     "collisionCircles": 2,
     "collisionCircleSize": 12,
+    "collisionCircleDistance": 4,
     "checkPoints": [
-      { "x": 0, "y": -6, "weight": 1 },
-      { "x": 0, "y": 6, "weight": 1 }
+      { "x": 0, "y": -4, "weight": 1 },
+      { "x": 0, "y": 4, "weight": 1 }
     ],
     "disablesEnfiladeFire": true,
     "disablesFlankMelee": false,
