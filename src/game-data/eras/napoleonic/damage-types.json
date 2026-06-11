@@ -890,7 +890,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 9600,
+    "ammoCost": 10000,
     "extendRange": false
   },
   {
@@ -939,7 +939,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 7200,
+    "ammoCost": 9000,
     "extendRange": false
   },
   {
@@ -1103,7 +1103,7 @@
     "orgModifierByTargetOrg": {
       "start": 0.9,
       "end": 0.5,
-      "modifier": -0.6
+      "modifier": -0.4
     },
     "ranges": [
       {
