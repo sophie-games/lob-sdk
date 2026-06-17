@@ -1,4 +1,5 @@
 {
+  "searchByName": "Nach Name suchen",
   "spectatorDisabledModal": {
     "title": "Zuschauen eingeschränkt",
     "message": "Dieses Spiel läuft bereits. Um Betrug zu verhindern, ist das Live-Zuschauen deaktiviert, daher siehst du die Einheiten nicht. Sobald das Spiel endet, kannst du die vollständige Wiederholung ansehen."
@@ -72,6 +73,16 @@
   "unranked": "Unbewertet",
   "cancel": "Abbrechen",
   "change": "Ändern",
+  "opponentLeagues": {
+    "modalTitle": "Erweiterte Einstellungen",
+    "title": "Gegnerische Ligen",
+    "tooltip": "Erweiterte Optionen",
+    "auto": "Automatisch (Standard)",
+    "autoDescription": "Der Suchbereich erweitert sich mit der Zeit, bis ein Gegner gefunden wird.",
+    "fixed": "Fester Liga-Bereich",
+    "fixedDescription": "Nur Gegner aus den gewählten Ligen.",
+    "done": "Fertig"
+  },
   "matchmakingQueue": {
     "inQueue": "Sie sind nun in der Warteschlange für das Spielsuche. Das System sucht einen anderen Spieler, der die gleichen Optionen gewählt hat wie Sie.",
     "matchFound": "Sobald ein Spiel gefunden wurde, werden Sie zu diesem weitergeleitet.",
@@ -92,6 +103,7 @@
     "rapid": "Schnell",
     "marathon": "Marathon"
   },
+  "maps": "Karten",
   "battleType": "Schlachttypen",
   "matchmaking": "Spielsuche",
   "addMatchmakingConfig": "Matchmaking-Konfiguration hinzufügen",
@@ -125,6 +137,7 @@
   "createCustomGame": "Ein benutzerdefiniertes Spiel erstellen",
   "maxTurn": "Letzte Runde",
   "player": "Spieler",
+  "power": "Stärke",
   "units": "Einheiten",
   "unitSkins": "Einheiten Kosmetika",
   "avatars": "Avatare",
@@ -197,6 +210,7 @@
   "forUnit": "Für {{unit}}",
   "maxUnitSkinsSelected": "Max. {{max}} Skins pro Typ",
   "select": "Auswählen",
+  "edit": "Bearbeiten",
   "selectAll": "Alle auswählen",
   "deselect": "Abwählen",
   "removeFromSelectionTooltip": "Aus Auswahl entfernen – Einheit anklicken zum Entfernen",
@@ -437,11 +451,6 @@
   },
   "offline": "Offline",
   "offlineDescription": "Übe gegen Bots und spiele Hotseat mit Freunden auf dem gleichen Gerät!",
-  "premiumCurrencyLeaderboard": {
-    "title": "<premiumCurrency/> Bestenliste",
-    "subtitle": "Wer hat am meisten <premiumCurrency/>?",
-    "description": "Sie wollen der allerbeste sein? <storeLink>Gehe Sie zum Laden</storeLink> und holen Sie sich<premiumCurrency/>!"
-  },
   "team": "Team",
   "teams": "Teams",
   "playerType": "Spielertyp",
@@ -736,6 +745,18 @@
     "totalGames_other": "{{count}} Spiele",
     "totalArenas_one": "1 Arena",
     "totalArenas_other": "{{count}} Arenen"
+  },
+  "profileAnalytics": {
+    "title": "Erweiterte Statistiken",
+    "last90Days": "Gewertete Spiele der letzten 90 Tage",
+    "byBattleType": "Leistung nach Schlachttyp",
+    "byUnitType": "Leistung nach Einheitentyp",
+    "games": "Spiele",
+    "noData": "Noch keine gewerteten Spiele",
+    "locked": "Erweiterte Statistiken freischalten",
+    "damageDealt": "Verursacht",
+    "damageReceived": "Erhalten",
+    "winrate": "Siegrate"
   },
   "league": {
     "title": "Liga",

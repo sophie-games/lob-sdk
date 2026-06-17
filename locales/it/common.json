@@ -1,4 +1,5 @@
 {
+  "searchByName": "Cerca per nome",
   "spectatorDisabledModal": {
     "title": "Visione spettatore limitata",
     "message": "Questa partita è in corso. Per prevenire imbrogli, la visione in diretta da spettatore è disattivata, quindi non vedrai le unità. Potrai guardare il replay completo al termine della partita."
@@ -72,6 +73,16 @@
   "unranked": "Non Classificato",
   "cancel": "Annulla",
   "change": "Cambia",
+  "opponentLeagues": {
+    "modalTitle": "Impostazioni avanzate",
+    "title": "Leghe avversarie",
+    "tooltip": "Opzioni avanzate",
+    "auto": "Auto (predefinito)",
+    "autoDescription": "L'intervallo di ricerca si allarga nel tempo finché non trova una partita.",
+    "fixed": "Intervallo di leghe fisso",
+    "fixedDescription": "Affronta solo avversari delle leghe scelte.",
+    "done": "Fatto"
+  },
   "matchmakingQueue": {
     "inQueue": "Sei ora nella coda di matchmaking! Il sistema sta cercando un altro giocatore che ha selezionato le stesse impostazioni di te.",
     "matchFound": "Una volta trovato un avversario, sarai reindirizzato al gioco.",
@@ -92,6 +103,7 @@
     "rapid": "Rapido",
     "marathon": "Maratona"
   },
+  "maps": "Mappe",
   "battleType": "Tipo di battaglia",
   "matchmaking": "Matchmaking",
   "addMatchmakingConfig": "Aggiungi configurazione matchmaking",
@@ -125,6 +137,7 @@
   "createCustomGame": "Crea gioco personalizzato",
   "maxTurn": "Turno massimo",
   "player": "Giocatore",
+  "power": "Potenza",
   "units": "Unità",
   "unitSkins": "Skin delle unità",
   "avatars": "Avatar",
@@ -197,6 +210,7 @@
   "forUnit": "Per {{unit}}",
   "maxUnitSkinsSelected": "Max {{max}} skin per tipo",
   "select": "Seleziona",
+  "edit": "Modifica",
   "selectAll": "Seleziona tutto",
   "deselect": "Deseleziona",
   "removeFromSelectionTooltip": "Rimuovi dalla selezione – clicca su un'unità per rimuoverla",
@@ -437,11 +451,6 @@
   },
   "offline": "Offline",
   "offlineDescription": "Esercitati contro i bot e gioca in modalità hotseat con amici sullo stesso dispositivo!",
-  "premiumCurrencyLeaderboard": {
-    "title": "<premiumCurrency/> Classifica",
-    "subtitle": "Chi ha il maggior numero di <premiumCurrency/>?",
-    "description": "Vuoi essere il primo? <storeLink>Vai al negozio</storeLink> e ottieni <premiumCurrency/>!"
-  },
   "team": "Squadra",
   "teams": "Squadre",
   "playerType": "Tipo di giocatore",
@@ -737,6 +746,18 @@
     "totalGames_other": "{{count}} partite",
     "totalArenas_one": "1 arena",
     "totalArenas_other": "{{count}} arene"
+  },
+  "profileAnalytics": {
+    "title": "Statistiche avanzate",
+    "last90Days": "Partite classificate degli ultimi 90 giorni",
+    "byBattleType": "Prestazioni per tipo di battaglia",
+    "byUnitType": "Prestazioni per tipo di unità",
+    "games": "Partite",
+    "noData": "Ancora nessuna partita classificata",
+    "locked": "Sblocca le statistiche avanzate",
+    "damageDealt": "Inflitti",
+    "damageReceived": "Subiti",
+    "winrate": "Winrate"
   },
   "league": {
     "title": "Lega",

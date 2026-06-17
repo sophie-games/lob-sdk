@@ -1,4 +1,5 @@
 {
+  "searchByName": "Search by name",
   "spectatorDisabledModal": {
     "title": "Spectating is limited",
     "message": "This match is in progress. To prevent cheating, live spectating is disabled, so you won't see the units. You'll be able to watch the full replay once the match ends."
@@ -69,6 +70,16 @@
   "or": "Or",
   "cancel": "Cancel",
   "change": "Change",
+  "opponentLeagues": {
+    "modalTitle": "Advanced settings",
+    "title": "Opponent leagues",
+    "tooltip": "Advanced options",
+    "auto": "Auto (default)",
+    "autoDescription": "The search range widens over time until a match is found.",
+    "fixed": "Fixed league range",
+    "fixedDescription": "Only match opponents in the chosen leagues.",
+    "done": "Done"
+  },
   "matchmakingQueue": {
     "inQueue": "You are now in the matchmaking queue! The system is searching for another player who has selected the same settings as you.",
     "matchFound": "Once a match is found, you will be redirected to the game.",
@@ -89,6 +100,7 @@
     "rapid": "Rapid",
     "marathon": "Marathon"
   },
+  "maps": "Maps",
   "battleType": "Battle type",
   "matchmaking": "Matchmaking",
   "addMatchmakingConfig": "Add matchmaking configuration",
@@ -136,6 +148,7 @@
   "maxTurn": "Max turn",
   "seed": "Seed",
   "player": "Player",
+  "power": "Power",
   "units": "Units",
   "unitSkins": "Unit Skins",
   "objectiveSkins": "Objective Skins",
@@ -210,6 +223,7 @@
   "forUnit": "For {{unit}}",
   "maxUnitSkinsSelected": "Max {{max}} skins per type",
   "select": "Select",
+  "edit": "Edit",
   "selectAll": "Select All",
   "deselect": "Deselect",
   "removeFromSelectionTooltip": "Remove from selection – click a unit to remove it",
@@ -485,11 +499,6 @@
   },
   "offline": "Offline",
   "offlineDescription": "Practice against bots and play hotseat with friends on the same device!",
-  "premiumCurrencyLeaderboard": {
-    "title": "<premiumCurrency/> Leaderboard",
-    "subtitle": "Who has the greatest <premiumCurrency/>?",
-    "description": "Want to be the first? <storeLink>Go to the store</storeLink> and get <premiumCurrency/>!"
-  },
   "team": "Team",
   "teams": "Teams",
   "playerType": "Player type",
@@ -974,6 +983,18 @@
     "totalGames_other": "{{count}} games",
     "totalArenas_one": "1 arena",
     "totalArenas_other": "{{count}} arenas"
+  },
+  "profileAnalytics": {
+    "title": "Advanced stats",
+    "last90Days": "Ranked games in the last 90 days",
+    "byBattleType": "Performance by battle type",
+    "byUnitType": "Performance by unit type",
+    "games": "Games",
+    "noData": "No ranked games yet",
+    "locked": "Unlock advanced stats",
+    "damageDealt": "Dealt",
+    "damageReceived": "Taken",
+    "winrate": "Winrate"
   },
   "tutorialSummary": {
     "heading": "Tutorial summary",

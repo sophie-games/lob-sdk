@@ -1,4 +1,5 @@
 {
+  "searchByName": "Szukaj według nazwy",
   "spectatorDisabledModal": {
     "title": "Obserwowanie ograniczone",
     "message": "Ta gra jest w toku. Aby zapobiec oszustwom, obserwowanie na żywo jest wyłączone, więc nie zobaczysz jednostek. Pełną powtórkę będzie można obejrzeć po zakończeniu gry."
@@ -73,6 +74,16 @@
   "unranked": "Nierankingowe",
   "cancel": "Anuluj",
   "change": "Zmień",
+  "opponentLeagues": {
+    "modalTitle": "Ustawienia zaawansowane",
+    "title": "Ligi przeciwników",
+    "tooltip": "Opcje zaawansowane",
+    "auto": "Auto (domyślnie)",
+    "autoDescription": "Zakres wyszukiwania poszerza się z czasem, aż znajdzie przeciwnika.",
+    "fixed": "Stały zakres lig",
+    "fixedDescription": "Tylko przeciwnicy z wybranych lig.",
+    "done": "Gotowe"
+  },
   "matchmakingQueue": {
     "inQueue": "Jesteś teraz w kolejce do losowej partii! System szuka gracza, który wybrał te same ustawienia co ty.",
     "matchFound": "Gdy partia zostanie znaleziona, system przekieruje cię do partii.",
@@ -93,6 +104,7 @@
     "rapid": "Szybka",
     "marathon": "Maraton"
   },
+  "maps": "Mapy",
   "battleType": "Tryb bitwy",
   "matchmaking": "Losowa Partia",
   "addMatchmakingConfig": "Dodaj konfigurację matchmakingu",
@@ -126,6 +138,7 @@
   "createCustomGame": "Stwórz Niestandardową Partię.",
   "maxTurn": "Maksymalna ilość tur",
   "player": "Gracz",
+  "power": "Siła",
   "units": "Jednostki",
   "unitSkins": "Skórki Jednostek",
   "objectiveSkins": "Skórki celi",
@@ -200,6 +213,7 @@
   "forUnit": "Dla {{unit}}",
   "maxUnitSkinsSelected": "Maks. {{max}} skiny na typ",
   "select": "Wybierz",
+  "edit": "Edytuj",
   "selectAll": "Zaznacz wszystko",
   "deselect": "Anuluj Wybór",
   "removeFromSelectionTooltip": "Usuń z zaznaczenia – kliknij jednostkę, aby ją usunąć",
@@ -458,11 +472,6 @@
   },
   "offline": "Offline",
   "offlineDescription": "Ćwicz z botami i graj ze znajomymi na tym samym urządzeniu!",
-  "premiumCurrencyLeaderboard": {
-    "title": "Tabela <premiumCurrency/>",
-    "subtitle": "Kto ma najwięcej <premiumCurrency/>?",
-    "description": "Chcesz być na pierwszym miejscu? <storeLink>Wejdź do sklepu</storeLink> i kup <premiumCurrency/>!"
-  },
   "team": "Drużyna",
   "teams": "Drużyny",
   "playerType": "Rodzaj Gracza",
@@ -885,6 +894,18 @@
     "totalArenas_few": "{{count}} areny",
     "totalArenas_many": "{{count}} aren",
     "totalArenas_other": "{{count}} areny"
+  },
+  "profileAnalytics": {
+    "title": "Statystyki zaawansowane",
+    "last90Days": "Gry rankingowe z ostatnich 90 dni",
+    "byBattleType": "Wyniki według typu bitwy",
+    "byUnitType": "Wyniki według typu jednostki",
+    "games": "Gry",
+    "noData": "Brak gier rankingowych",
+    "locked": "Odblokuj zaawansowane statystyki",
+    "damageDealt": "Zadane",
+    "damageReceived": "Otrzymane",
+    "winrate": "Winrate"
   },
   "tutorialSummary": {
     "heading": "Podsumowanie samouczka",

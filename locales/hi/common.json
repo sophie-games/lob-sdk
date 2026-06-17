@@ -1,4 +1,5 @@
 {
+  "searchByName": "नाम से खोजें",
   "spectatorDisabledModal": {
     "title": "दर्शक मोड सीमित है",
     "message": "यह मैच चल रहा है। धोखाधड़ी रोकने के लिए, लाइव दर्शक मोड बंद है, इसलिए आपको यूनिट्स नहीं दिखेंगी। मैच समाप्त होने के बाद आप पूरा रीप्ले देख सकेंगे।"
@@ -73,6 +74,16 @@
   "or": "या",
   "cancel": "रद्द करें",
   "change": "बदलें",
+  "opponentLeagues": {
+    "modalTitle": "उन्नत सेटिंग्स",
+    "title": "प्रतिद्वंद्वी लीग",
+    "tooltip": "उन्नत विकल्प",
+    "auto": "स्वतः (डिफ़ॉल्ट)",
+    "autoDescription": "मैच मिलने तक खोज सीमा समय के साथ बढ़ती जाती है।",
+    "fixed": "निश्चित लीग सीमा",
+    "fixedDescription": "केवल चुनी गई लीग के प्रतिद्वंद्वियों से मुकाबला।",
+    "done": "हो गया"
+  },
   "matchmakingQueue": {
     "inQueue": "आप अब मैचमेकिंग कतार में हैं! सिस्टम आपके समान सेटिंग्स वाले दूसरे खिलाड़ी की खोज कर रहा है।",
     "matchFound": "एक बार मैच मिल जाने पर, आपको खेल में पुनर्निर्देशित किया जाएगा।",
@@ -93,6 +104,7 @@
     "rapid": "रैपिड",
     "marathon": "मैराथन"
   },
+  "maps": "मानचित्र",
   "battleType": "युद्ध प्रकार",
   "matchmaking": "मैचमेकिंग",
   "addMatchmakingConfig": "मैचमेकिंग कॉन्फ़िगरेशन जोड़ें",
@@ -135,6 +147,7 @@
   "maxTurn": "अधिकतम चाल",
   "seed": "सीड",
   "player": "खिलाड़ी",
+  "power": "शक्ति",
   "units": "इकाइयाँ",
   "unitSkins": "यूनिट स्किन्स",
   "objectiveSkins": "उद्देश्य स्किन्स",
@@ -209,6 +222,7 @@
   "forUnit": "{{unit}} के लिए",
   "maxUnitSkinsSelected": "प्रति प्रकार अधिकतम {{max}} स्किन",
   "select": "चुनें",
+  "edit": "संपादित करें",
   "selectAll": "सभी चुनें",
   "deselect": "अचयनित करें",
   "removeFromSelectionTooltip": "चयन से हटाएं – हटाने के लिए इकाई पर क्लिक करें",
@@ -482,11 +496,6 @@
   },
   "offline": "ऑफलाइन",
   "offlineDescription": "बॉट्स के खिलाफ अभ्यास करें और एक ही डिवाइस पर दोस्तों के साथ हॉटसीट खेलें!",
-  "premiumCurrencyLeaderboard": {
-    "title": "<premiumCurrency/> लीडरबोर्ड",
-    "subtitle": "किसके पास सबसे अधिक <premiumCurrency/> है?",
-    "description": "पहले बनना चाहते हैं? <storeLink>स्टोर पर जाएं</storeLink> और <premiumCurrency/> प्राप्त करें!"
-  },
   "team": "टीम",
   "teams": "टीमें",
   "playerType": "खिलाड़ी प्रकार",
@@ -956,6 +965,18 @@
     "totalGames_other": "{{count}} गेम",
     "totalArenas_one": "1 अरेना",
     "totalArenas_other": "{{count}} अरेना"
+  },
+  "profileAnalytics": {
+    "title": "उन्नत आँकड़े",
+    "last90Days": "पिछले 90 दिनों के रैंक मैच",
+    "byBattleType": "युद्ध प्रकार के अनुसार प्रदर्शन",
+    "byUnitType": "इकाई प्रकार के अनुसार प्रदर्शन",
+    "games": "खेल",
+    "noData": "अभी तक कोई रैंक मैच नहीं",
+    "locked": "उन्नत आँकड़े अनलॉक करें",
+    "damageDealt": "दिया गया",
+    "damageReceived": "प्राप्त",
+    "winrate": "जीत दर"
   },
   "tutorialSummary": {
     "heading": "ट्यूटोरियल सारांश",

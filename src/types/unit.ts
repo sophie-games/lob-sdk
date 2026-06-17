@@ -78,6 +78,16 @@ export interface UnitDto {
   f?: string;
 
   /**
+   * Pending formation id, set while a formation change is in progress.
+   */
+  pf?: string;
+
+  /**
+   * Remaining ticks until the pending formation change completes.
+   */
+  pft?: number;
+
+  /**
    * Entrenchment level.
    */
   en?: number;
@@ -284,14 +294,20 @@ export interface RangeUnitTemplate extends BaseUnitTemplate {
 export type UnitTemplate = Readonly<BaseUnitTemplate | RangeUnitTemplate>;
 export type UnitTemplates = Record<UnitType, UnitTemplate>;
 
+/** Discriminates a collision footprint: a circle or a rotated rectangle (OBB). */
+export enum CollisionShapeType {
+  Circle,
+  Obb,
+}
+
 /**
- * A formation's collision footprint, discriminated by which fields are present: a
- * rotated rectangle (`{ frontage, depth }`, turns with the unit) or a circle
- * (`{ radius }`). One shape per unit; resolve it through `getCollisionConfig`.
+ * A formation's collision footprint, discriminated by `type`: a rotated rectangle
+ * (`Obb`, `{ frontage, depth }`, turns with the unit) or a circle (`Circle`,
+ * `{ radius }`). One shape per unit; resolve it through `getCollisionConfig`.
  */
 export type CollisionShapeConfig =
-  | { frontage: number; depth: number }
-  | { radius: number };
+  | { type: CollisionShapeType.Obb; frontage: number; depth: number }
+  | { type: CollisionShapeType.Circle; radius: number };
 
 /**
  * A ranged-fire emitter mounted on one edge of the unit's OBB (edge-fire model).

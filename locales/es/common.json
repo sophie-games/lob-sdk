@@ -1,4 +1,5 @@
 {
+  "searchByName": "Buscar por nombre",
   "spectatorDisabledModal": {
     "title": "Modo espectador limitado",
     "message": "Esta partida ya está en curso. Para evitar trampas, el modo espectador en vivo está deshabilitado, por lo que no verás las unidades. Podrás ver la repetición completa cuando la partida termine."
@@ -61,6 +62,16 @@
   "unranked": "No Clasificado",
   "cancel": "Cancelar",
   "change": "Cambiar",
+  "opponentLeagues": {
+    "modalTitle": "Configuración avanzada",
+    "title": "Ligas rivales",
+    "tooltip": "Opciones avanzadas",
+    "auto": "Automático (por defecto)",
+    "autoDescription": "El rango de búsqueda se amplía con el tiempo hasta encontrar partida.",
+    "fixed": "Rango de ligas fijo",
+    "fixedDescription": "Solo te enfrentas a rivales de las ligas elegidas.",
+    "done": "Listo"
+  },
   "matchmakingQueue": {
     "inQueue": "¡Ahora estás en la cola de emparejamiento! El sistema está buscando otro jugador que haya seleccionado las mismas configuraciones que tú.",
     "matchFound": "Una vez que se encuentre un emparejamiento, serás redirigido al juego.",
@@ -81,6 +92,7 @@
     "rapid": "Rápido",
     "marathon": "Maratón"
   },
+  "maps": "Mapas",
   "battleType": "Tipo de batalla",
   "matchmaking": "Emparejamiento",
   "addMatchmakingConfig": "Agregar configuración de matchmaking",
@@ -121,6 +133,7 @@
   "maxTurn": "Turno máximo",
   "seed": "Semilla",
   "player": "Jugador",
+  "power": "Poder",
   "units": "Unidades",
   "unitSkins": "Aspectos de las unidades",
   "objectiveSkins": "Aspectos de objetivos",
@@ -195,6 +208,7 @@
   "forUnit": "Para {{unit}}",
   "maxUnitSkinsSelected": "Máx. {{max}} skins por tipo",
   "select": "Seleccionar",
+  "edit": "Editar",
   "selectAll": "Seleccionar Todo",
   "deselect": "Deseleccionar",
   "removeFromSelectionTooltip": "Quitar de la selección – haz clic en una unidad para quitarla",
@@ -439,11 +453,6 @@
   },
   "offline": "Offline",
   "offlineDescription": "Practica contra bots y juega en modo hotseat con amigos en el mismo dispositivo!",
-  "premiumCurrencyLeaderboard": {
-    "title": "Clasificación de <premiumCurrency/>",
-    "subtitle": "¿Quién tiene más <premiumCurrency/>?",
-    "description": "¿Quieres ser el primero? <storeLink>Ve a la tienda</storeLink> y consigue <premiumCurrency/>!"
-  },
   "team": "Equipo",
   "playerType": "Tipo de jugador",
   "human": "Humano",
@@ -849,6 +858,18 @@
     "totalGames_other": "{{count}} partidas",
     "totalArenas_one": "1 arena",
     "totalArenas_other": "{{count}} arenas"
+  },
+  "profileAnalytics": {
+    "title": "Estadísticas avanzadas",
+    "last90Days": "Partidas clasificatorias de los últimos 90 días",
+    "byBattleType": "Rendimiento por tipo de batalla",
+    "byUnitType": "Rendimiento por tipo de unidad",
+    "games": "Partidas",
+    "noData": "Todavía no hay partidas clasificatorias",
+    "locked": "Desbloquear estadísticas avanzadas",
+    "damageDealt": "Infligido",
+    "damageReceived": "Recibido",
+    "winrate": "Winrate"
   },
   "tutorialSummary": {
     "heading": "Resumen del tutorial",

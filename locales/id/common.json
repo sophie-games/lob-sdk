@@ -1,4 +1,5 @@
 {
+  "searchByName": "Cari berdasarkan nama",
   "spectatorDisabledModal": {
     "title": "Menonton dibatasi",
     "message": "Pertandingan ini sedang berlangsung. Untuk mencegah kecurangan, menonton secara langsung dinonaktifkan, jadi kamu tidak akan melihat unit. Kamu bisa menonton replay lengkap setelah pertandingan berakhir."
@@ -73,6 +74,16 @@
   "unranked": "Tidak Berperingkat",
   "cancel": "Batal",
   "change": "Ubah",
+  "opponentLeagues": {
+    "modalTitle": "Pengaturan lanjutan",
+    "title": "Liga lawan",
+    "tooltip": "Opsi lanjutan",
+    "auto": "Otomatis (bawaan)",
+    "autoDescription": "Rentang pencarian melebar seiring waktu hingga menemukan lawan.",
+    "fixed": "Rentang liga tetap",
+    "fixedDescription": "Hanya lawan dari liga yang dipilih.",
+    "done": "Selesai"
+  },
   "matchmakingQueue": {
     "inQueue": "Kamu sekarang berada dalam antrean! Sistem sedang mencari pemain lain yang telah memilih pengaturan yang sama dengan kamu.",
     "matchFound": "Ketika permainan telah ditemukan, kamu akan diarahkan ke permainan.",
@@ -93,6 +104,7 @@
     "rapid": "Cepat",
     "marathon": "Maraton"
   },
+  "maps": "Peta",
   "battleType": "Jenis pertempuran",
   "matchmaking": "Pencarian Permainan",
   "addMatchmakingConfig": "Tambah konfigurasi pencarian permainan",
@@ -126,6 +138,7 @@
   "createCustomGame": "Buat Permainan Kustom",
   "maxTurn": "Maksimal giliran",
   "player": "Pemain",
+  "power": "Kekuatan",
   "units": "Unit",
   "unitSkins": "Unit Skins",
   "avatars": "Avatars",
@@ -198,6 +211,7 @@
   "forUnit": "Untuk {{unit}}",
   "maxUnitSkinsSelected": "Maks. {{max}} skin per tipe",
   "select": "Pilih",
+  "edit": "Edit",
   "selectAll": "Pilih Semua",
   "deselect": "Batalkan pilih",
   "removeFromSelectionTooltip": "Hapus dari pemilihan – klik unit untuk menghapus",
@@ -440,11 +454,6 @@
   },
   "offline": "Offline",
   "offlineDescription": "Berlatih melawan bot dan bermain hotseat bersama teman-teman di perangkat yang sama!",
-  "premiumCurrencyLeaderboard": {
-    "title": "<premiumCurrency/> Papan Peringkat",
-    "subtitle": "Siapa yang punya <premiumCurrency/> terbanyak?",
-    "description": "Ingin jadi yang pertama? <storeLink>Buka toko</storeLink> dan dapatkan <premiumCurrency/>!"
-  },
   "team": "Tim",
   "teams": "Tim",
   "playerType": "Tipe Player",
@@ -740,6 +749,18 @@
     "losses": "Kalah",
     "totalGames_other": "{{count}} permainan",
     "totalArenas_other": "{{count}} arena"
+  },
+  "profileAnalytics": {
+    "title": "Statistik lanjutan",
+    "last90Days": "Game peringkat dalam 90 hari terakhir",
+    "byBattleType": "Performa menurut tipe pertempuran",
+    "byUnitType": "Performa menurut tipe unit",
+    "games": "Permainan",
+    "noData": "Belum ada game peringkat",
+    "locked": "Buka statistik lanjutan",
+    "damageDealt": "Diberikan",
+    "damageReceived": "Diterima",
+    "winrate": "Menang"
   },
   "league": {
     "title": "Liga",

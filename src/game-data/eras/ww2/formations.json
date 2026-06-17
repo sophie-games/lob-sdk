@@ -4,7 +4,7 @@
     "frontBackArc": 90,
     "minFlankAngle": 180,
     "maxFlankAngle": 180,
-    "collisionShape": { "radius": 16 },
+    "collisionShape": { "type": 0, "radius": 16 },
     "minMovementModifier": -0.8
   },
   {
@@ -12,7 +12,7 @@
     "frontBackArc": 90,
     "minFlankAngle": 180,
     "maxFlankAngle": 180,
-    "collisionShape": { "radius": 16 },
+    "collisionShape": { "type": 0, "radius": 16 },
     "minMovementModifier": -0.8
   }
 ]

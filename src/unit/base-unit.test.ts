@@ -272,6 +272,44 @@ describe("BaseUnit", () => {
     });
   });
 
+  describe("calculateObbCorners()", () => {
+    // "line" collides as a 40x10 OBB -> getUnitDimensions { width:10, height:40 }.
+    const makeLineUnit = () => {
+      const u = new TestUnit(20, gameDataManager);
+      u.currentFormation = "line";
+      return u;
+    };
+
+    it("puts the front on +X (depth) and the frontage on Y at rotation 0", () => {
+      const u = makeLineUnit();
+      u.rotation = 0;
+      expect(u.calculateObbCorners()).toEqual([
+        { x: -5, y: -20 },
+        { x: 5, y: -20 },
+        { x: 5, y: 20 },
+        { x: -5, y: 20 },
+      ]);
+    });
+
+    it("rotates the corners by the unit's rotation (90deg maps local (x,y) -> (-y,x))", () => {
+      const u = makeLineUnit();
+      u.rotation = Math.PI / 2;
+      const [c0, , c2] = u.calculateObbCorners();
+      expect(c0.x).toBeCloseTo(20);
+      expect(c0.y).toBeCloseTo(-5);
+      expect(c2.x).toBeCloseTo(-20);
+      expect(c2.y).toBeCloseTo(5);
+    });
+
+    it("honours an explicit rotation override, ignoring the unit's own", () => {
+      const u = makeLineUnit();
+      u.rotation = 0;
+      const [c0] = u.calculateObbCorners({ x: 0, y: 0 }, Math.PI / 2);
+      expect(c0.x).toBeCloseTo(20);
+      expect(c0.y).toBeCloseTo(-5);
+    });
+  });
+
   describe("getFlankMod()", () => {
     // A malformed custom formation (e.g. legacy flankMin/flankMax keys that
     // never got migrated to minFlankAngle/maxFlankAngle) leaves the canonical

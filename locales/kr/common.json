@@ -1,4 +1,5 @@
 {
+  "searchByName": "이름으로 검색",
   "spectatorDisabledModal": {
     "title": "관전이 제한됩니다",
     "message": "이 경기는 진행 중입니다. 부정행위를 방지하기 위해 실시간 관전이 비활성화되어 유닛이 보이지 않습니다. 경기가 끝나면 전체 리플레이를 볼 수 있습니다."
@@ -73,6 +74,16 @@
   "rankedTooltip": "역사는 신중한 자를 기억하지 않습니다. 당신의 Elo를 화선 위에 올릴 용기가 있다면 이 체크박스를 선택하세요.",
   "cancel": "취소",
   "change": "변경",
+  "opponentLeagues": {
+    "modalTitle": "고급 설정",
+    "title": "상대 리그",
+    "tooltip": "고급 옵션",
+    "auto": "자동 (기본값)",
+    "autoDescription": "상대를 찾을 때까지 검색 범위가 시간이 지나면서 넓어집니다.",
+    "fixed": "고정 리그 범위",
+    "fixedDescription": "선택한 리그의 상대와만 매칭됩니다.",
+    "done": "완료"
+  },
   "matchmakingQueue": {
     "inQueue": "경기 탐색 대기열에 들어오셨습니다! 등급 체계에 기반해 귀하와 동일한 설정을 선택한 다른 플레이어를 탐색 중입니다.",
     "matchFound": "일치하는 항목이 발견되면 경기로 리디렉션됩니다.",
@@ -93,6 +104,7 @@
     "rapid": "래피드",
     "marathon": "마라톤"
   },
+  "maps": "맵",
   "battleType": "전투 유형",
   "matchmaking": "경기 탐색",
   "addMatchmakingConfig": "경기 탐색 설정 추가",
@@ -135,6 +147,7 @@
   "maxTurn": "최대 턴",
   "seed": "시드",
   "player": "플레이어",
+  "power": "전력",
   "units": "부대",
   "unitSkins": "부대 외형",
   "objectiveSkins": "지점목표 외형",
@@ -206,6 +219,7 @@
   "forUnit": "{{unit}} 외형",
   "maxUnitSkinsSelected": "유형당 최대 {{max}}개 스킨",
   "select": "선택",
+  "edit": "편집",
   "selectAll": "모두 선택",
   "deselect": "선택 해제",
   "removeFromSelectionTooltip": "선택에서 제거 – 제거할 유닛을 클릭하세요",
@@ -474,11 +488,6 @@
   },
   "offline": "오프라인",
   "offlineDescription": "컴퓨터를 상대로 연습하거나 같은 기기로 친구들과 경기해 보세요!",
-  "premiumCurrencyLeaderboard": {
-    "title": "<premiumCurrency/> 순위",
-    "subtitle": "누가 가장 부유한가?",
-    "description": "최고가 되고 싶으신가요? <storeLink>상점</storeLink> 에서 <premiumCurrency/>를 얻으세요!"
-  },
   "team": "팀",
   "teams": "팀",
   "playerType": "플레이어 유형",
@@ -949,6 +958,18 @@
     "losses": "패배",
     "totalGames_other": "{{count}}게임",
     "totalArenas_other": "{{count}}아레나"
+  },
+  "profileAnalytics": {
+    "title": "상세 통계",
+    "last90Days": "지난 90일간의 랭크 게임",
+    "byBattleType": "전투 유형별 성적",
+    "byUnitType": "유닛 유형별 성적",
+    "games": "게임",
+    "noData": "아직 랭크 게임이 없습니다",
+    "locked": "상세 통계 잠금 해제",
+    "damageDealt": "입힘",
+    "damageReceived": "받음",
+    "winrate": "승률"
   },
   "tutorialSummary": {
     "heading": "튜토리얼 요약",

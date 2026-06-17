@@ -7,6 +7,7 @@ import {
   CustomSprite,
   OrderTemplate,
   OrderType,
+  CollisionShapeType,
 } from "@lob-sdk/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import type {
@@ -42,6 +43,11 @@ export const MAX_CUSTOM_ORDERS = 50;
  * poison the simulation math.
  */
 export const MAX_ABS_STAT = 1e9;
+
+/** Runtime guard for untrusted imported JSON: rejects null/primitives before property access. */
+function isObject(value: unknown): boolean {
+  return value !== null && typeof value === "object";
+}
 
 export interface CustomDefValidationError {
   scope:
@@ -401,29 +407,33 @@ function validateCustomUnitFormations(
     const pushErr = (message: string) =>
       errors.push({ scope: "unitFormation", field: formation.id, message });
 
-    // collisionShape must be exactly a rectangle { frontage>0, depth>0 } or a circle
-    // { radius>=0 }. A half-specified shape (e.g. frontage without depth) is treated as
-    // an OBB with an undefined extent, producing NaN corners that silently break
-    // collision and rendering for the whole match.
+    // collisionShape must be a circle { type: Circle, radius>=0 } or a rectangle
+    // { type: Obb, frontage>0, depth>0 }. A half-specified shape (e.g. frontage
+    // without depth) would produce NaN corners that silently break collision and
+    // rendering for the whole match.
     const shape = formation.collisionShape;
     if (shape !== undefined) {
-      if ("radius" in shape) {
-        if ("frontage" in shape || "depth" in shape) {
-          pushErr(
-            "collisionShape must be either { radius } or { frontage, depth }, not a mix",
-          );
-        } else if (!Number.isFinite(shape.radius) || shape.radius < 0) {
+      if (!isObject(shape)) {
+        pushErr(
+          "collisionShape must be an object { type, radius } or { type, frontage, depth }",
+        );
+      } else if (shape.type === CollisionShapeType.Circle) {
+        if (!Number.isFinite(shape.radius) || shape.radius < 0) {
           pushErr("collisionShape.radius must be a finite number >= 0");
         }
-      } else if (
-        !Number.isFinite(shape.frontage) ||
-        shape.frontage <= 0 ||
-        !Number.isFinite(shape.depth) ||
-        shape.depth <= 0
-      ) {
-        pushErr(
-          "collisionShape must have a finite frontage and depth greater than 0",
-        );
+      } else if (shape.type === CollisionShapeType.Obb) {
+        if (
+          !Number.isFinite(shape.frontage) ||
+          shape.frontage <= 0 ||
+          !Number.isFinite(shape.depth) ||
+          shape.depth <= 0
+        ) {
+          pushErr(
+            "collisionShape must have a finite frontage and depth greater than 0",
+          );
+        }
+      } else {
+        pushErr("collisionShape.type must be 0 (circle) or 1 (obb)");
       }
     }
 
@@ -434,6 +444,10 @@ function validateCustomUnitFormations(
         pushErr("fireEdges must be an array");
       } else {
         formation.fireEdges.forEach((fe, i) => {
+          if (!isObject(fe)) {
+            pushErr(`fireEdges[${i}] must be an object`);
+            return;
+          }
           if (!Number.isInteger(fe.edge) || fe.edge < 0 || fe.edge > 3) {
             pushErr(`fireEdges[${i}].edge must be an integer between 0 and 3`);
           }

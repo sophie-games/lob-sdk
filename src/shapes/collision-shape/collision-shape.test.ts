@@ -49,6 +49,44 @@ describe("ObbShape", () => {
   });
 });
 
+describe("rotated ObbShape overlap (exercises the non-axis-aligned clip path)", () => {
+  const rotatedSquare = (cx: number, cy: number, h: number, angle: number) => {
+    const cos = Math.cos(angle);
+    const sin = Math.sin(angle);
+    const local = [
+      { x: -h, y: -h },
+      { x: h, y: -h },
+      { x: h, y: h },
+      { x: -h, y: h },
+    ];
+    return new ObbShape(
+      local.map((p) => ({
+        x: cx + p.x * cos - p.y * sin,
+        y: cy + p.x * sin + p.y * cos,
+      })),
+    );
+  };
+
+  it("two identical 45deg squares fully overlap", () => {
+    const a = rotatedSquare(0, 0, 5, Math.PI / 4);
+    expect(a.overlapRatio(rotatedSquare(0, 0, 5, Math.PI / 4))).toBeCloseTo(1);
+  });
+
+  it("a rotated square far away does not overlap", () => {
+    const a = rotatedSquare(0, 0, 5, Math.PI / 4);
+    expect(a.overlapRatio(rotatedSquare(100, 0, 5, Math.PI / 6))).toBe(0);
+  });
+
+  it("a 45deg diamond straddling an axis-aligned square is a symmetric fraction in (0,1)", () => {
+    const aligned = square(0, 0, 5);
+    const diamond = rotatedSquare(6, 0, 5, Math.PI / 4);
+    const ratio = aligned.overlapRatio(diamond);
+    expect(ratio).toBeCloseTo(diamond.overlapRatio(aligned), 5);
+    expect(ratio).toBeGreaterThan(0);
+    expect(ratio).toBeLessThan(1);
+  });
+});
+
 describe("mixed circle / obb overlap (keeps the circle exact)", () => {
   it("is 1 when the smaller circle sits inside the rectangle", () => {
     const rect = square(0, 0, 50);

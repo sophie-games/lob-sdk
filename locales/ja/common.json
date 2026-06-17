@@ -1,4 +1,5 @@
 {
+  "searchByName": "名前で検索",
   "spectatorDisabledModal": {
     "title": "観戦は制限されています",
     "message": "この試合は進行中です。不正行為を防ぐため、ライブ観戦は無効になっており、ユニットは表示されません。試合終了後に、完全なリプレイを視聴できます。"
@@ -69,6 +70,16 @@
   "or": "または",
   "cancel": "キャンセル",
   "change": "変更",
+  "opponentLeagues": {
+    "modalTitle": "詳細設定",
+    "title": "対戦相手のリーグ",
+    "tooltip": "詳細設定",
+    "auto": "自動（デフォルト）",
+    "autoDescription": "マッチが見つかるまで、検索範囲が時間とともに広がります。",
+    "fixed": "固定リーグ範囲",
+    "fixedDescription": "選択したリーグの相手のみと対戦します。",
+    "done": "完了"
+  },
   "matchmakingQueue": {
     "inQueue": "現在マッチメイキングキューにいます。同じ設定を選択したプレイヤーを探しています。",
     "matchFound": "マッチが見つかると、自動的にゲームに移動します。",
@@ -89,6 +100,7 @@
     "rapid": "ラピッド",
     "marathon": "マラソン"
   },
+  "maps": "マップ",
   "battleType": "戦闘タイプ",
   "matchmaking": "マッチメイキング",
   "addMatchmakingConfig": "マッチメイキング設定を追加",
@@ -136,6 +148,7 @@
   "maxTurn": "最大ターン数",
   "seed": "シード",
   "player": "プレイヤー",
+  "power": "軍事力",
   "units": "ユニット",
   "unitSkins": "ユニットスキン",
   "objectiveSkins": "目標のスキン",
@@ -210,6 +223,7 @@
   "forUnit": "{{unit}} 用",
   "maxUnitSkinsSelected": "種別ごとに最大{{max}}スキン",
   "select": "選択",
+  "edit": "編集",
   "selectAll": "すべて選択",
   "deselect": "選択解除",
   "removeFromSelectionTooltip": "選択から削除 – ユニットをクリックして削除",
@@ -485,11 +499,6 @@
   },
   "offline": "オフライン",
   "offlineDescription": "ボットと練習したり、同じデバイスで友達とホットシートプレイをしたりできます！",
-  "premiumCurrencyLeaderboard": {
-    "title": "<premiumCurrency/> リーダーボード",
-    "subtitle": "最も多くの<premiumCurrency/>を持っているのは誰ですか？",
-    "description": "最初になりたいですか？<storeLink>ストアへ行く</storeLink>と<premiumCurrency/>をゲット！"
-  },
   "team": "チーム",
   "teams": "チーム",
   "playerType": "プレイヤータイプ",
@@ -974,6 +983,18 @@
     "totalGames_other": "{{count}} 試合",
     "totalArenas_one": "1アリーナ",
     "totalArenas_other": "{{count}} アリーナ"
+  },
+  "profileAnalytics": {
+    "title": "詳細統計",
+    "last90Days": "過去90日間のランク戦",
+    "byBattleType": "バトルタイプ別の成績",
+    "byUnitType": "ユニットタイプ別の成績",
+    "games": "ゲーム数",
+    "noData": "ランク戦の記録がありません",
+    "locked": "詳細統計をアンロック",
+    "damageDealt": "与えた",
+    "damageReceived": "受けた",
+    "winrate": "勝率"
   },
   "tutorialSummary": {
     "heading": "チュートリアル概要",

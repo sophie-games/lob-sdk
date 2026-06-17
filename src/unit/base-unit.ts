@@ -4,6 +4,8 @@ import { GameDataManager } from "@lob-sdk/game-data-manager";
 import {
   getCollisionConfig,
   isCircleCollision,
+  CollisionShapeConfig,
+  CollisionShapeType,
   EntityId,
   OrderType,
   UnitCategoryId,
@@ -33,6 +35,7 @@ import {
   CollisionShape,
   ObbShape,
   CircleShape,
+  localObbCorners,
 } from "@lob-sdk/shapes/collision-shape";
 import {
   BaseUnitEffect,
@@ -290,26 +293,20 @@ export abstract class BaseUnit extends Entity {
 
   /**
    * World-space corners of the unit's oriented bounding box (rotated rectangle)
-   * at the given position. Front is the +X edge; height spans the frontage.
+   * at the given position and rotation. Front is the +X edge; height spans the frontage.
    */
-  calculateObbCorners(position: Point2 = this.position): Point2[] {
+  calculateObbCorners(
+    position: Point2 = this.position,
+    rotation: number = this.rotation,
+  ): Point2[] {
     const dimensions = this.gameDataManager.getUnitDimensions(
       this.type,
       this.effectiveFormation,
     );
-    const halfWidth = dimensions.width / 2;
-    const halfHeight = dimensions.height / 2;
-    const sinAngle = Math.sin(this.rotation);
-    const cosAngle = Math.cos(this.rotation);
+    const sinAngle = Math.sin(rotation);
+    const cosAngle = Math.cos(rotation);
 
-    const corners: Point2[] = [
-      { x: -halfWidth, y: -halfHeight },
-      { x: halfWidth, y: -halfHeight },
-      { x: halfWidth, y: halfHeight },
-      { x: -halfWidth, y: halfHeight },
-    ];
-
-    return corners.map((corner) => ({
+    return localObbCorners(dimensions.width, dimensions.height).map((corner) => ({
       x: corner.x * cosAngle - corner.y * sinAngle + position.x,
       y: corner.x * sinAngle + corner.y * cosAngle + position.y,
     }));
@@ -319,12 +316,22 @@ export abstract class BaseUnit extends Entity {
     return this.calculateObbCorners();
   }
 
-  /** True when this formation collides as a rotated rectangle (Obb) rather than a circle. */
-  usesObbCollision(): boolean {
+  /**
+   * The unit formation's collision config, or a small default circle when the unit
+   * has no formation template. The single source of the null-formation fallback.
+   */
+  private resolveCollisionConfig(): CollisionShapeConfig {
     const formation = this.gameDataManager
       .getFormationManager()
       .getTemplate(this.effectiveFormation);
-    return !!formation && !isCircleCollision(getCollisionConfig(formation));
+    return formation
+      ? getCollisionConfig(formation)
+      : { type: CollisionShapeType.Circle, radius: 8 };
+  }
+
+  /** True when this formation collides as a rotated rectangle (Obb) rather than a circle. */
+  usesObbCollision(): boolean {
+    return !isCircleCollision(this.resolveCollisionConfig());
   }
 
   /**
@@ -333,14 +340,23 @@ export abstract class BaseUnit extends Entity {
    * narrow phase resolves overlap per shape pair.
    */
   getCollisionShape(position: Point2 = this.position): CollisionShape {
-    const formation = this.gameDataManager
-      .getFormationManager()
-      .getTemplate(this.effectiveFormation);
-    const config = formation ? getCollisionConfig(formation) : { radius: 8 };
+    const config = this.resolveCollisionConfig();
     if (isCircleCollision(config)) {
       return new CircleShape({ x: position.x, y: position.y }, config.radius);
     }
     return new ObbShape(this.calculateObbCorners(position));
+  }
+
+  /**
+   * Bounding-circle radius of the collision footprint (no allocation): the circle
+   * radius, or the OBB half-diagonal. For a cheap broad-phase reject before the
+   * exact overlap test.
+   */
+  getCollisionBoundingRadius(): number {
+    const config = this.resolveCollisionConfig();
+    return isCircleCollision(config)
+      ? config.radius
+      : Math.hypot(config.frontage, config.depth) / 2;
   }
 
   getClosestCorner(unit: BaseUnit) {
@@ -429,10 +445,7 @@ export abstract class BaseUnit extends Entity {
    * from frontage/depth instead of explicit knobs.
    */
   calculateCollisionShapes(position = this.position): Circle[] {
-    const formation = this.gameDataManager
-      .getFormationManager()
-      .getTemplate(this.effectiveFormation);
-    const config = formation ? getCollisionConfig(formation) : { radius: 8 };
+    const config = this.resolveCollisionConfig();
 
     if (isCircleCollision(config)) {
       return config.radius > 0

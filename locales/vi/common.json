@@ -1,4 +1,5 @@
 {
+  "searchByName": "Tìm theo tên",
   "spectatorDisabledModal": {
     "title": "Chế độ xem bị giới hạn",
     "message": "Trận đấu này đang diễn ra. Để ngăn gian lận, việc xem trực tiếp bị vô hiệu hóa, nên bạn sẽ không thấy các đơn vị. Bạn có thể xem lại toàn bộ trận đấu sau khi nó kết thúc."
@@ -73,6 +74,16 @@
   "or": "Hoặc",
   "cancel": "Hủy",
   "change": "Thay đổi",
+  "opponentLeagues": {
+    "modalTitle": "Cài đặt nâng cao",
+    "title": "Giải đấu của đối thủ",
+    "tooltip": "Tùy chọn nâng cao",
+    "auto": "Tự động (mặc định)",
+    "autoDescription": "Phạm vi tìm kiếm mở rộng theo thời gian cho đến khi tìm được trận.",
+    "fixed": "Phạm vi giải đấu cố định",
+    "fixedDescription": "Chỉ đấu với đối thủ trong các giải đã chọn.",
+    "done": "Xong"
+  },
   "matchmakingQueue": {
     "inQueue": "Bạn hiện đang trong hàng đợi ghép! Hệ thống đang tìm kiếm người chơi khác đã chọn cùng cài đặt với bạn.",
     "matchFound": "Khi tìm thấy trận đấu, bạn sẽ được chuyển hướng đến trò chơi.",
@@ -93,6 +104,7 @@
     "rapid": "Nhanh",
     "marathon": "Marathon"
   },
+  "maps": "Bản đồ",
   "battleType": "Loại trận chiến",
   "matchmaking": "Ghép trận",
   "addMatchmakingConfig": "Thêm cấu hình ghép trận",
@@ -135,6 +147,7 @@
   "maxTurn": "Lượt tối đa",
   "seed": "Hạt giống",
   "player": "Người chơi",
+  "power": "Sức mạnh",
   "units": "Đơn vị",
   "unitSkins": "Giao diện đơn vị",
   "objectiveSkins": "Giao diện mục tiêu",
@@ -209,6 +222,7 @@
   "forUnit": "Cho {{unit}}",
   "maxUnitSkinsSelected": "Tối đa {{max}} skin mỗi loại",
   "select": "Chọn",
+  "edit": "Chỉnh sửa",
   "selectAll": "Chọn tất cả",
   "deselect": "Bỏ chọn",
   "removeFromSelectionTooltip": "Loại khỏi vùng chọn – nhấp vào đơn vị để loại",
@@ -481,11 +495,6 @@
   },
   "offline": "Ngoại tuyến",
   "offlineDescription": "Luyện tập chống lại bot và chơi hotseat với bạn bè trên cùng thiết bị!",
-  "premiumCurrencyLeaderboard": {
-    "title": "Bảng xếp hạng <premiumCurrency/>",
-    "subtitle": "Ai có nhiều <premiumCurrency/> nhất?",
-    "description": "Muốn đứng đầu? <storeLink>Đến cửa hàng</storeLink> và lấy <premiumCurrency/>!"
-  },
   "team": "Đội",
   "teams": "Các đội",
   "playerType": "Loại người chơi",
@@ -953,6 +962,18 @@
     "losses": "Thua",
     "totalGames_other": "{{count}} trận",
     "totalArenas_other": "{{count}} đấu trường"
+  },
+  "profileAnalytics": {
+    "title": "Thống kê nâng cao",
+    "last90Days": "Trận xếp hạng trong 90 ngày qua",
+    "byBattleType": "Hiệu suất theo loại trận",
+    "byUnitType": "Hiệu suất theo loại đơn vị",
+    "games": "Trận",
+    "noData": "Chưa có trận xếp hạng",
+    "locked": "Mở khóa thống kê nâng cao",
+    "damageDealt": "Gây ra",
+    "damageReceived": "Nhận",
+    "winrate": "Thắng"
   },
   "tutorialSummary": {
     "heading": "Tóm tắt hướng dẫn",

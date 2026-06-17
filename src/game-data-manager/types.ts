@@ -89,6 +89,13 @@ export interface UnitCategoryTemplate {
   enfiladeFire?: EnfiladeFireConfig;
   rearFire?: RearFireConfig;
 
+  /** Charge backlash multiplier (counter-hit dealt back to a charger); ranged categories brace harder, cavalry/melee less. Defaults to 1. */
+  chargeBacklashMultiplier?: number;
+  /** Backlash multiplier when the defender has run (HasRan) and can't brace; falls back to chargeBacklashMultiplier. */
+  runChargeBacklashMultiplier?: number;
+  /** Max stamina a charge drains from this category (scaled by STAT_PRECISION_SCALE), floored at 25%: the charger pays it head-on, a defender when flanked. Defaults to 0 (no cost) when unset. */
+  chargeStaminaCost?: number;
+
   /**
    * List of allowed order names for this category.
    */
@@ -207,10 +214,14 @@ export interface GameConstants {
 
   OFFER_DRAW_COOLDOWN: number;
   MAX_ENTITY_NAME_LENGTH: number;
-  CHARGE_BACKLASH_RESIST_MOD: number; // The % of charge resist that can be used to mitigate backlash damage
-  CHARGE_BACKLASH_MAX_REDUCTION: number; // The % of backlash that can be mitigated from a front-charge
-  CHARGE_BACKLASH_DEFENDER_CHARGE_BONUS_MULTIPLIER: number;
-  CHARGE_BACKLASH_DEFENDER_RESISTANCE_MULTIPLIER: number;
+  // Charge backlash magnitude scales off the defender's chargeBonus and
+  // meleeDefense, weighted by these factors (a counter-charger hits back via
+  // chargeBonus, a hard target via meleeDefense).
+  CHARGE_BONUS_SCALING_FACTOR: number;
+  MELEE_DEFENSE_SCALING_FACTOR: number;
+  // Backlash divisor floor: backlash /= max(this, defender charge resistance),
+  // so high-resistance targets hit back less and low-resistance ones are capped.
+  CHARGE_BACKLASH_RESIST_FLOOR: number;
 
   HAS_TAKEN_FIRE_SPEED_MODIFIER: number;
 

@@ -1,4 +1,4 @@
-import { CollisionShapeConfig } from "./unit";
+import { CollisionShapeConfig, CollisionShapeType } from "./unit";
 
 /**
  * The collision-related fields of a FormationTemplate, read by `getCollisionConfig`.
@@ -18,8 +18,8 @@ export interface CollisionFields {
 /** True when a collision config is a circle (rather than a rotated rectangle). */
 export function isCircleCollision(
   config: CollisionShapeConfig,
-): config is { radius: number } {
-  return "radius" in config;
+): config is { type: CollisionShapeType.Circle; radius: number } {
+  return config.type === CollisionShapeType.Circle;
 }
 
 /**
@@ -33,17 +33,22 @@ export function getCollisionConfig(
 ): CollisionShapeConfig {
   if (formation.collisionShape) return formation.collisionShape;
   if (formation.frontage != null && formation.depth != null) {
-    return { frontage: formation.frontage, depth: formation.depth };
+    return {
+      type: CollisionShapeType.Obb,
+      frontage: formation.frontage,
+      depth: formation.depth,
+    };
   }
   // Legacy multi-circle layout: a single circle, or a rectangle spanning the circles
   // (so the derived dimensions match what the old layout produced).
   const size = formation.collisionCircleSize ?? 32;
   const count = formation.collisionCircles ?? 1;
-  if (count <= 0 || size <= 0) return { radius: 0 }; // legacy "no collision" (flying/ghost)
-  if (count <= 1) return { radius: size / 2 };
+  // legacy "no collision" (flying/ghost)
+  if (count <= 0 || size <= 0) return { type: CollisionShapeType.Circle, radius: 0 };
+  if (count <= 1) return { type: CollisionShapeType.Circle, radius: size / 2 };
   const distance = formation.collisionCircleDistance ?? size;
   const span = (count - 1) * distance + size;
   return formation.collisionCirclesVertical
-    ? { frontage: size, depth: span }
-    : { frontage: span, depth: size };
+    ? { type: CollisionShapeType.Obb, frontage: size, depth: span }
+    : { type: CollisionShapeType.Obb, frontage: span, depth: size };
 }

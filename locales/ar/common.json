@@ -1,4 +1,5 @@
 {
+  "searchByName": "البحث بالاسم",
   "spectatorDisabledModal": {
     "title": "المشاهدة مقيّدة",
     "message": "هذه المباراة جارية بالفعل. لمنع الغش، تم تعطيل المشاهدة المباشرة، لذلك لن ترى الوحدات. ستتمكن من مشاهدة الإعادة الكاملة بعد انتهاء المباراة."
@@ -73,6 +74,16 @@
   "or": "أو",
   "cancel": "إلغاء",
   "change": "تغيير",
+  "opponentLeagues": {
+    "modalTitle": "الإعدادات المتقدمة",
+    "title": "دوريات الخصوم",
+    "tooltip": "خيارات متقدمة",
+    "auto": "تلقائي (افتراضي)",
+    "autoDescription": "يتسع نطاق البحث مع الوقت حتى يتم العثور على مباراة.",
+    "fixed": "نطاق دوريات ثابت",
+    "fixedDescription": "تواجه فقط خصومًا من الدوريات المختارة.",
+    "done": "تم"
+  },
   "matchmakingQueue": {
     "inQueue": "أنت الآن في طابور المطابقة! النظام يبحث عن لاعب آخر اختار نفس الإعدادات التي اخترتها.",
     "matchFound": "بمجرد العثور على مباراة، سيتم توجيهك إلى اللعبة.",
@@ -93,6 +104,7 @@
     "rapid": "سريع",
     "marathon": "ماراثون"
   },
+  "maps": "الخرائط",
   "battleType": "نوع المعركة",
   "matchmaking": "المطابقة",
   "addMatchmakingConfig": "إضافة تكوين مطابقة",
@@ -135,6 +147,7 @@
   "maxTurn": "الحد الأقصى للأدوار",
   "seed": "البذرة",
   "player": "اللاعب",
+  "power": "القوة",
   "units": "الوحدات",
   "unitSkins": "مظاهر الوحدات",
   "objectiveSkins": "مظاهر الأهداف",
@@ -209,6 +222,7 @@
   "forUnit": "للوحدة {{unit}}",
   "maxUnitSkinsSelected": "حد أقصى {{max}} مظهر لكل نوع",
   "select": "اختيار",
+  "edit": "تعديل",
   "selectAll": "تحديد الكل",
   "deselect": "إلغاء الاختيار",
   "removeFromSelectionTooltip": "إزالة من التحديد – انقر على الوحدة لإزالتها",
@@ -482,11 +496,6 @@
   },
   "offline": "دون اتصال",
   "offlineDescription": "تدرب ضد البوتات والعب مع الأصدقاء على نفس الجهاز!",
-  "premiumCurrencyLeaderboard": {
-    "title": "لوحة المتصدرين <premiumCurrency/>",
-    "subtitle": "من لديه أكبر قدر من <premiumCurrency/>؟",
-    "description": "تريد أن تكون الأول؟ <storeLink>اذهب إلى المتجر</storeLink> واحصل على <premiumCurrency/>!"
-  },
   "team": "فريق",
   "teams": "فرق",
   "playerType": "نوع اللاعب",
@@ -964,6 +973,18 @@
     "totalArenas_few": "{{count}} ساحات",
     "totalArenas_many": "{{count}} ساحة",
     "totalArenas_other": "{{count}} ساحة"
+  },
+  "profileAnalytics": {
+    "title": "إحصاءات متقدمة",
+    "last90Days": "مباريات مصنّفة في آخر 90 يومًا",
+    "byBattleType": "الأداء حسب نوع المعركة",
+    "byUnitType": "الأداء حسب نوع الوحدة",
+    "games": "المباريات",
+    "noData": "لا توجد مباريات مصنّفة بعد",
+    "locked": "فتح الإحصاءات المتقدمة",
+    "damageDealt": "ملحق",
+    "damageReceived": "متلقى",
+    "winrate": "نسبة الفوز"
   },
   "tutorialSummary": {
     "heading": "ملخص الدليل التعليمي",
