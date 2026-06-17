@@ -233,5 +233,46 @@
   "era": {
     "title": "时代",
     "description": "选择你想游玩的年代。该设置会改变可玩的单位，战役和游戏机制，"
+  },
+  "appearance": "外观",
+  "theme": {
+    "presetTitle": "主题预设",
+    "presetDescription": "为整个应用重新配色。自定义颜色需要付费等级。",
+    "presets": {
+      "default": "默认",
+      "warm": "暖色",
+      "navy": "藏青",
+      "modern": "现代"
+    },
+    "customTitle": "自定义颜色",
+    "unlock": "自定义主题颜色",
+    "groups": {
+      "surfaces": "表面",
+      "accent": "强调色",
+      "borders": "边框",
+      "text": "文本"
+    },
+    "tokens": {
+      "surface": "面板背景",
+      "surfaceDeep": "凹陷背景",
+      "surfaceData": "数据背景",
+      "surfaceDataRaised": "数据背景（凸起）",
+      "surfaceHover": "悬停背景",
+      "surfaceDisabled": "禁用背景",
+      "accent": "强调色",
+      "accentSoft": "强调色（柔和）",
+      "accentDeep": "强调色（深）",
+      "line": "边框",
+      "brass": "按钮填充 / 边框",
+      "brassHover": "按钮（悬停）",
+      "brassDisabled": "按钮（禁用）",
+      "fg": "文本",
+      "fgStrong": "文本（强）",
+      "fgMuted": "文本（弱化）",
+      "fgDisabled": "文本（禁用）",
+      "onAccent": "强调色上的文本"
+    },
+    "resetTitle": "重置主题",
+    "resetDescription": "恢复默认调色板。"
   }
 }

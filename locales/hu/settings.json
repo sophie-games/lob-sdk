@@ -198,5 +198,46 @@
   "groundQuality": {
     "title": "Terep minősége",
     "description": "Szabályozza a terep textúrák minőségét. A magasabb minőség jobb vizuális részleteket biztosít, de befolyásolhatja a teljesítményt. Megköveteli a térkép frissítését."
+  },
+  "appearance": "Megjelenés",
+  "theme": {
+    "presetTitle": "Témabeállítás",
+    "presetDescription": "Színezd át az egész alkalmazást. Az egyéni színek fizetős szintet igényelnek.",
+    "presets": {
+      "default": "Alapértelmezett",
+      "warm": "Meleg",
+      "navy": "Tengerészkék",
+      "modern": "Modern"
+    },
+    "customTitle": "Egyéni színek",
+    "unlock": "Egyéni témaszínek",
+    "groups": {
+      "surfaces": "Felületek",
+      "accent": "Kiemelés",
+      "borders": "Keretek",
+      "text": "Szöveg"
+    },
+    "tokens": {
+      "surface": "Panel háttere",
+      "surfaceDeep": "Mélyített háttér",
+      "surfaceData": "Adatháttér",
+      "surfaceDataRaised": "Adatháttér (kiemelt)",
+      "surfaceHover": "Háttér rámutatáskor",
+      "surfaceDisabled": "Letiltott háttér",
+      "accent": "Kiemelés",
+      "accentSoft": "Kiemelés (lágy)",
+      "accentDeep": "Kiemelés (mély)",
+      "line": "Keret",
+      "brass": "Gomb kitöltése / kerete",
+      "brassHover": "Gomb (rámutatás)",
+      "brassDisabled": "Gomb (letiltva)",
+      "fg": "Szöveg",
+      "fgStrong": "Szöveg (erős)",
+      "fgMuted": "Szöveg (halvány)",
+      "fgDisabled": "Szöveg (letiltva)",
+      "onAccent": "Szöveg a kiemelésen"
+    },
+    "resetTitle": "Téma visszaállítása",
+    "resetDescription": "Vissza az alapértelmezett palettához."
   }
 }

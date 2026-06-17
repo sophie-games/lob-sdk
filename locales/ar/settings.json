@@ -225,5 +225,46 @@
   "groundQuality": {
     "title": "جودة الأرض",
     "description": "يتحكم في جودة نسيج الأرض. الجودة الأعلى توفر تفاصيل بصرية أفضل ولكن قد تؤثر على الأداء. يتطلب تحديث الخريطة."
+  },
+  "appearance": "المظهر",
+  "theme": {
+    "presetTitle": "نمط جاهز",
+    "presetDescription": "أعد تلوين التطبيق بالكامل. الألوان المخصصة تتطلب مستوى مدفوعاً.",
+    "presets": {
+      "default": "افتراضي",
+      "warm": "دافئ",
+      "navy": "كحلي",
+      "modern": "عصري"
+    },
+    "customTitle": "ألوان مخصصة",
+    "unlock": "ألوان النمط المخصصة",
+    "groups": {
+      "surfaces": "الأسطح",
+      "accent": "اللون المميز",
+      "borders": "الحدود",
+      "text": "النص"
+    },
+    "tokens": {
+      "surface": "خلفية اللوحة",
+      "surfaceDeep": "خلفية غائرة",
+      "surfaceData": "خلفية البيانات",
+      "surfaceDataRaised": "خلفية البيانات (مرتفعة)",
+      "surfaceHover": "خلفية عند التمرير",
+      "surfaceDisabled": "خلفية معطّلة",
+      "accent": "اللون المميز",
+      "accentSoft": "اللون المميز (ناعم)",
+      "accentDeep": "اللون المميز (غامق)",
+      "line": "الحد",
+      "brass": "تعبئة / حد الزر",
+      "brassHover": "الزر (عند التمرير)",
+      "brassDisabled": "الزر (معطّل)",
+      "fg": "النص",
+      "fgStrong": "النص (قوي)",
+      "fgMuted": "النص (خافت)",
+      "fgDisabled": "النص (معطّل)",
+      "onAccent": "نص فوق اللون المميز"
+    },
+    "resetTitle": "إعادة ضبط النمط",
+    "resetDescription": "العودة إلى اللوحة الافتراضية."
   }
 }

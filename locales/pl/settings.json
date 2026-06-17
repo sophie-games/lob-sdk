@@ -198,5 +198,46 @@
   "groundQuality": {
     "title": "Jakość terenu",
     "description": "Kontroluje jakość tekstur terenu. Wyższa jakość zapewnia lepsze szczegóły wizualne, ale może wpływać na wydajność. Wymaga odświeżenia mapy."
+  },
+  "appearance": "Wygląd",
+  "theme": {
+    "presetTitle": "Gotowy motyw",
+    "presetDescription": "Zmień kolory całej aplikacji. Własne kolory wymagają płatnego poziomu.",
+    "presets": {
+      "default": "Domyślny",
+      "warm": "Ciepły",
+      "navy": "Granatowy",
+      "modern": "Nowoczesny"
+    },
+    "customTitle": "Własne kolory",
+    "unlock": "Własne kolory motywu",
+    "groups": {
+      "surfaces": "Powierzchnie",
+      "accent": "Akcent",
+      "borders": "Obramowania",
+      "text": "Tekst"
+    },
+    "tokens": {
+      "surface": "Tło panelu",
+      "surfaceDeep": "Tło wgłębione",
+      "surfaceData": "Tło danych",
+      "surfaceDataRaised": "Tło danych (uniesione)",
+      "surfaceHover": "Tło po najechaniu",
+      "surfaceDisabled": "Tło wyłączone",
+      "accent": "Akcent",
+      "accentSoft": "Akcent (miękki)",
+      "accentDeep": "Akcent (głęboki)",
+      "line": "Obramowanie",
+      "brass": "Wypełnienie / obramowanie przycisku",
+      "brassHover": "Przycisk (najechanie)",
+      "brassDisabled": "Przycisk (wyłączony)",
+      "fg": "Tekst",
+      "fgStrong": "Tekst (mocny)",
+      "fgMuted": "Tekst (przygaszony)",
+      "fgDisabled": "Tekst (wyłączony)",
+      "onAccent": "Tekst na akcencie"
+    },
+    "resetTitle": "Resetuj motyw",
+    "resetDescription": "Powrót do domyślnej palety."
   }
 }

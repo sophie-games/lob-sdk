@@ -198,5 +198,46 @@
   "groundQuality": {
     "title": "Arazi kalitesi",
     "description": "Arazi dokularının kalitesini kontrol eder. Daha yüksek kalite daha iyi görsel detaylar sağlar ancak performansı etkileyebilir. Haritanın yenilenmesini gerektirir."
+  },
+  "appearance": "Görünüm",
+  "theme": {
+    "presetTitle": "Hazır tema",
+    "presetDescription": "Tüm uygulamayı yeniden renklendirin. Özel renkler ücretli bir seviye gerektirir.",
+    "presets": {
+      "default": "Varsayılan",
+      "warm": "Sıcak",
+      "navy": "Lacivert",
+      "modern": "Modern"
+    },
+    "customTitle": "Özel renkler",
+    "unlock": "Özel tema renkleri",
+    "groups": {
+      "surfaces": "Yüzeyler",
+      "accent": "Vurgu",
+      "borders": "Kenarlıklar",
+      "text": "Metin"
+    },
+    "tokens": {
+      "surface": "Panel arka planı",
+      "surfaceDeep": "Çukur arka plan",
+      "surfaceData": "Veri arka planı",
+      "surfaceDataRaised": "Veri arka planı (yükseltilmiş)",
+      "surfaceHover": "Üzerine gelince arka plan",
+      "surfaceDisabled": "Devre dışı arka plan",
+      "accent": "Vurgu",
+      "accentSoft": "Vurgu (yumuşak)",
+      "accentDeep": "Vurgu (koyu)",
+      "line": "Kenarlık",
+      "brass": "Düğme dolgusu / kenarlığı",
+      "brassHover": "Düğme (üzerine gelince)",
+      "brassDisabled": "Düğme (devre dışı)",
+      "fg": "Metin",
+      "fgStrong": "Metin (güçlü)",
+      "fgMuted": "Metin (soluk)",
+      "fgDisabled": "Metin (devre dışı)",
+      "onAccent": "Vurgu üzerindeki metin"
+    },
+    "resetTitle": "Temayı sıfırla",
+    "resetDescription": "Varsayılan palete dön."
   }
 }

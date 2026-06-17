@@ -225,5 +225,46 @@
   "groundQuality": {
     "title": "지형 품질",
     "description": "지형 텍스쳐의 품질을 설정합니다. 품질이 높을수록 시각적 세부사항의 질이 향상되지만 성능에 영향을 줄 수 있습니다. 지도를 새로 고쳐야 합니다."
+  },
+  "appearance": "모양",
+  "theme": {
+    "presetTitle": "테마 프리셋",
+    "presetDescription": "앱 전체의 색을 바꿉니다. 사용자 지정 색상은 유료 등급이 필요합니다.",
+    "presets": {
+      "default": "기본",
+      "warm": "따뜻한",
+      "navy": "네이비",
+      "modern": "모던"
+    },
+    "customTitle": "사용자 지정 색상",
+    "unlock": "사용자 지정 테마 색상",
+    "groups": {
+      "surfaces": "표면",
+      "accent": "강조색",
+      "borders": "테두리",
+      "text": "텍스트"
+    },
+    "tokens": {
+      "surface": "패널 배경",
+      "surfaceDeep": "움푹한 배경",
+      "surfaceData": "데이터 배경",
+      "surfaceDataRaised": "데이터 배경(돌출)",
+      "surfaceHover": "호버 배경",
+      "surfaceDisabled": "비활성 배경",
+      "accent": "강조색",
+      "accentSoft": "강조색(연한)",
+      "accentDeep": "강조색(짙은)",
+      "line": "테두리",
+      "brass": "버튼 채우기 / 테두리",
+      "brassHover": "버튼(호버)",
+      "brassDisabled": "버튼(비활성)",
+      "fg": "텍스트",
+      "fgStrong": "텍스트(강조)",
+      "fgMuted": "텍스트(흐림)",
+      "fgDisabled": "텍스트(비활성)",
+      "onAccent": "강조색 위 텍스트"
+    },
+    "resetTitle": "테마 초기화",
+    "resetDescription": "기본 팔레트로 돌아갑니다."
   }
 }

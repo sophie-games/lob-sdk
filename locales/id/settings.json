@@ -198,5 +198,46 @@
   "groundQuality": {
     "title": "Kualitas tanah",
     "description": "Mengontrol kualitas tekstur tanah. Kualitas yang lebih tinggi memberikan detail visual yang lebih baik tetapi dapat mempengaruhi kinerja. Memerlukan penyegaran peta."
+  },
+  "appearance": "Tampilan",
+  "theme": {
+    "presetTitle": "Tema bawaan",
+    "presetDescription": "Warnai ulang seluruh aplikasi. Warna kustom memerlukan tingkat berbayar.",
+    "presets": {
+      "default": "Bawaan",
+      "warm": "Hangat",
+      "navy": "Biru navy",
+      "modern": "Modern"
+    },
+    "customTitle": "Warna kustom",
+    "unlock": "Warna tema kustom",
+    "groups": {
+      "surfaces": "Permukaan",
+      "accent": "Aksen",
+      "borders": "Garis tepi",
+      "text": "Teks"
+    },
+    "tokens": {
+      "surface": "Latar panel",
+      "surfaceDeep": "Latar cekung",
+      "surfaceData": "Latar data",
+      "surfaceDataRaised": "Latar data (terangkat)",
+      "surfaceHover": "Latar saat disorot",
+      "surfaceDisabled": "Latar nonaktif",
+      "accent": "Aksen",
+      "accentSoft": "Aksen (lembut)",
+      "accentDeep": "Aksen (pekat)",
+      "line": "Garis tepi",
+      "brass": "Isi / garis tepi tombol",
+      "brassHover": "Tombol (disorot)",
+      "brassDisabled": "Tombol (nonaktif)",
+      "fg": "Teks",
+      "fgStrong": "Teks (tegas)",
+      "fgMuted": "Teks (redup)",
+      "fgDisabled": "Teks (nonaktif)",
+      "onAccent": "Teks di atas aksen"
+    },
+    "resetTitle": "Setel ulang tema",
+    "resetDescription": "Kembali ke palet bawaan."
   }
 }

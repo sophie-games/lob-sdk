@@ -191,5 +191,46 @@
   "groundQuality": {
     "title": "Bodenqualität",
     "description": "Steuert die Qualität der Bodenstrukturen. Höhere Qualität bietet bessere visuelle Details, kann aber die Leistung beeinträchtigen. Erfordert das Aktualisieren der Karte."
+  },
+  "appearance": "Darstellung",
+  "theme": {
+    "presetTitle": "Design-Voreinstellung",
+    "presetDescription": "Färbe die ganze App neu. Eigene Farben erfordern eine kostenpflichtige Stufe.",
+    "presets": {
+      "default": "Standard",
+      "warm": "Warm",
+      "navy": "Marineblau",
+      "modern": "Modern"
+    },
+    "customTitle": "Eigene Farben",
+    "unlock": "Eigene Design-Farben",
+    "groups": {
+      "surfaces": "Flächen",
+      "accent": "Akzent",
+      "borders": "Rahmen",
+      "text": "Text"
+    },
+    "tokens": {
+      "surface": "Panel-Hintergrund",
+      "surfaceDeep": "Vertiefter Hintergrund",
+      "surfaceData": "Daten-Hintergrund",
+      "surfaceDataRaised": "Daten-Hintergrund (erhöht)",
+      "surfaceHover": "Hover-Hintergrund",
+      "surfaceDisabled": "Deaktivierter Hintergrund",
+      "accent": "Akzent",
+      "accentSoft": "Akzent (weich)",
+      "accentDeep": "Akzent (dunkel)",
+      "line": "Rahmen",
+      "brass": "Schaltflächenfüllung / -rahmen",
+      "brassHover": "Schaltfläche (Hover)",
+      "brassDisabled": "Schaltfläche (deaktiviert)",
+      "fg": "Text",
+      "fgStrong": "Text (kräftig)",
+      "fgMuted": "Text (gedämpft)",
+      "fgDisabled": "Text (deaktiviert)",
+      "onAccent": "Text auf Akzent"
+    },
+    "resetTitle": "Design zurücksetzen",
+    "resetDescription": "Zurück zur Standardpalette."
   }
 }

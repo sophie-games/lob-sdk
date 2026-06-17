@@ -198,5 +198,46 @@
   "groundQuality": {
     "title": "Qualidade do terreno",
     "description": "Controla a qualidade das texturas do terreno. Qualidade mais alta fornece melhores detalhes visuais, mas pode afetar o desempenho. Requer atualizar o mapa."
+  },
+  "appearance": "Aparência",
+  "theme": {
+    "presetTitle": "Tema predefinido",
+    "presetDescription": "Recolore o app inteiro. Cores personalizadas exigem um nível pago.",
+    "presets": {
+      "default": "Padrão",
+      "warm": "Quente",
+      "navy": "Azul-marinho",
+      "modern": "Moderno"
+    },
+    "customTitle": "Cores personalizadas",
+    "unlock": "Cores de tema personalizadas",
+    "groups": {
+      "surfaces": "Superfícies",
+      "accent": "Destaque",
+      "borders": "Bordas",
+      "text": "Texto"
+    },
+    "tokens": {
+      "surface": "Fundo do painel",
+      "surfaceDeep": "Fundo rebaixado",
+      "surfaceData": "Fundo de dados",
+      "surfaceDataRaised": "Fundo de dados (elevado)",
+      "surfaceHover": "Fundo ao passar o cursor",
+      "surfaceDisabled": "Fundo desativado",
+      "accent": "Destaque",
+      "accentSoft": "Destaque (suave)",
+      "accentDeep": "Destaque (intenso)",
+      "line": "Borda",
+      "brass": "Preenchimento / borda do botão",
+      "brassHover": "Botão (cursor sobre)",
+      "brassDisabled": "Botão (desativado)",
+      "fg": "Texto",
+      "fgStrong": "Texto (forte)",
+      "fgMuted": "Texto (atenuado)",
+      "fgDisabled": "Texto (desativado)",
+      "onAccent": "Texto sobre o destaque"
+    },
+    "resetTitle": "Redefinir tema",
+    "resetDescription": "Voltar à paleta padrão."
   }
 }

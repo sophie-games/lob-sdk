@@ -233,5 +233,46 @@
   "era": {
     "title": "Era",
     "description": "Select the era for gameplay. Changing this will affect available units, scenarios, and game mechanics."
+  },
+  "appearance": "Appearance",
+  "theme": {
+    "presetTitle": "Theme preset",
+    "presetDescription": "Recolor the whole app. Custom colors need a paid tier.",
+    "presets": {
+      "default": "Default",
+      "warm": "Warm",
+      "navy": "Navy",
+      "modern": "Modern"
+    },
+    "customTitle": "Custom colors",
+    "unlock": "Custom theme colors",
+    "groups": {
+      "surfaces": "Surfaces",
+      "accent": "Accent",
+      "borders": "Borders",
+      "text": "Text"
+    },
+    "tokens": {
+      "surface": "Panel background",
+      "surfaceDeep": "Recessed background",
+      "surfaceData": "Data background",
+      "surfaceDataRaised": "Data background (raised)",
+      "surfaceHover": "Hover background",
+      "surfaceDisabled": "Disabled background",
+      "accent": "Accent",
+      "accentSoft": "Accent (soft)",
+      "accentDeep": "Accent (deep)",
+      "line": "Border",
+      "brass": "Button fill / border",
+      "brassHover": "Button (hover)",
+      "brassDisabled": "Button (disabled)",
+      "fg": "Text",
+      "fgStrong": "Text (strong)",
+      "fgMuted": "Text (muted)",
+      "fgDisabled": "Text (disabled)",
+      "onAccent": "Text on accent"
+    },
+    "resetTitle": "Reset theme",
+    "resetDescription": "Back to the default palette."
   }
 }

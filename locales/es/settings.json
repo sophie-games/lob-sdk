@@ -195,5 +195,46 @@
   "era": {
     "title": "Era",
     "description": "Selecciona la era para el juego. Cambiar esto afectará las unidades disponibles, escenarios y mecánicas del juego."
+  },
+  "appearance": "Apariencia",
+  "theme": {
+    "presetTitle": "Tema predefinido",
+    "presetDescription": "Cambia el color de toda la app. Los colores personalizados requieren un nivel de pago.",
+    "presets": {
+      "default": "Predeterminado",
+      "warm": "Cálido",
+      "navy": "Azul marino",
+      "modern": "Moderno"
+    },
+    "customTitle": "Colores personalizados",
+    "unlock": "Colores de tema personalizados",
+    "groups": {
+      "surfaces": "Superficies",
+      "accent": "Acento",
+      "borders": "Bordes",
+      "text": "Texto"
+    },
+    "tokens": {
+      "surface": "Fondo del panel",
+      "surfaceDeep": "Fondo hundido",
+      "surfaceData": "Fondo de datos",
+      "surfaceDataRaised": "Fondo de datos (elevado)",
+      "surfaceHover": "Fondo al pasar el cursor",
+      "surfaceDisabled": "Fondo deshabilitado",
+      "accent": "Acento",
+      "accentSoft": "Acento (suave)",
+      "accentDeep": "Acento (intenso)",
+      "line": "Borde",
+      "brass": "Relleno / borde de botón",
+      "brassHover": "Botón (cursor encima)",
+      "brassDisabled": "Botón (deshabilitado)",
+      "fg": "Texto",
+      "fgStrong": "Texto (fuerte)",
+      "fgMuted": "Texto (atenuado)",
+      "fgDisabled": "Texto (deshabilitado)",
+      "onAccent": "Texto sobre acento"
+    },
+    "resetTitle": "Restablecer tema",
+    "resetDescription": "Volver a la paleta predeterminada."
   }
 }

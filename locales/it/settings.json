@@ -198,5 +198,46 @@
   "groundQuality": {
     "title": "Qualità del terreno",
     "description": "Controlla la qualità delle texture del terreno. Una qualità più alta fornisce migliori dettagli visivi ma può influire sulle prestazioni. Richiede di aggiornare la mappa."
+  },
+  "appearance": "Aspetto",
+  "theme": {
+    "presetTitle": "Tema predefinito",
+    "presetDescription": "Ricolora tutta l'app. I colori personalizzati richiedono un livello a pagamento.",
+    "presets": {
+      "default": "Predefinito",
+      "warm": "Caldo",
+      "navy": "Blu navy",
+      "modern": "Moderno"
+    },
+    "customTitle": "Colori personalizzati",
+    "unlock": "Colori del tema personalizzati",
+    "groups": {
+      "surfaces": "Superfici",
+      "accent": "Accento",
+      "borders": "Bordi",
+      "text": "Testo"
+    },
+    "tokens": {
+      "surface": "Sfondo del pannello",
+      "surfaceDeep": "Sfondo incassato",
+      "surfaceData": "Sfondo dei dati",
+      "surfaceDataRaised": "Sfondo dei dati (rialzato)",
+      "surfaceHover": "Sfondo al passaggio",
+      "surfaceDisabled": "Sfondo disabilitato",
+      "accent": "Accento",
+      "accentSoft": "Accento (tenue)",
+      "accentDeep": "Accento (intenso)",
+      "line": "Bordo",
+      "brass": "Riempimento / bordo del pulsante",
+      "brassHover": "Pulsante (al passaggio)",
+      "brassDisabled": "Pulsante (disabilitato)",
+      "fg": "Testo",
+      "fgStrong": "Testo (forte)",
+      "fgMuted": "Testo (attenuato)",
+      "fgDisabled": "Testo (disabilitato)",
+      "onAccent": "Testo su accento"
+    },
+    "resetTitle": "Reimposta tema",
+    "resetDescription": "Torna alla palette predefinita."
   }
 }

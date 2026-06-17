@@ -188,5 +188,46 @@
   "groundQuality": {
     "title": "Qualité du terrain",
     "description": "Contrôle la qualité des textures du terrain. Une qualité plus élevée fournit de meilleurs détails visuels mais peut affecter les performances. Nécessite de rafraîchir la carte."
+  },
+  "appearance": "Apparence",
+  "theme": {
+    "presetTitle": "Thème prédéfini",
+    "presetDescription": "Recolorez toute l'application. Les couleurs personnalisées nécessitent un palier payant.",
+    "presets": {
+      "default": "Par défaut",
+      "warm": "Chaud",
+      "navy": "Bleu marine",
+      "modern": "Moderne"
+    },
+    "customTitle": "Couleurs personnalisées",
+    "unlock": "Couleurs de thème personnalisées",
+    "groups": {
+      "surfaces": "Surfaces",
+      "accent": "Accent",
+      "borders": "Bordures",
+      "text": "Texte"
+    },
+    "tokens": {
+      "surface": "Fond du panneau",
+      "surfaceDeep": "Fond en retrait",
+      "surfaceData": "Fond des données",
+      "surfaceDataRaised": "Fond des données (surélevé)",
+      "surfaceHover": "Fond au survol",
+      "surfaceDisabled": "Fond désactivé",
+      "accent": "Accent",
+      "accentSoft": "Accent (doux)",
+      "accentDeep": "Accent (foncé)",
+      "line": "Bordure",
+      "brass": "Remplissage / bordure de bouton",
+      "brassHover": "Bouton (survol)",
+      "brassDisabled": "Bouton (désactivé)",
+      "fg": "Texte",
+      "fgStrong": "Texte (fort)",
+      "fgMuted": "Texte (atténué)",
+      "fgDisabled": "Texte (désactivé)",
+      "onAccent": "Texte sur accent"
+    },
+    "resetTitle": "Réinitialiser le thème",
+    "resetDescription": "Revenir à la palette par défaut."
   }
 }

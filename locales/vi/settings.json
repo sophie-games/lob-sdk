@@ -225,5 +225,46 @@
   "groundQuality": {
     "title": "Chất lượng mặt đất",
     "description": "Điều khiển chất lượng của kết cấu mặt đất. Chất lượng cao hơn cung cấp chi tiết hình ảnh tốt hơn nhưng có thể ảnh hưởng đến hiệu suất. Yêu cầu làm mới bản đồ."
+  },
+  "appearance": "Giao diện",
+  "theme": {
+    "presetTitle": "Chủ đề có sẵn",
+    "presetDescription": "Đổi màu toàn bộ ứng dụng. Màu tùy chỉnh cần gói trả phí.",
+    "presets": {
+      "default": "Mặc định",
+      "warm": "Ấm",
+      "navy": "Xanh hải quân",
+      "modern": "Hiện đại"
+    },
+    "customTitle": "Màu tùy chỉnh",
+    "unlock": "Màu chủ đề tùy chỉnh",
+    "groups": {
+      "surfaces": "Bề mặt",
+      "accent": "Màu nhấn",
+      "borders": "Viền",
+      "text": "Văn bản"
+    },
+    "tokens": {
+      "surface": "Nền bảng",
+      "surfaceDeep": "Nền lõm",
+      "surfaceData": "Nền dữ liệu",
+      "surfaceDataRaised": "Nền dữ liệu (nổi)",
+      "surfaceHover": "Nền khi di chuột",
+      "surfaceDisabled": "Nền bị tắt",
+      "accent": "Màu nhấn",
+      "accentSoft": "Màu nhấn (dịu)",
+      "accentDeep": "Màu nhấn (đậm)",
+      "line": "Viền",
+      "brass": "Nền / viền nút",
+      "brassHover": "Nút (di chuột)",
+      "brassDisabled": "Nút (bị tắt)",
+      "fg": "Văn bản",
+      "fgStrong": "Văn bản (đậm)",
+      "fgMuted": "Văn bản (mờ)",
+      "fgDisabled": "Văn bản (bị tắt)",
+      "onAccent": "Văn bản trên màu nhấn"
+    },
+    "resetTitle": "Đặt lại chủ đề",
+    "resetDescription": "Quay về bảng màu mặc định."
   }
 }

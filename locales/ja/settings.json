@@ -198,5 +198,46 @@
   "groundQuality": {
     "title": "地形品質",
     "description": "地形テクスチャの品質を制御します。より高い品質はより良い視覚的詳細を提供しますが、パフォーマンスに影響を与える可能性があります。マップの更新が必要です。"
+  },
+  "appearance": "外観",
+  "theme": {
+    "presetTitle": "テーマプリセット",
+    "presetDescription": "アプリ全体の配色を変更します。カスタムカラーには有料プランが必要です。",
+    "presets": {
+      "default": "デフォルト",
+      "warm": "ウォーム",
+      "navy": "ネイビー",
+      "modern": "モダン"
+    },
+    "customTitle": "カスタムカラー",
+    "unlock": "カスタムテーマカラー",
+    "groups": {
+      "surfaces": "サーフェス",
+      "accent": "アクセント",
+      "borders": "枠線",
+      "text": "テキスト"
+    },
+    "tokens": {
+      "surface": "パネルの背景",
+      "surfaceDeep": "くぼんだ背景",
+      "surfaceData": "データの背景",
+      "surfaceDataRaised": "データの背景（浮き上がり）",
+      "surfaceHover": "ホバー時の背景",
+      "surfaceDisabled": "無効時の背景",
+      "accent": "アクセント",
+      "accentSoft": "アクセント（淡い）",
+      "accentDeep": "アクセント（濃い）",
+      "line": "枠線",
+      "brass": "ボタンの塗り / 枠線",
+      "brassHover": "ボタン（ホバー）",
+      "brassDisabled": "ボタン（無効）",
+      "fg": "テキスト",
+      "fgStrong": "テキスト（強）",
+      "fgMuted": "テキスト（控えめ）",
+      "fgDisabled": "テキスト（無効）",
+      "onAccent": "アクセント上のテキスト"
+    },
+    "resetTitle": "テーマをリセット",
+    "resetDescription": "デフォルトのパレットに戻します。"
   }
 }
