@@ -1,0 +1,721 @@
+{
+  "common": {
+    "add": "添加",
+    "addEntry": "添加条目",
+    "cancel": "取消",
+    "delete": "删除",
+    "edit": "编辑",
+    "name": "名称",
+    "noEntries": "无条目。",
+    "none": "无",
+    "remove": "移除",
+    "save": "保存",
+    "select": "选择……",
+    "unknown": "（未知）"
+  },
+  "editor": {
+    "loadScenario": "加载战役剧本",
+    "chooseScenarioFile": "选择战役剧本文件"
+  },
+  "editorPanel": {
+    "tabs": {
+      "scenario": "战役",
+      "terrain": "地形",
+      "units": "单位",
+      "objectives": "目标点",
+      "triggers": "触发器",
+      "advanced": "高级"
+    },
+    "togglePanel": "切换面板",
+    "title": "战役编辑器",
+    "downloadScenario": "下载战役剧本",
+    "copyScenario": "复制战役剧本",
+    "fullscreen": "全屏",
+    "exitFullscreen": "退出全屏",
+    "expandPanel": "展开面板",
+    "collapsePanel": "收起面板",
+    "allowDynamicArmy": "允许动态军队",
+    "allowDynamicArmyHelp": "启用后，玩家会根据匹配的战斗类型带上自己的军队，并在各自的区域内部署。禁用后，战役预置的单位将构成全部阵容（跳过军队配置）。",
+    "showGrid": "显示网格",
+    "showUnits": "显示单位",
+    "hideUnits": "隐藏单位",
+    "showObjectives": "显示目标点",
+    "hideObjectives": "隐藏目标点",
+    "goBack": "返回",
+    "goBackConfirm": "确定要返回并退出编辑器吗？"
+  },
+  "createScenario": {
+    "title": "创建战役剧本",
+    "randomMap": "随机（程序生成）地图？",
+    "isHybrid": "是否为混合？"
+  },
+  "playersPanel": {
+    "title": "玩家",
+    "removePlayer": "移除玩家"
+  },
+  "terrainPanel": {
+    "title": "地形",
+    "active": "启用",
+    "setTerrain": "设置地形",
+    "terrainHeight": "地形高度",
+    "radius": "半径",
+    "paintBucket": "油漆桶"
+  },
+  "unitPanel": {
+    "title": "已选单位",
+    "player": "玩家",
+    "unitType": "单位类型",
+    "optional": "可选",
+    "positionX": "位置 X",
+    "positionY": "位置 Y",
+    "rotation": "旋转",
+    "mixed": "混合",
+    "copyJson": "复制 JSON",
+    "copyUnits": "复制单位",
+    "unitsCopied": "已复制单位（{{count}}）",
+    "deselect": "取消选择",
+    "removeSelectedUnits": "移除已选单位"
+  },
+  "createUnit": {
+    "title": "创建单位",
+    "active": "启用",
+    "usingCopiedUnits": "使用已复制的单位",
+    "customLabel": "{{name}}（自定义）",
+    "fields": {
+      "unit": "单位",
+      "player": "玩家"
+    }
+  },
+  "objectivePanel": {
+    "title": "已选目标点",
+    "player": "玩家 {{player}}",
+    "team": "队伍 {{team}}",
+    "namePlaceholder": "可选",
+    "mixed": "混合",
+    "deselect": "取消选择",
+    "removeSelected": "移除已选目标点",
+    "type": {
+      "small": "小",
+      "big": "大"
+    },
+    "fields": {
+      "type": "类型",
+      "logistics": "后勤",
+      "manpowerPerTurn": "每回合人力",
+      "goldPerTurn": "每回合黄金",
+      "victoryPoints": "胜利点数",
+      "positionX": "位置 X",
+      "positionY": "位置 Y"
+    }
+  },
+  "createObjective": {
+    "title": "创建目标点",
+    "active": "启用",
+    "gaia": "盖亚",
+    "type": {
+      "small": "小",
+      "big": "大"
+    },
+    "fields": {
+      "objectiveType": "目标点类型",
+      "victoryPoints": "胜利点数",
+      "player": "玩家",
+      "team": "队伍",
+      "logistics": "后勤"
+    }
+  },
+  "deployment": {
+    "title": "部署",
+    "team": "队伍 {{team}}",
+    "mainZone": "主区域",
+    "forwardZone": "前沿",
+    "fields": {
+      "x": "X",
+      "y": "Y",
+      "width": "宽度",
+      "height": "高度"
+    }
+  },
+  "vpBalance": {
+    "heading": "VP 平衡（伤亡 vs 目标点）",
+    "casualtiesTooltip": "伤亡：{{vp}} VP",
+    "objectivesTooltip": "目标点：{{vp}} VP",
+    "casualtiesSummary": "伤亡 {{pct}}%（{{vp}} VP）",
+    "objectivesSummary": "目标点 {{pct}}%（{{vp}} VP）"
+  },
+  "formationModal": {
+    "title": "编辑自定义阵型",
+    "identity": "标识",
+    "formationId": "阵型 ID",
+    "collision": "碰撞",
+    "collisionHelp": "占地形状：圆形（半径）或矩形（正面宽度为 frontage，纵深为 depth 即前后方向）。半径设为 0 表示无碰撞（飞行 / 幽灵）。",
+    "shape": "形状",
+    "shapeRectangle": "矩形",
+    "shapeCircle": "圆形",
+    "radiusPx": "半径（px）",
+    "frontagePx": "正面宽度（px）",
+    "depthPx": "纵深（px）",
+    "movement": "移动",
+    "movementModifier": "移动修正",
+    "runMovementModifier": "疾跑移动修正",
+    "rotationSpeedModifier": "转向速度修正",
+    "disable180Turn": "禁用 180° 转向",
+    "formingSpeedModifier": "变阵速度修正",
+    "timeToForm": "变阵时间（ticks）",
+    "timeToUnform": "解阵时间（ticks）",
+    "minMovementModifier": "最低移动修正",
+    "combat": "战斗",
+    "rangedAttackModifier": "远程攻击修正",
+    "chargeBonusModifier": "冲锋加成修正",
+    "chargePenetrationModifier": "冲锋穿透修正",
+    "chargeResistanceModifier": "冲锋抗性修正",
+    "pushStrengthModifier": "推力强度修正",
+    "receivedMeleeDamageModifier": "受到近战伤害修正",
+    "flanking": "侧翼",
+    "disablesFlankMelee": "禁用近战侧击",
+    "disablesEnfiladeFire": "禁用侧翼射击",
+    "disablesRearFire": "禁用后方射击",
+    "flankChargeResistance": "侧翼冲锋抗性",
+    "rearChargeResistance": "后部冲锋抗性",
+    "enfiladeFireResistance": "侧翼射击抗性",
+    "rearFireResistance": "后部射击抗性",
+    "rangedDamageResistance": "远程伤害抗性",
+    "rangedOrgResistance": "远程组织度抗性",
+    "fireEdges": "射击边（边缘射击）",
+    "fireEdgesHelp": "每条射击边沿矩形的一个面发射。没有射击边的阵型默认从正面单边射击；圆形阵型不射击。",
+    "edge": "边",
+    "edgeLeft": "0 - 左侧（-Y）",
+    "edgeFront": "1 - 正面（+X）",
+    "edgeRight": "2 - 右侧（+Y）",
+    "edgeRear": "3 - 后方（-X）",
+    "arc": "弧度（deg，默认 90）",
+    "emitters": "发射点",
+    "removeFireEdge": "移除射击边",
+    "addFireEdge": "添加射击边",
+    "errIdRequired": "阵型 ID 为必填项",
+    "errIdInUse": "阵型 id “{{id}}” 已被占用",
+    "errEdgeIndex": "射击边 {{n}}：边索引必须为 0-3",
+    "errEdgeArc": "射击边 {{n}}：弧度必须介于 0 到 360 之间",
+    "errEdgeEmitters": "射击边 {{n}}：发射点必须为正整数"
+  },
+  "unitTemplateModal": {
+    "title": "编辑自定义单位模板",
+    "optBuiltIn": "{{name}}（内置）",
+    "optCustom": "{{name}}（自定义）",
+    "identity": "标识",
+    "typeId": "类型 ID",
+    "category": "类别",
+    "combat": "战斗",
+    "meleeAttack": "近战攻击",
+    "meleeDefense": "近战防御",
+    "meleeDamageType": "近战伤害类型",
+    "chargeBonus": "冲锋加成",
+    "chargePenetration": "冲锋穿透",
+    "chargeResistance": "冲锋抗性",
+    "flankMeleeOrgModifier": "侧翼近战组织度修正",
+    "flankChargePenBonus": "侧翼冲锋穿透加成",
+    "stats": "数据",
+    "hp": "HP",
+    "org": "组织度",
+    "shattersAtOrg": "瓦解所需组织度",
+    "routesAtOrg": "溃退所需组织度",
+    "recoversAtOrg": "恢复所需组织度",
+    "ralliesAtOrg": "重整所需组织度",
+    "stamina": "体力",
+    "manpower": "人力",
+    "gold": "黄金",
+    "orgRadius": "组织度影响范围",
+    "orgRadiusBonus": "组织度范围加成",
+    "reportStats": "简报数据",
+    "reportStatsHelp": "每个单位计入战斗简报的计数（例如兵员、马匹、火炮）。键名取自该时代的内置单位。",
+    "tallyPerUnit": "每单位计数",
+    "movement": "移动",
+    "walkMovement": "行进移动力",
+    "runMovement": "疾跑移动力",
+    "runStartUpMovement": "疾跑起步移动力",
+    "timeToRun": "起跑时间（ticks）",
+    "runCost": "疾跑消耗",
+    "rotationSpeed": "转向速度",
+    "rotationMaxThreshold": "转向上限阈值",
+    "runRotationSpeed": "疾跑转向速度",
+    "turningDelay": "转向延迟（ticks）",
+    "startsRunning": "开局疾跑",
+    "movementSound": "移动音效",
+    "rangedCombat": "远程战斗",
+    "rangedAttack": "远程攻击",
+    "ammo": "弹药",
+    "minDistanceToFAA": "移动射击最低距离",
+    "panicFireDistance": "恐慌射击距离",
+    "fireWhileMoving": "移动时射击",
+    "noAmmoRegain": "弹药不可补充",
+    "rangedDamageTypes": "远程伤害类型",
+    "addRangedDamageType": "添加远程伤害类型",
+    "enableRanged": "启用远程",
+    "formations": "阵型",
+    "formationId": "阵型 ID",
+    "baseSprite": "基础精灵图",
+    "overlaySprite": "覆盖精灵图",
+    "addFormation": "添加阵型",
+    "defaultFormation": "默认阵型",
+    "supply": "补给",
+    "supplyField": "补给",
+    "supplyConsumptionIdle": "闲置补给消耗",
+    "supplyConsumptionMoving": "移动补给消耗",
+    "supplyConsumptionCombating": "战斗补给消耗",
+    "supplyManpowerCost": "补给人力花费",
+    "supplyGoldCost": "补给黄金花费",
+    "misc": "杂项",
+    "skirmisherRatio": "散兵比例",
+    "canDeployForward": "可前沿部署",
+    "reducedVisibilityRange": "降低视野范围",
+    "unknownType": "未知类型 id",
+    "pushStrength": "推力强度",
+    "pushDistance": "推力距离",
+    "maxEntrenchment": "堑壕上限",
+    "locked": "已锁定"
+  },
+  "unitCategoryModal": {
+    "title": "编辑自定义单位类别",
+    "optionBuiltIn": "{{name}}（内置）",
+    "optionCustom": "{{name}}（自定义）",
+    "errors": {
+      "idRequired": "ID 为必填项",
+      "idInUse": "单位类别 id “{{id}}” 已被占用",
+      "firingAltitudeRequired": "firingAltitude 为必填项",
+      "orphanedResistances": "damageTypeResistances 引用了未知的伤害类型：{{types}}",
+      "orphanedAutofire": "autofirePriority 引用了未知的单位类别：{{categories}}",
+      "allowedOrderRequired": "所有允许指令条目都必须选择",
+      "allowedOrderUnknown": "允许指令 “{{name}}” 不是该时代的已知指令"
+    },
+    "identity": {
+      "legend": "标识",
+      "id": "ID",
+      "deploymentSection": "部署区段"
+    },
+    "deploymentSection": {
+      "center": "中央",
+      "flank": "侧翼",
+      "front": "正面"
+    },
+    "combat": {
+      "legend": "战斗",
+      "firingAltitude": "射击高度",
+      "allyCollisionLevel": "友军碰撞等级",
+      "enemyCollisionLevel": "敌军碰撞等级",
+      "captureSpeed": "占领速度",
+      "impactAltitude": "命中高度",
+      "grazingAltitude": "掠过高度"
+    },
+    "movement": {
+      "legend": "移动与显示",
+      "forwardOnlyMovement": "仅向前移动（舰船）",
+      "portraitRotation": "立绘旋转（deg）"
+    },
+    "routing": {
+      "legend": "溃退行为",
+      "baseSpeed": "基础速度",
+      "speedWalk": "行进",
+      "speedRun": "疾跑",
+      "fleeWhenRouted": "溃退时逃窜"
+    },
+    "enfiladeFire": {
+      "legend": "侧翼射击",
+      "damageModifier": "伤害修正",
+      "orgModifier": "组织度修正"
+    },
+    "rearFire": {
+      "legend": "后方射击",
+      "orgModifier": "组织度修正"
+    },
+    "chargeBacklash": {
+      "legend": "冲锋反击",
+      "description": "该类别对冲锋者反击的倍率（越高 = 越稳并反击越重，0 = 无）。疾跑后的数值适用于已疾跑、无法稳住阵脚的防御方；若未设置则回退到基础倍率。默认为 1。",
+      "multiplier": "反击倍率",
+      "multiplierAfterRunning": "反击倍率（疾跑后）"
+    },
+    "chargeStamina": {
+      "legend": "冲锋体力",
+      "description": "一次冲锋从该类别消耗的最大体力。冲锋者正面冲锋时全额支付，侧翼时较少；防御方被侧击时全额支付，两种情况均有 25% 下限。默认为 0（无消耗）。",
+      "cost": "冲锋体力消耗"
+    },
+    "resistances": {
+      "legend": "伤害类型抗性",
+      "description": "按伤害类型的抗性修正（负值 = 受到更多伤害，正值 = 受到更少伤害）。",
+      "fieldLabel": "按伤害类型的抗性"
+    },
+    "autofire": {
+      "legend": "自动开火优先级",
+      "description": "对每个目标单位类别的优先级权重。数值越高越优先被自动开火选为目标。",
+      "fieldLabel": "按目标类别的优先级"
+    },
+    "allowedOrders": {
+      "legend": "允许指令",
+      "add": "添加允许指令"
+    }
+  },
+  "damageTypeModal": {
+    "title": "编辑自定义伤害类型",
+    "sections": {
+      "identity": "标识",
+      "damage": "伤害",
+      "projectile": "弹丸",
+      "rangeBrackets": "距离区段",
+      "areaOfEffect": "作用范围"
+    },
+    "fields": {
+      "id": "ID",
+      "ranged": "远程",
+      "imageAlias": "图像别名",
+      "orgDamageRatio": "组织度伤害比例",
+      "damageModifier": "伤害修正",
+      "reorgDebuff": "组织度恢复惩罚",
+      "attackEffectDuration": "攻击效果持续时间（ticks）",
+      "projectileWidth": "弹丸宽度",
+      "arcHeight": "弹道曲线高度",
+      "projectilePenetration": "弹丸穿透",
+      "ammoCost": "弹药花费",
+      "shotSound": "射击音效",
+      "shotAnim": "射击动画",
+      "enfiladeFire": "侧翼射击",
+      "cannotUseAfterRun": "疾跑后无法使用",
+      "extendRange": "延伸距离",
+      "aimMode": "瞄准模式"
+    },
+    "aimMode": {
+      "targetCenter": "目标中心（圆形爆炸）",
+      "nearestBody": "最近实体（直射 / 正面火力）"
+    },
+    "range": {
+      "start": "起点",
+      "end": "终点",
+      "startMod": "起点修正",
+      "endMod": "终点修正"
+    },
+    "aoe": {
+      "type": "类型",
+      "circular": "圆形",
+      "trapezoidal": "梯形",
+      "absorptionModifier": "吸收修正",
+      "edgeDamageModifier": "边缘伤害修正",
+      "offset": "偏移",
+      "startRadius": "起始半径",
+      "endRadius": "结束半径",
+      "startTopWidth": "起始顶边宽",
+      "endTopWidth": "结束顶边宽",
+      "startBottomWidth": "起始底边宽",
+      "endBottomWidth": "结束底边宽",
+      "startHeight": "起始高度",
+      "endHeight": "结束高度"
+    },
+    "addRangeBracket": "添加距离区段",
+    "addAreaOfEffect": "添加作用范围",
+    "removeAreaOfEffect": "移除作用范围",
+    "errors": {
+      "nameRequired": "名称为必填项",
+      "idMustBeNumber": "ID 必须为数字",
+      "idInUse": "伤害类型 id {{id}} 已被占用",
+      "nameInUse": "伤害类型名称 “{{name}}” 已被占用",
+      "idBelongsToBuiltIn": "伤害类型 id {{id}} 属于内置 “{{name}}”。保留该名称以覆盖它，或选择其他 id。",
+      "nameBelongsToBuiltIn": "名称 “{{name}}” 属于内置 id {{id}}。将 id 设为 {{id}} 以覆盖它，或选择其他名称。",
+      "orgDamageRatioRequired": "orgDamageRatio 为必填项",
+      "rangedNeedsBracket": "远程伤害类型至少需要一个距离区段"
+    }
+  },
+  "terrainCategoryModal": {
+    "title": "编辑自定义地形类别",
+    "sections": {
+      "identity": "标识",
+      "scalarProperties": "标量属性",
+      "perUnitCategoryModifiers": "按单位类别的修正",
+      "projectileAbsorption": "弹丸吸收"
+    },
+    "identityHint": "为本战役覆盖该时代的地形类别配置。id 固定为某个内置类别——地形保留其类别归属，你只调整修正值。",
+    "perUnitCategoryHint": "键名为单位类别 id。使用 `*` 通配符设置一个默认值，应用于所有没有显式条目的类别。",
+    "projectileAbsorptionHint": "键名为伤害类型名称。",
+    "option": {
+      "builtIn": "{{name}}（内置）",
+      "custom": "{{name}}（自定义）"
+    },
+    "fields": {
+      "id": "ID",
+      "color": "颜色",
+      "staminaCostModifier": "体力消耗修正",
+      "hitboxHeight": "碰撞箱高度",
+      "heightOffset": "高度偏移",
+      "visionAbsorption": "视野吸收",
+      "pushStrengthModifier": "推力强度修正",
+      "pushDistanceModifier": "推力距离修正",
+      "fixedEnemyCollisionLevel": "固定敌军碰撞等级",
+      "canPlaceObjectives": "可放置目标点",
+      "prioritizeMovement": "优先移动",
+      "supplyRoute": "补给路线",
+      "movementModifier": "移动修正",
+      "impassableFor": "对以下不可通行",
+      "attackModifier": "攻击修正",
+      "defenseModifier": "防御修正",
+      "rangedAttackModifier": "远程攻击修正",
+      "chargeResistanceModifier": "冲锋抗性修正",
+      "chargeBonusModifier": "冲锋加成修正",
+      "projectileAbsorptionByDamageType": "按伤害类型的弹丸吸收"
+    },
+    "errors": {
+      "idRequired": "ID 为必填项",
+      "idInUse": "地形类别 id “{{id}}” 已被占用",
+      "unknownUnitCategories": "{{field}} 引用了未知的单位类别：{{keys}}",
+      "unknownDamageTypes": "projectileAbsorption 引用了未知的伤害类型：{{keys}}"
+    }
+  },
+  "customDefs": {
+    "common": {
+      "importFromScenario": "从战役剧本导入",
+      "duplicate": "复制",
+      "done": "完成"
+    },
+    "spritesPanel": {
+      "title": "自定义精灵图",
+      "description": "在这里上传你自己的精灵图，然后在单位的阵型中选用。它们会嵌入战役剧本（每张最大 {{kb}}KB）。",
+      "yourSprites": "你的精灵图",
+      "noSprites": "暂无自定义精灵图。",
+      "uploadSprite": "上传精灵图",
+      "renderWidthAria": "渲染宽度（px）",
+      "renderHeightAria": "渲染高度（px）",
+      "maxSpritesAlert": "最多可上传 {{count}} 张自定义精灵图。",
+      "tooLargeAlert": "图片过大；无法压缩到 {{kb}}KB 以下。请尝试更小或更简单的图片。",
+      "invalidImageAlert": "无法读取图片。请使用 PNG 或 WebP 文件。",
+      "deleteBlockedAlert": "无法删除：仍被 {{where}} 使用。请先更改那些阵型。",
+      "libraryTitle": "精灵图库",
+      "libraryDescription": "浏览该时代的内置精灵图以获取灵感。",
+      "filterPlaceholder": "按名称筛选……",
+      "loading": "加载中……",
+      "unitBase": "单位基础（{{count}}）",
+      "unitOverlay": "单位覆盖（{{count}}）",
+      "noMatches": "无匹配项。"
+    },
+    "unitTemplatesPanel": {
+      "title": "自定义单位模板",
+      "description": "用自定义数据、阵型和伤害类型定义新的单位模板。使用“覆盖”为本战役替换某个内置项（适合平衡测试），或使用“克隆”添加一个 id >= {{minId}} 的全新模板。",
+      "noTemplates": "暂无自定义单位模板。",
+      "templateLabel": "{{name}}（类型 {{type}}）",
+      "deleteBlocked": "无法删除 “{{name}}”——仍被 {{refs}} 使用。请先移除那些单位。",
+      "addTemplate": "添加单位模板",
+      "clonePickerTitle": "克隆内置单位模板"
+    },
+    "formationsPanel": {
+      "title": "自定义单位阵型",
+      "description": "定义自定义单位可使用的新阵型模板（碰撞、修正、射击规则）。",
+      "noFormations": "暂无自定义阵型。",
+      "deleteBlocked": "无法删除 “{{id}}”——仍被 {{refs}} 使用。请先移除那些引用。",
+      "addFormation": "添加阵型",
+      "clonePickerTitle": "克隆内置阵型"
+    },
+    "unitCategoriesPanel": {
+      "title": "自定义单位类别",
+      "description": "定义新的单位类别（碰撞等级、部署区段、允许指令、溃退行为）。自定义单位通过其类别字段引用。",
+      "noCategories": "暂无自定义单位类别。",
+      "deleteBlocked": "无法删除 “{{id}}”——仍被 {{refs}} 使用。请先移除那些引用。",
+      "addCategory": "添加单位类别",
+      "clonePickerTitle": "克隆内置单位类别"
+    },
+    "damageTypesPanel": {
+      "title": "自定义伤害类型",
+      "description": "定义新的近战或远程伤害类型。自定义单位通过 meleeDamageType 或 rangedDamageTypes 引用。",
+      "noDamageTypes": "暂无自定义伤害类型。",
+      "ranged": "远程",
+      "melee": "近战",
+      "cloneOptionLabel": "{{name}}（{{kind}}）",
+      "itemLabel": "{{name}}（{{kind}}，id {{id}}）",
+      "deleteBlocked": "无法删除 “{{name}}”——仍被 {{refs}} 使用。请先移除那些引用。",
+      "addDamageType": "添加伤害类型",
+      "clonePickerTitle": "克隆内置伤害类型"
+    },
+    "terrainCategoriesPanel": {
+      "title": "自定义地形类别",
+      "description": "为本战役覆盖地形类别配置。用它给自定义单位类别指定特定的地形修正，或引入新的地形类别 id。",
+      "noOverrides": "暂无自定义地形类别覆盖。",
+      "addTerrainCategory": "添加地形类别",
+      "clonePickerTitle": "克隆内置地形类别"
+    },
+    "overrideEditor": {
+      "invalidJson": "无效的 JSON",
+      "reset": "重置",
+      "eraDefault": "时代默认值：{{value}}",
+      "structuralTooltip": "结构性 / 确定性常量。更改它可能破坏渲染、回放或匹配。"
+    },
+    "importModal": {
+      "kindUnitTemplates": "单位模板",
+      "kindDamageTypes": "伤害类型",
+      "kindFormations": "阵型",
+      "kindUnitCategories": "单位类别",
+      "kindTerrainCategories": "地形类别",
+      "kindSprites": "精灵图",
+      "unitItemLabel": "{{name}}（#{{type}}）",
+      "damageTypeItemLabel": "{{name}}（{{kind}}）",
+      "nothing": "无",
+      "title": "从战役剧本导入{{kind}}",
+      "pickFilePrompt": "选择一个战役剧本文件（编辑器“下载”按钮生成的 JSON），从中导入其自定义{{kind}}。",
+      "chooseFile": "选择战役剧本文件",
+      "fileReadError": "无法将该文件读取为战役剧本。",
+      "invalidForEra": "该战役剧本的自定义定义对当前时代无效（例如 {{message}}）。",
+      "importWouldInvalidate": "导入会使战役剧本无效（例如 {{message}}）。未做任何更改。",
+      "fromLabel": "来自：{{name}}",
+      "importedScenario": "已导入的战役剧本",
+      "changeFile": "更换文件",
+      "noCustomDefs": "该战役剧本没有自定义{{kind}}。",
+      "willImport": "将导入（含依赖）：{{summary}}。",
+      "resultSummary": "已导入 {{imported}}，重命名 {{renamed}}，跳过 {{skipped}}。",
+      "importSelected": "导入所选"
+    },
+    "importOverridesModal": {
+      "targetGameConstants": "游戏常量覆盖",
+      "targetGameRules": "游戏规则覆盖",
+      "targetOrders": "指令覆盖",
+      "title": "从战役剧本导入{{target}}",
+      "pickFilePrompt": "选择一个战役剧本文件（编辑器“下载”按钮生成的 JSON），从中导入其{{target}}。",
+      "noOverrides": "该战役剧本没有{{target}}。",
+      "importedCount_other": "已导入 {{count}} 项覆盖。"
+    },
+    "gameConstants": {
+      "title": "游戏常量覆盖",
+      "description": "为本战役覆盖该时代的数值常量。仅保存已更改的值；“重置”会将字段恢复为时代默认值。标记 ⚠ 的键是结构性的——更改它们可能破坏渲染、回放或匹配。数值为原始内部单位。"
+    },
+    "gameRules": {
+      "title": "游戏规则覆盖",
+      "description": "为本战役覆盖该时代的玩法规则。仅保存已更改的值；使用“重置”将字段恢复为时代默认值。数值为原始内部单位（部分数据以预缩放形式存储）。"
+    },
+    "ordersPanel": {
+      "title": "指令覆盖",
+      "description": "为本战役覆盖该时代内置指令的数值。仅保存已更改的值；使用“重置”将字段恢复为时代默认值。你可以修改现有指令，但不能添加新指令。"
+    },
+    "clonePicker": {
+      "alreadyOverridden": "（已覆盖）",
+      "alreadyOverriddenTooltip": "该内置项在本战役中已有自定义覆盖；请从列表中编辑它。",
+      "clone": "克隆",
+      "override": "覆盖"
+    },
+    "spriteSelect": {
+      "default": "默认",
+      "unknownOption": "{{value}}（未知）",
+      "groupCustom": "自定义",
+      "groupBuiltIn": "内置"
+    }
+  },
+  "resize": {
+    "title": "调整地图大小",
+    "currentSize": "当前大小：{{width}} × {{height}} 格",
+    "newSize": "新大小：{{width}} × {{height}} 格",
+    "current": "当前：{{width}} × {{height}} 格",
+    "confirmTitle": "确认调整地图大小",
+    "warningCannotUndo": "⚠️ <0>警告：</0>此操作无法撤销。",
+    "continue": "继续",
+    "tabScale": "缩放",
+    "tabExpandCut": "扩展 / 裁剪边",
+    "scale": {
+      "newWidth": "新宽度（格）",
+      "newHeight": "新高度（格）",
+      "apply": "调整地图大小",
+      "errorInvalid": "请为宽度和高度输入有效的正整数（以格为单位）",
+      "warningBody": "继续前请确保已保存战役剧本。调整大小会缩放所有地形、高度、单位、目标点和触发器位置。"
+    },
+    "expandCut": {
+      "intro": "正值会从每条边添加格子，负值会移除格子。",
+      "left": "左（格）",
+      "right": "右（格）",
+      "top": "上（格）",
+      "bottom": "下（格）",
+      "sideExpand": "+{{count}} 格（扩展）",
+      "sideCut": "{{count}} 格（裁剪）",
+      "noChange": "无变化",
+      "apply": "应用更改",
+      "errorTooSmall": "无法调整大小：结果地图将小于 1×1 格。请调整数值。",
+      "errorTooLarge": "无法调整大小：结果地图将超过最大尺寸 {{maxWidth}}×{{maxHeight}} 格。",
+      "warningBody": "继续前请确保已保存战役剧本。扩展/裁剪会从指定边添加或移除格子。新边界外的单位和目标点将被移除。",
+      "changesHeading": "更改：",
+      "changesHorizontal": "左：{{left}} 格，右：{{right}} 格",
+      "changesVertical": "上：{{top}} 格，下：{{bottom}} 格"
+    }
+  },
+  "mapSize": {
+    "widthInTiles": "宽度（格）",
+    "heightInTiles": "高度（格）",
+    "widthPlaceholder": "宽度",
+    "heightPlaceholder": "高度"
+  },
+  "misc": {
+    "scaleAllSizesBy": "将所有尺寸缩放",
+    "apply": "应用",
+    "background": "背景",
+    "chooseImage": "选择图片"
+  },
+  "localesPanel": {
+    "title": "语言",
+    "description": "语言用于将战役剧本翻译成不同的语言。",
+    "addLanguage": "添加语言",
+    "removeLanguage": "移除语言",
+    "noKeys": "无翻译键。添加一个键以开始。",
+    "addKey": "添加键",
+    "keyLabel": "键",
+    "removeKey": "移除键",
+    "keyPlaceholder": "翻译键",
+    "valueLabel": "值",
+    "valuePlaceholder": "翻译值",
+    "addLanguageTitle": "添加语言",
+    "languageCodeLabel": "语言代码",
+    "languageCodePlaceholder": "例如 'en'、'es'、'fr'",
+    "languageCodeEmpty": "语言代码不能为空",
+    "languageAlreadyExists": "语言 “{{language}}” 已存在",
+    "addKeyTitle": "添加翻译键 - {{language}}",
+    "keyNameLabel": "键名",
+    "keyNamePlaceholder": "例如 'title'、'description'、'button_text'",
+    "keyNameEmpty": "键名不能为空",
+    "keyAlreadyExists": "键 “{{key}}” 已在 “{{language}}” 中存在"
+  },
+  "triggers": {
+    "title": "触发器",
+    "moreInfo": "在此了解更多有关触发器的信息",
+    "lastPositionClicked": "上次点击的位置：[{{x}}, {{y}}]",
+    "createTrigger": "创建触发器",
+    "createTriggerButton": "创建触发器",
+    "format": "格式",
+    "invalidJsonFormat": "无效的 JSON 格式",
+    "event": "事件",
+    "conditionLogic": "条件逻辑",
+    "conditionLogicAnd": "所有条件（AND）",
+    "conditionLogicOr": "任一条件（OR）",
+    "conditions": "条件",
+    "addCondition": "添加条件",
+    "actions": "动作",
+    "addAction": "添加动作",
+    "once": "仅一次"
+  },
+  "randomMap": {
+    "title": "随机地图",
+    "moreInfo": "在此了解更多有关随机地图的信息",
+    "proceduralMap": "程序生成（随机）地图",
+    "proceduralExplanation": "这些指令会在每场对局以新的种子生成地图；保存的战役剧本会丢弃其烘焙地图。此处显示的地图仅为预览。由目标点 / 目标点层指令放置的目标点将在对局时出现，而非在此预览中。",
+    "startFromTemplate": "从模板开始",
+    "loadInstructionsFromTemplate": "从模板加载指令",
+    "generating": "生成中……",
+    "generatePreview": "生成预览",
+    "instructions": "指令",
+    "instructionsWithCount": "指令（{{count}}）",
+    "formEditor": "表单编辑器",
+    "editAsJson": "以 JSON 编辑",
+    "noInstructions": "暂无指令。在上方添加一条或加载模板。",
+    "moveUp": "上移",
+    "moveDown": "下移",
+    "switchToPresetConfirm": "切换到预设会保留当前地形并清除生成指令。是否继续？",
+    "replaceInstructionsConfirm": "用模板的指令替换当前指令？",
+    "fillFromTemplateDescription": "从程序生成模板填充当前地图的地形。这会烘焙一张固定（预设）地图，且不保留任何生成指令。",
+    "template": "模板",
+    "useSeed": "使用种子？",
+    "useSeedDescription": "使用程序生成来生成地形",
+    "confirmOverwriteLabel": "我了解这将覆盖所有地形",
+    "lastUsedSeed": "上次使用的种子：",
+    "generate": "生成",
+    "importMustBeProcedural": "导入的文件必须是程序生成模板（无烘焙地图，带生成指令）。",
+    "invalidJsonFile": "无效的 JSON 文件。请检查文件格式。",
+    "confirmOverwriteWarning": "请确认你了解这将覆盖地形。",
+    "selectedNotProcedural": "所选战役剧本不是程序生成模板。",
+    "invalidJson": "无效的 JSON"
+  }
+}

@@ -1,0 +1,726 @@
+{
+  "common": {
+    "add": "إضافة",
+    "addEntry": "إضافة مدخل",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "name": "الاسم",
+    "noEntries": "لا توجد مدخلات.",
+    "none": "لا شيء",
+    "remove": "إزالة",
+    "save": "حفظ",
+    "select": "اختيار...",
+    "unknown": "(غير معروف)"
+  },
+  "editor": {
+    "loadScenario": "تحميل سيناريو",
+    "chooseScenarioFile": "اختر ملف السيناريو"
+  },
+  "editorPanel": {
+    "tabs": {
+      "scenario": "السيناريو",
+      "terrain": "التضاريس",
+      "units": "الوحدات",
+      "objectives": "الأهداف",
+      "triggers": "المُشغّلات",
+      "advanced": "متقدم"
+    },
+    "togglePanel": "تبديل اللوحة",
+    "title": "محرر السيناريو",
+    "downloadScenario": "تنزيل السيناريو",
+    "copyScenario": "نسخ السيناريو",
+    "fullscreen": "ملء الشاشة",
+    "exitFullscreen": "الخروج من ملء الشاشة",
+    "expandPanel": "توسيع اللوحة",
+    "collapsePanel": "طي اللوحة",
+    "allowDynamicArmy": "السماح بجيش ديناميكي",
+    "allowDynamicArmyHelp": "عند التفعيل، يجلب اللاعبون جيشهم الخاص بناءً على نوع المعركة في المطابقة وينشرونه داخل مناطقهم. عند التعطيل، تحدد الوحدات الموضوعة مسبقاً في السيناريو القائمة الكاملة (يتم تخطي تشكيل الجيش).",
+    "showGrid": "إظهار الشبكة",
+    "showUnits": "إظهار الوحدات",
+    "hideUnits": "إخفاء الوحدات",
+    "showObjectives": "إظهار الأهداف",
+    "hideObjectives": "إخفاء الأهداف",
+    "goBack": "رجوع",
+    "goBackConfirm": "هل أنت متأكد من أنك تريد الرجوع والخروج من المحرر؟"
+  },
+  "createScenario": {
+    "title": "إنشاء سيناريو",
+    "randomMap": "خريطة عشوائية (إجرائية)؟",
+    "isHybrid": "مختلط؟"
+  },
+  "playersPanel": {
+    "title": "اللاعبون",
+    "removePlayer": "إزالة لاعب"
+  },
+  "terrainPanel": {
+    "title": "التضاريس",
+    "active": "نشط",
+    "setTerrain": "تعيين التضاريس",
+    "terrainHeight": "ارتفاع التضاريس",
+    "radius": "نصف القطر",
+    "paintBucket": "دلو الطلاء"
+  },
+  "unitPanel": {
+    "title": "الوحدة المحددة",
+    "player": "اللاعب",
+    "unitType": "نوع الوحدة",
+    "optional": "اختياري",
+    "positionX": "الموضع X",
+    "positionY": "الموضع Y",
+    "rotation": "الدوران",
+    "mixed": "متنوع",
+    "copyJson": "نسخ JSON",
+    "copyUnits": "نسخ الوحدات",
+    "unitsCopied": "تم نسخ الوحدات ({{count}})",
+    "deselect": "إلغاء التحديد",
+    "removeSelectedUnits": "إزالة الوحدات المحددة"
+  },
+  "createUnit": {
+    "title": "إنشاء وحدة",
+    "active": "نشط",
+    "usingCopiedUnits": "استخدام الوحدات المنسوخة",
+    "customLabel": "{{name}} (مخصص)",
+    "fields": {
+      "unit": "الوحدة",
+      "player": "اللاعب"
+    }
+  },
+  "objectivePanel": {
+    "title": "الهدف المحدد",
+    "player": "اللاعب {{player}}",
+    "team": "الفريق {{team}}",
+    "namePlaceholder": "اختياري",
+    "mixed": "متنوع",
+    "deselect": "إلغاء التحديد",
+    "removeSelected": "إزالة الهدف المحدد",
+    "type": {
+      "small": "صغير",
+      "big": "كبير"
+    },
+    "fields": {
+      "type": "النوع",
+      "logistics": "اللوجستيات",
+      "manpowerPerTurn": "القوى البشرية لكل دور",
+      "goldPerTurn": "الذهب لكل دور",
+      "victoryPoints": "نقاط النصر",
+      "positionX": "الموضع X",
+      "positionY": "الموضع Y"
+    }
+  },
+  "createObjective": {
+    "title": "إنشاء هدف",
+    "active": "نشط",
+    "gaia": "محايد",
+    "type": {
+      "small": "صغير",
+      "big": "كبير"
+    },
+    "fields": {
+      "objectiveType": "نوع الهدف",
+      "victoryPoints": "نقاط النصر",
+      "player": "اللاعب",
+      "team": "الفريق",
+      "logistics": "اللوجستيات"
+    }
+  },
+  "deployment": {
+    "title": "النشر",
+    "team": "الفريق {{team}}",
+    "mainZone": "رئيسي",
+    "forwardZone": "أمامي",
+    "fields": {
+      "x": "X",
+      "y": "Y",
+      "width": "العرض",
+      "height": "الارتفاع"
+    }
+  },
+  "vpBalance": {
+    "heading": "توازن نقاط النصر (الخسائر مقابل الأهداف)",
+    "casualtiesTooltip": "الخسائر: {{vp}} VP",
+    "objectivesTooltip": "الأهداف: {{vp}} VP",
+    "casualtiesSummary": "الخسائر {{pct}}% ({{vp}} VP)",
+    "objectivesSummary": "الأهداف {{pct}}% ({{vp}} VP)"
+  },
+  "formationModal": {
+    "title": "تعديل تشكيل مخصص",
+    "identity": "الهوية",
+    "formationId": "معرّف التشكيل",
+    "collision": "التصادم",
+    "collisionHelp": "شكل البصمة: دائرة (نصف القطر) أو مستطيل (الواجهة عبر المقدمة، والعمق من الأمام إلى الخلف). استخدم نصف قطر 0 لإلغاء التصادم (طائر / شبح).",
+    "shape": "الشكل",
+    "shapeRectangle": "مستطيل",
+    "shapeCircle": "دائرة",
+    "radiusPx": "نصف القطر (px)",
+    "frontagePx": "الواجهة (px)",
+    "depthPx": "العمق (px)",
+    "movement": "الحركة",
+    "movementModifier": "معدل الحركة",
+    "runMovementModifier": "معدل حركة الجري",
+    "rotationSpeedModifier": "معدل سرعة الدوران",
+    "disable180Turn": "تعطيل الدوران 180°",
+    "formingSpeedModifier": "معدل سرعة التشكيل",
+    "timeToForm": "وقت التشكيل (ticks)",
+    "timeToUnform": "وقت التفكيك (ticks)",
+    "minMovementModifier": "معدل الحركة الأدنى",
+    "combat": "القتال",
+    "rangedAttackModifier": "معدل الهجوم البعيد",
+    "chargeBonusModifier": "معدل مكافأة الهجوم",
+    "chargePenetrationModifier": "معدل اختراق الهجوم",
+    "chargeResistanceModifier": "معدل مقاومة الهجوم",
+    "pushStrengthModifier": "معدل قوة الدفع",
+    "receivedMeleeDamageModifier": "معدل ضرر القتال القريب المستلم",
+    "flanking": "الالتفاف",
+    "disablesFlankMelee": "يعطّل القتال القريب الجانبي",
+    "disablesEnfiladeFire": "يعطّل النيران الجانبية",
+    "disablesRearFire": "يعطّل النيران الخلفية",
+    "flankChargeResistance": "مقاومة الهجوم الجانبي",
+    "rearChargeResistance": "مقاومة الهجوم الخلفي",
+    "enfiladeFireResistance": "مقاومة النيران الجانبية",
+    "rearFireResistance": "مقاومة النيران الخلفية",
+    "rangedDamageResistance": "مقاومة الضرر البعيد",
+    "rangedOrgResistance": "مقاومة التنظيم البعيد",
+    "fireEdges": "حواف الإطلاق (إطلاق من الحواف)",
+    "fireEdgesHelp": "كل حافة إطلاق تنبعث على طول أحد أوجه المستطيل. التشكيل الذي لا يملك حواف إطلاق يطلق من حافة أمامية واحدة افتراضية؛ التشكيلات الدائرية لا تطلق النار.",
+    "edge": "الحافة",
+    "edgeLeft": "0 - الجانب الأيسر (-Y)",
+    "edgeFront": "1 - الأمام (+X)",
+    "edgeRight": "2 - الجانب الأيمن (+Y)",
+    "edgeRear": "3 - الخلف (-X)",
+    "arc": "القوس (deg، الافتراضي 90)",
+    "emitters": "المُصدِرات",
+    "removeFireEdge": "إزالة حافة الإطلاق",
+    "addFireEdge": "إضافة حافة إطلاق",
+    "errIdRequired": "معرّف التشكيل مطلوب",
+    "errIdInUse": "معرّف التشكيل \"{{id}}\" مستخدم بالفعل",
+    "errEdgeIndex": "حافة الإطلاق {{n}}: يجب أن يكون مؤشر الحافة بين 0 و3",
+    "errEdgeArc": "حافة الإطلاق {{n}}: يجب أن يكون القوس بين 0 و360",
+    "errEdgeEmitters": "حافة الإطلاق {{n}}: يجب أن تكون المُصدِرات عدداً صحيحاً موجباً"
+  },
+  "unitTemplateModal": {
+    "title": "تعديل قالب وحدة مخصص",
+    "optBuiltIn": "{{name}} (مدمج)",
+    "optCustom": "{{name}} (مخصص)",
+    "identity": "الهوية",
+    "typeId": "معرّف النوع",
+    "category": "الفئة",
+    "combat": "القتال",
+    "meleeAttack": "هجوم قريب",
+    "meleeDefense": "دفاع قريب",
+    "meleeDamageType": "نوع ضرر القتال القريب",
+    "chargeBonus": "مكافأة الهجوم",
+    "chargePenetration": "اختراق الهجوم",
+    "chargeResistance": "مقاومة الهجوم",
+    "flankMeleeOrgModifier": "معدل تنظيم القتال القريب الجانبي",
+    "flankChargePenBonus": "مكافأة اختراق الهجوم الجانبي",
+    "stats": "الإحصائيات",
+    "hp": "HP",
+    "org": "التنظيم",
+    "shattersAtOrg": "ينهار عند التنظيم",
+    "routesAtOrg": "يفر عند التنظيم",
+    "recoversAtOrg": "يتعافى عند التنظيم",
+    "ralliesAtOrg": "يتجمع عند التنظيم",
+    "stamina": "التحمل",
+    "manpower": "القوى البشرية",
+    "gold": "الذهب",
+    "orgRadius": "نطاق التنظيم",
+    "orgRadiusBonus": "مكافأة نطاق التنظيم",
+    "reportStats": "إحصائيات التقرير",
+    "reportStatsHelp": "العدد الذي تساهم به كل وحدة في تقارير المعركة (مثل الرجال والخيول والمدافع). تأتي المفاتيح من الوحدات المدمجة في العصر.",
+    "tallyPerUnit": "العدد لكل وحدة",
+    "movement": "الحركة",
+    "walkMovement": "حركة المشي",
+    "runMovement": "حركة الجري",
+    "runStartUpMovement": "حركة بدء الجري",
+    "timeToRun": "وقت الجري (ticks)",
+    "runCost": "تكلفة الجري",
+    "rotationSpeed": "سرعة الدوران",
+    "rotationMaxThreshold": "الحد الأقصى لعتبة الدوران",
+    "runRotationSpeed": "سرعة دوران الجري",
+    "turningDelay": "تأخير الدوران (ticks)",
+    "startsRunning": "يبدأ بالجري",
+    "movementSound": "صوت الحركة",
+    "rangedCombat": "القتال البعيد",
+    "rangedAttack": "هجوم بعيد",
+    "ammo": "الذخيرة",
+    "minDistanceToFAA": "الحد الأدنى للمسافة إلى FAA",
+    "panicFireDistance": "مسافة إطلاق النار في الذعر",
+    "fireWhileMoving": "الإطلاق أثناء الحركة",
+    "noAmmoRegain": "لا استعادة للذخيرة",
+    "rangedDamageTypes": "أنواع الضرر البعيد",
+    "addRangedDamageType": "إضافة نوع ضرر بعيد",
+    "enableRanged": "تفعيل البعيد",
+    "formations": "التشكيلات",
+    "formationId": "معرّف التشكيل",
+    "baseSprite": "الرسم الأساسي",
+    "overlaySprite": "الرسم العلوي",
+    "addFormation": "إضافة تشكيل",
+    "defaultFormation": "التشكيل الافتراضي",
+    "supply": "الإمداد",
+    "supplyField": "الإمداد",
+    "supplyConsumptionIdle": "استهلاك الإمداد خاملاً",
+    "supplyConsumptionMoving": "استهلاك الإمداد متحركاً",
+    "supplyConsumptionCombating": "استهلاك الإمداد في القتال",
+    "supplyManpowerCost": "تكلفة الإمداد بالقوى البشرية",
+    "supplyGoldCost": "تكلفة الإمداد بالذهب",
+    "misc": "متفرقات",
+    "skirmisherRatio": "نسبة المناوشين",
+    "canDeployForward": "يمكن النشر للأمام",
+    "reducedVisibilityRange": "مدى رؤية مخفّض",
+    "unknownType": "معرّف نوع غير معروف",
+    "pushStrength": "قوة الدفع",
+    "pushDistance": "مسافة الدفع",
+    "maxEntrenchment": "التحصين الأقصى",
+    "locked": "مقفل"
+  },
+  "unitCategoryModal": {
+    "title": "تعديل فئة وحدة مخصصة",
+    "optionBuiltIn": "{{name}} (مدمج)",
+    "optionCustom": "{{name}} (مخصص)",
+    "errors": {
+      "idRequired": "المعرّف مطلوب",
+      "idInUse": "معرّف فئة الوحدة \"{{id}}\" مستخدم بالفعل",
+      "firingAltitudeRequired": "firingAltitude مطلوب",
+      "orphanedResistances": "damageTypeResistances يشير إلى أنواع ضرر غير معروفة: {{types}}",
+      "orphanedAutofire": "autofirePriority يشير إلى فئات وحدات غير معروفة: {{categories}}",
+      "allowedOrderRequired": "يجب اختيار جميع مدخلات الأوامر المسموح بها",
+      "allowedOrderUnknown": "الأمر المسموح به \"{{name}}\" ليس أمراً معروفاً لهذا العصر"
+    },
+    "identity": {
+      "legend": "الهوية",
+      "id": "المعرّف",
+      "deploymentSection": "قسم النشر"
+    },
+    "deploymentSection": {
+      "center": "المركز",
+      "flank": "الجناح",
+      "front": "الأمام"
+    },
+    "combat": {
+      "legend": "القتال",
+      "firingAltitude": "ارتفاع الإطلاق",
+      "allyCollisionLevel": "مستوى تصادم الحلفاء",
+      "enemyCollisionLevel": "مستوى تصادم الأعداء",
+      "captureSpeed": "سرعة الاستيلاء",
+      "impactAltitude": "ارتفاع الارتطام",
+      "grazingAltitude": "ارتفاع المرور القريب"
+    },
+    "movement": {
+      "legend": "الحركة والعرض",
+      "forwardOnlyMovement": "الحركة للأمام فقط (السفن)",
+      "portraitRotation": "دوران الصورة (deg)"
+    },
+    "routing": {
+      "legend": "سلوك الفرار",
+      "baseSpeed": "السرعة الأساسية",
+      "speedWalk": "مشي",
+      "speedRun": "جري",
+      "fleeWhenRouted": "الفرار عند الانهزام"
+    },
+    "enfiladeFire": {
+      "legend": "النيران الجانبية",
+      "damageModifier": "معدل الضرر",
+      "orgModifier": "معدل التنظيم"
+    },
+    "rearFire": {
+      "legend": "النيران الخلفية",
+      "orgModifier": "معدل التنظيم"
+    },
+    "chargeBacklash": {
+      "legend": "الارتداد المضاد للهجوم",
+      "description": "مضاعِف الضربة المضادة التي تردها هذه الفئة على المهاجم (أعلى = تتحصن وترد بقوة أكبر، 0 = لا شيء). تنطبق قيمة ما بعد الجري عندما يكون المدافع قد جرى بالفعل ولا يمكنه التحصن؛ وتعود إلى المضاعِف الأساسي. القيمة الافتراضية 1.",
+      "multiplier": "مضاعِف الارتداد",
+      "multiplierAfterRunning": "مضاعِف الارتداد (بعد الجري)"
+    },
+    "chargeStamina": {
+      "legend": "تحمّل الهجوم",
+      "description": "أقصى تحمّل يستنزفه الهجوم من هذه الفئة. يدفعه المهاجم كاملاً في المواجهة المباشرة وأقل عند الالتفاف؛ ويدفعه المدافع كاملاً عند التفافه عليه، مع حد أدنى 25% في كلتا الحالتين. القيمة الافتراضية 0 (بلا تكلفة).",
+      "cost": "تكلفة تحمّل الهجوم"
+    },
+    "resistances": {
+      "legend": "مقاومات أنواع الضرر",
+      "description": "معدل المقاومة لكل نوع ضرر (سالب = ضرر أكبر، موجب = ضرر أقل).",
+      "fieldLabel": "المقاومة حسب نوع الضرر"
+    },
+    "autofire": {
+      "legend": "أولوية الإطلاق التلقائي",
+      "description": "وزن الأولوية لكل فئة وحدة هدف. القيم الأعلى أهداف مفضّلة للإطلاق التلقائي.",
+      "fieldLabel": "الأولوية حسب فئة الهدف"
+    },
+    "allowedOrders": {
+      "legend": "الأوامر المسموح بها",
+      "add": "إضافة أمر مسموح به"
+    }
+  },
+  "damageTypeModal": {
+    "title": "تعديل نوع ضرر مخصص",
+    "sections": {
+      "identity": "الهوية",
+      "damage": "الضرر",
+      "projectile": "المقذوف",
+      "rangeBrackets": "نطاقات المدى",
+      "areaOfEffect": "منطقة التأثير"
+    },
+    "fields": {
+      "id": "المعرّف",
+      "ranged": "بعيد",
+      "imageAlias": "اسم بديل للصورة",
+      "orgDamageRatio": "نسبة ضرر التنظيم",
+      "damageModifier": "معدل الضرر",
+      "reorgDebuff": "عقوبة إعادة التنظيم",
+      "attackEffectDuration": "مدة تأثير الهجوم (ticks)",
+      "projectileWidth": "عرض المقذوف",
+      "arcHeight": "ارتفاع القوس",
+      "projectilePenetration": "اختراق المقذوف",
+      "ammoCost": "تكلفة الذخيرة",
+      "shotSound": "صوت الطلقة",
+      "shotAnim": "رسم الطلقة",
+      "enfiladeFire": "النيران الجانبية",
+      "cannotUseAfterRun": "لا يمكن الاستخدام بعد الجري",
+      "extendRange": "تمديد المدى",
+      "aimMode": "وضع التصويب"
+    },
+    "aimMode": {
+      "targetCenter": "مركز الهدف (انفجارات دائرية)",
+      "nearestBody": "أقرب جسم (نيران مباشرة/أمامية)"
+    },
+    "range": {
+      "start": "البداية",
+      "end": "النهاية",
+      "startMod": "معدل البداية",
+      "endMod": "معدل النهاية"
+    },
+    "aoe": {
+      "type": "النوع",
+      "circular": "دائري",
+      "trapezoidal": "شبه منحرف",
+      "absorptionModifier": "معدل الامتصاص",
+      "edgeDamageModifier": "معدل ضرر الحافة",
+      "offset": "الإزاحة",
+      "startRadius": "نصف القطر الابتدائي",
+      "endRadius": "نصف القطر النهائي",
+      "startTopWidth": "العرض العلوي الابتدائي",
+      "endTopWidth": "العرض العلوي النهائي",
+      "startBottomWidth": "العرض السفلي الابتدائي",
+      "endBottomWidth": "العرض السفلي النهائي",
+      "startHeight": "الارتفاع الابتدائي",
+      "endHeight": "الارتفاع النهائي"
+    },
+    "addRangeBracket": "إضافة نطاق مدى",
+    "addAreaOfEffect": "إضافة منطقة تأثير",
+    "removeAreaOfEffect": "إزالة منطقة التأثير",
+    "errors": {
+      "nameRequired": "الاسم مطلوب",
+      "idMustBeNumber": "يجب أن يكون المعرّف رقماً",
+      "idInUse": "معرّف نوع الضرر {{id}} مستخدم بالفعل",
+      "nameInUse": "اسم نوع الضرر \"{{name}}\" مستخدم بالفعل",
+      "idBelongsToBuiltIn": "معرّف نوع الضرر {{id}} يخص المدمج \"{{name}}\". احتفظ بالاسم لتجاوزه، أو اختر معرّفاً مختلفاً.",
+      "nameBelongsToBuiltIn": "الاسم \"{{name}}\" يخص المعرّف المدمج {{id}}. اضبط المعرّف على {{id}} لتجاوزه، أو اختر اسماً مختلفاً.",
+      "orgDamageRatioRequired": "orgDamageRatio مطلوب",
+      "rangedNeedsBracket": "أنواع الضرر البعيد تحتاج إلى نطاق مدى واحد على الأقل"
+    }
+  },
+  "terrainCategoryModal": {
+    "title": "تعديل فئة تضاريس مخصصة",
+    "sections": {
+      "identity": "الهوية",
+      "scalarProperties": "خصائص عددية",
+      "perUnitCategoryModifiers": "معدلات لكل فئة وحدة",
+      "projectileAbsorption": "امتصاص المقذوفات"
+    },
+    "identityHint": "يتجاوز إعداد فئة التضاريس للعصر في هذا السيناريو. المعرّف ثابت على فئة مدمجة - تحتفظ التضاريس بتعييناتها للفئات، أنت تضبط المعدلات فقط.",
+    "perUnitCategoryHint": "المفاتيح هي معرّفات فئات الوحدات. استخدم البطاقة الشاملة `*` لتعيين قيمة افتراضية تنطبق على جميع الفئات التي لا تملك مدخلاً صريحاً.",
+    "projectileAbsorptionHint": "المفاتيح هي أسماء أنواع الضرر.",
+    "option": {
+      "builtIn": "{{name}} (مدمج)",
+      "custom": "{{name}} (مخصص)"
+    },
+    "fields": {
+      "id": "المعرّف",
+      "color": "اللون",
+      "staminaCostModifier": "معدل تكلفة التحمل",
+      "hitboxHeight": "ارتفاع صندوق التصادم",
+      "heightOffset": "إزاحة الارتفاع",
+      "visionAbsorption": "امتصاص الرؤية",
+      "pushStrengthModifier": "معدل قوة الدفع",
+      "pushDistanceModifier": "معدل مسافة الدفع",
+      "fixedEnemyCollisionLevel": "مستوى تصادم الأعداء الثابت",
+      "canPlaceObjectives": "يمكن وضع الأهداف",
+      "prioritizeMovement": "إعطاء الأولوية للحركة",
+      "supplyRoute": "طريق الإمداد",
+      "movementModifier": "معدل الحركة",
+      "impassableFor": "غير سالك لـ",
+      "attackModifier": "معدل الهجوم",
+      "defenseModifier": "معدل الدفاع",
+      "rangedAttackModifier": "معدل الهجوم البعيد",
+      "chargeResistanceModifier": "معدل مقاومة الهجوم",
+      "chargeBonusModifier": "معدل مكافأة الهجوم",
+      "projectileAbsorptionByDamageType": "امتصاص المقذوفات حسب نوع الضرر"
+    },
+    "errors": {
+      "idRequired": "المعرّف مطلوب",
+      "idInUse": "معرّف فئة التضاريس \"{{id}}\" مستخدم بالفعل",
+      "unknownUnitCategories": "{{field}} يشير إلى فئات وحدات غير معروفة: {{keys}}",
+      "unknownDamageTypes": "projectileAbsorption يشير إلى أنواع ضرر غير معروفة: {{keys}}"
+    }
+  },
+  "customDefs": {
+    "common": {
+      "importFromScenario": "استيراد من سيناريو",
+      "duplicate": "تكرار",
+      "done": "تم"
+    },
+    "spritesPanel": {
+      "title": "رسومات مخصصة",
+      "description": "ارفع رسوماتك الخاصة هنا، ثم اخترها في تشكيلات الوحدة. يتم تضمينها في السيناريو (بحد أقصى {{kb}}KB لكل واحدة).",
+      "yourSprites": "رسوماتك",
+      "noSprites": "لا توجد رسومات مخصصة بعد.",
+      "uploadSprite": "رفع رسم",
+      "renderWidthAria": "عرض العرض بالـ px",
+      "renderHeightAria": "ارتفاع العرض بالـ px",
+      "maxSpritesAlert": "يمكنك رفع {{count}} رسماً مخصصاً كحد أقصى.",
+      "tooLargeAlert": "الصورة كبيرة جداً؛ تعذّر ضغطها تحت {{kb}}KB. جرّب صورة أصغر أو أبسط.",
+      "invalidImageAlert": "تعذّرت قراءة الصورة. استخدم ملف PNG أو WebP.",
+      "deleteBlockedAlert": "لا يمكن الحذف: لا يزال مستخدماً من قبل {{where}}. غيّر تلك التشكيلات أولاً.",
+      "libraryTitle": "مكتبة الرسومات",
+      "libraryDescription": "تصفّح الرسومات المدمجة في العصر للاستلهام.",
+      "filterPlaceholder": "تصفية بالاسم...",
+      "loading": "جاري التحميل...",
+      "unitBase": "أساس الوحدة ({{count}})",
+      "unitOverlay": "تراكب الوحدة ({{count}})",
+      "noMatches": "لا توجد تطابقات."
+    },
+    "unitTemplatesPanel": {
+      "title": "قوالب وحدات مخصصة",
+      "description": "عرّف قوالب وحدات جديدة بإحصائيات وتشكيلات وأنواع ضرر مخصصة. استخدم \"تجاوز\" لاستبدال وحدة مدمجة لهذا السيناريو (مفيد لاختبار التوازن) أو \"استنساخ\" لإضافة قالب جديد بمعرّف >= {{minId}}.",
+      "noTemplates": "لا توجد قوالب وحدات مخصصة بعد.",
+      "templateLabel": "{{name}} (النوع {{type}})",
+      "deleteBlocked": "لا يمكن حذف \"{{name}}\" - لا يزال مستخدماً من قبل {{refs}}. أزل تلك الوحدات أولاً.",
+      "addTemplate": "إضافة قالب وحدة",
+      "clonePickerTitle": "استنساخ قالب وحدة مدمج"
+    },
+    "formationsPanel": {
+      "title": "تشكيلات وحدات مخصصة",
+      "description": "عرّف قوالب تشكيلات جديدة (التصادم، المعدلات، قواعد الإطلاق) يمكن للوحدات المخصصة استخدامها.",
+      "noFormations": "لا توجد تشكيلات مخصصة بعد.",
+      "deleteBlocked": "لا يمكن حذف \"{{id}}\" - لا يزال مستخدماً من قبل {{refs}}. أزل تلك المراجع أولاً.",
+      "addFormation": "إضافة تشكيل",
+      "clonePickerTitle": "استنساخ تشكيل مدمج"
+    },
+    "unitCategoriesPanel": {
+      "title": "فئات وحدات مخصصة",
+      "description": "عرّف فئات وحدات جديدة (مستويات التصادم، قسم النشر، الأوامر المسموح بها، سلوك الفرار). تُشار إليها الوحدات المخصصة عبر حقل الفئة.",
+      "noCategories": "لا توجد فئات وحدات مخصصة بعد.",
+      "deleteBlocked": "لا يمكن حذف \"{{id}}\" - لا يزال مستخدماً من قبل {{refs}}. أزل تلك المراجع أولاً.",
+      "addCategory": "إضافة فئة وحدة",
+      "clonePickerTitle": "استنساخ فئة وحدة مدمجة"
+    },
+    "damageTypesPanel": {
+      "title": "أنواع ضرر مخصصة",
+      "description": "عرّف أنواع ضرر جديدة للقتال القريب أو البعيد. تُشار إليها الوحدات المخصصة عبر meleeDamageType أو rangedDamageTypes.",
+      "noDamageTypes": "لا توجد أنواع ضرر مخصصة بعد.",
+      "ranged": "بعيد",
+      "melee": "قريب",
+      "cloneOptionLabel": "{{name}} ({{kind}})",
+      "itemLabel": "{{name}} ({{kind}}، المعرّف {{id}})",
+      "deleteBlocked": "لا يمكن حذف \"{{name}}\" - لا يزال مستخدماً من قبل {{refs}}. أزل تلك المراجع أولاً.",
+      "addDamageType": "إضافة نوع ضرر",
+      "clonePickerTitle": "استنساخ نوع ضرر مدمج"
+    },
+    "terrainCategoriesPanel": {
+      "title": "فئات تضاريس مخصصة",
+      "description": "تجاوز إعدادات فئات التضاريس لهذا السيناريو. استخدم هذا لإعطاء فئات الوحدات المخصصة معدلات تضاريس محددة، أو لإدخال معرّفات فئات تضاريس جديدة.",
+      "noOverrides": "لا توجد تجاوزات لفئات التضاريس المخصصة بعد.",
+      "addTerrainCategory": "إضافة فئة تضاريس",
+      "clonePickerTitle": "استنساخ فئة تضاريس مدمجة"
+    },
+    "overrideEditor": {
+      "invalidJson": "JSON غير صالح",
+      "reset": "إعادة تعيين",
+      "eraDefault": "افتراضي العصر: {{value}}",
+      "structuralTooltip": "ثابت بنيوي / حتمي. تغييره قد يكسر العرض أو الإعادات أو المطابقة."
+    },
+    "importModal": {
+      "kindUnitTemplates": "قوالب الوحدات",
+      "kindDamageTypes": "أنواع الضرر",
+      "kindFormations": "التشكيلات",
+      "kindUnitCategories": "فئات الوحدات",
+      "kindTerrainCategories": "فئات التضاريس",
+      "kindSprites": "الرسومات",
+      "unitItemLabel": "{{name}} (#{{type}})",
+      "damageTypeItemLabel": "{{name}} ({{kind}})",
+      "nothing": "لا شيء",
+      "title": "استيراد {{kind}} من سيناريو",
+      "pickFilePrompt": "اختر ملف سيناريو (ملف JSON الذي ينتجه زر التنزيل في المحرر) لاستيراد {{kind}} المخصصة منه.",
+      "chooseFile": "اختر ملف السيناريو",
+      "fileReadError": "تعذّرت قراءة هذا الملف كسيناريو.",
+      "invalidForEra": "التعريفات المخصصة لهذا السيناريو غير صالحة للعصر الحالي (مثل {{message}}).",
+      "importWouldInvalidate": "الاستيراد سيجعل السيناريو غير صالح (مثل {{message}}). لم يتم تغيير أي شيء.",
+      "fromLabel": "من: {{name}}",
+      "importedScenario": "سيناريو مستورَد",
+      "changeFile": "تغيير الملف",
+      "noCustomDefs": "هذا السيناريو لا يحتوي على {{kind}} مخصصة.",
+      "willImport": "سيتم الاستيراد (مع التبعيات): {{summary}}.",
+      "resultSummary": "تم استيراد {{imported}}، وإعادة تسمية {{renamed}}، وتخطي {{skipped}}.",
+      "importSelected": "استيراد المحدد"
+    },
+    "importOverridesModal": {
+      "targetGameConstants": "تجاوزات ثوابت اللعبة",
+      "targetGameRules": "تجاوزات قواعد اللعبة",
+      "targetOrders": "تجاوزات الأوامر",
+      "title": "استيراد {{target}} من سيناريو",
+      "pickFilePrompt": "اختر ملف سيناريو (ملف JSON الذي ينتجه زر التنزيل في المحرر) لاستيراد {{target}} منه.",
+      "noOverrides": "هذا السيناريو لا يحتوي على {{target}}.",
+      "importedCount_zero": "لم يتم استيراد أي تجاوز.",
+      "importedCount_one": "تم استيراد تجاوز واحد.",
+      "importedCount_two": "تم استيراد تجاوزين.",
+      "importedCount_few": "تم استيراد {{count}} تجاوزات.",
+      "importedCount_many": "تم استيراد {{count}} تجاوزاً.",
+      "importedCount_other": "تم استيراد {{count}} تجاوز."
+    },
+    "gameConstants": {
+      "title": "تجاوزات ثوابت اللعبة",
+      "description": "تجاوز الثوابت العددية لهذا العصر في هذا السيناريو. تُحفظ القيم المتغيرة فقط؛ إعادة التعيين تُرجع الحقل إلى افتراضي العصر. المفاتيح المعلّمة بـ ⚠ بنيوية - تغييرها قد يكسر العرض أو الإعادات أو المطابقة. القيم بوحدات داخلية خام."
+    },
+    "gameRules": {
+      "title": "تجاوزات قواعد اللعبة",
+      "description": "تجاوز قواعد اللعب لهذا العصر في هذا السيناريو. تُحفظ القيم المتغيرة فقط؛ استخدم إعادة التعيين لإرجاع الحقل إلى افتراضي العصر. القيم بوحدات داخلية خام (بعض الإحصائيات مخزّنة مُحجّمة مسبقاً)."
+    },
+    "ordersPanel": {
+      "title": "تجاوزات الأوامر",
+      "description": "تجاوز قيم الأوامر المدمجة لهذا العصر في هذا السيناريو. تُحفظ القيم المتغيرة فقط؛ استخدم إعادة التعيين لإرجاع الحقل إلى افتراضي العصر. يمكنك تعديل الأوامر الموجودة لكن لا يمكنك إضافة أوامر جديدة."
+    },
+    "clonePicker": {
+      "alreadyOverridden": "(مُتجاوَز بالفعل)",
+      "alreadyOverriddenTooltip": "هذا المدمج لديه تجاوز مخصص بالفعل في هذا السيناريو؛ عدّله من القائمة بدلاً من ذلك.",
+      "clone": "استنساخ",
+      "override": "تجاوز"
+    },
+    "spriteSelect": {
+      "default": "افتراضي",
+      "unknownOption": "{{value}} (غير معروف)",
+      "groupCustom": "مخصص",
+      "groupBuiltIn": "مدمج"
+    }
+  },
+  "resize": {
+    "title": "تغيير حجم الخريطة",
+    "currentSize": "الحجم الحالي: {{width}} × {{height}} بلاطة",
+    "newSize": "الحجم الجديد: {{width}} × {{height}} بلاطة",
+    "current": "الحالي: {{width}} × {{height}} بلاطة",
+    "confirmTitle": "تأكيد تغيير حجم الخريطة",
+    "warningCannotUndo": "⚠️ <0>تحذير:</0> لا يمكن التراجع عن هذه العملية.",
+    "continue": "متابعة",
+    "tabScale": "التحجيم",
+    "tabExpandCut": "توسيع / قص الجوانب",
+    "scale": {
+      "newWidth": "العرض الجديد (بلاطات)",
+      "newHeight": "الارتفاع الجديد (بلاطات)",
+      "apply": "تغيير حجم الخريطة",
+      "errorInvalid": "يرجى إدخال أرقام موجبة صالحة للعرض والارتفاع بالبلاطات",
+      "warningBody": "تأكد من حفظ سيناريوك قبل المتابعة. سيؤدي تغيير الحجم إلى تحجيم جميع التضاريس والارتفاعات والوحدات والأهداف ومواضع المُشغّلات."
+    },
+    "expandCut": {
+      "intro": "القيم الموجبة تضيف بلاطات، والقيم السالبة تزيل بلاطات من كل جانب.",
+      "left": "اليسار (بلاطات)",
+      "right": "اليمين (بلاطات)",
+      "top": "الأعلى (بلاطات)",
+      "bottom": "الأسفل (بلاطات)",
+      "sideExpand": "+{{count}} بلاطة (توسيع)",
+      "sideCut": "{{count}} بلاطة (قص)",
+      "noChange": "لا تغيير",
+      "apply": "تطبيق التغييرات",
+      "errorTooSmall": "لا يمكن تغيير الحجم: الخريطة الناتجة ستكون أصغر من 1×1 بلاطة. يرجى تعديل القيم.",
+      "errorTooLarge": "لا يمكن تغيير الحجم: الخريطة الناتجة ستتجاوز الحجم الأقصى {{maxWidth}}×{{maxHeight}} بلاطة.",
+      "warningBody": "تأكد من حفظ سيناريوك قبل المتابعة. سيؤدي التوسيع/القص إلى إضافة أو إزالة بلاطات من الجوانب المحددة. ستتم إزالة الوحدات والأهداف خارج الحدود الجديدة.",
+      "changesHeading": "التغييرات:",
+      "changesHorizontal": "اليسار: {{left}} بلاطة، اليمين: {{right}} بلاطة",
+      "changesVertical": "الأعلى: {{top}} بلاطة، الأسفل: {{bottom}} بلاطة"
+    }
+  },
+  "mapSize": {
+    "widthInTiles": "العرض بالبلاطات",
+    "heightInTiles": "الارتفاع بالبلاطات",
+    "widthPlaceholder": "العرض",
+    "heightPlaceholder": "الارتفاع"
+  },
+  "misc": {
+    "scaleAllSizesBy": "تحجيم كل الأحجام بمقدار",
+    "apply": "تطبيق",
+    "background": "الخلفية",
+    "chooseImage": "اختر صورة"
+  },
+  "localesPanel": {
+    "title": "اللغات",
+    "description": "تُستخدم اللغات لترجمة السيناريو إلى لغات مختلفة.",
+    "addLanguage": "إضافة لغة",
+    "removeLanguage": "إزالة لغة",
+    "noKeys": "لا توجد مفاتيح ترجمة. أضف مفتاحاً للبدء.",
+    "addKey": "إضافة مفتاح",
+    "keyLabel": "المفتاح",
+    "removeKey": "إزالة المفتاح",
+    "keyPlaceholder": "مفتاح الترجمة",
+    "valueLabel": "القيمة",
+    "valuePlaceholder": "قيمة الترجمة",
+    "addLanguageTitle": "إضافة لغة",
+    "languageCodeLabel": "رمز اللغة",
+    "languageCodePlaceholder": "مثل 'en'، 'es'، 'fr'",
+    "languageCodeEmpty": "لا يمكن أن يكون رمز اللغة فارغاً",
+    "languageAlreadyExists": "اللغة \"{{language}}\" موجودة بالفعل",
+    "addKeyTitle": "إضافة مفتاح ترجمة - {{language}}",
+    "keyNameLabel": "اسم المفتاح",
+    "keyNamePlaceholder": "مثل 'title'، 'description'، 'button_text'",
+    "keyNameEmpty": "لا يمكن أن يكون اسم المفتاح فارغاً",
+    "keyAlreadyExists": "المفتاح \"{{key}}\" موجود بالفعل في \"{{language}}\""
+  },
+  "triggers": {
+    "title": "المُشغّلات",
+    "moreInfo": "مزيد من المعلومات عن المُشغّلات هنا",
+    "lastPositionClicked": "آخر موضع تم النقر عليه: [{{x}}، {{y}}]",
+    "createTrigger": "إنشاء مُشغّل",
+    "createTriggerButton": "إنشاء مُشغّل",
+    "format": "تنسيق",
+    "invalidJsonFormat": "تنسيق JSON غير صالح",
+    "event": "الحدث",
+    "conditionLogic": "منطق الشرط",
+    "conditionLogicAnd": "كل الشروط (AND)",
+    "conditionLogicOr": "أي شرط (OR)",
+    "conditions": "الشروط",
+    "addCondition": "إضافة شرط",
+    "actions": "الإجراءات",
+    "addAction": "إضافة إجراء",
+    "once": "مرة واحدة"
+  },
+  "randomMap": {
+    "title": "خريطة عشوائية",
+    "moreInfo": "مزيد من المعلومات عن الخرائط العشوائية هنا",
+    "proceduralMap": "خريطة إجرائية (عشوائية)",
+    "proceduralExplanation": "تولّد هذه التعليمات الخريطة من بذرة جديدة في كل مباراة؛ يُسقط السيناريو المحفوظ خريطته المخبوزة. الخريطة المعروضة هنا معاينة فقط. الأهداف التي توضع بتعليمات الهدف / طبقة الهدف تظهر وقت المباراة، لا في هذه المعاينة.",
+    "startFromTemplate": "البدء من قالب",
+    "loadInstructionsFromTemplate": "تحميل التعليمات من قالب",
+    "generating": "جاري التوليد…",
+    "generatePreview": "توليد معاينة",
+    "instructions": "التعليمات",
+    "instructionsWithCount": "التعليمات ({{count}})",
+    "formEditor": "محرر النموذج",
+    "editAsJson": "تعديل كـ JSON",
+    "noInstructions": "لا توجد تعليمات بعد. أضف واحدة أعلاه أو حمّل قالباً.",
+    "moveUp": "تحريك لأعلى",
+    "moveDown": "تحريك لأسفل",
+    "switchToPresetConfirm": "التبديل إلى محدد مسبقاً يحتفظ بالتضاريس الحالية ويمسح تعليمات التوليد. متابعة؟",
+    "replaceInstructionsConfirm": "استبدال التعليمات الحالية بتعليمات القالب؟",
+    "fillFromTemplateDescription": "املأ تضاريس الخريطة الحالية من قالب إجرائي. هذا يخبز خريطة ثابتة (محددة مسبقاً) ولا يحتفظ بأي تعليمات توليد.",
+    "template": "القالب",
+    "useSeed": "استخدام بذرة؟",
+    "useSeedDescription": "توليد التضاريس باستخدام التوليد الإجرائي",
+    "confirmOverwriteLabel": "أفهم أن هذا سيستبدل جميع التضاريس",
+    "lastUsedSeed": "آخر بذرة مستخدمة:",
+    "generate": "توليد",
+    "importMustBeProcedural": "يجب أن يكون الملف المستورَد قالباً إجرائياً (بلا خريطة مخبوزة، مع تعليمات توليد).",
+    "invalidJsonFile": "ملف JSON غير صالح. يرجى التحقق من تنسيق الملف.",
+    "confirmOverwriteWarning": "يرجى تأكيد فهمك أن هذا سيستبدل التضاريس.",
+    "selectedNotProcedural": "السيناريو المحدد ليس قالباً إجرائياً.",
+    "invalidJson": "JSON غير صالح"
+  }
+}

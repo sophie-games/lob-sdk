@@ -1,0 +1,721 @@
+{
+  "common": {
+    "add": "추가",
+    "addEntry": "항목 추가",
+    "cancel": "취소",
+    "delete": "삭제",
+    "edit": "편집",
+    "name": "이름",
+    "noEntries": "항목 없음.",
+    "none": "없음",
+    "remove": "제거",
+    "save": "저장",
+    "select": "선택...",
+    "unknown": "(미상)"
+  },
+  "editor": {
+    "loadScenario": "전역 불러오기",
+    "chooseScenarioFile": "전역 파일 선택"
+  },
+  "editorPanel": {
+    "tabs": {
+      "scenario": "전역",
+      "terrain": "지형",
+      "units": "부대",
+      "objectives": "지점목표",
+      "triggers": "트리거",
+      "advanced": "고급"
+    },
+    "togglePanel": "패널 전환",
+    "title": "전역 편집기",
+    "downloadScenario": "전역 내려받기",
+    "copyScenario": "전역 복사",
+    "fullscreen": "전체 화면",
+    "exitFullscreen": "전체 화면 종료",
+    "expandPanel": "패널 펼치기",
+    "collapsePanel": "패널 접기",
+    "allowDynamicArmy": "동적 군대 허용",
+    "allowDynamicArmyHelp": "활성화하면 플레이어가 경기 탐색 전투 유형에 따라 자신의 군대를 가져와 배치 구역 안에 배치합니다. 비활성화하면 전역에 미리 배치된 부대가 전체 편제를 정의합니다(편제 단계는 생략됩니다).",
+    "showGrid": "격자 표시",
+    "showUnits": "부대 표시",
+    "hideUnits": "부대 숨기기",
+    "showObjectives": "지점목표 표시",
+    "hideObjectives": "지점목표 숨기기",
+    "goBack": "뒤로",
+    "goBackConfirm": "정말 뒤로 가서 편집기를 종료하시겠습니까?"
+  },
+  "createScenario": {
+    "title": "전역 생성",
+    "randomMap": "무작위(절차적) 맵?",
+    "isHybrid": "혼합형?"
+  },
+  "playersPanel": {
+    "title": "플레이어",
+    "removePlayer": "플레이어 제거"
+  },
+  "terrainPanel": {
+    "title": "지형",
+    "active": "활성화",
+    "setTerrain": "지형 설정",
+    "terrainHeight": "지형 높이",
+    "radius": "범위",
+    "paintBucket": "채우기"
+  },
+  "unitPanel": {
+    "title": "선택한 부대",
+    "player": "플레이어",
+    "unitType": "부대 유형",
+    "optional": "선택 사항",
+    "positionX": "위치 X",
+    "positionY": "위치 Y",
+    "rotation": "회전",
+    "mixed": "혼합",
+    "copyJson": "JSON 복사",
+    "copyUnits": "부대 복사",
+    "unitsCopied": "부대 복사됨 ({{count}})",
+    "deselect": "선택 해제",
+    "removeSelectedUnits": "선택한 부대 제거"
+  },
+  "createUnit": {
+    "title": "부대 생성",
+    "active": "활성화",
+    "usingCopiedUnits": "복사한 부대 사용 중",
+    "customLabel": "{{name}} (사용자 지정)",
+    "fields": {
+      "unit": "부대",
+      "player": "플레이어"
+    }
+  },
+  "objectivePanel": {
+    "title": "선택한 지점목표",
+    "player": "플레이어 {{player}}",
+    "team": "{{team}}팀",
+    "namePlaceholder": "선택 사항",
+    "mixed": "혼합",
+    "deselect": "선택 해제",
+    "removeSelected": "선택한 지점목표 제거",
+    "type": {
+      "small": "소",
+      "big": "대"
+    },
+    "fields": {
+      "type": "유형",
+      "logistics": "병참",
+      "manpowerPerTurn": "턴당 병력",
+      "goldPerTurn": "턴당 골드",
+      "victoryPoints": "승점",
+      "positionX": "위치 X",
+      "positionY": "위치 Y"
+    }
+  },
+  "createObjective": {
+    "title": "지점목표 생성",
+    "active": "활성화",
+    "gaia": "가이아",
+    "type": {
+      "small": "소",
+      "big": "대"
+    },
+    "fields": {
+      "objectiveType": "지점목표 유형",
+      "victoryPoints": "승점",
+      "player": "플레이어",
+      "team": "팀",
+      "logistics": "병참"
+    }
+  },
+  "deployment": {
+    "title": "배치",
+    "team": "{{team}}팀",
+    "mainZone": "주",
+    "forwardZone": "전방",
+    "fields": {
+      "x": "X",
+      "y": "Y",
+      "width": "너비",
+      "height": "높이"
+    }
+  },
+  "vpBalance": {
+    "heading": "승점 균형 (사상자 대 지점목표)",
+    "casualtiesTooltip": "사상자: {{vp}} VP",
+    "objectivesTooltip": "지점목표: {{vp}} VP",
+    "casualtiesSummary": "사상자 {{pct}}% ({{vp}} VP)",
+    "objectivesSummary": "지점목표 {{pct}}% ({{vp}} VP)"
+  },
+  "formationModal": {
+    "title": "사용자 지정 진형 편집",
+    "identity": "식별 정보",
+    "formationId": "진형 ID",
+    "collision": "충돌",
+    "collisionHelp": "점유 형태: 원(반지름) 또는 직사각형(정면 너비, 전후 깊이). 충돌이 없으려면(비행/유령) 반지름을 0으로 설정하세요.",
+    "shape": "형태",
+    "shapeRectangle": "직사각형",
+    "shapeCircle": "원",
+    "radiusPx": "반지름 (px)",
+    "frontagePx": "정면 너비 (px)",
+    "depthPx": "깊이 (px)",
+    "movement": "이동",
+    "movementModifier": "이동 수정치",
+    "runMovementModifier": "주행 이동 수정치",
+    "rotationSpeedModifier": "회전 속도 수정치",
+    "disable180Turn": "180° 선회 비활성화",
+    "formingSpeedModifier": "편성 속도 수정치",
+    "timeToForm": "편성 시간 (ticks)",
+    "timeToUnform": "해체 시간 (ticks)",
+    "minMovementModifier": "최소 이동 수정치",
+    "combat": "전투",
+    "rangedAttackModifier": "사격 공격 수정치",
+    "chargeBonusModifier": "돌격 혜택 수정치",
+    "chargePenetrationModifier": "돌격 돌파 수정치",
+    "chargeResistanceModifier": "돌격 저항 수정치",
+    "pushStrengthModifier": "밀어내기 강도 수정치",
+    "receivedMeleeDamageModifier": "받은 근접 피해 수정치",
+    "flanking": "측면 공격",
+    "disablesFlankMelee": "측면 근접전 비활성화",
+    "disablesEnfiladeFire": "측방 사격 비활성화",
+    "disablesRearFire": "후방 사격 비활성화",
+    "flankChargeResistance": "측면 돌격 저항력",
+    "rearChargeResistance": "후방 돌격 저항력",
+    "enfiladeFireResistance": "측방 사격 저항력",
+    "rearFireResistance": "후방 사격 저항력",
+    "rangedDamageResistance": "사격 피해 저항력",
+    "rangedOrgResistance": "사격 조직력 저항력",
+    "fireEdges": "사격 모서리 (모서리 사격)",
+    "fireEdgesHelp": "각 사격 모서리는 직사각형의 한 면을 따라 발사합니다. 사격 모서리가 없는 진형은 기본 정면 모서리 하나로 발사하며, 원형 진형은 발사하지 않습니다.",
+    "edge": "모서리",
+    "edgeLeft": "0 - 좌측 (-Y)",
+    "edgeFront": "1 - 정면 (+X)",
+    "edgeRight": "2 - 우측 (+Y)",
+    "edgeRear": "3 - 후방 (-X)",
+    "arc": "호 (deg, 기본값 90)",
+    "emitters": "발사구",
+    "removeFireEdge": "사격 모서리 제거",
+    "addFireEdge": "사격 모서리 추가",
+    "errIdRequired": "진형 ID가 필요합니다",
+    "errIdInUse": "진형 id \"{{id}}\" 이(가) 이미 사용 중입니다",
+    "errEdgeIndex": "사격 모서리 {{n}}: 모서리 인덱스는 0-3 이어야 합니다",
+    "errEdgeArc": "사격 모서리 {{n}}: 호는 0과 360 사이여야 합니다",
+    "errEdgeEmitters": "사격 모서리 {{n}}: 발사구는 양의 정수여야 합니다"
+  },
+  "unitTemplateModal": {
+    "title": "사용자 지정 부대 템플릿 편집",
+    "optBuiltIn": "{{name}} (기본 제공)",
+    "optCustom": "{{name}} (사용자 지정)",
+    "identity": "식별 정보",
+    "typeId": "유형 ID",
+    "category": "유형",
+    "combat": "전투",
+    "meleeAttack": "근접전투력",
+    "meleeDefense": "근접방어력",
+    "meleeDamageType": "meleeDamageType",
+    "chargeBonus": "돌격 혜택",
+    "chargePenetration": "돌격 돌파력",
+    "chargeResistance": "돌격 저항력",
+    "flankMeleeOrgModifier": "측면 근접 조직력 수정치",
+    "flankChargePenBonus": "측면 돌격 돌파 보너스",
+    "stats": "능력치",
+    "hp": "HP",
+    "org": "조직력",
+    "shattersAtOrg": "조직력에서 붕괴",
+    "routesAtOrg": "조직력에서 패주",
+    "recoversAtOrg": "조직력에서 회복",
+    "ralliesAtOrg": "조직력에서 재편성",
+    "stamina": "활력",
+    "manpower": "병력",
+    "gold": "골드",
+    "orgRadius": "조직력 범위",
+    "orgRadiusBonus": "조직력 범위 혜택",
+    "reportStats": "보고 통계",
+    "reportStatsHelp": "각 부대가 전투 보고에 기여하는 집계(예: 인원, 군마, 화포). 키는 해당 시대의 기본 제공 부대에서 가져옵니다.",
+    "tallyPerUnit": "부대당 집계",
+    "movement": "이동",
+    "walkMovement": "보행 이동",
+    "runMovement": "주행 이동",
+    "runStartUpMovement": "주행 시동 이동",
+    "timeToRun": "주행까지의 시간 (ticks)",
+    "runCost": "주행 비용",
+    "rotationSpeed": "회전 속도",
+    "rotationMaxThreshold": "회전 최대치",
+    "runRotationSpeed": "주행 회전 속도",
+    "turningDelay": "선회 지연 (ticks)",
+    "startsRunning": "주행으로 시작",
+    "movementSound": "이동 소리",
+    "rangedCombat": "사격 전투",
+    "rangedAttack": "사격공격력",
+    "ammo": "탄약",
+    "minDistanceToFAA": "FAA까지 최소 거리",
+    "panicFireDistance": "공황 사격 거리",
+    "fireWhileMoving": "이동 중 사격",
+    "noAmmoRegain": "탄약 보충 없음",
+    "rangedDamageTypes": "사격 피해 유형",
+    "addRangedDamageType": "사격 피해 유형 추가",
+    "enableRanged": "사격 활성화",
+    "formations": "진형",
+    "formationId": "진형 ID",
+    "baseSprite": "기본 스프라이트",
+    "overlaySprite": "오버레이 스프라이트",
+    "addFormation": "진형 추가",
+    "defaultFormation": "기본 진형",
+    "supply": "보급",
+    "supplyField": "보급",
+    "supplyConsumptionIdle": "보급 소비 (대기)",
+    "supplyConsumptionMoving": "보급 소비 (이동)",
+    "supplyConsumptionCombating": "보급 소비 (전투)",
+    "supplyManpowerCost": "보급 병력 비용",
+    "supplyGoldCost": "보급 골드 비용",
+    "misc": "기타",
+    "skirmisherRatio": "척후대 비율",
+    "canDeployForward": "전방 배치 가능",
+    "reducedVisibilityRange": "감소된 시야 범위",
+    "unknownType": "알 수 없는 유형 id",
+    "pushStrength": "밀어내기 강도",
+    "pushDistance": "밀어내기 거리",
+    "maxEntrenchment": "최대 참호",
+    "locked": "잠김"
+  },
+  "unitCategoryModal": {
+    "title": "사용자 지정 부대 유형 편집",
+    "optionBuiltIn": "{{name}} (기본 제공)",
+    "optionCustom": "{{name}} (사용자 지정)",
+    "errors": {
+      "idRequired": "ID가 필요합니다",
+      "idInUse": "부대 유형 id \"{{id}}\" 이(가) 이미 사용 중입니다",
+      "firingAltitudeRequired": "firingAltitude is required",
+      "orphanedResistances": "damageTypeResistances references unknown damage types: {{types}}",
+      "orphanedAutofire": "autofirePriority references unknown unit categories: {{categories}}",
+      "allowedOrderRequired": "허용 명령 항목을 모두 선택해야 합니다",
+      "allowedOrderUnknown": "허용 명령 \"{{name}}\" 은(는) 이 시대에 알려진 명령이 아닙니다"
+    },
+    "identity": {
+      "legend": "식별 정보",
+      "id": "ID",
+      "deploymentSection": "배치 구획"
+    },
+    "deploymentSection": {
+      "center": "중앙",
+      "flank": "측면",
+      "front": "정면"
+    },
+    "combat": {
+      "legend": "전투",
+      "firingAltitude": "사격 고도",
+      "allyCollisionLevel": "동맹 충돌 수준",
+      "enemyCollisionLevel": "적 충돌 수준",
+      "captureSpeed": "점령 속도",
+      "impactAltitude": "착탄 고도",
+      "grazingAltitude": "도탄 고도"
+    },
+    "movement": {
+      "legend": "이동 및 표시",
+      "forwardOnlyMovement": "전진 전용 이동 (함선)",
+      "portraitRotation": "초상화 회전 (deg)"
+    },
+    "routing": {
+      "legend": "궤멸 중 행동",
+      "baseSpeed": "기본 속도",
+      "speedWalk": "보행",
+      "speedRun": "주행",
+      "fleeWhenRouted": "궤멸 시 도주"
+    },
+    "enfiladeFire": {
+      "legend": "측방 사격",
+      "damageModifier": "피해 수정치",
+      "orgModifier": "조직력 수정치"
+    },
+    "rearFire": {
+      "legend": "후방 사격",
+      "orgModifier": "조직력 수정치"
+    },
+    "chargeBacklash": {
+      "legend": "돌격 반격",
+      "description": "이 유형이 돌격자에게 되돌려주는 반격에 적용되는 배수(높을수록 버티며 더 세게 되받아침, 0 = 없음). 주행 후 값은 방어자가 이미 주행하여 버틸 수 없을 때 적용되며, 없으면 기본 배수로 대체됩니다. 기본값은 1입니다.",
+      "multiplier": "반격 배수",
+      "multiplierAfterRunning": "반격 배수 (주행 후)"
+    },
+    "chargeStamina": {
+      "legend": "돌격 활력",
+      "description": "돌격이 이 유형에서 소모하는 최대 활력. 돌격자는 정면 돌격 시 전액을, 측면 돌격 시 더 적게 지불합니다. 방어자는 측면을 공격받을 때 전액을 지불하며, 어느 경우든 25% 하한이 적용됩니다. 기본값은 0입니다(비용 없음).",
+      "cost": "돌격 활력 비용"
+    },
+    "resistances": {
+      "legend": "피해 유형 저항력",
+      "description": "피해 유형별 저항 수정치(음수 = 더 많은 피해, 양수 = 더 적은 피해).",
+      "fieldLabel": "피해 유형별 저항력"
+    },
+    "autofire": {
+      "legend": "자동 사격 우선 순위",
+      "description": "표적 부대 유형별 우선 순위 가중치. 값이 높을수록 자동 사격이 선호하는 표적입니다.",
+      "fieldLabel": "표적 유형별 우선 순위"
+    },
+    "allowedOrders": {
+      "legend": "허용 명령",
+      "add": "허용 명령 추가"
+    }
+  },
+  "damageTypeModal": {
+    "title": "사용자 지정 피해 유형 편집",
+    "sections": {
+      "identity": "식별 정보",
+      "damage": "피해",
+      "projectile": "발사체",
+      "rangeBrackets": "사거리 구간",
+      "areaOfEffect": "유효 범위"
+    },
+    "fields": {
+      "id": "ID",
+      "ranged": "사격",
+      "imageAlias": "이미지 별칭",
+      "orgDamageRatio": "조직력 피해량 비율",
+      "damageModifier": "피해량 수정치",
+      "reorgDebuff": "재편성 페널티",
+      "attackEffectDuration": "공격 효과 지속 시간 (ticks)",
+      "projectileWidth": "발사체 너비",
+      "arcHeight": "탄도 고도",
+      "projectilePenetration": "발사체 관통",
+      "ammoCost": "탄약 비용",
+      "shotSound": "사격 소리",
+      "shotAnim": "사격 애니메이션",
+      "enfiladeFire": "측방 사격",
+      "cannotUseAfterRun": "주행 후 사용 불가",
+      "extendRange": "사거리 연장",
+      "aimMode": "조준 방식"
+    },
+    "aimMode": {
+      "targetCenter": "표적 중심 (원형 폭발)",
+      "nearestBody": "가장 가까운 본체 (직사/전방 사격)"
+    },
+    "range": {
+      "start": "시작",
+      "end": "끝",
+      "startMod": "시작 수정치",
+      "endMod": "끝 수정치"
+    },
+    "aoe": {
+      "type": "유형",
+      "circular": "원형",
+      "trapezoidal": "제형",
+      "absorptionModifier": "흡수 수정치",
+      "edgeDamageModifier": "외곽 피해량 수정치",
+      "offset": "오프셋",
+      "startRadius": "시작 반지름",
+      "endRadius": "끝 반지름",
+      "startTopWidth": "시작 윗변 너비",
+      "endTopWidth": "끝 윗변 너비",
+      "startBottomWidth": "시작 밑변 너비",
+      "endBottomWidth": "끝 밑변 너비",
+      "startHeight": "시작 높이",
+      "endHeight": "끝 높이"
+    },
+    "addRangeBracket": "사거리 구간 추가",
+    "addAreaOfEffect": "유효 범위 추가",
+    "removeAreaOfEffect": "유효 범위 제거",
+    "errors": {
+      "nameRequired": "이름이 필요합니다",
+      "idMustBeNumber": "ID는 숫자여야 합니다",
+      "idInUse": "피해 유형 id {{id}} 이(가) 이미 사용 중입니다",
+      "nameInUse": "피해 유형 이름 \"{{name}}\" 이(가) 이미 사용 중입니다",
+      "idBelongsToBuiltIn": "피해 유형 id {{id}} 은(는) 기본 제공 \"{{name}}\" 에 속합니다. 재정의하려면 이름을 유지하거나 다른 id를 선택하세요.",
+      "nameBelongsToBuiltIn": "이름 \"{{name}}\" 은(는) 기본 제공 id {{id}} 에 속합니다. 재정의하려면 id를 {{id}} 로 설정하거나 다른 이름을 선택하세요.",
+      "orgDamageRatioRequired": "orgDamageRatio is required",
+      "rangedNeedsBracket": "사격 피해 유형에는 최소 하나의 사거리 구간이 필요합니다"
+    }
+  },
+  "terrainCategoryModal": {
+    "title": "사용자 지정 지형 유형 편집",
+    "sections": {
+      "identity": "식별 정보",
+      "scalarProperties": "스칼라 속성",
+      "perUnitCategoryModifiers": "부대 유형별 수정치",
+      "projectileAbsorption": "발사체 흡수치"
+    },
+    "identityHint": "이 전역에서 시대의 지형 유형 설정을 재정의합니다. id는 기본 제공 유형으로 고정됩니다. 지형은 유형 배정을 유지하며, 수정치만 조정합니다.",
+    "perUnitCategoryHint": "키는 부대 유형 id입니다. 명시적 항목이 없는 모든 유형에 적용되는 기본값을 설정하려면 `*` 와일드카드를 사용하세요.",
+    "projectileAbsorptionHint": "키는 피해 유형 이름입니다.",
+    "option": {
+      "builtIn": "{{name}} (기본 제공)",
+      "custom": "{{name}} (사용자 지정)"
+    },
+    "fields": {
+      "id": "ID",
+      "color": "색상",
+      "staminaCostModifier": "활력 비용 수정치",
+      "hitboxHeight": "적중영역 높이",
+      "heightOffset": "높이 오프셋",
+      "visionAbsorption": "시야 흡수치",
+      "pushStrengthModifier": "밀어내기 강도 수정치",
+      "pushDistanceModifier": "밀어내기 거리 수정치",
+      "fixedEnemyCollisionLevel": "고정 적 충돌 수준",
+      "canPlaceObjectives": "지점목표 배치 가능",
+      "prioritizeMovement": "이동 우선",
+      "supplyRoute": "보급로",
+      "movementModifier": "이동 수정치",
+      "impassableFor": "통행 불가 대상",
+      "attackModifier": "공격 수정치",
+      "defenseModifier": "방어 수정치",
+      "rangedAttackModifier": "사격 공격 수정치",
+      "chargeResistanceModifier": "돌격 저항 수정치",
+      "chargeBonusModifier": "돌격 혜택 수정치",
+      "projectileAbsorptionByDamageType": "피해 유형별 발사체 흡수치"
+    },
+    "errors": {
+      "idRequired": "ID가 필요합니다",
+      "idInUse": "지형 유형 id \"{{id}}\" 이(가) 이미 사용 중입니다",
+      "unknownUnitCategories": "{{field}} references unknown unit categories: {{keys}}",
+      "unknownDamageTypes": "projectileAbsorption references unknown damage types: {{keys}}"
+    }
+  },
+  "customDefs": {
+    "common": {
+      "importFromScenario": "전역에서 가져오기",
+      "duplicate": "복제",
+      "done": "완료"
+    },
+    "spritesPanel": {
+      "title": "사용자 지정 스프라이트",
+      "description": "여기에 자신의 스프라이트를 업로드한 뒤 부대 진형에서 선택하세요. 전역에 포함됩니다(각 최대 {{kb}}KB).",
+      "yourSprites": "내 스프라이트",
+      "noSprites": "아직 사용자 지정 스프라이트가 없습니다.",
+      "uploadSprite": "스프라이트 업로드",
+      "renderWidthAria": "렌더링 너비 (px)",
+      "renderHeightAria": "렌더링 높이 (px)",
+      "maxSpritesAlert": "사용자 지정 스프라이트는 최대 {{count}}개까지 업로드할 수 있습니다.",
+      "tooLargeAlert": "이미지가 너무 큽니다. {{kb}}KB 미만으로 압축할 수 없습니다. 더 작거나 단순한 이미지를 사용하세요.",
+      "invalidImageAlert": "이미지를 읽을 수 없습니다. PNG 또는 WebP 파일을 사용하세요.",
+      "deleteBlockedAlert": "삭제할 수 없습니다: {{where}}에서 아직 사용 중입니다. 해당 진형을 먼저 변경하세요.",
+      "libraryTitle": "스프라이트 라이브러리",
+      "libraryDescription": "영감을 얻기 위해 시대의 기본 제공 스프라이트를 둘러보세요.",
+      "filterPlaceholder": "이름으로 필터링...",
+      "loading": "불러오는 중...",
+      "unitBase": "부대 기본 ({{count}})",
+      "unitOverlay": "부대 오버레이 ({{count}})",
+      "noMatches": "일치 항목 없음."
+    },
+    "unitTemplatesPanel": {
+      "title": "사용자 지정 부대 템플릿",
+      "description": "사용자 지정 능력치, 진형, 피해 유형으로 새 부대 템플릿을 정의합니다. 이 전역에서 기본 제공을 대체하려면(밸런스 테스트에 유용) \"재정의\"를, id가 {{minId}} 이상인 새 템플릿을 추가하려면 \"복제\"를 사용하세요.",
+      "noTemplates": "아직 사용자 지정 부대 템플릿이 없습니다.",
+      "templateLabel": "{{name}} (유형 {{type}})",
+      "deleteBlocked": "\"{{name}}\" 을(를) 삭제할 수 없습니다. {{refs}}에서 아직 사용 중입니다. 해당 부대를 먼저 제거하세요.",
+      "addTemplate": "부대 템플릿 추가",
+      "clonePickerTitle": "기본 제공 부대 템플릿 복제"
+    },
+    "formationsPanel": {
+      "title": "사용자 지정 부대 진형",
+      "description": "사용자 지정 부대가 사용할 수 있는 새 진형 템플릿(충돌, 수정치, 사격 규칙)을 정의합니다.",
+      "noFormations": "아직 사용자 지정 진형이 없습니다.",
+      "deleteBlocked": "\"{{id}}\" 을(를) 삭제할 수 없습니다. {{refs}}에서 아직 사용 중입니다. 해당 참조를 먼저 제거하세요.",
+      "addFormation": "진형 추가",
+      "clonePickerTitle": "기본 제공 진형 복제"
+    },
+    "unitCategoriesPanel": {
+      "title": "사용자 지정 부대 유형",
+      "description": "새 부대 유형(충돌 수준, 배치 구획, 허용 명령, 궤멸 중 행동)을 정의합니다. 사용자 지정 부대가 유형 필드를 통해 참조합니다.",
+      "noCategories": "아직 사용자 지정 부대 유형이 없습니다.",
+      "deleteBlocked": "\"{{id}}\" 을(를) 삭제할 수 없습니다. {{refs}}에서 아직 사용 중입니다. 해당 참조를 먼저 제거하세요.",
+      "addCategory": "부대 유형 추가",
+      "clonePickerTitle": "기본 제공 부대 유형 복제"
+    },
+    "damageTypesPanel": {
+      "title": "사용자 지정 피해 유형",
+      "description": "새 근접 또는 사격 피해 유형을 정의합니다. 사용자 지정 부대가 meleeDamageType 또는 rangedDamageTypes를 통해 참조합니다.",
+      "noDamageTypes": "아직 사용자 지정 피해 유형이 없습니다.",
+      "ranged": "사격",
+      "melee": "근접",
+      "cloneOptionLabel": "{{name}} ({{kind}})",
+      "itemLabel": "{{name}} ({{kind}}, id {{id}})",
+      "deleteBlocked": "\"{{name}}\" 을(를) 삭제할 수 없습니다. {{refs}}에서 아직 사용 중입니다. 해당 참조를 먼저 제거하세요.",
+      "addDamageType": "피해 유형 추가",
+      "clonePickerTitle": "기본 제공 피해 유형 복제"
+    },
+    "terrainCategoriesPanel": {
+      "title": "사용자 지정 지형 유형",
+      "description": "이 전역의 지형 유형 설정을 재정의합니다. 사용자 지정 부대 유형에 특정 지형 수정치를 부여하거나 새 지형 유형 id를 도입하는 데 사용하세요.",
+      "noOverrides": "아직 사용자 지정 지형 유형 재정의가 없습니다.",
+      "addTerrainCategory": "지형 유형 추가",
+      "clonePickerTitle": "기본 제공 지형 유형 복제"
+    },
+    "overrideEditor": {
+      "invalidJson": "잘못된 JSON",
+      "reset": "초기화",
+      "eraDefault": "시대 기본값: {{value}}",
+      "structuralTooltip": "구조적/결정성 상수. 변경하면 렌더링, 리플레이 또는 경기 탐색이 손상될 수 있습니다."
+    },
+    "importModal": {
+      "kindUnitTemplates": "부대 템플릿",
+      "kindDamageTypes": "피해 유형",
+      "kindFormations": "진형",
+      "kindUnitCategories": "부대 유형",
+      "kindTerrainCategories": "지형 유형",
+      "kindSprites": "스프라이트",
+      "unitItemLabel": "{{name}} (#{{type}})",
+      "damageTypeItemLabel": "{{name}} ({{kind}})",
+      "nothing": "없음",
+      "title": "전역에서 {{kind}} 가져오기",
+      "pickFilePrompt": "사용자 지정 {{kind}}을(를) 가져올 전역 파일(편집기 내려받기 버튼이 생성하는 JSON)을 선택하세요.",
+      "chooseFile": "전역 파일 선택",
+      "fileReadError": "해당 파일을 전역으로 읽을 수 없습니다.",
+      "invalidForEra": "이 전역의 사용자 지정 정의는 현재 시대에 유효하지 않습니다(예: {{message}}).",
+      "importWouldInvalidate": "가져오면 전역이 무효가 됩니다(예: {{message}}). 변경된 내용이 없습니다.",
+      "fromLabel": "출처: {{name}}",
+      "importedScenario": "가져온 전역",
+      "changeFile": "파일 변경",
+      "noCustomDefs": "이 전역에는 사용자 지정 {{kind}}이(가) 없습니다.",
+      "willImport": "가져올 항목(종속 항목 포함): {{summary}}.",
+      "resultSummary": "{{imported}}개 가져옴, {{renamed}}개 이름 변경, {{skipped}}개 건너뜀.",
+      "importSelected": "선택 항목 가져오기"
+    },
+    "importOverridesModal": {
+      "targetGameConstants": "게임 상수 재정의",
+      "targetGameRules": "게임 규칙 재정의",
+      "targetOrders": "명령 재정의",
+      "title": "전역에서 {{target}} 가져오기",
+      "pickFilePrompt": "{{target}}을(를) 가져올 전역 파일(편집기 내려받기 버튼이 생성하는 JSON)을 선택하세요.",
+      "noOverrides": "이 전역에는 {{target}}이(가) 없습니다.",
+      "importedCount_other": "재정의 {{count}}개를 가져왔습니다."
+    },
+    "gameConstants": {
+      "title": "게임 상수 재정의",
+      "description": "이 전역에 대해 시대의 숫자 상수를 재정의합니다. 변경된 값만 저장됩니다. 초기화하면 필드가 시대 기본값으로 돌아갑니다. ⚠ 로 표시된 키는 구조적이며, 변경하면 렌더링, 리플레이 또는 경기 탐색이 손상될 수 있습니다. 값은 가공되지 않은 내부 단위입니다."
+    },
+    "gameRules": {
+      "title": "게임 규칙 재정의",
+      "description": "이 전역에 대해 시대의 게임플레이 규칙을 재정의합니다. 변경된 값만 저장됩니다. 필드를 시대 기본값으로 되돌리려면 초기화를 사용하세요. 값은 가공되지 않은 내부 단위입니다(일부 능력치는 사전 스케일링되어 저장됩니다)."
+    },
+    "ordersPanel": {
+      "title": "명령 재정의",
+      "description": "이 전역에 대해 시대의 기본 제공 명령 값을 재정의합니다. 변경된 값만 저장됩니다. 필드를 시대 기본값으로 되돌리려면 초기화를 사용하세요. 기존 명령은 수정할 수 있지만 새 명령은 추가할 수 없습니다."
+    },
+    "clonePicker": {
+      "alreadyOverridden": "(이미 재정의됨)",
+      "alreadyOverriddenTooltip": "이 기본 제공 항목은 이 전역에 이미 사용자 지정 재정의가 있습니다. 목록에서 편집하세요.",
+      "clone": "복제",
+      "override": "재정의"
+    },
+    "spriteSelect": {
+      "default": "기본값",
+      "unknownOption": "{{value}} (미상)",
+      "groupCustom": "사용자 지정",
+      "groupBuiltIn": "기본 제공"
+    }
+  },
+  "resize": {
+    "title": "맵 크기 조정",
+    "currentSize": "현재 크기: {{width}} × {{height}} 타일",
+    "newSize": "새 크기: {{width}} × {{height}} 타일",
+    "current": "현재: {{width}} × {{height}} 타일",
+    "confirmTitle": "맵 크기 조정 확인",
+    "warningCannotUndo": "⚠️ <0>경고:</0> 이 작업은 되돌릴 수 없습니다.",
+    "continue": "계속",
+    "tabScale": "비율 조정",
+    "tabExpandCut": "측면 확장 / 절단",
+    "scale": {
+      "newWidth": "새 너비 (타일)",
+      "newHeight": "새 높이 (타일)",
+      "apply": "맵 크기 조정",
+      "errorInvalid": "너비와 높이에 타일 단위로 유효한 양수를 입력하세요",
+      "warningBody": "진행하기 전에 전역을 저장했는지 확인하세요. 크기를 조정하면 모든 지형, 높이, 부대, 지점목표, 트리거 위치의 비율이 조정됩니다."
+    },
+    "expandCut": {
+      "intro": "양수 값은 각 면에 타일을 추가하고, 음수 값은 타일을 제거합니다.",
+      "left": "좌측 (타일)",
+      "right": "우측 (타일)",
+      "top": "상단 (타일)",
+      "bottom": "하단 (타일)",
+      "sideExpand": "+{{count}} 타일 (확장)",
+      "sideCut": "{{count}} 타일 (절단)",
+      "noChange": "변경 없음",
+      "apply": "변경 사항 적용",
+      "errorTooSmall": "크기를 조정할 수 없습니다: 결과 맵이 1×1 타일보다 작아집니다. 값을 조정하세요.",
+      "errorTooLarge": "크기를 조정할 수 없습니다: 결과 맵이 최대 크기 {{maxWidth}}×{{maxHeight}} 타일을 초과합니다.",
+      "warningBody": "진행하기 전에 전역을 저장했는지 확인하세요. 확장/절단하면 지정한 면에서 타일이 추가되거나 제거됩니다. 새 경계 밖의 부대와 지점목표는 제거됩니다.",
+      "changesHeading": "변경 사항:",
+      "changesHorizontal": "좌측: {{left}} 타일, 우측: {{right}} 타일",
+      "changesVertical": "상단: {{top}} 타일, 하단: {{bottom}} 타일"
+    }
+  },
+  "mapSize": {
+    "widthInTiles": "너비 (타일)",
+    "heightInTiles": "높이 (타일)",
+    "widthPlaceholder": "너비",
+    "heightPlaceholder": "높이"
+  },
+  "misc": {
+    "scaleAllSizesBy": "모든 크기 비율 조정",
+    "apply": "적용",
+    "background": "배경",
+    "chooseImage": "이미지 선택"
+  },
+  "localesPanel": {
+    "title": "로케일",
+    "description": "로케일은 전역을 여러 언어로 번역하는 데 사용됩니다.",
+    "addLanguage": "언어 추가",
+    "removeLanguage": "언어 제거",
+    "noKeys": "번역 키가 없습니다. 키를 추가하여 시작하세요.",
+    "addKey": "키 추가",
+    "keyLabel": "키",
+    "removeKey": "키 제거",
+    "keyPlaceholder": "번역 키",
+    "valueLabel": "값",
+    "valuePlaceholder": "번역 값",
+    "addLanguageTitle": "언어 추가",
+    "languageCodeLabel": "언어 코드",
+    "languageCodePlaceholder": "예: 'en', 'es', 'fr'",
+    "languageCodeEmpty": "언어 코드는 비워 둘 수 없습니다",
+    "languageAlreadyExists": "언어 \"{{language}}\" 이(가) 이미 존재합니다",
+    "addKeyTitle": "번역 키 추가 - {{language}}",
+    "keyNameLabel": "키 이름",
+    "keyNamePlaceholder": "예: 'title', 'description', 'button_text'",
+    "keyNameEmpty": "키 이름은 비워 둘 수 없습니다",
+    "keyAlreadyExists": "키 \"{{key}}\" 이(가) \"{{language}}\" 에 이미 존재합니다"
+  },
+  "triggers": {
+    "title": "트리거",
+    "moreInfo": "트리거에 대한 자세한 정보는 여기에서",
+    "lastPositionClicked": "마지막으로 클릭한 위치: [{{x}}, {{y}}]",
+    "createTrigger": "트리거 생성",
+    "createTriggerButton": "트리거 생성",
+    "format": "형식",
+    "invalidJsonFormat": "잘못된 JSON 형식",
+    "event": "이벤트",
+    "conditionLogic": "조건 논리",
+    "conditionLogicAnd": "모든 조건 (AND)",
+    "conditionLogicOr": "임의 조건 (OR)",
+    "conditions": "조건",
+    "addCondition": "조건 추가",
+    "actions": "행동",
+    "addAction": "행동 추가",
+    "once": "한 번"
+  },
+  "randomMap": {
+    "title": "무작위 맵",
+    "moreInfo": "무작위 맵에 대한 자세한 정보는 여기에서",
+    "proceduralMap": "절차적(무작위) 맵",
+    "proceduralExplanation": "이 지시는 매 경기마다 새 시드로 맵을 생성하며, 저장된 전역은 구워진 맵을 버립니다. 여기에 표시된 맵은 미리보기일 뿐입니다. 지점목표/지점목표 레이어 지시로 배치된 지점목표는 이 미리보기가 아니라 경기 시작 시 나타납니다.",
+    "startFromTemplate": "템플릿에서 시작",
+    "loadInstructionsFromTemplate": "템플릿에서 지시 불러오기",
+    "generating": "생성 중…",
+    "generatePreview": "미리보기 생성",
+    "instructions": "지시",
+    "instructionsWithCount": "지시 ({{count}})",
+    "formEditor": "양식 편집기",
+    "editAsJson": "JSON으로 편집",
+    "noInstructions": "아직 지시가 없습니다. 위에서 추가하거나 템플릿을 불러오세요.",
+    "moveUp": "위로 이동",
+    "moveDown": "아래로 이동",
+    "switchToPresetConfirm": "프리셋으로 전환하면 현재 지형은 유지되고 생성 지시는 지워집니다. 계속하시겠습니까?",
+    "replaceInstructionsConfirm": "현재 지시를 템플릿의 지시로 교체하시겠습니까?",
+    "fillFromTemplateDescription": "절차적 템플릿에서 현재 맵의 지형을 채웁니다. 이 작업은 고정(프리셋) 맵을 구우며 생성 지시를 유지하지 않습니다.",
+    "template": "템플릿",
+    "useSeed": "시드 사용?",
+    "useSeedDescription": "절차적 생성을 사용하여 지형 생성",
+    "confirmOverwriteLabel": "모든 지형을 덮어쓴다는 점을 이해합니다",
+    "lastUsedSeed": "마지막으로 사용한 시드:",
+    "generate": "생성",
+    "importMustBeProcedural": "가져오는 파일은 절차적 템플릿이어야 합니다(구워진 맵 없이 생성 지시 포함).",
+    "invalidJsonFile": "잘못된 JSON 파일입니다. 파일 형식을 확인하세요.",
+    "confirmOverwriteWarning": "이 작업이 지형을 덮어쓴다는 점을 이해함을 확인하세요.",
+    "selectedNotProcedural": "선택한 전역은 절차적 템플릿이 아닙니다.",
+    "invalidJson": "잘못된 JSON"
+  }
+}

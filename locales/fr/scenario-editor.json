@@ -1,0 +1,722 @@
+{
+  "common": {
+    "add": "Ajouter",
+    "addEntry": "Ajouter une entrée",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "name": "Nom",
+    "noEntries": "Aucune entrée.",
+    "none": "Aucun",
+    "remove": "Retirer",
+    "save": "Sauvegarder",
+    "select": "Sélectionner...",
+    "unknown": "(inconnu)"
+  },
+  "editor": {
+    "loadScenario": "Charger un scénario",
+    "chooseScenarioFile": "Choisir un fichier de scénario"
+  },
+  "editorPanel": {
+    "tabs": {
+      "scenario": "Scénario",
+      "terrain": "Terrain",
+      "units": "Unités",
+      "objectives": "Objectifs",
+      "triggers": "Déclencheurs",
+      "advanced": "Avancé"
+    },
+    "togglePanel": "Afficher/masquer le panneau",
+    "title": "Éditeur de scénario",
+    "downloadScenario": "Télécharger le scénario",
+    "copyScenario": "Copier le scénario",
+    "fullscreen": "Plein écran",
+    "exitFullscreen": "Quitter le plein écran",
+    "expandPanel": "Agrandir le panneau",
+    "collapsePanel": "Réduire le panneau",
+    "allowDynamicArmy": "Autoriser l'armée dynamique",
+    "allowDynamicArmyHelp": "Une fois activé, les joueurs apportent leur propre armée selon le type de bataille d'appariement et la déploient dans leurs zones. Une fois désactivé, les unités pré-placées du scénario définissent l'ordre de bataille complet (la composition de l'armée est ignorée).",
+    "showGrid": "Afficher la grille",
+    "showUnits": "Afficher les unités",
+    "hideUnits": "Masquer les unités",
+    "showObjectives": "Afficher les objectifs",
+    "hideObjectives": "Masquer les objectifs",
+    "goBack": "Retour",
+    "goBackConfirm": "Êtes-vous sûr de vouloir revenir en arrière et quitter l'éditeur ?"
+  },
+  "createScenario": {
+    "title": "Créer un scénario",
+    "randomMap": "Carte aléatoire (procédurale) ?",
+    "isHybrid": "Hybride ?"
+  },
+  "playersPanel": {
+    "title": "Joueurs",
+    "removePlayer": "Retirer le joueur"
+  },
+  "terrainPanel": {
+    "title": "Terrain",
+    "active": "Actif",
+    "setTerrain": "Définir le terrain",
+    "terrainHeight": "Hauteur du terrain",
+    "radius": "Rayon",
+    "paintBucket": "Pot de peinture"
+  },
+  "unitPanel": {
+    "title": "Unité sélectionnée",
+    "player": "Joueur",
+    "unitType": "Type d'unité",
+    "optional": "Optionnel",
+    "positionX": "Position X",
+    "positionY": "Position Y",
+    "rotation": "Rotation",
+    "mixed": "Mixte",
+    "copyJson": "Copier le JSON",
+    "copyUnits": "Copier les unités",
+    "unitsCopied": "Unités copiées ({{count}})",
+    "deselect": "Désélectionner",
+    "removeSelectedUnits": "Retirer les unités sélectionnées"
+  },
+  "createUnit": {
+    "title": "Créer une unité",
+    "active": "Actif",
+    "usingCopiedUnits": "Utilisation des unités copiées",
+    "customLabel": "{{name}} (personnalisé)",
+    "fields": {
+      "unit": "Unité",
+      "player": "Joueur"
+    }
+  },
+  "objectivePanel": {
+    "title": "Objectif sélectionné",
+    "player": "Joueur {{player}}",
+    "team": "Équipe {{team}}",
+    "namePlaceholder": "Optionnel",
+    "mixed": "Mixte",
+    "deselect": "Désélectionner",
+    "removeSelected": "Retirer l'objectif sélectionné",
+    "type": {
+      "small": "Petit",
+      "big": "Grand"
+    },
+    "fields": {
+      "type": "Type",
+      "logistics": "Logistique",
+      "manpowerPerTurn": "Effectifs par tour",
+      "goldPerTurn": "Or par tour",
+      "victoryPoints": "Points de victoire",
+      "positionX": "Position X",
+      "positionY": "Position Y"
+    }
+  },
+  "createObjective": {
+    "title": "Créer un objectif",
+    "active": "Actif",
+    "gaia": "Gaïa",
+    "type": {
+      "small": "Petit",
+      "big": "Grand"
+    },
+    "fields": {
+      "objectiveType": "Type d'objectif",
+      "victoryPoints": "Points de victoire",
+      "player": "Joueur",
+      "team": "Équipe",
+      "logistics": "Logistique"
+    }
+  },
+  "deployment": {
+    "title": "Déploiement",
+    "team": "Équipe {{team}}",
+    "mainZone": "Principale",
+    "forwardZone": "Avancée",
+    "fields": {
+      "x": "X",
+      "y": "Y",
+      "width": "Largeur",
+      "height": "Hauteur"
+    }
+  },
+  "vpBalance": {
+    "heading": "Équilibre VP (pertes vs objectifs)",
+    "casualtiesTooltip": "Pertes : {{vp}} VP",
+    "objectivesTooltip": "Objectifs : {{vp}} VP",
+    "casualtiesSummary": "Pertes {{pct}}% ({{vp}} VP)",
+    "objectivesSummary": "Objectifs {{pct}}% ({{vp}} VP)"
+  },
+  "formationModal": {
+    "title": "Modifier la formation personnalisée",
+    "identity": "Identité",
+    "formationId": "ID de formation",
+    "collision": "Collision",
+    "collisionHelp": "Forme de l'empreinte : un cercle (rayon) ou un rectangle (front sur la largeur, profondeur d'avant en arrière). Utilisez un rayon de 0 pour aucune collision (vol / fantôme).",
+    "shape": "Forme",
+    "shapeRectangle": "Rectangle",
+    "shapeCircle": "Cercle",
+    "radiusPx": "Rayon (px)",
+    "frontagePx": "Front (px)",
+    "depthPx": "Profondeur (px)",
+    "movement": "Mouvement",
+    "movementModifier": "Modificateur de mouvement",
+    "runMovementModifier": "Modificateur de mouvement en courant",
+    "rotationSpeedModifier": "Modificateur de vitesse de rotation",
+    "disable180Turn": "Désactiver le demi-tour 180°",
+    "formingSpeedModifier": "Modificateur de vitesse de formation",
+    "timeToForm": "Temps pour former (ticks)",
+    "timeToUnform": "Temps pour déformer (ticks)",
+    "minMovementModifier": "Modificateur de mouvement min.",
+    "combat": "Combat",
+    "rangedAttackModifier": "Modificateur d'attaque à distance",
+    "chargeBonusModifier": "Modificateur de bonus en charge",
+    "chargePenetrationModifier": "Modificateur d'engouffrement en charge",
+    "chargeResistanceModifier": "Modificateur de résistance aux charges",
+    "pushStrengthModifier": "Modificateur de force de poussée",
+    "receivedMeleeDamageModifier": "Modificateur de dégâts de mêlée reçus",
+    "flanking": "Prise de flanc",
+    "disablesFlankMelee": "Désactive la mêlée de flanc",
+    "disablesEnfiladeFire": "Désactive le tir sur le flanc",
+    "disablesRearFire": "Désactive le tir sur l'arrière",
+    "flankChargeResistance": "Résistance à la charge de flanc",
+    "rearChargeResistance": "Résistance à la charge arrière",
+    "enfiladeFireResistance": "Résistance au tir sur le flanc",
+    "rearFireResistance": "Résistance au tir sur l'arrière",
+    "rangedDamageResistance": "Résistance aux dégâts à distance",
+    "rangedOrgResistance": "Résistance org. à distance",
+    "fireEdges": "Bords de tir (tir par bord)",
+    "fireEdgesHelp": "Chaque bord de tir émet le long d'une face du rectangle. Une formation sans bord de tir tire par défaut sur un unique bord avant ; les formations en cercle ne tirent pas.",
+    "edge": "Bord",
+    "edgeLeft": "0 - côté gauche (-Y)",
+    "edgeFront": "1 - avant (+X)",
+    "edgeRight": "2 - côté droit (+Y)",
+    "edgeRear": "3 - arrière (-X)",
+    "arc": "Arc (deg, défaut 90)",
+    "emitters": "Émetteurs",
+    "removeFireEdge": "Retirer le bord de tir",
+    "addFireEdge": "Ajouter un bord de tir",
+    "errIdRequired": "L'ID de formation est requis",
+    "errIdInUse": "L'ID de formation \"{{id}}\" est déjà utilisé",
+    "errEdgeIndex": "Bord de tir {{n}} : l'index du bord doit être entre 0 et 3",
+    "errEdgeArc": "Bord de tir {{n}} : l'arc doit être entre 0 et 360",
+    "errEdgeEmitters": "Bord de tir {{n}} : les émetteurs doivent être un entier positif"
+  },
+  "unitTemplateModal": {
+    "title": "Modifier le modèle d'unité personnalisé",
+    "optBuiltIn": "{{name}} (intégré)",
+    "optCustom": "{{name}} (personnalisé)",
+    "identity": "Identité",
+    "typeId": "ID de type",
+    "category": "Catégorie",
+    "combat": "Combat",
+    "meleeAttack": "Attaque en mêlée",
+    "meleeDefense": "Défense en mêlée",
+    "meleeDamageType": "Type de dégâts de mêlée",
+    "chargeBonus": "Bonus en charge",
+    "chargePenetration": "Engouffrement en charge",
+    "chargeResistance": "Résistance aux charges",
+    "flankMeleeOrgModifier": "Modificateur org. mêlée de flanc",
+    "flankChargePenBonus": "Bonus pén. charge de flanc",
+    "stats": "Statistiques",
+    "hp": "PV",
+    "org": "Org",
+    "shattersAtOrg": "Se désintègre à org",
+    "routesAtOrg": "Fuit à org",
+    "recoversAtOrg": "Se rétablit à org",
+    "ralliesAtOrg": "Se rassemble à org",
+    "stamina": "Endurance",
+    "manpower": "Effectifs",
+    "gold": "Or",
+    "orgRadius": "Rayon d'organisation",
+    "orgRadiusBonus": "Bonus de rayon d'organisation",
+    "reportStats": "Statistiques du rapport",
+    "reportStatsHelp": "Décompte que chaque unité apporte aux rapports de bataille (par ex. hommes, chevaux, canons). Les clés proviennent des unités intégrées de l'époque.",
+    "tallyPerUnit": "Décompte par unité",
+    "movement": "Mouvement",
+    "walkMovement": "Mouvement en marchant",
+    "runMovement": "Mouvement en courant",
+    "runStartUpMovement": "Mouvement au démarrage de course",
+    "timeToRun": "Temps pour courir (ticks)",
+    "runCost": "Coût de course",
+    "rotationSpeed": "Vitesse de rotation",
+    "rotationMaxThreshold": "Seuil max de rotation",
+    "runRotationSpeed": "Vitesse de rotation en courant",
+    "turningDelay": "Délai de rotation (ticks)",
+    "startsRunning": "Démarre en courant",
+    "movementSound": "Son de mouvement",
+    "rangedCombat": "Combat à distance",
+    "rangedAttack": "Attaque à distance",
+    "ammo": "Munitions",
+    "minDistanceToFAA": "Distance min. au FAA",
+    "panicFireDistance": "Distance de tir de panique",
+    "fireWhileMoving": "Tirer en avançant",
+    "noAmmoRegain": "Pas de regain de munitions",
+    "rangedDamageTypes": "Types de dégâts à distance",
+    "addRangedDamageType": "Ajouter un type de dégâts à distance",
+    "enableRanged": "Activer le tir à distance",
+    "formations": "Formations",
+    "formationId": "ID de formation",
+    "baseSprite": "Sprite de base",
+    "overlaySprite": "Sprite de surcouche",
+    "addFormation": "Ajouter une formation",
+    "defaultFormation": "Formation par défaut",
+    "supply": "Ravitaillement",
+    "supplyField": "Ravitaillement",
+    "supplyConsumptionIdle": "Consommation de ravitaillement à l'arrêt",
+    "supplyConsumptionMoving": "Consommation de ravitaillement en mouvement",
+    "supplyConsumptionCombating": "Consommation de ravitaillement en combat",
+    "supplyManpowerCost": "Coût en effectifs du ravitaillement",
+    "supplyGoldCost": "Coût en or du ravitaillement",
+    "misc": "Divers",
+    "skirmisherRatio": "Ratio de tirailleurs",
+    "canDeployForward": "Peut se déployer en avant",
+    "reducedVisibilityRange": "Portée de visibilité réduite",
+    "unknownType": "ID de type inconnu",
+    "pushStrength": "Force de poussée",
+    "pushDistance": "Distance de poussée",
+    "maxEntrenchment": "Retranchement maximum",
+    "locked": "Verrouillé"
+  },
+  "unitCategoryModal": {
+    "title": "Modifier la catégorie d'unité personnalisée",
+    "optionBuiltIn": "{{name}} (intégré)",
+    "optionCustom": "{{name}} (personnalisé)",
+    "errors": {
+      "idRequired": "L'ID est requis",
+      "idInUse": "L'ID de catégorie d'unité \"{{id}}\" est déjà utilisé",
+      "firingAltitudeRequired": "firingAltitude est requis",
+      "orphanedResistances": "damageTypeResistances référence des types de dégâts inconnus : {{types}}",
+      "orphanedAutofire": "autofirePriority référence des catégories d'unités inconnues : {{categories}}",
+      "allowedOrderRequired": "Toutes les entrées d'ordres autorisés doivent être sélectionnées",
+      "allowedOrderUnknown": "L'ordre autorisé \"{{name}}\" n'est pas un ordre connu pour cette époque"
+    },
+    "identity": {
+      "legend": "Identité",
+      "id": "ID",
+      "deploymentSection": "Section de déploiement"
+    },
+    "deploymentSection": {
+      "center": "centre",
+      "flank": "flanc",
+      "front": "avant"
+    },
+    "combat": {
+      "legend": "Combat",
+      "firingAltitude": "Altitude de tir",
+      "allyCollisionLevel": "Niveau de collision allié",
+      "enemyCollisionLevel": "Niveau de collision ennemi",
+      "captureSpeed": "Vitesse de capture",
+      "impactAltitude": "Altitude d'impact",
+      "grazingAltitude": "Altitude de rasement"
+    },
+    "movement": {
+      "legend": "Mouvement et affichage",
+      "forwardOnlyMovement": "Mouvement vers l'avant uniquement (navires)",
+      "portraitRotation": "Rotation du portrait (deg)"
+    },
+    "routing": {
+      "legend": "Comportement en déroute",
+      "baseSpeed": "Vitesse de base",
+      "speedWalk": "marche",
+      "speedRun": "course",
+      "fleeWhenRouted": "Fuir en déroute"
+    },
+    "enfiladeFire": {
+      "legend": "Tir sur le flanc",
+      "damageModifier": "Modificateur de dégâts",
+      "orgModifier": "Modificateur d'org."
+    },
+    "rearFire": {
+      "legend": "Tir sur l'arrière",
+      "orgModifier": "Modificateur d'org."
+    },
+    "chargeBacklash": {
+      "legend": "Contrecoup de charge",
+      "description": "Multiplicateur sur le contre-coup que cette catégorie inflige en retour à un chargeur (plus élevé = se prépare et frappe plus fort en retour, 0 = aucun). La valeur après course s'applique lorsque le défenseur a déjà couru et ne peut pas se préparer ; elle se rabat sur le multiplicateur de base. Par défaut : 1.",
+      "multiplier": "Multiplicateur de contrecoup",
+      "multiplierAfterRunning": "Multiplicateur de contrecoup (après course)"
+    },
+    "chargeStamina": {
+      "legend": "Endurance de charge",
+      "description": "Endurance max qu'une charge draine de cette catégorie. Le chargeur la paie en totalité de front et moins en prise de flanc ; un défenseur la paie en totalité lorsqu'il est pris de flanc, avec un plancher de 25% dans les deux cas. Par défaut : 0 (aucun coût).",
+      "cost": "Coût d'endurance de charge"
+    },
+    "resistances": {
+      "legend": "Résistances par type de dégâts",
+      "description": "Modificateur de résistance par type de dégâts (négatif = subit plus de dégâts, positif = subit moins).",
+      "fieldLabel": "Résistance par type de dégâts"
+    },
+    "autofire": {
+      "legend": "Priorité de tir automatique",
+      "description": "Poids de priorité par catégorie d'unité cible. Les valeurs plus élevées sont des cibles préférées pour le tir automatique.",
+      "fieldLabel": "Priorité par catégorie de cible"
+    },
+    "allowedOrders": {
+      "legend": "Ordres autorisés",
+      "add": "Ajouter un ordre autorisé"
+    }
+  },
+  "damageTypeModal": {
+    "title": "Modifier le type de dégâts personnalisé",
+    "sections": {
+      "identity": "Identité",
+      "damage": "Dégâts",
+      "projectile": "Projectile",
+      "rangeBrackets": "Tranches de portée",
+      "areaOfEffect": "Zone d'effet"
+    },
+    "fields": {
+      "id": "ID",
+      "ranged": "À distance",
+      "imageAlias": "Alias d'image",
+      "orgDamageRatio": "Ratio de dégâts à l'org.",
+      "damageModifier": "Modificateur de dégâts",
+      "reorgDebuff": "Malus de réorganisation",
+      "attackEffectDuration": "Durée d'effet d'attaque (ticks)",
+      "projectileWidth": "Largeur du projectile",
+      "arcHeight": "Hauteur de l'arc",
+      "projectilePenetration": "Pénétration du projectile",
+      "ammoCost": "Coût en munitions",
+      "shotSound": "Son de tir",
+      "shotAnim": "Animation de tir",
+      "enfiladeFire": "Tir sur le flanc",
+      "cannotUseAfterRun": "Inutilisable après une course",
+      "extendRange": "Étendre la portée",
+      "aimMode": "Mode de visée"
+    },
+    "aimMode": {
+      "targetCenter": "Centre de la cible (explosions circulaires)",
+      "nearestBody": "Corps le plus proche (tir direct/vers l'avant)"
+    },
+    "range": {
+      "start": "Début",
+      "end": "Fin",
+      "startMod": "Mod. début",
+      "endMod": "Mod. fin"
+    },
+    "aoe": {
+      "type": "Type",
+      "circular": "Circulaire",
+      "trapezoidal": "Trapézoïdal",
+      "absorptionModifier": "Modificateur d'absorption",
+      "edgeDamageModifier": "Modificateur de dégâts en bordure",
+      "offset": "Décalage",
+      "startRadius": "Rayon de début",
+      "endRadius": "Rayon de fin",
+      "startTopWidth": "Largeur sup. de début",
+      "endTopWidth": "Largeur sup. de fin",
+      "startBottomWidth": "Largeur inf. de début",
+      "endBottomWidth": "Largeur inf. de fin",
+      "startHeight": "Hauteur de début",
+      "endHeight": "Hauteur de fin"
+    },
+    "addRangeBracket": "Ajouter une tranche de portée",
+    "addAreaOfEffect": "Ajouter une zone d'effet",
+    "removeAreaOfEffect": "Retirer la zone d'effet",
+    "errors": {
+      "nameRequired": "Le nom est requis",
+      "idMustBeNumber": "L'ID doit être un nombre",
+      "idInUse": "L'ID de type de dégâts {{id}} est déjà utilisé",
+      "nameInUse": "Le nom de type de dégâts \"{{name}}\" est déjà utilisé",
+      "idBelongsToBuiltIn": "L'ID de type de dégâts {{id}} appartient à l'intégré \"{{name}}\". Conservez le nom pour le remplacer, ou choisissez un autre id.",
+      "nameBelongsToBuiltIn": "Le nom \"{{name}}\" appartient à l'id intégré {{id}}. Définissez l'id sur {{id}} pour le remplacer, ou choisissez un autre nom.",
+      "orgDamageRatioRequired": "orgDamageRatio est requis",
+      "rangedNeedsBracket": "Les types de dégâts à distance nécessitent au moins une tranche de portée"
+    }
+  },
+  "terrainCategoryModal": {
+    "title": "Modifier la catégorie de terrain personnalisée",
+    "sections": {
+      "identity": "Identité",
+      "scalarProperties": "Propriétés scalaires",
+      "perUnitCategoryModifiers": "Modificateurs par catégorie d'unité",
+      "projectileAbsorption": "Absorption des projectiles"
+    },
+    "identityHint": "Remplace la configuration de catégorie de terrain de l'époque pour ce scénario. L'id est fixé à une catégorie intégrée - les terrains conservent leurs affectations de catégorie, vous n'ajustez que les modificateurs.",
+    "perUnitCategoryHint": "Les clés sont des ids de catégorie d'unité. Utilisez le joker `*` pour définir une valeur par défaut appliquée à toutes les catégories sans entrée explicite.",
+    "projectileAbsorptionHint": "Les clés sont des noms de types de dégâts.",
+    "option": {
+      "builtIn": "{{name}} (intégré)",
+      "custom": "{{name}} (personnalisé)"
+    },
+    "fields": {
+      "id": "ID",
+      "color": "Couleur",
+      "staminaCostModifier": "Modificateur de coût d'endurance",
+      "hitboxHeight": "Hauteur du masque de collision",
+      "heightOffset": "Décalage de hauteur",
+      "visionAbsorption": "Absorption de vision",
+      "pushStrengthModifier": "Modificateur de force de poussée",
+      "pushDistanceModifier": "Modificateur de distance de poussée",
+      "fixedEnemyCollisionLevel": "Niveau de collision ennemi fixe",
+      "canPlaceObjectives": "Peut placer des objectifs",
+      "prioritizeMovement": "Prioriser le mouvement",
+      "supplyRoute": "Voie de ravitaillement",
+      "movementModifier": "Modificateur de mouvement",
+      "impassableFor": "Infranchissable pour",
+      "attackModifier": "Modificateur d'attaque",
+      "defenseModifier": "Modificateur de défense",
+      "rangedAttackModifier": "Modificateur d'attaque à distance",
+      "chargeResistanceModifier": "Modificateur de résistance aux charges",
+      "chargeBonusModifier": "Modificateur de bonus en charge",
+      "projectileAbsorptionByDamageType": "Absorption des projectiles par type de dégâts"
+    },
+    "errors": {
+      "idRequired": "L'ID est requis",
+      "idInUse": "L'ID de catégorie de terrain \"{{id}}\" est déjà utilisé",
+      "unknownUnitCategories": "{{field}} référence des catégories d'unités inconnues : {{keys}}",
+      "unknownDamageTypes": "projectileAbsorption référence des types de dégâts inconnus : {{keys}}"
+    }
+  },
+  "customDefs": {
+    "common": {
+      "importFromScenario": "Importer depuis un scénario",
+      "duplicate": "Dupliquer",
+      "done": "Terminé"
+    },
+    "spritesPanel": {
+      "title": "Sprites personnalisés",
+      "description": "Téléversez vos propres sprites ici, puis sélectionnez-les dans les formations d'une unité. Ils sont intégrés au scénario (max {{kb}} KB chacun).",
+      "yourSprites": "Vos sprites",
+      "noSprites": "Aucun sprite personnalisé pour le moment.",
+      "uploadSprite": "Téléverser un sprite",
+      "renderWidthAria": "Largeur de rendu en px",
+      "renderHeightAria": "Hauteur de rendu en px",
+      "maxSpritesAlert": "Vous pouvez téléverser au plus {{count}} sprites personnalisés.",
+      "tooLargeAlert": "Image trop volumineuse ; impossible de compresser sous {{kb}} KB. Essayez une image plus petite ou plus simple.",
+      "invalidImageAlert": "Impossible de lire l'image. Utilisez un fichier PNG ou WebP.",
+      "deleteBlockedAlert": "Suppression impossible : encore utilisé par {{where}}. Modifiez d'abord ces formations.",
+      "libraryTitle": "Bibliothèque de sprites",
+      "libraryDescription": "Parcourez les sprites intégrés de l'époque pour vous inspirer.",
+      "filterPlaceholder": "Filtrer par nom...",
+      "loading": "Chargement...",
+      "unitBase": "Base d'unité ({{count}})",
+      "unitOverlay": "Surcouche d'unité ({{count}})",
+      "noMatches": "Aucune correspondance."
+    },
+    "unitTemplatesPanel": {
+      "title": "Modèles d'unités personnalisés",
+      "description": "Définissez de nouveaux modèles d'unités avec des statistiques, formations et types de dégâts personnalisés. Utilisez \"Remplacer\" pour substituer un intégré pour ce scénario (utile pour tester l'équilibrage) ou \"Cloner\" pour ajouter un nouveau modèle avec un id >= {{minId}}.",
+      "noTemplates": "Aucun modèle d'unité personnalisé pour le moment.",
+      "templateLabel": "{{name}} (type {{type}})",
+      "deleteBlocked": "Impossible de supprimer \"{{name}}\" - encore utilisé par {{refs}}. Retirez d'abord ces unités.",
+      "addTemplate": "Ajouter un modèle d'unité",
+      "clonePickerTitle": "Cloner un modèle d'unité intégré"
+    },
+    "formationsPanel": {
+      "title": "Formations d'unités personnalisées",
+      "description": "Définissez de nouveaux modèles de formation (collision, modificateurs, règles de tir) que les unités personnalisées peuvent utiliser.",
+      "noFormations": "Aucune formation personnalisée pour le moment.",
+      "deleteBlocked": "Impossible de supprimer \"{{id}}\" - encore utilisé par {{refs}}. Retirez d'abord ces références.",
+      "addFormation": "Ajouter une formation",
+      "clonePickerTitle": "Cloner une formation intégrée"
+    },
+    "unitCategoriesPanel": {
+      "title": "Catégories d'unités personnalisées",
+      "description": "Définissez de nouvelles catégories d'unités (niveaux de collision, section de déploiement, ordres autorisés, comportement en déroute). Référencées par les unités personnalisées via leur champ catégorie.",
+      "noCategories": "Aucune catégorie d'unité personnalisée pour le moment.",
+      "deleteBlocked": "Impossible de supprimer \"{{id}}\" - encore utilisé par {{refs}}. Retirez d'abord ces références.",
+      "addCategory": "Ajouter une catégorie d'unité",
+      "clonePickerTitle": "Cloner une catégorie d'unité intégrée"
+    },
+    "damageTypesPanel": {
+      "title": "Types de dégâts personnalisés",
+      "description": "Définissez de nouveaux types de dégâts de mêlée ou à distance. Référencés par les unités personnalisées via meleeDamageType ou rangedDamageTypes.",
+      "noDamageTypes": "Aucun type de dégâts personnalisé pour le moment.",
+      "ranged": "à distance",
+      "melee": "mêlée",
+      "cloneOptionLabel": "{{name}} ({{kind}})",
+      "itemLabel": "{{name}} ({{kind}}, id {{id}})",
+      "deleteBlocked": "Impossible de supprimer \"{{name}}\" - encore utilisé par {{refs}}. Retirez d'abord ces références.",
+      "addDamageType": "Ajouter un type de dégâts",
+      "clonePickerTitle": "Cloner un type de dégâts intégré"
+    },
+    "terrainCategoriesPanel": {
+      "title": "Catégories de terrain personnalisées",
+      "description": "Remplacez les configurations de catégorie de terrain pour ce scénario. Utilisez ceci pour donner aux catégories d'unités personnalisées des modificateurs de terrain spécifiques, ou pour introduire de nouveaux ids de catégorie de terrain.",
+      "noOverrides": "Aucun remplacement de catégorie de terrain personnalisé pour le moment.",
+      "addTerrainCategory": "Ajouter une catégorie de terrain",
+      "clonePickerTitle": "Cloner une catégorie de terrain intégrée"
+    },
+    "overrideEditor": {
+      "invalidJson": "JSON invalide",
+      "reset": "Réinitialiser",
+      "eraDefault": "défaut de l'époque : {{value}}",
+      "structuralTooltip": "Constante structurelle / de déterminisme. La modifier peut casser le rendu, les replays ou l'appariement."
+    },
+    "importModal": {
+      "kindUnitTemplates": "modèles d'unités",
+      "kindDamageTypes": "types de dégâts",
+      "kindFormations": "formations",
+      "kindUnitCategories": "catégories d'unités",
+      "kindTerrainCategories": "catégories de terrain",
+      "kindSprites": "sprites",
+      "unitItemLabel": "{{name}} (#{{type}})",
+      "damageTypeItemLabel": "{{name}} ({{kind}})",
+      "nothing": "rien",
+      "title": "Importer {{kind}} depuis un scénario",
+      "pickFilePrompt": "Choisissez un fichier de scénario (le JSON produit par le bouton Télécharger de l'éditeur) pour en importer les {{kind}} personnalisés.",
+      "chooseFile": "Choisir un fichier de scénario",
+      "fileReadError": "Impossible de lire ce fichier comme un scénario.",
+      "invalidForEra": "Les définitions personnalisées de ce scénario ne sont pas valides pour l'époque actuelle (par ex. {{message}}).",
+      "importWouldInvalidate": "L'importation rendrait le scénario invalide (par ex. {{message}}). Rien n'a été modifié.",
+      "fromLabel": "Depuis : {{name}}",
+      "importedScenario": "scénario importé",
+      "changeFile": "Changer de fichier",
+      "noCustomDefs": "Ce scénario n'a aucun {{kind}} personnalisé.",
+      "willImport": "Va importer (avec dépendances) : {{summary}}.",
+      "resultSummary": "{{imported}} importé(s), {{renamed}} renommé(s), {{skipped}} ignoré(s).",
+      "importSelected": "Importer la sélection"
+    },
+    "importOverridesModal": {
+      "targetGameConstants": "remplacements de constantes du jeu",
+      "targetGameRules": "remplacements de règles du jeu",
+      "targetOrders": "remplacements d'ordres",
+      "title": "Importer {{target}} depuis un scénario",
+      "pickFilePrompt": "Choisissez un fichier de scénario (le JSON produit par le bouton Télécharger de l'éditeur) pour en importer les {{target}}.",
+      "noOverrides": "Ce scénario n'a aucun {{target}}.",
+      "importedCount_one": "{{count}} remplacement importé.",
+      "importedCount_other": "{{count}} remplacements importés."
+    },
+    "gameConstants": {
+      "title": "Remplacements de constantes du jeu",
+      "description": "Remplacez les constantes numériques de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; Réinitialiser ramène un champ au défaut de l'époque. Les clés marquées ⚠ sont structurelles - les modifier peut casser le rendu, les replays ou l'appariement. Les valeurs sont en unités internes brutes."
+    },
+    "gameRules": {
+      "title": "Remplacements de règles du jeu",
+      "description": "Remplacez les règles de jeu de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; utilisez Réinitialiser pour ramener un champ au défaut de l'époque. Les valeurs sont en unités internes brutes (certaines statistiques sont stockées pré-échelonnées)."
+    },
+    "ordersPanel": {
+      "title": "Remplacements d'ordres",
+      "description": "Remplacez les valeurs des ordres intégrés de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; utilisez Réinitialiser pour ramener un champ au défaut de l'époque. Vous pouvez modifier les ordres existants mais pas en ajouter de nouveaux."
+    },
+    "clonePicker": {
+      "alreadyOverridden": "(déjà remplacé)",
+      "alreadyOverriddenTooltip": "Cet intégré a déjà un remplacement personnalisé dans ce scénario ; modifiez-le depuis la liste à la place.",
+      "clone": "Cloner",
+      "override": "Remplacer"
+    },
+    "spriteSelect": {
+      "default": "Par défaut",
+      "unknownOption": "{{value}} (inconnu)",
+      "groupCustom": "Personnalisé",
+      "groupBuiltIn": "Intégré"
+    }
+  },
+  "resize": {
+    "title": "Redimensionner la carte",
+    "currentSize": "Taille actuelle : {{width}} × {{height}} tuiles",
+    "newSize": "Nouvelle taille : {{width}} × {{height}} tuiles",
+    "current": "Actuel : {{width}} × {{height}} tuiles",
+    "confirmTitle": "Confirmer le redimensionnement",
+    "warningCannotUndo": "⚠️ <0>Avertissement :</0> Cette opération ne peut pas être annulée.",
+    "continue": "Continuer",
+    "tabScale": "Échelle",
+    "tabExpandCut": "Étendre / Rogner les côtés",
+    "scale": {
+      "newWidth": "Nouvelle largeur (tuiles)",
+      "newHeight": "Nouvelle hauteur (tuiles)",
+      "apply": "Redimensionner la carte",
+      "errorInvalid": "Veuillez saisir des nombres positifs valides pour la largeur et la hauteur en tuiles",
+      "warningBody": "Assurez-vous d'avoir sauvegardé votre scénario avant de continuer. Le redimensionnement mettra à l'échelle tous les terrains, hauteurs, unités, objectifs et positions de déclencheurs."
+    },
+    "expandCut": {
+      "intro": "Les valeurs positives ajoutent des tuiles, les valeurs négatives en retirent de chaque côté.",
+      "left": "Gauche (tuiles)",
+      "right": "Droite (tuiles)",
+      "top": "Haut (tuiles)",
+      "bottom": "Bas (tuiles)",
+      "sideExpand": "+{{count}} tuiles (étendre)",
+      "sideCut": "{{count}} tuiles (rogner)",
+      "noChange": "Aucun changement",
+      "apply": "Appliquer les changements",
+      "errorTooSmall": "Redimensionnement impossible : la carte résultante serait plus petite que 1×1 tuiles. Veuillez ajuster les valeurs.",
+      "errorTooLarge": "Redimensionnement impossible : la carte résultante dépasserait la taille maximale de {{maxWidth}}×{{maxHeight}} tuiles.",
+      "warningBody": "Assurez-vous d'avoir sauvegardé votre scénario avant de continuer. L'extension/le rognage ajoutera ou retirera des tuiles des côtés spécifiés. Les unités et objectifs hors des nouvelles limites seront retirés.",
+      "changesHeading": "Changements :",
+      "changesHorizontal": "Gauche : {{left}} tuiles, Droite : {{right}} tuiles",
+      "changesVertical": "Haut : {{top}} tuiles, Bas : {{bottom}} tuiles"
+    }
+  },
+  "mapSize": {
+    "widthInTiles": "Largeur en tuiles",
+    "heightInTiles": "Hauteur en tuiles",
+    "widthPlaceholder": "Largeur",
+    "heightPlaceholder": "Hauteur"
+  },
+  "misc": {
+    "scaleAllSizesBy": "Mettre toutes les tailles à l'échelle de",
+    "apply": "Appliquer",
+    "background": "Arrière-plan",
+    "chooseImage": "Choisir une image"
+  },
+  "localesPanel": {
+    "title": "Langues",
+    "description": "Les langues servent à traduire le scénario dans différentes langues.",
+    "addLanguage": "Ajouter une langue",
+    "removeLanguage": "Retirer la langue",
+    "noKeys": "Aucune clé de traduction. Ajoutez une clé pour commencer.",
+    "addKey": "Ajouter une clé",
+    "keyLabel": "Clé",
+    "removeKey": "Retirer la clé",
+    "keyPlaceholder": "Clé de traduction",
+    "valueLabel": "Valeur",
+    "valuePlaceholder": "Valeur de traduction",
+    "addLanguageTitle": "Ajouter une langue",
+    "languageCodeLabel": "Code de langue",
+    "languageCodePlaceholder": "par ex. 'en', 'es', 'fr'",
+    "languageCodeEmpty": "Le code de langue ne peut pas être vide",
+    "languageAlreadyExists": "La langue \"{{language}}\" existe déjà",
+    "addKeyTitle": "Ajouter une clé de traduction - {{language}}",
+    "keyNameLabel": "Nom de la clé",
+    "keyNamePlaceholder": "par ex. 'title', 'description', 'button_text'",
+    "keyNameEmpty": "Le nom de la clé ne peut pas être vide",
+    "keyAlreadyExists": "La clé \"{{key}}\" existe déjà dans \"{{language}}\""
+  },
+  "triggers": {
+    "title": "Déclencheurs",
+    "moreInfo": "Plus d'infos sur les déclencheurs ici",
+    "lastPositionClicked": "Dernière position cliquée : [{{x}}, {{y}}]",
+    "createTrigger": "Créer un déclencheur",
+    "createTriggerButton": "Créer un déclencheur",
+    "format": "Formater",
+    "invalidJsonFormat": "Format JSON invalide",
+    "event": "Événement",
+    "conditionLogic": "Logique des conditions",
+    "conditionLogicAnd": "Toutes les conditions (ET)",
+    "conditionLogicOr": "N'importe quelle condition (OU)",
+    "conditions": "Conditions",
+    "addCondition": "Ajouter une condition",
+    "actions": "Actions",
+    "addAction": "Ajouter une action",
+    "once": "Une fois"
+  },
+  "randomMap": {
+    "title": "Carte aléatoire",
+    "moreInfo": "Plus d'infos sur les cartes aléatoires ici",
+    "proceduralMap": "Carte procédurale (aléatoire)",
+    "proceduralExplanation": "Ces instructions génèrent la carte à partir d'une nouvelle graine à chaque partie ; le scénario sauvegardé abandonne sa carte figée. La carte affichée ici n'est qu'un aperçu. Les objectifs placés par les instructions Objectif / Couche d'objectifs apparaissent au lancement de la partie, pas dans cet aperçu.",
+    "startFromTemplate": "Partir d'un modèle",
+    "loadInstructionsFromTemplate": "Charger les instructions depuis un modèle",
+    "generating": "Génération…",
+    "generatePreview": "Générer l'aperçu",
+    "instructions": "Instructions",
+    "instructionsWithCount": "Instructions ({{count}})",
+    "formEditor": "Éditeur de formulaire",
+    "editAsJson": "Modifier en JSON",
+    "noInstructions": "Aucune instruction pour le moment. Ajoutez-en une ci-dessus ou chargez un modèle.",
+    "moveUp": "Monter",
+    "moveDown": "Descendre",
+    "switchToPresetConfirm": "Passer à un préréglage conserve le terrain actuel et efface les instructions de génération. Continuer ?",
+    "replaceInstructionsConfirm": "Remplacer les instructions actuelles par celles du modèle ?",
+    "fillFromTemplateDescription": "Remplit le terrain de la carte actuelle à partir d'un modèle procédural. Ceci fige une carte fixe (préréglée) et ne conserve aucune instruction de génération.",
+    "template": "Modèle",
+    "useSeed": "Utiliser une graine ?",
+    "useSeedDescription": "Générer le terrain par génération procédurale",
+    "confirmOverwriteLabel": "Je comprends que cela écrasera tout le terrain",
+    "lastUsedSeed": "Dernière graine utilisée :",
+    "generate": "Générer",
+    "importMustBeProcedural": "Le fichier importé doit être un modèle procédural (sans carte figée, avec des instructions de génération).",
+    "invalidJsonFile": "Fichier JSON invalide. Veuillez vérifier le format du fichier.",
+    "confirmOverwriteWarning": "Veuillez confirmer que vous comprenez que cela écrasera le terrain.",
+    "selectedNotProcedural": "Le scénario sélectionné n'est pas un modèle procédural.",
+    "invalidJson": "JSON invalide"
+  }
+}

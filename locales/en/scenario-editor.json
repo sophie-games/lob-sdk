@@ -1,0 +1,722 @@
+{
+  "common": {
+    "add": "Add",
+    "addEntry": "Add entry",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "name": "Name",
+    "noEntries": "No entries.",
+    "none": "None",
+    "remove": "Remove",
+    "save": "Save",
+    "select": "Select...",
+    "unknown": "(unknown)"
+  },
+  "editor": {
+    "loadScenario": "Load Scenario",
+    "chooseScenarioFile": "Choose scenario file"
+  },
+  "editorPanel": {
+    "tabs": {
+      "scenario": "Scenario",
+      "terrain": "Terrain",
+      "units": "Units",
+      "objectives": "Objectives",
+      "triggers": "Triggers",
+      "advanced": "Advanced"
+    },
+    "togglePanel": "Toggle panel",
+    "title": "Scenario Editor",
+    "downloadScenario": "Download scenario",
+    "copyScenario": "Copy scenario",
+    "fullscreen": "Fullscreen",
+    "exitFullscreen": "Exit fullscreen",
+    "expandPanel": "Expand panel",
+    "collapsePanel": "Collapse panel",
+    "allowDynamicArmy": "Allow dynamic army",
+    "allowDynamicArmyHelp": "When enabled, players bring their own army based on the matchmaking battle type and deploy it inside their zones. When disabled, the scenario's pre-placed units define the full roster (army composition is skipped).",
+    "showGrid": "Show grid",
+    "showUnits": "Show units",
+    "hideUnits": "Hide units",
+    "showObjectives": "Show objectives",
+    "hideObjectives": "Hide objectives",
+    "goBack": "Go back",
+    "goBackConfirm": "Are you sure you want to go back and exit the editor?"
+  },
+  "createScenario": {
+    "title": "Create Scenario",
+    "randomMap": "Random (procedural) map?",
+    "isHybrid": "Is Hybrid?"
+  },
+  "playersPanel": {
+    "title": "Players",
+    "removePlayer": "Remove player"
+  },
+  "terrainPanel": {
+    "title": "Terrain",
+    "active": "Active",
+    "setTerrain": "Set terrain",
+    "terrainHeight": "Terrain height",
+    "radius": "Radius",
+    "paintBucket": "Paint Bucket"
+  },
+  "unitPanel": {
+    "title": "Selected Unit",
+    "player": "Player",
+    "unitType": "Unit Type",
+    "optional": "Optional",
+    "positionX": "Position X",
+    "positionY": "Position Y",
+    "rotation": "Rotation",
+    "mixed": "Mixed",
+    "copyJson": "Copy JSON",
+    "copyUnits": "Copy units",
+    "unitsCopied": "Units copied ({{count}})",
+    "deselect": "Deselect",
+    "removeSelectedUnits": "Remove selected units"
+  },
+  "createUnit": {
+    "title": "Create Unit",
+    "active": "Active",
+    "usingCopiedUnits": "Using copied units",
+    "customLabel": "{{name}} (custom)",
+    "fields": {
+      "unit": "Unit",
+      "player": "Player"
+    }
+  },
+  "objectivePanel": {
+    "title": "Selected Objective",
+    "player": "Player {{player}}",
+    "team": "Team {{team}}",
+    "namePlaceholder": "Optional",
+    "mixed": "Mixed",
+    "deselect": "Deselect",
+    "removeSelected": "Remove selected objective",
+    "type": {
+      "small": "Small",
+      "big": "Big"
+    },
+    "fields": {
+      "type": "Type",
+      "logistics": "Logistics",
+      "manpowerPerTurn": "Manpower per Turn",
+      "goldPerTurn": "Gold per Turn",
+      "victoryPoints": "Victory Points",
+      "positionX": "Position X",
+      "positionY": "Position Y"
+    }
+  },
+  "createObjective": {
+    "title": "Create Objective",
+    "active": "Active",
+    "gaia": "Gaia",
+    "type": {
+      "small": "Small",
+      "big": "Big"
+    },
+    "fields": {
+      "objectiveType": "Objective Type",
+      "victoryPoints": "Victory Points",
+      "player": "Player",
+      "team": "Team",
+      "logistics": "Logistics"
+    }
+  },
+  "deployment": {
+    "title": "Deployment",
+    "team": "Team {{team}}",
+    "mainZone": "Main",
+    "forwardZone": "Forward",
+    "fields": {
+      "x": "X",
+      "y": "Y",
+      "width": "Width",
+      "height": "Height"
+    }
+  },
+  "vpBalance": {
+    "heading": "VP balance (casualties vs objectives)",
+    "casualtiesTooltip": "Casualties: {{vp}} VP",
+    "objectivesTooltip": "Objectives: {{vp}} VP",
+    "casualtiesSummary": "Casualties {{pct}}% ({{vp}} VP)",
+    "objectivesSummary": "Objectives {{pct}}% ({{vp}} VP)"
+  },
+  "formationModal": {
+    "title": "Edit custom formation",
+    "identity": "Identity",
+    "formationId": "Formation ID",
+    "collision": "Collision",
+    "collisionHelp": "Footprint shape: a circle (radius) or a rectangle (frontage across the front, depth front-to-back). Use radius 0 for no collision (flying / ghost).",
+    "shape": "Shape",
+    "shapeRectangle": "Rectangle",
+    "shapeCircle": "Circle",
+    "radiusPx": "Radius (px)",
+    "frontagePx": "Frontage (px)",
+    "depthPx": "Depth (px)",
+    "movement": "Movement",
+    "movementModifier": "Movement modifier",
+    "runMovementModifier": "Run movement modifier",
+    "rotationSpeedModifier": "Rotation speed modifier",
+    "disable180Turn": "Disable 180° turn",
+    "formingSpeedModifier": "Forming speed modifier",
+    "timeToForm": "Time to form (ticks)",
+    "timeToUnform": "Time to unform (ticks)",
+    "minMovementModifier": "Min movement modifier",
+    "combat": "Combat",
+    "rangedAttackModifier": "Ranged attack modifier",
+    "chargeBonusModifier": "Charge bonus modifier",
+    "chargePenetrationModifier": "Charge penetration modifier",
+    "chargeResistanceModifier": "Charge resistance modifier",
+    "pushStrengthModifier": "Push strength modifier",
+    "receivedMeleeDamageModifier": "Received melee damage modifier",
+    "flanking": "Flanking",
+    "disablesFlankMelee": "Disables flank melee",
+    "disablesEnfiladeFire": "Disables enfilade fire",
+    "disablesRearFire": "Disables rear fire",
+    "flankChargeResistance": "Flank charge resistance",
+    "rearChargeResistance": "Rear charge resistance",
+    "enfiladeFireResistance": "Enfilade fire resistance",
+    "rearFireResistance": "Rear fire resistance",
+    "rangedDamageResistance": "Ranged damage resistance",
+    "rangedOrgResistance": "Ranged org resistance",
+    "fireEdges": "Fire edges (edge-fire)",
+    "fireEdgesHelp": "Each fire edge emits along one face of the rectangle. A formation with no fire edges fires a default single front edge; circle formations do not fire.",
+    "edge": "Edge",
+    "edgeLeft": "0 - left side (-Y)",
+    "edgeFront": "1 - front (+X)",
+    "edgeRight": "2 - right side (+Y)",
+    "edgeRear": "3 - rear (-X)",
+    "arc": "Arc (deg, default 90)",
+    "emitters": "Emitters",
+    "removeFireEdge": "Remove fire edge",
+    "addFireEdge": "Add fire edge",
+    "errIdRequired": "Formation ID is required",
+    "errIdInUse": "Formation id \"{{id}}\" is already in use",
+    "errEdgeIndex": "Fire edge {{n}}: edge index must be 0-3",
+    "errEdgeArc": "Fire edge {{n}}: arc must be between 0 and 360",
+    "errEdgeEmitters": "Fire edge {{n}}: emitters must be a positive integer"
+  },
+  "unitTemplateModal": {
+    "title": "Edit custom unit template",
+    "optBuiltIn": "{{name}} (built-in)",
+    "optCustom": "{{name}} (custom)",
+    "identity": "Identity",
+    "typeId": "Type ID",
+    "category": "Category",
+    "combat": "Combat",
+    "meleeAttack": "Melee attack",
+    "meleeDefense": "Melee defense",
+    "meleeDamageType": "Melee damage type",
+    "chargeBonus": "Charge bonus",
+    "chargePenetration": "Charge penetration",
+    "chargeResistance": "Charge resistance",
+    "flankMeleeOrgModifier": "Flank melee org modifier",
+    "flankChargePenBonus": "Flank charge pen bonus",
+    "stats": "Stats",
+    "hp": "HP",
+    "org": "Org",
+    "shattersAtOrg": "Shatters at org",
+    "routesAtOrg": "Routes at org",
+    "recoversAtOrg": "Recovers at org",
+    "ralliesAtOrg": "Rallies at org",
+    "stamina": "Stamina",
+    "manpower": "Manpower",
+    "gold": "Gold",
+    "orgRadius": "Org radius",
+    "orgRadiusBonus": "Org radius bonus",
+    "reportStats": "Report stats",
+    "reportStatsHelp": "Tally each unit contributes to battle reports (e.g. men, horses, guns). Keys come from the era's built-in units.",
+    "tallyPerUnit": "Tally per unit",
+    "movement": "Movement",
+    "walkMovement": "Walk movement",
+    "runMovement": "Run movement",
+    "runStartUpMovement": "Run startup movement",
+    "timeToRun": "Time to run (ticks)",
+    "runCost": "Run cost",
+    "rotationSpeed": "Rotation speed",
+    "rotationMaxThreshold": "Rotation max threshold",
+    "runRotationSpeed": "Run rotation speed",
+    "turningDelay": "Turning delay (ticks)",
+    "startsRunning": "Starts running",
+    "movementSound": "Movement sound",
+    "rangedCombat": "Ranged combat",
+    "rangedAttack": "Ranged attack",
+    "ammo": "Ammo",
+    "minDistanceToFAA": "Min distance to FAA",
+    "panicFireDistance": "Panic fire distance",
+    "fireWhileMoving": "Fire while moving",
+    "noAmmoRegain": "No ammo regain",
+    "rangedDamageTypes": "Ranged damage types",
+    "addRangedDamageType": "Add ranged damage type",
+    "enableRanged": "Enable ranged",
+    "formations": "Formations",
+    "formationId": "Formation ID",
+    "baseSprite": "Base sprite",
+    "overlaySprite": "Overlay sprite",
+    "addFormation": "Add formation",
+    "defaultFormation": "Default formation",
+    "supply": "Supply",
+    "supplyField": "Supply",
+    "supplyConsumptionIdle": "Supply consumption idle",
+    "supplyConsumptionMoving": "Supply consumption moving",
+    "supplyConsumptionCombating": "Supply consumption combating",
+    "supplyManpowerCost": "Supply manpower cost",
+    "supplyGoldCost": "Supply gold cost",
+    "misc": "Misc",
+    "skirmisherRatio": "Skirmisher ratio",
+    "canDeployForward": "Can deploy forward",
+    "reducedVisibilityRange": "Reduced visibility range",
+    "unknownType": "Unknown type id",
+    "pushStrength": "Push strength",
+    "pushDistance": "Push distance",
+    "maxEntrenchment": "Max entrenchment",
+    "locked": "Locked"
+  },
+  "unitCategoryModal": {
+    "title": "Edit custom unit category",
+    "optionBuiltIn": "{{name}} (built-in)",
+    "optionCustom": "{{name}} (custom)",
+    "errors": {
+      "idRequired": "ID is required",
+      "idInUse": "Unit category id \"{{id}}\" is already in use",
+      "firingAltitudeRequired": "firingAltitude is required",
+      "orphanedResistances": "damageTypeResistances references unknown damage types: {{types}}",
+      "orphanedAutofire": "autofirePriority references unknown unit categories: {{categories}}",
+      "allowedOrderRequired": "All allowed-order entries must be selected",
+      "allowedOrderUnknown": "Allowed order \"{{name}}\" is not a known order for this era"
+    },
+    "identity": {
+      "legend": "Identity",
+      "id": "ID",
+      "deploymentSection": "Deployment section"
+    },
+    "deploymentSection": {
+      "center": "center",
+      "flank": "flank",
+      "front": "front"
+    },
+    "combat": {
+      "legend": "Combat",
+      "firingAltitude": "Firing altitude",
+      "allyCollisionLevel": "Ally collision level",
+      "enemyCollisionLevel": "Enemy collision level",
+      "captureSpeed": "Capture speed",
+      "impactAltitude": "Impact altitude",
+      "grazingAltitude": "Grazing altitude"
+    },
+    "movement": {
+      "legend": "Movement and display",
+      "forwardOnlyMovement": "Forward-only movement (ships)",
+      "portraitRotation": "Portrait rotation (deg)"
+    },
+    "routing": {
+      "legend": "Routing behavior",
+      "baseSpeed": "Base speed",
+      "speedWalk": "walk",
+      "speedRun": "run",
+      "fleeWhenRouted": "Flee when routed"
+    },
+    "enfiladeFire": {
+      "legend": "Enfilade fire",
+      "damageModifier": "Damage modifier",
+      "orgModifier": "Org modifier"
+    },
+    "rearFire": {
+      "legend": "Rear fire",
+      "orgModifier": "Org modifier"
+    },
+    "chargeBacklash": {
+      "legend": "Charge backlash",
+      "description": "Multiplier on the counter-hit this category deals back to a charger (higher = braces and hits back harder, 0 = none). The after-running value applies when the defender has already run and can't brace; it falls back to the base multiplier. Defaults to 1.",
+      "multiplier": "Backlash multiplier",
+      "multiplierAfterRunning": "Backlash multiplier (after running)"
+    },
+    "chargeStamina": {
+      "legend": "Charge stamina",
+      "description": "Max stamina a charge drains from this category. The charger pays it in full head-on and less when flanking; a defender pays it in full when flanked, with a 25% floor either way. Defaults to 0 (no cost).",
+      "cost": "Charge stamina cost"
+    },
+    "resistances": {
+      "legend": "Damage type resistances",
+      "description": "Per-damage-type resistance modifier (negative = take more damage, positive = take less).",
+      "fieldLabel": "Resistance by damage type"
+    },
+    "autofire": {
+      "legend": "Autofire priority",
+      "description": "Priority weight per target unit category. Higher values are preferred targets for autofire.",
+      "fieldLabel": "Priority by target category"
+    },
+    "allowedOrders": {
+      "legend": "Allowed orders",
+      "add": "Add allowed order"
+    }
+  },
+  "damageTypeModal": {
+    "title": "Edit custom damage type",
+    "sections": {
+      "identity": "Identity",
+      "damage": "Damage",
+      "projectile": "Projectile",
+      "rangeBrackets": "Range brackets",
+      "areaOfEffect": "Area of effect"
+    },
+    "fields": {
+      "id": "ID",
+      "ranged": "Ranged",
+      "imageAlias": "Image alias",
+      "orgDamageRatio": "Org damage ratio",
+      "damageModifier": "Damage modifier",
+      "reorgDebuff": "Reorg debuff",
+      "attackEffectDuration": "Attack effect duration (ticks)",
+      "projectileWidth": "Projectile width",
+      "arcHeight": "Arc height",
+      "projectilePenetration": "Projectile penetration",
+      "ammoCost": "Ammo cost",
+      "shotSound": "Shot sound",
+      "shotAnim": "Shot anim",
+      "enfiladeFire": "Enfilade fire",
+      "cannotUseAfterRun": "Cannot use after run",
+      "extendRange": "Extend range",
+      "aimMode": "Aim mode"
+    },
+    "aimMode": {
+      "targetCenter": "Target centre (circular blasts)",
+      "nearestBody": "Nearest body (direct/forward fire)"
+    },
+    "range": {
+      "start": "Start",
+      "end": "End",
+      "startMod": "Start mod",
+      "endMod": "End mod"
+    },
+    "aoe": {
+      "type": "Type",
+      "circular": "Circular",
+      "trapezoidal": "Trapezoidal",
+      "absorptionModifier": "Absorption modifier",
+      "edgeDamageModifier": "Edge damage modifier",
+      "offset": "Offset",
+      "startRadius": "Start radius",
+      "endRadius": "End radius",
+      "startTopWidth": "Start top width",
+      "endTopWidth": "End top width",
+      "startBottomWidth": "Start bottom width",
+      "endBottomWidth": "End bottom width",
+      "startHeight": "Start height",
+      "endHeight": "End height"
+    },
+    "addRangeBracket": "Add range bracket",
+    "addAreaOfEffect": "Add area of effect",
+    "removeAreaOfEffect": "Remove area of effect",
+    "errors": {
+      "nameRequired": "Name is required",
+      "idMustBeNumber": "ID must be a number",
+      "idInUse": "Damage type id {{id}} is already in use",
+      "nameInUse": "Damage type name \"{{name}}\" is already in use",
+      "idBelongsToBuiltIn": "Damage type id {{id}} belongs to built-in \"{{name}}\". Keep the name to override it, or pick a different id.",
+      "nameBelongsToBuiltIn": "Name \"{{name}}\" belongs to built-in id {{id}}. Set id to {{id}} to override it, or pick a different name.",
+      "orgDamageRatioRequired": "orgDamageRatio is required",
+      "rangedNeedsBracket": "Ranged damage types need at least one range bracket"
+    }
+  },
+  "terrainCategoryModal": {
+    "title": "Edit custom terrain category",
+    "sections": {
+      "identity": "Identity",
+      "scalarProperties": "Scalar properties",
+      "perUnitCategoryModifiers": "Per unit category modifiers",
+      "projectileAbsorption": "Projectile absorption"
+    },
+    "identityHint": "Overrides the era's terrain category config for this scenario. The id is fixed to a built-in category - terrains keep their category assignments, you only adjust the modifiers.",
+    "perUnitCategoryHint": "Keys are unit category ids. Use the `*` wildcard to set a default applied to all categories that don't have an explicit entry.",
+    "projectileAbsorptionHint": "Keys are damage type names.",
+    "option": {
+      "builtIn": "{{name}} (built-in)",
+      "custom": "{{name}} (custom)"
+    },
+    "fields": {
+      "id": "ID",
+      "color": "Color",
+      "staminaCostModifier": "Stamina cost modifier",
+      "hitboxHeight": "Hitbox height",
+      "heightOffset": "Height offset",
+      "visionAbsorption": "Vision absorption",
+      "pushStrengthModifier": "Push strength modifier",
+      "pushDistanceModifier": "Push distance modifier",
+      "fixedEnemyCollisionLevel": "Fixed enemy collision level",
+      "canPlaceObjectives": "Can place objectives",
+      "prioritizeMovement": "Prioritize movement",
+      "supplyRoute": "Supply route",
+      "movementModifier": "Movement modifier",
+      "impassableFor": "Impassable for",
+      "attackModifier": "Attack modifier",
+      "defenseModifier": "Defense modifier",
+      "rangedAttackModifier": "Ranged attack modifier",
+      "chargeResistanceModifier": "Charge resistance modifier",
+      "chargeBonusModifier": "Charge bonus modifier",
+      "projectileAbsorptionByDamageType": "Projectile absorption by damage type"
+    },
+    "errors": {
+      "idRequired": "ID is required",
+      "idInUse": "Terrain category id \"{{id}}\" is already in use",
+      "unknownUnitCategories": "{{field}} references unknown unit categories: {{keys}}",
+      "unknownDamageTypes": "projectileAbsorption references unknown damage types: {{keys}}"
+    }
+  },
+  "customDefs": {
+    "common": {
+      "importFromScenario": "Import from scenario",
+      "duplicate": "Duplicate",
+      "done": "Done"
+    },
+    "spritesPanel": {
+      "title": "Custom sprites",
+      "description": "Upload your own sprites here, then pick them in a unit's formations. They are embedded in the scenario (max {{kb}}KB each).",
+      "yourSprites": "Your sprites",
+      "noSprites": "No custom sprites yet.",
+      "uploadSprite": "Upload sprite",
+      "renderWidthAria": "Render width in px",
+      "renderHeightAria": "Render height in px",
+      "maxSpritesAlert": "You can upload at most {{count}} custom sprites.",
+      "tooLargeAlert": "Image too large; could not compress under {{kb}}KB. Try a smaller or simpler image.",
+      "invalidImageAlert": "Could not read the image. Use a PNG or WebP file.",
+      "deleteBlockedAlert": "Can't delete: still used by {{where}}. Change those formations first.",
+      "libraryTitle": "Sprite library",
+      "libraryDescription": "Browse the era's built-in sprites for inspiration.",
+      "filterPlaceholder": "Filter by name...",
+      "loading": "Loading...",
+      "unitBase": "Unit base ({{count}})",
+      "unitOverlay": "Unit overlay ({{count}})",
+      "noMatches": "No matches."
+    },
+    "unitTemplatesPanel": {
+      "title": "Custom unit templates",
+      "description": "Define new unit templates with custom stats, formations, and damage types. Use \"Override\" to replace a built-in for this scenario (useful for balance testing) or \"Clone\" to add a fresh template with id >= {{minId}}.",
+      "noTemplates": "No custom unit templates yet.",
+      "templateLabel": "{{name}} (type {{type}})",
+      "deleteBlocked": "Can't delete \"{{name}}\" - still used by {{refs}}. Remove those units first.",
+      "addTemplate": "Add unit template",
+      "clonePickerTitle": "Clone a built-in unit template"
+    },
+    "formationsPanel": {
+      "title": "Custom unit formations",
+      "description": "Define new formation templates (collision, modifiers, shooting rules) that custom units can use.",
+      "noFormations": "No custom formations yet.",
+      "deleteBlocked": "Can't delete \"{{id}}\" - still used by {{refs}}. Remove those references first.",
+      "addFormation": "Add formation",
+      "clonePickerTitle": "Clone a built-in formation"
+    },
+    "unitCategoriesPanel": {
+      "title": "Custom unit categories",
+      "description": "Define new unit categories (collision levels, deployment section, allowed orders, routing behavior). Referenced by custom units via their category field.",
+      "noCategories": "No custom unit categories yet.",
+      "deleteBlocked": "Can't delete \"{{id}}\" - still used by {{refs}}. Remove those references first.",
+      "addCategory": "Add unit category",
+      "clonePickerTitle": "Clone a built-in unit category"
+    },
+    "damageTypesPanel": {
+      "title": "Custom damage types",
+      "description": "Define new melee or ranged damage types. Referenced by custom units via meleeDamageType or rangedDamageTypes.",
+      "noDamageTypes": "No custom damage types yet.",
+      "ranged": "ranged",
+      "melee": "melee",
+      "cloneOptionLabel": "{{name}} ({{kind}})",
+      "itemLabel": "{{name}} ({{kind}}, id {{id}})",
+      "deleteBlocked": "Can't delete \"{{name}}\" - still used by {{refs}}. Remove those references first.",
+      "addDamageType": "Add damage type",
+      "clonePickerTitle": "Clone a built-in damage type"
+    },
+    "terrainCategoriesPanel": {
+      "title": "Custom terrain categories",
+      "description": "Override terrain category configs for this scenario. Use this to give custom unit categories specific terrain modifiers, or to introduce new terrain category ids.",
+      "noOverrides": "No custom terrain category overrides yet.",
+      "addTerrainCategory": "Add terrain category",
+      "clonePickerTitle": "Clone a built-in terrain category"
+    },
+    "overrideEditor": {
+      "invalidJson": "Invalid JSON",
+      "reset": "Reset",
+      "eraDefault": "era default: {{value}}",
+      "structuralTooltip": "Structural / determinism constant. Changing it can break rendering, replays, or matchmaking."
+    },
+    "importModal": {
+      "kindUnitTemplates": "unit templates",
+      "kindDamageTypes": "damage types",
+      "kindFormations": "formations",
+      "kindUnitCategories": "unit categories",
+      "kindTerrainCategories": "terrain categories",
+      "kindSprites": "sprites",
+      "unitItemLabel": "{{name}} (#{{type}})",
+      "damageTypeItemLabel": "{{name}} ({{kind}})",
+      "nothing": "nothing",
+      "title": "Import {{kind}} from scenario",
+      "pickFilePrompt": "Pick a scenario file (the JSON the editor's Download button produces) to import its custom {{kind}} from.",
+      "chooseFile": "Choose scenario file",
+      "fileReadError": "Couldn't read that file as a scenario.",
+      "invalidForEra": "This scenario's custom definitions aren't valid for the current era (e.g. {{message}}).",
+      "importWouldInvalidate": "Import would make the scenario invalid (e.g. {{message}}). Nothing was changed.",
+      "fromLabel": "From: {{name}}",
+      "importedScenario": "imported scenario",
+      "changeFile": "Change file",
+      "noCustomDefs": "This scenario has no custom {{kind}}.",
+      "willImport": "Will import (with dependencies): {{summary}}.",
+      "resultSummary": "Imported {{imported}}, renamed {{renamed}}, skipped {{skipped}}.",
+      "importSelected": "Import selected"
+    },
+    "importOverridesModal": {
+      "targetGameConstants": "game constant overrides",
+      "targetGameRules": "game rule overrides",
+      "targetOrders": "order overrides",
+      "title": "Import {{target}} from scenario",
+      "pickFilePrompt": "Pick a scenario file (the JSON the editor's Download button produces) to import its {{target}} from.",
+      "noOverrides": "This scenario has no {{target}}.",
+      "importedCount_one": "Imported {{count}} override.",
+      "importedCount_other": "Imported {{count}} overrides."
+    },
+    "gameConstants": {
+      "title": "Game constant overrides",
+      "description": "Override this era's numeric constants for this scenario. Only changed values are saved; Reset returns a field to the era default. Keys marked ⚠ are structural - changing them can break rendering, replays, or matchmaking. Values are raw internal units."
+    },
+    "gameRules": {
+      "title": "Game rule overrides",
+      "description": "Override this era's gameplay rules for this scenario. Only changed values are saved; use Reset to return a field to the era default. Values are raw internal units (some stats are stored pre-scaled)."
+    },
+    "ordersPanel": {
+      "title": "Order overrides",
+      "description": "Override the values of this era's built-in orders for this scenario. Only changed values are saved; use Reset to return a field to the era default. You can modify existing orders but not add new ones."
+    },
+    "clonePicker": {
+      "alreadyOverridden": "(already overridden)",
+      "alreadyOverriddenTooltip": "This built-in already has a custom override in this scenario; edit it from the list instead.",
+      "clone": "Clone",
+      "override": "Override"
+    },
+    "spriteSelect": {
+      "default": "Default",
+      "unknownOption": "{{value}} (unknown)",
+      "groupCustom": "Custom",
+      "groupBuiltIn": "Built-in"
+    }
+  },
+  "resize": {
+    "title": "Resize Map",
+    "currentSize": "Current size: {{width}} × {{height}} tiles",
+    "newSize": "New size: {{width}} × {{height}} tiles",
+    "current": "Current: {{width}} × {{height}} tiles",
+    "confirmTitle": "Confirm Resize Map",
+    "warningCannotUndo": "⚠️ <0>Warning:</0> This operation cannot be undone.",
+    "continue": "Continue",
+    "tabScale": "Scale",
+    "tabExpandCut": "Expand / Cut Sides",
+    "scale": {
+      "newWidth": "New width (tiles)",
+      "newHeight": "New height (tiles)",
+      "apply": "Resize Map",
+      "errorInvalid": "Please enter valid positive numbers for width and height in tiles",
+      "warningBody": "Make sure you have saved your scenario before proceeding. Resizing will scale all terrains, heights, units, objectives, and trigger positions."
+    },
+    "expandCut": {
+      "intro": "Positive values add tiles, negative values remove tiles from each side.",
+      "left": "Left (tiles)",
+      "right": "Right (tiles)",
+      "top": "Top (tiles)",
+      "bottom": "Bottom (tiles)",
+      "sideExpand": "+{{count}} tiles (expand)",
+      "sideCut": "{{count}} tiles (cut)",
+      "noChange": "No change",
+      "apply": "Apply Changes",
+      "errorTooSmall": "Cannot resize: resulting map would be smaller than 1×1 tiles. Please adjust the values.",
+      "errorTooLarge": "Cannot resize: resulting map would exceed maximum size of {{maxWidth}}×{{maxHeight}} tiles.",
+      "warningBody": "Make sure you have saved your scenario before proceeding. Expanding/cutting will add or remove tiles from the specified sides. Units and objectives outside the new bounds will be removed.",
+      "changesHeading": "Changes:",
+      "changesHorizontal": "Left: {{left}} tiles, Right: {{right}} tiles",
+      "changesVertical": "Top: {{top}} tiles, Bottom: {{bottom}} tiles"
+    }
+  },
+  "mapSize": {
+    "widthInTiles": "Width in tiles",
+    "heightInTiles": "Height in tiles",
+    "widthPlaceholder": "Width",
+    "heightPlaceholder": "Height"
+  },
+  "misc": {
+    "scaleAllSizesBy": "Scale all sizes by",
+    "apply": "Apply",
+    "background": "Background",
+    "chooseImage": "Choose image"
+  },
+  "localesPanel": {
+    "title": "Locales",
+    "description": "Locales are used to translate the scenario into different languages.",
+    "addLanguage": "Add Language",
+    "removeLanguage": "Remove language",
+    "noKeys": "No translation keys. Add a key to get started.",
+    "addKey": "Add Key",
+    "keyLabel": "Key",
+    "removeKey": "Remove key",
+    "keyPlaceholder": "Translation key",
+    "valueLabel": "Value",
+    "valuePlaceholder": "Translation value",
+    "addLanguageTitle": "Add Language",
+    "languageCodeLabel": "Language Code",
+    "languageCodePlaceholder": "e.g., 'en', 'es', 'fr'",
+    "languageCodeEmpty": "Language code cannot be empty",
+    "languageAlreadyExists": "Language \"{{language}}\" already exists",
+    "addKeyTitle": "Add Translation Key - {{language}}",
+    "keyNameLabel": "Key Name",
+    "keyNamePlaceholder": "e.g., 'title', 'description', 'button_text'",
+    "keyNameEmpty": "Key name cannot be empty",
+    "keyAlreadyExists": "Key \"{{key}}\" already exists in \"{{language}}\""
+  },
+  "triggers": {
+    "title": "Triggers",
+    "moreInfo": "More info about triggers here",
+    "lastPositionClicked": "Last position clicked: [{{x}}, {{y}}]",
+    "createTrigger": "Create Trigger",
+    "createTriggerButton": "Create trigger",
+    "format": "Format",
+    "invalidJsonFormat": "Invalid JSON format",
+    "event": "Event",
+    "conditionLogic": "Condition Logic",
+    "conditionLogicAnd": "All conditions (AND)",
+    "conditionLogicOr": "Any condition (OR)",
+    "conditions": "Conditions",
+    "addCondition": "Add Condition",
+    "actions": "Actions",
+    "addAction": "Add Action",
+    "once": "Once"
+  },
+  "randomMap": {
+    "title": "Random Map",
+    "moreInfo": "More info about random maps here",
+    "proceduralMap": "Procedural (random) map",
+    "proceduralExplanation": "These instructions generate the map from a new seed each match; the saved scenario drops its baked map. The map shown here is only a preview. Objectives placed by Objective / Objective layer instructions appear at match time, not in this preview.",
+    "startFromTemplate": "Start from a template",
+    "loadInstructionsFromTemplate": "Load instructions from template",
+    "generating": "Generating…",
+    "generatePreview": "Generate preview",
+    "instructions": "Instructions",
+    "instructionsWithCount": "Instructions ({{count}})",
+    "formEditor": "Form editor",
+    "editAsJson": "Edit as JSON",
+    "noInstructions": "No instructions yet. Add one above or load a template.",
+    "moveUp": "Move up",
+    "moveDown": "Move down",
+    "switchToPresetConfirm": "Switching to a preset keeps the current terrain and clears the generation instructions. Continue?",
+    "replaceInstructionsConfirm": "Replace the current instructions with the template's?",
+    "fillFromTemplateDescription": "Fill the current map's terrain from a procedural template. This bakes a fixed (preset) map and does not keep any generation instructions.",
+    "template": "Template",
+    "useSeed": "Use seed?",
+    "useSeedDescription": "Generate terrain using procedural generation",
+    "confirmOverwriteLabel": "I understand this will overwrite all terrain",
+    "lastUsedSeed": "Last used seed:",
+    "generate": "Generate",
+    "importMustBeProcedural": "The imported file must be a procedural template (no baked map, with generation instructions).",
+    "invalidJsonFile": "Invalid JSON file. Please check the file format.",
+    "confirmOverwriteWarning": "Please confirm that you understand this will overwrite the terrain.",
+    "selectedNotProcedural": "Selected scenario is not a procedural template.",
+    "invalidJson": "Invalid JSON"
+  }
+}
