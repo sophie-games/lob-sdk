@@ -614,8 +614,7 @@
         "baseSprite": "militia",
         "overlaySprite": "militia",
         "changeAnimations": {
-          "line": "column-line",
-          "square": "column-square"
+          "militia_line": "column-line"
         }
       },
       {
@@ -623,8 +622,7 @@
         "baseSprite": "militia-line",
         "overlaySprite": "militia-line",
         "changeAnimations": {
-          "column": "line-column",
-          "square": "line-square"
+          "militia_column": "line-column"
         }
       }
     ],
