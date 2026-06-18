@@ -256,8 +256,7 @@ export abstract class BaseUnit extends Entity {
     const { ranges } = this.gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(
       this.rangedDamageTypes[this.rangedDamageTypes.length - 1],
     );
-    const { UNIT_RANGE_MARGIN } = this.gameDataManager.getGameConstants();
-    return ranges[ranges.length - 1].end + UNIT_RANGE_MARGIN;
+    return ranges[ranges.length - 1].end;
   }
 
   /**

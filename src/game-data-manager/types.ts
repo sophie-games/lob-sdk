@@ -144,15 +144,6 @@ export interface GameConstants {
    */
   COLLISION_PUSH_MAX_ANGLE_RANGE_DEGREES: number;
 
-  /**
-   * Flat tolerance (px) added to a ranged band's max range when gating fire and selecting
-   * the damage band. A crude stand-in for the firing geometry the engine now models exactly
-   * (the shot leaves a forward fire emitter and reaches the target's near body), so eras on
-   * edge-fire set this to 0 for a pure geometric gate; WW2 (circle formations, centre fire)
-   * keeps a small margin.
-   */
-  UNIT_RANGE_MARGIN: number;
-
   TILE_SIZE: number;
 
   DEFAULT_MAX_TURN: number;
