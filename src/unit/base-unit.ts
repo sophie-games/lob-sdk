@@ -4,6 +4,8 @@ import { GameDataManager } from "@lob-sdk/game-data-manager";
 import {
   getCollisionConfig,
   isCircleCollision,
+  getFrontBackArc,
+  getFlankAngles,
   CollisionShapeConfig,
   CollisionShapeType,
   EntityId,
@@ -493,7 +495,8 @@ export abstract class BaseUnit extends Entity {
       // effectiveFormation (pending ?? current), like the collision OBB and fire
       // emitters, so direction/flank/FF track the formation the unit is forming into.
       const formation = this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
-      frontBackArc = formation?.frontBackArc ? degreesToRadians(formation.frontBackArc) : degreesToRadians(90);
+      // frontBackArc is derived from the OBB footprint (circles return 360 -> all Front).
+      frontBackArc = degreesToRadians(formation ? getFrontBackArc(formation) : 90);
     }
     return getDirectionToPoint(this.position, point, this.rotation, frontBackArc);
   }
@@ -501,10 +504,16 @@ export abstract class BaseUnit extends Entity {
   getFlankMod(attackerPoint: Vector2) {
     const formation = this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
     if (!formation) return 0;
-    const minFlank = degreesToRadians(formation.minFlankAngle);
-    const maxFlank = degreesToRadians(formation.maxFlankAngle);
-    // Undefined angles (malformed custom formation) would make getFlankingPercent
-    // return NaN, which propagates into charge stamina cost and freezes it forever.
+    // Unflankable formations (square, artillery, skirmishers, dispersed, ship) and circles
+    // (WW2, no facing) take no flank from any angle. Otherwise the flank ramp is derived
+    // from the OBB footprint: wide fronts protect a wide cone, deep ones almost none.
+    if (formation.disablesFlankMelee) return 0;
+    if (isCircleCollision(getCollisionConfig(formation))) return 0;
+    const { min, max } = getFlankAngles(formation);
+    const minFlank = degreesToRadians(min);
+    const maxFlank = degreesToRadians(max);
+    // Defensive: a degenerate footprint would make getFlankingPercent return NaN, which
+    // propagates into charge stamina cost and freezes it forever.
     if (!Number.isFinite(minFlank) || !Number.isFinite(maxFlank)) return 0;
     return getFlankingPercent(attackerPoint, this.position, this.rotation, minFlank, maxFlank);
   }

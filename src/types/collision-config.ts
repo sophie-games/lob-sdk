@@ -52,3 +52,31 @@ export function getCollisionConfig(
     ? { type: CollisionShapeType.Obb, frontage: size, depth: span }
     : { type: CollisionShapeType.Obb, frontage: span, depth: size };
 }
+
+/**
+ * The full front (and symmetric back) arc width in DEGREES, derived from the OBB
+ * footprint: the angle the front-face corners subtend at the centre, `2*atan2(frontage,
+ * depth)`. A wide, shallow formation (a line) gets a broad front cone; a deep, narrow one
+ * (a column) a slim one. Circles have no facing, so the whole 360 is "front" - returning
+ * 360 makes `getDirectionToPoint` classify every hit as Front (no rear/flank direction).
+ */
+export function getFrontBackArc(formation: CollisionFields): number {
+  const config = getCollisionConfig(formation);
+  if (isCircleCollision(config)) return 360;
+  return (2 * Math.atan2(config.frontage, config.depth) * 180) / Math.PI;
+}
+
+/**
+ * The flank ramp (DEGREES) derived from the front arc, for `getFlankingPercent`. Flanking
+ * is null within the front face (attack angle off the front `<= arc/2`), ramps across the
+ * exposed sides, and is full once the rear face begins (`>= 180 - arc/2`). So a broad-front
+ * line is hard to flank head-on but fully exposed to its sides/rear, a deep column ramps
+ * from almost any off-axis angle. Unflankable formations are short-circuited before this.
+ */
+export function getFlankAngles(formation: CollisionFields): {
+  min: number;
+  max: number;
+} {
+  const arc = getFrontBackArc(formation);
+  return { min: arc / 2, max: 180 - arc / 2 };
+}

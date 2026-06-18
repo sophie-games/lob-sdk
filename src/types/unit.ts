@@ -339,11 +339,6 @@ export enum FirepowerPooling {
 
 export interface FormationTemplate {
   id: string;
-  frontBackArc: number;
-  /* in degrees */
-  minFlankAngle: number;
-  /* in degrees */
-  maxFlankAngle: number;
 
   /**
    * The collision footprint: a rotated rectangle (`{ frontage, depth }`) or a circle

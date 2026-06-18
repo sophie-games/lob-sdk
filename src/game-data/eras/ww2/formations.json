@@ -1,17 +1,11 @@
 [
   {
     "id": "default",
-    "frontBackArc": 90,
-    "minFlankAngle": 180,
-    "maxFlankAngle": 180,
     "collisionShape": { "type": 0, "radius": 16 },
     "minMovementModifier": -0.8
   },
   {
     "id": "dispersed",
-    "frontBackArc": 90,
-    "minFlankAngle": 180,
-    "maxFlankAngle": 180,
     "collisionShape": { "type": 0, "radius": 16 },
     "minMovementModifier": -0.8
   }

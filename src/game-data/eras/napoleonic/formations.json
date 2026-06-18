@@ -1,9 +1,6 @@
 [
   {
     "id": "column",
-    "frontBackArc": 53,
-    "minFlankAngle": 25,
-    "maxFlankAngle": 135,
     "collisionShape": { "type": 1, "frontage": 14, "depth": 14 },
     "fireEdges": [{ "edge": 1, "arc": 40, "emitters": 1 }],
     "movementModifier": 0.15,
@@ -23,9 +20,6 @@
   },
   {
     "id": "line",
-    "frontBackArc": 160,
-    "minFlankAngle": 60,
-    "maxFlankAngle": 120,
     "collisionShape": { "type": 1, "frontage": 32, "depth": 8 },
     "fireEdges": [{ "edge": 1, "arc": 40, "emitters": 4 }],
     "movementModifier": -0.1,
@@ -43,9 +37,6 @@
   },
   {
     "id": "square",
-    "frontBackArc": 90,
-    "minFlankAngle": 180,
-    "maxFlankAngle": 180,
     "collisionShape": { "type": 1, "frontage": 16, "depth": 16 },
     "fireEdges": [
       { "edge": 0, "arc": 90, "emitters": 1 },
@@ -74,9 +65,6 @@
   },
   {
     "id": "militia_column",
-    "frontBackArc": 53,
-    "minFlankAngle": 25,
-    "maxFlankAngle": 135,
     "collisionShape": { "type": 1, "frontage": 14, "depth": 14 },
     "fireEdges": [{ "edge": 1, "arc": 40, "emitters": 1 }],
     "movementModifier": 0.15,
@@ -96,9 +84,6 @@
   },
   {
     "id": "militia_line",
-    "frontBackArc": 160,
-    "minFlankAngle": 60,
-    "maxFlankAngle": 100,
     "collisionShape": { "type": 1, "frontage": 32, "depth": 8 },
     "fireEdges": [{ "edge": 1, "arc": 40, "emitters": 4 }],
     "movementModifier": -0.15,
@@ -116,9 +101,6 @@
   },
   {
     "id": "artillery",
-    "frontBackArc": 126.87,
-    "minFlankAngle": 180,
-    "maxFlankAngle": 180,
     "collisionShape": { "type": 1, "frontage": 24, "depth": 12 },
     "fireEdges": [{ "edge": 1, "arc": 40, "emitters": 2 }],
     "disablesFlankMelee": true,
@@ -132,9 +114,6 @@
   },
   {
     "id": "skirmish",
-    "frontBackArc": 126.87,
-    "minFlankAngle": 180,
-    "maxFlankAngle": 180,
     "collisionShape": { "type": 1, "frontage": 24, "depth": 8 },
     "fireEdges": [{ "edge": 1, "arc": 360, "emitters": 2 }],
     "disablesFlankMelee": true,
@@ -171,9 +150,6 @@
   },
   {
     "id": "cavalry",
-    "frontBackArc": 126.87,
-    "minFlankAngle": 75,
-    "maxFlankAngle": 145,
     "collisionShape": { "type": 1, "frontage": 16, "depth": 12 },
     "fireEdges": [{ "edge": 1, "arc": 360, "emitters": 1 }],
     "disablesEnfiladeFire": true,
@@ -185,14 +161,10 @@
   },
   {
     "id": "unknown",
-    "frontBackArc": 90,
     "collisionShape": { "type": 0, "radius": 8 }
   },
   {
     "id": "dispersed",
-    "frontBackArc": 90,
-    "minFlankAngle": 180,
-    "maxFlankAngle": 180,
     "collisionShape": { "type": 1, "frontage": 16, "depth": 16 },
     "fireEdges": [{ "edge": 1, "arc": 360, "emitters": 1 }],
     "rangedAttackModifier": 0.8,
@@ -246,9 +218,6 @@
   },
   {
     "id": "ship",
-    "frontBackArc": 90,
-    "minFlankAngle": 180,
-    "maxFlankAngle": 180,
     "collisionShape": { "type": 1, "frontage": 12, "depth": 24 },
     "fireEdges": [
       { "edge": 2, "arc": 45, "emitters": 2 },

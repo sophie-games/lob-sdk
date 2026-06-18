@@ -1,6 +1,7 @@
 import { BaseUnit } from "./base-unit";
 import { Vector2 } from "@lob-sdk/vector";
 import {
+  CollisionShapeType,
   OrderType,
   UnitCategoryId,
   UnitStatus,
@@ -231,6 +232,25 @@ describe("BaseUnit", () => {
         Direction.Left
       );
     });
+
+    it("returns Front from any angle for a circle formation (no facing/rear)", () => {
+      const customManager = GameDataManager.createWithCustomDefs("napoleonic", {
+        customUnitFormations: [
+          {
+            id: "test-circle",
+            baseSprite: "infantry/line",
+            collisionShape: { type: CollisionShapeType.Circle, radius: 8 },
+          } as never,
+        ],
+      });
+      const circle = new TestUnit(22, customManager);
+      circle.currentFormation = "test-circle";
+      circle.position = new Vector2(0, 0);
+      circle.rotation = 0;
+      // No explicit arc -> derived from the formation; a circle classifies every hit as Front.
+      expect(circle.getDirectionToPoint(new Vector2(-10, 0))).toBe(Direction.Front);
+      expect(circle.getDirectionToPoint(new Vector2(0, 10))).toBe(Direction.Front);
+    });
   });
 
   describe("calculateCollisionShapes()", () => {
@@ -311,23 +331,13 @@ describe("BaseUnit", () => {
   });
 
   describe("getFlankMod()", () => {
-    // A malformed custom formation (e.g. legacy flankMin/flankMax keys that
-    // never got migrated to minFlankAngle/maxFlankAngle) leaves the canonical
-    // angles undefined. getFlankMod must not leak a NaN into combat math.
-    const makeUnitWithFlankAngles = (
-      minFlankAngle: number | undefined,
-      maxFlankAngle: number | undefined,
-    ): TestUnit => {
+    // getFlankMod derives the flank ramp from the formation's OBB footprint (getFlankAngles):
+    // no flank within the front face, full once the rear face begins. Circles (no facing) and
+    // formations flagged disablesFlankMelee take no flank from any angle.
+    const makeFlankUnit = (formation: object): TestUnit => {
       const customManager = GameDataManager.createWithCustomDefs("napoleonic", {
         customUnitFormations: [
-          {
-            id: "test-flank",
-            baseSprite: "infantry/line",
-            collisionCircles: 1,
-            collisionCircleSize: 8,
-            minFlankAngle,
-            maxFlankAngle,
-          } as never,
+          { id: "test-flank", baseSprite: "infantry/line", ...formation } as never,
         ],
       });
       const u = new TestUnit(21, customManager);
@@ -337,19 +347,35 @@ describe("BaseUnit", () => {
       return u;
     };
 
-    it("returns 0 (not NaN) when the flank angles are undefined", () => {
-      const u = makeUnitWithFlankAngles(undefined, undefined);
-      const mod = u.getFlankMod(new Vector2(10, 10));
-      expect(Number.isNaN(mod)).toBe(false);
-      expect(mod).toBe(0);
+    // A 16x16 OBB -> front arc 90deg -> flank ramp [45deg, 135deg].
+    const obb16 = {
+      collisionShape: { type: CollisionShapeType.Obb, frontage: 16, depth: 16 },
+    };
+
+    it("gives no flank from dead ahead", () => {
+      expect(makeFlankUnit(obb16).getFlankMod(new Vector2(10, 0))).toBe(0);
     });
 
-    it("returns a real flanking percentage when the angles are valid", () => {
-      const u = makeUnitWithFlankAngles(60, 120);
-      // Attacker directly behind a unit facing +x is a full flank.
-      const mod = u.getFlankMod(new Vector2(-10, 0));
+    it("gives half flank from the side (90deg, midway up the ramp)", () => {
+      expect(makeFlankUnit(obb16).getFlankMod(new Vector2(0, 10))).toBeCloseTo(0.5);
+    });
+
+    it("gives full flank from directly behind", () => {
+      const mod = makeFlankUnit(obb16).getFlankMod(new Vector2(-10, 0));
       expect(Number.isNaN(mod)).toBe(false);
       expect(mod).toBe(1);
+    });
+
+    it("returns 0 for a circle formation (no facing)", () => {
+      const u = makeFlankUnit({
+        collisionShape: { type: CollisionShapeType.Circle, radius: 4 },
+      });
+      expect(u.getFlankMod(new Vector2(-10, 0))).toBe(0);
+    });
+
+    it("returns 0 for an unflankable formation (disablesFlankMelee)", () => {
+      const u = makeFlankUnit({ ...obb16, disablesFlankMelee: true });
+      expect(u.getFlankMod(new Vector2(-10, 0))).toBe(0);
     });
   });
 });
