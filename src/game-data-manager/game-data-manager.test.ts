@@ -512,8 +512,7 @@ describe("GameDataManager", () => {
     const napoleonicObb = [
       "line",
       "militia_line",
-      "mass",
-      "militia_mass",
+      "militia_column",
       "column",
       "square",
       "skirmish",

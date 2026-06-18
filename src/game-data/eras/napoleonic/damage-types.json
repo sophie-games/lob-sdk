@@ -55,7 +55,7 @@
     "orgDamageRatio": 32000,
     "reorgDebuff": 0.72,
     "attackEffectDuration": 8,
-    "projectileWidth": 10,
+    "projectileWidth": 8,
     "damageModifierByTargetHp": {
       "start": 0.8,
       "end": 0.5,
@@ -69,22 +69,22 @@
     "ranges": [
       {
         "start": 0,
-        "end": 24,
+        "end": 19,
         "startMod": 6,
         "endMod": 4,
         "name": "pointBlank"
       },
       {
-        "start": 24,
-        "end": 44,
+        "start": 19,
+        "end": 35,
         "startMod": 4,
         "endMod": 1.5,
         "name": "close"
       },
-      { "start": 44, "end": 64, "startMod": 1.5, "endMod": -0.5 },
+      { "start": 35, "end": 51, "startMod": 1.5, "endMod": -0.5 },
       {
-        "start": 64,
-        "end": 90,
+        "start": 51,
+        "end": 72,
         "startMod": -0.5,
         "endMod": -0.8,
         "name": "long"
@@ -104,7 +104,7 @@
     "orgDamageRatio": 55000,
     "reorgDebuff": 0.72,
     "attackEffectDuration": 12,
-    "projectileWidth": 8,
+    "projectileWidth": 6,
     "damageModifierByTargetHp": {
       "start": 0.8,
       "end": 0.5,
@@ -118,15 +118,15 @@
     "ranges": [
       {
         "start": 0,
-        "end": 35,
+        "end": 28,
         "startMod": 2.5,
         "endMod": 1.5,
         "name": "close"
       },
-      { "start": 35, "end": 65, "startMod": 1.5, "endMod": 1 },
+      { "start": 28, "end": 52, "startMod": 1.5, "endMod": 1 },
       {
-        "start": 65,
-        "end": 90,
+        "start": 52,
+        "end": 72,
         "startMod": 1,
         "endMod": 0.5,
         "name": "long"
@@ -146,7 +146,7 @@
     "orgDamageRatio": 55000,
     "reorgDebuff": 0.72,
     "attackEffectDuration": 12,
-    "projectileWidth": 8,
+    "projectileWidth": 6,
     "damageModifierByTargetHp": {
       "start": 0.8,
       "end": 0.5,
@@ -158,10 +158,10 @@
       "modifier": -0.5
     },
     "ranges": [
-      { "start": 0, "end": 65, "startMod": 1.25, "endMod": 1 },
+      { "start": 0, "end": 52, "startMod": 1.25, "endMod": 1 },
       {
-        "start": 65,
-        "end": 90,
+        "start": 52,
+        "end": 72,
         "startMod": 1,
         "endMod": 0.5,
         "name": "long"
@@ -181,7 +181,7 @@
     "orgDamageRatio": 21000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "damageModifierByTargetHp": {
       "start": 0.9,
       "end": 0.5,
@@ -192,7 +192,7 @@
       "end": 0.65,
       "modifier": -0.25
     },
-    "ranges": [{ "start": 110, "end": 250, "startMod": 1.15, "endMod": 0.25 }],
+    "ranges": [{ "start": 88, "end": 200, "startMod": 1.15, "endMod": 0.25 }],
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
@@ -201,14 +201,14 @@
       "type": "trapezoidal",
       "ranges": [
         {
-          "start": 110,
-          "end": 250,
-          "startTopWidth": 24,
-          "endTopWidth": 50,
-          "startBottomWidth": 20,
-          "endBottomWidth": 38,
-          "startHeight": 102,
-          "endHeight": 66
+          "start": 88,
+          "end": 200,
+          "startTopWidth": 19,
+          "endTopWidth": 40,
+          "startBottomWidth": 16,
+          "endBottomWidth": 30,
+          "startHeight": 82,
+          "endHeight": 53
         }
       ],
       "absorptionModifier": 2,
@@ -233,18 +233,18 @@
     "orgDamageRatio": 32000,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "ranges": [
       {
         "start": 0,
-        "end": 69,
+        "end": 55,
         "startMod": 3,
         "endMod": 2.7,
         "name": "close"
       },
       {
-        "start": 69,
-        "end": 145,
+        "start": 55,
+        "end": 116,
         "startMod": 2,
         "endMod": 1.2,
         "name": "long"
@@ -266,7 +266,7 @@
     "orgDamageRatio": 21000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "damageModifierByTargetHp": {
       "start": 0.9,
       "end": 0.5,
@@ -277,7 +277,7 @@
       "end": 0.65,
       "modifier": -0.25
     },
-    "ranges": [{ "start": 145, "end": 280, "startMod": 1, "endMod": 0.55 }],
+    "ranges": [{ "start": 116, "end": 224, "startMod": 1, "endMod": 0.55 }],
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
@@ -286,14 +286,14 @@
       "type": "trapezoidal",
       "ranges": [
         {
-          "start": 145,
-          "end": 250,
-          "startTopWidth": 22,
-          "endTopWidth": 28,
-          "startBottomWidth": 18,
-          "endBottomWidth": 23,
-          "startHeight": 108,
-          "endHeight": 115
+          "start": 116,
+          "end": 200,
+          "startTopWidth": 18,
+          "endTopWidth": 22,
+          "startBottomWidth": 14,
+          "endBottomWidth": 18,
+          "startHeight": 86,
+          "endHeight": 92
         }
       ],
       "absorptionModifier": 2,
@@ -319,7 +319,7 @@
     "orgDamageRatio": 27500,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "damageModifierByTargetHp": {
       "start": 0.9,
       "end": 0.5,
@@ -332,8 +332,8 @@
     },
     "ranges": [
       {
-        "start": 280,
-        "end": 500,
+        "start": 224,
+        "end": 400,
         "startMod": 0,
         "endMod": -0.65,
         "name": "long"
@@ -347,14 +347,14 @@
       "type": "trapezoidal",
       "ranges": [
         {
-          "start": 250,
-          "end": 500,
-          "startTopWidth": 28,
-          "endTopWidth": 44,
-          "startBottomWidth": 23,
-          "endBottomWidth": 36,
-          "startHeight": 115,
-          "endHeight": 130
+          "start": 200,
+          "end": 400,
+          "startTopWidth": 22,
+          "endTopWidth": 35,
+          "startBottomWidth": 18,
+          "endBottomWidth": 29,
+          "startHeight": 92,
+          "endHeight": 104
         }
       ],
       "absorptionModifier": 2,
@@ -379,7 +379,7 @@
     "orgDamageRatio": 21000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "damageModifierByTargetHp": {
       "start": 0.9,
       "end": 0.5,
@@ -390,7 +390,7 @@
       "end": 0.65,
       "modifier": -0.25
     },
-    "ranges": [{ "start": 90, "end": 210, "startMod": 1.1, "endMod": 0.25 }],
+    "ranges": [{ "start": 72, "end": 168, "startMod": 1.1, "endMod": 0.25 }],
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
@@ -399,14 +399,14 @@
       "type": "trapezoidal",
       "ranges": [
         {
-          "start": 90,
-          "end": 210,
-          "startTopWidth": 32,
-          "endTopWidth": 44,
-          "startBottomWidth": 24,
-          "endBottomWidth": 36,
-          "startHeight": 72,
-          "endHeight": 54
+          "start": 72,
+          "end": 168,
+          "startTopWidth": 26,
+          "endTopWidth": 35,
+          "startBottomWidth": 19,
+          "endBottomWidth": 29,
+          "startHeight": 58,
+          "endHeight": 43
         }
       ],
       "absorptionModifier": 2,
@@ -431,18 +431,18 @@
     "orgDamageRatio": 32000,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "ranges": [
       {
         "start": 0,
-        "end": 69,
+        "end": 55,
         "startMod": 3,
         "endMod": 2.7,
         "name": "close"
       },
       {
-        "start": 69,
-        "end": 135,
+        "start": 55,
+        "end": 108,
         "startMod": 2,
         "endMod": 1.2,
         "name": "long"
@@ -464,7 +464,7 @@
     "orgDamageRatio": 21000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "damageModifierByTargetHp": {
       "start": 0.9,
       "end": 0.5,
@@ -475,7 +475,7 @@
       "end": 0.65,
       "modifier": -0.25
     },
-    "ranges": [{ "start": 135, "end": 250, "startMod": 1, "endMod": 0.55 }],
+    "ranges": [{ "start": 108, "end": 200, "startMod": 1, "endMod": 0.55 }],
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
@@ -484,14 +484,14 @@
       "type": "trapezoidal",
       "ranges": [
         {
-          "start": 135,
-          "end": 240,
-          "startTopWidth": 20,
-          "endTopWidth": 28,
-          "startBottomWidth": 18,
-          "endBottomWidth": 25,
-          "startHeight": 100,
-          "endHeight": 110
+          "start": 108,
+          "end": 192,
+          "startTopWidth": 16,
+          "endTopWidth": 22,
+          "startBottomWidth": 14,
+          "endBottomWidth": 20,
+          "startHeight": 80,
+          "endHeight": 88
         }
       ],
       "absorptionModifier": 2,
@@ -517,7 +517,7 @@
     "orgDamageRatio": 27500,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "damageModifierByTargetHp": {
       "start": 0.9,
       "end": 0.5,
@@ -530,8 +530,8 @@
     },
     "ranges": [
       {
-        "start": 250,
-        "end": 435,
+        "start": 200,
+        "end": 348,
         "startMod": 0,
         "endMod": -0.65,
         "name": "long"
@@ -545,14 +545,14 @@
       "type": "trapezoidal",
       "ranges": [
         {
-          "start": 240,
-          "end": 435,
-          "startTopWidth": 28,
-          "endTopWidth": 40,
-          "startBottomWidth": 25,
-          "endBottomWidth": 36,
-          "startHeight": 110,
-          "endHeight": 125
+          "start": 192,
+          "end": 348,
+          "startTopWidth": 22,
+          "endTopWidth": 32,
+          "startBottomWidth": 20,
+          "endBottomWidth": 29,
+          "startHeight": 88,
+          "endHeight": 100
         }
       ],
       "absorptionModifier": 2,
@@ -577,18 +577,18 @@
     "orgDamageRatio": 32000,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "ranges": [
       {
         "start": 0,
-        "end": 69,
+        "end": 55,
         "startMod": 3,
         "endMod": 2.7,
         "name": "close"
       },
       {
-        "start": 69,
-        "end": 120,
+        "start": 55,
+        "end": 96,
         "startMod": 2,
         "endMod": 1.2,
         "name": "long"
@@ -610,7 +610,7 @@
     "orgDamageRatio": 21000,
     "reorgDebuff": 0.74,
     "attackEffectDuration": 16,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "damageModifierByTargetHp": {
       "start": 0.9,
       "end": 0.5,
@@ -621,7 +621,7 @@
       "end": 0.65,
       "modifier": -0.25
     },
-    "ranges": [{ "start": 120, "end": 220, "startMod": 1, "endMod": 0.55 }],
+    "ranges": [{ "start": 96, "end": 176, "startMod": 1, "endMod": 0.55 }],
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
@@ -630,14 +630,14 @@
       "type": "trapezoidal",
       "ranges": [
         {
-          "start": 120,
-          "end": 220,
-          "startTopWidth": 20,
-          "endTopWidth": 28,
-          "startBottomWidth": 18,
-          "endBottomWidth": 25,
-          "startHeight": 95,
-          "endHeight": 105
+          "start": 96,
+          "end": 176,
+          "startTopWidth": 16,
+          "endTopWidth": 22,
+          "startBottomWidth": 14,
+          "endBottomWidth": 20,
+          "startHeight": 76,
+          "endHeight": 84
         }
       ],
       "absorptionModifier": 2.0,
@@ -663,7 +663,7 @@
     "orgDamageRatio": 27500,
     "reorgDebuff": 0.74,
     "attackEffectDuration": 16,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "damageModifierByTargetHp": {
       "start": 0.9,
       "end": 0.5,
@@ -676,8 +676,8 @@
     },
     "ranges": [
       {
-        "start": 220,
-        "end": 400,
+        "start": 176,
+        "end": 320,
         "startMod": 0,
         "endMod": -0.65,
         "name": "long"
@@ -691,14 +691,14 @@
       "type": "trapezoidal",
       "ranges": [
         {
-          "start": 220,
-          "end": 400,
-          "startTopWidth": 28,
-          "endTopWidth": 40,
-          "startBottomWidth": 25,
-          "endBottomWidth": 36,
-          "startHeight": 105,
-          "endHeight": 120
+          "start": 176,
+          "end": 320,
+          "startTopWidth": 22,
+          "endTopWidth": 32,
+          "startBottomWidth": 20,
+          "endBottomWidth": 29,
+          "startHeight": 84,
+          "endHeight": 96
         }
       ],
       "absorptionModifier": 2.0,
@@ -723,18 +723,18 @@
     "orgDamageRatio": 32000,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "ranges": [
       {
         "start": 0,
-        "end": 69,
+        "end": 55,
         "startMod": 3,
         "endMod": 2.7,
         "name": "close"
       },
       {
-        "start": 69,
-        "end": 110,
+        "start": 55,
+        "end": 88,
         "startMod": 2,
         "endMod": 1.2,
         "name": "long"
@@ -756,7 +756,7 @@
     "orgDamageRatio": 21000,
     "reorgDebuff": 0.74,
     "attackEffectDuration": 12,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "damageModifierByTargetHp": {
       "start": 0.9,
       "end": 0.5,
@@ -767,7 +767,7 @@
       "end": 0.65,
       "modifier": -0.25
     },
-    "ranges": [{ "start": 110, "end": 200, "startMod": 1, "endMod": 0.55 }],
+    "ranges": [{ "start": 88, "end": 160, "startMod": 1, "endMod": 0.55 }],
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
@@ -776,14 +776,14 @@
       "type": "trapezoidal",
       "ranges": [
         {
-          "start": 110,
-          "end": 200,
-          "startTopWidth": 20,
-          "endTopWidth": 28,
-          "startBottomWidth": 18,
-          "endBottomWidth": 25,
-          "startHeight": 90,
-          "endHeight": 100
+          "start": 88,
+          "end": 160,
+          "startTopWidth": 16,
+          "endTopWidth": 22,
+          "startBottomWidth": 14,
+          "endBottomWidth": 20,
+          "startHeight": 72,
+          "endHeight": 80
         }
       ],
       "absorptionModifier": 2.0,
@@ -809,7 +809,7 @@
     "orgDamageRatio": 25000,
     "reorgDebuff": 0.74,
     "attackEffectDuration": 12,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "damageModifierByTargetHp": {
       "start": 0.9,
       "end": 0.5,
@@ -822,8 +822,8 @@
     },
     "ranges": [
       {
-        "start": 200,
-        "end": 375,
+        "start": 160,
+        "end": 300,
         "startMod": 0,
         "endMod": -0.65,
         "name": "long"
@@ -837,14 +837,14 @@
       "type": "trapezoidal",
       "ranges": [
         {
-          "start": 200,
-          "end": 375,
-          "startTopWidth": 28,
-          "endTopWidth": 40,
-          "startBottomWidth": 25,
-          "endBottomWidth": 36,
-          "startHeight": 100,
-          "endHeight": 115
+          "start": 160,
+          "end": 300,
+          "startTopWidth": 22,
+          "endTopWidth": 32,
+          "startBottomWidth": 20,
+          "endBottomWidth": 29,
+          "startHeight": 80,
+          "endHeight": 92
         }
       ],
       "absorptionModifier": 2.0,
@@ -868,7 +868,7 @@
     "orgDamageRatio": 21500,
     "reorgDebuff": 0.85,
     "attackEffectDuration": 10,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "damageModifierByTargetHp": {
       "start": 0.9,
       "end": 0.5,
@@ -881,8 +881,8 @@
     },
     "ranges": [
       {
-        "start": 250,
-        "end": 550,
+        "start": 200,
+        "end": 440,
         "startMod": -0.05,
         "endMod": -0.55,
         "name": "long"
@@ -895,10 +895,10 @@
       "type": "circular",
       "ranges": [
         {
-          "start": 250,
-          "end": 550,
-          "startRadius": 34,
-          "endRadius": 45
+          "start": 200,
+          "end": 440,
+          "startRadius": 27,
+          "endRadius": 36
         }
       ],
       "edgeDamageModifier": -0.9,
@@ -917,7 +917,7 @@
     "orgDamageRatio": 21500,
     "reorgDebuff": 0.75,
     "attackEffectDuration": 10,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "damageModifierByTargetHp": {
       "start": 0.9,
       "end": 0.5,
@@ -930,8 +930,8 @@
     },
     "ranges": [
       {
-        "start": 210,
-        "end": 425,
+        "start": 168,
+        "end": 340,
         "startMod": -0.05,
         "endMod": -0.35,
         "name": "long"
@@ -944,10 +944,10 @@
       "type": "circular",
       "ranges": [
         {
-          "start": 210,
-          "end": 425,
-          "startRadius": 25,
-          "endRadius": 28
+          "start": 168,
+          "end": 340,
+          "startRadius": 20,
+          "endRadius": 22
         }
       ],
       "edgeDamageModifier": -0.9,
@@ -966,7 +966,7 @@
     "orgDamageRatio": 28000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 10,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "damageModifierByTargetHp": {
       "start": 0.9,
       "end": 0.5,
@@ -978,10 +978,10 @@
       "modifier": -0.15
     },
     "ranges": [
-      { "start": 69, "end": 200, "startMod": 0.0, "endMod": -0.15 },
+      { "start": 55, "end": 160, "startMod": 0.0, "endMod": -0.15 },
       {
-        "start": 200,
-        "end": 340,
+        "start": 160,
+        "end": 272,
         "startMod": -0.15,
         "endMod": -0.6,
         "name": "long"
@@ -994,16 +994,16 @@
       "type": "circular",
       "ranges": [
         {
-          "start": 69,
-          "end": 200,
-          "startRadius": 32,
-          "endRadius": 32
+          "start": 55,
+          "end": 160,
+          "startRadius": 26,
+          "endRadius": 26
         },
         {
-          "start": 200,
-          "end": 340,
-          "startRadius": 32,
-          "endRadius": 32
+          "start": 160,
+          "end": 272,
+          "startRadius": 26,
+          "endRadius": 26
         }
       ],
       "edgeDamageModifier": -0.05,
@@ -1023,18 +1023,18 @@
     "orgDamageRatio": 32000,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
-    "projectileWidth": 12,
+    "projectileWidth": 10,
     "ranges": [
       {
         "start": 0,
-        "end": 69,
+        "end": 55,
         "startMod": 4,
         "endMod": 3,
         "name": "close"
       },
       {
-        "start": 69,
-        "end": 110,
+        "start": 55,
+        "end": 88,
         "startMod": 2.5,
         "endMod": 1.9,
         "name": "long"
@@ -1056,18 +1056,18 @@
     "orgDamageRatio": 32000,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "ranges": [
       {
         "start": 0,
-        "end": 69,
+        "end": 55,
         "startMod": 3.5,
         "endMod": 2.8,
         "name": "close"
       },
       {
-        "start": 69,
-        "end": 90,
+        "start": 55,
+        "end": 72,
         "startMod": 2.2,
         "endMod": 1.8,
         "name": "long"
@@ -1089,11 +1089,11 @@
     "orgDamageRatio": 35000,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "ranges": [
       {
         "start": 0,
-        "end": 69,
+        "end": 55,
         "startMod": 8,
         "endMod": 6.65,
         "name": "close"
@@ -1115,7 +1115,7 @@
     "orgDamageRatio": 22500,
     "reorgDebuff": 0.72,
     "attackEffectDuration": 12,
-    "projectileWidth": 8,
+    "projectileWidth": 6,
     "damageModifierByTargetHp": {
       "start": 0.8,
       "end": 0.5,
@@ -1129,15 +1129,15 @@
     "ranges": [
       {
         "start": 0,
-        "end": 35,
+        "end": 28,
         "startMod": 2.5,
         "endMod": 1.5,
         "name": "close"
       },
-      { "start": 35, "end": 65, "startMod": 1.5, "endMod": 1 },
+      { "start": 28, "end": 52, "startMod": 1.5, "endMod": 1 },
       {
-        "start": 65,
-        "end": 90,
+        "start": 52,
+        "end": 72,
         "startMod": 1,
         "endMod": 0.5,
         "name": "long"
@@ -1157,7 +1157,7 @@
     "orgDamageRatio": 200000,
     "reorgDebuff": 1.0,
     "attackEffectDuration": 6,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "orgModifierByTargetOrg": {
       "start": 0.9,
       "end": 0.4,
@@ -1166,14 +1166,14 @@
     "ranges": [
       {
         "start": 0,
-        "end": 80,
+        "end": 64,
         "startMod": 1.75,
         "endMod": 1.25,
         "name": "close"
       },
       {
-        "start": 80,
-        "end": 150,
+        "start": 64,
+        "end": 120,
         "startMod": 1.25,
         "endMod": 0.75
       }
@@ -1185,10 +1185,10 @@
       "type": "circular",
       "ranges": [
         {
-          "start": 18,
-          "end": 150,
-          "startRadius": 18,
-          "endRadius": 28
+          "start": 14,
+          "end": 120,
+          "startRadius": 14,
+          "endRadius": 22
         }
       ],
       "edgeDamageModifier": -0.1,
@@ -1208,7 +1208,7 @@
     "orgDamageRatio": 150000,
     "reorgDebuff": 0.9,
     "attackEffectDuration": 8,
-    "projectileWidth": 14,
+    "projectileWidth": 11,
     "orgModifierByTargetOrg": {
       "start": 0.9,
       "end": 0.4,
@@ -1216,8 +1216,8 @@
     },
     "ranges": [
       {
-        "start": 150,
-        "end": 450,
+        "start": 120,
+        "end": 360,
         "startMod": 0.0,
         "endMod": -0.6,
         "name": "long"
@@ -1230,10 +1230,10 @@
       "type": "circular",
       "ranges": [
         {
-          "start": 150,
-          "end": 450,
-          "startRadius": 28,
-          "endRadius": 44
+          "start": 120,
+          "end": 360,
+          "startRadius": 22,
+          "endRadius": 35
         }
       ],
       "edgeDamageModifier": -0.1,

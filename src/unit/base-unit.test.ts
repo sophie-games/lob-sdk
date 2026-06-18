@@ -273,7 +273,7 @@ describe("BaseUnit", () => {
   });
 
   describe("calculateObbCorners()", () => {
-    // "line" collides as a 40x10 OBB -> getUnitDimensions { width:10, height:40 }.
+    // "line" collides as a 32x8 OBB -> getUnitDimensions { width:8, height:32 }.
     const makeLineUnit = () => {
       const u = new TestUnit(20, gameDataManager);
       u.currentFormation = "line";
@@ -284,10 +284,10 @@ describe("BaseUnit", () => {
       const u = makeLineUnit();
       u.rotation = 0;
       expect(u.calculateObbCorners()).toEqual([
-        { x: -5, y: -20 },
-        { x: 5, y: -20 },
-        { x: 5, y: 20 },
-        { x: -5, y: 20 },
+        { x: -4, y: -16 },
+        { x: 4, y: -16 },
+        { x: 4, y: 16 },
+        { x: -4, y: 16 },
       ]);
     });
 
@@ -295,18 +295,18 @@ describe("BaseUnit", () => {
       const u = makeLineUnit();
       u.rotation = Math.PI / 2;
       const [c0, , c2] = u.calculateObbCorners();
-      expect(c0.x).toBeCloseTo(20);
-      expect(c0.y).toBeCloseTo(-5);
-      expect(c2.x).toBeCloseTo(-20);
-      expect(c2.y).toBeCloseTo(5);
+      expect(c0.x).toBeCloseTo(16);
+      expect(c0.y).toBeCloseTo(-4);
+      expect(c2.x).toBeCloseTo(-16);
+      expect(c2.y).toBeCloseTo(4);
     });
 
     it("honours an explicit rotation override, ignoring the unit's own", () => {
       const u = makeLineUnit();
       u.rotation = 0;
       const [c0] = u.calculateObbCorners({ x: 0, y: 0 }, Math.PI / 2);
-      expect(c0.x).toBeCloseTo(20);
-      expect(c0.y).toBeCloseTo(-5);
+      expect(c0.x).toBeCloseTo(16);
+      expect(c0.y).toBeCloseTo(-4);
     });
   });
 
