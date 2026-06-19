@@ -9,7 +9,7 @@ import {
   UnitType,
 } from "@lob-sdk/types";
 import { Polygon } from "@lob-sdk/shapes";
-import { GameDataManager } from "@lob-sdk/game-data-manager";
+import { EngagementRange, GameDataManager } from "@lob-sdk/game-data-manager";
 import { BeenInMelee, Rotated180 } from "@lob-sdk/unit-effects";
 import { Direction } from "@lob-sdk/types";
 
@@ -42,7 +42,7 @@ describe("BaseUnit", () => {
     rotation: number = 0;
     hardAllyOverlap: number = 0;
     softAllyOverlap: number = 0;
-    holdFireDamageTypes: number[] = [];
+    autofireRange: EngagementRange = EngagementRange.Max;
     entrenchment: number = 0;
     status = UnitStatus.Standing;
     currentFormation: string = "column";
