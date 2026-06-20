@@ -19,6 +19,7 @@ import {
   UnitType,
 } from "@lob-sdk/types";
 import {
+  EngagementRange,
   GameEra,
   MeleeDamageTypeTemplate,
   RangedDamageTypeTemplate,
@@ -81,11 +82,11 @@ export abstract class BaseUnit extends Entity {
   get effectiveFormation(): string { return this.pendingFormationId ?? this.currentFormation; }
   abstract formationChangeTicksRemaining: number;
   /**
-   * These are the damage types that are disabled for autofire.
-   * By default, all damage types are enabled for autofire. We made it this way to avoid
-   * sending a lot of data over the network.
+   * Autofire engagement-range throttle. The unit only autofires a damage type's range band when
+   * this tier is at least the band's `engagementTier` (untagged bands count as `Max`). Defaults
+   * to `Max` (open fire at full range). Applies to autofire only, not ordered or panic fire.
    */
-  abstract holdFireDamageTypes: number[];
+  abstract autofireRange: EngagementRange;
   /**
    * If true, the unit cannot change formation in the current tick.
    */

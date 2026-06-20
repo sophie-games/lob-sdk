@@ -1,5 +1,6 @@
 import { Point2, Vector2 } from "@lob-sdk/vector";
 import { EntityId } from "@lob-sdk/types";
+import type { EngagementRange } from "@lob-sdk/game-data-manager";
 
 /**
  * Effects must have the effect id as the first element,
@@ -68,9 +69,9 @@ export interface UnitDto {
   pht?: number;
 
   /**
-   * Hold fire damage types (disabled for autofire)
+   * Autofire engagement-range tier (EngagementRange). Omitted when `Max` (the default).
    */
-  hfdt?: number[];
+  afr?: EngagementRange;
 
   /**
    * Current formation

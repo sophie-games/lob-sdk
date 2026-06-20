@@ -267,6 +267,11 @@ export interface DamageHit {
   damage: number;
   /** Organization bonus/penalty applied. */
   orgBonus: number;
+  /**
+   * Per-band override of the damage type's `orgDamageRatio`, resolved at shot time from the
+   * firing distance. Falls back to the damage type's `orgDamageRatio` when absent.
+   */
+  orgDamageRatio?: number;
   /** Type of damage dealt. */
   damageType: string;
   /** Optional backlash hit if the attack caused a counter-attack. */

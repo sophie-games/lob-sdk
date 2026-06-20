@@ -422,12 +422,35 @@ export interface MeleeDamageTypeTemplate {
   imageAlias?: string;
 }
 
+/**
+ * Autofire engagement tier a range band belongs to. A unit only autofires a band when its
+ * `autofireRange` tier is at least the band's tier; untagged bands default to `Max` (they fire
+ * only when the unit is set to the maximum tier). Used to throttle how far a unit opens fire.
+ */
+export enum EngagementRange {
+  Low = 0,
+  Medium = 1,
+  Max = 2,
+}
+
+export interface OrgModifierByTargetOrg {
+  start: number;
+  end: number;
+  modifier: number;
+}
+
 export interface DamageTypeRange {
   start: number;
   end: number;
   startMod: number;
   endMod: number;
   name?: string;
+  /** Autofire engagement tier whose threshold is this band's `end`. Untagged = `Max`. */
+  engagementTier?: EngagementRange;
+  /** Per-band override of the damage type's `orgDamageRatio` (e.g. a long-range cannon band). */
+  orgDamageRatio?: number;
+  /** Per-band override of the damage type's `orgModifierByTargetOrg`. */
+  orgModifierByTargetOrg?: OrgModifierByTargetOrg;
 }
 
 /**
@@ -458,11 +481,7 @@ export interface RangedDamageTypeTemplate {
    * - modifier: The maximum modifier value to apply to orgBonus
    * The modifier is applied linearly between start and end based on target's current org proportion.
    */
-  orgModifierByTargetOrg?: {
-    start: number;
-    end: number;
-    modifier: number;
-  };
+  orgModifierByTargetOrg?: OrgModifierByTargetOrg;
   /**
    * Modifies damage modifier based on target's HP proportion.
    * Uses getNegativeLinearModifier to calculate the modifier:
