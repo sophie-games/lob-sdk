@@ -1,0 +1,722 @@
+{
+  "common": {
+    "add": "जोड़ें",
+    "addEntry": "प्रविष्टि जोड़ें",
+    "cancel": "रद्द करें",
+    "delete": "हटाएं",
+    "edit": "संपादित करें",
+    "name": "नाम",
+    "noEntries": "कोई प्रविष्टि नहीं।",
+    "none": "कोई नहीं",
+    "remove": "हटाएं",
+    "save": "सहेजें",
+    "select": "चुनें...",
+    "unknown": "(अज्ञात)"
+  },
+  "editor": {
+    "loadScenario": "परिदृश्य लोड करें",
+    "chooseScenarioFile": "परिदृश्य फ़ाइल चुनें"
+  },
+  "editorPanel": {
+    "tabs": {
+      "scenario": "परिदृश्य",
+      "terrain": "भूभाग",
+      "units": "इकाइयाँ",
+      "objectives": "उद्देश्य",
+      "triggers": "ट्रिगर",
+      "advanced": "उन्नत"
+    },
+    "togglePanel": "पैनल टॉगल करें",
+    "title": "परिदृश्य संपादक",
+    "downloadScenario": "परिदृश्य डाउनलोड करें",
+    "copyScenario": "परिदृश्य कॉपी करें",
+    "fullscreen": "पूर्ण स्क्रीन",
+    "exitFullscreen": "पूर्ण स्क्रीन से बाहर निकलें",
+    "expandPanel": "पैनल विस्तृत करें",
+    "collapsePanel": "पैनल संक्षिप्त करें",
+    "allowDynamicArmy": "गतिशील सेना की अनुमति दें",
+    "allowDynamicArmyHelp": "सक्षम होने पर, खिलाड़ी मैचमेकिंग युद्ध प्रकार के आधार पर अपनी सेना लाते हैं और उसे अपने क्षेत्रों में तैनात करते हैं। अक्षम होने पर, परिदृश्य की पूर्व-रखी इकाइयाँ पूरी सेना तय करती हैं (सेना संरचना छोड़ दी जाती है)।",
+    "showGrid": "ग्रिड दिखाएं",
+    "showUnits": "इकाइयाँ दिखाएं",
+    "hideUnits": "इकाइयाँ छिपाएं",
+    "showObjectives": "उद्देश्य दिखाएं",
+    "hideObjectives": "उद्देश्य छिपाएं",
+    "goBack": "वापस जाएं",
+    "goBackConfirm": "क्या आप वाकई वापस जाकर संपादक से बाहर निकलना चाहते हैं?"
+  },
+  "createScenario": {
+    "title": "परिदृश्य बनाएं",
+    "randomMap": "यादृच्छिक (प्रक्रियात्मक) मानचित्र?",
+    "isHybrid": "हाइब्रिड है?"
+  },
+  "playersPanel": {
+    "title": "खिलाड़ी",
+    "removePlayer": "खिलाड़ी हटाएं"
+  },
+  "terrainPanel": {
+    "title": "भूभाग",
+    "active": "सक्रिय",
+    "setTerrain": "भूभाग सेट करें",
+    "terrainHeight": "भूभाग ऊंचाई",
+    "radius": "त्रिज्या",
+    "paintBucket": "पेंट बकेट"
+  },
+  "unitPanel": {
+    "title": "चयनित इकाई",
+    "player": "खिलाड़ी",
+    "unitType": "इकाई प्रकार",
+    "optional": "वैकल्पिक",
+    "positionX": "स्थिति X",
+    "positionY": "स्थिति Y",
+    "rotation": "घूर्णन",
+    "mixed": "मिश्रित",
+    "copyJson": "JSON कॉपी करें",
+    "copyUnits": "इकाइयाँ कॉपी करें",
+    "unitsCopied": "इकाइयाँ कॉपी हुईं ({{count}})",
+    "deselect": "अचयनित करें",
+    "removeSelectedUnits": "चयनित इकाइयाँ हटाएं"
+  },
+  "createUnit": {
+    "title": "इकाई बनाएं",
+    "active": "सक्रिय",
+    "usingCopiedUnits": "कॉपी की गई इकाइयों का उपयोग",
+    "customLabel": "{{name}} (कस्टम)",
+    "fields": {
+      "unit": "इकाई",
+      "player": "खिलाड़ी"
+    }
+  },
+  "objectivePanel": {
+    "title": "चयनित उद्देश्य",
+    "player": "खिलाड़ी {{player}}",
+    "team": "टीम {{team}}",
+    "namePlaceholder": "वैकल्पिक",
+    "mixed": "मिश्रित",
+    "deselect": "अचयनित करें",
+    "removeSelected": "चयनित उद्देश्य हटाएं",
+    "type": {
+      "small": "छोटा",
+      "big": "बड़ा"
+    },
+    "fields": {
+      "type": "प्रकार",
+      "logistics": "रसद",
+      "manpowerPerTurn": "प्रति चाल जनशक्ति",
+      "goldPerTurn": "प्रति चाल सोना",
+      "victoryPoints": "विजय अंक",
+      "positionX": "स्थिति X",
+      "positionY": "स्थिति Y"
+    }
+  },
+  "createObjective": {
+    "title": "उद्देश्य बनाएं",
+    "active": "सक्रिय",
+    "gaia": "गैया",
+    "type": {
+      "small": "छोटा",
+      "big": "बड़ा"
+    },
+    "fields": {
+      "objectiveType": "उद्देश्य प्रकार",
+      "victoryPoints": "विजय अंक",
+      "player": "खिलाड़ी",
+      "team": "टीम",
+      "logistics": "रसद"
+    }
+  },
+  "deployment": {
+    "title": "तैनाती",
+    "team": "टीम {{team}}",
+    "mainZone": "मुख्य",
+    "forwardZone": "अग्रिम",
+    "fields": {
+      "x": "X",
+      "y": "Y",
+      "width": "चौड़ाई",
+      "height": "ऊंचाई"
+    }
+  },
+  "vpBalance": {
+    "heading": "VP संतुलन (हताहत बनाम उद्देश्य)",
+    "casualtiesTooltip": "हताहत: {{vp}} VP",
+    "objectivesTooltip": "उद्देश्य: {{vp}} VP",
+    "casualtiesSummary": "हताहत {{pct}}% ({{vp}} VP)",
+    "objectivesSummary": "उद्देश्य {{pct}}% ({{vp}} VP)"
+  },
+  "formationModal": {
+    "title": "कस्टम गठन संपादित करें",
+    "identity": "पहचान",
+    "formationId": "गठन ID",
+    "collision": "टकराव",
+    "collisionHelp": "पदचिह्न आकार: एक वृत्त (त्रिज्या) या एक आयत (सामने की चौड़ाई, आगे-से-पीछे की गहराई)। बिना टकराव (उड़ान / घोस्ट) के लिए त्रिज्या 0 उपयोग करें।",
+    "shape": "आकार",
+    "shapeRectangle": "आयत",
+    "shapeCircle": "वृत्त",
+    "radiusPx": "त्रिज्या (px)",
+    "frontagePx": "सामने की चौड़ाई (px)",
+    "depthPx": "गहराई (px)",
+    "movement": "गति",
+    "movementModifier": "गति संशोधक",
+    "runMovementModifier": "दौड़ गति संशोधक",
+    "rotationSpeedModifier": "घूर्णन गति संशोधक",
+    "disable180Turn": "180° मोड़ अक्षम करें",
+    "formingSpeedModifier": "गठन गति संशोधक",
+    "timeToForm": "गठन का समय (ticks)",
+    "timeToUnform": "विघटन का समय (ticks)",
+    "minMovementModifier": "न्यूनतम गति संशोधक",
+    "combat": "युद्ध",
+    "rangedAttackModifier": "दूरस्थ हमला संशोधक",
+    "chargeBonusModifier": "चार्ज बोनस संशोधक",
+    "chargePenetrationModifier": "चार्ज प्रवेश संशोधक",
+    "chargeResistanceModifier": "चार्ज प्रतिरोध संशोधक",
+    "pushStrengthModifier": "धक्का शक्ति संशोधक",
+    "receivedMeleeDamageModifier": "प्राप्त हाथापाई क्षति संशोधक",
+    "flanking": "फ्लैंकिंग",
+    "disablesFlankMelee": "फ्लैंक हाथापाई अक्षम करता है",
+    "disablesEnfiladeFire": "एन्फिलेड फायर अक्षम करता है",
+    "disablesRearFire": "पीछे से आग अक्षम करता है",
+    "flankChargeResistance": "फ्लैंक चार्ज प्रतिरोध",
+    "rearChargeResistance": "रियर चार्ज प्रतिरोध",
+    "enfiladeFireResistance": "एन्फिलेड फायर प्रतिरोध",
+    "rearFireResistance": "पीछे से आग प्रतिरोध",
+    "rangedDamageResistance": "दूरस्थ क्षति प्रतिरोध",
+    "rangedOrgResistance": "दूरस्थ संगठन प्रतिरोध",
+    "fireEdges": "फायर किनारे (किनारा-फायर)",
+    "fireEdgesHelp": "प्रत्येक फायर किनारा आयत के एक फलक के साथ फायर करता है। बिना फायर किनारों वाला गठन एक डिफ़ॉल्ट सामने के किनारे से फायर करता है; वृत्त गठन फायर नहीं करते।",
+    "edge": "किनारा",
+    "edgeLeft": "0 - बायाँ पक्ष (-Y)",
+    "edgeFront": "1 - सामने (+X)",
+    "edgeRight": "2 - दायाँ पक्ष (+Y)",
+    "edgeRear": "3 - पीछे (-X)",
+    "arc": "आर्क (deg, डिफ़ॉल्ट 90)",
+    "emitters": "उत्सर्जक",
+    "removeFireEdge": "फायर किनारा हटाएं",
+    "addFireEdge": "फायर किनारा जोड़ें",
+    "errIdRequired": "गठन ID आवश्यक है",
+    "errIdInUse": "गठन id \"{{id}}\" पहले से उपयोग में है",
+    "errEdgeIndex": "फायर किनारा {{n}}: किनारा सूचकांक 0-3 होना चाहिए",
+    "errEdgeArc": "फायर किनारा {{n}}: आर्क 0 और 360 के बीच होना चाहिए",
+    "errEdgeEmitters": "फायर किनारा {{n}}: उत्सर्जक एक धनात्मक पूर्णांक होना चाहिए"
+  },
+  "unitTemplateModal": {
+    "title": "कस्टम इकाई टेम्पलेट संपादित करें",
+    "optBuiltIn": "{{name}} (अंतर्निहित)",
+    "optCustom": "{{name}} (कस्टम)",
+    "identity": "पहचान",
+    "typeId": "प्रकार ID",
+    "category": "श्रेणी",
+    "combat": "युद्ध",
+    "meleeAttack": "हाथापाई हमला",
+    "meleeDefense": "हाथापाई रक्षा",
+    "meleeDamageType": "हाथापाई क्षति प्रकार",
+    "chargeBonus": "चार्ज बोनस",
+    "chargePenetration": "चार्ज प्रवेश",
+    "chargeResistance": "चार्ज प्रतिरोध",
+    "flankMeleeOrgModifier": "फ्लैंक हाथापाई संगठन संशोधक",
+    "flankChargePenBonus": "फ्लैंक चार्ज प्रवेश बोनस",
+    "stats": "आंकड़े",
+    "hp": "HP",
+    "org": "संगठन",
+    "shattersAtOrg": "संगठन पर विघटित होता है",
+    "routesAtOrg": "संगठन पर भाग जाता है",
+    "recoversAtOrg": "संगठन पर ठीक होता है",
+    "ralliesAtOrg": "संगठन पर इकट्ठा होता है",
+    "stamina": "सहनशक्ति",
+    "manpower": "जनशक्ति",
+    "gold": "सोना",
+    "orgRadius": "संगठन त्रिज्या",
+    "orgRadiusBonus": "संगठन त्रिज्या बोनस",
+    "reportStats": "रिपोर्ट आंकड़े",
+    "reportStatsHelp": "प्रत्येक इकाई द्वारा लड़ाई रिपोर्ट में योगदान की गणना (जैसे सैनिक, घोड़े, तोपें)। कुंजियाँ युग की अंतर्निहित इकाइयों से आती हैं।",
+    "tallyPerUnit": "प्रति इकाई गणना",
+    "movement": "गति",
+    "walkMovement": "चलना गति",
+    "runMovement": "दौड़ गति",
+    "runStartUpMovement": "दौड़ शुरुआती गति",
+    "timeToRun": "दौड़ने का समय (ticks)",
+    "runCost": "दौड़ने की लागत",
+    "rotationSpeed": "घूर्णन गति",
+    "rotationMaxThreshold": "घूर्णन अधिकतम सीमा",
+    "runRotationSpeed": "दौड़ घूर्णन गति",
+    "turningDelay": "मुड़ने में देरी (ticks)",
+    "startsRunning": "दौड़ते हुए शुरू होता है",
+    "movementSound": "गति ध्वनि",
+    "rangedCombat": "दूरस्थ युद्ध",
+    "rangedAttack": "दूरस्थ हमला",
+    "ammo": "गोला-बारूद",
+    "minDistanceToFAA": "FAA से न्यूनतम दूरी",
+    "panicFireDistance": "घबराहट फायर दूरी",
+    "fireWhileMoving": "चलते समय फायर",
+    "noAmmoRegain": "गोला-बारूद पुनः नहीं मिलता",
+    "rangedDamageTypes": "दूरस्थ क्षति प्रकार",
+    "addRangedDamageType": "दूरस्थ क्षति प्रकार जोड़ें",
+    "enableRanged": "दूरस्थ सक्षम करें",
+    "formations": "गठन",
+    "formationId": "गठन ID",
+    "baseSprite": "बेस स्प्राइट",
+    "overlaySprite": "ओवरले स्प्राइट",
+    "addFormation": "गठन जोड़ें",
+    "defaultFormation": "डिफ़ॉल्ट गठन",
+    "supply": "आपूर्ति",
+    "supplyField": "आपूर्ति",
+    "supplyConsumptionIdle": "निष्क्रिय आपूर्ति खपत",
+    "supplyConsumptionMoving": "गतिशील आपूर्ति खपत",
+    "supplyConsumptionCombating": "युद्ध आपूर्ति खपत",
+    "supplyManpowerCost": "आपूर्ति जनशक्ति लागत",
+    "supplyGoldCost": "आपूर्ति सोना लागत",
+    "misc": "विविध",
+    "skirmisherRatio": "झड़प सैनिक अनुपात",
+    "canDeployForward": "अग्रिम तैनात कर सकता है",
+    "reducedVisibilityRange": "घटी हुई दृश्यता सीमा",
+    "unknownType": "अज्ञात प्रकार id",
+    "pushStrength": "धक्का शक्ति",
+    "pushDistance": "धक्का दूरी",
+    "maxEntrenchment": "अधिकतम खाई",
+    "locked": "लॉक"
+  },
+  "unitCategoryModal": {
+    "title": "कस्टम इकाई श्रेणी संपादित करें",
+    "optionBuiltIn": "{{name}} (अंतर्निहित)",
+    "optionCustom": "{{name}} (कस्टम)",
+    "errors": {
+      "idRequired": "ID आवश्यक है",
+      "idInUse": "इकाई श्रेणी id \"{{id}}\" पहले से उपयोग में है",
+      "firingAltitudeRequired": "firingAltitude आवश्यक है",
+      "orphanedResistances": "damageTypeResistances अज्ञात क्षति प्रकारों को संदर्भित करता है: {{types}}",
+      "orphanedAutofire": "autofirePriority अज्ञात इकाई श्रेणियों को संदर्भित करता है: {{categories}}",
+      "allowedOrderRequired": "सभी अनुमत-आदेश प्रविष्टियाँ चुनी जानी चाहिए",
+      "allowedOrderUnknown": "अनुमत आदेश \"{{name}}\" इस युग के लिए एक ज्ञात आदेश नहीं है"
+    },
+    "identity": {
+      "legend": "पहचान",
+      "id": "ID",
+      "deploymentSection": "तैनाती खंड"
+    },
+    "deploymentSection": {
+      "center": "केंद्र",
+      "flank": "फ्लैंक",
+      "front": "सामने"
+    },
+    "combat": {
+      "legend": "युद्ध",
+      "firingAltitude": "फायरिंग ऊंचाई",
+      "allyCollisionLevel": "सहयोगी टकराव स्तर",
+      "enemyCollisionLevel": "दुश्मन टकराव स्तर",
+      "captureSpeed": "कब्जा गति",
+      "impactAltitude": "प्रभाव ऊंचाई",
+      "grazingAltitude": "स्पर्शी ऊंचाई"
+    },
+    "movement": {
+      "legend": "गति और प्रदर्शन",
+      "forwardOnlyMovement": "केवल-आगे गति (जहाज़)",
+      "portraitRotation": "पोर्ट्रेट घूर्णन (deg)"
+    },
+    "routing": {
+      "legend": "भागने का व्यवहार",
+      "baseSpeed": "आधार गति",
+      "speedWalk": "चलना",
+      "speedRun": "दौड़ना",
+      "fleeWhenRouted": "भागने पर पलायन करें"
+    },
+    "enfiladeFire": {
+      "legend": "एन्फिलेड फायर",
+      "damageModifier": "क्षति संशोधक",
+      "orgModifier": "संगठन संशोधक"
+    },
+    "rearFire": {
+      "legend": "पीछे से आग",
+      "orgModifier": "संगठन संशोधक"
+    },
+    "chargeBacklash": {
+      "legend": "चार्ज पलटवार",
+      "description": "इस श्रेणी द्वारा चार्जर को वापस किए गए जवाबी हमले पर गुणक (अधिक = कमर कसकर अधिक जोरदार जवाब देता है, 0 = कोई नहीं)। दौड़ने के बाद वाला मान तब लागू होता है जब रक्षक पहले ही दौड़ चुका हो और कमर नहीं कस सकता; यह आधार गुणक पर लौट जाता है। डिफ़ॉल्ट 1 है।",
+      "multiplier": "पलटवार गुणक",
+      "multiplierAfterRunning": "पलटवार गुणक (दौड़ने के बाद)"
+    },
+    "chargeStamina": {
+      "legend": "चार्ज सहनशक्ति",
+      "description": "एक चार्ज इस श्रेणी से अधिकतम जितनी सहनशक्ति निकालता है। चार्जर इसे आमने-सामने पूरा चुकाता है और फ्लैंक करते समय कम; रक्षक फ्लैंक होने पर पूरा चुकाता है, दोनों ओर 25% की न्यूनतम सीमा के साथ। डिफ़ॉल्ट 0 (कोई लागत नहीं) है।",
+      "cost": "चार्ज सहनशक्ति लागत"
+    },
+    "resistances": {
+      "legend": "क्षति प्रकार प्रतिरोध",
+      "description": "प्रति-क्षति-प्रकार प्रतिरोध संशोधक (ऋणात्मक = अधिक क्षति लें, धनात्मक = कम लें)।",
+      "fieldLabel": "क्षति प्रकार द्वारा प्रतिरोध"
+    },
+    "autofire": {
+      "legend": "स्वचालित आग प्राथमिकता",
+      "description": "प्रति लक्ष्य इकाई श्रेणी प्राथमिकता भार। अधिक मान स्वचालित आग के लिए पसंदीदा लक्ष्य होते हैं।",
+      "fieldLabel": "लक्ष्य श्रेणी द्वारा प्राथमिकता"
+    },
+    "allowedOrders": {
+      "legend": "अनुमत आदेश",
+      "add": "अनुमत आदेश जोड़ें"
+    }
+  },
+  "damageTypeModal": {
+    "title": "कस्टम क्षति प्रकार संपादित करें",
+    "sections": {
+      "identity": "पहचान",
+      "damage": "क्षति",
+      "projectile": "प्रोजेक्टाइल",
+      "rangeBrackets": "रेंज ब्रैकेट",
+      "areaOfEffect": "प्रभाव क्षेत्र"
+    },
+    "fields": {
+      "id": "ID",
+      "ranged": "दूरस्थ",
+      "imageAlias": "छवि उपनाम",
+      "orgDamageRatio": "संगठन क्षति अनुपात",
+      "damageModifier": "क्षति संशोधक",
+      "reorgDebuff": "संगठन पुनर्प्राप्ति दंड",
+      "attackEffectDuration": "हमले का प्रभाव अवधि (ticks)",
+      "projectileWidth": "प्रोजेक्टाइल चौड़ाई",
+      "arcHeight": "आर्क ऊंचाई",
+      "projectilePenetration": "प्रोजेक्टाइल प्रवेश",
+      "ammoCost": "गोला-बारूद लागत",
+      "shotSound": "शॉट ध्वनि",
+      "shotAnim": "शॉट एनिमेशन",
+      "enfiladeFire": "एन्फिलेड फायर",
+      "cannotUseAfterRun": "दौड़ने के बाद उपयोग नहीं कर सकते",
+      "extendRange": "रेंज बढ़ाएं",
+      "aimMode": "निशाना मोड"
+    },
+    "aimMode": {
+      "targetCenter": "लक्ष्य केंद्र (गोलाकार विस्फोट)",
+      "nearestBody": "निकटतम पिंड (प्रत्यक्ष/आगे की आग)"
+    },
+    "range": {
+      "start": "आरंभ",
+      "end": "अंत",
+      "startMod": "आरंभ संशोधक",
+      "endMod": "अंत संशोधक"
+    },
+    "aoe": {
+      "type": "प्रकार",
+      "circular": "गोलाकार",
+      "trapezoidal": "समलंबाकार",
+      "absorptionModifier": "अवशोषण संशोधक",
+      "edgeDamageModifier": "किनारा क्षति संशोधक",
+      "offset": "ऑफसेट",
+      "startRadius": "आरंभ त्रिज्या",
+      "endRadius": "अंत त्रिज्या",
+      "startTopWidth": "आरंभ शीर्ष चौड़ाई",
+      "endTopWidth": "अंत शीर्ष चौड़ाई",
+      "startBottomWidth": "आरंभ तल चौड़ाई",
+      "endBottomWidth": "अंत तल चौड़ाई",
+      "startHeight": "आरंभ ऊंचाई",
+      "endHeight": "अंत ऊंचाई"
+    },
+    "addRangeBracket": "रेंज ब्रैकेट जोड़ें",
+    "addAreaOfEffect": "प्रभाव क्षेत्र जोड़ें",
+    "removeAreaOfEffect": "प्रभाव क्षेत्र हटाएं",
+    "errors": {
+      "nameRequired": "नाम आवश्यक है",
+      "idMustBeNumber": "ID एक संख्या होनी चाहिए",
+      "idInUse": "क्षति प्रकार id {{id}} पहले से उपयोग में है",
+      "nameInUse": "क्षति प्रकार नाम \"{{name}}\" पहले से उपयोग में है",
+      "idBelongsToBuiltIn": "क्षति प्रकार id {{id}} अंतर्निहित \"{{name}}\" का है। इसे अधिरोहित करने के लिए नाम रखें, या कोई अलग id चुनें।",
+      "nameBelongsToBuiltIn": "नाम \"{{name}}\" अंतर्निहित id {{id}} का है। इसे अधिरोहित करने के लिए id को {{id}} पर सेट करें, या कोई अलग नाम चुनें।",
+      "orgDamageRatioRequired": "orgDamageRatio आवश्यक है",
+      "rangedNeedsBracket": "दूरस्थ क्षति प्रकारों को कम से कम एक रेंज ब्रैकेट चाहिए"
+    }
+  },
+  "terrainCategoryModal": {
+    "title": "कस्टम भूभाग श्रेणी संपादित करें",
+    "sections": {
+      "identity": "पहचान",
+      "scalarProperties": "अदिश गुण",
+      "perUnitCategoryModifiers": "प्रति इकाई श्रेणी संशोधक",
+      "projectileAbsorption": "प्रोजेक्टाइल अवशोषण"
+    },
+    "identityHint": "इस परिदृश्य के लिए युग की भूभाग श्रेणी कॉन्फ़िग को अधिरोहित करता है। id एक अंतर्निहित श्रेणी पर तय है - भूभाग अपनी श्रेणी असाइनमेंट रखते हैं, आप केवल संशोधक समायोजित करते हैं।",
+    "perUnitCategoryHint": "कुंजियाँ इकाई श्रेणी id हैं। `*` वाइल्डकार्ड का उपयोग एक डिफ़ॉल्ट सेट करने के लिए करें जो उन सभी श्रेणियों पर लागू हो जिनकी कोई स्पष्ट प्रविष्टि नहीं है।",
+    "projectileAbsorptionHint": "कुंजियाँ क्षति प्रकार नाम हैं।",
+    "option": {
+      "builtIn": "{{name}} (अंतर्निहित)",
+      "custom": "{{name}} (कस्टम)"
+    },
+    "fields": {
+      "id": "ID",
+      "color": "रंग",
+      "staminaCostModifier": "सहनशक्ति लागत संशोधक",
+      "hitboxHeight": "हिटबॉक्स ऊंचाई",
+      "heightOffset": "ऊंचाई ऑफसेट",
+      "visionAbsorption": "दृष्टि अवशोषण",
+      "pushStrengthModifier": "धक्का शक्ति संशोधक",
+      "pushDistanceModifier": "धक्का दूरी संशोधक",
+      "fixedEnemyCollisionLevel": "स्थिर दुश्मन टकराव स्तर",
+      "canPlaceObjectives": "उद्देश्य रख सकते हैं",
+      "prioritizeMovement": "गति को प्राथमिकता दें",
+      "supplyRoute": "आपूर्ति मार्ग",
+      "movementModifier": "गति संशोधक",
+      "impassableFor": "इनके लिए अगम्य",
+      "attackModifier": "हमला संशोधक",
+      "defenseModifier": "रक्षा संशोधक",
+      "rangedAttackModifier": "दूरस्थ हमला संशोधक",
+      "chargeResistanceModifier": "चार्ज प्रतिरोध संशोधक",
+      "chargeBonusModifier": "चार्ज बोनस संशोधक",
+      "projectileAbsorptionByDamageType": "क्षति प्रकार द्वारा प्रोजेक्टाइल अवशोषण"
+    },
+    "errors": {
+      "idRequired": "ID आवश्यक है",
+      "idInUse": "भूभाग श्रेणी id \"{{id}}\" पहले से उपयोग में है",
+      "unknownUnitCategories": "{{field}} अज्ञात इकाई श्रेणियों को संदर्भित करता है: {{keys}}",
+      "unknownDamageTypes": "projectileAbsorption अज्ञात क्षति प्रकारों को संदर्भित करता है: {{keys}}"
+    }
+  },
+  "customDefs": {
+    "common": {
+      "importFromScenario": "परिदृश्य से आयात करें",
+      "duplicate": "डुप्लिकेट",
+      "done": "हो गया"
+    },
+    "spritesPanel": {
+      "title": "कस्टम स्प्राइट",
+      "description": "अपने स्वयं के स्प्राइट यहाँ अपलोड करें, फिर उन्हें किसी इकाई के गठनों में चुनें। वे परिदृश्य में एम्बेड किए जाते हैं (प्रत्येक अधिकतम {{kb}}KB)।",
+      "yourSprites": "आपके स्प्राइट",
+      "noSprites": "अभी तक कोई कस्टम स्प्राइट नहीं।",
+      "uploadSprite": "स्प्राइट अपलोड करें",
+      "renderWidthAria": "px में रेंडर चौड़ाई",
+      "renderHeightAria": "px में रेंडर ऊंचाई",
+      "maxSpritesAlert": "आप अधिकतम {{count}} कस्टम स्प्राइट अपलोड कर सकते हैं।",
+      "tooLargeAlert": "छवि बहुत बड़ी है; {{kb}}KB से कम संपीड़ित नहीं हो सकी। कोई छोटी या सरल छवि आज़माएं।",
+      "invalidImageAlert": "छवि नहीं पढ़ी जा सकी। PNG या WebP फ़ाइल उपयोग करें।",
+      "deleteBlockedAlert": "हटाया नहीं जा सकता: अब भी {{where}} द्वारा उपयोग में। पहले उन गठनों को बदलें।",
+      "libraryTitle": "स्प्राइट लाइब्रेरी",
+      "libraryDescription": "प्रेरणा के लिए युग के अंतर्निहित स्प्राइट देखें।",
+      "filterPlaceholder": "नाम से फ़िल्टर करें...",
+      "loading": "लोड हो रहा है...",
+      "unitBase": "इकाई बेस ({{count}})",
+      "unitOverlay": "इकाई ओवरले ({{count}})",
+      "noMatches": "कोई मिलान नहीं।"
+    },
+    "unitTemplatesPanel": {
+      "title": "कस्टम इकाई टेम्पलेट",
+      "description": "कस्टम आंकड़ों, गठनों और क्षति प्रकारों के साथ नए इकाई टेम्पलेट परिभाषित करें। इस परिदृश्य के लिए किसी अंतर्निहित को बदलने हेतु \"अधिरोहित\" उपयोग करें (संतुलन परीक्षण के लिए उपयोगी) या id >= {{minId}} के साथ नया टेम्पलेट जोड़ने हेतु \"क्लोन\" उपयोग करें।",
+      "noTemplates": "अभी तक कोई कस्टम इकाई टेम्पलेट नहीं।",
+      "templateLabel": "{{name}} (प्रकार {{type}})",
+      "deleteBlocked": "\"{{name}}\" हटाया नहीं जा सकता - अब भी {{refs}} द्वारा उपयोग में। पहले उन इकाइयों को हटाएं।",
+      "addTemplate": "इकाई टेम्पलेट जोड़ें",
+      "clonePickerTitle": "किसी अंतर्निहित इकाई टेम्पलेट को क्लोन करें"
+    },
+    "formationsPanel": {
+      "title": "कस्टम इकाई गठन",
+      "description": "नए गठन टेम्पलेट (टकराव, संशोधक, फायरिंग नियम) परिभाषित करें जिन्हें कस्टम इकाइयाँ उपयोग कर सकती हैं।",
+      "noFormations": "अभी तक कोई कस्टम गठन नहीं।",
+      "deleteBlocked": "\"{{id}}\" हटाया नहीं जा सकता - अब भी {{refs}} द्वारा उपयोग में। पहले उन संदर्भों को हटाएं।",
+      "addFormation": "गठन जोड़ें",
+      "clonePickerTitle": "किसी अंतर्निहित गठन को क्लोन करें"
+    },
+    "unitCategoriesPanel": {
+      "title": "कस्टम इकाई श्रेणियाँ",
+      "description": "नई इकाई श्रेणियाँ (टकराव स्तर, तैनाती खंड, अनुमत आदेश, भागने का व्यवहार) परिभाषित करें। कस्टम इकाइयाँ अपने श्रेणी फ़ील्ड के माध्यम से इन्हें संदर्भित करती हैं।",
+      "noCategories": "अभी तक कोई कस्टम इकाई श्रेणी नहीं।",
+      "deleteBlocked": "\"{{id}}\" हटाया नहीं जा सकता - अब भी {{refs}} द्वारा उपयोग में। पहले उन संदर्भों को हटाएं।",
+      "addCategory": "इकाई श्रेणी जोड़ें",
+      "clonePickerTitle": "किसी अंतर्निहित इकाई श्रेणी को क्लोन करें"
+    },
+    "damageTypesPanel": {
+      "title": "कस्टम क्षति प्रकार",
+      "description": "नए हाथापाई या दूरस्थ क्षति प्रकार परिभाषित करें। कस्टम इकाइयाँ meleeDamageType या rangedDamageTypes के माध्यम से इन्हें संदर्भित करती हैं।",
+      "noDamageTypes": "अभी तक कोई कस्टम क्षति प्रकार नहीं।",
+      "ranged": "दूरस्थ",
+      "melee": "हाथापाई",
+      "cloneOptionLabel": "{{name}} ({{kind}})",
+      "itemLabel": "{{name}} ({{kind}}, id {{id}})",
+      "deleteBlocked": "\"{{name}}\" हटाया नहीं जा सकता - अब भी {{refs}} द्वारा उपयोग में। पहले उन संदर्भों को हटाएं।",
+      "addDamageType": "क्षति प्रकार जोड़ें",
+      "clonePickerTitle": "किसी अंतर्निहित क्षति प्रकार को क्लोन करें"
+    },
+    "terrainCategoriesPanel": {
+      "title": "कस्टम भूभाग श्रेणियाँ",
+      "description": "इस परिदृश्य के लिए भूभाग श्रेणी कॉन्फ़िग अधिरोहित करें। इसका उपयोग कस्टम इकाई श्रेणियों को विशिष्ट भूभाग संशोधक देने, या नई भूभाग श्रेणी id पेश करने के लिए करें।",
+      "noOverrides": "अभी तक कोई कस्टम भूभाग श्रेणी अधिरोहण नहीं।",
+      "addTerrainCategory": "भूभाग श्रेणी जोड़ें",
+      "clonePickerTitle": "किसी अंतर्निहित भूभाग श्रेणी को क्लोन करें"
+    },
+    "overrideEditor": {
+      "invalidJson": "अमान्य JSON",
+      "reset": "रीसेट",
+      "eraDefault": "युग डिफ़ॉल्ट: {{value}}",
+      "structuralTooltip": "संरचनात्मक / नियतत्ववाद स्थिरांक। इसे बदलने से रेंडरिंग, रीप्ले या मैचमेकिंग टूट सकती है।"
+    },
+    "importModal": {
+      "kindUnitTemplates": "इकाई टेम्पलेट",
+      "kindDamageTypes": "क्षति प्रकार",
+      "kindFormations": "गठन",
+      "kindUnitCategories": "इकाई श्रेणियाँ",
+      "kindTerrainCategories": "भूभाग श्रेणियाँ",
+      "kindSprites": "स्प्राइट",
+      "unitItemLabel": "{{name}} (#{{type}})",
+      "damageTypeItemLabel": "{{name}} ({{kind}})",
+      "nothing": "कुछ नहीं",
+      "title": "परिदृश्य से {{kind}} आयात करें",
+      "pickFilePrompt": "इसके कस्टम {{kind}} आयात करने के लिए एक परिदृश्य फ़ाइल चुनें (वह JSON जो संपादक का डाउनलोड बटन बनाता है)।",
+      "chooseFile": "परिदृश्य फ़ाइल चुनें",
+      "fileReadError": "उस फ़ाइल को परिदृश्य के रूप में नहीं पढ़ा जा सका।",
+      "invalidForEra": "इस परिदृश्य की कस्टम परिभाषाएँ वर्तमान युग के लिए मान्य नहीं हैं (जैसे {{message}})।",
+      "importWouldInvalidate": "आयात से परिदृश्य अमान्य हो जाएगा (जैसे {{message}})। कुछ नहीं बदला गया।",
+      "fromLabel": "से: {{name}}",
+      "importedScenario": "आयातित परिदृश्य",
+      "changeFile": "फ़ाइल बदलें",
+      "noCustomDefs": "इस परिदृश्य में कोई कस्टम {{kind}} नहीं है।",
+      "willImport": "आयात करेगा (निर्भरताओं के साथ): {{summary}}।",
+      "resultSummary": "{{imported}} आयातित, {{renamed}} नाम बदले, {{skipped}} छोड़े।",
+      "importSelected": "चयनित आयात करें"
+    },
+    "importOverridesModal": {
+      "targetGameConstants": "खेल स्थिरांक अधिरोहण",
+      "targetGameRules": "खेल नियम अधिरोहण",
+      "targetOrders": "आदेश अधिरोहण",
+      "title": "परिदृश्य से {{target}} आयात करें",
+      "pickFilePrompt": "इसके {{target}} आयात करने के लिए एक परिदृश्य फ़ाइल चुनें (वह JSON जो संपादक का डाउनलोड बटन बनाता है)।",
+      "noOverrides": "इस परिदृश्य में कोई {{target}} नहीं है।",
+      "importedCount_one": "{{count}} अधिरोहण आयातित।",
+      "importedCount_other": "{{count}} अधिरोहण आयातित।"
+    },
+    "gameConstants": {
+      "title": "खेल स्थिरांक अधिरोहण",
+      "description": "इस परिदृश्य के लिए इस युग के संख्यात्मक स्थिरांक अधिरोहित करें। केवल बदले गए मान सहेजे जाते हैं; रीसेट किसी फ़ील्ड को युग डिफ़ॉल्ट पर लौटाता है। ⚠ से चिह्नित कुंजियाँ संरचनात्मक हैं - उन्हें बदलने से रेंडरिंग, रीप्ले या मैचमेकिंग टूट सकती है। मान कच्ची आंतरिक इकाइयाँ हैं।"
+    },
+    "gameRules": {
+      "title": "खेल नियम अधिरोहण",
+      "description": "इस परिदृश्य के लिए इस युग के गेमप्ले नियम अधिरोहित करें। केवल बदले गए मान सहेजे जाते हैं; किसी फ़ील्ड को युग डिफ़ॉल्ट पर लौटाने के लिए रीसेट उपयोग करें। मान कच्ची आंतरिक इकाइयाँ हैं (कुछ आंकड़े पूर्व-स्केल किए हुए संग्रहीत हैं)।"
+    },
+    "ordersPanel": {
+      "title": "आदेश अधिरोहण",
+      "description": "इस परिदृश्य के लिए इस युग के अंतर्निहित आदेशों के मान अधिरोहित करें। केवल बदले गए मान सहेजे जाते हैं; किसी फ़ील्ड को युग डिफ़ॉल्ट पर लौटाने के लिए रीसेट उपयोग करें। आप मौजूदा आदेश संशोधित कर सकते हैं लेकिन नए नहीं जोड़ सकते।"
+    },
+    "clonePicker": {
+      "alreadyOverridden": "(पहले से अधिरोहित)",
+      "alreadyOverriddenTooltip": "इस अंतर्निहित का इस परिदृश्य में पहले से एक कस्टम अधिरोहण है; इसके बजाय इसे सूची से संपादित करें।",
+      "clone": "क्लोन",
+      "override": "अधिरोहित करें"
+    },
+    "spriteSelect": {
+      "default": "डिफ़ॉल्ट",
+      "unknownOption": "{{value}} (अज्ञात)",
+      "groupCustom": "कस्टम",
+      "groupBuiltIn": "अंतर्निहित"
+    }
+  },
+  "resize": {
+    "title": "मानचित्र आकार बदलें",
+    "currentSize": "वर्तमान आकार: {{width}} × {{height}} टाइलें",
+    "newSize": "नया आकार: {{width}} × {{height}} टाइलें",
+    "current": "वर्तमान: {{width}} × {{height}} टाइलें",
+    "confirmTitle": "मानचित्र आकार बदलना पुष्टि करें",
+    "warningCannotUndo": "⚠️ <0>चेतावनी:</0> यह क्रिया पूर्ववत नहीं की जा सकती।",
+    "continue": "जारी रखें",
+    "tabScale": "स्केल",
+    "tabExpandCut": "किनारे विस्तृत / काटें",
+    "scale": {
+      "newWidth": "नई चौड़ाई (टाइलें)",
+      "newHeight": "नई ऊंचाई (टाइलें)",
+      "apply": "मानचित्र आकार बदलें",
+      "errorInvalid": "कृपया चौड़ाई और ऊंचाई के लिए टाइलों में मान्य धनात्मक संख्याएं दर्ज करें",
+      "warningBody": "आगे बढ़ने से पहले सुनिश्चित करें कि आपने अपना परिदृश्य सहेज लिया है। आकार बदलने से सभी भूभाग, ऊंचाइयाँ, इकाइयाँ, उद्देश्य और ट्रिगर स्थितियाँ स्केल हो जाएंगी।"
+    },
+    "expandCut": {
+      "intro": "धनात्मक मान प्रत्येक किनारे से टाइलें जोड़ते हैं, ऋणात्मक मान टाइलें हटाते हैं।",
+      "left": "बायाँ (टाइलें)",
+      "right": "दायाँ (टाइलें)",
+      "top": "ऊपर (टाइलें)",
+      "bottom": "नीचे (टाइलें)",
+      "sideExpand": "+{{count}} टाइलें (विस्तार)",
+      "sideCut": "{{count}} टाइलें (कटौती)",
+      "noChange": "कोई बदलाव नहीं",
+      "apply": "बदलाव लागू करें",
+      "errorTooSmall": "आकार नहीं बदला जा सकता: परिणामी मानचित्र 1×1 टाइलों से छोटा होगा। कृपया मान समायोजित करें।",
+      "errorTooLarge": "आकार नहीं बदला जा सकता: परिणामी मानचित्र अधिकतम आकार {{maxWidth}}×{{maxHeight}} टाइलों से अधिक होगा।",
+      "warningBody": "आगे बढ़ने से पहले सुनिश्चित करें कि आपने अपना परिदृश्य सहेज लिया है। विस्तार/कटौती से निर्दिष्ट किनारों से टाइलें जुड़ेंगी या हटेंगी। नई सीमाओं के बाहर की इकाइयाँ और उद्देश्य हटा दिए जाएंगे।",
+      "changesHeading": "बदलाव:",
+      "changesHorizontal": "बायाँ: {{left}} टाइलें, दायाँ: {{right}} टाइलें",
+      "changesVertical": "ऊपर: {{top}} टाइलें, नीचे: {{bottom}} टाइलें"
+    }
+  },
+  "mapSize": {
+    "widthInTiles": "टाइलों में चौड़ाई",
+    "heightInTiles": "टाइलों में ऊंचाई",
+    "widthPlaceholder": "चौड़ाई",
+    "heightPlaceholder": "ऊंचाई"
+  },
+  "misc": {
+    "scaleAllSizesBy": "सभी आकार इससे स्केल करें",
+    "apply": "लागू करें",
+    "background": "पृष्ठभूमि",
+    "chooseImage": "छवि चुनें"
+  },
+  "localesPanel": {
+    "title": "लोकेल",
+    "description": "लोकेल का उपयोग परिदृश्य को विभिन्न भाषाओं में अनुवाद करने के लिए किया जाता है।",
+    "addLanguage": "भाषा जोड़ें",
+    "removeLanguage": "भाषा हटाएं",
+    "noKeys": "कोई अनुवाद कुंजी नहीं। शुरू करने के लिए एक कुंजी जोड़ें।",
+    "addKey": "कुंजी जोड़ें",
+    "keyLabel": "कुंजी",
+    "removeKey": "कुंजी हटाएं",
+    "keyPlaceholder": "अनुवाद कुंजी",
+    "valueLabel": "मान",
+    "valuePlaceholder": "अनुवाद मान",
+    "addLanguageTitle": "भाषा जोड़ें",
+    "languageCodeLabel": "भाषा कोड",
+    "languageCodePlaceholder": "जैसे, 'en', 'es', 'fr'",
+    "languageCodeEmpty": "भाषा कोड खाली नहीं हो सकता",
+    "languageAlreadyExists": "भाषा \"{{language}}\" पहले से मौजूद है",
+    "addKeyTitle": "अनुवाद कुंजी जोड़ें - {{language}}",
+    "keyNameLabel": "कुंजी नाम",
+    "keyNamePlaceholder": "जैसे, 'title', 'description', 'button_text'",
+    "keyNameEmpty": "कुंजी नाम खाली नहीं हो सकता",
+    "keyAlreadyExists": "कुंजी \"{{key}}\" पहले से \"{{language}}\" में मौजूद है"
+  },
+  "triggers": {
+    "title": "ट्रिगर",
+    "moreInfo": "ट्रिगर के बारे में अधिक जानकारी यहाँ",
+    "lastPositionClicked": "अंतिम क्लिक की गई स्थिति: [{{x}}, {{y}}]",
+    "createTrigger": "ट्रिगर बनाएं",
+    "createTriggerButton": "ट्रिगर बनाएं",
+    "format": "प्रारूप",
+    "invalidJsonFormat": "अमान्य JSON प्रारूप",
+    "event": "घटना",
+    "conditionLogic": "शर्त तर्क",
+    "conditionLogicAnd": "सभी शर्तें (AND)",
+    "conditionLogicOr": "कोई भी शर्त (OR)",
+    "conditions": "शर्तें",
+    "addCondition": "शर्त जोड़ें",
+    "actions": "क्रियाएं",
+    "addAction": "क्रिया जोड़ें",
+    "once": "एक बार"
+  },
+  "randomMap": {
+    "title": "यादृच्छिक मानचित्र",
+    "moreInfo": "यादृच्छिक मानचित्रों के बारे में अधिक जानकारी यहाँ",
+    "proceduralMap": "प्रक्रियात्मक (यादृच्छिक) मानचित्र",
+    "proceduralExplanation": "ये निर्देश हर मैच में एक नए सीड से मानचित्र उत्पन्न करते हैं; सहेजा गया परिदृश्य अपना तैयार मानचित्र छोड़ देता है। यहाँ दिखाया गया मानचित्र केवल एक पूर्वावलोकन है। उद्देश्य / उद्देश्य परत निर्देशों द्वारा रखे गए उद्देश्य मैच के समय दिखते हैं, इस पूर्वावलोकन में नहीं।",
+    "startFromTemplate": "टेम्पलेट से शुरू करें",
+    "loadInstructionsFromTemplate": "टेम्पलेट से निर्देश लोड करें",
+    "generating": "उत्पन्न हो रहा है…",
+    "generatePreview": "पूर्वावलोकन उत्पन्न करें",
+    "instructions": "निर्देश",
+    "instructionsWithCount": "निर्देश ({{count}})",
+    "formEditor": "फ़ॉर्म संपादक",
+    "editAsJson": "JSON के रूप में संपादित करें",
+    "noInstructions": "अभी तक कोई निर्देश नहीं। ऊपर एक जोड़ें या कोई टेम्पलेट लोड करें।",
+    "moveUp": "ऊपर ले जाएं",
+    "moveDown": "नीचे ले जाएं",
+    "switchToPresetConfirm": "प्रीसेट पर स्विच करने से वर्तमान भूभाग रहता है और उत्पादन निर्देश साफ़ हो जाते हैं। जारी रखें?",
+    "replaceInstructionsConfirm": "वर्तमान निर्देशों को टेम्पलेट के निर्देशों से बदलें?",
+    "fillFromTemplateDescription": "वर्तमान मानचित्र का भूभाग किसी प्रक्रियात्मक टेम्पलेट से भरें। यह एक स्थिर (प्रीसेट) मानचित्र तैयार करता है और कोई उत्पादन निर्देश नहीं रखता।",
+    "template": "टेम्पलेट",
+    "useSeed": "सीड उपयोग करें?",
+    "useSeedDescription": "प्रक्रियात्मक उत्पादन का उपयोग करके भूभाग उत्पन्न करें",
+    "confirmOverwriteLabel": "मैं समझता हूं कि यह सभी भूभाग को अधिलेखित कर देगा",
+    "lastUsedSeed": "अंतिम उपयोग किया गया सीड:",
+    "generate": "उत्पन्न करें",
+    "importMustBeProcedural": "आयातित फ़ाइल एक प्रक्रियात्मक टेम्पलेट होनी चाहिए (कोई तैयार मानचित्र नहीं, उत्पादन निर्देशों के साथ)।",
+    "invalidJsonFile": "अमान्य JSON फ़ाइल। कृपया फ़ाइल प्रारूप जांचें।",
+    "confirmOverwriteWarning": "कृपया पुष्टि करें कि आप समझते हैं कि यह भूभाग को अधिलेखित कर देगा।",
+    "selectedNotProcedural": "चयनित परिदृश्य एक प्रक्रियात्मक टेम्पलेट नहीं है।",
+    "invalidJson": "अमान्य JSON"
+  }
+}

@@ -1,0 +1,722 @@
+{
+  "common": {
+    "add": "Ekle",
+    "addEntry": "Girdi ekle",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "name": "İsim",
+    "noEntries": "Girdi yok.",
+    "none": "Yok",
+    "remove": "Kaldır",
+    "save": "Kaydet",
+    "select": "Seç...",
+    "unknown": "(bilinmiyor)"
+  },
+  "editor": {
+    "loadScenario": "Senaryo Yükle",
+    "chooseScenarioFile": "Senaryo dosyası seç"
+  },
+  "editorPanel": {
+    "tabs": {
+      "scenario": "Senaryo",
+      "terrain": "Arazi",
+      "units": "Birimler",
+      "objectives": "Hedefler",
+      "triggers": "Tetikleyiciler",
+      "advanced": "Gelişmiş"
+    },
+    "togglePanel": "Paneli aç/kapat",
+    "title": "Senaryo Editörü",
+    "downloadScenario": "Senaryoyu indir",
+    "copyScenario": "Senaryoyu kopyala",
+    "fullscreen": "Tam ekran",
+    "exitFullscreen": "Tam ekrandan çık",
+    "expandPanel": "Paneli genişlet",
+    "collapsePanel": "Paneli daralt",
+    "allowDynamicArmy": "Dinamik orduya izin ver",
+    "allowDynamicArmyHelp": "Etkinleştirildiğinde, oyuncular eşleştirme savaş türüne göre kendi ordularını getirir ve onları kendi bölgelerine yerleştirir. Devre dışı bırakıldığında, senaryonun önceden yerleştirilmiş birimleri tüm kadroyu tanımlar (ordu kompozisyonu atlanır).",
+    "showGrid": "Izgarayı göster",
+    "showUnits": "Birimleri göster",
+    "hideUnits": "Birimleri gizle",
+    "showObjectives": "Hedefleri göster",
+    "hideObjectives": "Hedefleri gizle",
+    "goBack": "Geri dön",
+    "goBackConfirm": "Geri dönüp editörden çıkmak istediğinizden emin misiniz?"
+  },
+  "createScenario": {
+    "title": "Senaryo Oluştur",
+    "randomMap": "Rastgele (prosedürel) harita?",
+    "isHybrid": "Hibrit mi?"
+  },
+  "playersPanel": {
+    "title": "Oyuncular",
+    "removePlayer": "Oyuncuyu kaldır"
+  },
+  "terrainPanel": {
+    "title": "Arazi",
+    "active": "Aktif",
+    "setTerrain": "Arazi ayarla",
+    "terrainHeight": "Arazi yüksekliği",
+    "radius": "Yarıçap",
+    "paintBucket": "Boya Kovası"
+  },
+  "unitPanel": {
+    "title": "Seçili Birim",
+    "player": "Oyuncu",
+    "unitType": "Birim Türü",
+    "optional": "İsteğe bağlı",
+    "positionX": "Konum X",
+    "positionY": "Konum Y",
+    "rotation": "Dönüş",
+    "mixed": "Karışık",
+    "copyJson": "JSON kopyala",
+    "copyUnits": "Birimleri kopyala",
+    "unitsCopied": "Birimler kopyalandı ({{count}})",
+    "deselect": "Seçimi kaldır",
+    "removeSelectedUnits": "Seçili birimleri kaldır"
+  },
+  "createUnit": {
+    "title": "Birim Oluştur",
+    "active": "Aktif",
+    "usingCopiedUnits": "Kopyalanan birimler kullanılıyor",
+    "customLabel": "{{name}} (özel)",
+    "fields": {
+      "unit": "Birim",
+      "player": "Oyuncu"
+    }
+  },
+  "objectivePanel": {
+    "title": "Seçili Hedef",
+    "player": "Oyuncu {{player}}",
+    "team": "Takım {{team}}",
+    "namePlaceholder": "İsteğe bağlı",
+    "mixed": "Karışık",
+    "deselect": "Seçimi kaldır",
+    "removeSelected": "Seçili hedefi kaldır",
+    "type": {
+      "small": "Küçük",
+      "big": "Büyük"
+    },
+    "fields": {
+      "type": "Tür",
+      "logistics": "Lojistik",
+      "manpowerPerTurn": "Tur Başına İnsan Gücü",
+      "goldPerTurn": "Tur Başına Altın",
+      "victoryPoints": "Zafer Puanları",
+      "positionX": "Konum X",
+      "positionY": "Konum Y"
+    }
+  },
+  "createObjective": {
+    "title": "Hedef Oluştur",
+    "active": "Aktif",
+    "gaia": "Gaia",
+    "type": {
+      "small": "Küçük",
+      "big": "Büyük"
+    },
+    "fields": {
+      "objectiveType": "Hedef Türü",
+      "victoryPoints": "Zafer Puanları",
+      "player": "Oyuncu",
+      "team": "Takım",
+      "logistics": "Lojistik"
+    }
+  },
+  "deployment": {
+    "title": "Yerleşim",
+    "team": "Takım {{team}}",
+    "mainZone": "Ana",
+    "forwardZone": "İleri",
+    "fields": {
+      "x": "X",
+      "y": "Y",
+      "width": "Genişlik",
+      "height": "Yükseklik"
+    }
+  },
+  "vpBalance": {
+    "heading": "ZP dengesi (kayıplar vs hedefler)",
+    "casualtiesTooltip": "Kayıplar: {{vp}} VP",
+    "objectivesTooltip": "Hedefler: {{vp}} VP",
+    "casualtiesSummary": "Kayıplar {{pct}}% ({{vp}} VP)",
+    "objectivesSummary": "Hedefler {{pct}}% ({{vp}} VP)"
+  },
+  "formationModal": {
+    "title": "Özel formasyonu düzenle",
+    "identity": "Kimlik",
+    "formationId": "Formasyon ID",
+    "collision": "Çarpışma",
+    "collisionHelp": "Taban şekli: bir daire (yarıçap) veya bir dikdörtgen (cephe boyunca ön, önden arkaya derinlik). Çarpışma olmaması için yarıçap 0 kullanın (uçan / hayalet).",
+    "shape": "Şekil",
+    "shapeRectangle": "Dikdörtgen",
+    "shapeCircle": "Daire",
+    "radiusPx": "Yarıçap (px)",
+    "frontagePx": "Cephe (px)",
+    "depthPx": "Derinlik (px)",
+    "movement": "Hareket",
+    "movementModifier": "Hareket değiştirici",
+    "runMovementModifier": "Koşma hareket değiştirici",
+    "rotationSpeedModifier": "Dönüş hızı değiştirici",
+    "disable180Turn": "180° dönüşü devre dışı bırak",
+    "formingSpeedModifier": "Oluşturma hızı değiştirici",
+    "timeToForm": "Oluşturma süresi (ticks)",
+    "timeToUnform": "Dağıtma süresi (ticks)",
+    "minMovementModifier": "Min hareket değiştirici",
+    "combat": "Savaş",
+    "rangedAttackModifier": "Uzak saldırı değiştirici",
+    "chargeBonusModifier": "Hücum bonusu değiştirici",
+    "chargePenetrationModifier": "Hücum penetrasyonu değiştirici",
+    "chargeResistanceModifier": "Hücum direnci değiştirici",
+    "pushStrengthModifier": "İtme gücü değiştirici",
+    "receivedMeleeDamageModifier": "Alınan yakın dövüş hasarı değiştirici",
+    "flanking": "Flanklama",
+    "disablesFlankMelee": "Flank yakın dövüşü devre dışı bırakır",
+    "disablesEnfiladeFire": "Yan ateşi devre dışı bırakır",
+    "disablesRearFire": "Arka ateşi devre dışı bırakır",
+    "flankChargeResistance": "Flank hücum direnci",
+    "rearChargeResistance": "Arka hücum direnci",
+    "enfiladeFireResistance": "Yan ateş direnci",
+    "rearFireResistance": "Arka ateş direnci",
+    "rangedDamageResistance": "Uzak hasar direnci",
+    "rangedOrgResistance": "Uzak org direnci",
+    "fireEdges": "Ateş kenarları (kenar ateşi)",
+    "fireEdgesHelp": "Her ateş kenarı, dikdörtgenin bir yüzü boyunca ateş yayar. Ateş kenarı olmayan bir formasyon varsayılan tek bir ön kenardan ateş eder; daire formasyonları ateş etmez.",
+    "edge": "Kenar",
+    "edgeLeft": "0 - sol taraf (-Y)",
+    "edgeFront": "1 - ön (+X)",
+    "edgeRight": "2 - sağ taraf (+Y)",
+    "edgeRear": "3 - arka (-X)",
+    "arc": "Yay (deg, varsayılan 90)",
+    "emitters": "Yayıcılar",
+    "removeFireEdge": "Ateş kenarını kaldır",
+    "addFireEdge": "Ateş kenarı ekle",
+    "errIdRequired": "Formasyon ID gereklidir",
+    "errIdInUse": "Formasyon id \"{{id}}\" zaten kullanımda",
+    "errEdgeIndex": "Ateş kenarı {{n}}: kenar indeksi 0-3 olmalı",
+    "errEdgeArc": "Ateş kenarı {{n}}: yay 0 ile 360 arasında olmalı",
+    "errEdgeEmitters": "Ateş kenarı {{n}}: yayıcılar pozitif bir tam sayı olmalı"
+  },
+  "unitTemplateModal": {
+    "title": "Özel birim şablonunu düzenle",
+    "optBuiltIn": "{{name}} (yerleşik)",
+    "optCustom": "{{name}} (özel)",
+    "identity": "Kimlik",
+    "typeId": "Tür ID",
+    "category": "Kategori",
+    "combat": "Savaş",
+    "meleeAttack": "Yakın saldırı",
+    "meleeDefense": "Yakın savunma",
+    "meleeDamageType": "meleeDamageType",
+    "chargeBonus": "Hücum bonusu",
+    "chargePenetration": "Hücum penetrasyonu",
+    "chargeResistance": "Hücum direnci",
+    "flankMeleeOrgModifier": "Flank yakın dövüş org değiştirici",
+    "flankChargePenBonus": "Flank hücum penetrasyon bonusu",
+    "stats": "İstatistikler",
+    "hp": "HP",
+    "org": "Org",
+    "shattersAtOrg": "Org'da parçalanır",
+    "routesAtOrg": "Org'da kaçar",
+    "recoversAtOrg": "Org'da iyileşir",
+    "ralliesAtOrg": "Org'da toplanır",
+    "stamina": "Dayanıklılık",
+    "manpower": "İnsan gücü",
+    "gold": "Altın",
+    "orgRadius": "Org yarıçapı",
+    "orgRadiusBonus": "Org yarıçapı bonusu",
+    "reportStats": "Rapor istatistikleri",
+    "reportStatsHelp": "Her birimin savaş raporlarına kattığı sayım (ör. asker, at, top). Anahtarlar dönemin yerleşik birimlerinden gelir.",
+    "tallyPerUnit": "Birim başına sayım",
+    "movement": "Hareket",
+    "walkMovement": "Yürüme hareketi",
+    "runMovement": "Koşma hareketi",
+    "runStartUpMovement": "Koşmaya başlama hareketi",
+    "timeToRun": "Koşma süresi (ticks)",
+    "runCost": "Koşma maliyeti",
+    "rotationSpeed": "Dönüş hızı",
+    "rotationMaxThreshold": "Maks dönüş eşiği",
+    "runRotationSpeed": "Koşarken dönüş hızı",
+    "turningDelay": "Dönüş gecikmesi (ticks)",
+    "startsRunning": "Koşarak başlar",
+    "movementSound": "Hareket sesi",
+    "rangedCombat": "Uzak mesafe savaşı",
+    "rangedAttack": "Uzak saldırı",
+    "ammo": "Cephane",
+    "minDistanceToFAA": "FAA'ya min mesafe",
+    "panicFireDistance": "Panik ateşi mesafesi",
+    "fireWhileMoving": "Hareket ederken ateş et",
+    "noAmmoRegain": "Cephane yenilenmez",
+    "rangedDamageTypes": "Uzak mesafe hasar türleri",
+    "addRangedDamageType": "Uzak mesafe hasar türü ekle",
+    "enableRanged": "Uzak mesafeyi etkinleştir",
+    "formations": "Formasyonlar",
+    "formationId": "Formasyon ID",
+    "baseSprite": "Temel sprite",
+    "overlaySprite": "Kaplama sprite",
+    "addFormation": "Formasyon ekle",
+    "defaultFormation": "Varsayılan formasyon",
+    "supply": "İkmal",
+    "supplyField": "İkmal",
+    "supplyConsumptionIdle": "Boşta ikmal tüketimi",
+    "supplyConsumptionMoving": "Hareket halinde ikmal tüketimi",
+    "supplyConsumptionCombating": "Savaşta ikmal tüketimi",
+    "supplyManpowerCost": "İkmal insan gücü maliyeti",
+    "supplyGoldCost": "İkmal altın maliyeti",
+    "misc": "Çeşitli",
+    "skirmisherRatio": "Avcı oranı",
+    "canDeployForward": "İleri yerleşebilir",
+    "reducedVisibilityRange": "Azaltılmış görüş menzili",
+    "unknownType": "Bilinmeyen tür id",
+    "pushStrength": "İtme gücü",
+    "pushDistance": "İtme mesafesi",
+    "maxEntrenchment": "Maks siper",
+    "locked": "Kilitli"
+  },
+  "unitCategoryModal": {
+    "title": "Özel birim kategorisini düzenle",
+    "optionBuiltIn": "{{name}} (yerleşik)",
+    "optionCustom": "{{name}} (özel)",
+    "errors": {
+      "idRequired": "ID gereklidir",
+      "idInUse": "Birim kategorisi id \"{{id}}\" zaten kullanımda",
+      "firingAltitudeRequired": "firingAltitude gereklidir",
+      "orphanedResistances": "damageTypeResistances bilinmeyen hasar türlerine referans veriyor: {{types}}",
+      "orphanedAutofire": "autofirePriority bilinmeyen birim kategorilerine referans veriyor: {{categories}}",
+      "allowedOrderRequired": "Tüm izin verilen emir girdileri seçilmeli",
+      "allowedOrderUnknown": "İzin verilen emir \"{{name}}\" bu dönem için bilinen bir emir değil"
+    },
+    "identity": {
+      "legend": "Kimlik",
+      "id": "ID",
+      "deploymentSection": "Yerleşim bölümü"
+    },
+    "deploymentSection": {
+      "center": "merkez",
+      "flank": "flank",
+      "front": "ön"
+    },
+    "combat": {
+      "legend": "Savaş",
+      "firingAltitude": "Hedef yükseklik",
+      "allyCollisionLevel": "Müttefik çarpışma seviyesi",
+      "enemyCollisionLevel": "Düşman çarpışma seviyesi",
+      "captureSpeed": "Ele geçirme hızı",
+      "impactAltitude": "Çarpma yüksekliği",
+      "grazingAltitude": "Sıyırma yüksekliği"
+    },
+    "movement": {
+      "legend": "Hareket ve görüntü",
+      "forwardOnlyMovement": "Yalnızca ileri hareket (gemiler)",
+      "portraitRotation": "Portre dönüşü (deg)"
+    },
+    "routing": {
+      "legend": "Kaçma davranışı",
+      "baseSpeed": "Temel hız",
+      "speedWalk": "yürüme",
+      "speedRun": "koşma",
+      "fleeWhenRouted": "Dağıldığında kaç"
+    },
+    "enfiladeFire": {
+      "legend": "Yan ateş",
+      "damageModifier": "Hasar değiştirici",
+      "orgModifier": "Org değiştirici"
+    },
+    "rearFire": {
+      "legend": "Arka ateş",
+      "orgModifier": "Org değiştirici"
+    },
+    "chargeBacklash": {
+      "legend": "Hücum tepkisi",
+      "description": "Bu kategorinin hücum edene geri verdiği karşı vuruşa uygulanan çarpan (yüksek = kasılır ve daha sert karşılık verir, 0 = yok). Koşma sonrası değer, savunmacı zaten koştuğunda ve kasılamadığında uygulanır; temel çarpana geri döner. Varsayılan 1'dir.",
+      "multiplier": "Tepki çarpanı",
+      "multiplierAfterRunning": "Tepki çarpanı (koşma sonrası)"
+    },
+    "chargeStamina": {
+      "legend": "Hücum dayanıklılığı",
+      "description": "Bir hücumun bu kategoriden tükettiği maks dayanıklılık. Hücum eden bunu cepheden tam, flanklarken daha az öder; savunmacı flanklandığında tam öder, her iki durumda %25 taban vardır. Varsayılan 0'dır (maliyet yok).",
+      "cost": "Hücum dayanıklılık maliyeti"
+    },
+    "resistances": {
+      "legend": "Hasar türü dirençleri",
+      "description": "Hasar türü başına direnç değiştirici (negatif = daha fazla hasar al, pozitif = daha az al).",
+      "fieldLabel": "Hasar türüne göre direnç"
+    },
+    "autofire": {
+      "legend": "Otomatik ateş önceliği",
+      "description": "Hedef birim kategorisi başına öncelik ağırlığı. Yüksek değerler otomatik ateş için tercih edilen hedeflerdir.",
+      "fieldLabel": "Hedef kategorisine göre öncelik"
+    },
+    "allowedOrders": {
+      "legend": "İzin verilen emirler",
+      "add": "İzin verilen emir ekle"
+    }
+  },
+  "damageTypeModal": {
+    "title": "Özel hasar türünü düzenle",
+    "sections": {
+      "identity": "Kimlik",
+      "damage": "Hasar",
+      "projectile": "Mermi",
+      "rangeBrackets": "Menzil aralıkları",
+      "areaOfEffect": "Etki alanı"
+    },
+    "fields": {
+      "id": "ID",
+      "ranged": "Uzak mesafe",
+      "imageAlias": "Görsel takma adı",
+      "orgDamageRatio": "Org hasar oranı",
+      "damageModifier": "Hasar değiştirici",
+      "reorgDebuff": "Yeniden örgütlenme cezası",
+      "attackEffectDuration": "Saldırı etkisi süresi (ticks)",
+      "projectileWidth": "Mermi genişliği",
+      "arcHeight": "Yay yüksekliği",
+      "projectilePenetration": "Mermi penetrasyonu",
+      "ammoCost": "Cephane maliyeti",
+      "shotSound": "Atış sesi",
+      "shotAnim": "Atış animasyonu",
+      "enfiladeFire": "Yan ateş",
+      "cannotUseAfterRun": "Koşma sonrası kullanılamaz",
+      "extendRange": "Menzili uzat",
+      "aimMode": "Nişan modu"
+    },
+    "aimMode": {
+      "targetCenter": "Hedef merkezi (dairesel patlamalar)",
+      "nearestBody": "En yakın gövde (doğrudan/ileri ateş)"
+    },
+    "range": {
+      "start": "Başlangıç",
+      "end": "Bitiş",
+      "startMod": "Başlangıç değiştirici",
+      "endMod": "Bitiş değiştirici"
+    },
+    "aoe": {
+      "type": "Tür",
+      "circular": "Dairesel",
+      "trapezoidal": "Yamuk",
+      "absorptionModifier": "Emilim değiştirici",
+      "edgeDamageModifier": "Kenar hasar değiştirici",
+      "offset": "Ofset",
+      "startRadius": "Başlangıç yarıçapı",
+      "endRadius": "Bitiş yarıçapı",
+      "startTopWidth": "Başlangıç üst genişliği",
+      "endTopWidth": "Bitiş üst genişliği",
+      "startBottomWidth": "Başlangıç alt genişliği",
+      "endBottomWidth": "Bitiş alt genişliği",
+      "startHeight": "Başlangıç yüksekliği",
+      "endHeight": "Bitiş yüksekliği"
+    },
+    "addRangeBracket": "Menzil aralığı ekle",
+    "addAreaOfEffect": "Etki alanı ekle",
+    "removeAreaOfEffect": "Etki alanını kaldır",
+    "errors": {
+      "nameRequired": "İsim gereklidir",
+      "idMustBeNumber": "ID bir sayı olmalı",
+      "idInUse": "Hasar türü id {{id}} zaten kullanımda",
+      "nameInUse": "Hasar türü adı \"{{name}}\" zaten kullanımda",
+      "idBelongsToBuiltIn": "Hasar türü id {{id}}, yerleşik \"{{name}}\" türüne ait. Geçersiz kılmak için adı koruyun ya da farklı bir id seçin.",
+      "nameBelongsToBuiltIn": "\"{{name}}\" adı, yerleşik id {{id}}'e ait. Geçersiz kılmak için id'yi {{id}} olarak ayarlayın ya da farklı bir ad seçin.",
+      "orgDamageRatioRequired": "orgDamageRatio gereklidir",
+      "rangedNeedsBracket": "Uzak mesafe hasar türleri en az bir menzil aralığına ihtiyaç duyar"
+    }
+  },
+  "terrainCategoryModal": {
+    "title": "Özel arazi kategorisini düzenle",
+    "sections": {
+      "identity": "Kimlik",
+      "scalarProperties": "Skaler özellikler",
+      "perUnitCategoryModifiers": "Birim kategorisi başına değiştiriciler",
+      "projectileAbsorption": "Mermi emilimi"
+    },
+    "identityHint": "Bu senaryo için dönemin arazi kategorisi yapılandırmasını geçersiz kılar. id, yerleşik bir kategoriye sabitlenmiştir - araziler kategori atamalarını korur, yalnızca değiştiricileri ayarlarsınız.",
+    "perUnitCategoryHint": "Anahtarlar birim kategorisi id'leridir. Açık bir girdisi olmayan tüm kategorilere uygulanan bir varsayılan ayarlamak için `*` joker karakterini kullanın.",
+    "projectileAbsorptionHint": "Anahtarlar hasar türü adlarıdır.",
+    "option": {
+      "builtIn": "{{name}} (yerleşik)",
+      "custom": "{{name}} (özel)"
+    },
+    "fields": {
+      "id": "ID",
+      "color": "Renk",
+      "staminaCostModifier": "Dayanıklılık maliyeti değiştirici",
+      "hitboxHeight": "Çarpışma kutusu yüksekliği",
+      "heightOffset": "Yükseklik ofseti",
+      "visionAbsorption": "Görüş emilimi",
+      "pushStrengthModifier": "İtme gücü değiştirici",
+      "pushDistanceModifier": "İtme mesafesi değiştirici",
+      "fixedEnemyCollisionLevel": "Sabit düşman çarpışma seviyesi",
+      "canPlaceObjectives": "Hedef yerleştirilebilir",
+      "prioritizeMovement": "Hareketi önceliklendir",
+      "supplyRoute": "İkmal yolu",
+      "movementModifier": "Hareket değiştirici",
+      "impassableFor": "Geçilemez",
+      "attackModifier": "Saldırı değiştirici",
+      "defenseModifier": "Savunma değiştirici",
+      "rangedAttackModifier": "Uzak saldırı değiştirici",
+      "chargeResistanceModifier": "Hücum direnci değiştirici",
+      "chargeBonusModifier": "Hücum bonusu değiştirici",
+      "projectileAbsorptionByDamageType": "Hasar türüne göre mermi emilimi"
+    },
+    "errors": {
+      "idRequired": "ID gereklidir",
+      "idInUse": "Arazi kategorisi id \"{{id}}\" zaten kullanımda",
+      "unknownUnitCategories": "{{field}} bilinmeyen birim kategorilerine referans veriyor: {{keys}}",
+      "unknownDamageTypes": "projectileAbsorption bilinmeyen hasar türlerine referans veriyor: {{keys}}"
+    }
+  },
+  "customDefs": {
+    "common": {
+      "importFromScenario": "Senaryodan içe aktar",
+      "duplicate": "Çoğalt",
+      "done": "Tamam"
+    },
+    "spritesPanel": {
+      "title": "Özel sprite'lar",
+      "description": "Kendi sprite'larınızı buraya yükleyin, ardından bir birimin formasyonlarında seçin. Senaryoya gömülürler (her biri en fazla {{kb}}KB).",
+      "yourSprites": "Sprite'larınız",
+      "noSprites": "Henüz özel sprite yok.",
+      "uploadSprite": "Sprite yükle",
+      "renderWidthAria": "Render genişliği (px)",
+      "renderHeightAria": "Render yüksekliği (px)",
+      "maxSpritesAlert": "En fazla {{count}} özel sprite yükleyebilirsiniz.",
+      "tooLargeAlert": "Görsel çok büyük; {{kb}}KB altına sıkıştırılamadı. Daha küçük veya daha basit bir görsel deneyin.",
+      "invalidImageAlert": "Görsel okunamadı. Bir PNG veya WebP dosyası kullanın.",
+      "deleteBlockedAlert": "Silinemiyor: hâlâ {{where}} tarafından kullanılıyor. Önce o formasyonları değiştirin.",
+      "libraryTitle": "Sprite kütüphanesi",
+      "libraryDescription": "İlham için dönemin yerleşik sprite'larına göz atın.",
+      "filterPlaceholder": "İsme göre filtrele...",
+      "loading": "Yükleniyor...",
+      "unitBase": "Birim tabanı ({{count}})",
+      "unitOverlay": "Birim kaplaması ({{count}})",
+      "noMatches": "Eşleşme yok."
+    },
+    "unitTemplatesPanel": {
+      "title": "Özel birim şablonları",
+      "description": "Özel istatistikler, formasyonlar ve hasar türleri ile yeni birim şablonları tanımlayın. Bu senaryo için bir yerleşiği değiştirmek üzere \"Geçersiz Kıl\" (denge testi için kullanışlı) ya da id >= {{minId}} olan yeni bir şablon eklemek için \"Klonla\" kullanın.",
+      "noTemplates": "Henüz özel birim şablonu yok.",
+      "templateLabel": "{{name}} (tür {{type}})",
+      "deleteBlocked": "\"{{name}}\" silinemiyor - hâlâ {{refs}} tarafından kullanılıyor. Önce o birimleri kaldırın.",
+      "addTemplate": "Birim şablonu ekle",
+      "clonePickerTitle": "Yerleşik bir birim şablonunu klonla"
+    },
+    "formationsPanel": {
+      "title": "Özel birim formasyonları",
+      "description": "Özel birimlerin kullanabileceği yeni formasyon şablonları (çarpışma, değiştiriciler, ateş kuralları) tanımlayın.",
+      "noFormations": "Henüz özel formasyon yok.",
+      "deleteBlocked": "\"{{id}}\" silinemiyor - hâlâ {{refs}} tarafından kullanılıyor. Önce o referansları kaldırın.",
+      "addFormation": "Formasyon ekle",
+      "clonePickerTitle": "Yerleşik bir formasyonu klonla"
+    },
+    "unitCategoriesPanel": {
+      "title": "Özel birim kategorileri",
+      "description": "Yeni birim kategorileri (çarpışma seviyeleri, yerleşim bölümü, izin verilen emirler, kaçma davranışı) tanımlayın. Özel birimler tarafından kategori alanları aracılığıyla referans verilir.",
+      "noCategories": "Henüz özel birim kategorisi yok.",
+      "deleteBlocked": "\"{{id}}\" silinemiyor - hâlâ {{refs}} tarafından kullanılıyor. Önce o referansları kaldırın.",
+      "addCategory": "Birim kategorisi ekle",
+      "clonePickerTitle": "Yerleşik bir birim kategorisini klonla"
+    },
+    "damageTypesPanel": {
+      "title": "Özel hasar türleri",
+      "description": "Yeni yakın dövüş veya uzak mesafe hasar türleri tanımlayın. Özel birimler tarafından meleeDamageType veya rangedDamageTypes aracılığıyla referans verilir.",
+      "noDamageTypes": "Henüz özel hasar türü yok.",
+      "ranged": "uzak mesafe",
+      "melee": "yakın dövüş",
+      "cloneOptionLabel": "{{name}} ({{kind}})",
+      "itemLabel": "{{name}} ({{kind}}, id {{id}})",
+      "deleteBlocked": "\"{{name}}\" silinemiyor - hâlâ {{refs}} tarafından kullanılıyor. Önce o referansları kaldırın.",
+      "addDamageType": "Hasar türü ekle",
+      "clonePickerTitle": "Yerleşik bir hasar türünü klonla"
+    },
+    "terrainCategoriesPanel": {
+      "title": "Özel arazi kategorileri",
+      "description": "Bu senaryo için arazi kategorisi yapılandırmalarını geçersiz kılın. Bunu özel birim kategorilerine belirli arazi değiştiricileri vermek ya da yeni arazi kategorisi id'leri eklemek için kullanın.",
+      "noOverrides": "Henüz özel arazi kategorisi geçersiz kılması yok.",
+      "addTerrainCategory": "Arazi kategorisi ekle",
+      "clonePickerTitle": "Yerleşik bir arazi kategorisini klonla"
+    },
+    "overrideEditor": {
+      "invalidJson": "Geçersiz JSON",
+      "reset": "Sıfırla",
+      "eraDefault": "dönem varsayılanı: {{value}}",
+      "structuralTooltip": "Yapısal / determinizm sabiti. Değiştirmek render'ı, tekrarları veya eşleştirmeyi bozabilir."
+    },
+    "importModal": {
+      "kindUnitTemplates": "birim şablonları",
+      "kindDamageTypes": "hasar türleri",
+      "kindFormations": "formasyonlar",
+      "kindUnitCategories": "birim kategorileri",
+      "kindTerrainCategories": "arazi kategorileri",
+      "kindSprites": "sprite'lar",
+      "unitItemLabel": "{{name}} (#{{type}})",
+      "damageTypeItemLabel": "{{name}} ({{kind}})",
+      "nothing": "hiçbir şey",
+      "title": "Senaryodan {{kind}} içe aktar",
+      "pickFilePrompt": "Özel {{kind}} öğelerini içe aktarmak için bir senaryo dosyası seçin (editörün İndir butonunun ürettiği JSON).",
+      "chooseFile": "Senaryo dosyası seç",
+      "fileReadError": "Bu dosya senaryo olarak okunamadı.",
+      "invalidForEra": "Bu senaryonun özel tanımları mevcut dönem için geçerli değil (ör. {{message}}).",
+      "importWouldInvalidate": "İçe aktarma senaryoyu geçersiz kılardı (ör. {{message}}). Hiçbir şey değiştirilmedi.",
+      "fromLabel": "Kaynak: {{name}}",
+      "importedScenario": "içe aktarılan senaryo",
+      "changeFile": "Dosyayı değiştir",
+      "noCustomDefs": "Bu senaryoda özel {{kind}} yok.",
+      "willImport": "İçe aktarılacak (bağımlılıklarla): {{summary}}.",
+      "resultSummary": "{{imported}} içe aktarıldı, {{renamed}} yeniden adlandırıldı, {{skipped}} atlandı.",
+      "importSelected": "Seçilenleri içe aktar"
+    },
+    "importOverridesModal": {
+      "targetGameConstants": "oyun sabiti geçersiz kılmaları",
+      "targetGameRules": "oyun kuralı geçersiz kılmaları",
+      "targetOrders": "emir geçersiz kılmaları",
+      "title": "Senaryodan {{target}} içe aktar",
+      "pickFilePrompt": "{{target}} öğelerini içe aktarmak için bir senaryo dosyası seçin (editörün İndir butonunun ürettiği JSON).",
+      "noOverrides": "Bu senaryoda {{target}} yok.",
+      "importedCount_one": "{{count}} geçersiz kılma içe aktarıldı.",
+      "importedCount_other": "{{count}} geçersiz kılma içe aktarıldı."
+    },
+    "gameConstants": {
+      "title": "Oyun sabiti geçersiz kılmaları",
+      "description": "Bu senaryo için dönemin sayısal sabitlerini geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; Sıfırla bir alanı dönem varsayılanına döndürür. ⚠ ile işaretli anahtarlar yapısaldır - bunları değiştirmek render'ı, tekrarları veya eşleştirmeyi bozabilir. Değerler ham iç birimlerdir."
+    },
+    "gameRules": {
+      "title": "Oyun kuralı geçersiz kılmaları",
+      "description": "Bu senaryo için dönemin oynanış kurallarını geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; bir alanı dönem varsayılanına döndürmek için Sıfırla kullanın. Değerler ham iç birimlerdir (bazı istatistikler önceden ölçeklenmiş olarak saklanır)."
+    },
+    "ordersPanel": {
+      "title": "Emir geçersiz kılmaları",
+      "description": "Bu senaryo için dönemin yerleşik emirlerinin değerlerini geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; bir alanı dönem varsayılanına döndürmek için Sıfırla kullanın. Mevcut emirleri değiştirebilirsiniz ama yenilerini ekleyemezsiniz."
+    },
+    "clonePicker": {
+      "alreadyOverridden": "(zaten geçersiz kılındı)",
+      "alreadyOverriddenTooltip": "Bu yerleşiğin bu senaryoda zaten özel bir geçersiz kılması var; bunun yerine onu listeden düzenleyin.",
+      "clone": "Klonla",
+      "override": "Geçersiz Kıl"
+    },
+    "spriteSelect": {
+      "default": "Varsayılan",
+      "unknownOption": "{{value}} (bilinmiyor)",
+      "groupCustom": "Özel",
+      "groupBuiltIn": "Yerleşik"
+    }
+  },
+  "resize": {
+    "title": "Haritayı Yeniden Boyutlandır",
+    "currentSize": "Mevcut boyut: {{width}} × {{height}} kare",
+    "newSize": "Yeni boyut: {{width}} × {{height}} kare",
+    "current": "Mevcut: {{width}} × {{height}} kare",
+    "confirmTitle": "Harita Yeniden Boyutlandırmayı Onayla",
+    "warningCannotUndo": "⚠️ <0>Uyarı:</0> Bu işlem geri alınamaz.",
+    "continue": "Devam Et",
+    "tabScale": "Ölçek",
+    "tabExpandCut": "Genişlet / Kenarları Kes",
+    "scale": {
+      "newWidth": "Yeni genişlik (kare)",
+      "newHeight": "Yeni yükseklik (kare)",
+      "apply": "Haritayı Yeniden Boyutlandır",
+      "errorInvalid": "Lütfen genişlik ve yükseklik için kare cinsinden geçerli pozitif sayılar girin",
+      "warningBody": "Devam etmeden önce senaryonuzu kaydettiğinizden emin olun. Yeniden boyutlandırma tüm arazileri, yükseklikleri, birimleri, hedefleri ve tetikleyici konumlarını ölçekler."
+    },
+    "expandCut": {
+      "intro": "Pozitif değerler kare ekler, negatif değerler her kenardan kare çıkarır.",
+      "left": "Sol (kare)",
+      "right": "Sağ (kare)",
+      "top": "Üst (kare)",
+      "bottom": "Alt (kare)",
+      "sideExpand": "+{{count}} kare (genişlet)",
+      "sideCut": "{{count}} kare (kes)",
+      "noChange": "Değişiklik yok",
+      "apply": "Değişiklikleri Uygula",
+      "errorTooSmall": "Yeniden boyutlandırılamıyor: sonuçtaki harita 1×1 kareden küçük olurdu. Lütfen değerleri ayarlayın.",
+      "errorTooLarge": "Yeniden boyutlandırılamıyor: sonuçtaki harita maksimum boyut olan {{maxWidth}}×{{maxHeight}} kareyi aşardı.",
+      "warningBody": "Devam etmeden önce senaryonuzu kaydettiğinizden emin olun. Genişletme/kesme belirtilen kenarlardan kare ekler veya çıkarır. Yeni sınırların dışındaki birimler ve hedefler kaldırılacaktır.",
+      "changesHeading": "Değişiklikler:",
+      "changesHorizontal": "Sol: {{left}} kare, Sağ: {{right}} kare",
+      "changesVertical": "Üst: {{top}} kare, Alt: {{bottom}} kare"
+    }
+  },
+  "mapSize": {
+    "widthInTiles": "Kare cinsinden genişlik",
+    "heightInTiles": "Kare cinsinden yükseklik",
+    "widthPlaceholder": "Genişlik",
+    "heightPlaceholder": "Yükseklik"
+  },
+  "misc": {
+    "scaleAllSizesBy": "Tüm boyutları şununla ölçekle",
+    "apply": "Uygula",
+    "background": "Arka plan",
+    "chooseImage": "Görsel seç"
+  },
+  "localesPanel": {
+    "title": "Diller",
+    "description": "Diller, senaryoyu farklı dillere çevirmek için kullanılır.",
+    "addLanguage": "Dil Ekle",
+    "removeLanguage": "Dili kaldır",
+    "noKeys": "Çeviri anahtarı yok. Başlamak için bir anahtar ekleyin.",
+    "addKey": "Anahtar Ekle",
+    "keyLabel": "Anahtar",
+    "removeKey": "Anahtarı kaldır",
+    "keyPlaceholder": "Çeviri anahtarı",
+    "valueLabel": "Değer",
+    "valuePlaceholder": "Çeviri değeri",
+    "addLanguageTitle": "Dil Ekle",
+    "languageCodeLabel": "Dil Kodu",
+    "languageCodePlaceholder": "ör. 'en', 'es', 'fr'",
+    "languageCodeEmpty": "Dil kodu boş olamaz",
+    "languageAlreadyExists": "\"{{language}}\" dili zaten mevcut",
+    "addKeyTitle": "Çeviri Anahtarı Ekle - {{language}}",
+    "keyNameLabel": "Anahtar Adı",
+    "keyNamePlaceholder": "ör. 'title', 'description', 'button_text'",
+    "keyNameEmpty": "Anahtar adı boş olamaz",
+    "keyAlreadyExists": "\"{{key}}\" anahtarı \"{{language}}\" içinde zaten mevcut"
+  },
+  "triggers": {
+    "title": "Tetikleyiciler",
+    "moreInfo": "Tetikleyiciler hakkında daha fazla bilgi burada",
+    "lastPositionClicked": "Son tıklanan konum: [{{x}}, {{y}}]",
+    "createTrigger": "Tetikleyici Oluştur",
+    "createTriggerButton": "Tetikleyici oluştur",
+    "format": "Biçim",
+    "invalidJsonFormat": "Geçersiz JSON biçimi",
+    "event": "Olay",
+    "conditionLogic": "Koşul Mantığı",
+    "conditionLogicAnd": "Tüm koşullar (VE)",
+    "conditionLogicOr": "Herhangi bir koşul (VEYA)",
+    "conditions": "Koşullar",
+    "addCondition": "Koşul Ekle",
+    "actions": "Eylemler",
+    "addAction": "Eylem Ekle",
+    "once": "Bir kez"
+  },
+  "randomMap": {
+    "title": "Rastgele Harita",
+    "moreInfo": "Rastgele haritalar hakkında daha fazla bilgi burada",
+    "proceduralMap": "Prosedürel (rastgele) harita",
+    "proceduralExplanation": "Bu talimatlar haritayı her maçta yeni bir tohumdan oluşturur; kaydedilen senaryo pişmiş haritasını bırakır. Burada gösterilen harita yalnızca bir önizlemedir. Hedef / Hedef katmanı talimatlarıyla yerleştirilen hedefler bu önizlemede değil, maç anında görünür.",
+    "startFromTemplate": "Bir şablondan başla",
+    "loadInstructionsFromTemplate": "Şablondan talimatları yükle",
+    "generating": "Oluşturuluyor…",
+    "generatePreview": "Önizleme oluştur",
+    "instructions": "Talimatlar",
+    "instructionsWithCount": "Talimatlar ({{count}})",
+    "formEditor": "Form editörü",
+    "editAsJson": "JSON olarak düzenle",
+    "noInstructions": "Henüz talimat yok. Yukarıdan bir tane ekleyin veya bir şablon yükleyin.",
+    "moveUp": "Yukarı taşı",
+    "moveDown": "Aşağı taşı",
+    "switchToPresetConfirm": "Önceden ayarlanmışa geçmek mevcut araziyi korur ve oluşturma talimatlarını temizler. Devam edilsin mi?",
+    "replaceInstructionsConfirm": "Mevcut talimatlar şablonunkilerle değiştirilsin mi?",
+    "fillFromTemplateDescription": "Mevcut haritanın arazisini prosedürel bir şablondan doldurun. Bu, sabit (önceden ayarlanmış) bir harita pişirir ve hiçbir oluşturma talimatı saklamaz.",
+    "template": "Şablon",
+    "useSeed": "Tohum kullanılsın mı?",
+    "useSeedDescription": "Araziyi prosedürel oluşturma kullanarak oluştur",
+    "confirmOverwriteLabel": "Bunun tüm araziyi üzerine yazacağını anlıyorum",
+    "lastUsedSeed": "Son kullanılan tohum:",
+    "generate": "Oluştur",
+    "importMustBeProcedural": "İçe aktarılan dosya prosedürel bir şablon olmalıdır (pişmiş harita yok, oluşturma talimatları olan).",
+    "invalidJsonFile": "Geçersiz JSON dosyası. Lütfen dosya biçimini kontrol edin.",
+    "confirmOverwriteWarning": "Lütfen bunun araziyi üzerine yazacağını anladığınızı onaylayın.",
+    "selectedNotProcedural": "Seçili senaryo prosedürel bir şablon değil.",
+    "invalidJson": "Geçersiz JSON"
+  }
+}

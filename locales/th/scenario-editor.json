@@ -1,0 +1,721 @@
+{
+  "common": {
+    "add": "เพิ่ม",
+    "addEntry": "เพิ่มรายการ",
+    "cancel": "ยกเลิก",
+    "delete": "ลบ",
+    "edit": "แก้ไข",
+    "name": "ชื่อ",
+    "noEntries": "ไม่มีรายการ",
+    "none": "ไม่มี",
+    "remove": "นำออก",
+    "save": "บันทึก",
+    "select": "เลือก...",
+    "unknown": "(ไม่ทราบ)"
+  },
+  "editor": {
+    "loadScenario": "โหลดฉาก",
+    "chooseScenarioFile": "เลือกไฟล์ฉาก"
+  },
+  "editorPanel": {
+    "tabs": {
+      "scenario": "ฉาก",
+      "terrain": "ภูมิประเทศ",
+      "units": "ยูนิต",
+      "objectives": "เป้าหมาย",
+      "triggers": "ทริกเกอร์",
+      "advanced": "ขั้นสูง"
+    },
+    "togglePanel": "สลับแผง",
+    "title": "เครื่องมือสร้างฉาก",
+    "downloadScenario": "ดาวน์โหลดฉาก",
+    "copyScenario": "คัดลอกฉาก",
+    "fullscreen": "เต็มจอ",
+    "exitFullscreen": "ออกจากเต็มจอ",
+    "expandPanel": "ขยายแผง",
+    "collapsePanel": "ย่อแผง",
+    "allowDynamicArmy": "อนุญาตกองทัพแบบไดนามิก",
+    "allowDynamicArmyHelp": "เมื่อเปิดใช้งาน ผู้เล่นจะนำกองทัพของตนเองมาตามประเภทการรบของการจับคู่ และวางกำลังภายในเขตของตน เมื่อปิดใช้งาน ยูนิตที่วางไว้ล่วงหน้าในฉากจะกำหนดกำลังพลทั้งหมด (ข้ามการจัดกองทัพ)",
+    "showGrid": "แสดงตาราง",
+    "showUnits": "แสดงยูนิต",
+    "hideUnits": "ซ่อนยูนิต",
+    "showObjectives": "แสดงเป้าหมาย",
+    "hideObjectives": "ซ่อนเป้าหมาย",
+    "goBack": "ย้อนกลับ",
+    "goBackConfirm": "คุณแน่ใจหรือไม่ว่าต้องการย้อนกลับและออกจากเครื่องมือสร้างฉาก?"
+  },
+  "createScenario": {
+    "title": "สร้างฉาก",
+    "randomMap": "แผนที่แบบสุ่ม (สร้างตามขั้นตอน)?",
+    "isHybrid": "เป็นแบบผสมหรือไม่?"
+  },
+  "playersPanel": {
+    "title": "ผู้เล่น",
+    "removePlayer": "นำผู้เล่นออก"
+  },
+  "terrainPanel": {
+    "title": "ภูมิประเทศ",
+    "active": "ใช้งานอยู่",
+    "setTerrain": "ตั้งภูมิประเทศ",
+    "terrainHeight": "ความสูงภูมิประเทศ",
+    "radius": "รัศมี",
+    "paintBucket": "ถังเทสี"
+  },
+  "unitPanel": {
+    "title": "ยูนิตที่เลือก",
+    "player": "ผู้เล่น",
+    "unitType": "ประเภทยูนิต",
+    "optional": "ไม่บังคับ",
+    "positionX": "ตำแหน่ง X",
+    "positionY": "ตำแหน่ง Y",
+    "rotation": "การหมุน",
+    "mixed": "ผสม",
+    "copyJson": "คัดลอก JSON",
+    "copyUnits": "คัดลอกยูนิต",
+    "unitsCopied": "คัดลอกยูนิตแล้ว ({{count}})",
+    "deselect": "ยกเลิกการเลือก",
+    "removeSelectedUnits": "นำยูนิตที่เลือกออก"
+  },
+  "createUnit": {
+    "title": "สร้างยูนิต",
+    "active": "ใช้งานอยู่",
+    "usingCopiedUnits": "ใช้ยูนิตที่คัดลอก",
+    "customLabel": "{{name}} (กำหนดเอง)",
+    "fields": {
+      "unit": "ยูนิต",
+      "player": "ผู้เล่น"
+    }
+  },
+  "objectivePanel": {
+    "title": "เป้าหมายที่เลือก",
+    "player": "ผู้เล่น {{player}}",
+    "team": "ทีม {{team}}",
+    "namePlaceholder": "ไม่บังคับ",
+    "mixed": "ผสม",
+    "deselect": "ยกเลิกการเลือก",
+    "removeSelected": "นำเป้าหมายที่เลือกออก",
+    "type": {
+      "small": "เล็ก",
+      "big": "ใหญ่"
+    },
+    "fields": {
+      "type": "ประเภท",
+      "logistics": "การส่งกำลังบำรุง",
+      "manpowerPerTurn": "กำลังพลต่อเทิร์น",
+      "goldPerTurn": "ทองต่อเทิร์น",
+      "victoryPoints": "แต้มชัยชนะ",
+      "positionX": "ตำแหน่ง X",
+      "positionY": "ตำแหน่ง Y"
+    }
+  },
+  "createObjective": {
+    "title": "สร้างเป้าหมาย",
+    "active": "ใช้งานอยู่",
+    "gaia": "ไกอา",
+    "type": {
+      "small": "เล็ก",
+      "big": "ใหญ่"
+    },
+    "fields": {
+      "objectiveType": "ประเภทเป้าหมาย",
+      "victoryPoints": "แต้มชัยชนะ",
+      "player": "ผู้เล่น",
+      "team": "ทีม",
+      "logistics": "การส่งกำลังบำรุง"
+    }
+  },
+  "deployment": {
+    "title": "การวางกำลัง",
+    "team": "ทีม {{team}}",
+    "mainZone": "หลัก",
+    "forwardZone": "แนวหน้า",
+    "fields": {
+      "x": "X",
+      "y": "Y",
+      "width": "กว้าง",
+      "height": "สูง"
+    }
+  },
+  "vpBalance": {
+    "heading": "สมดุล VP (ความสูญเสีย vs เป้าหมาย)",
+    "casualtiesTooltip": "ความสูญเสีย: {{vp}} VP",
+    "objectivesTooltip": "เป้าหมาย: {{vp}} VP",
+    "casualtiesSummary": "ความสูญเสีย {{pct}}% ({{vp}} VP)",
+    "objectivesSummary": "เป้าหมาย {{pct}}% ({{vp}} VP)"
+  },
+  "formationModal": {
+    "title": "แก้ไขกระบวนทัพกำหนดเอง",
+    "identity": "ข้อมูลระบุ",
+    "formationId": "ID กระบวนทัพ",
+    "collision": "การชนกัน",
+    "collisionHelp": "รูปทรงพื้นที่: วงกลม (รัศมี) หรือสี่เหลี่ยม (หน้ากว้างตามแนวหน้า ความลึกจากหน้าไปหลัง) ใช้รัศมี 0 เพื่อไม่ให้มีการชนกัน (บิน / ทะลุผ่าน)",
+    "shape": "รูปทรง",
+    "shapeRectangle": "สี่เหลี่ยม",
+    "shapeCircle": "วงกลม",
+    "radiusPx": "รัศมี (px)",
+    "frontagePx": "หน้ากว้าง (px)",
+    "depthPx": "ความลึก (px)",
+    "movement": "การเคลื่อนที่",
+    "movementModifier": "ตัวปรับการเคลื่อนที่",
+    "runMovementModifier": "ตัวปรับการเคลื่อนที่ขณะวิ่ง",
+    "rotationSpeedModifier": "ตัวปรับความเร็วการหมุน",
+    "disable180Turn": "ปิดการหันกลับ 180°",
+    "formingSpeedModifier": "ตัวปรับความเร็วการจัดทัพ",
+    "timeToForm": "เวลาในการจัดทัพ (ticks)",
+    "timeToUnform": "เวลาในการเลิกจัดทัพ (ticks)",
+    "minMovementModifier": "ตัวปรับการเคลื่อนที่ขั้นต่ำ",
+    "combat": "การรบ",
+    "rangedAttackModifier": "ตัวปรับการโจมตีระยะไกล",
+    "chargeBonusModifier": "ตัวปรับโบนัสการชาร์จ",
+    "chargePenetrationModifier": "ตัวปรับการเจาะของการชาร์จ",
+    "chargeResistanceModifier": "ตัวปรับการต้านทานการชาร์จ",
+    "pushStrengthModifier": "ตัวปรับแรงผลัก",
+    "receivedMeleeDamageModifier": "ตัวปรับความเสียหายประชิดที่ได้รับ",
+    "flanking": "การโอบปีก",
+    "disablesFlankMelee": "ปิดการโจมตีประชิดจากด้านข้าง",
+    "disablesEnfiladeFire": "ปิดการระดมยิงแนวยาวด้านข้าง (Enfilade fire)",
+    "disablesRearFire": "ปิดการยิงโจมตีจากด้านหลัง",
+    "flankChargeResistance": "ต้านทานการชาร์จจากด้านข้าง",
+    "rearChargeResistance": "ต้านทานการชาร์จจากด้านหลัง",
+    "enfiladeFireResistance": "ต้านทานการยิงระดมจากด้านข้าง",
+    "rearFireResistance": "ต้านทานการยิงจากด้านหลัง",
+    "rangedDamageResistance": "ต้านทานความเสียหายระยะไกล",
+    "rangedOrgResistance": "ต้านทานความเสียหายต่อ Org ระยะไกล",
+    "fireEdges": "ขอบยิง (edge-fire)",
+    "fireEdgesHelp": "ขอบยิงแต่ละด้านจะยิงไปตามหน้าหนึ่งของสี่เหลี่ยม กระบวนทัพที่ไม่มีขอบยิงจะยิงจากขอบหน้าเดียวตามค่าเริ่มต้น กระบวนทัพแบบวงกลมจะไม่ยิง",
+    "edge": "ขอบ",
+    "edgeLeft": "0 - ด้านซ้าย (-Y)",
+    "edgeFront": "1 - ด้านหน้า (+X)",
+    "edgeRight": "2 - ด้านขวา (+Y)",
+    "edgeRear": "3 - ด้านหลัง (-X)",
+    "arc": "มุมยิง (deg, ค่าเริ่มต้น 90)",
+    "emitters": "จุดยิง",
+    "removeFireEdge": "นำขอบยิงออก",
+    "addFireEdge": "เพิ่มขอบยิง",
+    "errIdRequired": "ต้องระบุ ID กระบวนทัพ",
+    "errIdInUse": "ID กระบวนทัพ \"{{id}}\" ถูกใช้งานแล้ว",
+    "errEdgeIndex": "ขอบยิง {{n}}: ดัชนีขอบต้องอยู่ระหว่าง 0-3",
+    "errEdgeArc": "ขอบยิง {{n}}: มุมยิงต้องอยู่ระหว่าง 0 ถึง 360",
+    "errEdgeEmitters": "ขอบยิง {{n}}: จุดยิงต้องเป็นจำนวนเต็มบวก"
+  },
+  "unitTemplateModal": {
+    "title": "แก้ไขเทมเพลตยูนิตกำหนดเอง",
+    "optBuiltIn": "{{name}} (ในตัว)",
+    "optCustom": "{{name}} (กำหนดเอง)",
+    "identity": "ข้อมูลระบุ",
+    "typeId": "ID ประเภท",
+    "category": "หมวดหมู่",
+    "combat": "การรบ",
+    "meleeAttack": "การโจมตีประชิด",
+    "meleeDefense": "การป้องกันประชิด",
+    "meleeDamageType": "ประเภทความเสียหายประชิด",
+    "chargeBonus": "โบนัสการชาร์จ",
+    "chargePenetration": "การเจาะของการชาร์จ",
+    "chargeResistance": "การต้านทานการชาร์จ",
+    "flankMeleeOrgModifier": "ตัวปรับ Org ประชิดด้านข้าง",
+    "flankChargePenBonus": "โบนัสการเจาะชาร์จด้านข้าง",
+    "stats": "ค่าสถานะ",
+    "hp": "HP",
+    "org": "Org",
+    "shattersAtOrg": "แตกพ่ายเมื่อ Org",
+    "routesAtOrg": "ถอยร่นเมื่อ Org",
+    "recoversAtOrg": "ฟื้นตัวเมื่อ Org",
+    "ralliesAtOrg": "รวมพลเมื่อ Org",
+    "stamina": "พละกำลัง",
+    "manpower": "กำลังพล",
+    "gold": "ทอง",
+    "orgRadius": "รัศมี Org",
+    "orgRadiusBonus": "โบนัสรัศมี Org",
+    "reportStats": "ค่าสถานะรายงาน",
+    "reportStatsHelp": "ยอดที่แต่ละยูนิตเพิ่มเข้าไปในรายงานการรบ (เช่น พลทหาร ม้า ปืน) คีย์มาจากยูนิตในตัวของยุคนั้น",
+    "tallyPerUnit": "ยอดต่อยูนิต",
+    "movement": "การเคลื่อนที่",
+    "walkMovement": "การเคลื่อนที่ขณะเดิน",
+    "runMovement": "การเคลื่อนที่ขณะวิ่ง",
+    "runStartUpMovement": "การเคลื่อนที่เริ่มวิ่ง",
+    "timeToRun": "เวลาในการเริ่มวิ่ง (ticks)",
+    "runCost": "ต้นทุนการวิ่ง",
+    "rotationSpeed": "ความเร็วการหมุน",
+    "rotationMaxThreshold": "เกณฑ์การหมุนสูงสุด",
+    "runRotationSpeed": "ความเร็วการหมุนขณะวิ่ง",
+    "turningDelay": "ความหน่วงในการหัน (ticks)",
+    "startsRunning": "เริ่มต้นด้วยการวิ่ง",
+    "movementSound": "เสียงการเคลื่อนที่",
+    "rangedCombat": "การรบระยะไกล",
+    "rangedAttack": "การโจมตีระยะไกล",
+    "ammo": "กระสุน",
+    "minDistanceToFAA": "ระยะต่ำสุดถึง FAA",
+    "panicFireDistance": "ระยะยิงตื่นตระหนก",
+    "fireWhileMoving": "ยิงขณะเคลื่อนที่",
+    "noAmmoRegain": "ไม่เติมกระสุน",
+    "rangedDamageTypes": "ประเภทความเสียหายระยะไกล",
+    "addRangedDamageType": "เพิ่มประเภทความเสียหายระยะไกล",
+    "enableRanged": "เปิดใช้การยิงระยะไกล",
+    "formations": "กระบวนทัพ",
+    "formationId": "ID กระบวนทัพ",
+    "baseSprite": "สไปรต์พื้นฐาน",
+    "overlaySprite": "สไปรต์ซ้อนทับ",
+    "addFormation": "เพิ่มกระบวนทัพ",
+    "defaultFormation": "กระบวนทัพเริ่มต้น",
+    "supply": "เสบียง",
+    "supplyField": "เสบียง",
+    "supplyConsumptionIdle": "การใช้เสบียงขณะอยู่นิ่ง",
+    "supplyConsumptionMoving": "การใช้เสบียงขณะเคลื่อนที่",
+    "supplyConsumptionCombating": "การใช้เสบียงขณะรบ",
+    "supplyManpowerCost": "ต้นทุนกำลังพลของเสบียง",
+    "supplyGoldCost": "ต้นทุนทองของเสบียง",
+    "misc": "เบ็ดเตล็ด",
+    "skirmisherRatio": "อัตราส่วนพลประชิดเบา",
+    "canDeployForward": "วางกำลังแนวหน้าได้",
+    "reducedVisibilityRange": "ระยะการมองเห็นที่ลดลง",
+    "unknownType": "ID ประเภทไม่ทราบค่า",
+    "pushStrength": "แรงผลัก",
+    "pushDistance": "ระยะผลัก",
+    "maxEntrenchment": "การขุดสนามเพลาะสูงสุด",
+    "locked": "ล็อก"
+  },
+  "unitCategoryModal": {
+    "title": "แก้ไขหมวดหมู่ยูนิตกำหนดเอง",
+    "optionBuiltIn": "{{name}} (ในตัว)",
+    "optionCustom": "{{name}} (กำหนดเอง)",
+    "errors": {
+      "idRequired": "ต้องระบุ ID",
+      "idInUse": "ID หมวดหมู่ยูนิต \"{{id}}\" ถูกใช้งานแล้ว",
+      "firingAltitudeRequired": "ต้องระบุ firingAltitude",
+      "orphanedResistances": "damageTypeResistances อ้างอิงประเภทความเสียหายที่ไม่รู้จัก: {{types}}",
+      "orphanedAutofire": "autofirePriority อ้างอิงหมวดหมู่ยูนิตที่ไม่รู้จัก: {{categories}}",
+      "allowedOrderRequired": "ต้องเลือกรายการคำสั่งที่อนุญาตทั้งหมด",
+      "allowedOrderUnknown": "คำสั่งที่อนุญาต \"{{name}}\" ไม่ใช่คำสั่งที่รู้จักสำหรับยุคนี้"
+    },
+    "identity": {
+      "legend": "ข้อมูลระบุ",
+      "id": "ID",
+      "deploymentSection": "ส่วนการวางกำลัง"
+    },
+    "deploymentSection": {
+      "center": "กลาง",
+      "flank": "ปีก",
+      "front": "หน้า"
+    },
+    "combat": {
+      "legend": "การรบ",
+      "firingAltitude": "ระดับความสูงการยิง",
+      "allyCollisionLevel": "ระดับการชนกับพันธมิตร",
+      "enemyCollisionLevel": "ระดับการชนกับศัตรู",
+      "captureSpeed": "ความเร็วการยึด",
+      "impactAltitude": "ระดับความสูงการกระทบ",
+      "grazingAltitude": "ระดับความสูงการเฉี่ยว"
+    },
+    "movement": {
+      "legend": "การเคลื่อนที่และการแสดงผล",
+      "forwardOnlyMovement": "เคลื่อนที่ไปข้างหน้าเท่านั้น (เรือ)",
+      "portraitRotation": "การหมุนภาพ (deg)"
+    },
+    "routing": {
+      "legend": "พฤติกรรมการถอยร่น",
+      "baseSpeed": "ความเร็วพื้นฐาน",
+      "speedWalk": "เดิน",
+      "speedRun": "วิ่ง",
+      "fleeWhenRouted": "หนีเมื่อถอยร่น"
+    },
+    "enfiladeFire": {
+      "legend": "การระดมยิงแนวยาวด้านข้าง",
+      "damageModifier": "ตัวปรับความเสียหาย",
+      "orgModifier": "ตัวปรับ Org"
+    },
+    "rearFire": {
+      "legend": "การยิงจากด้านหลัง",
+      "orgModifier": "ตัวปรับ Org"
+    },
+    "chargeBacklash": {
+      "legend": "การตอบโต้การชาร์จ",
+      "description": "ตัวคูณของการโต้กลับที่หมวดหมู่นี้ตอบโต้ผู้ชาร์จ (ยิ่งสูง = ตั้งรับและโต้กลับแรงขึ้น, 0 = ไม่มี) ค่าหลังการวิ่งจะใช้เมื่อฝ่ายตั้งรับได้วิ่งไปแล้วและตั้งรับไม่ได้ ซึ่งจะย้อนกลับไปใช้ตัวคูณพื้นฐาน ค่าเริ่มต้นคือ 1",
+      "multiplier": "ตัวคูณการตอบโต้",
+      "multiplierAfterRunning": "ตัวคูณการตอบโต้ (หลังวิ่ง)"
+    },
+    "chargeStamina": {
+      "legend": "พละกำลังการชาร์จ",
+      "description": "พละกำลังสูงสุดที่การชาร์จดูดจากหมวดหมู่นี้ ผู้ชาร์จจ่ายเต็มเมื่อปะทะตรงหน้าและจ่ายน้อยกว่าเมื่อโอบปีก ฝ่ายตั้งรับจ่ายเต็มเมื่อถูกโอบปีก โดยมีขั้นต่ำ 25% ทั้งสองทาง ค่าเริ่มต้นคือ 0 (ไม่มีต้นทุน)",
+      "cost": "ต้นทุนพละกำลังการชาร์จ"
+    },
+    "resistances": {
+      "legend": "การต้านทานตามประเภทความเสียหาย",
+      "description": "ตัวปรับการต้านทานตามแต่ละประเภทความเสียหาย (ค่าลบ = รับความเสียหายมากขึ้น, ค่าบวก = รับน้อยลง)",
+      "fieldLabel": "การต้านทานตามประเภทความเสียหาย"
+    },
+    "autofire": {
+      "legend": "ลำดับความสำคัญการยิงอัตโนมัติ",
+      "description": "น้ำหนักความสำคัญตามหมวดหมู่ยูนิตเป้าหมาย ค่าที่สูงกว่าจะเป็นเป้าหมายที่ถูกเลือกก่อนสำหรับการยิงอัตโนมัติ",
+      "fieldLabel": "ลำดับความสำคัญตามหมวดหมู่เป้าหมาย"
+    },
+    "allowedOrders": {
+      "legend": "คำสั่งที่อนุญาต",
+      "add": "เพิ่มคำสั่งที่อนุญาต"
+    }
+  },
+  "damageTypeModal": {
+    "title": "แก้ไขประเภทความเสียหายกำหนดเอง",
+    "sections": {
+      "identity": "ข้อมูลระบุ",
+      "damage": "ความเสียหาย",
+      "projectile": "กระสุน",
+      "rangeBrackets": "ช่วงระยะ",
+      "areaOfEffect": "พื้นที่ส่งผล"
+    },
+    "fields": {
+      "id": "ID",
+      "ranged": "ระยะไกล",
+      "imageAlias": "ชื่อแทนภาพ",
+      "orgDamageRatio": "อัตราส่วนความเสียหายต่อ Org",
+      "damageModifier": "ตัวปรับความเสียหาย",
+      "reorgDebuff": "ดีบัฟการจัดระเบียบใหม่",
+      "attackEffectDuration": "ระยะเวลาเอฟเฟกต์การโจมตี (ticks)",
+      "projectileWidth": "ความกว้างกระสุน",
+      "arcHeight": "ความสูงวิถีโค้ง",
+      "projectilePenetration": "การเจาะของกระสุน",
+      "ammoCost": "ต้นทุนกระสุน",
+      "shotSound": "เสียงยิง",
+      "shotAnim": "อนิเมชันการยิง",
+      "enfiladeFire": "การระดมยิงแนวยาวด้านข้าง",
+      "cannotUseAfterRun": "ใช้ไม่ได้หลังวิ่ง",
+      "extendRange": "ขยายระยะ",
+      "aimMode": "โหมดเล็ง"
+    },
+    "aimMode": {
+      "targetCenter": "ศูนย์กลางเป้าหมาย (การระเบิดเป็นวง)",
+      "nearestBody": "ลำตัวที่ใกล้ที่สุด (ยิงตรง/ไปข้างหน้า)"
+    },
+    "range": {
+      "start": "เริ่ม",
+      "end": "สิ้นสุด",
+      "startMod": "ตัวปรับเริ่ม",
+      "endMod": "ตัวปรับสิ้นสุด"
+    },
+    "aoe": {
+      "type": "ประเภท",
+      "circular": "วงกลม",
+      "trapezoidal": "สี่เหลี่ยมคางหมู",
+      "absorptionModifier": "ตัวปรับการดูดซับ",
+      "edgeDamageModifier": "ตัวปรับความเสียหายขอบ",
+      "offset": "ระยะเยื้อง",
+      "startRadius": "รัศมีเริ่ม",
+      "endRadius": "รัศมีสิ้นสุด",
+      "startTopWidth": "ความกว้างบนเริ่ม",
+      "endTopWidth": "ความกว้างบนสิ้นสุด",
+      "startBottomWidth": "ความกว้างล่างเริ่ม",
+      "endBottomWidth": "ความกว้างล่างสิ้นสุด",
+      "startHeight": "ความสูงเริ่ม",
+      "endHeight": "ความสูงสิ้นสุด"
+    },
+    "addRangeBracket": "เพิ่มช่วงระยะ",
+    "addAreaOfEffect": "เพิ่มพื้นที่ส่งผล",
+    "removeAreaOfEffect": "นำพื้นที่ส่งผลออก",
+    "errors": {
+      "nameRequired": "ต้องระบุชื่อ",
+      "idMustBeNumber": "ID ต้องเป็นตัวเลข",
+      "idInUse": "ID ประเภทความเสียหาย {{id}} ถูกใช้งานแล้ว",
+      "nameInUse": "ชื่อประเภทความเสียหาย \"{{name}}\" ถูกใช้งานแล้ว",
+      "idBelongsToBuiltIn": "ID ประเภทความเสียหาย {{id}} เป็นของแบบในตัว \"{{name}}\" คงชื่อไว้เพื่อแทนที่ หรือเลือก id อื่น",
+      "nameBelongsToBuiltIn": "ชื่อ \"{{name}}\" เป็นของ id ในตัว {{id}} ตั้ง id เป็น {{id}} เพื่อแทนที่ หรือเลือกชื่ออื่น",
+      "orgDamageRatioRequired": "ต้องระบุ orgDamageRatio",
+      "rangedNeedsBracket": "ประเภทความเสียหายระยะไกลต้องมีช่วงระยะอย่างน้อยหนึ่งช่วง"
+    }
+  },
+  "terrainCategoryModal": {
+    "title": "แก้ไขหมวดหมู่ภูมิประเทศกำหนดเอง",
+    "sections": {
+      "identity": "ข้อมูลระบุ",
+      "scalarProperties": "คุณสมบัติแบบสเกลาร์",
+      "perUnitCategoryModifiers": "ตัวปรับตามหมวดหมู่ยูนิต",
+      "projectileAbsorption": "การดูดซับกระสุน"
+    },
+    "identityHint": "แทนที่การตั้งค่าหมวดหมู่ภูมิประเทศของยุคสำหรับฉากนี้ id ถูกกำหนดตายตัวให้กับหมวดหมู่ในตัว ภูมิประเทศคงการกำหนดหมวดหมู่ไว้ คุณเพียงปรับตัวปรับเท่านั้น",
+    "perUnitCategoryHint": "คีย์คือ id หมวดหมู่ยูนิต ใช้ไวลด์การ์ด `*` เพื่อตั้งค่าเริ่มต้นที่ใช้กับทุกหมวดหมู่ที่ไม่มีรายการกำหนดไว้ชัดเจน",
+    "projectileAbsorptionHint": "คีย์คือชื่อประเภทความเสียหาย",
+    "option": {
+      "builtIn": "{{name}} (ในตัว)",
+      "custom": "{{name}} (กำหนดเอง)"
+    },
+    "fields": {
+      "id": "ID",
+      "color": "สี",
+      "staminaCostModifier": "ตัวปรับต้นทุนพละกำลัง",
+      "hitboxHeight": "ความสูงกล่องชน",
+      "heightOffset": "ระยะเยื้องความสูง",
+      "visionAbsorption": "การดูดซับการมองเห็น",
+      "pushStrengthModifier": "ตัวปรับแรงผลัก",
+      "pushDistanceModifier": "ตัวปรับระยะผลัก",
+      "fixedEnemyCollisionLevel": "ระดับการชนกับศัตรูแบบตายตัว",
+      "canPlaceObjectives": "วางเป้าหมายได้",
+      "prioritizeMovement": "ให้ความสำคัญกับการเคลื่อนที่",
+      "supplyRoute": "เส้นทางเสบียง",
+      "movementModifier": "ตัวปรับการเคลื่อนที่",
+      "impassableFor": "ผ่านไม่ได้สำหรับ",
+      "attackModifier": "ตัวปรับการโจมตี",
+      "defenseModifier": "ตัวปรับการป้องกัน",
+      "rangedAttackModifier": "ตัวปรับการโจมตีระยะไกล",
+      "chargeResistanceModifier": "ตัวปรับการต้านทานการชาร์จ",
+      "chargeBonusModifier": "ตัวปรับโบนัสการชาร์จ",
+      "projectileAbsorptionByDamageType": "การดูดซับกระสุนตามประเภทความเสียหาย"
+    },
+    "errors": {
+      "idRequired": "ต้องระบุ ID",
+      "idInUse": "ID หมวดหมู่ภูมิประเทศ \"{{id}}\" ถูกใช้งานแล้ว",
+      "unknownUnitCategories": "{{field}} อ้างอิงหมวดหมู่ยูนิตที่ไม่รู้จัก: {{keys}}",
+      "unknownDamageTypes": "projectileAbsorption อ้างอิงประเภทความเสียหายที่ไม่รู้จัก: {{keys}}"
+    }
+  },
+  "customDefs": {
+    "common": {
+      "importFromScenario": "นำเข้าจากฉาก",
+      "duplicate": "ทำสำเนา",
+      "done": "เสร็จสิ้น"
+    },
+    "spritesPanel": {
+      "title": "สไปรต์กำหนดเอง",
+      "description": "อัปโหลดสไปรต์ของคุณเองที่นี่ แล้วเลือกใช้ในกระบวนทัพของยูนิต สไปรต์จะถูกฝังในฉาก (สูงสุด {{kb}}KB ต่ออัน)",
+      "yourSprites": "สไปรต์ของคุณ",
+      "noSprites": "ยังไม่มีสไปรต์กำหนดเอง",
+      "uploadSprite": "อัปโหลดสไปรต์",
+      "renderWidthAria": "ความกว้างเรนเดอร์เป็น px",
+      "renderHeightAria": "ความสูงเรนเดอร์เป็น px",
+      "maxSpritesAlert": "คุณอัปโหลดสไปรต์กำหนดเองได้สูงสุด {{count}} อัน",
+      "tooLargeAlert": "ภาพใหญ่เกินไป ไม่สามารถบีบอัดให้ต่ำกว่า {{kb}}KB ได้ ลองใช้ภาพที่เล็กหรือเรียบง่ายกว่า",
+      "invalidImageAlert": "อ่านภาพไม่ได้ ใช้ไฟล์ PNG หรือ WebP",
+      "deleteBlockedAlert": "ลบไม่ได้: ยังถูกใช้งานโดย {{where}} เปลี่ยนกระบวนทัพเหล่านั้นก่อน",
+      "libraryTitle": "คลังสไปรต์",
+      "libraryDescription": "เลือกชมสไปรต์ในตัวของยุคนี้เพื่อหาแรงบันดาลใจ",
+      "filterPlaceholder": "กรองตามชื่อ...",
+      "loading": "กำลังโหลด...",
+      "unitBase": "ฐานยูนิต ({{count}})",
+      "unitOverlay": "ซ้อนทับยูนิต ({{count}})",
+      "noMatches": "ไม่มีรายการที่ตรงกัน"
+    },
+    "unitTemplatesPanel": {
+      "title": "เทมเพลตยูนิตกำหนดเอง",
+      "description": "กำหนดเทมเพลตยูนิตใหม่ด้วยค่าสถานะ กระบวนทัพ และประเภทความเสียหายแบบกำหนดเอง ใช้ \"แทนที่\" เพื่อแทนแบบในตัวสำหรับฉากนี้ (มีประโยชน์สำหรับการทดสอบสมดุล) หรือ \"โคลน\" เพื่อเพิ่มเทมเพลตใหม่ที่มี id >= {{minId}}",
+      "noTemplates": "ยังไม่มีเทมเพลตยูนิตกำหนดเอง",
+      "templateLabel": "{{name}} (ประเภท {{type}})",
+      "deleteBlocked": "ลบ \"{{name}}\" ไม่ได้ - ยังถูกใช้งานโดย {{refs}} นำยูนิตเหล่านั้นออกก่อน",
+      "addTemplate": "เพิ่มเทมเพลตยูนิต",
+      "clonePickerTitle": "โคลนเทมเพลตยูนิตในตัว"
+    },
+    "formationsPanel": {
+      "title": "กระบวนทัพยูนิตกำหนดเอง",
+      "description": "กำหนดเทมเพลตกระบวนทัพใหม่ (การชนกัน ตัวปรับ กฎการยิง) ที่ยูนิตกำหนดเองใช้ได้",
+      "noFormations": "ยังไม่มีกระบวนทัพกำหนดเอง",
+      "deleteBlocked": "ลบ \"{{id}}\" ไม่ได้ - ยังถูกใช้งานโดย {{refs}} นำการอ้างอิงเหล่านั้นออกก่อน",
+      "addFormation": "เพิ่มกระบวนทัพ",
+      "clonePickerTitle": "โคลนกระบวนทัพในตัว"
+    },
+    "unitCategoriesPanel": {
+      "title": "หมวดหมู่ยูนิตกำหนดเอง",
+      "description": "กำหนดหมวดหมู่ยูนิตใหม่ (ระดับการชนกัน ส่วนการวางกำลัง คำสั่งที่อนุญาต พฤติกรรมการถอยร่น) อ้างอิงโดยยูนิตกำหนดเองผ่านฟิลด์หมวดหมู่",
+      "noCategories": "ยังไม่มีหมวดหมู่ยูนิตกำหนดเอง",
+      "deleteBlocked": "ลบ \"{{id}}\" ไม่ได้ - ยังถูกใช้งานโดย {{refs}} นำการอ้างอิงเหล่านั้นออกก่อน",
+      "addCategory": "เพิ่มหมวดหมู่ยูนิต",
+      "clonePickerTitle": "โคลนหมวดหมู่ยูนิตในตัว"
+    },
+    "damageTypesPanel": {
+      "title": "ประเภทความเสียหายกำหนดเอง",
+      "description": "กำหนดประเภทความเสียหายประชิดหรือระยะไกลใหม่ อ้างอิงโดยยูนิตกำหนดเองผ่าน meleeDamageType หรือ rangedDamageTypes",
+      "noDamageTypes": "ยังไม่มีประเภทความเสียหายกำหนดเอง",
+      "ranged": "ระยะไกล",
+      "melee": "ประชิด",
+      "cloneOptionLabel": "{{name}} ({{kind}})",
+      "itemLabel": "{{name}} ({{kind}}, id {{id}})",
+      "deleteBlocked": "ลบ \"{{name}}\" ไม่ได้ - ยังถูกใช้งานโดย {{refs}} นำการอ้างอิงเหล่านั้นออกก่อน",
+      "addDamageType": "เพิ่มประเภทความเสียหาย",
+      "clonePickerTitle": "โคลนประเภทความเสียหายในตัว"
+    },
+    "terrainCategoriesPanel": {
+      "title": "หมวดหมู่ภูมิประเทศกำหนดเอง",
+      "description": "แทนที่การตั้งค่าหมวดหมู่ภูมิประเทศสำหรับฉากนี้ ใช้สิ่งนี้เพื่อกำหนดตัวปรับภูมิประเทศเฉพาะให้หมวดหมู่ยูนิตกำหนดเอง หรือเพื่อแนะนำ id หมวดหมู่ภูมิประเทศใหม่",
+      "noOverrides": "ยังไม่มีการแทนที่หมวดหมู่ภูมิประเทศกำหนดเอง",
+      "addTerrainCategory": "เพิ่มหมวดหมู่ภูมิประเทศ",
+      "clonePickerTitle": "โคลนหมวดหมู่ภูมิประเทศในตัว"
+    },
+    "overrideEditor": {
+      "invalidJson": "JSON ไม่ถูกต้อง",
+      "reset": "รีเซ็ต",
+      "eraDefault": "ค่าเริ่มต้นของยุค: {{value}}",
+      "structuralTooltip": "ค่าคงที่เชิงโครงสร้าง / ดีเทอร์มินิสติก การเปลี่ยนแปลงอาจทำให้การเรนเดอร์ รีเพลย์ หรือการจับคู่เสียหาย"
+    },
+    "importModal": {
+      "kindUnitTemplates": "เทมเพลตยูนิต",
+      "kindDamageTypes": "ประเภทความเสียหาย",
+      "kindFormations": "กระบวนทัพ",
+      "kindUnitCategories": "หมวดหมู่ยูนิต",
+      "kindTerrainCategories": "หมวดหมู่ภูมิประเทศ",
+      "kindSprites": "สไปรต์",
+      "unitItemLabel": "{{name}} (#{{type}})",
+      "damageTypeItemLabel": "{{name}} ({{kind}})",
+      "nothing": "ไม่มีอะไร",
+      "title": "นำเข้า {{kind}} จากฉาก",
+      "pickFilePrompt": "เลือกไฟล์ฉาก (JSON ที่ปุ่มดาวน์โหลดของเครื่องมือสร้างฉากสร้างขึ้น) เพื่อนำเข้า {{kind}} กำหนดเองจากไฟล์นั้น",
+      "chooseFile": "เลือกไฟล์ฉาก",
+      "fileReadError": "อ่านไฟล์นั้นเป็นฉากไม่ได้",
+      "invalidForEra": "นิยามกำหนดเองของฉากนี้ไม่ถูกต้องสำหรับยุคปัจจุบัน (เช่น {{message}})",
+      "importWouldInvalidate": "การนำเข้าจะทำให้ฉากไม่ถูกต้อง (เช่น {{message}}) ไม่มีการเปลี่ยนแปลงใด ๆ",
+      "fromLabel": "จาก: {{name}}",
+      "importedScenario": "ฉากที่นำเข้า",
+      "changeFile": "เปลี่ยนไฟล์",
+      "noCustomDefs": "ฉากนี้ไม่มี {{kind}} กำหนดเอง",
+      "willImport": "จะนำเข้า (พร้อมการพึ่งพา): {{summary}}",
+      "resultSummary": "นำเข้าแล้ว {{imported}} เปลี่ยนชื่อ {{renamed}} ข้าม {{skipped}}",
+      "importSelected": "นำเข้าที่เลือก"
+    },
+    "importOverridesModal": {
+      "targetGameConstants": "การแทนที่ค่าคงที่ของเกม",
+      "targetGameRules": "การแทนที่กฎของเกม",
+      "targetOrders": "การแทนที่คำสั่ง",
+      "title": "นำเข้า {{target}} จากฉาก",
+      "pickFilePrompt": "เลือกไฟล์ฉาก (JSON ที่ปุ่มดาวน์โหลดของเครื่องมือสร้างฉากสร้างขึ้น) เพื่อนำเข้า {{target}} จากไฟล์นั้น",
+      "noOverrides": "ฉากนี้ไม่มี {{target}}",
+      "importedCount_other": "นำเข้าการแทนที่ {{count}} รายการแล้ว"
+    },
+    "gameConstants": {
+      "title": "การแทนที่ค่าคงที่ของเกม",
+      "description": "แทนที่ค่าคงที่เชิงตัวเลขของยุคนี้สำหรับฉากนี้ บันทึกเฉพาะค่าที่เปลี่ยนแปลง รีเซ็ตจะคืนฟิลด์เป็นค่าเริ่มต้นของยุค คีย์ที่ทำเครื่องหมาย ⚠ เป็นเชิงโครงสร้าง การเปลี่ยนแปลงอาจทำให้การเรนเดอร์ รีเพลย์ หรือการจับคู่เสียหาย ค่าเป็นหน่วยภายในแบบดิบ"
+    },
+    "gameRules": {
+      "title": "การแทนที่กฎของเกม",
+      "description": "แทนที่กฎการเล่นของยุคนี้สำหรับฉากนี้ บันทึกเฉพาะค่าที่เปลี่ยนแปลง ใช้รีเซ็ตเพื่อคืนฟิลด์เป็นค่าเริ่มต้นของยุค ค่าเป็นหน่วยภายในแบบดิบ (บางค่าสถานะถูกเก็บแบบปรับสเกลไว้ล่วงหน้า)"
+    },
+    "ordersPanel": {
+      "title": "การแทนที่คำสั่ง",
+      "description": "แทนที่ค่าของคำสั่งในตัวของยุคนี้สำหรับฉากนี้ บันทึกเฉพาะค่าที่เปลี่ยนแปลง ใช้รีเซ็ตเพื่อคืนฟิลด์เป็นค่าเริ่มต้นของยุค คุณแก้ไขคำสั่งที่มีอยู่ได้แต่เพิ่มคำสั่งใหม่ไม่ได้"
+    },
+    "clonePicker": {
+      "alreadyOverridden": "(แทนที่แล้ว)",
+      "alreadyOverriddenTooltip": "แบบในตัวนี้มีการแทนที่กำหนดเองในฉากนี้แล้ว แก้ไขจากรายการแทน",
+      "clone": "โคลน",
+      "override": "แทนที่"
+    },
+    "spriteSelect": {
+      "default": "ค่าเริ่มต้น",
+      "unknownOption": "{{value}} (ไม่รู้จัก)",
+      "groupCustom": "กำหนดเอง",
+      "groupBuiltIn": "ในตัว"
+    }
+  },
+  "resize": {
+    "title": "ปรับขนาดแผนที่",
+    "currentSize": "ขนาดปัจจุบัน: {{width}} × {{height}} ช่อง",
+    "newSize": "ขนาดใหม่: {{width}} × {{height}} ช่อง",
+    "current": "ปัจจุบัน: {{width}} × {{height}} ช่อง",
+    "confirmTitle": "ยืนยันการปรับขนาดแผนที่",
+    "warningCannotUndo": "⚠️ <0>คำเตือน:</0> การดำเนินการนี้ไม่สามารถยกเลิกได้",
+    "continue": "ดำเนินการต่อ",
+    "tabScale": "ปรับสเกล",
+    "tabExpandCut": "ขยาย / ตัดด้าน",
+    "scale": {
+      "newWidth": "ความกว้างใหม่ (ช่อง)",
+      "newHeight": "ความสูงใหม่ (ช่อง)",
+      "apply": "ปรับขนาดแผนที่",
+      "errorInvalid": "โปรดใส่ตัวเลขจำนวนบวกที่ถูกต้องสำหรับความกว้างและความสูงเป็นช่อง",
+      "warningBody": "ตรวจสอบว่าคุณบันทึกฉากแล้วก่อนดำเนินการต่อ การปรับขนาดจะปรับสเกลภูมิประเทศ ความสูง ยูนิต เป้าหมาย และตำแหน่งทริกเกอร์ทั้งหมด"
+    },
+    "expandCut": {
+      "intro": "ค่าบวกจะเพิ่มช่อง ค่าลบจะนำช่องออกจากแต่ละด้าน",
+      "left": "ซ้าย (ช่อง)",
+      "right": "ขวา (ช่อง)",
+      "top": "บน (ช่อง)",
+      "bottom": "ล่าง (ช่อง)",
+      "sideExpand": "+{{count}} ช่อง (ขยาย)",
+      "sideCut": "{{count}} ช่อง (ตัด)",
+      "noChange": "ไม่มีการเปลี่ยนแปลง",
+      "apply": "ใช้การเปลี่ยนแปลง",
+      "errorTooSmall": "ปรับขนาดไม่ได้: แผนที่ที่ได้จะเล็กกว่า 1×1 ช่อง โปรดปรับค่า",
+      "errorTooLarge": "ปรับขนาดไม่ได้: แผนที่ที่ได้จะเกินขนาดสูงสุด {{maxWidth}}×{{maxHeight}} ช่อง",
+      "warningBody": "ตรวจสอบว่าคุณบันทึกฉากแล้วก่อนดำเนินการต่อ การขยาย/ตัดจะเพิ่มหรือนำช่องออกจากด้านที่ระบุ ยูนิตและเป้าหมายที่อยู่นอกขอบเขตใหม่จะถูกนำออก",
+      "changesHeading": "การเปลี่ยนแปลง:",
+      "changesHorizontal": "ซ้าย: {{left}} ช่อง, ขวา: {{right}} ช่อง",
+      "changesVertical": "บน: {{top}} ช่อง, ล่าง: {{bottom}} ช่อง"
+    }
+  },
+  "mapSize": {
+    "widthInTiles": "ความกว้างเป็นช่อง",
+    "heightInTiles": "ความสูงเป็นช่อง",
+    "widthPlaceholder": "กว้าง",
+    "heightPlaceholder": "สูง"
+  },
+  "misc": {
+    "scaleAllSizesBy": "ปรับสเกลทุกขนาดด้วย",
+    "apply": "ใช้",
+    "background": "พื้นหลัง",
+    "chooseImage": "เลือกภาพ"
+  },
+  "localesPanel": {
+    "title": "ภาษา",
+    "description": "ภาษาใช้สำหรับแปลฉากเป็นภาษาต่าง ๆ",
+    "addLanguage": "เพิ่มภาษา",
+    "removeLanguage": "นำภาษาออก",
+    "noKeys": "ไม่มีคีย์การแปล เพิ่มคีย์เพื่อเริ่มต้น",
+    "addKey": "เพิ่มคีย์",
+    "keyLabel": "คีย์",
+    "removeKey": "นำคีย์ออก",
+    "keyPlaceholder": "คีย์การแปล",
+    "valueLabel": "ค่า",
+    "valuePlaceholder": "ค่าการแปล",
+    "addLanguageTitle": "เพิ่มภาษา",
+    "languageCodeLabel": "รหัสภาษา",
+    "languageCodePlaceholder": "เช่น 'en', 'es', 'fr'",
+    "languageCodeEmpty": "รหัสภาษาห้ามว่าง",
+    "languageAlreadyExists": "ภาษา \"{{language}}\" มีอยู่แล้ว",
+    "addKeyTitle": "เพิ่มคีย์การแปล - {{language}}",
+    "keyNameLabel": "ชื่อคีย์",
+    "keyNamePlaceholder": "เช่น 'title', 'description', 'button_text'",
+    "keyNameEmpty": "ชื่อคีย์ห้ามว่าง",
+    "keyAlreadyExists": "คีย์ \"{{key}}\" มีอยู่แล้วใน \"{{language}}\""
+  },
+  "triggers": {
+    "title": "ทริกเกอร์",
+    "moreInfo": "ข้อมูลเพิ่มเติมเกี่ยวกับทริกเกอร์ที่นี่",
+    "lastPositionClicked": "ตำแหน่งที่คลิกล่าสุด: [{{x}}, {{y}}]",
+    "createTrigger": "สร้างทริกเกอร์",
+    "createTriggerButton": "สร้างทริกเกอร์",
+    "format": "จัดรูปแบบ",
+    "invalidJsonFormat": "รูปแบบ JSON ไม่ถูกต้อง",
+    "event": "เหตุการณ์",
+    "conditionLogic": "ตรรกะเงื่อนไข",
+    "conditionLogicAnd": "ทุกเงื่อนไข (AND)",
+    "conditionLogicOr": "เงื่อนไขใดก็ได้ (OR)",
+    "conditions": "เงื่อนไข",
+    "addCondition": "เพิ่มเงื่อนไข",
+    "actions": "การกระทำ",
+    "addAction": "เพิ่มการกระทำ",
+    "once": "ครั้งเดียว"
+  },
+  "randomMap": {
+    "title": "แผนที่สุ่ม",
+    "moreInfo": "ข้อมูลเพิ่มเติมเกี่ยวกับแผนที่สุ่มที่นี่",
+    "proceduralMap": "แผนที่สร้างตามขั้นตอน (สุ่ม)",
+    "proceduralExplanation": "คำสั่งเหล่านี้สร้างแผนที่จากซีดใหม่ในแต่ละแมตช์ ฉากที่บันทึกจะละทิ้งแผนที่ที่อบไว้ แผนที่ที่แสดงที่นี่เป็นเพียงตัวอย่าง เป้าหมายที่วางโดยคำสั่งเป้าหมาย / เลเยอร์เป้าหมายจะปรากฏตอนแมตช์ ไม่ใช่ในตัวอย่างนี้",
+    "startFromTemplate": "เริ่มจากเทมเพลต",
+    "loadInstructionsFromTemplate": "โหลดคำสั่งจากเทมเพลต",
+    "generating": "กำลังสร้าง…",
+    "generatePreview": "สร้างตัวอย่าง",
+    "instructions": "คำสั่ง",
+    "instructionsWithCount": "คำสั่ง ({{count}})",
+    "formEditor": "ตัวแก้ไขแบบฟอร์ม",
+    "editAsJson": "แก้ไขเป็น JSON",
+    "noInstructions": "ยังไม่มีคำสั่ง เพิ่มด้านบนหรือโหลดเทมเพลต",
+    "moveUp": "เลื่อนขึ้น",
+    "moveDown": "เลื่อนลง",
+    "switchToPresetConfirm": "การสลับไปใช้แบบสำเร็จรูปจะคงภูมิประเทศปัจจุบันไว้และล้างคำสั่งการสร้าง ดำเนินการต่อหรือไม่?",
+    "replaceInstructionsConfirm": "แทนที่คำสั่งปัจจุบันด้วยคำสั่งของเทมเพลตหรือไม่?",
+    "fillFromTemplateDescription": "เติมภูมิประเทศของแผนที่ปัจจุบันจากเทมเพลตที่สร้างตามขั้นตอน วิธีนี้จะอบแผนที่แบบตายตัว (สำเร็จรูป) และไม่เก็บคำสั่งการสร้างใด ๆ",
+    "template": "เทมเพลต",
+    "useSeed": "ใช้ซีดหรือไม่?",
+    "useSeedDescription": "สร้างภูมิประเทศโดยใช้การสร้างตามขั้นตอน",
+    "confirmOverwriteLabel": "ฉันเข้าใจว่าการนี้จะเขียนทับภูมิประเทศทั้งหมด",
+    "lastUsedSeed": "ซีดที่ใช้ล่าสุด:",
+    "generate": "สร้าง",
+    "importMustBeProcedural": "ไฟล์ที่นำเข้าต้องเป็นเทมเพลตที่สร้างตามขั้นตอน (ไม่มีแผนที่ที่อบไว้ มีคำสั่งการสร้าง)",
+    "invalidJsonFile": "ไฟล์ JSON ไม่ถูกต้อง โปรดตรวจสอบรูปแบบไฟล์",
+    "confirmOverwriteWarning": "โปรดยืนยันว่าคุณเข้าใจว่าการนี้จะเขียนทับภูมิประเทศ",
+    "selectedNotProcedural": "ฉากที่เลือกไม่ใช่เทมเพลตที่สร้างตามขั้นตอน",
+    "invalidJson": "JSON ไม่ถูกต้อง"
+  }
+}
