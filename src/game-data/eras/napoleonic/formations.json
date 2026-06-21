@@ -146,7 +146,7 @@
   },
   {
     "id": "cavalry",
-    "collisionShape": { "type": 1, "frontage": 16, "depth": 12 },
+    "collisionShape": { "type": 1, "frontage": 24, "depth": 12 },
     "fireEdges": [{ "edge": 1, "arc": 360, "emitters": 1 }],
     "disablesEnfiladeFire": true,
     "disablesFlankMelee": false,
