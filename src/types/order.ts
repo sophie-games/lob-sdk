@@ -258,8 +258,8 @@ export interface OrderTemplate {
   speedModifierWhenShootingByCategory?: Partial<Record<UnitCategoryId, number>>;
   /** Modifier for damage received while executing this order. */
   receivedDamageModifier?: number;
-  /** Whether the unit can fire while moving (0 = false, 1 = true). */
-  allowFireWhenMoving?: number;
+  /** Whether the unit can fire while moving. */
+  allowFireWhenMoving?: boolean;
   /** Charge resistance bonus while executing this order. */
   chargeResistance?: number;
   /** Whether this order keeps enemy units running. */
