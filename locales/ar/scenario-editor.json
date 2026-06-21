@@ -2,20 +2,33 @@
   "common": {
     "add": "إضافة",
     "addEntry": "إضافة مدخل",
-    "cancel": "إلغاء",
     "delete": "حذف",
-    "edit": "تعديل",
-    "name": "الاسم",
     "noEntries": "لا توجد مدخلات.",
     "none": "لا شيء",
     "remove": "إزالة",
-    "save": "حفظ",
     "select": "اختيار...",
-    "unknown": "(غير معروف)"
-  },
-  "editor": {
-    "loadScenario": "تحميل سيناريو",
-    "chooseScenarioFile": "اختر ملف السيناريو"
+    "unknown": "(غير معروف)",
+    "chooseScenarioFile": "اختر ملف السيناريو",
+    "positionX": "الموضع X",
+    "positionY": "الموضع Y",
+    "mixed": "متنوع",
+    "width": "العرض",
+    "identity": "الهوية",
+    "formationId": "معرّف التشكيل",
+    "movementModifier": "معدل الحركة",
+    "rangedAttackModifier": "معدل الهجوم البعيد",
+    "chargeBonusModifier": "معدل مكافأة الهجوم",
+    "chargeResistanceModifier": "معدل مقاومة الهجوم",
+    "pushStrengthModifier": "معدل قوة الدفع",
+    "addFormation": "إضافة تشكيل",
+    "idIsRequired": "المعرّف مطلوب",
+    "id": "المعرّف",
+    "enfiladeFire": "النيران الجانبية",
+    "damageModifier": "معدل الضرر",
+    "orgModifier": "معدل التنظيم",
+    "invalidJson": "JSON غير صالح",
+    "resizeMap": "تغيير حجم الخريطة",
+    "addLanguage": "إضافة لغة"
   },
   "editorPanel": {
     "tabs": {
@@ -27,7 +40,6 @@
       "advanced": "متقدم"
     },
     "togglePanel": "تبديل اللوحة",
-    "title": "محرر السيناريو",
     "downloadScenario": "تنزيل السيناريو",
     "copyScenario": "نسخ السيناريو",
     "fullscreen": "ملء الشاشة",
@@ -45,83 +57,46 @@
     "goBackConfirm": "هل أنت متأكد من أنك تريد الرجوع والخروج من المحرر؟"
   },
   "createScenario": {
-    "title": "إنشاء سيناريو",
     "randomMap": "خريطة عشوائية (إجرائية)؟",
     "isHybrid": "مختلط؟"
   },
   "playersPanel": {
-    "title": "اللاعبون",
     "removePlayer": "إزالة لاعب"
   },
   "terrainPanel": {
-    "title": "التضاريس",
-    "active": "نشط",
     "setTerrain": "تعيين التضاريس",
     "terrainHeight": "ارتفاع التضاريس",
-    "radius": "نصف القطر",
     "paintBucket": "دلو الطلاء"
   },
   "unitPanel": {
     "title": "الوحدة المحددة",
-    "player": "اللاعب",
     "unitType": "نوع الوحدة",
-    "optional": "اختياري",
-    "positionX": "الموضع X",
-    "positionY": "الموضع Y",
     "rotation": "الدوران",
-    "mixed": "متنوع",
     "copyJson": "نسخ JSON",
     "copyUnits": "نسخ الوحدات",
     "unitsCopied": "تم نسخ الوحدات ({{count}})",
-    "deselect": "إلغاء التحديد",
     "removeSelectedUnits": "إزالة الوحدات المحددة"
   },
   "createUnit": {
     "title": "إنشاء وحدة",
-    "active": "نشط",
     "usingCopiedUnits": "استخدام الوحدات المنسوخة",
-    "customLabel": "{{name}} (مخصص)",
-    "fields": {
-      "unit": "الوحدة",
-      "player": "اللاعب"
-    }
+    "customLabel": "{{name}} (مخصص)"
   },
   "objectivePanel": {
     "title": "الهدف المحدد",
     "player": "اللاعب {{player}}",
     "team": "الفريق {{team}}",
-    "namePlaceholder": "اختياري",
-    "mixed": "متنوع",
-    "deselect": "إلغاء التحديد",
     "removeSelected": "إزالة الهدف المحدد",
-    "type": {
-      "small": "صغير",
-      "big": "كبير"
-    },
     "fields": {
-      "type": "النوع",
-      "logistics": "اللوجستيات",
       "manpowerPerTurn": "القوى البشرية لكل دور",
-      "goldPerTurn": "الذهب لكل دور",
-      "victoryPoints": "نقاط النصر",
-      "positionX": "الموضع X",
-      "positionY": "الموضع Y"
+      "goldPerTurn": "الذهب لكل دور"
     }
   },
   "createObjective": {
     "title": "إنشاء هدف",
-    "active": "نشط",
     "gaia": "محايد",
-    "type": {
-      "small": "صغير",
-      "big": "كبير"
-    },
     "fields": {
-      "objectiveType": "نوع الهدف",
-      "victoryPoints": "نقاط النصر",
-      "player": "اللاعب",
-      "team": "الفريق",
-      "logistics": "اللوجستيات"
+      "objectiveType": "نوع الهدف"
     }
   },
   "deployment": {
@@ -131,9 +106,7 @@
     "forwardZone": "أمامي",
     "fields": {
       "x": "X",
-      "y": "Y",
-      "width": "العرض",
-      "height": "الارتفاع"
+      "y": "Y"
     }
   },
   "vpBalance": {
@@ -145,8 +118,6 @@
   },
   "formationModal": {
     "title": "تعديل تشكيل مخصص",
-    "identity": "الهوية",
-    "formationId": "معرّف التشكيل",
     "collision": "التصادم",
     "collisionHelp": "شكل البصمة: دائرة (نصف القطر) أو مستطيل (الواجهة عبر المقدمة، والعمق من الأمام إلى الخلف). استخدم نصف قطر 0 لإلغاء التصادم (طائر / شبح).",
     "shape": "الشكل",
@@ -155,8 +126,6 @@
     "radiusPx": "نصف القطر (px)",
     "frontagePx": "الواجهة (px)",
     "depthPx": "العمق (px)",
-    "movement": "الحركة",
-    "movementModifier": "معدل الحركة",
     "runMovementModifier": "معدل حركة الجري",
     "rotationSpeedModifier": "معدل سرعة الدوران",
     "disable180Turn": "تعطيل الدوران 180°",
@@ -164,21 +133,9 @@
     "timeToForm": "وقت التشكيل (ticks)",
     "timeToUnform": "وقت التفكيك (ticks)",
     "minMovementModifier": "معدل الحركة الأدنى",
-    "combat": "القتال",
-    "rangedAttackModifier": "معدل الهجوم البعيد",
-    "chargeBonusModifier": "معدل مكافأة الهجوم",
     "chargePenetrationModifier": "معدل اختراق الهجوم",
-    "chargeResistanceModifier": "معدل مقاومة الهجوم",
-    "pushStrengthModifier": "معدل قوة الدفع",
     "receivedMeleeDamageModifier": "معدل ضرر القتال القريب المستلم",
     "flanking": "الالتفاف",
-    "disablesFlankMelee": "يعطّل القتال القريب الجانبي",
-    "disablesEnfiladeFire": "يعطّل النيران الجانبية",
-    "disablesRearFire": "يعطّل النيران الخلفية",
-    "flankChargeResistance": "مقاومة الهجوم الجانبي",
-    "rearChargeResistance": "مقاومة الهجوم الخلفي",
-    "enfiladeFireResistance": "مقاومة النيران الجانبية",
-    "rearFireResistance": "مقاومة النيران الخلفية",
     "rangedDamageResistance": "مقاومة الضرر البعيد",
     "rangedOrgResistance": "مقاومة التنظيم البعيد",
     "fireEdges": "حواف الإطلاق (إطلاق من الحواف)",
@@ -202,10 +159,7 @@
     "title": "تعديل قالب وحدة مخصص",
     "optBuiltIn": "{{name}} (مدمج)",
     "optCustom": "{{name}} (مخصص)",
-    "identity": "الهوية",
     "typeId": "معرّف النوع",
-    "category": "الفئة",
-    "combat": "القتال",
     "meleeAttack": "هجوم قريب",
     "meleeDefense": "دفاع قريب",
     "meleeDamageType": "نوع ضرر القتال القريب",
@@ -215,13 +169,11 @@
     "flankMeleeOrgModifier": "معدل تنظيم القتال القريب الجانبي",
     "flankChargePenBonus": "مكافأة اختراق الهجوم الجانبي",
     "stats": "الإحصائيات",
-    "hp": "HP",
     "org": "التنظيم",
     "shattersAtOrg": "ينهار عند التنظيم",
     "routesAtOrg": "يفر عند التنظيم",
     "recoversAtOrg": "يتعافى عند التنظيم",
     "ralliesAtOrg": "يتجمع عند التنظيم",
-    "stamina": "التحمل",
     "manpower": "القوى البشرية",
     "gold": "الذهب",
     "orgRadius": "نطاق التنظيم",
@@ -229,43 +181,31 @@
     "reportStats": "إحصائيات التقرير",
     "reportStatsHelp": "العدد الذي تساهم به كل وحدة في تقارير المعركة (مثل الرجال والخيول والمدافع). تأتي المفاتيح من الوحدات المدمجة في العصر.",
     "tallyPerUnit": "العدد لكل وحدة",
-    "movement": "الحركة",
     "walkMovement": "حركة المشي",
     "runMovement": "حركة الجري",
     "runStartUpMovement": "حركة بدء الجري",
     "timeToRun": "وقت الجري (ticks)",
     "runCost": "تكلفة الجري",
-    "rotationSpeed": "سرعة الدوران",
-    "rotationMaxThreshold": "الحد الأقصى لعتبة الدوران",
-    "runRotationSpeed": "سرعة دوران الجري",
     "turningDelay": "تأخير الدوران (ticks)",
     "startsRunning": "يبدأ بالجري",
     "movementSound": "صوت الحركة",
     "rangedCombat": "القتال البعيد",
     "rangedAttack": "هجوم بعيد",
-    "ammo": "الذخيرة",
-    "minDistanceToFAA": "الحد الأدنى للمسافة إلى FAA",
     "panicFireDistance": "مسافة إطلاق النار في الذعر",
     "fireWhileMoving": "الإطلاق أثناء الحركة",
     "noAmmoRegain": "لا استعادة للذخيرة",
     "rangedDamageTypes": "أنواع الضرر البعيد",
     "addRangedDamageType": "إضافة نوع ضرر بعيد",
     "enableRanged": "تفعيل البعيد",
-    "formations": "التشكيلات",
-    "formationId": "معرّف التشكيل",
     "baseSprite": "الرسم الأساسي",
     "overlaySprite": "الرسم العلوي",
-    "addFormation": "إضافة تشكيل",
     "defaultFormation": "التشكيل الافتراضي",
-    "supply": "الإمداد",
-    "supplyField": "الإمداد",
     "supplyConsumptionIdle": "استهلاك الإمداد خاملاً",
     "supplyConsumptionMoving": "استهلاك الإمداد متحركاً",
     "supplyConsumptionCombating": "استهلاك الإمداد في القتال",
     "supplyManpowerCost": "تكلفة الإمداد بالقوى البشرية",
     "supplyGoldCost": "تكلفة الإمداد بالذهب",
     "misc": "متفرقات",
-    "skirmisherRatio": "نسبة المناوشين",
     "canDeployForward": "يمكن النشر للأمام",
     "reducedVisibilityRange": "مدى رؤية مخفّض",
     "unknownType": "معرّف نوع غير معروف",
@@ -279,7 +219,6 @@
     "optionBuiltIn": "{{name}} (مدمج)",
     "optionCustom": "{{name}} (مخصص)",
     "errors": {
-      "idRequired": "المعرّف مطلوب",
       "idInUse": "معرّف فئة الوحدة \"{{id}}\" مستخدم بالفعل",
       "firingAltitudeRequired": "firingAltitude مطلوب",
       "orphanedResistances": "damageTypeResistances يشير إلى أنواع ضرر غير معروفة: {{types}}",
@@ -288,8 +227,6 @@
       "allowedOrderUnknown": "الأمر المسموح به \"{{name}}\" ليس أمراً معروفاً لهذا العصر"
     },
     "identity": {
-      "legend": "الهوية",
-      "id": "المعرّف",
       "deploymentSection": "قسم النشر"
     },
     "deploymentSection": {
@@ -298,10 +235,7 @@
       "front": "الأمام"
     },
     "combat": {
-      "legend": "القتال",
       "firingAltitude": "ارتفاع الإطلاق",
-      "allyCollisionLevel": "مستوى تصادم الحلفاء",
-      "enemyCollisionLevel": "مستوى تصادم الأعداء",
       "captureSpeed": "سرعة الاستيلاء",
       "impactAltitude": "ارتفاع الارتطام",
       "grazingAltitude": "ارتفاع المرور القريب"
@@ -318,14 +252,8 @@
       "speedRun": "جري",
       "fleeWhenRouted": "الفرار عند الانهزام"
     },
-    "enfiladeFire": {
-      "legend": "النيران الجانبية",
-      "damageModifier": "معدل الضرر",
-      "orgModifier": "معدل التنظيم"
-    },
     "rearFire": {
-      "legend": "النيران الخلفية",
-      "orgModifier": "معدل التنظيم"
+      "legend": "النيران الخلفية"
     },
     "chargeBacklash": {
       "legend": "الارتداد المضاد للهجوم",
@@ -344,7 +272,6 @@
       "fieldLabel": "المقاومة حسب نوع الضرر"
     },
     "autofire": {
-      "legend": "أولوية الإطلاق التلقائي",
       "description": "وزن الأولوية لكل فئة وحدة هدف. القيم الأعلى أهداف مفضّلة للإطلاق التلقائي.",
       "fieldLabel": "الأولوية حسب فئة الهدف"
     },
@@ -356,28 +283,20 @@
   "damageTypeModal": {
     "title": "تعديل نوع ضرر مخصص",
     "sections": {
-      "identity": "الهوية",
-      "damage": "الضرر",
       "projectile": "المقذوف",
       "rangeBrackets": "نطاقات المدى",
       "areaOfEffect": "منطقة التأثير"
     },
     "fields": {
-      "id": "المعرّف",
       "ranged": "بعيد",
       "imageAlias": "اسم بديل للصورة",
       "orgDamageRatio": "نسبة ضرر التنظيم",
-      "damageModifier": "معدل الضرر",
       "reorgDebuff": "عقوبة إعادة التنظيم",
       "attackEffectDuration": "مدة تأثير الهجوم (ticks)",
-      "projectileWidth": "عرض المقذوف",
       "arcHeight": "ارتفاع القوس",
-      "projectilePenetration": "اختراق المقذوف",
       "ammoCost": "تكلفة الذخيرة",
       "shotSound": "صوت الطلقة",
       "shotAnim": "رسم الطلقة",
-      "enfiladeFire": "النيران الجانبية",
-      "cannotUseAfterRun": "لا يمكن الاستخدام بعد الجري",
       "extendRange": "تمديد المدى",
       "aimMode": "وضع التصويب"
     },
@@ -392,9 +311,6 @@
       "endMod": "معدل النهاية"
     },
     "aoe": {
-      "type": "النوع",
-      "circular": "دائري",
-      "trapezoidal": "شبه منحرف",
       "absorptionModifier": "معدل الامتصاص",
       "edgeDamageModifier": "معدل ضرر الحافة",
       "offset": "الإزاحة",
@@ -424,7 +340,6 @@
   "terrainCategoryModal": {
     "title": "تعديل فئة تضاريس مخصصة",
     "sections": {
-      "identity": "الهوية",
       "scalarProperties": "خصائص عددية",
       "perUnitCategoryModifiers": "معدلات لكل فئة وحدة",
       "projectileAbsorption": "امتصاص المقذوفات"
@@ -437,29 +352,21 @@
       "custom": "{{name}} (مخصص)"
     },
     "fields": {
-      "id": "المعرّف",
       "color": "اللون",
       "staminaCostModifier": "معدل تكلفة التحمل",
       "hitboxHeight": "ارتفاع صندوق التصادم",
-      "heightOffset": "إزاحة الارتفاع",
       "visionAbsorption": "امتصاص الرؤية",
-      "pushStrengthModifier": "معدل قوة الدفع",
       "pushDistanceModifier": "معدل مسافة الدفع",
       "fixedEnemyCollisionLevel": "مستوى تصادم الأعداء الثابت",
       "canPlaceObjectives": "يمكن وضع الأهداف",
       "prioritizeMovement": "إعطاء الأولوية للحركة",
       "supplyRoute": "طريق الإمداد",
-      "movementModifier": "معدل الحركة",
       "impassableFor": "غير سالك لـ",
       "attackModifier": "معدل الهجوم",
       "defenseModifier": "معدل الدفاع",
-      "rangedAttackModifier": "معدل الهجوم البعيد",
-      "chargeResistanceModifier": "معدل مقاومة الهجوم",
-      "chargeBonusModifier": "معدل مكافأة الهجوم",
       "projectileAbsorptionByDamageType": "امتصاص المقذوفات حسب نوع الضرر"
     },
     "errors": {
-      "idRequired": "المعرّف مطلوب",
       "idInUse": "معرّف فئة التضاريس \"{{id}}\" مستخدم بالفعل",
       "unknownUnitCategories": "{{field}} يشير إلى فئات وحدات غير معروفة: {{keys}}",
       "unknownDamageTypes": "projectileAbsorption يشير إلى أنواع ضرر غير معروفة: {{keys}}"
@@ -468,8 +375,7 @@
   "customDefs": {
     "common": {
       "importFromScenario": "استيراد من سيناريو",
-      "duplicate": "تكرار",
-      "done": "تم"
+      "duplicate": "تكرار"
     },
     "spritesPanel": {
       "title": "رسومات مخصصة",
@@ -486,7 +392,6 @@
       "libraryTitle": "مكتبة الرسومات",
       "libraryDescription": "تصفّح الرسومات المدمجة في العصر للاستلهام.",
       "filterPlaceholder": "تصفية بالاسم...",
-      "loading": "جاري التحميل...",
       "unitBase": "أساس الوحدة ({{count}})",
       "unitOverlay": "تراكب الوحدة ({{count}})",
       "noMatches": "لا توجد تطابقات."
@@ -505,7 +410,6 @@
       "description": "عرّف قوالب تشكيلات جديدة (التصادم، المعدلات، قواعد الإطلاق) يمكن للوحدات المخصصة استخدامها.",
       "noFormations": "لا توجد تشكيلات مخصصة بعد.",
       "deleteBlocked": "لا يمكن حذف \"{{id}}\" - لا يزال مستخدماً من قبل {{refs}}. أزل تلك المراجع أولاً.",
-      "addFormation": "إضافة تشكيل",
       "clonePickerTitle": "استنساخ تشكيل مدمج"
     },
     "unitCategoriesPanel": {
@@ -536,7 +440,6 @@
       "clonePickerTitle": "استنساخ فئة تضاريس مدمجة"
     },
     "overrideEditor": {
-      "invalidJson": "JSON غير صالح",
       "reset": "إعادة تعيين",
       "eraDefault": "افتراضي العصر: {{value}}",
       "structuralTooltip": "ثابت بنيوي / حتمي. تغييره قد يكسر العرض أو الإعادات أو المطابقة."
@@ -553,7 +456,6 @@
       "nothing": "لا شيء",
       "title": "استيراد {{kind}} من سيناريو",
       "pickFilePrompt": "اختر ملف سيناريو (ملف JSON الذي ينتجه زر التنزيل في المحرر) لاستيراد {{kind}} المخصصة منه.",
-      "chooseFile": "اختر ملف السيناريو",
       "fileReadError": "تعذّرت قراءة هذا الملف كسيناريو.",
       "invalidForEra": "التعريفات المخصصة لهذا السيناريو غير صالحة للعصر الحالي (مثل {{message}}).",
       "importWouldInvalidate": "الاستيراد سيجعل السيناريو غير صالح (مثل {{message}}). لم يتم تغيير أي شيء.",
@@ -600,24 +502,20 @@
     "spriteSelect": {
       "default": "افتراضي",
       "unknownOption": "{{value}} (غير معروف)",
-      "groupCustom": "مخصص",
       "groupBuiltIn": "مدمج"
     }
   },
   "resize": {
-    "title": "تغيير حجم الخريطة",
     "currentSize": "الحجم الحالي: {{width}} × {{height}} بلاطة",
     "newSize": "الحجم الجديد: {{width}} × {{height}} بلاطة",
     "current": "الحالي: {{width}} × {{height}} بلاطة",
     "confirmTitle": "تأكيد تغيير حجم الخريطة",
     "warningCannotUndo": "⚠️ <0>تحذير:</0> لا يمكن التراجع عن هذه العملية.",
-    "continue": "متابعة",
     "tabScale": "التحجيم",
     "tabExpandCut": "توسيع / قص الجوانب",
     "scale": {
       "newWidth": "العرض الجديد (بلاطات)",
       "newHeight": "الارتفاع الجديد (بلاطات)",
-      "apply": "تغيير حجم الخريطة",
       "errorInvalid": "يرجى إدخال أرقام موجبة صالحة للعرض والارتفاع بالبلاطات",
       "warningBody": "تأكد من حفظ سيناريوك قبل المتابعة. سيؤدي تغيير الحجم إلى تحجيم جميع التضاريس والارتفاعات والوحدات والأهداف ومواضع المُشغّلات."
     },
@@ -641,9 +539,7 @@
   },
   "mapSize": {
     "widthInTiles": "العرض بالبلاطات",
-    "heightInTiles": "الارتفاع بالبلاطات",
-    "widthPlaceholder": "العرض",
-    "heightPlaceholder": "الارتفاع"
+    "heightInTiles": "الارتفاع بالبلاطات"
   },
   "misc": {
     "scaleAllSizesBy": "تحجيم كل الأحجام بمقدار",
@@ -654,7 +550,6 @@
   "localesPanel": {
     "title": "اللغات",
     "description": "تُستخدم اللغات لترجمة السيناريو إلى لغات مختلفة.",
-    "addLanguage": "إضافة لغة",
     "removeLanguage": "إزالة لغة",
     "noKeys": "لا توجد مفاتيح ترجمة. أضف مفتاحاً للبدء.",
     "addKey": "إضافة مفتاح",
@@ -663,7 +558,6 @@
     "keyPlaceholder": "مفتاح الترجمة",
     "valueLabel": "القيمة",
     "valuePlaceholder": "قيمة الترجمة",
-    "addLanguageTitle": "إضافة لغة",
     "languageCodeLabel": "رمز اللغة",
     "languageCodePlaceholder": "مثل 'en'، 'es'، 'fr'",
     "languageCodeEmpty": "لا يمكن أن يكون رمز اللغة فارغاً",
@@ -720,7 +614,6 @@
     "importMustBeProcedural": "يجب أن يكون الملف المستورَد قالباً إجرائياً (بلا خريطة مخبوزة، مع تعليمات توليد).",
     "invalidJsonFile": "ملف JSON غير صالح. يرجى التحقق من تنسيق الملف.",
     "confirmOverwriteWarning": "يرجى تأكيد فهمك أن هذا سيستبدل التضاريس.",
-    "selectedNotProcedural": "السيناريو المحدد ليس قالباً إجرائياً.",
-    "invalidJson": "JSON غير صالح"
+    "selectedNotProcedural": "السيناريو المحدد ليس قالباً إجرائياً."
   }
 }

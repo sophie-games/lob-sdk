@@ -2,20 +2,33 @@
   "common": {
     "add": "Thêm",
     "addEntry": "Thêm mục",
-    "cancel": "Hủy",
     "delete": "Xóa",
-    "edit": "Chỉnh sửa",
-    "name": "Tên",
     "noEntries": "Không có mục nào.",
     "none": "Không có",
     "remove": "Loại bỏ",
-    "save": "Lưu",
     "select": "Chọn...",
-    "unknown": "(không xác định)"
-  },
-  "editor": {
-    "loadScenario": "Tải kịch bản",
-    "chooseScenarioFile": "Chọn tệp kịch bản"
+    "unknown": "(không xác định)",
+    "chooseScenarioFile": "Chọn tệp kịch bản",
+    "positionX": "Vị trí X",
+    "positionY": "Vị trí Y",
+    "mixed": "Hỗn hợp",
+    "width": "Chiều rộng",
+    "identity": "Danh tính",
+    "formationId": "ID đội hình",
+    "movementModifier": "Hệ số di chuyển",
+    "rangedAttackModifier": "Hệ số tấn công tầm xa",
+    "chargeBonusModifier": "Hệ số thưởng xung kích",
+    "chargeResistanceModifier": "Hệ số kháng xung kích",
+    "pushStrengthModifier": "Hệ số sức đẩy",
+    "addFormation": "Thêm đội hình",
+    "idIsRequired": "Bắt buộc có ID",
+    "id": "ID",
+    "enfiladeFire": "Hỏa lực dọc",
+    "damageModifier": "Hệ số sát thương",
+    "orgModifier": "Hệ số tổ chức",
+    "invalidJson": "JSON không hợp lệ",
+    "resizeMap": "Đổi kích thước bản đồ",
+    "addLanguage": "Thêm ngôn ngữ"
   },
   "editorPanel": {
     "tabs": {
@@ -27,7 +40,6 @@
       "advanced": "Nâng cao"
     },
     "togglePanel": "Bật/tắt bảng",
-    "title": "Trình chỉnh sửa kịch bản",
     "downloadScenario": "Tải xuống kịch bản",
     "copyScenario": "Sao chép kịch bản",
     "fullscreen": "Toàn màn hình",
@@ -45,83 +57,46 @@
     "goBackConfirm": "Bạn có chắc chắn muốn quay lại và thoát trình chỉnh sửa?"
   },
   "createScenario": {
-    "title": "Tạo kịch bản",
     "randomMap": "Bản đồ ngẫu nhiên (theo thủ tục)?",
     "isHybrid": "Là lai?"
   },
   "playersPanel": {
-    "title": "Người chơi",
     "removePlayer": "Loại bỏ người chơi"
   },
   "terrainPanel": {
-    "title": "Địa hình",
-    "active": "Hoạt động",
     "setTerrain": "Đặt địa hình",
     "terrainHeight": "Độ cao địa hình",
-    "radius": "Bán kính",
     "paintBucket": "Xô sơn"
   },
   "unitPanel": {
     "title": "Đơn vị đã chọn",
-    "player": "Người chơi",
     "unitType": "Loại đơn vị",
-    "optional": "Tùy chọn",
-    "positionX": "Vị trí X",
-    "positionY": "Vị trí Y",
     "rotation": "Xoay",
-    "mixed": "Hỗn hợp",
     "copyJson": "Sao chép JSON",
     "copyUnits": "Sao chép đơn vị",
     "unitsCopied": "Đã sao chép đơn vị ({{count}})",
-    "deselect": "Bỏ chọn",
     "removeSelectedUnits": "Loại bỏ đơn vị đã chọn"
   },
   "createUnit": {
     "title": "Tạo đơn vị",
-    "active": "Hoạt động",
     "usingCopiedUnits": "Đang dùng đơn vị đã sao chép",
-    "customLabel": "{{name}} (tùy chỉnh)",
-    "fields": {
-      "unit": "Đơn vị",
-      "player": "Người chơi"
-    }
+    "customLabel": "{{name}} (tùy chỉnh)"
   },
   "objectivePanel": {
     "title": "Mục tiêu đã chọn",
     "player": "Người chơi {{player}}",
     "team": "Đội {{team}}",
-    "namePlaceholder": "Tùy chọn",
-    "mixed": "Hỗn hợp",
-    "deselect": "Bỏ chọn",
     "removeSelected": "Loại bỏ mục tiêu đã chọn",
-    "type": {
-      "small": "Nhỏ",
-      "big": "Lớn"
-    },
     "fields": {
-      "type": "Loại",
-      "logistics": "Hậu cần",
       "manpowerPerTurn": "Nhân lực mỗi lượt",
-      "goldPerTurn": "Vàng mỗi lượt",
-      "victoryPoints": "Điểm chiến thắng",
-      "positionX": "Vị trí X",
-      "positionY": "Vị trí Y"
+      "goldPerTurn": "Vàng mỗi lượt"
     }
   },
   "createObjective": {
     "title": "Tạo mục tiêu",
-    "active": "Hoạt động",
     "gaia": "Gaia",
-    "type": {
-      "small": "Nhỏ",
-      "big": "Lớn"
-    },
     "fields": {
-      "objectiveType": "Loại mục tiêu",
-      "victoryPoints": "Điểm chiến thắng",
-      "player": "Người chơi",
-      "team": "Đội",
-      "logistics": "Hậu cần"
+      "objectiveType": "Loại mục tiêu"
     }
   },
   "deployment": {
@@ -131,9 +106,7 @@
     "forwardZone": "Tiền phương",
     "fields": {
       "x": "X",
-      "y": "Y",
-      "width": "Chiều rộng",
-      "height": "Chiều cao"
+      "y": "Y"
     }
   },
   "vpBalance": {
@@ -145,8 +118,6 @@
   },
   "formationModal": {
     "title": "Chỉnh sửa đội hình tùy chỉnh",
-    "identity": "Danh tính",
-    "formationId": "ID đội hình",
     "collision": "Va chạm",
     "collisionHelp": "Hình dạng vùng chiếm: hình tròn (bán kính) hoặc hình chữ nhật (mặt trận theo chiều trước, chiều sâu trước-sau). Dùng bán kính 0 để không va chạm (bay / bóng ma).",
     "shape": "Hình dạng",
@@ -155,8 +126,6 @@
     "radiusPx": "Bán kính (px)",
     "frontagePx": "Mặt trận (px)",
     "depthPx": "Chiều sâu (px)",
-    "movement": "Di chuyển",
-    "movementModifier": "Hệ số di chuyển",
     "runMovementModifier": "Hệ số di chuyển khi chạy",
     "rotationSpeedModifier": "Hệ số tốc độ xoay",
     "disable180Turn": "Tắt xoay 180°",
@@ -164,21 +133,9 @@
     "timeToForm": "Thời gian hình thành (ticks)",
     "timeToUnform": "Thời gian giải tán (ticks)",
     "minMovementModifier": "Hệ số di chuyển tối thiểu",
-    "combat": "Chiến đấu",
-    "rangedAttackModifier": "Hệ số tấn công tầm xa",
-    "chargeBonusModifier": "Hệ số thưởng xung kích",
     "chargePenetrationModifier": "Hệ số xuyên thủng xung kích",
-    "chargeResistanceModifier": "Hệ số kháng xung kích",
-    "pushStrengthModifier": "Hệ số sức đẩy",
     "receivedMeleeDamageModifier": "Hệ số sát thương cận chiến nhận",
     "flanking": "Đánh sườn",
-    "disablesFlankMelee": "Tắt cận chiến sườn",
-    "disablesEnfiladeFire": "Tắt hỏa lực dọc",
-    "disablesRearFire": "Tắt hỏa lực sau",
-    "flankChargeResistance": "Kháng xung kích sườn",
-    "rearChargeResistance": "Kháng xung kích sau",
-    "enfiladeFireResistance": "Kháng hỏa lực dọc",
-    "rearFireResistance": "Kháng hỏa lực sau",
     "rangedDamageResistance": "Kháng sát thương tầm xa",
     "rangedOrgResistance": "Kháng tổ chức tầm xa",
     "fireEdges": "Cạnh bắn (bắn theo cạnh)",
@@ -202,10 +159,7 @@
     "title": "Chỉnh sửa mẫu đơn vị tùy chỉnh",
     "optBuiltIn": "{{name}} (tích hợp)",
     "optCustom": "{{name}} (tùy chỉnh)",
-    "identity": "Danh tính",
     "typeId": "ID loại",
-    "category": "Danh mục",
-    "combat": "Chiến đấu",
     "meleeAttack": "Tấn công cận chiến",
     "meleeDefense": "Phòng thủ cận chiến",
     "meleeDamageType": "Loại sát thương cận chiến",
@@ -215,13 +169,11 @@
     "flankMeleeOrgModifier": "Hệ số tổ chức cận chiến sườn",
     "flankChargePenBonus": "Thưởng xuyên thủng xung kích sườn",
     "stats": "Thống kê",
-    "hp": "HP",
     "org": "Tổ chức",
     "shattersAtOrg": "Tan rã ở tổ chức",
     "routesAtOrg": "Bỏ chạy ở tổ chức",
     "recoversAtOrg": "Phục hồi ở tổ chức",
     "ralliesAtOrg": "Tập hợp ở tổ chức",
-    "stamina": "Thể lực",
     "manpower": "Nhân lực",
     "gold": "Vàng",
     "orgRadius": "Bán kính tổ chức",
@@ -229,43 +181,31 @@
     "reportStats": "Thống kê báo cáo",
     "reportStatsHelp": "Số đếm mỗi đơn vị đóng góp vào báo cáo trận chiến (ví dụ: người, ngựa, súng). Các khóa lấy từ đơn vị tích hợp của thời đại.",
     "tallyPerUnit": "Số đếm mỗi đơn vị",
-    "movement": "Di chuyển",
     "walkMovement": "Di chuyển đi bộ",
     "runMovement": "Di chuyển chạy",
     "runStartUpMovement": "Di chuyển khởi động chạy",
     "timeToRun": "Thời gian chạy (ticks)",
     "runCost": "Chi phí chạy",
-    "rotationSpeed": "Tốc độ xoay",
-    "rotationMaxThreshold": "Ngưỡng xoay tối đa",
-    "runRotationSpeed": "Tốc độ xoay khi chạy",
     "turningDelay": "Độ trễ xoay (ticks)",
     "startsRunning": "Bắt đầu chạy",
     "movementSound": "Âm thanh di chuyển",
     "rangedCombat": "Chiến đấu tầm xa",
     "rangedAttack": "Tấn công tầm xa",
-    "ammo": "Đạn",
-    "minDistanceToFAA": "Khoảng cách tối thiểu đến FAA",
     "panicFireDistance": "Khoảng cách bắn hoảng loạn",
     "fireWhileMoving": "Bắn khi di chuyển",
     "noAmmoRegain": "Không hồi đạn",
     "rangedDamageTypes": "Loại sát thương tầm xa",
     "addRangedDamageType": "Thêm loại sát thương tầm xa",
     "enableRanged": "Bật tầm xa",
-    "formations": "Đội hình",
-    "formationId": "ID đội hình",
     "baseSprite": "Sprite nền",
     "overlaySprite": "Sprite phủ",
-    "addFormation": "Thêm đội hình",
     "defaultFormation": "Đội hình mặc định",
-    "supply": "Tiếp tế",
-    "supplyField": "Tiếp tế",
     "supplyConsumptionIdle": "Tiêu thụ tiếp tế khi nghỉ",
     "supplyConsumptionMoving": "Tiêu thụ tiếp tế khi di chuyển",
     "supplyConsumptionCombating": "Tiêu thụ tiếp tế khi chiến đấu",
     "supplyManpowerCost": "Chi phí nhân lực tiếp tế",
     "supplyGoldCost": "Chi phí vàng tiếp tế",
     "misc": "Khác",
-    "skirmisherRatio": "Tỷ lệ lính tản chiến",
     "canDeployForward": "Có thể triển khai tiền phương",
     "reducedVisibilityRange": "Giảm tầm nhìn",
     "unknownType": "ID loại không xác định",
@@ -279,7 +219,6 @@
     "optionBuiltIn": "{{name}} (tích hợp)",
     "optionCustom": "{{name}} (tùy chỉnh)",
     "errors": {
-      "idRequired": "Bắt buộc có ID",
       "idInUse": "ID danh mục đơn vị \"{{id}}\" đã được sử dụng",
       "firingAltitudeRequired": "firingAltitude là bắt buộc",
       "orphanedResistances": "damageTypeResistances tham chiếu các loại sát thương không xác định: {{types}}",
@@ -288,8 +227,6 @@
       "allowedOrderUnknown": "Lệnh được phép \"{{name}}\" không phải lệnh hợp lệ cho thời đại này"
     },
     "identity": {
-      "legend": "Danh tính",
-      "id": "ID",
       "deploymentSection": "Khu vực triển khai"
     },
     "deploymentSection": {
@@ -298,10 +235,7 @@
       "front": "trước"
     },
     "combat": {
-      "legend": "Chiến đấu",
       "firingAltitude": "Độ cao bắn",
-      "allyCollisionLevel": "Mức va chạm đồng minh",
-      "enemyCollisionLevel": "Mức va chạm kẻ thù",
       "captureSpeed": "Tốc độ chiếm",
       "impactAltitude": "Độ cao va chạm",
       "grazingAltitude": "Độ cao lướt qua"
@@ -318,14 +252,8 @@
       "speedRun": "chạy",
       "fleeWhenRouted": "Chạy trốn khi bị đánh tan"
     },
-    "enfiladeFire": {
-      "legend": "Hỏa lực dọc",
-      "damageModifier": "Hệ số sát thương",
-      "orgModifier": "Hệ số tổ chức"
-    },
     "rearFire": {
-      "legend": "Hỏa lực sau",
-      "orgModifier": "Hệ số tổ chức"
+      "legend": "Hỏa lực sau"
     },
     "chargeBacklash": {
       "legend": "Phản đòn xung kích",
@@ -344,7 +272,6 @@
       "fieldLabel": "Kháng theo loại sát thương"
     },
     "autofire": {
-      "legend": "Ưu tiên tự động bắn",
       "description": "Trọng số ưu tiên theo từng danh mục đơn vị mục tiêu. Giá trị cao hơn là mục tiêu ưu tiên cho tự động bắn.",
       "fieldLabel": "Ưu tiên theo danh mục mục tiêu"
     },
@@ -356,28 +283,20 @@
   "damageTypeModal": {
     "title": "Chỉnh sửa loại sát thương tùy chỉnh",
     "sections": {
-      "identity": "Danh tính",
-      "damage": "Sát thương",
       "projectile": "Đạn",
       "rangeBrackets": "Khoảng tầm bắn",
       "areaOfEffect": "Vùng ảnh hưởng"
     },
     "fields": {
-      "id": "ID",
       "ranged": "Tầm xa",
       "imageAlias": "Bí danh hình ảnh",
       "orgDamageRatio": "Tỷ lệ sát thương tổ chức",
-      "damageModifier": "Hệ số sát thương",
       "reorgDebuff": "Hình phạt hồi phục tổ chức",
       "attackEffectDuration": "Thời lượng hiệu ứng tấn công (ticks)",
-      "projectileWidth": "Chiều rộng đạn",
       "arcHeight": "Độ cao cung",
-      "projectilePenetration": "Xuyên thủng đạn",
       "ammoCost": "Chi phí đạn",
       "shotSound": "Âm thanh bắn",
       "shotAnim": "Hoạt ảnh bắn",
-      "enfiladeFire": "Hỏa lực dọc",
-      "cannotUseAfterRun": "Không thể dùng sau khi chạy",
       "extendRange": "Mở rộng tầm",
       "aimMode": "Chế độ ngắm"
     },
@@ -392,9 +311,6 @@
       "endMod": "Hệ số cuối"
     },
     "aoe": {
-      "type": "Loại",
-      "circular": "Tròn",
-      "trapezoidal": "Hình thang",
       "absorptionModifier": "Hệ số hấp thụ",
       "edgeDamageModifier": "Hệ số sát thương biên",
       "offset": "Độ lệch",
@@ -424,7 +340,6 @@
   "terrainCategoryModal": {
     "title": "Chỉnh sửa danh mục địa hình tùy chỉnh",
     "sections": {
-      "identity": "Danh tính",
       "scalarProperties": "Thuộc tính vô hướng",
       "perUnitCategoryModifiers": "Hệ số theo danh mục đơn vị",
       "projectileAbsorption": "Hấp thụ đạn"
@@ -437,29 +352,21 @@
       "custom": "{{name}} (tùy chỉnh)"
     },
     "fields": {
-      "id": "ID",
       "color": "Màu",
       "staminaCostModifier": "Hệ số chi phí thể lực",
       "hitboxHeight": "Chiều cao hitbox",
-      "heightOffset": "Độ lệch chiều cao",
       "visionAbsorption": "Hấp thụ tầm nhìn",
-      "pushStrengthModifier": "Hệ số sức đẩy",
       "pushDistanceModifier": "Hệ số khoảng cách đẩy",
       "fixedEnemyCollisionLevel": "Mức va chạm kẻ thù cố định",
       "canPlaceObjectives": "Có thể đặt mục tiêu",
       "prioritizeMovement": "Ưu tiên di chuyển",
       "supplyRoute": "Tuyến tiếp tế",
-      "movementModifier": "Hệ số di chuyển",
       "impassableFor": "Không thể qua đối với",
       "attackModifier": "Hệ số tấn công",
       "defenseModifier": "Hệ số phòng thủ",
-      "rangedAttackModifier": "Hệ số tấn công tầm xa",
-      "chargeResistanceModifier": "Hệ số kháng xung kích",
-      "chargeBonusModifier": "Hệ số thưởng xung kích",
       "projectileAbsorptionByDamageType": "Hấp thụ đạn theo loại sát thương"
     },
     "errors": {
-      "idRequired": "Bắt buộc có ID",
       "idInUse": "ID danh mục địa hình \"{{id}}\" đã được sử dụng",
       "unknownUnitCategories": "{{field}} tham chiếu các danh mục đơn vị không xác định: {{keys}}",
       "unknownDamageTypes": "projectileAbsorption tham chiếu các loại sát thương không xác định: {{keys}}"
@@ -468,8 +375,7 @@
   "customDefs": {
     "common": {
       "importFromScenario": "Nhập từ kịch bản",
-      "duplicate": "Nhân bản",
-      "done": "Xong"
+      "duplicate": "Nhân bản"
     },
     "spritesPanel": {
       "title": "Sprite tùy chỉnh",
@@ -486,7 +392,6 @@
       "libraryTitle": "Thư viện sprite",
       "libraryDescription": "Duyệt các sprite tích hợp của thời đại để lấy cảm hứng.",
       "filterPlaceholder": "Lọc theo tên...",
-      "loading": "Đang tải...",
       "unitBase": "Nền đơn vị ({{count}})",
       "unitOverlay": "Lớp phủ đơn vị ({{count}})",
       "noMatches": "Không có kết quả khớp."
@@ -505,7 +410,6 @@
       "description": "Định nghĩa mẫu đội hình mới (va chạm, hệ số, quy tắc bắn) mà đơn vị tùy chỉnh có thể dùng.",
       "noFormations": "Chưa có đội hình tùy chỉnh nào.",
       "deleteBlocked": "Không thể xóa \"{{id}}\" - vẫn được dùng bởi {{refs}}. Hãy loại bỏ các tham chiếu đó trước.",
-      "addFormation": "Thêm đội hình",
       "clonePickerTitle": "Nhân bản một đội hình tích hợp"
     },
     "unitCategoriesPanel": {
@@ -536,7 +440,6 @@
       "clonePickerTitle": "Nhân bản một danh mục địa hình tích hợp"
     },
     "overrideEditor": {
-      "invalidJson": "JSON không hợp lệ",
       "reset": "Đặt lại",
       "eraDefault": "mặc định thời đại: {{value}}",
       "structuralTooltip": "Hằng số cấu trúc / tất định. Thay đổi nó có thể làm hỏng hiển thị, bản ghi hoặc ghép trận."
@@ -553,7 +456,6 @@
       "nothing": "không có gì",
       "title": "Nhập {{kind}} từ kịch bản",
       "pickFilePrompt": "Chọn một tệp kịch bản (JSON do nút Tải xuống của trình chỉnh sửa tạo ra) để nhập {{kind}} tùy chỉnh của nó.",
-      "chooseFile": "Chọn tệp kịch bản",
       "fileReadError": "Không đọc được tệp đó dưới dạng kịch bản.",
       "invalidForEra": "Các định nghĩa tùy chỉnh của kịch bản này không hợp lệ cho thời đại hiện tại (ví dụ: {{message}}).",
       "importWouldInvalidate": "Việc nhập sẽ làm kịch bản không hợp lệ (ví dụ: {{message}}). Không có gì thay đổi.",
@@ -595,24 +497,20 @@
     "spriteSelect": {
       "default": "Mặc định",
       "unknownOption": "{{value}} (không xác định)",
-      "groupCustom": "Tùy chỉnh",
       "groupBuiltIn": "Tích hợp"
     }
   },
   "resize": {
-    "title": "Đổi kích thước bản đồ",
     "currentSize": "Kích thước hiện tại: {{width}} × {{height}} ô",
     "newSize": "Kích thước mới: {{width}} × {{height}} ô",
     "current": "Hiện tại: {{width}} × {{height}} ô",
     "confirmTitle": "Xác nhận đổi kích thước bản đồ",
     "warningCannotUndo": "⚠️ <0>Cảnh báo:</0> Thao tác này không thể hoàn tác.",
-    "continue": "Tiếp tục",
     "tabScale": "Tỷ lệ",
     "tabExpandCut": "Mở rộng / Cắt cạnh",
     "scale": {
       "newWidth": "Chiều rộng mới (ô)",
       "newHeight": "Chiều cao mới (ô)",
-      "apply": "Đổi kích thước bản đồ",
       "errorInvalid": "Vui lòng nhập số dương hợp lệ cho chiều rộng và chiều cao tính bằng ô",
       "warningBody": "Hãy chắc chắn bạn đã lưu kịch bản trước khi tiếp tục. Đổi kích thước sẽ co giãn toàn bộ địa hình, độ cao, đơn vị, mục tiêu và vị trí trình kích hoạt."
     },
@@ -636,9 +534,7 @@
   },
   "mapSize": {
     "widthInTiles": "Chiều rộng tính bằng ô",
-    "heightInTiles": "Chiều cao tính bằng ô",
-    "widthPlaceholder": "Chiều rộng",
-    "heightPlaceholder": "Chiều cao"
+    "heightInTiles": "Chiều cao tính bằng ô"
   },
   "misc": {
     "scaleAllSizesBy": "Co giãn toàn bộ kích thước theo",
@@ -649,7 +545,6 @@
   "localesPanel": {
     "title": "Ngôn ngữ",
     "description": "Ngôn ngữ được dùng để dịch kịch bản sang các ngôn ngữ khác nhau.",
-    "addLanguage": "Thêm ngôn ngữ",
     "removeLanguage": "Loại bỏ ngôn ngữ",
     "noKeys": "Không có khóa dịch. Thêm một khóa để bắt đầu.",
     "addKey": "Thêm khóa",
@@ -658,7 +553,6 @@
     "keyPlaceholder": "Khóa dịch",
     "valueLabel": "Giá trị",
     "valuePlaceholder": "Giá trị dịch",
-    "addLanguageTitle": "Thêm ngôn ngữ",
     "languageCodeLabel": "Mã ngôn ngữ",
     "languageCodePlaceholder": "ví dụ: 'en', 'es', 'fr'",
     "languageCodeEmpty": "Mã ngôn ngữ không được để trống",
@@ -715,7 +609,6 @@
     "importMustBeProcedural": "Tệp được nhập phải là một mẫu theo thủ tục (không có bản đồ đã nướng, có các hướng dẫn tạo).",
     "invalidJsonFile": "Tệp JSON không hợp lệ. Vui lòng kiểm tra định dạng tệp.",
     "confirmOverwriteWarning": "Vui lòng xác nhận rằng bạn hiểu việc này sẽ ghi đè địa hình.",
-    "selectedNotProcedural": "Kịch bản đã chọn không phải là mẫu theo thủ tục.",
-    "invalidJson": "JSON không hợp lệ"
+    "selectedNotProcedural": "Kịch bản đã chọn không phải là mẫu theo thủ tục."
   }
 }

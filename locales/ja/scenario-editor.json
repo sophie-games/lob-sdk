@@ -2,20 +2,33 @@
   "common": {
     "add": "追加",
     "addEntry": "項目を追加",
-    "cancel": "キャンセル",
     "delete": "削除",
-    "edit": "編集",
-    "name": "名前",
     "noEntries": "項目がありません。",
     "none": "なし",
     "remove": "削除",
-    "save": "保存",
     "select": "選択...",
-    "unknown": "(不明)"
-  },
-  "editor": {
-    "loadScenario": "シナリオを読み込む",
-    "chooseScenarioFile": "シナリオファイルを選択"
+    "unknown": "(不明)",
+    "chooseScenarioFile": "シナリオファイルを選択",
+    "positionX": "位置 X",
+    "positionY": "位置 Y",
+    "mixed": "混在",
+    "width": "幅",
+    "identity": "識別情報",
+    "formationId": "隊形ID",
+    "movementModifier": "移動修正",
+    "rangedAttackModifier": "遠距離攻撃修正",
+    "chargeBonusModifier": "突撃ボーナス修正",
+    "chargeResistanceModifier": "突撃耐性修正",
+    "pushStrengthModifier": "押しの強さ修正",
+    "addFormation": "隊形を追加",
+    "idIsRequired": "IDは必須です",
+    "id": "ID",
+    "enfiladeFire": "側面射撃",
+    "damageModifier": "ダメージ修正",
+    "orgModifier": "組織修正",
+    "invalidJson": "無効なJSON",
+    "resizeMap": "マップのサイズ変更",
+    "addLanguage": "言語を追加"
   },
   "editorPanel": {
     "tabs": {
@@ -27,7 +40,6 @@
       "advanced": "詳細"
     },
     "togglePanel": "パネルの切り替え",
-    "title": "シナリオエディター",
     "downloadScenario": "シナリオをダウンロード",
     "copyScenario": "シナリオをコピー",
     "fullscreen": "全画面表示",
@@ -45,83 +57,46 @@
     "goBackConfirm": "戻ってエディターを終了してもよろしいですか？"
   },
   "createScenario": {
-    "title": "シナリオを作成",
     "randomMap": "ランダム（自動生成）マップ？",
     "isHybrid": "ハイブリッド？"
   },
   "playersPanel": {
-    "title": "プレイヤー",
     "removePlayer": "プレイヤーを削除"
   },
   "terrainPanel": {
-    "title": "地形",
-    "active": "アクティブ",
     "setTerrain": "地形を設定",
     "terrainHeight": "地形の高さ",
-    "radius": "半径",
     "paintBucket": "塗りつぶし"
   },
   "unitPanel": {
     "title": "選択中のユニット",
-    "player": "プレイヤー",
     "unitType": "ユニットタイプ",
-    "optional": "任意",
-    "positionX": "位置 X",
-    "positionY": "位置 Y",
     "rotation": "回転",
-    "mixed": "混在",
     "copyJson": "JSONをコピー",
     "copyUnits": "ユニットをコピー",
     "unitsCopied": "ユニットをコピーしました（{{count}}）",
-    "deselect": "選択解除",
     "removeSelectedUnits": "選択したユニットを削除"
   },
   "createUnit": {
     "title": "ユニットを作成",
-    "active": "アクティブ",
     "usingCopiedUnits": "コピーしたユニットを使用中",
-    "customLabel": "{{name}}（カスタム）",
-    "fields": {
-      "unit": "ユニット",
-      "player": "プレイヤー"
-    }
+    "customLabel": "{{name}}（カスタム）"
   },
   "objectivePanel": {
     "title": "選択中の目標",
     "player": "プレイヤー {{player}}",
     "team": "チーム {{team}}",
-    "namePlaceholder": "任意",
-    "mixed": "混在",
-    "deselect": "選択解除",
     "removeSelected": "選択した目標を削除",
-    "type": {
-      "small": "小",
-      "big": "大"
-    },
     "fields": {
-      "type": "種類",
-      "logistics": "兵站",
       "manpowerPerTurn": "ターンあたりの人員",
-      "goldPerTurn": "ターンあたりのゴールド",
-      "victoryPoints": "勝利ポイント",
-      "positionX": "位置 X",
-      "positionY": "位置 Y"
+      "goldPerTurn": "ターンあたりのゴールド"
     }
   },
   "createObjective": {
     "title": "目標を作成",
-    "active": "アクティブ",
     "gaia": "ガイア",
-    "type": {
-      "small": "小",
-      "big": "大"
-    },
     "fields": {
-      "objectiveType": "目標の種類",
-      "victoryPoints": "勝利ポイント",
-      "player": "プレイヤー",
-      "team": "チーム",
-      "logistics": "兵站"
+      "objectiveType": "目標の種類"
     }
   },
   "deployment": {
@@ -131,9 +106,7 @@
     "forwardZone": "前進",
     "fields": {
       "x": "X",
-      "y": "Y",
-      "width": "幅",
-      "height": "高さ"
+      "y": "Y"
     }
   },
   "vpBalance": {
@@ -145,8 +118,6 @@
   },
   "formationModal": {
     "title": "カスタム隊形を編集",
-    "identity": "識別情報",
-    "formationId": "隊形ID",
     "collision": "衝突",
     "collisionHelp": "占有形状: 円（半径）または矩形（前面の正面幅、前後の奥行き）。衝突なし（飛行／ゴースト）にするには半径0を使用します。",
     "shape": "形状",
@@ -155,8 +126,6 @@
     "radiusPx": "半径（px）",
     "frontagePx": "正面幅（px）",
     "depthPx": "奥行き（px）",
-    "movement": "移動",
-    "movementModifier": "移動修正",
     "runMovementModifier": "走行移動修正",
     "rotationSpeedModifier": "回転速度修正",
     "disable180Turn": "180°旋回を無効化",
@@ -164,21 +133,9 @@
     "timeToForm": "形成時間（ticks）",
     "timeToUnform": "解除時間（ticks）",
     "minMovementModifier": "最小移動修正",
-    "combat": "戦闘",
-    "rangedAttackModifier": "遠距離攻撃修正",
-    "chargeBonusModifier": "突撃ボーナス修正",
     "chargePenetrationModifier": "突撃貫通修正",
-    "chargeResistanceModifier": "突撃耐性修正",
-    "pushStrengthModifier": "押しの強さ修正",
     "receivedMeleeDamageModifier": "受ける白兵戦ダメージ修正",
     "flanking": "側面攻撃",
-    "disablesFlankMelee": "側面白兵攻撃を無効化",
-    "disablesEnfiladeFire": "側面射撃を無効化",
-    "disablesRearFire": "後方射撃を無効化",
-    "flankChargeResistance": "側面突撃耐性",
-    "rearChargeResistance": "後方突撃耐性",
-    "enfiladeFireResistance": "側面射撃耐性",
-    "rearFireResistance": "後方射撃耐性",
     "rangedDamageResistance": "遠距離ダメージ耐性",
     "rangedOrgResistance": "遠距離組織耐性",
     "fireEdges": "射撃エッジ（エッジ射撃）",
@@ -202,10 +159,7 @@
     "title": "カスタムユニットテンプレートを編集",
     "optBuiltIn": "{{name}}（組み込み）",
     "optCustom": "{{name}}（カスタム）",
-    "identity": "識別情報",
     "typeId": "タイプID",
-    "category": "カテゴリー",
-    "combat": "戦闘",
     "meleeAttack": "白兵攻撃",
     "meleeDefense": "白兵防御",
     "meleeDamageType": "meleeDamageType",
@@ -215,13 +169,11 @@
     "flankMeleeOrgModifier": "側面白兵組織修正",
     "flankChargePenBonus": "側面突撃貫通ボーナス",
     "stats": "ステータス",
-    "hp": "HP",
     "org": "組織力",
     "shattersAtOrg": "組織度で崩壊",
     "routesAtOrg": "組織度で敗走",
     "recoversAtOrg": "組織度で回復",
     "ralliesAtOrg": "組織度で再編成",
-    "stamina": "スタミナ",
     "manpower": "人員",
     "gold": "ゴールド",
     "orgRadius": "編成範囲",
@@ -229,43 +181,31 @@
     "reportStats": "報告ステータス",
     "reportStatsHelp": "各ユニットが戦闘報告に提供する集計（例: 兵、馬、砲）。キーは時代の組み込みユニットに由来します。",
     "tallyPerUnit": "ユニットあたりの集計",
-    "movement": "移動",
     "walkMovement": "歩行移動",
     "runMovement": "走行移動",
     "runStartUpMovement": "走行開始移動",
     "timeToRun": "走行準備時間（ticks）",
     "runCost": "走行コスト",
-    "rotationSpeed": "回転速度",
-    "rotationMaxThreshold": "回転最大しきい値",
-    "runRotationSpeed": "走行中の回転速度",
     "turningDelay": "回転遅延（ticks）",
     "startsRunning": "走行状態で開始",
     "movementSound": "移動音",
     "rangedCombat": "遠距離戦闘",
     "rangedAttack": "遠距離攻撃",
-    "ammo": "弾薬",
-    "minDistanceToFAA": "前進射撃を停止する敵との距離",
     "panicFireDistance": "パニック射撃距離",
     "fireWhileMoving": "移動中に射撃",
     "noAmmoRegain": "弾薬の補充なし",
     "rangedDamageTypes": "遠距離ダメージタイプ",
     "addRangedDamageType": "遠距離ダメージタイプを追加",
     "enableRanged": "遠距離を有効化",
-    "formations": "隊形",
-    "formationId": "隊形ID",
     "baseSprite": "ベーススプライト",
     "overlaySprite": "オーバーレイスプライト",
-    "addFormation": "隊形を追加",
     "defaultFormation": "デフォルト隊形",
-    "supply": "補給",
-    "supplyField": "補給",
     "supplyConsumptionIdle": "補給消費（待機時）",
     "supplyConsumptionMoving": "補給消費（移動時）",
     "supplyConsumptionCombating": "補給消費（戦闘時）",
     "supplyManpowerCost": "補給人員コスト",
     "supplyGoldCost": "補給ゴールドコスト",
     "misc": "その他",
-    "skirmisherRatio": "散兵比率",
     "canDeployForward": "前進配置が可能",
     "reducedVisibilityRange": "視認範囲の低下",
     "unknownType": "不明なタイプID",
@@ -279,7 +219,6 @@
     "optionBuiltIn": "{{name}}（組み込み）",
     "optionCustom": "{{name}}（カスタム）",
     "errors": {
-      "idRequired": "IDは必須です",
       "idInUse": "ユニットカテゴリーID「{{id}}」は既に使用されています",
       "firingAltitudeRequired": "firingAltitude は必須です",
       "orphanedResistances": "damageTypeResistances が不明なダメージタイプを参照しています: {{types}}",
@@ -288,8 +227,6 @@
       "allowedOrderUnknown": "許可される命令「{{name}}」はこの時代の既知の命令ではありません"
     },
     "identity": {
-      "legend": "識別情報",
-      "id": "ID",
       "deploymentSection": "配置セクション"
     },
     "deploymentSection": {
@@ -298,10 +235,7 @@
       "front": "前面"
     },
     "combat": {
-      "legend": "戦闘",
       "firingAltitude": "弾道高度",
-      "allyCollisionLevel": "味方に対する衝突レベル",
-      "enemyCollisionLevel": "敵に対する衝突レベル",
       "captureSpeed": "占領速度",
       "impactAltitude": "着弾高度",
       "grazingAltitude": "かすめ高度"
@@ -318,14 +252,8 @@
       "speedRun": "走る",
       "fleeWhenRouted": "敗走時に逃走"
     },
-    "enfiladeFire": {
-      "legend": "側面射撃",
-      "damageModifier": "ダメージ修正",
-      "orgModifier": "組織修正"
-    },
     "rearFire": {
-      "legend": "後方射撃",
-      "orgModifier": "組織修正"
+      "legend": "後方射撃"
     },
     "chargeBacklash": {
       "legend": "突撃の反撃",
@@ -344,7 +272,6 @@
       "fieldLabel": "ダメージタイプ別の耐性"
     },
     "autofire": {
-      "legend": "自動射撃の優先度",
       "description": "対象ユニットカテゴリーごとの優先度の重み。値が高いほど自動射撃で優先される対象です。",
       "fieldLabel": "対象カテゴリー別の優先度"
     },
@@ -356,28 +283,20 @@
   "damageTypeModal": {
     "title": "カスタムダメージタイプを編集",
     "sections": {
-      "identity": "識別情報",
-      "damage": "ダメージ",
       "projectile": "弾丸",
       "rangeBrackets": "射程区分",
       "areaOfEffect": "効果範囲"
     },
     "fields": {
-      "id": "ID",
       "ranged": "遠距離",
       "imageAlias": "imageAlias",
       "orgDamageRatio": "組織ダメージ比率",
-      "damageModifier": "ダメージ修正",
       "reorgDebuff": "組織回復ペナルティ",
       "attackEffectDuration": "攻撃効果の持続時間（ticks）",
-      "projectileWidth": "弾丸の幅",
       "arcHeight": "弾道高度",
-      "projectilePenetration": "弾丸の貫通",
       "ammoCost": "弾薬コスト",
       "shotSound": "射撃音",
       "shotAnim": "射撃アニメーション",
-      "enfiladeFire": "側面射撃",
-      "cannotUseAfterRun": "走行直後は使用不可",
       "extendRange": "射程を延長",
       "aimMode": "照準モード"
     },
@@ -392,9 +311,6 @@
       "endMod": "終了修正"
     },
     "aoe": {
-      "type": "種類",
-      "circular": "円形",
-      "trapezoidal": "台形",
       "absorptionModifier": "吸収修正",
       "edgeDamageModifier": "端部ダメージ修正",
       "offset": "オフセット",
@@ -424,7 +340,6 @@
   "terrainCategoryModal": {
     "title": "カスタム地形カテゴリーを編集",
     "sections": {
-      "identity": "識別情報",
       "scalarProperties": "スカラープロパティ",
       "perUnitCategoryModifiers": "ユニットカテゴリー別の修正",
       "projectileAbsorption": "弾丸吸収"
@@ -437,29 +352,21 @@
       "custom": "{{name}}（カスタム）"
     },
     "fields": {
-      "id": "ID",
       "color": "色",
       "staminaCostModifier": "スタミナコスト修正",
       "hitboxHeight": "ヒットボックスの高さ",
-      "heightOffset": "高さオフセット",
       "visionAbsorption": "視界吸収",
-      "pushStrengthModifier": "押しの強さ修正",
       "pushDistanceModifier": "押しの距離修正",
       "fixedEnemyCollisionLevel": "敵に対する固定衝突レベル",
       "canPlaceObjectives": "目標を配置可能",
       "prioritizeMovement": "移動を優先",
       "supplyRoute": "補給路",
-      "movementModifier": "移動修正",
       "impassableFor": "通行不可の対象",
       "attackModifier": "攻撃修正",
       "defenseModifier": "防御修正",
-      "rangedAttackModifier": "遠距離攻撃修正",
-      "chargeResistanceModifier": "突撃耐性修正",
-      "chargeBonusModifier": "突撃ボーナス修正",
       "projectileAbsorptionByDamageType": "ダメージタイプ別の弾丸吸収"
     },
     "errors": {
-      "idRequired": "IDは必須です",
       "idInUse": "地形カテゴリーID「{{id}}」は既に使用されています",
       "unknownUnitCategories": "{{field}} が不明なユニットカテゴリーを参照しています: {{keys}}",
       "unknownDamageTypes": "projectileAbsorption が不明なダメージタイプを参照しています: {{keys}}"
@@ -468,8 +375,7 @@
   "customDefs": {
     "common": {
       "importFromScenario": "シナリオからインポート",
-      "duplicate": "複製",
-      "done": "完了"
+      "duplicate": "複製"
     },
     "spritesPanel": {
       "title": "カスタムスプライト",
@@ -486,7 +392,6 @@
       "libraryTitle": "スプライトライブラリ",
       "libraryDescription": "参考として時代の組み込みスプライトを閲覧できます。",
       "filterPlaceholder": "名前で絞り込み...",
-      "loading": "読み込み中...",
       "unitBase": "ユニットベース（{{count}}）",
       "unitOverlay": "ユニットオーバーレイ（{{count}}）",
       "noMatches": "一致するものがありません。"
@@ -505,7 +410,6 @@
       "description": "カスタムユニットが使用できる新しい隊形テンプレート（衝突、修正、射撃ルール）を定義します。",
       "noFormations": "カスタム隊形はまだありません。",
       "deleteBlocked": "「{{id}}」を削除できません - {{refs}} でまだ使用されています。先にそれらの参照を削除してください。",
-      "addFormation": "隊形を追加",
       "clonePickerTitle": "組み込み隊形を複製"
     },
     "unitCategoriesPanel": {
@@ -536,7 +440,6 @@
       "clonePickerTitle": "組み込み地形カテゴリーを複製"
     },
     "overrideEditor": {
-      "invalidJson": "無効なJSON",
       "reset": "リセット",
       "eraDefault": "時代のデフォルト: {{value}}",
       "structuralTooltip": "構造的／決定論的な定数です。変更すると、描画、リプレイ、またはマッチメイキングが壊れる可能性があります。"
@@ -553,7 +456,6 @@
       "nothing": "なし",
       "title": "シナリオから{{kind}}をインポート",
       "pickFilePrompt": "カスタム{{kind}}をインポートするシナリオファイル（エディターのダウンロードボタンが生成するJSON）を選択してください。",
-      "chooseFile": "シナリオファイルを選択",
       "fileReadError": "そのファイルをシナリオとして読み込めませんでした。",
       "invalidForEra": "このシナリオのカスタム定義は現在の時代では無効です（例: {{message}}）。",
       "importWouldInvalidate": "インポートするとシナリオが無効になります（例: {{message}}）。変更は行われませんでした。",
@@ -595,24 +497,20 @@
     "spriteSelect": {
       "default": "デフォルト",
       "unknownOption": "{{value}}（不明）",
-      "groupCustom": "カスタム",
       "groupBuiltIn": "組み込み"
     }
   },
   "resize": {
-    "title": "マップのサイズ変更",
     "currentSize": "現在のサイズ: {{width}} × {{height}} タイル",
     "newSize": "新しいサイズ: {{width}} × {{height}} タイル",
     "current": "現在: {{width}} × {{height}} タイル",
     "confirmTitle": "マップのサイズ変更を確認",
     "warningCannotUndo": "⚠️ <0>警告:</0> この操作は元に戻せません。",
-    "continue": "続行",
     "tabScale": "拡大縮小",
     "tabExpandCut": "辺の拡張／切り取り",
     "scale": {
       "newWidth": "新しい幅（タイル）",
       "newHeight": "新しい高さ（タイル）",
-      "apply": "マップのサイズ変更",
       "errorInvalid": "幅と高さにタイル単位の有効な正の数を入力してください",
       "warningBody": "続行する前にシナリオを保存したことを確認してください。サイズ変更は、すべての地形、高さ、ユニット、目標、トリガー位置を拡大縮小します。"
     },
@@ -636,9 +534,7 @@
   },
   "mapSize": {
     "widthInTiles": "幅（タイル）",
-    "heightInTiles": "高さ（タイル）",
-    "widthPlaceholder": "幅",
-    "heightPlaceholder": "高さ"
+    "heightInTiles": "高さ（タイル）"
   },
   "misc": {
     "scaleAllSizesBy": "すべてのサイズを拡大縮小",
@@ -649,7 +545,6 @@
   "localesPanel": {
     "title": "ロケール",
     "description": "ロケールはシナリオを異なる言語に翻訳するために使用されます。",
-    "addLanguage": "言語を追加",
     "removeLanguage": "言語を削除",
     "noKeys": "翻訳キーがありません。キーを追加して始めましょう。",
     "addKey": "キーを追加",
@@ -658,7 +553,6 @@
     "keyPlaceholder": "翻訳キー",
     "valueLabel": "値",
     "valuePlaceholder": "翻訳値",
-    "addLanguageTitle": "言語を追加",
     "languageCodeLabel": "言語コード",
     "languageCodePlaceholder": "例: 'en', 'es', 'fr'",
     "languageCodeEmpty": "言語コードは空にできません",
@@ -715,7 +609,6 @@
     "importMustBeProcedural": "インポートするファイルは自動生成テンプレート（焼き込まれたマップがなく、生成指示があるもの）でなければなりません。",
     "invalidJsonFile": "無効なJSONファイルです。ファイル形式を確認してください。",
     "confirmOverwriteWarning": "これが地形を上書きすることを理解していることを確認してください。",
-    "selectedNotProcedural": "選択したシナリオは自動生成テンプレートではありません。",
-    "invalidJson": "無効なJSON"
+    "selectedNotProcedural": "選択したシナリオは自動生成テンプレートではありません。"
   }
 }

@@ -2,20 +2,33 @@
   "common": {
     "add": "जोड़ें",
     "addEntry": "प्रविष्टि जोड़ें",
-    "cancel": "रद्द करें",
     "delete": "हटाएं",
-    "edit": "संपादित करें",
-    "name": "नाम",
     "noEntries": "कोई प्रविष्टि नहीं।",
     "none": "कोई नहीं",
     "remove": "हटाएं",
-    "save": "सहेजें",
     "select": "चुनें...",
-    "unknown": "(अज्ञात)"
-  },
-  "editor": {
-    "loadScenario": "परिदृश्य लोड करें",
-    "chooseScenarioFile": "परिदृश्य फ़ाइल चुनें"
+    "unknown": "(अज्ञात)",
+    "chooseScenarioFile": "परिदृश्य फ़ाइल चुनें",
+    "positionX": "स्थिति X",
+    "positionY": "स्थिति Y",
+    "mixed": "मिश्रित",
+    "width": "चौड़ाई",
+    "identity": "पहचान",
+    "formationId": "गठन ID",
+    "movementModifier": "गति संशोधक",
+    "rangedAttackModifier": "दूरस्थ हमला संशोधक",
+    "chargeBonusModifier": "चार्ज बोनस संशोधक",
+    "chargeResistanceModifier": "चार्ज प्रतिरोध संशोधक",
+    "pushStrengthModifier": "धक्का शक्ति संशोधक",
+    "addFormation": "गठन जोड़ें",
+    "idIsRequired": "ID आवश्यक है",
+    "id": "ID",
+    "enfiladeFire": "एन्फिलेड फायर",
+    "damageModifier": "क्षति संशोधक",
+    "orgModifier": "संगठन संशोधक",
+    "invalidJson": "अमान्य JSON",
+    "resizeMap": "मानचित्र आकार बदलें",
+    "addLanguage": "भाषा जोड़ें"
   },
   "editorPanel": {
     "tabs": {
@@ -27,7 +40,6 @@
       "advanced": "उन्नत"
     },
     "togglePanel": "पैनल टॉगल करें",
-    "title": "परिदृश्य संपादक",
     "downloadScenario": "परिदृश्य डाउनलोड करें",
     "copyScenario": "परिदृश्य कॉपी करें",
     "fullscreen": "पूर्ण स्क्रीन",
@@ -45,83 +57,46 @@
     "goBackConfirm": "क्या आप वाकई वापस जाकर संपादक से बाहर निकलना चाहते हैं?"
   },
   "createScenario": {
-    "title": "परिदृश्य बनाएं",
     "randomMap": "यादृच्छिक (प्रक्रियात्मक) मानचित्र?",
     "isHybrid": "हाइब्रिड है?"
   },
   "playersPanel": {
-    "title": "खिलाड़ी",
     "removePlayer": "खिलाड़ी हटाएं"
   },
   "terrainPanel": {
-    "title": "भूभाग",
-    "active": "सक्रिय",
     "setTerrain": "भूभाग सेट करें",
     "terrainHeight": "भूभाग ऊंचाई",
-    "radius": "त्रिज्या",
     "paintBucket": "पेंट बकेट"
   },
   "unitPanel": {
     "title": "चयनित इकाई",
-    "player": "खिलाड़ी",
     "unitType": "इकाई प्रकार",
-    "optional": "वैकल्पिक",
-    "positionX": "स्थिति X",
-    "positionY": "स्थिति Y",
     "rotation": "घूर्णन",
-    "mixed": "मिश्रित",
     "copyJson": "JSON कॉपी करें",
     "copyUnits": "इकाइयाँ कॉपी करें",
     "unitsCopied": "इकाइयाँ कॉपी हुईं ({{count}})",
-    "deselect": "अचयनित करें",
     "removeSelectedUnits": "चयनित इकाइयाँ हटाएं"
   },
   "createUnit": {
     "title": "इकाई बनाएं",
-    "active": "सक्रिय",
     "usingCopiedUnits": "कॉपी की गई इकाइयों का उपयोग",
-    "customLabel": "{{name}} (कस्टम)",
-    "fields": {
-      "unit": "इकाई",
-      "player": "खिलाड़ी"
-    }
+    "customLabel": "{{name}} (कस्टम)"
   },
   "objectivePanel": {
     "title": "चयनित उद्देश्य",
     "player": "खिलाड़ी {{player}}",
     "team": "टीम {{team}}",
-    "namePlaceholder": "वैकल्पिक",
-    "mixed": "मिश्रित",
-    "deselect": "अचयनित करें",
     "removeSelected": "चयनित उद्देश्य हटाएं",
-    "type": {
-      "small": "छोटा",
-      "big": "बड़ा"
-    },
     "fields": {
-      "type": "प्रकार",
-      "logistics": "रसद",
       "manpowerPerTurn": "प्रति चाल जनशक्ति",
-      "goldPerTurn": "प्रति चाल सोना",
-      "victoryPoints": "विजय अंक",
-      "positionX": "स्थिति X",
-      "positionY": "स्थिति Y"
+      "goldPerTurn": "प्रति चाल सोना"
     }
   },
   "createObjective": {
     "title": "उद्देश्य बनाएं",
-    "active": "सक्रिय",
     "gaia": "गैया",
-    "type": {
-      "small": "छोटा",
-      "big": "बड़ा"
-    },
     "fields": {
-      "objectiveType": "उद्देश्य प्रकार",
-      "victoryPoints": "विजय अंक",
-      "player": "खिलाड़ी",
-      "team": "टीम",
-      "logistics": "रसद"
+      "objectiveType": "उद्देश्य प्रकार"
     }
   },
   "deployment": {
@@ -131,9 +106,7 @@
     "forwardZone": "अग्रिम",
     "fields": {
       "x": "X",
-      "y": "Y",
-      "width": "चौड़ाई",
-      "height": "ऊंचाई"
+      "y": "Y"
     }
   },
   "vpBalance": {
@@ -145,8 +118,6 @@
   },
   "formationModal": {
     "title": "कस्टम गठन संपादित करें",
-    "identity": "पहचान",
-    "formationId": "गठन ID",
     "collision": "टकराव",
     "collisionHelp": "पदचिह्न आकार: एक वृत्त (त्रिज्या) या एक आयत (सामने की चौड़ाई, आगे-से-पीछे की गहराई)। बिना टकराव (उड़ान / घोस्ट) के लिए त्रिज्या 0 उपयोग करें।",
     "shape": "आकार",
@@ -155,8 +126,6 @@
     "radiusPx": "त्रिज्या (px)",
     "frontagePx": "सामने की चौड़ाई (px)",
     "depthPx": "गहराई (px)",
-    "movement": "गति",
-    "movementModifier": "गति संशोधक",
     "runMovementModifier": "दौड़ गति संशोधक",
     "rotationSpeedModifier": "घूर्णन गति संशोधक",
     "disable180Turn": "180° मोड़ अक्षम करें",
@@ -164,21 +133,9 @@
     "timeToForm": "गठन का समय (ticks)",
     "timeToUnform": "विघटन का समय (ticks)",
     "minMovementModifier": "न्यूनतम गति संशोधक",
-    "combat": "युद्ध",
-    "rangedAttackModifier": "दूरस्थ हमला संशोधक",
-    "chargeBonusModifier": "चार्ज बोनस संशोधक",
     "chargePenetrationModifier": "चार्ज प्रवेश संशोधक",
-    "chargeResistanceModifier": "चार्ज प्रतिरोध संशोधक",
-    "pushStrengthModifier": "धक्का शक्ति संशोधक",
     "receivedMeleeDamageModifier": "प्राप्त हाथापाई क्षति संशोधक",
     "flanking": "फ्लैंकिंग",
-    "disablesFlankMelee": "फ्लैंक हाथापाई अक्षम करता है",
-    "disablesEnfiladeFire": "एन्फिलेड फायर अक्षम करता है",
-    "disablesRearFire": "पीछे से आग अक्षम करता है",
-    "flankChargeResistance": "फ्लैंक चार्ज प्रतिरोध",
-    "rearChargeResistance": "रियर चार्ज प्रतिरोध",
-    "enfiladeFireResistance": "एन्फिलेड फायर प्रतिरोध",
-    "rearFireResistance": "पीछे से आग प्रतिरोध",
     "rangedDamageResistance": "दूरस्थ क्षति प्रतिरोध",
     "rangedOrgResistance": "दूरस्थ संगठन प्रतिरोध",
     "fireEdges": "फायर किनारे (किनारा-फायर)",
@@ -202,10 +159,7 @@
     "title": "कस्टम इकाई टेम्पलेट संपादित करें",
     "optBuiltIn": "{{name}} (अंतर्निहित)",
     "optCustom": "{{name}} (कस्टम)",
-    "identity": "पहचान",
     "typeId": "प्रकार ID",
-    "category": "श्रेणी",
-    "combat": "युद्ध",
     "meleeAttack": "हाथापाई हमला",
     "meleeDefense": "हाथापाई रक्षा",
     "meleeDamageType": "हाथापाई क्षति प्रकार",
@@ -215,13 +169,11 @@
     "flankMeleeOrgModifier": "फ्लैंक हाथापाई संगठन संशोधक",
     "flankChargePenBonus": "फ्लैंक चार्ज प्रवेश बोनस",
     "stats": "आंकड़े",
-    "hp": "HP",
     "org": "संगठन",
     "shattersAtOrg": "संगठन पर विघटित होता है",
     "routesAtOrg": "संगठन पर भाग जाता है",
     "recoversAtOrg": "संगठन पर ठीक होता है",
     "ralliesAtOrg": "संगठन पर इकट्ठा होता है",
-    "stamina": "सहनशक्ति",
     "manpower": "जनशक्ति",
     "gold": "सोना",
     "orgRadius": "संगठन त्रिज्या",
@@ -229,43 +181,31 @@
     "reportStats": "रिपोर्ट आंकड़े",
     "reportStatsHelp": "प्रत्येक इकाई द्वारा लड़ाई रिपोर्ट में योगदान की गणना (जैसे सैनिक, घोड़े, तोपें)। कुंजियाँ युग की अंतर्निहित इकाइयों से आती हैं।",
     "tallyPerUnit": "प्रति इकाई गणना",
-    "movement": "गति",
     "walkMovement": "चलना गति",
     "runMovement": "दौड़ गति",
     "runStartUpMovement": "दौड़ शुरुआती गति",
     "timeToRun": "दौड़ने का समय (ticks)",
     "runCost": "दौड़ने की लागत",
-    "rotationSpeed": "घूर्णन गति",
-    "rotationMaxThreshold": "घूर्णन अधिकतम सीमा",
-    "runRotationSpeed": "दौड़ घूर्णन गति",
     "turningDelay": "मुड़ने में देरी (ticks)",
     "startsRunning": "दौड़ते हुए शुरू होता है",
     "movementSound": "गति ध्वनि",
     "rangedCombat": "दूरस्थ युद्ध",
     "rangedAttack": "दूरस्थ हमला",
-    "ammo": "गोला-बारूद",
-    "minDistanceToFAA": "FAA से न्यूनतम दूरी",
     "panicFireDistance": "घबराहट फायर दूरी",
     "fireWhileMoving": "चलते समय फायर",
     "noAmmoRegain": "गोला-बारूद पुनः नहीं मिलता",
     "rangedDamageTypes": "दूरस्थ क्षति प्रकार",
     "addRangedDamageType": "दूरस्थ क्षति प्रकार जोड़ें",
     "enableRanged": "दूरस्थ सक्षम करें",
-    "formations": "गठन",
-    "formationId": "गठन ID",
     "baseSprite": "बेस स्प्राइट",
     "overlaySprite": "ओवरले स्प्राइट",
-    "addFormation": "गठन जोड़ें",
     "defaultFormation": "डिफ़ॉल्ट गठन",
-    "supply": "आपूर्ति",
-    "supplyField": "आपूर्ति",
     "supplyConsumptionIdle": "निष्क्रिय आपूर्ति खपत",
     "supplyConsumptionMoving": "गतिशील आपूर्ति खपत",
     "supplyConsumptionCombating": "युद्ध आपूर्ति खपत",
     "supplyManpowerCost": "आपूर्ति जनशक्ति लागत",
     "supplyGoldCost": "आपूर्ति सोना लागत",
     "misc": "विविध",
-    "skirmisherRatio": "झड़प सैनिक अनुपात",
     "canDeployForward": "अग्रिम तैनात कर सकता है",
     "reducedVisibilityRange": "घटी हुई दृश्यता सीमा",
     "unknownType": "अज्ञात प्रकार id",
@@ -279,7 +219,6 @@
     "optionBuiltIn": "{{name}} (अंतर्निहित)",
     "optionCustom": "{{name}} (कस्टम)",
     "errors": {
-      "idRequired": "ID आवश्यक है",
       "idInUse": "इकाई श्रेणी id \"{{id}}\" पहले से उपयोग में है",
       "firingAltitudeRequired": "firingAltitude आवश्यक है",
       "orphanedResistances": "damageTypeResistances अज्ञात क्षति प्रकारों को संदर्भित करता है: {{types}}",
@@ -288,8 +227,6 @@
       "allowedOrderUnknown": "अनुमत आदेश \"{{name}}\" इस युग के लिए एक ज्ञात आदेश नहीं है"
     },
     "identity": {
-      "legend": "पहचान",
-      "id": "ID",
       "deploymentSection": "तैनाती खंड"
     },
     "deploymentSection": {
@@ -298,10 +235,7 @@
       "front": "सामने"
     },
     "combat": {
-      "legend": "युद्ध",
       "firingAltitude": "फायरिंग ऊंचाई",
-      "allyCollisionLevel": "सहयोगी टकराव स्तर",
-      "enemyCollisionLevel": "दुश्मन टकराव स्तर",
       "captureSpeed": "कब्जा गति",
       "impactAltitude": "प्रभाव ऊंचाई",
       "grazingAltitude": "स्पर्शी ऊंचाई"
@@ -318,14 +252,8 @@
       "speedRun": "दौड़ना",
       "fleeWhenRouted": "भागने पर पलायन करें"
     },
-    "enfiladeFire": {
-      "legend": "एन्फिलेड फायर",
-      "damageModifier": "क्षति संशोधक",
-      "orgModifier": "संगठन संशोधक"
-    },
     "rearFire": {
-      "legend": "पीछे से आग",
-      "orgModifier": "संगठन संशोधक"
+      "legend": "पीछे से आग"
     },
     "chargeBacklash": {
       "legend": "चार्ज पलटवार",
@@ -344,7 +272,6 @@
       "fieldLabel": "क्षति प्रकार द्वारा प्रतिरोध"
     },
     "autofire": {
-      "legend": "स्वचालित आग प्राथमिकता",
       "description": "प्रति लक्ष्य इकाई श्रेणी प्राथमिकता भार। अधिक मान स्वचालित आग के लिए पसंदीदा लक्ष्य होते हैं।",
       "fieldLabel": "लक्ष्य श्रेणी द्वारा प्राथमिकता"
     },
@@ -356,28 +283,20 @@
   "damageTypeModal": {
     "title": "कस्टम क्षति प्रकार संपादित करें",
     "sections": {
-      "identity": "पहचान",
-      "damage": "क्षति",
       "projectile": "प्रोजेक्टाइल",
       "rangeBrackets": "रेंज ब्रैकेट",
       "areaOfEffect": "प्रभाव क्षेत्र"
     },
     "fields": {
-      "id": "ID",
       "ranged": "दूरस्थ",
       "imageAlias": "छवि उपनाम",
       "orgDamageRatio": "संगठन क्षति अनुपात",
-      "damageModifier": "क्षति संशोधक",
       "reorgDebuff": "संगठन पुनर्प्राप्ति दंड",
       "attackEffectDuration": "हमले का प्रभाव अवधि (ticks)",
-      "projectileWidth": "प्रोजेक्टाइल चौड़ाई",
       "arcHeight": "आर्क ऊंचाई",
-      "projectilePenetration": "प्रोजेक्टाइल प्रवेश",
       "ammoCost": "गोला-बारूद लागत",
       "shotSound": "शॉट ध्वनि",
       "shotAnim": "शॉट एनिमेशन",
-      "enfiladeFire": "एन्फिलेड फायर",
-      "cannotUseAfterRun": "दौड़ने के बाद उपयोग नहीं कर सकते",
       "extendRange": "रेंज बढ़ाएं",
       "aimMode": "निशाना मोड"
     },
@@ -392,9 +311,6 @@
       "endMod": "अंत संशोधक"
     },
     "aoe": {
-      "type": "प्रकार",
-      "circular": "गोलाकार",
-      "trapezoidal": "समलंबाकार",
       "absorptionModifier": "अवशोषण संशोधक",
       "edgeDamageModifier": "किनारा क्षति संशोधक",
       "offset": "ऑफसेट",
@@ -424,7 +340,6 @@
   "terrainCategoryModal": {
     "title": "कस्टम भूभाग श्रेणी संपादित करें",
     "sections": {
-      "identity": "पहचान",
       "scalarProperties": "अदिश गुण",
       "perUnitCategoryModifiers": "प्रति इकाई श्रेणी संशोधक",
       "projectileAbsorption": "प्रोजेक्टाइल अवशोषण"
@@ -437,29 +352,21 @@
       "custom": "{{name}} (कस्टम)"
     },
     "fields": {
-      "id": "ID",
       "color": "रंग",
       "staminaCostModifier": "सहनशक्ति लागत संशोधक",
       "hitboxHeight": "हिटबॉक्स ऊंचाई",
-      "heightOffset": "ऊंचाई ऑफसेट",
       "visionAbsorption": "दृष्टि अवशोषण",
-      "pushStrengthModifier": "धक्का शक्ति संशोधक",
       "pushDistanceModifier": "धक्का दूरी संशोधक",
       "fixedEnemyCollisionLevel": "स्थिर दुश्मन टकराव स्तर",
       "canPlaceObjectives": "उद्देश्य रख सकते हैं",
       "prioritizeMovement": "गति को प्राथमिकता दें",
       "supplyRoute": "आपूर्ति मार्ग",
-      "movementModifier": "गति संशोधक",
       "impassableFor": "इनके लिए अगम्य",
       "attackModifier": "हमला संशोधक",
       "defenseModifier": "रक्षा संशोधक",
-      "rangedAttackModifier": "दूरस्थ हमला संशोधक",
-      "chargeResistanceModifier": "चार्ज प्रतिरोध संशोधक",
-      "chargeBonusModifier": "चार्ज बोनस संशोधक",
       "projectileAbsorptionByDamageType": "क्षति प्रकार द्वारा प्रोजेक्टाइल अवशोषण"
     },
     "errors": {
-      "idRequired": "ID आवश्यक है",
       "idInUse": "भूभाग श्रेणी id \"{{id}}\" पहले से उपयोग में है",
       "unknownUnitCategories": "{{field}} अज्ञात इकाई श्रेणियों को संदर्भित करता है: {{keys}}",
       "unknownDamageTypes": "projectileAbsorption अज्ञात क्षति प्रकारों को संदर्भित करता है: {{keys}}"
@@ -468,8 +375,7 @@
   "customDefs": {
     "common": {
       "importFromScenario": "परिदृश्य से आयात करें",
-      "duplicate": "डुप्लिकेट",
-      "done": "हो गया"
+      "duplicate": "डुप्लिकेट"
     },
     "spritesPanel": {
       "title": "कस्टम स्प्राइट",
@@ -486,7 +392,6 @@
       "libraryTitle": "स्प्राइट लाइब्रेरी",
       "libraryDescription": "प्रेरणा के लिए युग के अंतर्निहित स्प्राइट देखें।",
       "filterPlaceholder": "नाम से फ़िल्टर करें...",
-      "loading": "लोड हो रहा है...",
       "unitBase": "इकाई बेस ({{count}})",
       "unitOverlay": "इकाई ओवरले ({{count}})",
       "noMatches": "कोई मिलान नहीं।"
@@ -505,7 +410,6 @@
       "description": "नए गठन टेम्पलेट (टकराव, संशोधक, फायरिंग नियम) परिभाषित करें जिन्हें कस्टम इकाइयाँ उपयोग कर सकती हैं।",
       "noFormations": "अभी तक कोई कस्टम गठन नहीं।",
       "deleteBlocked": "\"{{id}}\" हटाया नहीं जा सकता - अब भी {{refs}} द्वारा उपयोग में। पहले उन संदर्भों को हटाएं।",
-      "addFormation": "गठन जोड़ें",
       "clonePickerTitle": "किसी अंतर्निहित गठन को क्लोन करें"
     },
     "unitCategoriesPanel": {
@@ -536,7 +440,6 @@
       "clonePickerTitle": "किसी अंतर्निहित भूभाग श्रेणी को क्लोन करें"
     },
     "overrideEditor": {
-      "invalidJson": "अमान्य JSON",
       "reset": "रीसेट",
       "eraDefault": "युग डिफ़ॉल्ट: {{value}}",
       "structuralTooltip": "संरचनात्मक / नियतत्ववाद स्थिरांक। इसे बदलने से रेंडरिंग, रीप्ले या मैचमेकिंग टूट सकती है।"
@@ -553,7 +456,6 @@
       "nothing": "कुछ नहीं",
       "title": "परिदृश्य से {{kind}} आयात करें",
       "pickFilePrompt": "इसके कस्टम {{kind}} आयात करने के लिए एक परिदृश्य फ़ाइल चुनें (वह JSON जो संपादक का डाउनलोड बटन बनाता है)।",
-      "chooseFile": "परिदृश्य फ़ाइल चुनें",
       "fileReadError": "उस फ़ाइल को परिदृश्य के रूप में नहीं पढ़ा जा सका।",
       "invalidForEra": "इस परिदृश्य की कस्टम परिभाषाएँ वर्तमान युग के लिए मान्य नहीं हैं (जैसे {{message}})।",
       "importWouldInvalidate": "आयात से परिदृश्य अमान्य हो जाएगा (जैसे {{message}})। कुछ नहीं बदला गया।",
@@ -596,24 +498,20 @@
     "spriteSelect": {
       "default": "डिफ़ॉल्ट",
       "unknownOption": "{{value}} (अज्ञात)",
-      "groupCustom": "कस्टम",
       "groupBuiltIn": "अंतर्निहित"
     }
   },
   "resize": {
-    "title": "मानचित्र आकार बदलें",
     "currentSize": "वर्तमान आकार: {{width}} × {{height}} टाइलें",
     "newSize": "नया आकार: {{width}} × {{height}} टाइलें",
     "current": "वर्तमान: {{width}} × {{height}} टाइलें",
     "confirmTitle": "मानचित्र आकार बदलना पुष्टि करें",
     "warningCannotUndo": "⚠️ <0>चेतावनी:</0> यह क्रिया पूर्ववत नहीं की जा सकती।",
-    "continue": "जारी रखें",
     "tabScale": "स्केल",
     "tabExpandCut": "किनारे विस्तृत / काटें",
     "scale": {
       "newWidth": "नई चौड़ाई (टाइलें)",
       "newHeight": "नई ऊंचाई (टाइलें)",
-      "apply": "मानचित्र आकार बदलें",
       "errorInvalid": "कृपया चौड़ाई और ऊंचाई के लिए टाइलों में मान्य धनात्मक संख्याएं दर्ज करें",
       "warningBody": "आगे बढ़ने से पहले सुनिश्चित करें कि आपने अपना परिदृश्य सहेज लिया है। आकार बदलने से सभी भूभाग, ऊंचाइयाँ, इकाइयाँ, उद्देश्य और ट्रिगर स्थितियाँ स्केल हो जाएंगी।"
     },
@@ -637,9 +535,7 @@
   },
   "mapSize": {
     "widthInTiles": "टाइलों में चौड़ाई",
-    "heightInTiles": "टाइलों में ऊंचाई",
-    "widthPlaceholder": "चौड़ाई",
-    "heightPlaceholder": "ऊंचाई"
+    "heightInTiles": "टाइलों में ऊंचाई"
   },
   "misc": {
     "scaleAllSizesBy": "सभी आकार इससे स्केल करें",
@@ -650,7 +546,6 @@
   "localesPanel": {
     "title": "लोकेल",
     "description": "लोकेल का उपयोग परिदृश्य को विभिन्न भाषाओं में अनुवाद करने के लिए किया जाता है।",
-    "addLanguage": "भाषा जोड़ें",
     "removeLanguage": "भाषा हटाएं",
     "noKeys": "कोई अनुवाद कुंजी नहीं। शुरू करने के लिए एक कुंजी जोड़ें।",
     "addKey": "कुंजी जोड़ें",
@@ -659,7 +554,6 @@
     "keyPlaceholder": "अनुवाद कुंजी",
     "valueLabel": "मान",
     "valuePlaceholder": "अनुवाद मान",
-    "addLanguageTitle": "भाषा जोड़ें",
     "languageCodeLabel": "भाषा कोड",
     "languageCodePlaceholder": "जैसे, 'en', 'es', 'fr'",
     "languageCodeEmpty": "भाषा कोड खाली नहीं हो सकता",
@@ -716,7 +610,6 @@
     "importMustBeProcedural": "आयातित फ़ाइल एक प्रक्रियात्मक टेम्पलेट होनी चाहिए (कोई तैयार मानचित्र नहीं, उत्पादन निर्देशों के साथ)।",
     "invalidJsonFile": "अमान्य JSON फ़ाइल। कृपया फ़ाइल प्रारूप जांचें।",
     "confirmOverwriteWarning": "कृपया पुष्टि करें कि आप समझते हैं कि यह भूभाग को अधिलेखित कर देगा।",
-    "selectedNotProcedural": "चयनित परिदृश्य एक प्रक्रियात्मक टेम्पलेट नहीं है।",
-    "invalidJson": "अमान्य JSON"
+    "selectedNotProcedural": "चयनित परिदृश्य एक प्रक्रियात्मक टेम्पलेट नहीं है।"
   }
 }

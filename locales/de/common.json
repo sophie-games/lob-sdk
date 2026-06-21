@@ -361,11 +361,6 @@
   "selectOrder": "Befehl auswählen",
   "orderType": "Befehlstyp",
   "autofire": "Automatisches Feuern",
-  "autofireRange": {
-    "low": "Niedrig",
-    "medium": "Mittel",
-    "max": "Maximal"
-  },
   "allowFireWhenMoving": "Erlaube Feuern während der Bewegung",
   "meleeDamage": "Nahkampfschaden",
   "rangedDamage": "Fernkampfschaden",
@@ -794,5 +789,6 @@
     "message": "Dein langsames Spiel ist spielbereit.",
     "goToGame": "Zum Spiel",
     "ignore": "Ignorieren"
-  }
+  },
+  "max": "Maximal"
 }

@@ -361,11 +361,6 @@
   "selectOrder": "Selecionar Ordem",
   "orderType": "Tipo de ordem",
   "autofire": "Tiro automático",
-  "autofireRange": {
-    "low": "Baixo",
-    "medium": "Médio",
-    "max": "Máximo"
-  },
   "allowFireWhenMoving": "Permitir fogo ao mover",
   "meleeDamage": "Dano corpo a corpo",
   "rangedDamage": "Dano à distância",
@@ -795,5 +790,6 @@
     "message": "Sua partida lenta está pronta.",
     "goToGame": "Ir para a partida",
     "ignore": "Ignorar"
-  }
+  },
+  "max": "Máximo"
 }

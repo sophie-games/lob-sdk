@@ -2,20 +2,33 @@
   "common": {
     "add": "Добавить",
     "addEntry": "Добавить запись",
-    "cancel": "Отменить",
     "delete": "Удалить",
-    "edit": "Изменить",
-    "name": "Название",
     "noEntries": "Нет записей.",
     "none": "Нет",
     "remove": "Убрать",
-    "save": "Сохранить",
     "select": "Выбрать...",
-    "unknown": "(неизвестно)"
-  },
-  "editor": {
-    "loadScenario": "Загрузить сценарий",
-    "chooseScenarioFile": "Выбрать файл сценария"
+    "unknown": "(неизвестно)",
+    "chooseScenarioFile": "Выбрать файл сценария",
+    "positionX": "Позиция X",
+    "positionY": "Позиция Y",
+    "mixed": "Смешанные",
+    "width": "Ширина",
+    "identity": "Обозначение",
+    "formationId": "ID построения",
+    "movementModifier": "Модификатор движения",
+    "rangedAttackModifier": "Модификатор огневой мощи",
+    "chargeBonusModifier": "Модификатор натиска",
+    "chargeResistanceModifier": "Модификатор сопротивления натиску",
+    "pushStrengthModifier": "Модификатор силы отталкивания",
+    "addFormation": "Добавить построение",
+    "idIsRequired": "Требуется ID",
+    "id": "ID",
+    "enfiladeFire": "Огонь во фланг",
+    "damageModifier": "Модификатор урона",
+    "orgModifier": "Модификатор организации",
+    "invalidJson": "Недопустимый JSON",
+    "resizeMap": "Изменить размер карты",
+    "addLanguage": "Добавить язык"
   },
   "editorPanel": {
     "tabs": {
@@ -27,7 +40,6 @@
       "advanced": "Дополнительно"
     },
     "togglePanel": "Переключить панель",
-    "title": "Редактор сценариев",
     "downloadScenario": "Скачать сценарий",
     "copyScenario": "Скопировать сценарий",
     "fullscreen": "Полный экран",
@@ -45,83 +57,46 @@
     "goBackConfirm": "Вы уверены, что хотите вернуться и выйти из редактора?"
   },
   "createScenario": {
-    "title": "Создать сценарий",
     "randomMap": "Случайная (процедурная) карта?",
     "isHybrid": "Гибридная?"
   },
   "playersPanel": {
-    "title": "Игроки",
     "removePlayer": "Убрать игрока"
   },
   "terrainPanel": {
-    "title": "Местность",
-    "active": "Активно",
     "setTerrain": "Задать местность",
     "terrainHeight": "Высота местности",
-    "radius": "Радиус",
     "paintBucket": "Заливка"
   },
   "unitPanel": {
     "title": "Выбранный юнит",
-    "player": "Игрок",
     "unitType": "Тип юнита",
-    "optional": "Необязательно",
-    "positionX": "Позиция X",
-    "positionY": "Позиция Y",
     "rotation": "Поворот",
-    "mixed": "Смешанные",
     "copyJson": "Скопировать JSON",
     "copyUnits": "Скопировать юниты",
     "unitsCopied": "Юниты скопированы ({{count}})",
-    "deselect": "Отменить выбор",
     "removeSelectedUnits": "Убрать выбранные юниты"
   },
   "createUnit": {
     "title": "Создать юнит",
-    "active": "Активно",
     "usingCopiedUnits": "Используются скопированные юниты",
-    "customLabel": "{{name}} (свой)",
-    "fields": {
-      "unit": "Юнит",
-      "player": "Игрок"
-    }
+    "customLabel": "{{name}} (свой)"
   },
   "objectivePanel": {
     "title": "Выбранная ключевая позиция",
     "player": "Игрок {{player}}",
     "team": "Команда {{team}}",
-    "namePlaceholder": "Необязательно",
-    "mixed": "Смешанные",
-    "deselect": "Отменить выбор",
     "removeSelected": "Убрать выбранную ключевую позицию",
-    "type": {
-      "small": "Малая",
-      "big": "Большая"
-    },
     "fields": {
-      "type": "Тип",
-      "logistics": "Снабжение",
       "manpowerPerTurn": "Пополнение за ход",
-      "goldPerTurn": "Золото за ход",
-      "victoryPoints": "Очки победы",
-      "positionX": "Позиция X",
-      "positionY": "Позиция Y"
+      "goldPerTurn": "Золото за ход"
     }
   },
   "createObjective": {
     "title": "Создать ключевую позицию",
-    "active": "Активно",
     "gaia": "Гайя",
-    "type": {
-      "small": "Малая",
-      "big": "Большая"
-    },
     "fields": {
-      "objectiveType": "Тип ключевой позиции",
-      "victoryPoints": "Очки победы",
-      "player": "Игрок",
-      "team": "Команда",
-      "logistics": "Снабжение"
+      "objectiveType": "Тип ключевой позиции"
     }
   },
   "deployment": {
@@ -131,9 +106,7 @@
     "forwardZone": "Передовая",
     "fields": {
       "x": "X",
-      "y": "Y",
-      "width": "Ширина",
-      "height": "Высота"
+      "y": "Y"
     }
   },
   "vpBalance": {
@@ -145,8 +118,6 @@
   },
   "formationModal": {
     "title": "Изменить своё построение",
-    "identity": "Обозначение",
-    "formationId": "ID построения",
     "collision": "Столкновение",
     "collisionHelp": "Форма основания: круг (радиус) или прямоугольник (фронт по ширине, глубина спереди назад). Используйте радиус 0 без столкновения (полёт / призрак).",
     "shape": "Форма",
@@ -155,8 +126,6 @@
     "radiusPx": "Радиус (px)",
     "frontagePx": "Фронт (px)",
     "depthPx": "Глубина (px)",
-    "movement": "Движение",
-    "movementModifier": "Модификатор движения",
     "runMovementModifier": "Модификатор движения при беге",
     "rotationSpeedModifier": "Модификатор скорости поворота",
     "disable180Turn": "Отключить разворот на 180°",
@@ -164,21 +133,9 @@
     "timeToForm": "Время на построение (ticks)",
     "timeToUnform": "Время на перестроение (ticks)",
     "minMovementModifier": "Мин. модификатор движения",
-    "combat": "Бой",
-    "rangedAttackModifier": "Модификатор огневой мощи",
-    "chargeBonusModifier": "Модификатор натиска",
     "chargePenetrationModifier": "Модификатор мощи натиска",
-    "chargeResistanceModifier": "Модификатор сопротивления натиску",
-    "pushStrengthModifier": "Модификатор силы отталкивания",
     "receivedMeleeDamageModifier": "Модификатор получаемого урона в ближнем бою",
     "flanking": "Фланги",
-    "disablesFlankMelee": "Отменяет фланговый ближний бой",
-    "disablesEnfiladeFire": "Отменяет огонь во фланг",
-    "disablesRearFire": "Отменяет огонь в тыл",
-    "flankChargeResistance": "Сопротивление натиску с фланга",
-    "rearChargeResistance": "Сопротивление натиску с тыла",
-    "enfiladeFireResistance": "Сопротивление огню во фланг",
-    "rearFireResistance": "Сопротивление огню в тыл",
     "rangedDamageResistance": "Сопротивление огню",
     "rangedOrgResistance": "Сопротивление урону по организации от огня",
     "fireEdges": "Грани огня (огонь с граней)",
@@ -202,10 +159,7 @@
     "title": "Изменить свой шаблон юнита",
     "optBuiltIn": "{{name}} (встроенный)",
     "optCustom": "{{name}} (свой)",
-    "identity": "Обозначение",
     "typeId": "ID типа",
-    "category": "Категория",
-    "combat": "Бой",
     "meleeAttack": "Ближний бой - Атака",
     "meleeDefense": "Ближний бой - Защита",
     "meleeDamageType": "Тип урона в ближнем бою",
@@ -215,13 +169,11 @@
     "flankMeleeOrgModifier": "Модификатор организации при фланговом ближнем бое",
     "flankChargePenBonus": "Бонус пробивной силы флангового натиска",
     "stats": "Характеристики",
-    "hp": "HP",
     "org": "Орг.",
     "shattersAtOrg": "Уничтожение при организации",
     "routesAtOrg": "Беспорядочное отступление при организации",
     "recoversAtOrg": "Прекращает отступление при организации",
     "ralliesAtOrg": "Восстановление контроля при организации",
-    "stamina": "Выносливость",
     "manpower": "Личный состав",
     "gold": "Золото",
     "orgRadius": "Радиус организации",
@@ -229,43 +181,31 @@
     "reportStats": "Статистика отчёта",
     "reportStatsHelp": "Подсчёт, который каждый юнит вносит в итоги битвы (напр. люди, лошади, орудия). Ключи берутся из встроенных юнитов эпохи.",
     "tallyPerUnit": "Подсчёт на юнит",
-    "movement": "Движение",
     "walkMovement": "Скорость движения шагом",
     "runMovement": "Скорость бега",
     "runStartUpMovement": "Скорость разгона при беге",
     "timeToRun": "Время на бег (ticks)",
     "runCost": "Стоимость бега",
-    "rotationSpeed": "Угол разворота",
-    "rotationMaxThreshold": "Максимальный угол вращения",
-    "runRotationSpeed": "Угол разворота при беге",
     "turningDelay": "Задержка поворота (ticks)",
     "startsRunning": "Начинает с бега",
     "movementSound": "Звук движения",
     "rangedCombat": "Стрельба",
     "rangedAttack": "Огневая мощь",
-    "ammo": "Боеприпасы",
-    "minDistanceToFAA": "Мин. дистанция для Огня при движении",
     "panicFireDistance": "Дистанция паникующего огня",
     "fireWhileMoving": "Огонь при движении",
     "noAmmoRegain": "Без восполнения боеприпасов",
     "rangedDamageTypes": "Типы урона огнём",
     "addRangedDamageType": "Добавить тип урона огнём",
     "enableRanged": "Включить стрельбу",
-    "formations": "Построения",
-    "formationId": "ID построения",
     "baseSprite": "Базовый спрайт",
     "overlaySprite": "Наложенный спрайт",
-    "addFormation": "Добавить построение",
     "defaultFormation": "Построение по умолчанию",
-    "supply": "Снабжение",
-    "supplyField": "Снабжение",
     "supplyConsumptionIdle": "Расход снабжения в покое",
     "supplyConsumptionMoving": "Расход снабжения при движении",
     "supplyConsumptionCombating": "Расход снабжения в бою",
     "supplyManpowerCost": "Стоимость снабжения в личном составе",
     "supplyGoldCost": "Стоимость снабжения в золоте",
     "misc": "Прочее",
-    "skirmisherRatio": "Соотношение застрельщиков",
     "canDeployForward": "Может разворачиваться на передовой",
     "reducedVisibilityRange": "Сниженная дальность видимости",
     "unknownType": "Неизвестный ID типа",
@@ -279,7 +219,6 @@
     "optionBuiltIn": "{{name}} (встроенная)",
     "optionCustom": "{{name}} (своя)",
     "errors": {
-      "idRequired": "Требуется ID",
       "idInUse": "ID категории юнита \"{{id}}\" уже используется",
       "firingAltitudeRequired": "Требуется firingAltitude",
       "orphanedResistances": "damageTypeResistances ссылается на неизвестные типы урона: {{types}}",
@@ -288,8 +227,6 @@
       "allowedOrderUnknown": "Разрешённый приказ \"{{name}}\" не является известным приказом для этой эпохи"
     },
     "identity": {
-      "legend": "Обозначение",
-      "id": "ID",
       "deploymentSection": "Сектор развёртывания"
     },
     "deploymentSection": {
@@ -298,10 +235,7 @@
       "front": "фронт"
     },
     "combat": {
-      "legend": "Бой",
       "firingAltitude": "Возвышение цели",
-      "allyCollisionLevel": "Уровень столкновения с союзниками",
-      "enemyCollisionLevel": "Уровень столкновения с врагом",
       "captureSpeed": "Скорость захвата",
       "impactAltitude": "Высота попадания",
       "grazingAltitude": "Высота рикошета"
@@ -318,14 +252,8 @@
       "speedRun": "бег",
       "fleeWhenRouted": "Бежит при разгроме"
     },
-    "enfiladeFire": {
-      "legend": "Огонь во фланг",
-      "damageModifier": "Модификатор урона",
-      "orgModifier": "Модификатор организации"
-    },
     "rearFire": {
-      "legend": "Огонь в тыл",
-      "orgModifier": "Модификатор организации"
+      "legend": "Огонь в тыл"
     },
     "chargeBacklash": {
       "legend": "Отдача натиска",
@@ -344,7 +272,6 @@
       "fieldLabel": "Сопротивление по типу урона"
     },
     "autofire": {
-      "legend": "Приоритет огня без приказа",
       "description": "Вес приоритета по категории цели. Более высокие значения - предпочтительные цели для огня без приказа.",
       "fieldLabel": "Приоритет по категории цели"
     },
@@ -356,28 +283,20 @@
   "damageTypeModal": {
     "title": "Изменить свой тип урона",
     "sections": {
-      "identity": "Обозначение",
-      "damage": "Урон",
       "projectile": "Снаряд",
       "rangeBrackets": "Дистанционные диапазоны",
       "areaOfEffect": "Область поражения"
     },
     "fields": {
-      "id": "ID",
       "ranged": "Огонь",
       "imageAlias": "Псевдоним изображения",
       "orgDamageRatio": "Снижение организации от боеспособности",
-      "damageModifier": "Модификатор урона",
       "reorgDebuff": "Штраф к восстановлению организации",
       "attackEffectDuration": "Длительность эффекта атаки (ticks)",
-      "projectileWidth": "Ширина области огня",
       "arcHeight": "Высота траектории снаряда",
-      "projectilePenetration": "Мощь снаряда",
       "ammoCost": "Стоимость боеприпасов",
       "shotSound": "Звук выстрела",
       "shotAnim": "Анимация выстрела",
-      "enfiladeFire": "Огонь во фланг",
-      "cannotUseAfterRun": "Нельзя использовать после бега",
       "extendRange": "Увеличить дальность",
       "aimMode": "Режим прицеливания"
     },
@@ -392,9 +311,6 @@
       "endMod": "Мод. конца"
     },
     "aoe": {
-      "type": "Тип",
-      "circular": "Круг",
-      "trapezoidal": "Трапеция",
       "absorptionModifier": "Модификатор поглощения",
       "edgeDamageModifier": "Модификатор урона от непрямого попадания",
       "offset": "Смещение",
@@ -424,7 +340,6 @@
   "terrainCategoryModal": {
     "title": "Изменить свою категорию местности",
     "sections": {
-      "identity": "Обозначение",
       "scalarProperties": "Скалярные свойства",
       "perUnitCategoryModifiers": "Модификаторы по категории юнита",
       "projectileAbsorption": "Поглощение снарядов"
@@ -437,29 +352,21 @@
       "custom": "{{name}} (своя)"
     },
     "fields": {
-      "id": "ID",
       "color": "Цвет",
       "staminaCostModifier": "Модификатор стоимости выносливости",
       "hitboxHeight": "Высота объектов местности",
-      "heightOffset": "Смещение по высоте",
       "visionAbsorption": "Поглощение обзора",
-      "pushStrengthModifier": "Модификатор силы отталкивания",
       "pushDistanceModifier": "Модификатор дистанции отталкивания",
       "fixedEnemyCollisionLevel": "Фиксированный уровень столкновения с врагом",
       "canPlaceObjectives": "Можно размещать ключевые позиции",
       "prioritizeMovement": "Приоритет движения",
       "supplyRoute": "Линия снабжения",
-      "movementModifier": "Модификатор движения",
       "impassableFor": "Непроходимо для",
       "attackModifier": "Модификатор атаки",
       "defenseModifier": "Модификатор защиты",
-      "rangedAttackModifier": "Модификатор огневой мощи",
-      "chargeResistanceModifier": "Модификатор сопротивления натиску",
-      "chargeBonusModifier": "Модификатор натиска",
       "projectileAbsorptionByDamageType": "Поглощение снарядов по типу урона"
     },
     "errors": {
-      "idRequired": "Требуется ID",
       "idInUse": "ID категории местности \"{{id}}\" уже используется",
       "unknownUnitCategories": "{{field}} ссылается на неизвестные категории юнитов: {{keys}}",
       "unknownDamageTypes": "projectileAbsorption ссылается на неизвестные типы урона: {{keys}}"
@@ -468,8 +375,7 @@
   "customDefs": {
     "common": {
       "importFromScenario": "Импорт из сценария",
-      "duplicate": "Дублировать",
-      "done": "Готово"
+      "duplicate": "Дублировать"
     },
     "spritesPanel": {
       "title": "Свои спрайты",
@@ -486,7 +392,6 @@
       "libraryTitle": "Библиотека спрайтов",
       "libraryDescription": "Просмотрите встроенные спрайты эпохи для вдохновения.",
       "filterPlaceholder": "Фильтр по названию...",
-      "loading": "Загрузка...",
       "unitBase": "Базовый спрайт юнита ({{count}})",
       "unitOverlay": "Наложение юнита ({{count}})",
       "noMatches": "Совпадений нет."
@@ -505,7 +410,6 @@
       "description": "Создавайте новые шаблоны построений (столкновение, модификаторы, правила стрельбы), которые могут использовать свои юниты.",
       "noFormations": "Пока нет своих построений.",
       "deleteBlocked": "Нельзя удалить \"{{id}}\" - всё ещё используется в {{refs}}. Сначала уберите эти ссылки.",
-      "addFormation": "Добавить построение",
       "clonePickerTitle": "Клонировать встроенное построение"
     },
     "unitCategoriesPanel": {
@@ -536,7 +440,6 @@
       "clonePickerTitle": "Клонировать встроенную категорию местности"
     },
     "overrideEditor": {
-      "invalidJson": "Недопустимый JSON",
       "reset": "Сбросить",
       "eraDefault": "по умолчанию для эпохи: {{value}}",
       "structuralTooltip": "Структурная / детерминирующая константа. Её изменение может нарушить отрисовку, повторы или подбор соперников."
@@ -553,7 +456,6 @@
       "nothing": "ничего",
       "title": "Импорт {{kind}} из сценария",
       "pickFilePrompt": "Выберите файл сценария (JSON, создаваемый кнопкой «Скачать» редактора), чтобы импортировать из него свои {{kind}}.",
-      "chooseFile": "Выбрать файл сценария",
       "fileReadError": "Не удалось прочитать этот файл как сценарий.",
       "invalidForEra": "Свои определения этого сценария недействительны для текущей эпохи (напр. {{message}}).",
       "importWouldInvalidate": "Импорт сделал бы сценарий недействительным (напр. {{message}}). Ничего не изменено.",
@@ -598,24 +500,20 @@
     "spriteSelect": {
       "default": "По умолчанию",
       "unknownOption": "{{value}} (неизвестно)",
-      "groupCustom": "Свои",
       "groupBuiltIn": "Встроенные"
     }
   },
   "resize": {
-    "title": "Изменить размер карты",
     "currentSize": "Текущий размер: {{width}} × {{height}} тайлов",
     "newSize": "Новый размер: {{width}} × {{height}} тайлов",
     "current": "Текущий: {{width}} × {{height}} тайлов",
     "confirmTitle": "Подтвердить изменение размера карты",
     "warningCannotUndo": "⚠️ <0>Внимание:</0> Эту операцию нельзя отменить.",
-    "continue": "Продолжить",
     "tabScale": "Масштаб",
     "tabExpandCut": "Расширить / Обрезать стороны",
     "scale": {
       "newWidth": "Новая ширина (тайлы)",
       "newHeight": "Новая высота (тайлы)",
-      "apply": "Изменить размер карты",
       "errorInvalid": "Пожалуйста, введите корректные положительные числа для ширины и высоты в тайлах",
       "warningBody": "Убедитесь, что вы сохранили сценарий перед продолжением. Изменение размера отмасштабирует все местности, высоты, юниты, ключевые позиции и позиции триггеров."
     },
@@ -639,9 +537,7 @@
   },
   "mapSize": {
     "widthInTiles": "Ширина в тайлах",
-    "heightInTiles": "Высота в тайлах",
-    "widthPlaceholder": "Ширина",
-    "heightPlaceholder": "Высота"
+    "heightInTiles": "Высота в тайлах"
   },
   "misc": {
     "scaleAllSizesBy": "Масштабировать все размеры на",
@@ -652,7 +548,6 @@
   "localesPanel": {
     "title": "Локали",
     "description": "Локали используются для перевода сценария на разные языки.",
-    "addLanguage": "Добавить язык",
     "removeLanguage": "Убрать язык",
     "noKeys": "Нет ключей перевода. Добавьте ключ, чтобы начать.",
     "addKey": "Добавить ключ",
@@ -661,7 +556,6 @@
     "keyPlaceholder": "Ключ перевода",
     "valueLabel": "Значение",
     "valuePlaceholder": "Значение перевода",
-    "addLanguageTitle": "Добавить язык",
     "languageCodeLabel": "Код языка",
     "languageCodePlaceholder": "напр., 'en', 'es', 'fr'",
     "languageCodeEmpty": "Код языка не может быть пустым",
@@ -718,7 +612,6 @@
     "importMustBeProcedural": "Импортируемый файл должен быть процедурным шаблоном (без запечённой карты, с инструкциями генерации).",
     "invalidJsonFile": "Недопустимый файл JSON. Пожалуйста, проверьте формат файла.",
     "confirmOverwriteWarning": "Пожалуйста, подтвердите, что вы понимаете, что это перезапишет местность.",
-    "selectedNotProcedural": "Выбранный сценарий не является процедурным шаблоном.",
-    "invalidJson": "Недопустимый JSON"
+    "selectedNotProcedural": "Выбранный сценарий не является процедурным шаблоном."
   }
 }

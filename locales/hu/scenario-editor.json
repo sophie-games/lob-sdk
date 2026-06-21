@@ -2,20 +2,33 @@
   "common": {
     "add": "Hozzáadás",
     "addEntry": "Bejegyzés hozzáadása",
-    "cancel": "Mégse",
     "delete": "Törlés",
-    "edit": "Szerkesztés",
-    "name": "Név",
     "noEntries": "Nincsenek bejegyzések.",
     "none": "Nincs",
     "remove": "Eltávolítás",
-    "save": "Mentés",
     "select": "Válassz...",
-    "unknown": "(ismeretlen)"
-  },
-  "editor": {
-    "loadScenario": "Pálya betöltése",
-    "chooseScenarioFile": "Pályafájl kiválasztása"
+    "unknown": "(ismeretlen)",
+    "chooseScenarioFile": "Pályafájl kiválasztása",
+    "positionX": "X pozíció",
+    "positionY": "Y pozíció",
+    "mixed": "Vegyes",
+    "width": "Szélesség",
+    "identity": "Azonosítás",
+    "formationId": "Formáció ID",
+    "movementModifier": "Mozgás módosító",
+    "rangedAttackModifier": "Távolsági támadás módosító",
+    "chargeBonusModifier": "Roham-bónusz módosító",
+    "chargeResistanceModifier": "Roham-ellenállás módosító",
+    "pushStrengthModifier": "Lökéserő módosító",
+    "addFormation": "Formáció hozzáadása",
+    "idIsRequired": "Az ID kötelező",
+    "id": "ID",
+    "enfiladeFire": "Oldalsótűz",
+    "damageModifier": "Sebzés módosító",
+    "orgModifier": "Org módosító",
+    "invalidJson": "Érvénytelen JSON",
+    "resizeMap": "Pálya átméretezése",
+    "addLanguage": "Nyelv hozzáadása"
   },
   "editorPanel": {
     "tabs": {
@@ -27,7 +40,6 @@
       "advanced": "Speciális"
     },
     "togglePanel": "Panel be/ki",
-    "title": "Pályakészítő",
     "downloadScenario": "Pálya letöltése",
     "copyScenario": "Pálya másolása",
     "fullscreen": "Teljes képernyő",
@@ -45,83 +57,46 @@
     "goBackConfirm": "Biztosan visszalépsz és kilépsz a szerkesztőből?"
   },
   "createScenario": {
-    "title": "Pálya létrehozása",
     "randomMap": "Véletlenszerű (eljárásos) pálya?",
     "isHybrid": "Hibrid?"
   },
   "playersPanel": {
-    "title": "Játékosok",
     "removePlayer": "Játékos eltávolítása"
   },
   "terrainPanel": {
-    "title": "Terep",
-    "active": "Aktív",
     "setTerrain": "Terep beállítása",
     "terrainHeight": "Terep magassága",
-    "radius": "Sugár",
     "paintBucket": "Festékvödör"
   },
   "unitPanel": {
     "title": "Kijelölt egység",
-    "player": "Játékos",
     "unitType": "Egységtípus",
-    "optional": "Opcionális",
-    "positionX": "X pozíció",
-    "positionY": "Y pozíció",
     "rotation": "Forgatás",
-    "mixed": "Vegyes",
     "copyJson": "JSON másolása",
     "copyUnits": "Egységek másolása",
     "unitsCopied": "Egységek másolva ({{count}})",
-    "deselect": "Kijelölés megszüntetése",
     "removeSelectedUnits": "Kijelölt egységek eltávolítása"
   },
   "createUnit": {
     "title": "Egység létrehozása",
-    "active": "Aktív",
     "usingCopiedUnits": "Másolt egységek használata",
-    "customLabel": "{{name}} (egyéni)",
-    "fields": {
-      "unit": "Egység",
-      "player": "Játékos"
-    }
+    "customLabel": "{{name}} (egyéni)"
   },
   "objectivePanel": {
     "title": "Kijelölt objektíva",
     "player": "{{player}}. játékos",
     "team": "{{team}}. csapat",
-    "namePlaceholder": "Opcionális",
-    "mixed": "Vegyes",
-    "deselect": "Kijelölés megszüntetése",
     "removeSelected": "Kijelölt objektíva eltávolítása",
-    "type": {
-      "small": "Kicsi",
-      "big": "Nagy"
-    },
     "fields": {
-      "type": "Típus",
-      "logistics": "Logisztika",
       "manpowerPerTurn": "Emberanyag körönként",
-      "goldPerTurn": "Arany körönként",
-      "victoryPoints": "Győzelmi pontok",
-      "positionX": "X pozíció",
-      "positionY": "Y pozíció"
+      "goldPerTurn": "Arany körönként"
     }
   },
   "createObjective": {
     "title": "Objektíva létrehozása",
-    "active": "Aktív",
     "gaia": "Gaia",
-    "type": {
-      "small": "Kicsi",
-      "big": "Nagy"
-    },
     "fields": {
-      "objectiveType": "Objektíva típusa",
-      "victoryPoints": "Győzelmi pontok",
-      "player": "Játékos",
-      "team": "Csapat",
-      "logistics": "Logisztika"
+      "objectiveType": "Objektíva típusa"
     }
   },
   "deployment": {
@@ -131,9 +106,7 @@
     "forwardZone": "Előretolt",
     "fields": {
       "x": "X",
-      "y": "Y",
-      "width": "Szélesség",
-      "height": "Magasság"
+      "y": "Y"
     }
   },
   "vpBalance": {
@@ -145,8 +118,6 @@
   },
   "formationModal": {
     "title": "Egyéni formáció szerkesztése",
-    "identity": "Azonosítás",
-    "formationId": "Formáció ID",
     "collision": "Ütközés",
     "collisionHelp": "Talajfelület alakja: kör (sugár) vagy téglalap (frontszélesség elöl, mélység elöl-hátra). Használj 0 sugarat, ha nincs ütközés (repülő / szellem).",
     "shape": "Alak",
@@ -155,8 +126,6 @@
     "radiusPx": "Sugár (px)",
     "frontagePx": "Frontszélesség (px)",
     "depthPx": "Mélység (px)",
-    "movement": "Mozgás",
-    "movementModifier": "Mozgás módosító",
     "runMovementModifier": "Futómozgás módosító",
     "rotationSpeedModifier": "Forgási sebesség módosító",
     "disable180Turn": "180°-os fordulás tiltása",
@@ -164,21 +133,9 @@
     "timeToForm": "Alakítási idő (tick)",
     "timeToUnform": "Felbontási idő (tick)",
     "minMovementModifier": "Min. mozgás módosító",
-    "combat": "Harc",
-    "rangedAttackModifier": "Távolsági támadás módosító",
-    "chargeBonusModifier": "Roham-bónusz módosító",
     "chargePenetrationModifier": "Roham-áttörés módosító",
-    "chargeResistanceModifier": "Roham-ellenállás módosító",
-    "pushStrengthModifier": "Lökéserő módosító",
     "receivedMeleeDamageModifier": "Kapott közelharci sebzés módosító",
     "flanking": "Szárnyazás",
-    "disablesFlankMelee": "Letiltja a szárnyi közelharcot",
-    "disablesEnfiladeFire": "Letiltja az oldalsótüzet",
-    "disablesRearFire": "Letiltja a háttüzet",
-    "flankChargeResistance": "Szárnyi roham-ellenállás",
-    "rearChargeResistance": "Hátsó roham-ellenállás",
-    "enfiladeFireResistance": "Oldalsótűz-ellenállás",
-    "rearFireResistance": "Háttűz-ellenállás",
     "rangedDamageResistance": "Távolsági sebzés ellenállás",
     "rangedOrgResistance": "Távolsági org ellenállás",
     "fireEdges": "Tűzélek (élmenti tűz)",
@@ -202,10 +159,7 @@
     "title": "Egyéni egységsablon szerkesztése",
     "optBuiltIn": "{{name}} (beépített)",
     "optCustom": "{{name}} (egyéni)",
-    "identity": "Azonosítás",
     "typeId": "Típus ID",
-    "category": "Kategória",
-    "combat": "Harc",
     "meleeAttack": "Közelharci támadás",
     "meleeDefense": "Közelharci védekezés",
     "meleeDamageType": "Közelharci sebzéstípus",
@@ -215,13 +169,11 @@
     "flankMeleeOrgModifier": "Szárnyi közelharci org módosító",
     "flankChargePenBonus": "Szárnyi roham-áttörés bónusz",
     "stats": "Statisztikák",
-    "hp": "HP",
     "org": "Org",
     "shattersAtOrg": "Szétesik org-nál",
     "routesAtOrg": "Megfutamodik org-nál",
     "recoversAtOrg": "Felépül org-nál",
     "ralliesAtOrg": "Összegyűlik org-nál",
-    "stamina": "Kitartás",
     "manpower": "Emberanyag",
     "gold": "Arany",
     "orgRadius": "Org sugár",
@@ -229,43 +181,31 @@
     "reportStats": "Jelentési statisztikák",
     "reportStatsHelp": "A csata-jelentésekhez minden egység által hozzáadott összegzés (pl. emberek, lovak, ágyúk). A kulcsok a korszak beépített egységeiből származnak.",
     "tallyPerUnit": "Összeg egységenként",
-    "movement": "Mozgás",
     "walkMovement": "Sétamozgás",
     "runMovement": "Futómozgás",
     "runStartUpMovement": "Futás indítómozgása",
     "timeToRun": "Futásig eltelt idő (tick)",
     "runCost": "Futás költsége",
-    "rotationSpeed": "Forgási sebesség",
-    "rotationMaxThreshold": "Forgás max küszöb",
-    "runRotationSpeed": "Futó forgási sebesség",
     "turningDelay": "Fordulási késés (tick)",
     "startsRunning": "Futva indul",
     "movementSound": "Mozgáshang",
     "rangedCombat": "Távolsági harc",
     "rangedAttack": "Távolsági támadás",
-    "ammo": "Lőszer",
-    "minDistanceToFAA": "Min. távolság a FAA-hoz",
     "panicFireDistance": "Pániktűz távolsága",
     "fireWhileMoving": "Tüzelés mozgás közben",
     "noAmmoRegain": "Nincs lőszer-visszanyerés",
     "rangedDamageTypes": "Távolsági sebzéstípusok",
     "addRangedDamageType": "Távolsági sebzéstípus hozzáadása",
     "enableRanged": "Távolsági engedélyezése",
-    "formations": "Formációk",
-    "formationId": "Formáció ID",
     "baseSprite": "Alap sprite",
     "overlaySprite": "Réteg sprite",
-    "addFormation": "Formáció hozzáadása",
     "defaultFormation": "Alapértelmezett formáció",
-    "supply": "Ellátmány",
-    "supplyField": "Ellátmány",
     "supplyConsumptionIdle": "Ellátmányfogyasztás tétlenül",
     "supplyConsumptionMoving": "Ellátmányfogyasztás mozgásban",
     "supplyConsumptionCombating": "Ellátmányfogyasztás harcban",
     "supplyManpowerCost": "Ellátmány emberanyag-költsége",
     "supplyGoldCost": "Ellátmány arany-költsége",
     "misc": "Egyéb",
-    "skirmisherRatio": "Csatárláncos arány",
     "canDeployForward": "Előretolva felállítható",
     "reducedVisibilityRange": "Csökkentett láthatósági táv",
     "unknownType": "Ismeretlen típus id",
@@ -279,7 +219,6 @@
     "optionBuiltIn": "{{name}} (beépített)",
     "optionCustom": "{{name}} (egyéni)",
     "errors": {
-      "idRequired": "Az ID kötelező",
       "idInUse": "A(z) \"{{id}}\" egységkategória id már használatban van",
       "firingAltitudeRequired": "firingAltitude megadása kötelező",
       "orphanedResistances": "damageTypeResistances ismeretlen sebzéstípusokra hivatkozik: {{types}}",
@@ -288,8 +227,6 @@
       "allowedOrderUnknown": "A(z) \"{{name}}\" engedélyezett parancs nem ismert parancs ehhez a korszakhoz"
     },
     "identity": {
-      "legend": "Azonosítás",
-      "id": "ID",
       "deploymentSection": "Felállítási szakasz"
     },
     "deploymentSection": {
@@ -298,10 +235,7 @@
       "front": "front"
     },
     "combat": {
-      "legend": "Harc",
       "firingAltitude": "Tüzelési magasság",
-      "allyCollisionLevel": "Szövetséges ütközési szint",
-      "enemyCollisionLevel": "Ellenséges ütközési szint",
       "captureSpeed": "Elfoglalási sebesség",
       "impactAltitude": "Becsapódási magasság",
       "grazingAltitude": "Súrolási magasság"
@@ -318,14 +252,8 @@
       "speedRun": "futás",
       "fleeWhenRouted": "Menekül megfutamodáskor"
     },
-    "enfiladeFire": {
-      "legend": "Oldalsótűz",
-      "damageModifier": "Sebzés módosító",
-      "orgModifier": "Org módosító"
-    },
     "rearFire": {
-      "legend": "Háttűz",
-      "orgModifier": "Org módosító"
+      "legend": "Háttűz"
     },
     "chargeBacklash": {
       "legend": "Roham-visszacsapás",
@@ -344,7 +272,6 @@
       "fieldLabel": "Ellenállás sebzéstípus szerint"
     },
     "autofire": {
-      "legend": "Automatikus tüzelés prioritása",
       "description": "Prioritási súly célpont-egységkategóriánként. A magasabb értékek előnyben részesített célpontok az automatikus tüzeléshez.",
       "fieldLabel": "Prioritás célkategória szerint"
     },
@@ -356,28 +283,20 @@
   "damageTypeModal": {
     "title": "Egyéni sebzéstípus szerkesztése",
     "sections": {
-      "identity": "Azonosítás",
-      "damage": "Sebzés",
       "projectile": "Lövedék",
       "rangeBrackets": "Hatótáv-sávok",
       "areaOfEffect": "Hatásterület"
     },
     "fields": {
-      "id": "ID",
       "ranged": "Távolsági",
       "imageAlias": "Kép-alias",
       "orgDamageRatio": "Org sebzés ráta",
-      "damageModifier": "Sebzés módosító",
       "reorgDebuff": "Reorg büntetés",
       "attackEffectDuration": "Támadási hatás időtartama (tick)",
-      "projectileWidth": "Lövedék szélessége",
       "arcHeight": "Ív magassága",
-      "projectilePenetration": "Lövedék áttörése",
       "ammoCost": "Lőszerköltség",
       "shotSound": "Lövéshang",
       "shotAnim": "Lövésanimáció",
-      "enfiladeFire": "Oldalsótűz",
-      "cannotUseAfterRun": "Futás után nem használható",
       "extendRange": "Hatótáv kiterjesztése",
       "aimMode": "Célzási mód"
     },
@@ -392,9 +311,6 @@
       "endMod": "Vég mód."
     },
     "aoe": {
-      "type": "Típus",
-      "circular": "Körkörös",
-      "trapezoidal": "Trapéz alakú",
       "absorptionModifier": "Elnyelés módosító",
       "edgeDamageModifier": "Szél-menti sebzés módosító",
       "offset": "Eltolás",
@@ -424,7 +340,6 @@
   "terrainCategoryModal": {
     "title": "Egyéni terepkategória szerkesztése",
     "sections": {
-      "identity": "Azonosítás",
       "scalarProperties": "Skalár tulajdonságok",
       "perUnitCategoryModifiers": "Egységkategóriánkénti módosítók",
       "projectileAbsorption": "Lövedékelnyelés"
@@ -437,29 +352,21 @@
       "custom": "{{name}} (egyéni)"
     },
     "fields": {
-      "id": "ID",
       "color": "Szín",
       "staminaCostModifier": "Kitartásköltség módosító",
       "hitboxHeight": "Hitbox magassága",
-      "heightOffset": "Magasság eltolása",
       "visionAbsorption": "Látáselnyelés",
-      "pushStrengthModifier": "Lökéserő módosító",
       "pushDistanceModifier": "Lökéstávolság módosító",
       "fixedEnemyCollisionLevel": "Rögzített ellenséges ütközési szint",
       "canPlaceObjectives": "Objektívák elhelyezhetők",
       "prioritizeMovement": "Mozgás priorizálása",
       "supplyRoute": "Ellátmányútvonal",
-      "movementModifier": "Mozgás módosító",
       "impassableFor": "Járhatatlan a következőknek",
       "attackModifier": "Támadás módosító",
       "defenseModifier": "Védekezés módosító",
-      "rangedAttackModifier": "Távolsági támadás módosító",
-      "chargeResistanceModifier": "Roham-ellenállás módosító",
-      "chargeBonusModifier": "Roham-bónusz módosító",
       "projectileAbsorptionByDamageType": "Lövedékelnyelés sebzéstípus szerint"
     },
     "errors": {
-      "idRequired": "Az ID kötelező",
       "idInUse": "A(z) \"{{id}}\" terepkategória id már használatban van",
       "unknownUnitCategories": "{{field}} ismeretlen egységkategóriákra hivatkozik: {{keys}}",
       "unknownDamageTypes": "projectileAbsorption ismeretlen sebzéstípusokra hivatkozik: {{keys}}"
@@ -468,8 +375,7 @@
   "customDefs": {
     "common": {
       "importFromScenario": "Importálás pályából",
-      "duplicate": "Duplikálás",
-      "done": "Kész"
+      "duplicate": "Duplikálás"
     },
     "spritesPanel": {
       "title": "Egyéni sprite-ok",
@@ -486,7 +392,6 @@
       "libraryTitle": "Sprite-könyvtár",
       "libraryDescription": "Böngészd a korszak beépített sprite-jait inspirációért.",
       "filterPlaceholder": "Szűrés név szerint...",
-      "loading": "Betöltés...",
       "unitBase": "Egység alap ({{count}})",
       "unitOverlay": "Egység réteg ({{count}})",
       "noMatches": "Nincs találat."
@@ -505,7 +410,6 @@
       "description": "Definiálj új formációsablonokat (ütközés, módosítók, tüzelési szabályok), amelyeket az egyéni egységek használhatnak.",
       "noFormations": "Még nincsenek egyéni formációk.",
       "deleteBlocked": "A(z) \"{{id}}\" nem törölhető - még használja: {{refs}}. Előbb távolítsd el azokat a hivatkozásokat.",
-      "addFormation": "Formáció hozzáadása",
       "clonePickerTitle": "Beépített formáció klónozása"
     },
     "unitCategoriesPanel": {
@@ -536,7 +440,6 @@
       "clonePickerTitle": "Beépített terepkategória klónozása"
     },
     "overrideEditor": {
-      "invalidJson": "Érvénytelen JSON",
       "reset": "Visszaállítás",
       "eraDefault": "korszak alapértéke: {{value}}",
       "structuralTooltip": "Szerkezeti / determinizmus-konstans. A módosítása elronthatja a megjelenítést, a visszajátszásokat vagy a meccskeresést."
@@ -553,7 +456,6 @@
       "nothing": "semmi",
       "title": "{{kind}} importálása pályából",
       "pickFilePrompt": "Válassz egy pályafájlt (a szerkesztő Letöltés gombja által előállított JSON), hogy importáld belőle az egyéni {{kind}} elemeket.",
-      "chooseFile": "Pályafájl kiválasztása",
       "fileReadError": "Nem sikerült beolvasni a fájlt pályaként.",
       "invalidForEra": "Ennek a pályának az egyéni definíciói nem érvényesek a jelenlegi korszakhoz (pl. {{message}}).",
       "importWouldInvalidate": "Az importálás érvénytelenné tenné a pályát (pl. {{message}}). Semmi sem változott.",
@@ -596,24 +498,20 @@
     "spriteSelect": {
       "default": "Alapértelmezett",
       "unknownOption": "{{value}} (ismeretlen)",
-      "groupCustom": "Egyéni",
       "groupBuiltIn": "Beépített"
     }
   },
   "resize": {
-    "title": "Pálya átméretezése",
     "currentSize": "Jelenlegi méret: {{width}} × {{height}} mező",
     "newSize": "Új méret: {{width}} × {{height}} mező",
     "current": "Jelenlegi: {{width}} × {{height}} mező",
     "confirmTitle": "Pálya átméretezésének megerősítése",
     "warningCannotUndo": "⚠️ <0>Figyelem:</0> Ez a művelet nem vonható vissza.",
-    "continue": "Folytatás",
     "tabScale": "Skálázás",
     "tabExpandCut": "Oldalak bővítése / vágása",
     "scale": {
       "newWidth": "Új szélesség (mező)",
       "newHeight": "Új magasság (mező)",
-      "apply": "Pálya átméretezése",
       "errorInvalid": "Kérlek adj meg érvényes pozitív számokat a szélességhez és a magassághoz mezőkben",
       "warningBody": "Folytatás előtt győződj meg róla, hogy mentetted a pályádat. Az átméretezés minden terepet, magasságot, egységet, objektívát és trigger-pozíciót skáláz."
     },
@@ -637,9 +535,7 @@
   },
   "mapSize": {
     "widthInTiles": "Szélesség mezőkben",
-    "heightInTiles": "Magasság mezőkben",
-    "widthPlaceholder": "Szélesség",
-    "heightPlaceholder": "Magasság"
+    "heightInTiles": "Magasság mezőkben"
   },
   "misc": {
     "scaleAllSizesBy": "Minden méret skálázása ennyivel",
@@ -650,7 +546,6 @@
   "localesPanel": {
     "title": "Nyelvek",
     "description": "A nyelvek a pálya különböző nyelvekre fordítására szolgálnak.",
-    "addLanguage": "Nyelv hozzáadása",
     "removeLanguage": "Nyelv eltávolítása",
     "noKeys": "Nincsenek fordítási kulcsok. Adj hozzá egy kulcsot a kezdéshez.",
     "addKey": "Kulcs hozzáadása",
@@ -659,7 +554,6 @@
     "keyPlaceholder": "Fordítási kulcs",
     "valueLabel": "Érték",
     "valuePlaceholder": "Fordítási érték",
-    "addLanguageTitle": "Nyelv hozzáadása",
     "languageCodeLabel": "Nyelvkód",
     "languageCodePlaceholder": "pl. 'en', 'es', 'fr'",
     "languageCodeEmpty": "A nyelvkód nem lehet üres",
@@ -716,7 +610,6 @@
     "importMustBeProcedural": "Az importált fájlnak eljárásos sablonnak kell lennie (megsütött pálya nélkül, generálási utasításokkal).",
     "invalidJsonFile": "Érvénytelen JSON fájl. Kérlek ellenőrizd a fájl formátumát.",
     "confirmOverwriteWarning": "Kérlek erősítsd meg, hogy megérted, ez felülírja a terepet.",
-    "selectedNotProcedural": "A kiválasztott pálya nem eljárásos sablon.",
-    "invalidJson": "Érvénytelen JSON"
+    "selectedNotProcedural": "A kiválasztott pálya nem eljárásos sablon."
   }
 }

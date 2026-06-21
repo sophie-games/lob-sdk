@@ -350,11 +350,6 @@
   "selectOrder": "Sélectionner un ordre",
   "orderType": "Type d'ordre",
   "autofire": "Tir automatique",
-  "autofireRange": {
-    "low": "Faible",
-    "medium": "Moyen",
-    "max": "Maximal"
-  },
   "allowFireWhenMoving": "Permet de tirer en avançant",
   "meleeDamage": "Dégâts de mêlée",
   "rangedDamage": "Dégâts à distance",
@@ -807,5 +802,6 @@
     "message": "Ta partie lente est prête.",
     "goToGame": "Aller à la partie",
     "ignore": "Ignorer"
-  }
+  },
+  "max": "Maximal"
 }

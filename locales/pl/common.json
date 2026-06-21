@@ -378,11 +378,6 @@
   "selectOrder": "Wybierz Rozkaz",
   "orderType": "Typ rozkazu",
   "autofire": "Automatyczny ogień",
-  "autofireRange": {
-    "low": "Niski",
-    "medium": "Średni",
-    "max": "Maksymalny"
-  },
   "allowFireWhenMoving": "Pozwala strzelać podczas ruchu",
   "meleeDamage": "Obrażenia wręcz",
   "rangedDamage": "Obrażenia dystansowe",
@@ -914,5 +909,6 @@
     "description": "Każda lekcja obejmuje sytuację, którą warto poznać.",
     "allSeen": "Zobaczyłeś wszystkie lekcje samouczka.",
     "viewMissed": "Zobacz pominięte lekcje"
-  }
+  },
+  "max": "Maksymalny"
 }

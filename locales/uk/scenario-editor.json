@@ -2,20 +2,33 @@
   "common": {
     "add": "Додати",
     "addEntry": "Додати запис",
-    "cancel": "Скасувати",
     "delete": "Видалити",
-    "edit": "Редагувати",
-    "name": "Назва",
     "noEntries": "Немає записів.",
     "none": "Немає",
     "remove": "Вилучити",
-    "save": "Зберегти",
     "select": "Вибрати...",
-    "unknown": "(невідомо)"
-  },
-  "editor": {
-    "loadScenario": "Завантажити сценарій",
-    "chooseScenarioFile": "Виберіть файл сценарію"
+    "unknown": "(невідомо)",
+    "chooseScenarioFile": "Виберіть файл сценарію",
+    "positionX": "Позиція X",
+    "positionY": "Позиція Y",
+    "mixed": "Змішано",
+    "width": "Ширина",
+    "identity": "Ідентифікація",
+    "formationId": "ID формування",
+    "movementModifier": "Модифікатор руху",
+    "rangedAttackModifier": "Модифікатор дальньої атаки",
+    "chargeBonusModifier": "Модифікатор бонусу натиску",
+    "chargeResistanceModifier": "Модифікатор стійкості до натиску",
+    "pushStrengthModifier": "Модифікатор сили поштовху",
+    "addFormation": "Додати формування",
+    "idIsRequired": "Потрібен ID",
+    "id": "ID",
+    "enfiladeFire": "Фланговий вогонь",
+    "damageModifier": "Модифікатор ушкодження",
+    "orgModifier": "Модифікатор бойового духу",
+    "invalidJson": "Недійсний JSON",
+    "resizeMap": "Змінити розмір карти",
+    "addLanguage": "Додати мову"
   },
   "editorPanel": {
     "tabs": {
@@ -27,7 +40,6 @@
       "advanced": "Розширені"
     },
     "togglePanel": "Перемкнути панель",
-    "title": "Редактор сценаріїв",
     "downloadScenario": "Завантажити сценарій",
     "copyScenario": "Копіювати сценарій",
     "fullscreen": "На весь екран",
@@ -45,83 +57,46 @@
     "goBackConfirm": "Ви впевнені, що хочете повернутися назад і вийти з редактора?"
   },
   "createScenario": {
-    "title": "Створити сценарій",
     "randomMap": "Випадкова (процедурна) карта?",
     "isHybrid": "Гібридний?"
   },
   "playersPanel": {
-    "title": "Гравці",
     "removePlayer": "Вилучити гравця"
   },
   "terrainPanel": {
-    "title": "Місцевість",
-    "active": "Активна",
     "setTerrain": "Задати місцевість",
     "terrainHeight": "Висота місцевості",
-    "radius": "Радіус",
     "paintBucket": "Заливка"
   },
   "unitPanel": {
     "title": "Вибраний підрозділ",
-    "player": "Гравець",
     "unitType": "Тип підрозділу",
-    "optional": "Необов'язково",
-    "positionX": "Позиція X",
-    "positionY": "Позиція Y",
     "rotation": "Поворот",
-    "mixed": "Змішано",
     "copyJson": "Копіювати JSON",
     "copyUnits": "Копіювати підрозділи",
     "unitsCopied": "Підрозділи скопійовано ({{count}})",
-    "deselect": "Скасувати вибір",
     "removeSelectedUnits": "Вилучити вибрані підрозділи"
   },
   "createUnit": {
     "title": "Створити підрозділ",
-    "active": "Активний",
     "usingCopiedUnits": "Використовуються скопійовані підрозділи",
-    "customLabel": "{{name}} (власний)",
-    "fields": {
-      "unit": "Підрозділ",
-      "player": "Гравець"
-    }
+    "customLabel": "{{name}} (власний)"
   },
   "objectivePanel": {
     "title": "Вибрана ціль",
     "player": "Гравець {{player}}",
     "team": "Команда {{team}}",
-    "namePlaceholder": "Необов'язково",
-    "mixed": "Змішано",
-    "deselect": "Скасувати вибір",
     "removeSelected": "Вилучити вибрану ціль",
-    "type": {
-      "small": "Мала",
-      "big": "Велика"
-    },
     "fields": {
-      "type": "Тип",
-      "logistics": "Логістика",
       "manpowerPerTurn": "Поповнення за хід",
-      "goldPerTurn": "Золото за хід",
-      "victoryPoints": "Очки перемоги",
-      "positionX": "Позиція X",
-      "positionY": "Позиція Y"
+      "goldPerTurn": "Золото за хід"
     }
   },
   "createObjective": {
     "title": "Створити ціль",
-    "active": "Активна",
     "gaia": "Гея",
-    "type": {
-      "small": "Мала",
-      "big": "Велика"
-    },
     "fields": {
-      "objectiveType": "Тип цілі",
-      "victoryPoints": "Очки перемоги",
-      "player": "Гравець",
-      "team": "Команда",
-      "logistics": "Логістика"
+      "objectiveType": "Тип цілі"
     }
   },
   "deployment": {
@@ -131,9 +106,7 @@
     "forwardZone": "Передова",
     "fields": {
       "x": "X",
-      "y": "Y",
-      "width": "Ширина",
-      "height": "Висота"
+      "y": "Y"
     }
   },
   "vpBalance": {
@@ -145,8 +118,6 @@
   },
   "formationModal": {
     "title": "Редагувати власне формування",
-    "identity": "Ідентифікація",
-    "formationId": "ID формування",
     "collision": "Колізія",
     "collisionHelp": "Форма зони: коло (радіус) або прямокутник (фронт упоперек, глибина спереду назад). Використовуйте радіус 0 для відсутності колізії (політ / привид).",
     "shape": "Форма",
@@ -155,8 +126,6 @@
     "radiusPx": "Радіус (px)",
     "frontagePx": "Фронт (px)",
     "depthPx": "Глибина (px)",
-    "movement": "Рух",
-    "movementModifier": "Модифікатор руху",
     "runMovementModifier": "Модифікатор руху при бігу",
     "rotationSpeedModifier": "Модифікатор швидкості повороту",
     "disable180Turn": "Вимкнути поворот на 180°",
@@ -164,21 +133,9 @@
     "timeToForm": "Час на формування (ticks)",
     "timeToUnform": "Час на розформування (ticks)",
     "minMovementModifier": "Мін. модифікатор руху",
-    "combat": "Бій",
-    "rangedAttackModifier": "Модифікатор дальньої атаки",
-    "chargeBonusModifier": "Модифікатор бонусу натиску",
     "chargePenetrationModifier": "Модифікатор пробивної сили натиску",
-    "chargeResistanceModifier": "Модифікатор стійкості до натиску",
-    "pushStrengthModifier": "Модифікатор сили поштовху",
     "receivedMeleeDamageModifier": "Модифікатор отриманого ушкодження в ближньому бою",
     "flanking": "Фланкування",
-    "disablesFlankMelee": "Вимикає фланговий ближній бій",
-    "disablesEnfiladeFire": "Вимикає фланговий вогонь",
-    "disablesRearFire": "Вимикає вогонь з тилу",
-    "flankChargeResistance": "Стійкість до флангового натиску",
-    "rearChargeResistance": "Стійкість до натиску з тилу",
-    "enfiladeFireResistance": "Стійкість до флангового вогню",
-    "rearFireResistance": "Стійкість до вогню з тилу",
     "rangedDamageResistance": "Стійкість до дальнього ушкодження",
     "rangedOrgResistance": "Стійкість до дальнього ушкодження бойового духу",
     "fireEdges": "Краї вогню (вогонь з країв)",
@@ -202,10 +159,7 @@
     "title": "Редагувати власний шаблон підрозділу",
     "optBuiltIn": "{{name}} (вбудований)",
     "optCustom": "{{name}} (власний)",
-    "identity": "Ідентифікація",
     "typeId": "ID типу",
-    "category": "Категорія",
-    "combat": "Бій",
     "meleeAttack": "Рукопашна атака",
     "meleeDefense": "Рукопашний захист",
     "meleeDamageType": "Тип рукопашного ушкодження",
@@ -215,13 +169,11 @@
     "flankMeleeOrgModifier": "Модифікатор бойового духу при фланговому бої",
     "flankChargePenBonus": "Бонус пробивної сили флангового натиску",
     "stats": "Характеристики",
-    "hp": "HP",
     "org": "Бойовий дух",
     "shattersAtOrg": "Руйнується при бойовому дусі",
     "routesAtOrg": "Тікає при бойовому дусі",
     "recoversAtOrg": "Відновлюється при бойовому дусі",
     "ralliesAtOrg": "Збирається при бойовому дусі",
-    "stamina": "Витривалість",
     "manpower": "Чисельність",
     "gold": "Золото",
     "orgRadius": "Радіус бойового духу",
@@ -229,43 +181,31 @@
     "reportStats": "Характеристики звіту",
     "reportStatsHelp": "Підрахунок, який кожен підрозділ додає до звітів про битву (наприклад, люди, коні, гармати). Ключі беруться з вбудованих підрозділів ери.",
     "tallyPerUnit": "Підрахунок на підрозділ",
-    "movement": "Рух",
     "walkMovement": "Рух кроком",
     "runMovement": "Рух бігом",
     "runStartUpMovement": "Розгін до бігу",
     "timeToRun": "Час до бігу (ticks)",
     "runCost": "Вартість бігу",
-    "rotationSpeed": "Швидкість повороту",
-    "rotationMaxThreshold": "Макс. поріг повороту",
-    "runRotationSpeed": "Швидкість повороту при бігу",
     "turningDelay": "Затримка повороту (ticks)",
     "startsRunning": "Починає бігом",
     "movementSound": "Звук руху",
     "rangedCombat": "Дальній бій",
     "rangedAttack": "Дальня атака",
-    "ammo": "Боєприпаси",
-    "minDistanceToFAA": "Мін. відстань до FAA",
     "panicFireDistance": "Відстань панічного вогню",
     "fireWhileMoving": "Вогонь під час руху",
     "noAmmoRegain": "Без поповнення боєприпасів",
     "rangedDamageTypes": "Типи дальнього ушкодження",
     "addRangedDamageType": "Додати тип дальнього ушкодження",
     "enableRanged": "Увімкнути дальній бій",
-    "formations": "Формування",
-    "formationId": "ID формування",
     "baseSprite": "Базовий спрайт",
     "overlaySprite": "Накладний спрайт",
-    "addFormation": "Додати формування",
     "defaultFormation": "Формування за замовчуванням",
-    "supply": "Постачання",
-    "supplyField": "Постачання",
     "supplyConsumptionIdle": "Витрата постачання у спокої",
     "supplyConsumptionMoving": "Витрата постачання при русі",
     "supplyConsumptionCombating": "Витрата постачання у бою",
     "supplyManpowerCost": "Вартість постачання у чисельності",
     "supplyGoldCost": "Вартість постачання у золоті",
     "misc": "Різне",
-    "skirmisherRatio": "Частка стрільців",
     "canDeployForward": "Може розставлятися на передовій",
     "reducedVisibilityRange": "Зменшена дальність видимості",
     "unknownType": "Невідомий ID типу",
@@ -279,7 +219,6 @@
     "optionBuiltIn": "{{name}} (вбудована)",
     "optionCustom": "{{name}} (власна)",
     "errors": {
-      "idRequired": "Потрібен ID",
       "idInUse": "ID категорії підрозділів \"{{id}}\" вже використовується",
       "firingAltitudeRequired": "firingAltitude є обов'язковим",
       "orphanedResistances": "damageTypeResistances посилається на невідомі типи ушкоджень: {{types}}",
@@ -288,8 +227,6 @@
       "allowedOrderUnknown": "Дозволений наказ \"{{name}}\" не є відомим наказом для цієї ери"
     },
     "identity": {
-      "legend": "Ідентифікація",
-      "id": "ID",
       "deploymentSection": "Сектор розставлення"
     },
     "deploymentSection": {
@@ -298,10 +235,7 @@
       "front": "фронт"
     },
     "combat": {
-      "legend": "Бій",
       "firingAltitude": "Висота стрільби",
-      "allyCollisionLevel": "Рівень колізії із союзниками",
-      "enemyCollisionLevel": "Рівень колізії з ворогами",
       "captureSpeed": "Швидкість захоплення",
       "impactAltitude": "Висота влучання",
       "grazingAltitude": "Висота ковзання"
@@ -318,14 +252,8 @@
       "speedRun": "бігом",
       "fleeWhenRouted": "Тікати при розгромі"
     },
-    "enfiladeFire": {
-      "legend": "Фланговий вогонь",
-      "damageModifier": "Модифікатор ушкодження",
-      "orgModifier": "Модифікатор бойового духу"
-    },
     "rearFire": {
-      "legend": "Вогонь з тилу",
-      "orgModifier": "Модифікатор бойового духу"
+      "legend": "Вогонь з тилу"
     },
     "chargeBacklash": {
       "legend": "Віддача натиску",
@@ -344,7 +272,6 @@
       "fieldLabel": "Стійкість за типом ушкодження"
     },
     "autofire": {
-      "legend": "Пріоритет автовогню",
       "description": "Вага пріоритету для кожної категорії підрозділів цілі. Вищі значення є кращими цілями для автовогню.",
       "fieldLabel": "Пріоритет за категорією цілі"
     },
@@ -356,28 +283,20 @@
   "damageTypeModal": {
     "title": "Редагувати власний тип ушкодження",
     "sections": {
-      "identity": "Ідентифікація",
-      "damage": "Ушкодження",
       "projectile": "Снаряд",
       "rangeBrackets": "Діапазони дальності",
       "areaOfEffect": "Площа ураження"
     },
     "fields": {
-      "id": "ID",
       "ranged": "Дальній",
       "imageAlias": "Псевдонім зображення",
       "orgDamageRatio": "Коефіцієнт ушкодження бойового духу",
-      "damageModifier": "Модифікатор ушкодження",
       "reorgDebuff": "Штраф до відновлення",
       "attackEffectDuration": "Тривалість ефекту атаки (ticks)",
-      "projectileWidth": "Ширина снаряда",
       "arcHeight": "Висота дуги",
-      "projectilePenetration": "Пробивна сила снаряда",
       "ammoCost": "Вартість боєприпасів",
       "shotSound": "Звук пострілу",
       "shotAnim": "Анімація пострілу",
-      "enfiladeFire": "Фланговий вогонь",
-      "cannotUseAfterRun": "Не можна використовувати після бігу",
       "extendRange": "Збільшити дальність",
       "aimMode": "Режим прицілювання"
     },
@@ -392,9 +311,6 @@
       "endMod": "Мод. кінця"
     },
     "aoe": {
-      "type": "Тип",
-      "circular": "Круговий",
-      "trapezoidal": "Трапецієподібний",
       "absorptionModifier": "Модифікатор поглинання",
       "edgeDamageModifier": "Модифікатор ушкодження на периферії",
       "offset": "Зміщення",
@@ -424,7 +340,6 @@
   "terrainCategoryModal": {
     "title": "Редагувати власну категорію місцевості",
     "sections": {
-      "identity": "Ідентифікація",
       "scalarProperties": "Скалярні властивості",
       "perUnitCategoryModifiers": "Модифікатори за категорією підрозділів",
       "projectileAbsorption": "Поглинання снарядів"
@@ -437,29 +352,21 @@
       "custom": "{{name}} (власна)"
     },
     "fields": {
-      "id": "ID",
       "color": "Колір",
       "staminaCostModifier": "Модифікатор вартості витривалості",
       "hitboxHeight": "Висота колізійної зони",
-      "heightOffset": "Зміщення висоти",
       "visionAbsorption": "Поглинання видимості",
-      "pushStrengthModifier": "Модифікатор сили поштовху",
       "pushDistanceModifier": "Модифікатор дистанції поштовху",
       "fixedEnemyCollisionLevel": "Фіксований рівень колізії з ворогами",
       "canPlaceObjectives": "Можна розміщувати цілі",
       "prioritizeMovement": "Пріоритет руху",
       "supplyRoute": "Шлях постачання",
-      "movementModifier": "Модифікатор руху",
       "impassableFor": "Непрохідна для",
       "attackModifier": "Модифікатор атаки",
       "defenseModifier": "Модифікатор захисту",
-      "rangedAttackModifier": "Модифікатор дальньої атаки",
-      "chargeResistanceModifier": "Модифікатор стійкості до натиску",
-      "chargeBonusModifier": "Модифікатор бонусу натиску",
       "projectileAbsorptionByDamageType": "Поглинання снарядів за типом ушкодження"
     },
     "errors": {
-      "idRequired": "Потрібен ID",
       "idInUse": "ID категорії місцевості \"{{id}}\" вже використовується",
       "unknownUnitCategories": "{{field}} посилається на невідомі категорії підрозділів: {{keys}}",
       "unknownDamageTypes": "projectileAbsorption посилається на невідомі типи ушкоджень: {{keys}}"
@@ -468,8 +375,7 @@
   "customDefs": {
     "common": {
       "importFromScenario": "Імпортувати зі сценарію",
-      "duplicate": "Дублювати",
-      "done": "Готово"
+      "duplicate": "Дублювати"
     },
     "spritesPanel": {
       "title": "Власні спрайти",
@@ -486,7 +392,6 @@
       "libraryTitle": "Бібліотека спрайтів",
       "libraryDescription": "Перегляньте вбудовані спрайти ери для натхнення.",
       "filterPlaceholder": "Фільтрувати за назвою...",
-      "loading": "Завантаження...",
       "unitBase": "Базовий спрайт ({{count}})",
       "unitOverlay": "Накладний спрайт ({{count}})",
       "noMatches": "Немає збігів."
@@ -505,7 +410,6 @@
       "description": "Визначте нові шаблони формувань (колізія, модифікатори, правила стрільби), які можуть використовувати власні підрозділи.",
       "noFormations": "Поки немає власних формувань.",
       "deleteBlocked": "Не можна видалити \"{{id}}\" - ще використовується у {{refs}}. Спершу вилучіть ці посилання.",
-      "addFormation": "Додати формування",
       "clonePickerTitle": "Клонувати вбудоване формування"
     },
     "unitCategoriesPanel": {
@@ -536,7 +440,6 @@
       "clonePickerTitle": "Клонувати вбудовану категорію місцевості"
     },
     "overrideEditor": {
-      "invalidJson": "Недійсний JSON",
       "reset": "Скинути",
       "eraDefault": "за замовчуванням для ери: {{value}}",
       "structuralTooltip": "Структурна / детермінована константа. Її зміна може зламати рендеринг, повтори або підбір гри."
@@ -553,7 +456,6 @@
       "nothing": "нічого",
       "title": "Імпортувати {{kind}} зі сценарію",
       "pickFilePrompt": "Виберіть файл сценарію (JSON, який створює кнопка Завантажити в редакторі), щоб імпортувати з нього власні {{kind}}.",
-      "chooseFile": "Виберіть файл сценарію",
       "fileReadError": "Не вдалося прочитати цей файл як сценарій.",
       "invalidForEra": "Власні визначення цього сценарію недійсні для поточної ери (наприклад, {{message}}).",
       "importWouldInvalidate": "Імпорт зробив би сценарій недійсним (наприклад, {{message}}). Нічого не змінено.",
@@ -598,24 +500,20 @@
     "spriteSelect": {
       "default": "За замовчуванням",
       "unknownOption": "{{value}} (невідомо)",
-      "groupCustom": "Власні",
       "groupBuiltIn": "Вбудовані"
     }
   },
   "resize": {
-    "title": "Змінити розмір карти",
     "currentSize": "Поточний розмір: {{width}} × {{height}} тайлів",
     "newSize": "Новий розмір: {{width}} × {{height}} тайлів",
     "current": "Поточний: {{width}} × {{height}} тайлів",
     "confirmTitle": "Підтвердити зміну розміру карти",
     "warningCannotUndo": "⚠️ <0>Увага:</0> Цю операцію не можна скасувати.",
-    "continue": "Продовжити",
     "tabScale": "Масштаб",
     "tabExpandCut": "Розширити / Обрізати краї",
     "scale": {
       "newWidth": "Нова ширина (тайлів)",
       "newHeight": "Нова висота (тайлів)",
-      "apply": "Змінити розмір карти",
       "errorInvalid": "Будь ласка, введіть дійсні додатні числа для ширини та висоти в тайлах",
       "warningBody": "Переконайтеся, що зберегли сценарій, перш ніж продовжити. Зміна розміру масштабує всю місцевість, висоти, підрозділи, цілі та позиції тригерів."
     },
@@ -639,9 +537,7 @@
   },
   "mapSize": {
     "widthInTiles": "Ширина в тайлах",
-    "heightInTiles": "Висота в тайлах",
-    "widthPlaceholder": "Ширина",
-    "heightPlaceholder": "Висота"
+    "heightInTiles": "Висота в тайлах"
   },
   "misc": {
     "scaleAllSizesBy": "Масштабувати всі розміри на",
@@ -652,7 +548,6 @@
   "localesPanel": {
     "title": "Локалізації",
     "description": "Локалізації використовуються для перекладу сценарію різними мовами.",
-    "addLanguage": "Додати мову",
     "removeLanguage": "Вилучити мову",
     "noKeys": "Немає ключів перекладу. Додайте ключ, щоб почати.",
     "addKey": "Додати ключ",
@@ -661,7 +556,6 @@
     "keyPlaceholder": "Ключ перекладу",
     "valueLabel": "Значення",
     "valuePlaceholder": "Значення перекладу",
-    "addLanguageTitle": "Додати мову",
     "languageCodeLabel": "Код мови",
     "languageCodePlaceholder": "наприклад, 'en', 'es', 'fr'",
     "languageCodeEmpty": "Код мови не може бути порожнім",
@@ -718,7 +612,6 @@
     "importMustBeProcedural": "Імпортований файл має бути процедурним шаблоном (без запеченої карти, з інструкціями генерації).",
     "invalidJsonFile": "Недійсний файл JSON. Будь ласка, перевірте формат файлу.",
     "confirmOverwriteWarning": "Будь ласка, підтвердіть, що ви розумієте, що це перезапише місцевість.",
-    "selectedNotProcedural": "Вибраний сценарій не є процедурним шаблоном.",
-    "invalidJson": "Недійсний JSON"
+    "selectedNotProcedural": "Вибраний сценарій не є процедурним шаблоном."
   }
 }

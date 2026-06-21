@@ -2,20 +2,33 @@
   "common": {
     "add": "Add",
     "addEntry": "Add entry",
-    "cancel": "Cancel",
     "delete": "Delete",
-    "edit": "Edit",
-    "name": "Name",
     "noEntries": "No entries.",
     "none": "None",
     "remove": "Remove",
-    "save": "Save",
     "select": "Select...",
-    "unknown": "(unknown)"
-  },
-  "editor": {
-    "loadScenario": "Load Scenario",
-    "chooseScenarioFile": "Choose scenario file"
+    "unknown": "(unknown)",
+    "chooseScenarioFile": "Choose scenario file",
+    "positionX": "Position X",
+    "positionY": "Position Y",
+    "mixed": "Mixed",
+    "width": "Width",
+    "identity": "Identity",
+    "formationId": "Formation ID",
+    "movementModifier": "Movement modifier",
+    "rangedAttackModifier": "Ranged attack modifier",
+    "chargeBonusModifier": "Charge bonus modifier",
+    "chargeResistanceModifier": "Charge resistance modifier",
+    "pushStrengthModifier": "Push strength modifier",
+    "addFormation": "Add formation",
+    "idIsRequired": "ID is required",
+    "id": "ID",
+    "enfiladeFire": "Enfilade fire",
+    "damageModifier": "Damage modifier",
+    "orgModifier": "Org modifier",
+    "invalidJson": "Invalid JSON",
+    "resizeMap": "Resize Map",
+    "addLanguage": "Add Language"
   },
   "editorPanel": {
     "tabs": {
@@ -27,7 +40,6 @@
       "advanced": "Advanced"
     },
     "togglePanel": "Toggle panel",
-    "title": "Scenario Editor",
     "downloadScenario": "Download scenario",
     "copyScenario": "Copy scenario",
     "fullscreen": "Fullscreen",
@@ -45,83 +57,46 @@
     "goBackConfirm": "Are you sure you want to go back and exit the editor?"
   },
   "createScenario": {
-    "title": "Create Scenario",
     "randomMap": "Random (procedural) map?",
     "isHybrid": "Is Hybrid?"
   },
   "playersPanel": {
-    "title": "Players",
     "removePlayer": "Remove player"
   },
   "terrainPanel": {
-    "title": "Terrain",
-    "active": "Active",
     "setTerrain": "Set terrain",
     "terrainHeight": "Terrain height",
-    "radius": "Radius",
     "paintBucket": "Paint Bucket"
   },
   "unitPanel": {
     "title": "Selected Unit",
-    "player": "Player",
     "unitType": "Unit Type",
-    "optional": "Optional",
-    "positionX": "Position X",
-    "positionY": "Position Y",
     "rotation": "Rotation",
-    "mixed": "Mixed",
     "copyJson": "Copy JSON",
     "copyUnits": "Copy units",
     "unitsCopied": "Units copied ({{count}})",
-    "deselect": "Deselect",
     "removeSelectedUnits": "Remove selected units"
   },
   "createUnit": {
     "title": "Create Unit",
-    "active": "Active",
     "usingCopiedUnits": "Using copied units",
-    "customLabel": "{{name}} (custom)",
-    "fields": {
-      "unit": "Unit",
-      "player": "Player"
-    }
+    "customLabel": "{{name}} (custom)"
   },
   "objectivePanel": {
     "title": "Selected Objective",
     "player": "Player {{player}}",
     "team": "Team {{team}}",
-    "namePlaceholder": "Optional",
-    "mixed": "Mixed",
-    "deselect": "Deselect",
     "removeSelected": "Remove selected objective",
-    "type": {
-      "small": "Small",
-      "big": "Big"
-    },
     "fields": {
-      "type": "Type",
-      "logistics": "Logistics",
       "manpowerPerTurn": "Manpower per Turn",
-      "goldPerTurn": "Gold per Turn",
-      "victoryPoints": "Victory Points",
-      "positionX": "Position X",
-      "positionY": "Position Y"
+      "goldPerTurn": "Gold per Turn"
     }
   },
   "createObjective": {
     "title": "Create Objective",
-    "active": "Active",
     "gaia": "Gaia",
-    "type": {
-      "small": "Small",
-      "big": "Big"
-    },
     "fields": {
-      "objectiveType": "Objective Type",
-      "victoryPoints": "Victory Points",
-      "player": "Player",
-      "team": "Team",
-      "logistics": "Logistics"
+      "objectiveType": "Objective Type"
     }
   },
   "deployment": {
@@ -131,9 +106,7 @@
     "forwardZone": "Forward",
     "fields": {
       "x": "X",
-      "y": "Y",
-      "width": "Width",
-      "height": "Height"
+      "y": "Y"
     }
   },
   "vpBalance": {
@@ -145,8 +118,6 @@
   },
   "formationModal": {
     "title": "Edit custom formation",
-    "identity": "Identity",
-    "formationId": "Formation ID",
     "collision": "Collision",
     "collisionHelp": "Footprint shape: a circle (radius) or a rectangle (frontage across the front, depth front-to-back). Use radius 0 for no collision (flying / ghost).",
     "shape": "Shape",
@@ -155,8 +126,6 @@
     "radiusPx": "Radius (px)",
     "frontagePx": "Frontage (px)",
     "depthPx": "Depth (px)",
-    "movement": "Movement",
-    "movementModifier": "Movement modifier",
     "runMovementModifier": "Run movement modifier",
     "rotationSpeedModifier": "Rotation speed modifier",
     "disable180Turn": "Disable 180° turn",
@@ -164,21 +133,9 @@
     "timeToForm": "Time to form (ticks)",
     "timeToUnform": "Time to unform (ticks)",
     "minMovementModifier": "Min movement modifier",
-    "combat": "Combat",
-    "rangedAttackModifier": "Ranged attack modifier",
-    "chargeBonusModifier": "Charge bonus modifier",
     "chargePenetrationModifier": "Charge penetration modifier",
-    "chargeResistanceModifier": "Charge resistance modifier",
-    "pushStrengthModifier": "Push strength modifier",
     "receivedMeleeDamageModifier": "Received melee damage modifier",
     "flanking": "Flanking",
-    "disablesFlankMelee": "Disables flank melee",
-    "disablesEnfiladeFire": "Disables enfilade fire",
-    "disablesRearFire": "Disables rear fire",
-    "flankChargeResistance": "Flank charge resistance",
-    "rearChargeResistance": "Rear charge resistance",
-    "enfiladeFireResistance": "Enfilade fire resistance",
-    "rearFireResistance": "Rear fire resistance",
     "rangedDamageResistance": "Ranged damage resistance",
     "rangedOrgResistance": "Ranged org resistance",
     "fireEdges": "Fire edges (edge-fire)",
@@ -202,10 +159,7 @@
     "title": "Edit custom unit template",
     "optBuiltIn": "{{name}} (built-in)",
     "optCustom": "{{name}} (custom)",
-    "identity": "Identity",
     "typeId": "Type ID",
-    "category": "Category",
-    "combat": "Combat",
     "meleeAttack": "Melee attack",
     "meleeDefense": "Melee defense",
     "meleeDamageType": "Melee damage type",
@@ -215,13 +169,11 @@
     "flankMeleeOrgModifier": "Flank melee org modifier",
     "flankChargePenBonus": "Flank charge pen bonus",
     "stats": "Stats",
-    "hp": "HP",
     "org": "Org",
     "shattersAtOrg": "Shatters at org",
     "routesAtOrg": "Routes at org",
     "recoversAtOrg": "Recovers at org",
     "ralliesAtOrg": "Rallies at org",
-    "stamina": "Stamina",
     "manpower": "Manpower",
     "gold": "Gold",
     "orgRadius": "Org radius",
@@ -229,43 +181,31 @@
     "reportStats": "Report stats",
     "reportStatsHelp": "Tally each unit contributes to battle reports (e.g. men, horses, guns). Keys come from the era's built-in units.",
     "tallyPerUnit": "Tally per unit",
-    "movement": "Movement",
     "walkMovement": "Walk movement",
     "runMovement": "Run movement",
     "runStartUpMovement": "Run startup movement",
     "timeToRun": "Time to run (ticks)",
     "runCost": "Run cost",
-    "rotationSpeed": "Rotation speed",
-    "rotationMaxThreshold": "Rotation max threshold",
-    "runRotationSpeed": "Run rotation speed",
     "turningDelay": "Turning delay (ticks)",
     "startsRunning": "Starts running",
     "movementSound": "Movement sound",
     "rangedCombat": "Ranged combat",
     "rangedAttack": "Ranged attack",
-    "ammo": "Ammo",
-    "minDistanceToFAA": "Min distance to FAA",
     "panicFireDistance": "Panic fire distance",
     "fireWhileMoving": "Fire while moving",
     "noAmmoRegain": "No ammo regain",
     "rangedDamageTypes": "Ranged damage types",
     "addRangedDamageType": "Add ranged damage type",
     "enableRanged": "Enable ranged",
-    "formations": "Formations",
-    "formationId": "Formation ID",
     "baseSprite": "Base sprite",
     "overlaySprite": "Overlay sprite",
-    "addFormation": "Add formation",
     "defaultFormation": "Default formation",
-    "supply": "Supply",
-    "supplyField": "Supply",
     "supplyConsumptionIdle": "Supply consumption idle",
     "supplyConsumptionMoving": "Supply consumption moving",
     "supplyConsumptionCombating": "Supply consumption combating",
     "supplyManpowerCost": "Supply manpower cost",
     "supplyGoldCost": "Supply gold cost",
     "misc": "Misc",
-    "skirmisherRatio": "Skirmisher ratio",
     "canDeployForward": "Can deploy forward",
     "reducedVisibilityRange": "Reduced visibility range",
     "unknownType": "Unknown type id",
@@ -279,7 +219,6 @@
     "optionBuiltIn": "{{name}} (built-in)",
     "optionCustom": "{{name}} (custom)",
     "errors": {
-      "idRequired": "ID is required",
       "idInUse": "Unit category id \"{{id}}\" is already in use",
       "firingAltitudeRequired": "firingAltitude is required",
       "orphanedResistances": "damageTypeResistances references unknown damage types: {{types}}",
@@ -288,8 +227,6 @@
       "allowedOrderUnknown": "Allowed order \"{{name}}\" is not a known order for this era"
     },
     "identity": {
-      "legend": "Identity",
-      "id": "ID",
       "deploymentSection": "Deployment section"
     },
     "deploymentSection": {
@@ -298,10 +235,7 @@
       "front": "front"
     },
     "combat": {
-      "legend": "Combat",
       "firingAltitude": "Firing altitude",
-      "allyCollisionLevel": "Ally collision level",
-      "enemyCollisionLevel": "Enemy collision level",
       "captureSpeed": "Capture speed",
       "impactAltitude": "Impact altitude",
       "grazingAltitude": "Grazing altitude"
@@ -318,14 +252,8 @@
       "speedRun": "run",
       "fleeWhenRouted": "Flee when routed"
     },
-    "enfiladeFire": {
-      "legend": "Enfilade fire",
-      "damageModifier": "Damage modifier",
-      "orgModifier": "Org modifier"
-    },
     "rearFire": {
-      "legend": "Rear fire",
-      "orgModifier": "Org modifier"
+      "legend": "Rear fire"
     },
     "chargeBacklash": {
       "legend": "Charge backlash",
@@ -344,7 +272,6 @@
       "fieldLabel": "Resistance by damage type"
     },
     "autofire": {
-      "legend": "Autofire priority",
       "description": "Priority weight per target unit category. Higher values are preferred targets for autofire.",
       "fieldLabel": "Priority by target category"
     },
@@ -356,28 +283,20 @@
   "damageTypeModal": {
     "title": "Edit custom damage type",
     "sections": {
-      "identity": "Identity",
-      "damage": "Damage",
       "projectile": "Projectile",
       "rangeBrackets": "Range brackets",
       "areaOfEffect": "Area of effect"
     },
     "fields": {
-      "id": "ID",
       "ranged": "Ranged",
       "imageAlias": "Image alias",
       "orgDamageRatio": "Org damage ratio",
-      "damageModifier": "Damage modifier",
       "reorgDebuff": "Reorg debuff",
       "attackEffectDuration": "Attack effect duration (ticks)",
-      "projectileWidth": "Projectile width",
       "arcHeight": "Arc height",
-      "projectilePenetration": "Projectile penetration",
       "ammoCost": "Ammo cost",
       "shotSound": "Shot sound",
       "shotAnim": "Shot anim",
-      "enfiladeFire": "Enfilade fire",
-      "cannotUseAfterRun": "Cannot use after run",
       "extendRange": "Extend range",
       "aimMode": "Aim mode"
     },
@@ -392,9 +311,6 @@
       "endMod": "End mod"
     },
     "aoe": {
-      "type": "Type",
-      "circular": "Circular",
-      "trapezoidal": "Trapezoidal",
       "absorptionModifier": "Absorption modifier",
       "edgeDamageModifier": "Edge damage modifier",
       "offset": "Offset",
@@ -424,7 +340,6 @@
   "terrainCategoryModal": {
     "title": "Edit custom terrain category",
     "sections": {
-      "identity": "Identity",
       "scalarProperties": "Scalar properties",
       "perUnitCategoryModifiers": "Per unit category modifiers",
       "projectileAbsorption": "Projectile absorption"
@@ -437,29 +352,21 @@
       "custom": "{{name}} (custom)"
     },
     "fields": {
-      "id": "ID",
       "color": "Color",
       "staminaCostModifier": "Stamina cost modifier",
       "hitboxHeight": "Hitbox height",
-      "heightOffset": "Height offset",
       "visionAbsorption": "Vision absorption",
-      "pushStrengthModifier": "Push strength modifier",
       "pushDistanceModifier": "Push distance modifier",
       "fixedEnemyCollisionLevel": "Fixed enemy collision level",
       "canPlaceObjectives": "Can place objectives",
       "prioritizeMovement": "Prioritize movement",
       "supplyRoute": "Supply route",
-      "movementModifier": "Movement modifier",
       "impassableFor": "Impassable for",
       "attackModifier": "Attack modifier",
       "defenseModifier": "Defense modifier",
-      "rangedAttackModifier": "Ranged attack modifier",
-      "chargeResistanceModifier": "Charge resistance modifier",
-      "chargeBonusModifier": "Charge bonus modifier",
       "projectileAbsorptionByDamageType": "Projectile absorption by damage type"
     },
     "errors": {
-      "idRequired": "ID is required",
       "idInUse": "Terrain category id \"{{id}}\" is already in use",
       "unknownUnitCategories": "{{field}} references unknown unit categories: {{keys}}",
       "unknownDamageTypes": "projectileAbsorption references unknown damage types: {{keys}}"
@@ -468,8 +375,7 @@
   "customDefs": {
     "common": {
       "importFromScenario": "Import from scenario",
-      "duplicate": "Duplicate",
-      "done": "Done"
+      "duplicate": "Duplicate"
     },
     "spritesPanel": {
       "title": "Custom sprites",
@@ -486,7 +392,6 @@
       "libraryTitle": "Sprite library",
       "libraryDescription": "Browse the era's built-in sprites for inspiration.",
       "filterPlaceholder": "Filter by name...",
-      "loading": "Loading...",
       "unitBase": "Unit base ({{count}})",
       "unitOverlay": "Unit overlay ({{count}})",
       "noMatches": "No matches."
@@ -505,7 +410,6 @@
       "description": "Define new formation templates (collision, modifiers, shooting rules) that custom units can use.",
       "noFormations": "No custom formations yet.",
       "deleteBlocked": "Can't delete \"{{id}}\" - still used by {{refs}}. Remove those references first.",
-      "addFormation": "Add formation",
       "clonePickerTitle": "Clone a built-in formation"
     },
     "unitCategoriesPanel": {
@@ -536,7 +440,6 @@
       "clonePickerTitle": "Clone a built-in terrain category"
     },
     "overrideEditor": {
-      "invalidJson": "Invalid JSON",
       "reset": "Reset",
       "eraDefault": "era default: {{value}}",
       "structuralTooltip": "Structural / determinism constant. Changing it can break rendering, replays, or matchmaking."
@@ -553,7 +456,6 @@
       "nothing": "nothing",
       "title": "Import {{kind}} from scenario",
       "pickFilePrompt": "Pick a scenario file (the JSON the editor's Download button produces) to import its custom {{kind}} from.",
-      "chooseFile": "Choose scenario file",
       "fileReadError": "Couldn't read that file as a scenario.",
       "invalidForEra": "This scenario's custom definitions aren't valid for the current era (e.g. {{message}}).",
       "importWouldInvalidate": "Import would make the scenario invalid (e.g. {{message}}). Nothing was changed.",
@@ -596,24 +498,20 @@
     "spriteSelect": {
       "default": "Default",
       "unknownOption": "{{value}} (unknown)",
-      "groupCustom": "Custom",
       "groupBuiltIn": "Built-in"
     }
   },
   "resize": {
-    "title": "Resize Map",
     "currentSize": "Current size: {{width}} × {{height}} tiles",
     "newSize": "New size: {{width}} × {{height}} tiles",
     "current": "Current: {{width}} × {{height}} tiles",
     "confirmTitle": "Confirm Resize Map",
     "warningCannotUndo": "⚠️ <0>Warning:</0> This operation cannot be undone.",
-    "continue": "Continue",
     "tabScale": "Scale",
     "tabExpandCut": "Expand / Cut Sides",
     "scale": {
       "newWidth": "New width (tiles)",
       "newHeight": "New height (tiles)",
-      "apply": "Resize Map",
       "errorInvalid": "Please enter valid positive numbers for width and height in tiles",
       "warningBody": "Make sure you have saved your scenario before proceeding. Resizing will scale all terrains, heights, units, objectives, and trigger positions."
     },
@@ -637,9 +535,7 @@
   },
   "mapSize": {
     "widthInTiles": "Width in tiles",
-    "heightInTiles": "Height in tiles",
-    "widthPlaceholder": "Width",
-    "heightPlaceholder": "Height"
+    "heightInTiles": "Height in tiles"
   },
   "misc": {
     "scaleAllSizesBy": "Scale all sizes by",
@@ -650,7 +546,6 @@
   "localesPanel": {
     "title": "Locales",
     "description": "Locales are used to translate the scenario into different languages.",
-    "addLanguage": "Add Language",
     "removeLanguage": "Remove language",
     "noKeys": "No translation keys. Add a key to get started.",
     "addKey": "Add Key",
@@ -659,7 +554,6 @@
     "keyPlaceholder": "Translation key",
     "valueLabel": "Value",
     "valuePlaceholder": "Translation value",
-    "addLanguageTitle": "Add Language",
     "languageCodeLabel": "Language Code",
     "languageCodePlaceholder": "e.g., 'en', 'es', 'fr'",
     "languageCodeEmpty": "Language code cannot be empty",
@@ -716,7 +610,6 @@
     "importMustBeProcedural": "The imported file must be a procedural template (no baked map, with generation instructions).",
     "invalidJsonFile": "Invalid JSON file. Please check the file format.",
     "confirmOverwriteWarning": "Please confirm that you understand this will overwrite the terrain.",
-    "selectedNotProcedural": "Selected scenario is not a procedural template.",
-    "invalidJson": "Invalid JSON"
+    "selectedNotProcedural": "Selected scenario is not a procedural template."
   }
 }

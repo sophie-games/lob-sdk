@@ -363,11 +363,6 @@
   "selectOrder": "Pilih Perintah",
   "orderType": "Jenis perintah",
   "autofire": "Tembak otomatis",
-  "autofireRange": {
-    "low": "Rendah",
-    "medium": "Sedang",
-    "max": "Maksimal"
-  },
   "allowFireWhenMoving": "Izinkan menembak sambil bergerak",
   "meleeDamage": "Kerusakan Jarak Dekat",
   "rangedDamage": "Kerusakan Jarak Jauh",
@@ -798,5 +793,6 @@
     "message": "Pertandingan lambatmu siap dimainkan.",
     "goToGame": "Buka pertandingan",
     "ignore": "Abaikan"
-  }
+  },
+  "max": "Maksimal"
 }

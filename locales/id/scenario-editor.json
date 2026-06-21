@@ -2,20 +2,33 @@
   "common": {
     "add": "Tambah",
     "addEntry": "Tambah entri",
-    "cancel": "Batal",
     "delete": "Hapus",
-    "edit": "Edit",
-    "name": "Nama",
     "noEntries": "Tidak ada entri.",
     "none": "Tidak ada",
     "remove": "Hapus",
-    "save": "Simpan",
     "select": "Pilih...",
-    "unknown": "(tidak diketahui)"
-  },
-  "editor": {
-    "loadScenario": "Muat Skenario",
-    "chooseScenarioFile": "Pilih file skenario"
+    "unknown": "(tidak diketahui)",
+    "chooseScenarioFile": "Pilih file skenario",
+    "positionX": "Posisi X",
+    "positionY": "Posisi Y",
+    "mixed": "Campuran",
+    "width": "Lebar",
+    "identity": "Identitas",
+    "formationId": "ID Formasi",
+    "movementModifier": "Modifier pergerakan",
+    "rangedAttackModifier": "Modifier serangan jarak jauh",
+    "chargeBonusModifier": "Modifier bonus serangan",
+    "chargeResistanceModifier": "Modifier ketahanan serangan",
+    "pushStrengthModifier": "Modifier kekuatan dorong",
+    "addFormation": "Tambah formasi",
+    "idIsRequired": "ID wajib diisi",
+    "id": "ID",
+    "enfiladeFire": "Tembakan sepanjang garis",
+    "damageModifier": "Modifier kerusakan",
+    "orgModifier": "Modifier org",
+    "invalidJson": "JSON tidak valid",
+    "resizeMap": "Ubah Ukuran Peta",
+    "addLanguage": "Tambah Bahasa"
   },
   "editorPanel": {
     "tabs": {
@@ -27,7 +40,6 @@
       "advanced": "Lanjutan"
     },
     "togglePanel": "Alihkan panel",
-    "title": "Editor Skenario",
     "downloadScenario": "Unduh skenario",
     "copyScenario": "Salin skenario",
     "fullscreen": "Layar penuh",
@@ -45,83 +57,46 @@
     "goBackConfirm": "Apakah Anda yakin ingin kembali dan keluar dari editor?"
   },
   "createScenario": {
-    "title": "Buat Skenario",
     "randomMap": "Peta acak (prosedural)?",
     "isHybrid": "Hibrida?"
   },
   "playersPanel": {
-    "title": "Pemain",
     "removePlayer": "Hapus pemain"
   },
   "terrainPanel": {
-    "title": "Medan",
-    "active": "Aktif",
     "setTerrain": "Atur medan",
     "terrainHeight": "Tinggi medan",
-    "radius": "Radius",
     "paintBucket": "Ember Cat"
   },
   "unitPanel": {
     "title": "Unit Terpilih",
-    "player": "Pemain",
     "unitType": "Tipe Unit",
-    "optional": "Opsional",
-    "positionX": "Posisi X",
-    "positionY": "Posisi Y",
     "rotation": "Rotasi",
-    "mixed": "Campuran",
     "copyJson": "Salin JSON",
     "copyUnits": "Salin unit",
     "unitsCopied": "Unit disalin ({{count}})",
-    "deselect": "Batalkan pilih",
     "removeSelectedUnits": "Hapus unit terpilih"
   },
   "createUnit": {
     "title": "Buat Unit",
-    "active": "Aktif",
     "usingCopiedUnits": "Menggunakan unit yang disalin",
-    "customLabel": "{{name}} (kustom)",
-    "fields": {
-      "unit": "Unit",
-      "player": "Pemain"
-    }
+    "customLabel": "{{name}} (kustom)"
   },
   "objectivePanel": {
     "title": "Objektif Terpilih",
     "player": "Pemain {{player}}",
     "team": "Tim {{team}}",
-    "namePlaceholder": "Opsional",
-    "mixed": "Campuran",
-    "deselect": "Batalkan pilih",
     "removeSelected": "Hapus objektif terpilih",
-    "type": {
-      "small": "Kecil",
-      "big": "Besar"
-    },
     "fields": {
-      "type": "Tipe",
-      "logistics": "Logistik",
       "manpowerPerTurn": "Tenaga per Giliran",
-      "goldPerTurn": "Emas per Giliran",
-      "victoryPoints": "Poin Kemenangan",
-      "positionX": "Posisi X",
-      "positionY": "Posisi Y"
+      "goldPerTurn": "Emas per Giliran"
     }
   },
   "createObjective": {
     "title": "Buat Objektif",
-    "active": "Aktif",
     "gaia": "Gaia",
-    "type": {
-      "small": "Kecil",
-      "big": "Besar"
-    },
     "fields": {
-      "objectiveType": "Tipe Objektif",
-      "victoryPoints": "Poin Kemenangan",
-      "player": "Pemain",
-      "team": "Tim",
-      "logistics": "Logistik"
+      "objectiveType": "Tipe Objektif"
     }
   },
   "deployment": {
@@ -131,9 +106,7 @@
     "forwardZone": "Depan",
     "fields": {
       "x": "X",
-      "y": "Y",
-      "width": "Lebar",
-      "height": "Tinggi"
+      "y": "Y"
     }
   },
   "vpBalance": {
@@ -145,8 +118,6 @@
   },
   "formationModal": {
     "title": "Edit formasi kustom",
-    "identity": "Identitas",
-    "formationId": "ID Formasi",
     "collision": "Tabrakan",
     "collisionHelp": "Bentuk jejak: lingkaran (radius) atau persegi panjang (frontage di sepanjang depan, depth dari depan ke belakang). Gunakan radius 0 untuk tanpa tabrakan (terbang / hantu).",
     "shape": "Bentuk",
@@ -155,8 +126,6 @@
     "radiusPx": "Radius (px)",
     "frontagePx": "Frontage (px)",
     "depthPx": "Depth (px)",
-    "movement": "Pergerakan",
-    "movementModifier": "Modifier pergerakan",
     "runMovementModifier": "Modifier pergerakan lari",
     "rotationSpeedModifier": "Modifier kecepatan rotasi",
     "disable180Turn": "Nonaktifkan putaran 180°",
@@ -164,21 +133,9 @@
     "timeToForm": "Waktu membentuk (ticks)",
     "timeToUnform": "Waktu membubarkan (ticks)",
     "minMovementModifier": "Modifier pergerakan min",
-    "combat": "Pertempuran",
-    "rangedAttackModifier": "Modifier serangan jarak jauh",
-    "chargeBonusModifier": "Modifier bonus serangan",
     "chargePenetrationModifier": "Modifier penetrasi serangan",
-    "chargeResistanceModifier": "Modifier ketahanan serangan",
-    "pushStrengthModifier": "Modifier kekuatan dorong",
     "receivedMeleeDamageModifier": "Modifier kerusakan jarak dekat diterima",
     "flanking": "Pengapitan",
-    "disablesFlankMelee": "Menonaktifkan jarak dekat sisi",
-    "disablesEnfiladeFire": "Menonaktifkan tembakan sepanjang garis",
-    "disablesRearFire": "Menonaktifkan tembakan belakang",
-    "flankChargeResistance": "Ketahanan serangan sisi",
-    "rearChargeResistance": "Ketahanan serangan belakang",
-    "enfiladeFireResistance": "Ketahanan tembakan sepanjang garis",
-    "rearFireResistance": "Ketahanan tembakan belakang",
     "rangedDamageResistance": "Ketahanan kerusakan jarak jauh",
     "rangedOrgResistance": "Ketahanan org jarak jauh",
     "fireEdges": "Tepi tembak (tembakan tepi)",
@@ -202,10 +159,7 @@
     "title": "Edit templat unit kustom",
     "optBuiltIn": "{{name}} (bawaan)",
     "optCustom": "{{name}} (kustom)",
-    "identity": "Identitas",
     "typeId": "ID Tipe",
-    "category": "Kategori",
-    "combat": "Pertempuran",
     "meleeAttack": "Serangan jarak dekat",
     "meleeDefense": "Pertahanan jarak dekat",
     "meleeDamageType": "Tipe kerusakan meleeDamageType",
@@ -215,13 +169,11 @@
     "flankMeleeOrgModifier": "Modifier org jarak dekat sisi",
     "flankChargePenBonus": "Bonus penetrasi serangan sisi",
     "stats": "Statistik",
-    "hp": "HP",
     "org": "Org",
     "shattersAtOrg": "Hancur di org",
     "routesAtOrg": "Kabur di org",
     "recoversAtOrg": "Pulih di org",
     "ralliesAtOrg": "Berkumpul di org",
-    "stamina": "Stamina",
     "manpower": "Tenaga",
     "gold": "Emas",
     "orgRadius": "Radius org",
@@ -229,43 +181,31 @@
     "reportStats": "Statistik laporan",
     "reportStatsHelp": "Hitungan yang dikontribusikan setiap unit ke laporan pertempuran (mis. orang, kuda, meriam). Kunci berasal dari unit bawaan era.",
     "tallyPerUnit": "Hitungan per unit",
-    "movement": "Pergerakan",
     "walkMovement": "Pergerakan jalan",
     "runMovement": "Pergerakan lari",
     "runStartUpMovement": "Pergerakan awal lari",
     "timeToRun": "Waktu untuk lari (ticks)",
     "runCost": "Biaya lari",
-    "rotationSpeed": "Kecepatan rotasi",
-    "rotationMaxThreshold": "Ambang batas rotasi maks",
-    "runRotationSpeed": "Kecepatan rotasi lari",
     "turningDelay": "Penundaan putaran (ticks)",
     "startsRunning": "Mulai berlari",
     "movementSound": "Suara pergerakan",
     "rangedCombat": "Pertempuran jarak jauh",
     "rangedAttack": "Serangan jarak jauh",
-    "ammo": "Amunisi",
-    "minDistanceToFAA": "Jarak min ke FAA",
     "panicFireDistance": "Jarak tembakan panik",
     "fireWhileMoving": "Tembak sambil bergerak",
     "noAmmoRegain": "Tanpa pemulihan amunisi",
     "rangedDamageTypes": "Tipe kerusakan jarak jauh",
     "addRangedDamageType": "Tambah tipe kerusakan jarak jauh",
     "enableRanged": "Aktifkan jarak jauh",
-    "formations": "Formasi",
-    "formationId": "ID Formasi",
     "baseSprite": "Sprite dasar",
     "overlaySprite": "Sprite lapisan",
-    "addFormation": "Tambah formasi",
     "defaultFormation": "Formasi bawaan",
-    "supply": "Pasokan",
-    "supplyField": "Pasokan",
     "supplyConsumptionIdle": "Konsumsi pasokan diam",
     "supplyConsumptionMoving": "Konsumsi pasokan bergerak",
     "supplyConsumptionCombating": "Konsumsi pasokan bertempur",
     "supplyManpowerCost": "Biaya tenaga pasokan",
     "supplyGoldCost": "Biaya emas pasokan",
     "misc": "Lain-lain",
-    "skirmisherRatio": "Rasio penyergap",
     "canDeployForward": "Dapat ditempatkan di depan",
     "reducedVisibilityRange": "Jangkauan visibilitas berkurang",
     "unknownType": "ID tipe tidak diketahui",
@@ -279,7 +219,6 @@
     "optionBuiltIn": "{{name}} (bawaan)",
     "optionCustom": "{{name}} (kustom)",
     "errors": {
-      "idRequired": "ID wajib diisi",
       "idInUse": "ID kategori unit \"{{id}}\" sudah digunakan",
       "firingAltitudeRequired": "firingAltitude wajib diisi",
       "orphanedResistances": "damageTypeResistances merujuk tipe kerusakan tidak diketahui: {{types}}",
@@ -288,8 +227,6 @@
       "allowedOrderUnknown": "Perintah yang diizinkan \"{{name}}\" bukan perintah yang dikenal untuk era ini"
     },
     "identity": {
-      "legend": "Identitas",
-      "id": "ID",
       "deploymentSection": "Bagian penempatan"
     },
     "deploymentSection": {
@@ -298,10 +235,7 @@
       "front": "depan"
     },
     "combat": {
-      "legend": "Pertempuran",
       "firingAltitude": "Ketinggian tembak",
-      "allyCollisionLevel": "Tingkat tabrakan sekutu",
-      "enemyCollisionLevel": "Tingkat tabrakan musuh",
       "captureSpeed": "Kecepatan penangkapan",
       "impactAltitude": "Ketinggian dampak",
       "grazingAltitude": "Ketinggian serempetan"
@@ -318,14 +252,8 @@
       "speedRun": "lari",
       "fleeWhenRouted": "Kabur saat dipukul mundur"
     },
-    "enfiladeFire": {
-      "legend": "Tembakan sepanjang garis",
-      "damageModifier": "Modifier kerusakan",
-      "orgModifier": "Modifier org"
-    },
     "rearFire": {
-      "legend": "Tembakan belakang",
-      "orgModifier": "Modifier org"
+      "legend": "Tembakan belakang"
     },
     "chargeBacklash": {
       "legend": "Balasan serangan",
@@ -344,7 +272,6 @@
       "fieldLabel": "Ketahanan menurut tipe kerusakan"
     },
     "autofire": {
-      "legend": "Prioritas tembak otomatis",
       "description": "Bobot prioritas per kategori unit target. Nilai lebih tinggi adalah target yang lebih diutamakan untuk tembak otomatis.",
       "fieldLabel": "Prioritas menurut kategori target"
     },
@@ -356,28 +283,20 @@
   "damageTypeModal": {
     "title": "Edit tipe kerusakan kustom",
     "sections": {
-      "identity": "Identitas",
-      "damage": "Kerusakan",
       "projectile": "Proyektil",
       "rangeBrackets": "Rentang jarak",
       "areaOfEffect": "Area efek"
     },
     "fields": {
-      "id": "ID",
       "ranged": "Jarak jauh",
       "imageAlias": "Alias gambar",
       "orgDamageRatio": "Rasio kerusakan org",
-      "damageModifier": "Modifier kerusakan",
       "reorgDebuff": "Penalti reorganisasi",
       "attackEffectDuration": "Durasi efek serangan (ticks)",
-      "projectileWidth": "Lebar proyektil",
       "arcHeight": "Tinggi busur",
-      "projectilePenetration": "Penetrasi proyektil",
       "ammoCost": "Biaya amunisi",
       "shotSound": "Suara tembakan",
       "shotAnim": "Animasi tembakan",
-      "enfiladeFire": "Tembakan sepanjang garis",
-      "cannotUseAfterRun": "Tidak bisa digunakan setelah lari",
       "extendRange": "Perluas jangkauan",
       "aimMode": "Mode bidik"
     },
@@ -392,9 +311,6 @@
       "endMod": "Mod akhir"
     },
     "aoe": {
-      "type": "Tipe",
-      "circular": "Melingkar",
-      "trapezoidal": "Trapesium",
       "absorptionModifier": "Modifier penyerapan",
       "edgeDamageModifier": "Modifier kerusakan tepi",
       "offset": "Offset",
@@ -424,7 +340,6 @@
   "terrainCategoryModal": {
     "title": "Edit kategori medan kustom",
     "sections": {
-      "identity": "Identitas",
       "scalarProperties": "Properti skalar",
       "perUnitCategoryModifiers": "Modifier per kategori unit",
       "projectileAbsorption": "Penyerapan proyektil"
@@ -437,29 +352,21 @@
       "custom": "{{name}} (kustom)"
     },
     "fields": {
-      "id": "ID",
       "color": "Warna",
       "staminaCostModifier": "Modifier biaya stamina",
       "hitboxHeight": "Tinggi hitbox",
-      "heightOffset": "Offset tinggi",
       "visionAbsorption": "Penyerapan penglihatan",
-      "pushStrengthModifier": "Modifier kekuatan dorong",
       "pushDistanceModifier": "Modifier jarak dorong",
       "fixedEnemyCollisionLevel": "Tingkat tabrakan musuh tetap",
       "canPlaceObjectives": "Dapat menempatkan objektif",
       "prioritizeMovement": "Utamakan pergerakan",
       "supplyRoute": "Rute pasokan",
-      "movementModifier": "Modifier pergerakan",
       "impassableFor": "Tidak dapat dilewati oleh",
       "attackModifier": "Modifier serangan",
       "defenseModifier": "Modifier pertahanan",
-      "rangedAttackModifier": "Modifier serangan jarak jauh",
-      "chargeResistanceModifier": "Modifier ketahanan serangan",
-      "chargeBonusModifier": "Modifier bonus serangan",
       "projectileAbsorptionByDamageType": "Penyerapan proyektil menurut tipe kerusakan"
     },
     "errors": {
-      "idRequired": "ID wajib diisi",
       "idInUse": "ID kategori medan \"{{id}}\" sudah digunakan",
       "unknownUnitCategories": "{{field}} merujuk kategori unit tidak diketahui: {{keys}}",
       "unknownDamageTypes": "projectileAbsorption merujuk tipe kerusakan tidak diketahui: {{keys}}"
@@ -468,8 +375,7 @@
   "customDefs": {
     "common": {
       "importFromScenario": "Impor dari skenario",
-      "duplicate": "Duplikat",
-      "done": "Selesai"
+      "duplicate": "Duplikat"
     },
     "spritesPanel": {
       "title": "Sprite kustom",
@@ -486,7 +392,6 @@
       "libraryTitle": "Pustaka sprite",
       "libraryDescription": "Jelajahi sprite bawaan era untuk inspirasi.",
       "filterPlaceholder": "Filter berdasarkan nama...",
-      "loading": "Memuat...",
       "unitBase": "Dasar unit ({{count}})",
       "unitOverlay": "Lapisan unit ({{count}})",
       "noMatches": "Tidak ada yang cocok."
@@ -505,7 +410,6 @@
       "description": "Tentukan templat formasi baru (tabrakan, modifier, aturan menembak) yang dapat digunakan unit kustom.",
       "noFormations": "Belum ada formasi kustom.",
       "deleteBlocked": "Tidak dapat menghapus \"{{id}}\" - masih digunakan oleh {{refs}}. Hapus referensi tersebut terlebih dahulu.",
-      "addFormation": "Tambah formasi",
       "clonePickerTitle": "Klon formasi bawaan"
     },
     "unitCategoriesPanel": {
@@ -536,7 +440,6 @@
       "clonePickerTitle": "Klon kategori medan bawaan"
     },
     "overrideEditor": {
-      "invalidJson": "JSON tidak valid",
       "reset": "Reset",
       "eraDefault": "bawaan era: {{value}}",
       "structuralTooltip": "Konstanta struktural / determinisme. Mengubahnya dapat merusak rendering, replay, atau pencarian permainan."
@@ -553,7 +456,6 @@
       "nothing": "tidak ada",
       "title": "Impor {{kind}} dari skenario",
       "pickFilePrompt": "Pilih file skenario (JSON yang dihasilkan tombol Unduh editor) untuk mengimpor {{kind}} kustomnya.",
-      "chooseFile": "Pilih file skenario",
       "fileReadError": "Tidak dapat membaca file itu sebagai skenario.",
       "invalidForEra": "Definisi kustom skenario ini tidak valid untuk era saat ini (mis. {{message}}).",
       "importWouldInvalidate": "Impor akan membuat skenario tidak valid (mis. {{message}}). Tidak ada yang diubah.",
@@ -595,24 +497,20 @@
     "spriteSelect": {
       "default": "Bawaan",
       "unknownOption": "{{value}} (tidak diketahui)",
-      "groupCustom": "Kustom",
       "groupBuiltIn": "Bawaan"
     }
   },
   "resize": {
-    "title": "Ubah Ukuran Peta",
     "currentSize": "Ukuran saat ini: {{width}} × {{height}} tile",
     "newSize": "Ukuran baru: {{width}} × {{height}} tile",
     "current": "Saat ini: {{width}} × {{height}} tile",
     "confirmTitle": "Konfirmasi Ubah Ukuran Peta",
     "warningCannotUndo": "⚠️ <0>Peringatan:</0> Operasi ini tidak dapat dibatalkan.",
-    "continue": "Lanjutkan",
     "tabScale": "Skala",
     "tabExpandCut": "Perluas / Potong Sisi",
     "scale": {
       "newWidth": "Lebar baru (tile)",
       "newHeight": "Tinggi baru (tile)",
-      "apply": "Ubah Ukuran Peta",
       "errorInvalid": "Harap masukkan angka positif yang valid untuk lebar dan tinggi dalam tile",
       "warningBody": "Pastikan Anda telah menyimpan skenario sebelum melanjutkan. Mengubah ukuran akan menskalakan semua medan, ketinggian, unit, objektif, dan posisi pemicu."
     },
@@ -636,9 +534,7 @@
   },
   "mapSize": {
     "widthInTiles": "Lebar dalam tile",
-    "heightInTiles": "Tinggi dalam tile",
-    "widthPlaceholder": "Lebar",
-    "heightPlaceholder": "Tinggi"
+    "heightInTiles": "Tinggi dalam tile"
   },
   "misc": {
     "scaleAllSizesBy": "Skalakan semua ukuran dengan",
@@ -649,7 +545,6 @@
   "localesPanel": {
     "title": "Pelokalan",
     "description": "Pelokalan digunakan untuk menerjemahkan skenario ke berbagai bahasa.",
-    "addLanguage": "Tambah Bahasa",
     "removeLanguage": "Hapus bahasa",
     "noKeys": "Tidak ada kunci terjemahan. Tambah kunci untuk memulai.",
     "addKey": "Tambah Kunci",
@@ -658,7 +553,6 @@
     "keyPlaceholder": "Kunci terjemahan",
     "valueLabel": "Nilai",
     "valuePlaceholder": "Nilai terjemahan",
-    "addLanguageTitle": "Tambah Bahasa",
     "languageCodeLabel": "Kode Bahasa",
     "languageCodePlaceholder": "mis., 'en', 'es', 'fr'",
     "languageCodeEmpty": "Kode bahasa tidak boleh kosong",
@@ -715,7 +609,6 @@
     "importMustBeProcedural": "File yang diimpor harus berupa templat prosedural (tanpa peta baku, dengan instruksi pembuatan).",
     "invalidJsonFile": "File JSON tidak valid. Harap periksa format file.",
     "confirmOverwriteWarning": "Harap konfirmasi bahwa Anda memahami ini akan menimpa medan.",
-    "selectedNotProcedural": "Skenario terpilih bukan templat prosedural.",
-    "invalidJson": "JSON tidak valid"
+    "selectedNotProcedural": "Skenario terpilih bukan templat prosedural."
   }
 }

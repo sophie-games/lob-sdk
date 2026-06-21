@@ -2,20 +2,33 @@
   "common": {
     "add": "Ekle",
     "addEntry": "Girdi ekle",
-    "cancel": "İptal",
     "delete": "Sil",
-    "edit": "Düzenle",
-    "name": "İsim",
     "noEntries": "Girdi yok.",
     "none": "Yok",
     "remove": "Kaldır",
-    "save": "Kaydet",
     "select": "Seç...",
-    "unknown": "(bilinmiyor)"
-  },
-  "editor": {
-    "loadScenario": "Senaryo Yükle",
-    "chooseScenarioFile": "Senaryo dosyası seç"
+    "unknown": "(bilinmiyor)",
+    "chooseScenarioFile": "Senaryo dosyası seç",
+    "positionX": "Konum X",
+    "positionY": "Konum Y",
+    "mixed": "Karışık",
+    "width": "Genişlik",
+    "identity": "Kimlik",
+    "formationId": "Formasyon ID",
+    "movementModifier": "Hareket değiştirici",
+    "rangedAttackModifier": "Uzak saldırı değiştirici",
+    "chargeBonusModifier": "Hücum bonusu değiştirici",
+    "chargeResistanceModifier": "Hücum direnci değiştirici",
+    "pushStrengthModifier": "İtme gücü değiştirici",
+    "addFormation": "Formasyon ekle",
+    "idIsRequired": "ID gereklidir",
+    "id": "ID",
+    "enfiladeFire": "Yan ateş",
+    "damageModifier": "Hasar değiştirici",
+    "orgModifier": "Org değiştirici",
+    "invalidJson": "Geçersiz JSON",
+    "resizeMap": "Haritayı Yeniden Boyutlandır",
+    "addLanguage": "Dil Ekle"
   },
   "editorPanel": {
     "tabs": {
@@ -27,7 +40,6 @@
       "advanced": "Gelişmiş"
     },
     "togglePanel": "Paneli aç/kapat",
-    "title": "Senaryo Editörü",
     "downloadScenario": "Senaryoyu indir",
     "copyScenario": "Senaryoyu kopyala",
     "fullscreen": "Tam ekran",
@@ -45,83 +57,46 @@
     "goBackConfirm": "Geri dönüp editörden çıkmak istediğinizden emin misiniz?"
   },
   "createScenario": {
-    "title": "Senaryo Oluştur",
     "randomMap": "Rastgele (prosedürel) harita?",
     "isHybrid": "Hibrit mi?"
   },
   "playersPanel": {
-    "title": "Oyuncular",
     "removePlayer": "Oyuncuyu kaldır"
   },
   "terrainPanel": {
-    "title": "Arazi",
-    "active": "Aktif",
     "setTerrain": "Arazi ayarla",
     "terrainHeight": "Arazi yüksekliği",
-    "radius": "Yarıçap",
     "paintBucket": "Boya Kovası"
   },
   "unitPanel": {
     "title": "Seçili Birim",
-    "player": "Oyuncu",
     "unitType": "Birim Türü",
-    "optional": "İsteğe bağlı",
-    "positionX": "Konum X",
-    "positionY": "Konum Y",
     "rotation": "Dönüş",
-    "mixed": "Karışık",
     "copyJson": "JSON kopyala",
     "copyUnits": "Birimleri kopyala",
     "unitsCopied": "Birimler kopyalandı ({{count}})",
-    "deselect": "Seçimi kaldır",
     "removeSelectedUnits": "Seçili birimleri kaldır"
   },
   "createUnit": {
     "title": "Birim Oluştur",
-    "active": "Aktif",
     "usingCopiedUnits": "Kopyalanan birimler kullanılıyor",
-    "customLabel": "{{name}} (özel)",
-    "fields": {
-      "unit": "Birim",
-      "player": "Oyuncu"
-    }
+    "customLabel": "{{name}} (özel)"
   },
   "objectivePanel": {
     "title": "Seçili Hedef",
     "player": "Oyuncu {{player}}",
     "team": "Takım {{team}}",
-    "namePlaceholder": "İsteğe bağlı",
-    "mixed": "Karışık",
-    "deselect": "Seçimi kaldır",
     "removeSelected": "Seçili hedefi kaldır",
-    "type": {
-      "small": "Küçük",
-      "big": "Büyük"
-    },
     "fields": {
-      "type": "Tür",
-      "logistics": "Lojistik",
       "manpowerPerTurn": "Tur Başına İnsan Gücü",
-      "goldPerTurn": "Tur Başına Altın",
-      "victoryPoints": "Zafer Puanları",
-      "positionX": "Konum X",
-      "positionY": "Konum Y"
+      "goldPerTurn": "Tur Başına Altın"
     }
   },
   "createObjective": {
     "title": "Hedef Oluştur",
-    "active": "Aktif",
     "gaia": "Gaia",
-    "type": {
-      "small": "Küçük",
-      "big": "Büyük"
-    },
     "fields": {
-      "objectiveType": "Hedef Türü",
-      "victoryPoints": "Zafer Puanları",
-      "player": "Oyuncu",
-      "team": "Takım",
-      "logistics": "Lojistik"
+      "objectiveType": "Hedef Türü"
     }
   },
   "deployment": {
@@ -131,9 +106,7 @@
     "forwardZone": "İleri",
     "fields": {
       "x": "X",
-      "y": "Y",
-      "width": "Genişlik",
-      "height": "Yükseklik"
+      "y": "Y"
     }
   },
   "vpBalance": {
@@ -145,8 +118,6 @@
   },
   "formationModal": {
     "title": "Özel formasyonu düzenle",
-    "identity": "Kimlik",
-    "formationId": "Formasyon ID",
     "collision": "Çarpışma",
     "collisionHelp": "Taban şekli: bir daire (yarıçap) veya bir dikdörtgen (cephe boyunca ön, önden arkaya derinlik). Çarpışma olmaması için yarıçap 0 kullanın (uçan / hayalet).",
     "shape": "Şekil",
@@ -155,8 +126,6 @@
     "radiusPx": "Yarıçap (px)",
     "frontagePx": "Cephe (px)",
     "depthPx": "Derinlik (px)",
-    "movement": "Hareket",
-    "movementModifier": "Hareket değiştirici",
     "runMovementModifier": "Koşma hareket değiştirici",
     "rotationSpeedModifier": "Dönüş hızı değiştirici",
     "disable180Turn": "180° dönüşü devre dışı bırak",
@@ -164,21 +133,9 @@
     "timeToForm": "Oluşturma süresi (ticks)",
     "timeToUnform": "Dağıtma süresi (ticks)",
     "minMovementModifier": "Min hareket değiştirici",
-    "combat": "Savaş",
-    "rangedAttackModifier": "Uzak saldırı değiştirici",
-    "chargeBonusModifier": "Hücum bonusu değiştirici",
     "chargePenetrationModifier": "Hücum penetrasyonu değiştirici",
-    "chargeResistanceModifier": "Hücum direnci değiştirici",
-    "pushStrengthModifier": "İtme gücü değiştirici",
     "receivedMeleeDamageModifier": "Alınan yakın dövüş hasarı değiştirici",
     "flanking": "Flanklama",
-    "disablesFlankMelee": "Flank yakın dövüşü devre dışı bırakır",
-    "disablesEnfiladeFire": "Yan ateşi devre dışı bırakır",
-    "disablesRearFire": "Arka ateşi devre dışı bırakır",
-    "flankChargeResistance": "Flank hücum direnci",
-    "rearChargeResistance": "Arka hücum direnci",
-    "enfiladeFireResistance": "Yan ateş direnci",
-    "rearFireResistance": "Arka ateş direnci",
     "rangedDamageResistance": "Uzak hasar direnci",
     "rangedOrgResistance": "Uzak org direnci",
     "fireEdges": "Ateş kenarları (kenar ateşi)",
@@ -202,10 +159,7 @@
     "title": "Özel birim şablonunu düzenle",
     "optBuiltIn": "{{name}} (yerleşik)",
     "optCustom": "{{name}} (özel)",
-    "identity": "Kimlik",
     "typeId": "Tür ID",
-    "category": "Kategori",
-    "combat": "Savaş",
     "meleeAttack": "Yakın saldırı",
     "meleeDefense": "Yakın savunma",
     "meleeDamageType": "meleeDamageType",
@@ -215,13 +169,11 @@
     "flankMeleeOrgModifier": "Flank yakın dövüş org değiştirici",
     "flankChargePenBonus": "Flank hücum penetrasyon bonusu",
     "stats": "İstatistikler",
-    "hp": "HP",
     "org": "Org",
     "shattersAtOrg": "Org'da parçalanır",
     "routesAtOrg": "Org'da kaçar",
     "recoversAtOrg": "Org'da iyileşir",
     "ralliesAtOrg": "Org'da toplanır",
-    "stamina": "Dayanıklılık",
     "manpower": "İnsan gücü",
     "gold": "Altın",
     "orgRadius": "Org yarıçapı",
@@ -229,43 +181,31 @@
     "reportStats": "Rapor istatistikleri",
     "reportStatsHelp": "Her birimin savaş raporlarına kattığı sayım (ör. asker, at, top). Anahtarlar dönemin yerleşik birimlerinden gelir.",
     "tallyPerUnit": "Birim başına sayım",
-    "movement": "Hareket",
     "walkMovement": "Yürüme hareketi",
     "runMovement": "Koşma hareketi",
     "runStartUpMovement": "Koşmaya başlama hareketi",
     "timeToRun": "Koşma süresi (ticks)",
     "runCost": "Koşma maliyeti",
-    "rotationSpeed": "Dönüş hızı",
-    "rotationMaxThreshold": "Maks dönüş eşiği",
-    "runRotationSpeed": "Koşarken dönüş hızı",
     "turningDelay": "Dönüş gecikmesi (ticks)",
     "startsRunning": "Koşarak başlar",
     "movementSound": "Hareket sesi",
     "rangedCombat": "Uzak mesafe savaşı",
     "rangedAttack": "Uzak saldırı",
-    "ammo": "Cephane",
-    "minDistanceToFAA": "FAA'ya min mesafe",
     "panicFireDistance": "Panik ateşi mesafesi",
     "fireWhileMoving": "Hareket ederken ateş et",
     "noAmmoRegain": "Cephane yenilenmez",
     "rangedDamageTypes": "Uzak mesafe hasar türleri",
     "addRangedDamageType": "Uzak mesafe hasar türü ekle",
     "enableRanged": "Uzak mesafeyi etkinleştir",
-    "formations": "Formasyonlar",
-    "formationId": "Formasyon ID",
     "baseSprite": "Temel sprite",
     "overlaySprite": "Kaplama sprite",
-    "addFormation": "Formasyon ekle",
     "defaultFormation": "Varsayılan formasyon",
-    "supply": "İkmal",
-    "supplyField": "İkmal",
     "supplyConsumptionIdle": "Boşta ikmal tüketimi",
     "supplyConsumptionMoving": "Hareket halinde ikmal tüketimi",
     "supplyConsumptionCombating": "Savaşta ikmal tüketimi",
     "supplyManpowerCost": "İkmal insan gücü maliyeti",
     "supplyGoldCost": "İkmal altın maliyeti",
     "misc": "Çeşitli",
-    "skirmisherRatio": "Avcı oranı",
     "canDeployForward": "İleri yerleşebilir",
     "reducedVisibilityRange": "Azaltılmış görüş menzili",
     "unknownType": "Bilinmeyen tür id",
@@ -279,7 +219,6 @@
     "optionBuiltIn": "{{name}} (yerleşik)",
     "optionCustom": "{{name}} (özel)",
     "errors": {
-      "idRequired": "ID gereklidir",
       "idInUse": "Birim kategorisi id \"{{id}}\" zaten kullanımda",
       "firingAltitudeRequired": "firingAltitude gereklidir",
       "orphanedResistances": "damageTypeResistances bilinmeyen hasar türlerine referans veriyor: {{types}}",
@@ -288,8 +227,6 @@
       "allowedOrderUnknown": "İzin verilen emir \"{{name}}\" bu dönem için bilinen bir emir değil"
     },
     "identity": {
-      "legend": "Kimlik",
-      "id": "ID",
       "deploymentSection": "Yerleşim bölümü"
     },
     "deploymentSection": {
@@ -298,10 +235,7 @@
       "front": "ön"
     },
     "combat": {
-      "legend": "Savaş",
       "firingAltitude": "Hedef yükseklik",
-      "allyCollisionLevel": "Müttefik çarpışma seviyesi",
-      "enemyCollisionLevel": "Düşman çarpışma seviyesi",
       "captureSpeed": "Ele geçirme hızı",
       "impactAltitude": "Çarpma yüksekliği",
       "grazingAltitude": "Sıyırma yüksekliği"
@@ -318,14 +252,8 @@
       "speedRun": "koşma",
       "fleeWhenRouted": "Dağıldığında kaç"
     },
-    "enfiladeFire": {
-      "legend": "Yan ateş",
-      "damageModifier": "Hasar değiştirici",
-      "orgModifier": "Org değiştirici"
-    },
     "rearFire": {
-      "legend": "Arka ateş",
-      "orgModifier": "Org değiştirici"
+      "legend": "Arka ateş"
     },
     "chargeBacklash": {
       "legend": "Hücum tepkisi",
@@ -344,7 +272,6 @@
       "fieldLabel": "Hasar türüne göre direnç"
     },
     "autofire": {
-      "legend": "Otomatik ateş önceliği",
       "description": "Hedef birim kategorisi başına öncelik ağırlığı. Yüksek değerler otomatik ateş için tercih edilen hedeflerdir.",
       "fieldLabel": "Hedef kategorisine göre öncelik"
     },
@@ -356,28 +283,20 @@
   "damageTypeModal": {
     "title": "Özel hasar türünü düzenle",
     "sections": {
-      "identity": "Kimlik",
-      "damage": "Hasar",
       "projectile": "Mermi",
       "rangeBrackets": "Menzil aralıkları",
       "areaOfEffect": "Etki alanı"
     },
     "fields": {
-      "id": "ID",
       "ranged": "Uzak mesafe",
       "imageAlias": "Görsel takma adı",
       "orgDamageRatio": "Org hasar oranı",
-      "damageModifier": "Hasar değiştirici",
       "reorgDebuff": "Yeniden örgütlenme cezası",
       "attackEffectDuration": "Saldırı etkisi süresi (ticks)",
-      "projectileWidth": "Mermi genişliği",
       "arcHeight": "Yay yüksekliği",
-      "projectilePenetration": "Mermi penetrasyonu",
       "ammoCost": "Cephane maliyeti",
       "shotSound": "Atış sesi",
       "shotAnim": "Atış animasyonu",
-      "enfiladeFire": "Yan ateş",
-      "cannotUseAfterRun": "Koşma sonrası kullanılamaz",
       "extendRange": "Menzili uzat",
       "aimMode": "Nişan modu"
     },
@@ -392,9 +311,6 @@
       "endMod": "Bitiş değiştirici"
     },
     "aoe": {
-      "type": "Tür",
-      "circular": "Dairesel",
-      "trapezoidal": "Yamuk",
       "absorptionModifier": "Emilim değiştirici",
       "edgeDamageModifier": "Kenar hasar değiştirici",
       "offset": "Ofset",
@@ -424,7 +340,6 @@
   "terrainCategoryModal": {
     "title": "Özel arazi kategorisini düzenle",
     "sections": {
-      "identity": "Kimlik",
       "scalarProperties": "Skaler özellikler",
       "perUnitCategoryModifiers": "Birim kategorisi başına değiştiriciler",
       "projectileAbsorption": "Mermi emilimi"
@@ -437,29 +352,21 @@
       "custom": "{{name}} (özel)"
     },
     "fields": {
-      "id": "ID",
       "color": "Renk",
       "staminaCostModifier": "Dayanıklılık maliyeti değiştirici",
       "hitboxHeight": "Çarpışma kutusu yüksekliği",
-      "heightOffset": "Yükseklik ofseti",
       "visionAbsorption": "Görüş emilimi",
-      "pushStrengthModifier": "İtme gücü değiştirici",
       "pushDistanceModifier": "İtme mesafesi değiştirici",
       "fixedEnemyCollisionLevel": "Sabit düşman çarpışma seviyesi",
       "canPlaceObjectives": "Hedef yerleştirilebilir",
       "prioritizeMovement": "Hareketi önceliklendir",
       "supplyRoute": "İkmal yolu",
-      "movementModifier": "Hareket değiştirici",
       "impassableFor": "Geçilemez",
       "attackModifier": "Saldırı değiştirici",
       "defenseModifier": "Savunma değiştirici",
-      "rangedAttackModifier": "Uzak saldırı değiştirici",
-      "chargeResistanceModifier": "Hücum direnci değiştirici",
-      "chargeBonusModifier": "Hücum bonusu değiştirici",
       "projectileAbsorptionByDamageType": "Hasar türüne göre mermi emilimi"
     },
     "errors": {
-      "idRequired": "ID gereklidir",
       "idInUse": "Arazi kategorisi id \"{{id}}\" zaten kullanımda",
       "unknownUnitCategories": "{{field}} bilinmeyen birim kategorilerine referans veriyor: {{keys}}",
       "unknownDamageTypes": "projectileAbsorption bilinmeyen hasar türlerine referans veriyor: {{keys}}"
@@ -468,8 +375,7 @@
   "customDefs": {
     "common": {
       "importFromScenario": "Senaryodan içe aktar",
-      "duplicate": "Çoğalt",
-      "done": "Tamam"
+      "duplicate": "Çoğalt"
     },
     "spritesPanel": {
       "title": "Özel sprite'lar",
@@ -486,7 +392,6 @@
       "libraryTitle": "Sprite kütüphanesi",
       "libraryDescription": "İlham için dönemin yerleşik sprite'larına göz atın.",
       "filterPlaceholder": "İsme göre filtrele...",
-      "loading": "Yükleniyor...",
       "unitBase": "Birim tabanı ({{count}})",
       "unitOverlay": "Birim kaplaması ({{count}})",
       "noMatches": "Eşleşme yok."
@@ -505,7 +410,6 @@
       "description": "Özel birimlerin kullanabileceği yeni formasyon şablonları (çarpışma, değiştiriciler, ateş kuralları) tanımlayın.",
       "noFormations": "Henüz özel formasyon yok.",
       "deleteBlocked": "\"{{id}}\" silinemiyor - hâlâ {{refs}} tarafından kullanılıyor. Önce o referansları kaldırın.",
-      "addFormation": "Formasyon ekle",
       "clonePickerTitle": "Yerleşik bir formasyonu klonla"
     },
     "unitCategoriesPanel": {
@@ -536,7 +440,6 @@
       "clonePickerTitle": "Yerleşik bir arazi kategorisini klonla"
     },
     "overrideEditor": {
-      "invalidJson": "Geçersiz JSON",
       "reset": "Sıfırla",
       "eraDefault": "dönem varsayılanı: {{value}}",
       "structuralTooltip": "Yapısal / determinizm sabiti. Değiştirmek render'ı, tekrarları veya eşleştirmeyi bozabilir."
@@ -553,7 +456,6 @@
       "nothing": "hiçbir şey",
       "title": "Senaryodan {{kind}} içe aktar",
       "pickFilePrompt": "Özel {{kind}} öğelerini içe aktarmak için bir senaryo dosyası seçin (editörün İndir butonunun ürettiği JSON).",
-      "chooseFile": "Senaryo dosyası seç",
       "fileReadError": "Bu dosya senaryo olarak okunamadı.",
       "invalidForEra": "Bu senaryonun özel tanımları mevcut dönem için geçerli değil (ör. {{message}}).",
       "importWouldInvalidate": "İçe aktarma senaryoyu geçersiz kılardı (ör. {{message}}). Hiçbir şey değiştirilmedi.",
@@ -596,24 +498,20 @@
     "spriteSelect": {
       "default": "Varsayılan",
       "unknownOption": "{{value}} (bilinmiyor)",
-      "groupCustom": "Özel",
       "groupBuiltIn": "Yerleşik"
     }
   },
   "resize": {
-    "title": "Haritayı Yeniden Boyutlandır",
     "currentSize": "Mevcut boyut: {{width}} × {{height}} kare",
     "newSize": "Yeni boyut: {{width}} × {{height}} kare",
     "current": "Mevcut: {{width}} × {{height}} kare",
     "confirmTitle": "Harita Yeniden Boyutlandırmayı Onayla",
     "warningCannotUndo": "⚠️ <0>Uyarı:</0> Bu işlem geri alınamaz.",
-    "continue": "Devam Et",
     "tabScale": "Ölçek",
     "tabExpandCut": "Genişlet / Kenarları Kes",
     "scale": {
       "newWidth": "Yeni genişlik (kare)",
       "newHeight": "Yeni yükseklik (kare)",
-      "apply": "Haritayı Yeniden Boyutlandır",
       "errorInvalid": "Lütfen genişlik ve yükseklik için kare cinsinden geçerli pozitif sayılar girin",
       "warningBody": "Devam etmeden önce senaryonuzu kaydettiğinizden emin olun. Yeniden boyutlandırma tüm arazileri, yükseklikleri, birimleri, hedefleri ve tetikleyici konumlarını ölçekler."
     },
@@ -637,9 +535,7 @@
   },
   "mapSize": {
     "widthInTiles": "Kare cinsinden genişlik",
-    "heightInTiles": "Kare cinsinden yükseklik",
-    "widthPlaceholder": "Genişlik",
-    "heightPlaceholder": "Yükseklik"
+    "heightInTiles": "Kare cinsinden yükseklik"
   },
   "misc": {
     "scaleAllSizesBy": "Tüm boyutları şununla ölçekle",
@@ -650,7 +546,6 @@
   "localesPanel": {
     "title": "Diller",
     "description": "Diller, senaryoyu farklı dillere çevirmek için kullanılır.",
-    "addLanguage": "Dil Ekle",
     "removeLanguage": "Dili kaldır",
     "noKeys": "Çeviri anahtarı yok. Başlamak için bir anahtar ekleyin.",
     "addKey": "Anahtar Ekle",
@@ -659,7 +554,6 @@
     "keyPlaceholder": "Çeviri anahtarı",
     "valueLabel": "Değer",
     "valuePlaceholder": "Çeviri değeri",
-    "addLanguageTitle": "Dil Ekle",
     "languageCodeLabel": "Dil Kodu",
     "languageCodePlaceholder": "ör. 'en', 'es', 'fr'",
     "languageCodeEmpty": "Dil kodu boş olamaz",
@@ -716,7 +610,6 @@
     "importMustBeProcedural": "İçe aktarılan dosya prosedürel bir şablon olmalıdır (pişmiş harita yok, oluşturma talimatları olan).",
     "invalidJsonFile": "Geçersiz JSON dosyası. Lütfen dosya biçimini kontrol edin.",
     "confirmOverwriteWarning": "Lütfen bunun araziyi üzerine yazacağını anladığınızı onaylayın.",
-    "selectedNotProcedural": "Seçili senaryo prosedürel bir şablon değil.",
-    "invalidJson": "Geçersiz JSON"
+    "selectedNotProcedural": "Seçili senaryo prosedürel bir şablon değil."
   }
 }

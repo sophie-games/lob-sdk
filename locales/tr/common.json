@@ -361,11 +361,6 @@
   "selectOrder": "Emir Seç",
   "orderType": "Emir türü",
   "autofire": "Otomatik ateş",
-  "autofireRange": {
-    "low": "Düşük",
-    "medium": "Orta",
-    "max": "Maksimum"
-  },
   "allowFireWhenMoving": "Hareket ederken ateşe izin ver",
   "meleeDamage": "Yakın dövüş hasarı",
   "rangedDamage": "Uzak mesafe hasarı",
@@ -794,5 +789,6 @@
     "message": "Yavaş maçın oynamaya hazır.",
     "goToGame": "Maça git",
     "ignore": "Yoksay"
-  }
+  },
+  "max": "Maksimum"
 }

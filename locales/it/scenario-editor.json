@@ -2,20 +2,33 @@
   "common": {
     "add": "Aggiungi",
     "addEntry": "Aggiungi voce",
-    "cancel": "Annulla",
     "delete": "Elimina",
-    "edit": "Modifica",
-    "name": "Nome",
     "noEntries": "Nessuna voce.",
     "none": "Nessuno",
     "remove": "Rimuovi",
-    "save": "Salva",
     "select": "Seleziona...",
-    "unknown": "(sconosciuto)"
-  },
-  "editor": {
-    "loadScenario": "Carica scenario",
-    "chooseScenarioFile": "Scegli file scenario"
+    "unknown": "(sconosciuto)",
+    "chooseScenarioFile": "Scegli file scenario",
+    "positionX": "Posizione X",
+    "positionY": "Posizione Y",
+    "mixed": "Misto",
+    "width": "Larghezza",
+    "identity": "Identità",
+    "formationId": "ID formazione",
+    "movementModifier": "Modificatore movimento",
+    "rangedAttackModifier": "Modificatore attacco a distanza",
+    "chargeBonusModifier": "Modificatore bonus carica",
+    "chargeResistanceModifier": "Modificatore resistenza carica",
+    "pushStrengthModifier": "Modificatore forza di spinta",
+    "addFormation": "Aggiungi formazione",
+    "idIsRequired": "L'ID è obbligatorio",
+    "id": "ID",
+    "enfiladeFire": "Fuoco di infilata",
+    "damageModifier": "Modificatore danno",
+    "orgModifier": "Modificatore org.",
+    "invalidJson": "JSON non valido",
+    "resizeMap": "Ridimensiona mappa",
+    "addLanguage": "Aggiungi lingua"
   },
   "editorPanel": {
     "tabs": {
@@ -27,7 +40,6 @@
       "advanced": "Avanzate"
     },
     "togglePanel": "Mostra/nascondi pannello",
-    "title": "Editor di scenari",
     "downloadScenario": "Scarica scenario",
     "copyScenario": "Copia scenario",
     "fullscreen": "Schermo intero",
@@ -45,83 +57,46 @@
     "goBackConfirm": "Vuoi davvero tornare indietro e uscire dall'editor?"
   },
   "createScenario": {
-    "title": "Crea scenario",
     "randomMap": "Mappa casuale (procedurale)?",
     "isHybrid": "È ibrida?"
   },
   "playersPanel": {
-    "title": "Giocatori",
     "removePlayer": "Rimuovi giocatore"
   },
   "terrainPanel": {
-    "title": "Terreno",
-    "active": "Attivo",
     "setTerrain": "Imposta terreno",
     "terrainHeight": "Altezza terreno",
-    "radius": "Raggio",
     "paintBucket": "Secchiello"
   },
   "unitPanel": {
     "title": "Unità selezionata",
-    "player": "Giocatore",
     "unitType": "Tipo di unità",
-    "optional": "Opzionale",
-    "positionX": "Posizione X",
-    "positionY": "Posizione Y",
     "rotation": "Rotazione",
-    "mixed": "Misto",
     "copyJson": "Copia JSON",
     "copyUnits": "Copia unità",
     "unitsCopied": "Unità copiate ({{count}})",
-    "deselect": "Deseleziona",
     "removeSelectedUnits": "Rimuovi unità selezionate"
   },
   "createUnit": {
     "title": "Crea unità",
-    "active": "Attivo",
     "usingCopiedUnits": "Uso delle unità copiate",
-    "customLabel": "{{name}} (personalizzata)",
-    "fields": {
-      "unit": "Unità",
-      "player": "Giocatore"
-    }
+    "customLabel": "{{name}} (personalizzata)"
   },
   "objectivePanel": {
     "title": "Obiettivo selezionato",
     "player": "Giocatore {{player}}",
     "team": "Squadra {{team}}",
-    "namePlaceholder": "Opzionale",
-    "mixed": "Misto",
-    "deselect": "Deseleziona",
     "removeSelected": "Rimuovi obiettivo selezionato",
-    "type": {
-      "small": "Piccolo",
-      "big": "Grande"
-    },
     "fields": {
-      "type": "Tipo",
-      "logistics": "Logistica",
       "manpowerPerTurn": "Effettivi per turno",
-      "goldPerTurn": "Oro per turno",
-      "victoryPoints": "Punti vittoria",
-      "positionX": "Posizione X",
-      "positionY": "Posizione Y"
+      "goldPerTurn": "Oro per turno"
     }
   },
   "createObjective": {
     "title": "Crea obiettivo",
-    "active": "Attivo",
     "gaia": "Gaia",
-    "type": {
-      "small": "Piccolo",
-      "big": "Grande"
-    },
     "fields": {
-      "objectiveType": "Tipo di obiettivo",
-      "victoryPoints": "Punti vittoria",
-      "player": "Giocatore",
-      "team": "Squadra",
-      "logistics": "Logistica"
+      "objectiveType": "Tipo di obiettivo"
     }
   },
   "deployment": {
@@ -131,9 +106,7 @@
     "forwardZone": "Avanzata",
     "fields": {
       "x": "X",
-      "y": "Y",
-      "width": "Larghezza",
-      "height": "Altezza"
+      "y": "Y"
     }
   },
   "vpBalance": {
@@ -145,8 +118,6 @@
   },
   "formationModal": {
     "title": "Modifica formazione personalizzata",
-    "identity": "Identità",
-    "formationId": "ID formazione",
     "collision": "Collisione",
     "collisionHelp": "Forma dell'ingombro: un cerchio (raggio) o un rettangolo (frontale lungo il fronte, profondità da fronte a retro). Usa raggio 0 per nessuna collisione (volante / fantasma).",
     "shape": "Forma",
@@ -155,8 +126,6 @@
     "radiusPx": "Raggio (px)",
     "frontagePx": "Frontale (px)",
     "depthPx": "Profondità (px)",
-    "movement": "Movimento",
-    "movementModifier": "Modificatore movimento",
     "runMovementModifier": "Modificatore movimento in corsa",
     "rotationSpeedModifier": "Modificatore velocità rotazione",
     "disable180Turn": "Disabilita inversione a 180°",
@@ -164,21 +133,9 @@
     "timeToForm": "Tempo per formare (ticks)",
     "timeToUnform": "Tempo per sciogliere (ticks)",
     "minMovementModifier": "Modificatore movimento minimo",
-    "combat": "Combattimento",
-    "rangedAttackModifier": "Modificatore attacco a distanza",
-    "chargeBonusModifier": "Modificatore bonus carica",
     "chargePenetrationModifier": "Modificatore penetrazione carica",
-    "chargeResistanceModifier": "Modificatore resistenza carica",
-    "pushStrengthModifier": "Modificatore forza di spinta",
     "receivedMeleeDamageModifier": "Modificatore danno corpo a corpo ricevuto",
     "flanking": "Aggiramento",
-    "disablesFlankMelee": "Disabilita corpo a corpo sul fianco",
-    "disablesEnfiladeFire": "Disabilita fuoco di infilata",
-    "disablesRearFire": "Disabilita fuoco posteriore",
-    "flankChargeResistance": "Resistenza carica sul fianco",
-    "rearChargeResistance": "Resistenza carica posteriore",
-    "enfiladeFireResistance": "Resistenza fuoco di infilata",
-    "rearFireResistance": "Resistenza fuoco posteriore",
     "rangedDamageResistance": "Resistenza danno a distanza",
     "rangedOrgResistance": "Resistenza org. a distanza",
     "fireEdges": "Lati di fuoco (fuoco dai lati)",
@@ -202,10 +159,7 @@
     "title": "Modifica modello di unità personalizzato",
     "optBuiltIn": "{{name}} (integrata)",
     "optCustom": "{{name}} (personalizzata)",
-    "identity": "Identità",
     "typeId": "ID tipo",
-    "category": "Categoria",
-    "combat": "Combattimento",
     "meleeAttack": "Attacco corpo a corpo",
     "meleeDefense": "Difesa corpo a corpo",
     "meleeDamageType": "Tipo di danno corpo a corpo",
@@ -215,13 +169,11 @@
     "flankMeleeOrgModifier": "Modificatore org. corpo a corpo sul fianco",
     "flankChargePenBonus": "Bonus pen. carica sul fianco",
     "stats": "Statistiche",
-    "hp": "HP",
     "org": "Org",
     "shattersAtOrg": "Si disintegra a org",
     "routesAtOrg": "Fugge a org",
     "recoversAtOrg": "Si riprende a org",
     "ralliesAtOrg": "Si raggruppa a org",
-    "stamina": "Resistenza",
     "manpower": "Effettivi",
     "gold": "Oro",
     "orgRadius": "Raggio org.",
@@ -229,43 +181,31 @@
     "reportStats": "Statistiche rapporto",
     "reportStatsHelp": "Conteggio che ogni unità contribuisce ai rapporti di battaglia (es. uomini, cavalli, cannoni). Le chiavi provengono dalle unità integrate dell'epoca.",
     "tallyPerUnit": "Conteggio per unità",
-    "movement": "Movimento",
     "walkMovement": "Movimento a passo",
     "runMovement": "Movimento in corsa",
     "runStartUpMovement": "Movimento avvio corsa",
     "timeToRun": "Tempo per correre (ticks)",
     "runCost": "Costo corsa",
-    "rotationSpeed": "Velocità rotazione",
-    "rotationMaxThreshold": "Soglia massima rotazione",
-    "runRotationSpeed": "Velocità rotazione in corsa",
     "turningDelay": "Ritardo di rotazione (ticks)",
     "startsRunning": "Inizia correndo",
     "movementSound": "Suono movimento",
     "rangedCombat": "Combattimento a distanza",
     "rangedAttack": "Attacco a distanza",
-    "ammo": "Munizioni",
-    "minDistanceToFAA": "Distanza min. a FAA",
     "panicFireDistance": "Distanza fuoco panico",
     "fireWhileMoving": "Fuoco in movimento",
     "noAmmoRegain": "Nessun recupero munizioni",
     "rangedDamageTypes": "Tipi di danno a distanza",
     "addRangedDamageType": "Aggiungi tipo di danno a distanza",
     "enableRanged": "Abilita a distanza",
-    "formations": "Formazioni",
-    "formationId": "ID formazione",
     "baseSprite": "Sprite base",
     "overlaySprite": "Sprite sovrapposto",
-    "addFormation": "Aggiungi formazione",
     "defaultFormation": "Formazione predefinita",
-    "supply": "Rifornimenti",
-    "supplyField": "Rifornimenti",
     "supplyConsumptionIdle": "Consumo rifornimenti inattivo",
     "supplyConsumptionMoving": "Consumo rifornimenti in movimento",
     "supplyConsumptionCombating": "Consumo rifornimenti in combattimento",
     "supplyManpowerCost": "Costo effettivi rifornimenti",
     "supplyGoldCost": "Costo oro rifornimenti",
     "misc": "Varie",
-    "skirmisherRatio": "Rapporto schermagliatori",
     "canDeployForward": "Può schierarsi in avanti",
     "reducedVisibilityRange": "Gittata visibilità ridotta",
     "unknownType": "ID tipo sconosciuto",
@@ -279,7 +219,6 @@
     "optionBuiltIn": "{{name}} (integrata)",
     "optionCustom": "{{name}} (personalizzata)",
     "errors": {
-      "idRequired": "L'ID è obbligatorio",
       "idInUse": "L'id categoria di unità \"{{id}}\" è già in uso",
       "firingAltitudeRequired": "firingAltitude è obbligatorio",
       "orphanedResistances": "damageTypeResistances fa riferimento a tipi di danno sconosciuti: {{types}}",
@@ -288,8 +227,6 @@
       "allowedOrderUnknown": "L'ordine consentito \"{{name}}\" non è un ordine noto per questa epoca"
     },
     "identity": {
-      "legend": "Identità",
-      "id": "ID",
       "deploymentSection": "Sezione di schieramento"
     },
     "deploymentSection": {
@@ -298,10 +235,7 @@
       "front": "fronte"
     },
     "combat": {
-      "legend": "Combattimento",
       "firingAltitude": "Altitudine di fuoco",
-      "allyCollisionLevel": "Livello collisione alleati",
-      "enemyCollisionLevel": "Livello collisione nemici",
       "captureSpeed": "Velocità di cattura",
       "impactAltitude": "Altitudine di impatto",
       "grazingAltitude": "Altitudine di sfioramento"
@@ -318,14 +252,8 @@
       "speedRun": "corsa",
       "fleeWhenRouted": "Fuggi quando in rotta"
     },
-    "enfiladeFire": {
-      "legend": "Fuoco di infilata",
-      "damageModifier": "Modificatore danno",
-      "orgModifier": "Modificatore org."
-    },
     "rearFire": {
-      "legend": "Fuoco posteriore",
-      "orgModifier": "Modificatore org."
+      "legend": "Fuoco posteriore"
     },
     "chargeBacklash": {
       "legend": "Contraccolpo alla carica",
@@ -344,7 +272,6 @@
       "fieldLabel": "Resistenza per tipo di danno"
     },
     "autofire": {
-      "legend": "Priorità fuoco automatico",
       "description": "Peso di priorità per categoria di unità bersaglio. I valori più alti sono bersagli preferiti per il fuoco automatico.",
       "fieldLabel": "Priorità per categoria bersaglio"
     },
@@ -356,28 +283,20 @@
   "damageTypeModal": {
     "title": "Modifica tipo di danno personalizzato",
     "sections": {
-      "identity": "Identità",
-      "damage": "Danno",
       "projectile": "Proiettile",
       "rangeBrackets": "Fasce di gittata",
       "areaOfEffect": "Area d'effetto"
     },
     "fields": {
-      "id": "ID",
       "ranged": "A distanza",
       "imageAlias": "Alias immagine",
       "orgDamageRatio": "Rapporto danno org.",
-      "damageModifier": "Modificatore danno",
       "reorgDebuff": "Malus riorganizzazione",
       "attackEffectDuration": "Durata effetto attacco (ticks)",
-      "projectileWidth": "Larghezza proiettile",
       "arcHeight": "Altezza arco",
-      "projectilePenetration": "Penetrazione proiettile",
       "ammoCost": "Costo munizioni",
       "shotSound": "Suono sparo",
       "shotAnim": "Animazione sparo",
-      "enfiladeFire": "Fuoco di infilata",
-      "cannotUseAfterRun": "Inutilizzabile dopo la corsa",
       "extendRange": "Estendi gittata",
       "aimMode": "Modalità mira"
     },
@@ -392,9 +311,6 @@
       "endMod": "Mod. fine"
     },
     "aoe": {
-      "type": "Tipo",
-      "circular": "Circolare",
-      "trapezoidal": "Trapezoidale",
       "absorptionModifier": "Modificatore assorbimento",
       "edgeDamageModifier": "Modificatore danno ai bordi",
       "offset": "Scostamento",
@@ -424,7 +340,6 @@
   "terrainCategoryModal": {
     "title": "Modifica categoria di terreno personalizzata",
     "sections": {
-      "identity": "Identità",
       "scalarProperties": "Proprietà scalari",
       "perUnitCategoryModifiers": "Modificatori per categoria di unità",
       "projectileAbsorption": "Assorbimento proiettili"
@@ -437,29 +352,21 @@
       "custom": "{{name}} (personalizzata)"
     },
     "fields": {
-      "id": "ID",
       "color": "Colore",
       "staminaCostModifier": "Modificatore costo resistenza",
       "hitboxHeight": "Altezza hitbox",
-      "heightOffset": "Scostamento altezza",
       "visionAbsorption": "Assorbimento visione",
-      "pushStrengthModifier": "Modificatore forza di spinta",
       "pushDistanceModifier": "Modificatore distanza di spinta",
       "fixedEnemyCollisionLevel": "Livello collisione nemici fisso",
       "canPlaceObjectives": "Può posizionare obiettivi",
       "prioritizeMovement": "Priorità al movimento",
       "supplyRoute": "Via di rifornimento",
-      "movementModifier": "Modificatore movimento",
       "impassableFor": "Impraticabile per",
       "attackModifier": "Modificatore attacco",
       "defenseModifier": "Modificatore difesa",
-      "rangedAttackModifier": "Modificatore attacco a distanza",
-      "chargeResistanceModifier": "Modificatore resistenza carica",
-      "chargeBonusModifier": "Modificatore bonus carica",
       "projectileAbsorptionByDamageType": "Assorbimento proiettili per tipo di danno"
     },
     "errors": {
-      "idRequired": "L'ID è obbligatorio",
       "idInUse": "L'id categoria di terreno \"{{id}}\" è già in uso",
       "unknownUnitCategories": "{{field}} fa riferimento a categorie di unità sconosciute: {{keys}}",
       "unknownDamageTypes": "projectileAbsorption fa riferimento a tipi di danno sconosciuti: {{keys}}"
@@ -468,8 +375,7 @@
   "customDefs": {
     "common": {
       "importFromScenario": "Importa da scenario",
-      "duplicate": "Duplica",
-      "done": "Fatto"
+      "duplicate": "Duplica"
     },
     "spritesPanel": {
       "title": "Sprite personalizzati",
@@ -486,7 +392,6 @@
       "libraryTitle": "Libreria sprite",
       "libraryDescription": "Sfoglia gli sprite integrati dell'epoca per trarne ispirazione.",
       "filterPlaceholder": "Filtra per nome...",
-      "loading": "Caricamento...",
       "unitBase": "Base unità ({{count}})",
       "unitOverlay": "Sovrapposizione unità ({{count}})",
       "noMatches": "Nessuna corrispondenza."
@@ -505,7 +410,6 @@
       "description": "Definisci nuovi modelli di formazione (collisione, modificatori, regole di fuoco) utilizzabili dalle unità personalizzate.",
       "noFormations": "Ancora nessuna formazione personalizzata.",
       "deleteBlocked": "Impossibile eliminare \"{{id}}\" - ancora usato da {{refs}}. Rimuovi prima quei riferimenti.",
-      "addFormation": "Aggiungi formazione",
       "clonePickerTitle": "Clona una formazione integrata"
     },
     "unitCategoriesPanel": {
@@ -536,7 +440,6 @@
       "clonePickerTitle": "Clona una categoria di terreno integrata"
     },
     "overrideEditor": {
-      "invalidJson": "JSON non valido",
       "reset": "Reimposta",
       "eraDefault": "predefinito epoca: {{value}}",
       "structuralTooltip": "Costante strutturale / di determinismo. Modificarla può compromettere rendering, replay o matchmaking."
@@ -553,7 +456,6 @@
       "nothing": "nulla",
       "title": "Importa {{kind}} da scenario",
       "pickFilePrompt": "Scegli un file scenario (il JSON prodotto dal pulsante Scarica dell'editor) per importarne i/le {{kind}} personalizzati/e.",
-      "chooseFile": "Scegli file scenario",
       "fileReadError": "Impossibile leggere quel file come scenario.",
       "invalidForEra": "Le definizioni personalizzate di questo scenario non sono valide per l'epoca attuale (es. {{message}}).",
       "importWouldInvalidate": "L'importazione renderebbe lo scenario non valido (es. {{message}}). Nulla è stato modificato.",
@@ -596,24 +498,20 @@
     "spriteSelect": {
       "default": "Predefinito",
       "unknownOption": "{{value}} (sconosciuto)",
-      "groupCustom": "Personalizzati",
       "groupBuiltIn": "Integrati"
     }
   },
   "resize": {
-    "title": "Ridimensiona mappa",
     "currentSize": "Dimensione attuale: {{width}} × {{height}} tile",
     "newSize": "Nuova dimensione: {{width}} × {{height}} tile",
     "current": "Attuale: {{width}} × {{height}} tile",
     "confirmTitle": "Conferma ridimensionamento mappa",
     "warningCannotUndo": "⚠️ <0>Attenzione:</0> Questa operazione non può essere annullata.",
-    "continue": "Continua",
     "tabScale": "Scala",
     "tabExpandCut": "Espandi / Taglia lati",
     "scale": {
       "newWidth": "Nuova larghezza (tile)",
       "newHeight": "Nuova altezza (tile)",
-      "apply": "Ridimensiona mappa",
       "errorInvalid": "Inserisci numeri positivi validi per larghezza e altezza in tile",
       "warningBody": "Assicurati di aver salvato lo scenario prima di procedere. Il ridimensionamento scalerà tutti i terreni, le altezze, le unità, gli obiettivi e le posizioni dei trigger."
     },
@@ -637,9 +535,7 @@
   },
   "mapSize": {
     "widthInTiles": "Larghezza in tile",
-    "heightInTiles": "Altezza in tile",
-    "widthPlaceholder": "Larghezza",
-    "heightPlaceholder": "Altezza"
+    "heightInTiles": "Altezza in tile"
   },
   "misc": {
     "scaleAllSizesBy": "Scala tutte le dimensioni di",
@@ -650,7 +546,6 @@
   "localesPanel": {
     "title": "Lingue",
     "description": "Le lingue servono a tradurre lo scenario in lingue diverse.",
-    "addLanguage": "Aggiungi lingua",
     "removeLanguage": "Rimuovi lingua",
     "noKeys": "Nessuna chiave di traduzione. Aggiungi una chiave per iniziare.",
     "addKey": "Aggiungi chiave",
@@ -659,7 +554,6 @@
     "keyPlaceholder": "Chiave di traduzione",
     "valueLabel": "Valore",
     "valuePlaceholder": "Valore di traduzione",
-    "addLanguageTitle": "Aggiungi lingua",
     "languageCodeLabel": "Codice lingua",
     "languageCodePlaceholder": "es. 'en', 'es', 'fr'",
     "languageCodeEmpty": "Il codice lingua non può essere vuoto",
@@ -716,7 +610,6 @@
     "importMustBeProcedural": "Il file importato deve essere un modello procedurale (nessuna mappa baked, con istruzioni di generazione).",
     "invalidJsonFile": "File JSON non valido. Controlla il formato del file.",
     "confirmOverwriteWarning": "Conferma di aver compreso che questo sovrascriverà il terreno.",
-    "selectedNotProcedural": "Lo scenario selezionato non è un modello procedurale.",
-    "invalidJson": "JSON non valido"
+    "selectedNotProcedural": "Lo scenario selezionato non è un modello procedurale."
   }
 }
