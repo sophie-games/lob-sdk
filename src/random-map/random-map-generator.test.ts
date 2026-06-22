@@ -668,7 +668,7 @@ describe("RandomMapGenerator", () => {
 
       const result = generator.generate({
         scenario,
-        dynamicBattleType: "grand_battle",
+        dynamicBattleType: "battle",
         maxPlayers: 8,
         tileSize: TILE_SIZE,
         era: "napoleonic",

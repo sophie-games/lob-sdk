@@ -25,17 +25,13 @@
     "maxHpConsumptionReduction": -0.5,
     "ammoReserve": {
       "micro": 90000,
-      "clash": 140000,
       "combat": 225000,
-      "battle": 330000,
-      "grand_battle": 500000
+      "battle": 500000
     },
     "goldToAmmoRate": {
       "micro": 1400,
-      "clash": 1300,
       "combat": 1200,
-      "battle": 1100,
-      "grand_battle": 1000
+      "battle": 1000
     }
   },
   "skirmisherSpawning": {
