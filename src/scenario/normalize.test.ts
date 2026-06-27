@@ -131,6 +131,42 @@ describe("normalizeScenario", () => {
     expect(normalizeScenario(preset).allowDeploymentPhase).toBe(false);
   });
 
+  it("backfills placeableObjectives only for dynamic-army instruction maps", () => {
+    const instruction = buildRandom().instructions[0];
+    const dynamicWithInstructions: Scenario = {
+      version: SCENARIO_SCHEMA_VERSION,
+      name: "dynamic-instr",
+      description: "",
+      instructions: [instruction],
+      allowDynamicArmy: true,
+    };
+    const dynamicNoInstructions: Scenario = {
+      version: SCENARIO_SCHEMA_VERSION,
+      name: "dynamic-empty",
+      description: "",
+      instructions: [],
+      allowDynamicArmy: true,
+    };
+    // Fixed-roster instruction map (e.g. the tutorial): must NOT auto-enable.
+    const fixedRosterWithInstructions: Scenario = {
+      version: SCENARIO_SCHEMA_VERSION,
+      name: "tutorial-like",
+      description: "",
+      instructions: [instruction],
+      allowDynamicArmy: false,
+      allowDeploymentPhase: true,
+    };
+    expect(
+      normalizeScenario(dynamicWithInstructions).placeableObjectives,
+    ).toBe(true);
+    expect(normalizeScenario(dynamicNoInstructions).placeableObjectives).toBe(
+      false,
+    );
+    expect(
+      normalizeScenario(fixedRosterWithInstructions).placeableObjectives,
+    ).toBe(false);
+  });
+
   it("throws on an unknown scenario shape", () => {
     expect(() =>
       normalizeScenario({
@@ -197,6 +233,7 @@ describe("normalizeScenario", () => {
       const result = normalizeScenario(buildRandom());
       expect(result.allowDynamicArmy).toBe(true);
       expect(result.allowDeploymentPhase).toBe(true);
+      expect(result.placeableObjectives).toBe(true);
       expect(result.baseTerrain).toBe(TerrainType.Grass);
       expect(result.instructions).toHaveLength(1);
       expect(result.instructions?.[0].type).toBe(InstructionType.HeightNoise);

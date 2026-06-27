@@ -394,14 +394,16 @@ export interface Scenario {
   /**
    * Per-scenario override for the casualties VP weight (the era's
    * VP_LOSS_RATIO_POINTS). Highest-priority override. Omit to inherit the
-   * battle-type override or the era default. Resolved via BaseGame.getVpConstants.
+   * battle-type override or the era default. Resolved (layered) via the
+   * BaseGame.vpLossRatioPoints / vpTicksUnderPressureBase getters.
    */
   vpLossRatioPoints?: number;
 
   /**
    * Per-scenario override for the under-pressure VP rate (the era's
    * VP_TICKS_UNDER_PRESSURE_BASE). Highest-priority override. Omit to inherit the
-   * battle-type override or the era default. Resolved via BaseGame.getVpConstants.
+   * battle-type override or the era default. Resolved (layered) via the
+   * BaseGame.vpLossRatioPoints / vpTicksUnderPressureBase getters.
    */
   vpTicksUnderPressureBase?: number;
 

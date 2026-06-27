@@ -47,9 +47,11 @@ const _backfillCurrent = (raw: Scenario): Scenario => {
   }
   const allowDeploymentPhase =
     raw.allowDeploymentPhase ?? raw.allowDynamicArmy === true;
-  // Random (instruction-driven) maps get placeable objectives by default.
+  // Random (dynamic-army, instruction-driven) maps get placeable objectives by
+  // default. Fixed-roster instruction maps (e.g. the tutorial) are excluded.
   const placeableObjectives =
-    raw.placeableObjectives ?? (raw.instructions?.length ?? 0) > 0;
+    raw.placeableObjectives ??
+    (raw.allowDynamicArmy === true && (raw.instructions?.length ?? 0) > 0);
   return { ...raw, allowDeploymentPhase, placeableObjectives };
 };
 

@@ -118,14 +118,14 @@ export interface BattleTypeTemplate {
   smallObjectivesPerSide?: number;
   /**
    * Per-battle-type override for the casualties VP weight (the era's
-   * VP_LOSS_RATIO_POINTS). Omit to inherit the era default. Resolved via
-   * BaseGame.getVpConstants (scenario override > battle type > era).
+   * VP_LOSS_RATIO_POINTS). Omit to inherit the era default. Resolved via the
+   * BaseGame.vpLossRatioPoints getter (scenario override > battle type > era).
    */
   vpLossRatioPoints?: number;
   /**
    * Per-battle-type override for the under-pressure VP rate (the era's
    * VP_TICKS_UNDER_PRESSURE_BASE). Omit to inherit the era default. Resolved via
-   * BaseGame.getVpConstants (scenario override > battle type > era).
+   * the BaseGame.vpTicksUnderPressureBase getter (scenario override > battle type > era).
    */
   vpTicksUnderPressureBase?: number;
   /** Default army composition for this battle type. */
