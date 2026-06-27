@@ -752,6 +752,36 @@ export class GameDataManager {
   }
 
   /**
+   * Gets the minimum spacing, in world pixels, kept between a team's objectives
+   * during deployment placement. Falls back to 0 (rule disabled) when the
+   * battle type is null or omits objectiveSpacing.
+   * @param battleType - The dynamic battle type, or null for preset scenarios.
+   * @returns The minimum objective spacing in world pixels.
+   */
+  public getObjectiveSpacing(battleType: DynamicBattleType | null): number {
+    const fromBattleType = battleType
+      ? this.tryGetBattleType(battleType)?.objectiveSpacing
+      : undefined;
+    return fromBattleType ?? 0;
+  }
+
+  /**
+   * Gets how many small objectives each side owns and may place during the
+   * deployment phase, falling back to 0 when the battle type is null or omits
+   * smallObjectivesPerSide.
+   * @param battleType - The dynamic battle type, or null for preset scenarios.
+   * @returns The number of small objectives per side.
+   */
+  public getSmallObjectivesPerSide(
+    battleType: DynamicBattleType | null,
+  ): number {
+    const fromBattleType = battleType
+      ? this.tryGetBattleType(battleType)?.smallObjectivesPerSide
+      : undefined;
+    return fromBattleType ?? 0;
+  }
+
+  /**
    * Gets the game constants for the current era.
    * @returns The game constants object.
    */

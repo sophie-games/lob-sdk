@@ -384,6 +384,28 @@ export interface Scenario {
   allowDeploymentPhase?: boolean;
 
   /**
+   * When true, players position their own objectives during the deployment
+   * phase: the big objective starts centered in the deployment box, the small
+   * objectives start advanced and spaced. Auto-enabled for random
+   * (instruction-driven) maps in {@link normalizeScenario}.
+   */
+  placeableObjectives?: boolean;
+
+  /**
+   * Per-scenario override for the casualties VP weight (the era's
+   * VP_LOSS_RATIO_POINTS). Highest-priority override. Omit to inherit the
+   * battle-type override or the era default. Resolved via BaseGame.getVpConstants.
+   */
+  vpLossRatioPoints?: number;
+
+  /**
+   * Per-scenario override for the under-pressure VP rate (the era's
+   * VP_TICKS_UNDER_PRESSURE_BASE). Highest-priority override. Omit to inherit the
+   * battle-type override or the era default. Resolved via BaseGame.getVpConstants.
+   */
+  vpTicksUnderPressureBase?: number;
+
+  /**
    * Data-driven tutorial overlays. Evaluated client-side by the TutorialRunner
    * independently of {@link triggers}; the generic trigger system never sees
    * this field. Safe to omit for non-tutorial scenarios.

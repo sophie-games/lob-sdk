@@ -44,22 +44,6 @@
       },
       "preferLowElevation": false,
       "maxHeightThreshold": 0.7
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "exact",
-        "coords": [20, 50]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "exact",
-        "coords": [80, 50]
-      }
     }
   ],
   "allowDynamicArmy": true

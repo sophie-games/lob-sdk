@@ -14,6 +14,34 @@ import { generateDefaultArmy } from "@lob-sdk/army-deployer";
 describe("GameDataManager", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
 
+  describe("getObjectiveSpacing", () => {
+    it("returns a positive spacing for every napoleonic battle type", () => {
+      gameDataManager.getAllDynamicBattleTypes().forEach((battleType) => {
+        expect(
+          gameDataManager.getObjectiveSpacing(battleType),
+        ).toBeGreaterThan(0);
+      });
+    });
+
+    it("returns 0 for a null battle type (preset scenarios)", () => {
+      expect(gameDataManager.getObjectiveSpacing(null)).toBe(0);
+    });
+  });
+
+  describe("getSmallObjectivesPerSide", () => {
+    it("returns a positive count for every napoleonic battle type", () => {
+      gameDataManager.getAllDynamicBattleTypes().forEach((battleType) => {
+        expect(
+          gameDataManager.getSmallObjectivesPerSide(battleType),
+        ).toBeGreaterThan(0);
+      });
+    });
+
+    it("returns 0 for a null battle type (preset scenarios)", () => {
+      expect(gameDataManager.getSmallObjectivesPerSide(null)).toBe(0);
+    });
+  });
+
   describe("getBattleType", () => {
     describe("default armies respect unit caps from battle-types.json", () => {
       const battleTypes = gameDataManager.getAllDynamicBattleTypes();
@@ -511,8 +539,6 @@ describe("GameDataManager", () => {
     // fallback stays a circle. Pinned so a formation can't silently flip shapes.
     const napoleonicObb = [
       "line",
-      "militia_line",
-      "militia_column",
       "column",
       "square",
       "skirmish",

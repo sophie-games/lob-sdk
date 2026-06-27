@@ -15,7 +15,6 @@
       "min": 0,
       "max": 2
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 0, "max": 0 }],
@@ -24,7 +23,6 @@
       "min": 0.81,
       "max": 0.81
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1, "max": 1 }],
@@ -41,7 +39,6 @@
       "min": 1.5,
       "max": 1.5
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.09, "max": 1.11 }],
@@ -66,7 +63,6 @@
       "min": 1.2,
       "max": 1.2
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
@@ -78,7 +74,6 @@
       "min": 0.4,
       "max": 0.4
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 1,
@@ -109,7 +104,6 @@
       "min": 1.7,
       "max": 1.7
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
@@ -121,7 +115,6 @@
       "min": 0.4,
       "max": 0.4
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.69, "max": 1.71 }],
@@ -130,7 +123,6 @@
       "min": 1,
       "max": 1
     },
-
     {
       "type": "TERRAIN_RECTANGLE",
       "terrain": 11,
@@ -144,7 +136,6 @@
         "rotation": { "min": 55, "max": 55 }
       }
     },
-
     {
       "type": "TERRAIN_RECTANGLE",
       "terrain": 18,
@@ -158,7 +149,6 @@
         "rotation": { "min": 55, "max": 55 }
       }
     },
-
     {
       "type": "TERRAIN_RECTANGLE",
       "terrain": 17,
@@ -180,7 +170,6 @@
       "min": 1.1,
       "max": 1.1
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 0.54, "max": 0.56 }],
@@ -189,7 +178,6 @@
       "min": 1,
       "max": 1
     },
-
     {
       "type": "TERRAIN_RECTANGLE",
       "terrain": 11,
@@ -203,7 +191,6 @@
         "rotation": { "min": 55, "max": 55 }
       }
     },
-
     {
       "type": "TERRAIN_RECTANGLE",
       "terrain": 18,
@@ -217,7 +204,6 @@
         "rotation": { "min": 55, "max": 55 }
       }
     },
-
     {
       "type": "TERRAIN_RECTANGLE",
       "terrain": 17,
@@ -231,7 +217,6 @@
         "rotation": { "min": 55, "max": 55 }
       }
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 4,
@@ -243,7 +228,6 @@
         "max": 0.41
       }
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 4,
@@ -255,7 +239,6 @@
         "max": 0.41
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 0.69, "max": 0.71 }],
@@ -286,7 +269,6 @@
         "max": 1.41
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2, "max": 2 }],
@@ -299,7 +281,6 @@
       "min": 2,
       "max": 1.43
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
@@ -311,7 +292,6 @@
       "min": 0.9,
       "max": 0.9
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.2, "max": 1.4 }],
@@ -328,7 +308,6 @@
       "min": 0,
       "max": 0
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 1,
@@ -343,7 +322,6 @@
         "max": 2
       }
     },
-
     {
       "type": "TERRAIN_RECTANGLE",
       "terrain": 2,
@@ -380,7 +358,6 @@
       ],
       "heightDiffCost": 10
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 3,
@@ -407,7 +384,6 @@
       "endHeightRanges": [{ "min": 0, "max": 2.28 }],
       "heightDiffCost": 10
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 3,
@@ -434,7 +410,6 @@
       "endHeightRanges": [{ "min": 0, "max": 2.28 }],
       "heightDiffCost": 10
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 3,
@@ -461,7 +436,6 @@
       "endHeightRanges": [{ "min": 0, "max": 2.28 }],
       "heightDiffCost": 10
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.42, "max": 1.44 }],
@@ -469,70 +443,6 @@
       "mergeStrategy": "avg",
       "min": 1,
       "max": 1
-    },
-
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [37, 37],
-        "max": [37, 37]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [63, 37],
-        "max": [63, 37]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [37, 63],
-        "max": [37, 63]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [63, 63],
-        "max": [63, 63]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [25, 50],
-        "max": [25, 50]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [50, 50],
-        "max": [50, 50]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [75, 50],
-        "max": [75, 50]
-      }
     }
   ],
   "locales": {

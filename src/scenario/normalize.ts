@@ -39,8 +39,18 @@ export function normalizeScenario(raw: RawScenarioInput): Scenario {
 
 // Old schema: dynamic-army implied a deployment phase, fixed-roster skipped it.
 const _backfillCurrent = (raw: Scenario): Scenario => {
-  if (raw.allowDeploymentPhase !== undefined) return raw;
-  return { ...raw, allowDeploymentPhase: raw.allowDynamicArmy === true };
+  if (
+    raw.allowDeploymentPhase !== undefined &&
+    raw.placeableObjectives !== undefined
+  ) {
+    return raw;
+  }
+  const allowDeploymentPhase =
+    raw.allowDeploymentPhase ?? raw.allowDynamicArmy === true;
+  // Random (instruction-driven) maps get placeable objectives by default.
+  const placeableObjectives =
+    raw.placeableObjectives ?? (raw.instructions?.length ?? 0) > 0;
+  return { ...raw, allowDeploymentPhase, placeableObjectives };
 };
 
 const _isCurrent = (raw: RawScenarioInput): raw is Scenario =>
@@ -67,6 +77,7 @@ const _fromPreset = (raw: LegacyPresetScenario): Scenario => ({
   objectives: raw.objectives,
   allowDynamicArmy: false,
   allowDeploymentPhase: false,
+  placeableObjectives: false,
 });
 
 const _fromHybrid = (raw: LegacyHybridScenario): Scenario => ({
@@ -78,6 +89,7 @@ const _fromHybrid = (raw: LegacyHybridScenario): Scenario => ({
   // Legacy hybrids always granted a deployment phase regardless of fixedArmy,
   // so the player could reposition the pre-placed roster. Preserve that.
   allowDeploymentPhase: true,
+  placeableObjectives: false,
 });
 
 const _fromRandom = (raw: LegacyRandomScenario): Scenario => ({
@@ -88,4 +100,5 @@ const _fromRandom = (raw: LegacyRandomScenario): Scenario => ({
   scaledDeploymentZones: raw.scaledDeploymentZones,
   allowDynamicArmy: true,
   allowDeploymentPhase: true,
+  placeableObjectives: true,
 });

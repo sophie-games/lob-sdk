@@ -17,6 +17,15 @@ export class ScenarioFeatures {
     return scenario.allowDeploymentPhase === true;
   }
 
+  /**
+   * Players position their own objectives during the deployment phase (big in
+   * the deployment box, smalls advanced and spaced). Auto-enabled for random
+   * maps in {@link normalizeScenario}.
+   */
+  static hasPlaceableObjectives(scenario: Scenario): boolean {
+    return scenario.placeableObjectives === true;
+  }
+
   /** Player slots and teams are baked in; matchmaking can't reshape them. */
   static hasFixedPlayers(
     scenario: Scenario,

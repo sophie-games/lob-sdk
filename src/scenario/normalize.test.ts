@@ -100,7 +100,7 @@ const buildRandom = (
 });
 
 describe("normalizeScenario", () => {
-  it("returns current-schema scenarios unchanged when allowDeploymentPhase is already set", () => {
+  it("returns current-schema scenarios unchanged when the feature flags are already set", () => {
     const scenario: Scenario = {
       version: SCENARIO_SCHEMA_VERSION,
       name: "already-current",
@@ -108,6 +108,7 @@ describe("normalizeScenario", () => {
       instructions: [],
       allowDynamicArmy: true,
       allowDeploymentPhase: true,
+      placeableObjectives: false,
     };
     expect(normalizeScenario(scenario)).toBe(scenario);
   });
@@ -281,6 +282,7 @@ describe("normalizeScenario", () => {
         instructions: [],
         allowDynamicArmy: true,
         allowDeploymentPhase: true,
+        placeableObjectives: false,
         ranked: true,
         hidden: true,
         triggers: sampleTriggers,

@@ -104,6 +104,30 @@ export interface BattleTypeTemplate {
   bigVps: number;
   /** Victory points per small objective. */
   smallVps: number;
+  /**
+   * Minimum distance, in world pixels, kept between a team's objectives when
+   * repositioned during deployment. Omit or set to 0 to disable. Read via
+   * GameDataManager.getObjectiveSpacing.
+   */
+  objectiveSpacing?: number;
+  /**
+   * Number of small objectives each side owns and may reposition during the
+   * deployment phase. Omit or set to 0 for none. Read via
+   * GameDataManager.getSmallObjectivesPerSide.
+   */
+  smallObjectivesPerSide?: number;
+  /**
+   * Per-battle-type override for the casualties VP weight (the era's
+   * VP_LOSS_RATIO_POINTS). Omit to inherit the era default. Resolved via
+   * BaseGame.getVpConstants (scenario override > battle type > era).
+   */
+  vpLossRatioPoints?: number;
+  /**
+   * Per-battle-type override for the under-pressure VP rate (the era's
+   * VP_TICKS_UNDER_PRESSURE_BASE). Omit to inherit the era default. Resolved via
+   * BaseGame.getVpConstants (scenario override > battle type > era).
+   */
+  vpTicksUnderPressureBase?: number;
   /** Default army composition for this battle type. */
   defaultArmy: UnitCounts;
   /** If Supply Lines rule enabled, this will be the logistics per big objective. */

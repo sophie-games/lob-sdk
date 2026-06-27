@@ -41,76 +41,12 @@
 
   "instructions": [
     {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [37, 37],
-        "max": [37, 37]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [63, 37],
-        "max": [63, 37]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [37, 63],
-        "max": [37, 63]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [63, 63],
-        "max": [63, 63]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [25, 50],
-        "max": [25, 50]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [50, 50],
-        "max": [50, 50]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [75, 50],
-        "max": [75, 50]
-      }
-    },
-    {
       "type": "TERRAIN_NOISE",
       "terrain": 0,
       "scale": 1,
       "ranges": [{ "min": 0, "max": 1 }],
       "multiplier": 1
     },
-
     {
       "type": "HEIGHT_NOISE",
       "noises": [{ "scale": { "x": 44, "y": 53 }, "multiplier": 20 }],
@@ -156,7 +92,6 @@
         "max": 1.91
       }
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 3,
@@ -262,7 +197,6 @@
       "noiseWeight": 2.1,
       "noiseSmoothness": 10
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 3,
@@ -368,7 +302,6 @@
       "noiseWeight": 2.1,
       "noiseSmoothness": 10
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 3,
@@ -404,7 +337,6 @@
       "noiseWeight": 2.1,
       "noiseSmoothness": 10
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1, "max": 1 }],
@@ -413,7 +345,6 @@
       "min": 1.95,
       "max": 1.95
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2, "max": 2 }],
@@ -438,7 +369,6 @@
       "min": 1.7,
       "max": 1.7
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
@@ -451,7 +381,6 @@
       "min": 1,
       "max": 1
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 3,
@@ -463,7 +392,6 @@
         "max": 1.91
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.89, "max": 1.91 }],
@@ -488,7 +416,6 @@
       "min": 1.4,
       "max": 1.8
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.69, "max": 1.71 }],
@@ -514,7 +441,6 @@
       "min": 1.4,
       "max": 1.4
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.79, "max": 1.81 }],
@@ -531,7 +457,6 @@
       "min": 1.8,
       "max": 1.76
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.75, "max": 1.77 }],
@@ -540,7 +465,6 @@
       "min": 1.8,
       "max": 1.4
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.79, "max": 1.81 }],
@@ -549,7 +473,6 @@
       "min": 2.5,
       "max": 1.7
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.39, "max": 1.41 }],
@@ -593,7 +516,6 @@
         "max": 1.25
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2.49, "max": 2.51 }],
@@ -646,7 +568,6 @@
         "max": 2.31
       }
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 3,
@@ -752,7 +673,6 @@
       "noiseWeight": 2.1,
       "noiseSmoothness": 10
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.39, "max": 1.41 }],
@@ -765,7 +685,6 @@
       "min": 1.4,
       "max": 1.5
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.49, "max": 1.51 }],
@@ -778,7 +697,6 @@
       "min": 1.4,
       "max": 1.5
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.49, "max": 1.51 }],
@@ -795,7 +713,6 @@
       "min": 1.48,
       "max": 1.46
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.49, "max": 1.51 }],
@@ -804,7 +721,6 @@
       "min": 2.05,
       "max": 2.05
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.39, "max": 1.41 }],
@@ -829,7 +745,6 @@
       "min": 1.1,
       "max": 2.03
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.009, "max": 1.011 }],
@@ -838,7 +753,6 @@
       "min": 1.13,
       "max": 1.13
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.029, "max": 1.031 }],
@@ -858,7 +772,6 @@
       "min": 2.12,
       "max": 2.12
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2.119, "max": 2.121 }],
@@ -867,7 +780,6 @@
       "min": 1.126,
       "max": 1.126
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.129, "max": 1.131 }],
@@ -876,7 +788,6 @@
       "min": 1.1,
       "max": 1.1
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.119, "max": 1.121 }],
@@ -909,7 +820,6 @@
       "min": 2.12,
       "max": 2.12
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
@@ -921,7 +831,6 @@
       "min": 1.4,
       "max": 1.4
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2.119, "max": 2.121 }],
@@ -930,7 +839,6 @@
       "min": 1.12,
       "max": 1.12
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
@@ -942,7 +850,6 @@
       "min": 1,
       "max": 1
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 18,
@@ -957,7 +864,6 @@
         "minSurrounding": 2
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.11, "max": 1.13 }],
@@ -966,7 +872,6 @@
       "min": 1.4,
       "max": 1.4
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.47, "max": 1.49 }],
@@ -975,7 +880,6 @@
       "min": 2.05,
       "max": 2.05
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.39, "max": 1.41 }],
@@ -1000,7 +904,6 @@
       "min": 1.1,
       "max": 2.03
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.009, "max": 1.011 }],
@@ -1009,7 +912,6 @@
       "min": 1.13,
       "max": 1.13
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.029, "max": 1.031 }],
@@ -1029,7 +931,6 @@
       "min": 2.12,
       "max": 2.12
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2.119, "max": 2.121 }],
@@ -1038,7 +939,6 @@
       "min": 1.126,
       "max": 1.126
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.129, "max": 1.131 }],
@@ -1047,7 +947,6 @@
       "min": 1.1,
       "max": 1.1
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.119, "max": 1.121 }],
@@ -1080,7 +979,6 @@
       "min": 2.12,
       "max": 2.12
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
@@ -1092,7 +990,6 @@
       "min": 1.4,
       "max": 1.4
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2.119, "max": 2.121 }],
@@ -1101,7 +998,6 @@
       "min": 1.12,
       "max": 1.12
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
@@ -1113,7 +1009,6 @@
       "min": 1,
       "max": 1
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 11,
@@ -1128,7 +1023,6 @@
         "minSurrounding": 2
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.11, "max": 1.13 }],
@@ -1137,7 +1031,6 @@
       "min": 1.4,
       "max": 1.4
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.45, "max": 1.47 }],
@@ -1146,7 +1039,6 @@
       "min": 2.05,
       "max": 2.05
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.39, "max": 1.41 }],
@@ -1171,7 +1063,6 @@
       "min": 1.1,
       "max": 2.03
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.009, "max": 1.011 }],
@@ -1180,7 +1071,6 @@
       "min": 1.13,
       "max": 1.13
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.029, "max": 1.031 }],
@@ -1200,7 +1090,6 @@
       "min": 2.12,
       "max": 2.12
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2.119, "max": 2.121 }],
@@ -1209,7 +1098,6 @@
       "min": 1.126,
       "max": 1.126
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.129, "max": 1.131 }],
@@ -1218,7 +1106,6 @@
       "min": 1.1,
       "max": 1.1
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.119, "max": 1.121 }],
@@ -1251,7 +1138,6 @@
       "min": 2.12,
       "max": 2.12
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
@@ -1263,7 +1149,6 @@
       "min": 1.4,
       "max": 1.4
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2.119, "max": 2.121 }],
@@ -1272,7 +1157,6 @@
       "min": 1.12,
       "max": 1.12
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
@@ -1284,7 +1168,6 @@
       "min": 1,
       "max": 1
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 17,
@@ -1299,7 +1182,6 @@
         "minSurrounding": 2
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.11, "max": 1.13 }],
@@ -1308,7 +1190,6 @@
       "min": 1.4,
       "max": 1.4
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 3, "max": 3.31 }],
@@ -1336,7 +1217,6 @@
       "min": 1.7,
       "max": 1.7
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 3,
@@ -1371,7 +1251,6 @@
         { "terrain": 12, "cost": 10 }
       ]
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1, "max": 1 }],
@@ -1380,7 +1259,6 @@
       "min": 1.77,
       "max": 1.77
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 1,
@@ -1407,7 +1285,6 @@
         "max": 1.71
       }
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 4,
@@ -1454,7 +1331,6 @@
       "noiseWeight": 5,
       "noiseSmoothness": 1
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 0,
@@ -1474,7 +1350,6 @@
       "min": 0,
       "max": 0
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1, "max": 1 }],
@@ -1491,7 +1366,6 @@
       "min": 1,
       "max": 1
     },
-
     {
       "type": "TERRAIN_RECTANGLE",
       "terrain": 2,
@@ -1540,7 +1414,6 @@
       "min": 1,
       "max": 1
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 1,
@@ -1574,7 +1447,6 @@
         "max": 1.71
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1, "max": 1 }],
@@ -1623,7 +1495,6 @@
       "min": 0,
       "max": 0
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1, "max": 1 }],
@@ -1632,7 +1503,6 @@
       "min": 0.97,
       "max": 0.97
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.69, "max": 1.8 }],
@@ -1645,7 +1515,6 @@
       "min": 0.8,
       "max": 2.6
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2, "max": 3 }],
@@ -1654,7 +1523,6 @@
       "min": 2,
       "max": 2
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1, "max": 1.99 }],
@@ -1663,7 +1531,6 @@
       "min": 1,
       "max": 1
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 0, "max": 0.99 }],
@@ -1672,7 +1539,6 @@
       "min": 0,
       "max": 0
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1, "max": 1 }],
