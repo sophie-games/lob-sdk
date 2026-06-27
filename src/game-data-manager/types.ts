@@ -347,6 +347,20 @@ export interface GameConstants {
    */
   VP_TICKS_UNDER_PRESSURE_BASE: number;
 
+  /**
+   * VP value of the auto-spawned neutral objective, as a multiple of a small
+   * objective's VP. 0 disables the feature (no neutral objective is spawned).
+   * The neutral spawns once, when deployment ends, on placeable-objective maps.
+   */
+  NEUTRAL_OBJECTIVE_VP_MULTIPLIER: number;
+
+  /**
+   * How strongly the neutral objective drifts toward the lateral gap the teams'
+   * placed objectives leave (0..1). 0 keeps it at the no-man's-land centre; 1
+   * mirrors the placement bias fully. Discourages clustering objectives on a flank.
+   */
+  NEUTRAL_OBJECTIVE_DRIFT_FACTOR: number;
+
   /** Experience required to reach level 2 */
   PLAYER_EXPERIENCE_BASE: number;
   /** Experience factor for each level */
