@@ -105,11 +105,19 @@
     "18lb-cannon-ball": "Bala de cañón de 18 libras",
     "18lb-explosive-shell": "Proyectil explosivo de 18 libras"
   },
+  "formationRole": {
+    "column": "Marcha y carga",
+    "line": "Potencia de fuego",
+    "square": "Anti-flanqueo",
+    "skirmish": "Orden abierto",
+    "cavalry": "Carga montada",
+    "artillery": "Batería de cañones",
+    "dispersed": "Anti-artillería"
+  },
   "formation": {
     "line": "Línea",
     "column": "Columna",
     "square": "Cuadro",
-    "militia_line": "Línea",
     "dispersed": "Disperso"
   },
   "reportStats": {

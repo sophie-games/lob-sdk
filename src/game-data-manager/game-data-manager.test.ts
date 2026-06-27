@@ -511,8 +511,6 @@ describe("GameDataManager", () => {
     // fallback stays a circle. Pinned so a formation can't silently flip shapes.
     const napoleonicObb = [
       "line",
-      "militia_line",
-      "militia_column",
       "column",
       "square",
       "skirmish",

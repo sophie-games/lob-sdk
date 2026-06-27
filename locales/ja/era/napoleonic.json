@@ -124,11 +124,19 @@
     "18lb-cannon-ball": "18ポンド砲弾",
     "18lb-explosive-shell": "18ポンド炸裂弾"
   },
+  "formationRole": {
+    "column": "行軍と突撃",
+    "line": "火力",
+    "square": "側面防御",
+    "skirmish": "散開隊形",
+    "cavalry": "騎兵突撃",
+    "artillery": "砲列",
+    "dispersed": "対砲兵"
+  },
   "formation": {
     "line": "横隊",
     "column": "縦隊",
     "square": "方陣",
-    "militia_line": "横隊",
     "dispersed": "散開"
   },
   "reportStats": {

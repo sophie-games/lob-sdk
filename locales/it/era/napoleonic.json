@@ -99,11 +99,19 @@
     "18lb-cannon-ball": "Palla di cannone 18 lb",
     "18lb-explosive-shell": "Proiettile esplosivo 18 lb"
   },
+  "formationRole": {
+    "column": "Marcia e carica",
+    "line": "Potenza di fuoco",
+    "square": "Anti-fianco",
+    "skirmish": "Ordine sparso",
+    "cavalry": "Carica montata",
+    "artillery": "Batteria",
+    "dispersed": "Anti-artiglieria"
+  },
   "formation": {
     "line": "Linea",
     "column": "Colonna",
     "square": "Quadrato",
-    "militia_line": "Linea",
     "dispersed": "Disperso"
   },
   "reportStats": {

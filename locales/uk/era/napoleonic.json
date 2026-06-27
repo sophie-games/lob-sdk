@@ -99,11 +99,19 @@
     "18lb-cannon-ball": "18-фунтове гарматне ядро",
     "18lb-explosive-shell": "18-фунтова вибухова граната"
   },
+  "formationRole": {
+    "column": "Марш і атака",
+    "line": "Вогнева міць",
+    "square": "Захист флангів",
+    "skirmish": "Розсипний стрій",
+    "cavalry": "Кінна атака",
+    "artillery": "Батарея",
+    "dispersed": "Проти артилерії"
+  },
   "formation": {
     "line": "Лінія",
     "column": "Колона",
     "square": "Квадрат",
-    "militia_line": "Лінія",
     "dispersed": "Розсіяний"
   },
   "reportStats": {

@@ -91,11 +91,19 @@
     "18lb-cannon-ball": "Bola Meriam 18 lb",
     "18lb-explosive-shell": "Peluru Ledak 18 lb"
   },
+  "formationRole": {
+    "column": "Mars dan serbu",
+    "line": "Daya tembak",
+    "square": "Anti-sayap",
+    "skirmish": "Formasi renggang",
+    "cavalry": "Serangan kuda",
+    "artillery": "Bateri meriam",
+    "dispersed": "Anti-artileri"
+  },
   "formation": {
     "line": "Baris",
     "column": "Kolom",
     "square": "Kotak",
-    "militia_line": "Baris",
     "dispersed": "Tersebar"
   },
   "reportStats": {

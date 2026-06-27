@@ -123,11 +123,19 @@
     "18lb-cannon-ball": "18-पाउंड तोप गोला",
     "18lb-explosive-shell": "18-पाउंड विस्फोटक गोला"
   },
+  "formationRole": {
+    "column": "कूच और धावा",
+    "line": "मारक क्षमता",
+    "square": "पार्श्व-रक्षा",
+    "skirmish": "बिखरी पंक्ति",
+    "cavalry": "घुड़सवार धावा",
+    "artillery": "तोपख़ाना",
+    "dispersed": "तोप-रोधी"
+  },
   "formation": {
     "line": "पंक्ति",
     "column": "स्तंभ",
     "square": "वर्ग",
-    "militia_line": "पंक्ति",
     "dispersed": "फैला हुआ"
   },
   "reportStats": {

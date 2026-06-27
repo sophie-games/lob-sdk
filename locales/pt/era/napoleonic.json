@@ -99,11 +99,19 @@
     "18lb-cannon-ball": "Bala de Canhão 18 lb",
     "18lb-explosive-shell": "Projétil Explosivo 18 lb"
   },
+  "formationRole": {
+    "column": "Marcha e carga",
+    "line": "Poder de fogo",
+    "square": "Anti-flanco",
+    "skirmish": "Ordem dispersa",
+    "cavalry": "Carga montada",
+    "artillery": "Bateria",
+    "dispersed": "Antiartilharia"
+  },
   "formation": {
     "line": "Linha",
     "column": "Coluna",
     "square": "Quadrado",
-    "militia_line": "Linha",
     "dispersed": "Disperso"
   },
   "reportStats": {

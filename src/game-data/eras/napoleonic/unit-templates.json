@@ -605,10 +605,10 @@
     "rotationMaxThreshold": 0.523,
     "runRotationSpeed": 0.204,
     "turningDelay": 10,
-    "defaultFormation": "militia_column",
+    "defaultFormation": "column",
     "formations": [
       {
-        "id": "militia_column",
+        "id": "column",
         "baseSprite": "militia",
         "overlaySprite": "militia",
         "changeAnimations": {
@@ -617,7 +617,7 @@
         }
       },
       {
-        "id": "militia_line",
+        "id": "line",
         "baseSprite": "militia-line",
         "overlaySprite": "militia-line",
         "changeAnimations": {
