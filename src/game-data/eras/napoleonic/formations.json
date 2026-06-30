@@ -2,7 +2,7 @@
   {
     "id": "column",
     "drawLineRank": 3,
-    "collisionShape": { "type": 1, "frontage": 14, "depth": 12 },
+    "collisionShape": { "type": 1, "frontage": 14, "depth": 16 },
     "allyCollisionLevel": 2,
     "enemyCollisionLevel": 2,
     "fireEdges": [{ "edge": 1, "arc": 40, "emitters": 1 }],
@@ -24,7 +24,7 @@
   {
     "id": "line",
     "drawLineRank": 2,
-    "collisionShape": { "type": 1, "frontage": 42, "depth": 7 },
+    "collisionShape": { "type": 1, "frontage": 42, "depth": 8 },
     "allyCollisionLevel": 2,
     "enemyCollisionLevel": 2,
     "fireEdges": [{ "edge": 1, "arc": 40, "emitters": 4 }],
