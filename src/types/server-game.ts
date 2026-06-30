@@ -303,9 +303,10 @@ export interface DamageHit {
    */
   orgDamageRatio?: number;
   /**
-   * Per-shot reorg-debuff magnitude, pre-scaled by the shot's remaining strength
-   * (`stepStrength`) so a spent round suppresses reorganization less. Falls back to the
-   * damage type's flat `reorgDebuff` when absent (melee / backlash hits are full-contact).
+   * Per-hit reorg-debuff magnitude, pre-scaled by how much of the nominal attack landed
+   * (ranged: modifiers x `stepStrength`; melee: the modifier product), so a spent or
+   * resisted hit suppresses reorganization less. Falls back to the damage type's flat
+   * `reorgDebuff` when absent (e.g. the backlash counter-hit).
    */
   reorgDebuff?: number;
   /** Type of damage dealt. */
