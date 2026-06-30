@@ -2,7 +2,7 @@
   {
     "id": "column",
     "drawLineRank": 3,
-    "collisionShape": { "type": 1, "frontage": 14, "depth": 18 },
+    "collisionShape": { "type": 1, "frontage": 14, "depth": 12 },
     "allyCollisionLevel": 2,
     "enemyCollisionLevel": 2,
     "fireEdges": [{ "edge": 1, "arc": 40, "emitters": 1 }],
@@ -24,7 +24,7 @@
   {
     "id": "line",
     "drawLineRank": 2,
-    "collisionShape": { "type": 1, "frontage": 32, "depth": 8 },
+    "collisionShape": { "type": 1, "frontage": 42, "depth": 7 },
     "allyCollisionLevel": 2,
     "enemyCollisionLevel": 2,
     "fireEdges": [{ "edge": 1, "arc": 40, "emitters": 4 }],
@@ -91,7 +91,7 @@
   {
     "id": "skirmish",
     "drawLineRank": 0,
-    "collisionShape": { "type": 1, "frontage": 24, "depth": 8 },
+    "collisionShape": { "type": 1, "frontage": 24, "depth": 12 },
     "allyCollisionLevel": -1,
     "enemyCollisionLevel": 1,
     "fireEdges": [{ "edge": 1, "arc": 360, "emitters": 2 }],
@@ -145,7 +145,7 @@
   },
   {
     "id": "dispersed",
-    "collisionShape": { "type": 1, "frontage": 16, "depth": 16 },
+    "collisionShape": { "type": 1, "frontage": 24, "depth": 12 },
     "allyCollisionLevel": -1,
     "enemyCollisionLevel": 1,
     "fireEdges": [{ "edge": 1, "arc": 360, "emitters": 1 }],
