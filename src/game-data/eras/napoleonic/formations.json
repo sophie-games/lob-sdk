@@ -2,7 +2,7 @@
   {
     "id": "column",
     "drawLineRank": 3,
-    "collisionShape": { "type": 1, "frontage": 14, "depth": 16 },
+    "collisionShape": { "type": 1, "frontage": 18, "depth": 14 },
     "allyCollisionLevel": 2,
     "enemyCollisionLevel": 2,
     "fireEdges": [{ "edge": 1, "arc": 40, "emitters": 1 }],
