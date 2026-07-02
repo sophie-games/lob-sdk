@@ -345,7 +345,14 @@
       "nameBelongsToBuiltIn": "이름 \"{{name}}\" 은(는) 기본 제공 id {{id}} 에 속합니다. 재정의하려면 id를 {{id}} 로 설정하거나 다른 이름을 선택하세요.",
       "orgDamageRatioRequired": "orgDamageRatio is required",
       "rangedNeedsBracket": "사격 피해 유형에는 최소 하나의 사거리 구간이 필요합니다",
-      "maxRangeRequired": "최대 사거리는 0보다 커야 합니다"
+      "maxRangeRequired": "최대 사거리는 0보다 커야 합니다",
+      "rangeBandBounds": "각 구간의 시작/끝은 0~100% 사이여야 하며 시작 ≤ 끝이어야 합니다.",
+      "lastBandMustReachMax": "마지막 구간은 100%(최대 사거리)에 도달해야 합니다."
+    },
+    "engagementTier": {
+      "low": "낮음 (근거리)",
+      "medium": "유효 (중거리)",
+      "max": "최대 (기본값)"
     }
   },
   "terrainCategoryModal": {

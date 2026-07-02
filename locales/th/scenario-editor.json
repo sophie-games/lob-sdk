@@ -345,7 +345,14 @@
       "nameBelongsToBuiltIn": "ชื่อ \"{{name}}\" เป็นของ id ในตัว {{id}} ตั้ง id เป็น {{id}} เพื่อแทนที่ หรือเลือกชื่ออื่น",
       "orgDamageRatioRequired": "ต้องระบุ orgDamageRatio",
       "rangedNeedsBracket": "ประเภทความเสียหายระยะไกลต้องมีช่วงระยะอย่างน้อยหนึ่งช่วง",
-      "maxRangeRequired": "ระยะสูงสุดต้องมากกว่า 0"
+      "maxRangeRequired": "ระยะสูงสุดต้องมากกว่า 0",
+      "rangeBandBounds": "ค่าจาก/ถึงของแต่ละช่วงต้องอยู่ระหว่าง 0 ถึง 100% โดยจาก ≤ ถึง",
+      "lastBandMustReachMax": "ช่วงสุดท้ายต้องถึง 100% (ระยะสูงสุด)"
+    },
+    "engagementTier": {
+      "low": "ต่ำ (ใกล้)",
+      "medium": "มีผล (กลาง)",
+      "max": "สูงสุด (ค่าเริ่มต้น)"
     }
   },
   "terrainCategoryModal": {

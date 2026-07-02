@@ -345,7 +345,14 @@
       "nameBelongsToBuiltIn": "الاسم \"{{name}}\" يخص المعرّف المدمج {{id}}. اضبط المعرّف على {{id}} لتجاوزه، أو اختر اسماً مختلفاً.",
       "orgDamageRatioRequired": "orgDamageRatio مطلوب",
       "rangedNeedsBracket": "أنواع الضرر البعيد تحتاج إلى نطاق مدى واحد على الأقل",
-      "maxRangeRequired": "يجب أن يكون المدى الأقصى أكبر من 0"
+      "maxRangeRequired": "يجب أن يكون المدى الأقصى أكبر من 0",
+      "rangeBandBounds": "يجب أن تكون قيم «من/إلى» لكل نطاق بين 0 و100%، مع من ≤ إلى.",
+      "lastBandMustReachMax": "يجب أن يصل النطاق الأخير إلى 100% (المدى الأقصى)."
+    },
+    "engagementTier": {
+      "low": "منخفض (قريب)",
+      "medium": "فعّال (متوسط)",
+      "max": "الأقصى (افتراضي)"
     }
   },
   "terrainCategoryModal": {

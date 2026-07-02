@@ -345,7 +345,14 @@
       "nameBelongsToBuiltIn": "名前「{{name}}」は組み込みID {{id}} に属しています。上書きするにはIDを {{id}} に設定するか、別の名前を選んでください。",
       "orgDamageRatioRequired": "orgDamageRatio は必須です",
       "rangedNeedsBracket": "遠距離ダメージタイプには少なくとも1つの射程区分が必要です",
-      "maxRangeRequired": "最大射程は0より大きくなければなりません"
+      "maxRangeRequired": "最大射程は0より大きくなければなりません",
+      "rangeBandBounds": "各バンドの開始/終了は0〜100%の範囲で、開始 ≤ 終了である必要があります。",
+      "lastBandMustReachMax": "最後のバンドは100%（最大射程）に達する必要があります。"
+    },
+    "engagementTier": {
+      "low": "低（近距離）",
+      "medium": "有効（中距離）",
+      "max": "最大（既定）"
     }
   },
   "terrainCategoryModal": {

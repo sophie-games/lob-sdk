@@ -345,7 +345,14 @@
       "nameBelongsToBuiltIn": "नाम \"{{name}}\" अंतर्निहित id {{id}} का है। इसे अधिरोहित करने के लिए id को {{id}} पर सेट करें, या कोई अलग नाम चुनें।",
       "orgDamageRatioRequired": "orgDamageRatio आवश्यक है",
       "rangedNeedsBracket": "दूरस्थ क्षति प्रकारों को कम से कम एक रेंज ब्रैकेट चाहिए",
-      "maxRangeRequired": "अधिकतम रेंज 0 से अधिक होनी चाहिए"
+      "maxRangeRequired": "अधिकतम रेंज 0 से अधिक होनी चाहिए",
+      "rangeBandBounds": "प्रत्येक बैंड का From/To 0 से 100% के बीच होना चाहिए, From ≤ To के साथ।",
+      "lastBandMustReachMax": "अंतिम बैंड को 100% (अधिकतम रेंज) तक पहुँचना चाहिए।"
+    },
+    "engagementTier": {
+      "low": "कम (निकट)",
+      "medium": "प्रभावी (मध्यम)",
+      "max": "अधिकतम (डिफ़ॉल्ट)"
     }
   },
   "terrainCategoryModal": {

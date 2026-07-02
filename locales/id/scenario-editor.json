@@ -345,7 +345,14 @@
       "nameBelongsToBuiltIn": "Nama \"{{name}}\" milik id bawaan {{id}}. Atur id ke {{id}} untuk menimpanya, atau pilih nama berbeda.",
       "orgDamageRatioRequired": "orgDamageRatio wajib diisi",
       "rangedNeedsBracket": "Tipe kerusakan jarak jauh memerlukan setidaknya satu rentang jarak",
-      "maxRangeRequired": "Jangkauan maks. harus lebih besar dari 0"
+      "maxRangeRequired": "Jangkauan maks. harus lebih besar dari 0",
+      "rangeBandBounds": "Dari/Ke tiap pita harus antara 0 dan 100%, dengan Dari ≤ Ke.",
+      "lastBandMustReachMax": "Pita terakhir harus mencapai 100% (jangkauan maks)."
+    },
+    "engagementTier": {
+      "low": "Rendah (dekat)",
+      "medium": "Efektif (menengah)",
+      "max": "Maks (bawaan)"
     }
   },
   "terrainCategoryModal": {

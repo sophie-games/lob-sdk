@@ -345,7 +345,14 @@
       "nameBelongsToBuiltIn": "Il nome \"{{name}}\" appartiene all'id integrato {{id}}. Imposta l'id su {{id}} per sovrascriverlo, oppure scegli un nome diverso.",
       "orgDamageRatioRequired": "orgDamageRatio è obbligatorio",
       "rangedNeedsBracket": "I tipi di danno a distanza necessitano di almeno una fascia di gittata",
-      "maxRangeRequired": "La gittata max deve essere maggiore di 0"
+      "maxRangeRequired": "La gittata max deve essere maggiore di 0",
+      "rangeBandBounds": "Da/A di ogni banda deve essere tra 0 e 100%, con Da ≤ A.",
+      "lastBandMustReachMax": "L'ultima banda deve raggiungere il 100% (gittata max)."
+    },
+    "engagementTier": {
+      "low": "Basso (vicino)",
+      "medium": "Efficace (medio)",
+      "max": "Max (predefinito)"
     }
   },
   "terrainCategoryModal": {

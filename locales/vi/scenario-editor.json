@@ -345,7 +345,14 @@
       "nameBelongsToBuiltIn": "Tên \"{{name}}\" thuộc về id tích hợp {{id}}. Đặt id thành {{id}} để ghi đè, hoặc chọn tên khác.",
       "orgDamageRatioRequired": "orgDamageRatio là bắt buộc",
       "rangedNeedsBracket": "Loại sát thương tầm xa cần ít nhất một khoảng tầm bắn",
-      "maxRangeRequired": "Tầm tối đa phải lớn hơn 0"
+      "maxRangeRequired": "Tầm tối đa phải lớn hơn 0",
+      "rangeBandBounds": "Giá trị Từ/Đến của mỗi dải phải trong khoảng 0 đến 100%, với Từ ≤ Đến.",
+      "lastBandMustReachMax": "Dải cuối cùng phải đạt 100% (tầm bắn tối đa)."
+    },
+    "engagementTier": {
+      "low": "Thấp (gần)",
+      "medium": "Hiệu quả (trung)",
+      "max": "Tối đa (mặc định)"
     }
   },
   "terrainCategoryModal": {

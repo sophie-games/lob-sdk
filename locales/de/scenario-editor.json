@@ -345,7 +345,14 @@
       "nameBelongsToBuiltIn": "Der Name \"{{name}}\" gehört zur integrierten ID {{id}}. Setze die ID auf {{id}}, um sie zu überschreiben, oder wähle einen anderen Namen.",
       "orgDamageRatioRequired": "orgDamageRatio ist erforderlich",
       "rangedNeedsBracket": "Fernkampfschadenstypen benötigen mindestens einen Reichweitenbereich",
-      "maxRangeRequired": "Max. Reichweite muss größer als 0 sein"
+      "maxRangeRequired": "Max. Reichweite muss größer als 0 sein",
+      "rangeBandBounds": "Von/Bis jeder Bande muss zwischen 0 und 100% liegen, mit Von ≤ Bis.",
+      "lastBandMustReachMax": "Die letzte Bande muss 100% (max. Reichweite) erreichen."
+    },
+    "engagementTier": {
+      "low": "Niedrig (nah)",
+      "medium": "Effektiv (mittel)",
+      "max": "Max (Standard)"
     }
   },
   "terrainCategoryModal": {

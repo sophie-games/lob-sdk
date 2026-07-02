@@ -370,14 +370,39 @@ function validateCustomDamageTypes(
       });
     }
     // maxRange is required and multiplies the bands' from/to fractions into absolute
-    // distances; a missing/<=0 value makes every band comparison NaN (unlimited range,
-    // zero falloff). The editor guards this, but an imported scenario JSON can bypass it.
+    // distances; a missing value makes band comparisons NaN (no band matches, zero
+    // falloff) and a 0 collapses every band to distance 0. The editor guards this, but
+    // an imported scenario JSON can bypass it.
     if (dt.ranged === true && !(dt.maxRange > 0)) {
       errors.push({
         scope: "damageType",
         field: dt.name,
         message: `Ranged damage type "${dt.name}" needs a max range greater than 0`,
       });
+    }
+    // Bands author from/to as fractions of maxRange; the engine only fires falloff inside a
+    // matching band, and a shot past the last band's `to` deals full base damage. Enforce
+    // 0 <= from <= to <= 1 per band and that the last band reaches maxRange (to === 1), so a
+    // hand-authored import can't leave a silent full-damage gap the editor would never build.
+    if (dt.ranged === true) {
+      const bands = dt.ranges ?? [];
+      bands.forEach((b, i) => {
+        if (!(b.from >= 0 && b.from <= b.to && b.to <= 1)) {
+          errors.push({
+            scope: "damageType",
+            field: dt.name,
+            message: `Ranged damage type "${dt.name}" band ${i + 1} must satisfy 0 <= from <= to <= 1`,
+          });
+        }
+      });
+      const last = bands[bands.length - 1];
+      if (last && last.to < 1) {
+        errors.push({
+          scope: "damageType",
+          field: dt.name,
+          message: `Ranged damage type "${dt.name}" last band must reach max range (to = 1)`,
+        });
+      }
     }
     for (const message of findOutOfRangeNumbers(dt, "")) {
       errors.push({ scope: "damageType", field: dt.name, message });

@@ -70,7 +70,7 @@
     "ranges": [
       {
         "from": 0,
-        "to": 0.2638888888888889,
+        "to": 0.26,
         "damageModifier": {
           "near": 6,
           "far": 4
@@ -79,8 +79,8 @@
         "engagementTier": 0
       },
       {
-        "from": 0.2638888888888889,
-        "to": 0.4861111111111111,
+        "from": 0.26,
+        "to": 0.49,
         "damageModifier": {
           "near": 4,
           "far": 1.5
@@ -89,15 +89,15 @@
         "engagementTier": 1
       },
       {
-        "from": 0.4861111111111111,
-        "to": 0.7083333333333334,
+        "from": 0.49,
+        "to": 0.71,
         "damageModifier": {
           "near": 1.5,
           "far": -0.5
         }
       },
       {
-        "from": 0.7083333333333334,
+        "from": 0.71,
         "to": 1,
         "damageModifier": {
           "near": -0.5,
@@ -135,7 +135,7 @@
     "ranges": [
       {
         "from": 0,
-        "to": 0.3888888888888889,
+        "to": 0.39,
         "damageModifier": {
           "near": 2.5,
           "far": 1.5
@@ -144,8 +144,8 @@
         "engagementTier": 0
       },
       {
-        "from": 0.3888888888888889,
-        "to": 0.7222222222222222,
+        "from": 0.39,
+        "to": 0.72,
         "damageModifier": {
           "near": 1.5,
           "far": 1
@@ -153,7 +153,7 @@
         "engagementTier": 1
       },
       {
-        "from": 0.7222222222222222,
+        "from": 0.72,
         "to": 1,
         "damageModifier": {
           "near": 1,
@@ -191,7 +191,7 @@
     "ranges": [
       {
         "from": 0,
-        "to": 0.7222222222222222,
+        "to": 0.72,
         "damageModifier": {
           "near": 1.25,
           "far": 1
@@ -199,7 +199,7 @@
         "engagementTier": 0
       },
       {
-        "from": 0.7222222222222222,
+        "from": 0.72,
         "to": 1,
         "damageModifier": {
           "near": 1,
@@ -288,7 +288,7 @@
     "ranges": [
       {
         "from": 0,
-        "to": 0.47413793103448276,
+        "to": 0.47,
         "damageModifier": {
           "near": 3,
           "far": 2.7
@@ -297,7 +297,7 @@
         "engagementTier": 0
       },
       {
-        "from": 0.47413793103448276,
+        "from": 0.47,
         "to": 1,
         "damageModifier": {
           "near": 2,
@@ -356,7 +356,7 @@
           "near": 0.31,
           "far": 0.31
         },
-        "orgModifierByTargetOrg": {
+        "orgDamageModifierByTargetOrg": {
           "from": 0.9,
           "to": 0.65,
           "by": -0.35
@@ -426,7 +426,7 @@
     "maxRange": 168,
     "ranges": [
       {
-        "from": 0.42857142857142855,
+        "from": 0.43,
         "to": 1,
         "damageModifier": {
           "near": 1.1,
@@ -479,7 +479,7 @@
     "ranges": [
       {
         "from": 0,
-        "to": 0.5092592592592593,
+        "to": 0.51,
         "damageModifier": {
           "near": 3,
           "far": 2.7
@@ -488,7 +488,7 @@
         "engagementTier": 0
       },
       {
-        "from": 0.5092592592592593,
+        "from": 0.51,
         "to": 1,
         "damageModifier": {
           "near": 2,
@@ -527,8 +527,8 @@
     "maxRange": 348,
     "ranges": [
       {
-        "from": 0.3103448275862069,
-        "to": 0.5747126436781609,
+        "from": 0.31,
+        "to": 0.57,
         "damageModifier": {
           "near": 1,
           "far": 0.55
@@ -536,7 +536,7 @@
         "engagementTier": 1
       },
       {
-        "from": 0.5747126436781609,
+        "from": 0.57,
         "to": 1,
         "damageModifier": {
           "near": 0,
@@ -547,7 +547,7 @@
           "near": 0.31,
           "far": 0.31
         },
-        "orgModifierByTargetOrg": {
+        "orgDamageModifierByTargetOrg": {
           "from": 0.9,
           "to": 0.65,
           "by": -0.35
@@ -608,7 +608,7 @@
     "ranges": [
       {
         "from": 0,
-        "to": 0.5729166666666666,
+        "to": 0.57,
         "damageModifier": {
           "near": 3,
           "far": 2.7
@@ -617,7 +617,7 @@
         "engagementTier": 0
       },
       {
-        "from": 0.5729166666666666,
+        "from": 0.57,
         "to": 1,
         "damageModifier": {
           "near": 2,
@@ -676,7 +676,7 @@
           "near": 0.31,
           "far": 0.31
         },
-        "orgModifierByTargetOrg": {
+        "orgDamageModifierByTargetOrg": {
           "from": 0.9,
           "to": 0.65,
           "by": -0.35
@@ -737,7 +737,7 @@
     "ranges": [
       {
         "from": 0,
-        "to": 0.625,
+        "to": 0.63,
         "damageModifier": {
           "near": 3,
           "far": 2.7
@@ -746,7 +746,7 @@
         "engagementTier": 0
       },
       {
-        "from": 0.625,
+        "from": 0.63,
         "to": 1,
         "damageModifier": {
           "near": 2,
@@ -785,8 +785,8 @@
     "maxRange": 300,
     "ranges": [
       {
-        "from": 0.29333333333333333,
-        "to": 0.5333333333333333,
+        "from": 0.29,
+        "to": 0.53,
         "damageModifier": {
           "near": 1,
           "far": 0.55
@@ -794,7 +794,7 @@
         "engagementTier": 1
       },
       {
-        "from": 0.5333333333333333,
+        "from": 0.53,
         "to": 1,
         "damageModifier": {
           "near": 0,
@@ -805,7 +805,7 @@
           "near": 0.19,
           "far": 0.19
         },
-        "orgModifierByTargetOrg": {
+        "orgDamageModifierByTargetOrg": {
           "from": 0.9,
           "to": 0.65,
           "by": -0.35
@@ -875,7 +875,7 @@
     "maxRange": 440,
     "ranges": [
       {
-        "from": 0.45454545454545453,
+        "from": 0.45,
         "to": 1,
         "damageModifier": {
           "near": -0.05,
@@ -927,7 +927,7 @@
     "maxRange": 340,
     "ranges": [
       {
-        "from": 0.49411764705882355,
+        "from": 0.49,
         "to": 1,
         "damageModifier": {
           "near": -0.05,
@@ -979,8 +979,8 @@
     "maxRange": 272,
     "ranges": [
       {
-        "from": 0.20220588235294118,
-        "to": 0.5882352941176471,
+        "from": 0.2,
+        "to": 0.59,
         "damageModifier": {
           "near": 0,
           "far": -0.15
@@ -988,7 +988,7 @@
         "engagementTier": 1
       },
       {
-        "from": 0.5882352941176471,
+        "from": 0.59,
         "to": 1,
         "damageModifier": {
           "near": -0.15,
@@ -1037,7 +1037,7 @@
     "ranges": [
       {
         "from": 0,
-        "to": 0.625,
+        "to": 0.63,
         "damageModifier": {
           "near": 4,
           "far": 3
@@ -1046,7 +1046,7 @@
         "engagementTier": 0
       },
       {
-        "from": 0.625,
+        "from": 0.63,
         "to": 1,
         "damageModifier": {
           "near": 2.5,
@@ -1076,7 +1076,7 @@
     "ranges": [
       {
         "from": 0,
-        "to": 0.7638888888888888,
+        "to": 0.76,
         "damageModifier": {
           "near": 3.5,
           "far": 2.8
@@ -1085,7 +1085,7 @@
         "engagementTier": 0
       },
       {
-        "from": 0.7638888888888888,
+        "from": 0.76,
         "to": 1,
         "damageModifier": {
           "near": 2.2,
@@ -1155,7 +1155,7 @@
     "ranges": [
       {
         "from": 0,
-        "to": 0.3888888888888889,
+        "to": 0.39,
         "damageModifier": {
           "near": 2.5,
           "far": 1.5
@@ -1164,8 +1164,8 @@
         "engagementTier": 0
       },
       {
-        "from": 0.3888888888888889,
-        "to": 0.7222222222222222,
+        "from": 0.39,
+        "to": 0.72,
         "damageModifier": {
           "near": 1.5,
           "far": 1
@@ -1173,7 +1173,7 @@
         "engagementTier": 1
       },
       {
-        "from": 0.7222222222222222,
+        "from": 0.72,
         "to": 1,
         "damageModifier": {
           "near": 1,
@@ -1206,7 +1206,7 @@
     "ranges": [
       {
         "from": 0,
-        "to": 0.5333333333333333,
+        "to": 0.53,
         "damageModifier": {
           "near": 1.75,
           "far": 1.25
@@ -1214,7 +1214,7 @@
         "name": "close"
       },
       {
-        "from": 0.5333333333333333,
+        "from": 0.53,
         "to": 1,
         "damageModifier": {
           "near": 1.25,
@@ -1261,7 +1261,7 @@
     "maxRange": 360,
     "ranges": [
       {
-        "from": 0.3333333333333333,
+        "from": 0.33,
         "to": 1,
         "damageModifier": {
           "near": 0,
@@ -1315,14 +1315,14 @@
     "ranges": [
       {
         "from": 0,
-        "to": 0.38461538461538464,
+        "to": 0.38,
         "damageModifier": {
           "near": 1.2,
           "far": 1
         }
       },
       {
-        "from": 0.38461538461538464,
+        "from": 0.38,
         "to": 1,
         "damageModifier": {
           "near": 1,

@@ -345,7 +345,14 @@
       "nameBelongsToBuiltIn": "\"{{name}}\" adı, yerleşik id {{id}}'e ait. Geçersiz kılmak için id'yi {{id}} olarak ayarlayın ya da farklı bir ad seçin.",
       "orgDamageRatioRequired": "orgDamageRatio gereklidir",
       "rangedNeedsBracket": "Uzak mesafe hasar türleri en az bir menzil aralığına ihtiyaç duyar",
-      "maxRangeRequired": "Maks. menzil 0'dan büyük olmalıdır"
+      "maxRangeRequired": "Maks. menzil 0'dan büyük olmalıdır",
+      "rangeBandBounds": "Her bandın Başlangıç/Bitiş değeri %0 ile %100 arasında ve Başlangıç ≤ Bitiş olmalı.",
+      "lastBandMustReachMax": "Son bant %100'e (maks menzil) ulaşmalı."
+    },
+    "engagementTier": {
+      "low": "Düşük (yakın)",
+      "medium": "Etkili (orta)",
+      "max": "Maks (varsayılan)"
     }
   },
   "terrainCategoryModal": {

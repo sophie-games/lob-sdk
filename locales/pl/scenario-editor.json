@@ -345,7 +345,14 @@
       "nameBelongsToBuiltIn": "Nazwa \"{{name}}\" należy do wbudowanego id {{id}}. Ustaw id na {{id}}, aby je nadpisać, lub wybierz inną nazwę.",
       "orgDamageRatioRequired": "orgDamageRatio jest wymagane",
       "rangedNeedsBracket": "Dystansowe typy obrażeń wymagają co najmniej jednego przedziału zasięgu",
-      "maxRangeRequired": "Maks. zasięg musi być większy niż 0"
+      "maxRangeRequired": "Maks. zasięg musi być większy niż 0",
+      "rangeBandBounds": "Wartości Od/Do każdego pasma muszą być w zakresie 0–100%, przy czym Od ≤ Do.",
+      "lastBandMustReachMax": "Ostatnie pasmo musi sięgać 100% (maks. zasięg)."
+    },
+    "engagementTier": {
+      "low": "Niski (bliski)",
+      "medium": "Skuteczny (średni)",
+      "max": "Maks (domyślny)"
     }
   },
   "terrainCategoryModal": {

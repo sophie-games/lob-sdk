@@ -345,7 +345,14 @@
       "nameBelongsToBuiltIn": "Le nom \"{{name}}\" appartient à l'id intégré {{id}}. Définissez l'id sur {{id}} pour le remplacer, ou choisissez un autre nom.",
       "orgDamageRatioRequired": "orgDamageRatio est requis",
       "rangedNeedsBracket": "Les types de dégâts à distance nécessitent au moins une tranche de portée",
-      "maxRangeRequired": "La portée max. doit être supérieure à 0"
+      "maxRangeRequired": "La portée max. doit être supérieure à 0",
+      "rangeBandBounds": "Le De/À de chaque bande doit être entre 0 et 100%, avec De ≤ À.",
+      "lastBandMustReachMax": "La dernière bande doit atteindre 100% (portée max)."
+    },
+    "engagementTier": {
+      "low": "Faible (proche)",
+      "medium": "Efficace (moyen)",
+      "max": "Max (par défaut)"
     }
   },
   "terrainCategoryModal": {

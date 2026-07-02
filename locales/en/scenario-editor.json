@@ -345,7 +345,14 @@
       "nameBelongsToBuiltIn": "Name \"{{name}}\" belongs to built-in id {{id}}. Set id to {{id}} to override it, or pick a different name.",
       "orgDamageRatioRequired": "orgDamageRatio is required",
       "rangedNeedsBracket": "Ranged damage types need at least one range bracket",
-      "maxRangeRequired": "Max range must be greater than 0"
+      "maxRangeRequired": "Max range must be greater than 0",
+      "rangeBandBounds": "Each band's From/To must be within 0–100%, with From ≤ To.",
+      "lastBandMustReachMax": "The last band must reach 100% (max range)."
+    },
+    "engagementTier": {
+      "low": "Low (close)",
+      "medium": "Effective (mid)",
+      "max": "Max (default)"
     }
   },
   "terrainCategoryModal": {

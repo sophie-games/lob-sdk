@@ -482,7 +482,7 @@ export interface DamageTypeRange {
   /** Autofire engagement tier this band belongs to. Untagged = `Max`. */
   engagementTier?: EngagementRange;
   /** Per-band override of the damage type's `orgDamageModifierByTargetOrg`. */
-  orgModifierByTargetOrg?: TargetStatModifier;
+  orgDamageModifierByTargetOrg?: TargetStatModifier;
 }
 
 /**

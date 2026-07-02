@@ -345,7 +345,14 @@
       "nameBelongsToBuiltIn": "A(z) \"{{name}}\" név a beépített {{id}} id-hoz tartozik. Állítsd az id-t {{id}}-ra a felülbírálásához, vagy válassz másik nevet.",
       "orgDamageRatioRequired": "orgDamageRatio megadása kötelező",
       "rangedNeedsBracket": "A távolsági sebzéstípusokhoz legalább egy hatótáv-sáv kell",
-      "maxRangeRequired": "A max. hatótávnak nagyobbnak kell lennie 0-nál"
+      "maxRangeRequired": "A max. hatótávnak nagyobbnak kell lennie 0-nál",
+      "rangeBandBounds": "Minden sáv Kezdő/Vég értéke 0 és 100% között legyen, Kezdő ≤ Vég.",
+      "lastBandMustReachMax": "Az utolsó sávnak el kell érnie a 100%-ot (max. hatótáv)."
+    },
+    "engagementTier": {
+      "low": "Alacsony (közel)",
+      "medium": "Hatékony (közepes)",
+      "max": "Max (alapértelmezett)"
     }
   },
   "terrainCategoryModal": {

@@ -345,7 +345,14 @@
       "nameBelongsToBuiltIn": "名称 “{{name}}” 属于内置 id {{id}}。将 id 设为 {{id}} 以覆盖它，或选择其他名称。",
       "orgDamageRatioRequired": "orgDamageRatio 为必填项",
       "rangedNeedsBracket": "远程伤害类型至少需要一个距离区段",
-      "maxRangeRequired": "最大射程必须大于 0"
+      "maxRangeRequired": "最大射程必须大于 0",
+      "rangeBandBounds": "每个区段的“起/止”必须在0到100%之间，且起 ≤ 止。",
+      "lastBandMustReachMax": "最后一个区段必须达到100%（最大射程）。"
+    },
+    "engagementTier": {
+      "low": "低（近）",
+      "medium": "有效（中）",
+      "max": "最大（默认）"
     }
   },
   "terrainCategoryModal": {
