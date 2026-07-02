@@ -3,7 +3,7 @@
     "id": 1,
     "name": "bayonet",
     "orgDamageRatio": 32000,
-    "reorgDebuff": 1.0,
+    "reorgDebuff": 1,
     "attackEffectDuration": 4,
     "cannotChargeAgainst": [
       "midCavalry",
@@ -16,35 +16,35 @@
     "id": 2,
     "name": "cavalry-sabre",
     "orgDamageRatio": 31000,
-    "reorgDebuff": 1.0,
+    "reorgDebuff": 1,
     "attackEffectDuration": 4
   },
   {
     "id": 3,
     "name": "cavalry-sword",
     "orgDamageRatio": 31000,
-    "reorgDebuff": 1.0,
+    "reorgDebuff": 1,
     "attackEffectDuration": 4
   },
   {
     "id": 4,
     "name": "dragoon-sword",
     "orgDamageRatio": 31000,
-    "reorgDebuff": 1.0,
+    "reorgDebuff": 1,
     "attackEffectDuration": 6
   },
   {
     "id": 5,
     "name": "artillery-sabre",
     "orgDamageRatio": 29000,
-    "reorgDebuff": 1.0,
+    "reorgDebuff": 1,
     "attackEffectDuration": 6
   },
   {
     "id": 6,
     "name": "cavalry-lance",
     "orgDamageRatio": 31000,
-    "reorgDebuff": 1.0,
+    "reorgDebuff": 1,
     "attackEffectDuration": 6
   },
   {
@@ -57,38 +57,52 @@
     "attackEffectDuration": 8,
     "projectileWidth": 8,
     "damageModifierByTargetHp": {
-      "start": 0.8,
-      "end": 0.5,
-      "modifier": -0.15
+      "from": 0.8,
+      "to": 0.5,
+      "by": -0.15
     },
-    "orgModifierByTargetOrg": {
-      "start": 0.9,
-      "end": 0.5,
-      "modifier": -0.25
+    "orgDamageModifierByTargetOrg": {
+      "from": 0.9,
+      "to": 0.5,
+      "by": -0.25
     },
+    "maxRange": 72,
     "ranges": [
       {
-        "start": 0,
-        "end": 19,
-        "startMod": 6,
-        "endMod": 4,
+        "from": 0,
+        "to": 0.2638888888888889,
+        "damageModifier": {
+          "near": 6,
+          "far": 4
+        },
         "name": "pointBlank",
         "engagementTier": 0
       },
       {
-        "start": 19,
-        "end": 35,
-        "startMod": 4,
-        "endMod": 1.5,
+        "from": 0.2638888888888889,
+        "to": 0.4861111111111111,
+        "damageModifier": {
+          "near": 4,
+          "far": 1.5
+        },
         "name": "close",
         "engagementTier": 1
       },
-      { "start": 35, "end": 51, "startMod": 1.5, "endMod": -0.5 },
       {
-        "start": 51,
-        "end": 72,
-        "startMod": -0.5,
-        "endMod": -0.8,
+        "from": 0.4861111111111111,
+        "to": 0.7083333333333334,
+        "damageModifier": {
+          "near": 1.5,
+          "far": -0.5
+        }
+      },
+      {
+        "from": 0.7083333333333334,
+        "to": 1,
+        "damageModifier": {
+          "near": -0.5,
+          "far": -0.8
+        },
         "name": "long"
       }
     ],
@@ -108,30 +122,43 @@
     "attackEffectDuration": 12,
     "projectileWidth": 6,
     "damageModifierByTargetHp": {
-      "start": 0.8,
-      "end": 0.5,
-      "modifier": -0.1
+      "from": 0.8,
+      "to": 0.5,
+      "by": -0.1
     },
-    "orgModifierByTargetOrg": {
-      "start": 0.9,
-      "end": 0.5,
-      "modifier": -0.6
+    "orgDamageModifierByTargetOrg": {
+      "from": 0.9,
+      "to": 0.5,
+      "by": -0.6
     },
+    "maxRange": 72,
     "ranges": [
       {
-        "start": 0,
-        "end": 28,
-        "startMod": 2.5,
-        "endMod": 1.5,
+        "from": 0,
+        "to": 0.3888888888888889,
+        "damageModifier": {
+          "near": 2.5,
+          "far": 1.5
+        },
         "name": "close",
         "engagementTier": 0
       },
-      { "start": 28, "end": 52, "startMod": 1.5, "endMod": 1, "engagementTier": 1 },
       {
-        "start": 52,
-        "end": 72,
-        "startMod": 1,
-        "endMod": 0.5,
+        "from": 0.3888888888888889,
+        "to": 0.7222222222222222,
+        "damageModifier": {
+          "near": 1.5,
+          "far": 1
+        },
+        "engagementTier": 1
+      },
+      {
+        "from": 0.7222222222222222,
+        "to": 1,
+        "damageModifier": {
+          "near": 1,
+          "far": 0.5
+        },
         "name": "long"
       }
     ],
@@ -151,22 +178,33 @@
     "attackEffectDuration": 12,
     "projectileWidth": 6,
     "damageModifierByTargetHp": {
-      "start": 0.8,
-      "end": 0.5,
-      "modifier": -0.1
+      "from": 0.8,
+      "to": 0.5,
+      "by": -0.1
     },
-    "orgModifierByTargetOrg": {
-      "start": 0.75,
-      "end": 0.5,
-      "modifier": -0.5
+    "orgDamageModifierByTargetOrg": {
+      "from": 0.75,
+      "to": 0.5,
+      "by": -0.5
     },
+    "maxRange": 72,
     "ranges": [
-      { "start": 0, "end": 52, "startMod": 1.25, "endMod": 1, "engagementTier": 0 },
       {
-        "start": 52,
-        "end": 72,
-        "startMod": 1,
-        "endMod": 0.5,
+        "from": 0,
+        "to": 0.7222222222222222,
+        "damageModifier": {
+          "near": 1.25,
+          "far": 1
+        },
+        "engagementTier": 0
+      },
+      {
+        "from": 0.7222222222222222,
+        "to": 1,
+        "damageModifier": {
+          "near": 1,
+          "far": 0.5
+        },
         "name": "long"
       }
     ],
@@ -185,16 +223,27 @@
     "attackEffectDuration": 16,
     "projectileWidth": 11,
     "damageModifierByTargetHp": {
-      "start": 0.9,
-      "end": 0.5,
-      "modifier": -0.15
+      "from": 0.9,
+      "to": 0.5,
+      "by": -0.15
     },
-    "orgModifierByTargetOrg": {
-      "start": 0.9,
-      "end": 0.65,
-      "modifier": -0.25
+    "orgDamageModifierByTargetOrg": {
+      "from": 0.9,
+      "to": 0.65,
+      "by": -0.25
     },
-    "ranges": [{ "start": 88, "end": 200, "startMod": 1.15, "endMod": 0.25, "engagementTier": 1 }],
+    "maxRange": 200,
+    "ranges": [
+      {
+        "from": 0.44,
+        "to": 1,
+        "damageModifier": {
+          "near": 1.15,
+          "far": 0.25
+        },
+        "engagementTier": 1
+      }
+    ],
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
@@ -232,23 +281,28 @@
     "name": "12lb-canister-fire",
     "ranged": true,
     "orgDamageRatio": 32000,
-    "reorgDebuff": 1.0,
+    "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 11,
+    "maxRange": 116,
     "ranges": [
       {
-        "start": 0,
-        "end": 55,
-        "startMod": 3,
-        "endMod": 2.7,
+        "from": 0,
+        "to": 0.47413793103448276,
+        "damageModifier": {
+          "near": 3,
+          "far": 2.7
+        },
         "name": "close",
         "engagementTier": 0
       },
       {
-        "start": 55,
-        "end": 116,
-        "startMod": 2,
-        "endMod": 1.2,
+        "from": 0.47413793103448276,
+        "to": 1,
+        "damageModifier": {
+          "near": 2,
+          "far": 1.2
+        },
         "name": "long",
         "engagementTier": 0
       }
@@ -270,25 +324,43 @@
     "attackEffectDuration": 16,
     "projectileWidth": 11,
     "damageModifierByTargetHp": {
-      "start": 0.9,
-      "end": 0.5,
-      "modifier": -0.15
+      "from": 0.9,
+      "to": 0.5,
+      "by": -0.15
     },
-    "orgModifierByTargetOrg": {
-      "start": 0.9,
-      "end": 0.65,
-      "modifier": -0.25
+    "orgDamageModifierByTargetOrg": {
+      "from": 0.9,
+      "to": 0.65,
+      "by": -0.25
     },
+    "maxRange": 400,
     "ranges": [
-      { "start": 116, "end": 224, "startMod": 1, "endMod": 0.55, "engagementTier": 1 },
       {
-        "start": 224,
-        "end": 400,
-        "startMod": 0,
-        "endMod": -0.65,
+        "from": 0.29,
+        "to": 0.56,
+        "damageModifier": {
+          "near": 1,
+          "far": 0.55
+        },
+        "engagementTier": 1
+      },
+      {
+        "from": 0.56,
+        "to": 1,
+        "damageModifier": {
+          "near": 0,
+          "far": -0.65
+        },
         "name": "long",
-        "orgDamageRatio": 27500,
-        "orgModifierByTargetOrg": { "start": 0.9, "end": 0.65, "modifier": -0.35 }
+        "orgDamageModifier": {
+          "near": 0.31,
+          "far": 0.31
+        },
+        "orgModifierByTargetOrg": {
+          "from": 0.9,
+          "to": 0.65,
+          "by": -0.35
+        }
       }
     ],
     "arcHeight": 0.01,
@@ -342,16 +414,27 @@
     "attackEffectDuration": 16,
     "projectileWidth": 11,
     "damageModifierByTargetHp": {
-      "start": 0.9,
-      "end": 0.5,
-      "modifier": -0.9
+      "from": 0.9,
+      "to": 0.5,
+      "by": -0.9
     },
-    "orgModifierByTargetOrg": {
-      "start": 0.9,
-      "end": 0.65,
-      "modifier": -0.25
+    "orgDamageModifierByTargetOrg": {
+      "from": 0.9,
+      "to": 0.65,
+      "by": -0.25
     },
-    "ranges": [{ "start": 72, "end": 168, "startMod": 1.1, "endMod": 0.25, "engagementTier": 1 }],
+    "maxRange": 168,
+    "ranges": [
+      {
+        "from": 0.42857142857142855,
+        "to": 1,
+        "damageModifier": {
+          "near": 1.1,
+          "far": 0.25
+        },
+        "engagementTier": 1
+      }
+    ],
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
@@ -389,23 +472,28 @@
     "name": "8lb-canister-fire",
     "ranged": true,
     "orgDamageRatio": 32000,
-    "reorgDebuff": 1.0,
+    "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 11,
+    "maxRange": 108,
     "ranges": [
       {
-        "start": 0,
-        "end": 55,
-        "startMod": 3,
-        "endMod": 2.7,
+        "from": 0,
+        "to": 0.5092592592592593,
+        "damageModifier": {
+          "near": 3,
+          "far": 2.7
+        },
         "name": "close",
         "engagementTier": 0
       },
       {
-        "start": 55,
-        "end": 108,
-        "startMod": 2,
-        "endMod": 1.2,
+        "from": 0.5092592592592593,
+        "to": 1,
+        "damageModifier": {
+          "near": 2,
+          "far": 1.2
+        },
         "name": "long",
         "engagementTier": 0
       }
@@ -427,25 +515,43 @@
     "attackEffectDuration": 16,
     "projectileWidth": 11,
     "damageModifierByTargetHp": {
-      "start": 0.9,
-      "end": 0.5,
-      "modifier": -0.15
+      "from": 0.9,
+      "to": 0.5,
+      "by": -0.15
     },
-    "orgModifierByTargetOrg": {
-      "start": 0.9,
-      "end": 0.65,
-      "modifier": -0.25
+    "orgDamageModifierByTargetOrg": {
+      "from": 0.9,
+      "to": 0.65,
+      "by": -0.25
     },
+    "maxRange": 348,
     "ranges": [
-      { "start": 108, "end": 200, "startMod": 1, "endMod": 0.55, "engagementTier": 1 },
       {
-        "start": 200,
-        "end": 348,
-        "startMod": 0,
-        "endMod": -0.65,
+        "from": 0.3103448275862069,
+        "to": 0.5747126436781609,
+        "damageModifier": {
+          "near": 1,
+          "far": 0.55
+        },
+        "engagementTier": 1
+      },
+      {
+        "from": 0.5747126436781609,
+        "to": 1,
+        "damageModifier": {
+          "near": 0,
+          "far": -0.65
+        },
         "name": "long",
-        "orgDamageRatio": 27500,
-        "orgModifierByTargetOrg": { "start": 0.9, "end": 0.65, "modifier": -0.35 }
+        "orgDamageModifier": {
+          "near": 0.31,
+          "far": 0.31
+        },
+        "orgModifierByTargetOrg": {
+          "from": 0.9,
+          "to": 0.65,
+          "by": -0.35
+        }
       }
     ],
     "arcHeight": 0.01,
@@ -495,23 +601,28 @@
     "name": "6lb-canister-fire",
     "ranged": true,
     "orgDamageRatio": 32000,
-    "reorgDebuff": 1.0,
+    "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 11,
+    "maxRange": 96,
     "ranges": [
       {
-        "start": 0,
-        "end": 55,
-        "startMod": 3,
-        "endMod": 2.7,
+        "from": 0,
+        "to": 0.5729166666666666,
+        "damageModifier": {
+          "near": 3,
+          "far": 2.7
+        },
         "name": "close",
         "engagementTier": 0
       },
       {
-        "start": 55,
-        "end": 96,
-        "startMod": 2,
-        "endMod": 1.2,
+        "from": 0.5729166666666666,
+        "to": 1,
+        "damageModifier": {
+          "near": 2,
+          "far": 1.2
+        },
         "name": "long",
         "engagementTier": 0
       }
@@ -533,25 +644,43 @@
     "attackEffectDuration": 16,
     "projectileWidth": 11,
     "damageModifierByTargetHp": {
-      "start": 0.9,
-      "end": 0.5,
-      "modifier": -0.15
+      "from": 0.9,
+      "to": 0.5,
+      "by": -0.15
     },
-    "orgModifierByTargetOrg": {
-      "start": 0.9,
-      "end": 0.65,
-      "modifier": -0.25
+    "orgDamageModifierByTargetOrg": {
+      "from": 0.9,
+      "to": 0.65,
+      "by": -0.25
     },
+    "maxRange": 320,
     "ranges": [
-      { "start": 96, "end": 176, "startMod": 1, "endMod": 0.55, "engagementTier": 1 },
       {
-        "start": 176,
-        "end": 320,
-        "startMod": 0,
-        "endMod": -0.65,
+        "from": 0.3,
+        "to": 0.55,
+        "damageModifier": {
+          "near": 1,
+          "far": 0.55
+        },
+        "engagementTier": 1
+      },
+      {
+        "from": 0.55,
+        "to": 1,
+        "damageModifier": {
+          "near": 0,
+          "far": -0.65
+        },
         "name": "long",
-        "orgDamageRatio": 27500,
-        "orgModifierByTargetOrg": { "start": 0.9, "end": 0.65, "modifier": -0.35 }
+        "orgDamageModifier": {
+          "near": 0.31,
+          "far": 0.31
+        },
+        "orgModifierByTargetOrg": {
+          "from": 0.9,
+          "to": 0.65,
+          "by": -0.35
+        }
       }
     ],
     "arcHeight": 0.01,
@@ -582,7 +711,7 @@
           "endHeight": 96
         }
       ],
-      "absorptionModifier": 2.0,
+      "absorptionModifier": 2,
       "offset": 0.8,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
@@ -601,23 +730,28 @@
     "name": "4lb-canister-fire",
     "ranged": true,
     "orgDamageRatio": 32000,
-    "reorgDebuff": 1.0,
+    "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 11,
+    "maxRange": 88,
     "ranges": [
       {
-        "start": 0,
-        "end": 55,
-        "startMod": 3,
-        "endMod": 2.7,
+        "from": 0,
+        "to": 0.625,
+        "damageModifier": {
+          "near": 3,
+          "far": 2.7
+        },
         "name": "close",
         "engagementTier": 0
       },
       {
-        "start": 55,
-        "end": 88,
-        "startMod": 2,
-        "endMod": 1.2,
+        "from": 0.625,
+        "to": 1,
+        "damageModifier": {
+          "near": 2,
+          "far": 1.2
+        },
         "name": "long",
         "engagementTier": 0
       }
@@ -639,25 +773,43 @@
     "attackEffectDuration": 12,
     "projectileWidth": 11,
     "damageModifierByTargetHp": {
-      "start": 0.9,
-      "end": 0.5,
-      "modifier": -0.15
+      "from": 0.9,
+      "to": 0.5,
+      "by": -0.15
     },
-    "orgModifierByTargetOrg": {
-      "start": 0.9,
-      "end": 0.65,
-      "modifier": -0.25
+    "orgDamageModifierByTargetOrg": {
+      "from": 0.9,
+      "to": 0.65,
+      "by": -0.25
     },
+    "maxRange": 300,
     "ranges": [
-      { "start": 88, "end": 160, "startMod": 1, "endMod": 0.55, "engagementTier": 1 },
       {
-        "start": 160,
-        "end": 300,
-        "startMod": 0,
-        "endMod": -0.65,
+        "from": 0.29333333333333333,
+        "to": 0.5333333333333333,
+        "damageModifier": {
+          "near": 1,
+          "far": 0.55
+        },
+        "engagementTier": 1
+      },
+      {
+        "from": 0.5333333333333333,
+        "to": 1,
+        "damageModifier": {
+          "near": 0,
+          "far": -0.65
+        },
         "name": "long",
-        "orgDamageRatio": 25000,
-        "orgModifierByTargetOrg": { "start": 0.9, "end": 0.65, "modifier": -0.35 }
+        "orgDamageModifier": {
+          "near": 0.19,
+          "far": 0.19
+        },
+        "orgModifierByTargetOrg": {
+          "from": 0.9,
+          "to": 0.65,
+          "by": -0.35
+        }
       }
     ],
     "arcHeight": 0.01,
@@ -688,7 +840,7 @@
           "endHeight": 92
         }
       ],
-      "absorptionModifier": 2.0,
+      "absorptionModifier": 2,
       "offset": 0.8,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
@@ -711,21 +863,24 @@
     "attackEffectDuration": 10,
     "projectileWidth": 11,
     "damageModifierByTargetHp": {
-      "start": 0.9,
-      "end": 0.5,
-      "modifier": -0.15
+      "from": 0.9,
+      "to": 0.5,
+      "by": -0.15
     },
-    "orgModifierByTargetOrg": {
-      "start": 0.9,
-      "end": 0.65,
-      "modifier": -0.35
+    "orgDamageModifierByTargetOrg": {
+      "from": 0.9,
+      "to": 0.65,
+      "by": -0.35
     },
+    "maxRange": 440,
     "ranges": [
       {
-        "start": 200,
-        "end": 440,
-        "startMod": -0.05,
-        "endMod": -0.55,
+        "from": 0.45454545454545453,
+        "to": 1,
+        "damageModifier": {
+          "near": -0.05,
+          "far": -0.55
+        },
         "name": "long"
       }
     ],
@@ -760,21 +915,24 @@
     "attackEffectDuration": 10,
     "projectileWidth": 11,
     "damageModifierByTargetHp": {
-      "start": 0.9,
-      "end": 0.5,
-      "modifier": -0.15
+      "from": 0.9,
+      "to": 0.5,
+      "by": -0.15
     },
-    "orgModifierByTargetOrg": {
-      "start": 0.8,
-      "end": 0.6,
-      "modifier": -0.35
+    "orgDamageModifierByTargetOrg": {
+      "from": 0.8,
+      "to": 0.6,
+      "by": -0.35
     },
+    "maxRange": 340,
     "ranges": [
       {
-        "start": 168,
-        "end": 340,
-        "startMod": -0.05,
-        "endMod": -0.35,
+        "from": 0.49411764705882355,
+        "to": 1,
+        "damageModifier": {
+          "near": -0.05,
+          "far": -0.35
+        },
         "name": "long"
       }
     ],
@@ -809,22 +967,33 @@
     "attackEffectDuration": 10,
     "projectileWidth": 11,
     "damageModifierByTargetHp": {
-      "start": 0.9,
-      "end": 0.5,
-      "modifier": -0.1
+      "from": 0.9,
+      "to": 0.5,
+      "by": -0.1
     },
-    "orgModifierByTargetOrg": {
-      "start": 0.9,
-      "end": 0.6,
-      "modifier": -0.15
+    "orgDamageModifierByTargetOrg": {
+      "from": 0.9,
+      "to": 0.6,
+      "by": -0.15
     },
+    "maxRange": 272,
     "ranges": [
-      { "start": 55, "end": 160, "startMod": 0.0, "endMod": -0.15, "engagementTier": 1 },
       {
-        "start": 160,
-        "end": 272,
-        "startMod": -0.15,
-        "endMod": -0.6,
+        "from": 0.20220588235294118,
+        "to": 0.5882352941176471,
+        "damageModifier": {
+          "near": 0,
+          "far": -0.15
+        },
+        "engagementTier": 1
+      },
+      {
+        "from": 0.5882352941176471,
+        "to": 1,
+        "damageModifier": {
+          "near": -0.15,
+          "far": -0.6
+        },
         "name": "long"
       }
     ],
@@ -861,23 +1030,28 @@
     "name": "18lb-canister-fire",
     "ranged": true,
     "orgDamageRatio": 32000,
-    "reorgDebuff": 1.0,
+    "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 10,
+    "maxRange": 88,
     "ranges": [
       {
-        "start": 0,
-        "end": 55,
-        "startMod": 4,
-        "endMod": 3,
+        "from": 0,
+        "to": 0.625,
+        "damageModifier": {
+          "near": 4,
+          "far": 3
+        },
         "name": "close",
         "engagementTier": 0
       },
       {
-        "start": 55,
-        "end": 88,
-        "startMod": 2.5,
-        "endMod": 1.9,
+        "from": 0.625,
+        "to": 1,
+        "damageModifier": {
+          "near": 2.5,
+          "far": 1.9
+        },
         "name": "long",
         "engagementTier": 0
       }
@@ -895,23 +1069,28 @@
     "name": "10lb-canister-fire",
     "ranged": true,
     "orgDamageRatio": 32000,
-    "reorgDebuff": 1.0,
+    "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 11,
+    "maxRange": 72,
     "ranges": [
       {
-        "start": 0,
-        "end": 55,
-        "startMod": 3.5,
-        "endMod": 2.8,
+        "from": 0,
+        "to": 0.7638888888888888,
+        "damageModifier": {
+          "near": 3.5,
+          "far": 2.8
+        },
         "name": "close",
         "engagementTier": 0
       },
       {
-        "start": 55,
-        "end": 72,
-        "startMod": 2.2,
-        "endMod": 1.8,
+        "from": 0.7638888888888888,
+        "to": 1,
+        "damageModifier": {
+          "near": 2.2,
+          "far": 1.8
+        },
         "name": "long",
         "engagementTier": 0
       }
@@ -929,15 +1108,18 @@
     "name": "howitzer-canister",
     "ranged": true,
     "orgDamageRatio": 35000,
-    "reorgDebuff": 1.0,
+    "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 11,
+    "maxRange": 55,
     "ranges": [
       {
-        "start": 0,
-        "end": 55,
-        "startMod": 8,
-        "endMod": 6.65,
+        "from": 0,
+        "to": 1,
+        "damageModifier": {
+          "near": 8,
+          "far": 6.65
+        },
         "name": "close",
         "engagementTier": 0
       }
@@ -960,30 +1142,43 @@
     "attackEffectDuration": 12,
     "projectileWidth": 6,
     "damageModifierByTargetHp": {
-      "start": 0.8,
-      "end": 0.5,
-      "modifier": -0.1
+      "from": 0.8,
+      "to": 0.5,
+      "by": -0.1
     },
-    "orgModifierByTargetOrg": {
-      "start": 0.9,
-      "end": 0.5,
-      "modifier": -0.4
+    "orgDamageModifierByTargetOrg": {
+      "from": 0.9,
+      "to": 0.5,
+      "by": -0.4
     },
+    "maxRange": 72,
     "ranges": [
       {
-        "start": 0,
-        "end": 28,
-        "startMod": 2.5,
-        "endMod": 1.5,
+        "from": 0,
+        "to": 0.3888888888888889,
+        "damageModifier": {
+          "near": 2.5,
+          "far": 1.5
+        },
         "name": "close",
         "engagementTier": 0
       },
-      { "start": 28, "end": 52, "startMod": 1.5, "endMod": 1, "engagementTier": 1 },
       {
-        "start": 52,
-        "end": 72,
-        "startMod": 1,
-        "endMod": 0.5,
+        "from": 0.3888888888888889,
+        "to": 0.7222222222222222,
+        "damageModifier": {
+          "near": 1.5,
+          "far": 1
+        },
+        "engagementTier": 1
+      },
+      {
+        "from": 0.7222222222222222,
+        "to": 1,
+        "damageModifier": {
+          "near": 1,
+          "far": 0.5
+        },
         "name": "long"
       }
     ],
@@ -999,27 +1194,32 @@
     "name": "rocket",
     "ranged": true,
     "orgDamageRatio": 200000,
-    "reorgDebuff": 1.0,
+    "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 11,
-    "orgModifierByTargetOrg": {
-      "start": 0.9,
-      "end": 0.4,
-      "modifier": -0.7
+    "orgDamageModifierByTargetOrg": {
+      "from": 0.9,
+      "to": 0.4,
+      "by": -0.7
     },
+    "maxRange": 120,
     "ranges": [
       {
-        "start": 0,
-        "end": 64,
-        "startMod": 1.75,
-        "endMod": 1.25,
+        "from": 0,
+        "to": 0.5333333333333333,
+        "damageModifier": {
+          "near": 1.75,
+          "far": 1.25
+        },
         "name": "close"
       },
       {
-        "start": 64,
-        "end": 120,
-        "startMod": 1.25,
-        "endMod": 0.75
+        "from": 0.5333333333333333,
+        "to": 1,
+        "damageModifier": {
+          "near": 1.25,
+          "far": 0.75
+        }
       }
     ],
     "arcHeight": 1.5,
@@ -1053,17 +1253,20 @@
     "reorgDebuff": 0.9,
     "attackEffectDuration": 8,
     "projectileWidth": 11,
-    "orgModifierByTargetOrg": {
-      "start": 0.9,
-      "end": 0.4,
-      "modifier": -0.7
+    "orgDamageModifierByTargetOrg": {
+      "from": 0.9,
+      "to": 0.4,
+      "by": -0.7
     },
+    "maxRange": 360,
     "ranges": [
       {
-        "start": 120,
-        "end": 360,
-        "startMod": 0.0,
-        "endMod": -0.6,
+        "from": 0.3333333333333333,
+        "to": 1,
+        "damageModifier": {
+          "near": 0,
+          "far": -0.6
+        },
         "name": "long"
       }
     ],
@@ -1099,27 +1302,32 @@
     "attackEffectDuration": 16,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "start": 0.9,
-      "end": 0.5,
-      "modifier": -0.15
+      "from": 0.9,
+      "to": 0.5,
+      "by": -0.15
     },
-    "orgModifierByTargetOrg": {
-      "start": 0.9,
-      "end": 0.65,
-      "modifier": -0.25
+    "orgDamageModifierByTargetOrg": {
+      "from": 0.9,
+      "to": 0.65,
+      "by": -0.25
     },
+    "maxRange": 260,
     "ranges": [
       {
-        "start": 0,
-        "end": 100,
-        "startMod": 1.2,
-        "endMod": 1
+        "from": 0,
+        "to": 0.38461538461538464,
+        "damageModifier": {
+          "near": 1.2,
+          "far": 1
+        }
       },
       {
-        "start": 100,
-        "end": 260,
-        "startMod": 1,
-        "endMod": 0.55
+        "from": 0.38461538461538464,
+        "to": 1,
+        "damageModifier": {
+          "near": 1,
+          "far": 0.55
+        }
       }
     ],
     "arcHeight": 1e-16,

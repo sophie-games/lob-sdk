@@ -462,16 +462,37 @@ export interface OrgModifierByTargetOrg {
   modifier: number;
 }
 
+/**
+ * Authoring-format linear modifier keyed on the target's own stat proportion.
+ * `from`/`to` are the stat proportions between which it ramps, `by` is the max
+ * effect. Normalized to the runtime {@link OrgModifierByTargetOrg} shape
+ * (`start`/`end`/`modifier`) at load.
+ */
+export interface TargetStatModifier {
+  from: number;
+  to: number;
+  by: number;
+}
+
+/**
+ * Runtime range band (absolute distances). Produced by normalizing the authoring
+ * format; the engine consumes this shape. `startMod`/`endMod` interpolate the HP
+ * damage modifier across the band; `orgStartMod`/`orgEndMod` interpolate the org
+ * damage modifier (relative to the damage type's `orgDamageRatio`). A flat band
+ * has equal near/far values.
+ */
 export interface DamageTypeRange {
   start: number;
   end: number;
   startMod: number;
   endMod: number;
+  /** Relative org-damage modifier at the near edge (default 0 = no change). */
+  orgStartMod?: number;
+  /** Relative org-damage modifier at the far edge (default 0 = no change). */
+  orgEndMod?: number;
   name?: string;
   /** Autofire engagement tier whose threshold is this band's `end`. Untagged = `Max`. */
   engagementTier?: EngagementRange;
-  /** Per-band override of the damage type's `orgDamageRatio` (e.g. a long-range cannon band). */
-  orgDamageRatio?: number;
   /** Per-band override of the damage type's `orgModifierByTargetOrg`. */
   orgModifierByTargetOrg?: OrgModifierByTargetOrg;
 }
@@ -518,6 +539,12 @@ export interface RangedDamageTypeTemplate {
     end: number;
     modifier: number;
   };
+  /**
+   * Canonical max range (absolute). Set by the normalizer from the authoring
+   * `maxRange`; falls back to the last band's `end` when absent. Prefer reading
+   * this over `ranges[last].end`.
+   */
+  maxRange?: number;
   ranges: DamageTypeRange[];
   arcHeight?: number;
   /**
@@ -545,9 +572,51 @@ export interface RangedDamageTypeTemplate {
   imageAlias?: string;
 }
 
+/**
+ * Authoring-format range band. `from`/`to` are fractions (0..1) of the weapon's
+ * `maxRange`; the near/far modifiers interpolate across the band. Normalized to
+ * {@link DamageTypeRange} (absolute) at load. A flat band sets near == far.
+ */
+export interface AuthoredDamageTypeRange {
+  from: number;
+  to: number;
+  damageModifier: { near: number; far: number };
+  orgDamageModifier?: { near: number; far: number };
+  name?: string;
+  engagementTier?: EngagementRange;
+  orgModifierByTargetOrg?: TargetStatModifier;
+}
+
+/**
+ * Authoring format for a ranged damage type: what ships in the era JSON, what the
+ * scenario editor produces, and what a scenario's `customDamageTypes` carry.
+ * Range-band distances are fractions of `maxRange`; normalized to
+ * {@link RangedDamageTypeTemplate} at load. (AoE band distances stay absolute for
+ * now; moving them to fractions is a follow-up.)
+ */
+export interface AuthoredRangedDamageType
+  extends Omit<
+    RangedDamageTypeTemplate,
+    "ranges" | "maxRange" | "orgModifierByTargetOrg" | "damageModifierByTargetHp"
+  > {
+  maxRange: number;
+  ranges: AuthoredDamageTypeRange[];
+  damageModifierByTargetHp?: TargetStatModifier;
+  orgDamageModifierByTargetOrg?: TargetStatModifier;
+}
+
 export type DamageTypeTemplate =
   | MeleeDamageTypeTemplate
   | RangedDamageTypeTemplate;
+
+/**
+ * Authoring-format union: what ships in the era JSON and scenario `customDamageTypes`.
+ * Melee types are unchanged; ranged types use {@link AuthoredRangedDamageType}. Normalized
+ * to {@link DamageTypeTemplate} at load via `normalizeDamageType`.
+ */
+export type AuthoredDamageType =
+  | MeleeDamageTypeTemplate
+  | AuthoredRangedDamageType;
 
 // Game Rules Types
 

@@ -300,7 +300,9 @@
       "shotSound": "Shot sound",
       "shotAnim": "Shot anim",
       "extendRange": "Extend range",
-      "aimMode": "Aim mode"
+      "aimMode": "Aim mode",
+      "maxRange": "Max range",
+      "engagementTier": "Autofire tier"
     },
     "aimMode": {
       "targetCenter": "Target centre (circular blasts)",
@@ -310,7 +312,13 @@
       "start": "Start",
       "end": "End",
       "startMod": "Start mod",
-      "endMod": "End mod"
+      "endMod": "End mod",
+      "from": "From (%)",
+      "to": "To (%)",
+      "damageNear": "Dmg near",
+      "damageFar": "Dmg far",
+      "orgNear": "Org near",
+      "orgFar": "Org far"
     },
     "aoe": {
       "absorptionModifier": "Absorption modifier",
@@ -336,7 +344,8 @@
       "idBelongsToBuiltIn": "Damage type id {{id}} belongs to built-in \"{{name}}\". Keep the name to override it, or pick a different id.",
       "nameBelongsToBuiltIn": "Name \"{{name}}\" belongs to built-in id {{id}}. Set id to {{id}} to override it, or pick a different name.",
       "orgDamageRatioRequired": "orgDamageRatio is required",
-      "rangedNeedsBracket": "Ranged damage types need at least one range bracket"
+      "rangedNeedsBracket": "Ranged damage types need at least one range bracket",
+      "maxRangeRequired": "Max range must be greater than 0"
     }
   },
   "terrainCategoryModal": {

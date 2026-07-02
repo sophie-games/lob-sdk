@@ -15,7 +15,7 @@ import {
   UnitTemplate,
 } from "@lob-sdk/types";
 import {
-  DamageTypeTemplate,
+  AuthoredDamageType,
   MeleeDamageTypeTemplate,
   UnitCategoryTemplate,
 } from "@lob-sdk/game-data-manager";
@@ -31,7 +31,7 @@ function makeScenario(partial: Partial<Scenario>): Scenario {
   };
 }
 
-function makeMeleeDt(overrides: Partial<MeleeDamageTypeTemplate> = {}): DamageTypeTemplate {
+function makeMeleeDt(overrides: Partial<MeleeDamageTypeTemplate> = {}): MeleeDamageTypeTemplate {
   return {
     id: 10000,
     name: "custom-melee",
@@ -494,7 +494,7 @@ describe("validateScenarioCustomDefs", () => {
                 ranges: [{ start: 0, end: 100, startRadius: 0, endRadius: 0 }],
                 edgeDamageModifier: 1,
               },
-            } as unknown as DamageTypeTemplate,
+            } as unknown as AuthoredDamageType,
           ],
         }),
         era,
@@ -512,7 +512,7 @@ describe("validateScenarioCustomDefs", () => {
             name: "missing-ranges",
             orgDamageRatio: 0.5,
             ranged: true,
-          } as unknown as DamageTypeTemplate,
+          } as unknown as AuthoredDamageType,
         ],
       });
       let errors!: ReturnType<typeof validateScenarioCustomDefs>;
@@ -540,7 +540,7 @@ describe("validateScenarioCustomDefs", () => {
                 ranges: [{ start: 0, end: 100, startRadius: 0, endRadius: 0 }],
                 edgeDamageModifier: 1,
               },
-            } as unknown as DamageTypeTemplate,
+            } as unknown as AuthoredDamageType,
           ],
         }),
         era,

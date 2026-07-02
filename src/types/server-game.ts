@@ -24,6 +24,7 @@ import {
 } from "@lob-sdk/types";
 import type {
   DamageTypeTemplate,
+  AuthoredDamageType,
   UnitCategoryTemplate,
   GameConstants,
   GameRules,
@@ -171,7 +172,7 @@ export interface GameMetadata {
   /** Additive unit templates layered on top of the era registry for this game. */
   customUnitTemplates?: UnitTemplate[];
   /** Additive damage types layered on top of the era registry for this game. */
-  customDamageTypes?: DamageTypeTemplate[];
+  customDamageTypes?: AuthoredDamageType[];
   /** Additive formation templates layered on top of the era registry for this game. */
   customUnitFormations?: FormationTemplate[];
   /** Additive unit categories layered on top of the era registry for this game. */
@@ -286,10 +287,11 @@ export interface DamageHit {
   /** Organization bonus/penalty applied. */
   orgBonus: number;
   /**
-   * Per-band override of the damage type's `orgDamageRatio`, resolved at shot time from the
-   * firing distance. Falls back to the damage type's `orgDamageRatio` when absent.
+   * Relative org-damage modifier for this shot, interpolated from the firing distance across
+   * the range band (`orgStartMod`/`orgEndMod`). Applied as `orgDamageRatio * (1 + modifier)`;
+   * absent or 0 means the damage type's flat org ratio.
    */
-  orgDamageRatio?: number;
+  orgRangeModifier?: number;
   /**
    * Per-hit reorg-debuff magnitude, pre-scaled by how much of the nominal attack landed
    * (ranged: modifiers x `stepStrength`; melee: the modifier product), so a spent or

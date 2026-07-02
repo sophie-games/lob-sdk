@@ -21,6 +21,7 @@ import {
   GameEra,
   UnitCategoryTemplate,
   DamageTypeTemplate,
+  AuthoredDamageType,
   GameRules,
   RangedDamageTypeTemplate,
   UnitSkin,
@@ -30,6 +31,7 @@ import {
   MapSizeTemplate,
   MatchmakingPresetsData,
 } from "./types";
+import { normalizeDamageType } from "./normalize-damage-type";
 
 // Import all era-specific data synchronously
 import napoleonicBattleTypes from "@lob-sdk/game-data/eras/napoleonic/battle-types.json";
@@ -155,6 +157,8 @@ export class GameDataManager {
 
   // Damage types
   private damageTypes: DamageTypeTemplate[] = [];
+  // Authoring-format era built-ins (pre-normalization), for the scenario editor to clone from.
+  private authoredDamageTypes: AuthoredDamageType[] = [];
   private _damageTypeMap = new Map<number, DamageTypeTemplate>();
   private _damageTypeNameMap = new Map<string, DamageTypeTemplate>();
   private _chargeRestrictionsCache: Map<string, Set<UnitCategoryId>> | null =
@@ -244,7 +248,7 @@ export class GameDataManager {
     era: GameEra,
     customDefs: {
       customUnitTemplates?: UnitTemplate[];
-      customDamageTypes?: DamageTypeTemplate[];
+      customDamageTypes?: AuthoredDamageType[];
       customUnitFormations?: FormationTemplate[];
       customUnitCategories?: UnitCategoryTemplate[];
       customTerrainCategories?: CustomTerrainCategoryOverride[];
@@ -281,7 +285,7 @@ export class GameDataManager {
    */
   public loadCustomDefs(customDefs: {
     customUnitTemplates?: UnitTemplate[];
-    customDamageTypes?: DamageTypeTemplate[];
+    customDamageTypes?: AuthoredDamageType[];
     customUnitFormations?: FormationTemplate[];
     customUnitCategories?: UnitCategoryTemplate[];
     customTerrainCategories?: CustomTerrainCategoryOverride[];
@@ -377,7 +381,8 @@ export class GameDataManager {
     if (customDefs.customDamageTypes?.length) {
       // Replace-by-id (and re-key by name) so override doesn't duplicate.
       this.damageTypes = [...this.damageTypes];
-      for (const dt of customDefs.customDamageTypes) {
+      for (const rawDt of customDefs.customDamageTypes) {
+        const dt = normalizeDamageType(rawDt);
         const existingIdx = this.damageTypes.findIndex((d) => d.id === dt.id);
         const previousName =
           existingIdx >= 0 ? this.damageTypes[existingIdx].name : null;
@@ -488,7 +493,8 @@ export class GameDataManager {
         this.gameConstants = napoleonicGameConstants as GameConstants;
         this.avatars = napoleonicAvatars as Avatar[];
         this.achievements = napoleonicAchievements as Achievement[];
-        this.damageTypes = napoleonicDamageTypes as DamageTypeTemplate[];
+        this.authoredDamageTypes = napoleonicDamageTypes as AuthoredDamageType[];
+        this.damageTypes = this.authoredDamageTypes.map(normalizeDamageType);
         this.terrains = napoleonicTerrains as GameDataManager["terrains"];
         this.terrainCategories = napoleonicTerrainCategories as Record<
           TerrainCategoryType,
@@ -553,7 +559,8 @@ export class GameDataManager {
         this.gameConstants = ww2GameConstants as GameConstants;
         this.avatars = ww2Avatars as Avatar[];
         this.achievements = ww2Achievements as Achievement[];
-        this.damageTypes = ww2DamageTypes as DamageTypeTemplate[];
+        this.authoredDamageTypes = ww2DamageTypes as AuthoredDamageType[];
+        this.damageTypes = this.authoredDamageTypes.map(normalizeDamageType);
         this.terrains = ww2Terrains as GameDataManager["terrains"];
         this.terrainCategories =
           ww2TerrainCategories as GameDataManager["terrainCategories"];
@@ -860,6 +867,15 @@ export class GameDataManager {
    */
   public getDamageTypes(): DamageTypeTemplate[] {
     return this.damageTypes;
+  }
+
+  /**
+   * Era built-ins in the authoring format (before normalization). Used by the scenario
+   * editor to clone a built-in as the starting point for a custom damage type, so the
+   * editor stays entirely in the authored shape.
+   */
+  public getAuthoredDamageTypes(): AuthoredDamageType[] {
+    return this.authoredDamageTypes;
   }
 
   /**

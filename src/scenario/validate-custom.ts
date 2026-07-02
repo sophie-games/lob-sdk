@@ -15,6 +15,7 @@ import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { NO_COLLISION_LEVEL } from "@lob-sdk/constants";
 import type {
   DamageTypeTemplate,
+  AuthoredDamageType,
   UnitCategoryTemplate,
   GameConstants,
   GameRules,
@@ -301,7 +302,7 @@ function validateGameRuleOverrides(
 }
 
 function validateCustomDamageTypes(
-  customDamageTypes: DamageTypeTemplate[],
+  customDamageTypes: AuthoredDamageType[],
   eraGameDataManager: GameDataManager,
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
@@ -553,7 +554,7 @@ function validateCustomUnitCategories(
 
 function validateCustomUnitTemplates(
   customUnitTemplates: UnitTemplate[],
-  customDamageTypes: DamageTypeTemplate[],
+  customDamageTypes: AuthoredDamageType[],
   customUnitFormations: FormationTemplate[],
   customUnitCategories: UnitCategoryTemplate[],
   eraGameDataManager: GameDataManager,
@@ -561,7 +562,7 @@ function validateCustomUnitTemplates(
   const errors: CustomDefValidationError[] = [];
   const seenIds = new Set<number>();
 
-  const damageTypeByName = new Map<string, DamageTypeTemplate>();
+  const damageTypeByName = new Map<string, DamageTypeTemplate | AuthoredDamageType>();
   for (const dt of eraGameDataManager.getDamageTypes()) damageTypeByName.set(dt.name, dt);
   for (const dt of customDamageTypes) damageTypeByName.set(dt.name, dt);
   const isKnownDamageType = (name: string) => damageTypeByName.has(name);
