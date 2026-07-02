@@ -24,7 +24,6 @@ import {
 } from "@lob-sdk/types";
 import type {
   DamageTypeTemplate,
-  AuthoredDamageType,
   UnitCategoryTemplate,
   GameConstants,
   GameRules,
@@ -172,7 +171,7 @@ export interface GameMetadata {
   /** Additive unit templates layered on top of the era registry for this game. */
   customUnitTemplates?: UnitTemplate[];
   /** Additive damage types layered on top of the era registry for this game. */
-  customDamageTypes?: AuthoredDamageType[];
+  customDamageTypes?: DamageTypeTemplate[];
   /** Additive formation templates layered on top of the era registry for this game. */
   customUnitFormations?: FormationTemplate[];
   /** Additive unit categories layered on top of the era registry for this game. */
@@ -288,7 +287,7 @@ export interface DamageHit {
   orgBonus: number;
   /**
    * Relative org-damage modifier for this shot, interpolated from the firing distance across
-   * the range band (`orgStartMod`/`orgEndMod`). Applied as `orgDamageRatio * (1 + modifier)`;
+   * the range band (`orgDamageModifier` near/far). Applied as `orgDamageRatio * (1 + modifier)`;
    * absent or 0 means the damage type's flat org ratio.
    */
   orgRangeModifier?: number;

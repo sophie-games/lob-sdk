@@ -15,7 +15,6 @@ import {
 } from "@lob-sdk/types";
 import type {
   DamageTypeTemplate,
-  AuthoredDamageType,
   UnitCategoryTemplate,
   GameConstants,
   GameRules,
@@ -428,7 +427,7 @@ export interface Scenario {
    * collide with era built-ins. Referenced by custom unit templates via
    * `meleeDamageType` / `rangedDamageTypes`.
    */
-  customDamageTypes?: AuthoredDamageType[];
+  customDamageTypes?: DamageTypeTemplate[];
 
   /**
    * Additive formation templates scoped to this scenario. Ids must not

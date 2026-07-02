@@ -8,7 +8,6 @@ import {
   UnitTemplate,
 } from "@lob-sdk/types";
 import {
-  AuthoredDamageType,
   DamageTypeTemplate,
   UnitCategoryTemplate,
 } from "@lob-sdk/game-data-manager";
@@ -99,7 +98,7 @@ describe("GameDataManager custom defs", () => {
   });
 
   describe("loadCustomDefs: custom damage types", () => {
-    const dt: AuthoredDamageType = {
+    const dt: DamageTypeTemplate = {
       id: 99001,
       name: "void-blade",
       orgDamageRatio: 0.7,
@@ -218,7 +217,7 @@ describe("GameDataManager custom defs", () => {
     it("overrides a built-in damage type by id without duplicating it", () => {
       const eraSingleton = GameDataManager.get("napoleonic");
       const builtIn = eraSingleton.getDamageTypes()[0]!;
-      const override: AuthoredDamageType = {
+      const override: DamageTypeTemplate = {
         id: builtIn.id,
         name: builtIn.name,
         orgDamageRatio: (builtIn.orgDamageRatio ?? 0) + 0.5,
@@ -314,7 +313,7 @@ describe("GameDataManager custom defs", () => {
       const builtInDt = eraSingleton.getDamageTypeByName(
         builtInUnit.meleeDamageType,
       );
-      const dtOverride: AuthoredDamageType = {
+      const dtOverride: DamageTypeTemplate = {
         id: builtInDt.id,
         name: builtInDt.name,
         // Full override: id and name match the built-in, only stats change.

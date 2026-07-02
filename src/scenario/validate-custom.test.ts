@@ -15,7 +15,7 @@ import {
   UnitTemplate,
 } from "@lob-sdk/types";
 import {
-  AuthoredDamageType,
+  DamageTypeTemplate,
   MeleeDamageTypeTemplate,
   UnitCategoryTemplate,
 } from "@lob-sdk/game-data-manager";
@@ -494,7 +494,7 @@ describe("validateScenarioCustomDefs", () => {
                 ranges: [{ start: 0, end: 100, startRadius: 0, endRadius: 0 }],
                 edgeDamageModifier: 1,
               },
-            } as unknown as AuthoredDamageType,
+            } as unknown as DamageTypeTemplate,
           ],
         }),
         era,
@@ -512,7 +512,7 @@ describe("validateScenarioCustomDefs", () => {
             name: "missing-ranges",
             orgDamageRatio: 0.5,
             ranged: true,
-          } as unknown as AuthoredDamageType,
+          } as unknown as DamageTypeTemplate,
         ],
       });
       let errors!: ReturnType<typeof validateScenarioCustomDefs>;
@@ -533,14 +533,14 @@ describe("validateScenarioCustomDefs", () => {
               name: "valid-ranged",
               orgDamageRatio: 0.5,
               ranged: true,
-              ranges: [{ start: 0, end: 100, startMod: 1, endMod: 1 }],
+              ranges: [{ from: 0, to: 1, damageModifier: { near: 1, far: 1 } }],
               projectileWidth: 4,
               areaOfEffect: {
                 type: "circular",
                 ranges: [{ start: 0, end: 100, startRadius: 0, endRadius: 0 }],
                 edgeDamageModifier: 1,
               },
-            } as unknown as AuthoredDamageType,
+            } as unknown as DamageTypeTemplate,
           ],
         }),
         era,

@@ -264,10 +264,9 @@ export abstract class BaseUnit extends Entity {
       return 0;
     }
 
-    const { ranges } = this.gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(
+    return this.gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(
       this.rangedDamageTypes[this.rangedDamageTypes.length - 1],
-    );
-    return ranges[ranges.length - 1].end;
+    ).maxRange;
   }
 
   /**
