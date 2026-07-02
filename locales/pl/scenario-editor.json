@@ -300,7 +300,9 @@
       "shotSound": "Dźwięk strzału",
       "shotAnim": "Animacja strzału",
       "extendRange": "Wydłuż zasięg",
-      "aimMode": "Tryb celowania"
+      "aimMode": "Tryb celowania",
+      "maxRange": "Maks. zasięg",
+      "engagementTier": "Poziom automatycznego ognia"
     },
     "aimMode": {
       "targetCenter": "Środek celu (wybuchy okrągłe)",
@@ -310,7 +312,13 @@
       "start": "Początek",
       "end": "Koniec",
       "startMod": "Mod. początku",
-      "endMod": "Mod. końca"
+      "endMod": "Mod. końca",
+      "from": "Od (%)",
+      "to": "Do (%)",
+      "damageNear": "Obrażenia blisko",
+      "damageFar": "Obrażenia daleko",
+      "orgNear": "Org blisko",
+      "orgFar": "Org daleko"
     },
     "aoe": {
       "absorptionModifier": "Modyfikator absorpcji",
@@ -336,7 +344,8 @@
       "idBelongsToBuiltIn": "ID typu obrażeń {{id}} należy do wbudowanego \"{{name}}\". Zachowaj nazwę, aby je nadpisać, lub wybierz inne id.",
       "nameBelongsToBuiltIn": "Nazwa \"{{name}}\" należy do wbudowanego id {{id}}. Ustaw id na {{id}}, aby je nadpisać, lub wybierz inną nazwę.",
       "orgDamageRatioRequired": "orgDamageRatio jest wymagane",
-      "rangedNeedsBracket": "Dystansowe typy obrażeń wymagają co najmniej jednego przedziału zasięgu"
+      "rangedNeedsBracket": "Dystansowe typy obrażeń wymagają co najmniej jednego przedziału zasięgu",
+      "maxRangeRequired": "Maks. zasięg musi być większy niż 0"
     }
   },
   "terrainCategoryModal": {

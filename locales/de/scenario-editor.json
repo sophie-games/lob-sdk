@@ -300,7 +300,9 @@
       "shotSound": "Schussgeräusch",
       "shotAnim": "Schussanimation",
       "extendRange": "Reichweite erweitern",
-      "aimMode": "Zielmodus"
+      "aimMode": "Zielmodus",
+      "maxRange": "Max. Reichweite",
+      "engagementTier": "Autofeuer-Stufe"
     },
     "aimMode": {
       "targetCenter": "Zielmitte (kreisförmige Explosionen)",
@@ -310,7 +312,13 @@
       "start": "Start",
       "end": "Ende",
       "startMod": "Start-Mod.",
-      "endMod": "End-Mod."
+      "endMod": "End-Mod.",
+      "from": "Von (%)",
+      "to": "Bis (%)",
+      "damageNear": "Schaden nah",
+      "damageFar": "Schaden fern",
+      "orgNear": "Org nah",
+      "orgFar": "Org fern"
     },
     "aoe": {
       "absorptionModifier": "Absorptionsmodifikator",
@@ -336,7 +344,8 @@
       "idBelongsToBuiltIn": "Schadenstyp-ID {{id}} gehört zum integrierten \"{{name}}\". Behalte den Namen, um ihn zu überschreiben, oder wähle eine andere ID.",
       "nameBelongsToBuiltIn": "Der Name \"{{name}}\" gehört zur integrierten ID {{id}}. Setze die ID auf {{id}}, um sie zu überschreiben, oder wähle einen anderen Namen.",
       "orgDamageRatioRequired": "orgDamageRatio ist erforderlich",
-      "rangedNeedsBracket": "Fernkampfschadenstypen benötigen mindestens einen Reichweitenbereich"
+      "rangedNeedsBracket": "Fernkampfschadenstypen benötigen mindestens einen Reichweitenbereich",
+      "maxRangeRequired": "Max. Reichweite muss größer als 0 sein"
     }
   },
   "terrainCategoryModal": {

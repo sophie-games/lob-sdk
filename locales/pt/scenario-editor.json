@@ -300,7 +300,9 @@
       "shotSound": "Som do disparo",
       "shotAnim": "Animação do disparo",
       "extendRange": "Estender alcance",
-      "aimMode": "Modo de mira"
+      "aimMode": "Modo de mira",
+      "maxRange": "Alcance máx.",
+      "engagementTier": "Nível de tiro automático"
     },
     "aimMode": {
       "targetCenter": "Centro do alvo (explosões circulares)",
@@ -310,7 +312,13 @@
       "start": "Início",
       "end": "Fim",
       "startMod": "Mod. inicial",
-      "endMod": "Mod. final"
+      "endMod": "Mod. final",
+      "from": "De (%)",
+      "to": "Até (%)",
+      "damageNear": "Dano perto",
+      "damageFar": "Dano longe",
+      "orgNear": "Org perto",
+      "orgFar": "Org longe"
     },
     "aoe": {
       "absorptionModifier": "Modificador de absorção",
@@ -336,7 +344,8 @@
       "idBelongsToBuiltIn": "O id de tipo de dano {{id}} pertence ao interno \"{{name}}\". Mantenha o nome para sobrescrevê-lo, ou escolha um id diferente.",
       "nameBelongsToBuiltIn": "O nome \"{{name}}\" pertence ao id interno {{id}}. Defina o id como {{id}} para sobrescrevê-lo, ou escolha um nome diferente.",
       "orgDamageRatioRequired": "orgDamageRatio é obrigatório",
-      "rangedNeedsBracket": "Tipos de dano à distância precisam de pelo menos uma faixa de alcance"
+      "rangedNeedsBracket": "Tipos de dano à distância precisam de pelo menos uma faixa de alcance",
+      "maxRangeRequired": "O alcance máx. deve ser maior que 0"
     }
   },
   "terrainCategoryModal": {

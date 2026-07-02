@@ -300,7 +300,9 @@
       "shotSound": "صوت الطلقة",
       "shotAnim": "رسم الطلقة",
       "extendRange": "تمديد المدى",
-      "aimMode": "وضع التصويب"
+      "aimMode": "وضع التصويب",
+      "maxRange": "المدى الأقصى",
+      "engagementTier": "مستوى الإطلاق التلقائي"
     },
     "aimMode": {
       "targetCenter": "مركز الهدف (انفجارات دائرية)",
@@ -310,7 +312,13 @@
       "start": "البداية",
       "end": "النهاية",
       "startMod": "معدل البداية",
-      "endMod": "معدل النهاية"
+      "endMod": "معدل النهاية",
+      "from": "من (%)",
+      "to": "إلى (%)",
+      "damageNear": "ضرر قريب",
+      "damageFar": "ضرر بعيد",
+      "orgNear": "تنظيم قريب",
+      "orgFar": "تنظيم بعيد"
     },
     "aoe": {
       "absorptionModifier": "معدل الامتصاص",
@@ -336,7 +344,8 @@
       "idBelongsToBuiltIn": "معرّف نوع الضرر {{id}} يخص المدمج \"{{name}}\". احتفظ بالاسم لتجاوزه، أو اختر معرّفاً مختلفاً.",
       "nameBelongsToBuiltIn": "الاسم \"{{name}}\" يخص المعرّف المدمج {{id}}. اضبط المعرّف على {{id}} لتجاوزه، أو اختر اسماً مختلفاً.",
       "orgDamageRatioRequired": "orgDamageRatio مطلوب",
-      "rangedNeedsBracket": "أنواع الضرر البعيد تحتاج إلى نطاق مدى واحد على الأقل"
+      "rangedNeedsBracket": "أنواع الضرر البعيد تحتاج إلى نطاق مدى واحد على الأقل",
+      "maxRangeRequired": "يجب أن يكون المدى الأقصى أكبر من 0"
     }
   },
   "terrainCategoryModal": {

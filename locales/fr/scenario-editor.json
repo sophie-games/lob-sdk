@@ -300,7 +300,9 @@
       "shotSound": "Son de tir",
       "shotAnim": "Animation de tir",
       "extendRange": "Étendre la portée",
-      "aimMode": "Mode de visée"
+      "aimMode": "Mode de visée",
+      "maxRange": "Portée max.",
+      "engagementTier": "Niveau de tir automatique"
     },
     "aimMode": {
       "targetCenter": "Centre de la cible (explosions circulaires)",
@@ -310,7 +312,13 @@
       "start": "Début",
       "end": "Fin",
       "startMod": "Mod. début",
-      "endMod": "Mod. fin"
+      "endMod": "Mod. fin",
+      "from": "De (%)",
+      "to": "À (%)",
+      "damageNear": "Dég. près",
+      "damageFar": "Dég. loin",
+      "orgNear": "Org près",
+      "orgFar": "Org loin"
     },
     "aoe": {
       "absorptionModifier": "Modificateur d'absorption",
@@ -336,7 +344,8 @@
       "idBelongsToBuiltIn": "L'ID de type de dégâts {{id}} appartient à l'intégré \"{{name}}\". Conservez le nom pour le remplacer, ou choisissez un autre id.",
       "nameBelongsToBuiltIn": "Le nom \"{{name}}\" appartient à l'id intégré {{id}}. Définissez l'id sur {{id}} pour le remplacer, ou choisissez un autre nom.",
       "orgDamageRatioRequired": "orgDamageRatio est requis",
-      "rangedNeedsBracket": "Les types de dégâts à distance nécessitent au moins une tranche de portée"
+      "rangedNeedsBracket": "Les types de dégâts à distance nécessitent au moins une tranche de portée",
+      "maxRangeRequired": "La portée max. doit être supérieure à 0"
     }
   },
   "terrainCategoryModal": {

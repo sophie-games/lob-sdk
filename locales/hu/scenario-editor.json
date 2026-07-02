@@ -300,7 +300,9 @@
       "shotSound": "Lövéshang",
       "shotAnim": "Lövésanimáció",
       "extendRange": "Hatótáv kiterjesztése",
-      "aimMode": "Célzási mód"
+      "aimMode": "Célzási mód",
+      "maxRange": "Max. hatótáv",
+      "engagementTier": "Automatikus tüzelés szintje"
     },
     "aimMode": {
       "targetCenter": "Célpont közepe (körkörös robbanások)",
@@ -310,7 +312,13 @@
       "start": "Kezdet",
       "end": "Vég",
       "startMod": "Kezdő mód.",
-      "endMod": "Vég mód."
+      "endMod": "Vég mód.",
+      "from": "Kezdet (%)",
+      "to": "Vég (%)",
+      "damageNear": "Sebzés közel",
+      "damageFar": "Sebzés távol",
+      "orgNear": "Org közel",
+      "orgFar": "Org távol"
     },
     "aoe": {
       "absorptionModifier": "Elnyelés módosító",
@@ -336,7 +344,8 @@
       "idBelongsToBuiltIn": "A(z) {{id}} sebzéstípus id a beépített \"{{name}}\"-hoz tartozik. Tartsd meg a nevet a felülbírálásához, vagy válassz másik id-t.",
       "nameBelongsToBuiltIn": "A(z) \"{{name}}\" név a beépített {{id}} id-hoz tartozik. Állítsd az id-t {{id}}-ra a felülbírálásához, vagy válassz másik nevet.",
       "orgDamageRatioRequired": "orgDamageRatio megadása kötelező",
-      "rangedNeedsBracket": "A távolsági sebzéstípusokhoz legalább egy hatótáv-sáv kell"
+      "rangedNeedsBracket": "A távolsági sebzéstípusokhoz legalább egy hatótáv-sáv kell",
+      "maxRangeRequired": "A max. hatótávnak nagyobbnak kell lennie 0-nál"
     }
   },
   "terrainCategoryModal": {

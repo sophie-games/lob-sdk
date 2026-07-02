@@ -300,7 +300,9 @@
       "shotSound": "शॉट ध्वनि",
       "shotAnim": "शॉट एनिमेशन",
       "extendRange": "रेंज बढ़ाएं",
-      "aimMode": "निशाना मोड"
+      "aimMode": "निशाना मोड",
+      "maxRange": "अधिकतम रेंज",
+      "engagementTier": "स्वचालित आग स्तर"
     },
     "aimMode": {
       "targetCenter": "लक्ष्य केंद्र (गोलाकार विस्फोट)",
@@ -310,7 +312,13 @@
       "start": "आरंभ",
       "end": "अंत",
       "startMod": "आरंभ संशोधक",
-      "endMod": "अंत संशोधक"
+      "endMod": "अंत संशोधक",
+      "from": "से (%)",
+      "to": "तक (%)",
+      "damageNear": "क्षति नज़दीक",
+      "damageFar": "क्षति दूर",
+      "orgNear": "संगठन नज़दीक",
+      "orgFar": "संगठन दूर"
     },
     "aoe": {
       "absorptionModifier": "अवशोषण संशोधक",
@@ -336,7 +344,8 @@
       "idBelongsToBuiltIn": "क्षति प्रकार id {{id}} अंतर्निहित \"{{name}}\" का है। इसे अधिरोहित करने के लिए नाम रखें, या कोई अलग id चुनें।",
       "nameBelongsToBuiltIn": "नाम \"{{name}}\" अंतर्निहित id {{id}} का है। इसे अधिरोहित करने के लिए id को {{id}} पर सेट करें, या कोई अलग नाम चुनें।",
       "orgDamageRatioRequired": "orgDamageRatio आवश्यक है",
-      "rangedNeedsBracket": "दूरस्थ क्षति प्रकारों को कम से कम एक रेंज ब्रैकेट चाहिए"
+      "rangedNeedsBracket": "दूरस्थ क्षति प्रकारों को कम से कम एक रेंज ब्रैकेट चाहिए",
+      "maxRangeRequired": "अधिकतम रेंज 0 से अधिक होनी चाहिए"
     }
   },
   "terrainCategoryModal": {

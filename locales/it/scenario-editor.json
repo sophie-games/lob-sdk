@@ -300,7 +300,9 @@
       "shotSound": "Suono sparo",
       "shotAnim": "Animazione sparo",
       "extendRange": "Estendi gittata",
-      "aimMode": "Modalità mira"
+      "aimMode": "Modalità mira",
+      "maxRange": "Gittata max",
+      "engagementTier": "Livello di fuoco automatico"
     },
     "aimMode": {
       "targetCenter": "Centro bersaglio (esplosioni circolari)",
@@ -310,7 +312,13 @@
       "start": "Inizio",
       "end": "Fine",
       "startMod": "Mod. inizio",
-      "endMod": "Mod. fine"
+      "endMod": "Mod. fine",
+      "from": "Da (%)",
+      "to": "A (%)",
+      "damageNear": "Danno vicino",
+      "damageFar": "Danno lontano",
+      "orgNear": "Org vicino",
+      "orgFar": "Org lontano"
     },
     "aoe": {
       "absorptionModifier": "Modificatore assorbimento",
@@ -336,7 +344,8 @@
       "idBelongsToBuiltIn": "L'id tipo di danno {{id}} appartiene all'integrato \"{{name}}\". Mantieni il nome per sovrascriverlo, oppure scegli un id diverso.",
       "nameBelongsToBuiltIn": "Il nome \"{{name}}\" appartiene all'id integrato {{id}}. Imposta l'id su {{id}} per sovrascriverlo, oppure scegli un nome diverso.",
       "orgDamageRatioRequired": "orgDamageRatio è obbligatorio",
-      "rangedNeedsBracket": "I tipi di danno a distanza necessitano di almeno una fascia di gittata"
+      "rangedNeedsBracket": "I tipi di danno a distanza necessitano di almeno una fascia di gittata",
+      "maxRangeRequired": "La gittata max deve essere maggiore di 0"
     }
   },
   "terrainCategoryModal": {

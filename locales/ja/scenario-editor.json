@@ -300,7 +300,9 @@
       "shotSound": "射撃音",
       "shotAnim": "射撃アニメーション",
       "extendRange": "射程を延長",
-      "aimMode": "照準モード"
+      "aimMode": "照準モード",
+      "maxRange": "最大射程",
+      "engagementTier": "自動射撃の段階"
     },
     "aimMode": {
       "targetCenter": "標的の中心（円形の爆発）",
@@ -310,7 +312,13 @@
       "start": "開始",
       "end": "終了",
       "startMod": "開始修正",
-      "endMod": "終了修正"
+      "endMod": "終了修正",
+      "from": "開始 (%)",
+      "to": "終了 (%)",
+      "damageNear": "ダメージ 近",
+      "damageFar": "ダメージ 遠",
+      "orgNear": "組織 近",
+      "orgFar": "組織 遠"
     },
     "aoe": {
       "absorptionModifier": "吸収修正",
@@ -336,7 +344,8 @@
       "idBelongsToBuiltIn": "ダメージタイプID {{id}} は組み込みの「{{name}}」に属しています。上書きするには名前を維持するか、別のIDを選んでください。",
       "nameBelongsToBuiltIn": "名前「{{name}}」は組み込みID {{id}} に属しています。上書きするにはIDを {{id}} に設定するか、別の名前を選んでください。",
       "orgDamageRatioRequired": "orgDamageRatio は必須です",
-      "rangedNeedsBracket": "遠距離ダメージタイプには少なくとも1つの射程区分が必要です"
+      "rangedNeedsBracket": "遠距離ダメージタイプには少なくとも1つの射程区分が必要です",
+      "maxRangeRequired": "最大射程は0より大きくなければなりません"
     }
   },
   "terrainCategoryModal": {

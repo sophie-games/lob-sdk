@@ -300,7 +300,9 @@
       "shotSound": "Atış sesi",
       "shotAnim": "Atış animasyonu",
       "extendRange": "Menzili uzat",
-      "aimMode": "Nişan modu"
+      "aimMode": "Nişan modu",
+      "maxRange": "Maks. menzil",
+      "engagementTier": "Otomatik ateş kademesi"
     },
     "aimMode": {
       "targetCenter": "Hedef merkezi (dairesel patlamalar)",
@@ -310,7 +312,13 @@
       "start": "Başlangıç",
       "end": "Bitiş",
       "startMod": "Başlangıç değiştirici",
-      "endMod": "Bitiş değiştirici"
+      "endMod": "Bitiş değiştirici",
+      "from": "Başlangıç (%)",
+      "to": "Bitiş (%)",
+      "damageNear": "Hasar yakın",
+      "damageFar": "Hasar uzak",
+      "orgNear": "Org yakın",
+      "orgFar": "Org uzak"
     },
     "aoe": {
       "absorptionModifier": "Emilim değiştirici",
@@ -336,7 +344,8 @@
       "idBelongsToBuiltIn": "Hasar türü id {{id}}, yerleşik \"{{name}}\" türüne ait. Geçersiz kılmak için adı koruyun ya da farklı bir id seçin.",
       "nameBelongsToBuiltIn": "\"{{name}}\" adı, yerleşik id {{id}}'e ait. Geçersiz kılmak için id'yi {{id}} olarak ayarlayın ya da farklı bir ad seçin.",
       "orgDamageRatioRequired": "orgDamageRatio gereklidir",
-      "rangedNeedsBracket": "Uzak mesafe hasar türleri en az bir menzil aralığına ihtiyaç duyar"
+      "rangedNeedsBracket": "Uzak mesafe hasar türleri en az bir menzil aralığına ihtiyaç duyar",
+      "maxRangeRequired": "Maks. menzil 0'dan büyük olmalıdır"
     }
   },
   "terrainCategoryModal": {

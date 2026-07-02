@@ -300,7 +300,9 @@
       "shotSound": "เสียงยิง",
       "shotAnim": "อนิเมชันการยิง",
       "extendRange": "ขยายระยะ",
-      "aimMode": "โหมดเล็ง"
+      "aimMode": "โหมดเล็ง",
+      "maxRange": "ระยะสูงสุด",
+      "engagementTier": "ระดับการยิงอัตโนมัติ"
     },
     "aimMode": {
       "targetCenter": "ศูนย์กลางเป้าหมาย (การระเบิดเป็นวง)",
@@ -310,7 +312,13 @@
       "start": "เริ่ม",
       "end": "สิ้นสุด",
       "startMod": "ตัวปรับเริ่ม",
-      "endMod": "ตัวปรับสิ้นสุด"
+      "endMod": "ตัวปรับสิ้นสุด",
+      "from": "จาก (%)",
+      "to": "ถึง (%)",
+      "damageNear": "ความเสียหายใกล้",
+      "damageFar": "ความเสียหายไกล",
+      "orgNear": "Org ใกล้",
+      "orgFar": "Org ไกล"
     },
     "aoe": {
       "absorptionModifier": "ตัวปรับการดูดซับ",
@@ -336,7 +344,8 @@
       "idBelongsToBuiltIn": "ID ประเภทความเสียหาย {{id}} เป็นของแบบในตัว \"{{name}}\" คงชื่อไว้เพื่อแทนที่ หรือเลือก id อื่น",
       "nameBelongsToBuiltIn": "ชื่อ \"{{name}}\" เป็นของ id ในตัว {{id}} ตั้ง id เป็น {{id}} เพื่อแทนที่ หรือเลือกชื่ออื่น",
       "orgDamageRatioRequired": "ต้องระบุ orgDamageRatio",
-      "rangedNeedsBracket": "ประเภทความเสียหายระยะไกลต้องมีช่วงระยะอย่างน้อยหนึ่งช่วง"
+      "rangedNeedsBracket": "ประเภทความเสียหายระยะไกลต้องมีช่วงระยะอย่างน้อยหนึ่งช่วง",
+      "maxRangeRequired": "ระยะสูงสุดต้องมากกว่า 0"
     }
   },
   "terrainCategoryModal": {

@@ -300,7 +300,9 @@
       "shotSound": "射击音效",
       "shotAnim": "射击动画",
       "extendRange": "延伸距离",
-      "aimMode": "瞄准模式"
+      "aimMode": "瞄准模式",
+      "maxRange": "最大射程",
+      "engagementTier": "自动开火档位"
     },
     "aimMode": {
       "targetCenter": "目标中心（圆形爆炸）",
@@ -310,7 +312,13 @@
       "start": "起点",
       "end": "终点",
       "startMod": "起点修正",
-      "endMod": "终点修正"
+      "endMod": "终点修正",
+      "from": "从 (%)",
+      "to": "到 (%)",
+      "damageNear": "近距伤害",
+      "damageFar": "远距伤害",
+      "orgNear": "近距组织度",
+      "orgFar": "远距组织度"
     },
     "aoe": {
       "absorptionModifier": "吸收修正",
@@ -336,7 +344,8 @@
       "idBelongsToBuiltIn": "伤害类型 id {{id}} 属于内置 “{{name}}”。保留该名称以覆盖它，或选择其他 id。",
       "nameBelongsToBuiltIn": "名称 “{{name}}” 属于内置 id {{id}}。将 id 设为 {{id}} 以覆盖它，或选择其他名称。",
       "orgDamageRatioRequired": "orgDamageRatio 为必填项",
-      "rangedNeedsBracket": "远程伤害类型至少需要一个距离区段"
+      "rangedNeedsBracket": "远程伤害类型至少需要一个距离区段",
+      "maxRangeRequired": "最大射程必须大于 0"
     }
   },
   "terrainCategoryModal": {

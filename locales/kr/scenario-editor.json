@@ -300,7 +300,9 @@
       "shotSound": "사격 소리",
       "shotAnim": "사격 애니메이션",
       "extendRange": "사거리 연장",
-      "aimMode": "조준 방식"
+      "aimMode": "조준 방식",
+      "maxRange": "최대 사거리",
+      "engagementTier": "자동 사격 단계"
     },
     "aimMode": {
       "targetCenter": "표적 중심 (원형 폭발)",
@@ -310,7 +312,13 @@
       "start": "시작",
       "end": "끝",
       "startMod": "시작 수정치",
-      "endMod": "끝 수정치"
+      "endMod": "끝 수정치",
+      "from": "시작 (%)",
+      "to": "끝 (%)",
+      "damageNear": "피해 근접",
+      "damageFar": "피해 원거리",
+      "orgNear": "조직력 근접",
+      "orgFar": "조직력 원거리"
     },
     "aoe": {
       "absorptionModifier": "흡수 수정치",
@@ -336,7 +344,8 @@
       "idBelongsToBuiltIn": "피해 유형 id {{id}} 은(는) 기본 제공 \"{{name}}\" 에 속합니다. 재정의하려면 이름을 유지하거나 다른 id를 선택하세요.",
       "nameBelongsToBuiltIn": "이름 \"{{name}}\" 은(는) 기본 제공 id {{id}} 에 속합니다. 재정의하려면 id를 {{id}} 로 설정하거나 다른 이름을 선택하세요.",
       "orgDamageRatioRequired": "orgDamageRatio is required",
-      "rangedNeedsBracket": "사격 피해 유형에는 최소 하나의 사거리 구간이 필요합니다"
+      "rangedNeedsBracket": "사격 피해 유형에는 최소 하나의 사거리 구간이 필요합니다",
+      "maxRangeRequired": "최대 사거리는 0보다 커야 합니다"
     }
   },
   "terrainCategoryModal": {
