@@ -369,6 +369,16 @@ function validateCustomDamageTypes(
         message: `Ranged damage type "${dt.name}" needs at least one range bracket`,
       });
     }
+    // maxRange is required and multiplies the bands' from/to fractions into absolute
+    // distances; a missing/<=0 value makes every band comparison NaN (unlimited range,
+    // zero falloff). The editor guards this, but an imported scenario JSON can bypass it.
+    if (dt.ranged === true && !(dt.maxRange > 0)) {
+      errors.push({
+        scope: "damageType",
+        field: dt.name,
+        message: `Ranged damage type "${dt.name}" needs a max range greater than 0`,
+      });
+    }
     for (const message of findOutOfRangeNumbers(dt, "")) {
       errors.push({ scope: "damageType", field: dt.name, message });
     }

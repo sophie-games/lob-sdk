@@ -533,6 +533,7 @@ describe("validateScenarioCustomDefs", () => {
               name: "valid-ranged",
               orgDamageRatio: 0.5,
               ranged: true,
+              maxRange: 100,
               ranges: [{ from: 0, to: 1, damageModifier: { near: 1, far: 1 } }],
               projectileWidth: 4,
               areaOfEffect: {
@@ -548,6 +549,27 @@ describe("validateScenarioCustomDefs", () => {
       expect(
         errors.some((e) => /needs at least one range bracket/.test(e.message)),
       ).toBe(false);
+    });
+
+    it("flags a ranged damage type missing maxRange", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customDamageTypes: [
+            {
+              id: 99005,
+              name: "no-max-range",
+              orgDamageRatio: 0.5,
+              ranged: true,
+              ranges: [{ from: 0, to: 1, damageModifier: { near: 1, far: 1 } }],
+              projectileWidth: 4,
+            } as unknown as DamageTypeTemplate,
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some((e) => /needs a max range greater than 0/.test(e.message)),
+      ).toBe(true);
     });
 
   });
