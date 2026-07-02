@@ -59,12 +59,12 @@
     "damageModifierByTargetHp": {
       "from": 0.8,
       "to": 0.5,
-      "by": -0.15
+      "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
       "to": 0.5,
-      "by": -0.25
+      "value": -0.25
     },
     "maxRange": 72,
     "ranges": [
@@ -124,12 +124,12 @@
     "damageModifierByTargetHp": {
       "from": 0.8,
       "to": 0.5,
-      "by": -0.1
+      "value": -0.1
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
       "to": 0.5,
-      "by": -0.6
+      "value": -0.6
     },
     "maxRange": 72,
     "ranges": [
@@ -180,12 +180,12 @@
     "damageModifierByTargetHp": {
       "from": 0.8,
       "to": 0.5,
-      "by": -0.1
+      "value": -0.1
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.75,
       "to": 0.5,
-      "by": -0.5
+      "value": -0.5
     },
     "maxRange": 72,
     "ranges": [
@@ -225,12 +225,12 @@
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
-      "by": -0.15
+      "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
       "to": 0.65,
-      "by": -0.25
+      "value": -0.25
     },
     "maxRange": 200,
     "ranges": [
@@ -326,12 +326,12 @@
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
-      "by": -0.15
+      "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
       "to": 0.65,
-      "by": -0.25
+      "value": -0.25
     },
     "maxRange": 400,
     "ranges": [
@@ -359,7 +359,7 @@
         "orgDamageModifierByTargetOrg": {
           "from": 0.9,
           "to": 0.65,
-          "by": -0.35
+          "value": -0.35
         }
       }
     ],
@@ -416,12 +416,12 @@
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
-      "by": -0.9
+      "value": -0.9
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
       "to": 0.65,
-      "by": -0.25
+      "value": -0.25
     },
     "maxRange": 168,
     "ranges": [
@@ -517,12 +517,12 @@
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
-      "by": -0.15
+      "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
       "to": 0.65,
-      "by": -0.25
+      "value": -0.25
     },
     "maxRange": 348,
     "ranges": [
@@ -550,7 +550,7 @@
         "orgDamageModifierByTargetOrg": {
           "from": 0.9,
           "to": 0.65,
-          "by": -0.35
+          "value": -0.35
         }
       }
     ],
@@ -646,12 +646,12 @@
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
-      "by": -0.15
+      "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
       "to": 0.65,
-      "by": -0.25
+      "value": -0.25
     },
     "maxRange": 320,
     "ranges": [
@@ -679,7 +679,7 @@
         "orgDamageModifierByTargetOrg": {
           "from": 0.9,
           "to": 0.65,
-          "by": -0.35
+          "value": -0.35
         }
       }
     ],
@@ -775,12 +775,12 @@
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
-      "by": -0.15
+      "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
       "to": 0.65,
-      "by": -0.25
+      "value": -0.25
     },
     "maxRange": 300,
     "ranges": [
@@ -808,7 +808,7 @@
         "orgDamageModifierByTargetOrg": {
           "from": 0.9,
           "to": 0.65,
-          "by": -0.35
+          "value": -0.35
         }
       }
     ],
@@ -865,12 +865,12 @@
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
-      "by": -0.15
+      "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
       "to": 0.65,
-      "by": -0.35
+      "value": -0.35
     },
     "maxRange": 440,
     "ranges": [
@@ -917,12 +917,12 @@
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
-      "by": -0.15
+      "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.8,
       "to": 0.6,
-      "by": -0.35
+      "value": -0.35
     },
     "maxRange": 340,
     "ranges": [
@@ -969,12 +969,12 @@
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
-      "by": -0.1
+      "value": -0.1
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
       "to": 0.6,
-      "by": -0.15
+      "value": -0.15
     },
     "maxRange": 272,
     "ranges": [
@@ -1144,12 +1144,12 @@
     "damageModifierByTargetHp": {
       "from": 0.8,
       "to": 0.5,
-      "by": -0.1
+      "value": -0.1
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
       "to": 0.5,
-      "by": -0.4
+      "value": -0.4
     },
     "maxRange": 72,
     "ranges": [
@@ -1200,7 +1200,7 @@
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
       "to": 0.4,
-      "by": -0.7
+      "value": -0.7
     },
     "maxRange": 120,
     "ranges": [
@@ -1256,7 +1256,7 @@
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
       "to": 0.4,
-      "by": -0.7
+      "value": -0.7
     },
     "maxRange": 360,
     "ranges": [
@@ -1304,12 +1304,12 @@
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
-      "by": -0.15
+      "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
       "to": 0.65,
-      "by": -0.25
+      "value": -0.25
     },
     "maxRange": 260,
     "ranges": [

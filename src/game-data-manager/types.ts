@@ -457,14 +457,15 @@ export enum EngagementRange {
 }
 
 /**
- * Linear modifier keyed on the target's own stat proportion (HP or org). `from`/`to`
- * are the stat proportions (0..1) between which the effect ramps; `by` is the maximum
- * effect. Independent of `maxRange`. Applied via `getNegativeLinearModifier`.
+ * Linear modifier keyed on the target's own stat proportion (HP or org). `from`/`to` are the
+ * stat proportions (0..1) between which the effect ramps (typically `from > to`, so it grows as
+ * the stat drops); `value` is the full effect. Independent of `maxRange`. Applied via
+ * `getNegativeLinearModifier`.
  */
 export interface TargetStatModifier {
   from: number;
   to: number;
-  by: number;
+  value: number;
 }
 
 /**
@@ -508,7 +509,7 @@ export interface RangedDamageTypeTemplate {
   /**
    * Modifies the org bonus based on the target's organization proportion.
    * See {@link TargetStatModifier}: ramps from `from` (proportion where it starts,
-   * typically 1.0) to `to` (proportion of full effect, typically 0.0), max effect `by`.
+   * typically 1.0) to `to` (proportion of full effect, typically 0.0), full effect `value`.
    */
   orgDamageModifierByTargetOrg?: TargetStatModifier;
   /**
