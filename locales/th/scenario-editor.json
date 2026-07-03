@@ -7,6 +7,9 @@
     "none": "ไม่มี",
     "remove": "นำออก",
     "select": "เลือก...",
+    "optionBuiltIn": "{{name}} (ในตัว)",
+    "optionCustom": "{{name}} (กำหนดเอง)",
+    "nameWithKind": "{{name}} ({{kind}})",
     "unknown": "(ไม่ทราบ)",
     "chooseScenarioFile": "เลือกไฟล์ฉาก",
     "positionX": "ตำแหน่ง X",
@@ -16,6 +19,7 @@
     "identity": "ข้อมูลระบุ",
     "formationId": "ID กระบวนทัพ",
     "movementModifier": "ตัวปรับการเคลื่อนที่",
+    "rotationSpeedModifier": "ตัวปรับความเร็วการหมุน",
     "rangedAttackModifier": "ตัวปรับการโจมตีระยะไกล",
     "chargeBonusModifier": "ตัวปรับโบนัสการชาร์จ",
     "chargeResistanceModifier": "ตัวปรับการต้านทานการชาร์จ",
@@ -79,8 +83,7 @@
   },
   "createUnit": {
     "title": "สร้างยูนิต",
-    "usingCopiedUnits": "ใช้ยูนิตที่คัดลอก",
-    "customLabel": "{{name}} (กำหนดเอง)"
+    "usingCopiedUnits": "ใช้ยูนิตที่คัดลอก"
   },
   "objectivePanel": {
     "title": "เป้าหมายที่เลือก",
@@ -126,7 +129,6 @@
     "frontagePx": "หน้ากว้าง (px)",
     "depthPx": "ความลึก (px)",
     "runMovementModifier": "ตัวปรับการเคลื่อนที่ขณะวิ่ง",
-    "rotationSpeedModifier": "ตัวปรับความเร็วการหมุน",
     "disable180Turn": "ปิดการหันกลับ 180°",
     "formingSpeedModifier": "ตัวปรับความเร็วการจัดทัพ",
     "timeToForm": "เวลาในการจัดทัพ (ticks)",
@@ -156,8 +158,6 @@
   },
   "unitTemplateModal": {
     "title": "แก้ไขเทมเพลตยูนิตกำหนดเอง",
-    "optBuiltIn": "{{name}} (ในตัว)",
-    "optCustom": "{{name}} (กำหนดเอง)",
     "typeId": "ID ประเภท",
     "meleeAttack": "การโจมตีประชิด",
     "meleeDefense": "การป้องกันประชิด",
@@ -215,8 +215,6 @@
   },
   "unitCategoryModal": {
     "title": "แก้ไขหมวดหมู่ยูนิตกำหนดเอง",
-    "optionBuiltIn": "{{name}} (ในตัว)",
-    "optionCustom": "{{name}} (กำหนดเอง)",
     "errors": {
       "idInUse": "ID หมวดหมู่ยูนิต \"{{id}}\" ถูกใช้งานแล้ว",
       "firingAltitudeRequired": "ต้องระบุ firingAltitude",
@@ -367,13 +365,10 @@
     "identityHint": "แทนที่การตั้งค่าหมวดหมู่ภูมิประเทศของยุคสำหรับฉากนี้ id ถูกกำหนดตายตัวให้กับหมวดหมู่ในตัว ภูมิประเทศคงการกำหนดหมวดหมู่ไว้ คุณเพียงปรับตัวปรับเท่านั้น",
     "perUnitCategoryHint": "คีย์คือ id หมวดหมู่ยูนิต ใช้ไวลด์การ์ด `*` เพื่อตั้งค่าเริ่มต้นที่ใช้กับทุกหมวดหมู่ที่ไม่มีรายการกำหนดไว้ชัดเจน",
     "projectileAbsorptionHint": "คีย์คือชื่อประเภทความเสียหาย",
-    "option": {
-      "builtIn": "{{name}} (ในตัว)",
-      "custom": "{{name}} (กำหนดเอง)"
-    },
     "fields": {
       "color": "สี",
       "staminaCostModifier": "ตัวปรับต้นทุนพละกำลัง",
+      "runSpeedModifier": "ตัวปรับความเร็ววิ่ง",
       "hitboxHeight": "ความสูงกล่องชน",
       "visionAbsorption": "การดูดซับการมองเห็น",
       "pushDistanceModifier": "ตัวปรับระยะผลัก",
@@ -446,7 +441,6 @@
       "noDamageTypes": "ยังไม่มีประเภทความเสียหายกำหนดเอง",
       "ranged": "ระยะไกล",
       "melee": "ประชิด",
-      "cloneOptionLabel": "{{name}} ({{kind}})",
       "itemLabel": "{{name}} ({{kind}}, id {{id}})",
       "deleteBlocked": "ลบ \"{{name}}\" ไม่ได้ - ยังถูกใช้งานโดย {{refs}} นำการอ้างอิงเหล่านั้นออกก่อน",
       "addDamageType": "เพิ่มประเภทความเสียหาย",
@@ -472,7 +466,6 @@
       "kindTerrainCategories": "หมวดหมู่ภูมิประเทศ",
       "kindSprites": "สไปรต์",
       "unitItemLabel": "{{name}} (#{{type}})",
-      "damageTypeItemLabel": "{{name}} ({{kind}})",
       "nothing": "ไม่มีอะไร",
       "title": "นำเข้า {{kind}} จากฉาก",
       "pickFilePrompt": "เลือกไฟล์ฉาก (JSON ที่ปุ่มดาวน์โหลดของเครื่องมือสร้างฉากสร้างขึ้น) เพื่อนำเข้า {{kind}} กำหนดเองจากไฟล์นั้น",

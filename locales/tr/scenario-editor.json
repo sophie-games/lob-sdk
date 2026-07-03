@@ -7,6 +7,9 @@
     "none": "Yok",
     "remove": "Kaldır",
     "select": "Seç...",
+    "optionBuiltIn": "{{name}} (yerleşik)",
+    "optionCustom": "{{name}} (özel)",
+    "nameWithKind": "{{name}} ({{kind}})",
     "unknown": "(bilinmiyor)",
     "chooseScenarioFile": "Senaryo dosyası seç",
     "positionX": "Konum X",
@@ -16,6 +19,7 @@
     "identity": "Kimlik",
     "formationId": "Formasyon ID",
     "movementModifier": "Hareket değiştirici",
+    "rotationSpeedModifier": "Dönüş hızı değiştirici",
     "rangedAttackModifier": "Uzak saldırı değiştirici",
     "chargeBonusModifier": "Hücum bonusu değiştirici",
     "chargeResistanceModifier": "Hücum direnci değiştirici",
@@ -79,8 +83,7 @@
   },
   "createUnit": {
     "title": "Birim Oluştur",
-    "usingCopiedUnits": "Kopyalanan birimler kullanılıyor",
-    "customLabel": "{{name}} (özel)"
+    "usingCopiedUnits": "Kopyalanan birimler kullanılıyor"
   },
   "objectivePanel": {
     "title": "Seçili Hedef",
@@ -126,7 +129,6 @@
     "frontagePx": "Cephe (px)",
     "depthPx": "Derinlik (px)",
     "runMovementModifier": "Koşma hareket değiştirici",
-    "rotationSpeedModifier": "Dönüş hızı değiştirici",
     "disable180Turn": "180° dönüşü devre dışı bırak",
     "formingSpeedModifier": "Oluşturma hızı değiştirici",
     "timeToForm": "Oluşturma süresi (ticks)",
@@ -156,8 +158,6 @@
   },
   "unitTemplateModal": {
     "title": "Özel birim şablonunu düzenle",
-    "optBuiltIn": "{{name}} (yerleşik)",
-    "optCustom": "{{name}} (özel)",
     "typeId": "Tür ID",
     "meleeAttack": "Yakın saldırı",
     "meleeDefense": "Yakın savunma",
@@ -215,8 +215,6 @@
   },
   "unitCategoryModal": {
     "title": "Özel birim kategorisini düzenle",
-    "optionBuiltIn": "{{name}} (yerleşik)",
-    "optionCustom": "{{name}} (özel)",
     "errors": {
       "idInUse": "Birim kategorisi id \"{{id}}\" zaten kullanımda",
       "firingAltitudeRequired": "firingAltitude gereklidir",
@@ -367,13 +365,10 @@
     "identityHint": "Bu senaryo için dönemin arazi kategorisi yapılandırmasını geçersiz kılar. id, yerleşik bir kategoriye sabitlenmiştir - araziler kategori atamalarını korur, yalnızca değiştiricileri ayarlarsınız.",
     "perUnitCategoryHint": "Anahtarlar birim kategorisi id'leridir. Açık bir girdisi olmayan tüm kategorilere uygulanan bir varsayılan ayarlamak için `*` joker karakterini kullanın.",
     "projectileAbsorptionHint": "Anahtarlar hasar türü adlarıdır.",
-    "option": {
-      "builtIn": "{{name}} (yerleşik)",
-      "custom": "{{name}} (özel)"
-    },
     "fields": {
       "color": "Renk",
       "staminaCostModifier": "Dayanıklılık maliyeti değiştirici",
+      "runSpeedModifier": "Koşu hızı değiştirici",
       "hitboxHeight": "Çarpışma kutusu yüksekliği",
       "visionAbsorption": "Görüş emilimi",
       "pushDistanceModifier": "İtme mesafesi değiştirici",
@@ -446,7 +441,6 @@
       "noDamageTypes": "Henüz özel hasar türü yok.",
       "ranged": "uzak mesafe",
       "melee": "yakın dövüş",
-      "cloneOptionLabel": "{{name}} ({{kind}})",
       "itemLabel": "{{name}} ({{kind}}, id {{id}})",
       "deleteBlocked": "\"{{name}}\" silinemiyor - hâlâ {{refs}} tarafından kullanılıyor. Önce o referansları kaldırın.",
       "addDamageType": "Hasar türü ekle",
@@ -472,7 +466,6 @@
       "kindTerrainCategories": "arazi kategorileri",
       "kindSprites": "sprite'lar",
       "unitItemLabel": "{{name}} (#{{type}})",
-      "damageTypeItemLabel": "{{name}} ({{kind}})",
       "nothing": "hiçbir şey",
       "title": "Senaryodan {{kind}} içe aktar",
       "pickFilePrompt": "Özel {{kind}} öğelerini içe aktarmak için bir senaryo dosyası seçin (editörün İndir butonunun ürettiği JSON).",

@@ -7,6 +7,9 @@
     "none": "Không có",
     "remove": "Loại bỏ",
     "select": "Chọn...",
+    "optionBuiltIn": "{{name}} (tích hợp)",
+    "optionCustom": "{{name}} (tùy chỉnh)",
+    "nameWithKind": "{{name}} ({{kind}})",
     "unknown": "(không xác định)",
     "chooseScenarioFile": "Chọn tệp kịch bản",
     "positionX": "Vị trí X",
@@ -16,6 +19,7 @@
     "identity": "Danh tính",
     "formationId": "ID đội hình",
     "movementModifier": "Hệ số di chuyển",
+    "rotationSpeedModifier": "Hệ số tốc độ xoay",
     "rangedAttackModifier": "Hệ số tấn công tầm xa",
     "chargeBonusModifier": "Hệ số thưởng xung kích",
     "chargeResistanceModifier": "Hệ số kháng xung kích",
@@ -79,8 +83,7 @@
   },
   "createUnit": {
     "title": "Tạo đơn vị",
-    "usingCopiedUnits": "Đang dùng đơn vị đã sao chép",
-    "customLabel": "{{name}} (tùy chỉnh)"
+    "usingCopiedUnits": "Đang dùng đơn vị đã sao chép"
   },
   "objectivePanel": {
     "title": "Mục tiêu đã chọn",
@@ -126,7 +129,6 @@
     "frontagePx": "Mặt trận (px)",
     "depthPx": "Chiều sâu (px)",
     "runMovementModifier": "Hệ số di chuyển khi chạy",
-    "rotationSpeedModifier": "Hệ số tốc độ xoay",
     "disable180Turn": "Tắt xoay 180°",
     "formingSpeedModifier": "Hệ số tốc độ hình thành",
     "timeToForm": "Thời gian hình thành (ticks)",
@@ -156,8 +158,6 @@
   },
   "unitTemplateModal": {
     "title": "Chỉnh sửa mẫu đơn vị tùy chỉnh",
-    "optBuiltIn": "{{name}} (tích hợp)",
-    "optCustom": "{{name}} (tùy chỉnh)",
     "typeId": "ID loại",
     "meleeAttack": "Tấn công cận chiến",
     "meleeDefense": "Phòng thủ cận chiến",
@@ -215,8 +215,6 @@
   },
   "unitCategoryModal": {
     "title": "Chỉnh sửa danh mục đơn vị tùy chỉnh",
-    "optionBuiltIn": "{{name}} (tích hợp)",
-    "optionCustom": "{{name}} (tùy chỉnh)",
     "errors": {
       "idInUse": "ID danh mục đơn vị \"{{id}}\" đã được sử dụng",
       "firingAltitudeRequired": "firingAltitude là bắt buộc",
@@ -367,13 +365,10 @@
     "identityHint": "Ghi đè cấu hình danh mục địa hình của thời đại cho kịch bản này. ID cố định theo một danh mục tích hợp - địa hình giữ nguyên gán danh mục, bạn chỉ điều chỉnh các hệ số.",
     "perUnitCategoryHint": "Khóa là id danh mục đơn vị. Dùng ký tự đại diện `*` để đặt giá trị mặc định áp dụng cho mọi danh mục không có mục riêng.",
     "projectileAbsorptionHint": "Khóa là tên loại sát thương.",
-    "option": {
-      "builtIn": "{{name}} (tích hợp)",
-      "custom": "{{name}} (tùy chỉnh)"
-    },
     "fields": {
       "color": "Màu",
       "staminaCostModifier": "Hệ số chi phí thể lực",
+      "runSpeedModifier": "Hệ số tốc độ chạy",
       "hitboxHeight": "Chiều cao hitbox",
       "visionAbsorption": "Hấp thụ tầm nhìn",
       "pushDistanceModifier": "Hệ số khoảng cách đẩy",
@@ -446,7 +441,6 @@
       "noDamageTypes": "Chưa có loại sát thương tùy chỉnh nào.",
       "ranged": "tầm xa",
       "melee": "cận chiến",
-      "cloneOptionLabel": "{{name}} ({{kind}})",
       "itemLabel": "{{name}} ({{kind}}, id {{id}})",
       "deleteBlocked": "Không thể xóa \"{{name}}\" - vẫn được dùng bởi {{refs}}. Hãy loại bỏ các tham chiếu đó trước.",
       "addDamageType": "Thêm loại sát thương",
@@ -472,7 +466,6 @@
       "kindTerrainCategories": "danh mục địa hình",
       "kindSprites": "sprite",
       "unitItemLabel": "{{name}} (#{{type}})",
-      "damageTypeItemLabel": "{{name}} ({{kind}})",
       "nothing": "không có gì",
       "title": "Nhập {{kind}} từ kịch bản",
       "pickFilePrompt": "Chọn một tệp kịch bản (JSON do nút Tải xuống của trình chỉnh sửa tạo ra) để nhập {{kind}} tùy chỉnh của nó.",

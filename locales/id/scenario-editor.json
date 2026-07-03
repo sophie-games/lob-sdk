@@ -7,6 +7,9 @@
     "none": "Tidak ada",
     "remove": "Hapus",
     "select": "Pilih...",
+    "optionBuiltIn": "{{name}} (bawaan)",
+    "optionCustom": "{{name}} (kustom)",
+    "nameWithKind": "{{name}} ({{kind}})",
     "unknown": "(tidak diketahui)",
     "chooseScenarioFile": "Pilih file skenario",
     "positionX": "Posisi X",
@@ -16,6 +19,7 @@
     "identity": "Identitas",
     "formationId": "ID Formasi",
     "movementModifier": "Modifier pergerakan",
+    "rotationSpeedModifier": "Modifier kecepatan rotasi",
     "rangedAttackModifier": "Modifier serangan jarak jauh",
     "chargeBonusModifier": "Modifier bonus serangan",
     "chargeResistanceModifier": "Modifier ketahanan serangan",
@@ -79,8 +83,7 @@
   },
   "createUnit": {
     "title": "Buat Unit",
-    "usingCopiedUnits": "Menggunakan unit yang disalin",
-    "customLabel": "{{name}} (kustom)"
+    "usingCopiedUnits": "Menggunakan unit yang disalin"
   },
   "objectivePanel": {
     "title": "Objektif Terpilih",
@@ -126,7 +129,6 @@
     "frontagePx": "Frontage (px)",
     "depthPx": "Depth (px)",
     "runMovementModifier": "Modifier pergerakan lari",
-    "rotationSpeedModifier": "Modifier kecepatan rotasi",
     "disable180Turn": "Nonaktifkan putaran 180°",
     "formingSpeedModifier": "Modifier kecepatan membentuk",
     "timeToForm": "Waktu membentuk (ticks)",
@@ -156,8 +158,6 @@
   },
   "unitTemplateModal": {
     "title": "Edit templat unit kustom",
-    "optBuiltIn": "{{name}} (bawaan)",
-    "optCustom": "{{name}} (kustom)",
     "typeId": "ID Tipe",
     "meleeAttack": "Serangan jarak dekat",
     "meleeDefense": "Pertahanan jarak dekat",
@@ -215,8 +215,6 @@
   },
   "unitCategoryModal": {
     "title": "Edit kategori unit kustom",
-    "optionBuiltIn": "{{name}} (bawaan)",
-    "optionCustom": "{{name}} (kustom)",
     "errors": {
       "idInUse": "ID kategori unit \"{{id}}\" sudah digunakan",
       "firingAltitudeRequired": "firingAltitude wajib diisi",
@@ -367,13 +365,10 @@
     "identityHint": "Menimpa konfigurasi kategori medan era untuk skenario ini. ID terikat ke kategori bawaan - medan mempertahankan penetapan kategorinya, Anda hanya menyesuaikan modifier.",
     "perUnitCategoryHint": "Kunci adalah id kategori unit. Gunakan wildcard `*` untuk mengatur bawaan yang diterapkan ke semua kategori yang tidak memiliki entri eksplisit.",
     "projectileAbsorptionHint": "Kunci adalah nama tipe kerusakan.",
-    "option": {
-      "builtIn": "{{name}} (bawaan)",
-      "custom": "{{name}} (kustom)"
-    },
     "fields": {
       "color": "Warna",
       "staminaCostModifier": "Modifier biaya stamina",
+      "runSpeedModifier": "Modifier kecepatan lari",
       "hitboxHeight": "Tinggi hitbox",
       "visionAbsorption": "Penyerapan penglihatan",
       "pushDistanceModifier": "Modifier jarak dorong",
@@ -446,7 +441,6 @@
       "noDamageTypes": "Belum ada tipe kerusakan kustom.",
       "ranged": "jarak jauh",
       "melee": "jarak dekat",
-      "cloneOptionLabel": "{{name}} ({{kind}})",
       "itemLabel": "{{name}} ({{kind}}, id {{id}})",
       "deleteBlocked": "Tidak dapat menghapus \"{{name}}\" - masih digunakan oleh {{refs}}. Hapus referensi tersebut terlebih dahulu.",
       "addDamageType": "Tambah tipe kerusakan",
@@ -472,7 +466,6 @@
       "kindTerrainCategories": "kategori medan",
       "kindSprites": "sprite",
       "unitItemLabel": "{{name}} (#{{type}})",
-      "damageTypeItemLabel": "{{name}} ({{kind}})",
       "nothing": "tidak ada",
       "title": "Impor {{kind}} dari skenario",
       "pickFilePrompt": "Pilih file skenario (JSON yang dihasilkan tombol Unduh editor) untuk mengimpor {{kind}} kustomnya.",

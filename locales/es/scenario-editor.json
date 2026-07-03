@@ -7,6 +7,9 @@
     "none": "Ninguno",
     "remove": "Quitar",
     "select": "Seleccionar...",
+    "optionBuiltIn": "{{name}} (integrada)",
+    "optionCustom": "{{name}} (personalizada)",
+    "nameWithKind": "{{name}} ({{kind}})",
     "unknown": "(desconocido)",
     "chooseScenarioFile": "Elegir archivo de escenario",
     "positionX": "Posición X",
@@ -16,6 +19,7 @@
     "identity": "Identidad",
     "formationId": "ID de formación",
     "movementModifier": "Modificador de movimiento",
+    "rotationSpeedModifier": "Modificador de velocidad de rotación",
     "rangedAttackModifier": "Modificador de ataque a distancia",
     "chargeBonusModifier": "Modificador de bono de carga",
     "chargeResistanceModifier": "Modificador de resistencia a la carga",
@@ -79,8 +83,7 @@
   },
   "createUnit": {
     "title": "Crear unidad",
-    "usingCopiedUnits": "Usando unidades copiadas",
-    "customLabel": "{{name}} (personalizada)"
+    "usingCopiedUnits": "Usando unidades copiadas"
   },
   "objectivePanel": {
     "title": "Objetivo seleccionado",
@@ -126,7 +129,6 @@
     "frontagePx": "Frente (px)",
     "depthPx": "Profundidad (px)",
     "runMovementModifier": "Modificador de movimiento al correr",
-    "rotationSpeedModifier": "Modificador de velocidad de rotación",
     "disable180Turn": "Desactivar giro de 180°",
     "formingSpeedModifier": "Modificador de velocidad al formar",
     "timeToForm": "Tiempo para formar (ticks)",
@@ -156,8 +158,6 @@
   },
   "unitTemplateModal": {
     "title": "Editar plantilla de unidad personalizada",
-    "optBuiltIn": "{{name}} (integrada)",
-    "optCustom": "{{name}} (personalizada)",
     "typeId": "ID de tipo",
     "meleeAttack": "Ataque cuerpo a cuerpo",
     "meleeDefense": "Defensa cuerpo a cuerpo",
@@ -215,8 +215,6 @@
   },
   "unitCategoryModal": {
     "title": "Editar categoría de unidad personalizada",
-    "optionBuiltIn": "{{name}} (integrada)",
-    "optionCustom": "{{name}} (personalizada)",
     "errors": {
       "idInUse": "El id de categoría de unidad \"{{id}}\" ya está en uso",
       "firingAltitudeRequired": "firingAltitude es obligatorio",
@@ -367,13 +365,10 @@
     "identityHint": "Sobrescribe la configuración de categoría de terreno de la era para este escenario. El id está fijado a una categoría integrada - los terrenos conservan sus asignaciones de categoría, solo ajustas los modificadores.",
     "perUnitCategoryHint": "Las claves son ids de categoría de unidad. Usa el comodín `*` para fijar un valor por defecto aplicado a todas las categorías que no tengan una entrada explícita.",
     "projectileAbsorptionHint": "Las claves son nombres de tipo de daño.",
-    "option": {
-      "builtIn": "{{name}} (integrada)",
-      "custom": "{{name}} (personalizada)"
-    },
     "fields": {
       "color": "Color",
       "staminaCostModifier": "Modificador de costo de resistencia",
+      "runSpeedModifier": "Modificador de velocidad de carrera",
       "hitboxHeight": "Altura de la hitbox",
       "visionAbsorption": "Absorción de visión",
       "pushDistanceModifier": "Modificador de distancia de empuje",
@@ -446,7 +441,6 @@
       "noDamageTypes": "Aún no hay tipos de daño personalizados.",
       "ranged": "a distancia",
       "melee": "cuerpo a cuerpo",
-      "cloneOptionLabel": "{{name}} ({{kind}})",
       "itemLabel": "{{name}} ({{kind}}, id {{id}})",
       "deleteBlocked": "No se puede eliminar \"{{name}}\" - aún lo usan {{refs}}. Quita esas referencias primero.",
       "addDamageType": "Agregar tipo de daño",
@@ -472,7 +466,6 @@
       "kindTerrainCategories": "categorías de terreno",
       "kindSprites": "sprites",
       "unitItemLabel": "{{name}} (#{{type}})",
-      "damageTypeItemLabel": "{{name}} ({{kind}})",
       "nothing": "nada",
       "title": "Importar {{kind}} desde escenario",
       "pickFilePrompt": "Elige un archivo de escenario (el JSON que produce el botón Descargar del editor) para importar sus {{kind}} personalizados.",

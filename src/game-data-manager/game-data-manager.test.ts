@@ -362,6 +362,44 @@ describe("GameDataManager", () => {
         expect(path.movementModifier.artillery).toBe(0.3);
       }
     });
+
+    it("getRotationSpeedModifier defaults to 0 for terrain without the modifier", () => {
+      // No preset terrain sets rotationSpeedModifier, so it should read as the 0 default.
+      expect(gameDataManager.getRotationSpeedModifier(TerrainType.Grass)).toBe(0);
+      expect(gameDataManager.getRotationSpeedModifier(TerrainType.Mud)).toBe(0);
+    });
+
+    it("getRunSpeedModifier falls back to the movement modifier when unset", () => {
+      // No preset terrain sets runSpeedModifier, so run speed matches walk speed.
+      expect(
+        gameDataManager.getRunSpeedModifier(TerrainType.Mud, "infantry"),
+      ).toBe(gameDataManager.getMovementModifier(TerrainType.Mud, "infantry"));
+      expect(
+        gameDataManager.getRunSpeedModifier(TerrainType.Forest, "heavyCavalry"),
+      ).toBe(
+        gameDataManager.getMovementModifier(TerrainType.Forest, "heavyCavalry"),
+      );
+    });
+
+    it("getRunSpeedModifier uses runSpeedModifier per category when set", () => {
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customTerrainCategories: [
+          {
+            id: "mud",
+            config: {
+              movementModifier: { infantry: -0.2, heavyCavalry: -0.5 },
+              runSpeedModifier: { heavyCavalry: -0.9 },
+            },
+          },
+        ],
+      });
+      // Explicit run modifier wins.
+      expect(m.getRunSpeedModifier(TerrainType.Mud, "heavyCavalry")).toBe(-0.9);
+      // No run entry for infantry -> falls back to its movement modifier.
+      expect(m.getRunSpeedModifier(TerrainType.Mud, "infantry")).toBe(-0.2);
+      // Neither set -> 0.
+      expect(m.getRunSpeedModifier(TerrainType.Mud, "artillery")).toBe(0);
+    });
   });
 
   describe("getSupplyMovementModifier", () => {

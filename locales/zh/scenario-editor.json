@@ -7,6 +7,9 @@
     "none": "无",
     "remove": "移除",
     "select": "选择……",
+    "optionBuiltIn": "{{name}}（内置）",
+    "optionCustom": "{{name}}（自定义）",
+    "nameWithKind": "{{name}}（{{kind}}）",
     "unknown": "（未知）",
     "chooseScenarioFile": "选择战役剧本文件",
     "positionX": "位置 X",
@@ -16,6 +19,7 @@
     "identity": "标识",
     "formationId": "阵型 ID",
     "movementModifier": "移动修正",
+    "rotationSpeedModifier": "转向速度修正",
     "rangedAttackModifier": "远程攻击修正",
     "chargeBonusModifier": "冲锋加成修正",
     "chargeResistanceModifier": "冲锋抗性修正",
@@ -79,8 +83,7 @@
   },
   "createUnit": {
     "title": "创建单位",
-    "usingCopiedUnits": "使用已复制的单位",
-    "customLabel": "{{name}}（自定义）"
+    "usingCopiedUnits": "使用已复制的单位"
   },
   "objectivePanel": {
     "title": "已选目标点",
@@ -126,7 +129,6 @@
     "frontagePx": "正面宽度（px）",
     "depthPx": "纵深（px）",
     "runMovementModifier": "疾跑移动修正",
-    "rotationSpeedModifier": "转向速度修正",
     "disable180Turn": "禁用 180° 转向",
     "formingSpeedModifier": "变阵速度修正",
     "timeToForm": "变阵时间（ticks）",
@@ -156,8 +158,6 @@
   },
   "unitTemplateModal": {
     "title": "编辑自定义单位模板",
-    "optBuiltIn": "{{name}}（内置）",
-    "optCustom": "{{name}}（自定义）",
     "typeId": "类型 ID",
     "meleeAttack": "近战攻击",
     "meleeDefense": "近战防御",
@@ -215,8 +215,6 @@
   },
   "unitCategoryModal": {
     "title": "编辑自定义单位类别",
-    "optionBuiltIn": "{{name}}（内置）",
-    "optionCustom": "{{name}}（自定义）",
     "errors": {
       "idInUse": "单位类别 id “{{id}}” 已被占用",
       "firingAltitudeRequired": "firingAltitude 为必填项",
@@ -367,13 +365,10 @@
     "identityHint": "为本战役覆盖该时代的地形类别配置。id 固定为某个内置类别——地形保留其类别归属，你只调整修正值。",
     "perUnitCategoryHint": "键名为单位类别 id。使用 `*` 通配符设置一个默认值，应用于所有没有显式条目的类别。",
     "projectileAbsorptionHint": "键名为伤害类型名称。",
-    "option": {
-      "builtIn": "{{name}}（内置）",
-      "custom": "{{name}}（自定义）"
-    },
     "fields": {
       "color": "颜色",
       "staminaCostModifier": "体力消耗修正",
+      "runSpeedModifier": "奔跑速度修正",
       "hitboxHeight": "碰撞箱高度",
       "visionAbsorption": "视野吸收",
       "pushDistanceModifier": "推力距离修正",
@@ -446,7 +441,6 @@
       "noDamageTypes": "暂无自定义伤害类型。",
       "ranged": "远程",
       "melee": "近战",
-      "cloneOptionLabel": "{{name}}（{{kind}}）",
       "itemLabel": "{{name}}（{{kind}}，id {{id}}）",
       "deleteBlocked": "无法删除 “{{name}}”——仍被 {{refs}} 使用。请先移除那些引用。",
       "addDamageType": "添加伤害类型",
@@ -472,7 +466,6 @@
       "kindTerrainCategories": "地形类别",
       "kindSprites": "精灵图",
       "unitItemLabel": "{{name}}（#{{type}}）",
-      "damageTypeItemLabel": "{{name}}（{{kind}}）",
       "nothing": "无",
       "title": "从战役剧本导入{{kind}}",
       "pickFilePrompt": "选择一个战役剧本文件（编辑器“下载”按钮生成的 JSON），从中导入其自定义{{kind}}。",

@@ -7,6 +7,9 @@
     "none": "لا شيء",
     "remove": "إزالة",
     "select": "اختيار...",
+    "optionBuiltIn": "{{name}} (مدمج)",
+    "optionCustom": "{{name}} (مخصص)",
+    "nameWithKind": "{{name}} ({{kind}})",
     "unknown": "(غير معروف)",
     "chooseScenarioFile": "اختر ملف السيناريو",
     "positionX": "الموضع X",
@@ -16,6 +19,7 @@
     "identity": "الهوية",
     "formationId": "معرّف التشكيل",
     "movementModifier": "معدل الحركة",
+    "rotationSpeedModifier": "معدل سرعة الدوران",
     "rangedAttackModifier": "معدل الهجوم البعيد",
     "chargeBonusModifier": "معدل مكافأة الهجوم",
     "chargeResistanceModifier": "معدل مقاومة الهجوم",
@@ -79,8 +83,7 @@
   },
   "createUnit": {
     "title": "إنشاء وحدة",
-    "usingCopiedUnits": "استخدام الوحدات المنسوخة",
-    "customLabel": "{{name}} (مخصص)"
+    "usingCopiedUnits": "استخدام الوحدات المنسوخة"
   },
   "objectivePanel": {
     "title": "الهدف المحدد",
@@ -126,7 +129,6 @@
     "frontagePx": "الواجهة (px)",
     "depthPx": "العمق (px)",
     "runMovementModifier": "معدل حركة الجري",
-    "rotationSpeedModifier": "معدل سرعة الدوران",
     "disable180Turn": "تعطيل الدوران 180°",
     "formingSpeedModifier": "معدل سرعة التشكيل",
     "timeToForm": "وقت التشكيل (ticks)",
@@ -156,8 +158,6 @@
   },
   "unitTemplateModal": {
     "title": "تعديل قالب وحدة مخصص",
-    "optBuiltIn": "{{name}} (مدمج)",
-    "optCustom": "{{name}} (مخصص)",
     "typeId": "معرّف النوع",
     "meleeAttack": "هجوم قريب",
     "meleeDefense": "دفاع قريب",
@@ -215,8 +215,6 @@
   },
   "unitCategoryModal": {
     "title": "تعديل فئة وحدة مخصصة",
-    "optionBuiltIn": "{{name}} (مدمج)",
-    "optionCustom": "{{name}} (مخصص)",
     "errors": {
       "idInUse": "معرّف فئة الوحدة \"{{id}}\" مستخدم بالفعل",
       "firingAltitudeRequired": "firingAltitude مطلوب",
@@ -367,13 +365,10 @@
     "identityHint": "يتجاوز إعداد فئة التضاريس للعصر في هذا السيناريو. المعرّف ثابت على فئة مدمجة - تحتفظ التضاريس بتعييناتها للفئات، أنت تضبط المعدلات فقط.",
     "perUnitCategoryHint": "المفاتيح هي معرّفات فئات الوحدات. استخدم البطاقة الشاملة `*` لتعيين قيمة افتراضية تنطبق على جميع الفئات التي لا تملك مدخلاً صريحاً.",
     "projectileAbsorptionHint": "المفاتيح هي أسماء أنواع الضرر.",
-    "option": {
-      "builtIn": "{{name}} (مدمج)",
-      "custom": "{{name}} (مخصص)"
-    },
     "fields": {
       "color": "اللون",
       "staminaCostModifier": "معدل تكلفة التحمل",
+      "runSpeedModifier": "معدل سرعة الجري",
       "hitboxHeight": "ارتفاع صندوق التصادم",
       "visionAbsorption": "امتصاص الرؤية",
       "pushDistanceModifier": "معدل مسافة الدفع",
@@ -446,7 +441,6 @@
       "noDamageTypes": "لا توجد أنواع ضرر مخصصة بعد.",
       "ranged": "بعيد",
       "melee": "قريب",
-      "cloneOptionLabel": "{{name}} ({{kind}})",
       "itemLabel": "{{name}} ({{kind}}، المعرّف {{id}})",
       "deleteBlocked": "لا يمكن حذف \"{{name}}\" - لا يزال مستخدماً من قبل {{refs}}. أزل تلك المراجع أولاً.",
       "addDamageType": "إضافة نوع ضرر",
@@ -472,7 +466,6 @@
       "kindTerrainCategories": "فئات التضاريس",
       "kindSprites": "الرسومات",
       "unitItemLabel": "{{name}} (#{{type}})",
-      "damageTypeItemLabel": "{{name}} ({{kind}})",
       "nothing": "لا شيء",
       "title": "استيراد {{kind}} من سيناريو",
       "pickFilePrompt": "اختر ملف سيناريو (ملف JSON الذي ينتجه زر التنزيل في المحرر) لاستيراد {{kind}} المخصصة منه.",

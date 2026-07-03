@@ -637,6 +637,7 @@ export class GameDataManager {
     // 'as const' allows TS to know exactly which strings are in the array.
     const modifierFields = [
       "movementModifier",
+      "runSpeedModifier",
       "attackModifier",
       "defenseModifier",
       "rangedAttackModifier",
@@ -1277,6 +1278,23 @@ export class GameDataManager {
   }
 
   /**
+   * Get run speed modifier for terrain and unit category. Falls back to the
+   * movement (walk) modifier for any category `runSpeedModifier` doesn't set.
+   */
+  public getRunSpeedModifier(
+    terrainType: TerrainType,
+    unitCategory: UnitCategoryId,
+  ): number {
+    const category = this.getCategoryByTerrain(terrainType);
+    const terrainCategory = this.terrainCategories![category]; // This indirection on lookup is painful, becuase its done many times. Replace with direct lookup
+    return (
+      terrainCategory?.runSpeedModifier?.[unitCategory] ??
+      terrainCategory?.movementModifier?.[unitCategory] ??
+      0
+    ); // these conditionals cause big-suck on performance, set defaults at initialization
+  }
+
+  /**
    * Check if a terrain category has the prioritizeMovement flag
    */
   public hasPrioritizeMovement(terrainType: TerrainType): boolean {
@@ -1348,6 +1366,15 @@ export class GameDataManager {
     const category = this.getCategoryByTerrain(terrainType);
     const terrainCategory = this.terrainCategories![category]; // This indirection on lookup is painful, becuase its done many times. Replace with direct lookup
     return terrainCategory?.staminaCostModifier ?? 0; // these conditionals cause big-suck on performance, set defaults at initialization
+  }
+
+  /**
+   * Get rotation speed modifier for terrain
+   */
+  public getRotationSpeedModifier(terrainType: TerrainType): number {
+    const category = this.getCategoryByTerrain(terrainType);
+    const terrainCategory = this.terrainCategories![category]; // This indirection on lookup is painful, becuase its done many times. Replace with direct lookup
+    return terrainCategory?.rotationSpeedModifier ?? 0; // these conditionals cause big-suck on performance, set defaults at initialization
   }
 
   /**

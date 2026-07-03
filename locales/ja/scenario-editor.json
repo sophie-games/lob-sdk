@@ -7,6 +7,9 @@
     "none": "なし",
     "remove": "削除",
     "select": "選択...",
+    "optionBuiltIn": "{{name}}（組み込み）",
+    "optionCustom": "{{name}}（カスタム）",
+    "nameWithKind": "{{name}}（{{kind}}）",
     "unknown": "(不明)",
     "chooseScenarioFile": "シナリオファイルを選択",
     "positionX": "位置 X",
@@ -16,6 +19,7 @@
     "identity": "識別情報",
     "formationId": "隊形ID",
     "movementModifier": "移動修正",
+    "rotationSpeedModifier": "回転速度修正",
     "rangedAttackModifier": "遠距離攻撃修正",
     "chargeBonusModifier": "突撃ボーナス修正",
     "chargeResistanceModifier": "突撃耐性修正",
@@ -79,8 +83,7 @@
   },
   "createUnit": {
     "title": "ユニットを作成",
-    "usingCopiedUnits": "コピーしたユニットを使用中",
-    "customLabel": "{{name}}（カスタム）"
+    "usingCopiedUnits": "コピーしたユニットを使用中"
   },
   "objectivePanel": {
     "title": "選択中の目標",
@@ -126,7 +129,6 @@
     "frontagePx": "正面幅（px）",
     "depthPx": "奥行き（px）",
     "runMovementModifier": "走行移動修正",
-    "rotationSpeedModifier": "回転速度修正",
     "disable180Turn": "180°旋回を無効化",
     "formingSpeedModifier": "形成速度修正",
     "timeToForm": "形成時間（ticks）",
@@ -156,8 +158,6 @@
   },
   "unitTemplateModal": {
     "title": "カスタムユニットテンプレートを編集",
-    "optBuiltIn": "{{name}}（組み込み）",
-    "optCustom": "{{name}}（カスタム）",
     "typeId": "タイプID",
     "meleeAttack": "白兵攻撃",
     "meleeDefense": "白兵防御",
@@ -215,8 +215,6 @@
   },
   "unitCategoryModal": {
     "title": "カスタムユニットカテゴリーを編集",
-    "optionBuiltIn": "{{name}}（組み込み）",
-    "optionCustom": "{{name}}（カスタム）",
     "errors": {
       "idInUse": "ユニットカテゴリーID「{{id}}」は既に使用されています",
       "firingAltitudeRequired": "firingAltitude は必須です",
@@ -367,13 +365,10 @@
     "identityHint": "このシナリオに対して時代の地形カテゴリー設定を上書きします。IDは組み込みカテゴリーに固定されています。地形のカテゴリー割り当ては維持され、修正のみを調整します。",
     "perUnitCategoryHint": "キーはユニットカテゴリーIDです。明示的な項目を持たないすべてのカテゴリーに適用されるデフォルトを設定するには、`*` ワイルドカードを使用します。",
     "projectileAbsorptionHint": "キーはダメージタイプ名です。",
-    "option": {
-      "builtIn": "{{name}}（組み込み）",
-      "custom": "{{name}}（カスタム）"
-    },
     "fields": {
       "color": "色",
       "staminaCostModifier": "スタミナコスト修正",
+      "runSpeedModifier": "走行速度修正",
       "hitboxHeight": "ヒットボックスの高さ",
       "visionAbsorption": "視界吸収",
       "pushDistanceModifier": "押しの距離修正",
@@ -446,7 +441,6 @@
       "noDamageTypes": "カスタムダメージタイプはまだありません。",
       "ranged": "遠距離",
       "melee": "白兵戦",
-      "cloneOptionLabel": "{{name}}（{{kind}}）",
       "itemLabel": "{{name}}（{{kind}}、id {{id}}）",
       "deleteBlocked": "「{{name}}」を削除できません - {{refs}} でまだ使用されています。先にそれらの参照を削除してください。",
       "addDamageType": "ダメージタイプを追加",
@@ -472,7 +466,6 @@
       "kindTerrainCategories": "地形カテゴリー",
       "kindSprites": "スプライト",
       "unitItemLabel": "{{name}}（#{{type}}）",
-      "damageTypeItemLabel": "{{name}}（{{kind}}）",
       "nothing": "なし",
       "title": "シナリオから{{kind}}をインポート",
       "pickFilePrompt": "カスタム{{kind}}をインポートするシナリオファイル（エディターのダウンロードボタンが生成するJSON）を選択してください。",

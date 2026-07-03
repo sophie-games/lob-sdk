@@ -7,6 +7,9 @@
     "none": "None",
     "remove": "Remove",
     "select": "Select...",
+    "optionBuiltIn": "{{name}} (built-in)",
+    "optionCustom": "{{name}} (custom)",
+    "nameWithKind": "{{name}} ({{kind}})",
     "unknown": "(unknown)",
     "chooseScenarioFile": "Choose scenario file",
     "positionX": "Position X",
@@ -16,6 +19,7 @@
     "identity": "Identity",
     "formationId": "Formation ID",
     "movementModifier": "Movement modifier",
+    "rotationSpeedModifier": "Rotation speed modifier",
     "rangedAttackModifier": "Ranged attack modifier",
     "chargeBonusModifier": "Charge bonus modifier",
     "chargeResistanceModifier": "Charge resistance modifier",
@@ -79,8 +83,7 @@
   },
   "createUnit": {
     "title": "Create Unit",
-    "usingCopiedUnits": "Using copied units",
-    "customLabel": "{{name}} (custom)"
+    "usingCopiedUnits": "Using copied units"
   },
   "objectivePanel": {
     "title": "Selected Objective",
@@ -126,7 +129,6 @@
     "frontagePx": "Frontage (px)",
     "depthPx": "Depth (px)",
     "runMovementModifier": "Run movement modifier",
-    "rotationSpeedModifier": "Rotation speed modifier",
     "disable180Turn": "Disable 180° turn",
     "formingSpeedModifier": "Forming speed modifier",
     "timeToForm": "Time to form (ticks)",
@@ -156,8 +158,6 @@
   },
   "unitTemplateModal": {
     "title": "Edit custom unit template",
-    "optBuiltIn": "{{name}} (built-in)",
-    "optCustom": "{{name}} (custom)",
     "typeId": "Type ID",
     "meleeAttack": "Melee attack",
     "meleeDefense": "Melee defense",
@@ -215,8 +215,6 @@
   },
   "unitCategoryModal": {
     "title": "Edit custom unit category",
-    "optionBuiltIn": "{{name}} (built-in)",
-    "optionCustom": "{{name}} (custom)",
     "errors": {
       "idInUse": "Unit category id \"{{id}}\" is already in use",
       "firingAltitudeRequired": "firingAltitude is required",
@@ -367,13 +365,10 @@
     "identityHint": "Overrides the era's terrain category config for this scenario. The id is fixed to a built-in category - terrains keep their category assignments, you only adjust the modifiers.",
     "perUnitCategoryHint": "Keys are unit category ids. Use the `*` wildcard to set a default applied to all categories that don't have an explicit entry.",
     "projectileAbsorptionHint": "Keys are damage type names.",
-    "option": {
-      "builtIn": "{{name}} (built-in)",
-      "custom": "{{name}} (custom)"
-    },
     "fields": {
       "color": "Color",
       "staminaCostModifier": "Stamina cost modifier",
+      "runSpeedModifier": "Run speed modifier",
       "hitboxHeight": "Hitbox height",
       "visionAbsorption": "Vision absorption",
       "pushDistanceModifier": "Push distance modifier",
@@ -446,7 +441,6 @@
       "noDamageTypes": "No custom damage types yet.",
       "ranged": "ranged",
       "melee": "melee",
-      "cloneOptionLabel": "{{name}} ({{kind}})",
       "itemLabel": "{{name}} ({{kind}}, id {{id}})",
       "deleteBlocked": "Can't delete \"{{name}}\" - still used by {{refs}}. Remove those references first.",
       "addDamageType": "Add damage type",
@@ -472,7 +466,6 @@
       "kindTerrainCategories": "terrain categories",
       "kindSprites": "sprites",
       "unitItemLabel": "{{name}} (#{{type}})",
-      "damageTypeItemLabel": "{{name}} ({{kind}})",
       "nothing": "nothing",
       "title": "Import {{kind}} from scenario",
       "pickFilePrompt": "Pick a scenario file (the JSON the editor's Download button produces) to import its custom {{kind}} from.",

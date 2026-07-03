@@ -7,6 +7,9 @@
     "none": "없음",
     "remove": "제거",
     "select": "선택...",
+    "optionBuiltIn": "{{name}} (기본 제공)",
+    "optionCustom": "{{name}} (사용자 지정)",
+    "nameWithKind": "{{name}} ({{kind}})",
     "unknown": "(미상)",
     "chooseScenarioFile": "전역 파일 선택",
     "positionX": "위치 X",
@@ -16,6 +19,7 @@
     "identity": "식별 정보",
     "formationId": "진형 ID",
     "movementModifier": "이동 수정치",
+    "rotationSpeedModifier": "회전 속도 수정치",
     "rangedAttackModifier": "사격 공격 수정치",
     "chargeBonusModifier": "돌격 혜택 수정치",
     "chargeResistanceModifier": "돌격 저항 수정치",
@@ -79,8 +83,7 @@
   },
   "createUnit": {
     "title": "부대 생성",
-    "usingCopiedUnits": "복사한 부대 사용 중",
-    "customLabel": "{{name}} (사용자 지정)"
+    "usingCopiedUnits": "복사한 부대 사용 중"
   },
   "objectivePanel": {
     "title": "선택한 지점목표",
@@ -126,7 +129,6 @@
     "frontagePx": "정면 너비 (px)",
     "depthPx": "깊이 (px)",
     "runMovementModifier": "주행 이동 수정치",
-    "rotationSpeedModifier": "회전 속도 수정치",
     "disable180Turn": "180° 선회 비활성화",
     "formingSpeedModifier": "편성 속도 수정치",
     "timeToForm": "편성 시간 (ticks)",
@@ -156,8 +158,6 @@
   },
   "unitTemplateModal": {
     "title": "사용자 지정 부대 템플릿 편집",
-    "optBuiltIn": "{{name}} (기본 제공)",
-    "optCustom": "{{name}} (사용자 지정)",
     "typeId": "유형 ID",
     "meleeAttack": "근접전투력",
     "meleeDefense": "근접방어력",
@@ -215,8 +215,6 @@
   },
   "unitCategoryModal": {
     "title": "사용자 지정 부대 유형 편집",
-    "optionBuiltIn": "{{name}} (기본 제공)",
-    "optionCustom": "{{name}} (사용자 지정)",
     "errors": {
       "idInUse": "부대 유형 id \"{{id}}\" 이(가) 이미 사용 중입니다",
       "firingAltitudeRequired": "firingAltitude is required",
@@ -367,13 +365,10 @@
     "identityHint": "이 전역에서 시대의 지형 유형 설정을 재정의합니다. id는 기본 제공 유형으로 고정됩니다. 지형은 유형 배정을 유지하며, 수정치만 조정합니다.",
     "perUnitCategoryHint": "키는 부대 유형 id입니다. 명시적 항목이 없는 모든 유형에 적용되는 기본값을 설정하려면 `*` 와일드카드를 사용하세요.",
     "projectileAbsorptionHint": "키는 피해 유형 이름입니다.",
-    "option": {
-      "builtIn": "{{name}} (기본 제공)",
-      "custom": "{{name}} (사용자 지정)"
-    },
     "fields": {
       "color": "색상",
       "staminaCostModifier": "활력 비용 수정치",
+      "runSpeedModifier": "달리기 속도 수정치",
       "hitboxHeight": "적중영역 높이",
       "visionAbsorption": "시야 흡수치",
       "pushDistanceModifier": "밀어내기 거리 수정치",
@@ -446,7 +441,6 @@
       "noDamageTypes": "아직 사용자 지정 피해 유형이 없습니다.",
       "ranged": "사격",
       "melee": "근접",
-      "cloneOptionLabel": "{{name}} ({{kind}})",
       "itemLabel": "{{name}} ({{kind}}, id {{id}})",
       "deleteBlocked": "\"{{name}}\" 을(를) 삭제할 수 없습니다. {{refs}}에서 아직 사용 중입니다. 해당 참조를 먼저 제거하세요.",
       "addDamageType": "피해 유형 추가",
@@ -472,7 +466,6 @@
       "kindTerrainCategories": "지형 유형",
       "kindSprites": "스프라이트",
       "unitItemLabel": "{{name}} (#{{type}})",
-      "damageTypeItemLabel": "{{name}} ({{kind}})",
       "nothing": "없음",
       "title": "전역에서 {{kind}} 가져오기",
       "pickFilePrompt": "사용자 지정 {{kind}}을(를) 가져올 전역 파일(편집기 내려받기 버튼이 생성하는 JSON)을 선택하세요.",
