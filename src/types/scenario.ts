@@ -400,12 +400,20 @@ export interface Scenario {
   vpLossRatioPoints?: number;
 
   /**
-   * Per-scenario override for the under-pressure VP rate (the era's
-   * VP_TICKS_UNDER_PRESSURE_BASE). Highest-priority override. Omit to inherit the
+   * Per-scenario override for the under-pressure VP rate (the objectives rule's
+   * vpTicksUnderPressureBase). Highest-priority override. Omit to inherit the
    * battle-type override or the era default. Resolved (layered) via the
    * BaseGame.vpLossRatioPoints / vpTicksUnderPressureBase getters.
    */
   vpTicksUnderPressureBase?: number;
+
+  /**
+   * Per-scenario override for the under-pressure objective-share threshold (the
+   * objectives rule's vpPressureThreshold). Highest-priority override. Omit to
+   * inherit the battle-type override or the era default. Resolved (layered) via
+   * the BaseGame.vpPressureThreshold getter.
+   */
+  vpPressureThreshold?: number;
 
   /**
    * Data-driven tutorial overlays. Evaluated client-side by the TutorialRunner

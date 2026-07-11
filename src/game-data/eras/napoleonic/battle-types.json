@@ -23,7 +23,8 @@
     "premiumCurrencyChance": 2,
     "maxTurn": 32,
     "ranked": true,
-    "teamSize": "2v2"
+    "teamSize": "2v2",
+    "vpTicksUnderPressureBase": 5
   },
   "clash": {
     "manpower": 3450,
@@ -50,7 +51,8 @@
     "mapSize": ["s"],
     "premiumCurrencyChance": 4,
     "maxTurn": 32,
-    "ranked": true
+    "ranked": true,
+    "vpTicksUnderPressureBase": 5
   },
   "combat": {
     "manpower": 6000,
@@ -77,7 +79,8 @@
     "mapSize": ["m"],
     "premiumCurrencyChance": 8,
     "maxTurn": 40,
-    "ranked": true
+    "ranked": true,
+    "vpTicksUnderPressureBase": 5
   },
   "battle": {
     "manpower": 10000,
@@ -104,7 +107,8 @@
     "mapSize": ["l"],
     "premiumCurrencyChance": 12,
     "maxTurn": 44,
-    "ranked": true
+    "ranked": true,
+    "vpTicksUnderPressureBase": 5
   },
   "grand_battle": {
     "manpower": 18000,
@@ -131,6 +135,7 @@
     "mapSize": ["xl"],
     "premiumCurrencyChance": 16,
     "maxTurn": 48,
-    "ranked": true
+    "ranked": true,
+    "vpTicksUnderPressureBase": 5
   }
 }

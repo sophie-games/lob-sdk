@@ -111,11 +111,17 @@ export interface BattleTypeTemplate {
    */
   vpLossRatioPoints?: number;
   /**
-   * Per-battle-type override for the under-pressure VP rate (the era's
-   * VP_TICKS_UNDER_PRESSURE_BASE). Omit to inherit the era default. Resolved via
+   * Per-battle-type override for the under-pressure VP rate (the objectives
+   * rule's vpTicksUnderPressureBase). Omit to inherit the era default. Resolved via
    * the BaseGame.vpTicksUnderPressureBase getter (scenario override > battle type > era).
    */
   vpTicksUnderPressureBase?: number;
+  /**
+   * Per-battle-type override for the under-pressure objective-share threshold
+   * (the objectives rule's vpPressureThreshold). Omit to inherit the era default.
+   * Resolved via the BaseGame.vpPressureThreshold getter (scenario override > battle type > era).
+   */
+  vpPressureThreshold?: number;
   /** Default army composition for this battle type. */
   defaultArmy: UnitCounts;
   /** If Supply Lines rule enabled, this will be the logistics per big objective. */

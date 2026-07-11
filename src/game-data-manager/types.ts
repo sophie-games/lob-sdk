@@ -339,15 +339,6 @@ export interface GameConstants {
   VP_SMALL_DEFAULT_POINTS: number;
 
   /**
-   * Base value for calculating victory points penalty from ticks under pressure.
-   * The penalty is calculated as: -(ticksUnderPressure * (VP_TICKS_UNDER_PRESSURE_BASE / TICKS_PER_TURN))
-   * This represents the base VP penalty per tick. When divided by TICKS_PER_TURN, it gives the VP penalty per turn.
-   *
-   * Example: If this is 0.5 and TICKS_PER_TURN is 16, the penalty is 0.5/16 = 0.03125 VP per tick, or 0.5 VP per turn.
-   */
-  VP_TICKS_UNDER_PRESSURE_BASE: number;
-
-  /**
    * VP value of the auto-spawned neutral objective, as a multiple of a small
    * objective's VP. 0 disables the feature (no neutral objective is spawned).
    * The neutral spawns once, when deployment ends, on placeable-objective maps.
@@ -648,7 +639,14 @@ export interface ObjectivesRule {
    * proportion of the non-neutral objective victory points, the team
    * will start being under pressure.
    */
-  pressureThreshold: number;
+  vpPressureThreshold: number;
+  /**
+   * Era-default base value for the under-pressure VP penalty, applied as
+   * -(ticksUnderPressure * (vpTicksUnderPressureBase / TICKS_PER_TURN)). 0 disables it.
+   * Battle types and scenarios may override it; resolved via the
+   * BaseGame.vpTicksUnderPressureBase getter (scenario > battle type > this).
+   */
+  vpTicksUnderPressureBase: number;
 }
 
 export interface AllyCollisionRule {

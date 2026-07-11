@@ -40,7 +40,8 @@
   },
   "objectives": {
     "radius": 24,
-    "pressureThreshold": 0.4
+    "vpPressureThreshold": 0.4,
+    "vpTicksUnderPressureBase": 2.0
   },
   "organization": {
     "speedModifier": -0.15,
