@@ -630,6 +630,9 @@
     "hint": "Deixe um campo vazio para herdar o padrão do tipo de batalha ou da era.",
     "casualties": "Peso de baixas",
     "underPressure": "Penalidade sob pressão",
-    "pressureThreshold": "Limite de pressão"
+    "pressureThreshold": "Limite de pressão",
+    "casualtiesInfo": "VP máximos pela diferença de baixas entre as equipes. Maior favorece o desgaste em vez de manter objetivos.",
+    "underPressureInfo": "VP que uma equipe perde por turno sob pressão. 0 desativa a penalidade.",
+    "pressureThresholdInfo": "Uma equipe fica sob pressão enquanto detém esta % de VP de objetivos ou menos."
   }
 }

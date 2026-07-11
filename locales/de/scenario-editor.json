@@ -630,6 +630,9 @@
     "hint": "Lassen Sie ein Feld leer, um den Standardwert des Kampftyps oder der Ära zu übernehmen.",
     "casualties": "Verlust-Gewichtung",
     "underPressure": "Strafe unter Druck",
-    "pressureThreshold": "Druckschwelle"
+    "pressureThreshold": "Druckschwelle",
+    "casualtiesInfo": "Maximale VP aus der Verlustdifferenz zwischen den Teams. Höher belohnt Abnutzung statt Objektivhaltung.",
+    "underPressureInfo": "VP, die ein Team pro Zug unter Druck verliert. 0 deaktiviert die Strafe.",
+    "pressureThresholdInfo": "Ein Team steht unter Druck, solange es diesen % der Objektiv-VP oder weniger hält."
   }
 }

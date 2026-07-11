@@ -630,6 +630,9 @@
     "hint": "Leave a field empty to inherit the battle-type or era default.",
     "casualties": "Casualties weight",
     "underPressure": "Under-pressure penalty",
-    "pressureThreshold": "Pressure threshold"
+    "pressureThreshold": "Pressure threshold",
+    "casualtiesInfo": "Max VP from the casualty difference between teams. Higher favours attrition over holding objectives.",
+    "underPressureInfo": "VP a team loses per turn while under pressure. 0 disables the penalty.",
+    "pressureThresholdInfo": "A team is under pressure while it holds this % of objective VP or less."
   }
 }

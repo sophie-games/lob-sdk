@@ -629,6 +629,9 @@
     "hint": "Để trống một ô để kế thừa giá trị mặc định của loại trận đấu hoặc thời đại.",
     "casualties": "Trọng số thương vong",
     "underPressure": "Hình phạt khi bị áp lực",
-    "pressureThreshold": "Ngưỡng áp lực"
+    "pressureThreshold": "Ngưỡng áp lực",
+    "casualtiesInfo": "VP tối đa từ chênh lệch thương vong giữa các đội. Cao hơn thiên về tiêu hao hơn là giữ mục tiêu.",
+    "underPressureInfo": "VP mà một đội mất mỗi lượt khi bị áp lực. 0 để tắt hình phạt.",
+    "pressureThresholdInfo": "Một đội bị áp lực khi nắm giữ tỷ lệ % VP mục tiêu này hoặc thấp hơn."
   }
 }

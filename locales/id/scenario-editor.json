@@ -629,6 +629,9 @@
     "hint": "Biarkan kolom kosong untuk mewarisi default tipe pertempuran atau era.",
     "casualties": "Bobot korban",
     "underPressure": "Penalti di bawah tekanan",
-    "pressureThreshold": "Ambang tekanan"
+    "pressureThreshold": "Ambang tekanan",
+    "casualtiesInfo": "VP maks. dari selisih korban antar tim. Lebih tinggi mengutamakan atrisi daripada menahan objektif.",
+    "underPressureInfo": "VP yang hilang per giliran saat tim di bawah tekanan. 0 menonaktifkan penalti.",
+    "pressureThresholdInfo": "Sebuah tim berada di bawah tekanan selama memegang persentase VP objektif ini atau kurang."
   }
 }

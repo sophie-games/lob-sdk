@@ -630,6 +630,9 @@
     "hint": "Hagyj egy mezőt üresen, hogy örökölje a csatatípus vagy korszak alapértékét.",
     "casualties": "Veszteség súlya",
     "underPressure": "Nyomás alatti büntetés",
-    "pressureThreshold": "Nyomásküszöb"
+    "pressureThreshold": "Nyomásküszöb",
+    "casualtiesInfo": "Max. GP a csapatok közti veszteségkülönbségből. Magasabb érték a felőrlést részesíti előnyben a célpontok tartásával szemben.",
+    "underPressureInfo": "A csapat által körönként elvesztett GP nyomás alatt. 0 kikapcsolja a büntetést.",
+    "pressureThresholdInfo": "Egy csapat nyomás alatt van, amíg a cél-GP ennyi százalékát vagy kevesebbet birtokol."
   }
 }

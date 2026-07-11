@@ -629,6 +629,9 @@
     "hint": "空欄にすると戦闘タイプまたは時代の既定値を継承します。",
     "casualties": "損失の重み",
     "underPressure": "プレッシャー下のペナルティ",
-    "pressureThreshold": "プレッシャー閾値"
+    "pressureThreshold": "プレッシャー閾値",
+    "casualtiesInfo": "両チームの損失差から得られる最大VP。高いほど拠点確保より消耗戦を重視。",
+    "underPressureInfo": "プレッシャー下でチームが毎ターン失うVP。0で無効。",
+    "pressureThresholdInfo": "チームが保持する拠点VPの割合がこの%以下のとき、プレッシャー状態になります。"
   }
 }

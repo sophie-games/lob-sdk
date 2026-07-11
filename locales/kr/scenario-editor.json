@@ -629,6 +629,9 @@
     "hint": "비워두면 전투 유형 또는 시대의 기본값을 상속합니다.",
     "casualties": "사상자 가중치",
     "underPressure": "압박 시 패널티",
-    "pressureThreshold": "압박 임계값"
+    "pressureThreshold": "압박 임계값",
+    "casualtiesInfo": "양 팀의 사상자 차이로 얻는 최대 VP. 높을수록 거점 유지보다 소모전을 중시합니다.",
+    "underPressureInfo": "압박 상태에서 팀이 매 턴 잃는 VP. 0이면 비활성화됩니다.",
+    "pressureThresholdInfo": "팀이 보유한 목표 VP 비율이 이 % 이하일 때 압박 상태가 됩니다."
   }
 }

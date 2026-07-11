@@ -629,6 +629,9 @@
     "hint": "留空以继承战斗类型或时代的默认值。",
     "casualties": "伤亡权重",
     "underPressure": "受压惩罚",
-    "pressureThreshold": "压力阈值"
+    "pressureThreshold": "压力阈值",
+    "casualtiesInfo": "来自双方伤亡差的最大胜利点。越高越偏向消耗而非占领目标。",
+    "underPressureInfo": "队伍在受压时每回合损失的胜利点。0 表示禁用。",
+    "pressureThresholdInfo": "当一支队伍持有的目标胜利点占比不高于此百分比时，即处于受压状态。"
   }
 }
