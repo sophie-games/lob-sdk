@@ -624,5 +624,12 @@
     "invalidJsonFile": "Invalid JSON file. Please check the file format.",
     "confirmOverwriteWarning": "Please confirm that you understand this will overwrite the terrain.",
     "selectedNotProcedural": "Selected scenario is not a procedural template."
+  },
+  "scoring": {
+    "heading": "VP weights (scenario override)",
+    "hint": "Leave a field empty to inherit the battle-type or era default.",
+    "casualties": "Casualties weight",
+    "underPressure": "Under-pressure penalty",
+    "pressureThreshold": "Pressure threshold"
   }
 }

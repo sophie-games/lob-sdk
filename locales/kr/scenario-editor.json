@@ -623,5 +623,12 @@
     "invalidJsonFile": "잘못된 JSON 파일입니다. 파일 형식을 확인하세요.",
     "confirmOverwriteWarning": "이 작업이 지형을 덮어쓴다는 점을 이해함을 확인하세요.",
     "selectedNotProcedural": "선택한 전역은 절차적 템플릿이 아닙니다."
+  },
+  "scoring": {
+    "heading": "VP 가중치 (시나리오 재정의)",
+    "hint": "비워두면 전투 유형 또는 시대의 기본값을 상속합니다.",
+    "casualties": "사상자 가중치",
+    "underPressure": "압박 시 패널티",
+    "pressureThreshold": "압박 임계값"
   }
 }

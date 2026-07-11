@@ -624,5 +624,12 @@
     "invalidJsonFile": "Ungültige JSON-Datei. Bitte überprüfe das Dateiformat.",
     "confirmOverwriteWarning": "Bitte bestätige, dass du verstehst, dass dies das Gelände überschreibt.",
     "selectedNotProcedural": "Das ausgewählte Szenario ist keine prozedurale Vorlage."
+  },
+  "scoring": {
+    "heading": "VP-Gewichte (Szenario-Override)",
+    "hint": "Lassen Sie ein Feld leer, um den Standardwert des Kampftyps oder der Ära zu übernehmen.",
+    "casualties": "Verlust-Gewichtung",
+    "underPressure": "Strafe unter Druck",
+    "pressureThreshold": "Druckschwelle"
   }
 }

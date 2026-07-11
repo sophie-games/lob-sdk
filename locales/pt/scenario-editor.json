@@ -624,5 +624,12 @@
     "invalidJsonFile": "Arquivo JSON inválido. Verifique o formato do arquivo.",
     "confirmOverwriteWarning": "Confirme que você entende que isto sobrescreverá o terreno.",
     "selectedNotProcedural": "O cenário selecionado não é um modelo procedural."
+  },
+  "scoring": {
+    "heading": "Pesos de VP (substituição do cenário)",
+    "hint": "Deixe um campo vazio para herdar o padrão do tipo de batalha ou da era.",
+    "casualties": "Peso de baixas",
+    "underPressure": "Penalidade sob pressão",
+    "pressureThreshold": "Limite de pressão"
   }
 }

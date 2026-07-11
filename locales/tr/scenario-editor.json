@@ -624,5 +624,12 @@
     "invalidJsonFile": "Geçersiz JSON dosyası. Lütfen dosya biçimini kontrol edin.",
     "confirmOverwriteWarning": "Lütfen bunun araziyi üzerine yazacağını anladığınızı onaylayın.",
     "selectedNotProcedural": "Seçili senaryo prosedürel bir şablon değil."
+  },
+  "scoring": {
+    "heading": "ZP ağırlıkları (senaryo geçersiz kılma)",
+    "hint": "Savaş türü veya çağ varsayılanını devralmak için bir alanı boş bırakın.",
+    "casualties": "Kayıp ağırlığı",
+    "underPressure": "Baskı altında ceza",
+    "pressureThreshold": "Baskı eşiği"
   }
 }

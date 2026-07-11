@@ -623,5 +623,12 @@
     "invalidJsonFile": "File JSON tidak valid. Harap periksa format file.",
     "confirmOverwriteWarning": "Harap konfirmasi bahwa Anda memahami ini akan menimpa medan.",
     "selectedNotProcedural": "Skenario terpilih bukan templat prosedural."
+  },
+  "scoring": {
+    "heading": "Bobot VP (penggantian skenario)",
+    "hint": "Biarkan kolom kosong untuk mewarisi default tipe pertempuran atau era.",
+    "casualties": "Bobot korban",
+    "underPressure": "Penalti di bawah tekanan",
+    "pressureThreshold": "Ambang tekanan"
   }
 }

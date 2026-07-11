@@ -623,5 +623,12 @@
     "invalidJsonFile": "无效的 JSON 文件。请检查文件格式。",
     "confirmOverwriteWarning": "请确认你了解这将覆盖地形。",
     "selectedNotProcedural": "所选战役剧本不是程序生成模板。"
+  },
+  "scoring": {
+    "heading": "胜利点权重（场景覆盖）",
+    "hint": "留空以继承战斗类型或时代的默认值。",
+    "casualties": "伤亡权重",
+    "underPressure": "受压惩罚",
+    "pressureThreshold": "压力阈值"
   }
 }

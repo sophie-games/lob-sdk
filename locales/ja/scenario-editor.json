@@ -623,5 +623,12 @@
     "invalidJsonFile": "無効なJSONファイルです。ファイル形式を確認してください。",
     "confirmOverwriteWarning": "これが地形を上書きすることを理解していることを確認してください。",
     "selectedNotProcedural": "選択したシナリオは自動生成テンプレートではありません。"
+  },
+  "scoring": {
+    "heading": "VP配分（シナリオ上書き）",
+    "hint": "空欄にすると戦闘タイプまたは時代の既定値を継承します。",
+    "casualties": "損失の重み",
+    "underPressure": "プレッシャー下のペナルティ",
+    "pressureThreshold": "プレッシャー閾値"
   }
 }

@@ -624,5 +624,12 @@
     "invalidJsonFile": "Érvénytelen JSON fájl. Kérlek ellenőrizd a fájl formátumát.",
     "confirmOverwriteWarning": "Kérlek erősítsd meg, hogy megérted, ez felülírja a terepet.",
     "selectedNotProcedural": "A kiválasztott pálya nem eljárásos sablon."
+  },
+  "scoring": {
+    "heading": "GP-súlyok (pálya-felülbírálás)",
+    "hint": "Hagyj egy mezőt üresen, hogy örökölje a csatatípus vagy korszak alapértékét.",
+    "casualties": "Veszteség súlya",
+    "underPressure": "Nyomás alatti büntetés",
+    "pressureThreshold": "Nyomásküszöb"
   }
 }

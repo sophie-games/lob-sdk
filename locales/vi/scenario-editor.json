@@ -623,5 +623,12 @@
     "invalidJsonFile": "Tệp JSON không hợp lệ. Vui lòng kiểm tra định dạng tệp.",
     "confirmOverwriteWarning": "Vui lòng xác nhận rằng bạn hiểu việc này sẽ ghi đè địa hình.",
     "selectedNotProcedural": "Kịch bản đã chọn không phải là mẫu theo thủ tục."
+  },
+  "scoring": {
+    "heading": "Trọng số VP (ghi đè kịch bản)",
+    "hint": "Để trống một ô để kế thừa giá trị mặc định của loại trận đấu hoặc thời đại.",
+    "casualties": "Trọng số thương vong",
+    "underPressure": "Hình phạt khi bị áp lực",
+    "pressureThreshold": "Ngưỡng áp lực"
   }
 }
