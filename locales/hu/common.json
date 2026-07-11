@@ -404,7 +404,7 @@
     "lossesRatio": "Veszteségi Ráta",
     "objectives": "Objektívák",
     "timeUnderPressure": "Idő nyomás alatt",
-    "timeUnderPressureTooltip": "A nyomás alatti idő az az idő, amikor egy csapat az objektívák <0>{{percentage}}%</0>-át GP vagy kevesebbet irányítja. Minél tovább marad egy csapat nyomás alatt, annál több győzelmi pontot veszít el.",
+    "timeUnderPressureTooltip": "A nyomás alatti idő az az idő, amíg egy csapat a cél-GP <0>{{percentage}}%</0>-át vagy kevesebbet birtokol. Nyomás alatt egy csapat körönként <1>{{vpPerTurn}}</1> GP-t veszít.",
     "unitsOrgRegain": "Egységek felépülése (Org)"
   },
   "offerDrawModal": {

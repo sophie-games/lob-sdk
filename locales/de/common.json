@@ -404,7 +404,7 @@
     "lossesRatio": "Verhältnis der Verluste",
     "objectives": "Objektive",
     "timeUnderPressure": "Zeit unter Druck",
-    "timeUnderPressureTooltip": "Zeit unter Druck ist die Zeit, in der ein Team <0>{{percentage}}%</0> der Ziele SP oder weniger kontrolliert. Je länger ein Team unter Druck steht, desto mehr Siegpunkte verliert es.",
+    "timeUnderPressureTooltip": "Zeit unter Druck ist die Zeit, in der ein Team <0>{{percentage}}%</0> der Objektiv-VP oder weniger hält. Unter Druck verliert ein Team <1>{{vpPerTurn}}</1> VP pro Zug.",
     "unitsOrgRegain": "Einheiten Org Wiedergewinnung"
   },
   "offerDrawModal": {

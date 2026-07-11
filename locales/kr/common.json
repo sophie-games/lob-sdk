@@ -438,7 +438,7 @@
     "lossesRatio": "손실률",
     "objectives": "지점목표",
     "timeUnderPressure": "압박 시간",
-    "timeUnderPressureTooltip": "압박 시간은 팀이 지점목표를 <0>{{percentage}}%</0> VP 이하로 점령한 시간을 말합니다. 압박 시간이 길어질수록 더 많은 승점을 잃게 됩니다.",
+    "timeUnderPressureTooltip": "압박 시간은 팀이 목표 VP의 <0>{{percentage}}%</0> 이하를 보유한 시간입니다. 압박 상태에서 팀은 매 턴 <1>{{vpPerTurn}}</1> VP를 잃습니다.",
     "unitsOrgRegain": "부대 조직력 회복"
   },
   "offerDrawModal": {

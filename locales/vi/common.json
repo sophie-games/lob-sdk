@@ -442,7 +442,7 @@
     "lossesRatio": "Tỷ lệ tổn thất",
     "objectives": "Mục tiêu",
     "timeUnderPressure": "Thời gian bị áp lực",
-    "timeUnderPressureTooltip": "Thời gian bị áp lực là thời gian một đội có <0>{{percentage}}%</0> mục tiêu ĐCT hoặc ít hơn. Đội càng bị áp lực lâu, càng mất nhiều điểm chiến thắng.",
+    "timeUnderPressureTooltip": "Thời gian bị áp lực là khoảng thời gian một đội nắm giữ <0>{{percentage}}%</0> VP mục tiêu hoặc ít hơn. Khi bị áp lực, một đội mất <1>{{vpPerTurn}}</1> VP mỗi lượt.",
     "unitsOrgRegain": "Hồi phục tổ chức đơn vị"
   },
   "offerDrawModal": {

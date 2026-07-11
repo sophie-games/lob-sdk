@@ -407,7 +407,7 @@
     "lossesRatio": "Ratio de Pérdidas",
     "objectives": "Objetivos",
     "timeUnderPressure": "Tiempo bajo presión",
-    "timeUnderPressureTooltip": "El tiempo bajo presión es el tiempo en que un equipo controla <0>{{percentage}}%</0> de los objetivos PV o menos. Cuanto más tiempo permanezca un equipo bajo presión, más puntos de victoria perderá.",
+    "timeUnderPressureTooltip": "El tiempo bajo presión es el tiempo que un equipo tiene <0>{{percentage}}%</0> de los VP de objetivos o menos. Bajo presión, un equipo pierde <1>{{vpPerTurn}}</1> VP por turno.",
     "unitsOrgRegain": "Recuperación de la Org de las Unidades"
   },
   "offerDrawModal": {

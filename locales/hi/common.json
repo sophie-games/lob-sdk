@@ -442,7 +442,7 @@
     "lossesRatio": "हानि अनुपात",
     "objectives": "उद्देश्य",
     "timeUnderPressure": "दबाव के तहत समय",
-    "timeUnderPressureTooltip": "दबाव के तहत समय वह समय है जब एक टीम के पास उद्देश्यों का <0>{{percentage}}%</0> विजय अंक या उससे कम होता है। जितनी देर एक टीम दबाव में रहती है, उतने अधिक विजय अंक वे खोते हैं।",
+    "timeUnderPressureTooltip": "दबाव में समय वह समय है जब किसी टीम के पास लक्ष्य VP का <0>{{percentage}}%</0> या कम होता है। दबाव में, टीम हर टर्न <1>{{vpPerTurn}}</1> VP खोती है।",
     "unitsOrgRegain": "इकाइयाँ संगठन पुनर्प्राप्ति"
   },
   "offerDrawModal": {

@@ -448,7 +448,7 @@
     "lossesRatio": "Losses Ratio",
     "objectives": "Objectives",
     "timeUnderPressure": "Time under pressure",
-    "timeUnderPressureTooltip": "Time under pressure is the time a team has the <0>{{percentage}}%</0> of the objectives VPs or less. The longer a team is under pressure, the more victory points they lose.",
+    "timeUnderPressureTooltip": "Time under pressure is the time a team holds <0>{{percentage}}%</0> of the objective VPs or less. While under pressure, a team loses <1>{{vpPerTurn}}</1> VP per turn.",
     "unitsOrgRegain": "Units org regain"
   },
   "offerDrawModal": {
