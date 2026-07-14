@@ -42,6 +42,21 @@ describe("GameDataManager", () => {
     });
   });
 
+  describe("getCentralNeutralObjectives", () => {
+    it("returns the configured central count per battle type", () => {
+      expect(gameDataManager.getCentralNeutralObjectives("micro")).toBe(2);
+      expect(gameDataManager.getCentralNeutralObjectives("combat")).toBe(2);
+      expect(gameDataManager.getCentralNeutralObjectives("battle")).toBe(3);
+      expect(gameDataManager.getCentralNeutralObjectives("grand_battle")).toBe(
+        3,
+      );
+    });
+
+    it("defaults to 1 (single drifting objective) for a null battle type", () => {
+      expect(gameDataManager.getCentralNeutralObjectives(null)).toBe(1);
+    });
+  });
+
   describe("getBattleType", () => {
     describe("default armies respect unit caps from battle-types.json", () => {
       const battleTypes = gameDataManager.getAllDynamicBattleTypes();

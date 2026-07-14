@@ -783,6 +783,22 @@ export class GameDataManager {
   }
 
   /**
+   * Gets how many neutral central objectives spawn on the no-man's-land line at
+   * the end of deployment, defaulting to 1 (the historical single drifting
+   * objective) when the battle type is null or omits centralNeutralObjectives.
+   * @param battleType - The dynamic battle type, or null for preset scenarios.
+   * @returns The number of central neutral objectives.
+   */
+  public getCentralNeutralObjectives(
+    battleType: DynamicBattleType | null,
+  ): number {
+    const fromBattleType = battleType
+      ? this.tryGetBattleType(battleType)?.centralNeutralObjectives
+      : undefined;
+    return fromBattleType ?? 1;
+  }
+
+  /**
    * Gets the game constants for the current era.
    * @returns The game constants object.
    */

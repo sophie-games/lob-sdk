@@ -113,6 +113,13 @@ export interface BattleTypeTemplate {
    */
   smallObjectivesPerSide?: number;
   /**
+   * Number of neutral objectives spawned on the no-man's-land line at the end of
+   * deployment, spread along that line as a contested tiebreaker row. Omit for
+   * the single drifting neutral objective. Read via
+   * GameDataManager.getCentralNeutralObjectives.
+   */
+  centralNeutralObjectives?: number;
+  /**
    * Per-battle-type override for the casualties VP weight (the objectives
    * rule's vpLossRatioPoints). Omit to inherit the era default. Resolved via the
    * BaseGame.vpLossRatioPoints getter (scenario override > battle type > era).
