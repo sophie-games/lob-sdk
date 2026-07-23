@@ -26,6 +26,7 @@ import { ConnectClustersExecutor } from "./executors/connect-clusters";
 import { ObjectiveExecutor } from "./executors/objective";
 import { ObjectiveLayerExecutor } from "./executors/objective-layer";
 import { LakeExecutor } from "./executors/lake";
+import { normalizeMapGrids } from "./normalize-map-grids";
 import { deriveSeed, generateRandomSeed, randomSeeded } from "@lob-sdk/seed";
 import { GameDataManager, GameEra } from "@lob-sdk/game-data-manager";
 import { getRandomInt } from "@lob-sdk/utils";
@@ -74,11 +75,30 @@ export class RandomMapGenerator {
     let heightPx: number;
 
     if (fixedMap) {
-      // Deep-copy to avoid mutating frozen JSON imports when overlays run.
-      terrains = fixedMap.terrains.map((row) => [...row]);
-      heightMap = fixedMap.heightMap.map((row) => [...row]);
       widthPx = fixedMap.width;
       heightPx = fixedMap.height;
+      // Deep-copy AND repair: force both grids rectangular to the declared size.
+      // A malformed import (e.g. an editor resize that left heightMap a few
+      // columns shorter than terrains) would otherwise be indexed raw downstream
+      // and crash the turn simulation (fog-of-war LOS), bots, and rendering.
+      // Runs before instruction executors, which also index the grids raw.
+      const repair = normalizeMapGrids(
+        fixedMap.terrains,
+        fixedMap.heightMap,
+        Math.floor(widthPx / tileSize),
+        Math.floor(heightPx / tileSize),
+        scenario.baseTerrain ?? TerrainType.Grass,
+      );
+      terrains = repair.terrains;
+      heightMap = repair.heightMap;
+      if (repair.repaired) {
+        console.warn(
+          `[RandomMapGenerator] Repaired malformed fixedMap grids for scenario "${scenario.name}": ` +
+            `terrains ${fixedMap.terrains.length}x${fixedMap.terrains[0]?.length ?? 0}, ` +
+            `heightMap ${fixedMap.heightMap.length}x${fixedMap.heightMap[0]?.length ?? 0} ` +
+            `-> ${Math.floor(widthPx / tileSize)}x${Math.floor(heightPx / tileSize)}.`,
+        );
+      }
     } else {
       // Precedence: caller-supplied tilesX/tilesY (scenario editor) >
       // scenario.fixedSize (pinned dimensions) > battle-size defaults.
