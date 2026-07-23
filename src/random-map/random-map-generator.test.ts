@@ -539,6 +539,47 @@ describe("RandomMapGenerator", () => {
       expect(result.map.terrains[3][4]).toBe(TerrainType.ShallowWater);
     });
 
+    it("pads a heightMap shorter than terrains to the declared dimensions", () => {
+      // Regression: a real user scenario shipped with heightMap a few columns
+      // shorter than terrains (an editor resize desync). Left as-is it crashed
+      // the turn simulation on units standing in the missing columns.
+      const generator = new RandomMapGenerator();
+      const terrains = buildBakedTerrains();
+      const shortHeightMap = buildBakedHeightMap();
+      shortHeightMap.length = TILES_X - 3; // drop the last 3 columns
+
+      const scenario: Scenario = {
+        version: SCENARIO_SCHEMA_VERSION,
+        name: "short-heightmap",
+        description: "test",
+        map: {
+          width: TILES_X * TILE_SIZE,
+          height: TILES_Y * TILE_SIZE,
+          terrains,
+          heightMap: shortHeightMap,
+          seed: 7,
+        },
+      };
+
+      const result = generator.generate({
+        scenario,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
+        maxPlayers: 2,
+        tileSize: TILE_SIZE,
+        era: "napoleonic",
+      });
+
+      // Both grids are rebuilt rectangular to the declared tile dimensions.
+      expect(result.map.terrains.length).toBe(TILES_X);
+      expect(result.map.heightMap.length).toBe(TILES_X);
+      expect(result.map.terrains.every((c) => c.length === TILES_Y)).toBe(true);
+      expect(result.map.heightMap.every((c) => c.length === TILES_Y)).toBe(true);
+      // Present heights preserved; padded columns default to 0; terrain intact.
+      expect(result.map.heightMap[0][0]).toBe(7);
+      expect(result.map.heightMap[TILES_X - 1][0]).toBe(0);
+      expect(result.map.terrains[3][4]).toBe(TerrainType.ShallowWater);
+    });
+
     it("does not mutate the prebaked arrays when overlays run", () => {
       const generator = new RandomMapGenerator();
       const terrains = buildBakedTerrains();
