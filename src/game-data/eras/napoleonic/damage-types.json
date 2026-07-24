@@ -1217,27 +1217,38 @@
       "to": 0.4,
       "value": -0.7
     },
-    "maxRange": 150,
+    "maxRange": 450,
     "ranges": [
       {
         "from": 0,
-        "to": 0.53,
+        "to": 0.18,
         "damageModifier": {
           "near": 1.75,
           "far": 1.25
         },
-        "name": "close"
+        "name": "close",
+        "engagementTier": 0
       },
       {
-        "from": 0.53,
-        "to": 1,
+        "from": 0.18,
+        "to": 0.33,
         "damageModifier": {
           "near": 1.25,
           "far": 0.75
-        }
+        },
+        "engagementTier": 1
+      },
+      {
+        "from": 0.33,
+        "to": 1,
+        "damageModifier": {
+          "near": 0,
+          "far": -0.6
+        },
+        "name": "long"
       }
     ],
-    "arcHeight": 1.5,
+    "arcHeight": 4.5,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.4,
     "areaOfEffect": {
@@ -1248,6 +1259,12 @@
           "end": 150,
           "startRadius": 18,
           "endRadius": 28
+        },
+        {
+          "start": 150,
+          "end": 450,
+          "startRadius": 28,
+          "endRadius": 44
         }
       ],
       "edgeDamageModifier": -0.1,
