@@ -12,6 +12,11 @@ import {
   FormationTemplate,
   OrderTemplate,
   OrderType,
+  UnitCategoryId,
+  UnitType,
+  DynamicBattleType,
+  ScenarioBattleTypeOverride,
+  PlayerBudgetOverride,
 } from "@lob-sdk/types";
 import type {
   DamageTypeTemplate,
@@ -31,6 +36,26 @@ import { Tutorial } from "./tutorial";
 export interface CustomTerrainCategoryOverride {
   id: string;
   config: TerrainCategoryConfig;
+}
+
+/**
+ * One heading in the army panel's card grid. Members are named individually by
+ * {@link unitTypes}; a unit no group claims falls into the trailing "Custom"
+ * bucket the panel always appends, so a partial layout never hides a unit.
+ */
+export interface ArmyPanelGroup {
+  /** Stable key, unique within the scenario. */
+  id: string;
+  /**
+   * Reuses a built-in localized heading (e.g. `"infantry"`, `"cavalry"`), so
+   * an author can rearrange the stock groups without hardcoding English.
+   * Takes precedence over {@link name}.
+   */
+  titleKey?: string;
+  /** Heading for an author-created group. Used when {@link titleKey} is unset. */
+  name?: string;
+  /** The units placed in this group. */
+  unitTypes?: UnitType[];
 }
 
 /**
@@ -562,4 +587,38 @@ export interface Scenario {
    * `id`/`name` identity fields must not be changed.
    */
   customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
+
+  /**
+   * Author-defined layout for the army panel's card grid. Replaces the era's
+   * `army-panel-groups.json` when present; array order is the order players
+   * see. Units no group claims fall into the trailing "Custom" bucket, so a
+   * partial layout never hides a unit.
+   */
+  customArmyPanelGroups?: ArmyPanelGroup[];
+
+  /**
+   * Sparse per-scenario overrides for the era's dynamic battle types, keyed by
+   * {@link DynamicBattleType}. Each entry overrides only the authorable
+   * budget/cap fields (manpower, gold, per-unit caps); merged onto a clone of
+   * the era battle type by the per-game GameDataManager so both the army panel
+   * and validateArmy see the scenario's values.
+   */
+  customBattleTypes?: Partial<Record<DynamicBattleType, ScenarioBattleTypeOverride>>;
+
+  /**
+   * Absolute per-player budget overrides, keyed by player number. Each entry
+   * replaces the battle type's starting manpower and/or gold for that one
+   * player slot, regardless of battle type. Player-specific, so resolved per
+   * player at army validation / display time (not merged into the shared battle
+   * type). In the lobby, each slot's player number selects its override.
+   */
+  playerBudgetOverrides?: Record<number, PlayerBudgetOverride>;
+
+  /**
+   * When true, this scenario fields only its own custom units: the era's
+   * default units (type < CUSTOM_UNIT_TYPE_MIN) are hidden from the army panel
+   * and rejected by validateArmy. Requires at least one custom unit template to
+   * be playable. Carried on the per-game GameDataManager.
+   */
+  disableEraDefaultUnits?: boolean;
 }

@@ -131,6 +131,39 @@ describe("validateScenarioCustomDefs", () => {
     });
   });
 
+  describe("custom unit pricing", () => {
+    // A negative price reduces total army cost as count rises, so one such unit
+    // buys an unlimited army once custom units become purchasable.
+    it.each(["manpower", "gold"] as const)(
+      "rejects a negative %s price",
+      (key) => {
+        const errors = validateScenarioCustomDefs(
+          makeScenario({
+            customUnitTemplates: [makeUnitTemplate({ [key]: -100 })],
+          }),
+          era,
+        );
+        expect(
+          errors.some(
+            (e) =>
+              e.scope === "unitTemplate" &&
+              new RegExp(`${key} must be >= 0`).test(e.message),
+          ),
+        ).toBe(true);
+      },
+    );
+
+    it("accepts a zero price (legitimately free units)", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customUnitTemplates: [makeUnitTemplate({ manpower: 0, gold: 0 })],
+        }),
+        era,
+      );
+      expect(errors.some((e) => /must be >= 0/.test(e.message))).toBe(false);
+    });
+  });
+
   describe("numeric field bounds", () => {
     it("flags a non-finite unit-template stat", () => {
       const errors = validateScenarioCustomDefs(

@@ -562,4 +562,37 @@ describe("GameDataManager custom defs", () => {
       expect(a).toBe(GameDataManager.get("napoleonic"));
     });
   });
+
+  describe("loadCustomDefs: custom battle types", () => {
+    it("overrides manpower/gold and merges unitCaps without mutating the era singleton", () => {
+      const era = GameDataManager.get("napoleonic");
+      const eraMicro = era.getBattleType("micro");
+      const eraManpower = eraMicro.manpower;
+      const eraGold = eraMicro.gold;
+      const eraCap17 = eraMicro.unitCaps["17"];
+
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customBattleTypes: {
+          micro: { manpower: 9999, unitCaps: { "1": 3 } },
+        },
+      });
+
+      const micro = m.getBattleType("micro");
+      expect(micro.manpower).toBe(9999); // overridden
+      expect(micro.gold).toBe(eraGold); // untouched field kept
+      expect(micro.unitCaps["1"]).toBe(3); // new cap merged in
+      expect(micro.unitCaps["17"]).toBe(eraCap17); // era cap preserved
+
+      // The shared era battle type is never mutated.
+      expect(era.getBattleType("micro").manpower).toBe(eraManpower);
+      expect(era.getBattleType("micro").unitCaps["1"]).toBeUndefined();
+    });
+
+    it("returns a fresh non-singleton when only battle types are customized", () => {
+      const custom = GameDataManager.createWithCustomDefs("napoleonic", {
+        customBattleTypes: { micro: { gold: 1 } },
+      });
+      expect(custom).not.toBe(GameDataManager.get("napoleonic"));
+    });
+  });
 });

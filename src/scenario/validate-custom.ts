@@ -712,6 +712,21 @@ function validateCustomUnitTemplates(
       });
     }
 
+    // Army cost accumulates as `price * count` (common/src/army/index.ts), so a
+    // negative price *reduces* the total as you buy more — one negative unit
+    // buys an unlimited army. findOutOfRangeNumbers only guards magnitude
+    // (it uses Math.abs), so the sign has to be checked explicitly here.
+    for (const key of ["manpower", "gold"] as const) {
+      const price = template[key];
+      if (typeof price === "number" && price < 0) {
+        errors.push({
+          scope: "unitTemplate",
+          field: template.name,
+          message: `${key} must be >= 0; a negative price lets an army exceed its budget without limit`,
+        });
+      }
+    }
+
     // Only runnable units read runCost/walkMovement (and NaN-freeze without them);
     // immobile units (walls, static artillery) legitimately omit them.
     if ((template.runMovement ?? 0) > 0) {

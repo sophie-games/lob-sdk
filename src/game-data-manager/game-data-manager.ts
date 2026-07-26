@@ -6,6 +6,7 @@ import {
   ScenarioName,
   BattleTypeTemplate,
   DynamicBattleType,
+  ScenarioBattleTypeOverride,
   TerrainCategoryType,
   TerrainCategoryConfig,
   TerrainType,
@@ -207,6 +208,14 @@ export class GameDataManager {
   private _headOnCollisionCosineThresholdSquared: number = -1;
 
   /**
+   * When true, this scenario disables the era's default units: only custom unit
+   * templates (type >= CUSTOM_UNIT_TYPE_MIN) are fieldable, so the army panel
+   * hides era units and validateArmy rejects them. Set per-game from the
+   * scenario's `disableEraDefaultUnits` flag; false on the era singleton.
+   */
+  public disableEraDefaultUnits = false;
+
+  /**
    * Gets or creates a GameDataManager instance for the specified era.
    * Uses a singleton pattern to ensure only one instance exists per era.
    * @param era - The game era ("napoleonic" or "ww2").
@@ -251,6 +260,10 @@ export class GameDataManager {
       customGameConstants?: Partial<GameConstants>;
       customGameRules?: DeepPartial<GameRules>;
       customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
+      customBattleTypes?: Partial<
+        Record<DynamicBattleType, ScenarioBattleTypeOverride>
+      >;
+      disableEraDefaultUnits?: boolean;
     },
   ): GameDataManager {
     const hasCustom = !!(
@@ -261,7 +274,9 @@ export class GameDataManager {
       customDefs.customTerrainCategories?.length ||
       Object.keys(customDefs.customGameConstants ?? {}).length ||
       Object.keys(customDefs.customGameRules ?? {}).length ||
-      Object.keys(customDefs.customOrders ?? {}).length
+      Object.keys(customDefs.customOrders ?? {}).length ||
+      Object.keys(customDefs.customBattleTypes ?? {}).length ||
+      customDefs.disableEraDefaultUnits
     );
 
     if (!hasCustom) {
@@ -288,7 +303,13 @@ export class GameDataManager {
     customGameConstants?: Partial<GameConstants>;
     customGameRules?: DeepPartial<GameRules>;
     customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
+    customBattleTypes?: Partial<
+      Record<DynamicBattleType, ScenarioBattleTypeOverride>
+    >;
+    disableEraDefaultUnits?: boolean;
   }): void {
+    this.disableEraDefaultUnits = customDefs.disableEraDefaultUnits ?? false;
+
     // Order matters: orders → categories → terrain categories → damage types →
     // formations → templates. Terrain categories slot in after unit
     // categories so the wildcard expansion has the full set of unit
@@ -438,6 +459,34 @@ export class GameDataManager {
         this.getGameRules(),
         customDefs.customGameRules,
       );
+    }
+
+    if (
+      customDefs.customBattleTypes &&
+      Object.keys(customDefs.customBattleTypes).length > 0
+    ) {
+      // Shallow-clone the shared era map, then replace only the overridden
+      // battle types with fresh objects (never mutating the era originals):
+      // manpower/gold replace, unitCaps merge over the base by unit type.
+      this.battleTypes = { ...this.battleTypes };
+      for (const [battleType, override] of Object.entries(
+        customDefs.customBattleTypes,
+      )) {
+        const base = this.battleTypes[battleType as DynamicBattleType];
+        if (!override || !base) {
+          continue;
+        }
+        this.battleTypes[battleType as DynamicBattleType] = {
+          ...base,
+          ...(override.manpower !== undefined
+            ? { manpower: override.manpower }
+            : {}),
+          ...(override.gold !== undefined ? { gold: override.gold } : {}),
+          ...(override.unitCaps
+            ? { unitCaps: { ...base.unitCaps, ...override.unitCaps } }
+            : {}),
+        };
+      }
     }
   }
 
