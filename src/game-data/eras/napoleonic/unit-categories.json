@@ -302,14 +302,15 @@
   {
     "id": "militiaInfantry",
     "chargeStaminaCost": 10000,
-    "chargeBacklashMultiplier": 1.5,
+    "chargeBacklashMultiplier": 0.75,
     "runChargeBacklashMultiplier": 0.75,
     "deploymentSection": "center",
     "damageTypeResistances": {
-      "cavalry-sabre": 0,
-      "cavalry-lance": 0,
-      "dragoon-sword": 0,
-      "cavalry-sword": 0
+      "cavalry-sabre": -1,
+      "cavalry-lance": -1,
+      "dragoon-sword": -1,
+      "cavalry-sword": -1,
+      "horse-archer-bow": -1
     },
     "firingAltitude": 0.98,
     "captureSpeed": 2.0,
@@ -349,7 +350,8 @@
       "baseSpeed": "run"
     },
     "damageTypeResistances": {
-      "bayonet": -0.4,
+      "bayonet": -0.75,
+      "artillery-sabre": -2,
       "cavalry-sabre": -0.75,
       "cavalry-sword": -0.75,
       "cavalry-lance": -0.75,
