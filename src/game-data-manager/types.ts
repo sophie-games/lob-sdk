@@ -218,6 +218,12 @@ export interface GameConstants {
   MIN_EFFECTIVE_VPS: number;
 
   SHOT_TRAJECTORY_TARGET_ALTITUDE: number;
+  /**
+   * How much of a gun point's slice of the frontage a body must cover for it to hold
+   * fire. Each gun point owns 1/n of its face, so this is a hitbox rather than a point.
+   * A silenced gun point drops its whole share, never a fraction of it.
+   */
+  FIRE_EMITTER_BLOCKED_COVERAGE: number;
 
   OFFER_DRAW_COOLDOWN: number;
   MAX_ENTITY_NAME_LENGTH: number;
