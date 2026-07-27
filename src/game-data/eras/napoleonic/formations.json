@@ -11,14 +11,14 @@
     "rotationSpeedModifier": 0.1,
     "rangedAttackModifier": -0.4,
     "disablesEnfiladeFire": true,
-    "rangedDamageResistance": -0.2,
+    "rangedDamageResistance": -0.15,
     "rangedOrgResistance": 0.4,
-    "chargeResistanceModifier": 0.1,
+    "chargeResistanceModifier": 0.2,
     "flankChargeResistance": -0.75,
     "timeToForm": 4,
     "timeToUnform": 2,
     "minMovementModifier": -0.5,
-    "receivedMeleeDamageModifier": 0,
+    "receivedMeleeDamageModifier": 0.05,
     "projectilePassThrough": 0.1
   },
   {

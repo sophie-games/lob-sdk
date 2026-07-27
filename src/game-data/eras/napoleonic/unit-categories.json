@@ -69,9 +69,9 @@
       "baseSpeed": "run"
     },
     "damageTypeResistances": {
-      "bayonet": 0,
+      "bayonet": -0.35,
       "cavalry-sabre": 0,
-      "musket": -0.5,
+      "musket": -0.35,
       "marksman-musket": -0.35,
       "rifle": -0.35,
       "8lb-cannon-ball": 0.15,
@@ -171,10 +171,10 @@
       "baseSpeed": "run"
     },
     "damageTypeResistances": {
-      "bayonet": 0,
+      "bayonet": -0.35,
       "dragoon-sword": 0,
       "cavalry-sword": 0,
-      "musket": -0.6,
+      "musket": -0.5,
       "marksman-musket": -0.4,
       "rifle": -0.4,
       "8lb-cannon-ball": 0.2,
@@ -217,11 +217,11 @@
       "baseSpeed": "run"
     },
     "damageTypeResistances": {
-      "bayonet": 0,
+      "bayonet": -0.35,
       "cavalry-sword": 0,
       "dragoon-sword": 0,
       "cavalry-sabre": 0,
-      "musket": -0.4,
+      "musket": -0.3,
       "marksman-musket": -0.3,
       "rifle": -0.3,
       "8lb-cannon-ball": 0.15,
@@ -263,10 +263,10 @@
       "baseSpeed": "run"
     },
     "damageTypeResistances": {
-      "bayonet": 0,
+      "bayonet": -0.35,
       "cavalry-sabre": 0,
       "dragoon-sword": 0,
-      "musket": -0.5,
+      "musket": -0.4,
       "marksman-musket": -0.35,
       "rifle": -0.35,
       "8lb-cannon-ball": 0.15,
