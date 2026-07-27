@@ -248,7 +248,7 @@
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.85,
+    "projectilePenetration": 0.65,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -264,7 +264,7 @@
         }
       ],
       "absorptionModifier": 2,
-      "offset": 0.8,
+      "offset": 0.6,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
         "damageModifierPerLevel": -0.05,
@@ -369,7 +369,7 @@
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.85,
+    "projectilePenetration": 0.65,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -395,7 +395,7 @@
         }
       ],
       "absorptionModifier": 2,
-      "offset": 0.8,
+      "offset": 0.6,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
         "damageModifierPerLevel": -0.05,
@@ -442,7 +442,7 @@
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.65,
+    "projectilePenetration": 0.55,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -458,7 +458,7 @@
         }
       ],
       "absorptionModifier": 2,
-      "offset": 0.8,
+      "offset": 0.6,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
         "damageModifierPerLevel": -0.05,
@@ -563,7 +563,7 @@
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.65,
+    "projectilePenetration": 0.55,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -589,7 +589,7 @@
         }
       ],
       "absorptionModifier": 2,
-      "offset": 0.8,
+      "offset": 0.6,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
         "damageModifierPerLevel": -0.05,
@@ -720,7 +720,7 @@
         }
       ],
       "absorptionModifier": 2,
-      "offset": 0.8,
+      "offset": 0.6,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
         "damageModifierPerLevel": -0.05,
@@ -825,7 +825,7 @@
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.4,
+    "projectilePenetration": 0.35,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -851,7 +851,7 @@
         }
       ],
       "absorptionModifier": 2,
-      "offset": 0.8,
+      "offset": 0.6,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
         "damageModifierPerLevel": -0.05,
@@ -958,7 +958,7 @@
           "start": 210,
           "end": 425,
           "startRadius": 25,
-          "endRadius": 28
+          "endRadius": 31
         }
       ],
       "edgeDamageModifier": -0.9,
