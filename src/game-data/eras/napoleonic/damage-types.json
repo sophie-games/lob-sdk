@@ -420,7 +420,7 @@
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
-      "value": -0.9
+      "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
@@ -1045,7 +1045,7 @@
     "orgDamageRatio": 32000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
-    "projectileWidth": 10,
+    "projectileWidth": 11,
     "maxRange": 110,
     "ranges": [
       {
