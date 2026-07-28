@@ -13,6 +13,7 @@ import {
   RangeUnitTemplate,
   Scenario,
   UnitTemplate,
+  UnitType,
 } from "@lob-sdk/types";
 import {
   DamageTypeTemplate,
@@ -1261,6 +1262,182 @@ describe("validateCustomSprites", () => {
         era,
       );
       expect(errors.some((e) => e.scope === "order")).toBe(true);
+    });
+  });
+
+  describe("custom battle type & player budget overrides", () => {
+    const battleType = "skirmish";
+    const unitType = era.getUnitTemplateManager().getTemplates()[0].type;
+
+    it("rejects a negative battle-type manpower budget", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: { [battleType]: { manpower: -100 } },
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "battleType" && /manpower must be >= 0/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("rejects a non-finite battle-type gold budget", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: { [battleType]: { gold: Infinity } },
+        }),
+        era,
+      );
+      expect(errors.some((e) => e.scope === "battleType")).toBe(true);
+    });
+
+    it("rejects a negative unit cap", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: { [battleType]: { unitCaps: { [unitType]: -1 } } },
+        }),
+        era,
+      );
+      expect(
+        errors.some((e) => e.scope === "battleType" && /unitCaps/.test(e.message)),
+      ).toBe(true);
+    });
+
+    it("rejects a fractional unit cap", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: { [battleType]: { unitCaps: { [unitType]: 2.5 } } },
+        }),
+        era,
+      );
+      expect(
+        errors.some((e) => e.scope === "battleType" && /unitCaps/.test(e.message)),
+      ).toBe(true);
+    });
+
+    it("rejects a negative player budget override", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          playerBudgetOverrides: { 1: { gold: -50 } },
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) => e.scope === "playerBudget" && /gold must be >= 0/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("accepts valid battle-type and player budget overrides", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: {
+            [battleType]: {
+              manpower: 1000,
+              gold: 500,
+              unitCaps: { [unitType]: 3 },
+            },
+          },
+          playerBudgetOverrides: { 1: { manpower: 800 }, 2: { gold: 600 } },
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) => e.scope === "battleType" || e.scope === "playerBudget",
+        ),
+      ).toBe(false);
+    });
+  });
+
+  describe("custom army panel groups", () => {
+    const builtInType = era.getUnitTemplateManager().getTemplates()[0].type;
+
+    it("accepts a group naming built-in and custom unit types", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customUnitTemplates: [makeUnitTemplate()],
+          customArmyPanelGroups: [
+            {
+              id: "vanguard",
+              name: "Vanguard",
+              unitTypes: [builtInType, CUSTOM_UNIT_TYPE_MIN],
+            },
+          ],
+        }),
+        era,
+      );
+      expect(errors.filter((e) => e.scope === "armyPanelGroup")).toEqual([]);
+    });
+
+    it("rejects a missing/empty group id", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customArmyPanelGroups: [{ id: "  ", unitTypes: [] }],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) => e.scope === "armyPanelGroup" && /id is required/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("rejects duplicate group ids", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customArmyPanelGroups: [
+            { id: "dup", unitTypes: [] },
+            { id: "dup", unitTypes: [] },
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) => e.scope === "armyPanelGroup" && /Duplicate/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("rejects a non-array unitTypes (the one runtime crash vector)", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customArmyPanelGroups: [
+            // A hand-crafted import can smuggle a non-array here; the panel's
+            // for..of would throw. Cast around the compile-time type to model it.
+            { id: "bad", unitTypes: 5 as unknown as UnitType[] },
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "armyPanelGroup" && /must be an array/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("rejects a unitTypes entry that names no known unit type", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customArmyPanelGroups: [{ id: "ghost", unitTypes: [999999] }],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "armyPanelGroup" &&
+            /not a built-in or custom unit type/.test(e.message),
+        ),
+      ).toBe(true);
     });
   });
 });

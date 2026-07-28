@@ -8,6 +8,11 @@ import {
   OrderTemplate,
   OrderType,
   CollisionShapeType,
+  DynamicBattleType,
+  ScenarioBattleTypeOverride,
+  PlayerBudgetOverride,
+  ArmyPanelGroup,
+  UnitType,
   isCircleCollision,
   getCollisionConfig,
 } from "@lob-sdk/types";
@@ -69,7 +74,10 @@ export interface CustomDefValidationError {
     | "customSprite"
     | "gameConstants"
     | "gameRules"
-    | "order";
+    | "order"
+    | "battleType"
+    | "playerBudget"
+    | "armyPanelGroup";
   field?: string;
   message: string;
 }
@@ -94,6 +102,9 @@ export function validateScenarioCustomDefs(
   const customGameConstants = scenario.customGameConstants ?? {};
   const customGameRules = scenario.customGameRules ?? {};
   const customOrders = scenario.customOrders ?? {};
+  const customBattleTypes = scenario.customBattleTypes ?? {};
+  const playerBudgetOverrides = scenario.playerBudgetOverrides ?? {};
+  const customArmyPanelGroups = scenario.customArmyPanelGroups ?? [];
 
   const countLimits: Array<
     [number, number, CustomDefValidationError["scope"], string]
@@ -133,7 +144,169 @@ export function validateScenarioCustomDefs(
   errors.push(...validateGameConstantOverrides(customGameConstants));
   errors.push(...validateGameRuleOverrides(customGameRules));
   errors.push(...validateCustomOrders(customOrders, eraGameDataManager));
+  errors.push(...validateCustomBattleTypes(customBattleTypes));
+  errors.push(...validatePlayerBudgetOverrides(playerBudgetOverrides));
+  errors.push(
+    ...validateCustomArmyPanelGroups(
+      customArmyPanelGroups,
+      customUnitTemplates,
+      eraGameDataManager,
+    ),
+  );
 
+  return errors;
+}
+
+/**
+ * Validates the author-defined buy-menu headings. Each group must be an object
+ * with a unique non-empty id, and `unitTypes` (when present) must be an array of
+ * known unit types. The runtime (buildUnitGroups) drops unresolved types and
+ * defaults a missing list, so bad data mostly degrades silently — EXCEPT a
+ * non-array `unitTypes`, which throws in the panel's `for..of`. This is the
+ * server-side import gate, so a crafted scenario can't slip either past it.
+ */
+function validateCustomArmyPanelGroups(
+  groups: ArmyPanelGroup[],
+  customUnitTemplates: UnitTemplate[],
+  eraGameDataManager: GameDataManager,
+): CustomDefValidationError[] {
+  const errors: CustomDefValidationError[] = [];
+  const seenIds = new Set<string>();
+  const knownTypes = new Set<UnitType>([
+    ...eraGameDataManager
+      .getUnitTemplateManager()
+      .getTemplates()
+      .map((template) => template.type),
+    ...customUnitTemplates.map((template) => template.type),
+  ]);
+
+  for (const group of groups) {
+    if (!isObject(group)) {
+      errors.push({
+        scope: "armyPanelGroup",
+        message: "Army panel group must be an object",
+      });
+      continue;
+    }
+    if (typeof group.id !== "string" || group.id.trim() === "") {
+      errors.push({
+        scope: "armyPanelGroup",
+        message: "Army panel group id is required",
+      });
+      continue;
+    }
+    if (seenIds.has(group.id)) {
+      errors.push({
+        scope: "armyPanelGroup",
+        field: group.id,
+        message: `Duplicate army panel group id "${group.id}"`,
+      });
+    }
+    seenIds.add(group.id);
+
+    if (group.unitTypes !== undefined) {
+      if (!Array.isArray(group.unitTypes)) {
+        errors.push({
+          scope: "armyPanelGroup",
+          field: group.id,
+          message: `Army panel group "${group.id}" unitTypes must be an array`,
+        });
+      } else {
+        for (const type of group.unitTypes) {
+          if (!knownTypes.has(type)) {
+            errors.push({
+              scope: "armyPanelGroup",
+              field: group.id,
+              message: `Army panel group "${group.id}" references unit type ${type}, which is not a built-in or custom unit type`,
+            });
+          }
+        }
+      }
+    }
+  }
+
+  return errors;
+}
+
+/**
+ * Validates the sparse per-battle-type budget/cap overrides. Budgets (manpower,
+ * gold) must be finite and non-negative; per-unit caps must be non-negative
+ * integers. findOutOfRangeNumbers only guards magnitude/finiteness (via
+ * Math.abs), so the sign and integer-ness are checked explicitly, mirroring the
+ * custom-unit-template price guard.
+ */
+function validateCustomBattleTypes(
+  customBattleTypes: Partial<
+    Record<DynamicBattleType, ScenarioBattleTypeOverride>
+  >,
+): CustomDefValidationError[] {
+  const errors: CustomDefValidationError[] = [];
+  for (const [battleType, override] of Object.entries(customBattleTypes)) {
+    if (!override || typeof override !== "object") {
+      errors.push({
+        scope: "battleType",
+        field: battleType,
+        message: `Battle type override "${battleType}" must be an object`,
+      });
+      continue;
+    }
+    for (const message of findOutOfRangeNumbers(override, "")) {
+      errors.push({ scope: "battleType", field: battleType, message });
+    }
+    for (const key of ["manpower", "gold"] as const) {
+      const value = override[key];
+      if (typeof value === "number" && value < 0) {
+        errors.push({
+          scope: "battleType",
+          field: battleType,
+          message: `${key} must be >= 0; a negative starting budget is invalid`,
+        });
+      }
+    }
+    for (const [unitType, cap] of Object.entries(override.unitCaps ?? {})) {
+      if (typeof cap === "number" && (!Number.isInteger(cap) || cap < 0)) {
+        errors.push({
+          scope: "battleType",
+          field: battleType,
+          message: `unitCaps["${unitType}"] must be a non-negative integer`,
+        });
+      }
+    }
+  }
+  return errors;
+}
+
+/**
+ * Validates the absolute per-player budget overrides. Each manpower/gold value
+ * must be finite and non-negative (findOutOfRangeNumbers guards magnitude only).
+ */
+function validatePlayerBudgetOverrides(
+  playerBudgetOverrides: Record<number, PlayerBudgetOverride>,
+): CustomDefValidationError[] {
+  const errors: CustomDefValidationError[] = [];
+  for (const [player, override] of Object.entries(playerBudgetOverrides)) {
+    if (!override || typeof override !== "object") {
+      errors.push({
+        scope: "playerBudget",
+        field: player,
+        message: `Player budget override "${player}" must be an object`,
+      });
+      continue;
+    }
+    for (const message of findOutOfRangeNumbers(override, "")) {
+      errors.push({ scope: "playerBudget", field: player, message });
+    }
+    for (const key of ["manpower", "gold"] as const) {
+      const value = override[key];
+      if (typeof value === "number" && value < 0) {
+        errors.push({
+          scope: "playerBudget",
+          field: player,
+          message: `${key} must be >= 0; a negative starting budget is invalid`,
+        });
+      }
+    }
+  }
   return errors;
 }
 
@@ -713,7 +886,7 @@ function validateCustomUnitTemplates(
     }
 
     // Army cost accumulates as `price * count` (common/src/army/index.ts), so a
-    // negative price *reduces* the total as you buy more — one negative unit
+    // negative price *reduces* the total as you buy more - one negative unit
     // buys an unlimited army. findOutOfRangeNumbers only guards magnitude
     // (it uses Math.abs), so the sign has to be checked explicitly here.
     for (const key of ["manpower", "gold"] as const) {
