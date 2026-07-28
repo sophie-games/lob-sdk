@@ -508,6 +508,16 @@
       "importedCount_one": "Imported {{count}} override.",
       "importedCount_other": "Imported {{count}} overrides."
     },
+    "importArmyCompositionsModal": {
+      "title": "Import army compositions from scenario",
+      "pickFilePrompt": "Pick a scenario file (the JSON the editor's Download button produces) to import its army compositions from.",
+      "noArmyCompositions": "This scenario has no army composition settings to import.",
+      "fieldBattleTypes": "Battle-type budgets & unit caps",
+      "fieldPlayerBudgets": "Per-player budgets",
+      "fieldArmyPanelGroups": "Army panel groups",
+      "fieldDisableEraUnits": "Disable era default units",
+      "resultSummary": "Imported: {{fields}}."
+    },
     "gameConstants": {
       "title": "Game constant overrides",
       "description": "Override this era's numeric constants for this scenario. Only changed values are saved; Reset returns a field to the era default. Keys marked ⚠ are structural - changing them can break rendering, replays, or matchmaking. Values are raw internal units."
