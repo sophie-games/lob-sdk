@@ -29,9 +29,9 @@ export interface PlayerBattleMetadata {
   damageHealed?: UnitCounts;
   /**
    * HP this player inflicted on enemies, keyed by the enemy (victim) unit type.
-   * Symmetric to opposing players' damageTaken: the sum of all players'
-   * damageDealt for a given unit type equals the sum of their opponents'
-   * damageTaken (minus environmental damage with no attributed attacker).
+   * Broadly symmetric to opposing players' damageTaken, but strictly smaller:
+   * damage with no attributed attacker (environmental, shatter) and friendly
+   * fire both count as the victim's damageTaken while being credited to nobody.
    */
   damageDealt?: UnitCounts;
   /**
