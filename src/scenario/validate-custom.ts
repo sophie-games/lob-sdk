@@ -93,18 +93,27 @@ export function validateScenarioCustomDefs(
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
 
-  const customUnitTemplates = scenario.customUnitTemplates ?? [];
-  const customDamageTypes = scenario.customDamageTypes ?? [];
-  const customUnitFormations = scenario.customUnitFormations ?? [];
-  const customUnitCategories = scenario.customUnitCategories ?? [];
-  const customTerrainCategories = scenario.customTerrainCategories ?? [];
+  // Every array collection is normalized with Array.isArray rather than `?? []`:
+  // a hand-crafted import can carry a non-array (e.g. a string) that `??` keeps
+  // as-is, and a later `for..of` over it throws. Since the api-server has no
+  // error middleware, that throw is an unhandled rejection rather than a 4xx, so
+  // it must be turned into empty data here. Object collections are read with
+  // Object.entries/keys downstream, which tolerate non-null primitives, so `??`
+  // is enough for them.
+  const asArray = <T>(value: T[] | undefined): T[] =>
+    Array.isArray(value) ? value : [];
+  const customUnitTemplates = asArray(scenario.customUnitTemplates);
+  const customDamageTypes = asArray(scenario.customDamageTypes);
+  const customUnitFormations = asArray(scenario.customUnitFormations);
+  const customUnitCategories = asArray(scenario.customUnitCategories);
+  const customTerrainCategories = asArray(scenario.customTerrainCategories);
   const customSprites = scenario.customSprites ?? {};
   const customGameConstants = scenario.customGameConstants ?? {};
   const customGameRules = scenario.customGameRules ?? {};
   const customOrders = scenario.customOrders ?? {};
   const customBattleTypes = scenario.customBattleTypes ?? {};
   const playerBudgetOverrides = scenario.playerBudgetOverrides ?? {};
-  const customArmyPanelGroups = scenario.customArmyPanelGroups ?? [];
+  const customArmyPanelGroups = asArray(scenario.customArmyPanelGroups);
 
   const countLimits: Array<
     [number, number, CustomDefValidationError["scope"], string]
@@ -255,7 +264,11 @@ function validateCustomBattleTypes(
     }
     for (const key of ["manpower", "gold"] as const) {
       const value = override[key];
-      if (typeof value === "number" && value < 0) {
+      // The field is optional (an absent one inherits the battle type's value),
+      // so undefined stays valid; anything else present must be a non-negative
+      // finite number. A string/null previously slipped through the old
+      // `typeof === "number"` guard and compared number-to-string downstream.
+      if (value !== undefined && (!Number.isFinite(value) || value < 0)) {
         errors.push({
           scope: "battleType",
           field: battleType,
@@ -264,7 +277,10 @@ function validateCustomBattleTypes(
       }
     }
     for (const [unitType, cap] of Object.entries(override.unitCaps ?? {})) {
-      if (typeof cap === "number" && (!Number.isInteger(cap) || cap < 0)) {
+      // A present cap must be a non-negative integer (0 removes the unit). A
+      // wrong-typed value fails Number.isInteger, so it is rejected rather than
+      // silently blocking the unit with a nonsense message.
+      if (!Number.isInteger(cap) || cap < 0) {
         errors.push({
           scope: "battleType",
           field: battleType,
@@ -298,7 +314,9 @@ function validatePlayerBudgetOverrides(
     }
     for (const key of ["manpower", "gold"] as const) {
       const value = override[key];
-      if (typeof value === "number" && value < 0) {
+      // Optional field: undefined inherits the battle type's value; a present
+      // value must be a non-negative finite number (rejects string/null/NaN).
+      if (value !== undefined && (!Number.isFinite(value) || value < 0)) {
         errors.push({
           scope: "playerBudget",
           field: player,
@@ -891,7 +909,10 @@ function validateCustomUnitTemplates(
     // (it uses Math.abs), so the sign has to be checked explicitly here.
     for (const key of ["manpower", "gold"] as const) {
       const price = template[key];
-      if (typeof price === "number" && price < 0) {
+      // Optional price: undefined is left to the template's own defaulting; a
+      // present value must be non-negative and finite. A wrong-typed price
+      // slipped past the old `typeof === "number"` guard.
+      if (price !== undefined && (!Number.isFinite(price) || price < 0)) {
         errors.push({
           scope: "unitTemplate",
           field: template.name,

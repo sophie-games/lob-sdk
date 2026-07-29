@@ -6,6 +6,7 @@ import {
 } from "./validate-custom";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import {
+  ArmyPanelGroup,
   CollisionShapeType,
   CustomTerrainCategoryOverride,
   FormationTemplate,
@@ -163,6 +164,31 @@ describe("validateScenarioCustomDefs", () => {
       );
       expect(errors.some((e) => /must be >= 0/.test(e.message))).toBe(false);
     });
+
+    // A wrong-typed price (a hand-crafted import can smuggle a string) slipped
+    // past the `typeof === "number"` guard and then compared number-to-string
+    // downstream. The magnitude guard only inspects numeric leaves, so it never
+    // caught it either.
+    it.each(["manpower", "gold"] as const)(
+      "rejects a non-numeric %s price",
+      (key) => {
+        const errors = validateScenarioCustomDefs(
+          makeScenario({
+            customUnitTemplates: [
+              makeUnitTemplate({ [key]: "500" as unknown as number }),
+            ],
+          }),
+          era,
+        );
+        expect(
+          errors.some(
+            (e) =>
+              e.scope === "unitTemplate" &&
+              new RegExp(`${key} must be >= 0`).test(e.message),
+          ),
+        ).toBe(true);
+      },
+    );
   });
 
   describe("numeric field bounds", () => {
@@ -1332,6 +1358,51 @@ describe("validateCustomSprites", () => {
       ).toBe(true);
     });
 
+    it("rejects a non-numeric battle-type manpower budget", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: {
+            [battleType]: { manpower: "5000" as unknown as number },
+          },
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "battleType" && /manpower must be >= 0/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("rejects a non-numeric unit cap", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: {
+            [battleType]: { unitCaps: { [unitType]: "2" as unknown as number } },
+          },
+        }),
+        era,
+      );
+      expect(
+        errors.some((e) => e.scope === "battleType" && /unitCaps/.test(e.message)),
+      ).toBe(true);
+    });
+
+    it("rejects a null player-budget gold value", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          playerBudgetOverrides: { 1: { gold: null as unknown as number } },
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) => e.scope === "playerBudget" && /gold must be >= 0/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
     it("accepts valid battle-type and player budget overrides", () => {
       const errors = validateScenarioCustomDefs(
         makeScenario({
@@ -1343,6 +1414,24 @@ describe("validateCustomSprites", () => {
             },
           },
           playerBudgetOverrides: { 1: { manpower: 800 }, 2: { gold: 600 } },
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) => e.scope === "battleType" || e.scope === "playerBudget",
+        ),
+      ).toBe(false);
+    });
+
+    // Every override field is optional; an omitted one falls back to the battle
+    // type's value. Guarding wrong types must not reject a legitimately absent
+    // field, so a partial override stays valid.
+    it("accepts a partial override that omits a field", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: { [battleType]: { gold: 500 } },
+          playerBudgetOverrides: { 1: { manpower: 800 } },
         }),
         era,
       );
@@ -1438,6 +1527,32 @@ describe("validateCustomSprites", () => {
             /not a built-in or custom unit type/.test(e.message),
         ),
       ).toBe(true);
+    });
+
+    // The whole collection (not just an inner unitTypes) can arrive non-array
+    // from a hand-crafted import; the outer `for..of` over a non-iterable throws,
+    // and with no api-server error middleware that becomes an unhandled rejection.
+    // It must normalize to empty instead of throwing.
+    it("does not throw when the whole collection is a non-array", () => {
+      expect(() =>
+        validateScenarioCustomDefs(
+          makeScenario({
+            customArmyPanelGroups: 5 as unknown as ArmyPanelGroup[],
+          }),
+          era,
+        ),
+      ).not.toThrow();
+    });
+
+    it("does not throw when customUnitTemplates is a non-array", () => {
+      expect(() =>
+        validateScenarioCustomDefs(
+          makeScenario({
+            customUnitTemplates: 5 as unknown as UnitTemplate[],
+          }),
+          era,
+        ),
+      ).not.toThrow();
     });
   });
 });
