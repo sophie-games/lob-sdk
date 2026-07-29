@@ -51,6 +51,9 @@ export const MAX_CUSTOM_UNIT_CATEGORIES = 50;
 export const MAX_CUSTOM_TERRAIN_CATEGORIES = 50;
 export const MAX_CUSTOM_SPRITES = 200;
 export const MAX_CUSTOM_ORDERS = 50;
+export const MAX_CUSTOM_BATTLE_TYPES = 50;
+export const MAX_PLAYER_BUDGET_OVERRIDES = 100;
+export const MAX_CUSTOM_ARMY_PANEL_GROUPS = 50;
 
 /**
  * Generous magnitude ceiling for any single numeric stat in a custom def. The
@@ -126,6 +129,9 @@ export function validateScenarioCustomDefs(
     [customTerrainCategories.length, MAX_CUSTOM_TERRAIN_CATEGORIES, "terrainCategory", "terrain categories"],
     [Object.keys(customSprites).length, MAX_CUSTOM_SPRITES, "customSprite", "sprites"],
     [Object.keys(customOrders).length, MAX_CUSTOM_ORDERS, "order", "order overrides"],
+    [Object.keys(customBattleTypes).length, MAX_CUSTOM_BATTLE_TYPES, "battleType", "battle type overrides"],
+    [Object.keys(playerBudgetOverrides).length, MAX_PLAYER_BUDGET_OVERRIDES, "playerBudget", "player budget overrides"],
+    [customArmyPanelGroups.length, MAX_CUSTOM_ARMY_PANEL_GROUPS, "armyPanelGroup", "army panel groups"],
   ];
   for (const [count, max, scope, label] of countLimits) {
     if (count > max) {
@@ -154,8 +160,10 @@ export function validateScenarioCustomDefs(
   errors.push(...validateGameConstantOverrides(customGameConstants));
   errors.push(...validateGameRuleOverrides(customGameRules));
   errors.push(...validateCustomOrders(customOrders, eraGameDataManager));
-  errors.push(...validateCustomBattleTypes(customBattleTypes));
-  errors.push(...validatePlayerBudgetOverrides(playerBudgetOverrides));
+  errors.push(...validateCustomBattleTypes(customBattleTypes, eraGameDataManager));
+  errors.push(
+    ...validatePlayerBudgetOverrides(playerBudgetOverrides, eraGameDataManager),
+  );
   errors.push(
     ...validateCustomArmyPanelGroups(
       customArmyPanelGroups,
@@ -294,19 +302,32 @@ function validateCustomArmyPanelGroups(
 }
 
 /**
- * Validates the sparse per-battle-type budget/cap overrides. Budgets (manpower,
- * gold) must be finite and non-negative; per-unit caps must be non-negative
- * integers. findOutOfRangeNumbers only guards magnitude/finiteness (via
- * Math.abs), so the sign and integer-ness are checked explicitly, mirroring the
- * custom-unit-template price guard.
+ * Validates the sparse per-battle-type budget/cap overrides. Each key must name
+ * a battle type that exists in this era — an override modifies an existing
+ * battle type, it cannot add a new one — otherwise the per-game merge
+ * (loadCustomDefs) silently skips it (`if (!base) continue`) and the override
+ * does nothing with no error anywhere. Budgets (manpower, gold) must be finite
+ * and non-negative; per-unit caps must be non-negative integers.
+ * findOutOfRangeNumbers only guards magnitude/finiteness (via Math.abs), so the
+ * sign and integer-ness are checked explicitly, mirroring the custom-unit-
+ * template price guard.
  */
 function validateCustomBattleTypes(
   customBattleTypes: Partial<
     Record<DynamicBattleType, ScenarioBattleTypeOverride>
   >,
+  eraGameDataManager: GameDataManager,
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
   for (const [battleType, override] of Object.entries(customBattleTypes)) {
+    if (!eraGameDataManager.tryGetBattleType(battleType as DynamicBattleType)) {
+      errors.push({
+        scope: "battleType",
+        field: battleType,
+        message: `Battle type "${battleType}" is not a known battle type for this era; only existing battle types can be overridden`,
+      });
+      continue;
+    }
     if (!override || typeof override !== "object") {
       errors.push({
         scope: "battleType",
@@ -349,14 +370,35 @@ function validateCustomBattleTypes(
 }
 
 /**
- * Validates the absolute per-player budget overrides. Each manpower/gold value
- * must be finite and non-negative (findOutOfRangeNumbers guards magnitude only).
+ * Validates the absolute per-player budget overrides. Each key must be a 1-based
+ * player slot number (1..MAX_PLAYERS): the runtime looks the override up by
+ * player number, which coerces to the canonical decimal string, so a
+ * non-integer, out-of-range, or non-canonical key (e.g. "01", "1 ") never
+ * matches a real player and the override silently does nothing. Each
+ * manpower/gold value must be finite and non-negative (findOutOfRangeNumbers
+ * guards magnitude only).
  */
 function validatePlayerBudgetOverrides(
   playerBudgetOverrides: Record<number, PlayerBudgetOverride>,
+  eraGameDataManager: GameDataManager,
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
+  const maxPlayers = eraGameDataManager.getGameConstants().MAX_PLAYERS;
   for (const [player, override] of Object.entries(playerBudgetOverrides)) {
+    const slot = Number(player);
+    if (
+      !Number.isInteger(slot) ||
+      slot < 1 ||
+      slot > maxPlayers ||
+      String(slot) !== player
+    ) {
+      errors.push({
+        scope: "playerBudget",
+        field: player,
+        message: `Player budget override key "${player}" must be a 1-based player slot number from 1 to ${maxPlayers}`,
+      });
+      continue;
+    }
     if (!override || typeof override !== "object") {
       errors.push({
         scope: "playerBudget",

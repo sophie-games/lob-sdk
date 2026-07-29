@@ -1,7 +1,9 @@
 import {
   CUSTOM_UNIT_TYPE_MIN,
+  MAX_CUSTOM_ARMY_PANEL_GROUPS,
   MAX_CUSTOM_SPRITES,
   MAX_CUSTOM_TERRAIN_CATEGORIES,
+  MAX_PLAYER_BUDGET_OVERRIDES,
   validateScenarioCustomDefs,
 } from "./validate-custom";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
@@ -1292,7 +1294,8 @@ describe("validateCustomSprites", () => {
   });
 
   describe("custom battle type & player budget overrides", () => {
-    const battleType = "skirmish";
+    // A real napoleonic battle type: an override may only modify an existing one.
+    const battleType = "clash";
     const unitType = era.getUnitTemplateManager().getTemplates()[0].type;
 
     it("rejects a negative battle-type manpower budget", () => {
@@ -1440,6 +1443,100 @@ describe("validateCustomSprites", () => {
           (e) => e.scope === "battleType" || e.scope === "playerBudget",
         ),
       ).toBe(false);
+    });
+
+    // An override whose key names no era battle type is silently dropped by the
+    // per-game merge (`if (!base) continue`) — the override does nothing with no
+    // error anywhere. The import gate must surface it instead.
+    it("rejects a battle-type override keyed by an unknown battle type", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: {
+            skirmish: { manpower: 1000 },
+          } as unknown as Scenario["customBattleTypes"],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "battleType" &&
+            /not a known battle type/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    // The runtime looks the override up by player number (coerced to its
+    // canonical decimal string), so a non-integer, zero/negative, out-of-range,
+    // or non-canonical key never matches a real player and silently no-ops.
+    it.each([
+      ["0 (not 1-based)", { 0: { gold: 100 } }],
+      ["a non-integer", { "1.5": { gold: 100 } } as unknown],
+      ["a non-numeric string", { abc: { gold: 100 } } as unknown],
+      ["above MAX_PLAYERS", { 101: { gold: 100 } }],
+      ["a non-canonical numeric string", { "01": { gold: 100 } } as unknown],
+    ])("rejects a player budget override keyed by %s", (_label, overrides) => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          playerBudgetOverrides:
+            overrides as Scenario["playerBudgetOverrides"],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "playerBudget" &&
+            /must be a 1-based player slot number/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("accepts a player budget override at the MAX_PLAYERS slot", () => {
+      const maxPlayers = era.getGameConstants().MAX_PLAYERS;
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          playerBudgetOverrides: { [maxPlayers]: { gold: 100 } },
+        }),
+        era,
+      );
+      expect(errors.some((e) => e.scope === "playerBudget")).toBe(false);
+    });
+
+    it("caps the number of army panel groups (blob-size guard)", () => {
+      const customArmyPanelGroups: ArmyPanelGroup[] = Array.from(
+        { length: MAX_CUSTOM_ARMY_PANEL_GROUPS + 1 },
+        (_, i) => ({ id: `group_${i}`, name: `Group ${i}`, unitTypes: [] }),
+      );
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customArmyPanelGroups }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "armyPanelGroup" &&
+            /Too many custom army panel groups/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("caps the number of player budget overrides (blob-size guard)", () => {
+      const playerBudgetOverrides: Record<number, { gold: number }> = {};
+      for (let i = 1; i <= MAX_PLAYER_BUDGET_OVERRIDES + 1; i++) {
+        playerBudgetOverrides[i] = { gold: 100 };
+      }
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ playerBudgetOverrides }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "playerBudget" &&
+            /Too many custom player budget overrides/.test(e.message),
+        ),
+      ).toBe(true);
     });
   });
 
