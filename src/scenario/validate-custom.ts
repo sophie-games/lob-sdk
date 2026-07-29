@@ -114,6 +114,7 @@ export function validateScenarioCustomDefs(
   const customBattleTypes = scenario.customBattleTypes ?? {};
   const playerBudgetOverrides = scenario.playerBudgetOverrides ?? {};
   const customArmyPanelGroups = asArray(scenario.customArmyPanelGroups);
+  const disableEraDefaultUnits = scenario.disableEraDefaultUnits ?? false;
 
   const countLimits: Array<
     [number, number, CustomDefValidationError["scope"], string]
@@ -160,8 +161,27 @@ export function validateScenarioCustomDefs(
       customArmyPanelGroups,
       customUnitTemplates,
       eraGameDataManager,
+      disableEraDefaultUnits,
     ),
   );
+
+  // A scenario that disables the era defaults is only playable if it ships at
+  // least one fieldable custom unit: type >= CUSTOM_UNIT_TYPE_MIN and unlocked.
+  // validateArmy rejects every era default (type < min) AND still requires
+  // unitCount >= 1, and buildUnitGroups filters locked units out, so with no
+  // such unit no army can ever validate — an unplayable scenario that would
+  // otherwise pass the import gate.
+  if (disableEraDefaultUnits) {
+    const hasFieldableCustomUnit = customUnitTemplates.some(
+      (template) => template.type >= CUSTOM_UNIT_TYPE_MIN && !template.locked,
+    );
+    if (!hasFieldableCustomUnit) {
+      errors.push({
+        scope: "unitTemplate",
+        message: `disableEraDefaultUnits needs at least one fieldable custom unit (type >= ${CUSTOM_UNIT_TYPE_MIN}, unlocked); with none, no army can be fielded`,
+      });
+    }
+  }
 
   return errors;
 }
@@ -173,21 +193,37 @@ export function validateScenarioCustomDefs(
  * defaults a missing list, so bad data mostly degrades silently — EXCEPT a
  * non-array `unitTypes`, which throws in the panel's `for..of`. This is the
  * server-side import gate, so a crafted scenario can't slip either past it.
+ *
+ * A scenario layout is authoritative in buildUnitGroups (no trailing "Custom"
+ * fallback sweep), so a non-empty layout that names no fieldable unit renders a
+ * completely empty army panel and blocks play. That whole-layout emptiness is
+ * rejected too, using the same fieldability rule as validateArmy / the panel:
+ * unlocked, and (when era defaults are disabled) a custom unit type.
  */
 function validateCustomArmyPanelGroups(
   groups: ArmyPanelGroup[],
   customUnitTemplates: UnitTemplate[],
   eraGameDataManager: GameDataManager,
+  disableEraDefaultUnits: boolean,
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
   const seenIds = new Set<string>();
-  const knownTypes = new Set<UnitType>([
-    ...eraGameDataManager
-      .getUnitTemplateManager()
-      .getTemplates()
-      .map((template) => template.type),
-    ...customUnitTemplates.map((template) => template.type),
-  ]);
+  const allTemplates = [
+    ...eraGameDataManager.getUnitTemplateManager().getTemplates(),
+    ...customUnitTemplates,
+  ];
+  const knownTypes = new Set<UnitType>(
+    allTemplates.map((template) => template.type),
+  );
+  // The subset that actually reaches the panel and passes validateArmy: locked
+  // units are filtered out, and when the scenario disables era defaults only
+  // custom unit types (>= CUSTOM_UNIT_TYPE_MIN) are fieldable.
+  const fieldableTypes = new Set<UnitType>();
+  for (const template of allTemplates) {
+    if (template.locked) continue;
+    if (disableEraDefaultUnits && template.type < CUSTOM_UNIT_TYPE_MIN) continue;
+    fieldableTypes.add(template.type);
+  }
 
   for (const group of groups) {
     if (!isObject(group)) {
@@ -232,6 +268,26 @@ function validateCustomArmyPanelGroups(
         }
       }
     }
+  }
+
+  // A present layout is authoritative (buildUnitGroups adds no "Custom" fallback
+  // for it), so if it names not one fieldable unit the panel is empty and no
+  // army can be built. An absent/empty layout means "use the era fallback" and
+  // is fine, so only guard a non-empty one.
+  if (
+    groups.length > 0 &&
+    !groups.some(
+      (group) =>
+        isObject(group) &&
+        Array.isArray(group.unitTypes) &&
+        group.unitTypes.some((type) => fieldableTypes.has(type)),
+    )
+  ) {
+    errors.push({
+      scope: "armyPanelGroup",
+      message:
+        "army panel layout names no fieldable unit; the army panel would be empty and no army could be built",
+    });
   }
 
   return errors;

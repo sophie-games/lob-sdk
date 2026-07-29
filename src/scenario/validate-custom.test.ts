@@ -1554,6 +1554,180 @@ describe("validateCustomSprites", () => {
         ),
       ).not.toThrow();
     });
+
+    // A layout is authoritative — buildUnitGroups never sweeps a "Custom"
+    // fallback for it — so one that names only era units the scenario has
+    // disabled leaves the panel empty. The layout is otherwise valid (the built
+    // -in is a known type), so only the whole-layout emptiness catches it.
+    it("rejects a layout naming only era defaults when they are disabled", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          disableEraDefaultUnits: true,
+          customUnitTemplates: [makeUnitTemplate()],
+          customArmyPanelGroups: [
+            { id: "vanguard", name: "Vanguard", unitTypes: [builtInType] },
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "armyPanelGroup" &&
+            /names no fieldable unit/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("accepts a layout naming a custom unit when era defaults are disabled", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          disableEraDefaultUnits: true,
+          customUnitTemplates: [makeUnitTemplate()],
+          customArmyPanelGroups: [
+            { id: "vanguard", name: "Vanguard", unitTypes: [CUSTOM_UNIT_TYPE_MIN] },
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "armyPanelGroup" &&
+            /names no fieldable unit/.test(e.message),
+        ),
+      ).toBe(false);
+    });
+
+    // With era defaults still enabled, a built-in is fieldable, so a layout of
+    // only built-ins is fine — the baseline non-custom-army case must not regress.
+    it("accepts a layout naming only era defaults when they are enabled", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customArmyPanelGroups: [
+            { id: "vanguard", name: "Vanguard", unitTypes: [builtInType] },
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "armyPanelGroup" &&
+            /names no fieldable unit/.test(e.message),
+        ),
+      ).toBe(false);
+    });
+
+    // Locked units are filtered out of the panel, so a layout naming only a
+    // locked custom unit is just as empty as one naming nothing fieldable.
+    it("rejects a layout naming only a locked custom unit", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customUnitTemplates: [makeUnitTemplate({ locked: true })],
+          customArmyPanelGroups: [
+            { id: "vanguard", name: "Vanguard", unitTypes: [CUSTOM_UNIT_TYPE_MIN] },
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "armyPanelGroup" &&
+            /names no fieldable unit/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+  });
+
+  describe("disableEraDefaultUnits playability", () => {
+    const builtInType = era.getUnitTemplateManager().getTemplates()[0].type;
+
+    it("rejects disabling era defaults with no custom units", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ disableEraDefaultUnits: true }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "unitTemplate" &&
+            /disableEraDefaultUnits needs at least one fieldable custom unit/.test(
+              e.message,
+            ),
+        ),
+      ).toBe(true);
+    });
+
+    // A custom template that merely overrides a built-in keeps its type < min,
+    // so validateArmy still rejects it under disableEraDefaultUnits — it is not
+    // fieldable, and the scenario is as unplayable as one with no customs.
+    it("rejects when the only custom unit overrides a built-in (type < min)", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          disableEraDefaultUnits: true,
+          customUnitTemplates: [makeUnitTemplate({ type: builtInType })],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "unitTemplate" &&
+            /disableEraDefaultUnits needs at least one fieldable custom unit/.test(
+              e.message,
+            ),
+        ),
+      ).toBe(true);
+    });
+
+    it("rejects when the only custom unit is locked", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          disableEraDefaultUnits: true,
+          customUnitTemplates: [makeUnitTemplate({ locked: true })],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "unitTemplate" &&
+            /disableEraDefaultUnits needs at least one fieldable custom unit/.test(
+              e.message,
+            ),
+        ),
+      ).toBe(true);
+    });
+
+    it("accepts disabling era defaults with a fieldable custom unit", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          disableEraDefaultUnits: true,
+          customUnitTemplates: [makeUnitTemplate()],
+        }),
+        era,
+      );
+      expect(
+        errors.some((e) =>
+          /disableEraDefaultUnits needs at least one fieldable custom unit/.test(
+            e.message,
+          ),
+        ),
+      ).toBe(false);
+    });
+
+    // The playability rule is scoped to disableEraDefaultUnits; a plain scenario
+    // with no custom units must stay error-free.
+    it("does not fire when era defaults are enabled", () => {
+      const errors = validateScenarioCustomDefs(makeScenario({}), era);
+      expect(
+        errors.some((e) =>
+          /disableEraDefaultUnits needs/.test(e.message),
+        ),
+      ).toBe(false);
+    });
   });
 });
 
