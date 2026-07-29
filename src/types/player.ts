@@ -150,9 +150,11 @@ export interface PlayerInfo {
   /**
    * Lobby-picker games only: whether this player has locked in a valid army
    * (their prerequisite for the host to start). Server-computed so a redacted
-   * army composition doesn't leak; omitted / true for games without the picker.
+   * army composition doesn't leak. Always `true` for games without the picker
+   * and for started games, where readiness is meaningless — non-optional so no
+   * reader has to guess a default for the absent case.
    */
-  armyReady?: boolean;
+  armyReady: boolean;
 }
 
 /**
