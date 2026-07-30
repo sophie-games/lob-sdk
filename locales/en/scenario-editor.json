@@ -545,7 +545,7 @@
       "title": "Army panel groups",
       "description": "Choose the headings players see when buying an army, which units sit under each, and their order. This starts from the era's default layout.",
       "statusDefault": "Untouched — this scenario uses the era's standard army compositions. Editing anything below switches it to your own list.",
-      "statusCustom": "Customised — this scenario overrides the era layout with your list. The army screen shows only the units you place in a group and omits the rest.",
+      "statusCustom": "Customised — this scenario overrides the era layout with your list. The army screen shows only the units you place in a group and omits the rest. This list is now a fixed snapshot: any unit you add to the scenario later stays hidden until you place it in a group here.",
       "statusEraDisabled": "Era default units are disabled, so the standard layout is hidden. Add groups from your scenario's own custom units below.",
       "namePlaceholder": "Group name",
       "addGroup": "Add group",
