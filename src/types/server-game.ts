@@ -113,6 +113,12 @@ export interface BattleTypeTemplate {
    */
   objectiveSpacing?: number;
   /**
+   * Per-battle-type override for the distance, in world pixels, between adjacent
+   * objectives in the central neutral row. Omit to inherit the era default.
+   * Resolved via GameDataManager.getNeutralObjectiveSpacing (battle type > era).
+   */
+  neutralObjectiveSpacing?: number;
+  /**
    * Per-battle-type override for the number of small objectives each side owns
    * and may reposition during the deployment phase. Omit to inherit the era
    * default (0 = none). Resolved via GameDataManager.getSmallObjectivesPerSide

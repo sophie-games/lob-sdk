@@ -264,7 +264,7 @@
         }
       ],
       "absorptionModifier": 2,
-      "offset": 0.6,
+      "offset": 0.625,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
         "damageModifierPerLevel": -0.05,
@@ -395,7 +395,7 @@
         }
       ],
       "absorptionModifier": 2,
-      "offset": 0.6,
+      "offset": 0.625,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
         "damageModifierPerLevel": -0.05,
@@ -420,7 +420,7 @@
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
-      "value": -0.9
+      "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
@@ -458,7 +458,7 @@
         }
       ],
       "absorptionModifier": 2,
-      "offset": 0.6,
+      "offset": 0.625,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
         "damageModifierPerLevel": -0.05,
@@ -508,7 +508,7 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 16670,
+    "ammoCost": 16300,
     "extendRange": true
   },
   {
@@ -589,7 +589,7 @@
         }
       ],
       "absorptionModifier": 2,
-      "offset": 0.6,
+      "offset": 0.625,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
         "damageModifierPerLevel": -0.05,
@@ -639,7 +639,7 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 15500,
+    "ammoCost": 14500,
     "extendRange": true
   },
   {
@@ -720,7 +720,7 @@
         }
       ],
       "absorptionModifier": 2,
-      "offset": 0.6,
+      "offset": 0.625,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
         "damageModifierPerLevel": -0.05,
@@ -770,7 +770,7 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 14670,
+    "ammoCost": 14000,
     "extendRange": true
   },
   {
@@ -851,7 +851,7 @@
         }
       ],
       "absorptionModifier": 2,
-      "offset": 0.6,
+      "offset": 0.625,
       "elevationModifiers": {
         "heightModifierPerLevel": -0.15,
         "damageModifierPerLevel": -0.05,
@@ -1045,7 +1045,7 @@
     "orgDamageRatio": 32000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
-    "projectileWidth": 10,
+    "projectileWidth": 11,
     "maxRange": 110,
     "ranges": [
       {

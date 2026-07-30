@@ -671,6 +671,14 @@ export interface ObjectivesRule {
    */
   objectiveSpacing: number;
   /**
+   * Era-default distance, in world pixels, between adjacent objectives in the
+   * central neutral row (0 falls back to a small default). Independent of
+   * objectiveSpacing, which governs a team's own objectives. Battle types may
+   * override it; resolved via GameDataManager.getNeutralObjectiveSpacing
+   * (battle type > this).
+   */
+  neutralObjectiveSpacing: number;
+  /**
    * Era-default number of small objectives each side owns and may reposition
    * during the deployment phase (0 = none). Battle types may override it;
    * resolved via GameDataManager.getSmallObjectivesPerSide (battle type > this).

@@ -832,6 +832,24 @@ export class GameDataManager {
   }
 
   /**
+   * Gets the distance, in world pixels, between adjacent objectives in the
+   * central neutral row. Falls back to the objectives rule's era default when
+   * the battle type is null or omits neutralObjectiveSpacing.
+   * @param battleType - The dynamic battle type, or null for preset scenarios.
+   * @returns The neutral objective spacing in world pixels.
+   */
+  public getNeutralObjectiveSpacing(
+    battleType: DynamicBattleType | null,
+  ): number {
+    const fromBattleType = battleType
+      ? this.tryGetBattleType(battleType)?.neutralObjectiveSpacing
+      : undefined;
+    return (
+      fromBattleType ?? this.getGameRules().objectives.neutralObjectiveSpacing
+    );
+  }
+
+  /**
    * Gets how many small objectives each side owns and may place during the
    * deployment phase, falling back to the objectives rule's era default when the
    * battle type is null or omits smallObjectivesPerSide.
