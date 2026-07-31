@@ -40,8 +40,10 @@ export interface CustomTerrainCategoryOverride {
 
 /**
  * One heading in the army panel's card grid. Members are named individually by
- * {@link unitTypes}; a unit no group claims falls into the trailing "Custom"
- * bucket the panel always appends, so a partial layout never hides a unit.
+ * {@link unitTypes}. A scenario layout is authoritative: any unit no group
+ * names is omitted from the panel — there is no trailing "Custom" fallback
+ * (that sweep applies only to the era-default layout, when no scenario layout
+ * is set).
  */
 export interface ArmyPanelGroup {
   /** Stable key, unique within the scenario. */
@@ -591,8 +593,8 @@ export interface Scenario {
   /**
    * Author-defined layout for the army panel's card grid. Replaces the era's
    * `army-panel-groups.json` when present; array order is the order players
-   * see. Units no group claims fall into the trailing "Custom" bucket, so a
-   * partial layout never hides a unit.
+   * see. The layout is authoritative: any unit no group names is omitted, and a
+   * unit added to the scenario later stays hidden until placed in a group.
    */
   customArmyPanelGroups?: ArmyPanelGroup[];
 
