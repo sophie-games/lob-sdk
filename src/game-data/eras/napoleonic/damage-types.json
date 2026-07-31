@@ -239,8 +239,8 @@
         "from": 0.44,
         "to": 1,
         "damageModifier": {
-          "near": 1.15,
-          "far": 0.25
+          "near": 1.1,
+          "far": 0.4
         },
         "engagementTier": 1
       }
@@ -274,7 +274,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 10700,
+    "ammoCost": 11000,
     "extendRange": false
   },
   {
@@ -433,8 +433,8 @@
         "from": 0.43,
         "to": 1,
         "damageModifier": {
-          "near": 1.1,
-          "far": 0.25
+          "near": 1,
+          "far": 0.4
         },
         "engagementTier": 1
       }
@@ -468,7 +468,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 10200,
+    "ammoCost": 10700,
     "extendRange": false
   },
   {
@@ -904,17 +904,17 @@
         {
           "start": 250,
           "end": 550,
-          "startRadius": 34,
-          "endRadius": 45
+          "startRadius": 37,
+          "endRadius": 46
         }
       ],
-      "edgeDamageModifier": -0.9,
+      "edgeDamageModifier": -0.5,
       "absorptionModifier": 1.25
     },
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 10700,
+    "ammoCost": 11000,
     "extendRange": false
   },
   {
@@ -957,17 +957,17 @@
         {
           "start": 210,
           "end": 425,
-          "startRadius": 25,
-          "endRadius": 31
+          "startRadius": 30,
+          "endRadius": 35
         }
       ],
-      "edgeDamageModifier": -0.9,
+      "edgeDamageModifier": -0.5,
       "absorptionModifier": 1.25
     },
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 10200,
+    "ammoCost": 10700,
     "extendRange": false
   },
   {
@@ -994,8 +994,8 @@
         "from": 0.2,
         "to": 0.59,
         "damageModifier": {
-          "near": 0,
-          "far": -0.15
+          "near": 0.15,
+          "far": 0
         },
         "engagementTier": 1
       },
@@ -1003,8 +1003,8 @@
         "from": 0.59,
         "to": 1,
         "damageModifier": {
-          "near": -0.15,
-          "far": -0.6
+          "near": 0,
+          "far": -0.3
         },
         "name": "long"
       }
