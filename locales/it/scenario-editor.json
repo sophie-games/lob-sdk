@@ -108,7 +108,8 @@
     }
   },
   "deployment": {
-    "title": "Schieramento",
+    "title": "Zone di schieramento",
+    "hint": "Queste zone definiscono dove inizia ogni esercito. La fase di schieramento aggiunge solo un turno 0 perché i giocatori si riorganizzino al loro interno.",
     "team": "Squadra {{team}}",
     "mainZone": "Principale",
     "forwardZone": "Avanzata",

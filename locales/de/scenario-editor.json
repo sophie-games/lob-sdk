@@ -108,7 +108,8 @@
     }
   },
   "deployment": {
-    "title": "Aufstellung",
+    "title": "Aufstellungszonen",
+    "hint": "Diese Zonen legen fest, wo jede Armee startet. Die Aufstellungsphase fügt lediglich einen Zug 0 hinzu, in dem die Spieler sich darin neu ordnen können.",
     "team": "Team {{team}}",
     "mainZone": "Haupt",
     "forwardZone": "Vorgeschoben",

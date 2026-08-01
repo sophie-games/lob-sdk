@@ -108,7 +108,8 @@
     }
   },
   "deployment": {
-    "title": "Déploiement",
+    "title": "Zones de déploiement",
+    "hint": "Ces zones définissent où chaque armée commence. La phase de déploiement ajoute seulement un tour 0 pour que les joueurs se réorganisent à l'intérieur.",
     "team": "Équipe {{team}}",
     "mainZone": "Principale",
     "forwardZone": "Avancée",

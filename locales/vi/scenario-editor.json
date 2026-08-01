@@ -108,7 +108,8 @@
     }
   },
   "deployment": {
-    "title": "Triển khai",
+    "title": "Vùng triển khai",
+    "hint": "Các vùng này quyết định nơi mỗi đội quân bắt đầu. Giai đoạn triển khai chỉ thêm lượt 0 để người chơi sắp xếp lại bên trong chúng.",
     "team": "Đội {{team}}",
     "mainZone": "Chính",
     "forwardZone": "Tiền phương",

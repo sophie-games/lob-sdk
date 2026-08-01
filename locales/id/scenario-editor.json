@@ -108,7 +108,8 @@
     }
   },
   "deployment": {
-    "title": "Penempatan",
+    "title": "Zona penempatan",
+    "hint": "Zona ini menentukan di mana setiap pasukan memulai. Fase penempatan hanya menambahkan giliran 0 agar pemain dapat mengatur ulang posisi di dalamnya.",
     "team": "Tim {{team}}",
     "mainZone": "Utama",
     "forwardZone": "Depan",

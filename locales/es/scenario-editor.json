@@ -108,7 +108,8 @@
     }
   },
   "deployment": {
-    "title": "Despliegue",
+    "title": "Zonas de despliegue",
+    "hint": "Estas zonas definen dónde empieza cada ejército. La fase de despliegue solo agrega un turno 0 para que los jugadores se reacomoden dentro de ellas.",
     "team": "Equipo {{team}}",
     "mainZone": "Principal",
     "forwardZone": "Avanzada",
