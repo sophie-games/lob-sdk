@@ -492,15 +492,12 @@ export class GameDataManager {
         if (!override || !base) {
           continue;
         }
+        const { manpower, gold, unitCaps } = override;
         this.battleTypes[battleType as DynamicBattleType] = {
           ...base,
-          ...(override.manpower !== undefined
-            ? { manpower: override.manpower }
-            : {}),
-          ...(override.gold !== undefined ? { gold: override.gold } : {}),
-          ...(override.unitCaps
-            ? { unitCaps: { ...base.unitCaps, ...override.unitCaps } }
-            : {}),
+          manpower: manpower ?? base.manpower,
+          gold: gold ?? base.gold,
+          unitCaps: unitCaps ? { ...base.unitCaps, ...unitCaps } : base.unitCaps,
         };
       }
     }
