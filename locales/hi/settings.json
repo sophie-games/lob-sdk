@@ -36,10 +36,6 @@
     "title": "सिलेक्ट ऑर्डर मोडल खोलें",
     "description": "गेमप्ले के दौरान आदेशों का चयन करने के लिए मोडल दिखाने के लिए इस विकल्प को सक्षम करें।"
   },
-  "openSelectTacticsModal": {
-    "title": "रणनीति मेनू खोलें",
-    "description": "खेल के दौरान रणनीति मेनू दिखाने के लिए यह विकल्प सक्षम करें।"
-  },
   "showPlayableGamesAvailableModal": {
     "title": "खेलने योग्य गेम्स उपलब्ध मोडल दिखाएं"
   },
@@ -180,6 +176,7 @@
     "togglePathFinding": "पाथ फाइंडिंग टॉगल करें",
     "toggleFowPerspective": "कोहरे का दृष्टिकोण टॉगल करें",
     "toggleMultiTurnPathOrders": "बहु-टर्न पथ आदेश टॉगल करें",
+    "toggleApplyOrderTypeToSelection": "आदेश प्रकार चयन पर लागू करना टॉगल करें",
     "openChat": "चैट खोलें",
     "openTacticsModal": "रणनीति मेनू खोलें",
     "showBattleOverview": "युद्ध सारांश के लिए दबाकर रखें",
