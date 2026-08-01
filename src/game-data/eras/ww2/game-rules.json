@@ -1,6 +1,5 @@
 {
   "supplyLines": {
-    "roadTerrainTypes": [3, 7, 15],
     "influenceRadius": 4,
     "supplyHubRadius": 12,
     "supplyHubRadiusWithInfluence": 18,
@@ -25,7 +24,7 @@
     ],
     "meleeAttackBonusPerLevel": 4,
     "meleeDefenseBonusPerLevel": 12,
-    "pushStrengthModifierPerLevel": 10
+    "pushStrengthModifierPerLevel": 0.15
   },
   "allyCollision": {
     "collisionBounceScale": 0.02,
