@@ -108,7 +108,8 @@
     }
   },
   "deployment": {
-    "title": "Felállítás",
+    "title": "Felállítási zónák",
+    "hint": "Ezek a zónák határozzák meg, hol indul minden hadsereg. A felállítási fázis csak egy 0. kört ad hozzá, amelyben a játékosok átrendezhetnek a zónákon belül.",
     "team": "{{team}}. csapat",
     "mainZone": "Fő",
     "forwardZone": "Előretolt",

@@ -109,7 +109,8 @@
     }
   },
   "deployment": {
-    "title": "Deployment",
+    "title": "Deployment zones",
+    "hint": "These zones set where each army starts. The deployment phase only adds a turn 0 for players to rearrange inside them.",
     "team": "Team {{team}}",
     "mainZone": "Main",
     "forwardZone": "Forward",

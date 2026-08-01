@@ -108,7 +108,8 @@
     }
   },
   "deployment": {
-    "title": "Yerleşim",
+    "title": "Yerleşim bölgeleri",
+    "hint": "Bu bölgeler her ordunun nerede başlayacağını belirler. Yerleşim aşaması yalnızca oyuncuların bölgeler içinde yeniden düzenleme yapabileceği bir 0. tur ekler.",
     "team": "Takım {{team}}",
     "mainZone": "Ana",
     "forwardZone": "İleri",
