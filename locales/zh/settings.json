@@ -36,10 +36,6 @@
     "title": "启用指令菜单",
     "description": "如果启用，会在选择单位指令时打开一个菜单而不是点击切换。"
   },
-  "openSelectTacticsModal": {
-    "title": "打开战术菜单",
-    "description": "启用此选项以在游戏过程中显示战术菜单。"
-  },
   "showPlayableGamesAvailableModal": {
     "title": "显示可进行游戏菜单"
   },
@@ -184,6 +180,7 @@
     "togglePathFinding": "切换路径寻找",
     "toggleFowPerspective": "切换战争迷雾视角",
     "toggleMultiTurnPathOrders": "切换多回合路径指令",
+    "toggleApplyOrderTypeToSelection": "切换命令类型应用于所选单位",
     "openChat": "打开聊天栏",
     "openTacticsModal": "打开战术菜单",
     "showBattleOverview": "按住显示战斗概览",

@@ -36,10 +36,6 @@
     "title": "เปิดหน้าต่างเลือกคำสั่ง",
     "description": "เปิดใช้งานตัวเลือกนี้เพื่อแสดงหน้าต่างสำหรับเลือกคำสั่งระหว่างการเล่นเกม"
   },
-  "openSelectTacticsModal": {
-    "title": "เปิดเมนูยุทธวิธี",
-    "description": "เปิดใช้ตัวเลือกนี้เพื่อแสดงเมนูยุทธวิธีระหว่างการเล่น"
-  },
   "showPlayableGamesAvailableModal": {
     "title": "แสดงหน้าต่างแจ้งเตือนเกมที่พร้อมเล่น"
   },
@@ -184,6 +180,7 @@
     "togglePathFinding": "เปิด/ปิด ระบบค้นหาเส้นทาง",
     "toggleFowPerspective": "เปิด/ปิด มุมมองหมอกแห่งสงคราม",
     "toggleMultiTurnPathOrders": "เปิด/ปิด คำสั่งเส้นทางแบบหลายรอบ",
+    "toggleApplyOrderTypeToSelection": "เปิด/ปิด การใช้ประเภทคำสั่งกับหน่วยที่เลือก",
     "openChat": "เปิดช่องแชท",
     "openTacticsModal": "เปิดเมนูยุทธวิธี",
     "showBattleOverview": "กดค้างเพื่อดูภาพรวมการรบ",
