@@ -96,13 +96,9 @@ export function validateScenarioCustomDefs(
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
 
-  // Every array collection is normalized with Array.isArray rather than `?? []`:
-  // a hand-crafted import can carry a non-array (e.g. a string) that `??` keeps
-  // as-is, and a later `for..of` over it throws. Since the api-server has no
-  // error middleware, that throw is an unhandled rejection rather than a 4xx, so
-  // it must be turned into empty data here. Object collections are read with
-  // Object.entries/keys downstream, which tolerate non-null primitives, so `??`
-  // is enough for them.
+  // Array collections use Array.isArray, not `?? []`: a non-array import survives
+  // `??` and later throws in a `for..of` — unhandled, since api-server has no error
+  // middleware. Object collections read via Object.entries, so `??` is safe there.
   const asArray = <T>(value: T[] | undefined): T[] =>
     Array.isArray(value) ? value : [];
   const customUnitTemplates = asArray(scenario.customUnitTemplates);
@@ -173,12 +169,9 @@ export function validateScenarioCustomDefs(
     ),
   );
 
-  // A scenario that disables the era defaults is only playable if it ships at
-  // least one fieldable custom unit: type >= CUSTOM_UNIT_TYPE_MIN and unlocked.
-  // validateArmy rejects every era default (type < min) AND still requires
-  // unitCount >= 1, and buildUnitGroups filters locked units out, so with no
-  // such unit no army can ever validate — an unplayable scenario that would
-  // otherwise pass the import gate.
+  // Disabling era defaults needs >= 1 fieldable custom unit (type >= CUSTOM_UNIT_TYPE_MIN,
+  // unlocked): validateArmy rejects era defaults yet still requires unitCount >= 1, so
+  // with none no army can validate — reject the unplayable scenario at the import gate.
   if (disableEraDefaultUnits) {
     const hasFieldableCustomUnit = customUnitTemplates.some(
       (template) => template.type >= CUSTOM_UNIT_TYPE_MIN && !template.locked,
@@ -195,18 +188,10 @@ export function validateScenarioCustomDefs(
 }
 
 /**
- * Validates the author-defined buy-menu headings. Each group must be an object
- * with a unique non-empty id, and `unitTypes` (when present) must be an array of
- * known unit types. The runtime (buildUnitGroups) drops unresolved types and
- * defaults a missing list, so bad data mostly degrades silently — EXCEPT a
- * non-array `unitTypes`, which throws in the panel's `for..of`. This is the
- * server-side import gate, so a crafted scenario can't slip either past it.
- *
- * A scenario layout is authoritative in buildUnitGroups (no trailing "Custom"
- * fallback sweep), so a non-empty layout that names no fieldable unit renders a
- * completely empty army panel and blocks play. That whole-layout emptiness is
- * rejected too, using the same fieldability rule as validateArmy / the panel:
- * unlocked, and (when era defaults are disabled) a custom unit type.
+ * Validates the author-defined buy-menu headings: each group is an object with a
+ * unique non-empty id and (when present) a `unitTypes` array of known types. A
+ * non-array `unitTypes` throws in the panel's `for..of`, so this server-side gate
+ * rejects it. Whole-layout emptiness is caught below.
  */
 function validateCustomArmyPanelGroups(
   groups: ArmyPanelGroup[],
@@ -223,9 +208,8 @@ function validateCustomArmyPanelGroups(
   const knownTypes = new Set<UnitType>(
     allTemplates.map((template) => template.type),
   );
-  // The subset that actually reaches the panel and passes validateArmy: locked
-  // units are filtered out, and when the scenario disables era defaults only
-  // custom unit types (>= CUSTOM_UNIT_TYPE_MIN) are fieldable.
+  // Units that reach the panel and pass validateArmy: locked ones are filtered out,
+  // and with era defaults disabled only custom types (>= CUSTOM_UNIT_TYPE_MIN) qualify.
   const fieldableTypes = new Set<UnitType>();
   for (const template of allTemplates) {
     if (template.locked) continue;
@@ -278,10 +262,9 @@ function validateCustomArmyPanelGroups(
     }
   }
 
-  // A present layout is authoritative (buildUnitGroups adds no "Custom" fallback
-  // for it), so if it names not one fieldable unit the panel is empty and no
-  // army can be built. An absent/empty layout means "use the era fallback" and
-  // is fine, so only guard a non-empty one.
+  // A present layout is authoritative (buildUnitGroups adds no "Custom" fallback),
+  // so one naming no fieldable unit yields an empty, unplayable panel. An absent or
+  // empty layout uses the era fallback and is fine — so only guard a non-empty one.
   if (
     groups.length > 0 &&
     !groups.some(
@@ -341,10 +324,9 @@ function validateCustomBattleTypes(
     }
     for (const key of ["manpower", "gold"] as const) {
       const value = override[key];
-      // The field is optional (an absent one inherits the battle type's value),
-      // so undefined stays valid; anything else present must be a non-negative
-      // finite number. A string/null previously slipped through the old
-      // `typeof === "number"` guard and compared number-to-string downstream.
+      // Optional (absent inherits the battle type's value): undefined stays valid,
+      // but a present value must be a non-negative finite number. A string/null
+      // slipped past the old `typeof === "number"` guard.
       if (value !== undefined && (!Number.isFinite(value) || value < 0)) {
         errors.push({
           scope: "battleType",
@@ -354,9 +336,8 @@ function validateCustomBattleTypes(
       }
     }
     for (const [unitType, cap] of Object.entries(override.unitCaps ?? {})) {
-      // A present cap must be a non-negative integer (0 removes the unit). A
-      // wrong-typed value fails Number.isInteger, so it is rejected rather than
-      // silently blocking the unit with a nonsense message.
+      // A present cap must be a non-negative integer (0 removes the unit); a
+      // wrong-typed value fails Number.isInteger, so it's rejected outright.
       if (!Number.isInteger(cap) || cap < 0) {
         errors.push({
           scope: "battleType",
@@ -371,12 +352,9 @@ function validateCustomBattleTypes(
 
 /**
  * Validates the absolute per-player budget overrides. Each key must be a 1-based
- * player slot number (1..MAX_PLAYERS): the runtime looks the override up by
- * player number, which coerces to the canonical decimal string, so a
- * non-integer, out-of-range, or non-canonical key (e.g. "01", "1 ") never
- * matches a real player and the override silently does nothing. Each
- * manpower/gold value must be finite and non-negative (findOutOfRangeNumbers
- * guards magnitude only).
+ * slot number (1..MAX_PLAYERS) in canonical form: the runtime looks overrides up
+ * by player number, so a non-integer / out-of-range / non-canonical key (e.g.
+ * "01", "1 ") silently matches no one. manpower/gold must be finite and non-negative.
  */
 function validatePlayerBudgetOverrides(
   playerBudgetOverrides: Record<number, PlayerBudgetOverride>,
@@ -1001,15 +979,13 @@ function validateCustomUnitTemplates(
       });
     }
 
-    // Army cost accumulates as `price * count` (common/src/army/index.ts), so a
-    // negative price *reduces* the total as you buy more - one negative unit
-    // buys an unlimited army. findOutOfRangeNumbers only guards magnitude
-    // (it uses Math.abs), so the sign has to be checked explicitly here.
+    // Army cost is `price * count` (common/src/army/index.ts), so a negative price
+    // *reduces* the total — one negative unit buys an unlimited army.
+    // findOutOfRangeNumbers guards magnitude only (Math.abs), so check the sign here.
     for (const key of ["manpower", "gold"] as const) {
       const price = template[key];
-      // Optional price: undefined is left to the template's own defaulting; a
-      // present value must be non-negative and finite. A wrong-typed price
-      // slipped past the old `typeof === "number"` guard.
+      // Optional price: undefined defers to the template's own defaulting; a present
+      // value must be non-negative and finite (a wrong-typed one slipped past the old guard).
       if (price !== undefined && (!Number.isFinite(price) || price < 0)) {
         errors.push({
           scope: "unitTemplate",
