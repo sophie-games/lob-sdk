@@ -239,8 +239,8 @@
         "from": 0.44,
         "to": 1,
         "damageModifier": {
-          "near": 1.1,
-          "far": 0.4
+          "near": 1.05,
+          "far": 0.45
         },
         "engagementTier": 1
       }
@@ -248,7 +248,7 @@
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.65,
+    "projectilePenetration": 0.6,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -369,7 +369,7 @@
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.65,
+    "projectilePenetration": 0.6,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -405,7 +405,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 11000,
+    "ammoCost": 10700,
     "extendRange": false
   },
   {
@@ -433,8 +433,8 @@
         "from": 0.43,
         "to": 1,
         "damageModifier": {
-          "near": 1,
-          "far": 0.4
+          "near": 1.05,
+          "far": 0.45
         },
         "engagementTier": 1
       }
@@ -442,7 +442,7 @@
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.55,
+    "projectilePenetration": 0.5,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -563,7 +563,7 @@
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.55,
+    "projectilePenetration": 0.5,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -599,7 +599,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 10700,
+    "ammoCost": 11000,
     "extendRange": false
   },
   {
@@ -742,7 +742,7 @@
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 11,
-    "maxRange": 110,
+    "maxRange": 100,
     "ranges": [
       {
         "from": 0,
@@ -825,7 +825,7 @@
     "arcHeight": 0.01,
     "enfiladeFire": false,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.35,
+    "projectilePenetration": 0.3,
     "areaOfEffect": {
       "type": "trapezoidal",
       "ranges": [
@@ -890,7 +890,7 @@
         "to": 1,
         "damageModifier": {
           "near": -0.05,
-          "far": -0.55
+          "far": -0.45
         },
         "name": "long"
       }
@@ -958,7 +958,7 @@
           "start": 210,
           "end": 425,
           "startRadius": 30,
-          "endRadius": 35
+          "endRadius": 36
         }
       ],
       "edgeDamageModifier": -0.5,
@@ -994,8 +994,8 @@
         "from": 0.2,
         "to": 0.59,
         "damageModifier": {
-          "near": 0.15,
-          "far": 0
+          "near": 0.2,
+          "far": 0.1
         },
         "engagementTier": 1
       },
@@ -1003,8 +1003,8 @@
         "from": 0.59,
         "to": 1,
         "damageModifier": {
-          "near": 0,
-          "far": -0.3
+          "near": 0.1,
+          "far": 0
         },
         "name": "long"
       }
@@ -1018,14 +1018,14 @@
         {
           "start": 69,
           "end": 200,
-          "startRadius": 32,
+          "startRadius": 30,
           "endRadius": 32
         },
         {
           "start": 200,
           "end": 340,
           "startRadius": 32,
-          "endRadius": 32
+          "endRadius": 34
         }
       ],
       "edgeDamageModifier": -0.05,
