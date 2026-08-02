@@ -512,6 +512,16 @@
       "importedCount_one": "{{count}} Überschreibung importiert.",
       "importedCount_other": "{{count}} Überschreibungen importiert."
     },
+    "importArmyCompositionsModal": {
+      "title": "Armeezusammensetzungen aus Szenario importieren",
+      "pickFilePrompt": "Wähle eine Szenariodatei (das JSON, das die Schaltfläche Herunterladen im Editor erzeugt), um ihre Armeezusammensetzungen zu importieren.",
+      "noArmyCompositions": "Dieses Szenario hat keine Armeezusammensetzungs-Einstellungen zum Importieren.",
+      "fieldBattleTypes": "Schlachttyp-Budgets & Einheiten-Obergrenzen",
+      "fieldPlayerBudgets": "Budgets pro Spieler",
+      "fieldArmyPanelGroups": "Armee-Panel-Gruppen",
+      "fieldDisableEraUnits": "Standard-Einheiten der Epoche deaktivieren",
+      "resultSummary": "Importiert: {{fields}}."
+    },
     "gameConstants": {
       "title": "Spielkonstanten-Überschreibungen",
       "description": "Überschreibe die numerischen Konstanten dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; Zurücksetzen stellt ein Feld auf den Epochenstandard zurück. Mit ⚠ markierte Schlüssel sind strukturell - eine Änderung kann Darstellung, Wiederholungen oder Matchmaking beschädigen. Die Werte sind interne Roheinheiten."
@@ -534,6 +544,49 @@
       "default": "Standard",
       "unknownOption": "{{value}} (unbekannt)",
       "groupBuiltIn": "Integriert"
+    },
+    "armyPanelGroups": {
+      "title": "Armee-Panel-Gruppen",
+      "description": "Wähle die Überschriften, die Spieler beim Kauf einer Armee sehen, welche Einheiten darunter stehen und in welcher Reihenfolge. Dies beginnt mit dem Standardlayout der Epoche.",
+      "statusDefault": "Unverändert — dieses Szenario verwendet die Standard-Armeezusammensetzungen der Epoche. Wenn du unten etwas änderst, wechselt es zu deiner eigenen Liste.",
+      "statusCustom": "Angepasst — dieses Szenario überschreibt das Epochenlayout mit deiner Liste. Der Armee-Bildschirm zeigt nur die Einheiten, die du in eine Gruppe einordnest, und lässt den Rest weg. Diese Liste ist nun eine feste Momentaufnahme: Jede Einheit, die du später zum Szenario hinzufügst, bleibt verborgen, bis du sie hier in eine Gruppe einordnest.",
+      "statusEraDisabled": "Die Standard-Einheiten der Epoche sind deaktiviert, daher ist das Standardlayout ausgeblendet. Füge unten Gruppen aus den eigenen benutzerdefinierten Einheiten deines Szenarios hinzu.",
+      "namePlaceholder": "Gruppenname",
+      "addGroup": "Gruppe hinzufügen",
+      "addUnit": "Einheit hinzufügen…",
+      "noUnits": "Noch keine Einheiten.",
+      "moveUp": "Nach oben",
+      "moveDown": "Nach unten"
+    },
+    "customArmyCompositions": {
+      "title": "Benutzerdefinierte Armeezusammensetzungen",
+      "betaNotice": "Optionen für benutzerdefinierte Armeezusammensetzungen in Szenarien sind eine Beta-Funktion; bitte melde alle Fehler im offiziellen Discord-Server.",
+      "disableEraUnits": "Standard-Einheiten der Epoche deaktivieren",
+      "disableEraUnitsDescription": "Setze nur die eigenen benutzerdefinierten Einheiten dieses Szenarios ein. Die Standard-Einheiten der Epoche werden im Armee-Bildschirm ausgeblendet und beim Zusammenstellen einer Armee abgelehnt.",
+      "disableEraUnitsWarning": "Füge mindestens eine benutzerdefinierte Einheitenvorlage hinzu, sonst haben Spieler keine Einheiten zum Einsetzen."
+    },
+    "unitCaps": {
+      "title": "Einheiten-Obergrenzen",
+      "description": "Begrenze, wie viele einer Einheit ein Spieler einsetzen darf. Füge eine Einheit hinzu und lege dann ihre Obergrenze pro dynamischem Schlachttyp fest. Jedes Feld zeigt die Obergrenze dieser Epoche als Platzhalter; lasse es leer, um diese beizubehalten. Eine Obergrenze von 0 entfernt die Einheit aus diesem Schlachttyp. Einheiten mit einer Epochen-Obergrenze werden automatisch aufgelistet.",
+      "noLimit": "Kein Limit",
+      "addUnit": "Einheit hinzufügen…",
+      "empty": "Noch keine Einheiten-Obergrenzen. Füge eine Einheit hinzu, um sie zu begrenzen."
+    },
+    "battleTypeBudgets": {
+      "title": "Schlachttyp-Budgets",
+      "description": "Überschreibe die Start-Mannschaftsstärke und das Startgold, die jeder Spieler in jedem dynamischen Schlachttyp erhält. Lasse ein Feld leer, um den Standardwert dieser Epoche beizubehalten (als Platzhalter angezeigt).",
+      "manpower": "Mannschaftsstärke",
+      "gold": "Gold"
+    },
+    "playerBudgets": {
+      "title": "Budgets pro Spieler",
+      "description": "Gib bestimmten Spielern ihr eigenes absolutes Mannschaftsstärke- und Gold-Budget, das das Budget des Schlachttyps nur für diesen Spieler überschreibt. Füge einen Spieler hinzu und lege dann einen der Werte fest; lasse ein Feld leer, um das Schlachttyp-Budget beizubehalten. Gilt in der Lobby nach Platznummer.",
+      "addPlayer": "Spieler hinzufügen…",
+      "player": "Spieler {{number}}",
+      "manpower": "Mannschaftsstärke",
+      "gold": "Gold",
+      "default": "Schlachttyp-Budget",
+      "empty": "Noch keine Spieler-Budgets. Füge einen Spieler hinzu, um sein Budget zu überschreiben."
     }
   },
   "resize": {

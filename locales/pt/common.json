@@ -334,6 +334,7 @@
   "maxTime": "Tempo máximo",
   "reserveAmmoDescription": "Ouro não gasto contribui para sua munição de artilharia de reserva, que automaticamente reabastece a munição inerente de sua artilharia enquanto dispara. Os turnos de fogo estimados levam em conta tanto a munição de reserva quanto a da unidade.",
   "saveArmy": "Salvar exército",
+  "confirmArmy": "Confirmar exército",
   "clearUnits": "Limpar unidades",
   "saving": "Salvando...",
   "armyInvalid": "Este exército é inválido, por favor, modifique-o.",
@@ -583,7 +584,28 @@
     "joinTeam": "Entrar no Time {{team}} ({{count}}/{{capacity}})",
     "teamLocked": "Escolha o time menor",
     "teamFull": "O time está cheio",
-    "teamNoLongerAvailable": "Outra pessoa entrou primeiro. Escolha novamente."
+    "teamNoLongerAvailable": "Outra pessoa entrou primeiro. Escolha novamente.",
+    "slotNoLongerAvailable": "Outra pessoa ocupou esse assento primeiro. Escolha novamente.",
+    "slotActionFailed": "Isso não funcionou. Tente novamente.",
+    "hostWithLobby": "Hospedar com lobby",
+    "joinSlot": "Entrar na Equipe {{team}} - Jogador {{slot}}",
+    "slotTaken": "Assento ocupado",
+    "slotClosed": "Fechada",
+    "closeSlot": "Fechar",
+    "openSlot": "Abrir",
+    "claim": "Reivindicar",
+    "release": "Liberar",
+    "playInClaimedSlot": "Jogar no assento reivindicado",
+    "kick": "Expulsar",
+    "kickedTitle": "Removido da partida",
+    "kickedMessage": "O anfitrião removeu você desta partida. Você não pode reentrar nela.",
+    "kickedCannotRejoin": "Você foi removido desta partida e não pode reentrar nela.",
+    "confirmArmy": "Confirmar exército",
+    "armyInvalid": "Esse exército não é válido para esta partida. Ajuste-o e tente novamente.",
+    "ready": "Pronto",
+    "notReady": "Não pronto",
+    "playersChoosingArmies": "Aguardando {{count}} jogador(es) escolher(em) seu exército.",
+    "back": "Voltar"
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
@@ -748,6 +770,7 @@
   "sendFailed": "Falha ao enviar mensagem",
   "chatUnreadCount": "{{count}} não lidos",
   "startGameNow": "Iniciar a partida agora?",
+  "startGame": "Iniciar partida",
   "startGameNowTooltip": "Unidades não atribuídas a nenhum jogador serão divididas igualmente entre os jogadores conectados no mesmo time dessas unidades.",
   "user": "Usuário",
   "meleeStaminaCost": "Custo de resistência corpo a corpo",
@@ -820,5 +843,6 @@
     "message": "Sua conta será agendada para exclusão em {{graceDays}} dias. Você pode cancelar a qualquer momento antes disso entrando novamente. Depois disso, sua conta e seus dados pessoais serão anonimizados permanentemente. Tem certeza?",
     "scheduled": "Sua conta está agendada para exclusão em {{graceDays}} dias. Entre novamente antes desse prazo para cancelar.",
     "error": "Não foi possível agendar a exclusão da conta. Tente novamente."
-  }
+  },
+  "startGameAsSpectator": "Iniciar partida como espectador"
 }

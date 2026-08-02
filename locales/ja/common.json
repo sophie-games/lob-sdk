@@ -377,6 +377,7 @@
   "maxTime": "最大時間",
   "reserveAmmoDescription": "未使用のゴールドは予備砲兵弾薬に貢献し、砲兵が射撃する際に自動的に内蔵弾薬を補充します。推定射撃ターン数は予備弾薬とユニット弾薬の両方を考慮します。",
   "saveArmy": "軍を保存",
+  "confirmArmy": "軍を確定",
   "clearUnits": "ユニットをクリア",
   "saving": "保存中...",
   "armyInvalid": "この軍編成は無効です。修正してください。",
@@ -601,7 +602,28 @@
     "joinTeam": "チーム{{team}}に参加 ({{count}}/{{capacity}})",
     "teamLocked": "少ない方のチームを選んでください",
     "teamFull": "チームは満員です",
-    "teamNoLongerAvailable": "他のプレイヤーが先に参加しました。もう一度選んでください。"
+    "teamNoLongerAvailable": "他のプレイヤーが先に参加しました。もう一度選んでください。",
+    "slotNoLongerAvailable": "他のプレイヤーが先にその座席を確保しました。もう一度選んでください。",
+    "slotActionFailed": "うまくいきませんでした。もう一度お試しください。",
+    "hostWithLobby": "ロビーでホスト",
+    "joinSlot": "チーム{{team}}に参加 - プレイヤー{{slot}}",
+    "slotTaken": "座席使用中",
+    "slotClosed": "クローズド",
+    "closeSlot": "閉じる",
+    "openSlot": "開く",
+    "claim": "確保",
+    "release": "解放",
+    "playInClaimedSlot": "確保した座席でプレイ",
+    "kick": "追放",
+    "kickedTitle": "ゲームから削除されました",
+    "kickedMessage": "ホストによってこのゲームから削除されました。再参加はできません。",
+    "kickedCannotRejoin": "このゲームから削除されたため、再参加できません。",
+    "confirmArmy": "軍を確定",
+    "armyInvalid": "この軍編成はこのゲームでは無効です。調整してもう一度お試しください。",
+    "ready": "準備完了",
+    "notReady": "未準備",
+    "playersChoosingArmies": "{{count}}人のプレイヤーが軍を選択するのを待っています。",
+    "back": "戻る"
   },
   "limitedMode": {
     "title": "{{playersPerTeam}}対{{playersPerTeam}} {{battleTypeName}}",
@@ -828,6 +850,7 @@
   "inviteFriend": "フレンドを招待する",
   "checkStarted": "開始されたかどうかを確認する",
   "startGameNow": "今すぐゲームを開始しますか？",
+  "startGame": "ゲームを開始",
   "startGameNowTooltip": "どのプレイヤーにも割り当てられていないユニットは、そのユニットと同じチームに所属する既に参加しているプレイヤーに均等に振り分けられます。",
   "errorWhenSubmittingOrders": "命令送信時にエラーが発生しました",
   "syncGame": "ゲームを同期する",
@@ -1024,5 +1047,6 @@
     "message": "アカウントは{{graceDays}}日後に削除される予定になります。それまでは再度ログインすればいつでもキャンセルできます。その後、アカウントと個人データは完全に匿名化されます。よろしいですか？",
     "scheduled": "アカウントは{{graceDays}}日後に削除される予定です。キャンセルするにはその期限までに再度ログインしてください。",
     "error": "アカウント削除を予約できませんでした。もう一度お試しください。"
-  }
+  },
+  "startGameAsSpectator": "観戦者としてゲームを開始"
 }

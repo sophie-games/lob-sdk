@@ -6,6 +6,7 @@ import {
   ScenarioName,
   BattleTypeTemplate,
   DynamicBattleType,
+  ScenarioBattleTypeOverride,
   TerrainCategoryType,
   TerrainCategoryConfig,
   TerrainType,
@@ -119,6 +120,49 @@ import { UnitTemplateManager } from "./unit-template-manager";
 import { degreesToRadians, deepMerge, type DeepPartial } from "@lob-sdk/utils";
 
 /**
+ * Scenario-scoped custom definitions layered onto an era registry by
+ * {@link GameDataManager.createWithCustomDefs} / {@link GameDataManager.loadCustomDefs}.
+ * Spelled once here so the two methods and the {@link CUSTOM_DEF_PRESENCE}
+ * presence guard can't drift apart.
+ */
+export type CustomDefs = {
+  customUnitTemplates?: UnitTemplate[];
+  customDamageTypes?: DamageTypeTemplate[];
+  customUnitFormations?: FormationTemplate[];
+  customUnitCategories?: UnitCategoryTemplate[];
+  customTerrainCategories?: CustomTerrainCategoryOverride[];
+  customGameConstants?: Partial<GameConstants>;
+  customGameRules?: DeepPartial<GameRules>;
+  customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
+  customBattleTypes?: Partial<
+    Record<DynamicBattleType, ScenarioBattleTypeOverride>
+  >;
+  disableEraDefaultUnits?: boolean;
+};
+
+/**
+ * "Does this custom-def carry an override for key K?" — one predicate per
+ * {@link CustomDefs} key. The `Required<Record<keyof CustomDefs, …>>` wrapper is
+ * an exhaustiveness guard: add a field to `CustomDefs` without a predicate here
+ * and the build fails ("Property 'x' is missing"), so a new custom-def kind can
+ * never be silently dropped by {@link GameDataManager.createWithCustomDefs}.
+ */
+const CUSTOM_DEF_PRESENCE: Required<{
+  [K in keyof CustomDefs]: (defs: CustomDefs) => boolean;
+}> = {
+  customUnitTemplates: (d) => !!d.customUnitTemplates?.length,
+  customDamageTypes: (d) => !!d.customDamageTypes?.length,
+  customUnitFormations: (d) => !!d.customUnitFormations?.length,
+  customUnitCategories: (d) => !!d.customUnitCategories?.length,
+  customTerrainCategories: (d) => !!d.customTerrainCategories?.length,
+  customGameConstants: (d) => Object.keys(d.customGameConstants ?? {}).length > 0,
+  customGameRules: (d) => Object.keys(d.customGameRules ?? {}).length > 0,
+  customOrders: (d) => Object.keys(d.customOrders ?? {}).length > 0,
+  customBattleTypes: (d) => Object.keys(d.customBattleTypes ?? {}).length > 0,
+  disableEraDefaultUnits: (d) => !!d.disableEraDefaultUnits,
+};
+
+/**
  * Centralized lazy-loading game data manager.
  * Provides access to all game data including units, formations, terrains, battle types, and more.
  * Uses a singleton pattern per era to ensure efficient memory usage.
@@ -207,6 +251,22 @@ export class GameDataManager {
   private _headOnCollisionCosineThresholdSquared: number = -1;
 
   /**
+   * When true, this scenario disables the era's default units: only custom unit
+   * templates (type >= CUSTOM_UNIT_TYPE_MIN) are fieldable, so the army panel
+   * hides era units and validateArmy rejects them. Set per-game from the
+   * scenario's `disableEraDefaultUnits` flag; false on the era singleton.
+   *
+   * Read-only from outside: the only writer is {@link loadCustomDefs} on a
+   * per-game instance, so a stray external assignment can't leak this flag onto
+   * the shared era singleton (or across games).
+   */
+  private _disableEraDefaultUnits = false;
+
+  public get disableEraDefaultUnits(): boolean {
+    return this._disableEraDefaultUnits;
+  }
+
+  /**
    * Gets or creates a GameDataManager instance for the specified era.
    * Uses a singleton pattern to ensure only one instance exists per era.
    * @param era - The game era ("napoleonic" or "ww2").
@@ -242,26 +302,10 @@ export class GameDataManager {
    */
   public static createWithCustomDefs(
     era: GameEra,
-    customDefs: {
-      customUnitTemplates?: UnitTemplate[];
-      customDamageTypes?: DamageTypeTemplate[];
-      customUnitFormations?: FormationTemplate[];
-      customUnitCategories?: UnitCategoryTemplate[];
-      customTerrainCategories?: CustomTerrainCategoryOverride[];
-      customGameConstants?: Partial<GameConstants>;
-      customGameRules?: DeepPartial<GameRules>;
-      customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
-    },
+    customDefs: CustomDefs,
   ): GameDataManager {
-    const hasCustom = !!(
-      customDefs.customUnitTemplates?.length ||
-      customDefs.customDamageTypes?.length ||
-      customDefs.customUnitFormations?.length ||
-      customDefs.customUnitCategories?.length ||
-      customDefs.customTerrainCategories?.length ||
-      Object.keys(customDefs.customGameConstants ?? {}).length ||
-      Object.keys(customDefs.customGameRules ?? {}).length ||
-      Object.keys(customDefs.customOrders ?? {}).length
+    const hasCustom = Object.values(CUSTOM_DEF_PRESENCE).some((present) =>
+      present(customDefs),
     );
 
     if (!hasCustom) {
@@ -279,16 +323,9 @@ export class GameDataManager {
    * Call only on per-game instances from {@link createWithCustomDefs};
    * mutating an era singleton leaks state across games.
    */
-  public loadCustomDefs(customDefs: {
-    customUnitTemplates?: UnitTemplate[];
-    customDamageTypes?: DamageTypeTemplate[];
-    customUnitFormations?: FormationTemplate[];
-    customUnitCategories?: UnitCategoryTemplate[];
-    customTerrainCategories?: CustomTerrainCategoryOverride[];
-    customGameConstants?: Partial<GameConstants>;
-    customGameRules?: DeepPartial<GameRules>;
-    customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
-  }): void {
+  public loadCustomDefs(customDefs: CustomDefs): void {
+    this._disableEraDefaultUnits = customDefs.disableEraDefaultUnits ?? false;
+
     // Order matters: orders → categories → terrain categories → damage types →
     // formations → templates. Terrain categories slot in after unit
     // categories so the wildcard expansion has the full set of unit
@@ -438,6 +475,31 @@ export class GameDataManager {
         this.getGameRules(),
         customDefs.customGameRules,
       );
+    }
+
+    if (
+      customDefs.customBattleTypes &&
+      Object.keys(customDefs.customBattleTypes).length > 0
+    ) {
+      // Shallow-clone the shared era map, then replace only the overridden
+      // battle types with fresh objects (never mutating the era originals):
+      // manpower/gold replace, unitCaps merge over the base by unit type.
+      this.battleTypes = { ...this.battleTypes };
+      for (const [battleType, override] of Object.entries(
+        customDefs.customBattleTypes,
+      )) {
+        const base = this.battleTypes[battleType as DynamicBattleType];
+        if (!override || !base) {
+          continue;
+        }
+        const { manpower, gold, unitCaps } = override;
+        this.battleTypes[battleType as DynamicBattleType] = {
+          ...base,
+          manpower: manpower ?? base.manpower,
+          gold: gold ?? base.gold,
+          unitCaps: unitCaps ? { ...base.unitCaps, ...unitCaps } : base.unitCaps,
+        };
+      }
     }
   }
 

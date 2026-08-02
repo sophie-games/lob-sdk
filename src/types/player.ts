@@ -147,6 +147,14 @@ export interface PlayerInfo {
    * Reason this player exited the game. Null while the player is still in.
    */
   lostReason: LostReason | null;
+  /**
+   * Lobby-picker games only: whether this player has locked in a valid army
+   * (their prerequisite for the host to start). Server-computed so a redacted
+   * army composition doesn't leak. Always `true` for games without the picker
+   * and for started games, where readiness is meaningless — non-optional so no
+   * reader has to guess a default for the absent case.
+   */
+  armyReady: boolean;
 }
 
 /**

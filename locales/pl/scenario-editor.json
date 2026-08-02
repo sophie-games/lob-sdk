@@ -514,6 +514,16 @@
       "importedCount_many": "Zaimportowano {{count}} nadpisań.",
       "importedCount_other": "Zaimportowano {{count}} nadpisania."
     },
+    "importArmyCompositionsModal": {
+      "title": "Importuj kompozycje armii ze scenariusza",
+      "pickFilePrompt": "Wybierz plik scenariusza (JSON tworzony przyciskiem Pobierz w edytorze), aby zaimportować z niego jego kompozycje armii.",
+      "noArmyCompositions": "Ten scenariusz nie ma ustawień kompozycji armii do zaimportowania.",
+      "fieldBattleTypes": "Budżety trybów bitwy i limity jednostek",
+      "fieldPlayerBudgets": "Budżety poszczególnych graczy",
+      "fieldArmyPanelGroups": "Grupy panelu armii",
+      "fieldDisableEraUnits": "Wyłącz domyślne jednostki ery",
+      "resultSummary": "Zaimportowano: {{fields}}."
+    },
     "gameConstants": {
       "title": "Nadpisania stałych gry",
       "description": "Nadpisz numeryczne stałe tej epoki dla tego scenariusza. Zapisywane są tylko zmienione wartości; Resetuj przywraca pole do wartości domyślnej epoki. Klucze oznaczone ⚠ są strukturalne - ich zmiana może zepsuć renderowanie, powtórki lub matchmaking. Wartości podane są w surowych jednostkach wewnętrznych."
@@ -536,6 +546,49 @@
       "default": "Domyślny",
       "unknownOption": "{{value}} (nieznany)",
       "groupBuiltIn": "Wbudowane"
+    },
+    "armyPanelGroups": {
+      "title": "Grupy panelu armii",
+      "description": "Wybierz nagłówki, które gracze widzą podczas kupowania armii, jakie jednostki znajdują się pod każdym z nich oraz ich kolejność. Zaczyna się od domyślnego układu ery.",
+      "statusDefault": "Bez zmian — ten scenariusz używa standardowych kompozycji armii tej ery. Edycja czegokolwiek poniżej przełączy go na twoją własną listę.",
+      "statusCustom": "Dostosowane — ten scenariusz nadpisuje układ ery twoją listą. Ekran armii pokazuje tylko jednostki umieszczone w grupie i pomija resztę. Ta lista jest teraz stałym zrzutem: każda jednostka dodana do scenariusza później pozostanie ukryta, dopóki nie umieścisz jej tutaj w grupie.",
+      "statusEraDisabled": "Domyślne jednostki ery są wyłączone, więc standardowy układ jest ukryty. Dodaj grupy z własnych niestandardowych jednostek scenariusza poniżej.",
+      "namePlaceholder": "Nazwa grupy",
+      "addGroup": "Dodaj grupę",
+      "addUnit": "Dodaj jednostkę…",
+      "noUnits": "Brak jednostek.",
+      "moveUp": "Przenieś w górę",
+      "moveDown": "Przenieś w dół"
+    },
+    "customArmyCompositions": {
+      "title": "Niestandardowe kompozycje armii",
+      "betaNotice": "Opcje niestandardowych kompozycji armii dla scenariuszy to funkcja beta; wszelkie błędy zgłaszaj na oficjalnym serwerze Discord.",
+      "disableEraUnits": "Wyłącz domyślne jednostki ery",
+      "disableEraUnitsDescription": "Pozwala wystawiać wyłącznie własne niestandardowe jednostki tego scenariusza. Domyślne jednostki ery są ukryte na ekranie armii i odrzucane podczas budowania armii.",
+      "disableEraUnitsWarning": "Dodaj co najmniej jeden niestandardowy szablon jednostki, inaczej gracze nie będą mieli żadnych jednostek do wystawienia."
+    },
+    "unitCaps": {
+      "title": "Limity jednostek",
+      "description": "Ogranicz liczbę każdej jednostki, jaką gracz może wystawić. Dodaj jednostkę, a następnie ustaw jej limit dla każdego dynamicznego trybu bitwy. Każde pole pokazuje jako placeholder limit tej ery; pozostaw puste, aby go zachować. Limit 0 usuwa jednostkę z tego trybu bitwy. Jednostki z limitem ery są wyświetlane automatycznie.",
+      "noLimit": "Bez limitu",
+      "addUnit": "Dodaj jednostkę…",
+      "empty": "Brak limitów jednostek. Dodaj jednostkę, aby ustawić jej limit."
+    },
+    "battleTypeBudgets": {
+      "title": "Budżety trybów bitwy",
+      "description": "Nadpisz początkowych rekrutów i złoto, jakie każdy gracz otrzymuje w każdym dynamicznym trybie bitwy. Pozostaw pole puste, aby zachować wartość domyślną tej ery (pokazaną jako placeholder).",
+      "manpower": "Rekruci",
+      "gold": "Złoto"
+    },
+    "playerBudgets": {
+      "title": "Budżety poszczególnych graczy",
+      "description": "Nadaj konkretnym graczom własny, bezwzględny budżet rekrutów i złota, nadpisując budżet trybu bitwy tylko dla tego gracza. Dodaj gracza, a następnie ustaw dowolną wartość; pozostaw pole puste, aby zachować budżet trybu bitwy. Stosowane w lobby według numeru miejsca.",
+      "addPlayer": "Dodaj gracza…",
+      "player": "Gracz {{number}}",
+      "manpower": "Rekruci",
+      "gold": "Złoto",
+      "default": "Budżet trybu bitwy",
+      "empty": "Brak budżetów graczy. Dodaj gracza, aby nadpisać jego budżet."
     }
   },
   "resize": {

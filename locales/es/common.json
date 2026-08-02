@@ -336,6 +336,7 @@
   "maxTime": "Tiempo máximo",
   "reserveAmmoDescription": "El oro no gastado contribuye a tu munición de artillería de reserva, que automáticamente repone la munición inherente de tu artillería mientras dispara. Los turnos de fuego estimados toman en cuenta tanto la munición de reserva como la de la unidad.",
   "saveArmy": "Guardar ejército",
+  "confirmArmy": "Confirmar ejército",
   "clearUnits": "Borrar unidades",
   "saving": "Guardando...",
   "armyInvalid": "Este ejército no es válido, por favor modificalo.",
@@ -645,7 +646,28 @@
     "joinTeam": "Unirse al Equipo {{team}} ({{count}}/{{capacity}})",
     "teamLocked": "Elige el equipo más pequeño",
     "teamFull": "El equipo está lleno",
-    "teamNoLongerAvailable": "Alguien se unió primero. Elige de nuevo."
+    "teamNoLongerAvailable": "Alguien se unió primero. Elige de nuevo.",
+    "slotNoLongerAvailable": "Alguien más tomó ese asiento primero. Elige de nuevo.",
+    "slotActionFailed": "Eso no funcionó. Inténtalo de nuevo.",
+    "hostWithLobby": "Anfitrión con lobby",
+    "joinSlot": "Unirse al Equipo {{team}} - Jugador {{slot}}",
+    "slotTaken": "Asiento ocupado",
+    "slotClosed": "Cerrado",
+    "closeSlot": "Cerrar",
+    "openSlot": "Abrir",
+    "claim": "Reclamar",
+    "release": "Liberar",
+    "playInClaimedSlot": "Jugar en el asiento reclamado",
+    "kick": "Expulsar",
+    "kickedTitle": "Expulsado de la partida",
+    "kickedMessage": "El anfitrión te expulsó de esta partida. No puedes volver a unirte a ella.",
+    "kickedCannotRejoin": "Fuiste expulsado de esta partida y no puedes volver a unirte a ella.",
+    "confirmArmy": "Confirmar ejército",
+    "armyInvalid": "Ese ejército no es válido para esta partida. Ajústalo e inténtalo de nuevo.",
+    "ready": "Listo",
+    "notReady": "No listo",
+    "playersChoosingArmies": "Esperando a que {{count}} jugadores elijan su ejército.",
+    "back": "Volver"
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
@@ -765,6 +787,7 @@
   "inviteFriend": "Invitar a un amigo",
   "checkStarted": "Verificar si ha comenzado",
   "startGameNow": "¿Empezar el juego ahora?",
+  "startGame": "Iniciar partida",
   "startGameNowTooltip": "Las unidades que no estén asignadas a ningún jugador se repartirán de forma equitativa entre los jugadores conectados del mismo equipo que esas unidades.",
   "serverUpdating": {
     "title": "Servidor en actualización",
@@ -903,5 +926,6 @@
     "message": "Tu cuenta quedará programada para eliminarse en {{graceDays}} días. Puedes cancelar en cualquier momento antes volviendo a iniciar sesión. Después de eso, tu cuenta y tus datos personales se anonimizarán de forma permanente. ¿Estás seguro?",
     "scheduled": "Tu cuenta está programada para eliminarse en {{graceDays}} días. Vuelve a iniciar sesión antes de ese plazo para cancelarla.",
     "error": "No se pudo programar la eliminación de la cuenta. Inténtalo de nuevo."
-  }
+  },
+  "startGameAsSpectator": "Iniciar partida como espectador"
 }

@@ -367,6 +367,7 @@
   "maxTime": "최대 시간",
   "reserveAmmoDescription": "사용하지 않은 골드는 포병의 예비 탄약으로 전환됩니다. 포병이 사격하면 자동으로 해당 포병이 보유한 탄약을 보충합니다. 예상 사격 횟수는 예비 탄약과 부대 탄약을 모두 고려합니다.",
   "saveArmy": "저장",
+  "confirmArmy": "군대 확정",
   "clearUnits": "초기화",
   "saving": "저장 중...",
   "armyInvalid": "이 편제는 사용할 수 없습니다. 수정이 필요합니다.",
@@ -658,7 +659,28 @@
     "joinTeam": "{{team}}팀 참가 ({{count}}/{{capacity}})",
     "teamLocked": "더 적은 팀을 선택하세요",
     "teamFull": "팀이 가득 찼습니다",
-    "teamNoLongerAvailable": "다른 플레이어가 먼저 참가했습니다. 다시 선택하세요."
+    "teamNoLongerAvailable": "다른 플레이어가 먼저 참가했습니다. 다시 선택하세요.",
+    "slotNoLongerAvailable": "다른 플레이어가 그 자리를 먼저 차지했습니다. 다시 선택하세요.",
+    "slotActionFailed": "작업에 실패했습니다. 다시 시도해 주세요.",
+    "hostWithLobby": "로비로 호스트",
+    "joinSlot": "{{team}}팀 참가 - 플레이어 {{slot}}",
+    "slotTaken": "자리 차지됨",
+    "slotClosed": "닫힘",
+    "closeSlot": "닫기",
+    "openSlot": "열기",
+    "claim": "차지",
+    "release": "해제",
+    "playInClaimedSlot": "차지한 자리에서 플레이",
+    "kick": "추방",
+    "kickedTitle": "게임에서 추방됨",
+    "kickedMessage": "호스트가 귀하를 이 게임에서 추방했습니다. 다시 참가할 수 없습니다.",
+    "kickedCannotRejoin": "귀하는 이 게임에서 추방되어 다시 참가할 수 없습니다.",
+    "confirmArmy": "군대 확정",
+    "armyInvalid": "이 편제는 이 게임에서 사용할 수 없습니다. 수정 후 다시 시도하세요.",
+    "ready": "준비 완료",
+    "notReady": "준비 안 됨",
+    "playersChoosingArmies": "{{count}} 명의 플레이어가 군대를 선택하기를 기다리는 중입니다.",
+    "back": "뒤로"
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} 대 {{playersPerTeam}} {{battleTypeName}}",
@@ -817,6 +839,7 @@
   "inviteFriend": "친구 초대",
   "checkStarted": "시작 여부 확인",
   "startGameNow": "지금 게임을 시작할까요?",
+  "startGame": "게임 시작",
   "startGameNowTooltip": "플레이어에게 배정되지 않은 유닛은 해당 유닛과 같은 팀에 접속한 플레이어들에게 균등하게 나뉩니다.",
   "errorWhenSubmittingOrders": "명령 하달 중 오류",
   "syncGame": "게임 동기화",
@@ -999,5 +1022,6 @@
     "message": "계정이 {{graceDays}}일 후 삭제되도록 예약됩니다. 그 전에 다시 로그인하면 언제든지 취소할 수 있습니다. 이후에는 계정과 개인정보가 영구적으로 익명화됩니다. 확실합니까?",
     "scheduled": "계정이 {{graceDays}}일 후 삭제되도록 예약되었습니다. 취소하려면 그 기한 전에 다시 로그인하세요.",
     "error": "계정 삭제를 예약할 수 없습니다. 다시 시도해 주세요."
-  }
+  },
+  "startGameAsSpectator": "관전자로 게임 시작"
 }

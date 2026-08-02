@@ -1,11 +1,14 @@
 import {
   CUSTOM_UNIT_TYPE_MIN,
+  MAX_CUSTOM_ARMY_PANEL_GROUPS,
   MAX_CUSTOM_SPRITES,
   MAX_CUSTOM_TERRAIN_CATEGORIES,
+  MAX_PLAYER_BUDGET_OVERRIDES,
   validateScenarioCustomDefs,
 } from "./validate-custom";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import {
+  ArmyPanelGroup,
   CollisionShapeType,
   CustomTerrainCategoryOverride,
   FormationTemplate,
@@ -13,6 +16,7 @@ import {
   RangeUnitTemplate,
   Scenario,
   UnitTemplate,
+  UnitType,
 } from "@lob-sdk/types";
 import {
   DamageTypeTemplate,
@@ -129,6 +133,64 @@ describe("validateScenarioCustomDefs", () => {
       );
       expect(errors.some((e) => /Too many custom/.test(e.message))).toBe(false);
     });
+  });
+
+  describe("custom unit pricing", () => {
+    // A negative price reduces total army cost as count rises, so one such unit
+    // buys an unlimited army once custom units become purchasable.
+    it.each(["manpower", "gold"] as const)(
+      "rejects a negative %s price",
+      (key) => {
+        const errors = validateScenarioCustomDefs(
+          makeScenario({
+            customUnitTemplates: [makeUnitTemplate({ [key]: -100 })],
+          }),
+          era,
+        );
+        expect(
+          errors.some(
+            (e) =>
+              e.scope === "unitTemplate" &&
+              new RegExp(`${key} must be >= 0`).test(e.message),
+          ),
+        ).toBe(true);
+      },
+    );
+
+    it("accepts a zero price (legitimately free units)", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customUnitTemplates: [makeUnitTemplate({ manpower: 0, gold: 0 })],
+        }),
+        era,
+      );
+      expect(errors.some((e) => /must be >= 0/.test(e.message))).toBe(false);
+    });
+
+    // A wrong-typed price (a hand-crafted import can smuggle a string) slipped
+    // past the `typeof === "number"` guard and then compared number-to-string
+    // downstream. The magnitude guard only inspects numeric leaves, so it never
+    // caught it either.
+    it.each(["manpower", "gold"] as const)(
+      "rejects a non-numeric %s price",
+      (key) => {
+        const errors = validateScenarioCustomDefs(
+          makeScenario({
+            customUnitTemplates: [
+              makeUnitTemplate({ [key]: "500" as unknown as number }),
+            ],
+          }),
+          era,
+        );
+        expect(
+          errors.some(
+            (e) =>
+              e.scope === "unitTemplate" &&
+              new RegExp(`${key} must be >= 0`).test(e.message),
+          ),
+        ).toBe(true);
+      },
+    );
   });
 
   describe("numeric field bounds", () => {
@@ -1228,6 +1290,540 @@ describe("validateCustomSprites", () => {
         era,
       );
       expect(errors.some((e) => e.scope === "order")).toBe(true);
+    });
+  });
+
+  describe("custom battle type & player budget overrides", () => {
+    // A real napoleonic battle type: an override may only modify an existing one.
+    const battleType = "clash";
+    const unitType = era.getUnitTemplateManager().getTemplates()[0].type;
+
+    it("rejects a negative battle-type manpower budget", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: { [battleType]: { manpower: -100 } },
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "battleType" && /manpower must be >= 0/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("rejects a non-finite battle-type gold budget", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: { [battleType]: { gold: Infinity } },
+        }),
+        era,
+      );
+      expect(errors.some((e) => e.scope === "battleType")).toBe(true);
+    });
+
+    it("rejects a negative unit cap", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: { [battleType]: { unitCaps: { [unitType]: -1 } } },
+        }),
+        era,
+      );
+      expect(
+        errors.some((e) => e.scope === "battleType" && /unitCaps/.test(e.message)),
+      ).toBe(true);
+    });
+
+    it("rejects a fractional unit cap", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: { [battleType]: { unitCaps: { [unitType]: 2.5 } } },
+        }),
+        era,
+      );
+      expect(
+        errors.some((e) => e.scope === "battleType" && /unitCaps/.test(e.message)),
+      ).toBe(true);
+    });
+
+    it("rejects a negative player budget override", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          playerBudgetOverrides: { 1: { gold: -50 } },
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) => e.scope === "playerBudget" && /gold must be >= 0/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("rejects a non-numeric battle-type manpower budget", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: {
+            [battleType]: { manpower: "5000" as unknown as number },
+          },
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "battleType" && /manpower must be >= 0/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("rejects a non-numeric unit cap", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: {
+            [battleType]: { unitCaps: { [unitType]: "2" as unknown as number } },
+          },
+        }),
+        era,
+      );
+      expect(
+        errors.some((e) => e.scope === "battleType" && /unitCaps/.test(e.message)),
+      ).toBe(true);
+    });
+
+    it("rejects a null player-budget gold value", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          playerBudgetOverrides: { 1: { gold: null as unknown as number } },
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) => e.scope === "playerBudget" && /gold must be >= 0/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("accepts valid battle-type and player budget overrides", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: {
+            [battleType]: {
+              manpower: 1000,
+              gold: 500,
+              unitCaps: { [unitType]: 3 },
+            },
+          },
+          playerBudgetOverrides: { 1: { manpower: 800 }, 2: { gold: 600 } },
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) => e.scope === "battleType" || e.scope === "playerBudget",
+        ),
+      ).toBe(false);
+    });
+
+    // Every override field is optional; an omitted one falls back to the battle
+    // type's value. Guarding wrong types must not reject a legitimately absent
+    // field, so a partial override stays valid.
+    it("accepts a partial override that omits a field", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: { [battleType]: { gold: 500 } },
+          playerBudgetOverrides: { 1: { manpower: 800 } },
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) => e.scope === "battleType" || e.scope === "playerBudget",
+        ),
+      ).toBe(false);
+    });
+
+    // An override whose key names no era battle type is silently dropped by the
+    // per-game merge (`if (!base) continue`) — the override does nothing with no
+    // error anywhere. The import gate must surface it instead.
+    it("rejects a battle-type override keyed by an unknown battle type", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customBattleTypes: {
+            skirmish: { manpower: 1000 },
+          } as unknown as Scenario["customBattleTypes"],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "battleType" &&
+            /not a known battle type/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    // The runtime looks the override up by player number (coerced to its
+    // canonical decimal string), so a non-integer, zero/negative, out-of-range,
+    // or non-canonical key never matches a real player and silently no-ops.
+    it.each([
+      ["0 (not 1-based)", { 0: { gold: 100 } }],
+      ["a non-integer", { "1.5": { gold: 100 } } as unknown],
+      ["a non-numeric string", { abc: { gold: 100 } } as unknown],
+      ["above MAX_PLAYERS", { 101: { gold: 100 } }],
+      ["a non-canonical numeric string", { "01": { gold: 100 } } as unknown],
+    ])("rejects a player budget override keyed by %s", (_label, overrides) => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          playerBudgetOverrides:
+            overrides as Scenario["playerBudgetOverrides"],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "playerBudget" &&
+            /must be a 1-based player slot number/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("accepts a player budget override at the MAX_PLAYERS slot", () => {
+      const maxPlayers = era.getGameConstants().MAX_PLAYERS;
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          playerBudgetOverrides: { [maxPlayers]: { gold: 100 } },
+        }),
+        era,
+      );
+      expect(errors.some((e) => e.scope === "playerBudget")).toBe(false);
+    });
+
+    it("caps the number of army panel groups (blob-size guard)", () => {
+      const customArmyPanelGroups: ArmyPanelGroup[] = Array.from(
+        { length: MAX_CUSTOM_ARMY_PANEL_GROUPS + 1 },
+        (_, i) => ({ id: `group_${i}`, name: `Group ${i}`, unitTypes: [] }),
+      );
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customArmyPanelGroups }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "armyPanelGroup" &&
+            /Too many custom army panel groups/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("caps the number of player budget overrides (blob-size guard)", () => {
+      const playerBudgetOverrides: Record<number, { gold: number }> = {};
+      for (let i = 1; i <= MAX_PLAYER_BUDGET_OVERRIDES + 1; i++) {
+        playerBudgetOverrides[i] = { gold: 100 };
+      }
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ playerBudgetOverrides }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "playerBudget" &&
+            /Too many custom player budget overrides/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+  });
+
+  describe("custom army panel groups", () => {
+    const builtInType = era.getUnitTemplateManager().getTemplates()[0].type;
+
+    it("accepts a group naming built-in and custom unit types", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customUnitTemplates: [makeUnitTemplate()],
+          customArmyPanelGroups: [
+            {
+              id: "vanguard",
+              name: "Vanguard",
+              unitTypes: [builtInType, CUSTOM_UNIT_TYPE_MIN],
+            },
+          ],
+        }),
+        era,
+      );
+      expect(errors.filter((e) => e.scope === "armyPanelGroup")).toEqual([]);
+    });
+
+    it("rejects a missing/empty group id", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customArmyPanelGroups: [{ id: "  ", unitTypes: [] }],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) => e.scope === "armyPanelGroup" && /id is required/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("rejects duplicate group ids", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customArmyPanelGroups: [
+            { id: "dup", unitTypes: [] },
+            { id: "dup", unitTypes: [] },
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) => e.scope === "armyPanelGroup" && /Duplicate/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("rejects a non-array unitTypes (the one runtime crash vector)", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customArmyPanelGroups: [
+            // A hand-crafted import can smuggle a non-array here; the panel's
+            // for..of would throw. Cast around the compile-time type to model it.
+            { id: "bad", unitTypes: 5 as unknown as UnitType[] },
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "armyPanelGroup" && /must be an array/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("rejects a unitTypes entry that names no known unit type", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customArmyPanelGroups: [{ id: "ghost", unitTypes: [999999] }],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "armyPanelGroup" &&
+            /not a built-in or custom unit type/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    // The whole collection (not just an inner unitTypes) can arrive non-array
+    // from a hand-crafted import; the outer `for..of` over a non-iterable throws,
+    // and with no api-server error middleware that becomes an unhandled rejection.
+    // It must normalize to empty instead of throwing.
+    it("does not throw when the whole collection is a non-array", () => {
+      expect(() =>
+        validateScenarioCustomDefs(
+          makeScenario({
+            customArmyPanelGroups: 5 as unknown as ArmyPanelGroup[],
+          }),
+          era,
+        ),
+      ).not.toThrow();
+    });
+
+    it("does not throw when customUnitTemplates is a non-array", () => {
+      expect(() =>
+        validateScenarioCustomDefs(
+          makeScenario({
+            customUnitTemplates: 5 as unknown as UnitTemplate[],
+          }),
+          era,
+        ),
+      ).not.toThrow();
+    });
+
+    // A layout is authoritative — buildUnitGroups never sweeps a "Custom"
+    // fallback for it — so one that names only era units the scenario has
+    // disabled leaves the panel empty. The layout is otherwise valid (the built
+    // -in is a known type), so only the whole-layout emptiness catches it.
+    it("rejects a layout naming only era defaults when they are disabled", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          disableEraDefaultUnits: true,
+          customUnitTemplates: [makeUnitTemplate()],
+          customArmyPanelGroups: [
+            { id: "vanguard", name: "Vanguard", unitTypes: [builtInType] },
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "armyPanelGroup" &&
+            /names no fieldable unit/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("accepts a layout naming a custom unit when era defaults are disabled", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          disableEraDefaultUnits: true,
+          customUnitTemplates: [makeUnitTemplate()],
+          customArmyPanelGroups: [
+            { id: "vanguard", name: "Vanguard", unitTypes: [CUSTOM_UNIT_TYPE_MIN] },
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "armyPanelGroup" &&
+            /names no fieldable unit/.test(e.message),
+        ),
+      ).toBe(false);
+    });
+
+    // With era defaults still enabled, a built-in is fieldable, so a layout of
+    // only built-ins is fine — the baseline non-custom-army case must not regress.
+    it("accepts a layout naming only era defaults when they are enabled", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customArmyPanelGroups: [
+            { id: "vanguard", name: "Vanguard", unitTypes: [builtInType] },
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "armyPanelGroup" &&
+            /names no fieldable unit/.test(e.message),
+        ),
+      ).toBe(false);
+    });
+
+    // Locked units are filtered out of the panel, so a layout naming only a
+    // locked custom unit is just as empty as one naming nothing fieldable.
+    it("rejects a layout naming only a locked custom unit", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customUnitTemplates: [makeUnitTemplate({ locked: true })],
+          customArmyPanelGroups: [
+            { id: "vanguard", name: "Vanguard", unitTypes: [CUSTOM_UNIT_TYPE_MIN] },
+          ],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "armyPanelGroup" &&
+            /names no fieldable unit/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+  });
+
+  describe("disableEraDefaultUnits playability", () => {
+    const builtInType = era.getUnitTemplateManager().getTemplates()[0].type;
+
+    it("rejects disabling era defaults with no custom units", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ disableEraDefaultUnits: true }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "unitTemplate" &&
+            /disableEraDefaultUnits needs at least one fieldable custom unit/.test(
+              e.message,
+            ),
+        ),
+      ).toBe(true);
+    });
+
+    // A custom template that merely overrides a built-in keeps its type < min,
+    // so validateArmy still rejects it under disableEraDefaultUnits — it is not
+    // fieldable, and the scenario is as unplayable as one with no customs.
+    it("rejects when the only custom unit overrides a built-in (type < min)", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          disableEraDefaultUnits: true,
+          customUnitTemplates: [makeUnitTemplate({ type: builtInType })],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "unitTemplate" &&
+            /disableEraDefaultUnits needs at least one fieldable custom unit/.test(
+              e.message,
+            ),
+        ),
+      ).toBe(true);
+    });
+
+    it("rejects when the only custom unit is locked", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          disableEraDefaultUnits: true,
+          customUnitTemplates: [makeUnitTemplate({ locked: true })],
+        }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "unitTemplate" &&
+            /disableEraDefaultUnits needs at least one fieldable custom unit/.test(
+              e.message,
+            ),
+        ),
+      ).toBe(true);
+    });
+
+    it("accepts disabling era defaults with a fieldable custom unit", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          disableEraDefaultUnits: true,
+          customUnitTemplates: [makeUnitTemplate()],
+        }),
+        era,
+      );
+      expect(
+        errors.some((e) =>
+          /disableEraDefaultUnits needs at least one fieldable custom unit/.test(
+            e.message,
+          ),
+        ),
+      ).toBe(false);
+    });
+
+    // The playability rule is scoped to disableEraDefaultUnits; a plain scenario
+    // with no custom units must stay error-free.
+    it("does not fire when era defaults are enabled", () => {
+      const errors = validateScenarioCustomDefs(makeScenario({}), era);
+      expect(
+        errors.some((e) =>
+          /disableEraDefaultUnits needs/.test(e.message),
+        ),
+      ).toBe(false);
     });
   });
 });

@@ -334,6 +334,7 @@
   "maxTime": "Maksimum süre",
   "reserveAmmoDescription": "Harcanmamış altın, yedek topçu mühimmatınıza katkıda bulunur ve topçunuz ateş ettiğinde doğal mühimmatını otomatik olarak yeniler. Tahmini ateş turları hem yedek hem de birim mühimmatını dikkate alır.",
   "saveArmy": "Orduyu kaydet",
+  "confirmArmy": "Orduyu onayla",
   "clearUnits": "Birimleri temizle",
   "saving": "Kaydediliyor...",
   "armyInvalid": "Bu ordu geçersiz, lütfen düzenleyin.",
@@ -582,7 +583,28 @@
     "joinTeam": "Takım {{team}}'a Katıl ({{count}}/{{capacity}})",
     "teamLocked": "Daha küçük takımı seç",
     "teamFull": "Takım dolu",
-    "teamNoLongerAvailable": "Başkası önce katıldı. Tekrar seç."
+    "teamNoLongerAvailable": "Başkası önce katıldı. Tekrar seç.",
+    "slotNoLongerAvailable": "Başkası o yeri önce aldı. Tekrar seç.",
+    "slotActionFailed": "Bu işe yaramadı. Lütfen tekrar deneyin.",
+    "hostWithLobby": "Lobiyle ev sahipliği yap",
+    "joinSlot": "Takım {{team}} - Oyuncu {{slot}}'a Katıl",
+    "slotTaken": "Yer alındı",
+    "slotClosed": "Kapalı",
+    "closeSlot": "Kapat",
+    "openSlot": "Aç",
+    "claim": "Sahiplen",
+    "release": "Bırak",
+    "playInClaimedSlot": "Sahiplenilen yerde oyna",
+    "kick": "At",
+    "kickedTitle": "Oyundan çıkarıldı",
+    "kickedMessage": "Ev sahibi sizi bu oyundan çıkardı. Tekrar katılamazsınız.",
+    "kickedCannotRejoin": "Bu oyundan çıkarıldınız ve tekrar katılamazsınız.",
+    "confirmArmy": "Orduyu onayla",
+    "armyInvalid": "Bu ordu bu oyun için geçerli değil. Düzenleyip tekrar deneyin.",
+    "ready": "Hazır",
+    "notReady": "Hazır Değil",
+    "playersChoosingArmies": "{{count}} oyuncunun ordusunu seçmesi bekleniyor.",
+    "back": "Geri"
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
@@ -749,6 +771,7 @@
   "sendFailed": "İleti gönderilemedi",
   "chatUnreadCount": "{{count}} okunmamış",
   "startGameNow": "Oyunu şimdi başlat?",
+  "startGame": "Oyunu başlat",
   "startGameNowTooltip": "Hiçbir oyuncuya atanmamış birimler, o birimlerle aynı takımdaki bağlı oyuncular arasında eşit şekilde bölüştürülür.",
   "user": "Kullanıcı",
   "meleeStaminaCost": "Yakın dövüş dayanıklılık maliyeti",
@@ -819,5 +842,6 @@
     "message": "Hesabınız {{graceDays}} gün içinde silinmek üzere planlanacak. Bundan önce istediğiniz zaman tekrar giriş yaparak iptal edebilirsiniz. Sonrasında hesabınız ve kişisel verileriniz kalıcı olarak anonimleştirilir. Emin misiniz?",
     "scheduled": "Hesabınız {{graceDays}} gün içinde silinmek üzere planlandı. İptal etmek için bu süre dolmadan tekrar giriş yapın.",
     "error": "Hesap silme planlanamadı. Lütfen tekrar deneyin."
-  }
+  },
+  "startGameAsSpectator": "İzleyici olarak oyunu başlat"
 }

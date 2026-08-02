@@ -371,6 +371,7 @@
   "maxTime": "Thời gian tối đa",
   "reserveAmmoDescription": "Vàng chưa sử dụng góp phần vào đạn pháo dự trữ của bạn, tự động bổ sung đạn vốn có của pháo binh khi bắn. Ước tính lượt bắn tính cả đạn dự trữ và đạn đơn vị.",
   "saveArmy": "Lưu quân đội",
+  "confirmArmy": "Xác nhận quân đội",
   "clearUnits": "Xóa đơn vị",
   "saving": "Đang lưu...",
   "armyInvalid": "Quân đội này không hợp lệ, vui lòng sửa đổi.",
@@ -596,7 +597,28 @@
     "joinTeam": "Tham gia Đội {{team}} ({{count}}/{{capacity}})",
     "teamLocked": "Chọn đội nhỏ hơn",
     "teamFull": "Đội đã đầy",
-    "teamNoLongerAvailable": "Người khác đã tham gia trước. Chọn lại."
+    "teamNoLongerAvailable": "Người khác đã tham gia trước. Chọn lại.",
+    "slotNoLongerAvailable": "Người khác đã lấy chỗ ngồi đó trước. Chọn lại.",
+    "slotActionFailed": "Thao tác đó không thành công. Vui lòng thử lại.",
+    "hostWithLobby": "Làm chủ phòng có phòng chờ",
+    "joinSlot": "Tham gia Đội {{team}} - Người chơi {{slot}}",
+    "slotTaken": "Chỗ ngồi đã có người",
+    "slotClosed": "Đóng",
+    "closeSlot": "Đóng",
+    "openSlot": "Mở",
+    "claim": "Nhận",
+    "release": "Trả lại",
+    "playInClaimedSlot": "Chơi ở chỗ ngồi đã nhận",
+    "kick": "Đá",
+    "kickedTitle": "Đã bị loại khỏi trò chơi",
+    "kickedMessage": "Chủ phòng đã loại bạn khỏi trò chơi này. Bạn không thể tham gia lại.",
+    "kickedCannotRejoin": "Bạn đã bị loại khỏi trò chơi này và không thể tham gia lại.",
+    "confirmArmy": "Xác nhận quân đội",
+    "armyInvalid": "Quân đội này không hợp lệ cho trò chơi này. Hãy điều chỉnh và thử lại.",
+    "ready": "Sẵn sàng",
+    "notReady": "Chưa sẵn sàng",
+    "playersChoosingArmies": "Đang chờ {{count}} người chơi chọn quân đội của họ.",
+    "back": "Quay lại"
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
@@ -821,6 +843,7 @@
   "inviteFriend": "Mời bạn bè",
   "checkStarted": "Kiểm tra đã bắt đầu",
   "startGameNow": "Bắt đầu trò chơi ngay?",
+  "startGame": "Bắt đầu trò chơi",
   "startGameNowTooltip": "Các đơn vị chưa được gán cho người chơi nào sẽ được chia đều giữa những người chơi đã kết nối cùng đội với các đơn vị đó.",
   "errorWhenSubmittingOrders": "Lỗi khi gửi lệnh",
   "syncGame": "Đồng bộ trò chơi",
@@ -1003,5 +1026,6 @@
     "message": "Tài khoản của bạn sẽ được lên lịch xóa sau {{graceDays}} ngày. Bạn có thể hủy bất cứ lúc nào trước đó bằng cách đăng nhập lại. Sau đó, tài khoản và dữ liệu cá nhân của bạn sẽ được ẩn danh vĩnh viễn. Bạn có chắc chắn không?",
     "scheduled": "Tài khoản của bạn được lên lịch xóa sau {{graceDays}} ngày. Đăng nhập lại trước thời hạn đó để hủy.",
     "error": "Không thể lên lịch xóa tài khoản. Vui lòng thử lại."
-  }
+  },
+  "startGameAsSpectator": "Bắt đầu trò chơi với tư cách khán giả"
 }

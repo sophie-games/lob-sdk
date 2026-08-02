@@ -21,6 +21,7 @@ import {
   FormationTemplate,
   OrderTemplate,
   OrderType,
+  ArmyPanelGroup,
 } from "@lob-sdk/types";
 import type {
   DamageTypeTemplate,
@@ -224,6 +225,38 @@ export enum Direction {
 export type GameUserResult = "win" | "lose" | "tie";
 
 /**
+ * Sparse per-scenario override of an era battle type's authorable fields — the
+ * starting budget and the per-unit caps. Merged onto a clone of the era battle
+ * type by the per-game GameDataManager (see loadCustomDefs), so getBattleType
+ * returns the scenario's values to both the army panel and validateArmy. Every
+ * field is optional; a scenario stores only what it changes.
+ */
+export interface ScenarioBattleTypeOverride {
+  /** Overrides the battle type's starting manpower for every player. */
+  manpower?: number;
+  /** Overrides the battle type's starting gold for every player. */
+  gold?: number;
+  /** Per-unit cap overrides, merged over the battle type's unitCaps by unit type. */
+  unitCaps?: Record<UnitType, number>;
+}
+
+/**
+ * Absolute per-player budget override. Replaces the battle type's starting
+ * manpower and/or gold for one player slot, regardless of which battle type is
+ * played. Unlike {@link ScenarioBattleTypeOverride} — which changes the budget
+ * for everyone via the shared battle type — this is player-specific, so it is
+ * resolved and applied per player at army validation / display time rather than
+ * merged into the per-game GameDataManager. Each field is optional; an unset
+ * field falls back to the battle type's value.
+ */
+export interface PlayerBudgetOverride {
+  /** Absolute starting manpower for this player, overriding the battle type's. */
+  manpower?: number;
+  /** Absolute starting gold for this player, overriding the battle type's. */
+  gold?: number;
+}
+
+/**
  * Metadata column in the games table.
  * Stores additional game information that doesn't affect gameplay.
  */
@@ -252,12 +285,26 @@ export interface GameMetadata {
   customGameRules?: DeepPartial<GameRules>;
   /** Sparse per-order overrides (keyed by OrderType id) deep-merged onto the era orders for this game. */
   customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
+  /** Sparse per-battle-type budget/cap overrides layered on the era battle types for this game. */
+  customBattleTypes?: Partial<Record<DynamicBattleType, ScenarioBattleTypeOverride>>;
+  /** Absolute per-player (keyed by player number) manpower/gold budget overrides, resolved per player at army validation / display time. */
+  playerBudgetOverrides?: Record<number, PlayerBudgetOverride>;
+  /** Scenario's army-panel card-grid layout captured at game creation, so the in-lobby army picker groups units like the scenario intends. */
+  customArmyPanelGroups?: ArmyPanelGroup[];
+  /** When true, only the scenario's custom units are fieldable; era default units are hidden and rejected. Carried on the per-game GameDataManager. */
+  disableEraDefaultUnits?: boolean;
   /** Scenario objectives-rule overrides captured at game creation. See {@link ObjectivesRuleOverride}. */
   objectivesRuleOverride?: ObjectivesRuleOverride;
   /** Scenario's placeable-objectives flag captured at game creation (imported scenarios have no registry entry to read). */
   placeableObjectives?: boolean;
   /** Scenario's no-inherent-ammo flag captured at game creation (imported scenarios have no registry entry to read). Resolved via the BaseGame.noInherentAmmo getter. */
   noInherentAmmo?: boolean;
+  /** Host-with-lobby games only: players claim numbered slots that the host manages. Set once at creation. */
+  hostWithLobby?: boolean;
+  /** Host-with-lobby games only: player-slot numbers the host has closed; mutated during the lobby. */
+  closedSlots?: number[];
+  /** Host-with-lobby games only: user ids the host has kicked and barred from rejoining this game; mutated during the lobby; server-only (never sent to clients). */
+  kickedUserIds?: number[];
 }
 
 /**
@@ -335,6 +382,10 @@ export interface GameData {
   metadata?: GameMetadata;
   /** User id of the player who created the game (custom lobby host). Omitted in some offline/test payloads. */
   creatorId?: number;
+  /** Players claim a specific slot instead of a team; host manages slots pre-start. */
+  hostWithLobby?: boolean;
+  /** Player numbers the host has closed pre-start (host-with-lobby only). Defaults to []. */
+  closedSlots?: number[];
 }
 
 /**
@@ -580,6 +631,15 @@ export interface ServerGameProps {
   givesRewards: boolean;
   /** Whether this custom game is listed in the public lobby. Defaults to false. */
   isPublic?: boolean;
+  /**
+   * Whether players claim a specific slot instead of a team, with the host
+   * controlling slots before the start. Defaults to false.
+   */
+  hostWithLobby?: boolean;
+  /** Player numbers the host has closed pre-start (host-with-lobby only). Defaults to []. */
+  closedSlots?: number[];
+  /** User ids the host has kicked; barred from rejoining (host-with-lobby only). Defaults to []. */
+  kickedUserIds?: number[];
   /** Maximum number of turns before the game ends. */
   maxTurn: number;
   /** Configuration for all players in the game. */

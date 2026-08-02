@@ -376,6 +376,7 @@
   "maxTime": "最长用时",
   "reserveAmmoDescription": "未花费的黄金会被用于购买弹药储备，会在炮兵射击时自动补充他们的弹药库。预计射击回合数同时算入了单位自身弹药和后备弹药的数量。",
   "saveArmy": "保存军队",
+  "confirmArmy": "确认军队",
   "clearUnits": "清除单位",
   "saving": "保存中……",
   "armyInvalid": "该军队配置无效，请修改。",
@@ -601,7 +602,28 @@
     "joinTeam": "加入队伍 {{team}} ({{count}}/{{capacity}})",
     "teamLocked": "选择人数较少的队伍",
     "teamFull": "队伍已满",
-    "teamNoLongerAvailable": "有人先加入了。请重新选择。"
+    "teamNoLongerAvailable": "有人先加入了。请重新选择。",
+    "slotNoLongerAvailable": "有人先占用了该座位。请重新选择。",
+    "slotActionFailed": "操作失败，请重试。",
+    "hostWithLobby": "使用大厅主持",
+    "joinSlot": "加入队伍 {{team}} - 玩家 {{slot}}",
+    "slotTaken": "座位已被占用",
+    "slotClosed": "已关闭",
+    "closeSlot": "关闭",
+    "openSlot": "开放",
+    "claim": "认领",
+    "release": "释放",
+    "playInClaimedSlot": "在已认领的座位上游玩",
+    "kick": "踢出",
+    "kickedTitle": "已被移出对局",
+    "kickedMessage": "房主已将你移出本场对局，你将无法重新加入。",
+    "kickedCannotRejoin": "你已被移出本场对局，无法重新加入。",
+    "confirmArmy": "确认军队",
+    "armyInvalid": "该军队配置不适用于本场对局，请调整后重试。",
+    "ready": "准备",
+    "notReady": "未准备",
+    "playersChoosingArmies": "正在等待 {{count}} 名玩家选择军队。",
+    "back": "返回"
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} 对 {{playersPerTeam}} {{battleTypeName}}",
@@ -825,6 +847,7 @@
   "inviteFriend": "邀请朋友",
   "checkStarted": "检查是否已开始",
   "startGameNow": "立即开始游戏？",
+  "startGame": "开始游戏",
   "startGameNowTooltip": "未分配给任何玩家的单位将在与这些单位同队、且已连接的玩家之间平均分配。",
   "errorWhenSubmittingOrders": "提交指令时出现错误",
   "syncGame": "同步对局",
@@ -1021,5 +1044,6 @@
     "message": "您的账户将在 {{graceDays}} 天后被安排删除。在此之前，您随时可以通过重新登录取消。之后，您的账户和个人数据将被永久匿名化。您确定吗？",
     "scheduled": "您的账户已安排在 {{graceDays}} 天后删除。请在期限之前重新登录以取消。",
     "error": "无法安排账户删除。请重试。"
-  }
+  },
+  "startGameAsSpectator": "以旁观者身份开始游戏"
 }

@@ -512,6 +512,16 @@
       "importedCount_one": "{{count}} felülbírálás importálva.",
       "importedCount_other": "{{count}} felülbírálás importálva."
     },
+    "importArmyCompositionsModal": {
+      "title": "Seregösszetételek importálása pályából",
+      "pickFilePrompt": "Válassz egy pályafájlt (a szerkesztő Letöltés gombja által előállított JSON), hogy importáld belőle a seregösszetétel-beállításokat.",
+      "noArmyCompositions": "Ennek a pályának nincsenek importálható seregösszetétel-beállításai.",
+      "fieldBattleTypes": "Csatatípus-költségvetések és egységlimitek",
+      "fieldPlayerBudgets": "Játékosonkénti költségvetések",
+      "fieldArmyPanelGroups": "Seregpanel-csoportok",
+      "fieldDisableEraUnits": "Korszak alapértelmezett egységeinek letiltása",
+      "resultSummary": "Importálva: {{fields}}."
+    },
     "gameConstants": {
       "title": "Játékkonstans-felülbírálások",
       "description": "Bírld felül a korszak numerikus konstansait erre a pályára. Csak a módosított értékek mentődnek; a Visszaállítás a korszak alapértékére állítja a mezőt. A ⚠ jelzéssel ellátott kulcsok szerkezetiek - a módosításuk elronthatja a megjelenítést, a visszajátszásokat vagy a meccskeresést. Az értékek nyers belső egységek."
@@ -534,6 +544,49 @@
       "default": "Alapértelmezett",
       "unknownOption": "{{value}} (ismeretlen)",
       "groupBuiltIn": "Beépített"
+    },
+    "armyPanelGroups": {
+      "title": "Seregpanel-csoportok",
+      "description": "Válaszd ki a fejléceket, amelyeket a játékosok látnak sereg vásárlásakor, hogy mely egységek tartoznak az egyes csoportokba, és milyen sorrendben. Ez a korszak alapértelmezett elrendezéséből indul ki.",
+      "statusDefault": "Érintetlen — ez a pálya a korszak szokásos seregösszetételeit használja. Ha bármit módosítasz alább, átvált a saját listádra.",
+      "statusCustom": "Testreszabva — ez a pálya felülbírálja a korszak elrendezését a saját listáddal. A sereg képernyő csak azokat az egységeket mutatja, amelyeket egy csoportba helyeztél, a többit kihagyja. Ez a lista most már egy rögzített pillanatkép: bármely egységet, amelyet később adsz a pályához, rejtve marad, amíg ide, egy csoportba nem helyezed.",
+      "statusEraDisabled": "A korszak alapértelmezett egységei le vannak tiltva, ezért a szokásos elrendezés rejtve van. Adj hozzá csoportokat a pályád saját egyéni egységeiből alább.",
+      "namePlaceholder": "Csoport neve",
+      "addGroup": "Csoport hozzáadása",
+      "addUnit": "Egység hozzáadása…",
+      "noUnits": "Még nincsenek egységek.",
+      "moveUp": "Mozgatás felfelé",
+      "moveDown": "Mozgatás lefelé"
+    },
+    "customArmyCompositions": {
+      "title": "Egyéni seregösszetételek",
+      "betaNotice": "A forgatókönyvekhez tartozó egyéni seregösszetétel-beállítások béta funkció; kérjük, jelentsd a hibákat a hivatalos Discord szerveren.",
+      "disableEraUnits": "Korszak alapértelmezett egységeinek letiltása",
+      "disableEraUnitsDescription": "Csak a pálya saját egyéni egységeit lehet felállítani. A korszak alapértelmezett egységei rejtve vannak a sereg képernyőn, és elutasításra kerülnek sereg építésekor.",
+      "disableEraUnitsWarning": "Adj hozzá legalább egy egyéni egységsablont, különben a játékosoknak nem lesz egységük felállításra."
+    },
+    "unitCaps": {
+      "title": "Egységlimitek",
+      "description": "Korlátozd, hány egységet állíthat fel egy játékos az egyes típusokból. Adj hozzá egy egységet, majd állítsd be a limitjét dinamikus csatatípusonként. Minden mező helyőrzőként a korszak limitjét mutatja; hagyd üresen, hogy azt tartsa meg. A 0 limit eltávolítja az egységet az adott csatatípusból. A korszak-limittel rendelkező egységek automatikusan felkerülnek a listára.",
+      "noLimit": "Korlát nélkül",
+      "addUnit": "Egység hozzáadása…",
+      "empty": "Még nincsenek egységlimitek. Adj hozzá egy egységet a limitálásához."
+    },
+    "battleTypeBudgets": {
+      "title": "Csatatípus-költségvetések",
+      "description": "Bírld felül a kezdő emberanyagot és aranyat, amelyet minden játékos kap az egyes dinamikus csatatípusokban. Hagyj egy mezőt üresen, hogy megtartsd a korszak alapértékét (helyőrzőként jelenik meg).",
+      "manpower": "Emberanyag",
+      "gold": "Arany"
+    },
+    "playerBudgets": {
+      "title": "Játékosonkénti költségvetések",
+      "description": "Adj konkrét játékosoknak saját, abszolút emberanyag- és arany-költségvetést, felülbírálva a csatatípusét kizárólag arra a játékosra. Adj hozzá egy játékost, majd állítsd be az egyik vagy mindkét értéket; hagyj egy mezőt üresen, hogy megtartsd a csatatípus költségvetését. A lobbiban a hely száma szerint érvényesül.",
+      "addPlayer": "Játékos hozzáadása…",
+      "player": "Játékos {{number}}",
+      "manpower": "Emberanyag",
+      "gold": "Arany",
+      "default": "Csatatípus-költségvetés",
+      "empty": "Még nincsenek játékos-költségvetések. Adj hozzá egy játékost a felülbírálásukhoz."
     }
   },
   "resize": {

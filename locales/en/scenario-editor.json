@@ -513,6 +513,16 @@
       "importedCount_one": "Imported {{count}} override.",
       "importedCount_other": "Imported {{count}} overrides."
     },
+    "importArmyCompositionsModal": {
+      "title": "Import army compositions from scenario",
+      "pickFilePrompt": "Pick a scenario file (the JSON the editor's Download button produces) to import its army compositions from.",
+      "noArmyCompositions": "This scenario has no army composition settings to import.",
+      "fieldBattleTypes": "Battle-type budgets & unit caps",
+      "fieldPlayerBudgets": "Per-player budgets",
+      "fieldArmyPanelGroups": "Army panel groups",
+      "fieldDisableEraUnits": "Disable era default units",
+      "resultSummary": "Imported: {{fields}}."
+    },
     "gameConstants": {
       "title": "Game constant overrides",
       "description": "Override this era's numeric constants for this scenario. Only changed values are saved; Reset returns a field to the era default. Keys marked ⚠ are structural - changing them can break rendering, replays, or matchmaking. Values are raw internal units."
@@ -535,6 +545,49 @@
       "default": "Default",
       "unknownOption": "{{value}} (unknown)",
       "groupBuiltIn": "Built-in"
+    },
+    "armyPanelGroups": {
+      "title": "Army panel groups",
+      "description": "Choose the headings players see when buying an army, which units sit under each, and their order. This starts from the era's default layout.",
+      "statusDefault": "Untouched — this scenario uses the era's standard army compositions. Editing anything below switches it to your own list.",
+      "statusCustom": "Customised — this scenario overrides the era layout with your list. The army screen shows only the units you place in a group and omits the rest. This list is now a fixed snapshot: any unit you add to the scenario later stays hidden until you place it in a group here.",
+      "statusEraDisabled": "Era default units are disabled, so the standard layout is hidden. Add groups from your scenario's own custom units below.",
+      "namePlaceholder": "Group name",
+      "addGroup": "Add group",
+      "addUnit": "Add a unit…",
+      "noUnits": "No units yet.",
+      "moveUp": "Move up",
+      "moveDown": "Move down"
+    },
+    "customArmyCompositions": {
+      "title": "Custom army compositions",
+      "betaNotice": "Custom army composition options for scenarios is a beta feature; please report any bugs in the official Discord server.",
+      "disableEraUnits": "Disable era default units",
+      "disableEraUnitsDescription": "Field only this scenario's own custom units. The era's default units are hidden from the army screen and rejected when building an army.",
+      "disableEraUnitsWarning": "Add at least one custom unit template, or players will have no units to field."
+    },
+    "unitCaps": {
+      "title": "Unit caps",
+      "description": "Limit how many of each unit a player may field. Add a unit, then set its cap per dynamic battle type. Each field shows this era's cap as the placeholder; leave it empty to keep that. A cap of 0 removes the unit from that battle type. Units with an era cap are listed automatically.",
+      "noLimit": "No limit",
+      "addUnit": "Add a unit…",
+      "empty": "No unit caps yet. Add a unit to cap it."
+    },
+    "battleTypeBudgets": {
+      "title": "Battle-type budgets",
+      "description": "Override the starting manpower and gold each player gets in each dynamic battle type. Leave a field empty to keep this era's default (shown as the placeholder).",
+      "manpower": "Manpower",
+      "gold": "Gold"
+    },
+    "playerBudgets": {
+      "title": "Per-player budgets",
+      "description": "Give specific players their own absolute manpower and gold budget, overriding the battle type's for that player only. Add a player, then set either value; leave a field empty to keep the battle-type budget. Applies in the lobby by seat number.",
+      "addPlayer": "Add a player…",
+      "player": "Player {{number}}",
+      "manpower": "Manpower",
+      "gold": "Gold",
+      "default": "Battle-type budget",
+      "empty": "No player budgets yet. Add a player to override theirs."
     }
   },
   "resize": {

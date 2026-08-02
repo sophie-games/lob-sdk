@@ -512,6 +512,16 @@
       "importedCount_one": "{{count}} geçersiz kılma içe aktarıldı.",
       "importedCount_other": "{{count}} geçersiz kılma içe aktarıldı."
     },
+    "importArmyCompositionsModal": {
+      "title": "Senaryodan ordu kompozisyonlarını içe aktar",
+      "pickFilePrompt": "Ordu kompozisyonlarını içe aktarmak için bir senaryo dosyası seçin (editörün İndir butonunun ürettiği JSON).",
+      "noArmyCompositions": "Bu senaryoda içe aktarılacak ordu kompozisyonu ayarı yok.",
+      "fieldBattleTypes": "Savaş türü bütçeleri ve birim limitleri",
+      "fieldPlayerBudgets": "Oyuncu başına bütçeler",
+      "fieldArmyPanelGroups": "Ordu paneli grupları",
+      "fieldDisableEraUnits": "Dönem varsayılan birimlerini devre dışı bırak",
+      "resultSummary": "İçe aktarıldı: {{fields}}."
+    },
     "gameConstants": {
       "title": "Oyun sabiti geçersiz kılmaları",
       "description": "Bu senaryo için dönemin sayısal sabitlerini geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; Sıfırla bir alanı dönem varsayılanına döndürür. ⚠ ile işaretli anahtarlar yapısaldır - bunları değiştirmek render'ı, tekrarları veya eşleştirmeyi bozabilir. Değerler ham iç birimlerdir."
@@ -534,6 +544,49 @@
       "default": "Varsayılan",
       "unknownOption": "{{value}} (bilinmiyor)",
       "groupBuiltIn": "Yerleşik"
+    },
+    "armyPanelGroups": {
+      "title": "Ordu paneli grupları",
+      "description": "Oyuncuların ordu satın alırken göreceği başlıkları, her birinin altında hangi birimlerin yer alacağını ve sıralarını seçin. Bu, dönemin varsayılan düzeninden başlar.",
+      "statusDefault": "Değiştirilmedi — bu senaryo dönemin standart ordu kompozisyonlarını kullanıyor. Aşağıda herhangi bir şeyi düzenlemek, bunu kendi listenize çevirir.",
+      "statusCustom": "Özelleştirildi — bu senaryo dönem düzenini kendi listenizle geçersiz kılıyor. Ordu ekranı yalnızca bir gruba yerleştirdiğiniz birimleri gösterir, geri kalanını atlar. Bu liste artık sabit bir anlık görüntüdür: senaryoya daha sonra eklediğiniz herhangi bir birim, burada bir gruba yerleştirene kadar gizli kalır.",
+      "statusEraDisabled": "Dönem varsayılan birimleri devre dışı, bu yüzden standart düzen gizli. Aşağıda senaryonuzun kendi özel birimlerinden gruplar ekleyin.",
+      "namePlaceholder": "Grup adı",
+      "addGroup": "Grup ekle",
+      "addUnit": "Birim ekle…",
+      "noUnits": "Henüz birim yok.",
+      "moveUp": "Yukarı taşı",
+      "moveDown": "Aşağı taşı"
+    },
+    "customArmyCompositions": {
+      "title": "Özel ordu kompozisyonları",
+      "betaNotice": "Senaryolar için özel ordu kompozisyonu seçenekleri beta özelliğidir; lütfen hataları resmi Discord sunucusunda bildirin.",
+      "disableEraUnits": "Dönem varsayılan birimlerini devre dışı bırak",
+      "disableEraUnitsDescription": "Yalnızca bu senaryonun kendi özel birimlerini sahaya sürün. Dönemin varsayılan birimleri ordu ekranından gizlenir ve ordu kurulurken reddedilir.",
+      "disableEraUnitsWarning": "En az bir özel birim şablonu ekleyin, aksi halde oyuncuların sahaya sürecek birimi olmaz."
+    },
+    "unitCaps": {
+      "title": "Birim limitleri",
+      "description": "Bir oyuncunun her birimden kaç tane sahaya sürebileceğini sınırlayın. Bir birim ekleyin, ardından dinamik savaş türü başına limitini belirleyin. Her alan, yer tutucu olarak bu dönemin limitini gösterir; korumak için boş bırakın. 0 limit, birimi o savaş türünden kaldırır. Dönem limiti olan birimler otomatik olarak listelenir.",
+      "noLimit": "Limitsiz",
+      "addUnit": "Birim ekle…",
+      "empty": "Henüz birim limiti yok. Sınırlamak için bir birim ekleyin."
+    },
+    "battleTypeBudgets": {
+      "title": "Savaş türü bütçeleri",
+      "description": "Her oyuncunun her dinamik savaş türünde aldığı başlangıç insan gücü ve altınını geçersiz kılın. Bu dönemin varsayılanını (yer tutucu olarak gösterilir) korumak için bir alanı boş bırakın.",
+      "manpower": "İnsan gücü",
+      "gold": "Altın"
+    },
+    "playerBudgets": {
+      "title": "Oyuncu başına bütçeler",
+      "description": "Belirli oyunculara, yalnızca o oyuncu için savaş türününkini geçersiz kılan kendi mutlak insan gücü ve altın bütçesini verin. Bir oyuncu ekleyin, ardından her iki değerden birini belirleyin; savaş türü bütçesini korumak için bir alanı boş bırakın. Lobide yer numarasına göre uygulanır.",
+      "addPlayer": "Oyuncu ekle…",
+      "player": "Oyuncu {{number}}",
+      "manpower": "İnsan gücü",
+      "gold": "Altın",
+      "default": "Savaş türü bütçesi",
+      "empty": "Henüz oyuncu bütçesi yok. Geçersiz kılmak için bir oyuncu ekleyin."
     }
   },
   "resize": {
