@@ -52,6 +52,10 @@
     "collapsePanel": "Paneli daralt",
     "allowDynamicArmy": "Dinamik orduya izin ver",
     "allowDynamicArmyHelp": "Etkinleştirildiğinde, oyuncular eşleştirme savaş türüne göre kendi ordularını getirir ve onları kendi bölgelerine yerleştirir. Devre dışı bırakıldığında, senaryonun önceden yerleştirilmiş birimleri tüm kadroyu tanımlar (ordu kompozisyonu atlanır).",
+    "fixedRoster": "Sabit oyuncular",
+    "fixedRosterHelp": "Etkinleştirildiğinde senaryo kendi oyuncu yuvalarını, takımlarını ve cephane rezervlerini belirler ve lobi oyuncu ekleyip çıkaramaz. Devre dışı bırakıldığında kadro lobiden veya eşleştirmeden gelir.",
+    "allowDeploymentPhase": "Yerleşim aşaması",
+    "allowDeploymentPhaseHelp": "Etkinleştirildiğinde savaş 0. turda başlar, böylece her oyuncu çarpışma başlamadan önce birliklerini kendi yerleşim bölgeleri içinde yeniden konumlandırabilir.",
     "noInherentAmmo": "Kendi cephanesi yok",
     "noInherentAmmoHelp": "Etkinleştirildiğinde, cephanesi olan birimler kendi cephaneleri olmadan doğar ve tüm ikmalini ortak rezervden alır; bu yüzden ilk turda ateş edemez ve ancak rezerv onları ikmal ettiğinde ateş açarlar.",
     "showGrid": "Izgarayı göster",
@@ -104,7 +108,8 @@
     }
   },
   "deployment": {
-    "title": "Yerleşim",
+    "title": "Yerleşim bölgeleri",
+    "hint": "Bu bölgeler her ordunun nerede başlayacağını belirler. Yerleşim aşaması yalnızca oyuncuların bölgeler içinde yeniden düzenleme yapabileceği bir 0. tur ekler.",
     "team": "Takım {{team}}",
     "mainZone": "Ana",
     "forwardZone": "İleri",

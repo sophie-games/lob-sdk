@@ -36,10 +36,6 @@
     "title": "Открывать окно выбора приказа",
     "description": "Если активно, во время игры будет показываться окно выбора приказа."
   },
-  "openSelectTacticsModal": {
-    "title": "Открыть меню тактики",
-    "description": "Включите эту опцию, чтобы показывать меню тактики во время игры."
-  },
   "showPlayableGamesAvailableModal": {
     "title": "Показывать сообщение об активных играх"
   },
@@ -184,6 +180,7 @@
     "togglePathFinding": "Переключить поиск пути",
     "toggleFowPerspective": "Перспектива тумана войны",
     "toggleMultiTurnPathOrders": "Переключить многоходовые приказы движения",
+    "toggleApplyOrderTypeToSelection": "Переключить применение типа приказа к выделению",
     "openChat": "Открыть чат",
     "openTacticsModal": "Открыть меню тактики",
     "showBattleOverview": "Удерживать для обзора боя",

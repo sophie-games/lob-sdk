@@ -53,6 +53,10 @@
     "collapsePanel": "Collapse panel",
     "allowDynamicArmy": "Allow dynamic army",
     "allowDynamicArmyHelp": "When enabled, players bring their own army based on the matchmaking battle type and deploy it inside their zones. When disabled, the scenario's pre-placed units define the full roster (army composition is skipped).",
+    "fixedRoster": "Fixed roster",
+    "fixedRosterHelp": "When enabled, the scenario owns its player slots, teams and ammo reserves, and the lobby cannot add or remove players. When disabled, the roster comes from the lobby or matchmaking.",
+    "allowDeploymentPhase": "Deployment phase",
+    "allowDeploymentPhaseHelp": "When enabled, the battle opens on turn 0 so each player can reposition their units inside their deployment zones before the fighting starts.",
     "noInherentAmmo": "No inherent ammo",
     "noInherentAmmoHelp": "When enabled, units with an ammo system spawn with no ammo of their own and draw their whole supply from the shared reserve, so they can't fire on the first turn and only open up once the reserve resupplies them.",
     "showGrid": "Show grid",
@@ -105,7 +109,8 @@
     }
   },
   "deployment": {
-    "title": "Deployment",
+    "title": "Deployment zones",
+    "hint": "These zones set where each army starts. The deployment phase only adds a turn 0 for players to rearrange inside them.",
     "team": "Team {{team}}",
     "mainZone": "Main",
     "forwardZone": "Forward",

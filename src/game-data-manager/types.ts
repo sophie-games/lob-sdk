@@ -549,8 +549,6 @@ export interface SkirmishersRule {
 }
 
 export interface SupplyLinesRule {
-  /** Terrain type IDs that are considered roads (e.g., [3, 7, 15] for Road, Bridge, RoadWinter) */
-  roadTerrainTypes?: number[];
   /** Radius of influence around units for supply line calculations (in tiles) */
   influenceRadius: number;
   /** Radius around supply hubs (small objectives) where units can receive supply (in tiles) */

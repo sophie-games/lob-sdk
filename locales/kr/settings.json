@@ -36,10 +36,6 @@
     "title": "명령 선택 모달 창 사용",
     "description": "이 설정을 활성화하면 경기 중 명령 선택을 위한 모달 창이 표시됩니다."
   },
-  "openSelectTacticsModal": {
-    "title": "전술 메뉴 열기",
-    "description": "게임 중 전술 메뉴를 표시하려면 이 옵션을 활성화하세요."
-  },
   "showPlayableGamesAvailableModal": {
     "title": "플레이 가능 경기 모달 창 표시"
   },
@@ -180,6 +176,7 @@
     "togglePathFinding": "경로 찾기 전환",
     "toggleFowPerspective": "전장의 안개 시점 전환",
     "toggleMultiTurnPathOrders": "다중 턴 경로 명령 전환",
+    "toggleApplyOrderTypeToSelection": "명령 유형을 선택한 유닛에 적용 전환",
     "openChat": "채팅 열기",
     "openTacticsModal": "전술 메뉴 열기",
     "showBattleOverview": "전투 개요 보기 (키 유지)",

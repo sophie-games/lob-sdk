@@ -52,6 +52,10 @@
     "collapsePanel": "Réduire le panneau",
     "allowDynamicArmy": "Autoriser l'armée dynamique",
     "allowDynamicArmyHelp": "Une fois activé, les joueurs apportent leur propre armée selon le type de bataille d'appariement et la déploient dans leurs zones. Une fois désactivé, les unités pré-placées du scénario définissent l'ordre de bataille complet (la composition de l'armée est ignorée).",
+    "fixedRoster": "Joueurs fixes",
+    "fixedRosterHelp": "Lorsque cette option est activée, le scénario définit ses propres emplacements de joueur, équipes et réserves de munitions, et le salon ne peut ni ajouter ni retirer de joueurs. Lorsqu'elle est désactivée, la liste provient du salon ou du matchmaking.",
+    "allowDeploymentPhase": "Phase de déploiement",
+    "allowDeploymentPhaseHelp": "Lorsque cette option est activée, la bataille commence au tour 0 afin que chaque joueur puisse repositionner ses unités dans ses zones de déploiement avant le début des combats.",
     "noInherentAmmo": "Pas de munitions propres",
     "noInherentAmmoHelp": "Lorsque activé, les unités disposant de munitions apparaissent sans munitions propres et puisent tout leur approvisionnement dans la réserve commune ; elles ne peuvent donc pas tirer au premier tour et n'ouvrent le feu qu'une fois réapprovisionnées par la réserve.",
     "showGrid": "Afficher la grille",
@@ -104,7 +108,8 @@
     }
   },
   "deployment": {
-    "title": "Déploiement",
+    "title": "Zones de déploiement",
+    "hint": "Ces zones définissent où chaque armée commence. La phase de déploiement ajoute seulement un tour 0 pour que les joueurs se réorganisent à l'intérieur.",
     "team": "Équipe {{team}}",
     "mainZone": "Principale",
     "forwardZone": "Avancée",

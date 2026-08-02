@@ -52,6 +52,10 @@
     "collapsePanel": "收起面板",
     "allowDynamicArmy": "允许动态军队",
     "allowDynamicArmyHelp": "启用后，玩家会根据匹配的战斗类型带上自己的军队，并在各自的区域内部署。禁用后，战役预置的单位将构成全部阵容（跳过军队配置）。",
+    "fixedRoster": "固定玩家",
+    "fixedRosterHelp": "启用后，剧本自行定义玩家席位、队伍和弹药储备，大厅无法添加或移除玩家。禁用后，玩家名单来自大厅或匹配系统。",
+    "allowDeploymentPhase": "部署阶段",
+    "allowDeploymentPhaseHelp": "启用后，战斗从第 0 回合开始，每位玩家可以在交战开始前于自己的部署区内重新摆放部队。",
     "noInherentAmmo": "无自带弹药",
     "noInherentAmmoHelp": "启用后，拥有弹药系统的单位出场时自身没有弹药，全部补给来自共享储备，因此第一回合无法开火，只有在储备为其补给后才能开火。",
     "showGrid": "显示网格",
@@ -104,7 +108,8 @@
     }
   },
   "deployment": {
-    "title": "部署",
+    "title": "部署区域",
+    "hint": "这些区域决定每支军队的起始位置。部署阶段只是额外增加第 0 回合，让玩家在区域内重新摆放。",
     "team": "队伍 {{team}}",
     "mainZone": "主区域",
     "forwardZone": "前沿",

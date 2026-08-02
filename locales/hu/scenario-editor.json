@@ -52,6 +52,10 @@
     "collapsePanel": "Panel összecsukása",
     "allowDynamicArmy": "Dinamikus sereg engedélyezése",
     "allowDynamicArmyHelp": "Bekapcsolva a játékosok a meccskeresési csatatípus alapján hozzák a saját seregüket, és a zónáikon belül állítják fel. Kikapcsolva a pálya előre elhelyezett egységei adják a teljes sereget (a seregösszetétel kimarad).",
+    "fixedRoster": "Rögzített játékosok",
+    "fixedRosterHelp": "Ha be van kapcsolva, a küldetés maga határozza meg a játékoshelyeket, csapatokat és lőszertartalékokat, és a váró nem tud játékost hozzáadni vagy eltávolítani. Ha ki van kapcsolva, a névsor a váróból vagy a párosításból jön.",
+    "allowDeploymentPhase": "Felállítási fázis",
+    "allowDeploymentPhaseHelp": "Ha be van kapcsolva, a csata a 0. körrel indul, így minden játékos átrendezheti egységeit a saját felállítási zónáin belül, mielőtt a harc elkezdődik.",
     "noInherentAmmo": "Nincs saját lőszer",
     "noInherentAmmoHelp": "Bekapcsolva a lőszerrel rendelkező egységek saját lőszer nélkül jelennek meg, és teljes utánpótlásukat a közös tartalékból veszik, így az első körben nem tudnak tüzelni, és csak akkor nyitnak tüzet, amikor a tartalék feltölti őket.",
     "showGrid": "Rács megjelenítése",
@@ -104,7 +108,8 @@
     }
   },
   "deployment": {
-    "title": "Felállítás",
+    "title": "Felállítási zónák",
+    "hint": "Ezek a zónák határozzák meg, hol indul minden hadsereg. A felállítási fázis csak egy 0. kört ad hozzá, amelyben a játékosok átrendezhetnek a zónákon belül.",
     "team": "{{team}}. csapat",
     "mainZone": "Fő",
     "forwardZone": "Előretolt",

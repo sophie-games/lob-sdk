@@ -52,6 +52,10 @@
     "collapsePanel": "Ciutkan panel",
     "allowDynamicArmy": "Izinkan pasukan dinamis",
     "allowDynamicArmyHelp": "Saat aktif, pemain membawa pasukan mereka sendiri berdasarkan tipe pertempuran pencarian permainan dan menempatkannya di dalam zona mereka. Saat nonaktif, unit yang telah ditempatkan dalam skenario menentukan seluruh daftar pasukan (komposisi pasukan dilewati).",
+    "fixedRoster": "Pemain tetap",
+    "fixedRosterHelp": "Bila diaktifkan, skenario menentukan slot pemain, tim, dan cadangan amunisinya sendiri, dan lobi tidak dapat menambah atau menghapus pemain. Bila dinonaktifkan, daftar pemain berasal dari lobi atau matchmaking.",
+    "allowDeploymentPhase": "Fase penempatan",
+    "allowDeploymentPhaseHelp": "Bila diaktifkan, pertempuran dimulai pada giliran 0 sehingga setiap pemain dapat mengatur ulang posisi unitnya di dalam zona penempatannya sebelum pertempuran dimulai.",
     "noInherentAmmo": "Tanpa amunisi sendiri",
     "noInherentAmmoHelp": "Saat diaktifkan, unit dengan amunisi muncul tanpa amunisi sendiri dan mengambil seluruh pasokannya dari cadangan bersama, sehingga tidak bisa menembak pada giliran pertama dan baru melepaskan tembakan setelah cadangan mengisinya kembali.",
     "showGrid": "Tampilkan grid",
@@ -104,7 +108,8 @@
     }
   },
   "deployment": {
-    "title": "Penempatan",
+    "title": "Zona penempatan",
+    "hint": "Zona ini menentukan di mana setiap pasukan memulai. Fase penempatan hanya menambahkan giliran 0 agar pemain dapat mengatur ulang posisi di dalamnya.",
     "team": "Tim {{team}}",
     "mainZone": "Utama",
     "forwardZone": "Depan",
