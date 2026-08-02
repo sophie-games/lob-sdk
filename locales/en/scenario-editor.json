@@ -556,6 +556,7 @@
     },
     "customArmyCompositions": {
       "title": "Custom army compositions",
+      "betaNotice": "Custom army composition options for scenarios is a beta feature; please report any bugs in the official Discord server.",
       "disableEraUnits": "Disable era default units",
       "disableEraUnitsDescription": "Field only this scenario's own custom units. The era's default units are hidden from the army screen and rejected when building an army.",
       "disableEraUnitsWarning": "Add at least one custom unit template, or players will have no units to field."
@@ -575,7 +576,7 @@
     },
     "playerBudgets": {
       "title": "Per-player budgets",
-      "description": "Give specific players their own absolute manpower and gold budget, overriding the battle type's for that player only. Add a player, then set either value; leave a field empty to keep the battle-type budget. Applies in the lobby by slot number.",
+      "description": "Give specific players their own absolute manpower and gold budget, overriding the battle type's for that player only. Add a player, then set either value; leave a field empty to keep the battle-type budget. Applies in the lobby by seat number.",
       "addPlayer": "Add a player…",
       "player": "Player {{number}}",
       "manpower": "Manpower",
