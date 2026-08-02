@@ -239,8 +239,8 @@
         "from": 0.44,
         "to": 1,
         "damageModifier": {
-          "near": 1.05,
-          "far": 0.45
+          "near": 1,
+          "far": 0.4
         },
         "engagementTier": 1
       }
@@ -433,8 +433,8 @@
         "from": 0.43,
         "to": 1,
         "damageModifier": {
-          "near": 1.05,
-          "far": 0.45
+          "near": 1,
+          "far": 0.4
         },
         "engagementTier": 1
       }
@@ -468,7 +468,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 10700,
+    "ammoCost": 11000,
     "extendRange": false
   },
   {
@@ -904,11 +904,11 @@
         {
           "start": 250,
           "end": 550,
-          "startRadius": 37,
+          "startRadius": 35,
           "endRadius": 46
         }
       ],
-      "edgeDamageModifier": -0.5,
+      "edgeDamageModifier": -0.6,
       "absorptionModifier": 1.25
     },
     "shotSound": "artillery-fire",
@@ -961,13 +961,13 @@
           "endRadius": 36
         }
       ],
-      "edgeDamageModifier": -0.5,
+      "edgeDamageModifier": -0.6,
       "absorptionModifier": 1.25
     },
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 10700,
+    "ammoCost": 11000,
     "extendRange": false
   },
   {
@@ -975,7 +975,7 @@
     "name": "explosive-shell",
     "ranged": true,
     "orgDamageRatio": 28000,
-    "reorgDebuff": 0.76,
+    "reorgDebuff": 0.85,
     "attackEffectDuration": 10,
     "projectileWidth": 11,
     "damageModifierByTargetHp": {
@@ -1028,7 +1028,7 @@
           "endRadius": 34
         }
       ],
-      "edgeDamageModifier": -0.05,
+      "edgeDamageModifier": -0.5,
       "absorptionModifier": 0
     },
     "shotSound": "artillery-fire",
@@ -1208,8 +1208,8 @@
     "id": 27,
     "name": "rocket",
     "ranged": true,
-    "orgDamageRatio": 200000,
-    "reorgDebuff": 1,
+    "orgDamageRatio": 35000,
+    "reorgDebuff": 0.9,
     "attackEffectDuration": 6,
     "projectileWidth": 11,
     "orgDamageModifierByTargetOrg": {
@@ -1223,8 +1223,8 @@
         "from": 0,
         "to": 0.18,
         "damageModifier": {
-          "near": 1.75,
-          "far": 1.25
+          "near": 0.25,
+          "far": 0.15
         },
         "name": "close",
         "engagementTier": 0
@@ -1233,8 +1233,8 @@
         "from": 0.18,
         "to": 0.33,
         "damageModifier": {
-          "near": 1.25,
-          "far": 0.75
+          "near": 0.15,
+          "far": 0
         },
         "engagementTier": 1
       },
@@ -1243,7 +1243,7 @@
         "to": 1,
         "damageModifier": {
           "near": 0,
-          "far": -0.6
+          "far": -0.65
         },
         "name": "long"
       }
@@ -1257,17 +1257,17 @@
         {
           "start": 18,
           "end": 150,
-          "startRadius": 18,
-          "endRadius": 28
+          "startRadius": 25,
+          "endRadius": 30
         },
         {
           "start": 150,
           "end": 450,
-          "startRadius": 28,
-          "endRadius": 44
+          "startRadius": 30,
+          "endRadius": 50
         }
       ],
-      "edgeDamageModifier": -0.1,
+      "edgeDamageModifier": -0.4,
       "absorptionModifier": 1.25
     },
     "shotSound": "rocket-volley",
