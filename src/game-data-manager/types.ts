@@ -488,6 +488,12 @@ export interface RangedDamageTypeTemplate {
   aimMode?: ShotAimMode;
   enfiladeFire?: boolean;
   cannotUseAfterRun?: boolean;
+  /**
+   * Whether this weapon can be ordered to fire at a ground location rather than at a
+   * unit (a bombardment). Defaults to false: a unit may only take a shoot-at-location
+   * order when it carries at least one ranged damage type with this set.
+   */
+  canShootLocation?: boolean;
   projectilePenetration?: number;
   shotSound: string;
   shotAnim: string;
