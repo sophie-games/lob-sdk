@@ -511,6 +511,16 @@
       "noOverrides": "该战役剧本没有{{target}}。",
       "importedCount_other": "已导入 {{count}} 项覆盖。"
     },
+    "importArmyCompositionsModal": {
+      "title": "从战役剧本导入军队配置",
+      "pickFilePrompt": "选择一个战役剧本文件（编辑器“下载”按钮生成的 JSON），从中导入其军队配置。",
+      "noArmyCompositions": "该战役剧本没有可导入的军队配置设置。",
+      "fieldBattleTypes": "战斗类型预算与单位上限",
+      "fieldPlayerBudgets": "每位玩家的预算",
+      "fieldArmyPanelGroups": "军队面板分组",
+      "fieldDisableEraUnits": "禁用时代默认单位",
+      "resultSummary": "已导入：{{fields}}。"
+    },
     "gameConstants": {
       "title": "游戏常量覆盖",
       "description": "为本战役覆盖该时代的数值常量。仅保存已更改的值；“重置”会将字段恢复为时代默认值。标记 ⚠ 的键是结构性的——更改它们可能破坏渲染、回放或匹配。数值为原始内部单位。"
@@ -533,6 +543,49 @@
       "default": "默认",
       "unknownOption": "{{value}}（未知）",
       "groupBuiltIn": "内置"
+    },
+    "armyPanelGroups": {
+      "title": "军队面板分组",
+      "description": "选择玩家购买军队时看到的标题、每个标题下包含的单位及其顺序。该设置从这个时代的默认布局开始。",
+      "statusDefault": "未更改 — 本战役剧本使用该时代的标准军队配置。修改下方任何内容都会切换为你自己的列表。",
+      "statusCustom": "已自定义 — 本战役剧本使用你的列表覆盖了该时代的布局。军队界面只会显示你放入分组中的单位，其余单位将被省略。此列表现在是一份固定快照：之后你添加到战役剧本中的任何单位都会保持隐藏，直到你在此将它放入某个分组。",
+      "statusEraDisabled": "时代默认单位已被禁用，因此标准布局被隐藏。请在下方使用本战役剧本自己的自定义单位添加分组。",
+      "namePlaceholder": "分组名称",
+      "addGroup": "添加分组",
+      "addUnit": "添加单位……",
+      "noUnits": "暂无单位。",
+      "moveUp": "上移",
+      "moveDown": "下移"
+    },
+    "customArmyCompositions": {
+      "title": "自定义军队配置",
+      "betaNotice": "场景的自定义军队配置选项为测试版功能；如有任何问题，请在官方 Discord 服务器中反馈。",
+      "disableEraUnits": "禁用时代默认单位",
+      "disableEraUnitsDescription": "仅使用本战役剧本自己的自定义单位出战。该时代的默认单位将从军队界面中隐藏，并在编组军队时被拒绝。",
+      "disableEraUnitsWarning": "请至少添加一个自定义单位模板，否则玩家将没有单位可以出战。"
+    },
+    "unitCaps": {
+      "title": "单位上限",
+      "description": "限制玩家可出战的每种单位数量。添加一个单位，然后为每种动态战斗类型设置其上限。每个字段会以该时代的上限作为占位符显示；留空则保留该值。上限设为 0 会将该单位从该战斗类型中移除。拥有时代上限的单位会自动列出。",
+      "noLimit": "无上限",
+      "addUnit": "添加单位……",
+      "empty": "暂无单位上限。添加一个单位以设置其上限。"
+    },
+    "battleTypeBudgets": {
+      "title": "战斗类型预算",
+      "description": "覆盖每位玩家在每种动态战斗类型中获得的初始人力和黄金。留空字段以保留该时代的默认值（以占位符形式显示）。",
+      "manpower": "人力",
+      "gold": "黄金"
+    },
+    "playerBudgets": {
+      "title": "每位玩家的预算",
+      "description": "为特定玩家设置他们自己的绝对人力和黄金预算，仅针对该玩家覆盖战斗类型的预算。添加一名玩家，然后设置其中一项数值；留空字段以保留战斗类型的预算。此设置在大厅中按座位编号生效。",
+      "addPlayer": "添加玩家……",
+      "player": "玩家 {{number}}",
+      "manpower": "人力",
+      "gold": "黄金",
+      "default": "战斗类型预算",
+      "empty": "暂无玩家预算。添加一个玩家以覆盖其预算。"
     }
   },
   "resize": {

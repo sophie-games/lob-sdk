@@ -335,6 +335,7 @@
   "maxTime": "Waktu maksimum",
   "reserveAmmoDescription": "Emas yang tidak terpakai berkontribusi pada amunisi artileri cadangan Anda, yang secara otomatis mengisi ulang amunisi bawaan artileri Anda saat menembak. Perkiraan putaran tembakan mempertimbangkan baik amunisi cadangan maupun amunisi unit.",
   "saveArmy": "Simpan Pasukan",
+  "confirmArmy": "Konfirmasi pasukan",
   "clearUnits": "Bersihkan Unit",
   "saving": "Menyimpan...",
   "armyInvalid": "Pasukan ini tidak valid, harap dimodifikasi.",
@@ -585,7 +586,28 @@
     "joinTeam": "Gabung Tim {{team}} ({{count}}/{{capacity}})",
     "teamLocked": "Pilih tim yang lebih kecil",
     "teamFull": "Tim sudah penuh",
-    "teamNoLongerAvailable": "Orang lain bergabung lebih dulu. Pilih lagi."
+    "teamNoLongerAvailable": "Orang lain bergabung lebih dulu. Pilih lagi.",
+    "slotNoLongerAvailable": "Orang lain mengambil kursi itu lebih dulu. Pilih lagi.",
+    "slotActionFailed": "Itu tidak berhasil. Silakan coba lagi.",
+    "hostWithLobby": "Host dengan lobi",
+    "joinSlot": "Gabung Tim {{team}} - Pemain {{slot}}",
+    "slotTaken": "Kursi terisi",
+    "slotClosed": "Ditutup",
+    "closeSlot": "Tutup",
+    "openSlot": "Buka",
+    "claim": "Klaim",
+    "release": "Lepaskan",
+    "playInClaimedSlot": "Bermain di kursi yang diklaim",
+    "kick": "Keluarkan",
+    "kickedTitle": "Dikeluarkan dari permainan",
+    "kickedMessage": "Tuan rumah mengeluarkanmu dari permainan ini. Kamu tidak bisa bergabung kembali.",
+    "kickedCannotRejoin": "Kamu dikeluarkan dari permainan ini dan tidak bisa bergabung kembali.",
+    "confirmArmy": "Konfirmasi pasukan",
+    "armyInvalid": "Pasukan itu tidak valid untuk permainan ini. Sesuaikan lalu coba lagi.",
+    "ready": "Siap",
+    "notReady": "Belum Siap",
+    "playersChoosingArmies": "Menunggu {{count}} pemain memilih pasukan mereka.",
+    "back": "Kembali"
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
@@ -753,6 +775,7 @@
   "sendFailed": "Gagal mengirim pesan",
   "chatUnreadCount": "{{count}} belum dibaca",
   "startGameNow": "Mulai permainan sekarang?",
+  "startGame": "Mulai permainan",
   "startGameNowTooltip": "Unit yang belum ditetapkan ke pemain mana pun akan dibagi rata di antara pemain yang terhubung di tim yang sama dengan unit tersebut.",
   "user": "Pengguna",
   "meleeStaminaCost": "Biaya stamina jarak dekat",
@@ -823,5 +846,6 @@
     "message": "Akun Anda akan dijadwalkan untuk dihapus dalam {{graceDays}} hari. Anda dapat membatalkan kapan saja sebelumnya dengan masuk kembali. Setelah itu, akun dan data pribadi Anda akan dianonimkan secara permanen. Apakah Anda yakin?",
     "scheduled": "Akun Anda dijadwalkan untuk dihapus dalam {{graceDays}} hari. Masuk kembali sebelum batas waktu tersebut untuk membatalkannya.",
     "error": "Tidak dapat menjadwalkan penghapusan akun. Silakan coba lagi."
-  }
+  },
+  "startGameAsSpectator": "Mulai permainan sebagai penonton"
 }

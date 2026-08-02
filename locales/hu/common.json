@@ -334,6 +334,7 @@
   "maxTime": "Maximum idő",
   "reserveAmmoDescription": "A nem elköltött arany hozzájárul a tartalék tüzérségi lőszeredhez, amely automatikusan feltölti a tüzérséged beépített lőszerét lövés közben. A becsült tüzelési körök mind a tartalék, mind az egység lőszert figyelembe veszik.",
   "saveArmy": "Mentés",
+  "confirmArmy": "Sereg megerősítése",
   "clearUnits": "Visszaállítás",
   "saving": "Mentés...",
   "armyInvalid": "Érvénytelen sereg, ameddig nem módosítod, addig az alap összetételt fogod csak tudni használni ebben a módban.",
@@ -649,7 +650,28 @@
     "joinTeam": "Csatlakozás a {{team}}. csapathoz ({{count}}/{{capacity}})",
     "teamLocked": "Válaszd a kisebb csapatot",
     "teamFull": "A csapat tele van",
-    "teamNoLongerAvailable": "Valaki más csatlakozott először. Válassz újra."
+    "teamNoLongerAvailable": "Valaki más csatlakozott először. Válassz újra.",
+    "slotNoLongerAvailable": "Valaki más foglalta el előbb ezt a helyet. Válassz újra.",
+    "slotActionFailed": "Ez nem sikerült. Kérlek, próbáld újra.",
+    "hostWithLobby": "Házigazdaság lobbival",
+    "joinSlot": "Csatlakozás: Csapat {{team}} - Játékos {{slot}}",
+    "slotTaken": "Foglalt hely",
+    "slotClosed": "Zárva",
+    "closeSlot": "Bezárás",
+    "openSlot": "Megnyitás",
+    "claim": "Lefoglalás",
+    "release": "Felszabadítás",
+    "playInClaimedSlot": "Játék a lefoglalt helyen",
+    "kick": "Kirúgás",
+    "kickedTitle": "Eltávolítva a játékból",
+    "kickedMessage": "A házigazda eltávolított ebből a játékból. Nem tudsz újra csatlakozni hozzá.",
+    "kickedCannotRejoin": "Eltávolítottak ebből a játékból, és nem tudsz újra csatlakozni hozzá.",
+    "confirmArmy": "Sereg megerősítése",
+    "armyInvalid": "Ez a sereg nem érvényes ehhez a játékhoz. Módosítsd, és próbáld újra.",
+    "ready": "Kész",
+    "notReady": "Nem kész",
+    "playersChoosingArmies": "Várakozás {{count}} játékosra a sereg kiválasztásához.",
+    "back": "Vissza"
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} a {{playersPerTeam}} ellen {{battleTypeName}}",
@@ -704,6 +726,7 @@
   "sendFailed": "Az üzenet küldése sikertelen",
   "chatUnreadCount": "{{count}} olvasatlan",
   "startGameNow": "Elindítod a játékot most?",
+  "startGame": "Játék indítása",
   "startGameNowTooltip": "Azok az egységek, amelyek nincsenek játékoshoz rendelve, egyenletesen oszlanak meg azok között a csatlakozott játékosok között, akik ugyanabban a csapatban vannak, mint ezek az egységek.",
   "user": "Felhasználó",
   "meleeStaminaCost": "Közelharci kitartás költség",
@@ -778,5 +801,6 @@
     "message": "A fiókod {{graceDays}} nap múlva törlésre lesz ütemezve. Ezt bármikor visszavonhatod előtte, ha újra bejelentkezel. Ezután a fiókod és személyes adataid véglegesen anonimizálásra kerülnek. Biztos vagy benne?",
     "scheduled": "A fiókod {{graceDays}} nap múlva törlésre van ütemezve. Jelentkezz be újra a határidő előtt a visszavonáshoz.",
     "error": "A fiók törlését nem sikerült ütemezni. Kérjük, próbáld újra."
-  }
+  },
+  "startGameAsSpectator": "Játék indítása nézőként"
 }

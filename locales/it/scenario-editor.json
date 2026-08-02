@@ -512,6 +512,16 @@
       "importedCount_one": "Importata {{count}} sovrascrittura.",
       "importedCount_other": "Importate {{count}} sovrascritture."
     },
+    "importArmyCompositionsModal": {
+      "title": "Importa composizioni dell'esercito da scenario",
+      "pickFilePrompt": "Scegli un file scenario (il JSON prodotto dal pulsante Scarica dell'editor) da cui importare le sue composizioni dell'esercito.",
+      "noArmyCompositions": "Questo scenario non ha impostazioni di composizione dell'esercito da importare.",
+      "fieldBattleTypes": "Budget per tipo di battaglia e limiti unità",
+      "fieldPlayerBudgets": "Budget per giocatore",
+      "fieldArmyPanelGroups": "Gruppi del pannello esercito",
+      "fieldDisableEraUnits": "Disattiva unità predefinite dell'epoca",
+      "resultSummary": "Importati: {{fields}}."
+    },
     "gameConstants": {
       "title": "Sovrascritture delle costanti di gioco",
       "description": "Sovrascrivi le costanti numeriche di questa epoca per questo scenario. Vengono salvati solo i valori modificati; Reimposta riporta un campo al predefinito dell'epoca. Le chiavi contrassegnate con ⚠ sono strutturali - modificarle può compromettere rendering, replay o matchmaking. I valori sono in unità interne grezze."
@@ -534,6 +544,49 @@
       "default": "Predefinito",
       "unknownOption": "{{value}} (sconosciuto)",
       "groupBuiltIn": "Integrati"
+    },
+    "armyPanelGroups": {
+      "title": "Gruppi del pannello esercito",
+      "description": "Scegli le intestazioni che i giocatori vedono quando acquistano un esercito, quali unità si trovano sotto ciascuna e il loro ordine. Si parte dal layout predefinito dell'epoca.",
+      "statusDefault": "Non modificato — questo scenario usa le composizioni dell'esercito standard dell'epoca. Modificare qualcosa qui sotto passa a un tuo elenco personalizzato.",
+      "statusCustom": "Personalizzato — questo scenario sovrascrive il layout dell'epoca con il tuo elenco. La schermata dell'esercito mostra solo le unità che inserisci in un gruppo e omette le altre. Questo elenco è ora un'istantanea fissa: qualsiasi unità aggiunta in seguito allo scenario resta nascosta finché non la inserisci in un gruppo qui.",
+      "statusEraDisabled": "Le unità predefinite dell'epoca sono disattivate, quindi il layout standard è nascosto. Aggiungi gruppi dalle unità personalizzate del tuo scenario qui sotto.",
+      "namePlaceholder": "Nome del gruppo",
+      "addGroup": "Aggiungi gruppo",
+      "addUnit": "Aggiungi un'unità…",
+      "noUnits": "Ancora nessuna unità.",
+      "moveUp": "Sposta su",
+      "moveDown": "Sposta giù"
+    },
+    "customArmyCompositions": {
+      "title": "Composizioni dell'esercito personalizzate",
+      "betaNotice": "Le opzioni per le composizioni dell'esercito personalizzate negli scenari sono una funzionalità beta; segnala eventuali bug nel server Discord ufficiale.",
+      "disableEraUnits": "Disattiva unità predefinite dell'epoca",
+      "disableEraUnitsDescription": "Schiera solo le unità personalizzate di questo scenario. Le unità predefinite dell'epoca vengono nascoste dalla schermata dell'esercito e rifiutate durante la creazione di un esercito.",
+      "disableEraUnitsWarning": "Aggiungi almeno un modello di unità personalizzato, altrimenti i giocatori non avranno unità da schierare."
+    },
+    "unitCaps": {
+      "title": "Limiti unità",
+      "description": "Limita quante unità di ciascun tipo un giocatore può schierare. Aggiungi un'unità, poi imposta il suo limite per ogni tipo di battaglia dinamico. Ogni campo mostra il limite di questa epoca come segnaposto; lascialo vuoto per mantenerlo. Un limite di 0 rimuove l'unità da quel tipo di battaglia. Le unità con un limite dell'epoca sono elencate automaticamente.",
+      "noLimit": "Nessun limite",
+      "addUnit": "Aggiungi un'unità…",
+      "empty": "Ancora nessun limite unità. Aggiungi un'unità per impostarne il limite."
+    },
+    "battleTypeBudgets": {
+      "title": "Budget per tipo di battaglia",
+      "description": "Sovrascrivi gli effettivi e l'oro iniziali che ogni giocatore riceve in ciascun tipo di battaglia dinamico. Lascia un campo vuoto per mantenere il predefinito di questa epoca (mostrato come segnaposto).",
+      "manpower": "Effettivi",
+      "gold": "Oro"
+    },
+    "playerBudgets": {
+      "title": "Budget per giocatore",
+      "description": "Assegna a giocatori specifici un budget assoluto proprio di effettivi e oro, sovrascrivendo quello del tipo di battaglia solo per quel giocatore. Aggiungi un giocatore, poi imposta uno dei due valori; lascia un campo vuoto per mantenere il budget del tipo di battaglia. Si applica nella lobby in base al numero di posto.",
+      "addPlayer": "Aggiungi un giocatore…",
+      "player": "Giocatore {{number}}",
+      "manpower": "Effettivi",
+      "gold": "Oro",
+      "default": "Budget del tipo di battaglia",
+      "empty": "Ancora nessun budget per giocatore. Aggiungi un giocatore per sovrascrivere il suo."
     }
   },
   "resize": {

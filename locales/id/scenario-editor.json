@@ -511,6 +511,16 @@
       "noOverrides": "Skenario ini tidak memiliki {{target}}.",
       "importedCount_other": "Diimpor {{count}} penimpaan."
     },
+    "importArmyCompositionsModal": {
+      "title": "Impor komposisi pasukan dari skenario",
+      "pickFilePrompt": "Pilih file skenario (JSON yang dihasilkan tombol Unduh editor) untuk mengimpor komposisi pasukannya.",
+      "noArmyCompositions": "Skenario ini tidak memiliki pengaturan komposisi pasukan untuk diimpor.",
+      "fieldBattleTypes": "Anggaran jenis pertempuran & batas unit",
+      "fieldPlayerBudgets": "Anggaran per pemain",
+      "fieldArmyPanelGroups": "Grup panel pasukan",
+      "fieldDisableEraUnits": "Nonaktifkan unit bawaan era",
+      "resultSummary": "Diimpor: {{fields}}."
+    },
     "gameConstants": {
       "title": "Penimpaan konstanta permainan",
       "description": "Timpa konstanta numerik era ini untuk skenario ini. Hanya nilai yang diubah yang disimpan; Reset mengembalikan field ke bawaan era. Kunci bertanda ⚠ bersifat struktural - mengubahnya dapat merusak rendering, replay, atau pencarian permainan. Nilai adalah unit internal mentah."
@@ -533,6 +543,49 @@
       "default": "Bawaan",
       "unknownOption": "{{value}} (tidak diketahui)",
       "groupBuiltIn": "Bawaan"
+    },
+    "armyPanelGroups": {
+      "title": "Grup panel pasukan",
+      "description": "Pilih judul yang dilihat pemain saat membeli pasukan, unit apa saja yang berada di bawah masing-masing, dan urutannya. Ini dimulai dari tata letak bawaan era.",
+      "statusDefault": "Belum diubah — skenario ini menggunakan komposisi pasukan standar era. Mengedit apa pun di bawah akan mengalihkannya ke daftar Anda sendiri.",
+      "statusCustom": "Disesuaikan — skenario ini menimpa tata letak era dengan daftar Anda. Layar pasukan hanya menampilkan unit yang Anda tempatkan dalam grup dan menyembunyikan sisanya. Daftar ini sekarang menjadi cuplikan tetap: unit apa pun yang Anda tambahkan ke skenario nanti akan tetap tersembunyi hingga Anda menempatkannya dalam grup di sini.",
+      "statusEraDisabled": "Unit bawaan era dinonaktifkan, sehingga tata letak standar disembunyikan. Tambahkan grup dari unit kustom skenario Anda sendiri di bawah.",
+      "namePlaceholder": "Nama grup",
+      "addGroup": "Tambah grup",
+      "addUnit": "Tambah unit…",
+      "noUnits": "Belum ada unit.",
+      "moveUp": "Pindah ke atas",
+      "moveDown": "Pindah ke bawah"
+    },
+    "customArmyCompositions": {
+      "title": "Komposisi pasukan kustom",
+      "betaNotice": "Opsi komposisi pasukan kustom untuk skenario adalah fitur beta; harap laporkan bug apa pun di server Discord resmi.",
+      "disableEraUnits": "Nonaktifkan unit bawaan era",
+      "disableEraUnitsDescription": "Hanya gunakan unit kustom skenario ini sendiri. Unit bawaan era disembunyikan dari layar pasukan dan ditolak saat membangun pasukan.",
+      "disableEraUnitsWarning": "Tambahkan setidaknya satu templat unit kustom, atau pemain tidak akan memiliki unit untuk digunakan."
+    },
+    "unitCaps": {
+      "title": "Batas unit",
+      "description": "Batasi berapa banyak dari setiap unit yang boleh digunakan pemain. Tambahkan unit, lalu atur batasnya per jenis pertempuran dinamis. Setiap kolom menampilkan batas era ini sebagai placeholder; biarkan kosong untuk mempertahankannya. Batas 0 menghapus unit itu dari jenis pertempuran tersebut. Unit dengan batas era akan terdaftar otomatis.",
+      "noLimit": "Tanpa batas",
+      "addUnit": "Tambah unit…",
+      "empty": "Belum ada batas unit. Tambahkan unit untuk membatasinya."
+    },
+    "battleTypeBudgets": {
+      "title": "Anggaran jenis pertempuran",
+      "description": "Timpa tenaga dan emas awal yang didapat setiap pemain di setiap jenis pertempuran dinamis. Biarkan kolom kosong untuk mempertahankan bawaan era ini (ditampilkan sebagai placeholder).",
+      "manpower": "Tenaga",
+      "gold": "Emas"
+    },
+    "playerBudgets": {
+      "title": "Anggaran per pemain",
+      "description": "Berikan pemain tertentu anggaran tenaga dan emas absolut mereka sendiri, menimpa anggaran jenis pertempuran untuk pemain itu saja. Tambahkan pemain, lalu atur salah satu nilai; biarkan kolom kosong untuk mempertahankan anggaran jenis pertempuran. Berlaku di lobi berdasarkan nomor kursi.",
+      "addPlayer": "Tambah pemain…",
+      "player": "Pemain {{number}}",
+      "manpower": "Tenaga",
+      "gold": "Emas",
+      "default": "Anggaran jenis pertempuran",
+      "empty": "Belum ada anggaran pemain. Tambahkan pemain untuk menimpa anggaran mereka."
     }
   },
   "resize": {

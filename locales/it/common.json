@@ -334,6 +334,7 @@
   "maxTime": "Tempo massimo",
   "reserveAmmoDescription": "L'oro non speso contribuisce alle tue munizioni di artiglieria di riserva, che rifornisce automaticamente le munizioni intrinseche della tua artiglieria mentre spara. I turni di fuoco stimati tengono conto sia delle munizioni di riserva che di quelle dell'unità.",
   "saveArmy": "Salva esercito",
+  "confirmArmy": "Conferma esercito",
   "clearUnits": "Cancella unità",
   "saving": "Salvataggio...",
   "armyInvalid": "Questo esercito non è valido, per favore modificalo.",
@@ -645,7 +646,28 @@
     "joinTeam": "Unisciti al Team {{team}} ({{count}}/{{capacity}})",
     "teamLocked": "Scegli la squadra più piccola",
     "teamFull": "La squadra è piena",
-    "teamNoLongerAvailable": "Qualcun altro si è unito prima. Scegli di nuovo."
+    "teamNoLongerAvailable": "Qualcun altro si è unito prima. Scegli di nuovo.",
+    "slotNoLongerAvailable": "Qualcun altro ha preso quel posto per primo. Scegli di nuovo.",
+    "slotActionFailed": "Non ha funzionato. Riprova.",
+    "hostWithLobby": "Host con lobby",
+    "joinSlot": "Unisciti al Team {{team}} - Giocatore {{slot}}",
+    "slotTaken": "Posto occupato",
+    "slotClosed": "Chiuso",
+    "closeSlot": "Chiudi",
+    "openSlot": "Apri",
+    "claim": "Rivendica",
+    "release": "Rilascia",
+    "playInClaimedSlot": "Gioca nel posto rivendicato",
+    "kick": "Espelli",
+    "kickedTitle": "Rimosso dalla partita",
+    "kickedMessage": "L'host ti ha rimosso da questa partita. Non puoi rientrare.",
+    "kickedCannotRejoin": "Sei stato rimosso da questa partita e non puoi rientrare.",
+    "confirmArmy": "Conferma esercito",
+    "armyInvalid": "Quell'esercito non è valido per questa partita. Modificalo e riprova.",
+    "ready": "Pronto",
+    "notReady": "Non pronto",
+    "playersChoosingArmies": "In attesa che {{count}} giocatori scelgano il proprio esercito.",
+    "back": "Indietro"
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
@@ -748,6 +770,7 @@
   "sendFailed": "Invio del messaggio non riuscito",
   "chatUnreadCount": "{{count}} non letti",
   "startGameNow": "Iniziare la partita ora?",
+  "startGame": "Avvia partita",
   "startGameNowTooltip": "Le unità non assegnate a nessun giocatore saranno distribuite equamente tra i giocatori connessi nella stessa squadra di quelle unità.",
   "user": "Utente",
   "meleeStaminaCost": "Costo resistenza corpo a corpo",
@@ -820,5 +843,6 @@
     "message": "Il tuo account verrà programmato per l'eliminazione tra {{graceDays}} giorni. Puoi annullare in qualsiasi momento prima effettuando di nuovo l'accesso. Dopodiché, il tuo account e i tuoi dati personali verranno anonimizzati in modo permanente. Sei sicuro?",
     "scheduled": "Il tuo account è programmato per l'eliminazione tra {{graceDays}} giorni. Effettua di nuovo l'accesso prima di allora per annullarla.",
     "error": "Impossibile programmare l'eliminazione dell'account. Riprova."
-  }
+  },
+  "startGameAsSpectator": "Avvia partita come spettatore"
 }

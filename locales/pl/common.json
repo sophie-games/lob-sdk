@@ -351,6 +351,7 @@
   "maxTime": "Maksymalny czas",
   "reserveAmmoDescription": "Niewydane złoto przyczynia się do twojej zapasowej amunicji artyleryjskiej, która automatycznie uzupełnia wbudowaną amunicję twojej artylerii podczas strzelania. Szacowana liczba tur ognia uwzględnia zarówno amunicję zapasową, jak i jednostkową.",
   "saveArmy": "Zapisz armię",
+  "confirmArmy": "Potwierdź armię",
   "clearUnits": "Wyczyść Jednostki",
   "saving": "Zapisywanie...",
   "armyInvalid": "Ta armia jest niepoprawna, zmodyfikuj ją",
@@ -651,7 +652,28 @@
     "joinTeam": "Dołącz do Drużyny {{team}} ({{count}}/{{capacity}})",
     "teamLocked": "Wybierz mniejszą drużynę",
     "teamFull": "Drużyna jest pełna",
-    "teamNoLongerAvailable": "Ktoś inny dołączył pierwszy. Wybierz ponownie."
+    "teamNoLongerAvailable": "Ktoś inny dołączył pierwszy. Wybierz ponownie.",
+    "slotNoLongerAvailable": "Ktoś inny zajął to miejsce pierwszy. Wybierz ponownie.",
+    "slotActionFailed": "To nie zadziałało. Spróbuj ponownie.",
+    "hostWithLobby": "Stwórz z lobby",
+    "joinSlot": "Dołącz do Drużyny {{team}} – Gracz {{slot}}",
+    "slotTaken": "Miejsce zajęte",
+    "slotClosed": "Zamknięte",
+    "closeSlot": "Zamknij",
+    "openSlot": "Otwórz",
+    "claim": "Zajmij",
+    "release": "Zwolnij",
+    "playInClaimedSlot": "Zagraj w zajętym miejscu",
+    "kick": "Wyrzuć",
+    "kickedTitle": "Usunięto z gry",
+    "kickedMessage": "Gospodarz usunął cię z tej gry. Nie możesz do niej dołączyć ponownie.",
+    "kickedCannotRejoin": "Usunięto cię z tej gry i nie możesz do niej dołączyć ponownie.",
+    "confirmArmy": "Potwierdź armię",
+    "armyInvalid": "Ta armia nie jest poprawna dla tej gry. Dostosuj ją i spróbuj ponownie.",
+    "ready": "Gotowy",
+    "notReady": "Niegotowy",
+    "playersChoosingArmies": "Oczekiwanie, aż {{count}} graczy wybierze swoją armię.",
+    "back": "Wstecz"
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} na {{playersPerTeam}} {{battleTypeName}}",
@@ -795,6 +817,7 @@
   "inviteFriend": "Zaproś znajomego",
   "checkStarted": "Zobacz czy się rozpoczęło",
   "startGameNow": "Rozpocząć grę teraz?",
+  "startGame": "Rozpocznij grę",
   "startGameNowTooltip": "Jednostki nieprzypisane do żadnego gracza zostaną równomiernie podzielone między połączonych graczy z tej samej drużyny co te jednostki.",
   "errorWhenSubmittingOrders": "Błąd przy wysyłaniu rozkazów",
   "syncGame": "Synchronizuj grę",
@@ -939,5 +962,6 @@
     "message": "Twoje konto zostanie zaplanowane do usunięcia za {{graceDays}} dni. Możesz anulować w dowolnym momencie wcześniej, logując się ponownie. Potem Twoje konto i dane osobowe zostaną trwale zanonimizowane. Czy na pewno?",
     "scheduled": "Twoje konto jest zaplanowane do usunięcia za {{graceDays}} dni. Zaloguj się ponownie przed tym terminem, aby anulować.",
     "error": "Nie udało się zaplanować usunięcia konta. Spróbuj ponownie."
-  }
+  },
+  "startGameAsSpectator": "Rozpocznij grę jako widz"
 }

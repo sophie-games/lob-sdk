@@ -512,6 +512,16 @@
       "importedCount_one": "Importada {{count}} sobrescritura.",
       "importedCount_other": "Importadas {{count}} sobrescrituras."
     },
+    "importArmyCompositionsModal": {
+      "title": "Importar composiciones de ejército desde escenario",
+      "pickFilePrompt": "Elige un archivo de escenario (el JSON que produce el botón Descargar del editor) para importar sus composiciones de ejército.",
+      "noArmyCompositions": "Este escenario no tiene configuraciones de composición de ejército para importar.",
+      "fieldBattleTypes": "Presupuestos por tipo de batalla y límites de unidades",
+      "fieldPlayerBudgets": "Presupuestos por jugador",
+      "fieldArmyPanelGroups": "Grupos del panel de ejército",
+      "fieldDisableEraUnits": "Desactivar unidades predeterminadas de la era",
+      "resultSummary": "Importado: {{fields}}."
+    },
     "gameConstants": {
       "title": "Sobrescrituras de constantes del juego",
       "description": "Sobrescribe las constantes numéricas de esta era para este escenario. Solo se guardan los valores cambiados; Restablecer devuelve un campo al valor por defecto de la era. Las claves marcadas con ⚠ son estructurales - cambiarlas puede romper el renderizado, las repeticiones o el emparejamiento. Los valores están en unidades internas en bruto."
@@ -534,6 +544,49 @@
       "default": "Por defecto",
       "unknownOption": "{{value}} (desconocido)",
       "groupBuiltIn": "Integrados"
+    },
+    "armyPanelGroups": {
+      "title": "Grupos del panel de ejército",
+      "description": "Elige los encabezados que ven los jugadores al comprar un ejército, qué unidades van bajo cada uno y su orden. Esto parte de la disposición predeterminada de la era.",
+      "statusDefault": "Sin modificar: este escenario usa las composiciones de ejército estándar de la era. Editar algo a continuación lo cambia a tu propia lista.",
+      "statusCustom": "Personalizado: este escenario sobrescribe la disposición de la era con tu lista. La pantalla de ejército muestra solo las unidades que colocas en un grupo y omite el resto. Esta lista ahora es una instantánea fija: cualquier unidad que agregues al escenario más tarde permanecerá oculta hasta que la coloques en un grupo aquí.",
+      "statusEraDisabled": "Las unidades predeterminadas de la era están desactivadas, por lo que la disposición estándar está oculta. Agrega grupos con las unidades personalizadas propias de tu escenario a continuación.",
+      "namePlaceholder": "Nombre del grupo",
+      "addGroup": "Agregar grupo",
+      "addUnit": "Agregar una unidad…",
+      "noUnits": "Todavía no hay unidades.",
+      "moveUp": "Subir",
+      "moveDown": "Bajar"
+    },
+    "customArmyCompositions": {
+      "title": "Composiciones de ejército personalizadas",
+      "betaNotice": "Las opciones de composiciones de ejército personalizadas para escenarios son una función beta; informa de cualquier error en el servidor de Discord oficial.",
+      "disableEraUnits": "Desactivar unidades predeterminadas de la era",
+      "disableEraUnitsDescription": "Usa solo las unidades personalizadas propias de este escenario. Las unidades predeterminadas de la era se ocultan de la pantalla de ejército y se rechazan al crear un ejército.",
+      "disableEraUnitsWarning": "Agrega al menos una plantilla de unidad personalizada, o los jugadores no tendrán unidades para desplegar."
+    },
+    "unitCaps": {
+      "title": "Límites de unidades",
+      "description": "Limita cuántas unidades de cada tipo puede desplegar un jugador. Agrega una unidad y luego define su límite por cada tipo de batalla dinámico. Cada campo muestra el límite de esta era como texto de referencia; déjalo vacío para conservarlo. Un límite de 0 quita la unidad de ese tipo de batalla. Las unidades con un límite de era se listan automáticamente.",
+      "noLimit": "Sin límite",
+      "addUnit": "Agregar una unidad…",
+      "empty": "Todavía no hay límites de unidades. Agrega una unidad para limitarla."
+    },
+    "battleTypeBudgets": {
+      "title": "Presupuestos por tipo de batalla",
+      "description": "Sobrescribe los refuerzos y el oro iniciales que recibe cada jugador en cada tipo de batalla dinámico. Deja un campo vacío para conservar el valor predeterminado de esta era (se muestra como texto de referencia).",
+      "manpower": "Refuerzos",
+      "gold": "Oro"
+    },
+    "playerBudgets": {
+      "title": "Presupuestos por jugador",
+      "description": "Dale a jugadores específicos su propio presupuesto absoluto de refuerzos y oro, sobrescribiendo el del tipo de batalla solo para ese jugador. Agrega un jugador y luego define uno de los valores; deja un campo vacío para conservar el presupuesto del tipo de batalla. Se aplica en el lobby según el número de asiento.",
+      "addPlayer": "Agregar un jugador…",
+      "player": "Jugador {{number}}",
+      "manpower": "Refuerzos",
+      "gold": "Oro",
+      "default": "Presupuesto del tipo de batalla",
+      "empty": "Todavía no hay presupuestos por jugador. Agrega un jugador para sobrescribir el suyo."
     }
   },
   "resize": {

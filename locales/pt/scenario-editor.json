@@ -512,6 +512,16 @@
       "importedCount_one": "Importada {{count}} sobrescrita.",
       "importedCount_other": "Importadas {{count}} sobrescritas."
     },
+    "importArmyCompositionsModal": {
+      "title": "Importar composições de exército de cenário",
+      "pickFilePrompt": "Escolha um arquivo de cenário (o JSON que o botão Baixar do editor produz) para importar suas composições de exército.",
+      "noArmyCompositions": "Este cenário não tem configurações de composição de exército para importar.",
+      "fieldBattleTypes": "Orçamentos por tipo de batalha e limites de unidade",
+      "fieldPlayerBudgets": "Orçamentos por jogador",
+      "fieldArmyPanelGroups": "Grupos do painel de exército",
+      "fieldDisableEraUnits": "Desativar unidades padrão da era",
+      "resultSummary": "Importado: {{fields}}."
+    },
     "gameConstants": {
       "title": "Sobrescritas de constantes do jogo",
       "description": "Sobrescreva as constantes numéricas desta era para este cenário. Apenas os valores alterados são salvos; Redefinir retorna um campo ao padrão da era. As chaves marcadas com ⚠ são estruturais - alterá-las pode quebrar a renderização, replays ou o matchmaking. Os valores estão em unidades internas brutas."
@@ -534,6 +544,49 @@
       "default": "Padrão",
       "unknownOption": "{{value}} (desconhecido)",
       "groupBuiltIn": "Interno"
+    },
+    "armyPanelGroups": {
+      "title": "Grupos do painel de exército",
+      "description": "Escolha os títulos que os jogadores veem ao comprar um exército, quais unidades ficam em cada um e sua ordem. Isto começa a partir do layout padrão da era.",
+      "statusDefault": "Sem alterações — este cenário usa as composições de exército padrão da era. Editar qualquer coisa abaixo muda para sua própria lista.",
+      "statusCustom": "Personalizado — este cenário sobrescreve o layout da era com sua lista. A tela de exército mostra apenas as unidades que você coloca em um grupo e omite as demais. Esta lista agora é um instantâneo fixo: qualquer unidade adicionada ao cenário depois permanece oculta até que você a coloque em um grupo aqui.",
+      "statusEraDisabled": "As unidades padrão da era estão desativadas, então o layout padrão fica oculto. Adicione grupos com as unidades personalizadas do seu próprio cenário abaixo.",
+      "namePlaceholder": "Nome do grupo",
+      "addGroup": "Adicionar grupo",
+      "addUnit": "Adicionar uma unidade…",
+      "noUnits": "Nenhuma unidade ainda.",
+      "moveUp": "Mover para cima",
+      "moveDown": "Mover para baixo"
+    },
+    "customArmyCompositions": {
+      "title": "Composições de exército personalizadas",
+      "betaNotice": "As opções de composições de exército personalizadas para cenários são um recurso beta; por favor, relate quaisquer erros no servidor Discord oficial.",
+      "disableEraUnits": "Desativar unidades padrão da era",
+      "disableEraUnitsDescription": "Utilize apenas as unidades personalizadas deste cenário. As unidades padrão da era ficam ocultas na tela de exército e são rejeitadas ao montar um exército.",
+      "disableEraUnitsWarning": "Adicione pelo menos um modelo de unidade personalizado, ou os jogadores não terão unidades para utilizar."
+    },
+    "unitCaps": {
+      "title": "Limites de unidade",
+      "description": "Limite quantas unidades de cada tipo um jogador pode utilizar. Adicione uma unidade e depois defina seu limite por tipo de batalha dinâmico. Cada campo mostra o limite desta era como espaço reservado; deixe-o vazio para mantê-lo. Um limite de 0 remove a unidade desse tipo de batalha. Unidades com um limite de era são listadas automaticamente.",
+      "noLimit": "Sem limite",
+      "addUnit": "Adicionar uma unidade…",
+      "empty": "Nenhum limite de unidade ainda. Adicione uma unidade para limitá-la."
+    },
+    "battleTypeBudgets": {
+      "title": "Orçamentos por tipo de batalha",
+      "description": "Sobrescreva as tropas e o ouro iniciais que cada jogador recebe em cada tipo de batalha dinâmico. Deixe um campo vazio para manter o padrão desta era (mostrado como espaço reservado).",
+      "manpower": "Tropas",
+      "gold": "Ouro"
+    },
+    "playerBudgets": {
+      "title": "Orçamentos por jogador",
+      "description": "Dê a jogadores específicos seu próprio orçamento absoluto de tropas e ouro, sobrescrevendo o do tipo de batalha apenas para esse jogador. Adicione um jogador e depois defina qualquer um dos valores; deixe um campo vazio para manter o orçamento do tipo de batalha. Aplica-se no lobby pelo número do assento.",
+      "addPlayer": "Adicionar um jogador…",
+      "player": "Jogador {{number}}",
+      "manpower": "Tropas",
+      "gold": "Ouro",
+      "default": "Orçamento do tipo de batalha",
+      "empty": "Nenhum orçamento de jogador ainda. Adicione um jogador para sobrescrever o seu."
     }
   },
   "resize": {

@@ -512,6 +512,16 @@
       "importedCount_one": "{{count}} remplacement importé.",
       "importedCount_other": "{{count}} remplacements importés."
     },
+    "importArmyCompositionsModal": {
+      "title": "Importer l'ordre de bataille depuis un scénario",
+      "pickFilePrompt": "Choisissez un fichier de scénario (le JSON produit par le bouton Télécharger de l'éditeur) pour en importer l'ordre de bataille.",
+      "noArmyCompositions": "Ce scénario n'a aucun paramètre d'ordre de bataille à importer.",
+      "fieldBattleTypes": "Budgets par type de bataille et plafonds d'unités",
+      "fieldPlayerBudgets": "Budgets par joueur",
+      "fieldArmyPanelGroups": "Groupes du panneau d'armée",
+      "fieldDisableEraUnits": "Désactiver les unités par défaut de l'époque",
+      "resultSummary": "Importé : {{fields}}."
+    },
     "gameConstants": {
       "title": "Remplacements de constantes du jeu",
       "description": "Remplacez les constantes numériques de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; Réinitialiser ramène un champ au défaut de l'époque. Les clés marquées ⚠ sont structurelles - les modifier peut casser le rendu, les replays ou l'appariement. Les valeurs sont en unités internes brutes."
@@ -534,6 +544,49 @@
       "default": "Par défaut",
       "unknownOption": "{{value}} (inconnu)",
       "groupBuiltIn": "Intégré"
+    },
+    "armyPanelGroups": {
+      "title": "Groupes du panneau d'armée",
+      "description": "Choisissez les titres que les joueurs voient lors de l'achat d'une armée, les unités placées sous chacun, et leur ordre. Ceci part de la disposition par défaut de l'époque.",
+      "statusDefault": "Inchangé — ce scénario utilise l'ordre de bataille standard de l'époque. Modifier quoi que ce soit ci-dessous bascule vers votre propre liste.",
+      "statusCustom": "Personnalisé — ce scénario remplace la disposition de l'époque par votre liste. L'écran d'armée n'affiche que les unités que vous placez dans un groupe et omet les autres. Cette liste est désormais un instantané fixe : toute unité ajoutée au scénario plus tard reste cachée tant que vous ne la placez pas dans un groupe ici.",
+      "statusEraDisabled": "Les unités par défaut de l'époque sont désactivées, la disposition standard est donc masquée. Ajoutez des groupes à partir des unités personnalisées de votre scénario ci-dessous.",
+      "namePlaceholder": "Nom du groupe",
+      "addGroup": "Ajouter un groupe",
+      "addUnit": "Ajouter une unité…",
+      "noUnits": "Aucune unité pour le moment.",
+      "moveUp": "Monter",
+      "moveDown": "Descendre"
+    },
+    "customArmyCompositions": {
+      "title": "Ordre de bataille personnalisé",
+      "betaNotice": "Les options d'ordre de bataille personnalisé pour les scénarios sont une fonctionnalité bêta ; veuillez signaler tout bug sur le serveur Discord officiel.",
+      "disableEraUnits": "Désactiver les unités par défaut de l'époque",
+      "disableEraUnitsDescription": "N'alignez que les unités personnalisées propres à ce scénario. Les unités par défaut de l'époque sont masquées de l'écran d'armée et rejetées lors de la construction d'une armée.",
+      "disableEraUnitsWarning": "Ajoutez au moins un modèle d'unité personnalisé, sinon les joueurs n'auront aucune unité à aligner."
+    },
+    "unitCaps": {
+      "title": "Plafonds d'unités",
+      "description": "Limitez le nombre de chaque unité qu'un joueur peut aligner. Ajoutez une unité, puis définissez son plafond par type de bataille dynamique. Chaque champ affiche le plafond de cette époque comme espace réservé ; laissez-le vide pour le conserver. Un plafond de 0 retire l'unité de ce type de bataille. Les unités ayant un plafond d'époque sont listées automatiquement.",
+      "noLimit": "Sans limite",
+      "addUnit": "Ajouter une unité…",
+      "empty": "Aucun plafond d'unité pour le moment. Ajoutez une unité pour la plafonner."
+    },
+    "battleTypeBudgets": {
+      "title": "Budgets par type de bataille",
+      "description": "Remplacez les effectifs et l'or de départ que chaque joueur reçoit pour chaque type de bataille dynamique. Laissez un champ vide pour conserver le défaut de cette époque (affiché comme espace réservé).",
+      "manpower": "Effectifs",
+      "gold": "Or"
+    },
+    "playerBudgets": {
+      "title": "Budgets par joueur",
+      "description": "Attribuez à des joueurs spécifiques leur propre budget absolu d'effectifs et d'or, remplaçant celui du type de bataille pour ce joueur uniquement. Ajoutez un joueur, puis définissez l'une ou l'autre valeur ; laissez un champ vide pour conserver le budget du type de bataille. S'applique dans le lobby selon le numéro de siège.",
+      "addPlayer": "Ajouter un joueur…",
+      "player": "Joueur {{number}}",
+      "manpower": "Effectifs",
+      "gold": "Or",
+      "default": "Budget du type de bataille",
+      "empty": "Aucun budget de joueur pour le moment. Ajoutez un joueur pour définir le sien."
     }
   },
   "resize": {
