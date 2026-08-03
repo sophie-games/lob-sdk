@@ -22,6 +22,7 @@ import {
   OrderTemplate,
   OrderType,
   ArmyPanelGroup,
+  FogOfWarMode,
 } from "@lob-sdk/types";
 import type {
   DamageTypeTemplate,
@@ -372,6 +373,8 @@ export interface GameData {
   clientEvents: GameClientEventDto[] | null;
   /** Whether fog of war is enabled. */
   fogOfWar: boolean;
+  /** Whose vision grades enemy units while {@link fogOfWar} is on. */
+  fogOfWarMode: FogOfWarMode;
   /** When true, spectators see the full map (no fog of war) in ongoing games. */
   spectatorFullVision: boolean;
   /** Tournament ID, if this is a tournament game. Required for the client to know a game is a tournament game. */
@@ -658,6 +661,8 @@ export interface ServerGameProps {
   clientEvents?: GameClientEventDto[] | null;
   /** Whether fog of war is enabled. */
   fogOfWar?: boolean;
+  /** Whose vision grades enemy units while {@link fogOfWar} is on. Defaults to Team. */
+  fogOfWarMode?: FogOfWarMode;
   /** When true, spectators see the full map (no fog of war) in ongoing games. */
   spectatorFullVision: boolean;
   /** Timestamp (milliseconds) when the game was created. */
