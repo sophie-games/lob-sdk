@@ -371,10 +371,14 @@ export interface GameData {
   drawUnlockTurn: number;
   /** Client events to be sent to players. */
   clientEvents: GameClientEventDto[] | null;
-  /** Whether fog of war is enabled. */
-  fogOfWar: boolean;
-  /** Whose vision grades enemy units while {@link fogOfWar} is on. */
+  /** Whether there is fog of war, and whose vision grades enemy units. */
   fogOfWarMode: FogOfWarMode;
+  /**
+   * Derived from {@link fogOfWarMode}. Kept so a client released before
+   * per-player fog still reads a correct on/off flag; drop it once those are
+   * gone.
+   */
+  fogOfWar: boolean;
   /** When true, spectators see the full map (no fog of war) in ongoing games. */
   spectatorFullVision: boolean;
   /** Tournament ID, if this is a tournament game. Required for the client to know a game is a tournament game. */
@@ -659,9 +663,7 @@ export interface ServerGameProps {
   lastActions?: AnyAction[] | null;
   /** Client events to be sent to players. */
   clientEvents?: GameClientEventDto[] | null;
-  /** Whether fog of war is enabled. */
-  fogOfWar?: boolean;
-  /** Whose vision grades enemy units while {@link fogOfWar} is on. Defaults to Team. */
+  /** Whether there is fog of war, and whose vision grades enemy units. Defaults to Team. */
   fogOfWarMode?: FogOfWarMode;
   /** When true, spectators see the full map (no fog of war) in ongoing games. */
   spectatorFullVision: boolean;
