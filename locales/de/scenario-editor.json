@@ -674,7 +674,6 @@
   "randomMap": {
     "title": "Zufällige Karte",
     "moreInfo": "Mehr Informationen zu zufälligen Karten hier",
-    "proceduralMap": "Prozedurale (zufällige) Karte",
     "proceduralExplanation": "Diese Anweisungen erzeugen die Karte aus einem neuen Seed pro Match; das gespeicherte Szenario verwirft seine fertige Karte. Die hier gezeigte Karte ist nur eine Vorschau. Ziele, die durch Ziel- / Zielebenen-Anweisungen platziert werden, erscheinen zur Spielzeit, nicht in dieser Vorschau.",
     "startFromTemplate": "Von einer Vorlage starten",
     "loadInstructionsFromTemplate": "Anweisungen aus Vorlage laden",
@@ -699,7 +698,12 @@
     "importMustBeProcedural": "Die importierte Datei muss eine prozedurale Vorlage sein (keine fertige Karte, mit Erzeugungsanweisungen).",
     "invalidJsonFile": "Ungültige JSON-Datei. Bitte überprüfe das Dateiformat.",
     "confirmOverwriteWarning": "Bitte bestätige, dass du verstehst, dass dies das Gelände überschreibt.",
-    "selectedNotProcedural": "Das ausgewählte Szenario ist keine prozedurale Vorlage."
+    "selectedNotProcedural": "Das ausgewählte Szenario ist keine prozedurale Vorlage.",
+    "mapMode": "Kartenmodus",
+    "modePreset": "Vorgefertigt (festes Gelände)",
+    "modeHybrid": "Hybrid (vorgefertigt + Anweisungen)",
+    "modeProcedural": "Prozedural (generiert)",
+    "hybridExplanation": "Das gebackene Gelände bleibt erhalten und diese Anweisungen laufen in jedem Spiel als Overlays darüber. Setze einen Seed auf der Karte, damit die Overlays zwischen Spielen nicht abweichen."
   },
   "randomDeployment": {
     "title": "Aufstellungszonen",

@@ -676,7 +676,6 @@
   "randomMap": {
     "title": "Mapa losowa",
     "moreInfo": "Więcej informacji o mapach losowych tutaj",
-    "proceduralMap": "Mapa proceduralna (losowa)",
     "proceduralExplanation": "Te instrukcje generują mapę z nowego ziarna w każdym meczu; zapisany scenariusz porzuca swoją wypaloną mapę. Mapa pokazana tutaj to tylko podgląd. Cele rozmieszczane przez instrukcje Cel / Warstwa celów pojawiają się w czasie meczu, a nie w tym podglądzie.",
     "startFromTemplate": "Zacznij od szablonu",
     "loadInstructionsFromTemplate": "Załaduj instrukcje z szablonu",
@@ -701,7 +700,12 @@
     "importMustBeProcedural": "Importowany plik musi być szablonem proceduralnym (bez wypalonej mapy, z instrukcjami generowania).",
     "invalidJsonFile": "Nieprawidłowy plik JSON. Sprawdź format pliku.",
     "confirmOverwriteWarning": "Potwierdź, że rozumiesz, iż nadpisze to teren.",
-    "selectedNotProcedural": "Wybrany scenariusz nie jest szablonem proceduralnym."
+    "selectedNotProcedural": "Wybrany scenariusz nie jest szablonem proceduralnym.",
+    "mapMode": "Tryb mapy",
+    "modePreset": "Predefiniowana (stały teren)",
+    "modeHybrid": "Hybrydowa (predefiniowana + instrukcje)",
+    "modeProcedural": "Proceduralna (generowana)",
+    "hybridExplanation": "Zapieczony teren zostaje zachowany, a te instrukcje są ponownie uruchamiane na nim jako nakładki w każdym meczu. Ustaw ziarno mapy, aby nakładki nie zmieniały się między meczami."
   },
   "randomDeployment": {
     "title": "Strefy rozstawienia",

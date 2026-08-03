@@ -674,7 +674,6 @@
   "randomMap": {
     "title": "Véletlenszerű pálya",
     "moreInfo": "További információ a véletlenszerű pályákról itt",
-    "proceduralMap": "Eljárásos (véletlenszerű) pálya",
     "proceduralExplanation": "Ezek az utasítások minden meccsen új seedből generálják a pályát; a mentett pálya elveti a megsütött pályáját. Az itt látható pálya csak előnézet. Az Objektíva / Objektíva-réteg utasítások által elhelyezett objektívák a meccs idején jelennek meg, nem ebben az előnézetben.",
     "startFromTemplate": "Kezdés sablonból",
     "loadInstructionsFromTemplate": "Utasítások betöltése sablonból",
@@ -699,7 +698,12 @@
     "importMustBeProcedural": "Az importált fájlnak eljárásos sablonnak kell lennie (megsütött pálya nélkül, generálási utasításokkal).",
     "invalidJsonFile": "Érvénytelen JSON fájl. Kérlek ellenőrizd a fájl formátumát.",
     "confirmOverwriteWarning": "Kérlek erősítsd meg, hogy megérted, ez felülírja a terepet.",
-    "selectedNotProcedural": "A kiválasztott pálya nem eljárásos sablon."
+    "selectedNotProcedural": "A kiválasztott pálya nem eljárásos sablon.",
+    "mapMode": "Térkép mód",
+    "modePreset": "Előre beállított (rögzített terep)",
+    "modeHybrid": "Hibrid (előre beállított + utasítások)",
+    "modeProcedural": "Procedurális (generált)",
+    "hybridExplanation": "A rögzített terep megmarad, és ezek az utasítások minden meccsen rétegként újra lefutnak rajta. Rögzíts egy seedet a térképen, hogy a rétegek ne sodródjanak el meccsek között."
   },
   "randomDeployment": {
     "title": "Felállási zónák",

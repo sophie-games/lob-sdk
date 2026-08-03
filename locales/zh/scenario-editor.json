@@ -673,7 +673,6 @@
   "randomMap": {
     "title": "随机地图",
     "moreInfo": "在此了解更多有关随机地图的信息",
-    "proceduralMap": "程序生成（随机）地图",
     "proceduralExplanation": "这些指令会在每场对局以新的种子生成地图；保存的战役剧本会丢弃其烘焙地图。此处显示的地图仅为预览。由目标点 / 目标点层指令放置的目标点将在对局时出现，而非在此预览中。",
     "startFromTemplate": "从模板开始",
     "loadInstructionsFromTemplate": "从模板加载指令",
@@ -698,7 +697,12 @@
     "importMustBeProcedural": "导入的文件必须是程序生成模板（无烘焙地图，带生成指令）。",
     "invalidJsonFile": "无效的 JSON 文件。请检查文件格式。",
     "confirmOverwriteWarning": "请确认你了解这将覆盖地形。",
-    "selectedNotProcedural": "所选战役剧本不是程序生成模板。"
+    "selectedNotProcedural": "所选战役剧本不是程序生成模板。",
+    "mapMode": "地图模式",
+    "modePreset": "预设（固定地形）",
+    "modeHybrid": "混合（预设 + 指令）",
+    "modeProcedural": "程序生成",
+    "hybridExplanation": "已烘焙的地形会保留，这些指令每场比赛都会作为叠加层在其上重新运行。在地图上固定种子，避免叠加层在各场比赛之间发生偏移。"
   },
   "randomDeployment": {
     "title": "部署区域",

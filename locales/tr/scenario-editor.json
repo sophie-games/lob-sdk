@@ -674,7 +674,6 @@
   "randomMap": {
     "title": "Rastgele Harita",
     "moreInfo": "Rastgele haritalar hakkında daha fazla bilgi burada",
-    "proceduralMap": "Prosedürel (rastgele) harita",
     "proceduralExplanation": "Bu talimatlar haritayı her maçta yeni bir tohumdan oluşturur; kaydedilen senaryo pişmiş haritasını bırakır. Burada gösterilen harita yalnızca bir önizlemedir. Hedef / Hedef katmanı talimatlarıyla yerleştirilen hedefler bu önizlemede değil, maç anında görünür.",
     "startFromTemplate": "Bir şablondan başla",
     "loadInstructionsFromTemplate": "Şablondan talimatları yükle",
@@ -699,7 +698,12 @@
     "importMustBeProcedural": "İçe aktarılan dosya prosedürel bir şablon olmalıdır (pişmiş harita yok, oluşturma talimatları olan).",
     "invalidJsonFile": "Geçersiz JSON dosyası. Lütfen dosya biçimini kontrol edin.",
     "confirmOverwriteWarning": "Lütfen bunun araziyi üzerine yazacağını anladığınızı onaylayın.",
-    "selectedNotProcedural": "Seçili senaryo prosedürel bir şablon değil."
+    "selectedNotProcedural": "Seçili senaryo prosedürel bir şablon değil.",
+    "mapMode": "Harita modu",
+    "modePreset": "Hazır (sabit arazi)",
+    "modeHybrid": "Karma (hazır + talimatlar)",
+    "modeProcedural": "Yordamsal (üretilen)",
+    "hybridExplanation": "Sabitlenmiş arazi korunur ve bu talimatlar her maçta üzerine katman olarak yeniden çalışır. Katmanların maçlar arasında kaymaması için haritada bir tohum sabitleyin."
   },
   "randomDeployment": {
     "title": "Konuşlanma bölgeleri",

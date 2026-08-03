@@ -673,7 +673,6 @@
   "randomMap": {
     "title": "ランダムマップ",
     "moreInfo": "ランダムマップの詳細はこちら",
-    "proceduralMap": "自動生成（ランダム）マップ",
     "proceduralExplanation": "これらの指示は試合ごとに新しいシードからマップを生成します。保存されたシナリオは焼き込まれたマップを破棄します。ここに表示されるマップはプレビューのみです。目標／目標レイヤーの指示で配置された目標は、このプレビューではなく試合時に表示されます。",
     "startFromTemplate": "テンプレートから開始",
     "loadInstructionsFromTemplate": "テンプレートから指示を読み込む",
@@ -698,7 +697,12 @@
     "importMustBeProcedural": "インポートするファイルは自動生成テンプレート（焼き込まれたマップがなく、生成指示があるもの）でなければなりません。",
     "invalidJsonFile": "無効なJSONファイルです。ファイル形式を確認してください。",
     "confirmOverwriteWarning": "これが地形を上書きすることを理解していることを確認してください。",
-    "selectedNotProcedural": "選択したシナリオは自動生成テンプレートではありません。"
+    "selectedNotProcedural": "選択したシナリオは自動生成テンプレートではありません。",
+    "mapMode": "マップモード",
+    "modePreset": "プリセット（固定地形）",
+    "modeHybrid": "ハイブリッド（プリセット＋命令）",
+    "modeProcedural": "プロシージャル（生成）",
+    "hybridExplanation": "焼き込まれた地形は保持され、これらの命令が毎試合その上にオーバーレイとして再実行されます。試合ごとにオーバーレイがずれないよう、マップにシードを固定してください。"
   },
   "randomDeployment": {
     "title": "配置ゾーン",

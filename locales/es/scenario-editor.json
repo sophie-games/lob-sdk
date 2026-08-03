@@ -674,7 +674,6 @@
   "randomMap": {
     "title": "Mapa aleatorio",
     "moreInfo": "Más información sobre mapas aleatorios aquí",
-    "proceduralMap": "Mapa procedural (aleatorio)",
     "proceduralExplanation": "Estas instrucciones generan el mapa a partir de una nueva semilla en cada partida; el escenario guardado descarta su mapa fijo. El mapa que se muestra aquí es solo una vista previa. Los objetivos colocados por instrucciones de Objetivo / Capa de objetivos aparecen al momento de la partida, no en esta vista previa.",
     "startFromTemplate": "Empezar desde una plantilla",
     "loadInstructionsFromTemplate": "Cargar instrucciones desde plantilla",
@@ -699,7 +698,12 @@
     "importMustBeProcedural": "El archivo importado debe ser una plantilla procedural (sin mapa fijo, con instrucciones de generación).",
     "invalidJsonFile": "Archivo JSON no válido. Por favor verifica el formato del archivo.",
     "confirmOverwriteWarning": "Por favor confirma que entiendes que esto sobrescribirá el terreno.",
-    "selectedNotProcedural": "El escenario seleccionado no es una plantilla procedural."
+    "selectedNotProcedural": "El escenario seleccionado no es una plantilla procedural.",
+    "mapMode": "Modo de mapa",
+    "modePreset": "Preestablecido (terreno fijo)",
+    "modeHybrid": "Híbrido (preestablecido + instrucciones)",
+    "modeProcedural": "Procedural (generado)",
+    "hybridExplanation": "Se mantiene el terreno fijado y estas instrucciones se vuelven a ejecutar encima como capas en cada partida. Fija una semilla en el mapa para evitar que las capas varíen entre partidas."
   },
   "randomDeployment": {
     "title": "Zonas de despliegue",
