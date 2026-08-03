@@ -674,7 +674,6 @@
   "randomMap": {
     "title": "Mappa casuale",
     "moreInfo": "Maggiori informazioni sulle mappe casuali qui",
-    "proceduralMap": "Mappa procedurale (casuale)",
     "proceduralExplanation": "Queste istruzioni generano la mappa da un nuovo seed a ogni partita; lo scenario salvato scarta la sua mappa baked. La mappa qui mostrata è solo un'anteprima. Gli obiettivi posizionati dalle istruzioni Obiettivo / Livello obiettivi compaiono al momento della partita, non in questa anteprima.",
     "startFromTemplate": "Parti da un modello",
     "loadInstructionsFromTemplate": "Carica istruzioni da modello",
@@ -699,7 +698,12 @@
     "importMustBeProcedural": "Il file importato deve essere un modello procedurale (nessuna mappa baked, con istruzioni di generazione).",
     "invalidJsonFile": "File JSON non valido. Controlla il formato del file.",
     "confirmOverwriteWarning": "Conferma di aver compreso che questo sovrascriverà il terreno.",
-    "selectedNotProcedural": "Lo scenario selezionato non è un modello procedurale."
+    "selectedNotProcedural": "Lo scenario selezionato non è un modello procedurale.",
+    "mapMode": "Modalità mappa",
+    "modePreset": "Preimpostata (terreno fisso)",
+    "modeHybrid": "Ibrida (preimpostata + istruzioni)",
+    "modeProcedural": "Procedurale (generata)",
+    "hybridExplanation": "Il terreno fissato viene mantenuto e queste istruzioni vengono rieseguite sopra come livelli a ogni partita. Fissa un seed sulla mappa per evitare che i livelli varino tra le partite."
   },
   "randomDeployment": {
     "title": "Zone di schieramento",

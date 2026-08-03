@@ -301,6 +301,8 @@ export interface GameMetadata {
   noInherentAmmo?: boolean;
   /** Host-with-lobby games only: players claim numbered slots that the host manages. Set once at creation. */
   hostWithLobby?: boolean;
+  /** Lets a player join any team that has a free slot instead of only the smallest one. Set once at creation. */
+  allowUnbalancedTeams?: boolean;
   /** Host-with-lobby games only: player-slot numbers the host has closed; mutated during the lobby. */
   closedSlots?: number[];
   /** Host-with-lobby games only: user ids the host has kicked and barred from rejoining this game; mutated during the lobby; server-only (never sent to clients). */

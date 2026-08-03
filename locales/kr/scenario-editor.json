@@ -673,7 +673,6 @@
   "randomMap": {
     "title": "무작위 맵",
     "moreInfo": "무작위 맵에 대한 자세한 정보는 여기에서",
-    "proceduralMap": "절차적(무작위) 맵",
     "proceduralExplanation": "이 지시는 매 경기마다 새 시드로 맵을 생성하며, 저장된 전역은 구워진 맵을 버립니다. 여기에 표시된 맵은 미리보기일 뿐입니다. 지점목표/지점목표 레이어 지시로 배치된 지점목표는 이 미리보기가 아니라 경기 시작 시 나타납니다.",
     "startFromTemplate": "템플릿에서 시작",
     "loadInstructionsFromTemplate": "템플릿에서 지시 불러오기",
@@ -698,7 +697,12 @@
     "importMustBeProcedural": "가져오는 파일은 절차적 템플릿이어야 합니다(구워진 맵 없이 생성 지시 포함).",
     "invalidJsonFile": "잘못된 JSON 파일입니다. 파일 형식을 확인하세요.",
     "confirmOverwriteWarning": "이 작업이 지형을 덮어쓴다는 점을 이해함을 확인하세요.",
-    "selectedNotProcedural": "선택한 전역은 절차적 템플릿이 아닙니다."
+    "selectedNotProcedural": "선택한 전역은 절차적 템플릿이 아닙니다.",
+    "mapMode": "맵 모드",
+    "modePreset": "프리셋 (고정 지형)",
+    "modeHybrid": "하이브리드 (프리셋 + 명령)",
+    "modeProcedural": "절차적 (생성)",
+    "hybridExplanation": "구워진 지형이 유지되고 이 명령들이 매 경기 그 위에 오버레이로 다시 실행됩니다. 오버레이가 경기마다 달라지지 않도록 맵에 시드를 고정하세요."
   },
   "randomDeployment": {
     "title": "배치 구역",

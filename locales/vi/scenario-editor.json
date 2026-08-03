@@ -673,7 +673,6 @@
   "randomMap": {
     "title": "Bản đồ ngẫu nhiên",
     "moreInfo": "Thêm thông tin về bản đồ ngẫu nhiên tại đây",
-    "proceduralMap": "Bản đồ theo thủ tục (ngẫu nhiên)",
     "proceduralExplanation": "Các hướng dẫn này tạo bản đồ từ một hạt giống mới mỗi trận; kịch bản đã lưu bỏ bản đồ đã nướng của nó. Bản đồ hiển thị ở đây chỉ là xem trước. Các mục tiêu đặt bởi hướng dẫn Mục tiêu / Lớp mục tiêu xuất hiện vào lúc trận đấu, không phải trong bản xem trước này.",
     "startFromTemplate": "Bắt đầu từ mẫu",
     "loadInstructionsFromTemplate": "Tải hướng dẫn từ mẫu",
@@ -698,7 +697,12 @@
     "importMustBeProcedural": "Tệp được nhập phải là một mẫu theo thủ tục (không có bản đồ đã nướng, có các hướng dẫn tạo).",
     "invalidJsonFile": "Tệp JSON không hợp lệ. Vui lòng kiểm tra định dạng tệp.",
     "confirmOverwriteWarning": "Vui lòng xác nhận rằng bạn hiểu việc này sẽ ghi đè địa hình.",
-    "selectedNotProcedural": "Kịch bản đã chọn không phải là mẫu theo thủ tục."
+    "selectedNotProcedural": "Kịch bản đã chọn không phải là mẫu theo thủ tục.",
+    "mapMode": "Chế độ bản đồ",
+    "modePreset": "Định sẵn (địa hình cố định)",
+    "modeHybrid": "Lai (định sẵn + chỉ dẫn)",
+    "modeProcedural": "Thủ tục (tạo sinh)",
+    "hybridExplanation": "Địa hình đã nướng được giữ lại và các chỉ dẫn này chạy lại chồng lên trên dưới dạng lớp phủ trong mỗi trận. Cố định seed trên bản đồ để lớp phủ không đổi giữa các trận."
   },
   "randomDeployment": {
     "title": "Khu vực triển khai",

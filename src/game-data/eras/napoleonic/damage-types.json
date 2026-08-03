@@ -239,7 +239,7 @@
         "from": 0.44,
         "to": 1,
         "damageModifier": {
-          "near": 1,
+          "near": 0.95,
           "far": 0.4
         },
         "engagementTier": 1
@@ -433,7 +433,7 @@
         "from": 0.43,
         "to": 1,
         "damageModifier": {
-          "near": 1,
+          "near": 0.95,
           "far": 0.4
         },
         "engagementTier": 1
@@ -904,8 +904,8 @@
         {
           "start": 250,
           "end": 550,
-          "startRadius": 35,
-          "endRadius": 46
+          "startRadius": 38,
+          "endRadius": 50
         }
       ],
       "edgeDamageModifier": -0.6,
@@ -1208,8 +1208,8 @@
     "id": 27,
     "name": "rocket",
     "ranged": true,
-    "orgDamageRatio": 35000,
-    "reorgDebuff": 0.9,
+    "orgDamageRatio": 38500,
+    "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 11,
     "orgDamageModifierByTargetOrg": {
@@ -1267,7 +1267,7 @@
           "endRadius": 50
         }
       ],
-      "edgeDamageModifier": -0.4,
+      "edgeDamageModifier": -0.8,
       "absorptionModifier": 1.25
     },
     "shotSound": "rocket-volley",

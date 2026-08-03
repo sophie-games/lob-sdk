@@ -239,7 +239,6 @@ export interface GameConstants {
   HAS_TAKEN_FIRE_SPEED_MODIFIER: number;
 
   EFFECT_HAS_RAN_TICKS: number;
-  EFFECT_STARTED_ROUTING_TICKS: number;
 
   /**
    * Maximum angle (in degrees) between a unit's movement direction and the direction
@@ -754,6 +753,12 @@ export interface OrganizationRule {
   nearbyUnitsOrgDamageModifierPenaltyCap: number;
   /** Organization bonus multiplier for routing units within organization radius */
   routingUnitNearbyUnitsOrgBonus: number;
+  /**
+   * How long (in ticks) the StartedRouting effect lasts. While it is active the
+   * org radius is widened by the two fields below, the unit pays
+   * `startedRoutingRunCostModifier`, and it cannot recover or rally.
+   */
+  startedRoutingDuration: number;
   /** Organization radius modifier applied when unit has StartedRouting effect */
   startedRoutingOrgRadiusModifier: number;
   /** Minimum organization radius distance that is applied when unit has StartedRouting effect: 0 turns off the function */

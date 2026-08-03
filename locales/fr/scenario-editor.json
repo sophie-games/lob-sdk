@@ -674,7 +674,6 @@
   "randomMap": {
     "title": "Carte aléatoire",
     "moreInfo": "Plus d'infos sur les cartes aléatoires ici",
-    "proceduralMap": "Carte procédurale (aléatoire)",
     "proceduralExplanation": "Ces instructions génèrent la carte à partir d'une nouvelle graine à chaque partie ; le scénario sauvegardé abandonne sa carte figée. La carte affichée ici n'est qu'un aperçu. Les objectifs placés par les instructions Objectif / Couche d'objectifs apparaissent au lancement de la partie, pas dans cet aperçu.",
     "startFromTemplate": "Partir d'un modèle",
     "loadInstructionsFromTemplate": "Charger les instructions depuis un modèle",
@@ -699,7 +698,12 @@
     "importMustBeProcedural": "Le fichier importé doit être un modèle procédural (sans carte figée, avec des instructions de génération).",
     "invalidJsonFile": "Fichier JSON invalide. Veuillez vérifier le format du fichier.",
     "confirmOverwriteWarning": "Veuillez confirmer que vous comprenez que cela écrasera le terrain.",
-    "selectedNotProcedural": "Le scénario sélectionné n'est pas un modèle procédural."
+    "selectedNotProcedural": "Le scénario sélectionné n'est pas un modèle procédural.",
+    "mapMode": "Mode de carte",
+    "modePreset": "Prédéfini (terrain fixe)",
+    "modeHybrid": "Hybride (prédéfini + instructions)",
+    "modeProcedural": "Procédural (généré)",
+    "hybridExplanation": "Le terrain figé est conservé et ces instructions sont réappliquées par-dessus à chaque partie. Fixez une graine sur la carte pour éviter que les calques ne varient d'une partie à l'autre."
   },
   "randomDeployment": {
     "title": "Zones de déploiement",

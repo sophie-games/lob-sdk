@@ -673,7 +673,6 @@
   "randomMap": {
     "title": "Peta Acak",
     "moreInfo": "Info lebih lanjut tentang peta acak di sini",
-    "proceduralMap": "Peta prosedural (acak)",
     "proceduralExplanation": "Instruksi ini menghasilkan peta dari seed baru setiap pertandingan; skenario yang disimpan membuang peta bakunya. Peta yang ditampilkan di sini hanyalah pratinjau. Objektif yang ditempatkan oleh instruksi Objektif / Lapisan objektif muncul saat pertandingan, bukan dalam pratinjau ini.",
     "startFromTemplate": "Mulai dari templat",
     "loadInstructionsFromTemplate": "Muat instruksi dari templat",
@@ -698,7 +697,12 @@
     "importMustBeProcedural": "File yang diimpor harus berupa templat prosedural (tanpa peta baku, dengan instruksi pembuatan).",
     "invalidJsonFile": "File JSON tidak valid. Harap periksa format file.",
     "confirmOverwriteWarning": "Harap konfirmasi bahwa Anda memahami ini akan menimpa medan.",
-    "selectedNotProcedural": "Skenario terpilih bukan templat prosedural."
+    "selectedNotProcedural": "Skenario terpilih bukan templat prosedural.",
+    "mapMode": "Mode peta",
+    "modePreset": "Preset (medan tetap)",
+    "modeHybrid": "Hibrida (preset + instruksi)",
+    "modeProcedural": "Prosedural (dihasilkan)",
+    "hybridExplanation": "Medan yang dipanggang tetap dipertahankan dan instruksi ini dijalankan ulang di atasnya sebagai lapisan setiap pertandingan. Kunci seed pada peta agar lapisan tidak bergeser antar pertandingan."
   },
   "randomDeployment": {
     "title": "Zona penempatan",

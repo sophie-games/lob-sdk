@@ -675,7 +675,6 @@
   "randomMap": {
     "title": "Random Map",
     "moreInfo": "More info about random maps here",
-    "proceduralMap": "Procedural (random) map",
     "proceduralExplanation": "These instructions generate the map from a new seed each match; the saved scenario drops its baked map. The map shown here is only a preview. Objectives placed by Objective / Objective layer instructions appear at match time, not in this preview.",
     "startFromTemplate": "Start from a template",
     "loadInstructionsFromTemplate": "Load instructions from template",
@@ -700,7 +699,12 @@
     "importMustBeProcedural": "The imported file must be a procedural template (no baked map, with generation instructions).",
     "invalidJsonFile": "Invalid JSON file. Please check the file format.",
     "confirmOverwriteWarning": "Please confirm that you understand this will overwrite the terrain.",
-    "selectedNotProcedural": "Selected scenario is not a procedural template."
+    "selectedNotProcedural": "Selected scenario is not a procedural template.",
+    "mapMode": "Map mode",
+    "modePreset": "Preset (fixed terrain)",
+    "modeHybrid": "Hybrid (preset + instructions)",
+    "modeProcedural": "Procedural (generated)",
+    "hybridExplanation": "The baked terrain is kept and these instructions re-run on top of it as overlays each match. Pin a seed on the map to stop the overlays drifting between matches."
   },
   "randomDeployment": {
     "title": "Deployment zones",
