@@ -133,7 +133,8 @@
     "description": "Wł.: zmiana typu ruchu zmienia bieżące rozkazy zaznaczonych jednostek, a przycisk rozkazu odzwierciedla zaznaczenie. Wył.: ustawia tylko typ następnego rysowanego rozkazu (klasycznie)."
   },
   "keybindings": {
-    "rotateCameraContinuous": "Obróć kamerę (przytrzymaj)",
+    "rotateCameraLeft": "Obróć kamerę w lewo",
+    "rotateCameraRight": "Obróć kamerę w prawo",
     "rotateCameraSnap": "Obróć kamerę o 90°",
     "title": "Skróty klawiszowe",
     "pressAKey": "Wciśnij przycisk...",
@@ -177,7 +178,8 @@
     "controlGroup8": "Grupa kontrolna 8",
     "controlGroup9": "Grupa kontrolna 9",
     "controlGroup0": "Grupa kontrolna 0",
-    "openPingWheel": "Otwórz koło pingów"
+    "openPingWheel": "Otwórz koło pingów",
+    "controlGroupsHelp": "Grupy kontrolne: Alt+1-9"
   },
   "routingTransparency": {
     "title": "Przezroczystość jednostek uciekających"
@@ -244,5 +246,10 @@
     },
     "resetTitle": "Resetuj motyw",
     "resetDescription": "Powrót do domyślnej palety."
+  },
+  "controlGroups": {
+    "recall": "Przywołaj grupę {{group}}",
+    "set": "Ustaw grupę {{group}}",
+    "add": "Dodaj do grupy {{group}}"
   }
 }

@@ -133,7 +133,8 @@
     "title": "Afficher le chat"
   },
   "keybindings": {
-    "rotateCameraContinuous": "Pivoter la caméra (maintenir)",
+    "rotateCameraLeft": "Pivoter la caméra à gauche",
+    "rotateCameraRight": "Pivoter la caméra à droite",
     "rotateCameraSnap": "Pivoter la caméra de 90°",
     "title": "Raccourcis clavier",
     "pressAKey": "Appuie sur une touche...",
@@ -167,7 +168,8 @@
     "toggleStraightLine": "Basculer la ligne droite",
     "toggleDrawLine": "Basculer désactiver les lignes de dessin",
     "splitInHalf": "Diviser en deux",
-    "openPingWheel": "Ouvrir la roue de pings"
+    "openPingWheel": "Ouvrir la roue de pings",
+    "controlGroupsHelp": "Groupes de contrôle : Alt+1-9"
   },
   "routingTransparency": {
     "title": "Transparence des unités en déroute"
@@ -234,5 +236,10 @@
     },
     "resetTitle": "Réinitialiser le thème",
     "resetDescription": "Revenir à la palette par défaut."
+  },
+  "controlGroups": {
+    "recall": "Rappeler le groupe {{group}}",
+    "set": "Définir le groupe {{group}}",
+    "add": "Ajouter au groupe {{group}}"
   }
 }

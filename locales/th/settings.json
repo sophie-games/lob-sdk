@@ -160,7 +160,8 @@
     "title": "แสดงช่องแชท"
   },
   "keybindings": {
-    "rotateCameraContinuous": "หมุนกล้อง (กดค้าง)",
+    "rotateCameraLeft": "หมุนกล้องซ้าย",
+    "rotateCameraRight": "หมุนกล้องขวา",
     "rotateCameraSnap": "หมุนกล้อง 90°",
     "title": "ปุ่มลัด (Keybindings)",
     "pressAKey": "กดปุ่มที่ต้องการ...",
@@ -204,7 +205,8 @@
     "controlGroup8": "กลุ่มควบคุม 8",
     "controlGroup9": "กลุ่มควบคุม 9",
     "controlGroup0": "กลุ่มควบคุม 0",
-    "openPingWheel": "เปิดวงล้อสัญญาณปิง"
+    "openPingWheel": "เปิดวงล้อสัญญาณปิง",
+    "controlGroupsHelp": "กลุ่มควบคุม: Alt+1-9"
   },
   "routingTransparency": {
     "title": "ความโปร่งแสงของยูนิตที่กำลังหนีทัพ"
@@ -275,5 +277,10 @@
     },
     "resetTitle": "รีเซ็ตธีม",
     "resetDescription": "กลับไปใช้จานสีเริ่มต้น"
+  },
+  "controlGroups": {
+    "recall": "เรียกกลุ่ม {{group}}",
+    "set": "ตั้งกลุ่ม {{group}}",
+    "add": "เพิ่มเข้ากลุ่ม {{group}}"
   }
 }

@@ -133,7 +133,8 @@
     "description": "Açık: hareket türünü değiştirmek, seçili birimlerin mevcut emirlerini yeniden atar ve emir düğmesi seçiminizi yansıtır. Kapalı: yalnızca çizeceğiniz sonraki emrin türünü belirler (klasik)."
   },
   "keybindings": {
-    "rotateCameraContinuous": "Kamerayı döndür (basılı tut)",
+    "rotateCameraLeft": "Kamerayı sola döndür",
+    "rotateCameraRight": "Kamerayı sağa döndür",
     "rotateCameraSnap": "Kamerayı 90° döndür",
     "title": "Tuş Atamaları",
     "pressAKey": "Bir tuşa basın...",
@@ -177,7 +178,8 @@
     "controlGroup8": "Kontrol Grubu 8",
     "controlGroup9": "Kontrol Grubu 9",
     "controlGroup0": "Kontrol Grubu 0",
-    "openPingWheel": "Ping çarkını aç"
+    "openPingWheel": "Ping çarkını aç",
+    "controlGroupsHelp": "Kontrol grupları: Alt+1-9"
   },
   "routingTransparency": {
     "title": "Kaçan Birim Şeffaflığı"
@@ -244,5 +246,10 @@
     },
     "resetTitle": "Temayı sıfırla",
     "resetDescription": "Varsayılan palete dön."
+  },
+  "controlGroups": {
+    "recall": "{{group}}. grubu çağır",
+    "set": "{{group}}. grubu ayarla",
+    "add": "{{group}}. gruba ekle"
   }
 }

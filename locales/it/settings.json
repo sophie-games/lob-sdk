@@ -133,7 +133,8 @@
     "description": "Attivo: cambiare il tipo di movimento lo riapplica agli ordini attuali delle unità selezionate e il pulsante degli ordini segue la selezione. Disattivo: imposta solo il tipo del prossimo ordine che disegni (classico)."
   },
   "keybindings": {
-    "rotateCameraContinuous": "Ruota camera (tieni premuto)",
+    "rotateCameraLeft": "Ruota camera a sinistra",
+    "rotateCameraRight": "Ruota camera a destra",
     "rotateCameraSnap": "Ruota camera di 90°",
     "title": "Scorciatoie da tastiera",
     "pressAKey": "Premi un tasto...",
@@ -177,7 +178,8 @@
     "controlGroup8": "Gruppo di controllo 8",
     "controlGroup9": "Gruppo di controllo 9",
     "controlGroup0": "Gruppo di controllo 0",
-    "openPingWheel": "Apri ruota dei ping"
+    "openPingWheel": "Apri ruota dei ping",
+    "controlGroupsHelp": "Gruppi di controllo: Alt+1-9"
   },
   "routingTransparency": {
     "title": "Trasparenza delle unità in rotta"
@@ -244,5 +246,10 @@
     },
     "resetTitle": "Reimposta tema",
     "resetDescription": "Torna alla palette predefinita."
+  },
+  "controlGroups": {
+    "recall": "Richiama gruppo {{group}}",
+    "set": "Imposta gruppo {{group}}",
+    "add": "Aggiungi al gruppo {{group}}"
   }
 }

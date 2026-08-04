@@ -136,7 +136,8 @@
     "title": "Chat anzeigen"
   },
   "keybindings": {
-    "rotateCameraContinuous": "Kamera drehen (halten)",
+    "rotateCameraLeft": "Kamera nach links drehen",
+    "rotateCameraRight": "Kamera nach rechts drehen",
     "rotateCameraSnap": "Kamera um 90° drehen",
     "title": "Tastenkombinationen",
     "pressAKey": "Drücke eine Taste...",
@@ -170,7 +171,8 @@
     "toggleStraightLine": "Gerade Linie umschalten",
     "toggleDrawLine": "Zeichnungslinien deaktivieren umschalten",
     "splitInHalf": "In Hälfte teilen",
-    "openPingWheel": "Ping-Rad öffnen"
+    "openPingWheel": "Ping-Rad öffnen",
+    "controlGroupsHelp": "Kontrollgruppen: Alt+1-9"
   },
   "routingTransparency": {
     "title": "Transparenz von fliehenden Einheiten"
@@ -237,5 +239,10 @@
     },
     "resetTitle": "Design zurücksetzen",
     "resetDescription": "Zurück zur Standardpalette."
+  },
+  "controlGroups": {
+    "recall": "Gruppe {{group}} aufrufen",
+    "set": "Gruppe {{group}} festlegen",
+    "add": "Zu Gruppe {{group}} hinzufügen"
   }
 }

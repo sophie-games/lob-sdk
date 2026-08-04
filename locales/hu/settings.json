@@ -133,7 +133,8 @@
     "description": "Be: a mozgástípus módosítása átállítja a kijelölt egységek jelenlegi parancsait, és a parancsgomb a kijelölést tükrözi. Ki: csak a következő megrajzolt parancs típusát állítja be (klasszikus)."
   },
   "keybindings": {
-    "rotateCameraContinuous": "Kamera forgatása (tartsd lenyomva)",
+    "rotateCameraLeft": "Kamera forgatása balra",
+    "rotateCameraRight": "Kamera forgatása jobbra",
     "rotateCameraSnap": "Kamera forgatása 90°-kal",
     "title": "Billentyűparancsok",
     "pressAKey": "Nyomj meg egy billentyűt...",
@@ -177,7 +178,8 @@
     "controlGroup8": "Vezérlőcsoport 8",
     "controlGroup9": "Vezérlőcsoport 9",
     "controlGroup0": "Vezérlőcsoport 0",
-    "openPingWheel": "Jelölőkerék megnyitása"
+    "openPingWheel": "Jelölőkerék megnyitása",
+    "controlGroupsHelp": "Irányítócsoportok: Alt+1-9"
   },
   "routingTransparency": {
     "title": "Menekülő egységek átlátszósága"
@@ -244,5 +246,10 @@
     },
     "resetTitle": "Téma visszaállítása",
     "resetDescription": "Vissza az alapértelmezett palettához."
+  },
+  "controlGroups": {
+    "recall": "{{group}}. csoport előhívása",
+    "set": "{{group}}. csoport beállítása",
+    "add": "Hozzáadás a(z) {{group}}. csoporthoz"
   }
 }

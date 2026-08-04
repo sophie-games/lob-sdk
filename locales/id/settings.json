@@ -133,7 +133,8 @@
     "description": "Aktif: mengubah tipe gerakan akan mengubah perintah unit yang dipilih saat ini, dan tombol perintah mengikuti pilihan Anda. Nonaktif: hanya menetapkan tipe untuk perintah berikutnya yang Anda gambar (klasik)."
   },
   "keybindings": {
-    "rotateCameraContinuous": "Putar kamera (tahan)",
+    "rotateCameraLeft": "Putar kamera ke kiri",
+    "rotateCameraRight": "Putar kamera ke kanan",
     "rotateCameraSnap": "Putar kamera 90°",
     "title": "Tombol Pintasan",
     "pressAKey": "Tekan Tombol...",
@@ -177,7 +178,8 @@
     "controlGroup8": "Grup Kontrol 8",
     "controlGroup9": "Grup Kontrol 9",
     "controlGroup0": "Grup Kontrol 0",
-    "openPingWheel": "Buka roda ping"
+    "openPingWheel": "Buka roda ping",
+    "controlGroupsHelp": "Grup kendali: Alt+1-9"
   },
   "routingTransparency": {
     "title": "Transparansi Unit Mundur"
@@ -244,5 +246,10 @@
     },
     "resetTitle": "Setel ulang tema",
     "resetDescription": "Kembali ke palet bawaan."
+  },
+  "controlGroups": {
+    "recall": "Panggil grup {{group}}",
+    "set": "Atur grup {{group}}",
+    "add": "Tambahkan ke grup {{group}}"
   }
 }
