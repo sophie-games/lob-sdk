@@ -219,7 +219,7 @@
     "name": "18lb-cannon-ball",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 21000,
+    "orgDamageRatio": 22000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 11,
@@ -239,7 +239,7 @@
         "from": 0.44,
         "to": 1,
         "damageModifier": {
-          "near": 0.95,
+          "near": 0.9,
           "far": 0.4
         },
         "engagementTier": 1
@@ -302,8 +302,8 @@
         "from": 0.47,
         "to": 1,
         "damageModifier": {
-          "near": 2,
-          "far": 1.2
+          "near": 2.4,
+          "far": 1
         },
         "name": "long",
         "engagementTier": 0
@@ -322,7 +322,7 @@
     "name": "12lb-cannon-ball",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 21000,
+    "orgDamageRatio": 22000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 11,
@@ -413,7 +413,7 @@
     "name": "10lb-cannon-ball",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 21000,
+    "orgDamageRatio": 22000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 11,
@@ -433,7 +433,7 @@
         "from": 0.43,
         "to": 1,
         "damageModifier": {
-          "near": 0.95,
+          "near": 0.9,
           "far": 0.4
         },
         "engagementTier": 1
@@ -496,8 +496,8 @@
         "from": 0.51,
         "to": 1,
         "damageModifier": {
-          "near": 2,
-          "far": 1.2
+          "near": 2.4,
+          "far": 1
         },
         "name": "long",
         "engagementTier": 0
@@ -516,7 +516,7 @@
     "name": "8lb-cannon-ball",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 21000,
+    "orgDamageRatio": 22000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 11,
@@ -627,8 +627,8 @@
         "from": 0.57,
         "to": 1,
         "damageModifier": {
-          "near": 2,
-          "far": 1.2
+          "near": 2.4,
+          "far": 1
         },
         "name": "long",
         "engagementTier": 0
@@ -647,7 +647,7 @@
     "name": "6lb-cannon-ball",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 21000,
+    "orgDamageRatio": 22000,
     "reorgDebuff": 0.74,
     "attackEffectDuration": 16,
     "projectileWidth": 11,
@@ -758,8 +758,8 @@
         "from": 0.63,
         "to": 1,
         "damageModifier": {
-          "near": 2,
-          "far": 1.2
+          "near": 2.4,
+          "far": 1
         },
         "name": "long",
         "engagementTier": 0
@@ -778,7 +778,7 @@
     "name": "4lb-cannon-ball",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 21000,
+    "orgDamageRatio": 22000,
     "reorgDebuff": 0.74,
     "attackEffectDuration": 12,
     "projectileWidth": 11,
@@ -869,7 +869,7 @@
     "name": "18lb-explosive-shell",
     "imageAlias": "explosive-shell",
     "ranged": true,
-    "orgDamageRatio": 21500,
+    "orgDamageRatio": 23500,
     "reorgDebuff": 0.85,
     "attackEffectDuration": 10,
     "projectileWidth": 11,
@@ -908,7 +908,7 @@
           "endRadius": 50
         }
       ],
-      "edgeDamageModifier": -0.6,
+      "edgeDamageModifier": -0.625,
       "absorptionModifier": 1.25
     },
     "shotSound": "artillery-fire",
@@ -922,7 +922,7 @@
     "name": "10lb-explosive-shell",
     "imageAlias": "explosive-shell",
     "ranged": true,
-    "orgDamageRatio": 21500,
+    "orgDamageRatio": 23500,
     "reorgDebuff": 0.75,
     "attackEffectDuration": 10,
     "projectileWidth": 11,
@@ -961,7 +961,7 @@
           "endRadius": 36
         }
       ],
-      "edgeDamageModifier": -0.6,
+      "edgeDamageModifier": -0.625,
       "absorptionModifier": 1.25
     },
     "shotSound": "artillery-fire",
@@ -974,7 +974,7 @@
     "id": 18,
     "name": "explosive-shell",
     "ranged": true,
-    "orgDamageRatio": 28000,
+    "orgDamageRatio": 29000,
     "reorgDebuff": 0.85,
     "attackEffectDuration": 10,
     "projectileWidth": 11,
@@ -1208,7 +1208,7 @@
     "id": 27,
     "name": "rocket",
     "ranged": true,
-    "orgDamageRatio": 38500,
+    "orgDamageRatio": 41500,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 11,
