@@ -20,8 +20,8 @@
   },
   "ammo": {
     "baseReserve": 250000,
-    "regenerationBaseRate": 0.06,
-    "regenerationBonusRate": 0.14,
+    "regenerationBaseRate": 0.08,
+    "regenerationBonusRate": 0.07,
     "maxHpConsumptionReduction": -0.5,
     "ammoReserve": {
       "micro": 50000,
@@ -84,7 +84,7 @@
     "nearbyUnitsDistance": 64,
     "nearbyUnitsPositiveOrgBonusCap": 5600,
     "nearbyUnitsNegativeOrgBonusCap": -5600,
-    "nearbyUnitsOrgDamageModifierCap": 0.25,
+    "nearbyUnitsOrgDamageModifierCap": 0.5,
     "nearbyUnitsOrgDamageModifierPenaltyCap": -0.1,
     "routingUnitNearbyUnitsOrgBonus": 400,
     "startedRoutingDuration": 32,
