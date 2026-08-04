@@ -9,16 +9,16 @@ export enum VisionLevel {
 }
 
 /**
- * Whether there is fog of war, and whose eyes grade an enemy unit. Allies stay
- * fully visible to each other under both fogged modes; only enemy detection
- * changes.
+ * Whether there is fog of war, and whose eyes grade every other unit. Only the
+ * viewer's own units bypass fog, so under Team mode allies stay fully visible to
+ * each other, while under Player mode an ally is graded like anyone else.
  */
 export enum FogOfWarMode {
   /** No fog: everything is visible to everyone. */
   Off = 0,
   /** Every player on a team sees what any of their units can see. */
   Team = 1,
-  /** Each player only sees what their own units can see. */
+  /** Each player only sees what their own units can see, allies included. */
   Player = 2,
 }
 
