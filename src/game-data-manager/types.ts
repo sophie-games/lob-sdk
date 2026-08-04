@@ -710,8 +710,7 @@ export interface AllyCollisionRule {
 
 export interface TutorialRule {
   /**
-   * Single tutorial scenario for the era. `null` means the era has no tutorial
-   * and matchmaking/arenas for that era are not gated by tutorial completion.
+   * Single tutorial scenario for the era. `null` means the era has no tutorial.
    */
   scenario: ScenarioName | null;
 }
