@@ -22,6 +22,7 @@ import {
   OrderTemplate,
   OrderType,
   ArmyPanelGroup,
+  FogOfWarMode,
 } from "@lob-sdk/types";
 import type {
   DamageTypeTemplate,
@@ -370,7 +371,13 @@ export interface GameData {
   drawUnlockTurn: number;
   /** Client events to be sent to players. */
   clientEvents: GameClientEventDto[] | null;
-  /** Whether fog of war is enabled. */
+  /** Whether there is fog of war, and whose vision grades enemy units. */
+  fogOfWarMode: FogOfWarMode;
+  /**
+   * Derived from {@link fogOfWarMode}. Kept so a client released before
+   * per-player fog still reads a correct on/off flag; drop it once those are
+   * gone.
+   */
   fogOfWar: boolean;
   /** When true, spectators see the full map (no fog of war) in ongoing games. */
   spectatorFullVision: boolean;
@@ -656,8 +663,8 @@ export interface ServerGameProps {
   lastActions?: AnyAction[] | null;
   /** Client events to be sent to players. */
   clientEvents?: GameClientEventDto[] | null;
-  /** Whether fog of war is enabled. */
-  fogOfWar?: boolean;
+  /** Whether there is fog of war, and whose vision grades enemy units. Defaults to Team. */
+  fogOfWarMode?: FogOfWarMode;
   /** When true, spectators see the full map (no fog of war) in ongoing games. */
   spectatorFullVision: boolean;
   /** Timestamp (milliseconds) when the game was created. */
