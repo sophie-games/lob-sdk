@@ -156,7 +156,8 @@
     "title": "Hiển thị trò chuyện"
   },
   "keybindings": {
-    "rotateCameraContinuous": "Xoay camera (giữ)",
+    "rotateCameraLeft": "Xoay camera sang trái",
+    "rotateCameraRight": "Xoay camera sang phải",
     "rotateCameraSnap": "Xoay camera 90°",
     "title": "Phím tắt",
     "pressAKey": "Nhấn một phím...",
@@ -200,7 +201,8 @@
     "controlGroup8": "Nhóm điều khiển 8",
     "controlGroup9": "Nhóm điều khiển 9",
     "controlGroup0": "Nhóm điều khiển 0",
-    "openPingWheel": "Mở vòng ping"
+    "openPingWheel": "Mở vòng ping",
+    "controlGroupsHelp": "Chữ số đơn lẻ sẽ ra lệnh. Gọi lại một nhóm bằng {{modifier}} + chữ số của nhóm."
   },
   "routingTransparency": {
     "title": "Độ trong suốt đơn vị rút lui"
@@ -267,5 +269,11 @@
     },
     "resetTitle": "Đặt lại chủ đề",
     "resetDescription": "Quay về bảng màu mặc định."
+  },
+  "controlGroups": {
+    "recall": "Gọi nhóm {{group}}",
+    "set": "Đặt nhóm {{group}}",
+    "add": "Thêm vào nhóm {{group}}",
+    "setExclusive": "Chỉ đặt vào nhóm {{group}}"
   }
 }

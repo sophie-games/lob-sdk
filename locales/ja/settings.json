@@ -133,7 +133,8 @@
     "description": "オン: 移動タイプを変更すると、選択中のユニットの現在の命令が変更され、命令ボタンが選択状態を反映します。オフ: 次に描く命令のタイプを設定するだけです（クラシック）。"
   },
   "keybindings": {
-    "rotateCameraContinuous": "カメラ回転（長押し）",
+    "rotateCameraLeft": "カメラを左に回転",
+    "rotateCameraRight": "カメラを右に回転",
     "rotateCameraSnap": "カメラを90°回転",
     "title": "キーバインド",
     "pressAKey": "キーを押してください...",
@@ -177,7 +178,8 @@
     "controlGroup8": "コントロールグループ8",
     "controlGroup9": "コントロールグループ9",
     "controlGroup0": "コントロールグループ0",
-    "openPingWheel": "pingホイールを開く"
+    "openPingWheel": "pingホイールを開く",
+    "controlGroupsHelp": "数字だけだと命令になります。グループの呼び出しは {{modifier}} + 数字。"
   },
   "routingTransparency": {
     "title": "敗走ユニットの透明度"
@@ -244,5 +246,11 @@
     },
     "resetTitle": "テーマをリセット",
     "resetDescription": "デフォルトのパレットに戻します。"
+  },
+  "controlGroups": {
+    "recall": "グループ{{group}}を呼び出す",
+    "set": "グループ{{group}}を設定",
+    "add": "グループ{{group}}に追加",
+    "setExclusive": "グループ {{group}} のみに設定"
   }
 }

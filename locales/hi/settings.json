@@ -156,7 +156,8 @@
     "title": "चैट दिखाएं"
   },
   "keybindings": {
-    "rotateCameraContinuous": "कैमरा घुमाएँ (दबाए रखें)",
+    "rotateCameraLeft": "कैमरा बाएं घुमाएँ",
+    "rotateCameraRight": "कैमरा दाएं घुमाएँ",
     "rotateCameraSnap": "कैमरा 90° घुमाएँ",
     "title": "कुंजी बाइंडिंग्स",
     "pressAKey": "एक कुंजी दबाएं...",
@@ -200,7 +201,8 @@
     "controlGroup8": "नियंत्रण समूह 8",
     "controlGroup9": "नियंत्रण समूह 9",
     "controlGroup0": "नियंत्रण समूह 0",
-    "openPingWheel": "पिंग व्हील खोलें"
+    "openPingWheel": "पिंग व्हील खोलें",
+    "controlGroupsHelp": "अकेला अंक आदेश देता है। समूह को {{modifier}} + उसके अंक से बुलाएँ।"
   },
   "routingTransparency": {
     "title": "रूटिंग यूनिट पारदर्शिता"
@@ -267,5 +269,11 @@
     },
     "resetTitle": "थीम रीसेट करें",
     "resetDescription": "डिफ़ॉल्ट पैलेट पर लौटें।"
+  },
+  "controlGroups": {
+    "recall": "समूह {{group}} बुलाएँ",
+    "set": "समूह {{group}} सेट करें",
+    "add": "समूह {{group}} में जोड़ें",
+    "setExclusive": "केवल समूह {{group}} में रखें"
   }
 }

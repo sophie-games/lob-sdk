@@ -160,7 +160,8 @@
     "title": "Show chat"
   },
   "keybindings": {
-    "rotateCameraContinuous": "Rotate camera (hold)",
+    "rotateCameraLeft": "Rotate camera left",
+    "rotateCameraRight": "Rotate camera right",
     "rotateCameraSnap": "Rotate camera 90°",
     "title": "Keybindings",
     "pressAKey": "Press a key...",
@@ -204,7 +205,8 @@
     "controlGroup8": "Control Group 8",
     "controlGroup9": "Control Group 9",
     "controlGroup0": "Control Group 0",
-    "openPingWheel": "Open ping wheel"
+    "openPingWheel": "Open ping wheel",
+    "controlGroupsHelp": "The bare digit issues an order. Recall a group with {{modifier}} + its digit."
   },
   "routingTransparency": {
     "title": "Routing Unit Transparency"
@@ -275,5 +277,11 @@
     },
     "resetTitle": "Reset theme",
     "resetDescription": "Back to the default palette."
+  },
+  "controlGroups": {
+    "recall": "Recall Group {{group}}",
+    "set": "Set Group {{group}}",
+    "add": "Add to Group {{group}}",
+    "setExclusive": "Set Group {{group}} only"
   }
 }

@@ -133,7 +133,8 @@
     "description": "Ligado: mudar o tipo de movimento reaplica-o às ordens atuais das unidades selecionadas, e o botão de ordem segue a sua seleção. Desligado: apenas define o tipo da próxima ordem que desenhar (clássico)."
   },
   "keybindings": {
-    "rotateCameraContinuous": "Girar câmera (segurar)",
+    "rotateCameraLeft": "Girar câmera para a esquerda",
+    "rotateCameraRight": "Girar câmera para a direita",
     "rotateCameraSnap": "Girar câmera 90°",
     "title": "Atalhos de teclado",
     "pressAKey": "Pressione uma tecla...",
@@ -177,7 +178,8 @@
     "controlGroup8": "Grupo de controle 8",
     "controlGroup9": "Grupo de controle 9",
     "controlGroup0": "Grupo de controle 0",
-    "openPingWheel": "Abrir roda de pings"
+    "openPingWheel": "Abrir roda de pings",
+    "controlGroupsHelp": "O dígito sozinho emite uma ordem. Chame um grupo com {{modifier}} + o dígito dele."
   },
   "routingTransparency": {
     "title": "Transparência de Unidades em Fuga"
@@ -244,5 +246,11 @@
     },
     "resetTitle": "Redefinir tema",
     "resetDescription": "Voltar à paleta padrão."
+  },
+  "controlGroups": {
+    "recall": "Chamar grupo {{group}}",
+    "set": "Definir grupo {{group}}",
+    "add": "Adicionar ao grupo {{group}}",
+    "setExclusive": "Atribuir só ao grupo {{group}}"
   }
 }

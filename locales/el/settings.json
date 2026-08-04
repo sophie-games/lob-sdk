@@ -142,7 +142,8 @@
     "title": "Εμφάνιση συνομιλίας"
   },
   "keybindings": {
-    "rotateCameraContinuous": "Περιστροφή κάμερας (κράτημα)",
+    "rotateCameraLeft": "Περιστροφή κάμερας αριστερά",
+    "rotateCameraRight": "Περιστροφή κάμερας δεξιά",
     "rotateCameraSnap": "Περιστροφή κάμερας 90°",
     "title": "Keybindings",
     "pressAKey": "Πατήστε ένα πλήκτρο...",
@@ -186,7 +187,8 @@
     "controlGroup8": "Ομάδα Ελέγχου 8",
     "controlGroup9": "Ομάδα Ελέγχου 9",
     "controlGroup0": "Ομάδα Ελέγχου 0",
-    "openPingWheel": "Άνοιγμα τροχού επισημάνσεων"
+    "openPingWheel": "Άνοιγμα τροχού επισημάνσεων",
+    "controlGroupsHelp": "Το σκέτο ψηφίο δίνει διαταγή. Ανάκληση ομάδας με {{modifier}} + το ψηφίο της."
   },
   "routingTransparency": {
     "title": "Διαφάνεια Μονάδας Δρομολόγησης"
@@ -253,5 +255,11 @@
     },
     "resetTitle": "Επαναφορά θέματος",
     "resetDescription": "Επιστροφή στην προεπιλεγμένη παλέτα."
+  },
+  "controlGroups": {
+    "recall": "Ανάκληση ομάδας {{group}}",
+    "set": "Ορισμός ομάδας {{group}}",
+    "add": "Προσθήκη στην ομάδα {{group}}",
+    "setExclusive": "Μόνο στην ομάδα {{group}}"
   }
 }

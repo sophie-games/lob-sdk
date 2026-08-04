@@ -156,7 +156,8 @@
     "title": "إظهار الدردشة"
   },
   "keybindings": {
-    "rotateCameraContinuous": "تدوير الكاميرا (استمر بالضغط)",
+    "rotateCameraLeft": "تدوير الكاميرا يسارًا",
+    "rotateCameraRight": "تدوير الكاميرا يمينًا",
     "rotateCameraSnap": "تدوير الكاميرا 90°",
     "title": "ربط المفاتيح",
     "pressAKey": "اضغط على مفتاح...",
@@ -200,7 +201,8 @@
     "controlGroup8": "مجموعة التحكم 8",
     "controlGroup9": "مجموعة التحكم 9",
     "controlGroup0": "مجموعة التحكم 0",
-    "openPingWheel": "فتح عجلة الإشارات"
+    "openPingWheel": "فتح عجلة الإشارات",
+    "controlGroupsHelp": "الرقم وحده يُصدر أمرًا. استدعِ مجموعة بـ {{modifier}} + رقمها."
   },
   "routingTransparency": {
     "title": "شفافية الوحدة المنسحبة"
@@ -267,5 +269,11 @@
     },
     "resetTitle": "إعادة ضبط النمط",
     "resetDescription": "العودة إلى اللوحة الافتراضية."
+  },
+  "controlGroups": {
+    "recall": "استدعاء المجموعة {{group}}",
+    "set": "تعيين المجموعة {{group}}",
+    "add": "إضافة إلى المجموعة {{group}}",
+    "setExclusive": "تعيين للمجموعة {{group}} فقط"
   }
 }
