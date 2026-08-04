@@ -169,7 +169,7 @@
     "toggleDrawLine": "Basculer désactiver les lignes de dessin",
     "splitInHalf": "Diviser en deux",
     "openPingWheel": "Ouvrir la roue de pings",
-    "controlGroupsHelp": "Groupes de contrôle : Alt+1-9"
+    "controlGroupsHelp": "Le chiffre seul donne un ordre. Rappelez un groupe avec {{modifier}} + son chiffre."
   },
   "routingTransparency": {
     "title": "Transparence des unités en déroute"
@@ -240,6 +240,7 @@
   "controlGroups": {
     "recall": "Rappeler le groupe {{group}}",
     "set": "Définir le groupe {{group}}",
-    "add": "Ajouter au groupe {{group}}"
+    "add": "Ajouter au groupe {{group}}",
+    "setExclusive": "Affecter au seul groupe {{group}}"
   }
 }

@@ -202,7 +202,7 @@
     "controlGroup9": "नियंत्रण समूह 9",
     "controlGroup0": "नियंत्रण समूह 0",
     "openPingWheel": "पिंग व्हील खोलें",
-    "controlGroupsHelp": "कंट्रोल ग्रुप: Alt+1-9"
+    "controlGroupsHelp": "अकेला अंक आदेश देता है। समूह को {{modifier}} + उसके अंक से बुलाएँ।"
   },
   "routingTransparency": {
     "title": "रूटिंग यूनिट पारदर्शिता"
@@ -273,6 +273,7 @@
   "controlGroups": {
     "recall": "समूह {{group}} बुलाएँ",
     "set": "समूह {{group}} सेट करें",
-    "add": "समूह {{group}} में जोड़ें"
+    "add": "समूह {{group}} में जोड़ें",
+    "setExclusive": "केवल समूह {{group}} में रखें"
   }
 }

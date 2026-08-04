@@ -202,7 +202,7 @@
     "controlGroup9": "مجموعة التحكم 9",
     "controlGroup0": "مجموعة التحكم 0",
     "openPingWheel": "فتح عجلة الإشارات",
-    "controlGroupsHelp": "مجموعات التحكم: Alt+1-9"
+    "controlGroupsHelp": "الرقم وحده يُصدر أمرًا. استدعِ مجموعة بـ {{modifier}} + رقمها."
   },
   "routingTransparency": {
     "title": "شفافية الوحدة المنسحبة"
@@ -273,6 +273,7 @@
   "controlGroups": {
     "recall": "استدعاء المجموعة {{group}}",
     "set": "تعيين المجموعة {{group}}",
-    "add": "إضافة إلى المجموعة {{group}}"
+    "add": "إضافة إلى المجموعة {{group}}",
+    "setExclusive": "تعيين للمجموعة {{group}} فقط"
   }
 }

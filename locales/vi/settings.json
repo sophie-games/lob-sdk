@@ -202,7 +202,7 @@
     "controlGroup9": "Nhóm điều khiển 9",
     "controlGroup0": "Nhóm điều khiển 0",
     "openPingWheel": "Mở vòng ping",
-    "controlGroupsHelp": "Nhóm điều khiển: Alt+1-9"
+    "controlGroupsHelp": "Chữ số đơn lẻ sẽ ra lệnh. Gọi lại một nhóm bằng {{modifier}} + chữ số của nhóm."
   },
   "routingTransparency": {
     "title": "Độ trong suốt đơn vị rút lui"
@@ -273,6 +273,7 @@
   "controlGroups": {
     "recall": "Gọi nhóm {{group}}",
     "set": "Đặt nhóm {{group}}",
-    "add": "Thêm vào nhóm {{group}}"
+    "add": "Thêm vào nhóm {{group}}",
+    "setExclusive": "Chỉ đặt vào nhóm {{group}}"
   }
 }

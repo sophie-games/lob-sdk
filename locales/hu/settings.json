@@ -179,7 +179,7 @@
     "controlGroup9": "Vezérlőcsoport 9",
     "controlGroup0": "Vezérlőcsoport 0",
     "openPingWheel": "Jelölőkerék megnyitása",
-    "controlGroupsHelp": "Irányítócsoportok: Alt+1-9"
+    "controlGroupsHelp": "A puszta számjegy parancsot ad ki. Csoport előhívása: {{modifier}} + a számjegye."
   },
   "routingTransparency": {
     "title": "Menekülő egységek átlátszósága"
@@ -250,6 +250,7 @@
   "controlGroups": {
     "recall": "{{group}}. csoport előhívása",
     "set": "{{group}}. csoport beállítása",
-    "add": "Hozzáadás a(z) {{group}}. csoporthoz"
+    "add": "Hozzáadás a(z) {{group}}. csoporthoz",
+    "setExclusive": "Csak a(z) {{group}}. csoportba"
   }
 }

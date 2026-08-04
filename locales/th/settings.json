@@ -206,7 +206,7 @@
     "controlGroup9": "กลุ่มควบคุม 9",
     "controlGroup0": "กลุ่มควบคุม 0",
     "openPingWheel": "เปิดวงล้อสัญญาณปิง",
-    "controlGroupsHelp": "กลุ่มควบคุม: Alt+1-9"
+    "controlGroupsHelp": "กดตัวเลขเปล่าจะเป็นการสั่งการ เรียกกลุ่มด้วย {{modifier}} + ตัวเลขของกลุ่ม"
   },
   "routingTransparency": {
     "title": "ความโปร่งแสงของยูนิตที่กำลังหนีทัพ"
@@ -281,6 +281,7 @@
   "controlGroups": {
     "recall": "เรียกกลุ่ม {{group}}",
     "set": "ตั้งกลุ่ม {{group}}",
-    "add": "เพิ่มเข้ากลุ่ม {{group}}"
+    "add": "เพิ่มเข้ากลุ่ม {{group}}",
+    "setExclusive": "กำหนดเฉพาะกลุ่ม {{group}}"
   }
 }

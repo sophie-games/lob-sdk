@@ -179,7 +179,7 @@
     "controlGroup9": "Kontrol Grubu 9",
     "controlGroup0": "Kontrol Grubu 0",
     "openPingWheel": "Ping çarkını aç",
-    "controlGroupsHelp": "Kontrol grupları: Alt+1-9"
+    "controlGroupsHelp": "Tek başına rakam emir verir. Bir grubu {{modifier}} + rakamı ile çağırın."
   },
   "routingTransparency": {
     "title": "Kaçan Birim Şeffaflığı"
@@ -250,6 +250,7 @@
   "controlGroups": {
     "recall": "{{group}}. grubu çağır",
     "set": "{{group}}. grubu ayarla",
-    "add": "{{group}}. gruba ekle"
+    "add": "{{group}}. gruba ekle",
+    "setExclusive": "Yalnızca {{group}}. gruba ata"
   }
 }

@@ -179,7 +179,7 @@
     "controlGroup9": "コントロールグループ9",
     "controlGroup0": "コントロールグループ0",
     "openPingWheel": "pingホイールを開く",
-    "controlGroupsHelp": "コントロールグループ: Alt+1-9"
+    "controlGroupsHelp": "数字だけだと命令になります。グループの呼び出しは {{modifier}} + 数字。"
   },
   "routingTransparency": {
     "title": "敗走ユニットの透明度"
@@ -250,6 +250,7 @@
   "controlGroups": {
     "recall": "グループ{{group}}を呼び出す",
     "set": "グループ{{group}}を設定",
-    "add": "グループ{{group}}に追加"
+    "add": "グループ{{group}}に追加",
+    "setExclusive": "グループ {{group}} のみに設定"
   }
 }

@@ -202,7 +202,7 @@
     "controlGroup9": "부대 지정 9",
     "controlGroup0": "부대 지정 0",
     "openPingWheel": "핑 휠 열기",
-    "controlGroupsHelp": "컨트롤 그룹: Alt+1-9"
+    "controlGroupsHelp": "숫자만 누르면 명령이 내려집니다. 그룹 호출은 {{modifier}} + 숫자."
   },
   "routingTransparency": {
     "title": "궤멸 상태 부대 투명도"
@@ -273,6 +273,7 @@
   "controlGroups": {
     "recall": "{{group}}번 그룹 호출",
     "set": "{{group}}번 그룹 지정",
-    "add": "{{group}}번 그룹에 추가"
+    "add": "{{group}}번 그룹에 추가",
+    "setExclusive": "그룹 {{group}}에만 지정"
   }
 }

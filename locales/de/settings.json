@@ -172,7 +172,7 @@
     "toggleDrawLine": "Zeichnungslinien deaktivieren umschalten",
     "splitInHalf": "In Hälfte teilen",
     "openPingWheel": "Ping-Rad öffnen",
-    "controlGroupsHelp": "Kontrollgruppen: Alt+1-9"
+    "controlGroupsHelp": "Die reine Ziffer gibt einen Befehl. Gruppe mit {{modifier}} + Ziffer aufrufen."
   },
   "routingTransparency": {
     "title": "Transparenz von fliehenden Einheiten"
@@ -243,6 +243,7 @@
   "controlGroups": {
     "recall": "Gruppe {{group}} aufrufen",
     "set": "Gruppe {{group}} festlegen",
-    "add": "Zu Gruppe {{group}} hinzufügen"
+    "add": "Zu Gruppe {{group}} hinzufügen",
+    "setExclusive": "Nur Gruppe {{group}} zuweisen"
   }
 }

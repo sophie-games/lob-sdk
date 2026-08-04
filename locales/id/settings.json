@@ -179,7 +179,7 @@
     "controlGroup9": "Grup Kontrol 9",
     "controlGroup0": "Grup Kontrol 0",
     "openPingWheel": "Buka roda ping",
-    "controlGroupsHelp": "Grup kendali: Alt+1-9"
+    "controlGroupsHelp": "Angka polos mengeluarkan perintah. Panggil grup dengan {{modifier}} + angkanya."
   },
   "routingTransparency": {
     "title": "Transparansi Unit Mundur"
@@ -250,6 +250,7 @@
   "controlGroups": {
     "recall": "Panggil grup {{group}}",
     "set": "Atur grup {{group}}",
-    "add": "Tambahkan ke grup {{group}}"
+    "add": "Tambahkan ke grup {{group}}",
+    "setExclusive": "Tetapkan hanya ke grup {{group}}"
   }
 }

@@ -206,7 +206,7 @@
     "controlGroup9": "Control Group 9",
     "controlGroup0": "Control Group 0",
     "openPingWheel": "Open ping wheel",
-    "controlGroupsHelp": "Control Groups: Alt+1-9"
+    "controlGroupsHelp": "The bare digit issues an order. Recall a group with {{modifier}} + its digit."
   },
   "routingTransparency": {
     "title": "Routing Unit Transparency"
@@ -281,6 +281,7 @@
   "controlGroups": {
     "recall": "Recall Group {{group}}",
     "set": "Set Group {{group}}",
-    "add": "Add to Group {{group}}"
+    "add": "Add to Group {{group}}",
+    "setExclusive": "Set Group {{group}} only"
   }
 }

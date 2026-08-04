@@ -179,7 +179,7 @@
     "controlGroup9": "Gruppo di controllo 9",
     "controlGroup0": "Gruppo di controllo 0",
     "openPingWheel": "Apri ruota dei ping",
-    "controlGroupsHelp": "Gruppi di controllo: Alt+1-9"
+    "controlGroupsHelp": "La cifra da sola impartisce un ordine. Richiama un gruppo con {{modifier}} + la sua cifra."
   },
   "routingTransparency": {
     "title": "Trasparenza delle unità in rotta"
@@ -250,6 +250,7 @@
   "controlGroups": {
     "recall": "Richiama gruppo {{group}}",
     "set": "Imposta gruppo {{group}}",
-    "add": "Aggiungi al gruppo {{group}}"
+    "add": "Aggiungi al gruppo {{group}}",
+    "setExclusive": "Assegna solo al gruppo {{group}}"
   }
 }

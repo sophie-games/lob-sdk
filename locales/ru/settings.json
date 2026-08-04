@@ -206,7 +206,7 @@
     "controlGroup9": "Группа 9",
     "controlGroup0": "Группа 0",
     "openPingWheel": "Открыть колесо пингов",
-    "controlGroupsHelp": "Группы управления: Alt+1-9"
+    "controlGroupsHelp": "Одна цифра отдаёт приказ. Вызов группы: {{modifier}} + её цифра."
   },
   "routingTransparency": {
     "title": "Прозрачность дезорганизованных отрядов"
@@ -281,6 +281,7 @@
   "controlGroups": {
     "recall": "Вызвать группу {{group}}",
     "set": "Задать группу {{group}}",
-    "add": "Добавить в группу {{group}}"
+    "add": "Добавить в группу {{group}}",
+    "setExclusive": "Только в группу {{group}}"
   }
 }

@@ -179,7 +179,7 @@
     "controlGroup9": "Grupa kontrolna 9",
     "controlGroup0": "Grupa kontrolna 0",
     "openPingWheel": "Otwórz koło pingów",
-    "controlGroupsHelp": "Grupy kontrolne: Alt+1-9"
+    "controlGroupsHelp": "Sama cyfra wydaje rozkaz. Przywołaj grupę przez {{modifier}} + jej cyfrę."
   },
   "routingTransparency": {
     "title": "Przezroczystość jednostek uciekających"
@@ -250,6 +250,7 @@
   "controlGroups": {
     "recall": "Przywołaj grupę {{group}}",
     "set": "Ustaw grupę {{group}}",
-    "add": "Dodaj do grupy {{group}}"
+    "add": "Dodaj do grupy {{group}}",
+    "setExclusive": "Przypisz tylko do grupy {{group}}"
   }
 }

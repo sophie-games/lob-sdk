@@ -172,7 +172,7 @@
     "toggleDrawLine": "Alternar desactivar líneas de dibujo",
     "splitInHalf": "Dividir por la mitad",
     "openPingWheel": "Abrir rueda de pings",
-    "controlGroupsHelp": "Grupos de control: Alt+1-9"
+    "controlGroupsHelp": "El dígito solo lanza una orden. Recupera un grupo con {{modifier}} + su dígito."
   },
   "routingTransparency": {
     "title": "Transparencia de Unidades en Retirada"
@@ -247,6 +247,7 @@
   "controlGroups": {
     "recall": "Llamar grupo {{group}}",
     "set": "Fijar grupo {{group}}",
-    "add": "Agregar al grupo {{group}}"
+    "add": "Agregar al grupo {{group}}",
+    "setExclusive": "Asignar solo al grupo {{group}}"
   }
 }
