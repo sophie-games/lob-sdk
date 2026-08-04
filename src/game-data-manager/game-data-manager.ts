@@ -1163,16 +1163,6 @@ export class GameDataManager {
     return ["napoleonic", "ww2"];
   }
 
-  /**
-   * Eras whose game rules define a tutorial scenario. Matchmaking and arenas
-   * for these eras are gated on per-era tutorial completion.
-   */
-  static getErasRequiringTutorial(): GameEra[] {
-    return GameDataManager.getAvailableEras().filter(
-      (era) => GameDataManager.get(era).getGameRules().tutorial?.scenario != null,
-    );
-  }
-
   // Damage type methods (moved from DamageTypeService)
 
   private get chargeRestrictionsCache(): Map<string, Set<UnitCategoryId>> {
