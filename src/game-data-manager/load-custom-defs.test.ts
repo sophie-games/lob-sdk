@@ -4,7 +4,9 @@ import {
   FormationTemplate,
   OrderType,
   RangeUnitTemplate,
+  TerrainCategoryConfig,
   TerrainType,
+  UnitCategoryId,
   UnitTemplate,
 } from "@lob-sdk/types";
 import {
@@ -429,6 +431,35 @@ describe("GameDataManager custom defs", () => {
       // deepWater is impassable via `*`; the new category must inherit it
       // instead of falling through to the passable default.
       expect(m.isPassable(TerrainType.DeepWater, "drone")).toBe(false);
+    });
+
+    it("expands the wildcard on its own copy, not on the caller's config", () => {
+      const config: TerrainCategoryConfig = { impassable: { "*": true } };
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customTerrainCategories: [{ id: "deepWater", config }],
+      });
+      // The manager still expands the wildcard...
+      expect(m.isPassable(TerrainType.DeepWater, "infantry")).toBe(false);
+      // ...but the caller's object keeps only the row it was given.
+      expect(config).toEqual({ impassable: { "*": true } });
+    });
+
+    it("lets the caller drop the `*` row and have it stick on the next load", () => {
+      const impassable: Partial<Record<UnitCategoryId, boolean>> = {
+        "*": true,
+        ship: false,
+      };
+      const defs = {
+        customTerrainCategories: [{ id: "deepWater", config: { impassable } }],
+      };
+      GameDataManager.createWithCustomDefs("napoleonic", defs);
+
+      // What the scenario editor does when the user removes the wildcard row:
+      // it edits its own draft and rebuilds the manager from it.
+      delete impassable["*"];
+      const reloaded = GameDataManager.createWithCustomDefs("napoleonic", defs);
+
+      expect(reloaded.isPassable(TerrainType.DeepWater, "infantry")).toBe(true);
     });
   });
 

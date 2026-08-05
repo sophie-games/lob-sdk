@@ -404,7 +404,12 @@ export class GameDataManager {
         // Replace wholesale, not merge: the editor produces a complete
         // config seeded from the cloned built-in, so a partial merge would
         // double-up wildcards from the previous load.
-        this.terrainCategories[override.id as TerrainCategoryType] = override.config;
+        // Clone: the expansion below writes into whatever we install here, and
+        // the caller's config is live state elsewhere (the scenario editor
+        // holds its overrides in React state), so expanding it in place would
+        // write one explicit entry per unit category into the user's draft.
+        this.terrainCategories[override.id as TerrainCategoryType] =
+          structuredClone(override.config);
       }
       // Re-expand wildcards on the (possibly overridden) maps so any newly
       // introduced category id has the right wildcard fallbacks applied.
