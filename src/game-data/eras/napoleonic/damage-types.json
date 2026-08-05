@@ -219,10 +219,10 @@
     "name": "18lb-cannon-ball",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 22000,
+    "orgDamageRatio": 21000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
@@ -274,7 +274,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 11000,
+    "ammoCost": 10300,
     "extendRange": false
   },
   {
@@ -285,7 +285,7 @@
     "orgDamageRatio": 32000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "maxRange": 145,
     "ranges": [
       {
@@ -322,10 +322,10 @@
     "name": "12lb-cannon-ball",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 22000,
+    "orgDamageRatio": 21000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
@@ -405,7 +405,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 10700,
+    "ammoCost": 10000,
     "extendRange": false
   },
   {
@@ -413,10 +413,10 @@
     "name": "10lb-cannon-ball",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 22000,
+    "orgDamageRatio": 21000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
@@ -468,7 +468,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 11000,
+    "ammoCost": 10300,
     "extendRange": false
   },
   {
@@ -479,7 +479,7 @@
     "orgDamageRatio": 32000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "maxRange": 135,
     "ranges": [
       {
@@ -508,7 +508,7 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 16300,
+    "ammoCost": 16700,
     "extendRange": true
   },
   {
@@ -516,10 +516,10 @@
     "name": "8lb-cannon-ball",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 22000,
+    "orgDamageRatio": 21000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
@@ -599,7 +599,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 11000,
+    "ammoCost": 10300,
     "extendRange": false
   },
   {
@@ -610,7 +610,7 @@
     "orgDamageRatio": 32000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "maxRange": 120,
     "ranges": [
       {
@@ -639,7 +639,7 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 14500,
+    "ammoCost": 16000,
     "extendRange": true
   },
   {
@@ -647,10 +647,10 @@
     "name": "6lb-cannon-ball",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 22000,
+    "orgDamageRatio": 21000,
     "reorgDebuff": 0.74,
     "attackEffectDuration": 16,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
@@ -730,7 +730,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 10700,
+    "ammoCost": 10000,
     "extendRange": false
   },
   {
@@ -741,7 +741,7 @@
     "orgDamageRatio": 32000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "maxRange": 100,
     "ranges": [
       {
@@ -770,7 +770,7 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 14000,
+    "ammoCost": 15500,
     "extendRange": true
   },
   {
@@ -778,10 +778,10 @@
     "name": "4lb-cannon-ball",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 22000,
+    "orgDamageRatio": 21000,
     "reorgDebuff": 0.74,
     "attackEffectDuration": 12,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
@@ -861,7 +861,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 11000,
+    "ammoCost": 10300,
     "extendRange": false
   },
   {
@@ -869,10 +869,10 @@
     "name": "18lb-explosive-shell",
     "imageAlias": "explosive-shell",
     "ranged": true,
-    "orgDamageRatio": 23500,
+    "orgDamageRatio": 23000,
     "reorgDebuff": 0.85,
     "attackEffectDuration": 10,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
@@ -908,13 +908,13 @@
           "endRadius": 50
         }
       ],
-      "edgeDamageModifier": -0.625,
+      "edgeDamageModifier": -0.6,
       "absorptionModifier": 1.25
     },
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 11000,
+    "ammoCost": 10300,
     "extendRange": false
   },
   {
@@ -922,10 +922,10 @@
     "name": "10lb-explosive-shell",
     "imageAlias": "explosive-shell",
     "ranged": true,
-    "orgDamageRatio": 23500,
+    "orgDamageRatio": 23000,
     "reorgDebuff": 0.75,
     "attackEffectDuration": 10,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
@@ -961,23 +961,23 @@
           "endRadius": 36
         }
       ],
-      "edgeDamageModifier": -0.625,
+      "edgeDamageModifier": -0.6,
       "absorptionModifier": 1.25
     },
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 11000,
+    "ammoCost": 10300,
     "extendRange": false
   },
   {
     "id": 18,
     "name": "explosive-shell",
     "ranged": true,
-    "orgDamageRatio": 29000,
+    "orgDamageRatio": 28000,
     "reorgDebuff": 0.85,
     "attackEffectDuration": 10,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
@@ -1034,7 +1034,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 12500,
+    "ammoCost": 11500,
     "extendRange": false
   },
   {
@@ -1045,7 +1045,7 @@
     "orgDamageRatio": 32000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "maxRange": 110,
     "ranges": [
       {
@@ -1085,7 +1085,7 @@
     "orgDamageRatio": 32000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "maxRange": 90,
     "ranges": [
       {
@@ -1114,7 +1114,7 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 16670,
+    "ammoCost": 16700,
     "extendRange": true
   },
   {
@@ -1125,7 +1125,7 @@
     "orgDamageRatio": 35000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "maxRange": 69,
     "ranges": [
       {
@@ -1211,7 +1211,7 @@
     "orgDamageRatio": 41500,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
-    "projectileWidth": 11,
+    "projectileWidth": 22,
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
       "to": 0.4,
