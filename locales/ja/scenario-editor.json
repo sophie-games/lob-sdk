@@ -84,9 +84,13 @@
     "removePlayer": "プレイヤーを削除"
   },
   "terrainPanel": {
-    "setTerrain": "地形を設定",
-    "terrainHeight": "地形の高さ",
-    "paintBucket": "塗りつぶし"
+    "brush": "ブラシ",
+    "shape": "形状",
+    "height": "高さ",
+    "elevation": "標高",
+    "keepHeight": "既存の高さを保持",
+    "paintBucket": "塗りつぶし",
+    "none": "なし"
   },
   "unitPanel": {
     "title": "選択中のユニット",

@@ -94,9 +94,13 @@
     "ammoHelp": "Ammunition for this player's army: the reserve it spends over the battle and the base amount it resupplies toward."
   },
   "terrainPanel": {
-    "setTerrain": "Set terrain",
-    "terrainHeight": "Terrain height",
-    "paintBucket": "Paint Bucket"
+    "brush": "Brush",
+    "shape": "Shape",
+    "height": "Height",
+    "elevation": "Elevation",
+    "keepHeight": "Keep existing height",
+    "paintBucket": "Paint Bucket",
+    "none": "None"
   },
   "unitPanel": {
     "title": "Selected Unit",

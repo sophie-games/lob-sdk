@@ -84,9 +84,13 @@
     "removePlayer": "Убрать игрока"
   },
   "terrainPanel": {
-    "setTerrain": "Задать местность",
-    "terrainHeight": "Высота местности",
-    "paintBucket": "Заливка"
+    "brush": "Кисть",
+    "shape": "Форма",
+    "height": "Высота",
+    "elevation": "Возвышение",
+    "keepHeight": "Сохранить текущую высоту",
+    "paintBucket": "Заливка",
+    "none": "Нет"
   },
   "unitPanel": {
     "title": "Выбранный юнит",

@@ -84,9 +84,13 @@
     "removePlayer": "플레이어 제거"
   },
   "terrainPanel": {
-    "setTerrain": "지형 설정",
-    "terrainHeight": "지형 높이",
-    "paintBucket": "채우기"
+    "brush": "브러시",
+    "shape": "모양",
+    "height": "높이",
+    "elevation": "고도",
+    "keepHeight": "기존 높이 유지",
+    "paintBucket": "채우기",
+    "none": "없음"
   },
   "unitPanel": {
     "title": "선택한 부대",
