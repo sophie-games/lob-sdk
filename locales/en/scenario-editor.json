@@ -52,6 +52,12 @@
       "terrain": "Terrain",
       "global": "Global"
     },
+    "scenarioBands": {
+      "about": "About",
+      "forces": "Forces",
+      "rules": "Rules",
+      "presentation": "Presentation"
+    },
     "restingHint": "Click a piece to inspect it, or pick a tool to start painting.",
     "togglePanel": "Toggle panel",
     "downloadScenario": "Download scenario",
@@ -82,7 +88,10 @@
     "isHybrid": "Is Hybrid?"
   },
   "playersPanel": {
-    "removePlayer": "Remove player"
+    "removePlayer": "Remove player",
+    "ammoReserve": "Reserve",
+    "ammoBase": "Base",
+    "ammoHelp": "Ammunition for this player's army: the reserve it spends over the battle and the base amount it resupplies toward."
   },
   "terrainPanel": {
     "setTerrain": "Set terrain",
