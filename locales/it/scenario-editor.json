@@ -43,6 +43,16 @@
       "triggers": "Trigger",
       "advanced": "Avanzate"
     },
+    "mode": {
+      "scenario": "Scenario",
+      "workshop": "Workshop"
+    },
+    "workshopBands": {
+      "units": "Unità",
+      "terrain": "Terreno",
+      "global": "Globale"
+    },
+    "restingHint": "Fai clic su un pezzo per ispezionarlo, oppure scegli uno strumento per iniziare a dipingere.",
     "togglePanel": "Mostra/nascondi pannello",
     "downloadScenario": "Scarica scenario",
     "copyScenario": "Copia scenario",
@@ -414,7 +424,7 @@
       "duplicate": "Duplica"
     },
     "spritesPanel": {
-      "title": "Sprite personalizzati",
+      "title": "Sprite di unità",
       "description": "Carica qui i tuoi sprite, poi selezionali nelle formazioni di un'unità. Vengono incorporati nello scenario (max {{kb}}KB ciascuno).",
       "yourSprites": "I tuoi sprite",
       "noSprites": "Ancora nessuno sprite personalizzato.",
@@ -433,7 +443,7 @@
       "noMatches": "Nessuna corrispondenza."
     },
     "unitTemplatesPanel": {
-      "title": "Modelli di unità personalizzati",
+      "title": "Modelli di unità",
       "description": "Definisci nuovi modelli di unità con statistiche, formazioni e tipi di danno personalizzati. Usa \"Sovrascrivi\" per sostituire un'unità integrata in questo scenario (utile per i test di bilanciamento) o \"Clona\" per aggiungere un nuovo modello con id >= {{minId}}.",
       "noTemplates": "Ancora nessun modello di unità personalizzato.",
       "templateLabel": "{{name}} (tipo {{type}})",
@@ -442,14 +452,14 @@
       "clonePickerTitle": "Clona un modello di unità integrato"
     },
     "formationsPanel": {
-      "title": "Formazioni di unità personalizzate",
+      "title": "Formazioni di unità",
       "description": "Definisci nuovi modelli di formazione (collisione, modificatori, regole di fuoco) utilizzabili dalle unità personalizzate.",
       "noFormations": "Ancora nessuna formazione personalizzata.",
       "deleteBlocked": "Impossibile eliminare \"{{id}}\" - ancora usato da {{refs}}. Rimuovi prima quei riferimenti.",
       "clonePickerTitle": "Clona una formazione integrata"
     },
     "unitCategoriesPanel": {
-      "title": "Categorie di unità personalizzate",
+      "title": "Categorie di unità",
       "description": "Definisci nuove categorie di unità (livelli di collisione, sezione di schieramento, ordini consentiti, comportamento in rotta). Referenziate dalle unità personalizzate tramite il loro campo categoria.",
       "noCategories": "Ancora nessuna categoria di unità personalizzata.",
       "deleteBlocked": "Impossibile eliminare \"{{id}}\" - ancora usato da {{refs}}. Rimuovi prima quei riferimenti.",
@@ -457,7 +467,7 @@
       "clonePickerTitle": "Clona una categoria di unità integrata"
     },
     "damageTypesPanel": {
-      "title": "Tipi di danno personalizzati",
+      "title": "Tipi di danno",
       "description": "Definisci nuovi tipi di danno corpo a corpo o a distanza. Referenziati dalle unità personalizzate tramite meleeDamageType o rangedDamageTypes.",
       "noDamageTypes": "Ancora nessun tipo di danno personalizzato.",
       "ranged": "a distanza",
@@ -469,7 +479,7 @@
       "clonePickerTitle": "Clona un tipo di danno integrato"
     },
     "terrainCategoriesPanel": {
-      "title": "Categorie di terreno personalizzate",
+      "title": "Categorie di terreno",
       "description": "Sovrascrivi le configurazioni delle categorie di terreno per questo scenario. Usalo per dare alle categorie di unità personalizzate specifici modificatori di terreno, o per introdurre nuovi id di categoria di terreno.",
       "noOverrides": "Ancora nessuna sovrascrittura di categoria di terreno personalizzata.",
       "addTerrainCategory": "Aggiungi categoria di terreno",
@@ -524,15 +534,15 @@
       "resultSummary": "Importati: {{fields}}."
     },
     "gameConstants": {
-      "title": "Sovrascritture delle costanti di gioco",
+      "title": "Costanti di gioco",
       "description": "Sovrascrivi le costanti numeriche di questa epoca per questo scenario. Vengono salvati solo i valori modificati; Reimposta riporta un campo al predefinito dell'epoca. Le chiavi contrassegnate con ⚠ sono strutturali - modificarle può compromettere rendering, replay o matchmaking. I valori sono in unità interne grezze."
     },
     "gameRules": {
-      "title": "Sovrascritture delle regole di gioco",
+      "title": "Regole di gioco",
       "description": "Sovrascrivi le regole di gioco di questa epoca per questo scenario. Vengono salvati solo i valori modificati; usa Reimposta per riportare un campo al predefinito dell'epoca. I valori sono in unità interne grezze (alcune statistiche sono memorizzate pre-scalate)."
     },
     "ordersPanel": {
-      "title": "Sovrascritture degli ordini",
+      "title": "Ordini",
       "description": "Sovrascrivi i valori degli ordini integrati di questa epoca per questo scenario. Vengono salvati solo i valori modificati; usa Reimposta per riportare un campo al predefinito dell'epoca. Puoi modificare gli ordini esistenti ma non aggiungerne di nuovi."
     },
     "clonePicker": {
@@ -560,7 +570,7 @@
       "moveDown": "Sposta giù"
     },
     "customArmyCompositions": {
-      "title": "Composizioni dell'esercito personalizzate",
+      "title": "Composizioni dell'esercito",
       "betaNotice": "Le opzioni per le composizioni dell'esercito personalizzate negli scenari sono una funzionalità beta; segnala eventuali bug nel server Discord ufficiale.",
       "disableEraUnits": "Disattiva unità predefinite dell'epoca",
       "disableEraUnitsDescription": "Schiera solo le unità personalizzate di questo scenario. Le unità predefinite dell'epoca vengono nascoste dalla schermata dell'esercito e rifiutate durante la creazione di un esercito.",

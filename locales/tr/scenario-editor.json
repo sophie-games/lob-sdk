@@ -43,6 +43,16 @@
       "triggers": "Tetikleyiciler",
       "advanced": "Gelişmiş"
     },
+    "mode": {
+      "scenario": "Senaryo",
+      "workshop": "Atölye"
+    },
+    "workshopBands": {
+      "units": "Birimler",
+      "terrain": "Arazi",
+      "global": "Genel"
+    },
+    "restingHint": "İncelemek için bir parçaya tıklayın veya boyamaya başlamak için bir araç seçin.",
     "togglePanel": "Paneli aç/kapat",
     "downloadScenario": "Senaryoyu indir",
     "copyScenario": "Senaryoyu kopyala",
@@ -414,7 +424,7 @@
       "duplicate": "Çoğalt"
     },
     "spritesPanel": {
-      "title": "Özel sprite'lar",
+      "title": "Birim sprite'ları",
       "description": "Kendi sprite'larınızı buraya yükleyin, ardından bir birimin formasyonlarında seçin. Senaryoya gömülürler (her biri en fazla {{kb}}KB).",
       "yourSprites": "Sprite'larınız",
       "noSprites": "Henüz özel sprite yok.",
@@ -433,7 +443,7 @@
       "noMatches": "Eşleşme yok."
     },
     "unitTemplatesPanel": {
-      "title": "Özel birim şablonları",
+      "title": "Birim şablonları",
       "description": "Özel istatistikler, formasyonlar ve hasar türleri ile yeni birim şablonları tanımlayın. Bu senaryo için bir yerleşiği değiştirmek üzere \"Geçersiz Kıl\" (denge testi için kullanışlı) ya da id >= {{minId}} olan yeni bir şablon eklemek için \"Klonla\" kullanın.",
       "noTemplates": "Henüz özel birim şablonu yok.",
       "templateLabel": "{{name}} (tür {{type}})",
@@ -442,14 +452,14 @@
       "clonePickerTitle": "Yerleşik bir birim şablonunu klonla"
     },
     "formationsPanel": {
-      "title": "Özel birim formasyonları",
+      "title": "Birim formasyonları",
       "description": "Özel birimlerin kullanabileceği yeni formasyon şablonları (çarpışma, değiştiriciler, ateş kuralları) tanımlayın.",
       "noFormations": "Henüz özel formasyon yok.",
       "deleteBlocked": "\"{{id}}\" silinemiyor - hâlâ {{refs}} tarafından kullanılıyor. Önce o referansları kaldırın.",
       "clonePickerTitle": "Yerleşik bir formasyonu klonla"
     },
     "unitCategoriesPanel": {
-      "title": "Özel birim kategorileri",
+      "title": "Birim kategorileri",
       "description": "Yeni birim kategorileri (çarpışma seviyeleri, yerleşim bölümü, izin verilen emirler, kaçma davranışı) tanımlayın. Özel birimler tarafından kategori alanları aracılığıyla referans verilir.",
       "noCategories": "Henüz özel birim kategorisi yok.",
       "deleteBlocked": "\"{{id}}\" silinemiyor - hâlâ {{refs}} tarafından kullanılıyor. Önce o referansları kaldırın.",
@@ -457,7 +467,7 @@
       "clonePickerTitle": "Yerleşik bir birim kategorisini klonla"
     },
     "damageTypesPanel": {
-      "title": "Özel hasar türleri",
+      "title": "Hasar türleri",
       "description": "Yeni yakın dövüş veya uzak mesafe hasar türleri tanımlayın. Özel birimler tarafından meleeDamageType veya rangedDamageTypes aracılığıyla referans verilir.",
       "noDamageTypes": "Henüz özel hasar türü yok.",
       "ranged": "uzak mesafe",
@@ -469,7 +479,7 @@
       "clonePickerTitle": "Yerleşik bir hasar türünü klonla"
     },
     "terrainCategoriesPanel": {
-      "title": "Özel arazi kategorileri",
+      "title": "Arazi kategorileri",
       "description": "Bu senaryo için arazi kategorisi yapılandırmalarını geçersiz kılın. Bunu özel birim kategorilerine belirli arazi değiştiricileri vermek ya da yeni arazi kategorisi id'leri eklemek için kullanın.",
       "noOverrides": "Henüz özel arazi kategorisi geçersiz kılması yok.",
       "addTerrainCategory": "Arazi kategorisi ekle",
@@ -524,15 +534,15 @@
       "resultSummary": "İçe aktarıldı: {{fields}}."
     },
     "gameConstants": {
-      "title": "Oyun sabiti geçersiz kılmaları",
+      "title": "Oyun sabitleri",
       "description": "Bu senaryo için dönemin sayısal sabitlerini geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; Sıfırla bir alanı dönem varsayılanına döndürür. ⚠ ile işaretli anahtarlar yapısaldır - bunları değiştirmek render'ı, tekrarları veya eşleştirmeyi bozabilir. Değerler ham iç birimlerdir."
     },
     "gameRules": {
-      "title": "Oyun kuralı geçersiz kılmaları",
+      "title": "Oyun kuralları",
       "description": "Bu senaryo için dönemin oynanış kurallarını geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; bir alanı dönem varsayılanına döndürmek için Sıfırla kullanın. Değerler ham iç birimlerdir (bazı istatistikler önceden ölçeklenmiş olarak saklanır)."
     },
     "ordersPanel": {
-      "title": "Emir geçersiz kılmaları",
+      "title": "Emirler",
       "description": "Bu senaryo için dönemin yerleşik emirlerinin değerlerini geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; bir alanı dönem varsayılanına döndürmek için Sıfırla kullanın. Mevcut emirleri değiştirebilirsiniz ama yenilerini ekleyemezsiniz."
     },
     "clonePicker": {
@@ -560,7 +570,7 @@
       "moveDown": "Aşağı taşı"
     },
     "customArmyCompositions": {
-      "title": "Özel ordu kompozisyonları",
+      "title": "Ordu kompozisyonları",
       "betaNotice": "Senaryolar için özel ordu kompozisyonu seçenekleri beta özelliğidir; lütfen hataları resmi Discord sunucusunda bildirin.",
       "disableEraUnits": "Dönem varsayılan birimlerini devre dışı bırak",
       "disableEraUnitsDescription": "Yalnızca bu senaryonun kendi özel birimlerini sahaya sürün. Dönemin varsayılan birimleri ordu ekranından gizlenir ve ordu kurulurken reddedilir.",

@@ -43,6 +43,16 @@
       "triggers": "Auslöser",
       "advanced": "Erweitert"
     },
+    "mode": {
+      "scenario": "Szenario",
+      "workshop": "Workshop"
+    },
+    "workshopBands": {
+      "units": "Einheiten",
+      "terrain": "Gelände",
+      "global": "Global"
+    },
+    "restingHint": "Klicke auf ein Objekt, um es zu untersuchen, oder wähle ein Werkzeug, um mit dem Malen zu beginnen.",
     "togglePanel": "Panel umschalten",
     "downloadScenario": "Szenario herunterladen",
     "copyScenario": "Szenario kopieren",
@@ -414,7 +424,7 @@
       "duplicate": "Duplizieren"
     },
     "spritesPanel": {
-      "title": "Benutzerdefinierte Sprites",
+      "title": "Einheiten-Sprites",
       "description": "Lade hier deine eigenen Sprites hoch und wähle sie dann in den Formationen einer Einheit. Sie werden im Szenario eingebettet (max. {{kb}}KB pro Stück).",
       "yourSprites": "Deine Sprites",
       "noSprites": "Noch keine benutzerdefinierten Sprites.",
@@ -433,7 +443,7 @@
       "noMatches": "Keine Treffer."
     },
     "unitTemplatesPanel": {
-      "title": "Benutzerdefinierte Einheitenvorlagen",
+      "title": "Einheitenvorlagen",
       "description": "Definiere neue Einheitenvorlagen mit benutzerdefinierten Werten, Formationen und Schadenstypen. Verwende \"Überschreiben\", um eine integrierte Vorlage für dieses Szenario zu ersetzen (nützlich für Balancetests), oder \"Klonen\", um eine neue Vorlage mit ID >= {{minId}} hinzuzufügen.",
       "noTemplates": "Noch keine benutzerdefinierten Einheitenvorlagen.",
       "templateLabel": "{{name}} (Typ {{type}})",
@@ -442,14 +452,14 @@
       "clonePickerTitle": "Eine integrierte Einheitenvorlage klonen"
     },
     "formationsPanel": {
-      "title": "Benutzerdefinierte Einheitenformationen",
+      "title": "Einheitenformationen",
       "description": "Definiere neue Formationsvorlagen (Kollision, Modifikatoren, Feuerregeln), die benutzerdefinierte Einheiten verwenden können.",
       "noFormations": "Noch keine benutzerdefinierten Formationen.",
       "deleteBlocked": "\"{{id}}\" kann nicht gelöscht werden - noch verwendet von {{refs}}. Entferne zuerst diese Verweise.",
       "clonePickerTitle": "Eine integrierte Formation klonen"
     },
     "unitCategoriesPanel": {
-      "title": "Benutzerdefinierte Einheitenkategorien",
+      "title": "Einheitenkategorien",
       "description": "Definiere neue Einheitenkategorien (Kollisionsstufen, Aufstellungsbereich, erlaubte Befehle, Fluchtverhalten). Wird von benutzerdefinierten Einheiten über ihr Kategoriefeld referenziert.",
       "noCategories": "Noch keine benutzerdefinierten Einheitenkategorien.",
       "deleteBlocked": "\"{{id}}\" kann nicht gelöscht werden - noch verwendet von {{refs}}. Entferne zuerst diese Verweise.",
@@ -457,7 +467,7 @@
       "clonePickerTitle": "Eine integrierte Einheitenkategorie klonen"
     },
     "damageTypesPanel": {
-      "title": "Benutzerdefinierte Schadenstypen",
+      "title": "Schadenstypen",
       "description": "Definiere neue Nahkampf- oder Fernkampfschadenstypen. Wird von benutzerdefinierten Einheiten über meleeDamageType oder rangedDamageTypes referenziert.",
       "noDamageTypes": "Noch keine benutzerdefinierten Schadenstypen.",
       "ranged": "Fernkampf",
@@ -469,7 +479,7 @@
       "clonePickerTitle": "Einen integrierten Schadenstyp klonen"
     },
     "terrainCategoriesPanel": {
-      "title": "Benutzerdefinierte Geländekategorien",
+      "title": "Geländekategorien",
       "description": "Überschreibe Geländekategorie-Konfigurationen für dieses Szenario. Damit gibst du benutzerdefinierten Einheitenkategorien spezifische Geländemodifikatoren oder führst neue Geländekategorie-IDs ein.",
       "noOverrides": "Noch keine benutzerdefinierten Geländekategorie-Überschreibungen.",
       "addTerrainCategory": "Geländekategorie hinzufügen",
@@ -524,15 +534,15 @@
       "resultSummary": "Importiert: {{fields}}."
     },
     "gameConstants": {
-      "title": "Spielkonstanten-Überschreibungen",
+      "title": "Spielkonstanten",
       "description": "Überschreibe die numerischen Konstanten dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; Zurücksetzen stellt ein Feld auf den Epochenstandard zurück. Mit ⚠ markierte Schlüssel sind strukturell - eine Änderung kann Darstellung, Wiederholungen oder Matchmaking beschädigen. Die Werte sind interne Roheinheiten."
     },
     "gameRules": {
-      "title": "Spielregel-Überschreibungen",
+      "title": "Spielregeln",
       "description": "Überschreibe die Spielregeln dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; verwende Zurücksetzen, um ein Feld auf den Epochenstandard zurückzustellen. Die Werte sind interne Roheinheiten (einige Werte werden vorskaliert gespeichert)."
     },
     "ordersPanel": {
-      "title": "Befehls-Überschreibungen",
+      "title": "Befehle",
       "description": "Überschreibe die Werte der integrierten Befehle dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; verwende Zurücksetzen, um ein Feld auf den Epochenstandard zurückzustellen. Du kannst bestehende Befehle ändern, aber keine neuen hinzufügen."
     },
     "clonePicker": {
@@ -560,7 +570,7 @@
       "moveDown": "Nach unten"
     },
     "customArmyCompositions": {
-      "title": "Benutzerdefinierte Armeezusammensetzungen",
+      "title": "Armeezusammensetzungen",
       "betaNotice": "Optionen für benutzerdefinierte Armeezusammensetzungen in Szenarien sind eine Beta-Funktion; bitte melde alle Fehler im offiziellen Discord-Server.",
       "disableEraUnits": "Standard-Einheiten der Epoche deaktivieren",
       "disableEraUnitsDescription": "Setze nur die eigenen benutzerdefinierten Einheiten dieses Szenarios ein. Die Standard-Einheiten der Epoche werden im Armee-Bildschirm ausgeblendet und beim Zusammenstellen einer Armee abgelehnt.",
