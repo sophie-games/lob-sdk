@@ -79,14 +79,22 @@
     "showObjectives": "Показати цілі",
     "goBack": "Назад",
     "goBackConfirm": "Ви впевнені, що хочете повернутися назад і вийти з редактора?",
-    "display": "Відображення"
+    "display": "Відображення",
+    "scenarioBands": {
+      "about": "Огляд",
+      "forces": "Сили",
+      "rules": "Правила",
+      "presentation": "Відображення"
+    }
   },
   "createScenario": {
     "randomMap": "Випадкова (процедурна) карта?",
     "isHybrid": "Гібридний?"
   },
   "playersPanel": {
-    "removePlayer": "Вилучити гравця"
+    "removePlayer": "Вилучити гравця",
+    "ammoReserve": "Резерв",
+    "ammoBase": "База"
   },
   "terrainPanel": {
     "brush": "Пензель",

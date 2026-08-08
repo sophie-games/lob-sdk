@@ -79,14 +79,22 @@
     "showObjectives": "지점목표 표시",
     "goBack": "뒤로",
     "goBackConfirm": "정말 뒤로 가서 편집기를 종료하시겠습니까?",
-    "display": "표시"
+    "display": "표시",
+    "scenarioBands": {
+      "about": "정보",
+      "forces": "병력",
+      "rules": "규칙",
+      "presentation": "표시"
+    }
   },
   "createScenario": {
     "randomMap": "무작위(절차적) 맵?",
     "isHybrid": "혼합형?"
   },
   "playersPanel": {
-    "removePlayer": "플레이어 제거"
+    "removePlayer": "플레이어 제거",
+    "ammoReserve": "예비",
+    "ammoBase": "기본"
   },
   "terrainPanel": {
     "brush": "브러시",

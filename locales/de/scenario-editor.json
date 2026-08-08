@@ -79,14 +79,22 @@
     "showObjectives": "Ziele anzeigen",
     "goBack": "Zurück",
     "goBackConfirm": "Möchtest du wirklich zurückgehen und den Editor verlassen?",
-    "display": "Anzeige"
+    "display": "Anzeige",
+    "scenarioBands": {
+      "about": "Allgemein",
+      "forces": "Streitkräfte",
+      "rules": "Regeln",
+      "presentation": "Darstellung"
+    }
   },
   "createScenario": {
     "randomMap": "Zufällige (prozedurale) Karte?",
     "isHybrid": "Hybrid?"
   },
   "playersPanel": {
-    "removePlayer": "Spieler entfernen"
+    "removePlayer": "Spieler entfernen",
+    "ammoReserve": "Reserve",
+    "ammoBase": "Basis"
   },
   "terrainPanel": {
     "brush": "Pinsel",

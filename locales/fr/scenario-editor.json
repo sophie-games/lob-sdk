@@ -79,14 +79,22 @@
     "showObjectives": "Afficher les objectifs",
     "goBack": "Retour",
     "goBackConfirm": "Êtes-vous sûr de vouloir revenir en arrière et quitter l'éditeur ?",
-    "display": "Affichage"
+    "display": "Affichage",
+    "scenarioBands": {
+      "about": "Général",
+      "forces": "Forces",
+      "rules": "Règles",
+      "presentation": "Présentation"
+    }
   },
   "createScenario": {
     "randomMap": "Carte aléatoire (procédurale) ?",
     "isHybrid": "Hybride ?"
   },
   "playersPanel": {
-    "removePlayer": "Retirer le joueur"
+    "removePlayer": "Retirer le joueur",
+    "ammoReserve": "Réserve",
+    "ammoBase": "Base"
   },
   "terrainPanel": {
     "brush": "Pinceau",

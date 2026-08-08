@@ -79,14 +79,22 @@
     "showObjectives": "แสดงเป้าหมาย",
     "goBack": "ย้อนกลับ",
     "goBackConfirm": "คุณแน่ใจหรือไม่ว่าต้องการย้อนกลับและออกจากเครื่องมือสร้างฉาก?",
-    "display": "การแสดงผล"
+    "display": "การแสดงผล",
+    "scenarioBands": {
+      "about": "เกี่ยวกับ",
+      "forces": "กำลังพล",
+      "rules": "กฎ",
+      "presentation": "การนำเสนอ"
+    }
   },
   "createScenario": {
     "randomMap": "แผนที่แบบสุ่ม (สร้างตามขั้นตอน)?",
     "isHybrid": "เป็นแบบผสมหรือไม่?"
   },
   "playersPanel": {
-    "removePlayer": "นำผู้เล่นออก"
+    "removePlayer": "นำผู้เล่นออก",
+    "ammoReserve": "สำรอง",
+    "ammoBase": "พื้นฐาน"
   },
   "terrainPanel": {
     "brush": "แปรง",

@@ -79,14 +79,22 @@
     "showObjectives": "उद्देश्य दिखाएं",
     "goBack": "वापस जाएं",
     "goBackConfirm": "क्या आप वाकई वापस जाकर संपादक से बाहर निकलना चाहते हैं?",
-    "display": "प्रदर्शन"
+    "display": "प्रदर्शन",
+    "scenarioBands": {
+      "about": "परिचय",
+      "forces": "सेनाएँ",
+      "rules": "नियम",
+      "presentation": "प्रस्तुति"
+    }
   },
   "createScenario": {
     "randomMap": "यादृच्छिक (प्रक्रियात्मक) मानचित्र?",
     "isHybrid": "हाइब्रिड है?"
   },
   "playersPanel": {
-    "removePlayer": "खिलाड़ी हटाएं"
+    "removePlayer": "खिलाड़ी हटाएं",
+    "ammoReserve": "रिज़र्व",
+    "ammoBase": "आधार"
   },
   "terrainPanel": {
     "brush": "ब्रश",

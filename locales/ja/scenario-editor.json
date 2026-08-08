@@ -79,14 +79,22 @@
     "showObjectives": "目標を表示",
     "goBack": "戻る",
     "goBackConfirm": "戻ってエディターを終了してもよろしいですか？",
-    "display": "表示"
+    "display": "表示",
+    "scenarioBands": {
+      "about": "概要",
+      "forces": "兵力",
+      "rules": "ルール",
+      "presentation": "表示"
+    }
   },
   "createScenario": {
     "randomMap": "ランダム（自動生成）マップ？",
     "isHybrid": "ハイブリッド？"
   },
   "playersPanel": {
-    "removePlayer": "プレイヤーを削除"
+    "removePlayer": "プレイヤーを削除",
+    "ammoReserve": "予備",
+    "ammoBase": "基本"
   },
   "terrainPanel": {
     "brush": "ブラシ",

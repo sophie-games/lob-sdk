@@ -79,14 +79,22 @@
     "showObjectives": "Hedefleri göster",
     "goBack": "Geri dön",
     "goBackConfirm": "Geri dönüp editörden çıkmak istediğinizden emin misiniz?",
-    "display": "Görünüm"
+    "display": "Görünüm",
+    "scenarioBands": {
+      "about": "Genel",
+      "forces": "Kuvvetler",
+      "rules": "Kurallar",
+      "presentation": "Sunum"
+    }
   },
   "createScenario": {
     "randomMap": "Rastgele (prosedürel) harita?",
     "isHybrid": "Hibrit mi?"
   },
   "playersPanel": {
-    "removePlayer": "Oyuncuyu kaldır"
+    "removePlayer": "Oyuncuyu kaldır",
+    "ammoReserve": "Yedek",
+    "ammoBase": "Temel"
   },
   "terrainPanel": {
     "brush": "Fırça",

@@ -79,14 +79,22 @@
     "showObjectives": "Mostrar objetivos",
     "goBack": "Voltar",
     "goBackConfirm": "Tem certeza de que deseja voltar e sair do editor?",
-    "display": "Exibição"
+    "display": "Exibição",
+    "scenarioBands": {
+      "about": "Geral",
+      "forces": "Forças",
+      "rules": "Regras",
+      "presentation": "Apresentação"
+    }
   },
   "createScenario": {
     "randomMap": "Mapa aleatório (procedural)?",
     "isHybrid": "É Híbrido?"
   },
   "playersPanel": {
-    "removePlayer": "Remover jogador"
+    "removePlayer": "Remover jogador",
+    "ammoReserve": "Reserva",
+    "ammoBase": "Base"
   },
   "terrainPanel": {
     "brush": "Pincel",

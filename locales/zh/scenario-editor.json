@@ -79,14 +79,22 @@
     "showObjectives": "显示目标点",
     "goBack": "返回",
     "goBackConfirm": "确定要返回并退出编辑器吗？",
-    "display": "显示"
+    "display": "显示",
+    "scenarioBands": {
+      "about": "概览",
+      "forces": "兵力",
+      "rules": "规则",
+      "presentation": "呈现"
+    }
   },
   "createScenario": {
     "randomMap": "随机（程序生成）地图？",
     "isHybrid": "是否为混合？"
   },
   "playersPanel": {
-    "removePlayer": "移除玩家"
+    "removePlayer": "移除玩家",
+    "ammoReserve": "预备",
+    "ammoBase": "基础"
   },
   "terrainPanel": {
     "brush": "画笔",
