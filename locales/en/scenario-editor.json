@@ -83,11 +83,10 @@
     "noInherentAmmoHelp": "When enabled, units with an ammo system spawn with no ammo of their own and draw their whole supply from the shared reserve, so they can't fire on the first turn and only open up once the reserve resupplies them.",
     "showGrid": "Show grid",
     "showUnits": "Show units",
-    "hideUnits": "Hide units",
     "showObjectives": "Show objectives",
-    "hideObjectives": "Hide objectives",
     "goBack": "Go back",
-    "goBackConfirm": "Are you sure you want to go back and exit the editor?"
+    "goBackConfirm": "Are you sure you want to go back and exit the editor?",
+    "display": "Display"
   },
   "createScenario": {
     "randomMap": "Random (procedural) map?",
