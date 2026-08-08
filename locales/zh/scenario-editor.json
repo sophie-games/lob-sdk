@@ -735,7 +735,7 @@
     }
   },
   "scoring": {
-    "heading": "胜利点权重（场景覆盖）",
+    "heading": "胜利点权重",
     "hint": "留空以继承战斗类型或时代的默认值。",
     "basePoints": "基础权重",
     "casualties": "伤亡权重",
@@ -753,7 +753,7 @@
     "tieBreakInfo": "在最后一回合，胜利点落后超过此差值的队伍将被判定为战败。"
   },
   "objectiveZones": {
-    "heading": "目标区域（场景覆盖）",
+    "heading": "目标区域",
     "hint": "将可放置的目标区域缩小多少。留空以继承战斗类型或时代的默认值。",
     "smallInset": "小目标区域裁剪",
     "bigInset": "大目标区域裁剪",

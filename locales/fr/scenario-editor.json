@@ -736,7 +736,7 @@
     }
   },
   "scoring": {
-    "heading": "Poids des PV (remplacement du scénario)",
+    "heading": "Poids des PV",
     "hint": "Laissez un champ vide pour hériter de la valeur par défaut du type de bataille ou de l'ère.",
     "basePoints": "Poids de base",
     "casualties": "Poids des pertes",
@@ -754,7 +754,7 @@
     "tieBreakInfo": "Au dernier tour, une équipe en retard de plus que cette marge de PV est considérée comme vaincue."
   },
   "objectiveZones": {
-    "heading": "Zones d'objectifs (remplacement du scénario)",
+    "heading": "Zones d'objectifs",
     "hint": "De combien réduire les zones d'objectifs plaçables. Laissez un champ vide pour hériter de la valeur par défaut du type de bataille ou de l'ère.",
     "smallInset": "Rognage de la zone des petits objectifs",
     "bigInset": "Rognage de la zone des grands objectifs",

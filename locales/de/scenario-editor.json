@@ -736,7 +736,7 @@
     }
   },
   "scoring": {
-    "heading": "VP-Gewichte (Szenario-Override)",
+    "heading": "VP-Gewichte",
     "hint": "Lassen Sie ein Feld leer, um den Standardwert des Kampftyps oder der Ära zu übernehmen.",
     "basePoints": "Basis-Gewichtung",
     "casualties": "Verlust-Gewichtung",
@@ -754,7 +754,7 @@
     "tieBreakInfo": "In der letzten Runde gilt ein Team, das mit mehr als diesem VP-Abstand zurückliegt, als besiegt."
   },
   "objectiveZones": {
-    "heading": "Objektivzonen (Szenario-Override)",
+    "heading": "Objektivzonen",
     "hint": "Wie stark die platzierbaren Objektivzonen verkleinert werden. Lassen Sie ein Feld leer, um den Standardwert des Kampftyps oder der Ära zu übernehmen.",
     "smallInset": "Beschnitt der Zone für kleine Objektive",
     "bigInset": "Beschnitt der Zone für große Objektive",

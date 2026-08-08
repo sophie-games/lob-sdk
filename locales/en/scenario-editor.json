@@ -746,7 +746,7 @@
     }
   },
   "scoring": {
-    "heading": "VP weights (scenario override)",
+    "heading": "VP weights",
     "hint": "Leave a field empty to inherit the battle-type or era default.",
     "basePoints": "Base points weight",
     "casualties": "Casualties weight",
@@ -764,7 +764,7 @@
     "tieBreakInfo": "On the final turn, a team trailing on VP by more than this is treated as defeated."
   },
   "objectiveZones": {
-    "heading": "Objective zones (scenario override)",
+    "heading": "Objective zones",
     "hint": "How much to shrink the placeable-objective zones. Leave a field empty to inherit the battle-type or era default.",
     "smallInset": "Small-objective zone trim",
     "bigInset": "Big-objective zone trim",

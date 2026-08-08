@@ -736,7 +736,7 @@
     }
   },
   "scoring": {
-    "heading": "Pesos de VP (override del escenario)",
+    "heading": "Pesos de VP",
     "hint": "Deja un campo vacío para heredar el valor por defecto del tipo de batalla o de la era.",
     "basePoints": "Peso base",
     "casualties": "Peso de bajas",
@@ -754,7 +754,7 @@
     "tieBreakInfo": "En el último turno, un equipo que va por detrás en VP por más de este margen se considera derrotado."
   },
   "objectiveZones": {
-    "heading": "Zonas de objetivos (override del escenario)",
+    "heading": "Zonas de objetivos",
     "hint": "Cuánto achicar las zonas de objetivos colocables. Deja un campo vacío para heredar el valor por defecto del tipo de batalla o de la era.",
     "smallInset": "Recorte de la zona de objetivos chicos",
     "bigInset": "Recorte de la zona de objetivos grandes",
