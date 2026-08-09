@@ -99,6 +99,12 @@ export abstract class BaseUnit extends Entity {
    * The reorg debuff the unit will suffer in the current tick.
    */
   abstract reorgDebuff: number;
+  /**
+   * Set while the unit routs with no enemy inside `safeDistance` and no recent fire.
+   * A router that has made it this far walks instead of running. Server-authoritative:
+   * enemy proximity is not knowable client-side under fog of war.
+   */
+  abstract routingAtSafeDistance: boolean;
 
   // --- Template Statistics (Immutable) ---
   get unitName(): string { return this.template.name; }
@@ -570,7 +576,7 @@ export abstract class BaseUnit extends Entity {
   }
 
   isRunRouting() {
-    if (!this.isRouting()) {
+    if (!this.isRouting() || this.routingAtSafeDistance) {
       return false;
     }
     const categoryTemplate = this.gameDataManager.getUnitCategoryTemplate(this.category);

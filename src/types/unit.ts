@@ -102,6 +102,12 @@ export interface UnitDto {
    * Bars Hidden
    */
   bh?: boolean;
+
+  /**
+   * Routing at a safe distance: no enemy within `safeDistance` and no recent fire.
+   * Such a router walks instead of running. Omitted when false.
+   */
+  rs?: boolean;
 }
 
 export interface UnitDtoPartialId extends Omit<UnitDto, "id"> {
