@@ -194,6 +194,10 @@ export interface UpdateUnitStateAction extends BaseAction {
    * Entrenchment change.
    */
   en?: number;
+  /**
+   * Routing at a safe distance change.
+   */
+  rs?: boolean;
 }
 
 /**
