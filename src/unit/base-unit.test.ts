@@ -51,6 +51,7 @@ describe("BaseUnit", () => {
     cannotChangeFormation = false;
     cannotCharge = false;
     reorgDebuff = 0;
+    routingAtSafeDistance = false;
 
     getPolygon() {
       return 0 as unknown as Polygon;
