@@ -596,6 +596,10 @@
   "submittingOrders": "命令を送信しています...",
   "checkingUpdates": "更新を確認しています...",
   "lobby": {
+    "seats": "座席",
+    "visibility": "公開設定",
+    "private": "非公開",
+    "public": "公開",
     "autoStartCountdown": "{{countdown}}で自動開始",
     "joinTeam": "チーム{{team}}に参加 ({{count}}/{{capacity}})",
     "teamLocked": "少ない方のチームを選んでください",

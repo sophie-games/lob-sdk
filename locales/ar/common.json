@@ -592,6 +592,10 @@
     "message": "هل أنت متأكد من أنك تريد مغادرة <0>{{clanName}}</0>؟"
   },
   "lobby": {
+    "seats": "المقاعد",
+    "visibility": "الظهور",
+    "private": "خاصة",
+    "public": "عامة",
     "autoStartCountdown": "البدء التلقائي خلال {{countdown}}",
     "joinTeam": "انضم إلى الفريق {{team}} ({{count}}/{{capacity}})",
     "teamLocked": "اختر الفريق الأصغر",
