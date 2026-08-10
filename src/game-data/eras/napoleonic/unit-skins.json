@@ -171,6 +171,9 @@
       },
       "line": {
         "overlay": "austrian-chasseurs-line"
+      },
+      "square": {
+        "overlay": "austrian-chasseurs-square"
       }
     },
     "discount": 0.2
@@ -294,6 +297,9 @@
       },
       "line": {
         "overlay": "french-italian-legion-line"
+      },
+      "square": {
+        "overlay": "french-italian-legion-square"
       }
     },
     "discount": 0.2
@@ -310,6 +316,9 @@
       },
       "line": {
         "overlay": "french-irish-legion-line"
+      },
+      "square": {
+        "overlay": "french-irish-legion-square"
       }
     },
     "discount": 0.2
@@ -326,6 +335,9 @@
       },
       "line": {
         "overlay": "french-swiss-legion-line"
+      },
+      "square": {
+        "overlay": "french-swiss-legion-square"
       }
     },
     "discount": 0.2
@@ -342,6 +354,9 @@
       },
       "line": {
         "overlay": "french-polish-legion-line"
+      },
+      "square": {
+        "overlay": "french-polish-legion-square"
       }
     },
     "discount": 0.2
@@ -358,6 +373,9 @@
       },
       "line": {
         "overlay": "austrian-czech-infanterie-line"
+      },
+      "square": {
+        "overlay": "austrian-czech-infanterie-square"
       }
     },
     "discount": 0.2
@@ -374,6 +392,9 @@
       },
       "line": {
         "overlay": "austrian-hungarian-infanterie-line"
+      },
+      "square": {
+        "overlay": "austrian-hungarian-infanterie-square"
       }
     },
     "discount": 0.2
@@ -406,6 +427,9 @@
       },
       "line": {
         "overlay": "austrian-galician-infanterie-line"
+      },
+      "square": {
+        "overlay": "austrian-galician-infanterie-square"
       }
     },
     "discount": 0.2
@@ -422,6 +446,9 @@
       },
       "line": {
         "overlay": "austrian-moravian-infanterie-line"
+      },
+      "square": {
+        "overlay": "austrian-moravian-infanterie-square"
       }
     },
     "discount": 0.2
@@ -862,6 +889,9 @@
       },
       "line": {
         "overlay": "russian-preobrazhenskiy-line"
+      },
+      "square": {
+        "overlay": "russian-preobrazhenskiy-square"
       }
     },
     "discount": 0.2
@@ -878,6 +908,9 @@
       },
       "line": {
         "overlay": "russian-lifeguards-line"
+      },
+      "square": {
+        "overlay": "russian-lifeguards-square"
       }
     },
     "discount": 0.2
@@ -920,6 +953,9 @@
       },
       "line": {
         "overlay": "russian-35th-jagers-line"
+      },
+      "square": {
+        "overlay": "russian-35th-jagers-square"
       }
     },
     "discount": 0.2
@@ -936,6 +972,9 @@
       },
       "line": {
         "overlay": "russian-finland-lifeguards-line"
+      },
+      "square": {
+        "overlay": "russian-finland-lifeguards-square"
       }
     },
     "discount": 0.2
@@ -952,6 +991,9 @@
       },
       "line": {
         "overlay": "russian-nevskiy-musketeers-line"
+      },
+      "square": {
+        "overlay": "russian-nevskiy-musketeers-square"
       }
     },
     "discount": 0.2
@@ -968,6 +1010,9 @@
       },
       "line": {
         "overlay": "russian-novgorod-musketeers-line"
+      },
+      "square": {
+        "overlay": "russian-novgorod-musketeers-square"
       }
     },
     "discount": 0.2
@@ -984,6 +1029,9 @@
       },
       "line": {
         "overlay": "russian-siberian-infantry-line"
+      },
+      "square": {
+        "overlay": "russian-siberian-infantry-square"
       }
     },
     "discount": 0.2
@@ -1373,6 +1421,9 @@
     "premiumPrice": 150,
     "unitType": 10,
     "formations": {
+      "column": {
+        "overlay": "french-marie-louise-column"
+      },
       "line": {
         "overlay": "french-marie-louise-line"
       }
@@ -1386,6 +1437,9 @@
     "premiumPrice": 150,
     "unitType": 10,
     "formations": {
+      "column": {
+        "overlay": "french-national-guard-column"
+      },
       "line": {
         "overlay": "french-national-guard-line"
       }
@@ -2157,6 +2211,9 @@
     "premiumPrice": 50,
     "unitType": 10,
     "formations": {
+      "column": {
+        "overlay": "silver-militia-column"
+      },
       "line": {
         "overlay": "silver-militia-line"
       }
@@ -2286,6 +2343,9 @@
     "unitType": 10,
     "attackColor": "FFD700",
     "formations": {
+      "column": {
+        "overlay": "gold-militia-column"
+      },
       "line": {
         "overlay": "gold-militia-line"
       }
@@ -2602,6 +2662,9 @@
     "premiumPrice": 25,
     "unitType": 10,
     "formations": {
+      "column": {
+        "overlay": "bronze-militia-column"
+      },
       "line": {
         "overlay": "bronze-militia-line"
       }
@@ -2628,6 +2691,9 @@
     "premiumPrice": 150,
     "unitType": 10,
     "formations": {
+      "column": {
+        "overlay": "serbian-revolutionary-militia-column"
+      },
       "line": {
         "overlay": "serbian-revolutionary-militia-line"
       }
@@ -3336,6 +3402,35 @@
     "formations": {
       "artillery": {
         "overlay": "gold-6lb-artillery"
+      }
+    },
+    "discount": 0.2
+  },
+  {
+    "id": 223,
+    "name": "austrian-silesian-infanterie",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 1,
+    "formations": {
+      "column": {
+        "overlay": "austrian-silesian-infanterie-column"
+      },
+      "square": {
+        "overlay": "austrian-silesian-infanterie-square"
+      }
+    },
+    "discount": 0.2
+  },
+  {
+    "id": 224,
+    "name": "austrian-militia",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 10,
+    "formations": {
+      "column": {
+        "overlay": "austrian-militia-column"
       }
     },
     "discount": 0.2
