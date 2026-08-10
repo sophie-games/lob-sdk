@@ -609,8 +609,8 @@
     "formations": [
       {
         "id": "column",
-        "baseSprite": "militia",
-        "overlaySprite": "militia",
+        "baseSprite": "militia-column",
+        "overlaySprite": "militia-column",
         "changeAnimations": {
           "line": "column-line",
           "square": "column-square"
