@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Identidade",
+    "placement": "Posicionamento",
+    "condition": "Condição",
+    "value": "Valor"
+  },
   "common": {
     "add": "Adicionar",
     "addEntry": "Adicionar entrada",
@@ -70,23 +76,34 @@
     "noInherentAmmoHelp": "Quando ativado, as unidades com munição surgem sem munição própria e retiram todo o seu suprimento da reserva compartilhada, por isso não podem atirar no primeiro turno e só abrem fogo quando a reserva as reabastece.",
     "showGrid": "Mostrar grade",
     "showUnits": "Mostrar unidades",
-    "hideUnits": "Ocultar unidades",
     "showObjectives": "Mostrar objetivos",
-    "hideObjectives": "Ocultar objetivos",
     "goBack": "Voltar",
-    "goBackConfirm": "Tem certeza de que deseja voltar e sair do editor?"
+    "goBackConfirm": "Tem certeza de que deseja voltar e sair do editor?",
+    "display": "Exibição",
+    "scenarioBands": {
+      "about": "Geral",
+      "forces": "Forças",
+      "rules": "Regras",
+      "presentation": "Apresentação"
+    }
   },
   "createScenario": {
     "randomMap": "Mapa aleatório (procedural)?",
     "isHybrid": "É Híbrido?"
   },
   "playersPanel": {
-    "removePlayer": "Remover jogador"
+    "removePlayer": "Remover jogador",
+    "ammoReserve": "Reserva",
+    "ammoBase": "Base"
   },
   "terrainPanel": {
-    "setTerrain": "Definir terreno",
-    "terrainHeight": "Altura do terreno",
-    "paintBucket": "Balde de tinta"
+    "brush": "Pincel",
+    "shape": "Forma",
+    "height": "Altura",
+    "elevation": "Elevação",
+    "keepHeight": "Manter a altura existente",
+    "paintBucket": "Balde de tinta",
+    "none": "Nenhum"
   },
   "unitPanel": {
     "title": "Unidade Selecionada",
@@ -99,7 +116,7 @@
   },
   "createUnit": {
     "title": "Criar Unidade",
-    "usingCopiedUnits": "Usando unidades copiadas",
+    "placingCopied": "Colocando unidades copiadas ({{count}}). Clique no mapa para posicioná-las.",
     "customLabel": "{{name}} (personalizado)"
   },
   "objectivePanel": {
@@ -732,7 +749,7 @@
     }
   },
   "scoring": {
-    "heading": "Pesos de VP (substituição do cenário)",
+    "heading": "Pesos de VP",
     "hint": "Deixe um campo vazio para herdar o padrão do tipo de batalha ou da era.",
     "basePoints": "Peso base",
     "casualties": "Peso de baixas",
@@ -750,7 +767,7 @@
     "tieBreakInfo": "No turno final, uma equipe que estiver atrás em VP por mais do que isto é considerada derrotada."
   },
   "objectiveZones": {
-    "heading": "Zonas de objetivos (substituição do cenário)",
+    "heading": "Zonas de objetivos",
     "hint": "O quanto reduzir as zonas de objetivos posicionáveis. Deixe um campo vazio para herdar o padrão do tipo de batalha ou da era.",
     "smallInset": "Corte da zona de objetivos pequenos",
     "bigInset": "Corte da zona de objetivos grandes",

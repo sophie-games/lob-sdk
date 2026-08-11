@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Identity",
+    "placement": "Placement",
+    "condition": "Condition",
+    "value": "Value"
+  },
   "common": {
     "add": "Add",
     "addEntry": "Add entry",
@@ -52,6 +58,12 @@
       "terrain": "Terrain",
       "global": "Global"
     },
+    "scenarioBands": {
+      "about": "About",
+      "forces": "Forces",
+      "rules": "Rules",
+      "presentation": "Presentation"
+    },
     "restingHint": "Click a piece to inspect it, or pick a tool to start painting.",
     "togglePanel": "Toggle panel",
     "downloadScenario": "Download scenario",
@@ -71,23 +83,29 @@
     "noInherentAmmoHelp": "When enabled, units with an ammo system spawn with no ammo of their own and draw their whole supply from the shared reserve, so they can't fire on the first turn and only open up once the reserve resupplies them.",
     "showGrid": "Show grid",
     "showUnits": "Show units",
-    "hideUnits": "Hide units",
     "showObjectives": "Show objectives",
-    "hideObjectives": "Hide objectives",
     "goBack": "Go back",
-    "goBackConfirm": "Are you sure you want to go back and exit the editor?"
+    "goBackConfirm": "Are you sure you want to go back and exit the editor?",
+    "display": "Display"
   },
   "createScenario": {
     "randomMap": "Random (procedural) map?",
     "isHybrid": "Is Hybrid?"
   },
   "playersPanel": {
-    "removePlayer": "Remove player"
+    "removePlayer": "Remove player",
+    "ammoReserve": "Reserve",
+    "ammoBase": "Base",
+    "ammoHelp": "Ammunition for this player's army: the reserve it spends over the battle and the base amount it resupplies toward."
   },
   "terrainPanel": {
-    "setTerrain": "Set terrain",
-    "terrainHeight": "Terrain height",
-    "paintBucket": "Paint Bucket"
+    "brush": "Brush",
+    "shape": "Shape",
+    "height": "Height",
+    "elevation": "Elevation",
+    "keepHeight": "Keep existing height",
+    "paintBucket": "Paint Bucket",
+    "none": "None"
   },
   "unitPanel": {
     "title": "Selected Unit",
@@ -100,7 +118,7 @@
   },
   "createUnit": {
     "title": "Create Unit",
-    "usingCopiedUnits": "Using copied units",
+    "placingCopied": "Placing copied units ({{count}}). Click the map to place them.",
     "customLabel": "{{name}} (custom)"
   },
   "objectivePanel": {
@@ -733,7 +751,7 @@
     }
   },
   "scoring": {
-    "heading": "VP weights (scenario override)",
+    "heading": "VP weights",
     "hint": "Leave a field empty to inherit the battle-type or era default.",
     "basePoints": "Base points weight",
     "casualties": "Casualties weight",
@@ -751,7 +769,7 @@
     "tieBreakInfo": "On the final turn, a team trailing on VP by more than this is treated as defeated."
   },
   "objectiveZones": {
-    "heading": "Objective zones (scenario override)",
+    "heading": "Objective zones",
     "hint": "How much to shrink the placeable-objective zones. Leave a field empty to inherit the battle-type or era default.",
     "smallInset": "Small-objective zone trim",
     "bigInset": "Big-objective zone trim",

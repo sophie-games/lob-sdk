@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "識別",
+    "placement": "配置",
+    "condition": "状態",
+    "value": "価値"
+  },
   "common": {
     "add": "追加",
     "addEntry": "項目を追加",
@@ -70,23 +76,34 @@
     "noInherentAmmoHelp": "有効にすると、弾薬を持つユニットは自前の弾薬なしで出現し、すべての補給を共有リザーブから得ます。そのため最初のターンには射撃できず、リザーブから補給された後にのみ射撃を開始します。",
     "showGrid": "グリッドを表示",
     "showUnits": "ユニットを表示",
-    "hideUnits": "ユニットを非表示",
     "showObjectives": "目標を表示",
-    "hideObjectives": "目標を非表示",
     "goBack": "戻る",
-    "goBackConfirm": "戻ってエディターを終了してもよろしいですか？"
+    "goBackConfirm": "戻ってエディターを終了してもよろしいですか？",
+    "display": "表示",
+    "scenarioBands": {
+      "about": "概要",
+      "forces": "兵力",
+      "rules": "ルール",
+      "presentation": "表示"
+    }
   },
   "createScenario": {
     "randomMap": "ランダム（自動生成）マップ？",
     "isHybrid": "ハイブリッド？"
   },
   "playersPanel": {
-    "removePlayer": "プレイヤーを削除"
+    "removePlayer": "プレイヤーを削除",
+    "ammoReserve": "予備",
+    "ammoBase": "基本"
   },
   "terrainPanel": {
-    "setTerrain": "地形を設定",
-    "terrainHeight": "地形の高さ",
-    "paintBucket": "塗りつぶし"
+    "brush": "ブラシ",
+    "shape": "形状",
+    "height": "高さ",
+    "elevation": "標高",
+    "keepHeight": "既存の高さを保持",
+    "paintBucket": "塗りつぶし",
+    "none": "なし"
   },
   "unitPanel": {
     "title": "選択中のユニット",
@@ -99,7 +116,7 @@
   },
   "createUnit": {
     "title": "ユニットを作成",
-    "usingCopiedUnits": "コピーしたユニットを使用中",
+    "placingCopied": "コピーしたユニットを配置中（{{count}}）。マップをクリックして配置します。",
     "customLabel": "{{name}}（カスタム）"
   },
   "objectivePanel": {
@@ -731,7 +748,7 @@
     }
   },
   "scoring": {
-    "heading": "VP配分（シナリオ上書き）",
+    "heading": "VP配分",
     "hint": "空欄にすると戦闘タイプまたは時代の既定値を継承します。",
     "basePoints": "基本の重み",
     "casualties": "損失の重み",
@@ -749,7 +766,7 @@
     "tieBreakInfo": "最終ターンに、VPでこの差を超えて劣勢のチームは敗北とみなされます。"
   },
   "objectiveZones": {
-    "heading": "目標ゾーン（シナリオ上書き）",
+    "heading": "目標ゾーン",
     "hint": "配置可能な目標ゾーンをどれだけ縮小するか。空欄にすると戦闘タイプまたは時代の既定値を継承します。",
     "smallInset": "小目標ゾーンのトリミング",
     "bigInset": "大目標ゾーンのトリミング",

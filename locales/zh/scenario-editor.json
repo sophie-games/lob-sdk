@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "身份",
+    "placement": "布置",
+    "condition": "状态",
+    "value": "价值"
+  },
   "common": {
     "add": "添加",
     "addEntry": "添加条目",
@@ -70,23 +76,34 @@
     "noInherentAmmoHelp": "启用后，拥有弹药系统的单位出场时自身没有弹药，全部补给来自共享储备，因此第一回合无法开火，只有在储备为其补给后才能开火。",
     "showGrid": "显示网格",
     "showUnits": "显示单位",
-    "hideUnits": "隐藏单位",
     "showObjectives": "显示目标点",
-    "hideObjectives": "隐藏目标点",
     "goBack": "返回",
-    "goBackConfirm": "确定要返回并退出编辑器吗？"
+    "goBackConfirm": "确定要返回并退出编辑器吗？",
+    "display": "显示",
+    "scenarioBands": {
+      "about": "概览",
+      "forces": "兵力",
+      "rules": "规则",
+      "presentation": "呈现"
+    }
   },
   "createScenario": {
     "randomMap": "随机（程序生成）地图？",
     "isHybrid": "是否为混合？"
   },
   "playersPanel": {
-    "removePlayer": "移除玩家"
+    "removePlayer": "移除玩家",
+    "ammoReserve": "预备",
+    "ammoBase": "基础"
   },
   "terrainPanel": {
-    "setTerrain": "设置地形",
-    "terrainHeight": "地形高度",
-    "paintBucket": "油漆桶"
+    "brush": "画笔",
+    "shape": "形状",
+    "height": "高度",
+    "elevation": "海拔",
+    "keepHeight": "保留现有高度",
+    "paintBucket": "油漆桶",
+    "none": "无"
   },
   "unitPanel": {
     "title": "已选单位",
@@ -99,7 +116,7 @@
   },
   "createUnit": {
     "title": "创建单位",
-    "usingCopiedUnits": "使用已复制的单位",
+    "placingCopied": "正在放置已复制的单位（{{count}}）。点击地图进行放置。",
     "customLabel": "{{name}}（自定义）"
   },
   "objectivePanel": {
@@ -731,7 +748,7 @@
     }
   },
   "scoring": {
-    "heading": "胜利点权重（场景覆盖）",
+    "heading": "胜利点权重",
     "hint": "留空以继承战斗类型或时代的默认值。",
     "basePoints": "基础权重",
     "casualties": "伤亡权重",
@@ -749,7 +766,7 @@
     "tieBreakInfo": "在最后一回合，胜利点落后超过此差值的队伍将被判定为战败。"
   },
   "objectiveZones": {
-    "heading": "目标区域（场景覆盖）",
+    "heading": "目标区域",
     "hint": "将可放置的目标区域缩小多少。留空以继承战斗类型或时代的默认值。",
     "smallInset": "小目标区域裁剪",
     "bigInset": "大目标区域裁剪",

@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Identità",
+    "placement": "Posizionamento",
+    "condition": "Condizione",
+    "value": "Valore"
+  },
   "common": {
     "add": "Aggiungi",
     "addEntry": "Aggiungi voce",
@@ -70,23 +76,34 @@
     "noInherentAmmoHelp": "Quando attivo, le unità con munizioni compaiono senza munizioni proprie e attingono l'intera scorta dalla riserva condivisa, quindi non possono sparare al primo turno e aprono il fuoco solo quando la riserva le rifornisce.",
     "showGrid": "Mostra griglia",
     "showUnits": "Mostra unità",
-    "hideUnits": "Nascondi unità",
     "showObjectives": "Mostra obiettivi",
-    "hideObjectives": "Nascondi obiettivi",
     "goBack": "Torna indietro",
-    "goBackConfirm": "Vuoi davvero tornare indietro e uscire dall'editor?"
+    "goBackConfirm": "Vuoi davvero tornare indietro e uscire dall'editor?",
+    "display": "Visualizzazione",
+    "scenarioBands": {
+      "about": "Generale",
+      "forces": "Forze",
+      "rules": "Regole",
+      "presentation": "Presentazione"
+    }
   },
   "createScenario": {
     "randomMap": "Mappa casuale (procedurale)?",
     "isHybrid": "È ibrida?"
   },
   "playersPanel": {
-    "removePlayer": "Rimuovi giocatore"
+    "removePlayer": "Rimuovi giocatore",
+    "ammoReserve": "Riserva",
+    "ammoBase": "Base"
   },
   "terrainPanel": {
-    "setTerrain": "Imposta terreno",
-    "terrainHeight": "Altezza terreno",
-    "paintBucket": "Secchiello"
+    "brush": "Pennello",
+    "shape": "Forma",
+    "height": "Altezza",
+    "elevation": "Elevazione",
+    "keepHeight": "Mantieni l'altezza esistente",
+    "paintBucket": "Secchiello",
+    "none": "Nessuno"
   },
   "unitPanel": {
     "title": "Unità selezionata",
@@ -99,7 +116,7 @@
   },
   "createUnit": {
     "title": "Crea unità",
-    "usingCopiedUnits": "Uso delle unità copiate",
+    "placingCopied": "Posizionamento delle unità copiate ({{count}}). Fai clic sulla mappa per posizionarle.",
     "customLabel": "{{name}} (personalizzata)"
   },
   "objectivePanel": {
@@ -732,7 +749,7 @@
     }
   },
   "scoring": {
-    "heading": "Pesi VP (override dello scenario)",
+    "heading": "Pesi VP",
     "hint": "Lascia un campo vuoto per ereditare il valore predefinito del tipo di battaglia o dell'era.",
     "basePoints": "Peso base",
     "casualties": "Peso delle perdite",
@@ -750,7 +767,7 @@
     "tieBreakInfo": "All'ultimo turno, una squadra in svantaggio di VP oltre questo margine è considerata sconfitta."
   },
   "objectiveZones": {
-    "heading": "Zone degli obiettivi (override dello scenario)",
+    "heading": "Zone degli obiettivi",
     "hint": "Di quanto ridurre le zone degli obiettivi posizionabili. Lascia un campo vuoto per ereditare il valore predefinito del tipo di battaglia o dell'era.",
     "smallInset": "Ritaglio della zona dei piccoli obiettivi",
     "bigInset": "Ritaglio della zona dei grandi obiettivi",

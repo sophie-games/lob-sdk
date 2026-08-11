@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Identité",
+    "placement": "Placement",
+    "condition": "État",
+    "value": "Valeur"
+  },
   "common": {
     "add": "Ajouter",
     "addEntry": "Ajouter une entrée",
@@ -70,23 +76,34 @@
     "noInherentAmmoHelp": "Lorsque activé, les unités disposant de munitions apparaissent sans munitions propres et puisent tout leur approvisionnement dans la réserve commune ; elles ne peuvent donc pas tirer au premier tour et n'ouvrent le feu qu'une fois réapprovisionnées par la réserve.",
     "showGrid": "Afficher la grille",
     "showUnits": "Afficher les unités",
-    "hideUnits": "Masquer les unités",
     "showObjectives": "Afficher les objectifs",
-    "hideObjectives": "Masquer les objectifs",
     "goBack": "Retour",
-    "goBackConfirm": "Êtes-vous sûr de vouloir revenir en arrière et quitter l'éditeur ?"
+    "goBackConfirm": "Êtes-vous sûr de vouloir revenir en arrière et quitter l'éditeur ?",
+    "display": "Affichage",
+    "scenarioBands": {
+      "about": "Général",
+      "forces": "Forces",
+      "rules": "Règles",
+      "presentation": "Présentation"
+    }
   },
   "createScenario": {
     "randomMap": "Carte aléatoire (procédurale) ?",
     "isHybrid": "Hybride ?"
   },
   "playersPanel": {
-    "removePlayer": "Retirer le joueur"
+    "removePlayer": "Retirer le joueur",
+    "ammoReserve": "Réserve",
+    "ammoBase": "Base"
   },
   "terrainPanel": {
-    "setTerrain": "Définir le terrain",
-    "terrainHeight": "Hauteur du terrain",
-    "paintBucket": "Pot de peinture"
+    "brush": "Pinceau",
+    "shape": "Forme",
+    "height": "Hauteur",
+    "elevation": "Élévation",
+    "keepHeight": "Conserver la hauteur existante",
+    "paintBucket": "Pot de peinture",
+    "none": "Aucun"
   },
   "unitPanel": {
     "title": "Unité sélectionnée",
@@ -99,7 +116,7 @@
   },
   "createUnit": {
     "title": "Créer une unité",
-    "usingCopiedUnits": "Utilisation des unités copiées",
+    "placingCopied": "Placement des unités copiées ({{count}}). Cliquez sur la carte pour les placer.",
     "customLabel": "{{name}} (personnalisé)"
   },
   "objectivePanel": {
@@ -732,7 +749,7 @@
     }
   },
   "scoring": {
-    "heading": "Poids des PV (remplacement du scénario)",
+    "heading": "Poids des PV",
     "hint": "Laissez un champ vide pour hériter de la valeur par défaut du type de bataille ou de l'ère.",
     "basePoints": "Poids de base",
     "casualties": "Poids des pertes",
@@ -750,7 +767,7 @@
     "tieBreakInfo": "Au dernier tour, une équipe en retard de plus que cette marge de PV est considérée comme vaincue."
   },
   "objectiveZones": {
-    "heading": "Zones d'objectifs (remplacement du scénario)",
+    "heading": "Zones d'objectifs",
     "hint": "De combien réduire les zones d'objectifs plaçables. Laissez un champ vide pour hériter de la valeur par défaut du type de bataille ou de l'ère.",
     "smallInset": "Rognage de la zone des petits objectifs",
     "bigInset": "Rognage de la zone des grands objectifs",

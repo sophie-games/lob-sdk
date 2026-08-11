@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Identität",
+    "placement": "Platzierung",
+    "condition": "Zustand",
+    "value": "Wert"
+  },
   "common": {
     "add": "Hinzufügen",
     "addEntry": "Eintrag hinzufügen",
@@ -70,23 +76,34 @@
     "noInherentAmmoHelp": "Wenn aktiviert, erscheinen Einheiten mit Munitionssystem ohne eigene Munition und beziehen ihren gesamten Nachschub aus der gemeinsamen Reserve. Sie können daher in der ersten Runde nicht feuern und eröffnen das Feuer erst, wenn die Reserve sie wieder auffüllt.",
     "showGrid": "Raster anzeigen",
     "showUnits": "Einheiten anzeigen",
-    "hideUnits": "Einheiten ausblenden",
     "showObjectives": "Ziele anzeigen",
-    "hideObjectives": "Ziele ausblenden",
     "goBack": "Zurück",
-    "goBackConfirm": "Möchtest du wirklich zurückgehen und den Editor verlassen?"
+    "goBackConfirm": "Möchtest du wirklich zurückgehen und den Editor verlassen?",
+    "display": "Anzeige",
+    "scenarioBands": {
+      "about": "Allgemein",
+      "forces": "Streitkräfte",
+      "rules": "Regeln",
+      "presentation": "Darstellung"
+    }
   },
   "createScenario": {
     "randomMap": "Zufällige (prozedurale) Karte?",
     "isHybrid": "Hybrid?"
   },
   "playersPanel": {
-    "removePlayer": "Spieler entfernen"
+    "removePlayer": "Spieler entfernen",
+    "ammoReserve": "Reserve",
+    "ammoBase": "Basis"
   },
   "terrainPanel": {
-    "setTerrain": "Gelände setzen",
-    "terrainHeight": "Geländehöhe",
-    "paintBucket": "Füllwerkzeug"
+    "brush": "Pinsel",
+    "shape": "Form",
+    "height": "Höhe",
+    "elevation": "Erhebung",
+    "keepHeight": "Vorhandene Höhe beibehalten",
+    "paintBucket": "Füllwerkzeug",
+    "none": "Keine"
   },
   "unitPanel": {
     "title": "Ausgewählte Einheit",
@@ -99,7 +116,7 @@
   },
   "createUnit": {
     "title": "Einheit erstellen",
-    "usingCopiedUnits": "Kopierte Einheiten werden verwendet",
+    "placingCopied": "Kopierte Einheiten platzieren ({{count}}). Auf die Karte klicken, um sie zu setzen.",
     "customLabel": "{{name}} (benutzerdefiniert)"
   },
   "objectivePanel": {
@@ -732,7 +749,7 @@
     }
   },
   "scoring": {
-    "heading": "VP-Gewichte (Szenario-Override)",
+    "heading": "VP-Gewichte",
     "hint": "Lassen Sie ein Feld leer, um den Standardwert des Kampftyps oder der Ära zu übernehmen.",
     "basePoints": "Basis-Gewichtung",
     "casualties": "Verlust-Gewichtung",
@@ -750,7 +767,7 @@
     "tieBreakInfo": "In der letzten Runde gilt ein Team, das mit mehr als diesem VP-Abstand zurückliegt, als besiegt."
   },
   "objectiveZones": {
-    "heading": "Objektivzonen (Szenario-Override)",
+    "heading": "Objektivzonen",
     "hint": "Wie stark die platzierbaren Objektivzonen verkleinert werden. Lassen Sie ein Feld leer, um den Standardwert des Kampftyps oder der Ära zu übernehmen.",
     "smallInset": "Beschnitt der Zone für kleine Objektive",
     "bigInset": "Beschnitt der Zone für große Objektive",
