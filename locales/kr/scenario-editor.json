@@ -43,6 +43,16 @@
       "triggers": "트리거",
       "advanced": "고급"
     },
+    "mode": {
+      "scenario": "전역",
+      "workshop": "워크숍"
+    },
+    "workshopBands": {
+      "units": "부대",
+      "terrain": "지형",
+      "global": "전역"
+    },
+    "restingHint": "조각을 클릭하여 확인하거나, 도구를 선택하여 그리기를 시작하세요.",
     "togglePanel": "패널 전환",
     "downloadScenario": "전역 내려받기",
     "copyScenario": "전역 복사",
@@ -414,7 +424,7 @@
       "duplicate": "복제"
     },
     "spritesPanel": {
-      "title": "사용자 지정 스프라이트",
+      "title": "부대 스프라이트",
       "description": "여기에 자신의 스프라이트를 업로드한 뒤 부대 진형에서 선택하세요. 전역에 포함됩니다(각 최대 {{kb}}KB).",
       "yourSprites": "내 스프라이트",
       "noSprites": "아직 사용자 지정 스프라이트가 없습니다.",
@@ -433,7 +443,7 @@
       "noMatches": "일치 항목 없음."
     },
     "unitTemplatesPanel": {
-      "title": "사용자 지정 부대 템플릿",
+      "title": "부대 템플릿",
       "description": "사용자 지정 능력치, 진형, 피해 유형으로 새 부대 템플릿을 정의합니다. 이 전역에서 기본 제공을 대체하려면(밸런스 테스트에 유용) \"재정의\"를, id가 {{minId}} 이상인 새 템플릿을 추가하려면 \"복제\"를 사용하세요.",
       "noTemplates": "아직 사용자 지정 부대 템플릿이 없습니다.",
       "templateLabel": "{{name}} (유형 {{type}})",
@@ -442,14 +452,14 @@
       "clonePickerTitle": "기본 제공 부대 템플릿 복제"
     },
     "formationsPanel": {
-      "title": "사용자 지정 부대 진형",
+      "title": "부대 진형",
       "description": "사용자 지정 부대가 사용할 수 있는 새 진형 템플릿(충돌, 수정치, 사격 규칙)을 정의합니다.",
       "noFormations": "아직 사용자 지정 진형이 없습니다.",
       "deleteBlocked": "\"{{id}}\" 을(를) 삭제할 수 없습니다. {{refs}}에서 아직 사용 중입니다. 해당 참조를 먼저 제거하세요.",
       "clonePickerTitle": "기본 제공 진형 복제"
     },
     "unitCategoriesPanel": {
-      "title": "사용자 지정 부대 유형",
+      "title": "부대 유형",
       "description": "새 부대 유형(충돌 수준, 배치 구획, 허용 명령, 궤멸 중 행동)을 정의합니다. 사용자 지정 부대가 유형 필드를 통해 참조합니다.",
       "noCategories": "아직 사용자 지정 부대 유형이 없습니다.",
       "deleteBlocked": "\"{{id}}\" 을(를) 삭제할 수 없습니다. {{refs}}에서 아직 사용 중입니다. 해당 참조를 먼저 제거하세요.",
@@ -457,7 +467,7 @@
       "clonePickerTitle": "기본 제공 부대 유형 복제"
     },
     "damageTypesPanel": {
-      "title": "사용자 지정 피해 유형",
+      "title": "피해 유형",
       "description": "새 근접 또는 사격 피해 유형을 정의합니다. 사용자 지정 부대가 meleeDamageType 또는 rangedDamageTypes를 통해 참조합니다.",
       "noDamageTypes": "아직 사용자 지정 피해 유형이 없습니다.",
       "ranged": "사격",
@@ -469,7 +479,7 @@
       "clonePickerTitle": "기본 제공 피해 유형 복제"
     },
     "terrainCategoriesPanel": {
-      "title": "사용자 지정 지형 유형",
+      "title": "지형 유형",
       "description": "이 전역의 지형 유형 설정을 재정의합니다. 사용자 지정 부대 유형에 특정 지형 수정치를 부여하거나 새 지형 유형 id를 도입하는 데 사용하세요.",
       "noOverrides": "아직 사용자 지정 지형 유형 재정의가 없습니다.",
       "addTerrainCategory": "지형 유형 추가",
@@ -523,15 +533,15 @@
       "resultSummary": "가져옴: {{fields}}."
     },
     "gameConstants": {
-      "title": "게임 상수 재정의",
+      "title": "게임 상수",
       "description": "이 전역에 대해 시대의 숫자 상수를 재정의합니다. 변경된 값만 저장됩니다. 초기화하면 필드가 시대 기본값으로 돌아갑니다. ⚠ 로 표시된 키는 구조적이며, 변경하면 렌더링, 리플레이 또는 경기 탐색이 손상될 수 있습니다. 값은 가공되지 않은 내부 단위입니다."
     },
     "gameRules": {
-      "title": "게임 규칙 재정의",
+      "title": "게임 규칙",
       "description": "이 전역에 대해 시대의 게임플레이 규칙을 재정의합니다. 변경된 값만 저장됩니다. 필드를 시대 기본값으로 되돌리려면 초기화를 사용하세요. 값은 가공되지 않은 내부 단위입니다(일부 능력치는 사전 스케일링되어 저장됩니다)."
     },
     "ordersPanel": {
-      "title": "명령 재정의",
+      "title": "명령",
       "description": "이 전역에 대해 시대의 기본 제공 명령 값을 재정의합니다. 변경된 값만 저장됩니다. 필드를 시대 기본값으로 되돌리려면 초기화를 사용하세요. 기존 명령은 수정할 수 있지만 새 명령은 추가할 수 없습니다."
     },
     "clonePicker": {
@@ -559,7 +569,7 @@
       "moveDown": "아래로 이동"
     },
     "customArmyCompositions": {
-      "title": "사용자 지정 편제",
+      "title": "편제",
       "betaNotice": "시나리오의 사용자 지정 편제 옵션은 베타 기능입니다. 버그가 있으면 공식 Discord 서버에 신고해 주세요.",
       "disableEraUnits": "시대 기본 부대 비활성화",
       "disableEraUnitsDescription": "이 전역만의 사용자 지정 부대만 운용합니다. 시대의 기본 부대는 군대 화면에서 숨겨지며 군대를 구성할 때 거부됩니다.",

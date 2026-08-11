@@ -43,6 +43,16 @@
       "triggers": "Triggerek",
       "advanced": "Speciális"
     },
+    "mode": {
+      "scenario": "Pálya",
+      "workshop": "Workshop"
+    },
+    "workshopBands": {
+      "units": "Egységek",
+      "terrain": "Terep",
+      "global": "Globális"
+    },
+    "restingHint": "Kattints egy elemre a megvizsgálásához, vagy válassz egy eszközt a festés megkezdéséhez.",
     "togglePanel": "Panel be/ki",
     "downloadScenario": "Pálya letöltése",
     "copyScenario": "Pálya másolása",
@@ -414,7 +424,7 @@
       "duplicate": "Duplikálás"
     },
     "spritesPanel": {
-      "title": "Egyéni sprite-ok",
+      "title": "Egység-sprite-ok",
       "description": "Töltsd fel ide a saját sprite-jaidat, majd válaszd ki őket egy egység formációiban. A pályába vannak beágyazva (egyenként max. {{kb}}KB).",
       "yourSprites": "A te sprite-jaid",
       "noSprites": "Még nincsenek egyéni sprite-ok.",
@@ -433,7 +443,7 @@
       "noMatches": "Nincs találat."
     },
     "unitTemplatesPanel": {
-      "title": "Egyéni egységsablonok",
+      "title": "Egységsablonok",
       "description": "Definiálj új egységsablonokat egyéni statisztikákkal, formációkkal és sebzéstípusokkal. A \"Felülbírálás\" egy beépítettet cserél le erre a pályára (hasznos balansz-teszteléshez), a \"Klónozás\" pedig új sablont ad >= {{minId}} id-val.",
       "noTemplates": "Még nincsenek egyéni egységsablonok.",
       "templateLabel": "{{name}} ({{type}}. típus)",
@@ -442,14 +452,14 @@
       "clonePickerTitle": "Beépített egységsablon klónozása"
     },
     "formationsPanel": {
-      "title": "Egyéni egységformációk",
+      "title": "Egységformációk",
       "description": "Definiálj új formációsablonokat (ütközés, módosítók, tüzelési szabályok), amelyeket az egyéni egységek használhatnak.",
       "noFormations": "Még nincsenek egyéni formációk.",
       "deleteBlocked": "A(z) \"{{id}}\" nem törölhető - még használja: {{refs}}. Előbb távolítsd el azokat a hivatkozásokat.",
       "clonePickerTitle": "Beépített formáció klónozása"
     },
     "unitCategoriesPanel": {
-      "title": "Egyéni egységkategóriák",
+      "title": "Egységkategóriák",
       "description": "Definiálj új egységkategóriákat (ütközési szintek, felállítási szakasz, engedélyezett parancsok, megfutamodási viselkedés). Az egyéni egységek a category mezőjükön keresztül hivatkoznak rájuk.",
       "noCategories": "Még nincsenek egyéni egységkategóriák.",
       "deleteBlocked": "A(z) \"{{id}}\" nem törölhető - még használja: {{refs}}. Előbb távolítsd el azokat a hivatkozásokat.",
@@ -457,7 +467,7 @@
       "clonePickerTitle": "Beépített egységkategória klónozása"
     },
     "damageTypesPanel": {
-      "title": "Egyéni sebzéstípusok",
+      "title": "Sebzéstípusok",
       "description": "Definiálj új közelharci vagy távolsági sebzéstípusokat. Az egyéni egységek a meleeDamageType vagy a rangedDamageTypes mezőn keresztül hivatkoznak rájuk.",
       "noDamageTypes": "Még nincsenek egyéni sebzéstípusok.",
       "ranged": "távolsági",
@@ -469,7 +479,7 @@
       "clonePickerTitle": "Beépített sebzéstípus klónozása"
     },
     "terrainCategoriesPanel": {
-      "title": "Egyéni terepkategóriák",
+      "title": "Terepkategóriák",
       "description": "Bírld felül a terepkategória-beállításokat erre a pályára. Ezzel adhatsz az egyéni egységkategóriáknak specifikus terepmódosítókat, vagy vezethetsz be új terepkategória-id-kat.",
       "noOverrides": "Még nincsenek egyéni terepkategória-felülbírálások.",
       "addTerrainCategory": "Terepkategória hozzáadása",
@@ -524,15 +534,15 @@
       "resultSummary": "Importálva: {{fields}}."
     },
     "gameConstants": {
-      "title": "Játékkonstans-felülbírálások",
+      "title": "Játékkonstansok",
       "description": "Bírld felül a korszak numerikus konstansait erre a pályára. Csak a módosított értékek mentődnek; a Visszaállítás a korszak alapértékére állítja a mezőt. A ⚠ jelzéssel ellátott kulcsok szerkezetiek - a módosításuk elronthatja a megjelenítést, a visszajátszásokat vagy a meccskeresést. Az értékek nyers belső egységek."
     },
     "gameRules": {
-      "title": "Játékszabály-felülbírálások",
+      "title": "Játékszabályok",
       "description": "Bírld felül a korszak játékmenet-szabályait erre a pályára. Csak a módosított értékek mentődnek; a Visszaállítással a korszak alapértékére állíthatod a mezőt. Az értékek nyers belső egységek (egyes statisztikák előre skálázva tárolódnak)."
     },
     "ordersPanel": {
-      "title": "Parancs-felülbírálások",
+      "title": "Parancsok",
       "description": "Bírld felül a korszak beépített parancsainak értékeit erre a pályára. Csak a módosított értékek mentődnek; a Visszaállítással a korszak alapértékére állíthatod a mezőt. A meglévő parancsokat módosíthatod, de újakat nem adhatsz hozzá."
     },
     "clonePicker": {
@@ -560,7 +570,7 @@
       "moveDown": "Mozgatás lefelé"
     },
     "customArmyCompositions": {
-      "title": "Egyéni seregösszetételek",
+      "title": "Seregösszetételek",
       "betaNotice": "A forgatókönyvekhez tartozó egyéni seregösszetétel-beállítások béta funkció; kérjük, jelentsd a hibákat a hivatalos Discord szerveren.",
       "disableEraUnits": "Korszak alapértelmezett egységeinek letiltása",
       "disableEraUnitsDescription": "Csak a pálya saját egyéni egységeit lehet felállítani. A korszak alapértelmezett egységei rejtve vannak a sereg képernyőn, és elutasításra kerülnek sereg építésekor.",

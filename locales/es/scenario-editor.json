@@ -43,6 +43,16 @@
       "triggers": "Disparadores",
       "advanced": "Avanzado"
     },
+    "mode": {
+      "scenario": "Escenario",
+      "workshop": "Workshop"
+    },
+    "workshopBands": {
+      "units": "Unidades",
+      "terrain": "Terreno",
+      "global": "Global"
+    },
+    "restingHint": "Haz clic en una pieza para inspeccionarla, o elige una herramienta para empezar a pintar.",
     "togglePanel": "Alternar panel",
     "downloadScenario": "Descargar escenario",
     "copyScenario": "Copiar escenario",
@@ -414,7 +424,7 @@
       "duplicate": "Duplicar"
     },
     "spritesPanel": {
-      "title": "Sprites personalizados",
+      "title": "Sprites de unidades",
       "description": "Sube tus propios sprites aquí y luego elígelos en las formaciones de una unidad. Quedan incrustados en el escenario (máx. {{kb}}KB cada uno).",
       "yourSprites": "Tus sprites",
       "noSprites": "Aún no hay sprites personalizados.",
@@ -433,7 +443,7 @@
       "noMatches": "Sin coincidencias."
     },
     "unitTemplatesPanel": {
-      "title": "Plantillas de unidad personalizadas",
+      "title": "Plantillas de unidad",
       "description": "Define nuevas plantillas de unidad con estadísticas, formaciones y tipos de daño personalizados. Usa \"Sobrescribir\" para reemplazar una integrada en este escenario (útil para pruebas de balance) o \"Clonar\" para agregar una plantilla nueva con id >= {{minId}}.",
       "noTemplates": "Aún no hay plantillas de unidad personalizadas.",
       "templateLabel": "{{name}} (tipo {{type}})",
@@ -442,14 +452,14 @@
       "clonePickerTitle": "Clonar una plantilla de unidad integrada"
     },
     "formationsPanel": {
-      "title": "Formaciones de unidad personalizadas",
+      "title": "Formaciones de unidad",
       "description": "Define nuevas plantillas de formación (colisión, modificadores, reglas de disparo) que las unidades personalizadas puedan usar.",
       "noFormations": "Aún no hay formaciones personalizadas.",
       "deleteBlocked": "No se puede eliminar \"{{id}}\" - aún la usan {{refs}}. Quita esas referencias primero.",
       "clonePickerTitle": "Clonar una formación integrada"
     },
     "unitCategoriesPanel": {
-      "title": "Categorías de unidad personalizadas",
+      "title": "Categorías de unidad",
       "description": "Define nuevas categorías de unidad (niveles de colisión, sección de despliegue, órdenes permitidas, comportamiento de huida). Referenciadas por las unidades personalizadas mediante su campo de categoría.",
       "noCategories": "Aún no hay categorías de unidad personalizadas.",
       "deleteBlocked": "No se puede eliminar \"{{id}}\" - aún la usan {{refs}}. Quita esas referencias primero.",
@@ -457,7 +467,7 @@
       "clonePickerTitle": "Clonar una categoría de unidad integrada"
     },
     "damageTypesPanel": {
-      "title": "Tipos de daño personalizados",
+      "title": "Tipos de daño",
       "description": "Define nuevos tipos de daño cuerpo a cuerpo o a distancia. Referenciados por las unidades personalizadas mediante meleeDamageType o rangedDamageTypes.",
       "noDamageTypes": "Aún no hay tipos de daño personalizados.",
       "ranged": "a distancia",
@@ -469,7 +479,7 @@
       "clonePickerTitle": "Clonar un tipo de daño integrado"
     },
     "terrainCategoriesPanel": {
-      "title": "Categorías de terreno personalizadas",
+      "title": "Categorías de terreno",
       "description": "Sobrescribe las configuraciones de categoría de terreno para este escenario. Úsalo para dar a las categorías de unidad personalizadas modificadores de terreno específicos, o para introducir nuevos ids de categoría de terreno.",
       "noOverrides": "Aún no hay sobrescrituras de categoría de terreno personalizadas.",
       "addTerrainCategory": "Agregar categoría de terreno",
@@ -524,15 +534,15 @@
       "resultSummary": "Importado: {{fields}}."
     },
     "gameConstants": {
-      "title": "Sobrescrituras de constantes del juego",
+      "title": "Constantes del juego",
       "description": "Sobrescribe las constantes numéricas de esta era para este escenario. Solo se guardan los valores cambiados; Restablecer devuelve un campo al valor por defecto de la era. Las claves marcadas con ⚠ son estructurales - cambiarlas puede romper el renderizado, las repeticiones o el emparejamiento. Los valores están en unidades internas en bruto."
     },
     "gameRules": {
-      "title": "Sobrescrituras de reglas del juego",
+      "title": "Reglas del juego",
       "description": "Sobrescribe las reglas de juego de esta era para este escenario. Solo se guardan los valores cambiados; usa Restablecer para devolver un campo al valor por defecto de la era. Los valores están en unidades internas en bruto (algunas estadísticas se almacenan preescaladas)."
     },
     "ordersPanel": {
-      "title": "Sobrescrituras de órdenes",
+      "title": "Órdenes",
       "description": "Sobrescribe los valores de las órdenes integradas de esta era para este escenario. Solo se guardan los valores cambiados; usa Restablecer para devolver un campo al valor por defecto de la era. Puedes modificar órdenes existentes pero no agregar nuevas."
     },
     "clonePicker": {
@@ -560,7 +570,7 @@
       "moveDown": "Bajar"
     },
     "customArmyCompositions": {
-      "title": "Composiciones de ejército personalizadas",
+      "title": "Composiciones de ejército",
       "betaNotice": "Las opciones de composiciones de ejército personalizadas para escenarios son una función beta; informa de cualquier error en el servidor de Discord oficial.",
       "disableEraUnits": "Desactivar unidades predeterminadas de la era",
       "disableEraUnitsDescription": "Usa solo las unidades personalizadas propias de este escenario. Las unidades predeterminadas de la era se ocultan de la pantalla de ejército y se rechazan al crear un ejército.",

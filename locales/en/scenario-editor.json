@@ -43,6 +43,16 @@
       "triggers": "Triggers",
       "advanced": "Advanced"
     },
+    "mode": {
+      "scenario": "Scenario",
+      "workshop": "Workshop"
+    },
+    "workshopBands": {
+      "units": "Units",
+      "terrain": "Terrain",
+      "global": "Global"
+    },
+    "restingHint": "Click a piece to inspect it, or pick a tool to start painting.",
     "togglePanel": "Toggle panel",
     "downloadScenario": "Download scenario",
     "copyScenario": "Copy scenario",
@@ -415,7 +425,7 @@
       "duplicate": "Duplicate"
     },
     "spritesPanel": {
-      "title": "Custom sprites",
+      "title": "Unit sprites",
       "description": "Upload your own sprites here, then pick them in a unit's formations. They are embedded in the scenario (max {{kb}}KB each).",
       "yourSprites": "Your sprites",
       "noSprites": "No custom sprites yet.",
@@ -434,7 +444,7 @@
       "noMatches": "No matches."
     },
     "unitTemplatesPanel": {
-      "title": "Custom unit templates",
+      "title": "Unit templates",
       "description": "Define new unit templates with custom stats, formations, and damage types. Use \"Override\" to replace a built-in for this scenario (useful for balance testing) or \"Clone\" to add a fresh template with id >= {{minId}}.",
       "noTemplates": "No custom unit templates yet.",
       "templateLabel": "{{name}} (type {{type}})",
@@ -443,14 +453,14 @@
       "clonePickerTitle": "Clone a built-in unit template"
     },
     "formationsPanel": {
-      "title": "Custom unit formations",
+      "title": "Unit formations",
       "description": "Define new formation templates (collision, modifiers, shooting rules) that custom units can use.",
       "noFormations": "No custom formations yet.",
       "deleteBlocked": "Can't delete \"{{id}}\" - still used by {{refs}}. Remove those references first.",
       "clonePickerTitle": "Clone a built-in formation"
     },
     "unitCategoriesPanel": {
-      "title": "Custom unit categories",
+      "title": "Unit categories",
       "description": "Define new unit categories (collision levels, deployment section, allowed orders, routing behavior). Referenced by custom units via their category field.",
       "noCategories": "No custom unit categories yet.",
       "deleteBlocked": "Can't delete \"{{id}}\" - still used by {{refs}}. Remove those references first.",
@@ -458,7 +468,7 @@
       "clonePickerTitle": "Clone a built-in unit category"
     },
     "damageTypesPanel": {
-      "title": "Custom damage types",
+      "title": "Damage types",
       "description": "Define new melee or ranged damage types. Referenced by custom units via meleeDamageType or rangedDamageTypes.",
       "noDamageTypes": "No custom damage types yet.",
       "ranged": "ranged",
@@ -470,7 +480,7 @@
       "clonePickerTitle": "Clone a built-in damage type"
     },
     "terrainCategoriesPanel": {
-      "title": "Custom terrain categories",
+      "title": "Terrain categories",
       "description": "Override terrain category configs for this scenario. Use this to give custom unit categories specific terrain modifiers, or to introduce new terrain category ids.",
       "noOverrides": "No custom terrain category overrides yet.",
       "addTerrainCategory": "Add terrain category",
@@ -525,15 +535,15 @@
       "resultSummary": "Imported: {{fields}}."
     },
     "gameConstants": {
-      "title": "Game constant overrides",
+      "title": "Game constants",
       "description": "Override this era's numeric constants for this scenario. Only changed values are saved; Reset returns a field to the era default. Keys marked ⚠ are structural - changing them can break rendering, replays, or matchmaking. Values are raw internal units."
     },
     "gameRules": {
-      "title": "Game rule overrides",
+      "title": "Game rules",
       "description": "Override this era's gameplay rules for this scenario. Only changed values are saved; use Reset to return a field to the era default. Values are raw internal units (some stats are stored pre-scaled)."
     },
     "ordersPanel": {
-      "title": "Order overrides",
+      "title": "Orders",
       "description": "Override the values of this era's built-in orders for this scenario. Only changed values are saved; use Reset to return a field to the era default. You can modify existing orders but not add new ones."
     },
     "clonePicker": {
@@ -561,7 +571,7 @@
       "moveDown": "Move down"
     },
     "customArmyCompositions": {
-      "title": "Custom army compositions",
+      "title": "Army compositions",
       "betaNotice": "Custom army composition options for scenarios is a beta feature; please report any bugs in the official Discord server.",
       "disableEraUnits": "Disable era default units",
       "disableEraUnitsDescription": "Field only this scenario's own custom units. The era's default units are hidden from the army screen and rejected when building an army.",
