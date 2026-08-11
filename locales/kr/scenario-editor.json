@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "정체",
+    "placement": "배치",
+    "condition": "상태",
+    "value": "가치"
+  },
   "common": {
     "add": "추가",
     "addEntry": "항목 추가",
@@ -69,23 +75,34 @@
     "noInherentAmmoHelp": "활성화하면 탄약을 사용하는 유닛이 자체 탄약 없이 등장하여 모든 보급을 공용 예비에서 가져옵니다. 따라서 첫 턴에는 사격할 수 없고 예비에서 보급된 뒤에야 사격을 시작합니다.",
     "showGrid": "격자 표시",
     "showUnits": "부대 표시",
-    "hideUnits": "부대 숨기기",
     "showObjectives": "지점목표 표시",
-    "hideObjectives": "지점목표 숨기기",
     "goBack": "뒤로",
-    "goBackConfirm": "정말 뒤로 가서 편집기를 종료하시겠습니까?"
+    "goBackConfirm": "정말 뒤로 가서 편집기를 종료하시겠습니까?",
+    "display": "표시",
+    "scenarioBands": {
+      "about": "정보",
+      "forces": "병력",
+      "rules": "규칙",
+      "presentation": "표시"
+    }
   },
   "createScenario": {
     "randomMap": "무작위(절차적) 맵?",
     "isHybrid": "혼합형?"
   },
   "playersPanel": {
-    "removePlayer": "플레이어 제거"
+    "removePlayer": "플레이어 제거",
+    "ammoReserve": "예비",
+    "ammoBase": "기본"
   },
   "terrainPanel": {
-    "setTerrain": "지형 설정",
-    "terrainHeight": "지형 높이",
-    "paintBucket": "채우기"
+    "brush": "브러시",
+    "shape": "모양",
+    "height": "높이",
+    "elevation": "고도",
+    "keepHeight": "기존 높이 유지",
+    "paintBucket": "채우기",
+    "none": "없음"
   },
   "unitPanel": {
     "title": "선택한 부대",
@@ -98,7 +115,7 @@
   },
   "createUnit": {
     "title": "부대 생성",
-    "usingCopiedUnits": "복사한 부대 사용 중",
+    "placingCopied": "복사한 부대 배치 중 ({{count}}). 지도를 클릭하여 배치하세요.",
     "customLabel": "{{name}} (사용자 지정)"
   },
   "objectivePanel": {
@@ -730,7 +747,7 @@
     }
   },
   "scoring": {
-    "heading": "VP 가중치 (시나리오 재정의)",
+    "heading": "VP 가중치",
     "hint": "비워두면 전투 유형 또는 시대의 기본값을 상속합니다.",
     "basePoints": "기본 가중치",
     "casualties": "사상자 가중치",
@@ -748,7 +765,7 @@
     "tieBreakInfo": "마지막 턴에 VP가 이 값보다 더 크게 뒤진 팀은 패배로 처리됩니다."
   },
   "objectiveZones": {
-    "heading": "목표 구역 (시나리오 재정의)",
+    "heading": "목표 구역",
     "hint": "배치 가능한 목표 구역을 얼마나 줄일지. 비워두면 전투 유형 또는 시대의 기본값을 상속합니다.",
     "smallInset": "소형 목표 구역 잘라내기",
     "bigInset": "대형 목표 구역 잘라내기",

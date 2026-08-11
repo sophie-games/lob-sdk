@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Danh tính",
+    "placement": "Vị trí",
+    "condition": "Tình trạng",
+    "value": "Giá trị"
+  },
   "common": {
     "add": "Thêm",
     "addEntry": "Thêm mục",
@@ -69,23 +75,34 @@
     "noInherentAmmoHelp": "Khi bật, các đơn vị có đạn sẽ xuất hiện mà không có đạn riêng và lấy toàn bộ nguồn tiếp tế từ kho dự trữ chung, nên không thể bắn ở lượt đầu và chỉ khai hỏa khi được kho dự trữ tiếp tế lại.",
     "showGrid": "Hiện lưới",
     "showUnits": "Hiện đơn vị",
-    "hideUnits": "Ẩn đơn vị",
     "showObjectives": "Hiện mục tiêu",
-    "hideObjectives": "Ẩn mục tiêu",
     "goBack": "Quay lại",
-    "goBackConfirm": "Bạn có chắc chắn muốn quay lại và thoát trình chỉnh sửa?"
+    "goBackConfirm": "Bạn có chắc chắn muốn quay lại và thoát trình chỉnh sửa?",
+    "display": "Hiển thị",
+    "scenarioBands": {
+      "about": "Giới thiệu",
+      "forces": "Lực lượng",
+      "rules": "Luật",
+      "presentation": "Trình bày"
+    }
   },
   "createScenario": {
     "randomMap": "Bản đồ ngẫu nhiên (theo thủ tục)?",
     "isHybrid": "Là lai?"
   },
   "playersPanel": {
-    "removePlayer": "Loại bỏ người chơi"
+    "removePlayer": "Loại bỏ người chơi",
+    "ammoReserve": "Dự bị",
+    "ammoBase": "Cơ bản"
   },
   "terrainPanel": {
-    "setTerrain": "Đặt địa hình",
-    "terrainHeight": "Độ cao địa hình",
-    "paintBucket": "Xô sơn"
+    "brush": "Cọ",
+    "shape": "Hình dạng",
+    "height": "Chiều cao",
+    "elevation": "Độ cao",
+    "keepHeight": "Giữ nguyên độ cao hiện có",
+    "paintBucket": "Xô sơn",
+    "none": "Không"
   },
   "unitPanel": {
     "title": "Đơn vị đã chọn",
@@ -98,7 +115,7 @@
   },
   "createUnit": {
     "title": "Tạo đơn vị",
-    "usingCopiedUnits": "Đang dùng đơn vị đã sao chép",
+    "placingCopied": "Đang đặt đơn vị đã sao chép ({{count}}). Nhấp vào bản đồ để đặt chúng.",
     "customLabel": "{{name}} (tùy chỉnh)"
   },
   "objectivePanel": {
@@ -730,7 +747,7 @@
     }
   },
   "scoring": {
-    "heading": "Trọng số VP (ghi đè kịch bản)",
+    "heading": "Trọng số VP",
     "hint": "Để trống một ô để kế thừa giá trị mặc định của loại trận đấu hoặc thời đại.",
     "basePoints": "Trọng số cơ bản",
     "casualties": "Trọng số thương vong",
@@ -748,7 +765,7 @@
     "tieBreakInfo": "Ở lượt cuối, đội bị dẫn trước về VP nhiều hơn mức này bị coi là thua."
   },
   "objectiveZones": {
-    "heading": "Vùng mục tiêu (ghi đè kịch bản)",
+    "heading": "Vùng mục tiêu",
     "hint": "Thu nhỏ các vùng mục tiêu có thể đặt bao nhiêu. Để trống một ô để kế thừa giá trị mặc định của loại trận đấu hoặc thời đại.",
     "smallInset": "Cắt vùng mục tiêu nhỏ",
     "bigInset": "Cắt vùng mục tiêu lớn",

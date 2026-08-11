@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Kimlik",
+    "placement": "Yerleşim",
+    "condition": "Durum",
+    "value": "Değer"
+  },
   "common": {
     "add": "Ekle",
     "addEntry": "Girdi ekle",
@@ -69,23 +75,34 @@
     "noInherentAmmoHelp": "Etkinleştirildiğinde, cephanesi olan birimler kendi cephaneleri olmadan doğar ve tüm ikmalini ortak rezervden alır; bu yüzden ilk turda ateş edemez ve ancak rezerv onları ikmal ettiğinde ateş açarlar.",
     "showGrid": "Izgarayı göster",
     "showUnits": "Birimleri göster",
-    "hideUnits": "Birimleri gizle",
     "showObjectives": "Hedefleri göster",
-    "hideObjectives": "Hedefleri gizle",
     "goBack": "Geri dön",
-    "goBackConfirm": "Geri dönüp editörden çıkmak istediğinizden emin misiniz?"
+    "goBackConfirm": "Geri dönüp editörden çıkmak istediğinizden emin misiniz?",
+    "display": "Görünüm",
+    "scenarioBands": {
+      "about": "Genel",
+      "forces": "Kuvvetler",
+      "rules": "Kurallar",
+      "presentation": "Sunum"
+    }
   },
   "createScenario": {
     "randomMap": "Rastgele (prosedürel) harita?",
     "isHybrid": "Hibrit mi?"
   },
   "playersPanel": {
-    "removePlayer": "Oyuncuyu kaldır"
+    "removePlayer": "Oyuncuyu kaldır",
+    "ammoReserve": "Yedek",
+    "ammoBase": "Temel"
   },
   "terrainPanel": {
-    "setTerrain": "Arazi ayarla",
-    "terrainHeight": "Arazi yüksekliği",
-    "paintBucket": "Boya Kovası"
+    "brush": "Fırça",
+    "shape": "Şekil",
+    "height": "Yükseklik",
+    "elevation": "Rakım",
+    "keepHeight": "Mevcut yüksekliği koru",
+    "paintBucket": "Boya Kovası",
+    "none": "Yok"
   },
   "unitPanel": {
     "title": "Seçili Birim",
@@ -98,7 +115,7 @@
   },
   "createUnit": {
     "title": "Birim Oluştur",
-    "usingCopiedUnits": "Kopyalanan birimler kullanılıyor",
+    "placingCopied": "Kopyalanan birimler yerleştiriliyor ({{count}}). Yerleştirmek için haritaya tıklayın.",
     "customLabel": "{{name}} (özel)"
   },
   "objectivePanel": {
@@ -731,7 +748,7 @@
     }
   },
   "scoring": {
-    "heading": "ZP ağırlıkları (senaryo geçersiz kılma)",
+    "heading": "ZP ağırlıkları",
     "hint": "Savaş türü veya çağ varsayılanını devralmak için bir alanı boş bırakın.",
     "basePoints": "Taban ağırlığı",
     "casualties": "Kayıp ağırlığı",
@@ -749,7 +766,7 @@
     "tieBreakInfo": "Son turda, ZP olarak bundan fazla geride olan bir takım yenilmiş sayılır."
   },
   "objectiveZones": {
-    "heading": "Hedef bölgeleri (senaryo geçersiz kılma)",
+    "heading": "Hedef bölgeleri",
     "hint": "Yerleştirilebilir hedef bölgelerinin ne kadar küçültüleceği. Savaş türü veya çağ varsayılanını devralmak için bir alanı boş bırakın.",
     "smallInset": "Küçük hedef bölgesi kırpması",
     "bigInset": "Büyük hedef bölgesi kırpması",

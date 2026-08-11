@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Tożsamość",
+    "placement": "Rozmieszczenie",
+    "condition": "Stan",
+    "value": "Wartość"
+  },
   "common": {
     "add": "Dodaj",
     "addEntry": "Dodaj wpis",
@@ -69,23 +75,34 @@
     "noInherentAmmoHelp": "Po włączeniu jednostki z amunicją pojawiają się bez własnych zapasów i czerpią całe zaopatrzenie ze wspólnej rezerwy, więc nie mogą strzelać w pierwszej turze i otwierają ogień dopiero po uzupełnieniu z rezerwy.",
     "showGrid": "Pokaż siatkę",
     "showUnits": "Pokaż jednostki",
-    "hideUnits": "Ukryj jednostki",
     "showObjectives": "Pokaż cele",
-    "hideObjectives": "Ukryj cele",
     "goBack": "Wstecz",
-    "goBackConfirm": "Czy na pewno chcesz wrócić i wyjść z edytora?"
+    "goBackConfirm": "Czy na pewno chcesz wrócić i wyjść z edytora?",
+    "display": "Wyświetlanie",
+    "scenarioBands": {
+      "about": "Ogólne",
+      "forces": "Siły",
+      "rules": "Zasady",
+      "presentation": "Prezentacja"
+    }
   },
   "createScenario": {
     "randomMap": "Mapa losowa (proceduralna)?",
     "isHybrid": "Hybrydowy?"
   },
   "playersPanel": {
-    "removePlayer": "Usuń gracza"
+    "removePlayer": "Usuń gracza",
+    "ammoReserve": "Rezerwa",
+    "ammoBase": "Baza"
   },
   "terrainPanel": {
-    "setTerrain": "Ustaw teren",
-    "terrainHeight": "Wysokość terenu",
-    "paintBucket": "Wiadro z farbą"
+    "brush": "Pędzel",
+    "shape": "Kształt",
+    "height": "Wysokość",
+    "elevation": "Wzniesienie",
+    "keepHeight": "Zachowaj istniejącą wysokość",
+    "paintBucket": "Wiadro z farbą",
+    "none": "Brak"
   },
   "unitPanel": {
     "title": "Wybrana jednostka",
@@ -98,7 +115,7 @@
   },
   "createUnit": {
     "title": "Stwórz jednostkę",
-    "usingCopiedUnits": "Używanie skopiowanych jednostek",
+    "placingCopied": "Umieszczanie skopiowanych jednostek ({{count}}). Kliknij mapę, aby je umieścić.",
     "customLabel": "{{name}} (niestandardowa)"
   },
   "objectivePanel": {
@@ -733,7 +750,7 @@
     }
   },
   "scoring": {
-    "heading": "Wagi PZ (nadpisanie scenariusza)",
+    "heading": "Wagi PZ",
     "hint": "Pozostaw pole puste, aby odziedziczyć domyślną wartość typu bitwy lub ery.",
     "basePoints": "Waga bazowa",
     "casualties": "Waga strat",
@@ -751,7 +768,7 @@
     "tieBreakInfo": "W ostatniej turze drużyna tracąca w PZ więcej niż tyle jest uznawana za pokonaną."
   },
   "objectiveZones": {
-    "heading": "Strefy celów (nadpisanie scenariusza)",
+    "heading": "Strefy celów",
     "hint": "O ile zmniejszyć strefy celów możliwych do rozmieszczenia. Pozostaw pole puste, aby odziedziczyć domyślną wartość typu bitwy lub ery.",
     "smallInset": "Przycięcie strefy małych celów",
     "bigInset": "Przycięcie strefy dużych celów",

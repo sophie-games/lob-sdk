@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Azonosság",
+    "placement": "Elhelyezés",
+    "condition": "Állapot",
+    "value": "Érték"
+  },
   "common": {
     "add": "Hozzáadás",
     "addEntry": "Bejegyzés hozzáadása",
@@ -69,23 +75,34 @@
     "noInherentAmmoHelp": "Bekapcsolva a lőszerrel rendelkező egységek saját lőszer nélkül jelennek meg, és teljes utánpótlásukat a közös tartalékból veszik, így az első körben nem tudnak tüzelni, és csak akkor nyitnak tüzet, amikor a tartalék feltölti őket.",
     "showGrid": "Rács megjelenítése",
     "showUnits": "Egységek megjelenítése",
-    "hideUnits": "Egységek elrejtése",
     "showObjectives": "Objektívák megjelenítése",
-    "hideObjectives": "Objektívák elrejtése",
     "goBack": "Vissza",
-    "goBackConfirm": "Biztosan visszalépsz és kilépsz a szerkesztőből?"
+    "goBackConfirm": "Biztosan visszalépsz és kilépsz a szerkesztőből?",
+    "display": "Megjelenítés",
+    "scenarioBands": {
+      "about": "Általános",
+      "forces": "Erők",
+      "rules": "Szabályok",
+      "presentation": "Megjelenítés"
+    }
   },
   "createScenario": {
     "randomMap": "Véletlenszerű (eljárásos) pálya?",
     "isHybrid": "Hibrid?"
   },
   "playersPanel": {
-    "removePlayer": "Játékos eltávolítása"
+    "removePlayer": "Játékos eltávolítása",
+    "ammoReserve": "Tartalék",
+    "ammoBase": "Alap"
   },
   "terrainPanel": {
-    "setTerrain": "Terep beállítása",
-    "terrainHeight": "Terep magassága",
-    "paintBucket": "Festékvödör"
+    "brush": "Ecset",
+    "shape": "Alakzat",
+    "height": "Magasság",
+    "elevation": "Szintmagasság",
+    "keepHeight": "Meglévő magasság megtartása",
+    "paintBucket": "Festékvödör",
+    "none": "Nincs"
   },
   "unitPanel": {
     "title": "Kijelölt egység",
@@ -98,7 +115,7 @@
   },
   "createUnit": {
     "title": "Egység létrehozása",
-    "usingCopiedUnits": "Másolt egységek használata",
+    "placingCopied": "Másolt egységek elhelyezése ({{count}}). Kattints a térképre az elhelyezésükhöz.",
     "customLabel": "{{name}} (egyéni)"
   },
   "objectivePanel": {
@@ -731,7 +748,7 @@
     }
   },
   "scoring": {
-    "heading": "GP-súlyok (pálya-felülbírálás)",
+    "heading": "GP-súlyok",
     "hint": "Hagyj egy mezőt üresen, hogy örökölje a csatatípus vagy korszak alapértékét.",
     "basePoints": "Alap súlya",
     "casualties": "Veszteség súlya",
@@ -749,7 +766,7 @@
     "tieBreakInfo": "Az utolsó körben az a csapat, amely ennél nagyobb GP-hátrányban van, vereséget szenvedettnek számít."
   },
   "objectiveZones": {
-    "heading": "Célpont-zónák (pálya-felülbírálás)",
+    "heading": "Célpont-zónák",
     "hint": "Mennyivel kicsinyítse a lerakható célpont-zónákat. Hagyj egy mezőt üresen, hogy örökölje a csatatípus vagy korszak alapértékét.",
     "smallInset": "Kis célpont zóna nyírása",
     "bigInset": "Nagy célpont zóna nyírása",

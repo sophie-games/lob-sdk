@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Identitas",
+    "placement": "Penempatan",
+    "condition": "Kondisi",
+    "value": "Nilai"
+  },
   "common": {
     "add": "Tambah",
     "addEntry": "Tambah entri",
@@ -69,23 +75,34 @@
     "noInherentAmmoHelp": "Saat diaktifkan, unit dengan amunisi muncul tanpa amunisi sendiri dan mengambil seluruh pasokannya dari cadangan bersama, sehingga tidak bisa menembak pada giliran pertama dan baru melepaskan tembakan setelah cadangan mengisinya kembali.",
     "showGrid": "Tampilkan grid",
     "showUnits": "Tampilkan unit",
-    "hideUnits": "Sembunyikan unit",
     "showObjectives": "Tampilkan objektif",
-    "hideObjectives": "Sembunyikan objektif",
     "goBack": "Kembali",
-    "goBackConfirm": "Apakah Anda yakin ingin kembali dan keluar dari editor?"
+    "goBackConfirm": "Apakah Anda yakin ingin kembali dan keluar dari editor?",
+    "display": "Tampilan",
+    "scenarioBands": {
+      "about": "Tentang",
+      "forces": "Pasukan",
+      "rules": "Aturan",
+      "presentation": "Presentasi"
+    }
   },
   "createScenario": {
     "randomMap": "Peta acak (prosedural)?",
     "isHybrid": "Hibrida?"
   },
   "playersPanel": {
-    "removePlayer": "Hapus pemain"
+    "removePlayer": "Hapus pemain",
+    "ammoReserve": "Cadangan",
+    "ammoBase": "Dasar"
   },
   "terrainPanel": {
-    "setTerrain": "Atur medan",
-    "terrainHeight": "Tinggi medan",
-    "paintBucket": "Ember Cat"
+    "brush": "Kuas",
+    "shape": "Bentuk",
+    "height": "Tinggi",
+    "elevation": "Elevasi",
+    "keepHeight": "Pertahankan tinggi yang ada",
+    "paintBucket": "Ember Cat",
+    "none": "Tidak ada"
   },
   "unitPanel": {
     "title": "Unit Terpilih",
@@ -98,7 +115,7 @@
   },
   "createUnit": {
     "title": "Buat Unit",
-    "usingCopiedUnits": "Menggunakan unit yang disalin",
+    "placingCopied": "Menempatkan unit yang disalin ({{count}}). Klik peta untuk menempatkannya.",
     "customLabel": "{{name}} (kustom)"
   },
   "objectivePanel": {
@@ -730,7 +747,7 @@
     }
   },
   "scoring": {
-    "heading": "Bobot VP (penggantian skenario)",
+    "heading": "Bobot VP",
     "hint": "Biarkan kolom kosong untuk mewarisi default tipe pertempuran atau era.",
     "basePoints": "Bobot dasar",
     "casualties": "Bobot korban",
@@ -748,7 +765,7 @@
     "tieBreakInfo": "Pada giliran terakhir, tim yang tertinggal dalam VP lebih dari nilai ini dianggap kalah."
   },
   "objectiveZones": {
-    "heading": "Zona objektif (penggantian skenario)",
+    "heading": "Zona objektif",
     "hint": "Seberapa besar mengecilkan zona objektif yang dapat ditempatkan. Biarkan kolom kosong untuk mewarisi default tipe pertempuran atau era.",
     "smallInset": "Pemangkasan zona objektif kecil",
     "bigInset": "Pemangkasan zona objektif besar",
