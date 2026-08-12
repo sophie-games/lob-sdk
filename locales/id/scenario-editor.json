@@ -37,6 +37,7 @@
     "addLanguage": "Tambah Bahasa",
     "optionBuiltIn": "{{name}} (bawaan)",
     "optionCustom": "{{name}} (kustom)",
+    "optionAllUnitCategories": "Semua kategori unit",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Modifier kecepatan rotasi"
   },
@@ -406,7 +407,7 @@
       "projectileAbsorption": "Penyerapan proyektil"
     },
     "identityHint": "Menimpa konfigurasi kategori medan era untuk skenario ini. ID terikat ke kategori bawaan - medan mempertahankan penetapan kategorinya, Anda hanya menyesuaikan modifier.",
-    "perUnitCategoryHint": "Kunci adalah id kategori unit. Gunakan wildcard `*` untuk mengatur bawaan yang diterapkan ke semua kategori yang tidak memiliki entri eksplisit.",
+    "perUnitCategoryHint": "Kunci adalah id kategori unit. Gunakan wildcard `*` untuk mengatur bawaan yang diterapkan ke semua kategori yang tidak memiliki entri eksplisit. Menghapus baris yang dicakup `*` tidak berpengaruh: baris itu kembali pada penyuntingan berikutnya. Pertahankan barisnya dan beri nilai sendiri (Tidak, agar medan bisa dilewati).",
     "projectileAbsorptionHint": "Kunci adalah nama tipe kerusakan.",
     "option": {
       "builtIn": "{{name}} (bawaan)",

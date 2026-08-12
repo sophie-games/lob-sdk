@@ -37,6 +37,7 @@
     "addLanguage": "Nyelv hozzáadása",
     "optionBuiltIn": "{{name}} (beépített)",
     "optionCustom": "{{name}} (egyéni)",
+    "optionAllUnitCategories": "Minden egységkategória",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Forgási sebesség módosító"
   },
@@ -406,7 +407,7 @@
       "projectileAbsorption": "Lövedékelnyelés"
     },
     "identityHint": "Felülbírálja a korszak terepkategória-beállítását erre a pályára. Az id egy beépített kategóriához van rögzítve - a terepek megtartják a kategória-besorolásukat, csak a módosítókat állítod be.",
-    "perUnitCategoryHint": "A kulcsok egységkategória-id-k. Használd a `*` joker karaktert egy alapérték beállításához, amely minden olyan kategóriára vonatkozik, amelynek nincs külön bejegyzése.",
+    "perUnitCategoryHint": "A kulcsok egységkategória-id-k. Használd a `*` joker karaktert egy alapérték beállításához, amely minden olyan kategóriára vonatkozik, amelynek nincs külön bejegyzése. Egy `*` által lefedett sor eltávolítása nem változtat semmin: a következő szerkesztéskor visszatér. Hagyd meg a sort, és adj neki saját értéket (Nem, hogy a terep járható legyen).",
     "projectileAbsorptionHint": "A kulcsok sebzéstípus-nevek.",
     "option": {
       "builtIn": "{{name}} (beépített)",

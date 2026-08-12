@@ -37,6 +37,7 @@
     "addLanguage": "言語を追加",
     "optionBuiltIn": "{{name}}（組み込み）",
     "optionCustom": "{{name}}（カスタム）",
+    "optionAllUnitCategories": "すべてのユニットカテゴリー",
     "nameWithKind": "{{name}}（{{kind}}）",
     "rotationSpeedModifier": "回転速度修正"
   },
@@ -406,7 +407,7 @@
       "projectileAbsorption": "弾丸吸収"
     },
     "identityHint": "このシナリオに対して時代の地形カテゴリー設定を上書きします。IDは組み込みカテゴリーに固定されています。地形のカテゴリー割り当ては維持され、修正のみを調整します。",
-    "perUnitCategoryHint": "キーはユニットカテゴリーIDです。明示的な項目を持たないすべてのカテゴリーに適用されるデフォルトを設定するには、`*` ワイルドカードを使用します。",
+    "perUnitCategoryHint": "キーはユニットカテゴリーIDです。明示的な項目を持たないすべてのカテゴリーに適用されるデフォルトを設定するには、`*` ワイルドカードを使用します。`*` が覆う行を削除しても効果はありません。次の編集で戻ります。行は残したまま、独自の値を設定してください（地形を通行可能にするには「いいえ」）。",
     "projectileAbsorptionHint": "キーはダメージタイプ名です。",
     "option": {
       "builtIn": "{{name}}（組み込み）",

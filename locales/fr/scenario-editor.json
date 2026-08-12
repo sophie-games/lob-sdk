@@ -37,6 +37,7 @@
     "addLanguage": "Ajouter une langue",
     "optionBuiltIn": "{{name}} (intégré)",
     "optionCustom": "{{name}} (personnalisé)",
+    "optionAllUnitCategories": "Toutes les catégories d'unité",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Modificateur de vitesse de rotation"
   },
@@ -406,7 +407,7 @@
       "projectileAbsorption": "Absorption des projectiles"
     },
     "identityHint": "Remplace la configuration de catégorie de terrain de l'époque pour ce scénario. L'id est fixé à une catégorie intégrée - les terrains conservent leurs affectations de catégorie, vous n'ajustez que les modificateurs.",
-    "perUnitCategoryHint": "Les clés sont des ids de catégorie d'unité. Utilisez le joker `*` pour définir une valeur par défaut appliquée à toutes les catégories sans entrée explicite.",
+    "perUnitCategoryHint": "Les clés sont des ids de catégorie d'unité. Utilisez le joker `*` pour définir une valeur par défaut appliquée à toutes les catégories sans entrée explicite. Supprimer une ligne couverte par `*` n'a aucun effet : elle revient à la modification suivante. Gardez la ligne et donnez-lui plutôt sa propre valeur (Non, pour rendre le terrain franchissable).",
     "projectileAbsorptionHint": "Les clés sont des noms de types de dégâts.",
     "option": {
       "builtIn": "{{name}} (intégré)",

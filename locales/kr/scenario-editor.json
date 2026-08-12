@@ -37,6 +37,7 @@
     "addLanguage": "언어 추가",
     "optionBuiltIn": "{{name}} (기본 제공)",
     "optionCustom": "{{name}} (사용자 지정)",
+    "optionAllUnitCategories": "모든 부대 유형",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "회전 속도 수정치"
   },
@@ -406,7 +407,7 @@
       "projectileAbsorption": "발사체 흡수치"
     },
     "identityHint": "이 전역에서 시대의 지형 유형 설정을 재정의합니다. id는 기본 제공 유형으로 고정됩니다. 지형은 유형 배정을 유지하며, 수정치만 조정합니다.",
-    "perUnitCategoryHint": "키는 부대 유형 id입니다. 명시적 항목이 없는 모든 유형에 적용되는 기본값을 설정하려면 `*` 와일드카드를 사용하세요.",
+    "perUnitCategoryHint": "키는 부대 유형 id입니다. 명시적 항목이 없는 모든 유형에 적용되는 기본값을 설정하려면 `*` 와일드카드를 사용하세요.`*`가 덮는 행을 제거해도 효과가 없습니다. 다음 편집 때 다시 생깁니다. 행을 남겨 두고 고유한 값을 지정하세요(지형을 통행 가능하게 하려면 '아니요').",
     "projectileAbsorptionHint": "키는 피해 유형 이름입니다.",
     "option": {
       "builtIn": "{{name}} (기본 제공)",

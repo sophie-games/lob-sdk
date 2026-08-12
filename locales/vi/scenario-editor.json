@@ -37,6 +37,7 @@
     "addLanguage": "Thêm ngôn ngữ",
     "optionBuiltIn": "{{name}} (tích hợp)",
     "optionCustom": "{{name}} (tùy chỉnh)",
+    "optionAllUnitCategories": "Tất cả danh mục đơn vị",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Hệ số tốc độ xoay"
   },
@@ -406,7 +407,7 @@
       "projectileAbsorption": "Hấp thụ đạn"
     },
     "identityHint": "Ghi đè cấu hình danh mục địa hình của thời đại cho kịch bản này. ID cố định theo một danh mục tích hợp - địa hình giữ nguyên gán danh mục, bạn chỉ điều chỉnh các hệ số.",
-    "perUnitCategoryHint": "Khóa là id danh mục đơn vị. Dùng ký tự đại diện `*` để đặt giá trị mặc định áp dụng cho mọi danh mục không có mục riêng.",
+    "perUnitCategoryHint": "Khóa là id danh mục đơn vị. Dùng ký tự đại diện `*` để đặt giá trị mặc định áp dụng cho mọi danh mục không có mục riêng. Xóa một hàng do `*` bao phủ không có tác dụng: nó sẽ quay lại ở lần chỉnh sửa sau. Hãy giữ hàng đó và đặt giá trị riêng cho nó (Không, để địa hình có thể đi qua).",
     "projectileAbsorptionHint": "Khóa là tên loại sát thương.",
     "option": {
       "builtIn": "{{name}} (tích hợp)",

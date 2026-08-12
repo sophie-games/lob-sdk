@@ -37,6 +37,7 @@
     "addLanguage": "Dodaj język",
     "optionBuiltIn": "{{name}} (wbudowana)",
     "optionCustom": "{{name}} (niestandardowa)",
+    "optionAllUnitCategories": "Wszystkie kategorie jednostek",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Modyfikator prędkości obrotu"
   },
@@ -406,7 +407,7 @@
       "projectileAbsorption": "Absorpcja pocisków"
     },
     "identityHint": "Nadpisuje konfigurację kategorii terenu epoki dla tego scenariusza. ID jest ustalone na wbudowaną kategorię - tereny zachowują przypisania kategorii, dostosowujesz tylko modyfikatory.",
-    "perUnitCategoryHint": "Klucze to ID kategorii jednostek. Użyj wieloznacznika `*`, aby ustawić wartość domyślną stosowaną do wszystkich kategorii bez jawnego wpisu.",
+    "perUnitCategoryHint": "Klucze to ID kategorii jednostek. Użyj wieloznacznika `*`, aby ustawić wartość domyślną stosowaną do wszystkich kategorii bez jawnego wpisu. Usunięcie wiersza objętego przez `*` nic nie daje: wróci przy następnej edycji. Zostaw wiersz i nadaj mu własną wartość (Nie, aby teren stał się przejezdny).",
     "projectileAbsorptionHint": "Klucze to nazwy typów obrażeń.",
     "option": {
       "builtIn": "{{name}} (wbudowana)",

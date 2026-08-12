@@ -37,6 +37,7 @@
     "addLanguage": "Sprache hinzufügen",
     "optionBuiltIn": "{{name}} (integriert)",
     "optionCustom": "{{name}} (benutzerdefiniert)",
+    "optionAllUnitCategories": "Alle Einheitenkategorien",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Drehgeschwindigkeitsmodifikator"
   },
@@ -406,7 +407,7 @@
       "projectileAbsorption": "Projektilabsorption"
     },
     "identityHint": "Überschreibt die Geländekategorie-Konfiguration der Epoche für dieses Szenario. Die ID ist auf eine integrierte Kategorie festgelegt - Gelände behalten ihre Kategoriezuweisungen, du passt nur die Modifikatoren an.",
-    "perUnitCategoryHint": "Die Schlüssel sind Einheitenkategorie-IDs. Verwende den Platzhalter `*`, um einen Standardwert für alle Kategorien ohne expliziten Eintrag festzulegen.",
+    "perUnitCategoryHint": "Die Schlüssel sind Einheitenkategorie-IDs. Verwende den Platzhalter `*`, um einen Standardwert für alle Kategorien ohne expliziten Eintrag festzulegen. Das Entfernen einer Zeile, die `*` abdeckt, bewirkt nichts: Sie kommt bei der nächsten Bearbeitung zurück. Behalte die Zeile und gib ihr stattdessen einen eigenen Wert (Nein, damit das Gelände passierbar wird).",
     "projectileAbsorptionHint": "Die Schlüssel sind Schadenstyp-Namen.",
     "option": {
       "builtIn": "{{name}} (integriert)",

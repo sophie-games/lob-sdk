@@ -461,6 +461,23 @@ describe("GameDataManager custom defs", () => {
 
       expect(reloaded.isPassable(TerrainType.DeepWater, "infantry")).toBe(true);
     });
+
+    it("keeps an explicit `false` row winning over the `*` wildcard", () => {
+      // The editor can only exempt a category by writing `false`: dropping the
+      // row just lets the next expansion refill it from `*`.
+      const impassable: Partial<Record<UnitCategoryId, boolean>> = {
+        "*": true,
+        ship: false,
+        infantry: false,
+      };
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customTerrainCategories: [{ id: "deepWater", config: { impassable } }],
+      });
+
+      expect(m.isPassable(TerrainType.DeepWater, "infantry")).toBe(true);
+      expect(m.isPassable(TerrainType.DeepWater, "ship")).toBe(true);
+      expect(m.isPassable(TerrainType.DeepWater, "artillery")).toBe(false);
+    });
   });
 
   describe("loadCustomDefs: game constants & rules", () => {

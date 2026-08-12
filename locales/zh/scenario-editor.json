@@ -37,6 +37,7 @@
     "addLanguage": "添加语言",
     "optionBuiltIn": "{{name}}（内置）",
     "optionCustom": "{{name}}（自定义）",
+    "optionAllUnitCategories": "所有单位类别",
     "nameWithKind": "{{name}}（{{kind}}）",
     "rotationSpeedModifier": "转向速度修正"
   },
@@ -406,7 +407,7 @@
       "projectileAbsorption": "弹丸吸收"
     },
     "identityHint": "为本战役覆盖该时代的地形类别配置。id 固定为某个内置类别——地形保留其类别归属，你只调整修正值。",
-    "perUnitCategoryHint": "键名为单位类别 id。使用 `*` 通配符设置一个默认值，应用于所有没有显式条目的类别。",
+    "perUnitCategoryHint": "键名为单位类别 id。使用 `*` 通配符设置一个默认值，应用于所有没有显式条目的类别。删除受 `*` 覆盖的条目没有效果：下次编辑时它会回来。请保留该条目并为其设置自己的值（选择“否”即可让该地形恢复通行）。",
     "projectileAbsorptionHint": "键名为伤害类型名称。",
     "option": {
       "builtIn": "{{name}}（内置）",
