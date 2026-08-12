@@ -169,6 +169,7 @@
   "createScenario": "Buat Skenario",
   "loadScenario": "Muat Skenario",
   "invalidScenarioType": "Anda hanya dapat memuat skenario preset atau hibrida.",
+  "invalidScenarioFile": "File ini bukan skenario yang valid.",
   "playOffline": "Bermain Offline!",
   "createOfflineGame": "Buat permainan offline",
   "chooseAScenario": "pilih skenario",
@@ -337,6 +338,7 @@
   "clearUnits": "Bersihkan Unit",
   "saving": "Menyimpan...",
   "armyInvalid": "Pasukan ini tidak valid, harap dimodifikasi.",
+  "armyInvalidForPlayer": "Pasukan pemain {{player}} tidak valid: {{message}}",
   "landing": {
     "message": "<b>Lines of Battle</b> adalah permainan taktis Napoleon dengan giliran simultan dan pertempuran real-time. Kalahkan lawan manusia dengan pasukan dan taktik yang akurat!",
     "privacy": "Sebelum memulai permainan, Dimohon kamu menyetujui ketentuan kami<0>Privacy Policy</0>."

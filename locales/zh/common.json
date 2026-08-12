@@ -178,6 +178,7 @@
   "createScenario": "创建战役剧本",
   "loadScenario": "加载战役剧本",
   "invalidScenarioType": "您只能加载预设或混合战役。",
+  "invalidScenarioFile": "该文件不是有效的战役剧本。",
   "playOffline": "离线游玩！",
   "createOfflineGame": "创建离线对局",
   "chooseAScenario": "选择战役剧本",
@@ -378,6 +379,7 @@
   "clearUnits": "清除单位",
   "saving": "保存中……",
   "armyInvalid": "该军队配置无效，请修改。",
+  "armyInvalidForPlayer": "玩家 {{player}} 的军队配置无效：{{message}}",
   "landing": {
     "message": "<b>战线统帅：拿破仑</b>是一个同步回合制的多人策略游戏，背景取自拿破仑战争时期。与其它人类玩家对战，并动用你自己配置的军队和策略思维获胜吧！",
     "privacy": "如果继续，将视作你同意我们的<0>隐私政策</0>。"

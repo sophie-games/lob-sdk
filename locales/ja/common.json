@@ -179,6 +179,7 @@
   "createScenario": "シナリオを作成",
   "loadScenario": "シナリオを読み込む",
   "invalidScenarioType": "プリセットまたはハイブリッドのシナリオのみ読み込めます。",
+  "invalidScenarioFile": "このファイルは有効なシナリオではありません。",
   "playOffline": "オフラインでプレイ！",
   "createOfflineGame": "オフラインゲームを作成",
   "chooseAScenario": "シナリオを選択",
@@ -379,6 +380,7 @@
   "clearUnits": "ユニットをクリア",
   "saving": "保存中...",
   "armyInvalid": "この軍編成は無効です。修正してください。",
+  "armyInvalidForPlayer": "プレイヤー{{player}}の軍編成は無効です: {{message}}",
   "landing": {
     "message": "<b>Lines of Battle</b>は、同時ターン制とリアルタイム戦闘を特徴とするナポレオン戦術ゲームです。正確な部隊と戦術で人間の敵を撃破しましょう！",
     "privacy": "開始することで、私たちの<0>プライバシーポリシー</0>に同意したことになります。"

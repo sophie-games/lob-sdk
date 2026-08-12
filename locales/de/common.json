@@ -168,6 +168,7 @@
   "createScenario": "Szenario erstellen",
   "loadScenario": "Szenario laden",
   "invalidScenarioType": "Sie können nur voreingestellte oder hybride Szenarien laden.",
+  "invalidScenarioFile": "Diese Datei ist kein gültiges Szenario.",
   "playOffline": "Offline spielen!",
   "createOfflineGame": "Offlinespiel erstellen",
   "chooseAScenario": "Szenario erstellen",
@@ -336,6 +337,7 @@
   "clearUnits": "Einheiten löschen",
   "saving": "Speichert...",
   "armyInvalid": "Diese Armee ist ungültig. Bitte ändern Sie die Zusammensetzung.",
+  "armyInvalidForPlayer": "Die Armee von Spieler {{player}} ist ungültig: {{message}}",
   "landing": {
     "message": "<b>Lines of Battle</b> ist ein napoleonisches taktisches Spiel mit gleichzeitigen Zügen und Echtzeit-Kampf. Besiege menschliche Gegner mit präzisen Truppen und Taktiken!",
     "privacy": "Indem Sie das Spiel starten, stimmen Sie unseren <0>Datenschutzbestimmungen</0> zu."
