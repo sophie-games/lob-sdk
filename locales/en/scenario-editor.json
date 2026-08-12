@@ -37,6 +37,7 @@
     "addLanguage": "Add Language",
     "optionBuiltIn": "{{name}} (built-in)",
     "optionCustom": "{{name}} (custom)",
+    "optionAllUnitCategories": "All unit categories",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Rotation speed modifier"
   },
@@ -408,7 +409,7 @@
       "projectileAbsorption": "Projectile absorption"
     },
     "identityHint": "Overrides the era's terrain category config for this scenario. The id is fixed to a built-in category - terrains keep their category assignments, you only adjust the modifiers.",
-    "perUnitCategoryHint": "Keys are unit category ids. Use the `*` wildcard to set a default applied to all categories that don't have an explicit entry.",
+    "perUnitCategoryHint": "Keys are unit category ids. Use the `*` wildcard to set a default applied to all categories that don't have an explicit entry. Removing a row that `*` covers has no effect: it comes back on the next edit. Keep the row and give it its own value instead (No, to make the terrain passable).",
     "projectileAbsorptionHint": "Keys are damage type names.",
     "option": {
       "builtIn": "{{name}} (built-in)",

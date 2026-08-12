@@ -37,6 +37,7 @@
     "addLanguage": "Aggiungi lingua",
     "optionBuiltIn": "{{name}} (integrata)",
     "optionCustom": "{{name}} (personalizzata)",
+    "optionAllUnitCategories": "Tutte le categorie di unità",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Modificatore velocità rotazione"
   },
@@ -406,7 +407,7 @@
       "projectileAbsorption": "Assorbimento proiettili"
     },
     "identityHint": "Sovrascrive la configurazione della categoria di terreno dell'epoca per questo scenario. L'id è fisso a una categoria integrata - i terreni mantengono le loro assegnazioni di categoria, regoli solo i modificatori.",
-    "perUnitCategoryHint": "Le chiavi sono id di categorie di unità. Usa il carattere jolly `*` per impostare un predefinito applicato a tutte le categorie senza una voce esplicita.",
+    "perUnitCategoryHint": "Le chiavi sono id di categorie di unità. Usa il carattere jolly `*` per impostare un predefinito applicato a tutte le categorie senza una voce esplicita. Rimuovere una riga coperta da `*` non ha effetto: torna alla modifica successiva. Mantieni la riga e assegnale invece un valore proprio (No, per rendere il terreno praticabile).",
     "projectileAbsorptionHint": "Le chiavi sono nomi di tipi di danno.",
     "option": {
       "builtIn": "{{name}} (integrata)",

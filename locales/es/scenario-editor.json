@@ -37,6 +37,7 @@
     "addLanguage": "Agregar idioma",
     "optionBuiltIn": "{{name}} (integrada)",
     "optionCustom": "{{name}} (personalizada)",
+    "optionAllUnitCategories": "Todas las categorías de unidad",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Modificador de velocidad de rotación"
   },
@@ -406,7 +407,7 @@
       "projectileAbsorption": "Absorción de proyectiles"
     },
     "identityHint": "Sobrescribe la configuración de categoría de terreno de la era para este escenario. El id está fijado a una categoría integrada - los terrenos conservan sus asignaciones de categoría, solo ajustas los modificadores.",
-    "perUnitCategoryHint": "Las claves son ids de categoría de unidad. Usa el comodín `*` para fijar un valor por defecto aplicado a todas las categorías que no tengan una entrada explícita.",
+    "perUnitCategoryHint": "Las claves son ids de categoría de unidad. Usa el comodín `*` para fijar un valor por defecto aplicado a todas las categorías que no tengan una entrada explícita. Quitar una fila que cubre `*` no tiene efecto: vuelve en la siguiente edición. Conserva la fila y dale su propio valor (No, para que el terreno sea transitable).",
     "projectileAbsorptionHint": "Las claves son nombres de tipo de daño.",
     "option": {
       "builtIn": "{{name}} (integrada)",

@@ -37,6 +37,7 @@
     "addLanguage": "Dil Ekle",
     "optionBuiltIn": "{{name}} (yerleşik)",
     "optionCustom": "{{name}} (özel)",
+    "optionAllUnitCategories": "Tüm birim kategorileri",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Dönüş hızı değiştirici"
   },
@@ -406,7 +407,7 @@
       "projectileAbsorption": "Mermi emilimi"
     },
     "identityHint": "Bu senaryo için dönemin arazi kategorisi yapılandırmasını geçersiz kılar. id, yerleşik bir kategoriye sabitlenmiştir - araziler kategori atamalarını korur, yalnızca değiştiricileri ayarlarsınız.",
-    "perUnitCategoryHint": "Anahtarlar birim kategorisi id'leridir. Açık bir girdisi olmayan tüm kategorilere uygulanan bir varsayılan ayarlamak için `*` joker karakterini kullanın.",
+    "perUnitCategoryHint": "Anahtarlar birim kategorisi id'leridir. Açık bir girdisi olmayan tüm kategorilere uygulanan bir varsayılan ayarlamak için `*` joker karakterini kullanın. `*` kapsamındaki bir satırı kaldırmak bir şey değiştirmez: bir sonraki düzenlemede geri gelir. Satırı koruyun ve ona kendi değerini verin (arazinin geçilebilir olması için Hayır).",
     "projectileAbsorptionHint": "Anahtarlar hasar türü adlarıdır.",
     "option": {
       "builtIn": "{{name}} (yerleşik)",
