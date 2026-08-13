@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Identität",
+    "placement": "Platzierung",
+    "condition": "Zustand",
+    "value": "Wert"
+  },
   "common": {
     "add": "Hinzufügen",
     "addEntry": "Eintrag hinzufügen",
@@ -31,6 +37,7 @@
     "addLanguage": "Sprache hinzufügen",
     "optionBuiltIn": "{{name}} (integriert)",
     "optionCustom": "{{name}} (benutzerdefiniert)",
+    "optionAllUnitCategories": "Alle Einheitenkategorien",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Drehgeschwindigkeitsmodifikator"
   },
@@ -40,9 +47,18 @@
       "terrain": "Gelände",
       "units": "Einheiten",
       "objectives": "Ziele",
-      "triggers": "Auslöser",
-      "advanced": "Erweitert"
+      "triggers": "Auslöser"
     },
+    "mode": {
+      "scenario": "Szenario",
+      "workshop": "Workshop"
+    },
+    "workshopBands": {
+      "units": "Einheiten",
+      "terrain": "Gelände",
+      "global": "Global"
+    },
+    "restingHint": "Klicke auf ein Objekt, um es zu untersuchen, oder wähle ein Werkzeug, um mit dem Malen zu beginnen.",
     "togglePanel": "Panel umschalten",
     "downloadScenario": "Szenario herunterladen",
     "copyScenario": "Szenario kopieren",
@@ -60,23 +76,34 @@
     "noInherentAmmoHelp": "Wenn aktiviert, erscheinen Einheiten mit Munitionssystem ohne eigene Munition und beziehen ihren gesamten Nachschub aus der gemeinsamen Reserve. Sie können daher in der ersten Runde nicht feuern und eröffnen das Feuer erst, wenn die Reserve sie wieder auffüllt.",
     "showGrid": "Raster anzeigen",
     "showUnits": "Einheiten anzeigen",
-    "hideUnits": "Einheiten ausblenden",
     "showObjectives": "Ziele anzeigen",
-    "hideObjectives": "Ziele ausblenden",
     "goBack": "Zurück",
-    "goBackConfirm": "Möchtest du wirklich zurückgehen und den Editor verlassen?"
+    "goBackConfirm": "Möchtest du wirklich zurückgehen und den Editor verlassen?",
+    "display": "Anzeige",
+    "scenarioBands": {
+      "about": "Allgemein",
+      "forces": "Streitkräfte",
+      "rules": "Regeln",
+      "presentation": "Darstellung"
+    }
   },
   "createScenario": {
     "randomMap": "Zufällige (prozedurale) Karte?",
     "isHybrid": "Hybrid?"
   },
   "playersPanel": {
-    "removePlayer": "Spieler entfernen"
+    "removePlayer": "Spieler entfernen",
+    "ammoReserve": "Reserve",
+    "ammoBase": "Basis"
   },
   "terrainPanel": {
-    "setTerrain": "Gelände setzen",
-    "terrainHeight": "Geländehöhe",
-    "paintBucket": "Füllwerkzeug"
+    "brush": "Pinsel",
+    "shape": "Form",
+    "height": "Höhe",
+    "elevation": "Erhebung",
+    "keepHeight": "Vorhandene Höhe beibehalten",
+    "paintBucket": "Füllwerkzeug",
+    "none": "Keine"
   },
   "unitPanel": {
     "title": "Ausgewählte Einheit",
@@ -89,7 +116,7 @@
   },
   "createUnit": {
     "title": "Einheit erstellen",
-    "usingCopiedUnits": "Kopierte Einheiten werden verwendet",
+    "placingCopied": "Kopierte Einheiten platzieren ({{count}}). Auf die Karte klicken, um sie zu setzen.",
     "customLabel": "{{name}} (benutzerdefiniert)"
   },
   "objectivePanel": {
@@ -380,7 +407,7 @@
       "projectileAbsorption": "Projektilabsorption"
     },
     "identityHint": "Überschreibt die Geländekategorie-Konfiguration der Epoche für dieses Szenario. Die ID ist auf eine integrierte Kategorie festgelegt - Gelände behalten ihre Kategoriezuweisungen, du passt nur die Modifikatoren an.",
-    "perUnitCategoryHint": "Die Schlüssel sind Einheitenkategorie-IDs. Verwende den Platzhalter `*`, um einen Standardwert für alle Kategorien ohne expliziten Eintrag festzulegen.",
+    "perUnitCategoryHint": "Die Schlüssel sind Einheitenkategorie-IDs. Verwende den Platzhalter `*`, um einen Standardwert für alle Kategorien ohne expliziten Eintrag festzulegen. Das Entfernen einer Zeile, die `*` abdeckt, bewirkt nichts: Sie kommt bei der nächsten Bearbeitung zurück. Behalte die Zeile und gib ihr stattdessen einen eigenen Wert (Nein, damit das Gelände passierbar wird).",
     "projectileAbsorptionHint": "Die Schlüssel sind Schadenstyp-Namen.",
     "option": {
       "builtIn": "{{name}} (integriert)",
@@ -414,7 +441,7 @@
       "duplicate": "Duplizieren"
     },
     "spritesPanel": {
-      "title": "Benutzerdefinierte Sprites",
+      "title": "Einheiten-Sprites",
       "description": "Lade hier deine eigenen Sprites hoch und wähle sie dann in den Formationen einer Einheit. Sie werden im Szenario eingebettet (max. {{kb}}KB pro Stück).",
       "yourSprites": "Deine Sprites",
       "noSprites": "Noch keine benutzerdefinierten Sprites.",
@@ -433,7 +460,7 @@
       "noMatches": "Keine Treffer."
     },
     "unitTemplatesPanel": {
-      "title": "Benutzerdefinierte Einheitenvorlagen",
+      "title": "Einheitenvorlagen",
       "description": "Definiere neue Einheitenvorlagen mit benutzerdefinierten Werten, Formationen und Schadenstypen. Verwende \"Überschreiben\", um eine integrierte Vorlage für dieses Szenario zu ersetzen (nützlich für Balancetests), oder \"Klonen\", um eine neue Vorlage mit ID >= {{minId}} hinzuzufügen.",
       "noTemplates": "Noch keine benutzerdefinierten Einheitenvorlagen.",
       "templateLabel": "{{name}} (Typ {{type}})",
@@ -442,14 +469,14 @@
       "clonePickerTitle": "Eine integrierte Einheitenvorlage klonen"
     },
     "formationsPanel": {
-      "title": "Benutzerdefinierte Einheitenformationen",
+      "title": "Einheitenformationen",
       "description": "Definiere neue Formationsvorlagen (Kollision, Modifikatoren, Feuerregeln), die benutzerdefinierte Einheiten verwenden können.",
       "noFormations": "Noch keine benutzerdefinierten Formationen.",
       "deleteBlocked": "\"{{id}}\" kann nicht gelöscht werden - noch verwendet von {{refs}}. Entferne zuerst diese Verweise.",
       "clonePickerTitle": "Eine integrierte Formation klonen"
     },
     "unitCategoriesPanel": {
-      "title": "Benutzerdefinierte Einheitenkategorien",
+      "title": "Einheitenkategorien",
       "description": "Definiere neue Einheitenkategorien (Kollisionsstufen, Aufstellungsbereich, erlaubte Befehle, Fluchtverhalten). Wird von benutzerdefinierten Einheiten über ihr Kategoriefeld referenziert.",
       "noCategories": "Noch keine benutzerdefinierten Einheitenkategorien.",
       "deleteBlocked": "\"{{id}}\" kann nicht gelöscht werden - noch verwendet von {{refs}}. Entferne zuerst diese Verweise.",
@@ -457,7 +484,7 @@
       "clonePickerTitle": "Eine integrierte Einheitenkategorie klonen"
     },
     "damageTypesPanel": {
-      "title": "Benutzerdefinierte Schadenstypen",
+      "title": "Schadenstypen",
       "description": "Definiere neue Nahkampf- oder Fernkampfschadenstypen. Wird von benutzerdefinierten Einheiten über meleeDamageType oder rangedDamageTypes referenziert.",
       "noDamageTypes": "Noch keine benutzerdefinierten Schadenstypen.",
       "ranged": "Fernkampf",
@@ -469,7 +496,7 @@
       "clonePickerTitle": "Einen integrierten Schadenstyp klonen"
     },
     "terrainCategoriesPanel": {
-      "title": "Benutzerdefinierte Geländekategorien",
+      "title": "Geländekategorien",
       "description": "Überschreibe Geländekategorie-Konfigurationen für dieses Szenario. Damit gibst du benutzerdefinierten Einheitenkategorien spezifische Geländemodifikatoren oder führst neue Geländekategorie-IDs ein.",
       "noOverrides": "Noch keine benutzerdefinierten Geländekategorie-Überschreibungen.",
       "addTerrainCategory": "Geländekategorie hinzufügen",
@@ -524,15 +551,15 @@
       "resultSummary": "Importiert: {{fields}}."
     },
     "gameConstants": {
-      "title": "Spielkonstanten-Überschreibungen",
+      "title": "Spielkonstanten",
       "description": "Überschreibe die numerischen Konstanten dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; Zurücksetzen stellt ein Feld auf den Epochenstandard zurück. Mit ⚠ markierte Schlüssel sind strukturell - eine Änderung kann Darstellung, Wiederholungen oder Matchmaking beschädigen. Die Werte sind interne Roheinheiten."
     },
     "gameRules": {
-      "title": "Spielregel-Überschreibungen",
+      "title": "Spielregeln",
       "description": "Überschreibe die Spielregeln dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; verwende Zurücksetzen, um ein Feld auf den Epochenstandard zurückzustellen. Die Werte sind interne Roheinheiten (einige Werte werden vorskaliert gespeichert)."
     },
     "ordersPanel": {
-      "title": "Befehls-Überschreibungen",
+      "title": "Befehle",
       "description": "Überschreibe die Werte der integrierten Befehle dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; verwende Zurücksetzen, um ein Feld auf den Epochenstandard zurückzustellen. Du kannst bestehende Befehle ändern, aber keine neuen hinzufügen."
     },
     "clonePicker": {
@@ -560,7 +587,7 @@
       "moveDown": "Nach unten"
     },
     "customArmyCompositions": {
-      "title": "Benutzerdefinierte Armeezusammensetzungen",
+      "title": "Armeezusammensetzungen",
       "betaNotice": "Optionen für benutzerdefinierte Armeezusammensetzungen in Szenarien sind eine Beta-Funktion; bitte melde alle Fehler im offiziellen Discord-Server.",
       "disableEraUnits": "Standard-Einheiten der Epoche deaktivieren",
       "disableEraUnitsDescription": "Setze nur die eigenen benutzerdefinierten Einheiten dieses Szenarios ein. Die Standard-Einheiten der Epoche werden im Armee-Bildschirm ausgeblendet und beim Zusammenstellen einer Armee abgelehnt.",
@@ -722,7 +749,7 @@
     }
   },
   "scoring": {
-    "heading": "VP-Gewichte (Szenario-Override)",
+    "heading": "VP-Gewichte",
     "hint": "Lassen Sie ein Feld leer, um den Standardwert des Kampftyps oder der Ära zu übernehmen.",
     "basePoints": "Basis-Gewichtung",
     "casualties": "Verlust-Gewichtung",
@@ -740,7 +767,7 @@
     "tieBreakInfo": "In der letzten Runde gilt ein Team, das mit mehr als diesem VP-Abstand zurückliegt, als besiegt."
   },
   "objectiveZones": {
-    "heading": "Objektivzonen (Szenario-Override)",
+    "heading": "Objektivzonen",
     "hint": "Wie stark die platzierbaren Objektivzonen verkleinert werden. Lassen Sie ein Feld leer, um den Standardwert des Kampftyps oder der Ära zu übernehmen.",
     "smallInset": "Beschnitt der Zone für kleine Objektive",
     "bigInset": "Beschnitt der Zone für große Objektive",

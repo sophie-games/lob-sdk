@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Identité",
+    "placement": "Placement",
+    "condition": "État",
+    "value": "Valeur"
+  },
   "common": {
     "add": "Ajouter",
     "addEntry": "Ajouter une entrée",
@@ -31,6 +37,7 @@
     "addLanguage": "Ajouter une langue",
     "optionBuiltIn": "{{name}} (intégré)",
     "optionCustom": "{{name}} (personnalisé)",
+    "optionAllUnitCategories": "Toutes les catégories d'unité",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Modificateur de vitesse de rotation"
   },
@@ -40,9 +47,18 @@
       "terrain": "Terrain",
       "units": "Unités",
       "objectives": "Objectifs",
-      "triggers": "Déclencheurs",
-      "advanced": "Avancé"
+      "triggers": "Déclencheurs"
     },
+    "mode": {
+      "scenario": "Scénario",
+      "workshop": "Workshop"
+    },
+    "workshopBands": {
+      "units": "Unités",
+      "terrain": "Terrain",
+      "global": "Global"
+    },
+    "restingHint": "Cliquez sur une pièce pour l'inspecter, ou choisissez un outil pour commencer à peindre.",
     "togglePanel": "Afficher/masquer le panneau",
     "downloadScenario": "Télécharger le scénario",
     "copyScenario": "Copier le scénario",
@@ -60,23 +76,34 @@
     "noInherentAmmoHelp": "Lorsque activé, les unités disposant de munitions apparaissent sans munitions propres et puisent tout leur approvisionnement dans la réserve commune ; elles ne peuvent donc pas tirer au premier tour et n'ouvrent le feu qu'une fois réapprovisionnées par la réserve.",
     "showGrid": "Afficher la grille",
     "showUnits": "Afficher les unités",
-    "hideUnits": "Masquer les unités",
     "showObjectives": "Afficher les objectifs",
-    "hideObjectives": "Masquer les objectifs",
     "goBack": "Retour",
-    "goBackConfirm": "Êtes-vous sûr de vouloir revenir en arrière et quitter l'éditeur ?"
+    "goBackConfirm": "Êtes-vous sûr de vouloir revenir en arrière et quitter l'éditeur ?",
+    "display": "Affichage",
+    "scenarioBands": {
+      "about": "Général",
+      "forces": "Forces",
+      "rules": "Règles",
+      "presentation": "Présentation"
+    }
   },
   "createScenario": {
     "randomMap": "Carte aléatoire (procédurale) ?",
     "isHybrid": "Hybride ?"
   },
   "playersPanel": {
-    "removePlayer": "Retirer le joueur"
+    "removePlayer": "Retirer le joueur",
+    "ammoReserve": "Réserve",
+    "ammoBase": "Base"
   },
   "terrainPanel": {
-    "setTerrain": "Définir le terrain",
-    "terrainHeight": "Hauteur du terrain",
-    "paintBucket": "Pot de peinture"
+    "brush": "Pinceau",
+    "shape": "Forme",
+    "height": "Hauteur",
+    "elevation": "Élévation",
+    "keepHeight": "Conserver la hauteur existante",
+    "paintBucket": "Pot de peinture",
+    "none": "Aucun"
   },
   "unitPanel": {
     "title": "Unité sélectionnée",
@@ -89,7 +116,7 @@
   },
   "createUnit": {
     "title": "Créer une unité",
-    "usingCopiedUnits": "Utilisation des unités copiées",
+    "placingCopied": "Placement des unités copiées ({{count}}). Cliquez sur la carte pour les placer.",
     "customLabel": "{{name}} (personnalisé)"
   },
   "objectivePanel": {
@@ -380,7 +407,7 @@
       "projectileAbsorption": "Absorption des projectiles"
     },
     "identityHint": "Remplace la configuration de catégorie de terrain de l'époque pour ce scénario. L'id est fixé à une catégorie intégrée - les terrains conservent leurs affectations de catégorie, vous n'ajustez que les modificateurs.",
-    "perUnitCategoryHint": "Les clés sont des ids de catégorie d'unité. Utilisez le joker `*` pour définir une valeur par défaut appliquée à toutes les catégories sans entrée explicite.",
+    "perUnitCategoryHint": "Les clés sont des ids de catégorie d'unité. Utilisez le joker `*` pour définir une valeur par défaut appliquée à toutes les catégories sans entrée explicite. Supprimer une ligne couverte par `*` n'a aucun effet : elle revient à la modification suivante. Gardez la ligne et donnez-lui plutôt sa propre valeur (Non, pour rendre le terrain franchissable).",
     "projectileAbsorptionHint": "Les clés sont des noms de types de dégâts.",
     "option": {
       "builtIn": "{{name}} (intégré)",
@@ -414,7 +441,7 @@
       "duplicate": "Dupliquer"
     },
     "spritesPanel": {
-      "title": "Sprites personnalisés",
+      "title": "Sprites d'unités",
       "description": "Téléversez vos propres sprites ici, puis sélectionnez-les dans les formations d'une unité. Ils sont intégrés au scénario (max {{kb}} KB chacun).",
       "yourSprites": "Vos sprites",
       "noSprites": "Aucun sprite personnalisé pour le moment.",
@@ -433,7 +460,7 @@
       "noMatches": "Aucune correspondance."
     },
     "unitTemplatesPanel": {
-      "title": "Modèles d'unités personnalisés",
+      "title": "Modèles d'unités",
       "description": "Définissez de nouveaux modèles d'unités avec des statistiques, formations et types de dégâts personnalisés. Utilisez \"Remplacer\" pour substituer un intégré pour ce scénario (utile pour tester l'équilibrage) ou \"Cloner\" pour ajouter un nouveau modèle avec un id >= {{minId}}.",
       "noTemplates": "Aucun modèle d'unité personnalisé pour le moment.",
       "templateLabel": "{{name}} (type {{type}})",
@@ -442,14 +469,14 @@
       "clonePickerTitle": "Cloner un modèle d'unité intégré"
     },
     "formationsPanel": {
-      "title": "Formations d'unités personnalisées",
+      "title": "Formations d'unités",
       "description": "Définissez de nouveaux modèles de formation (collision, modificateurs, règles de tir) que les unités personnalisées peuvent utiliser.",
       "noFormations": "Aucune formation personnalisée pour le moment.",
       "deleteBlocked": "Impossible de supprimer \"{{id}}\" - encore utilisé par {{refs}}. Retirez d'abord ces références.",
       "clonePickerTitle": "Cloner une formation intégrée"
     },
     "unitCategoriesPanel": {
-      "title": "Catégories d'unités personnalisées",
+      "title": "Catégories d'unités",
       "description": "Définissez de nouvelles catégories d'unités (niveaux de collision, section de déploiement, ordres autorisés, comportement en déroute). Référencées par les unités personnalisées via leur champ catégorie.",
       "noCategories": "Aucune catégorie d'unité personnalisée pour le moment.",
       "deleteBlocked": "Impossible de supprimer \"{{id}}\" - encore utilisé par {{refs}}. Retirez d'abord ces références.",
@@ -457,7 +484,7 @@
       "clonePickerTitle": "Cloner une catégorie d'unité intégrée"
     },
     "damageTypesPanel": {
-      "title": "Types de dégâts personnalisés",
+      "title": "Types de dégâts",
       "description": "Définissez de nouveaux types de dégâts de mêlée ou à distance. Référencés par les unités personnalisées via meleeDamageType ou rangedDamageTypes.",
       "noDamageTypes": "Aucun type de dégâts personnalisé pour le moment.",
       "ranged": "à distance",
@@ -469,7 +496,7 @@
       "clonePickerTitle": "Cloner un type de dégâts intégré"
     },
     "terrainCategoriesPanel": {
-      "title": "Catégories de terrain personnalisées",
+      "title": "Catégories de terrain",
       "description": "Remplacez les configurations de catégorie de terrain pour ce scénario. Utilisez ceci pour donner aux catégories d'unités personnalisées des modificateurs de terrain spécifiques, ou pour introduire de nouveaux ids de catégorie de terrain.",
       "noOverrides": "Aucun remplacement de catégorie de terrain personnalisé pour le moment.",
       "addTerrainCategory": "Ajouter une catégorie de terrain",
@@ -524,15 +551,15 @@
       "resultSummary": "Importé : {{fields}}."
     },
     "gameConstants": {
-      "title": "Remplacements de constantes du jeu",
+      "title": "Constantes du jeu",
       "description": "Remplacez les constantes numériques de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; Réinitialiser ramène un champ au défaut de l'époque. Les clés marquées ⚠ sont structurelles - les modifier peut casser le rendu, les replays ou l'appariement. Les valeurs sont en unités internes brutes."
     },
     "gameRules": {
-      "title": "Remplacements de règles du jeu",
+      "title": "Règles du jeu",
       "description": "Remplacez les règles de jeu de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; utilisez Réinitialiser pour ramener un champ au défaut de l'époque. Les valeurs sont en unités internes brutes (certaines statistiques sont stockées pré-échelonnées)."
     },
     "ordersPanel": {
-      "title": "Remplacements d'ordres",
+      "title": "Ordres",
       "description": "Remplacez les valeurs des ordres intégrés de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; utilisez Réinitialiser pour ramener un champ au défaut de l'époque. Vous pouvez modifier les ordres existants mais pas en ajouter de nouveaux."
     },
     "clonePicker": {
@@ -560,7 +587,7 @@
       "moveDown": "Descendre"
     },
     "customArmyCompositions": {
-      "title": "Ordre de bataille personnalisé",
+      "title": "Ordre de bataille",
       "betaNotice": "Les options d'ordre de bataille personnalisé pour les scénarios sont une fonctionnalité bêta ; veuillez signaler tout bug sur le serveur Discord officiel.",
       "disableEraUnits": "Désactiver les unités par défaut de l'époque",
       "disableEraUnitsDescription": "N'alignez que les unités personnalisées propres à ce scénario. Les unités par défaut de l'époque sont masquées de l'écran d'armée et rejetées lors de la construction d'une armée.",
@@ -722,7 +749,7 @@
     }
   },
   "scoring": {
-    "heading": "Poids des PV (remplacement du scénario)",
+    "heading": "Poids des PV",
     "hint": "Laissez un champ vide pour hériter de la valeur par défaut du type de bataille ou de l'ère.",
     "basePoints": "Poids de base",
     "casualties": "Poids des pertes",
@@ -740,7 +767,7 @@
     "tieBreakInfo": "Au dernier tour, une équipe en retard de plus que cette marge de PV est considérée comme vaincue."
   },
   "objectiveZones": {
-    "heading": "Zones d'objectifs (remplacement du scénario)",
+    "heading": "Zones d'objectifs",
     "hint": "De combien réduire les zones d'objectifs plaçables. Laissez un champ vide pour hériter de la valeur par défaut du type de bataille ou de l'ère.",
     "smallInset": "Rognage de la zone des petits objectifs",
     "bigInset": "Rognage de la zone des grands objectifs",

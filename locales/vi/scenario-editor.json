@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Danh tính",
+    "placement": "Vị trí",
+    "condition": "Tình trạng",
+    "value": "Giá trị"
+  },
   "common": {
     "add": "Thêm",
     "addEntry": "Thêm mục",
@@ -31,6 +37,7 @@
     "addLanguage": "Thêm ngôn ngữ",
     "optionBuiltIn": "{{name}} (tích hợp)",
     "optionCustom": "{{name}} (tùy chỉnh)",
+    "optionAllUnitCategories": "Tất cả danh mục đơn vị",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Hệ số tốc độ xoay"
   },
@@ -40,9 +47,18 @@
       "terrain": "Địa hình",
       "units": "Đơn vị",
       "objectives": "Mục tiêu",
-      "triggers": "Trình kích hoạt",
-      "advanced": "Nâng cao"
+      "triggers": "Trình kích hoạt"
     },
+    "mode": {
+      "scenario": "Kịch bản",
+      "workshop": "Workshop"
+    },
+    "workshopBands": {
+      "units": "Đơn vị",
+      "terrain": "Địa hình",
+      "global": "Toàn cục"
+    },
+    "restingHint": "Nhấp vào một quân để kiểm tra, hoặc chọn một công cụ để bắt đầu vẽ.",
     "togglePanel": "Bật/tắt bảng",
     "downloadScenario": "Tải xuống kịch bản",
     "copyScenario": "Sao chép kịch bản",
@@ -60,23 +76,34 @@
     "noInherentAmmoHelp": "Khi bật, các đơn vị có đạn sẽ xuất hiện mà không có đạn riêng và lấy toàn bộ nguồn tiếp tế từ kho dự trữ chung, nên không thể bắn ở lượt đầu và chỉ khai hỏa khi được kho dự trữ tiếp tế lại.",
     "showGrid": "Hiện lưới",
     "showUnits": "Hiện đơn vị",
-    "hideUnits": "Ẩn đơn vị",
     "showObjectives": "Hiện mục tiêu",
-    "hideObjectives": "Ẩn mục tiêu",
     "goBack": "Quay lại",
-    "goBackConfirm": "Bạn có chắc chắn muốn quay lại và thoát trình chỉnh sửa?"
+    "goBackConfirm": "Bạn có chắc chắn muốn quay lại và thoát trình chỉnh sửa?",
+    "display": "Hiển thị",
+    "scenarioBands": {
+      "about": "Giới thiệu",
+      "forces": "Lực lượng",
+      "rules": "Luật",
+      "presentation": "Trình bày"
+    }
   },
   "createScenario": {
     "randomMap": "Bản đồ ngẫu nhiên (theo thủ tục)?",
     "isHybrid": "Là lai?"
   },
   "playersPanel": {
-    "removePlayer": "Loại bỏ người chơi"
+    "removePlayer": "Loại bỏ người chơi",
+    "ammoReserve": "Dự bị",
+    "ammoBase": "Cơ bản"
   },
   "terrainPanel": {
-    "setTerrain": "Đặt địa hình",
-    "terrainHeight": "Độ cao địa hình",
-    "paintBucket": "Xô sơn"
+    "brush": "Cọ",
+    "shape": "Hình dạng",
+    "height": "Chiều cao",
+    "elevation": "Độ cao",
+    "keepHeight": "Giữ nguyên độ cao hiện có",
+    "paintBucket": "Xô sơn",
+    "none": "Không"
   },
   "unitPanel": {
     "title": "Đơn vị đã chọn",
@@ -89,7 +116,7 @@
   },
   "createUnit": {
     "title": "Tạo đơn vị",
-    "usingCopiedUnits": "Đang dùng đơn vị đã sao chép",
+    "placingCopied": "Đang đặt đơn vị đã sao chép ({{count}}). Nhấp vào bản đồ để đặt chúng.",
     "customLabel": "{{name}} (tùy chỉnh)"
   },
   "objectivePanel": {
@@ -380,7 +407,7 @@
       "projectileAbsorption": "Hấp thụ đạn"
     },
     "identityHint": "Ghi đè cấu hình danh mục địa hình của thời đại cho kịch bản này. ID cố định theo một danh mục tích hợp - địa hình giữ nguyên gán danh mục, bạn chỉ điều chỉnh các hệ số.",
-    "perUnitCategoryHint": "Khóa là id danh mục đơn vị. Dùng ký tự đại diện `*` để đặt giá trị mặc định áp dụng cho mọi danh mục không có mục riêng.",
+    "perUnitCategoryHint": "Khóa là id danh mục đơn vị. Dùng ký tự đại diện `*` để đặt giá trị mặc định áp dụng cho mọi danh mục không có mục riêng. Xóa một hàng do `*` bao phủ không có tác dụng: nó sẽ quay lại ở lần chỉnh sửa sau. Hãy giữ hàng đó và đặt giá trị riêng cho nó (Không, để địa hình có thể đi qua).",
     "projectileAbsorptionHint": "Khóa là tên loại sát thương.",
     "option": {
       "builtIn": "{{name}} (tích hợp)",
@@ -414,7 +441,7 @@
       "duplicate": "Nhân bản"
     },
     "spritesPanel": {
-      "title": "Sprite tùy chỉnh",
+      "title": "Sprite đơn vị",
       "description": "Tải lên sprite của riêng bạn tại đây, rồi chọn chúng trong đội hình của một đơn vị. Chúng được nhúng vào kịch bản (tối đa {{kb}}KB mỗi cái).",
       "yourSprites": "Sprite của bạn",
       "noSprites": "Chưa có sprite tùy chỉnh nào.",
@@ -433,7 +460,7 @@
       "noMatches": "Không có kết quả khớp."
     },
     "unitTemplatesPanel": {
-      "title": "Mẫu đơn vị tùy chỉnh",
+      "title": "Mẫu đơn vị",
       "description": "Định nghĩa mẫu đơn vị mới với thống kê, đội hình và loại sát thương tùy chỉnh. Dùng \"Ghi đè\" để thay thế một loại tích hợp cho kịch bản này (hữu ích để kiểm tra cân bằng) hoặc \"Nhân bản\" để thêm mẫu mới với id >= {{minId}}.",
       "noTemplates": "Chưa có mẫu đơn vị tùy chỉnh nào.",
       "templateLabel": "{{name}} (loại {{type}})",
@@ -442,14 +469,14 @@
       "clonePickerTitle": "Nhân bản một mẫu đơn vị tích hợp"
     },
     "formationsPanel": {
-      "title": "Đội hình đơn vị tùy chỉnh",
+      "title": "Đội hình đơn vị",
       "description": "Định nghĩa mẫu đội hình mới (va chạm, hệ số, quy tắc bắn) mà đơn vị tùy chỉnh có thể dùng.",
       "noFormations": "Chưa có đội hình tùy chỉnh nào.",
       "deleteBlocked": "Không thể xóa \"{{id}}\" - vẫn được dùng bởi {{refs}}. Hãy loại bỏ các tham chiếu đó trước.",
       "clonePickerTitle": "Nhân bản một đội hình tích hợp"
     },
     "unitCategoriesPanel": {
-      "title": "Danh mục đơn vị tùy chỉnh",
+      "title": "Danh mục đơn vị",
       "description": "Định nghĩa danh mục đơn vị mới (mức va chạm, khu vực triển khai, lệnh được phép, hành vi rút lui). Được tham chiếu bởi đơn vị tùy chỉnh qua trường danh mục của chúng.",
       "noCategories": "Chưa có danh mục đơn vị tùy chỉnh nào.",
       "deleteBlocked": "Không thể xóa \"{{id}}\" - vẫn được dùng bởi {{refs}}. Hãy loại bỏ các tham chiếu đó trước.",
@@ -457,7 +484,7 @@
       "clonePickerTitle": "Nhân bản một danh mục đơn vị tích hợp"
     },
     "damageTypesPanel": {
-      "title": "Loại sát thương tùy chỉnh",
+      "title": "Loại sát thương",
       "description": "Định nghĩa loại sát thương cận chiến hoặc tầm xa mới. Được tham chiếu bởi đơn vị tùy chỉnh qua meleeDamageType hoặc rangedDamageTypes.",
       "noDamageTypes": "Chưa có loại sát thương tùy chỉnh nào.",
       "ranged": "tầm xa",
@@ -469,7 +496,7 @@
       "clonePickerTitle": "Nhân bản một loại sát thương tích hợp"
     },
     "terrainCategoriesPanel": {
-      "title": "Danh mục địa hình tùy chỉnh",
+      "title": "Danh mục địa hình",
       "description": "Ghi đè cấu hình danh mục địa hình cho kịch bản này. Dùng cái này để gán hệ số địa hình cụ thể cho danh mục đơn vị tùy chỉnh, hoặc để giới thiệu id danh mục địa hình mới.",
       "noOverrides": "Chưa có ghi đè danh mục địa hình tùy chỉnh nào.",
       "addTerrainCategory": "Thêm danh mục địa hình",
@@ -523,15 +550,15 @@
       "resultSummary": "Đã nhập: {{fields}}."
     },
     "gameConstants": {
-      "title": "Ghi đè hằng số trò chơi",
+      "title": "Hằng số trò chơi",
       "description": "Ghi đè các hằng số dạng số của thời đại này cho kịch bản này. Chỉ lưu các giá trị đã thay đổi; Đặt lại đưa một trường về mặc định thời đại. Các khóa đánh dấu ⚠ là cấu trúc - thay đổi chúng có thể làm hỏng hiển thị, bản ghi hoặc ghép trận. Các giá trị là đơn vị nội bộ thô."
     },
     "gameRules": {
-      "title": "Ghi đè quy tắc trò chơi",
+      "title": "Quy tắc trò chơi",
       "description": "Ghi đè quy tắc lối chơi của thời đại này cho kịch bản này. Chỉ lưu các giá trị đã thay đổi; dùng Đặt lại để đưa một trường về mặc định thời đại. Các giá trị là đơn vị nội bộ thô (một số thống kê được lưu đã quy đổi sẵn)."
     },
     "ordersPanel": {
-      "title": "Ghi đè lệnh",
+      "title": "Lệnh",
       "description": "Ghi đè giá trị của các lệnh tích hợp của thời đại này cho kịch bản này. Chỉ lưu các giá trị đã thay đổi; dùng Đặt lại để đưa một trường về mặc định thời đại. Bạn có thể sửa các lệnh hiện có nhưng không thể thêm lệnh mới."
     },
     "clonePicker": {
@@ -559,7 +586,7 @@
       "moveDown": "Di chuyển xuống"
     },
     "customArmyCompositions": {
-      "title": "Cấu trúc quân đội tùy chỉnh",
+      "title": "Cấu trúc quân đội",
       "betaNotice": "Các tùy chọn cấu trúc quân đội tùy chỉnh cho kịch bản là một tính năng beta; vui lòng báo cáo mọi lỗi trong máy chủ Discord chính thức.",
       "disableEraUnits": "Tắt đơn vị mặc định của thời đại",
       "disableEraUnitsDescription": "Chỉ sử dụng các đơn vị tùy chỉnh riêng của kịch bản này. Các đơn vị mặc định của thời đại sẽ bị ẩn khỏi màn hình quân đội và bị từ chối khi xây dựng quân đội.",
@@ -721,7 +748,7 @@
     }
   },
   "scoring": {
-    "heading": "Trọng số VP (ghi đè kịch bản)",
+    "heading": "Trọng số VP",
     "hint": "Để trống một ô để kế thừa giá trị mặc định của loại trận đấu hoặc thời đại.",
     "basePoints": "Trọng số cơ bản",
     "casualties": "Trọng số thương vong",
@@ -739,7 +766,7 @@
     "tieBreakInfo": "Ở lượt cuối, đội bị dẫn trước về VP nhiều hơn mức này bị coi là thua."
   },
   "objectiveZones": {
-    "heading": "Vùng mục tiêu (ghi đè kịch bản)",
+    "heading": "Vùng mục tiêu",
     "hint": "Thu nhỏ các vùng mục tiêu có thể đặt bao nhiêu. Để trống một ô để kế thừa giá trị mặc định của loại trận đấu hoặc thời đại.",
     "smallInset": "Cắt vùng mục tiêu nhỏ",
     "bigInset": "Cắt vùng mục tiêu lớn",

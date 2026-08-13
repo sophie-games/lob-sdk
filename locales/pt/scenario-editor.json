@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Identidade",
+    "placement": "Posicionamento",
+    "condition": "Condição",
+    "value": "Valor"
+  },
   "common": {
     "add": "Adicionar",
     "addEntry": "Adicionar entrada",
@@ -31,6 +37,7 @@
     "addLanguage": "Adicionar Idioma",
     "optionBuiltIn": "{{name}} (interno)",
     "optionCustom": "{{name}} (personalizado)",
+    "optionAllUnitCategories": "Todas as categorias de unidade",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Modificador de velocidade de rotação"
   },
@@ -40,9 +47,18 @@
       "terrain": "Terreno",
       "units": "Unidades",
       "objectives": "Objetivos",
-      "triggers": "Gatilhos",
-      "advanced": "Avançado"
+      "triggers": "Gatilhos"
     },
+    "mode": {
+      "scenario": "Cenário",
+      "workshop": "Workshop"
+    },
+    "workshopBands": {
+      "units": "Unidades",
+      "terrain": "Terreno",
+      "global": "Global"
+    },
+    "restingHint": "Clique em uma peça para inspecioná-la, ou escolha uma ferramenta para começar a pintar.",
     "togglePanel": "Alternar painel",
     "downloadScenario": "Baixar cenário",
     "copyScenario": "Copiar cenário",
@@ -60,23 +76,34 @@
     "noInherentAmmoHelp": "Quando ativado, as unidades com munição surgem sem munição própria e retiram todo o seu suprimento da reserva compartilhada, por isso não podem atirar no primeiro turno e só abrem fogo quando a reserva as reabastece.",
     "showGrid": "Mostrar grade",
     "showUnits": "Mostrar unidades",
-    "hideUnits": "Ocultar unidades",
     "showObjectives": "Mostrar objetivos",
-    "hideObjectives": "Ocultar objetivos",
     "goBack": "Voltar",
-    "goBackConfirm": "Tem certeza de que deseja voltar e sair do editor?"
+    "goBackConfirm": "Tem certeza de que deseja voltar e sair do editor?",
+    "display": "Exibição",
+    "scenarioBands": {
+      "about": "Geral",
+      "forces": "Forças",
+      "rules": "Regras",
+      "presentation": "Apresentação"
+    }
   },
   "createScenario": {
     "randomMap": "Mapa aleatório (procedural)?",
     "isHybrid": "É Híbrido?"
   },
   "playersPanel": {
-    "removePlayer": "Remover jogador"
+    "removePlayer": "Remover jogador",
+    "ammoReserve": "Reserva",
+    "ammoBase": "Base"
   },
   "terrainPanel": {
-    "setTerrain": "Definir terreno",
-    "terrainHeight": "Altura do terreno",
-    "paintBucket": "Balde de tinta"
+    "brush": "Pincel",
+    "shape": "Forma",
+    "height": "Altura",
+    "elevation": "Elevação",
+    "keepHeight": "Manter a altura existente",
+    "paintBucket": "Balde de tinta",
+    "none": "Nenhum"
   },
   "unitPanel": {
     "title": "Unidade Selecionada",
@@ -89,7 +116,7 @@
   },
   "createUnit": {
     "title": "Criar Unidade",
-    "usingCopiedUnits": "Usando unidades copiadas",
+    "placingCopied": "Colocando unidades copiadas ({{count}}). Clique no mapa para posicioná-las.",
     "customLabel": "{{name}} (personalizado)"
   },
   "objectivePanel": {
@@ -380,7 +407,7 @@
       "projectileAbsorption": "Absorção de projéteis"
     },
     "identityHint": "Sobrescreve a configuração de categoria de terreno da era para este cenário. O id é fixo a uma categoria interna - os terrenos mantêm suas atribuições de categoria, você apenas ajusta os modificadores.",
-    "perUnitCategoryHint": "As chaves são ids de categoria de unidade. Use o curinga `*` para definir um padrão aplicado a todas as categorias que não tenham uma entrada explícita.",
+    "perUnitCategoryHint": "As chaves são ids de categoria de unidade. Use o curinga `*` para definir um padrão aplicado a todas as categorias que não tenham uma entrada explícita. Remover uma linha coberta por `*` não tem efeito: ela volta na próxima edição. Mantenha a linha e dê a ela um valor próprio (Não, para tornar o terreno transponível).",
     "projectileAbsorptionHint": "As chaves são nomes de tipo de dano.",
     "option": {
       "builtIn": "{{name}} (interno)",
@@ -414,7 +441,7 @@
       "duplicate": "Duplicar"
     },
     "spritesPanel": {
-      "title": "Sprites personalizados",
+      "title": "Sprites de unidade",
       "description": "Envie seus próprios sprites aqui e depois escolha-os nas formações de uma unidade. Eles são incorporados ao cenário (máx. {{kb}}KB cada).",
       "yourSprites": "Seus sprites",
       "noSprites": "Nenhum sprite personalizado ainda.",
@@ -433,7 +460,7 @@
       "noMatches": "Nenhuma correspondência."
     },
     "unitTemplatesPanel": {
-      "title": "Modelos de unidade personalizados",
+      "title": "Modelos de unidade",
       "description": "Defina novos modelos de unidade com estatísticas, formações e tipos de dano personalizados. Use \"Sobrescrever\" para substituir um interno neste cenário (útil para testes de equilíbrio) ou \"Clonar\" para adicionar um novo modelo com id >= {{minId}}.",
       "noTemplates": "Nenhum modelo de unidade personalizado ainda.",
       "templateLabel": "{{name}} (tipo {{type}})",
@@ -442,14 +469,14 @@
       "clonePickerTitle": "Clonar um modelo de unidade interno"
     },
     "formationsPanel": {
-      "title": "Formações de unidade personalizadas",
+      "title": "Formações de unidade",
       "description": "Defina novos modelos de formação (colisão, modificadores, regras de disparo) que unidades personalizadas podem usar.",
       "noFormations": "Nenhuma formação personalizada ainda.",
       "deleteBlocked": "Não é possível excluir \"{{id}}\" - ainda usado por {{refs}}. Remova essas referências primeiro.",
       "clonePickerTitle": "Clonar uma formação interna"
     },
     "unitCategoriesPanel": {
-      "title": "Categorias de unidade personalizadas",
+      "title": "Categorias de unidade",
       "description": "Defina novas categorias de unidade (níveis de colisão, seção de implantação, ordens permitidas, comportamento de fuga). Referenciadas por unidades personalizadas pelo campo de categoria.",
       "noCategories": "Nenhuma categoria de unidade personalizada ainda.",
       "deleteBlocked": "Não é possível excluir \"{{id}}\" - ainda usado por {{refs}}. Remova essas referências primeiro.",
@@ -457,7 +484,7 @@
       "clonePickerTitle": "Clonar uma categoria de unidade interna"
     },
     "damageTypesPanel": {
-      "title": "Tipos de dano personalizados",
+      "title": "Tipos de dano",
       "description": "Defina novos tipos de dano corpo a corpo ou à distância. Referenciados por unidades personalizadas via meleeDamageType ou rangedDamageTypes.",
       "noDamageTypes": "Nenhum tipo de dano personalizado ainda.",
       "ranged": "à distância",
@@ -469,7 +496,7 @@
       "clonePickerTitle": "Clonar um tipo de dano interno"
     },
     "terrainCategoriesPanel": {
-      "title": "Categorias de terreno personalizadas",
+      "title": "Categorias de terreno",
       "description": "Sobrescreva as configurações de categoria de terreno deste cenário. Use isto para dar a categorias de unidade personalizadas modificadores de terreno específicos, ou para introduzir novos ids de categoria de terreno.",
       "noOverrides": "Nenhuma sobrescrita de categoria de terreno personalizada ainda.",
       "addTerrainCategory": "Adicionar categoria de terreno",
@@ -524,15 +551,15 @@
       "resultSummary": "Importado: {{fields}}."
     },
     "gameConstants": {
-      "title": "Sobrescritas de constantes do jogo",
+      "title": "Constantes do jogo",
       "description": "Sobrescreva as constantes numéricas desta era para este cenário. Apenas os valores alterados são salvos; Redefinir retorna um campo ao padrão da era. As chaves marcadas com ⚠ são estruturais - alterá-las pode quebrar a renderização, replays ou o matchmaking. Os valores estão em unidades internas brutas."
     },
     "gameRules": {
-      "title": "Sobrescritas de regras do jogo",
+      "title": "Regras do jogo",
       "description": "Sobrescreva as regras de jogabilidade desta era para este cenário. Apenas os valores alterados são salvos; use Redefinir para retornar um campo ao padrão da era. Os valores estão em unidades internas brutas (algumas estatísticas são armazenadas pré-escaladas)."
     },
     "ordersPanel": {
-      "title": "Sobrescritas de ordens",
+      "title": "Ordens",
       "description": "Sobrescreva os valores das ordens internas desta era para este cenário. Apenas os valores alterados são salvos; use Redefinir para retornar um campo ao padrão da era. Você pode modificar ordens existentes, mas não adicionar novas."
     },
     "clonePicker": {
@@ -560,7 +587,7 @@
       "moveDown": "Mover para baixo"
     },
     "customArmyCompositions": {
-      "title": "Composições de exército personalizadas",
+      "title": "Composições de exército",
       "betaNotice": "As opções de composições de exército personalizadas para cenários são um recurso beta; por favor, relate quaisquer erros no servidor Discord oficial.",
       "disableEraUnits": "Desativar unidades padrão da era",
       "disableEraUnitsDescription": "Utilize apenas as unidades personalizadas deste cenário. As unidades padrão da era ficam ocultas na tela de exército e são rejeitadas ao montar um exército.",
@@ -722,7 +749,7 @@
     }
   },
   "scoring": {
-    "heading": "Pesos de VP (substituição do cenário)",
+    "heading": "Pesos de VP",
     "hint": "Deixe um campo vazio para herdar o padrão do tipo de batalha ou da era.",
     "basePoints": "Peso base",
     "casualties": "Peso de baixas",
@@ -740,7 +767,7 @@
     "tieBreakInfo": "No turno final, uma equipe que estiver atrás em VP por mais do que isto é considerada derrotada."
   },
   "objectiveZones": {
-    "heading": "Zonas de objetivos (substituição do cenário)",
+    "heading": "Zonas de objetivos",
     "hint": "O quanto reduzir as zonas de objetivos posicionáveis. Deixe um campo vazio para herdar o padrão do tipo de batalha ou da era.",
     "smallInset": "Corte da zona de objetivos pequenos",
     "bigInset": "Corte da zona de objetivos grandes",

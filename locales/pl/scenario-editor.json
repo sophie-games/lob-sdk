@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Tożsamość",
+    "placement": "Rozmieszczenie",
+    "condition": "Stan",
+    "value": "Wartość"
+  },
   "common": {
     "add": "Dodaj",
     "addEntry": "Dodaj wpis",
@@ -31,6 +37,7 @@
     "addLanguage": "Dodaj język",
     "optionBuiltIn": "{{name}} (wbudowana)",
     "optionCustom": "{{name}} (niestandardowa)",
+    "optionAllUnitCategories": "Wszystkie kategorie jednostek",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Modyfikator prędkości obrotu"
   },
@@ -40,9 +47,18 @@
       "terrain": "Teren",
       "units": "Jednostki",
       "objectives": "Cele",
-      "triggers": "Wyzwalacze",
-      "advanced": "Zaawansowane"
+      "triggers": "Wyzwalacze"
     },
+    "mode": {
+      "scenario": "Scenariusz",
+      "workshop": "Workshop"
+    },
+    "workshopBands": {
+      "units": "Jednostki",
+      "terrain": "Teren",
+      "global": "Globalne"
+    },
+    "restingHint": "Kliknij element, aby go sprawdzić, lub wybierz narzędzie, aby zacząć malować.",
     "togglePanel": "Przełącz panel",
     "downloadScenario": "Pobierz scenariusz",
     "copyScenario": "Kopiuj scenariusz",
@@ -60,23 +76,34 @@
     "noInherentAmmoHelp": "Po włączeniu jednostki z amunicją pojawiają się bez własnych zapasów i czerpią całe zaopatrzenie ze wspólnej rezerwy, więc nie mogą strzelać w pierwszej turze i otwierają ogień dopiero po uzupełnieniu z rezerwy.",
     "showGrid": "Pokaż siatkę",
     "showUnits": "Pokaż jednostki",
-    "hideUnits": "Ukryj jednostki",
     "showObjectives": "Pokaż cele",
-    "hideObjectives": "Ukryj cele",
     "goBack": "Wstecz",
-    "goBackConfirm": "Czy na pewno chcesz wrócić i wyjść z edytora?"
+    "goBackConfirm": "Czy na pewno chcesz wrócić i wyjść z edytora?",
+    "display": "Wyświetlanie",
+    "scenarioBands": {
+      "about": "Ogólne",
+      "forces": "Siły",
+      "rules": "Zasady",
+      "presentation": "Prezentacja"
+    }
   },
   "createScenario": {
     "randomMap": "Mapa losowa (proceduralna)?",
     "isHybrid": "Hybrydowy?"
   },
   "playersPanel": {
-    "removePlayer": "Usuń gracza"
+    "removePlayer": "Usuń gracza",
+    "ammoReserve": "Rezerwa",
+    "ammoBase": "Baza"
   },
   "terrainPanel": {
-    "setTerrain": "Ustaw teren",
-    "terrainHeight": "Wysokość terenu",
-    "paintBucket": "Wiadro z farbą"
+    "brush": "Pędzel",
+    "shape": "Kształt",
+    "height": "Wysokość",
+    "elevation": "Wzniesienie",
+    "keepHeight": "Zachowaj istniejącą wysokość",
+    "paintBucket": "Wiadro z farbą",
+    "none": "Brak"
   },
   "unitPanel": {
     "title": "Wybrana jednostka",
@@ -89,7 +116,7 @@
   },
   "createUnit": {
     "title": "Stwórz jednostkę",
-    "usingCopiedUnits": "Używanie skopiowanych jednostek",
+    "placingCopied": "Umieszczanie skopiowanych jednostek ({{count}}). Kliknij mapę, aby je umieścić.",
     "customLabel": "{{name}} (niestandardowa)"
   },
   "objectivePanel": {
@@ -380,7 +407,7 @@
       "projectileAbsorption": "Absorpcja pocisków"
     },
     "identityHint": "Nadpisuje konfigurację kategorii terenu epoki dla tego scenariusza. ID jest ustalone na wbudowaną kategorię - tereny zachowują przypisania kategorii, dostosowujesz tylko modyfikatory.",
-    "perUnitCategoryHint": "Klucze to ID kategorii jednostek. Użyj wieloznacznika `*`, aby ustawić wartość domyślną stosowaną do wszystkich kategorii bez jawnego wpisu.",
+    "perUnitCategoryHint": "Klucze to ID kategorii jednostek. Użyj wieloznacznika `*`, aby ustawić wartość domyślną stosowaną do wszystkich kategorii bez jawnego wpisu. Usunięcie wiersza objętego przez `*` nic nie daje: wróci przy następnej edycji. Zostaw wiersz i nadaj mu własną wartość (Nie, aby teren stał się przejezdny).",
     "projectileAbsorptionHint": "Klucze to nazwy typów obrażeń.",
     "option": {
       "builtIn": "{{name}} (wbudowana)",
@@ -414,7 +441,7 @@
       "duplicate": "Duplikuj"
     },
     "spritesPanel": {
-      "title": "Niestandardowe sprite'y",
+      "title": "Sprite'y jednostek",
       "description": "Wgraj tu własne sprite'y, a następnie wybierz je w formacjach jednostki. Są osadzane w scenariuszu (maks. {{kb}}KB każdy).",
       "yourSprites": "Twoje sprite'y",
       "noSprites": "Brak niestandardowych sprite'ów.",
@@ -433,7 +460,7 @@
       "noMatches": "Brak dopasowań."
     },
     "unitTemplatesPanel": {
-      "title": "Niestandardowe szablony jednostek",
+      "title": "Szablony jednostek",
       "description": "Definiuj nowe szablony jednostek z własnymi statystykami, formacjami i typami obrażeń. Użyj \"Nadpisz\", aby zastąpić wbudowany na potrzeby tego scenariusza (przydatne przy testowaniu balansu), lub \"Klonuj\", aby dodać nowy szablon z id >= {{minId}}.",
       "noTemplates": "Brak niestandardowych szablonów jednostek.",
       "templateLabel": "{{name}} (typ {{type}})",
@@ -442,14 +469,14 @@
       "clonePickerTitle": "Klonuj wbudowany szablon jednostki"
     },
     "formationsPanel": {
-      "title": "Niestandardowe formacje jednostek",
+      "title": "Formacje jednostek",
       "description": "Definiuj nowe szablony formacji (kolizja, modyfikatory, zasady strzelania), z których mogą korzystać niestandardowe jednostki.",
       "noFormations": "Brak niestandardowych formacji.",
       "deleteBlocked": "Nie można usunąć \"{{id}}\" - wciąż używane przez {{refs}}. Najpierw usuń te odwołania.",
       "clonePickerTitle": "Klonuj wbudowaną formację"
     },
     "unitCategoriesPanel": {
-      "title": "Niestandardowe kategorie jednostek",
+      "title": "Kategorie jednostek",
       "description": "Definiuj nowe kategorie jednostek (poziomy kolizji, sekcja rozstawienia, dozwolone rozkazy, zachowanie podczas ucieczki). Odwołują się do nich niestandardowe jednostki przez pole kategorii.",
       "noCategories": "Brak niestandardowych kategorii jednostek.",
       "deleteBlocked": "Nie można usunąć \"{{id}}\" - wciąż używane przez {{refs}}. Najpierw usuń te odwołania.",
@@ -457,7 +484,7 @@
       "clonePickerTitle": "Klonuj wbudowaną kategorię jednostki"
     },
     "damageTypesPanel": {
-      "title": "Niestandardowe typy obrażeń",
+      "title": "Typy obrażeń",
       "description": "Definiuj nowe typy obrażeń wręcz lub dystansowych. Odwołują się do nich niestandardowe jednostki przez meleeDamageType lub rangedDamageTypes.",
       "noDamageTypes": "Brak niestandardowych typów obrażeń.",
       "ranged": "dystansowy",
@@ -469,7 +496,7 @@
       "clonePickerTitle": "Klonuj wbudowany typ obrażeń"
     },
     "terrainCategoriesPanel": {
-      "title": "Niestandardowe kategorie terenu",
+      "title": "Kategorie terenu",
       "description": "Nadpisz konfiguracje kategorii terenu dla tego scenariusza. Użyj tego, aby nadać niestandardowym kategoriom jednostek konkretne modyfikatory terenu lub wprowadzić nowe ID kategorii terenu.",
       "noOverrides": "Brak niestandardowych nadpisań kategorii terenu.",
       "addTerrainCategory": "Dodaj kategorię terenu",
@@ -526,15 +553,15 @@
       "resultSummary": "Zaimportowano: {{fields}}."
     },
     "gameConstants": {
-      "title": "Nadpisania stałych gry",
+      "title": "Stałe gry",
       "description": "Nadpisz numeryczne stałe tej epoki dla tego scenariusza. Zapisywane są tylko zmienione wartości; Resetuj przywraca pole do wartości domyślnej epoki. Klucze oznaczone ⚠ są strukturalne - ich zmiana może zepsuć renderowanie, powtórki lub matchmaking. Wartości podane są w surowych jednostkach wewnętrznych."
     },
     "gameRules": {
-      "title": "Nadpisania reguł gry",
+      "title": "Reguły gry",
       "description": "Nadpisz reguły rozgrywki tej epoki dla tego scenariusza. Zapisywane są tylko zmienione wartości; użyj Resetuj, aby przywrócić pole do wartości domyślnej epoki. Wartości podane są w surowych jednostkach wewnętrznych (niektóre statystyki są przechowywane już przeskalowane)."
     },
     "ordersPanel": {
-      "title": "Nadpisania rozkazów",
+      "title": "Rozkazy",
       "description": "Nadpisz wartości wbudowanych rozkazów tej epoki dla tego scenariusza. Zapisywane są tylko zmienione wartości; użyj Resetuj, aby przywrócić pole do wartości domyślnej epoki. Możesz modyfikować istniejące rozkazy, ale nie dodawać nowych."
     },
     "clonePicker": {
@@ -562,7 +589,7 @@
       "moveDown": "Przenieś w dół"
     },
     "customArmyCompositions": {
-      "title": "Niestandardowe kompozycje armii",
+      "title": "Kompozycje armii",
       "betaNotice": "Opcje niestandardowych kompozycji armii dla scenariuszy to funkcja beta; wszelkie błędy zgłaszaj na oficjalnym serwerze Discord.",
       "disableEraUnits": "Wyłącz domyślne jednostki ery",
       "disableEraUnitsDescription": "Pozwala wystawiać wyłącznie własne niestandardowe jednostki tego scenariusza. Domyślne jednostki ery są ukryte na ekranie armii i odrzucane podczas budowania armii.",
@@ -724,7 +751,7 @@
     }
   },
   "scoring": {
-    "heading": "Wagi PZ (nadpisanie scenariusza)",
+    "heading": "Wagi PZ",
     "hint": "Pozostaw pole puste, aby odziedziczyć domyślną wartość typu bitwy lub ery.",
     "basePoints": "Waga bazowa",
     "casualties": "Waga strat",
@@ -742,7 +769,7 @@
     "tieBreakInfo": "W ostatniej turze drużyna tracąca w PZ więcej niż tyle jest uznawana za pokonaną."
   },
   "objectiveZones": {
-    "heading": "Strefy celów (nadpisanie scenariusza)",
+    "heading": "Strefy celów",
     "hint": "O ile zmniejszyć strefy celów możliwych do rozmieszczenia. Pozostaw pole puste, aby odziedziczyć domyślną wartość typu bitwy lub ery.",
     "smallInset": "Przycięcie strefy małych celów",
     "bigInset": "Przycięcie strefy dużych celów",

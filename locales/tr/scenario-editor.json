@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Kimlik",
+    "placement": "Yerleşim",
+    "condition": "Durum",
+    "value": "Değer"
+  },
   "common": {
     "add": "Ekle",
     "addEntry": "Girdi ekle",
@@ -31,6 +37,7 @@
     "addLanguage": "Dil Ekle",
     "optionBuiltIn": "{{name}} (yerleşik)",
     "optionCustom": "{{name}} (özel)",
+    "optionAllUnitCategories": "Tüm birim kategorileri",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Dönüş hızı değiştirici"
   },
@@ -40,9 +47,18 @@
       "terrain": "Arazi",
       "units": "Birimler",
       "objectives": "Hedefler",
-      "triggers": "Tetikleyiciler",
-      "advanced": "Gelişmiş"
+      "triggers": "Tetikleyiciler"
     },
+    "mode": {
+      "scenario": "Senaryo",
+      "workshop": "Atölye"
+    },
+    "workshopBands": {
+      "units": "Birimler",
+      "terrain": "Arazi",
+      "global": "Genel"
+    },
+    "restingHint": "İncelemek için bir parçaya tıklayın veya boyamaya başlamak için bir araç seçin.",
     "togglePanel": "Paneli aç/kapat",
     "downloadScenario": "Senaryoyu indir",
     "copyScenario": "Senaryoyu kopyala",
@@ -60,23 +76,34 @@
     "noInherentAmmoHelp": "Etkinleştirildiğinde, cephanesi olan birimler kendi cephaneleri olmadan doğar ve tüm ikmalini ortak rezervden alır; bu yüzden ilk turda ateş edemez ve ancak rezerv onları ikmal ettiğinde ateş açarlar.",
     "showGrid": "Izgarayı göster",
     "showUnits": "Birimleri göster",
-    "hideUnits": "Birimleri gizle",
     "showObjectives": "Hedefleri göster",
-    "hideObjectives": "Hedefleri gizle",
     "goBack": "Geri dön",
-    "goBackConfirm": "Geri dönüp editörden çıkmak istediğinizden emin misiniz?"
+    "goBackConfirm": "Geri dönüp editörden çıkmak istediğinizden emin misiniz?",
+    "display": "Görünüm",
+    "scenarioBands": {
+      "about": "Genel",
+      "forces": "Kuvvetler",
+      "rules": "Kurallar",
+      "presentation": "Sunum"
+    }
   },
   "createScenario": {
     "randomMap": "Rastgele (prosedürel) harita?",
     "isHybrid": "Hibrit mi?"
   },
   "playersPanel": {
-    "removePlayer": "Oyuncuyu kaldır"
+    "removePlayer": "Oyuncuyu kaldır",
+    "ammoReserve": "Yedek",
+    "ammoBase": "Temel"
   },
   "terrainPanel": {
-    "setTerrain": "Arazi ayarla",
-    "terrainHeight": "Arazi yüksekliği",
-    "paintBucket": "Boya Kovası"
+    "brush": "Fırça",
+    "shape": "Şekil",
+    "height": "Yükseklik",
+    "elevation": "Rakım",
+    "keepHeight": "Mevcut yüksekliği koru",
+    "paintBucket": "Boya Kovası",
+    "none": "Yok"
   },
   "unitPanel": {
     "title": "Seçili Birim",
@@ -89,7 +116,7 @@
   },
   "createUnit": {
     "title": "Birim Oluştur",
-    "usingCopiedUnits": "Kopyalanan birimler kullanılıyor",
+    "placingCopied": "Kopyalanan birimler yerleştiriliyor ({{count}}). Yerleştirmek için haritaya tıklayın.",
     "customLabel": "{{name}} (özel)"
   },
   "objectivePanel": {
@@ -380,7 +407,7 @@
       "projectileAbsorption": "Mermi emilimi"
     },
     "identityHint": "Bu senaryo için dönemin arazi kategorisi yapılandırmasını geçersiz kılar. id, yerleşik bir kategoriye sabitlenmiştir - araziler kategori atamalarını korur, yalnızca değiştiricileri ayarlarsınız.",
-    "perUnitCategoryHint": "Anahtarlar birim kategorisi id'leridir. Açık bir girdisi olmayan tüm kategorilere uygulanan bir varsayılan ayarlamak için `*` joker karakterini kullanın.",
+    "perUnitCategoryHint": "Anahtarlar birim kategorisi id'leridir. Açık bir girdisi olmayan tüm kategorilere uygulanan bir varsayılan ayarlamak için `*` joker karakterini kullanın. `*` kapsamındaki bir satırı kaldırmak bir şey değiştirmez: bir sonraki düzenlemede geri gelir. Satırı koruyun ve ona kendi değerini verin (arazinin geçilebilir olması için Hayır).",
     "projectileAbsorptionHint": "Anahtarlar hasar türü adlarıdır.",
     "option": {
       "builtIn": "{{name}} (yerleşik)",
@@ -414,7 +441,7 @@
       "duplicate": "Çoğalt"
     },
     "spritesPanel": {
-      "title": "Özel sprite'lar",
+      "title": "Birim sprite'ları",
       "description": "Kendi sprite'larınızı buraya yükleyin, ardından bir birimin formasyonlarında seçin. Senaryoya gömülürler (her biri en fazla {{kb}}KB).",
       "yourSprites": "Sprite'larınız",
       "noSprites": "Henüz özel sprite yok.",
@@ -433,7 +460,7 @@
       "noMatches": "Eşleşme yok."
     },
     "unitTemplatesPanel": {
-      "title": "Özel birim şablonları",
+      "title": "Birim şablonları",
       "description": "Özel istatistikler, formasyonlar ve hasar türleri ile yeni birim şablonları tanımlayın. Bu senaryo için bir yerleşiği değiştirmek üzere \"Geçersiz Kıl\" (denge testi için kullanışlı) ya da id >= {{minId}} olan yeni bir şablon eklemek için \"Klonla\" kullanın.",
       "noTemplates": "Henüz özel birim şablonu yok.",
       "templateLabel": "{{name}} (tür {{type}})",
@@ -442,14 +469,14 @@
       "clonePickerTitle": "Yerleşik bir birim şablonunu klonla"
     },
     "formationsPanel": {
-      "title": "Özel birim formasyonları",
+      "title": "Birim formasyonları",
       "description": "Özel birimlerin kullanabileceği yeni formasyon şablonları (çarpışma, değiştiriciler, ateş kuralları) tanımlayın.",
       "noFormations": "Henüz özel formasyon yok.",
       "deleteBlocked": "\"{{id}}\" silinemiyor - hâlâ {{refs}} tarafından kullanılıyor. Önce o referansları kaldırın.",
       "clonePickerTitle": "Yerleşik bir formasyonu klonla"
     },
     "unitCategoriesPanel": {
-      "title": "Özel birim kategorileri",
+      "title": "Birim kategorileri",
       "description": "Yeni birim kategorileri (çarpışma seviyeleri, yerleşim bölümü, izin verilen emirler, kaçma davranışı) tanımlayın. Özel birimler tarafından kategori alanları aracılığıyla referans verilir.",
       "noCategories": "Henüz özel birim kategorisi yok.",
       "deleteBlocked": "\"{{id}}\" silinemiyor - hâlâ {{refs}} tarafından kullanılıyor. Önce o referansları kaldırın.",
@@ -457,7 +484,7 @@
       "clonePickerTitle": "Yerleşik bir birim kategorisini klonla"
     },
     "damageTypesPanel": {
-      "title": "Özel hasar türleri",
+      "title": "Hasar türleri",
       "description": "Yeni yakın dövüş veya uzak mesafe hasar türleri tanımlayın. Özel birimler tarafından meleeDamageType veya rangedDamageTypes aracılığıyla referans verilir.",
       "noDamageTypes": "Henüz özel hasar türü yok.",
       "ranged": "uzak mesafe",
@@ -469,7 +496,7 @@
       "clonePickerTitle": "Yerleşik bir hasar türünü klonla"
     },
     "terrainCategoriesPanel": {
-      "title": "Özel arazi kategorileri",
+      "title": "Arazi kategorileri",
       "description": "Bu senaryo için arazi kategorisi yapılandırmalarını geçersiz kılın. Bunu özel birim kategorilerine belirli arazi değiştiricileri vermek ya da yeni arazi kategorisi id'leri eklemek için kullanın.",
       "noOverrides": "Henüz özel arazi kategorisi geçersiz kılması yok.",
       "addTerrainCategory": "Arazi kategorisi ekle",
@@ -524,15 +551,15 @@
       "resultSummary": "İçe aktarıldı: {{fields}}."
     },
     "gameConstants": {
-      "title": "Oyun sabiti geçersiz kılmaları",
+      "title": "Oyun sabitleri",
       "description": "Bu senaryo için dönemin sayısal sabitlerini geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; Sıfırla bir alanı dönem varsayılanına döndürür. ⚠ ile işaretli anahtarlar yapısaldır - bunları değiştirmek render'ı, tekrarları veya eşleştirmeyi bozabilir. Değerler ham iç birimlerdir."
     },
     "gameRules": {
-      "title": "Oyun kuralı geçersiz kılmaları",
+      "title": "Oyun kuralları",
       "description": "Bu senaryo için dönemin oynanış kurallarını geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; bir alanı dönem varsayılanına döndürmek için Sıfırla kullanın. Değerler ham iç birimlerdir (bazı istatistikler önceden ölçeklenmiş olarak saklanır)."
     },
     "ordersPanel": {
-      "title": "Emir geçersiz kılmaları",
+      "title": "Emirler",
       "description": "Bu senaryo için dönemin yerleşik emirlerinin değerlerini geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; bir alanı dönem varsayılanına döndürmek için Sıfırla kullanın. Mevcut emirleri değiştirebilirsiniz ama yenilerini ekleyemezsiniz."
     },
     "clonePicker": {
@@ -560,7 +587,7 @@
       "moveDown": "Aşağı taşı"
     },
     "customArmyCompositions": {
-      "title": "Özel ordu kompozisyonları",
+      "title": "Ordu kompozisyonları",
       "betaNotice": "Senaryolar için özel ordu kompozisyonu seçenekleri beta özelliğidir; lütfen hataları resmi Discord sunucusunda bildirin.",
       "disableEraUnits": "Dönem varsayılan birimlerini devre dışı bırak",
       "disableEraUnitsDescription": "Yalnızca bu senaryonun kendi özel birimlerini sahaya sürün. Dönemin varsayılan birimleri ordu ekranından gizlenir ve ordu kurulurken reddedilir.",
@@ -722,7 +749,7 @@
     }
   },
   "scoring": {
-    "heading": "ZP ağırlıkları (senaryo geçersiz kılma)",
+    "heading": "ZP ağırlıkları",
     "hint": "Savaş türü veya çağ varsayılanını devralmak için bir alanı boş bırakın.",
     "basePoints": "Taban ağırlığı",
     "casualties": "Kayıp ağırlığı",
@@ -740,7 +767,7 @@
     "tieBreakInfo": "Son turda, ZP olarak bundan fazla geride olan bir takım yenilmiş sayılır."
   },
   "objectiveZones": {
-    "heading": "Hedef bölgeleri (senaryo geçersiz kılma)",
+    "heading": "Hedef bölgeleri",
     "hint": "Yerleştirilebilir hedef bölgelerinin ne kadar küçültüleceği. Savaş türü veya çağ varsayılanını devralmak için bir alanı boş bırakın.",
     "smallInset": "Küçük hedef bölgesi kırpması",
     "bigInset": "Büyük hedef bölgesi kırpması",

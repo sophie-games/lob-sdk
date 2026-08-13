@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "身份",
+    "placement": "布置",
+    "condition": "状态",
+    "value": "价值"
+  },
   "common": {
     "add": "添加",
     "addEntry": "添加条目",
@@ -31,6 +37,7 @@
     "addLanguage": "添加语言",
     "optionBuiltIn": "{{name}}（内置）",
     "optionCustom": "{{name}}（自定义）",
+    "optionAllUnitCategories": "所有单位类别",
     "nameWithKind": "{{name}}（{{kind}}）",
     "rotationSpeedModifier": "转向速度修正"
   },
@@ -40,9 +47,18 @@
       "terrain": "地形",
       "units": "单位",
       "objectives": "目标点",
-      "triggers": "触发器",
-      "advanced": "高级"
+      "triggers": "触发器"
     },
+    "mode": {
+      "scenario": "战役",
+      "workshop": "创意工坊"
+    },
+    "workshopBands": {
+      "units": "单位",
+      "terrain": "地形",
+      "global": "全局"
+    },
+    "restingHint": "点击一个棋子以查看，或选择一个工具开始绘制。",
     "togglePanel": "切换面板",
     "downloadScenario": "下载战役剧本",
     "copyScenario": "复制战役剧本",
@@ -60,23 +76,34 @@
     "noInherentAmmoHelp": "启用后，拥有弹药系统的单位出场时自身没有弹药，全部补给来自共享储备，因此第一回合无法开火，只有在储备为其补给后才能开火。",
     "showGrid": "显示网格",
     "showUnits": "显示单位",
-    "hideUnits": "隐藏单位",
     "showObjectives": "显示目标点",
-    "hideObjectives": "隐藏目标点",
     "goBack": "返回",
-    "goBackConfirm": "确定要返回并退出编辑器吗？"
+    "goBackConfirm": "确定要返回并退出编辑器吗？",
+    "display": "显示",
+    "scenarioBands": {
+      "about": "概览",
+      "forces": "兵力",
+      "rules": "规则",
+      "presentation": "呈现"
+    }
   },
   "createScenario": {
     "randomMap": "随机（程序生成）地图？",
     "isHybrid": "是否为混合？"
   },
   "playersPanel": {
-    "removePlayer": "移除玩家"
+    "removePlayer": "移除玩家",
+    "ammoReserve": "预备",
+    "ammoBase": "基础"
   },
   "terrainPanel": {
-    "setTerrain": "设置地形",
-    "terrainHeight": "地形高度",
-    "paintBucket": "油漆桶"
+    "brush": "画笔",
+    "shape": "形状",
+    "height": "高度",
+    "elevation": "海拔",
+    "keepHeight": "保留现有高度",
+    "paintBucket": "油漆桶",
+    "none": "无"
   },
   "unitPanel": {
     "title": "已选单位",
@@ -89,7 +116,7 @@
   },
   "createUnit": {
     "title": "创建单位",
-    "usingCopiedUnits": "使用已复制的单位",
+    "placingCopied": "正在放置已复制的单位（{{count}}）。点击地图进行放置。",
     "customLabel": "{{name}}（自定义）"
   },
   "objectivePanel": {
@@ -380,7 +407,7 @@
       "projectileAbsorption": "弹丸吸收"
     },
     "identityHint": "为本战役覆盖该时代的地形类别配置。id 固定为某个内置类别——地形保留其类别归属，你只调整修正值。",
-    "perUnitCategoryHint": "键名为单位类别 id。使用 `*` 通配符设置一个默认值，应用于所有没有显式条目的类别。",
+    "perUnitCategoryHint": "键名为单位类别 id。使用 `*` 通配符设置一个默认值，应用于所有没有显式条目的类别。删除受 `*` 覆盖的条目没有效果：下次编辑时它会回来。请保留该条目并为其设置自己的值（选择“否”即可让该地形恢复通行）。",
     "projectileAbsorptionHint": "键名为伤害类型名称。",
     "option": {
       "builtIn": "{{name}}（内置）",
@@ -414,7 +441,7 @@
       "duplicate": "复制"
     },
     "spritesPanel": {
-      "title": "自定义精灵图",
+      "title": "单位精灵图",
       "description": "在这里上传你自己的精灵图，然后在单位的阵型中选用。它们会嵌入战役剧本（每张最大 {{kb}}KB）。",
       "yourSprites": "你的精灵图",
       "noSprites": "暂无自定义精灵图。",
@@ -433,7 +460,7 @@
       "noMatches": "无匹配项。"
     },
     "unitTemplatesPanel": {
-      "title": "自定义单位模板",
+      "title": "单位模板",
       "description": "用自定义数据、阵型和伤害类型定义新的单位模板。使用“覆盖”为本战役替换某个内置项（适合平衡测试），或使用“克隆”添加一个 id >= {{minId}} 的全新模板。",
       "noTemplates": "暂无自定义单位模板。",
       "templateLabel": "{{name}}（类型 {{type}}）",
@@ -442,14 +469,14 @@
       "clonePickerTitle": "克隆内置单位模板"
     },
     "formationsPanel": {
-      "title": "自定义单位阵型",
+      "title": "单位阵型",
       "description": "定义自定义单位可使用的新阵型模板（碰撞、修正、射击规则）。",
       "noFormations": "暂无自定义阵型。",
       "deleteBlocked": "无法删除 “{{id}}”——仍被 {{refs}} 使用。请先移除那些引用。",
       "clonePickerTitle": "克隆内置阵型"
     },
     "unitCategoriesPanel": {
-      "title": "自定义单位类别",
+      "title": "单位类别",
       "description": "定义新的单位类别（碰撞等级、部署区段、允许指令、溃退行为）。自定义单位通过其类别字段引用。",
       "noCategories": "暂无自定义单位类别。",
       "deleteBlocked": "无法删除 “{{id}}”——仍被 {{refs}} 使用。请先移除那些引用。",
@@ -457,7 +484,7 @@
       "clonePickerTitle": "克隆内置单位类别"
     },
     "damageTypesPanel": {
-      "title": "自定义伤害类型",
+      "title": "伤害类型",
       "description": "定义新的近战或远程伤害类型。自定义单位通过 meleeDamageType 或 rangedDamageTypes 引用。",
       "noDamageTypes": "暂无自定义伤害类型。",
       "ranged": "远程",
@@ -469,7 +496,7 @@
       "clonePickerTitle": "克隆内置伤害类型"
     },
     "terrainCategoriesPanel": {
-      "title": "自定义地形类别",
+      "title": "地形类别",
       "description": "为本战役覆盖地形类别配置。用它给自定义单位类别指定特定的地形修正，或引入新的地形类别 id。",
       "noOverrides": "暂无自定义地形类别覆盖。",
       "addTerrainCategory": "添加地形类别",
@@ -523,15 +550,15 @@
       "resultSummary": "已导入：{{fields}}。"
     },
     "gameConstants": {
-      "title": "游戏常量覆盖",
+      "title": "游戏常量",
       "description": "为本战役覆盖该时代的数值常量。仅保存已更改的值；“重置”会将字段恢复为时代默认值。标记 ⚠ 的键是结构性的——更改它们可能破坏渲染、回放或匹配。数值为原始内部单位。"
     },
     "gameRules": {
-      "title": "游戏规则覆盖",
+      "title": "游戏规则",
       "description": "为本战役覆盖该时代的玩法规则。仅保存已更改的值；使用“重置”将字段恢复为时代默认值。数值为原始内部单位（部分数据以预缩放形式存储）。"
     },
     "ordersPanel": {
-      "title": "指令覆盖",
+      "title": "指令",
       "description": "为本战役覆盖该时代内置指令的数值。仅保存已更改的值；使用“重置”将字段恢复为时代默认值。你可以修改现有指令，但不能添加新指令。"
     },
     "clonePicker": {
@@ -559,7 +586,7 @@
       "moveDown": "下移"
     },
     "customArmyCompositions": {
-      "title": "自定义军队配置",
+      "title": "军队配置",
       "betaNotice": "场景的自定义军队配置选项为测试版功能；如有任何问题，请在官方 Discord 服务器中反馈。",
       "disableEraUnits": "禁用时代默认单位",
       "disableEraUnitsDescription": "仅使用本战役剧本自己的自定义单位出战。该时代的默认单位将从军队界面中隐藏，并在编组军队时被拒绝。",
@@ -721,7 +748,7 @@
     }
   },
   "scoring": {
-    "heading": "胜利点权重（场景覆盖）",
+    "heading": "胜利点权重",
     "hint": "留空以继承战斗类型或时代的默认值。",
     "basePoints": "基础权重",
     "casualties": "伤亡权重",
@@ -739,7 +766,7 @@
     "tieBreakInfo": "在最后一回合，胜利点落后超过此差值的队伍将被判定为战败。"
   },
   "objectiveZones": {
-    "heading": "目标区域（场景覆盖）",
+    "heading": "目标区域",
     "hint": "将可放置的目标区域缩小多少。留空以继承战斗类型或时代的默认值。",
     "smallInset": "小目标区域裁剪",
     "bigInset": "大目标区域裁剪",

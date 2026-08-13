@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Identity",
+    "placement": "Placement",
+    "condition": "Condition",
+    "value": "Value"
+  },
   "common": {
     "add": "Add",
     "addEntry": "Add entry",
@@ -31,6 +37,7 @@
     "addLanguage": "Add Language",
     "optionBuiltIn": "{{name}} (built-in)",
     "optionCustom": "{{name}} (custom)",
+    "optionAllUnitCategories": "All unit categories",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Rotation speed modifier"
   },
@@ -40,9 +47,24 @@
       "terrain": "Terrain",
       "units": "Units",
       "objectives": "Objectives",
-      "triggers": "Triggers",
-      "advanced": "Advanced"
+      "triggers": "Triggers"
     },
+    "mode": {
+      "scenario": "Scenario",
+      "workshop": "Workshop"
+    },
+    "workshopBands": {
+      "units": "Units",
+      "terrain": "Terrain",
+      "global": "Global"
+    },
+    "scenarioBands": {
+      "about": "About",
+      "forces": "Forces",
+      "rules": "Rules",
+      "presentation": "Presentation"
+    },
+    "restingHint": "Click a piece to inspect it, or pick a tool to start painting.",
     "togglePanel": "Toggle panel",
     "downloadScenario": "Download scenario",
     "copyScenario": "Copy scenario",
@@ -61,23 +83,29 @@
     "noInherentAmmoHelp": "When enabled, units with an ammo system spawn with no ammo of their own and draw their whole supply from the shared reserve, so they can't fire on the first turn and only open up once the reserve resupplies them.",
     "showGrid": "Show grid",
     "showUnits": "Show units",
-    "hideUnits": "Hide units",
     "showObjectives": "Show objectives",
-    "hideObjectives": "Hide objectives",
     "goBack": "Go back",
-    "goBackConfirm": "Are you sure you want to go back and exit the editor?"
+    "goBackConfirm": "Are you sure you want to go back and exit the editor?",
+    "display": "Display"
   },
   "createScenario": {
     "randomMap": "Random (procedural) map?",
     "isHybrid": "Is Hybrid?"
   },
   "playersPanel": {
-    "removePlayer": "Remove player"
+    "removePlayer": "Remove player",
+    "ammoReserve": "Reserve",
+    "ammoBase": "Base",
+    "ammoHelp": "Ammunition for this player's army: the reserve it spends over the battle and the base amount it resupplies toward."
   },
   "terrainPanel": {
-    "setTerrain": "Set terrain",
-    "terrainHeight": "Terrain height",
-    "paintBucket": "Paint Bucket"
+    "brush": "Brush",
+    "shape": "Shape",
+    "height": "Height",
+    "elevation": "Elevation",
+    "keepHeight": "Keep existing height",
+    "paintBucket": "Paint Bucket",
+    "none": "None"
   },
   "unitPanel": {
     "title": "Selected Unit",
@@ -90,7 +118,7 @@
   },
   "createUnit": {
     "title": "Create Unit",
-    "usingCopiedUnits": "Using copied units",
+    "placingCopied": "Placing copied units ({{count}}). Click the map to place them.",
     "customLabel": "{{name}} (custom)"
   },
   "objectivePanel": {
@@ -381,7 +409,7 @@
       "projectileAbsorption": "Projectile absorption"
     },
     "identityHint": "Overrides the era's terrain category config for this scenario. The id is fixed to a built-in category - terrains keep their category assignments, you only adjust the modifiers.",
-    "perUnitCategoryHint": "Keys are unit category ids. Use the `*` wildcard to set a default applied to all categories that don't have an explicit entry.",
+    "perUnitCategoryHint": "Keys are unit category ids. Use the `*` wildcard to set a default applied to all categories that don't have an explicit entry. Removing a row that `*` covers has no effect: it comes back on the next edit. Keep the row and give it its own value instead (No, to make the terrain passable).",
     "projectileAbsorptionHint": "Keys are damage type names.",
     "option": {
       "builtIn": "{{name}} (built-in)",
@@ -415,7 +443,7 @@
       "duplicate": "Duplicate"
     },
     "spritesPanel": {
-      "title": "Custom sprites",
+      "title": "Unit sprites",
       "description": "Upload your own sprites here, then pick them in a unit's formations. They are embedded in the scenario (max {{kb}}KB each).",
       "yourSprites": "Your sprites",
       "noSprites": "No custom sprites yet.",
@@ -434,7 +462,7 @@
       "noMatches": "No matches."
     },
     "unitTemplatesPanel": {
-      "title": "Custom unit templates",
+      "title": "Unit templates",
       "description": "Define new unit templates with custom stats, formations, and damage types. Use \"Override\" to replace a built-in for this scenario (useful for balance testing) or \"Clone\" to add a fresh template with id >= {{minId}}.",
       "noTemplates": "No custom unit templates yet.",
       "templateLabel": "{{name}} (type {{type}})",
@@ -443,14 +471,14 @@
       "clonePickerTitle": "Clone a built-in unit template"
     },
     "formationsPanel": {
-      "title": "Custom unit formations",
+      "title": "Unit formations",
       "description": "Define new formation templates (collision, modifiers, shooting rules) that custom units can use.",
       "noFormations": "No custom formations yet.",
       "deleteBlocked": "Can't delete \"{{id}}\" - still used by {{refs}}. Remove those references first.",
       "clonePickerTitle": "Clone a built-in formation"
     },
     "unitCategoriesPanel": {
-      "title": "Custom unit categories",
+      "title": "Unit categories",
       "description": "Define new unit categories (collision levels, deployment section, allowed orders, routing behavior). Referenced by custom units via their category field.",
       "noCategories": "No custom unit categories yet.",
       "deleteBlocked": "Can't delete \"{{id}}\" - still used by {{refs}}. Remove those references first.",
@@ -458,7 +486,7 @@
       "clonePickerTitle": "Clone a built-in unit category"
     },
     "damageTypesPanel": {
-      "title": "Custom damage types",
+      "title": "Damage types",
       "description": "Define new melee or ranged damage types. Referenced by custom units via meleeDamageType or rangedDamageTypes.",
       "noDamageTypes": "No custom damage types yet.",
       "ranged": "ranged",
@@ -470,7 +498,7 @@
       "clonePickerTitle": "Clone a built-in damage type"
     },
     "terrainCategoriesPanel": {
-      "title": "Custom terrain categories",
+      "title": "Terrain categories",
       "description": "Override terrain category configs for this scenario. Use this to give custom unit categories specific terrain modifiers, or to introduce new terrain category ids.",
       "noOverrides": "No custom terrain category overrides yet.",
       "addTerrainCategory": "Add terrain category",
@@ -525,15 +553,15 @@
       "resultSummary": "Imported: {{fields}}."
     },
     "gameConstants": {
-      "title": "Game constant overrides",
+      "title": "Game constants",
       "description": "Override this era's numeric constants for this scenario. Only changed values are saved; Reset returns a field to the era default. Keys marked ⚠ are structural - changing them can break rendering, replays, or matchmaking. Values are raw internal units."
     },
     "gameRules": {
-      "title": "Game rule overrides",
+      "title": "Game rules",
       "description": "Override this era's gameplay rules for this scenario. Only changed values are saved; use Reset to return a field to the era default. Values are raw internal units (some stats are stored pre-scaled)."
     },
     "ordersPanel": {
-      "title": "Order overrides",
+      "title": "Orders",
       "description": "Override the values of this era's built-in orders for this scenario. Only changed values are saved; use Reset to return a field to the era default. You can modify existing orders but not add new ones."
     },
     "clonePicker": {
@@ -561,7 +589,7 @@
       "moveDown": "Move down"
     },
     "customArmyCompositions": {
-      "title": "Custom army compositions",
+      "title": "Army compositions",
       "betaNotice": "Custom army composition options for scenarios is a beta feature; please report any bugs in the official Discord server.",
       "disableEraUnits": "Disable era default units",
       "disableEraUnitsDescription": "Field only this scenario's own custom units. The era's default units are hidden from the army screen and rejected when building an army.",
@@ -723,7 +751,7 @@
     }
   },
   "scoring": {
-    "heading": "VP weights (scenario override)",
+    "heading": "VP weights",
     "hint": "Leave a field empty to inherit the battle-type or era default.",
     "basePoints": "Base points weight",
     "casualties": "Casualties weight",
@@ -741,7 +769,7 @@
     "tieBreakInfo": "On the final turn, a team trailing on VP by more than this is treated as defeated."
   },
   "objectiveZones": {
-    "heading": "Objective zones (scenario override)",
+    "heading": "Objective zones",
     "hint": "How much to shrink the placeable-objective zones. Leave a field empty to inherit the battle-type or era default.",
     "smallInset": "Small-objective zone trim",
     "bigInset": "Big-objective zone trim",

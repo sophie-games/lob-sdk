@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "Identitas",
+    "placement": "Penempatan",
+    "condition": "Kondisi",
+    "value": "Nilai"
+  },
   "common": {
     "add": "Tambah",
     "addEntry": "Tambah entri",
@@ -31,6 +37,7 @@
     "addLanguage": "Tambah Bahasa",
     "optionBuiltIn": "{{name}} (bawaan)",
     "optionCustom": "{{name}} (kustom)",
+    "optionAllUnitCategories": "Semua kategori unit",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Modifier kecepatan rotasi"
   },
@@ -40,9 +47,18 @@
       "terrain": "Medan",
       "units": "Unit",
       "objectives": "Objektif",
-      "triggers": "Pemicu",
-      "advanced": "Lanjutan"
+      "triggers": "Pemicu"
     },
+    "mode": {
+      "scenario": "Skenario",
+      "workshop": "Workshop"
+    },
+    "workshopBands": {
+      "units": "Unit",
+      "terrain": "Medan",
+      "global": "Global"
+    },
+    "restingHint": "Klik sebuah bidak untuk memeriksanya, atau pilih alat untuk mulai melukis.",
     "togglePanel": "Alihkan panel",
     "downloadScenario": "Unduh skenario",
     "copyScenario": "Salin skenario",
@@ -60,23 +76,34 @@
     "noInherentAmmoHelp": "Saat diaktifkan, unit dengan amunisi muncul tanpa amunisi sendiri dan mengambil seluruh pasokannya dari cadangan bersama, sehingga tidak bisa menembak pada giliran pertama dan baru melepaskan tembakan setelah cadangan mengisinya kembali.",
     "showGrid": "Tampilkan grid",
     "showUnits": "Tampilkan unit",
-    "hideUnits": "Sembunyikan unit",
     "showObjectives": "Tampilkan objektif",
-    "hideObjectives": "Sembunyikan objektif",
     "goBack": "Kembali",
-    "goBackConfirm": "Apakah Anda yakin ingin kembali dan keluar dari editor?"
+    "goBackConfirm": "Apakah Anda yakin ingin kembali dan keluar dari editor?",
+    "display": "Tampilan",
+    "scenarioBands": {
+      "about": "Tentang",
+      "forces": "Pasukan",
+      "rules": "Aturan",
+      "presentation": "Presentasi"
+    }
   },
   "createScenario": {
     "randomMap": "Peta acak (prosedural)?",
     "isHybrid": "Hibrida?"
   },
   "playersPanel": {
-    "removePlayer": "Hapus pemain"
+    "removePlayer": "Hapus pemain",
+    "ammoReserve": "Cadangan",
+    "ammoBase": "Dasar"
   },
   "terrainPanel": {
-    "setTerrain": "Atur medan",
-    "terrainHeight": "Tinggi medan",
-    "paintBucket": "Ember Cat"
+    "brush": "Kuas",
+    "shape": "Bentuk",
+    "height": "Tinggi",
+    "elevation": "Elevasi",
+    "keepHeight": "Pertahankan tinggi yang ada",
+    "paintBucket": "Ember Cat",
+    "none": "Tidak ada"
   },
   "unitPanel": {
     "title": "Unit Terpilih",
@@ -89,7 +116,7 @@
   },
   "createUnit": {
     "title": "Buat Unit",
-    "usingCopiedUnits": "Menggunakan unit yang disalin",
+    "placingCopied": "Menempatkan unit yang disalin ({{count}}). Klik peta untuk menempatkannya.",
     "customLabel": "{{name}} (kustom)"
   },
   "objectivePanel": {
@@ -380,7 +407,7 @@
       "projectileAbsorption": "Penyerapan proyektil"
     },
     "identityHint": "Menimpa konfigurasi kategori medan era untuk skenario ini. ID terikat ke kategori bawaan - medan mempertahankan penetapan kategorinya, Anda hanya menyesuaikan modifier.",
-    "perUnitCategoryHint": "Kunci adalah id kategori unit. Gunakan wildcard `*` untuk mengatur bawaan yang diterapkan ke semua kategori yang tidak memiliki entri eksplisit.",
+    "perUnitCategoryHint": "Kunci adalah id kategori unit. Gunakan wildcard `*` untuk mengatur bawaan yang diterapkan ke semua kategori yang tidak memiliki entri eksplisit. Menghapus baris yang dicakup `*` tidak berpengaruh: baris itu kembali pada penyuntingan berikutnya. Pertahankan barisnya dan beri nilai sendiri (Tidak, agar medan bisa dilewati).",
     "projectileAbsorptionHint": "Kunci adalah nama tipe kerusakan.",
     "option": {
       "builtIn": "{{name}} (bawaan)",
@@ -414,7 +441,7 @@
       "duplicate": "Duplikat"
     },
     "spritesPanel": {
-      "title": "Sprite kustom",
+      "title": "Sprite unit",
       "description": "Unggah sprite Anda sendiri di sini, lalu pilih dalam formasi unit. Sprite tertanam dalam skenario (maks {{kb}}KB masing-masing).",
       "yourSprites": "Sprite Anda",
       "noSprites": "Belum ada sprite kustom.",
@@ -433,7 +460,7 @@
       "noMatches": "Tidak ada yang cocok."
     },
     "unitTemplatesPanel": {
-      "title": "Templat unit kustom",
+      "title": "Templat unit",
       "description": "Tentukan templat unit baru dengan statistik, formasi, dan tipe kerusakan kustom. Gunakan \"Timpa\" untuk mengganti bawaan pada skenario ini (berguna untuk uji keseimbangan) atau \"Klon\" untuk menambah templat baru dengan id >= {{minId}}.",
       "noTemplates": "Belum ada templat unit kustom.",
       "templateLabel": "{{name}} (tipe {{type}})",
@@ -442,14 +469,14 @@
       "clonePickerTitle": "Klon templat unit bawaan"
     },
     "formationsPanel": {
-      "title": "Formasi unit kustom",
+      "title": "Formasi unit",
       "description": "Tentukan templat formasi baru (tabrakan, modifier, aturan menembak) yang dapat digunakan unit kustom.",
       "noFormations": "Belum ada formasi kustom.",
       "deleteBlocked": "Tidak dapat menghapus \"{{id}}\" - masih digunakan oleh {{refs}}. Hapus referensi tersebut terlebih dahulu.",
       "clonePickerTitle": "Klon formasi bawaan"
     },
     "unitCategoriesPanel": {
-      "title": "Kategori unit kustom",
+      "title": "Kategori unit",
       "description": "Tentukan kategori unit baru (tingkat tabrakan, bagian penempatan, perintah yang diizinkan, perilaku kabur). Dirujuk oleh unit kustom melalui field kategori mereka.",
       "noCategories": "Belum ada kategori unit kustom.",
       "deleteBlocked": "Tidak dapat menghapus \"{{id}}\" - masih digunakan oleh {{refs}}. Hapus referensi tersebut terlebih dahulu.",
@@ -457,7 +484,7 @@
       "clonePickerTitle": "Klon kategori unit bawaan"
     },
     "damageTypesPanel": {
-      "title": "Tipe kerusakan kustom",
+      "title": "Tipe kerusakan",
       "description": "Tentukan tipe kerusakan jarak dekat atau jarak jauh baru. Dirujuk oleh unit kustom melalui meleeDamageType atau rangedDamageTypes.",
       "noDamageTypes": "Belum ada tipe kerusakan kustom.",
       "ranged": "jarak jauh",
@@ -469,7 +496,7 @@
       "clonePickerTitle": "Klon tipe kerusakan bawaan"
     },
     "terrainCategoriesPanel": {
-      "title": "Kategori medan kustom",
+      "title": "Kategori medan",
       "description": "Timpa konfigurasi kategori medan untuk skenario ini. Gunakan ini untuk memberi kategori unit kustom modifier medan tertentu, atau untuk memperkenalkan id kategori medan baru.",
       "noOverrides": "Belum ada penimpaan kategori medan kustom.",
       "addTerrainCategory": "Tambah kategori medan",
@@ -523,15 +550,15 @@
       "resultSummary": "Diimpor: {{fields}}."
     },
     "gameConstants": {
-      "title": "Penimpaan konstanta permainan",
+      "title": "Konstanta permainan",
       "description": "Timpa konstanta numerik era ini untuk skenario ini. Hanya nilai yang diubah yang disimpan; Reset mengembalikan field ke bawaan era. Kunci bertanda ⚠ bersifat struktural - mengubahnya dapat merusak rendering, replay, atau pencarian permainan. Nilai adalah unit internal mentah."
     },
     "gameRules": {
-      "title": "Penimpaan aturan permainan",
+      "title": "Aturan permainan",
       "description": "Timpa aturan permainan era ini untuk skenario ini. Hanya nilai yang diubah yang disimpan; gunakan Reset untuk mengembalikan field ke bawaan era. Nilai adalah unit internal mentah (beberapa statistik disimpan dalam keadaan terskala)."
     },
     "ordersPanel": {
-      "title": "Penimpaan perintah",
+      "title": "Perintah",
       "description": "Timpa nilai perintah bawaan era ini untuk skenario ini. Hanya nilai yang diubah yang disimpan; gunakan Reset untuk mengembalikan field ke bawaan era. Anda dapat memodifikasi perintah yang ada tetapi tidak dapat menambah yang baru."
     },
     "clonePicker": {
@@ -559,7 +586,7 @@
       "moveDown": "Pindah ke bawah"
     },
     "customArmyCompositions": {
-      "title": "Komposisi pasukan kustom",
+      "title": "Komposisi pasukan",
       "betaNotice": "Opsi komposisi pasukan kustom untuk skenario adalah fitur beta; harap laporkan bug apa pun di server Discord resmi.",
       "disableEraUnits": "Nonaktifkan unit bawaan era",
       "disableEraUnitsDescription": "Hanya gunakan unit kustom skenario ini sendiri. Unit bawaan era disembunyikan dari layar pasukan dan ditolak saat membangun pasukan.",
@@ -721,7 +748,7 @@
     }
   },
   "scoring": {
-    "heading": "Bobot VP (penggantian skenario)",
+    "heading": "Bobot VP",
     "hint": "Biarkan kolom kosong untuk mewarisi default tipe pertempuran atau era.",
     "basePoints": "Bobot dasar",
     "casualties": "Bobot korban",
@@ -739,7 +766,7 @@
     "tieBreakInfo": "Pada giliran terakhir, tim yang tertinggal dalam VP lebih dari nilai ini dianggap kalah."
   },
   "objectiveZones": {
-    "heading": "Zona objektif (penggantian skenario)",
+    "heading": "Zona objektif",
     "hint": "Seberapa besar mengecilkan zona objektif yang dapat ditempatkan. Biarkan kolom kosong untuk mewarisi default tipe pertempuran atau era.",
     "smallInset": "Pemangkasan zona objektif kecil",
     "bigInset": "Pemangkasan zona objektif besar",

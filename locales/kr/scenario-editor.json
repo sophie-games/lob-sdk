@@ -1,4 +1,10 @@
 {
+  "inspectorBands": {
+    "identity": "정체",
+    "placement": "배치",
+    "condition": "상태",
+    "value": "가치"
+  },
   "common": {
     "add": "추가",
     "addEntry": "항목 추가",
@@ -31,6 +37,7 @@
     "addLanguage": "언어 추가",
     "optionBuiltIn": "{{name}} (기본 제공)",
     "optionCustom": "{{name}} (사용자 지정)",
+    "optionAllUnitCategories": "모든 부대 유형",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "회전 속도 수정치"
   },
@@ -40,9 +47,18 @@
       "terrain": "지형",
       "units": "부대",
       "objectives": "지점목표",
-      "triggers": "트리거",
-      "advanced": "고급"
+      "triggers": "트리거"
     },
+    "mode": {
+      "scenario": "전역",
+      "workshop": "워크숍"
+    },
+    "workshopBands": {
+      "units": "부대",
+      "terrain": "지형",
+      "global": "전역"
+    },
+    "restingHint": "조각을 클릭하여 확인하거나, 도구를 선택하여 그리기를 시작하세요.",
     "togglePanel": "패널 전환",
     "downloadScenario": "전역 내려받기",
     "copyScenario": "전역 복사",
@@ -60,23 +76,34 @@
     "noInherentAmmoHelp": "활성화하면 탄약을 사용하는 유닛이 자체 탄약 없이 등장하여 모든 보급을 공용 예비에서 가져옵니다. 따라서 첫 턴에는 사격할 수 없고 예비에서 보급된 뒤에야 사격을 시작합니다.",
     "showGrid": "격자 표시",
     "showUnits": "부대 표시",
-    "hideUnits": "부대 숨기기",
     "showObjectives": "지점목표 표시",
-    "hideObjectives": "지점목표 숨기기",
     "goBack": "뒤로",
-    "goBackConfirm": "정말 뒤로 가서 편집기를 종료하시겠습니까?"
+    "goBackConfirm": "정말 뒤로 가서 편집기를 종료하시겠습니까?",
+    "display": "표시",
+    "scenarioBands": {
+      "about": "정보",
+      "forces": "병력",
+      "rules": "규칙",
+      "presentation": "표시"
+    }
   },
   "createScenario": {
     "randomMap": "무작위(절차적) 맵?",
     "isHybrid": "혼합형?"
   },
   "playersPanel": {
-    "removePlayer": "플레이어 제거"
+    "removePlayer": "플레이어 제거",
+    "ammoReserve": "예비",
+    "ammoBase": "기본"
   },
   "terrainPanel": {
-    "setTerrain": "지형 설정",
-    "terrainHeight": "지형 높이",
-    "paintBucket": "채우기"
+    "brush": "브러시",
+    "shape": "모양",
+    "height": "높이",
+    "elevation": "고도",
+    "keepHeight": "기존 높이 유지",
+    "paintBucket": "채우기",
+    "none": "없음"
   },
   "unitPanel": {
     "title": "선택한 부대",
@@ -89,7 +116,7 @@
   },
   "createUnit": {
     "title": "부대 생성",
-    "usingCopiedUnits": "복사한 부대 사용 중",
+    "placingCopied": "복사한 부대 배치 중 ({{count}}). 지도를 클릭하여 배치하세요.",
     "customLabel": "{{name}} (사용자 지정)"
   },
   "objectivePanel": {
@@ -380,7 +407,7 @@
       "projectileAbsorption": "발사체 흡수치"
     },
     "identityHint": "이 전역에서 시대의 지형 유형 설정을 재정의합니다. id는 기본 제공 유형으로 고정됩니다. 지형은 유형 배정을 유지하며, 수정치만 조정합니다.",
-    "perUnitCategoryHint": "키는 부대 유형 id입니다. 명시적 항목이 없는 모든 유형에 적용되는 기본값을 설정하려면 `*` 와일드카드를 사용하세요.",
+    "perUnitCategoryHint": "키는 부대 유형 id입니다. 명시적 항목이 없는 모든 유형에 적용되는 기본값을 설정하려면 `*` 와일드카드를 사용하세요.`*`가 덮는 행을 제거해도 효과가 없습니다. 다음 편집 때 다시 생깁니다. 행을 남겨 두고 고유한 값을 지정하세요(지형을 통행 가능하게 하려면 '아니요').",
     "projectileAbsorptionHint": "키는 피해 유형 이름입니다.",
     "option": {
       "builtIn": "{{name}} (기본 제공)",
@@ -414,7 +441,7 @@
       "duplicate": "복제"
     },
     "spritesPanel": {
-      "title": "사용자 지정 스프라이트",
+      "title": "부대 스프라이트",
       "description": "여기에 자신의 스프라이트를 업로드한 뒤 부대 진형에서 선택하세요. 전역에 포함됩니다(각 최대 {{kb}}KB).",
       "yourSprites": "내 스프라이트",
       "noSprites": "아직 사용자 지정 스프라이트가 없습니다.",
@@ -433,7 +460,7 @@
       "noMatches": "일치 항목 없음."
     },
     "unitTemplatesPanel": {
-      "title": "사용자 지정 부대 템플릿",
+      "title": "부대 템플릿",
       "description": "사용자 지정 능력치, 진형, 피해 유형으로 새 부대 템플릿을 정의합니다. 이 전역에서 기본 제공을 대체하려면(밸런스 테스트에 유용) \"재정의\"를, id가 {{minId}} 이상인 새 템플릿을 추가하려면 \"복제\"를 사용하세요.",
       "noTemplates": "아직 사용자 지정 부대 템플릿이 없습니다.",
       "templateLabel": "{{name}} (유형 {{type}})",
@@ -442,14 +469,14 @@
       "clonePickerTitle": "기본 제공 부대 템플릿 복제"
     },
     "formationsPanel": {
-      "title": "사용자 지정 부대 진형",
+      "title": "부대 진형",
       "description": "사용자 지정 부대가 사용할 수 있는 새 진형 템플릿(충돌, 수정치, 사격 규칙)을 정의합니다.",
       "noFormations": "아직 사용자 지정 진형이 없습니다.",
       "deleteBlocked": "\"{{id}}\" 을(를) 삭제할 수 없습니다. {{refs}}에서 아직 사용 중입니다. 해당 참조를 먼저 제거하세요.",
       "clonePickerTitle": "기본 제공 진형 복제"
     },
     "unitCategoriesPanel": {
-      "title": "사용자 지정 부대 유형",
+      "title": "부대 유형",
       "description": "새 부대 유형(충돌 수준, 배치 구획, 허용 명령, 궤멸 중 행동)을 정의합니다. 사용자 지정 부대가 유형 필드를 통해 참조합니다.",
       "noCategories": "아직 사용자 지정 부대 유형이 없습니다.",
       "deleteBlocked": "\"{{id}}\" 을(를) 삭제할 수 없습니다. {{refs}}에서 아직 사용 중입니다. 해당 참조를 먼저 제거하세요.",
@@ -457,7 +484,7 @@
       "clonePickerTitle": "기본 제공 부대 유형 복제"
     },
     "damageTypesPanel": {
-      "title": "사용자 지정 피해 유형",
+      "title": "피해 유형",
       "description": "새 근접 또는 사격 피해 유형을 정의합니다. 사용자 지정 부대가 meleeDamageType 또는 rangedDamageTypes를 통해 참조합니다.",
       "noDamageTypes": "아직 사용자 지정 피해 유형이 없습니다.",
       "ranged": "사격",
@@ -469,7 +496,7 @@
       "clonePickerTitle": "기본 제공 피해 유형 복제"
     },
     "terrainCategoriesPanel": {
-      "title": "사용자 지정 지형 유형",
+      "title": "지형 유형",
       "description": "이 전역의 지형 유형 설정을 재정의합니다. 사용자 지정 부대 유형에 특정 지형 수정치를 부여하거나 새 지형 유형 id를 도입하는 데 사용하세요.",
       "noOverrides": "아직 사용자 지정 지형 유형 재정의가 없습니다.",
       "addTerrainCategory": "지형 유형 추가",
@@ -523,15 +550,15 @@
       "resultSummary": "가져옴: {{fields}}."
     },
     "gameConstants": {
-      "title": "게임 상수 재정의",
+      "title": "게임 상수",
       "description": "이 전역에 대해 시대의 숫자 상수를 재정의합니다. 변경된 값만 저장됩니다. 초기화하면 필드가 시대 기본값으로 돌아갑니다. ⚠ 로 표시된 키는 구조적이며, 변경하면 렌더링, 리플레이 또는 경기 탐색이 손상될 수 있습니다. 값은 가공되지 않은 내부 단위입니다."
     },
     "gameRules": {
-      "title": "게임 규칙 재정의",
+      "title": "게임 규칙",
       "description": "이 전역에 대해 시대의 게임플레이 규칙을 재정의합니다. 변경된 값만 저장됩니다. 필드를 시대 기본값으로 되돌리려면 초기화를 사용하세요. 값은 가공되지 않은 내부 단위입니다(일부 능력치는 사전 스케일링되어 저장됩니다)."
     },
     "ordersPanel": {
-      "title": "명령 재정의",
+      "title": "명령",
       "description": "이 전역에 대해 시대의 기본 제공 명령 값을 재정의합니다. 변경된 값만 저장됩니다. 필드를 시대 기본값으로 되돌리려면 초기화를 사용하세요. 기존 명령은 수정할 수 있지만 새 명령은 추가할 수 없습니다."
     },
     "clonePicker": {
@@ -559,7 +586,7 @@
       "moveDown": "아래로 이동"
     },
     "customArmyCompositions": {
-      "title": "사용자 지정 편제",
+      "title": "편제",
       "betaNotice": "시나리오의 사용자 지정 편제 옵션은 베타 기능입니다. 버그가 있으면 공식 Discord 서버에 신고해 주세요.",
       "disableEraUnits": "시대 기본 부대 비활성화",
       "disableEraUnitsDescription": "이 전역만의 사용자 지정 부대만 운용합니다. 시대의 기본 부대는 군대 화면에서 숨겨지며 군대를 구성할 때 거부됩니다.",
@@ -721,7 +748,7 @@
     }
   },
   "scoring": {
-    "heading": "VP 가중치 (시나리오 재정의)",
+    "heading": "VP 가중치",
     "hint": "비워두면 전투 유형 또는 시대의 기본값을 상속합니다.",
     "basePoints": "기본 가중치",
     "casualties": "사상자 가중치",
@@ -739,7 +766,7 @@
     "tieBreakInfo": "마지막 턴에 VP가 이 값보다 더 크게 뒤진 팀은 패배로 처리됩니다."
   },
   "objectiveZones": {
-    "heading": "목표 구역 (시나리오 재정의)",
+    "heading": "목표 구역",
     "hint": "배치 가능한 목표 구역을 얼마나 줄일지. 비워두면 전투 유형 또는 시대의 기본값을 상속합니다.",
     "smallInset": "소형 목표 구역 잘라내기",
     "bigInset": "대형 목표 구역 잘라내기",

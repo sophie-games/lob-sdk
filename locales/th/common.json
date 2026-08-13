@@ -41,6 +41,7 @@
     "done": "เสร็จสิ้น"
   },
   "maps": "แผนที่",
+  "invalidScenarioFile": "ไฟล์นี้ไม่ใช่สถานการณ์ที่ถูกต้อง",
   "play": "เล่น",
   "ranking": "อันดับ",
   "profile": "โปรไฟล์",
@@ -156,6 +157,7 @@
     "error": "ไม่สามารถกำหนดเวลาการลบบัญชีได้ โปรดลองอีกครั้ง"
   },
   "confirmArmy": "ยืนยันกองทัพ",
+  "armyInvalidForPlayer": "กองทัพของผู้เล่น {{player}} ไม่ถูกต้อง: {{message}}",
   "startGame": "เริ่มเกม",
   "startGameAsSpectator": "เริ่มเกมในฐานะผู้ชม"
 }
