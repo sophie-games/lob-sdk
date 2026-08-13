@@ -80,7 +80,7 @@
     "allowDeploymentPhase": "Deployment phase",
     "allowDeploymentPhaseHelp": "When on, the battle opens with one extra turn before any fighting, so each player can rearrange their units inside their deployment zone. When off, the battle begins with everyone where you placed them.",
     "noInherentAmmo": "Ammunition from the reserve only",
-    "noInherentAmmoHelp": "When on, units start with empty pouches and draw everything from their side's shared reserve, so they cannot fire until the first resupply reaches them. When off, they carry their own ammunition into the battle as usual.",
+    "noInherentAmmoHelp": "When on, units start with no ammunition and draw everything from their side's shared reserve, so they cannot fire until the first resupply reaches them. When off, they begin the battle with their own supply as usual.",
     "showGrid": "Show grid",
     "showUnits": "Show units",
     "showObjectives": "Show objectives",
