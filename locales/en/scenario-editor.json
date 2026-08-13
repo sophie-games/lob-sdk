@@ -444,7 +444,7 @@
     },
     "spritesPanel": {
       "title": "Unit sprites",
-      "description": "Upload your own sprites here, then pick them in a unit's formations. They are embedded in the scenario (max {{kb}}KB each).",
+      "description": "A sprite is the picture a unit wears on the field. Upload your own and you can pick them when you set up a unit's formations. They ride inside the scenario file itself, so each one has to stay under {{kb}}KB. Upload one below.",
       "yourSprites": "Your sprites",
       "noSprites": "No custom sprites yet.",
       "uploadSprite": "Upload sprite",
@@ -455,7 +455,7 @@
       "invalidImageAlert": "Could not read the image. Use a PNG or WebP file.",
       "deleteBlockedAlert": "Can't delete: still used by {{where}}. Change those formations first.",
       "libraryTitle": "Sprite library",
-      "libraryDescription": "Browse the era's built-in sprites for inspiration.",
+      "libraryDescription": "Every sprite the era already provides, free for you to use. Have a look before you draw your own.",
       "filterPlaceholder": "Filter by name...",
       "unitBase": "Unit base ({{count}})",
       "unitOverlay": "Unit overlay ({{count}})",
@@ -463,7 +463,7 @@
     },
     "unitTemplatesPanel": {
       "title": "Unit templates",
-      "description": "Define new unit templates with custom stats, formations, and damage types. Use \"Override\" to replace a built-in for this scenario (useful for balance testing) or \"Clone\" to add a fresh template with id >= {{minId}}.",
+      "description": "A template is the blueprint every unit on the map is stamped from. Override one of the era's own to change it for this scenario alone, or clone one to start a unit of your own. Make one below.",
       "noTemplates": "No custom unit templates yet.",
       "templateLabel": "{{name}} (type {{type}})",
       "deleteBlocked": "Can't delete \"{{name}}\" - still used by {{refs}}. Remove those units first.",
@@ -472,14 +472,14 @@
     },
     "formationsPanel": {
       "title": "Unit formations",
-      "description": "Define new formation templates (collision, modifiers, shooting rules) that custom units can use.",
+      "description": "A formation is how a unit arranges itself: line, column, square. Every unit you create or edit carries the ones it can use, and switching between them changes how it fights. Build your own below.",
       "noFormations": "No custom formations yet.",
       "deleteBlocked": "Can't delete \"{{id}}\" - still used by {{refs}}. Remove those references first.",
       "clonePickerTitle": "Clone a built-in formation"
     },
     "unitCategoriesPanel": {
       "title": "Unit categories",
-      "description": "Define new unit categories (collision levels, deployment section, allowed orders, routing behavior). Referenced by custom units via their category field.",
+      "description": "A category is the kind of troops a unit is: infantry, skirmishers, artillery. Every unit you create or edit belongs to one, and units sharing a category behave alike. Add your own below.",
       "noCategories": "No custom unit categories yet.",
       "deleteBlocked": "Can't delete \"{{id}}\" - still used by {{refs}}. Remove those references first.",
       "addCategory": "Add unit category",
@@ -487,7 +487,7 @@
     },
     "damageTypesPanel": {
       "title": "Damage types",
-      "description": "Define new melee or ranged damage types. Referenced by custom units via meleeDamageType or rangedDamageTypes.",
+      "description": "A damage type decides how a weapon works. Every unit you create or edit has one for melee, and can carry several more for shooting at range. Make your own below.",
       "noDamageTypes": "No custom damage types yet.",
       "ranged": "ranged",
       "melee": "melee",
@@ -499,8 +499,8 @@
     },
     "terrainCategoriesPanel": {
       "title": "Terrain categories",
-      "description": "Override terrain category configs for this scenario. Use this to give custom unit categories specific terrain modifiers, or to introduce new terrain category ids.",
-      "noOverrides": "No custom terrain category overrides yet.",
+      "description": "A terrain category is how a patch of ground treats the troops standing on it: what it slows, what it shelters, what it blocks. Override the era's version here and the change applies to this scenario alone. Choose one below.",
+      "noOverrides": "No terrain categories overridden yet. Add one below.",
       "addTerrainCategory": "Add terrain category",
       "clonePickerTitle": "Clone a built-in terrain category"
     },
@@ -554,15 +554,15 @@
     },
     "gameConstants": {
       "title": "Game constants",
-      "description": "Override this era's numeric constants for this scenario. Only changed values are saved; Reset returns a field to the era default. Keys marked ⚠ are structural - changing them can break rendering, replays, or matchmaking. Values are raw internal units."
+      "description": "These are the era's underlying numbers: how long a turn lasts, how large a tile is, how many turns a battle runs. Anything you change applies to this scenario alone, and Reset puts a value back as you found it. The ones marked ⚠ affect how battles are drawn and replayed, so tread carefully with those."
     },
     "gameRules": {
       "title": "Game rules",
-      "description": "Override this era's gameplay rules for this scenario. Only changed values are saved; use Reset to return a field to the era default. Values are raw internal units (some stats are stored pre-scaled)."
+      "description": "These are the systems the era runs on: flanking, stamina, ammunition, supply lines, entrenchment and the rest. Anything you change applies to this scenario alone, and Reset puts a value back as you found it. The numbers are in the game's own units, so a figure may not read as metres or minutes."
     },
     "ordersPanel": {
       "title": "Orders",
-      "description": "Override the values of this era's built-in orders for this scenario. Only changed values are saved; use Reset to return a field to the era default. You can modify existing orders but not add new ones."
+      "description": "Orders are the instructions a player can give a unit during a battle. You can retune the era's own orders here for this scenario, though you cannot invent new ones. Reset puts a value back as you found it."
     },
     "clonePicker": {
       "alreadyOverridden": "(already overridden)",
