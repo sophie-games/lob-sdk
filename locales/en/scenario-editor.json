@@ -260,7 +260,7 @@
     "optionCustom": "{{name}} (custom)",
     "errors": {
       "idInUse": "Unit category id \"{{id}}\" is already in use",
-      "firingAltitudeRequired": "firingAltitude is required",
+      "firingAltitudeRequired": "Set a Firing Altitude.",
       "orphanedResistances": "damageTypeResistances references unknown damage types: {{types}}",
       "orphanedAutofire": "autofirePriority references unknown unit categories: {{categories}}",
       "allowedOrderRequired": "All allowed-order entries must be selected",
@@ -386,7 +386,7 @@
       "nameInUse": "Damage type name \"{{name}}\" is already in use",
       "idBelongsToBuiltIn": "Damage type id {{id}} belongs to built-in \"{{name}}\". Keep the name to override it, or pick a different id.",
       "nameBelongsToBuiltIn": "Name \"{{name}}\" belongs to built-in id {{id}}. Set id to {{id}} to override it, or pick a different name.",
-      "orgDamageRatioRequired": "orgDamageRatio is required",
+      "orgDamageRatioRequired": "Set an Org Damage Ratio.",
       "rangedNeedsBracket": "Ranged damage types need at least one range bracket",
       "maxRangeRequired": "Max range must be greater than 0",
       "rangeBandBounds": "Each band's From/To must be within 0–100%, with From ≤ To.",
@@ -453,7 +453,7 @@
       "maxSpritesAlert": "You can upload at most {{count}} custom sprites.",
       "tooLargeAlert": "Image too large; could not compress under {{kb}}KB. Try a smaller or simpler image.",
       "invalidImageAlert": "Could not read the image. Use a PNG or WebP file.",
-      "deleteBlockedAlert": "Can't delete: still used by {{where}}. Change those formations first.",
+      "deleteBlockedAlert": "You can't delete this sprite while {{where}} still use it. Change those formations first.",
       "libraryTitle": "Sprite library",
       "libraryDescription": "Every sprite the era already provides, free for you to use. Have a look before you draw your own.",
       "filterPlaceholder": "Filter by name...",
@@ -466,7 +466,7 @@
       "description": "A template is the blueprint every unit on the map is stamped from. Override one of the era's own to change it for this scenario alone, or clone one to start a unit of your own. Make one below.",
       "noTemplates": "None yet, so this scenario fields the era's own units.",
       "templateLabel": "{{name}} (type {{type}})",
-      "deleteBlocked": "Can't delete \"{{name}}\" - still used by {{refs}}. Remove those units first.",
+      "deleteBlocked": "You can't delete \"{{name}}\" while {{refs}} still use it. Remove those first.",
       "addTemplate": "Add unit template",
       "clonePickerTitle": "Clone a built-in unit template"
     },
@@ -474,14 +474,14 @@
       "title": "Unit formations",
       "description": "A formation is how a unit arranges itself: line, column, square. Every unit you create or edit carries the ones it can use, and switching between them changes how it fights. Build your own below.",
       "noFormations": "None yet, so your units form up the way the era already allows.",
-      "deleteBlocked": "Can't delete \"{{id}}\" - still used by {{refs}}. Remove those references first.",
+      "deleteBlocked": "You can't delete \"{{id}}\" while {{refs}} still use it. Remove those first.",
       "clonePickerTitle": "Clone a built-in formation"
     },
     "unitCategoriesPanel": {
       "title": "Unit categories",
       "description": "A category is the kind of troops a unit is: infantry, skirmishers, artillery. Every unit you create or edit belongs to one, and units sharing a category behave alike. Add your own below.",
       "noCategories": "None yet, so every unit belongs to one of the era's own kinds of troops.",
-      "deleteBlocked": "Can't delete \"{{id}}\" - still used by {{refs}}. Remove those references first.",
+      "deleteBlocked": "You can't delete \"{{id}}\" while {{refs}} still use it. Remove those first.",
       "addCategory": "Add unit category",
       "clonePickerTitle": "Clone a built-in unit category"
     },
@@ -493,7 +493,7 @@
       "melee": "melee",
       "cloneOptionLabel": "{{name}} ({{kind}})",
       "itemLabel": "{{name}} ({{kind}}, id {{id}})",
-      "deleteBlocked": "Can't delete \"{{name}}\" - still used by {{refs}}. Remove those references first.",
+      "deleteBlocked": "You can't delete \"{{name}}\" while {{refs}} still use it. Remove those first.",
       "addDamageType": "Add damage type",
       "clonePickerTitle": "Clone a built-in damage type"
     },
@@ -520,16 +520,16 @@
       "damageTypeItemLabel": "{{name}} ({{kind}})",
       "nothing": "nothing",
       "title": "Import {{kind}} from scenario",
-      "pickFilePrompt": "Pick a scenario file (the JSON the editor's Download button produces) to import its custom {{kind}} from.",
-      "fileReadError": "Couldn't read that file as a scenario.",
-      "invalidForEra": "This scenario's custom definitions aren't valid for the current era (e.g. {{message}}).",
-      "importWouldInvalidate": "Import would make the scenario invalid (e.g. {{message}}). Nothing was changed.",
+      "pickFilePrompt": "Choose a scenario file to bring its {{kind}} across. Any scenario you have downloaded from the editor will do.",
+      "fileReadError": "That doesn't look like a scenario file. Try another.",
+      "invalidForEra": "That scenario's custom definitions don't fit the era you're working in: {{message}}",
+      "importWouldInvalidate": "Nothing was imported, because that would have left your scenario invalid: {{message}}",
       "fromLabel": "From: {{name}}",
       "importedScenario": "imported scenario",
       "changeFile": "Change file",
-      "noCustomDefs": "This scenario has no custom {{kind}}.",
-      "willImport": "Will import (with dependencies): {{summary}}.",
-      "resultSummary": "Imported {{imported}}, renamed {{renamed}}, skipped {{skipped}}.",
+      "noCustomDefs": "That scenario has no custom {{kind}} to bring across.",
+      "willImport": "This will bring across {{summary}}, plus anything they depend on.",
+      "resultSummary": "Added {{imported}}. Renamed {{renamed}} that would have clashed. Skipped {{skipped}} you already had.",
       "importSelected": "Import selected"
     },
     "importOverridesModal": {
@@ -537,20 +537,20 @@
       "targetGameRules": "game rule overrides",
       "targetOrders": "order overrides",
       "title": "Import {{target}} from scenario",
-      "pickFilePrompt": "Pick a scenario file (the JSON the editor's Download button produces) to import its {{target}} from.",
+      "pickFilePrompt": "Choose a scenario file to bring its {{target}} across. Any scenario you have downloaded from the editor will do.",
       "noOverrides": "This scenario has no {{target}}.",
-      "importedCount_one": "Imported {{count}} override.",
-      "importedCount_other": "Imported {{count}} overrides."
+      "importedCount_one": "Added {{count}} override.",
+      "importedCount_other": "Added {{count}} overrides."
     },
     "importArmyCompositionsModal": {
       "title": "Import army compositions from scenario",
-      "pickFilePrompt": "Pick a scenario file (the JSON the editor's Download button produces) to import its army compositions from.",
+      "pickFilePrompt": "Choose a scenario file to bring its army compositions across. Any scenario you have downloaded from the editor will do.",
       "noArmyCompositions": "This scenario has no army composition settings to import.",
       "fieldBattleTypes": "Battle-type budgets & unit caps",
       "fieldPlayerBudgets": "Per-player budgets",
       "fieldArmyPanelGroups": "Army panel groups",
       "fieldDisableEraUnits": "Disable era default units",
-      "resultSummary": "Imported: {{fields}}."
+      "resultSummary": "Added: {{fields}}."
     },
     "gameConstants": {
       "title": "Game constants",
