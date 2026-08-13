@@ -446,7 +446,7 @@
       "title": "Unit sprites",
       "description": "A sprite is the picture a unit wears on the field. Upload your own and you can pick them when you set up a unit's formations. They ride inside the scenario file itself, so each one has to stay under {{kb}}KB. Upload one below.",
       "yourSprites": "Your sprites",
-      "noSprites": "No custom sprites yet.",
+      "noSprites": "None yet, so your units wear the pictures the era already provides.",
       "uploadSprite": "Upload sprite",
       "renderWidthAria": "Render width in px",
       "renderHeightAria": "Render height in px",
@@ -464,7 +464,7 @@
     "unitTemplatesPanel": {
       "title": "Unit templates",
       "description": "A template is the blueprint every unit on the map is stamped from. Override one of the era's own to change it for this scenario alone, or clone one to start a unit of your own. Make one below.",
-      "noTemplates": "No custom unit templates yet.",
+      "noTemplates": "None yet, so this scenario fields the era's own units.",
       "templateLabel": "{{name}} (type {{type}})",
       "deleteBlocked": "Can't delete \"{{name}}\" - still used by {{refs}}. Remove those units first.",
       "addTemplate": "Add unit template",
@@ -473,14 +473,14 @@
     "formationsPanel": {
       "title": "Unit formations",
       "description": "A formation is how a unit arranges itself: line, column, square. Every unit you create or edit carries the ones it can use, and switching between them changes how it fights. Build your own below.",
-      "noFormations": "No custom formations yet.",
+      "noFormations": "None yet, so your units form up the way the era already allows.",
       "deleteBlocked": "Can't delete \"{{id}}\" - still used by {{refs}}. Remove those references first.",
       "clonePickerTitle": "Clone a built-in formation"
     },
     "unitCategoriesPanel": {
       "title": "Unit categories",
       "description": "A category is the kind of troops a unit is: infantry, skirmishers, artillery. Every unit you create or edit belongs to one, and units sharing a category behave alike. Add your own below.",
-      "noCategories": "No custom unit categories yet.",
+      "noCategories": "None yet, so every unit belongs to one of the era's own kinds of troops.",
       "deleteBlocked": "Can't delete \"{{id}}\" - still used by {{refs}}. Remove those references first.",
       "addCategory": "Add unit category",
       "clonePickerTitle": "Clone a built-in unit category"
@@ -488,7 +488,7 @@
     "damageTypesPanel": {
       "title": "Damage types",
       "description": "A damage type decides how a weapon works. Every unit you create or edit has one for melee, and can carry several more for shooting at range. Make your own below.",
-      "noDamageTypes": "No custom damage types yet.",
+      "noDamageTypes": "None yet, so your units fight with the weapons the era already provides.",
       "ranged": "ranged",
       "melee": "melee",
       "cloneOptionLabel": "{{name}} ({{kind}})",
@@ -500,7 +500,7 @@
     "terrainCategoriesPanel": {
       "title": "Terrain categories",
       "description": "A terrain category is how a patch of ground treats the troops standing on it: what it slows, what it shelters, what it blocks. Override the era's version here and the change applies to this scenario alone. Choose one below.",
-      "noOverrides": "No terrain categories overridden yet. Add one below.",
+      "noOverrides": "Nothing overridden yet, so terrain behaves exactly as the era intends.",
       "addTerrainCategory": "Add terrain category",
       "clonePickerTitle": "Clone a built-in terrain category"
     },
