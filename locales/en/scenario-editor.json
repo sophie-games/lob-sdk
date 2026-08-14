@@ -85,7 +85,7 @@
     "showUnits": "Show units",
     "showObjectives": "Show objectives",
     "goBack": "Go back",
-    "goBackConfirm": "Are you sure you want to go back and exit the editor?",
+    "goBackConfirm": "Leave the editor and go back to the menu?",
     "display": "Display"
   },
   "createScenario": {
@@ -138,7 +138,7 @@
   },
   "deployment": {
     "title": "Deployment zones",
-    "hint": "These zones set where each army starts. The deployment phase only adds a turn 0 for players to rearrange inside them.",
+    "hint": "These zones are where each army starts the battle. Switch on the deployment phase and players get one extra turn before the fighting begins, purely to shuffle their units around inside their zone.",
     "team": "Team {{team}}",
     "mainZone": "Main",
     "forwardZone": "Forward",
@@ -159,7 +159,7 @@
     "drawLineRank": "Draw-line rank (lower = front)",
     "title": "Edit custom formation",
     "collision": "Collision",
-    "collisionHelp": "Footprint shape: a circle (radius) or a rectangle (frontage across the front, depth front-to-back). Use radius 0 for no collision (flying / ghost).",
+    "collisionHelp": "The space this formation takes up on the ground. A circle needs only a radius, while a rectangle needs its frontage across the front and its depth from front to back. Set the radius to 0 and the formation takes up no space at all, passing through everything.",
     "shape": "Shape",
     "shapeRectangle": "Rectangle",
     "shapeCircle": "Circle",
@@ -219,7 +219,7 @@
     "orgRadius": "Org radius",
     "orgRadiusBonus": "Org radius bonus",
     "reportStats": "Report stats",
-    "reportStatsHelp": "Tally each unit contributes to battle reports (e.g. men, horses, guns). Keys come from the era's built-in units.",
+    "reportStatsHelp": "What this unit adds to the tallies in a battle report, such as men, horses, or guns. The categories come from the era's own units.",
     "tallyPerUnit": "Tally per unit",
     "walkMovement": "Walk movement",
     "runMovement": "Run movement",
@@ -261,8 +261,8 @@
     "errors": {
       "idInUse": "Unit category id \"{{id}}\" is already in use",
       "firingAltitudeRequired": "Set a Firing Altitude.",
-      "orphanedResistances": "damageTypeResistances references unknown damage types: {{types}}",
-      "orphanedAutofire": "autofirePriority references unknown unit categories: {{categories}}",
+      "orphanedResistances": "Resistances point at damage types that do not exist: {{types}}",
+      "orphanedAutofire": "Autofire priority points at unit categories that do not exist: {{categories}}",
       "allowedOrderRequired": "All allowed-order entries must be selected",
       "allowedOrderUnknown": "Allowed order \"{{name}}\" is not a known order for this era"
     },
@@ -308,7 +308,7 @@
     },
     "resistances": {
       "legend": "Damage type resistances",
-      "description": "Per-damage-type resistance modifier (negative = take more damage, positive = take less).",
+      "description": "How well this category stands up to each damage type. A negative figure means it takes more damage, a positive figure means it takes less.",
       "fieldLabel": "Resistance by damage type"
     },
     "autofire": {
@@ -316,7 +316,7 @@
       "fieldLabel": "Priority by target category",
       "defaultRange": "Default range",
       "warnOnMax": "Warn that Max wastes ammo",
-      "warnOnMaxHint": "Shows an ammo-waste warning on the Max tier (e.g. artillery)."
+      "warnOnMaxHint": "Warns that ammunition is being wasted when this category fires at its Max tier. Useful for artillery."
     },
     "allowedOrders": {
       "legend": "Allowed orders",
@@ -398,7 +398,7 @@
       "max": "Max (default)"
     },
     "targetStat": {
-      "helper": "In % of the target's stat. No effect above 'from'; full 'value' at or below 'to'. Grows as the target's HP/org drops."
+      "helper": "Measured as a percentage of the target's own stat. Nothing happens above the From figure, the full value applies at or below the To figure, and the effect grows as the target weakens in between."
     }
   },
   "terrainCategoryModal": {
@@ -408,9 +408,9 @@
       "perUnitCategoryModifiers": "Per unit category modifiers",
       "projectileAbsorption": "Projectile absorption"
     },
-    "identityHint": "Overrides the era's terrain category config for this scenario. The id is fixed to a built-in category - terrains keep their category assignments, you only adjust the modifiers.",
-    "perUnitCategoryHint": "Keys are unit category ids. Use the `*` wildcard to set a default applied to all categories that don't have an explicit entry. Removing a row that `*` covers has no effect: it comes back on the next edit. Keep the row and give it its own value instead (No, to make the terrain passable).",
-    "projectileAbsorptionHint": "Keys are damage type names.",
+    "identityHint": "This overrides one of the era's terrain categories, for this scenario only. You cannot change which terrains belong to it, since the era fixes that. What you can change is how the category treats the troops standing on it.",
+    "perUnitCategoryHint": "Each row sets the value for one kind of troops. The `*` row is the default, used by any kind you have not given a row of its own. Deleting a row that `*` covers will not stick, because it returns the next time you edit. Give that row its own value instead.",
+    "projectileAbsorptionHint": "Each row sets the value for one damage type.",
     "option": {
       "builtIn": "{{name}} (built-in)",
       "custom": "{{name}} (custom)"
@@ -434,7 +434,7 @@
     "errors": {
       "idInUse": "Terrain category id \"{{id}}\" is already in use",
       "unknownUnitCategories": "{{field}} references unknown unit categories: {{keys}}",
-      "unknownDamageTypes": "projectileAbsorption references unknown damage types: {{keys}}"
+      "unknownDamageTypes": "Projectile absorption points at damage types that do not exist: {{keys}}"
     }
   },
   "customDefs": {
@@ -507,7 +507,7 @@
     "overrideEditor": {
       "reset": "Reset",
       "eraDefault": "era default: {{value}}",
-      "structuralTooltip": "Structural / determinism constant. Changing it can break rendering, replays, or matchmaking."
+      "structuralTooltip": "This one shapes how the game itself runs. Changing it can break how battles are drawn, how replays play back, and how matchmaking works."
     },
     "importModal": {
       "kindUnitTemplates": "unit templates",
@@ -630,8 +630,8 @@
     "scale": {
       "newWidth": "New width (tiles)",
       "newHeight": "New height (tiles)",
-      "errorInvalid": "Please enter valid positive numbers for width and height in tiles",
-      "warningBody": "Make sure you have saved your scenario before proceeding. Resizing will scale all terrains, heights, units, objectives, and trigger positions."
+      "errorInvalid": "Enter a positive width and height, in tiles.",
+      "warningBody": "It may be worth saving your scenario before you do this. Resizing stretches everything on the map along with it: terrain, heights, units, objectives, and triggers."
     },
     "expandCut": {
       "intro": "Positive values add tiles, negative values remove tiles from each side.",
@@ -645,7 +645,7 @@
       "apply": "Apply Changes",
       "errorTooSmall": "Cannot resize: resulting map would be smaller than 1×1 tiles. Please adjust the values.",
       "errorTooLarge": "Cannot resize: resulting map would exceed maximum size of {{maxWidth}}×{{maxHeight}} tiles.",
-      "warningBody": "Make sure you have saved your scenario before proceeding. Expanding/cutting will add or remove tiles from the specified sides. Units and objectives outside the new bounds will be removed.",
+      "warningBody": "You might want to save your scenario first. Adding or removing tiles moves the map's edges, and anything left outside the new bounds is removed with them.",
       "changesHeading": "Changes:",
       "changesHorizontal": "Left: {{left}} tiles, Right: {{right}} tiles",
       "changesVertical": "Top: {{top}} tiles, Bottom: {{bottom}} tiles"
@@ -663,7 +663,7 @@
   },
   "localesPanel": {
     "title": "Locales",
-    "description": "Locales are used to translate the scenario into different languages.",
+    "description": "Locales let you translate your scenario, so players read its names and descriptions in their own language. Add a language, then give each piece of text a translation.",
     "removeLanguage": "Remove language",
     "noKeys": "No translation keys. Add a key to get started.",
     "addKey": "Add Key",
@@ -725,8 +725,8 @@
     "lastUsedSeed": "Last used seed:",
     "generate": "Generate",
     "importMustBeProcedural": "The imported file must be a procedural template (no baked map, with generation instructions).",
-    "invalidJsonFile": "Invalid JSON file. Please check the file format.",
-    "confirmOverwriteWarning": "Please confirm that you understand this will overwrite the terrain.",
+    "invalidJsonFile": "That file could not be read. Check that it is a scenario the editor produced.",
+    "confirmOverwriteWarning": "Tick the box to confirm you are happy to overwrite the terrain.",
     "selectedNotProcedural": "Selected scenario is not a procedural template.",
     "mapMode": "Map mode",
     "modePreset": "Preset (fixed terrain)",
