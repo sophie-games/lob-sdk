@@ -672,6 +672,7 @@
   },
   "mapPoint": {
     "title": "Map point",
+    "help": "This follows your pointer across the map and reads out the tile under it. Right click to pin it, so the numbers stay put while you work in the panel. Move back over the map and it follows again.",
     "tile": "Tile",
     "terrain": "Terrain",
     "height": "Height",
