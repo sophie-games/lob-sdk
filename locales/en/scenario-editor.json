@@ -113,7 +113,7 @@
     "title": "Selected Unit",
     "unitType": "Unit Type",
     "rotation": "Rotation",
-    "copyJson": "Copy JSON",
+    "copyUnitData": "Copy unit data",
     "copyUnits": "Copy units",
     "unitsCopied": "Units copied ({{count}})",
     "removeSelectedUnits": "Remove selected units"
@@ -125,6 +125,7 @@
   },
   "objectivePanel": {
     "title": "Selected Objective",
+    "copyObjectiveData": "Copy objective data",
     "removeSelected": "Remove selected objective",
     "fields": {
       "manpowerPerTurn": "Manpower per Turn",
