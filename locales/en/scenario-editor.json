@@ -76,7 +76,7 @@
     "allowDynamicArmy": "Allow dynamic army",
     "allowDynamicArmyHelp": "When on, players build their own army for the battle type and deploy it inside their zones. When off, they fight with the units you placed on the map and the army screen is skipped.",
     "fixedRoster": "Fixed roster",
-    "fixedRosterHelp": "When on, the scenario decides the player slots, the teams and the ammunition each side gets, and nobody can be added or removed in the lobby. When off, the lobby or matchmaking decides who plays.",
+    "fixedRosterHelp": "When on, the scenario decides the player slots, the teams, and the ammunition each side gets, and nobody can be added or removed in the lobby. When off, the lobby or matchmaking decides who plays.",
     "allowDeploymentPhase": "Deployment phase",
     "allowDeploymentPhaseHelp": "When on, the battle opens with one extra turn before any fighting, so each player can rearrange their units inside their deployment zone. When off, the fighting starts at once, with no chance to reposition first.",
     "noInherentAmmo": "Ammunition from the reserve only",
@@ -487,7 +487,7 @@
     },
     "damageTypesPanel": {
       "title": "Damage types",
-      "description": "A damage type decides how a weapon works. Every unit you create or edit has one for melee, and can carry several more for shooting at range. Make your own below.",
+      "description": "A damage type decides how a weapon works. Every unit you create or edit has one for melee and can carry several more for shooting at range. Make your own below.",
       "noDamageTypes": "None yet, so your units fight with the weapons the era already provides.",
       "ranged": "ranged",
       "melee": "melee",
@@ -558,7 +558,7 @@
     },
     "gameRules": {
       "title": "Game rules",
-      "description": "These are the systems the era runs on: flanking, stamina, ammunition, supply lines, entrenchment and the rest. Anything you change applies to this scenario alone, and Reset puts a value back as you found it. The numbers are in the game's own units, so a figure may not read as metres or minutes."
+      "description": "These are the systems the era runs on: flanking, stamina, ammunition, supply lines, entrenchment, and the rest. Anything you change applies to this scenario alone, and Reset puts a value back as you found it. The numbers are in the game's own units, so a figure may not read as metres or minutes."
     },
     "ordersPanel": {
       "title": "Orders",
