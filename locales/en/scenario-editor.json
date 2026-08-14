@@ -450,7 +450,7 @@
       "uploadSprite": "Upload sprite",
       "renderWidthAria": "Render width in px",
       "renderHeightAria": "Render height in px",
-      "maxSpritesAlert": "You can upload at most {{count}} custom sprites.",
+      "maxSpritesAlert": "You can keep at most {{count}} sprites in a scenario. Delete one to make room.",
       "tooLargeAlert": "Image too large; could not compress under {{kb}}KB. Try a smaller or simpler image.",
       "invalidImageAlert": "Could not read the image. Use a PNG or WebP file.",
       "deleteBlockedAlert": "You can't delete this sprite while {{where}} still use it. Change those formations first.",
@@ -463,7 +463,7 @@
     },
     "unitTemplatesPanel": {
       "title": "Unit templates",
-      "description": "A template is the blueprint every unit on the map is stamped from. Override one of the era's own to change it for this scenario alone, or clone one to start a unit of your own. Make one below.",
+      "description": "A template is the blueprint every unit on the map is stamped from. Override one of the era's own to change it for this scenario alone, or clone one to start a unit of your own. Add one below.",
       "noTemplates": "None yet, so this scenario fields the era's own units.",
       "templateLabel": "{{name}} (type {{type}})",
       "deleteBlocked": "You can't delete \"{{name}}\" while {{refs}} still use it. Remove those first.",
@@ -472,14 +472,14 @@
     },
     "formationsPanel": {
       "title": "Unit formations",
-      "description": "A formation is how a unit arranges itself: line, column, square. Every unit you create or edit carries the ones it can use, and switching between them changes how it fights. Build your own below.",
+      "description": "A formation is how a unit arranges itself: line, column, square. Every unit you create or edit carries the ones it can use, and switching between them changes how it fights. Add a formation of your own below.",
       "noFormations": "None yet, so your units form up the way the era already allows.",
       "deleteBlocked": "You can't delete \"{{id}}\" while {{refs}} still use it. Remove those first.",
       "clonePickerTitle": "Clone a built-in formation"
     },
     "unitCategoriesPanel": {
       "title": "Unit categories",
-      "description": "A category is the kind of troops a unit is: infantry, skirmishers, artillery. Every unit you create or edit belongs to one, and units sharing a category behave alike. Add your own below.",
+      "description": "A category is the kind of troops a unit is: infantry, skirmishers, artillery. Every unit you create or edit belongs to one, and units sharing a category behave alike. Add one of your own below.",
       "noCategories": "None yet, so every unit belongs to one of the era's own kinds of troops.",
       "deleteBlocked": "You can't delete \"{{id}}\" while {{refs}} still use it. Remove those first.",
       "addCategory": "Add unit category",
@@ -487,7 +487,7 @@
     },
     "damageTypesPanel": {
       "title": "Damage types",
-      "description": "A damage type decides how a weapon works. Every unit you create or edit has one for melee and can carry several more for shooting at range. Make your own below.",
+      "description": "A damage type decides how a weapon works. Every unit you create or edit has one for melee and can carry several more for shooting at range. Add your own below.",
       "noDamageTypes": "None yet, so your units fight with the weapons the era already provides.",
       "ranged": "ranged",
       "melee": "melee",
@@ -499,7 +499,7 @@
     },
     "terrainCategoriesPanel": {
       "title": "Terrain categories",
-      "description": "A terrain category is how a patch of ground treats the troops standing on it: what it slows, what it shelters, what it blocks. Override the era's version here and the change applies to this scenario alone. Choose one below.",
+      "description": "A terrain category is how a patch of ground treats the troops standing on it: what it slows, what it shelters, what it blocks. Override the era's version here and the change applies to this scenario alone. Add an override below.",
       "noOverrides": "Nothing overridden yet, so terrain behaves exactly as the era intends.",
       "addTerrainCategory": "Add terrain category",
       "clonePickerTitle": "Clone a built-in terrain category"
@@ -684,7 +684,7 @@
   },
   "triggers": {
     "title": "Triggers",
-    "moreInfo": "More info about triggers here",
+    "moreInfo": "How triggers work",
     "lastPositionClicked": "Last position clicked: [{{x}}, {{y}}]",
     "createTrigger": "Create Trigger",
     "createTriggerButton": "Create trigger",
@@ -702,7 +702,7 @@
   },
   "randomMap": {
     "title": "Random Map",
-    "moreInfo": "More info about random maps here",
+    "moreInfo": "How random maps work",
     "proceduralExplanation": "These instructions generate the map from a new seed each match; the saved scenario drops its baked map. The map shown here is only a preview. Objectives placed by Objective / Objective layer instructions appear at match time, not in this preview.",
     "startFromTemplate": "Start from a template",
     "loadInstructionsFromTemplate": "Load instructions from template",
