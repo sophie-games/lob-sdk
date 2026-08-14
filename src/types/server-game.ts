@@ -393,6 +393,8 @@ export interface GameData {
   creatorId?: number;
   /** Players claim a specific slot instead of a team; host manages slots pre-start. */
   hostWithLobby?: boolean;
+  /** Whether a host-with-lobby game is listed in the public custom games lobby. */
+  isPublic?: boolean;
   /** Player numbers the host has closed pre-start (host-with-lobby only). Defaults to []. */
   closedSlots?: number[];
 }
