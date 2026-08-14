@@ -56,7 +56,8 @@
     "workshopBands": {
       "units": "Units",
       "terrain": "Terrain",
-      "global": "Global"
+      "global": "Global",
+      "transfer": "Transfer"
     },
     "scenarioBands": {
       "about": "About",
@@ -443,6 +444,17 @@
       "duplicate": "Duplicate",
       "inThisScenario": "In this scenario",
       "builtIntoThisEra": "Built into this era"
+    },
+    "transfer": {
+      "importTitle": "Import",
+      "importDescription": "Bring work across from another scenario. Choose a file, then take all of it or untick anything you would rather leave behind. Anything that scenario does not carry is greyed out.",
+      "chooseSource": "Where from",
+      "importAction": "Import",
+      "exportTitle": "Export",
+      "exportDescription": "Send this scenario's own work out as a file, ready to bring into another. Everything is included unless you untick it.",
+      "whatToSend": "What to send",
+      "exportAction": "Export",
+      "allCategories": "All categories"
     },
     "spritesPanel": {
       "title": "Unit sprites",
