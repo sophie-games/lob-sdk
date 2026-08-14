@@ -120,7 +120,8 @@
   },
   "createUnit": {
     "title": "Create Unit",
-    "placingCopied": "Placing copied units ({{count}}). Click the map to place them.",
+    "placingCopied_one": "Click the map to place your copied unit.",
+    "placingCopied_other": "Click the map to place your {{count}} copied units.",
     "customLabel": "{{name}} (custom)"
   },
   "objectivePanel": {
