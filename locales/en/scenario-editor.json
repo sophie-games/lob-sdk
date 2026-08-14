@@ -297,7 +297,7 @@
     },
     "chargeBacklash": {
       "legend": "Charge backlash",
-      "description": "Multiplier on the counter-hit this category deals back to a charger (higher = braces and hits back harder, 0 = none). The after-running value applies when the defender has already run and can't brace; it falls back to the base multiplier. Defaults to 1.",
+      "description": "How hard this category hits back when something charges it. Higher means it braces and strikes back harder, and 0 means it does not hit back at all. The after-running value is used when the defender has already run and cannot brace, and falls back to the base figure. Defaults to 1.",
       "multiplier": "Backlash multiplier",
       "multiplierAfterRunning": "Backlash multiplier (after running)"
     },
@@ -724,7 +724,7 @@
     "confirmOverwriteLabel": "I understand this will overwrite all terrain",
     "lastUsedSeed": "Last used seed:",
     "generate": "Generate",
-    "importMustBeProcedural": "The imported file must be a procedural template (no baked map, with generation instructions).",
+    "importMustBeProcedural": "That file needs to be a procedural template. It must carry generation instructions and no baked map.",
     "invalidJsonFile": "That file could not be read. Check that it is a scenario the editor produced.",
     "confirmOverwriteWarning": "Tick the box to confirm you are happy to overwrite the terrain.",
     "selectedNotProcedural": "Selected scenario is not a procedural template.",
@@ -737,7 +737,7 @@
   "randomDeployment": {
     "title": "Deployment zones",
     "explanation": "Where each team's units start, as percentages of the map. Keep it symmetric for a fair match, or uncheck to author each side.",
-    "symmetric": "Symmetric map (mirror top to bottom)",
+    "symmetric": "Mirror top and bottom",
     "topSide": "Top side",
     "bottomSide": "Bottom side",
     "bothSides": "Both sides",
@@ -752,7 +752,7 @@
   },
   "scoring": {
     "heading": "VP weights",
-    "hint": "Leave a field empty to inherit the battle-type or era default.",
+    "hint": "Leave a field empty to use the battle type's own figure, or the era's.",
     "basePoints": "Base points weight",
     "casualties": "Casualties weight",
     "underPressure": "Under-pressure penalty",
@@ -770,7 +770,7 @@
   },
   "objectiveZones": {
     "heading": "Objective zones",
-    "hint": "How much to shrink the placeable-objective zones. Leave a field empty to inherit the battle-type or era default.",
+    "hint": "How much to shrink the areas where objectives can be placed. Leave a field empty to use the battle type's own figure, or the era's.",
     "smallInset": "Small-objective zone trim",
     "bigInset": "Big-objective zone trim",
     "smallInsetInfo": "How much to narrow the small-objective zone on each side. Trims only its width, keeping its vertical reach.",
