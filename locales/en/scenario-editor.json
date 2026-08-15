@@ -88,7 +88,21 @@
     "showObjectives": "Show objectives",
     "goBack": "Go back",
     "goBackConfirm": "Leave the editor and go back to the menu?",
-    "display": "Display"
+    "display": "Display",
+    "resting": {
+      "thisScenario": "This scenario",
+      "gettingStarted": "Getting started",
+      "untitled": "Untitled",
+      "mapSize": "{{width}} x {{height}} tiles",
+      "objectives": "Objectives",
+      "noneYet": "None yet",
+      "modes": "Scenario builds this battle. Workshop changes the pieces every battle uses.",
+      "placing": "Pick a tool, then right-click the map to put something down. On a touch screen, tap it.",
+      "disarm": "Click that tool again to put it away and go back to selecting.",
+      "inspect": "Click a piece you have placed and its settings appear here.",
+      "test": "The play button at the top tries your battle out against a bot.",
+      "saved": "Your work is kept as you go, so you can leave and pick it up later."
+    }
   },
   "createScenario": {
     "randomMap": "Random (procedural) map?",
