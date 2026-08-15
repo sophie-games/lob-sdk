@@ -97,13 +97,16 @@
       "objectives": "Objectives",
       "noneYet": "None yet",
       "modes": "Scenario builds this battle. Workshop changes the pieces every battle uses.",
-      "placing": "Pick a tool, then right-click the map to put something down. On a touch screen, tap it.",
-      "disarm": "Click that tool again to put it away and go back to selecting.",
-      "inspect": "Click a piece you have placed and its settings appear here.",
+      "placing": "Pick a tool, then right-click the map to put something down.",
+      "disarm": "Pick that tool again to put it away and go back to selecting.",
+      "inspect": "Choose a piece you have placed and its settings appear here.",
       "test": "The play button at the top tries your battle out against a bot.",
       "saved": "Your work is kept as you go, so you can leave and pick it up later.",
       "navigate": "Drag with the middle mouse button to move around the map, and scroll to zoom in and out.",
-      "selectMany": "Drag a box across the map to take hold of several units at once."
+      "selectMany": "Drag a box across the map to take hold of several units at once.",
+      "navigateTouch": "Drag with two fingers to move around the map, and pinch to zoom in and out.",
+      "placingTouch": "Pick a tool, then tap the map to put something down.",
+      "selectManyTouch": "Press and hold, then drag, to take hold of several units at once."
     }
   },
   "createScenario": {
