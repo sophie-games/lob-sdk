@@ -662,7 +662,7 @@
     "confirmTitle": "Confirm Resize Map",
     "warningCannotUndo": "⚠️ <0>Warning:</0> This operation cannot be undone.",
     "tabScale": "Scale",
-    "tabExpandCut": "Expand / Cut Sides",
+    "tabExpandCut": "Expand or cut",
     "scale": {
       "newWidth": "New width (tiles)",
       "newHeight": "New height (tiles)",
@@ -685,7 +685,10 @@
       "changesHeading": "Changes:",
       "changesHorizontal": "Left: {{left}} tiles, Right: {{right}} tiles",
       "changesVertical": "Top: {{top}} tiles, Bottom: {{bottom}} tiles"
-    }
+    },
+    "currentSizeLabel": "Current size",
+    "methodLabel": "Method",
+    "sizeValue": "{{width}} × {{height}} tiles"
   },
   "mapSize": {
     "widthInTiles": "Width in tiles",
@@ -765,7 +768,7 @@
     "template": "Template",
     "useSeed": "Use seed?",
     "useSeedDescription": "Generate terrain using procedural generation",
-    "confirmOverwriteLabel": "I understand this will overwrite all terrain",
+    "confirmOverwriteLabel": "Replace all the terrain",
     "lastUsedSeed": "Last used seed:",
     "generate": "Generate",
     "importMustBeProcedural": "That file needs to be a procedural template. It must carry generation instructions and no baked map.",
@@ -776,7 +779,11 @@
     "modePreset": "Preset (fixed terrain)",
     "modeHybrid": "Hybrid (preset + instructions)",
     "modeProcedural": "Procedural (generated)",
-    "hybridExplanation": "The baked terrain is kept and these instructions re-run on top of it as overlays each match. Pin a seed on the map to stop the overlays drifting between matches."
+    "hybridExplanation": "The baked terrain is kept and these instructions re-run on top of it as overlays each match. Pin a seed on the map to stop the overlays drifting between matches.",
+    "sourceLabel": "Source",
+    "sourceBuiltIn": "Built in",
+    "sourceImport": "Import",
+    "intro": "Fill the map's terrain from a template instead of painting it by hand."
   },
   "randomDeployment": {
     "title": "Deployment zones",
