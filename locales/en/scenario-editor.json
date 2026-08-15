@@ -662,7 +662,7 @@
     "confirmTitle": "Confirm Resize Map",
     "warningCannotUndo": "⚠️ <0>Warning:</0> This operation cannot be undone.",
     "tabScale": "Scale",
-    "tabExpandCut": "Expand or cut",
+    "tabExpandCut": "Edges",
     "scale": {
       "newWidth": "New width (tiles)",
       "newHeight": "New height (tiles)",
@@ -731,7 +731,7 @@
   },
   "triggers": {
     "title": "Triggers",
-    "moreInfo": "How triggers work",
+    "moreInfo": "Read how triggers work.",
     "lastPositionClicked": "Last position clicked: [{{x}}, {{y}}]",
     "createTrigger": "Create Trigger",
     "createTriggerButton": "Create trigger",
@@ -749,10 +749,10 @@
   },
   "randomMap": {
     "title": "Random Map",
-    "moreInfo": "How random maps work",
+    "moreInfo": "Read how random maps work.",
     "proceduralExplanation": "These instructions generate the map from a new seed each match; the saved scenario drops its baked map. The map shown here is only a preview. Objectives placed by Objective / Objective layer instructions appear at match time, not in this preview.",
     "startFromTemplate": "Start from a template",
-    "loadInstructionsFromTemplate": "Load instructions from template",
+    "loadInstructionsFromTemplate": "Load template",
     "generating": "Generating…",
     "generatePreview": "Generate preview",
     "instructions": "Instructions",
@@ -783,7 +783,8 @@
     "sourceLabel": "Source",
     "sourceBuiltIn": "Built in",
     "sourceImport": "Import",
-    "intro": "Fill the map's terrain from a template instead of painting it by hand."
+    "intro": "Fill the map's terrain from a template instead of painting it by hand.",
+    "rollSeed": "Roll a new seed"
   },
   "randomDeployment": {
     "title": "Deployment zones",
