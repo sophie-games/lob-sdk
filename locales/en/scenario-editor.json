@@ -127,7 +127,9 @@
     "height": "Height",
     "elevation": "Elevation",
     "setHeight": "Set height",
+    "setHeightHelp": "Ticked, the brush writes the height above onto every tile it paints. Unticked, it paints terrain only and leaves each tile at the elevation it already has.",
     "paintBucket": "Paint Bucket",
+    "paintBucketHelp": "Ticked, one press fills the whole connected run of matching terrain, however large, so radius does not apply. Unticked, the brush covers the radius you set.",
     "none": "None"
   },
   "unitPanel": {
