@@ -142,8 +142,10 @@
     "removeSelectedUnits": "Remove selected units"
   },
   "createUnit": {
-    "placingCopied_one": "Click the map to place your copied unit.",
-    "placingCopied_other": "Click the map to place your {{count}} copied units.",
+    "placingCopied_one": "Right-click the map to place your copied unit.",
+    "placingCopied_other": "Right-click the map to place your {{count}} copied units.",
+    "placingCopiedTouch_one": "Tap the map to place your copied unit.",
+    "placingCopiedTouch_other": "Tap the map to place your {{count}} copied units.",
     "customLabel": "{{name}} (custom)"
   },
   "objectivePanel": {
