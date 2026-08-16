@@ -81,7 +81,6 @@
     "goBackConfirm": "Tem certeza de que deseja voltar e sair do editor?",
     "display": "Exibição",
     "scenarioBands": {
-      "about": "Geral",
       "forces": "Forças",
       "rules": "Regras",
       "presentation": "Apresentação"
@@ -109,7 +108,6 @@
     "title": "Unidade Selecionada",
     "unitType": "Tipo de Unidade",
     "rotation": "Rotação",
-    "copyJson": "Copiar JSON",
     "copyUnits": "Copiar unidades",
     "unitsCopied": "Unidades copiadas ({{count}})",
     "removeSelectedUnits": "Remover unidades selecionadas"
@@ -683,7 +681,6 @@
   "triggers": {
     "title": "Gatilhos",
     "moreInfo": "Mais informações sobre gatilhos aqui",
-    "lastPositionClicked": "Última posição clicada: [{{x}}, {{y}}]",
     "createTrigger": "Criar Gatilho",
     "createTriggerButton": "Criar gatilho",
     "format": "Formatar",

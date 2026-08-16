@@ -81,7 +81,6 @@
     "goBackConfirm": "Czy na pewno chcesz wrócić i wyjść z edytora?",
     "display": "Wyświetlanie",
     "scenarioBands": {
-      "about": "Ogólne",
       "forces": "Siły",
       "rules": "Zasady",
       "presentation": "Prezentacja"
@@ -109,7 +108,6 @@
     "title": "Wybrana jednostka",
     "unitType": "Typ jednostki",
     "rotation": "Obrót",
-    "copyJson": "Kopiuj JSON",
     "copyUnits": "Kopiuj jednostki",
     "unitsCopied": "Skopiowano jednostki ({{count}})",
     "removeSelectedUnits": "Usuń wybrane jednostki"
@@ -685,7 +683,6 @@
   "triggers": {
     "title": "Wyzwalacze",
     "moreInfo": "Więcej informacji o wyzwalaczach tutaj",
-    "lastPositionClicked": "Ostatnia kliknięta pozycja: [{{x}}, {{y}}]",
     "createTrigger": "Stwórz wyzwalacz",
     "createTriggerButton": "Stwórz wyzwalacz",
     "format": "Formatuj",

@@ -81,7 +81,6 @@
     "goBackConfirm": "정말 뒤로 가서 편집기를 종료하시겠습니까?",
     "display": "표시",
     "scenarioBands": {
-      "about": "정보",
       "forces": "병력",
       "rules": "규칙",
       "presentation": "표시"
@@ -109,7 +108,6 @@
     "title": "선택한 부대",
     "unitType": "부대 유형",
     "rotation": "회전",
-    "copyJson": "JSON 복사",
     "copyUnits": "부대 복사",
     "unitsCopied": "부대 복사됨 ({{count}})",
     "removeSelectedUnits": "선택한 부대 제거"
@@ -682,7 +680,6 @@
   "triggers": {
     "title": "트리거",
     "moreInfo": "트리거에 대한 자세한 정보는 여기에서",
-    "lastPositionClicked": "마지막으로 클릭한 위치: [{{x}}, {{y}}]",
     "createTrigger": "트리거 생성",
     "createTriggerButton": "트리거 생성",
     "format": "형식",

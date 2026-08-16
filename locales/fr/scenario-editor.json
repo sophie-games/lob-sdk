@@ -81,7 +81,6 @@
     "goBackConfirm": "Êtes-vous sûr de vouloir revenir en arrière et quitter l'éditeur ?",
     "display": "Affichage",
     "scenarioBands": {
-      "about": "Général",
       "forces": "Forces",
       "rules": "Règles",
       "presentation": "Présentation"
@@ -109,7 +108,6 @@
     "title": "Unité sélectionnée",
     "unitType": "Type d'unité",
     "rotation": "Rotation",
-    "copyJson": "Copier le JSON",
     "copyUnits": "Copier les unités",
     "unitsCopied": "Unités copiées ({{count}})",
     "removeSelectedUnits": "Retirer les unités sélectionnées"
@@ -683,7 +681,6 @@
   "triggers": {
     "title": "Déclencheurs",
     "moreInfo": "Plus d'infos sur les déclencheurs ici",
-    "lastPositionClicked": "Dernière position cliquée : [{{x}}, {{y}}]",
     "createTrigger": "Créer un déclencheur",
     "createTriggerButton": "Créer un déclencheur",
     "format": "Formater",

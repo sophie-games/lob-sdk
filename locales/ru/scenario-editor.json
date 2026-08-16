@@ -81,7 +81,6 @@
     "goBackConfirm": "Вы уверены, что хотите вернуться и выйти из редактора?",
     "display": "Отображение",
     "scenarioBands": {
-      "about": "Обзор",
       "forces": "Силы",
       "rules": "Правила",
       "presentation": "Отображение"
@@ -109,7 +108,6 @@
     "title": "Выбранный юнит",
     "unitType": "Тип юнита",
     "rotation": "Поворот",
-    "copyJson": "Скопировать JSON",
     "copyUnits": "Скопировать юниты",
     "unitsCopied": "Юниты скопированы ({{count}})",
     "removeSelectedUnits": "Убрать выбранные юниты"
@@ -685,7 +683,6 @@
   "triggers": {
     "title": "Триггеры",
     "moreInfo": "Подробнее о триггерах здесь",
-    "lastPositionClicked": "Последняя нажатая позиция: [{{x}}, {{y}}]",
     "createTrigger": "Создать триггер",
     "createTriggerButton": "Создать триггер",
     "format": "Форматировать",

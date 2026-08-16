@@ -81,7 +81,6 @@
     "goBackConfirm": "戻ってエディターを終了してもよろしいですか？",
     "display": "表示",
     "scenarioBands": {
-      "about": "概要",
       "forces": "兵力",
       "rules": "ルール",
       "presentation": "表示"
@@ -109,7 +108,6 @@
     "title": "選択中のユニット",
     "unitType": "ユニットタイプ",
     "rotation": "回転",
-    "copyJson": "JSONをコピー",
     "copyUnits": "ユニットをコピー",
     "unitsCopied": "ユニットをコピーしました（{{count}}）",
     "removeSelectedUnits": "選択したユニットを削除"
@@ -682,7 +680,6 @@
   "triggers": {
     "title": "トリガー",
     "moreInfo": "トリガーの詳細はこちら",
-    "lastPositionClicked": "最後にクリックした位置: [{{x}}, {{y}}]",
     "createTrigger": "トリガーを作成",
     "createTriggerButton": "トリガーを作成",
     "format": "整形",

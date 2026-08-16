@@ -81,7 +81,6 @@
     "goBackConfirm": "คุณแน่ใจหรือไม่ว่าต้องการย้อนกลับและออกจากเครื่องมือสร้างฉาก?",
     "display": "การแสดงผล",
     "scenarioBands": {
-      "about": "เกี่ยวกับ",
       "forces": "กำลังพล",
       "rules": "กฎ",
       "presentation": "การนำเสนอ"
@@ -109,7 +108,6 @@
     "title": "ยูนิตที่เลือก",
     "unitType": "ประเภทยูนิต",
     "rotation": "การหมุน",
-    "copyJson": "คัดลอก JSON",
     "copyUnits": "คัดลอกยูนิต",
     "unitsCopied": "คัดลอกยูนิตแล้ว ({{count}})",
     "removeSelectedUnits": "นำยูนิตที่เลือกออก"
@@ -682,7 +680,6 @@
   "triggers": {
     "title": "ทริกเกอร์",
     "moreInfo": "ข้อมูลเพิ่มเติมเกี่ยวกับทริกเกอร์ที่นี่",
-    "lastPositionClicked": "ตำแหน่งที่คลิกล่าสุด: [{{x}}, {{y}}]",
     "createTrigger": "สร้างทริกเกอร์",
     "createTriggerButton": "สร้างทริกเกอร์",
     "format": "จัดรูปแบบ",

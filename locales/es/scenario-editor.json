@@ -81,7 +81,6 @@
     "goBackConfirm": "¿Seguro que quieres volver y salir del editor?",
     "display": "Visualización",
     "scenarioBands": {
-      "about": "General",
       "forces": "Fuerzas",
       "rules": "Reglas",
       "presentation": "Presentación"
@@ -109,7 +108,6 @@
     "title": "Unidad seleccionada",
     "unitType": "Tipo de unidad",
     "rotation": "Rotación",
-    "copyJson": "Copiar JSON",
     "copyUnits": "Copiar unidades",
     "unitsCopied": "Unidades copiadas ({{count}})",
     "removeSelectedUnits": "Quitar unidades seleccionadas"
@@ -683,7 +681,6 @@
   "triggers": {
     "title": "Disparadores",
     "moreInfo": "Más información sobre disparadores aquí",
-    "lastPositionClicked": "Última posición clicada: [{{x}}, {{y}}]",
     "createTrigger": "Crear disparador",
     "createTriggerButton": "Crear disparador",
     "format": "Formatear",

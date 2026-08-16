@@ -81,7 +81,6 @@
     "goBackConfirm": "Biztosan visszalépsz és kilépsz a szerkesztőből?",
     "display": "Megjelenítés",
     "scenarioBands": {
-      "about": "Általános",
       "forces": "Erők",
       "rules": "Szabályok",
       "presentation": "Megjelenítés"
@@ -109,7 +108,6 @@
     "title": "Kijelölt egység",
     "unitType": "Egységtípus",
     "rotation": "Forgatás",
-    "copyJson": "JSON másolása",
     "copyUnits": "Egységek másolása",
     "unitsCopied": "Egységek másolva ({{count}})",
     "removeSelectedUnits": "Kijelölt egységek eltávolítása"
@@ -683,7 +681,6 @@
   "triggers": {
     "title": "Triggerek",
     "moreInfo": "További információ a triggerekről itt",
-    "lastPositionClicked": "Utoljára kattintott pozíció: [{{x}}, {{y}}]",
     "createTrigger": "Trigger létrehozása",
     "createTriggerButton": "Trigger létrehozása",
     "format": "Formázás",
