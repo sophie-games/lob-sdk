@@ -105,7 +105,6 @@
     "none": "Tidak ada"
   },
   "unitPanel": {
-    "title": "Unit Terpilih",
     "unitType": "Tipe Unit",
     "rotation": "Rotasi",
     "copyUnits": "Salin unit",
@@ -113,12 +112,10 @@
     "removeSelectedUnits": "Hapus unit terpilih"
   },
   "createUnit": {
-    "title": "Buat Unit",
     "placingCopied": "Menempatkan unit yang disalin ({{count}}). Klik peta untuk menempatkannya.",
     "customLabel": "{{name}} (kustom)"
   },
   "objectivePanel": {
-    "title": "Objektif Terpilih",
     "removeSelected": "Hapus objektif terpilih",
     "fields": {
       "manpowerPerTurn": "Tenaga per Giliran",
@@ -126,7 +123,6 @@
     }
   },
   "createObjective": {
-    "title": "Buat Objektif",
     "gaia": "Gaia",
     "fields": {
       "objectiveType": "Tipe Objektif"
@@ -615,7 +611,6 @@
     }
   },
   "resize": {
-    "currentSize": "Ukuran saat ini: {{width}} × {{height}} tile",
     "newSize": "Ukuran baru: {{width}} × {{height}} tile",
     "current": "Saat ini: {{width}} × {{height}} tile",
     "confirmTitle": "Konfirmasi Ubah Ukuran Peta",

@@ -105,7 +105,6 @@
     "none": "Nincs"
   },
   "unitPanel": {
-    "title": "Kijelölt egység",
     "unitType": "Egységtípus",
     "rotation": "Forgatás",
     "copyUnits": "Egységek másolása",
@@ -113,12 +112,10 @@
     "removeSelectedUnits": "Kijelölt egységek eltávolítása"
   },
   "createUnit": {
-    "title": "Egység létrehozása",
     "placingCopied": "Másolt egységek elhelyezése ({{count}}). Kattints a térképre az elhelyezésükhöz.",
     "customLabel": "{{name}} (egyéni)"
   },
   "objectivePanel": {
-    "title": "Kijelölt objektíva",
     "removeSelected": "Kijelölt objektíva eltávolítása",
     "fields": {
       "manpowerPerTurn": "Emberanyag körönként",
@@ -126,7 +123,6 @@
     }
   },
   "createObjective": {
-    "title": "Objektíva létrehozása",
     "gaia": "Gaia",
     "fields": {
       "objectiveType": "Objektíva típusa"
@@ -616,7 +612,6 @@
     }
   },
   "resize": {
-    "currentSize": "Jelenlegi méret: {{width}} × {{height}} mező",
     "newSize": "Új méret: {{width}} × {{height}} mező",
     "current": "Jelenlegi: {{width}} × {{height}} mező",
     "confirmTitle": "Pálya átméretezésének megerősítése",

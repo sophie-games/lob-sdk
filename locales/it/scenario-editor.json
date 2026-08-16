@@ -105,7 +105,6 @@
     "none": "Nessuno"
   },
   "unitPanel": {
-    "title": "Unità selezionata",
     "unitType": "Tipo di unità",
     "rotation": "Rotazione",
     "copyUnits": "Copia unità",
@@ -113,12 +112,10 @@
     "removeSelectedUnits": "Rimuovi unità selezionate"
   },
   "createUnit": {
-    "title": "Crea unità",
     "placingCopied": "Posizionamento delle unità copiate ({{count}}). Fai clic sulla mappa per posizionarle.",
     "customLabel": "{{name}} (personalizzata)"
   },
   "objectivePanel": {
-    "title": "Obiettivo selezionato",
     "removeSelected": "Rimuovi obiettivo selezionato",
     "fields": {
       "manpowerPerTurn": "Effettivi per turno",
@@ -126,7 +123,6 @@
     }
   },
   "createObjective": {
-    "title": "Crea obiettivo",
     "gaia": "Gaia",
     "fields": {
       "objectiveType": "Tipo di obiettivo"
@@ -616,7 +612,6 @@
     }
   },
   "resize": {
-    "currentSize": "Dimensione attuale: {{width}} × {{height}} tile",
     "newSize": "Nuova dimensione: {{width}} × {{height}} tile",
     "current": "Attuale: {{width}} × {{height}} tile",
     "confirmTitle": "Conferma ridimensionamento mappa",

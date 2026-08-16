@@ -133,7 +133,6 @@
     "none": "None"
   },
   "unitPanel": {
-    "title": "Selected Unit",
     "unitType": "Unit Type",
     "nameSingleOnly": "Naming works on one unit at a time, so the field is available only while a single unit is selected.",
     "rotation": "Rotation",
@@ -143,13 +142,11 @@
     "removeSelectedUnits": "Remove selected units"
   },
   "createUnit": {
-    "title": "Create Unit",
     "placingCopied_one": "Click the map to place your copied unit.",
     "placingCopied_other": "Click the map to place your {{count}} copied units.",
     "customLabel": "{{name}} (custom)"
   },
   "objectivePanel": {
-    "title": "Selected Objective",
     "copyObjectiveData": "Copy objective data",
     "removeSelected": "Remove selected objective",
     "fields": {
@@ -158,7 +155,6 @@
     }
   },
   "createObjective": {
-    "title": "Create Objective",
     "gaia": "Neutral",
     "fields": {
       "objectiveType": "Objective Type"
@@ -661,7 +657,6 @@
     }
   },
   "resize": {
-    "currentSize": "Current size: {{width}} × {{height}} tiles",
     "newSize": "New size: {{width}} × {{height}} tiles",
     "current": "Current: {{width}} × {{height}} tiles",
     "confirmTitle": "Confirm Resize Map",

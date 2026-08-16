@@ -105,7 +105,6 @@
     "none": "なし"
   },
   "unitPanel": {
-    "title": "選択中のユニット",
     "unitType": "ユニットタイプ",
     "rotation": "回転",
     "copyUnits": "ユニットをコピー",
@@ -113,12 +112,10 @@
     "removeSelectedUnits": "選択したユニットを削除"
   },
   "createUnit": {
-    "title": "ユニットを作成",
     "placingCopied": "コピーしたユニットを配置中（{{count}}）。マップをクリックして配置します。",
     "customLabel": "{{name}}（カスタム）"
   },
   "objectivePanel": {
-    "title": "選択中の目標",
     "removeSelected": "選択した目標を削除",
     "fields": {
       "manpowerPerTurn": "ターンあたりの人員",
@@ -126,7 +123,6 @@
     }
   },
   "createObjective": {
-    "title": "目標を作成",
     "gaia": "ガイア",
     "fields": {
       "objectiveType": "目標の種類"
@@ -615,7 +611,6 @@
     }
   },
   "resize": {
-    "currentSize": "現在のサイズ: {{width}} × {{height}} タイル",
     "newSize": "新しいサイズ: {{width}} × {{height}} タイル",
     "current": "現在: {{width}} × {{height}} タイル",
     "confirmTitle": "マップのサイズ変更を確認",

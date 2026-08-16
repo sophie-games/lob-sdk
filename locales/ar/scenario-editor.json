@@ -105,7 +105,6 @@
     "none": "بلا"
   },
   "unitPanel": {
-    "title": "الوحدة المحددة",
     "unitType": "نوع الوحدة",
     "rotation": "الدوران",
     "copyUnits": "نسخ الوحدات",
@@ -113,12 +112,10 @@
     "removeSelectedUnits": "إزالة الوحدات المحددة"
   },
   "createUnit": {
-    "title": "إنشاء وحدة",
     "placingCopied": "وضع الوحدات المنسوخة ({{count}}). انقر على الخريطة لوضعها.",
     "customLabel": "{{name}} (مخصص)"
   },
   "objectivePanel": {
-    "title": "الهدف المحدد",
     "removeSelected": "إزالة الهدف المحدد",
     "fields": {
       "manpowerPerTurn": "القوى البشرية لكل دور",
@@ -126,7 +123,6 @@
     }
   },
   "createObjective": {
-    "title": "إنشاء هدف",
     "gaia": "محايد",
     "fields": {
       "objectiveType": "نوع الهدف"
@@ -620,7 +616,6 @@
     }
   },
   "resize": {
-    "currentSize": "الحجم الحالي: {{width}} × {{height}} بلاطة",
     "newSize": "الحجم الجديد: {{width}} × {{height}} بلاطة",
     "current": "الحالي: {{width}} × {{height}} بلاطة",
     "confirmTitle": "تأكيد تغيير حجم الخريطة",

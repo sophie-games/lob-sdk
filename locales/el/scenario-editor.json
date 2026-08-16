@@ -105,7 +105,6 @@
     "none": "Κανένα"
   },
   "unitPanel": {
-    "title": "Επιλεγμένη Μονάδα",
     "unitType": "Τύπος Μονάδας",
     "rotation": "Περιστροφή",
     "copyUnits": "Αντιγραφή μονάδων",
@@ -113,12 +112,10 @@
     "removeSelectedUnits": "Αφαίρεση επιλεγμένων μονάδων"
   },
   "createUnit": {
-    "title": "Δημιουργία Μονάδας",
     "placingCopied": "Τοποθέτηση αντιγραμμένων μονάδων ({{count}}). Κάντε κλικ στον χάρτη για να τις τοποθετήσετε.",
     "customLabel": "{{name}} (προσαρμοσμένο)"
   },
   "objectivePanel": {
-    "title": "Επιλεγμένος Στόχος",
     "removeSelected": "Αφαίρεση επιλεγμένου στόχου",
     "fields": {
       "manpowerPerTurn": "Έμψυχο δυναμικό ανά γύρο",
@@ -126,7 +123,6 @@
     }
   },
   "createObjective": {
-    "title": "Δημιουργία Στόχου",
     "gaia": "Γαία",
     "fields": {
       "objectiveType": "Τύπος Στόχου"
@@ -616,7 +612,6 @@
     }
   },
   "resize": {
-    "currentSize": "Τρέχον μέγεθος: {{width}} × {{height}} πλακίδια",
     "newSize": "Νέο μέγεθος: {{width}} × {{height}} πλακίδια",
     "current": "Τρέχον: {{width}} × {{height}} πλακίδια",
     "confirmTitle": "Επιβεβαίωση αλλαγής μεγέθους χάρτη",

@@ -105,7 +105,6 @@
     "none": "कोई नहीं"
   },
   "unitPanel": {
-    "title": "चयनित इकाई",
     "unitType": "इकाई प्रकार",
     "rotation": "घूर्णन",
     "copyUnits": "इकाइयाँ कॉपी करें",
@@ -113,12 +112,10 @@
     "removeSelectedUnits": "चयनित इकाइयाँ हटाएं"
   },
   "createUnit": {
-    "title": "इकाई बनाएं",
     "placingCopied": "कॉपी की गई इकाइयाँ रखी जा रही हैं ({{count}})। रखने के लिए मानचित्र पर क्लिक करें।",
     "customLabel": "{{name}} (कस्टम)"
   },
   "objectivePanel": {
-    "title": "चयनित उद्देश्य",
     "removeSelected": "चयनित उद्देश्य हटाएं",
     "fields": {
       "manpowerPerTurn": "प्रति चाल जनशक्ति",
@@ -126,7 +123,6 @@
     }
   },
   "createObjective": {
-    "title": "उद्देश्य बनाएं",
     "gaia": "गैया",
     "fields": {
       "objectiveType": "उद्देश्य प्रकार"
@@ -616,7 +612,6 @@
     }
   },
   "resize": {
-    "currentSize": "वर्तमान आकार: {{width}} × {{height}} टाइलें",
     "newSize": "नया आकार: {{width}} × {{height}} टाइलें",
     "current": "वर्तमान: {{width}} × {{height}} टाइलें",
     "confirmTitle": "मानचित्र आकार बदलना पुष्टि करें",

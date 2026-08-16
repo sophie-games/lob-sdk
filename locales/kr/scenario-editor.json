@@ -105,7 +105,6 @@
     "none": "없음"
   },
   "unitPanel": {
-    "title": "선택한 부대",
     "unitType": "부대 유형",
     "rotation": "회전",
     "copyUnits": "부대 복사",
@@ -113,12 +112,10 @@
     "removeSelectedUnits": "선택한 부대 제거"
   },
   "createUnit": {
-    "title": "부대 생성",
     "placingCopied": "복사한 부대 배치 중 ({{count}}). 지도를 클릭하여 배치하세요.",
     "customLabel": "{{name}} (사용자 지정)"
   },
   "objectivePanel": {
-    "title": "선택한 지점목표",
     "removeSelected": "선택한 지점목표 제거",
     "fields": {
       "manpowerPerTurn": "턴당 병력",
@@ -126,7 +123,6 @@
     }
   },
   "createObjective": {
-    "title": "지점목표 생성",
     "gaia": "가이아",
     "fields": {
       "objectiveType": "지점목표 유형"
@@ -615,7 +611,6 @@
     }
   },
   "resize": {
-    "currentSize": "현재 크기: {{width}} × {{height}} 타일",
     "newSize": "새 크기: {{width}} × {{height}} 타일",
     "current": "현재: {{width}} × {{height}} 타일",
     "confirmTitle": "맵 크기 조정 확인",

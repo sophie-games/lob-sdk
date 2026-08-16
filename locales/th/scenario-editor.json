@@ -105,7 +105,6 @@
     "none": "ไม่มี"
   },
   "unitPanel": {
-    "title": "ยูนิตที่เลือก",
     "unitType": "ประเภทยูนิต",
     "rotation": "การหมุน",
     "copyUnits": "คัดลอกยูนิต",
@@ -113,12 +112,10 @@
     "removeSelectedUnits": "นำยูนิตที่เลือกออก"
   },
   "createUnit": {
-    "title": "สร้างยูนิต",
     "placingCopied": "กำลังวางยูนิตที่คัดลอก ({{count}}) คลิกที่แผนที่เพื่อวาง",
     "customLabel": "{{name}} (กำหนดเอง)"
   },
   "objectivePanel": {
-    "title": "เป้าหมายที่เลือก",
     "removeSelected": "นำเป้าหมายที่เลือกออก",
     "fields": {
       "manpowerPerTurn": "กำลังพลต่อเทิร์น",
@@ -126,7 +123,6 @@
     }
   },
   "createObjective": {
-    "title": "สร้างเป้าหมาย",
     "gaia": "ไกอา",
     "fields": {
       "objectiveType": "ประเภทเป้าหมาย"
@@ -615,7 +611,6 @@
     }
   },
   "resize": {
-    "currentSize": "ขนาดปัจจุบัน: {{width}} × {{height}} ช่อง",
     "newSize": "ขนาดใหม่: {{width}} × {{height}} ช่อง",
     "current": "ปัจจุบัน: {{width}} × {{height}} ช่อง",
     "confirmTitle": "ยืนยันการปรับขนาดแผนที่",
