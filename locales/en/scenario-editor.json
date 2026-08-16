@@ -470,7 +470,7 @@
     },
     "transfer": {
       "importTitle": "Import",
-      "importDescription": "Bring work across from another scenario. Choose a file, then take all of it or untick anything you would rather leave behind. Anything that scenario does not carry is greyed out.",
+      "importDescription": "Bring work across from another scenario. Choose a file, then take all of it or untick anything you would rather leave behind. Anything that scenario does not carry is grayed out.",
       "chooseSource": "Where from",
       "importAction": "Import",
       "exportTitle": "Export",
@@ -595,7 +595,7 @@
     },
     "gameRules": {
       "title": "Game rules",
-      "description": "These are the systems your era runs on, from how units hold their nerve to how a battle is won. Anything you change applies to this scenario alone, and Reset puts a value back as you found it. The numbers are in the game's own units, so a figure may not read as metres or minutes."
+      "description": "These are the systems your era runs on, from how units hold their nerve to how a battle is won. Anything you change applies to this scenario alone, and Reset puts a value back as you found it. The numbers are in the game's own units, so a figure may not read as meters or minutes."
     },
     "ordersPanel": {
       "title": "Orders",
@@ -616,7 +616,7 @@
       "title": "Army panel groups",
       "description": "Choose the headings players see when buying an army, which units sit under each, and their order. This starts from the era's default layout.",
       "statusDefault": "Untouched. This scenario uses the era's standard army compositions, and editing anything below switches it to a list of your own.",
-      "statusCustom": "Customised. Players now see only the units you put into a group, and nothing else. Add a new unit to the scenario later and it stays hidden until you group it here too.",
+      "statusCustom": "Customized. Players now see only the units you put into a group, and nothing else. Add a new unit to the scenario later and it stays hidden until you group it here too.",
       "statusEraDisabled": "The era's own units are switched off, so the standard layout is hidden. Build your groups from this scenario's units below.",
       "namePlaceholder": "Group name",
       "addGroup": "Add group",
