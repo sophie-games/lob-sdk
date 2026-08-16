@@ -33,7 +33,7 @@
     "damageModifier": "Damage modifier",
     "orgModifier": "Org modifier",
     "invalidJson": "Invalid JSON",
-    "resizeMap": "Resize Map",
+    "resizeMap": "Resize map",
     "addLanguage": "Add Language",
     "optionBuiltIn": "{{name}} (built-in)",
     "optionCustom": "{{name}} (custom)",
@@ -128,12 +128,12 @@
     "elevation": "Elevation",
     "setHeight": "Set height",
     "setHeightHelp": "Ticked, the brush writes the height above onto every tile it paints. Unticked, it paints terrain only and leaves each tile at the elevation it already has.",
-    "paintBucket": "Paint Bucket",
+    "paintBucket": "Paint bucket",
     "paintBucketHelp": "Ticked, one press fills the whole connected run of matching terrain, however large, so radius does not apply. Unticked, the brush covers the radius you set.",
     "none": "None"
   },
   "unitPanel": {
-    "unitType": "Unit Type",
+    "unitType": "Unit type",
     "nameSingleOnly": "Naming works on one unit at a time, so the field is available only while a single unit is selected.",
     "rotation": "Rotation",
     "copyUnitData": "Copy unit data",
@@ -150,8 +150,8 @@
     "copyObjectiveData": "Copy objective data",
     "removeSelected": "Remove selected objective",
     "fields": {
-      "manpowerPerTurn": "Manpower per Turn",
-      "goldPerTurn": "Gold per Turn"
+      "manpowerPerTurn": "Manpower per turn",
+      "goldPerTurn": "Gold per turn"
     }
   },
   "createObjective": {
@@ -659,7 +659,7 @@
   "resize": {
     "newSize": "New size: {{width}} × {{height}} tiles",
     "current": "Current: {{width}} × {{height}} tiles",
-    "confirmTitle": "Confirm Resize Map",
+    "confirmTitle": "Confirm resize map",
     "warningCannotUndo": "⚠️ <0>Warning:</0> This operation cannot be undone.",
     "tabScale": "Scale",
     "tabExpandCut": "Edges",
@@ -678,7 +678,7 @@
       "sideExpand": "+{{count}} tiles (expand)",
       "sideCut": "{{count}} tiles (cut)",
       "noChange": "No change",
-      "apply": "Apply Changes",
+      "apply": "Apply changes",
       "errorTooSmall": "Cannot resize: resulting map would be smaller than 1×1 tiles. Please adjust the values.",
       "errorTooLarge": "Cannot resize: resulting map would exceed maximum size of {{maxWidth}}×{{maxHeight}} tiles.",
       "warningBody": "You might want to save your scenario first. Adding or removing tiles moves the map's edges, and anything left outside the new bounds is removed with them.",
@@ -736,22 +736,22 @@
     "moreInfo": "Read how triggers work.",
     "lastClick": "Position to copy",
     "lastClickHint": "Where you last picked on the map, in the coordinates a trigger uses for placing a unit or moving the camera.",
-    "createTrigger": "Create Trigger",
+    "createTrigger": "Create trigger",
     "createTriggerButton": "Create trigger",
     "format": "Tidy the formatting",
     "invalidJsonFormat": "Invalid JSON format",
     "event": "Event",
-    "conditionLogic": "Condition Logic",
+    "conditionLogic": "Condition logic",
     "conditionLogicAnd": "All conditions (AND)",
     "conditionLogicOr": "Any condition (OR)",
     "conditions": "Conditions",
-    "addCondition": "Add Condition",
+    "addCondition": "Add condition",
     "actions": "Actions",
-    "addAction": "Add Action",
+    "addAction": "Add action",
     "once": "Once"
   },
   "randomMap": {
-    "title": "Random Map",
+    "title": "Random map",
     "moreInfo": "Read how random maps work.",
     "proceduralExplanation": "These instructions generate the map from a new seed each match; the saved scenario drops its baked map.",
     "proceduralExplanationDetail": "The map shown here is only a preview. Objectives placed by Objective or Objective layer instructions appear at match time, not in this preview.",
