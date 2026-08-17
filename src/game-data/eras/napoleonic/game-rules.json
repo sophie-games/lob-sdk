@@ -20,15 +20,15 @@
   },
   "ammo": {
     "baseReserve": 250000,
-    "regenerationBaseRate": 0.09,
+    "regenerationBaseRate": 0.09111,
     "regenerationBonusRate": 0.07,
     "maxHpConsumptionReduction": -0.5,
     "ammoReserve": {
       "micro": 45000,
-      "clash": 100000,
-      "combat": 195000,
-      "battle": 300000,
-      "grand_battle": 450000
+      "clash": 90000,
+      "combat": 175000,
+      "battle": 270000,
+      "grand_battle": 425000
     },
     "goldToAmmoRate": {
       "micro": 1400,
