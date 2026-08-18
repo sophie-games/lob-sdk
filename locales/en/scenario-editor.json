@@ -164,7 +164,8 @@
   },
   "deployment": {
     "title": "Deployment zones",
-    "hint": "These zones are where each army starts the battle. Switch on the deployment phase and players get one extra turn before the fighting begins, purely to shuffle their units around inside their zone.",
+    "hint": "These zones are where each army starts the battle.",
+    "phaseHelp": "With the deployment phase on, players get one extra turn before the fighting begins, purely to shuffle their units around inside their zone.",
     "team": "Team {{team}}",
     "mainZone": "Main",
     "forwardZone": "Forward",
