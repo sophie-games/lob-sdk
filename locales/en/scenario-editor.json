@@ -33,6 +33,7 @@
     "damageModifier": "Damage modifier",
     "orgModifier": "Org modifier",
     "invalidJson": "Invalid JSON",
+    "jsonPlaceholder": "Enter JSON here...",
     "resizeMap": "Resize map",
     "addLanguage": "Add Language",
     "optionBuiltIn": "{{name}} (built-in)",
@@ -485,6 +486,7 @@
       "yourSprites": "Your sprites",
       "noSprites": "None yet, so your units wear the pictures the era already provides.",
       "uploadSprite": "Upload sprite",
+      "uploading": "Uploading…",
       "renderWidthAria": "Render width in px",
       "renderHeightAria": "Render height in px",
       "maxSpritesAlert": "You can keep at most {{count}} sprites in a scenario. Delete one to make room.",
@@ -789,7 +791,25 @@
     "sourceBuiltIn": "Built in",
     "sourceImport": "Import",
     "intro": "Fill the map's terrain from a template instead of painting it by hand.",
-    "rollSeed": "Roll a new seed"
+    "rollSeed": "Roll a new seed",
+    "changeFile": "Change file",
+    "selectFile": "Select file",
+    "importedFile": "Imported file",
+    "instructionType": {
+      "terrainNoise": "Terrain noise",
+      "heightNoise": "Height noise",
+      "terrainCircle": "Terrain circle",
+      "terrainRectangle": "Terrain rectangle",
+      "naturalPath": "Natural path",
+      "connectClusters": "Connect clusters",
+      "objective": "Objective",
+      "lake": "Lake",
+      "objectiveLayer": "Objective layer"
+    },
+    "objectiveType": {
+      "small": "Small",
+      "big": "Big"
+    }
   },
   "randomDeployment": {
     "title": "Deployment zones",
