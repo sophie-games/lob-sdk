@@ -119,6 +119,7 @@
   "playersPanel": {
     "playerNumbered": "Player {{number}}",
     "removePlayer": "Remove player",
+    "rosterLimits": "A scenario needs at least {{min}} players and allows at most {{max}}.",
     "ammoReserve": "Reserve",
     "ammoBase": "Base",
     "ammoHelp": "How much ammunition this player's army has. The reserve is what it spends over the battle, and the base is the level the reserve climbs back toward each turn."
