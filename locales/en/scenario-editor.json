@@ -593,7 +593,27 @@
     },
     "gameConstants": {
       "title": "Game constants",
-      "description": "These are the era's underlying numbers: how long a turn lasts, how large a tile is, how many turns a battle runs. Anything you change applies to this scenario alone, and Reset puts a value back as you found it."
+      "description": "These are the era's underlying numbers: how long a turn lasts, how large a tile is, how many turns a battle runs. Anything you change applies to this scenario alone, and Reset puts a value back as you found it.",
+      "category": {
+        "mapDimensions": "Map dimensions",
+        "deployment": "Deployment",
+        "gameLimits": "Game limits",
+        "victoryPoints": "Victory points",
+        "fogOfWar": "Fog of war",
+        "combat": "Combat",
+        "ammunition": "Ammunition",
+        "stamina": "Stamina",
+        "unitProximity": "Unit proximity",
+        "unitDimensions": "Unit dimensions",
+        "allyBehavior": "Ally behavior",
+        "collision": "Collision",
+        "movement": "Movement",
+        "mapBoundaries": "Map boundaries",
+        "effects": "Effects",
+        "gameMechanics": "Game mechanics",
+        "routing": "Routing",
+        "Other": "Other"
+      }
     },
     "gameRules": {
       "title": "Game rules",
