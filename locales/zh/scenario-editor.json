@@ -39,7 +39,8 @@
     "optionCustom": "{{name}}（自定义）",
     "optionAllUnitCategories": "所有单位类别",
     "nameWithKind": "{{name}}（{{kind}}）",
-    "rotationSpeedModifier": "转向速度修正"
+    "rotationSpeedModifier": "转向速度修正",
+    "jsonPlaceholder": "在此输入 JSON……"
   },
   "editorPanel": {
     "tabs": {
@@ -56,7 +57,8 @@
     "workshopBands": {
       "units": "单位",
       "terrain": "地形",
-      "global": "全局"
+      "global": "全局",
+      "transfer": "导入导出"
     },
     "restingHint": "点击一个棋子以查看，或选择一个工具开始绘制。",
     "togglePanel": "切换面板",
@@ -83,14 +85,48 @@
     "scenarioBands": {
       "forces": "兵力",
       "rules": "规则",
-      "presentation": "呈现"
+      "presentation": "呈现",
+      "victoryPoints": "胜利点数"
+    },
+    "testScenario": "测试战役",
+    "placeableObjectives": "玩家放置的目标点",
+    "placeableObjectivesHelp": "启用后，每位玩家在部署阶段于自己的区域内放置各自的目标点。禁用后，战斗只使用你在地图上放置的目标点。",
+    "placeableObjectivesNeedsDeployment": "请同时启用部署阶段，否则玩家永远无法进入放置这些目标点的回合，也就不会出现任何目标点。",
+    "resting": {
+      "thisScenario": "本战役",
+      "gettingStarted": "入门",
+      "untitled": "未命名",
+      "mapSize": "{{width}} x {{height}} 格",
+      "objectives": "目标点",
+      "noneYet": "暂无",
+      "modes": "战役用于搭建这一场战斗。创意工坊改动每场战斗都会用到的部件。",
+      "placing": "选择一个工具，然后右键点击地图放置内容。",
+      "disarm": "再次选择该工具即可收起它，回到选择状态。",
+      "inspect": "选中你已放置的棋子，它的设置就会显示在这里。",
+      "test": "顶部的播放按钮可让你对阵 AI 试玩你的战斗。",
+      "saved": "你的工作会随时保存，可以先离开，之后再继续。",
+      "placingTouch": "选择一个工具，然后点按地图放置内容。"
     }
   },
-  "createScenario": {},
+  "createScenario": {
+    "mapBand": "地图",
+    "forcesBand": "兵力",
+    "terrainLabel": "地形",
+    "terrainPreset": "手绘",
+    "terrainProcedural": "生成",
+    "terrainHelp": "手绘地形由你逐格铺设，并原样随战役剧本一起发布。生成地形每场战斗都会依照你在地图面板中写下的指令重新绘制，因此没有两场对局会在同一片土地上开打。",
+    "rosterLabel": "名单",
+    "rosterFixed": "固定",
+    "rosterDynamic": "动态",
+    "rosterHelp": "固定名单意味着由战役剧本决定玩家席位、队伍和弹药，所有人都使用你放置的单位作战。动态名单把席位交给大厅或匹配系统，玩家自带军队上阵。"
+  },
   "playersPanel": {
     "removePlayer": "移除玩家",
     "ammoReserve": "预备",
-    "ammoBase": "基础"
+    "ammoBase": "基础",
+    "playerNumbered": "玩家 {{number}}",
+    "rosterLimits": "一个战役剧本至少需要 {{min}} 名玩家，最多允许 {{max}} 名。",
+    "ammoHelp": "这名玩家的军队拥有多少弹药。储备是整场战斗中消耗的部分，基础是储备每回合回升所趋向的水平。"
   },
   "terrainPanel": {
     "brush": "画笔",
@@ -98,25 +134,35 @@
     "height": "高度",
     "elevation": "海拔",
     "paintBucket": "油漆桶",
-    "none": "无"
+    "none": "无",
+    "setHeight": "设置高度",
+    "setHeightHelp": "勾选后，画笔会把上方的高度写入它涂过的每一格。取消勾选则只绘制地形，各格保持原有海拔。",
+    "paintBucketHelp": "勾选后，一次按下会填满整片相连的同类地形，无论多大，因此半径不起作用。取消勾选时，画笔只覆盖你设置的半径。",
+    "brushHeightGroup": "海拔",
+    "brushShapeGroup": "形状"
   },
   "unitPanel": {
     "unitType": "单位类型",
     "rotation": "旋转",
     "copyUnits": "复制单位",
     "unitsCopied": "已复制单位（{{count}}）",
-    "removeSelectedUnits": "移除已选单位"
+    "removeSelectedUnits": "移除已选单位",
+    "nameSingleOnly": "命名一次只能针对一个单位，因此只有在选中单个单位时该字段才可用。",
+    "copyUnitData": "复制单位数据"
   },
   "createUnit": {
     "placingCopied": "正在放置已复制的单位（{{count}}）。点击地图进行放置。",
-    "customLabel": "{{name}}（自定义）"
+    "customLabel": "{{name}}（自定义）",
+    "placingCopied_other": "右键点击地图放置你复制的 {{count}} 个单位。",
+    "placingCopiedTouch_other": "点按地图放置你复制的 {{count}} 个单位。"
   },
   "objectivePanel": {
     "removeSelected": "移除已选目标点",
     "fields": {
       "manpowerPerTurn": "每回合人力",
       "goldPerTurn": "每回合黄金"
-    }
+    },
+    "copyObjectiveData": "复制目标点数据"
   },
   "createObjective": {
     "gaia": "盖亚"
@@ -130,7 +176,9 @@
     "fields": {
       "x": "X",
       "y": "Y"
-    }
+    },
+    "phaseHelp": "开启部署阶段后，玩家在交战开始前会多获得一个回合，专门用于在自己的区域内调整单位位置。",
+    "gateHelp": "只要“允许动态军队”“部署阶段”或“玩家放置的目标点”中任意一项开启，这些区域就可以编辑，因为这三项都需要让抵达的军队有个起始位置。三项全部关闭时它们会变灰；在程序生成地图上同样变灰，那里的区域改为在随机地图面板中以百分比设定。"
   },
   "vpBalance": {
     "heading": "VP 平衡（伤亡 vs 目标点）",
@@ -425,7 +473,9 @@
   "customDefs": {
     "common": {
       "importFromScenario": "从战役剧本导入",
-      "duplicate": "复制"
+      "duplicate": "复制",
+      "inThisScenario": "本战役剧本中",
+      "builtIntoThisEra": "该时代内置"
     },
     "spritesPanel": {
       "title": "单位精灵图",
@@ -444,7 +494,8 @@
       "filterPlaceholder": "按名称筛选……",
       "unitBase": "单位基础（{{count}}）",
       "unitOverlay": "单位覆盖（{{count}}）",
-      "noMatches": "无匹配项。"
+      "noMatches": "无匹配项。",
+      "uploading": "上传中……"
     },
     "unitTemplatesPanel": {
       "title": "单位模板",
@@ -538,7 +589,27 @@
     },
     "gameConstants": {
       "title": "游戏常量",
-      "description": "为本战役覆盖该时代的数值常量。仅保存已更改的值；“重置”会将字段恢复为时代默认值。标记 ⚠ 的键是结构性的——更改它们可能破坏渲染、回放或匹配。数值为原始内部单位。"
+      "description": "为本战役覆盖该时代的数值常量。仅保存已更改的值；“重置”会将字段恢复为时代默认值。标记 ⚠ 的键是结构性的——更改它们可能破坏渲染、回放或匹配。数值为原始内部单位。",
+      "category": {
+        "mapDimensions": "地图尺寸",
+        "deployment": "部署",
+        "gameLimits": "游戏限制",
+        "victoryPoints": "胜利点数",
+        "fogOfWar": "战争迷雾",
+        "combat": "战斗",
+        "ammunition": "弹药",
+        "stamina": "体力",
+        "unitProximity": "单位间距",
+        "unitDimensions": "单位尺寸",
+        "allyBehavior": "友军行为",
+        "collision": "碰撞",
+        "movement": "移动",
+        "mapBoundaries": "地图边界",
+        "effects": "效果",
+        "gameMechanics": "游戏机制",
+        "routing": "溃退",
+        "Other": "其他"
+      }
     },
     "gameRules": {
       "title": "游戏规则",
@@ -576,7 +647,9 @@
       "title": "军队配置",
       "betaNotice": "场景的自定义军队配置选项为测试版功能；如有任何问题，请在官方 Discord 服务器中反馈。",
       "disableEraUnits": "禁用时代默认单位",
-      "disableEraUnitsWarning": "请至少添加一个自定义单位模板，否则玩家将没有单位可以出战。"
+      "disableEraUnitsWarning": "请至少添加一个自定义单位模板，否则玩家将没有单位可以出战。",
+      "useEraUnits": "使用该时代自身的单位",
+      "useEraUnitsHelp": "启用后，玩家可以在本战役剧本新增内容之外，继续使用该时代自身的单位。禁用后，他们只能使用本战役剧本提供的单位——该时代的单位会从军队界面消失，无法被选择。"
     },
     "unitCaps": {
       "title": "单位上限",
@@ -600,6 +673,24 @@
       "gold": "黄金",
       "default": "战斗类型预算",
       "empty": "暂无玩家预算。添加一个玩家以覆盖其预算。"
+    },
+    "transfer": {
+      "importTitle": "导入",
+      "importDescription": "从另一个战役剧本中取用成果。选择一个文件，然后全部取用，或取消勾选你不想带过来的内容。该战役剧本没有的内容会显示为灰色。",
+      "whatComesIn": "导入内容",
+      "importAction": "导入",
+      "exportTitle": "导出",
+      "exportDescription": "把本战役剧本自己的成果导出为文件，以便带入另一个战役剧本。除非取消勾选，否则全部包含在内。",
+      "whatGoesOut": "导出内容",
+      "exportAction": "导出",
+      "allCategories": "所有类别",
+      "replaceTitle": "替换你自己的数值？",
+      "replaceWarning_other": "导入这些内容会替换你自己设置的 {{count}} 项数值。其余内容会与你的成果并存。",
+      "replaceRow_other": "{{category}}：{{count}} 项数值",
+      "replaceConfirm": "导入并替换",
+      "imported_other": "已导入 {{count}} 个类别。",
+      "exported_other": "已导出 {{count}} 个类别。",
+      "exceededCap": "{{category}}：导入将超过上限 {{max}}（将变为 {{count}}）。"
     }
   },
   "resize": {
@@ -631,7 +722,11 @@
       "changesHeading": "更改：",
       "changesHorizontal": "左：{{left}} 格，右：{{right}} 格",
       "changesVertical": "上：{{top}} 格，下：{{bottom}} 格"
-    }
+    },
+    "currentSizeLabel": "当前大小",
+    "newSizeLabel": "新大小",
+    "methodLabel": "方式",
+    "sizeValue": "{{width}} × {{height}} 格"
   },
   "mapSize": {
     "widthInTiles": "宽度（格）",
@@ -641,7 +736,8 @@
     "scaleAllSizesBy": "将所有尺寸缩放",
     "apply": "应用",
     "background": "背景",
-    "chooseImage": "选择图片"
+    "chooseImage": "选择图片",
+    "backgroundHelp": "在地图下方以半透明铺一张图片，方便你照着绘制地形。它只是工作时的辅助，绝不会随战役剧本保存。"
   },
   "localesPanel": {
     "title": "语言",
@@ -679,7 +775,14 @@
     "addCondition": "添加条件",
     "actions": "动作",
     "addAction": "添加动作",
-    "once": "仅一次"
+    "once": "仅一次",
+    "intro": "触发器会在回合开始或结束时检查战局，并在你设定的条件成立时执行动作。在下方创建一个。",
+    "lastClick": "可复制的坐标",
+    "lastClickHint": "你最后在地图上点选的位置，采用触发器放置单位或移动镜头时使用的坐标。",
+    "createDisabledInvalidJson": "请先修正下方的 JSON，然后才能创建触发器。",
+    "createDisabledNeedsConditionAndAction": "触发器至少需要一个条件和一个动作。",
+    "groupTrigger": "触发器",
+    "value": "值"
   },
   "randomMap": {
     "title": "随机地图",
@@ -713,7 +816,128 @@
     "modePreset": "预设（固定地形）",
     "modeHybrid": "混合（预设 + 指令）",
     "modeProcedural": "程序生成",
-    "hybridExplanation": "已烘焙的地形会保留，这些指令每场比赛都会作为叠加层在其上重新运行。在地图上固定种子，避免叠加层在各场比赛之间发生偏移。"
+    "hybridExplanation": "已烘焙的地形会保留，这些指令每场比赛都会作为叠加层在其上重新运行。在地图上固定种子，避免叠加层在各场比赛之间发生偏移。",
+    "proceduralExplanationDetail": "此处显示的地图仅为预览。由目标点 / 目标点层指令放置的目标点将在对局时出现，而非在此预览中。",
+    "switchToPresetTitle": "切换到预设地图",
+    "replaceInstructionsTitle": "替换指令",
+    "confirmOverwriteHelp": "这是解锁下方“生成”的开关。启用后，生成会丢弃地图上的每一格地形，并依照这些指令重新绘制。禁用时“生成”保持不可用，这样你辛苦制作的地图就不会被误按覆盖。",
+    "hybridExplanationDetail": "在地图上固定种子，避免叠加层在各场比赛之间发生偏移。",
+    "sourceLabel": "来源",
+    "sourceBuiltIn": "内置",
+    "sourceImport": "导入",
+    "intro": "用模板填充地图地形，无需手动绘制。",
+    "rollSeed": "随机新种子",
+    "changeFile": "更换文件",
+    "selectFile": "选择文件",
+    "importedFile": "已导入的文件",
+    "field": {
+      "amount": "总量",
+      "between": "介于",
+      "border": "边界",
+      "chance": "几率",
+      "coords": "坐标",
+      "cost": "花费",
+      "count": "数量",
+      "countPer100x100": "每 100×100 格数量",
+      "curveLen": "曲线长度",
+      "curveWeight": "曲线权重",
+      "deep": "深水",
+      "downHillHeightCost": "下坡花费",
+      "edgeDistance": "边缘距离",
+      "edgeWeight": "边缘权重",
+      "endHeightRanges": "终点高度范围",
+      "excludeTerrains": "排除地形",
+      "falloff": "衰减",
+      "fromTerrain": "源地形",
+      "height": "高度",
+      "heightDiffCost": "高度差花费",
+      "heightDiffCosts": "高度差花费",
+      "heightFilter": "高度筛选",
+      "heightRanges": "高度范围",
+      "heights": "高度",
+      "l": "大",
+      "m": "中",
+      "max": "最大",
+      "maxDistance": "最大距离",
+      "maxHeight": "最大高度",
+      "maxHeightThreshold": "最大高度阈值",
+      "maxHeightValue": "最大高度值",
+      "maxObj": "最多目标点",
+      "maxWidth": "最大宽度",
+      "max_scaling_factor": "按地图大小的最大缩放",
+      "mergeStrategy": "合并策略",
+      "midPoints": "中间点",
+      "min": "最小",
+      "minAmount": "最小总量",
+      "minDistance": "最小距离",
+      "minGroupSize": "最小群组大小",
+      "minHeight": "最小高度",
+      "minHeightValue": "最小高度值",
+      "minSurrounding": "最少周围格数",
+      "minWidth": "最小宽度",
+      "min_scaling_factor": "按地图大小的最小缩放",
+      "multiplier": "倍率",
+      "name": "名称",
+      "noiseSmoothness": "噪声平滑度",
+      "noiseWeight": "噪声权重",
+      "noises": "噪声层",
+      "objectiveType": "目标点类型",
+      "offset": "偏移",
+      "organicness": "自然度",
+      "pathTerrain": "路径地形",
+      "player": "玩家",
+      "position": "位置",
+      "preferLowElevation": "优先低地",
+      "printNoiseDebug": "输出噪声调试信息",
+      "radius": "半径",
+      "randomness": "随机度",
+      "range": "范围",
+      "ranges": "范围",
+      "reverse": "反向",
+      "reversed": "反向",
+      "rotation": "旋转",
+      "s": "小",
+      "scale": "缩放",
+      "scatter": "散布",
+      "searchRadius": "搜索半径",
+      "shallow": "浅水",
+      "shore": "岸边",
+      "size": "大小",
+      "smoothing": "平滑",
+      "startHeightRanges": "起点高度范围",
+      "team": "队伍",
+      "terrain": "地形",
+      "terrainCosts": "地形花费",
+      "terrainFilter": "地形筛选",
+      "terrainReplacements": "地形替换",
+      "terrains": "地形",
+      "toTerrain": "目标地形",
+      "type": "类型",
+      "uphillHeightCost": "上坡花费",
+      "width": "宽度",
+      "x": "X",
+      "xBounds": "X 边界",
+      "xRange": "X 范围",
+      "xl": "特大",
+      "y": "Y",
+      "yBounds": "Y 边界",
+      "yRange": "Y 范围"
+    },
+    "instructionType": {
+      "terrainNoise": "地形噪声",
+      "heightNoise": "高度噪声",
+      "terrainCircle": "地形圆形",
+      "terrainRectangle": "地形矩形",
+      "naturalPath": "自然路径",
+      "connectClusters": "连接群簇",
+      "objective": "目标点",
+      "lake": "湖泊",
+      "objectiveLayer": "目标点层"
+    },
+    "objectiveType": {
+      "small": "小",
+      "big": "大"
+    }
   },
   "randomDeployment": {
     "title": "部署区域",
@@ -756,5 +980,16 @@
     "bigInset": "大目标区域裁剪",
     "smallInsetInfo": "小目标区域每侧收窄多少。仅裁剪宽度，保持高度。",
     "bigInsetInfo": "大目标框每侧缩小多少，在部署区域内居中。"
+  },
+  "mapPoint": {
+    "title": "地图坐标点",
+    "help": "它会跟随你的指针在地图上移动，并读出指针下方的那一格。右键点击可以固定它，让数值在你操作面板时保持不变。把指针移回地图上，它就会重新跟随。",
+    "tile": "格子",
+    "terrain": "地形",
+    "height": "高度",
+    "unknown": "-"
+  },
+  "objectiveOwnership": {
+    "help": "目标点始终归某支队伍所有。在固定名单的战役剧本中，此字段指定一名玩家，目标点归该玩家所在的队伍。在为动态军队设计的战役剧本中，匹配完成前不存在玩家席位，因此此字段直接指定队伍。"
   }
 }

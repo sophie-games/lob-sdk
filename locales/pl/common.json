@@ -257,7 +257,8 @@
     "routesAtOrg": "Ucieka Przy Org",
     "recoversAtOrg": "Odzyskuje Przy Org",
     "ralliesAtOrg": "Zbiera Się Przy Org",
-    "unlimberTime": "Czas rozstawienia"
+    "unlimberTime": "Czas rozstawienia",
+    "supply": "Zaopatrzenie"
   },
   "category": "Kategoria",
   "damageResistances": "Odporność na Obrażenia",
@@ -317,6 +318,12 @@
     "16": "Lód",
     "17": "Pole, Zaorane",
     "18": "Pole, Uprawiane",
+    "19": "Błoto",
+    "20": "Droga, Wgłębna",
+    "21": "Okop",
+    "22": "Reduta",
+    "23": "Kolej",
+    "24": "Kolej/Droga",
     "25": "Obóz"
   },
   "clearPlayerUnits": "Wyczyść jednostki gracza",
@@ -964,5 +971,22 @@
     "scheduled": "Twoje konto jest zaplanowane do usunięcia za {{graceDays}} dni. Zaloguj się ponownie przed tym terminem, aby anulować.",
     "error": "Nie udało się zaplanować usunięcia konta. Spróbuj ponownie."
   },
-  "startGameAsSpectator": "Rozpocznij grę jako widz"
+  "startGameAsSpectator": "Rozpocznij grę jako widz",
+  "continue": "Kontynuuj",
+  "seed": "Ziarno",
+  "armyWithCount": "Armia ({{count}})",
+  "heightOffset": "Przesunięcie wysokości",
+  "minDistanceToFAA": "Min. dystans dla Natarcia z ostrzałem",
+  "big": "Duży",
+  "small": "Mały",
+  "rotationSpeed": "Prędkość obrotu",
+  "runRotationSpeed": "Prędkość obrotu w biegu",
+  "rotationMaxThreshold": "Maks. próg obrotu",
+  "disablesFlankMelee": "Wyłącza walkę wręcz z flanki",
+  "disablesEnfiladeFire": "Wyłącza ogień z flanki",
+  "disablesRearFire": "Wyłącza ogień od tyłu",
+  "flankChargeResistance": "Odporność na szarżę z flanki",
+  "rearChargeResistance": "Odporność na szarżę od tyłu",
+  "enfiladeFireResistance": "Odporność na ogień z flanki",
+  "rearFireResistance": "Odporność na ogień od tyłu"
 }

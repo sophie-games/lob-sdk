@@ -39,7 +39,8 @@
     "optionCustom": "{{name}}（カスタム）",
     "optionAllUnitCategories": "すべてのユニットカテゴリー",
     "nameWithKind": "{{name}}（{{kind}}）",
-    "rotationSpeedModifier": "回転速度修正"
+    "rotationSpeedModifier": "回転速度修正",
+    "jsonPlaceholder": "ここにJSONを入力..."
   },
   "editorPanel": {
     "tabs": {
@@ -56,7 +57,8 @@
     "workshopBands": {
       "units": "ユニット",
       "terrain": "地形",
-      "global": "グローバル"
+      "global": "グローバル",
+      "transfer": "入出力"
     },
     "restingHint": "ピースをクリックして確認するか、ツールを選択して描画を開始します。",
     "togglePanel": "パネルの切り替え",
@@ -83,14 +85,48 @@
     "scenarioBands": {
       "forces": "兵力",
       "rules": "ルール",
-      "presentation": "表示"
+      "presentation": "表示",
+      "victoryPoints": "勝利ポイント"
+    },
+    "testScenario": "シナリオをテスト",
+    "placeableObjectives": "プレイヤーが配置する目標",
+    "placeableObjectivesHelp": "有効にすると、各プレイヤーは配置フェーズ中に自分のゾーン内で自分の目標を配置します。無効にすると、戦闘ではあなたがマップに配置した目標のみが使用されます。",
+    "placeableObjectivesNeedsDeployment": "配置フェーズも有効にしてください。有効にしないと、プレイヤーはこれらの目標を配置するターンに到達できず、目標は一つも表示されません。",
+    "resting": {
+      "thisScenario": "このシナリオ",
+      "gettingStarted": "はじめに",
+      "untitled": "無題",
+      "mapSize": "{{width}} x {{height}} タイル",
+      "objectives": "目標",
+      "noneYet": "まだありません",
+      "modes": "シナリオはこの戦闘を作ります。ワークショップはすべての戦闘で使われるピースを変更します。",
+      "placing": "ツールを選び、マップを右クリックして配置します。",
+      "disarm": "同じツールをもう一度選ぶとしまわれ、選択に戻ります。",
+      "inspect": "配置したピースを選ぶと、その設定がここに表示されます。",
+      "test": "上部の再生ボタンで、あなたの戦闘をボット相手に試せます。",
+      "saved": "作業は随時保存されるので、離れても後で再開できます。",
+      "placingTouch": "ツールを選び、マップをタップして配置します。"
     }
   },
-  "createScenario": {},
+  "createScenario": {
+    "mapBand": "マップ",
+    "forcesBand": "兵力",
+    "terrainLabel": "地形",
+    "terrainPreset": "手描き",
+    "terrainProcedural": "生成",
+    "terrainHelp": "手描きの地形はタイルごとに自分で敷くもので、残したそのままの状態でシナリオに含まれます。生成される地形はマップパネルで書いた指示から戦闘ごとに新しく描かれるため、同じ地面で戦う試合は二つとありません。",
+    "rosterLabel": "プレイヤー構成",
+    "rosterFixed": "固定",
+    "rosterDynamic": "動的",
+    "rosterHelp": "固定のプレイヤー構成では、シナリオがプレイヤー枠、チーム、弾薬を決め、全員があなたが配置したユニットで戦います。動的なプレイヤー構成では枠はロビーやマッチメイキングに委ねられ、プレイヤーは自分の軍を戦闘に持ち込みます。"
+  },
   "playersPanel": {
     "removePlayer": "プレイヤーを削除",
     "ammoReserve": "予備",
-    "ammoBase": "基本"
+    "ammoBase": "基本",
+    "playerNumbered": "プレイヤー{{number}}",
+    "rosterLimits": "シナリオにはプレイヤーが最低{{min}}人必要で、最大{{max}}人まで許可されます。",
+    "ammoHelp": "このプレイヤーの軍が持つ弾薬の量。予備は戦闘を通じて消費される分で、基本は予備が毎ターン戻ろうとする水準です。"
   },
   "terrainPanel": {
     "brush": "ブラシ",
@@ -98,25 +134,37 @@
     "height": "高さ",
     "elevation": "標高",
     "paintBucket": "塗りつぶし",
-    "none": "なし"
+    "none": "なし",
+    "setHeight": "高さを設定",
+    "setHeightHelp": "チェックすると、ブラシは上の高さを塗るすべてのタイルに書き込みます。チェックを外すと、地形のみを塗り、各タイルの標高は現状のまま残します。",
+    "paintBucketHelp": "チェックすると、一度の操作で一致する地形のつながった範囲全体を、どれだけ大きくても塗りつぶすため、半径は適用されません。チェックを外すと、ブラシは設定した半径を塗ります。",
+    "brushHeightGroup": "標高",
+    "brushShapeGroup": "形状"
   },
   "unitPanel": {
     "unitType": "ユニットタイプ",
     "rotation": "回転",
     "copyUnits": "ユニットをコピー",
     "unitsCopied": "ユニットをコピーしました（{{count}}）",
-    "removeSelectedUnits": "選択したユニットを削除"
+    "removeSelectedUnits": "選択したユニットを削除",
+    "nameSingleOnly": "名前付けは一度に1ユニットのみ可能なため、このフィールドは単一のユニットを選択している間だけ使用できます。",
+    "copyUnitData": "ユニットデータをコピー"
   },
   "createUnit": {
     "placingCopied": "コピーしたユニットを配置中（{{count}}）。マップをクリックして配置します。",
-    "customLabel": "{{name}}（カスタム）"
+    "customLabel": "{{name}}（カスタム）",
+    "placingCopied_one": "コピーしたユニットを配置するには、マップを右クリックします。",
+    "placingCopied_other": "コピーした{{count}}体のユニットを配置するには、マップを右クリックします。",
+    "placingCopiedTouch_one": "コピーしたユニットを配置するには、マップをタップします。",
+    "placingCopiedTouch_other": "コピーした{{count}}体のユニットを配置するには、マップをタップします。"
   },
   "objectivePanel": {
     "removeSelected": "選択した目標を削除",
     "fields": {
       "manpowerPerTurn": "ターンあたりの人員",
       "goldPerTurn": "ターンあたりのゴールド"
-    }
+    },
+    "copyObjectiveData": "目標データをコピー"
   },
   "createObjective": {
     "gaia": "ガイア"
@@ -130,7 +178,9 @@
     "fields": {
       "x": "X",
       "y": "Y"
-    }
+    },
+    "phaseHelp": "配置フェーズを有効にすると、戦闘開始前にプレイヤーは自分のゾーン内でユニットを並べ替えるためだけの追加ターンを1回得ます。",
+    "gateHelp": "これらのゾーンは、「動的な軍を許可」「配置フェーズ」「プレイヤーが配置する目標」のいずれか一つでも有効なときに編集できます。三つのいずれも、到着した軍の開始位置を必要とするためです。三つすべて無効の場合はグレー表示になり、プロシージャルマップでも同様にグレー表示になります。そこでのゾーンは、代わりに「ランダムマップ」パネルで割合として設定されます。"
   },
   "vpBalance": {
     "heading": "VPバランス（損害 vs 目標）",
@@ -425,7 +475,9 @@
   "customDefs": {
     "common": {
       "importFromScenario": "シナリオからインポート",
-      "duplicate": "複製"
+      "duplicate": "複製",
+      "inThisScenario": "このシナリオ内",
+      "builtIntoThisEra": "この時代に組み込み"
     },
     "spritesPanel": {
       "title": "ユニットスプライト",
@@ -444,7 +496,8 @@
       "filterPlaceholder": "名前で絞り込み...",
       "unitBase": "ユニットベース（{{count}}）",
       "unitOverlay": "ユニットオーバーレイ（{{count}}）",
-      "noMatches": "一致するものがありません。"
+      "noMatches": "一致するものがありません。",
+      "uploading": "アップロード中…"
     },
     "unitTemplatesPanel": {
       "title": "ユニットテンプレート",
@@ -524,7 +577,8 @@
       "title": "シナリオから{{target}}をインポート",
       "pickFilePrompt": "{{target}}をインポートするシナリオファイル（エディターのダウンロードボタンが生成するJSON）を選択してください。",
       "noOverrides": "このシナリオには{{target}}がありません。",
-      "importedCount_other": "{{count}} 件の上書きをインポートしました。"
+      "importedCount_other": "{{count}} 件の上書きをインポートしました。",
+      "importedCount_one": "{{count}} 件の上書きをインポートしました。"
     },
     "importArmyCompositionsModal": {
       "title": "シナリオから軍編成をインポート",
@@ -538,7 +592,27 @@
     },
     "gameConstants": {
       "title": "ゲーム定数",
-      "description": "このシナリオに対して時代の数値定数を上書きします。変更された値のみが保存されます。リセットでフィールドを時代のデフォルトに戻します。⚠ が付いたキーは構造的なものです。変更すると、描画、リプレイ、またはマッチメイキングが壊れる可能性があります。値は生の内部単位です。"
+      "description": "このシナリオに対して時代の数値定数を上書きします。変更された値のみが保存されます。リセットでフィールドを時代のデフォルトに戻します。⚠ が付いたキーは構造的なものです。変更すると、描画、リプレイ、またはマッチメイキングが壊れる可能性があります。値は生の内部単位です。",
+      "category": {
+        "mapDimensions": "マップ寸法",
+        "deployment": "配置",
+        "gameLimits": "ゲーム制限",
+        "victoryPoints": "勝利ポイント",
+        "fogOfWar": "戦争の霧",
+        "combat": "戦闘",
+        "ammunition": "弾薬",
+        "stamina": "スタミナ",
+        "unitProximity": "ユニット間の距離",
+        "unitDimensions": "ユニット寸法",
+        "allyBehavior": "味方の行動",
+        "collision": "衝突",
+        "movement": "移動",
+        "mapBoundaries": "マップ境界",
+        "effects": "効果",
+        "gameMechanics": "ゲームメカニクス",
+        "routing": "敗走",
+        "Other": "その他"
+      }
     },
     "gameRules": {
       "title": "ゲームルール",
@@ -576,7 +650,9 @@
       "title": "軍編成",
       "betaNotice": "シナリオのカスタム軍編成オプションはベータ機能です。不具合があれば公式Discordサーバーで報告してください。",
       "disableEraUnits": "時代のデフォルトユニットを無効化",
-      "disableEraUnitsWarning": "少なくとも1つのカスタムユニットテンプレートを追加してください。追加しないと、プレイヤーが編成できるユニットがなくなります。"
+      "disableEraUnitsWarning": "少なくとも1つのカスタムユニットテンプレートを追加してください。追加しないと、プレイヤーが編成できるユニットがなくなります。",
+      "useEraUnits": "時代のユニットを使用",
+      "useEraUnitsHelp": "有効にすると、プレイヤーはこのシナリオが追加するものに加えて、時代のユニットも編成できます。無効にすると、このシナリオが提供するユニットのみでプレイし、時代のユニットは軍画面から消えて選択できなくなります。"
     },
     "unitCaps": {
       "title": "ユニット上限",
@@ -600,6 +676,28 @@
       "gold": "ゴールド",
       "default": "戦闘タイプの予算",
       "empty": "プレイヤー別予算はまだありません。プレイヤーを追加して予算を上書きしてください。"
+    },
+    "transfer": {
+      "importTitle": "インポート",
+      "importDescription": "別のシナリオから作業を持ち込みます。ファイルを選び、すべてを取り込むか、残しておきたいもののチェックを外してください。そのシナリオが持っていないものはグレー表示になります。",
+      "whatComesIn": "取り込む内容",
+      "importAction": "インポート",
+      "exportTitle": "エクスポート",
+      "exportDescription": "このシナリオ自身の作業を、別のシナリオに持ち込めるファイルとして書き出します。チェックを外さない限り、すべてが含まれます。",
+      "whatGoesOut": "書き出す内容",
+      "exportAction": "エクスポート",
+      "allCategories": "すべてのカテゴリー",
+      "replaceTitle": "自分で設定した値を置き換えますか？",
+      "replaceWarning_one": "これをインポートすると、自分で設定した{{count}}件の値が置き換えられます。それ以外はあなたの作業に追加されます。",
+      "replaceWarning_other": "これをインポートすると、自分で設定した{{count}}件の値が置き換えられます。それ以外はあなたの作業に追加されます。",
+      "replaceRow_one": "{{category}}: {{count}} 件",
+      "replaceRow_other": "{{category}}: {{count}} 件",
+      "replaceConfirm": "インポートして置き換え",
+      "imported_one": "{{count}} 件のカテゴリーをインポートしました。",
+      "imported_other": "{{count}} 件のカテゴリーをインポートしました。",
+      "exported_one": "{{count}} 件のカテゴリーをエクスポートしました。",
+      "exported_other": "{{count}} 件のカテゴリーをエクスポートしました。",
+      "exceededCap": "{{category}}: インポートすると上限 {{max}} を超えます（{{count}} 件になります）。"
     }
   },
   "resize": {
@@ -631,7 +729,11 @@
       "changesHeading": "変更:",
       "changesHorizontal": "左: {{left}} タイル、右: {{right}} タイル",
       "changesVertical": "上: {{top}} タイル、下: {{bottom}} タイル"
-    }
+    },
+    "currentSizeLabel": "現在のサイズ",
+    "newSizeLabel": "新しいサイズ",
+    "methodLabel": "方法",
+    "sizeValue": "{{width}} × {{height}} タイル"
   },
   "mapSize": {
     "widthInTiles": "幅（タイル）",
@@ -641,7 +743,8 @@
     "scaleAllSizesBy": "すべてのサイズを拡大縮小",
     "apply": "適用",
     "background": "背景",
-    "chooseImage": "画像を選択"
+    "chooseImage": "画像を選択",
+    "backgroundHelp": "マップの下に画像を半分の濃さで敷き、それに合わせて地形を描けるようにします。作業中の補助であり、シナリオと一緒に保存されることはありません。"
   },
   "localesPanel": {
     "title": "ロケール",
@@ -679,7 +782,14 @@
     "addCondition": "条件を追加",
     "actions": "アクション",
     "addAction": "アクションを追加",
-    "once": "一度だけ"
+    "once": "一度だけ",
+    "intro": "トリガーはターンの開始時または終了時に戦闘を確認し、設定した条件が満たされたときに動作します。下で作成してください。",
+    "lastClick": "コピーする位置",
+    "lastClickHint": "マップ上で最後に選んだ場所を、トリガーがユニットの配置やカメラの移動に使う座標で表示します。",
+    "createDisabledInvalidJson": "トリガーを作成する前に、下のJSONを修正してください。",
+    "createDisabledNeedsConditionAndAction": "トリガーには少なくとも1つの条件と1つのアクションが必要です。",
+    "groupTrigger": "トリガー",
+    "value": "値"
   },
   "randomMap": {
     "title": "ランダムマップ",
@@ -713,7 +823,128 @@
     "modePreset": "プリセット（固定地形）",
     "modeHybrid": "ハイブリッド（プリセット＋命令）",
     "modeProcedural": "プロシージャル（生成）",
-    "hybridExplanation": "焼き込まれた地形は保持され、これらの命令が毎試合その上にオーバーレイとして再実行されます。試合ごとにオーバーレイがずれないよう、マップにシードを固定してください。"
+    "hybridExplanation": "焼き込まれた地形は保持され、これらの命令が毎試合その上にオーバーレイとして再実行されます。試合ごとにオーバーレイがずれないよう、マップにシードを固定してください。",
+    "proceduralExplanationDetail": "ここに表示されるマップはプレビューのみです。「目標」または「目標レイヤー」の指示で配置された目標は、このプレビューではなく試合時に表示されます。",
+    "switchToPresetTitle": "プリセットマップに切り替える",
+    "replaceInstructionsTitle": "指示を置き換える",
+    "confirmOverwriteHelp": "これが下の「生成」を有効にします。有効にすると、生成はマップ上のすべての地形タイルを破棄し、これらの指示から新しいマップを描きます。無効にすると「生成」は無効のままになるため、作業したマップが誤操作で上書きされることはありません。",
+    "hybridExplanationDetail": "試合ごとにオーバーレイがずれないよう、マップにシードを固定してください。",
+    "sourceLabel": "ソース",
+    "sourceBuiltIn": "組み込み",
+    "sourceImport": "インポート",
+    "intro": "手描きの代わりに、テンプレートからマップの地形を埋めます。",
+    "rollSeed": "新しいシードを引く",
+    "changeFile": "ファイルを変更",
+    "selectFile": "ファイルを選択",
+    "importedFile": "インポートしたファイル",
+    "field": {
+      "amount": "量",
+      "between": "間",
+      "border": "境界",
+      "chance": "確率",
+      "coords": "座標",
+      "cost": "コスト",
+      "count": "数",
+      "countPer100x100": "100×100タイルあたりの数",
+      "curveLen": "曲線の長さ",
+      "curveWeight": "曲線の重み",
+      "deep": "深い水域",
+      "downHillHeightCost": "下り坂のコスト",
+      "edgeDistance": "端からの距離",
+      "edgeWeight": "端の重み",
+      "endHeightRanges": "終了高さ範囲",
+      "excludeTerrains": "除外する地形",
+      "falloff": "減衰",
+      "fromTerrain": "変換元の地形",
+      "height": "高さ",
+      "heightDiffCost": "高低差コスト",
+      "heightDiffCosts": "高低差コスト",
+      "heightFilter": "高さフィルター",
+      "heightRanges": "高さ範囲",
+      "heights": "高さ",
+      "l": "大",
+      "m": "中",
+      "max": "最大",
+      "maxDistance": "最大距離",
+      "maxHeight": "最大の高さ",
+      "maxHeightThreshold": "最大高さの閾値",
+      "maxHeightValue": "最大高さの値",
+      "maxObj": "目標の最大数",
+      "maxWidth": "最大の幅",
+      "max_scaling_factor": "マップサイズによる最大スケーリング",
+      "mergeStrategy": "マージ方法",
+      "midPoints": "中間点",
+      "min": "最小",
+      "minAmount": "最小量",
+      "minDistance": "最小距離",
+      "minGroupSize": "最小グループサイズ",
+      "minHeight": "最小の高さ",
+      "minHeightValue": "最小高さの値",
+      "minSurrounding": "周囲タイルの最小数",
+      "minWidth": "最小の幅",
+      "min_scaling_factor": "マップサイズによる最小スケーリング",
+      "multiplier": "倍率",
+      "name": "名前",
+      "noiseSmoothness": "ノイズの滑らかさ",
+      "noiseWeight": "ノイズの重み",
+      "noises": "ノイズレイヤー",
+      "objectiveType": "目標タイプ",
+      "offset": "オフセット",
+      "organicness": "自然さ",
+      "pathTerrain": "経路の地形",
+      "player": "プレイヤー",
+      "position": "位置",
+      "preferLowElevation": "低地を優先",
+      "printNoiseDebug": "ノイズのデバッグ出力",
+      "radius": "半径",
+      "randomness": "ランダム性",
+      "range": "範囲",
+      "ranges": "範囲",
+      "reverse": "反転",
+      "reversed": "反転",
+      "rotation": "回転",
+      "s": "小",
+      "scale": "スケール",
+      "scatter": "散らばり",
+      "searchRadius": "検索半径",
+      "shallow": "浅い水域",
+      "shore": "岸",
+      "size": "サイズ",
+      "smoothing": "平滑化",
+      "startHeightRanges": "開始高さ範囲",
+      "team": "チーム",
+      "terrain": "地形",
+      "terrainCosts": "地形コスト",
+      "terrainFilter": "地形フィルター",
+      "terrainReplacements": "地形の置換",
+      "terrains": "地形",
+      "toTerrain": "変換先の地形",
+      "type": "種類",
+      "uphillHeightCost": "上り坂のコスト",
+      "width": "幅",
+      "x": "X",
+      "xBounds": "X 境界",
+      "xRange": "X 範囲",
+      "xl": "特大",
+      "y": "Y",
+      "yBounds": "Y 境界",
+      "yRange": "Y 範囲"
+    },
+    "instructionType": {
+      "terrainNoise": "地形ノイズ",
+      "heightNoise": "高さノイズ",
+      "terrainCircle": "地形の円",
+      "terrainRectangle": "地形の矩形",
+      "naturalPath": "自然な経路",
+      "connectClusters": "クラスターを接続",
+      "objective": "目標",
+      "lake": "湖",
+      "objectiveLayer": "目標レイヤー"
+    },
+    "objectiveType": {
+      "small": "小",
+      "big": "大"
+    }
   },
   "randomDeployment": {
     "title": "配置ゾーン",
@@ -756,5 +987,16 @@
     "bigInset": "大目標ゾーンのトリミング",
     "smallInsetInfo": "小目標ゾーンを左右どれだけ狭めるか。幅のみを削り、高さは保ちます。",
     "bigInsetInfo": "大目標ボックスを各辺どれだけ縮めるか。展開ゾーン内で中央に配置されます。"
+  },
+  "mapPoint": {
+    "title": "マップ地点",
+    "help": "これはマップ上でポインターに追従し、その下のタイルを読み取ります。右クリックで固定すると、パネルで作業している間も数値がそのまま残ります。マップ上に戻ると再び追従します。",
+    "tile": "タイル",
+    "terrain": "地形",
+    "height": "高さ",
+    "unknown": "-"
+  },
+  "objectiveOwnership": {
+    "help": "目標は常にチームが保持します。プレイヤー構成が固定のシナリオでは、このフィールドはプレイヤーを指定し、目標はそのプレイヤーのチームに属します。動的な軍向けに作られたシナリオでは、マッチメイキングが埋めるまでプレイヤー枠が存在しないため、このフィールドはチームを直接指定します。"
   }
 }

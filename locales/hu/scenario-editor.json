@@ -39,7 +39,8 @@
     "optionCustom": "{{name}} (egyéni)",
     "optionAllUnitCategories": "Minden egységkategória",
     "nameWithKind": "{{name}} ({{kind}})",
-    "rotationSpeedModifier": "Forgási sebesség módosító"
+    "rotationSpeedModifier": "Forgási sebesség módosító",
+    "jsonPlaceholder": "Írd ide a JSON-t..."
   },
   "editorPanel": {
     "tabs": {
@@ -56,7 +57,8 @@
     "workshopBands": {
       "units": "Egységek",
       "terrain": "Terep",
-      "global": "Globális"
+      "global": "Globális",
+      "transfer": "Átvitel"
     },
     "restingHint": "Kattints egy elemre a megvizsgálásához, vagy válassz egy eszközt a festés megkezdéséhez.",
     "togglePanel": "Panel be/ki",
@@ -83,14 +85,48 @@
     "scenarioBands": {
       "forces": "Erők",
       "rules": "Szabályok",
-      "presentation": "Megjelenítés"
+      "presentation": "Megjelenítés",
+      "victoryPoints": "Győzelmi pontok"
+    },
+    "testScenario": "Pálya tesztelése",
+    "placeableObjectives": "Játékos által elhelyezett objektívák",
+    "placeableObjectivesHelp": "Bekapcsolva minden játékos a felállítási fázisban, a saját zónáján belül helyezi el a saját objektíváit. Kikapcsolva a csata csak azokat az objektívákat használja, amelyeket te helyeztél a térképre.",
+    "placeableObjectivesNeedsDeployment": "Kapcsold be a felállítási fázist is, különben a játékosok soha nem jutnak el ahhoz a körhöz, amelyben elhelyeznék ezeket az objektívákat, és egy sem fog megjelenni.",
+    "resting": {
+      "thisScenario": "Ez a pálya",
+      "gettingStarted": "Első lépések",
+      "untitled": "Névtelen",
+      "mapSize": "{{width}} x {{height}} mező",
+      "objectives": "Objektívák",
+      "noneYet": "Még egy sincs",
+      "modes": "A Pálya ezt a csatát építi fel. A Workshop azokat az elemeket módosítja, amelyeket minden csata használ.",
+      "placing": "Válassz egy eszközt, majd kattints jobb gombbal a térképre, hogy lerakj valamit.",
+      "disarm": "Válaszd ki újra ugyanazt az eszközt, hogy eltedd, és visszatérj a kijelöléshez.",
+      "inspect": "Válassz ki egy általad elhelyezett elemet, és a beállításai itt jelennek meg.",
+      "test": "A fenti lejátszás gomb kipróbálja a csatádat egy bot ellen.",
+      "saved": "A munkádat menet közben megőrizzük, így kiléphetsz, és később folytathatod.",
+      "placingTouch": "Válassz egy eszközt, majd koppints a térképre, hogy lerakj valamit."
     }
   },
-  "createScenario": {},
+  "createScenario": {
+    "mapBand": "Térkép",
+    "forcesBand": "Erők",
+    "terrainLabel": "Terep",
+    "terrainPreset": "Festett",
+    "terrainProcedural": "Generált",
+    "terrainHelp": "A festett terepet mezőről mezőre te rakod le, és pontosan úgy kerül a pályába, ahogy hagytad. A generált terep minden csatához újra rajzolódik a Térkép panelen írt utasításokból, így nincs két meccs, amelyet ugyanazon a terepen vívnak.",
+    "rosterLabel": "Névsor",
+    "rosterFixed": "Rögzített",
+    "rosterDynamic": "Dinamikus",
+    "rosterHelp": "A rögzített névsor azt jelenti, hogy a pálya határozza meg a játékoshelyeket, a csapatokat és a lőszert, és mindenki az általad elhelyezett egységekkel harcol. A dinamikus névsor a helyeket a váróra vagy a meccskeresésre bízza, és a játékosok a saját seregüket hozzák a csatába."
+  },
   "playersPanel": {
     "removePlayer": "Játékos eltávolítása",
     "ammoReserve": "Tartalék",
-    "ammoBase": "Alap"
+    "ammoBase": "Alap",
+    "playerNumbered": "Játékos {{number}}",
+    "rosterLimits": "Egy pályához legalább {{min}} játékos kell, és legfeljebb {{max}} engedélyezett.",
+    "ammoHelp": "Mennyi lőszere van ennek a játékosnak a seregében. A tartalék az, amit a csata során elhasznál, az alap pedig az a szint, amely felé a tartalék körönként visszatölt."
   },
   "terrainPanel": {
     "brush": "Ecset",
@@ -98,25 +134,37 @@
     "height": "Magasság",
     "elevation": "Szintmagasság",
     "paintBucket": "Festékvödör",
-    "none": "Nincs"
+    "none": "Nincs",
+    "setHeight": "Magasság beállítása",
+    "setHeightHelp": "Bepipálva az ecset a fenti magasságot írja rá minden mezőre, amelyet fest. Kipipálatlanul csak terepet fest, és minden mezőt a meglévő szintmagasságán hagy.",
+    "paintBucketHelp": "Bepipálva egy nyomás kitölti az egybefüggő, azonos terepű területet, bármilyen nagy is, így a sugár nem érvényes. Kipipálatlanul az ecset a beállított sugarat fedi le.",
+    "brushHeightGroup": "Szintmagasság",
+    "brushShapeGroup": "Alakzat"
   },
   "unitPanel": {
     "unitType": "Egységtípus",
     "rotation": "Forgatás",
     "copyUnits": "Egységek másolása",
     "unitsCopied": "Egységek másolva ({{count}})",
-    "removeSelectedUnits": "Kijelölt egységek eltávolítása"
+    "removeSelectedUnits": "Kijelölt egységek eltávolítása",
+    "nameSingleOnly": "Az elnevezés egyszerre egy egységre működik, ezért a mező csak akkor érhető el, amíg egyetlen egység van kijelölve.",
+    "copyUnitData": "Egységadatok másolása"
   },
   "createUnit": {
     "placingCopied": "Másolt egységek elhelyezése ({{count}}). Kattints a térképre az elhelyezésükhöz.",
-    "customLabel": "{{name}} (egyéni)"
+    "customLabel": "{{name}} (egyéni)",
+    "placingCopied_one": "Kattints jobb gombbal a térképre a másolt egység elhelyezéséhez.",
+    "placingCopied_other": "Kattints jobb gombbal a térképre a(z) {{count}} másolt egység elhelyezéséhez.",
+    "placingCopiedTouch_one": "Koppints a térképre a másolt egység elhelyezéséhez.",
+    "placingCopiedTouch_other": "Koppints a térképre a(z) {{count}} másolt egység elhelyezéséhez."
   },
   "objectivePanel": {
     "removeSelected": "Kijelölt objektíva eltávolítása",
     "fields": {
       "manpowerPerTurn": "Emberanyag körönként",
       "goldPerTurn": "Arany körönként"
-    }
+    },
+    "copyObjectiveData": "Objektíva-adatok másolása"
   },
   "createObjective": {
     "gaia": "Gaia"
@@ -130,7 +178,9 @@
     "fields": {
       "x": "X",
       "y": "Y"
-    }
+    },
+    "phaseHelp": "Bekapcsolt felállítási fázissal a játékosok egy extra kört kapnak a harc kezdete előtt, pusztán azért, hogy a zónájukon belül átrendezzék az egységeiket.",
+    "gateHelp": "Ezek a zónák akkor szerkeszthetők, ha a Dinamikus sereg engedélyezése, a Felállítási fázis vagy a Játékos által elhelyezett objektívák közül bármelyik be van kapcsolva, mivel mindháromhoz kell egy hely, ahonnan az érkező sereg indul. Ha mindhárom ki van kapcsolva, szürkék, és procedurális térképen szintén szürkék, mivel ott a zónákat százalékként a Véletlenszerű pálya panelen kell megadni."
   },
   "vpBalance": {
     "heading": "VP egyensúly (veszteségek vs objektívák)",
@@ -425,7 +475,9 @@
   "customDefs": {
     "common": {
       "importFromScenario": "Importálás pályából",
-      "duplicate": "Duplikálás"
+      "duplicate": "Duplikálás",
+      "inThisScenario": "Ezen a pályán",
+      "builtIntoThisEra": "A korszakba beépítve"
     },
     "spritesPanel": {
       "title": "Egység-sprite-ok",
@@ -444,7 +496,8 @@
       "filterPlaceholder": "Szűrés név szerint...",
       "unitBase": "Egység alap ({{count}})",
       "unitOverlay": "Egység réteg ({{count}})",
-      "noMatches": "Nincs találat."
+      "noMatches": "Nincs találat.",
+      "uploading": "Feltöltés…"
     },
     "unitTemplatesPanel": {
       "title": "Egységsablonok",
@@ -539,7 +592,27 @@
     },
     "gameConstants": {
       "title": "Játékkonstansok",
-      "description": "Bírld felül a korszak numerikus konstansait erre a pályára. Csak a módosított értékek mentődnek; a Visszaállítás a korszak alapértékére állítja a mezőt. A ⚠ jelzéssel ellátott kulcsok szerkezetiek - a módosításuk elronthatja a megjelenítést, a visszajátszásokat vagy a meccskeresést. Az értékek nyers belső egységek."
+      "description": "Bírld felül a korszak numerikus konstansait erre a pályára. Csak a módosított értékek mentődnek; a Visszaállítás a korszak alapértékére állítja a mezőt. A ⚠ jelzéssel ellátott kulcsok szerkezetiek - a módosításuk elronthatja a megjelenítést, a visszajátszásokat vagy a meccskeresést. Az értékek nyers belső egységek.",
+      "category": {
+        "mapDimensions": "Térkép méretei",
+        "deployment": "Felállítás",
+        "gameLimits": "Játéklimitek",
+        "victoryPoints": "Győzelmi pontok",
+        "fogOfWar": "Háború köde",
+        "combat": "Harc",
+        "ammunition": "Lőszer",
+        "stamina": "Kitartás",
+        "unitProximity": "Egységközelség",
+        "unitDimensions": "Egységméretek",
+        "allyBehavior": "Szövetséges viselkedés",
+        "collision": "Ütközés",
+        "movement": "Mozgás",
+        "mapBoundaries": "Térképhatárok",
+        "effects": "Effektusok",
+        "gameMechanics": "Játékmechanika",
+        "routing": "Megfutamodás",
+        "Other": "Egyéb"
+      }
     },
     "gameRules": {
       "title": "Játékszabályok",
@@ -577,7 +650,9 @@
       "title": "Seregösszetételek",
       "betaNotice": "A forgatókönyvekhez tartozó egyéni seregösszetétel-beállítások béta funkció; kérjük, jelentsd a hibákat a hivatalos Discord szerveren.",
       "disableEraUnits": "Korszak alapértelmezett egységeinek letiltása",
-      "disableEraUnitsWarning": "Adj hozzá legalább egy egyéni egységsablont, különben a játékosoknak nem lesz egységük felállításra."
+      "disableEraUnitsWarning": "Adj hozzá legalább egy egyéni egységsablont, különben a játékosoknak nem lesz egységük felállításra.",
+      "useEraUnits": "A korszak saját egységeinek használata",
+      "useEraUnitsHelp": "Bekapcsolva a játékosok a korszak saját egységeit is bevethetik mindaz mellett, amit ez a pálya hozzáad. Kikapcsolva csak azokkal az egységekkel játszanak, amelyeket ez a pálya biztosít — a korszakéi eltűnnek a sereg képernyőről, és nem választhatók."
     },
     "unitCaps": {
       "title": "Egységlimitek",
@@ -601,6 +676,28 @@
       "gold": "Arany",
       "default": "Csatatípus-költségvetés",
       "empty": "Még nincsenek játékos-költségvetések. Adj hozzá egy játékost a felülbírálásukhoz."
+    },
+    "transfer": {
+      "importTitle": "Importálás",
+      "importDescription": "Hozz át munkát egy másik pályáról. Válassz egy fájlt, majd vedd át az egészet, vagy vedd ki a pipát arról, amit inkább ott hagynál. Amit az a pálya nem tartalmaz, az szürkén jelenik meg.",
+      "whatComesIn": "Mi jön be",
+      "importAction": "Importálás",
+      "exportTitle": "Exportálás",
+      "exportDescription": "Küldd ki ennek a pályának a saját munkáját fájlként, készen arra, hogy egy másikba behozd. Minden benne van, hacsak ki nem veszed a pipát.",
+      "whatGoesOut": "Mi megy ki",
+      "exportAction": "Exportálás",
+      "allCategories": "Minden kategória",
+      "replaceTitle": "Lecseréled a saját értékeidet?",
+      "replaceWarning_one": "Ennek importálása {{count}} általad beállított értéket cserél le. Minden más a munkád mellé kerül.",
+      "replaceWarning_other": "Ennek importálása {{count}} általad beállított értéket cserél le. Minden más a munkád mellé kerül.",
+      "replaceRow_one": "{{category}}: {{count}} érték",
+      "replaceRow_other": "{{category}}: {{count}} érték",
+      "replaceConfirm": "Importálás és csere",
+      "imported_one": "{{count}} kategória importálva.",
+      "imported_other": "{{count}} kategória importálva.",
+      "exported_one": "{{count}} kategória exportálva.",
+      "exported_other": "{{count}} kategória exportálva.",
+      "exceededCap": "{{category}}: az importálás túllépné a {{max}} darabos korlátot ({{count}} lenne)."
     }
   },
   "resize": {
@@ -632,7 +729,11 @@
       "changesHeading": "Változások:",
       "changesHorizontal": "Bal: {{left}} mező, Jobb: {{right}} mező",
       "changesVertical": "Fent: {{top}} mező, Lent: {{bottom}} mező"
-    }
+    },
+    "currentSizeLabel": "Jelenlegi méret",
+    "newSizeLabel": "Új méret",
+    "methodLabel": "Módszer",
+    "sizeValue": "{{width}} × {{height}} mező"
   },
   "mapSize": {
     "widthInTiles": "Szélesség mezőkben",
@@ -642,7 +743,8 @@
     "scaleAllSizesBy": "Minden méret skálázása ennyivel",
     "apply": "Alkalmaz",
     "background": "Háttér",
-    "chooseImage": "Kép kiválasztása"
+    "chooseImage": "Kép kiválasztása",
+    "backgroundHelp": "Fél erősséggel egy képet fektet a térkép alá, hogy hozzá igazítva rajzolhasd a terepet. Ez csak segédeszköz a munkához, és soha nem mentődik a pályával."
   },
   "localesPanel": {
     "title": "Nyelvek",
@@ -680,7 +782,14 @@
     "addCondition": "Feltétel hozzáadása",
     "actions": "Műveletek",
     "addAction": "Művelet hozzáadása",
-    "once": "Egyszer"
+    "once": "Egyszer",
+    "intro": "A trigger a kör elején vagy végén ellenőrzi a csatát, majd cselekszik, ha az általad beállított feltételek igazak. Készíts egyet alább.",
+    "lastClick": "Másolandó pozíció",
+    "lastClickHint": "Ahová utoljára kattintottál a térképen, abban a koordináta-rendszerben, amelyet a trigger egység elhelyezéséhez vagy a kamera mozgatásához használ.",
+    "createDisabledInvalidJson": "Javítsd ki lentebb a JSON-t, mielőtt triggert készíthetnél.",
+    "createDisabledNeedsConditionAndAction": "Egy triggerhez legalább egy feltétel és egy művelet kell.",
+    "groupTrigger": "Trigger",
+    "value": "Érték"
   },
   "randomMap": {
     "title": "Véletlenszerű pálya",
@@ -714,7 +823,128 @@
     "modePreset": "Előre beállított (rögzített terep)",
     "modeHybrid": "Hibrid (előre beállított + utasítások)",
     "modeProcedural": "Procedurális (generált)",
-    "hybridExplanation": "A rögzített terep megmarad, és ezek az utasítások minden meccsen rétegként újra lefutnak rajta. Rögzíts egy seedet a térképen, hogy a rétegek ne sodródjanak el meccsek között."
+    "hybridExplanation": "A rögzített terep megmarad, és ezek az utasítások minden meccsen rétegként újra lefutnak rajta. Rögzíts egy seedet a térképen, hogy a rétegek ne sodródjanak el meccsek között.",
+    "proceduralExplanationDetail": "Az itt látható pálya csak előnézet. Az Objektíva / Objektíva-réteg utasítások által elhelyezett objektívák a meccs idején jelennek meg, nem ebben az előnézetben.",
+    "switchToPresetTitle": "Váltás előre beállított pályára",
+    "replaceInstructionsTitle": "Utasítások lecserélése",
+    "confirmOverwriteHelp": "Ez az, ami feloldja lentebb a Generálást. Bekapcsolva a generálás a térkép minden terepmezőjét eldobja, és újat rajzol ezekből az utasításokból. Kikapcsolva a Generálás letiltva marad, így egy pálya, amelyen dolgoztál, nem írható felül egy véletlen gombnyomással.",
+    "hybridExplanationDetail": "Rögzíts egy seedet a térképen, hogy a rétegek ne sodródjanak el meccsek között.",
+    "sourceLabel": "Forrás",
+    "sourceBuiltIn": "Beépített",
+    "sourceImport": "Importálás",
+    "intro": "Töltsd ki a térkép terepét sablonból ahelyett, hogy kézzel festenéd.",
+    "rollSeed": "Új seed dobása",
+    "changeFile": "Fájl módosítása",
+    "selectFile": "Fájl kiválasztása",
+    "importedFile": "Importált fájl",
+    "field": {
+      "amount": "Mennyiség",
+      "between": "Között",
+      "border": "Szegély",
+      "chance": "Esély",
+      "coords": "Koordináták",
+      "cost": "Költség",
+      "count": "Darabszám",
+      "countPer100x100": "Darabszám 100×100 mezőnként",
+      "curveLen": "Görbe hossza",
+      "curveWeight": "Görbe súlya",
+      "deep": "Mély víz",
+      "downHillHeightCost": "Lejtmenet költsége",
+      "edgeDistance": "Széltávolság",
+      "edgeWeight": "Szél súlya",
+      "endHeightRanges": "Vég-magassági tartományok",
+      "excludeTerrains": "Kizárt terepek",
+      "falloff": "Lecsengés",
+      "fromTerrain": "Erről a terepről",
+      "height": "Magasság",
+      "heightDiffCost": "Magasságkülönbség költsége",
+      "heightDiffCosts": "Magasságkülönbség költségei",
+      "heightFilter": "Magasságszűrő",
+      "heightRanges": "Magassági tartományok",
+      "heights": "Magasságok",
+      "l": "Nagy",
+      "m": "Közepes",
+      "max": "Maximális",
+      "maxDistance": "Max. távolság",
+      "maxHeight": "Max. magasság",
+      "maxHeightThreshold": "Max. magassági küszöb",
+      "maxHeightValue": "Max. magassági érték",
+      "maxObj": "Max. objektíva",
+      "maxWidth": "Max. szélesség",
+      "max_scaling_factor": "Max. skálázás térképméret szerint",
+      "mergeStrategy": "Egyesítési stratégia",
+      "midPoints": "Középpontok",
+      "min": "Minimális",
+      "minAmount": "Min. mennyiség",
+      "minDistance": "Min. távolság",
+      "minGroupSize": "Min. csoportméret",
+      "minHeight": "Min. magasság",
+      "minHeightValue": "Min. magassági érték",
+      "minSurrounding": "Min. környező mező",
+      "minWidth": "Min. szélesség",
+      "min_scaling_factor": "Min. skálázás térképméret szerint",
+      "multiplier": "Szorzó",
+      "name": "Név",
+      "noiseSmoothness": "Zaj simasága",
+      "noiseWeight": "Zaj súlya",
+      "noises": "Zajrétegek",
+      "objectiveType": "Objektíva típusa",
+      "offset": "Eltolás",
+      "organicness": "Organikusság",
+      "pathTerrain": "Ösvény terepe",
+      "player": "Játékos",
+      "position": "Pozíció",
+      "preferLowElevation": "Alacsony terep előnyben",
+      "printNoiseDebug": "Zaj-hibakeresés kiírása",
+      "radius": "Sugár",
+      "randomness": "Véletlenszerűség",
+      "range": "Tartomány",
+      "ranges": "Tartományok",
+      "reverse": "Megfordítva",
+      "reversed": "Megfordítva",
+      "rotation": "Forgatás",
+      "s": "Kicsi",
+      "scale": "Skála",
+      "scatter": "Szórás",
+      "searchRadius": "Keresési sugár",
+      "shallow": "Sekély víz",
+      "shore": "Part",
+      "size": "Méret",
+      "smoothing": "Simítás",
+      "startHeightRanges": "Kezdő magassági tartományok",
+      "team": "Csapat",
+      "terrain": "Terep",
+      "terrainCosts": "Terepköltségek",
+      "terrainFilter": "Terepszűrő",
+      "terrainReplacements": "Terepcserék",
+      "terrains": "Terepek",
+      "toTerrain": "Erre a terepre",
+      "type": "Típus",
+      "uphillHeightCost": "Emelkedő költsége",
+      "width": "Szélesség",
+      "x": "X",
+      "xBounds": "X határok",
+      "xRange": "X tartomány",
+      "xl": "Extra nagy",
+      "y": "Y",
+      "yBounds": "Y határok",
+      "yRange": "Y tartomány"
+    },
+    "instructionType": {
+      "terrainNoise": "Terepzaj",
+      "heightNoise": "Magasságzaj",
+      "terrainCircle": "Terepkör",
+      "terrainRectangle": "Terep-téglalap",
+      "naturalPath": "Természetes ösvény",
+      "connectClusters": "Csoportok összekötése",
+      "objective": "Objektíva",
+      "lake": "Tó",
+      "objectiveLayer": "Objektíva-réteg"
+    },
+    "objectiveType": {
+      "small": "Kicsi",
+      "big": "Nagy"
+    }
   },
   "randomDeployment": {
     "title": "Felállási zónák",
@@ -757,5 +987,16 @@
     "bigInset": "Nagy célpont zóna nyírása",
     "smallInsetInfo": "Mennyivel szűkítse a kis célpontok zónáját mindkét oldalon. Csak a szélességet nyírja, a magasságot megtartja.",
     "bigInsetInfo": "Mennyivel kicsinyítse a nagy célpontok dobozát mindkét oldalon, a bevetési zónában középre igazítva."
+  },
+  "mapPoint": {
+    "title": "Térképpont",
+    "help": "Ez követi a mutatót a térképen, és kiolvassa az alatta lévő mezőt. Kattints jobb gombbal a rögzítéséhez, így a számok a helyükön maradnak, amíg a panelen dolgozol. Menj vissza a térkép fölé, és újra követni fog.",
+    "tile": "Mező",
+    "terrain": "Terep",
+    "height": "Magasság",
+    "unknown": "-"
+  },
+  "objectiveOwnership": {
+    "help": "Az objektívákat mindig egy csapat birtokolja. Rögzített névsorú pályán ez a mező egy játékost nevez meg, és az objektíva annak a játékosnak a csapatához tartozik. Dinamikus seregekre épülő pályán nincsenek játékoshelyek, amíg a meccskeresés fel nem tölti őket, így a mező közvetlenül a csapatot nevezi meg."
   }
 }

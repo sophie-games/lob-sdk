@@ -252,7 +252,8 @@
     "routesAtOrg": "Тікає При Org",
     "recoversAtOrg": "Відновлюється При Org",
     "ralliesAtOrg": "Збирається При Org",
-    "unlimberTime": "Час розгортання"
+    "unlimberTime": "Час розгортання",
+    "supply": "Постачання"
   },
   "category": "Категорія",
   "damageResistances": "Стійкість до ушкоджень",
@@ -318,6 +319,8 @@
     "20": "Дорога у понижені",
     "21": "Траншея",
     "22": "Редут",
+    "23": "Залізниця",
+    "24": "Залізниця/дорога",
     "25": "Табір"
   },
   "clearPlayerUnits": "Очистити Підрозділи Гравця",
@@ -860,5 +863,33 @@
     "scheduled": "Ваш акаунт заплановано на видалення через {{graceDays}} дн. Увійдіть знову до цього терміну, щоб скасувати.",
     "error": "Не вдалося запланувати видалення акаунта. Спробуйте ще раз."
   },
-  "startGameAsSpectator": "Почати гру як глядач"
+  "startGameAsSpectator": "Почати гру як глядач",
+  "continue": "Продовжити",
+  "seed": "Зерно",
+  "armyWithCount": "Військо ({{count}})",
+  "unit": "Підрозділ",
+  "description": "Опис",
+  "projectilePenetration": "Пробивна здатність снаряда",
+  "cannotUseAfterRun": "Не можна використати після бігу",
+  "copied": "Скопійовано!",
+  "skirmisherRatio": "Частка застрільників",
+  "projectileWidth": "Ширина снаряда",
+  "allyCollisionLevel": "Рівень колізії з союзниками",
+  "enemyCollisionLevel": "Рівень колізії з ворогами",
+  "back": "Назад",
+  "autofirePriority": "Пріоритет автоматичного вогню",
+  "heightOffset": "Зміщення висоти",
+  "minDistanceToFAA": "Мін. відстань для Стрільби і наступу",
+  "big": "Великий",
+  "small": "Малий",
+  "rotationSpeed": "Швидкість повороту",
+  "runRotationSpeed": "Швидкість повороту під час бігу",
+  "rotationMaxThreshold": "Макс. поріг повороту",
+  "disablesFlankMelee": "Вимикає фланговий ближній бій",
+  "disablesEnfiladeFire": "Вимикає фланговий вогонь",
+  "disablesRearFire": "Вимикає тиловий вогонь",
+  "flankChargeResistance": "Стійкість до флангового натиску",
+  "rearChargeResistance": "Стійкість до тилового натиску",
+  "enfiladeFireResistance": "Стійкість до флангового вогню",
+  "rearFireResistance": "Стійкість до тилового вогню"
 }

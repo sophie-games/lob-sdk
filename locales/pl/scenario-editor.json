@@ -39,7 +39,8 @@
     "optionCustom": "{{name}} (niestandardowa)",
     "optionAllUnitCategories": "Wszystkie kategorie jednostek",
     "nameWithKind": "{{name}} ({{kind}})",
-    "rotationSpeedModifier": "Modyfikator prędkości obrotu"
+    "rotationSpeedModifier": "Modyfikator prędkości obrotu",
+    "jsonPlaceholder": "Wpisz tutaj JSON..."
   },
   "editorPanel": {
     "tabs": {
@@ -56,7 +57,8 @@
     "workshopBands": {
       "units": "Jednostki",
       "terrain": "Teren",
-      "global": "Globalne"
+      "global": "Globalne",
+      "transfer": "Transfer"
     },
     "restingHint": "Kliknij element, aby go sprawdzić, lub wybierz narzędzie, aby zacząć malować.",
     "togglePanel": "Przełącz panel",
@@ -83,14 +85,48 @@
     "scenarioBands": {
       "forces": "Siły",
       "rules": "Zasady",
-      "presentation": "Prezentacja"
+      "presentation": "Prezentacja",
+      "victoryPoints": "Punkty zwycięstwa"
+    },
+    "testScenario": "Testuj scenariusz",
+    "placeableObjectives": "Cele rozstawiane przez graczy",
+    "placeableObjectivesHelp": "Po włączeniu każdy gracz rozstawia własne cele w fazie rozstawienia, w obrębie swojej strefy. Po wyłączeniu bitwa korzysta tylko z celów, które umieściłeś na mapie.",
+    "placeableObjectivesNeedsDeployment": "Włącz także fazę rozstawienia, inaczej gracze nigdy nie dotrą do tury, w której mieliby rozstawić te cele, i żaden się nie pojawi.",
+    "resting": {
+      "thisScenario": "Ten scenariusz",
+      "gettingStarted": "Na początek",
+      "untitled": "Bez tytułu",
+      "mapSize": "{{width}} x {{height}} kafelków",
+      "objectives": "Cele",
+      "noneYet": "Jeszcze brak",
+      "modes": "Scenariusz buduje tę bitwę. Workshop zmienia elementy, z których korzysta każda bitwa.",
+      "placing": "Wybierz narzędzie, a następnie kliknij mapę prawym przyciskiem, aby coś postawić.",
+      "disarm": "Wybierz to narzędzie ponownie, aby je odłożyć i wrócić do zaznaczania.",
+      "inspect": "Wybierz element, który postawiłeś, a jego ustawienia pojawią się tutaj.",
+      "test": "Przycisk odtwarzania u góry pozwala wypróbować twoją bitwę przeciwko botowi.",
+      "saved": "Twoja praca jest zapisywana na bieżąco, więc możesz wyjść i wrócić do niej później.",
+      "placingTouch": "Wybierz narzędzie, a następnie dotknij mapy, aby coś postawić."
     }
   },
-  "createScenario": {},
+  "createScenario": {
+    "mapBand": "Mapa",
+    "forcesBand": "Siły",
+    "terrainLabel": "Teren",
+    "terrainPreset": "Malowany",
+    "terrainProcedural": "Generowany",
+    "terrainHelp": "Malowany teren układasz sam, kafelek po kafelku, i trafia on do scenariusza dokładnie w takiej postaci, w jakiej go zostawisz. Generowany teren jest rysowany od nowa w każdej bitwie na podstawie instrukcji, które piszesz w panelu Mapa, więc żadne dwa mecze nie toczą się na tym samym gruncie.",
+    "rosterLabel": "Skład",
+    "rosterFixed": "Stały",
+    "rosterDynamic": "Dynamiczny",
+    "rosterHelp": "Stały skład oznacza, że to scenariusz określa miejsca graczy, drużyny i amunicję, a wszyscy walczą jednostkami, które rozmieściłeś. Dynamiczny skład zostawia miejsca poczekalni lub dobieraniu graczy, a gracze przyprowadzają do bitwy własne armie."
+  },
   "playersPanel": {
     "removePlayer": "Usuń gracza",
     "ammoReserve": "Rezerwa",
-    "ammoBase": "Baza"
+    "ammoBase": "Baza",
+    "playerNumbered": "Gracz {{number}}",
+    "rosterLimits": "Scenariusz wymaga co najmniej {{min}} graczy i dopuszcza najwyżej {{max}}.",
+    "ammoHelp": "Ile amunicji ma armia tego gracza. Rezerwa to zapas, który wydaje w trakcie bitwy, a baza to poziom, do którego rezerwa wraca w każdej turze."
   },
   "terrainPanel": {
     "brush": "Pędzel",
@@ -98,25 +134,41 @@
     "height": "Wysokość",
     "elevation": "Wzniesienie",
     "paintBucket": "Wiadro z farbą",
-    "none": "Brak"
+    "none": "Brak",
+    "setHeight": "Ustaw wysokość",
+    "setHeightHelp": "Zaznaczone: pędzel zapisuje powyższą wysokość na każdym malowanym kafelku. Odznaczone: maluje tylko teren i zostawia każdemu kafelkowi wzniesienie, które już ma.",
+    "paintBucketHelp": "Zaznaczone: jedno naciśnięcie wypełnia cały połączony obszar pasującego terenu, niezależnie od wielkości, więc promień nie ma zastosowania. Odznaczone: pędzel obejmuje ustawiony przez ciebie promień.",
+    "brushHeightGroup": "Wzniesienie",
+    "brushShapeGroup": "Kształt"
   },
   "unitPanel": {
     "unitType": "Typ jednostki",
     "rotation": "Obrót",
     "copyUnits": "Kopiuj jednostki",
     "unitsCopied": "Skopiowano jednostki ({{count}})",
-    "removeSelectedUnits": "Usuń wybrane jednostki"
+    "removeSelectedUnits": "Usuń wybrane jednostki",
+    "nameSingleOnly": "Nazwę nadaje się jednej jednostce naraz, więc pole jest dostępne tylko wtedy, gdy zaznaczona jest pojedyncza jednostka.",
+    "copyUnitData": "Kopiuj dane jednostki"
   },
   "createUnit": {
     "placingCopied": "Umieszczanie skopiowanych jednostek ({{count}}). Kliknij mapę, aby je umieścić.",
-    "customLabel": "{{name}} (niestandardowa)"
+    "customLabel": "{{name}} (niestandardowa)",
+    "placingCopied_one": "Kliknij mapę prawym przyciskiem, aby umieścić skopiowaną jednostkę.",
+    "placingCopied_few": "Kliknij mapę prawym przyciskiem, aby umieścić {{count}} skopiowane jednostki.",
+    "placingCopied_many": "Kliknij mapę prawym przyciskiem, aby umieścić {{count}} skopiowanych jednostek.",
+    "placingCopied_other": "Kliknij mapę prawym przyciskiem, aby umieścić {{count}} skopiowane jednostki.",
+    "placingCopiedTouch_one": "Dotknij mapy, aby umieścić skopiowaną jednostkę.",
+    "placingCopiedTouch_few": "Dotknij mapy, aby umieścić {{count}} skopiowane jednostki.",
+    "placingCopiedTouch_many": "Dotknij mapy, aby umieścić {{count}} skopiowanych jednostek.",
+    "placingCopiedTouch_other": "Dotknij mapy, aby umieścić {{count}} skopiowane jednostki."
   },
   "objectivePanel": {
     "removeSelected": "Usuń wybrany cel",
     "fields": {
       "manpowerPerTurn": "Rekruci na turę",
       "goldPerTurn": "Złoto na turę"
-    }
+    },
+    "copyObjectiveData": "Kopiuj dane celu"
   },
   "createObjective": {
     "gaia": "Gaia"
@@ -130,7 +182,9 @@
     "fields": {
       "x": "X",
       "y": "Y"
-    }
+    },
+    "phaseHelp": "Gdy faza rozstawienia jest włączona, gracze dostają jedną dodatkową turę przed rozpoczęciem walki, wyłącznie po to, by przestawić jednostki w obrębie swojej strefy.",
+    "gateHelp": "Te strefy można edytować, gdy włączona jest którakolwiek z opcji: Zezwól na dynamiczną armię, Faza rozstawienia lub Cele rozstawiane przez graczy, ponieważ każda z tych trzech potrzebuje miejsca, w którym przybywająca armia zaczyna. Gdy wszystkie trzy są wyłączone, strefy są wyszarzone; na mapie proceduralnej także są wyszarzone, ponieważ tam definiuje się je w procentach w panelu Mapa losowa."
   },
   "vpBalance": {
     "heading": "Bilans PZ (straty vs cele)",
@@ -425,7 +479,9 @@
   "customDefs": {
     "common": {
       "importFromScenario": "Importuj ze scenariusza",
-      "duplicate": "Duplikuj"
+      "duplicate": "Duplikuj",
+      "inThisScenario": "W tym scenariuszu",
+      "builtIntoThisEra": "Wbudowane w tę epokę"
     },
     "spritesPanel": {
       "title": "Sprite'y jednostek",
@@ -444,7 +500,8 @@
       "filterPlaceholder": "Filtruj po nazwie...",
       "unitBase": "Baza jednostki ({{count}})",
       "unitOverlay": "Nakładka jednostki ({{count}})",
-      "noMatches": "Brak dopasowań."
+      "noMatches": "Brak dopasowań.",
+      "uploading": "Wgrywanie…"
     },
     "unitTemplatesPanel": {
       "title": "Szablony jednostek",
@@ -541,7 +598,27 @@
     },
     "gameConstants": {
       "title": "Stałe gry",
-      "description": "Nadpisz numeryczne stałe tej epoki dla tego scenariusza. Zapisywane są tylko zmienione wartości; Resetuj przywraca pole do wartości domyślnej epoki. Klucze oznaczone ⚠ są strukturalne - ich zmiana może zepsuć renderowanie, powtórki lub matchmaking. Wartości podane są w surowych jednostkach wewnętrznych."
+      "description": "Nadpisz numeryczne stałe tej epoki dla tego scenariusza. Zapisywane są tylko zmienione wartości; Resetuj przywraca pole do wartości domyślnej epoki. Klucze oznaczone ⚠ są strukturalne - ich zmiana może zepsuć renderowanie, powtórki lub matchmaking. Wartości podane są w surowych jednostkach wewnętrznych.",
+      "category": {
+        "mapDimensions": "Wymiary mapy",
+        "deployment": "Rozstawienie",
+        "gameLimits": "Limity gry",
+        "victoryPoints": "Punkty zwycięstwa",
+        "fogOfWar": "Mgła wojny",
+        "combat": "Walka",
+        "ammunition": "Amunicja",
+        "stamina": "Wytrzymałość",
+        "unitProximity": "Bliskość jednostek",
+        "unitDimensions": "Wymiary jednostek",
+        "allyBehavior": "Zachowanie sojuszników",
+        "collision": "Kolizja",
+        "movement": "Ruch",
+        "mapBoundaries": "Granice mapy",
+        "effects": "Efekty",
+        "gameMechanics": "Mechanika gry",
+        "routing": "Ucieczka",
+        "Other": "Inne"
+      }
     },
     "gameRules": {
       "title": "Reguły gry",
@@ -579,7 +656,9 @@
       "title": "Kompozycje armii",
       "betaNotice": "Opcje niestandardowych kompozycji armii dla scenariuszy to funkcja beta; wszelkie błędy zgłaszaj na oficjalnym serwerze Discord.",
       "disableEraUnits": "Wyłącz domyślne jednostki ery",
-      "disableEraUnitsWarning": "Dodaj co najmniej jeden niestandardowy szablon jednostki, inaczej gracze nie będą mieli żadnych jednostek do wystawienia."
+      "disableEraUnitsWarning": "Dodaj co najmniej jeden niestandardowy szablon jednostki, inaczej gracze nie będą mieli żadnych jednostek do wystawienia.",
+      "useEraUnits": "Używaj własnych jednostek ery",
+      "useEraUnitsHelp": "Włączone: gracze mogą wystawiać własne jednostki ery obok wszystkiego, co dodaje ten scenariusz. Wyłączone: grają tylko jednostkami, które daje ten scenariusz, a jednostki ery znikają z ekranu armii i nie można ich wybrać."
     },
     "unitCaps": {
       "title": "Limity jednostek",
@@ -603,6 +682,36 @@
       "gold": "Złoto",
       "default": "Budżet trybu bitwy",
       "empty": "Brak budżetów graczy. Dodaj gracza, aby nadpisać jego budżet."
+    },
+    "transfer": {
+      "importTitle": "Import",
+      "importDescription": "Przenieś pracę z innego scenariusza. Wybierz plik, a potem weź wszystko albo odznacz to, co wolisz zostawić. To, czego tamten scenariusz nie zawiera, jest wyszarzone.",
+      "whatComesIn": "Co przychodzi",
+      "importAction": "Importuj",
+      "exportTitle": "Eksport",
+      "exportDescription": "Wyślij własną pracę tego scenariusza jako plik, gotowy do wczytania w innym. Wszystko jest dołączone, chyba że to odznaczysz.",
+      "whatGoesOut": "Co wychodzi",
+      "exportAction": "Eksportuj",
+      "allCategories": "Wszystkie kategorie",
+      "replaceTitle": "Zastąpić twoje własne wartości?",
+      "replaceWarning_one": "Import zastąpi {{count}} wartość, którą sam ustawiłeś. Cała reszta zostanie dodana obok twojej pracy.",
+      "replaceWarning_few": "Import zastąpi {{count}} wartości, które sam ustawiłeś. Cała reszta zostanie dodana obok twojej pracy.",
+      "replaceWarning_many": "Import zastąpi {{count}} wartości, które sam ustawiłeś. Cała reszta zostanie dodana obok twojej pracy.",
+      "replaceWarning_other": "Import zastąpi {{count}} wartości, które sam ustawiłeś. Cała reszta zostanie dodana obok twojej pracy.",
+      "replaceRow_one": "{{category}}: {{count}} wartość",
+      "replaceRow_few": "{{category}}: {{count}} wartości",
+      "replaceRow_many": "{{category}}: {{count}} wartości",
+      "replaceRow_other": "{{category}}: {{count}} wartości",
+      "replaceConfirm": "Importuj i zastąp",
+      "imported_one": "Zaimportowano {{count}} kategorię.",
+      "imported_few": "Zaimportowano {{count}} kategorie.",
+      "imported_many": "Zaimportowano {{count}} kategorii.",
+      "imported_other": "Zaimportowano {{count}} kategorie.",
+      "exported_one": "Wyeksportowano {{count}} kategorię.",
+      "exported_few": "Wyeksportowano {{count}} kategorie.",
+      "exported_many": "Wyeksportowano {{count}} kategorii.",
+      "exported_other": "Wyeksportowano {{count}} kategorie.",
+      "exceededCap": "{{category}}: import przekroczyłby limit {{max}} (byłoby {{count}})."
     }
   },
   "resize": {
@@ -634,7 +743,11 @@
       "changesHeading": "Zmiany:",
       "changesHorizontal": "Lewo: {{left}} kafelków, Prawo: {{right}} kafelków",
       "changesVertical": "Góra: {{top}} kafelków, Dół: {{bottom}} kafelków"
-    }
+    },
+    "currentSizeLabel": "Bieżący rozmiar",
+    "newSizeLabel": "Nowy rozmiar",
+    "methodLabel": "Metoda",
+    "sizeValue": "{{width}} × {{height}} kafelków"
   },
   "mapSize": {
     "widthInTiles": "Szerokość w kafelkach",
@@ -644,7 +757,8 @@
     "scaleAllSizesBy": "Skaluj wszystkie rozmiary o",
     "apply": "Zastosuj",
     "background": "Tło",
-    "chooseImage": "Wybierz obraz"
+    "chooseImage": "Wybierz obraz",
+    "backgroundHelp": "Umieszcza obraz pod mapą z połową krycia, dzięki czemu możesz rysować teren tak, by do niego pasował. To pomoc podczas pracy i nigdy nie jest zapisywana ze scenariuszem."
   },
   "localesPanel": {
     "title": "Tłumaczenia",
@@ -682,7 +796,14 @@
     "addCondition": "Dodaj warunek",
     "actions": "Akcje",
     "addAction": "Dodaj akcję",
-    "once": "Raz"
+    "once": "Raz",
+    "intro": "Wyzwalacz sprawdza stan bitwy na początku lub na końcu tury, a potem działa, gdy ustawione przez ciebie warunki są spełnione. Stwórz go poniżej.",
+    "lastClick": "Pozycja do skopiowania",
+    "lastClickHint": "Miejsce, które ostatnio wskazałeś na mapie, we współrzędnych używanych przez wyzwalacz do umieszczenia jednostki lub przesunięcia kamery.",
+    "createDisabledInvalidJson": "Popraw poniższy JSON, zanim stworzysz wyzwalacz.",
+    "createDisabledNeedsConditionAndAction": "Wyzwalacz wymaga co najmniej jednego warunku i jednej akcji.",
+    "groupTrigger": "Wyzwalacz",
+    "value": "Wartość"
   },
   "randomMap": {
     "title": "Mapa losowa",
@@ -716,7 +837,128 @@
     "modePreset": "Predefiniowana (stały teren)",
     "modeHybrid": "Hybrydowa (predefiniowana + instrukcje)",
     "modeProcedural": "Proceduralna (generowana)",
-    "hybridExplanation": "Zapieczony teren zostaje zachowany, a te instrukcje są ponownie uruchamiane na nim jako nakładki w każdym meczu. Ustaw ziarno mapy, aby nakładki nie zmieniały się między meczami."
+    "hybridExplanation": "Zapieczony teren zostaje zachowany, a te instrukcje są ponownie uruchamiane na nim jako nakładki w każdym meczu. Ustaw ziarno mapy, aby nakładki nie zmieniały się między meczami.",
+    "proceduralExplanationDetail": "Mapa pokazana tutaj to tylko podgląd. Cele rozmieszczane przez instrukcje Cel / Warstwa celów pojawiają się w czasie meczu, a nie w tym podglądzie.",
+    "switchToPresetTitle": "Przełącz na mapę predefiniowaną",
+    "replaceInstructionsTitle": "Zastąp instrukcje",
+    "confirmOverwriteHelp": "To właśnie odblokowuje przycisk Generuj poniżej. Gdy włączone, generowanie odrzuca każdy kafelek terenu na mapie i rysuje nową z tych instrukcji. Gdy wyłączone, Generuj pozostaje nieaktywne, więc mapy, nad którą pracowałeś, nie nadpisze przypadkowe naciśnięcie.",
+    "hybridExplanationDetail": "Ustaw ziarno mapy, aby nakładki nie zmieniały się między meczami.",
+    "sourceLabel": "Źródło",
+    "sourceBuiltIn": "Wbudowane",
+    "sourceImport": "Import",
+    "intro": "Wypełnij teren mapy z szablonu, zamiast malować go ręcznie.",
+    "rollSeed": "Wylosuj nowe ziarno",
+    "changeFile": "Zmień plik",
+    "selectFile": "Wybierz plik",
+    "importedFile": "Zaimportowany plik",
+    "field": {
+      "amount": "Ilość",
+      "between": "Pomiędzy",
+      "border": "Obramowanie",
+      "chance": "Szansa",
+      "coords": "Współrzędne",
+      "cost": "Koszt",
+      "count": "Liczba",
+      "countPer100x100": "Liczba na 100×100 kafelków",
+      "curveLen": "Długość krzywej",
+      "curveWeight": "Waga krzywej",
+      "deep": "Woda głęboka",
+      "downHillHeightCost": "Koszt w dół",
+      "edgeDistance": "Odległość od krawędzi",
+      "edgeWeight": "Waga krawędzi",
+      "endHeightRanges": "Końcowe zakresy wysokości",
+      "excludeTerrains": "Wyklucz tereny",
+      "falloff": "Zanik",
+      "fromTerrain": "Z terenu",
+      "height": "Wysokość",
+      "heightDiffCost": "Koszt różnicy wysokości",
+      "heightDiffCosts": "Koszty różnicy wysokości",
+      "heightFilter": "Filtr wysokości",
+      "heightRanges": "Zakresy wysokości",
+      "heights": "Wysokości",
+      "l": "Duży",
+      "m": "Średni",
+      "max": "Maks",
+      "maxDistance": "Maks. odległość",
+      "maxHeight": "Maks. wysokość",
+      "maxHeightThreshold": "Maks. próg wysokości",
+      "maxHeightValue": "Maks. wartość wysokości",
+      "maxObj": "Maks. cele",
+      "maxWidth": "Maks. szerokość",
+      "max_scaling_factor": "Maks. skalowanie wg rozmiaru mapy",
+      "mergeStrategy": "Strategia scalania",
+      "midPoints": "Punkty pośrednie",
+      "min": "Min",
+      "minAmount": "Min. ilość",
+      "minDistance": "Min. odległość",
+      "minGroupSize": "Min. rozmiar grupy",
+      "minHeight": "Min. wysokość",
+      "minHeightValue": "Min. wartość wysokości",
+      "minSurrounding": "Min. otaczających kafelków",
+      "minWidth": "Min. szerokość",
+      "min_scaling_factor": "Min. skalowanie wg rozmiaru mapy",
+      "multiplier": "Mnożnik",
+      "name": "Nazwa",
+      "noiseSmoothness": "Gładkość szumu",
+      "noiseWeight": "Waga szumu",
+      "noises": "Warstwy szumu",
+      "objectiveType": "Typ celu",
+      "offset": "Przesunięcie",
+      "organicness": "Organiczność",
+      "pathTerrain": "Teren ścieżki",
+      "player": "Gracz",
+      "position": "Pozycja",
+      "preferLowElevation": "Preferuj niski teren",
+      "printNoiseDebug": "Wypisz debug szumu",
+      "radius": "Promień",
+      "randomness": "Losowość",
+      "range": "Zakres",
+      "ranges": "Zakresy",
+      "reverse": "Odwrócone",
+      "reversed": "Odwrócone",
+      "rotation": "Obrót",
+      "s": "Mały",
+      "scale": "Skala",
+      "scatter": "Rozrzut",
+      "searchRadius": "Promień wyszukiwania",
+      "shallow": "Woda płytka",
+      "shore": "Brzeg",
+      "size": "Rozmiar",
+      "smoothing": "Wygładzanie",
+      "startHeightRanges": "Początkowe zakresy wysokości",
+      "team": "Drużyna",
+      "terrain": "Teren",
+      "terrainCosts": "Koszty terenu",
+      "terrainFilter": "Filtr terenu",
+      "terrainReplacements": "Zamiany terenu",
+      "terrains": "Tereny",
+      "toTerrain": "Na teren",
+      "type": "Typ",
+      "uphillHeightCost": "Koszt pod górę",
+      "width": "Szerokość",
+      "x": "X",
+      "xBounds": "Granice X",
+      "xRange": "Zakres X",
+      "xl": "Bardzo duży",
+      "y": "Y",
+      "yBounds": "Granice Y",
+      "yRange": "Zakres Y"
+    },
+    "instructionType": {
+      "terrainNoise": "Szum terenu",
+      "heightNoise": "Szum wysokości",
+      "terrainCircle": "Okrąg terenu",
+      "terrainRectangle": "Prostokąt terenu",
+      "naturalPath": "Naturalna ścieżka",
+      "connectClusters": "Połącz skupiska",
+      "objective": "Cel",
+      "lake": "Jezioro",
+      "objectiveLayer": "Warstwa celów"
+    },
+    "objectiveType": {
+      "small": "Mały",
+      "big": "Duży"
+    }
   },
   "randomDeployment": {
     "title": "Strefy rozstawienia",
@@ -759,5 +1001,16 @@
     "bigInset": "Przycięcie strefy dużych celów",
     "smallInsetInfo": "O ile zwęzić strefę małych celów z każdej strony. Przycina tylko szerokość, zachowując wysokość.",
     "bigInsetInfo": "O ile zmniejszyć obszar dużych celów z każdej strony, wyśrodkowany w strefie rozmieszczenia."
+  },
+  "mapPoint": {
+    "title": "Punkt na mapie",
+    "help": "Podąża za wskaźnikiem po mapie i pokazuje kafelek pod nim. Kliknij prawym przyciskiem, aby go przypiąć, dzięki czemu liczby zostaną na miejscu, gdy pracujesz w panelu. Wróć nad mapę, a znów zacznie podążać.",
+    "tile": "Kafelek",
+    "terrain": "Teren",
+    "height": "Wysokość",
+    "unknown": "-"
+  },
+  "objectiveOwnership": {
+    "help": "Cele zawsze należą do drużyny. W scenariuszu ze stałym składem to pole wskazuje gracza, a cel należy do drużyny tego gracza. W scenariuszu przygotowanym pod dynamiczne armie nie ma miejsc graczy, dopóki nie wypełni ich dobieranie graczy, więc pole wskazuje drużynę bezpośrednio."
   }
 }

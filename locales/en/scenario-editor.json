@@ -497,7 +497,8 @@
       "imported_one": "Imported {{count}} category.",
       "imported_other": "Imported {{count}} categories.",
       "exported_one": "Exported {{count}} category.",
-      "exported_other": "Exported {{count}} categories."
+      "exported_other": "Exported {{count}} categories.",
+      "exceededCap": "{{category}}: importing would exceed the limit of {{max}} (would be {{count}})."
     },
     "spritesPanel": {
       "title": "Unit sprites",

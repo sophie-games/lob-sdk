@@ -265,7 +265,8 @@
     "routesAtOrg": "संगठन पर भाग जाता है",
     "recoversAtOrg": "संगठन पर ठीक होता है",
     "ralliesAtOrg": "संगठन पर इकट्ठा होता है",
-    "unlimberTime": "तैनाती समय"
+    "unlimberTime": "तैनाती समय",
+    "supply": "आपूर्ति"
   },
   "category": "श्रेणी",
   "routingBehavior": "भागने का व्यवहार",
@@ -337,6 +338,8 @@
     "20": "सड़क, धंसी हुई",
     "21": "खाई",
     "22": "किला",
+    "23": "रेलवे",
+    "24": "रेलवे/सड़क",
     "25": "शिविर"
   },
   "clearPlayerUnits": "खिलाड़ी इकाइयाँ साफ करें",
@@ -1031,5 +1034,14 @@
     "scheduled": "आपका खाता {{graceDays}} दिनों में हटाने के लिए निर्धारित है। इसे रद्द करने के लिए उस समय से पहले दोबारा लॉग इन करें।",
     "error": "खाता हटाना निर्धारित नहीं किया जा सका। कृपया पुनः प्रयास करें।"
   },
-  "startGameAsSpectator": "दर्शक के रूप में खेल शुरू करें"
+  "startGameAsSpectator": "दर्शक के रूप में खेल शुरू करें",
+  "continue": "जारी रखें",
+  "armyWithCount": "सेना ({{count}})",
+  "disablesFlankMelee": "फ्लैंक हाथापाई अक्षम करता है",
+  "disablesEnfiladeFire": "एन्फिलेड फायर अक्षम करता है",
+  "disablesRearFire": "पीछे से आग अक्षम करता है",
+  "flankChargeResistance": "फ्लैंक चार्ज प्रतिरोध",
+  "rearChargeResistance": "रियर चार्ज प्रतिरोध",
+  "enfiladeFireResistance": "एन्फिलेड फायर प्रतिरोध",
+  "rearFireResistance": "पीछे से आग प्रतिरोध"
 }
