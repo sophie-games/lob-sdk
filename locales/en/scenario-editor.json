@@ -487,7 +487,17 @@
       "exportDescription": "Send this scenario's own work out as a file, ready to bring into another. Everything is included unless you untick it.",
       "whatGoesOut": "What goes out",
       "exportAction": "Export",
-      "allCategories": "All categories"
+      "allCategories": "All categories",
+      "replaceTitle": "Replace your own values?",
+      "replaceWarning_one": "Importing this will replace {{count}} value you have set yourself. Everything else is added alongside your work.",
+      "replaceWarning_other": "Importing this will replace {{count}} values you have set yourself. Everything else is added alongside your work.",
+      "replaceRow_one": "{{category}}: {{count}} value",
+      "replaceRow_other": "{{category}}: {{count}} values",
+      "replaceConfirm": "Import and replace",
+      "imported_one": "Imported {{count}} category.",
+      "imported_other": "Imported {{count}} categories.",
+      "exported_one": "Exported {{count}} category.",
+      "exported_other": "Exported {{count}} categories."
     },
     "spritesPanel": {
       "title": "Unit sprites",
