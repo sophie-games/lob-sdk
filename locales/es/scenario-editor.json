@@ -86,10 +86,7 @@
       "presentation": "Presentación"
     }
   },
-  "createScenario": {
-    "randomMap": "¿Mapa aleatorio (procedural)?",
-    "isHybrid": "¿Es híbrido?"
-  },
+  "createScenario": {},
   "playersPanel": {
     "removePlayer": "Quitar jugador",
     "ammoReserve": "Reserva",
@@ -100,7 +97,6 @@
     "shape": "Forma",
     "height": "Altura",
     "elevation": "Elevación",
-    "keepHeight": "Mantener la altura existente",
     "paintBucket": "Bote de pintura",
     "none": "Ninguno"
   },

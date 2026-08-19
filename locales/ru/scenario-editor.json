@@ -86,10 +86,7 @@
       "presentation": "Отображение"
     }
   },
-  "createScenario": {
-    "randomMap": "Случайная (процедурная) карта?",
-    "isHybrid": "Гибридная?"
-  },
+  "createScenario": {},
   "playersPanel": {
     "removePlayer": "Убрать игрока",
     "ammoReserve": "Резерв",
@@ -100,7 +97,6 @@
     "shape": "Форма",
     "height": "Высота",
     "elevation": "Возвышение",
-    "keepHeight": "Сохранить текущую высоту",
     "paintBucket": "Заливка",
     "none": "Нет"
   },

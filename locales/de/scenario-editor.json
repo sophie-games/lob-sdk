@@ -86,10 +86,7 @@
       "presentation": "Darstellung"
     }
   },
-  "createScenario": {
-    "randomMap": "Zufällige (prozedurale) Karte?",
-    "isHybrid": "Hybrid?"
-  },
+  "createScenario": {},
   "playersPanel": {
     "removePlayer": "Spieler entfernen",
     "ammoReserve": "Reserve",
@@ -100,7 +97,6 @@
     "shape": "Form",
     "height": "Höhe",
     "elevation": "Erhebung",
-    "keepHeight": "Vorhandene Höhe beibehalten",
     "paintBucket": "Füllwerkzeug",
     "none": "Keine"
   },
