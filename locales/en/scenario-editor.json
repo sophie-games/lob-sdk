@@ -78,7 +78,7 @@
     "allowDynamicArmy": "Allow dynamic army",
     "allowDynamicArmyHelp": "When on, players build their own army for the battle type and deploy it inside their zones. When off, they fight with the units you placed on the map and the army screen is skipped.",
     "fixedRoster": "Fixed roster",
-    "fixedRosterHelp": "When on, the scenario decides the player slots, the teams, and the ammunition each side gets, and nobody can be added or removed in the lobby. When off, the lobby or matchmaking decides who plays.",
+    "fixedRosterHelp": "When on, the scenario decides the player slots, the teams, and the ammunition each side gets, and nobody can be added or removed in the lobby, and the Players section below is yours to edit. When off, the lobby or matchmaking decides who plays, and that section is grayed because the roster is no longer the scenario's to set.",
     "allowDeploymentPhase": "Deployment phase",
     "allowDeploymentPhaseHelp": "When on, the battle opens with one extra turn before any fighting, so each player can rearrange their units inside their deployment zone. When off, the fighting starts at once, with no chance to reposition first.",
     "placeableObjectives": "Player-placed objectives",
@@ -105,16 +105,20 @@
       "inspect": "Choose a piece you have placed and its settings appear here.",
       "test": "The play button at the top tries your battle out against a bot.",
       "saved": "Your work is kept as you go, so you can leave and pick it up later.",
-      "navigate": "Drag with the middle mouse button to move around the map, and scroll to zoom in and out.",
-      "selectMany": "Drag a box across the map to take hold of several units at once.",
-      "navigateTouch": "Drag with two fingers to move around the map, and pinch to zoom in and out.",
-      "placingTouch": "Pick a tool, then tap the map to put something down.",
-      "selectManyTouch": "Press and hold, then drag, to take hold of several units at once."
+      "placingTouch": "Pick a tool, then tap the map to put something down."
     }
   },
   "createScenario": {
-    "randomMap": "Random (procedural) map?",
-    "isHybrid": "Is Hybrid?"
+    "mapBand": "Map",
+    "forcesBand": "Forces",
+    "terrainLabel": "Terrain",
+    "terrainPreset": "Painted",
+    "terrainProcedural": "Generated",
+    "terrainHelp": "Painted terrain is yours to lay down tile by tile, and ships with the scenario exactly as you leave it. Generated terrain is drawn fresh for every battle from instructions you write in the Map panel, so no two matches are fought on the same ground.",
+    "rosterLabel": "Roster",
+    "rosterFixed": "Fixed",
+    "rosterDynamic": "Dynamic",
+    "rosterHelp": "A fixed roster means the scenario decides the player slots, the teams and the ammunition, and everyone fights with the units you placed. A dynamic roster leaves the slots to the lobby or to matchmaking, and players bring their own armies to the battle."
   },
   "playersPanel": {
     "playerNumbered": "Player {{number}}",
@@ -133,7 +137,9 @@
     "setHeightHelp": "Ticked, the brush writes the height above onto every tile it paints. Unticked, it paints terrain only and leaves each tile at the elevation it already has.",
     "paintBucket": "Paint bucket",
     "paintBucketHelp": "Ticked, one press fills the whole connected run of matching terrain, however large, so radius does not apply. Unticked, the brush covers the radius you set.",
-    "none": "None"
+    "none": "None",
+    "brushHeightGroup": "Elevation",
+    "brushShapeGroup": "Shape"
   },
   "unitPanel": {
     "unitType": "Unit type",
@@ -166,6 +172,7 @@
     "title": "Deployment zones",
     "hint": "These zones are where each army starts the battle.",
     "phaseHelp": "With the deployment phase on, players get one extra turn before the fighting begins, purely to shuffle their units around inside their zone.",
+    "gateHelp": "These zones are editable while any one of Allow dynamic army, Deployment phase or Player-placed objectives is on, since each of the three needs somewhere for an arriving army to start. With all three off they are grayed, and on a procedural map they are grayed as well, the zones there being authored as percentages in the Random map panel instead.",
     "team": "Team {{team}}",
     "mainZone": "Main",
     "forwardZone": "Forward",
@@ -474,11 +481,11 @@
     "transfer": {
       "importTitle": "Import",
       "importDescription": "Bring work across from another scenario. Choose a file, then take all of it or untick anything you would rather leave behind. Anything that scenario does not carry is grayed out.",
-      "chooseSource": "Where from",
+      "whatComesIn": "What comes in",
       "importAction": "Import",
       "exportTitle": "Export",
       "exportDescription": "Send this scenario's own work out as a file, ready to bring into another. Everything is included unless you untick it.",
-      "whatToSend": "What to send",
+      "whatGoesOut": "What goes out",
       "exportAction": "Export",
       "allCategories": "All categories"
     },
@@ -804,6 +811,7 @@
     "useSeed": "Use seed?",
     "useSeedDescription": "Generate terrain using procedural generation",
     "confirmOverwriteLabel": "Replace all the terrain",
+    "confirmOverwriteHelp": "This is what unlocks Generate below. When on, generating discards every tile of terrain on the map and draws a new one from these instructions. When off, Generate stays disabled, so a map you have worked on cannot be overwritten by a stray press.",
     "lastUsedSeed": "Last used seed:",
     "generate": "Generate",
     "importMustBeProcedural": "That file needs to be a procedural template. It must carry generation instructions and no baked map.",
@@ -858,28 +866,31 @@
   },
   "scoring": {
     "heading": "VP weights",
-    "hint": "Leave a field empty to use the battle type's own figure, or the era's.",
+    "hint": "How each side's victory points are earned and weighted over the battle.",
     "basePoints": "Base points weight",
     "casualties": "Casualties weight",
     "underPressure": "Under-pressure penalty",
     "pressureThreshold": "Pressure threshold",
-    "basePointsInfo": "Starting VP both teams get before casualties, objectives, or pressure are applied.",
-    "casualtiesInfo": "Max VP from the casualty difference between teams. Higher favours attrition over holding objectives.",
-    "underPressureInfo": "VP a team loses per turn while under pressure. 0 disables the penalty.",
-    "pressureThresholdInfo": "A team is under pressure while it holds this % of objective VP or less.",
+    "basePointsInfo": "Starting VP both teams get before casualties, objectives, or pressure are applied. Leave it empty to use the battle type's own figure, or the era's.",
+    "casualtiesInfo": "Max VP from the casualty difference between teams. Higher favours attrition over holding objectives. Leave it empty to use the battle type's own figure, or the era's.",
+    "underPressureInfo": "VP a team loses per turn while under pressure. 0 disables the penalty. Leave it empty to use the battle type's own figure, or the era's.",
+    "pressureThresholdInfo": "A team is under pressure while it holds this % of objective VP or less. Leave it empty to use the battle type's own figure, or the era's.",
     "bigDefault": "Default big-objective VP",
-    "bigDefaultInfo": "Fallback VP for a big objective that doesn't set its own value. Individual objectives can still override it.",
+    "bigDefaultInfo": "Fallback VP for a big objective that doesn't set its own value. Individual objectives can still override it. Leave it empty to use the battle type's own figure, or the era's.",
     "smallDefault": "Default small-objective VP",
-    "smallDefaultInfo": "Fallback VP for a small objective that doesn't set its own value. Individual objectives can still override it.",
+    "smallDefaultInfo": "Fallback VP for a small objective that doesn't set its own value. Individual objectives can still override it. Leave it empty to use the battle type's own figure, or the era's.",
     "tieBreak": "Tie-break margin",
-    "tieBreakInfo": "On the final turn, a team trailing on VP by more than this is treated as defeated."
+    "tieBreakInfo": "On the final turn, a team trailing on VP by more than this is treated as defeated. Leave it empty to use the battle type's own figure, or the era's."
+  },
+  "objectiveOwnership": {
+    "help": "Objectives are held by a team, always. On a scenario with a fixed roster this field names a player, and the objective belongs to that player's team. On a scenario built for dynamic armies there are no player slots until matchmaking fills them, so the field names the team directly."
   },
   "objectiveZones": {
     "heading": "Objective zones",
-    "hint": "How much to shrink the areas where objectives can be placed. Leave a field empty to use the battle type's own figure, or the era's.",
+    "hint": "How much to shrink the areas where objectives can be placed.",
     "smallInset": "Small-objective zone trim",
     "bigInset": "Big-objective zone trim",
-    "smallInsetInfo": "How much to narrow the small-objective zone on each side. Trims only its width, keeping its vertical reach.",
-    "bigInsetInfo": "How much to shrink the big-objective box on each side, centered inside the deployment zone."
+    "smallInsetInfo": "How much to narrow the small-objective zone on each side. Trims only its width, keeping its vertical reach. Leave it empty to use the battle type's own figure, or the era's.",
+    "bigInsetInfo": "How much to shrink the big-objective box on each side, centered inside the deployment zone. Leave it empty to use the battle type's own figure, or the era's."
   }
 }
