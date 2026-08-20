@@ -122,7 +122,7 @@
     "slotActionFailed": "การดำเนินการไม่สำเร็จ โปรดลองอีกครั้ง",
     "hostWithLobby": "โฮสต์เกมพร้อมล็อบบี้",
     "allowUnbalancedTeams": "อนุญาตให้ทีมไม่สมดุล",
-    "joinSlot": "เข้าร่วมทีม {{team}} - ผู้เล่น {{slot}}",
+    "joinSlot": "เข้าร่วมเป็นผู้เล่น {{slot}}",
     "slotTaken": "ที่นั่งถูกยึดแล้ว",
     "slotClosed": "ปิดแล้ว",
     "closeSlot": "ปิด",
@@ -155,5 +155,6 @@
   "confirmArmy": "ยืนยันกองทัพ",
   "armyInvalidForPlayer": "กองทัพของผู้เล่น {{player}} ไม่ถูกต้อง: {{message}}",
   "startGame": "เริ่มเกม",
-  "startGameAsSpectator": "เริ่มเกมในฐานะผู้ชม"
+  "startGameAsSpectator": "เริ่มเกมในฐานะผู้ชม",
+  "teamN": "ทีม {{number}}"
 }
