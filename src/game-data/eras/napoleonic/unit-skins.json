@@ -925,19 +925,19 @@
   },
   {
     "id": 61,
-    "name": "russian-lifeguards",
+    "name": "russian-lifeguard-grenadiers",
     "tier": 1,
     "premiumPrice": 150,
-    "unitType": 4,
+    "unitType": 14,
     "formations": {
       "column": {
-        "overlay": "russian-lifeguards-column"
+        "overlay": "russian-lifeguard-grenadiers-column"
       },
       "line": {
-        "overlay": "russian-lifeguards-line"
+        "overlay": "russian-lifeguard-grenadiers-line"
       },
       "square": {
-        "overlay": "russian-lifeguards-square"
+        "overlay": "russian-grenadiers-square"
       }
     },
     "discount": 0.2
@@ -3272,7 +3272,7 @@
     "name": "chilean-viejos-estandartes",
     "tier": 1,
     "premiumPrice": 150,
-    "unitType": 1,
+    "unitType": 4,
     "formations": {
       "column": {
         "overlay": "chilean-viejos-estandartes-column"
