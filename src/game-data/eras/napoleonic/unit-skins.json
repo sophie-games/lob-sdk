@@ -4411,5 +4411,31 @@
       }
     },
     "discount": 0.2
+  },
+  {
+    "id": 279,
+    "name": "austrian-jagers",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 17,
+    "formations": {
+      "skirmish": {
+        "overlay": "austrian-jagers"
+      }
+    },
+    "discount": 0.2
+  },
+  {
+    "id": 280,
+    "name": "austrian-czech-skirmishers",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 16,
+    "formations": {
+      "skirmish": {
+        "overlay": "austrian-czech-skirmishers"
+      }
+    },
+    "discount": 0.2
   }
 ]
