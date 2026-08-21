@@ -1379,7 +1379,14 @@
     "premiumPrice": 150,
     "unitType": 10,
     "locked": true,
-    "formations": {},
+    "formations": {
+      "column": {
+        "overlay": "argentinian-pardos-y-morenos-column"
+      },
+      "line": {
+        "overlay": "argentinian-pardos-y-morenos-line"
+      }
+    },
     "discount": 0.2
   },
   {
