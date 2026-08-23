@@ -16,6 +16,13 @@
     "purchase": "Purchase {{amount}} {{currency}}"
   },
 
+  "sale": {
+    "title": "Weekly sale",
+    "description": "{{items}} items at -{{discount}}% off, this week only.",
+    "endsIn": "Ends in {{days}}d {{hours}}h",
+    "endsInHours": "Ends in {{hours}}h"
+  },
+
   "purchaseConfirmation": "Are you sure you want to purchase {{item}}?",
   "showPurchased": "Show purchased",
   "offlineWarning": "Purchased items only work in online mode, not offline."
