@@ -107,6 +107,15 @@
   "addMatchmakingConfig": "Add matchmaking configuration",
   "matchmakingModeSwitchWarning": "Fast and Slow configurations cannot be sent together. If you change to {{mode}}, the other configuration(s) will be reset. Do you want to proceed?",
   "matchmakingDescription": "Matchmaking mode lets you quickly join a game with random players using predefined settings.",
+  "matchmakingSpeed": {
+    "title": "How do you want to play?",
+    "fastTitle": "Play now",
+    "fastDescription": "A live battle from start to finish, in one sitting.",
+    "slowTitle": "Play over days",
+    "slowDescription": "One turn at a time. Play whenever you have a minute.",
+    "slowDescriptionPush": "One turn at a time. We notify you when it's your move.",
+    "partyFastOnly": "Parties can only play live games for now."
+  },
   "skipTutorialTitle": "Skip tutorial",
   "skipTutorialMessage": "Skip the rest of the tutorial and return to the menu? You won't be asked to complete it again.",
   "goToTutorial": "Go to tutorial",
