@@ -23,6 +23,11 @@
     "endsInHours": "Ends in {{hours}}h"
   },
 
+  "firstPurchase": {
+    "banner": "Your first purchase is doubled: every package credits {{multiplier}}x the {{currency}}.",
+    "badge": "{{multiplier}}x first purchase"
+  },
+
   "purchaseConfirmation": "Are you sure you want to purchase {{item}}?",
   "showPurchased": "Show purchased",
   "offlineWarning": "Purchased items only work in online mode, not offline."
