@@ -238,6 +238,17 @@
     "description": "Select the era for gameplay. Changing this will affect available units, scenarios, and game mechanics."
   },
   "appearance": "Appearance",
+  "notifications": {
+    "title": "Notifications",
+    "turnActivity": {
+      "title": "Turns",
+      "description": "Notify me when a turn resolves and when my time bank is about to run out."
+    },
+    "chat": {
+      "title": "Messages",
+      "description": "Notify me when a friend sends me a message."
+    }
+  },
   "theme": {
     "presetTitle": "Theme preset",
     "presetDescription": "Recolor the whole app. Custom colors need a paid tier.",
