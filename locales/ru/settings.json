@@ -238,6 +238,25 @@
     "description": "Выберите эпоху для игры. Эпоха влияет на доступные отряды, сценарии, и на применяемые игровые механики."
   },
   "appearance": "Оформление",
+  "notifications": {
+    "title": "Уведомления",
+    "turnActivity": {
+      "title": "Ходы",
+      "description": "Уведомлять о завершении хода и о том, что банк времени на исходе."
+    },
+    "chat": {
+      "title": "Сообщения",
+      "description": "Уведомлять, когда друг присылает сообщение."
+    },
+    "matchmaking": {
+      "title": "Подбор соперника",
+      "description": "Уведомлять, когда кто-то встаёт в отслеживаемую очередь и когда для медленной игры находятся соперники."
+    },
+    "reminders": {
+      "title": "Напоминания",
+      "description": "Уведомлять, когда серия дней вот-вот прервётся."
+    }
+  },
   "theme": {
     "presetTitle": "Готовая тема",
     "presetDescription": "Перекрасьте всё приложение. Свои цвета доступны на платном уровне.",
@@ -283,5 +302,11 @@
     "set": "Задать группу {{group}}",
     "add": "Добавить в группу {{group}}",
     "setExclusive": "Только в группу {{group}}"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

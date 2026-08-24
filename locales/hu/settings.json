@@ -207,6 +207,25 @@
     "description": "Szabályozza a terep textúrák minőségét. A magasabb minőség jobb vizuális részleteket biztosít, de befolyásolhatja a teljesítményt. Megköveteli a térkép frissítését."
   },
   "appearance": "Megjelenés",
+  "notifications": {
+    "title": "Értesítések",
+    "turnActivity": {
+      "title": "Körök",
+      "description": "Értesíts, ha egy kör lezárul, és ha a bankidőm mindjárt lejár."
+    },
+    "chat": {
+      "title": "Üzenetek",
+      "description": "Értesíts, ha egy barátom üzenetet küld."
+    },
+    "matchmaking": {
+      "title": "Meccskeresés",
+      "description": "Értesíts, ha valaki csatlakozik egy figyelt várólistához, és ha egy lassú játék megtalálja a játékosait."
+    },
+    "reminders": {
+      "title": "Emlékeztetők",
+      "description": "Értesíts, ha a napi sorozatom mindjárt megszakad."
+    }
+  },
   "theme": {
     "presetTitle": "Témabeállítás",
     "presetDescription": "Színezd át az egész alkalmazást. Az egyéni színek fizetős szintet igényelnek.",
@@ -252,5 +271,11 @@
     "set": "{{group}}. csoport beállítása",
     "add": "Hozzáadás a(z) {{group}}. csoporthoz",
     "setExclusive": "Csak a(z) {{group}}. csoportba"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

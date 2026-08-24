@@ -88,7 +88,15 @@
     "cancelledBy": "تم إلغاء الطابور بواسطة {{username}}.",
     "playersInQueue": "{{count}} لاعب يبحث",
     "disconnectedReconnecting": "فُقد الاتصال. إعادة الاتصال",
-    "eloBoostActive": "تعزيز Elo ×{{multiplier}} مفعّل"
+    "eloBoostActive": "تعزيز Elo ×{{multiplier}} مفعّل",
+    "watch": "أعلمني عندما ينضم لاعب إلى الطابور",
+    "watchArmed": "سنعلمك عندما ينضم لاعب إلى الطابور، خلال الـ 24 ساعة القادمة."
+  },
+  "streak": {
+    "title": "سلسلة الأيام",
+    "kept": "تم احتسابه لليوم.",
+    "play": "العب مباراة مصنفة اليوم.",
+    "nextReward": "اليوم التالي: +{{amount}}"
   },
   "fastMode": "الوضع السريع",
   "slowMode": "الوضع البطيء",
@@ -109,6 +117,15 @@
   "addMatchmakingConfig": "إضافة تكوين مطابقة",
   "matchmakingModeSwitchWarning": "لا يمكن إرسال التكوينات السريعة والبطيئة معاً. إذا قمت بالتغيير إلى وضع {{mode}}، فسيتم إعادة تعيين التكوينات الأخرى. هل تريد الاستمرار؟",
   "matchmakingDescription": "وضع المطابقة يتيح لك الانضمام بسرعة إلى لعبة مع لاعبين عشوائيين باستخدام إعدادات محددة مسبقاً.",
+  "matchmakingSpeed": {
+    "title": "كيف تريد أن تلعب؟",
+    "fastTitle": "العب الآن",
+    "fastDescription": "معركة مباشرة من البداية إلى النهاية في جلسة واحدة.",
+    "slowTitle": "العب على مدى أيام",
+    "slowDescription": "دور واحد في كل مرة. العب متى توفرت لديك دقيقة.",
+    "slowDescriptionPush": "دور واحد في كل مرة. سنعلمك عندما يحين دورك.",
+    "partyFastOnly": "يمكن للمجموعات لعب المباريات المباشرة فقط في الوقت الحالي."
+  },
   "requiredInMatchmakingQueue": "دائماً في الطابور",
   "requiredScenarioBadge": "مطلوب",
   "onlyPartyLeaderCanSearch": "قائد المجموعة فقط يمكنه البحث عن مباراة.",
@@ -700,7 +717,9 @@
     "leagueBracketTooltip": "يمكن الانضمام فقط للاعبين ضمن نطاق الدوري هذا",
     "eloTooLow": "مستوى دوريك منخفض جداً للانضمام إلى هذه الساحة",
     "eloTooHigh": "مستوى دوريك مرتفع جداً للانضمام إلى هذه الساحة",
-    "invalidLeagueBracket": "نطاق دوري غير صالح"
+    "invalidLeagueBracket": "نطاق دوري غير صالح",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "open": "مفتوح",
   "closed": "مغلق",
@@ -866,10 +885,7 @@
   },
   "selectFormation": "اختيار التشكيل",
   "whatsNew": {
-    "title": "ما الجديد",
-    "p1": "تحقق من أحدث التحديثات والميزات في خطوط المعركة!",
-    "p2": "ترقب المزيد من التحديثات والميزات الجديدة القادمة إلى خطوط المعركة!",
-    "p3": "تابعنا على وسائل التواصل الاجتماعي للحصول على آخر الأخبار والإعلانات."
+    "title": "ما الجديد"
   },
   "invitedPlayers": "لاعبون مدعوون",
   "partyInviteFrom": "دعوة مجموعة من {{username}}",
@@ -955,9 +971,6 @@
   "baseAmmo": "ذخيرة أساسية",
   "range": "المدى",
   "discord": {
-    "joinTitle": "انضم إلى سيرفر Discord الرسمي للعبة Lines of Battle",
-    "joinSubtitle": "تحدث مع المجتمع، وابحث عن خصوم، واطّلع على آخر الأخبار.",
-    "joinButton": "انضم إلى السيرفر",
     "link": "ربط Discord",
     "unlink": "إلغاء ربط Discord",
     "confirmMessage": "هل أنت متأكد من أنك تريد إلغاء ربط حساب Discord الخاص بك؟",
@@ -1039,5 +1052,28 @@
     "scheduled": "تمت جدولة حسابك للحذف خلال {{graceDays}} يومًا. سجّل الدخول مرة أخرى قبل ذلك الموعد لإلغائه.",
     "error": "تعذّرت جدولة حذف الحساب. يرجى المحاولة مرة أخرى."
   },
-  "startGameAsSpectator": "بدء اللعبة كمشاهد"
+  "startGameAsSpectator": "بدء اللعبة كمشاهد",
+  "clanAverageLeague": "دوري التحالف",
+  "clanTag": "وسم الائتلاف",
+  "clanTagHelp": "من حرفين إلى 5 أحرف أو أرقام. الوسوم فريدة وتظهر بجانب أسماء اللاعبين.",
+  "clanTagTaken": "وسم الائتلاف هذا مستخدم بالفعل.",
+  "clanTagInvalid": "استخدم من حرفين إلى 5 أحرف أو أرقام لوسم الائتلاف.",
+  "setClanTag": "تعيين الوسم",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

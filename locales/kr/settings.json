@@ -230,6 +230,25 @@
     "description": "지형 텍스쳐의 품질을 설정합니다. 품질이 높을수록 시각적 세부사항의 질이 향상되지만 성능에 영향을 줄 수 있습니다. 지도를 새로 고쳐야 합니다."
   },
   "appearance": "모양",
+  "notifications": {
+    "title": "알림",
+    "turnActivity": {
+      "title": "턴",
+      "description": "턴이 처리될 때와 뱅크 시간이 얼마 남지 않았을 때 알립니다."
+    },
+    "chat": {
+      "title": "메시지",
+      "description": "친구가 메시지를 보내면 알립니다."
+    },
+    "matchmaking": {
+      "title": "경기 탐색",
+      "description": "지켜보는 대기열에 누군가 들어오거나 장기전의 상대가 모였을 때 알립니다."
+    },
+    "reminders": {
+      "title": "리마인더",
+      "description": "연속 일수가 끊기기 직전에 알립니다."
+    }
+  },
   "theme": {
     "presetTitle": "테마 프리셋",
     "presetDescription": "앱 전체의 색을 바꿉니다. 사용자 지정 색상은 유료 등급이 필요합니다.",
@@ -275,5 +294,11 @@
     "set": "{{group}}번 그룹 지정",
     "add": "{{group}}번 그룹에 추가",
     "setExclusive": "그룹 {{group}}에만 지정"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

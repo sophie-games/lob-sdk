@@ -1,8 +1,5 @@
 {
   "discord": {
-    "joinTitle": "เข้าร่วม Discord อย่างเป็นทางการของ Lines of Battle",
-    "joinSubtitle": "พูดคุยกับชุมชน หาคู่ต่อสู้ และติดตามข่าวสารล่าสุด",
-    "joinButton": "เข้าร่วมเซิร์ฟเวอร์"
   },
   "orderSpeed": "คำสั่ง",
   "orderChargeResistance": "คำสั่ง",
@@ -35,6 +32,25 @@
     "fixed": "ช่วงลีกแบบกำหนดเอง",
     "fixedDescription": "จับคู่เฉพาะคู่แข่งในลีกที่เลือกเท่านั้น",
     "done": "เสร็จสิ้น"
+  },
+  "matchmakingQueue": {
+    "watch": "แจ้งเตือนเมื่อมีคนเข้าคิว",
+    "watchArmed": "เราจะแจ้งเตือนคุณเมื่อมีคนเข้าคิว ภายใน 24 ชั่วโมงข้างหน้า"
+  },
+  "streak": {
+    "title": "วันต่อเนื่อง",
+    "kept": "นับสำหรับวันนี้แล้ว",
+    "play": "เล่นเกมจัดอันดับวันนี้",
+    "nextReward": "วันถัดไป: +{{amount}}"
+  },
+  "matchmakingSpeed": {
+    "title": "คุณอยากเล่นแบบไหน?",
+    "fastTitle": "เล่นตอนนี้",
+    "fastDescription": "การรบสดตั้งแต่ต้นจนจบในครั้งเดียว",
+    "slowTitle": "เล่นข้ามวัน",
+    "slowDescription": "ครั้งละหนึ่งรอบ เล่นตอนไหนก็ได้ที่คุณมีเวลาสักนาที",
+    "slowDescriptionPush": "ครั้งละหนึ่งรอบ เราจะแจ้งเตือนเมื่อถึงตาคุณ",
+    "partyFastOnly": "ตอนนี้ปาร์ตี้เล่นได้เฉพาะเกมสดเท่านั้น"
   },
   "maps": "แผนที่",
   "invalidScenarioFile": "ไฟล์นี้ไม่ใช่สถานการณ์ที่ถูกต้อง",
@@ -156,5 +172,32 @@
   "armyInvalidForPlayer": "กองทัพของผู้เล่น {{player}} ไม่ถูกต้อง: {{message}}",
   "startGame": "เริ่มเกม",
   "startGameAsSpectator": "เริ่มเกมในฐานะผู้ชม",
-  "teamN": "ทีม {{number}}"
+  "teamN": "ทีม {{number}}",
+  "clanAverageLeague": "Average Coalition League",
+  "clanTag": "แท็กพันธมิตร",
+  "clanTagHelp": "ตัวอักษรหรือตัวเลข 2–5 ตัว แท็กต้องไม่ซ้ำและจะแสดงข้างชื่อผู้เล่น",
+  "clanTagTaken": "แท็กพันธมิตรนี้ถูกใช้แล้ว",
+  "clanTagInvalid": "ใช้ตัวอักษรหรือตัวเลข 2–5 ตัวสำหรับแท็กพันธมิตร",
+  "setClanTag": "ตั้งค่าแท็ก",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge",
+  "arena": {
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
+  }
 }

@@ -16,6 +16,18 @@
     "purchase": "Mua {{amount}} {{currency}}"
   },
 
+  "sale": {
+    "title": "Ưu đãi tuần",
+    "description": "{{items}} vật phẩm giảm -{{discount}}%, chỉ tuần này.",
+    "endsIn": "Còn {{days}}ng {{hours}}h",
+    "endsInHours": "Còn {{hours}}h"
+  },
+
+  "firstPurchase": {
+    "banner": "Lần mua đầu tiên được nhân đôi: mỗi gói cộng {{multiplier}}x {{currency}}.",
+    "badge": "{{multiplier}}x lần mua đầu"
+  },
+
   "purchaseConfirmation": "Bạn có chắc chắn muốn mua {{item}}?",
   "showPurchased": "Hiển thị đã mua",
   "offlineWarning": "Các vật phẩm đã mua chỉ hoạt động ở chế độ trực tuyến, không phải ngoại tuyến."

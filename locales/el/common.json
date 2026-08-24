@@ -90,7 +90,15 @@
     "cancelledBy": "Η ουρά ακυρώθηκε από {{username}}.",
     "playersInQueue": "{{count}} παίκτες αναζητούν",
     "disconnectedReconnecting": "Η Σύνδεση Χάθηκε. Επανασύνδεση",
-    "eloBoostActive": "Elo boost ×{{multiplier}} ενεργό"
+    "eloBoostActive": "Elo boost ×{{multiplier}} ενεργό",
+    "watch": "Ειδοποίησέ με όταν κάποιος μπει στην ουρά",
+    "watchArmed": "Θα σε ειδοποιήσουμε όταν κάποιος μπει στην ουρά, για τις επόμενες 24 ώρες."
+  },
+  "streak": {
+    "title": "Σερί ημερών",
+    "kept": "Μετρήθηκε για σήμερα.",
+    "play": "Παίξε ένα παιχνίδι με κατάταξη σήμερα.",
+    "nextReward": "Επόμενη μέρα: +{{amount}}"
   },
   "fastMode": "Γρήγορη λειτουργία",
   "slowMode": "Αργή λειτουργία",
@@ -111,6 +119,15 @@
   "addMatchmakingConfig": "Προσθήκη ρύθμισης ουράς αναμονής",
   "matchmakingModeSwitchWarning": "Οι γρήγορες και αργές ρυθμίσεις δεν μπορούν να σταλούν μαζί. Εάν αλλάξετε σε λειτουργία {{mode}}, οι άλλες ρυθμίσεις θα μηδενιστούν. Θέλετε να συνεχίσετε;",
   "matchmakingDescription": "Η λειτουργία Ουρά αναμονής σας επιτρέπει να συμμετάσχετε γρήγορα σε ένα παιχνίδι με τυχαίους παίκτες χρησιμοποιώντας προκαθορισμένες ρυθμίσεις.",
+  "matchmakingSpeed": {
+    "title": "Πώς θέλετε να παίξετε;",
+    "fastTitle": "Παίξε τώρα",
+    "fastDescription": "Μια ζωντανή μάχη από την αρχή ως το τέλος, σε μία συνεδρία.",
+    "slowTitle": "Παίξε σε πολλές μέρες",
+    "slowDescription": "Μία σειρά τη φορά. Παίξε όποτε έχεις ένα λεπτό.",
+    "slowDescriptionPush": "Μία σειρά τη φορά. Σε ειδοποιούμε όταν είναι η σειρά σου.",
+    "partyFastOnly": "Οι ομάδες μπορούν προς το παρόν να παίξουν μόνο ζωντανά παιχνίδια."
+  },
   "requiredInMatchmakingQueue": "Πάντα στην ουρά",
   "requiredScenarioBadge": "Υποχρεωτικό",
   "onlyPartyLeaderCanSearch": "Μόνο ο αρχηγός της ομάδας μπορεί να αναζητήσει μια αγώνα.",
@@ -645,7 +662,9 @@
     "leagueBracketTooltip": "Μπορούν να συμμετέχουν μόνο παίκτες εντός αυτού του εύρους λίγκας",
     "eloTooLow": "Η λίγκα σου είναι πολύ χαμηλή για να συμμετέχεις σε αυτή την αρένα",
     "eloTooHigh": "Η λίγκα σου είναι πολύ υψηλή για να συμμετέχεις σε αυτή την αρένα",
-    "invalidLeagueBracket": "Μη έγκυρο εύρος λίγκας"
+    "invalidLeagueBracket": "Μη έγκυρο εύρος λίγκας",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "open": "Ανοιχτό",
   "closed": "Κλειστό",
@@ -851,10 +870,7 @@
   },
   "selectFormation": "Επιλέξτε σχηματισμό",
   "whatsNew": {
-    "title": "Τι νέο υπάρχει",
-    "p1": "Δείτε τις τελευταίες ενημερώσεις και λειτουργίες στο Lines of Battle!",
-    "p2": "Μείνετε συντονισμένοι για περισσότερες ενημερώσεις και νέες δυνατότητες που έρχονται Lines of Battle!",
-    "p3": "Ακολουθήστε μας στα μέσα κοινωνικής δικτύωσης για τα τελευταία νέα και ανακοινώσεις."
+    "title": "Τι νέο υπάρχει"
   },
   "allVisible": "Όλα Ορατά",
   "teamN": "Ομάδα {{number}}",
@@ -906,9 +922,6 @@
   "baseAmmo": "Βασικά πυρομαχικά",
   "range": "Εμβέλεια",
   "discord": {
-    "joinTitle": "Μπες στο επίσημο Discord του Lines of Battle",
-    "joinSubtitle": "Μίλα με την κοινότητα, βρες αντιπάλους και μάθε τα τελευταία νέα.",
-    "joinButton": "Είσοδος στον διακομιστή",
     "link": "Σύνδεση Discord",
     "unlink": "Αποσύνδεση Discord",
     "confirmMessage": "Είστε σίγουροι ότι θέλετε να αποσυνδέσετε τον λογαριασμό Discord σας;",
@@ -985,5 +998,28 @@
     "scheduled": "Ο λογαριασμός σας έχει προγραμματιστεί για διαγραφή σε {{graceDays}} ημέρες. Συνδεθείτε ξανά πριν από τότε για να την ακυρώσετε.",
     "error": "Δεν ήταν δυνατός ο προγραμματισμός διαγραφής λογαριασμού. Δοκιμάστε ξανά."
   },
-  "startGameAsSpectator": "Έναρξη παιχνιδιού ως θεατής"
+  "startGameAsSpectator": "Έναρξη παιχνιδιού ως θεατής",
+  "clanAverageLeague": "Λίγκα Συμμαχίας",
+  "clanTag": "Ετικέτα συνασπισμού",
+  "clanTagHelp": "2–5 γράμματα ή αριθμοί. Οι ετικέτες είναι μοναδικές και εμφανίζονται δίπλα στα ονόματα παικτών.",
+  "clanTagTaken": "Αυτή η ετικέτα συνασπισμού χρησιμοποιείται ήδη.",
+  "clanTagInvalid": "Χρησιμοποίησε 2–5 γράμματα ή αριθμούς για την ετικέτα συνασπισμού.",
+  "setClanTag": "Ορισμός ετικέτας",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

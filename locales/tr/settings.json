@@ -207,6 +207,25 @@
     "description": "Arazi dokularının kalitesini kontrol eder. Daha yüksek kalite daha iyi görsel detaylar sağlar ancak performansı etkileyebilir. Haritanın yenilenmesini gerektirir."
   },
   "appearance": "Görünüm",
+  "notifications": {
+    "title": "Bildirimler",
+    "turnActivity": {
+      "title": "Turlar",
+      "description": "Bir tur sonuçlandığında ve banka sürem bitmek üzereyken bana bildir."
+    },
+    "chat": {
+      "title": "Mesajlar",
+      "description": "Bir arkadaşım mesaj gönderdiğinde bana bildir."
+    },
+    "matchmaking": {
+      "title": "Eşleştirme",
+      "description": "İzlediğim bir kuyruğa biri girdiğinde ve yavaş bir oyun oyuncularını bulduğunda bana bildir."
+    },
+    "reminders": {
+      "title": "Hatırlatıcılar",
+      "description": "Gün serim sona ermek üzereyken bana bildir."
+    }
+  },
   "theme": {
     "presetTitle": "Hazır tema",
     "presetDescription": "Tüm uygulamayı yeniden renklendirin. Özel renkler ücretli bir seviye gerektirir.",
@@ -252,5 +271,11 @@
     "set": "{{group}}. grubu ayarla",
     "add": "{{group}}. gruba ekle",
     "setExclusive": "Yalnızca {{group}}. gruba ata"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

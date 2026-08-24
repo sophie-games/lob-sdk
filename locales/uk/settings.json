@@ -201,6 +201,25 @@
     "description": "Налаштуйте порядок кнопок у нижній частині екрана під час гри."
   },
   "appearance": "Оформлення",
+  "notifications": {
+    "title": "Сповіщення",
+    "turnActivity": {
+      "title": "Ходи",
+      "description": "Сповіщати про завершення ходу та коли час банку добігає кінця."
+    },
+    "chat": {
+      "title": "Повідомлення",
+      "description": "Сповіщати, коли друг надсилає повідомлення."
+    },
+    "matchmaking": {
+      "title": "Швидка гра",
+      "description": "Сповіщати, коли хтось стає у відстежувану чергу і коли повільна гра знаходить гравців."
+    },
+    "reminders": {
+      "title": "Нагадування",
+      "description": "Сповіщати, коли серія днів ось-ось перерветься."
+    }
+  },
   "theme": {
     "presetTitle": "Готова тема",
     "presetDescription": "Перефарбуйте весь застосунок. Власні кольори доступні на платному рівні.",
@@ -246,5 +265,11 @@
     "set": "Задати групу {{group}}",
     "add": "Додати до групи {{group}}",
     "setExclusive": "Тільки в групу {{group}}"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

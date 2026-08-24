@@ -238,6 +238,25 @@
     "description": "选择你想游玩的年代。该设置会改变可玩的单位，战役和游戏机制，"
   },
   "appearance": "外观",
+  "notifications": {
+    "title": "通知",
+    "turnActivity": {
+      "title": "回合",
+      "description": "回合结算时以及我的银行时间即将耗尽时通知我。"
+    },
+    "chat": {
+      "title": "消息",
+      "description": "好友给我发消息时通知我。"
+    },
+    "matchmaking": {
+      "title": "匹配",
+      "description": "有人加入我关注的队列时，以及慢速对局凑齐玩家时通知我。"
+    },
+    "reminders": {
+      "title": "提醒",
+      "description": "我的连续天数即将中断时通知我。"
+    }
+  },
   "theme": {
     "presetTitle": "主题预设",
     "presetDescription": "为整个应用重新配色。自定义颜色需要付费等级。",
@@ -283,5 +302,11 @@
     "set": "设置编组 {{group}}",
     "add": "加入编组 {{group}}",
     "setExclusive": "仅编入编组 {{group}}"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

@@ -207,6 +207,25 @@
     "description": "地形テクスチャの品質を制御します。より高い品質はより良い視覚的詳細を提供しますが、パフォーマンスに影響を与える可能性があります。マップの更新が必要です。"
   },
   "appearance": "外観",
+  "notifications": {
+    "title": "通知",
+    "turnActivity": {
+      "title": "ターン",
+      "description": "ターンが処理されたとき、バンク時間が残り少ないときに通知します。"
+    },
+    "chat": {
+      "title": "メッセージ",
+      "description": "フレンドからメッセージが届いたときに通知します。"
+    },
+    "matchmaking": {
+      "title": "マッチメイキング",
+      "description": "監視中のキューに誰かが入ったとき、低速モードの対戦相手が揃ったときに通知します。"
+    },
+    "reminders": {
+      "title": "リマインダー",
+      "description": "連続日数が途切れそうなときに通知します。"
+    }
+  },
   "theme": {
     "presetTitle": "テーマプリセット",
     "presetDescription": "アプリ全体の配色を変更します。カスタムカラーには有料プランが必要です。",
@@ -252,5 +271,11 @@
     "set": "グループ{{group}}を設定",
     "add": "グループ{{group}}に追加",
     "setExclusive": "グループ {{group}} のみに設定"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

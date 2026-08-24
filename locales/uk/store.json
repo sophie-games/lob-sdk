@@ -13,6 +13,16 @@
     "rate": "{{rate}} {{currency}} за Долар США",
     "purchase": "Купити {{amount}} {{currency}}"
   },
+  "sale": {
+    "title": "Розпродаж тижня",
+    "description": "{{items}} предметів зі знижкою -{{discount}}%, лише цього тижня.",
+    "endsIn": "Залишилось {{days}}д {{hours}}год",
+    "endsInHours": "Залишилось {{hours}}год"
+  },
+  "firstPurchase": {
+    "banner": "Перша покупка подвоюється: кожен набір нараховує {{multiplier}}x {{currency}}.",
+    "badge": "{{multiplier}}x за першу покупку"
+  },
   "purchaseConfirmation": "Ви впевнені, що хочете придбати {{item}}?",
   "offlineWarning": "Придбані предмети працюють лише в онлайн-режимі, не в офлайн-режимі."
 }

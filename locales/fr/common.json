@@ -78,7 +78,15 @@
     "cancelledBy": "La file a été annulée par {{username}}.",
     "playersInQueue": "{{count}} joueurs en recherche",
     "disconnectedReconnecting": "Connexion Perdue. Reconnexion",
-    "eloBoostActive": "Boost Elo ×{{multiplier}} actif"
+    "eloBoostActive": "Boost Elo ×{{multiplier}} actif",
+    "watch": "Me prévenir quand quelqu'un rejoint la file",
+    "watchArmed": "Nous vous préviendrons quand quelqu'un rejoint la file, pendant les 24 prochaines heures."
+  },
+  "streak": {
+    "title": "Série de jours",
+    "kept": "Comptabilisé pour aujourd'hui.",
+    "play": "Jouez une partie classée aujourd'hui.",
+    "nextReward": "Jour suivant : +{{amount}}"
   },
   "fastMode": "Partie rapide",
   "slowMode": "Partie longue",
@@ -99,6 +107,15 @@
   "addMatchmakingConfig": "Ajouter une configuration d'appariement",
   "matchmakingModeSwitchWarning": "Les configurations rapides et lentes ne peuvent pas être envoyées ensemble. Si vous passez au mode {{mode}}, les autres configurations seront réinitialisées. Voulez-vous continuer ?",
   "matchmakingDescription": "Le mode classé vous permet de rejoindre une bataille contre des joueurs inconnus en utilisant des réglages prédéfinis.",
+  "matchmakingSpeed": {
+    "title": "Comment voulez-vous jouer ?",
+    "fastTitle": "Jouer maintenant",
+    "fastDescription": "Une bataille en direct du début à la fin, d'une traite.",
+    "slowTitle": "Jouer sur plusieurs jours",
+    "slowDescription": "Un tour à la fois. Jouez dès que vous avez une minute.",
+    "slowDescriptionPush": "Un tour à la fois. Nous vous prévenons quand c'est à vous.",
+    "partyFastOnly": "Les groupes ne peuvent jouer que des parties en direct pour l'instant."
+  },
   "requiredInMatchmakingQueue": "Toujours dans la file",
   "requiredScenarioBadge": "Requis",
   "custom": "Personnalisé",
@@ -554,10 +571,7 @@
     "message": "Le serveur est en cours de mise à jour. Veuillez réessayer dans quelques minutes."
   },
   "whatsNew": {
-    "title": "Quoi de neuf",
-    "p1": "Découvrez les dernières mises à jour et fonctionnalités de Lines of Battle !",
-    "p2": "Restez à l'écoute pour plus de mises à jour et de nouvelles fonctionnalités à venir dans Lines of Battle !",
-    "p3": "Suivez-nous sur les réseaux sociaux pour les dernières nouvelles et annonces."
+    "title": "Quoi de neuf"
   },
   "arenas": "Arènes",
   "arena": {
@@ -621,7 +635,9 @@
     "leagueBracketTooltip": "Seuls les joueurs dans cette tranche de ligue peuvent rejoindre",
     "eloTooLow": "Votre ligue est trop basse pour rejoindre cette arène",
     "eloTooHigh": "Votre ligue est trop haute pour rejoindre cette arène",
-    "invalidLeagueBracket": "Tranche de ligue invalide"
+    "invalidLeagueBracket": "Tranche de ligue invalide",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "hasPassword": "A un mot de passe",
   "optional": "Optionnel",
@@ -732,9 +748,6 @@
   "baseAmmo": "Munitions de base",
   "range": "Portée",
   "discord": {
-    "joinTitle": "Rejoignez le Discord officiel de Lines of Battle",
-    "joinSubtitle": "Discutez avec la communauté, trouvez des adversaires et suivez l'actualité.",
-    "joinButton": "Rejoindre le serveur",
     "link": "Lier Discord",
     "unlink": "Délier Discord",
     "confirmMessage": "Êtes-vous sûr de vouloir délier votre compte Discord ?",
@@ -857,5 +870,28 @@
     "scheduled": "Votre compte est programmé pour suppression dans {{graceDays}} jours. Reconnectez-vous avant cette échéance pour l'annuler.",
     "error": "Impossible de programmer la suppression du compte. Veuillez réessayer."
   },
-  "startGameAsSpectator": "Lancer la partie en tant que spectateur"
+  "startGameAsSpectator": "Lancer la partie en tant que spectateur",
+  "clanAverageLeague": "Ligue de la coalition",
+  "clanTag": "Tag de coalition",
+  "clanTagHelp": "2 à 5 lettres ou chiffres. Les tags sont uniques et affichés à côté du nom des joueurs.",
+  "clanTagTaken": "Ce tag de coalition est déjà utilisé.",
+  "clanTagInvalid": "Utilisez 2 à 5 lettres ou chiffres pour le tag de coalition.",
+  "setClanTag": "Définir le tag",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

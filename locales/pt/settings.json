@@ -207,6 +207,25 @@
     "description": "Controla a qualidade das texturas do terreno. Qualidade mais alta fornece melhores detalhes visuais, mas pode afetar o desempenho. Requer atualizar o mapa."
   },
   "appearance": "Aparência",
+  "notifications": {
+    "title": "Notificações",
+    "turnActivity": {
+      "title": "Turnos",
+      "description": "Avise-me quando um turno for resolvido e quando meu tempo de banco estiver acabando."
+    },
+    "chat": {
+      "title": "Mensagens",
+      "description": "Avise-me quando um amigo me enviar uma mensagem."
+    },
+    "matchmaking": {
+      "title": "Matchmaking",
+      "description": "Avise-me quando alguém entrar em uma fila que estou acompanhando e quando um jogo lento encontrar seus jogadores."
+    },
+    "reminders": {
+      "title": "Lembretes",
+      "description": "Avise-me quando minha sequência diária estiver prestes a acabar."
+    }
+  },
   "theme": {
     "presetTitle": "Tema predefinido",
     "presetDescription": "Recolore o app inteiro. Cores personalizadas exigem um nível pago.",
@@ -252,5 +271,11 @@
     "set": "Definir grupo {{group}}",
     "add": "Adicionar ao grupo {{group}}",
     "setExclusive": "Atribuir só ao grupo {{group}}"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }
