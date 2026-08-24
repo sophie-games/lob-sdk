@@ -86,7 +86,15 @@
     "cancelledBy": "The queue was cancelled by {{username}}.",
     "playersInQueue": "{{count}} players searching",
     "disconnectedReconnecting": "Connection Lost. Reconnecting",
-    "eloBoostActive": "Elo boost ×{{multiplier}} active"
+    "eloBoostActive": "Elo boost ×{{multiplier}} active",
+    "watch": "Notify me when someone queues",
+    "watchArmed": "We will notify you when someone queues, for the next 24 hours."
+  },
+  "streak": {
+    "title": "Day streak",
+    "kept": "Counted for today.",
+    "play": "Play a ranked game today.",
+    "nextReward": "Next day: +{{amount}}"
   },
   "fastMode": "Fast Mode",
   "slowMode": "Slow Mode",
