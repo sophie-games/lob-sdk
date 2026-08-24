@@ -16,6 +16,18 @@
     "purchase": "{{amount}} {{currency}} खरीदें"
   },
 
+  "sale": {
+    "title": "साप्ताहिक सेल",
+    "description": "{{items}} आइटम -{{discount}}% छूट पर, केवल इस हफ़्ते।",
+    "endsIn": "{{days}}दि {{hours}}घं में समाप्त",
+    "endsInHours": "{{hours}}घं में समाप्त"
+  },
+
+  "firstPurchase": {
+    "banner": "आपकी पहली खरीद दोगुनी है: हर पैकेज {{multiplier}}x {{currency}} देता है।",
+    "badge": "{{multiplier}}x पहली खरीद"
+  },
+
   "purchaseConfirmation": "क्या आप वाकई {{item}} खरीदना चाहते हैं?",
   "showPurchased": "खरीदे गए दिखाएं",
   "offlineWarning": "खरीदे गए आइटम केवल ऑनलाइन मोड में काम करते हैं, ऑफलाइन में नहीं।"

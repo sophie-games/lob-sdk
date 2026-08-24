@@ -86,7 +86,15 @@
     "cancelledBy": "キューは{{username}}によってキャンセルされました。",
     "playersInQueue": "{{count}}人のプレイヤーが検索中",
     "disconnectedReconnecting": "接続が切断されました。再接続中",
-    "eloBoostActive": "Eloブースト ×{{multiplier}} 有効"
+    "eloBoostActive": "Eloブースト ×{{multiplier}} 有効",
+    "watch": "誰かがキューに入ったら通知",
+    "watchArmed": "今後24時間、誰かがキューに入ったら通知します。"
+  },
+  "streak": {
+    "title": "連続日数",
+    "kept": "本日分は達成済みです。",
+    "play": "今日ランクマッチをプレイしましょう。",
+    "nextReward": "次の日: +{{amount}}"
   },
   "fastMode": "高速モード",
   "slowMode": "低速モード",
@@ -107,6 +115,15 @@
   "addMatchmakingConfig": "マッチメイキング設定を追加",
   "matchmakingModeSwitchWarning": "高速と低速の設定を同時に送信することはできません。{{mode}}モードに変更すると、他の設定はリセットされます。続行しますか？",
   "matchmakingDescription": "マッチメイキングモードでは、設定済みの条件でランダムなプレイヤーとすぐに対戦できます。",
+  "matchmakingSpeed": {
+    "title": "どのように遊びますか？",
+    "fastTitle": "今すぐプレイ",
+    "fastDescription": "最初から最後までリアルタイムで一気に戦います。",
+    "slowTitle": "数日かけてプレイ",
+    "slowDescription": "1ターンずつ。空いた時間にプレイできます。",
+    "slowDescriptionPush": "1ターンずつ。あなたの番になったら通知します。",
+    "partyFastOnly": "パーティーは現在ライブ対戦のみプレイできます。"
+  },
   "skipTutorialTitle": "チュートリアルをスキップ",
   "skipTutorialMessage": "チュートリアルの残りをスキップしてメニューに戻りますか？再度完了を求められることはありません。",
   "goToTutorial": "チュートリアルへ",

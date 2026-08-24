@@ -16,6 +16,18 @@
     "purchase": "Zakup {{amount}} {{currency}}"
   },
 
+  "sale": {
+    "title": "Cotygodniowa wyprzedaż",
+    "description": "{{items}} przedmiotów -{{discount}}% taniej, tylko w tym tygodniu.",
+    "endsIn": "Kończy się za {{days}}d {{hours}}h",
+    "endsInHours": "Kończy się za {{hours}}h"
+  },
+
+  "firstPurchase": {
+    "banner": "Twój pierwszy zakup jest podwojony: każdy pakiet daje {{multiplier}}x {{currency}}.",
+    "badge": "{{multiplier}}x pierwszy zakup"
+  },
+
   "purchaseConfirmation": "Na pewno chcesz kupić {{item}}?",
   "showPurchased": "Pokaż zakupione",
   "offlineWarning": "Zakupione przedmioty działają tylko w trybie online, nie offline."

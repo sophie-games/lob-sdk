@@ -89,7 +89,15 @@
     "cancelledBy": "A várólistát {{username}} törölte.",
     "playersInQueue": "{{count}} játékos keres",
     "disconnectedReconnecting": "Kapcsolat Megszakadt. Újracsatlakozás",
-    "eloBoostActive": "Elo-boost ×{{multiplier}} aktív"
+    "eloBoostActive": "Elo-boost ×{{multiplier}} aktív",
+    "watch": "Értesíts, ha valaki sorba áll",
+    "watchArmed": "A következő 24 órában értesítünk, ha valaki sorba áll."
+  },
+  "streak": {
+    "title": "Napi sorozat",
+    "kept": "Mára beszámítva.",
+    "play": "Játssz ma egy rangsorolt meccset.",
+    "nextReward": "Következő nap: +{{amount}}"
   },
   "fastMode": "Gyors mód",
   "slowMode": "Lassú mód",
@@ -110,6 +118,15 @@
   "addMatchmakingConfig": "Meccskeresési beállítás hozzáadása",
   "matchmakingModeSwitchWarning": "A gyors és lassú konfigurációk nem küldhetők el együtt. Ha átváltasz {{mode}} módra, a többi konfiguráció alaphelyzetbe áll. Szeretnéd folytatni?",
   "matchmakingDescription": "A meccskereső lehetővé teszi, hogy rövid idő alatt játékba került idegen játékosokkal.",
+  "matchmakingSpeed": {
+    "title": "Hogyan szeretnél játszani?",
+    "fastTitle": "Játék most",
+    "fastDescription": "Élő csata elejétől a végéig, egy ülésben.",
+    "slowTitle": "Játék napokon át",
+    "slowDescription": "Egyszerre egy kör. Játssz, amikor van egy perced.",
+    "slowDescriptionPush": "Egyszerre egy kör. Értesítünk, amikor te jössz.",
+    "partyFastOnly": "A csapatok egyelőre csak élő játékokat játszhatnak."
+  },
   "requiredInMatchmakingQueue": "Mindig a sorban",
   "requiredScenarioBadge": "Kötelező",
   "custom": "Személyre szabás",

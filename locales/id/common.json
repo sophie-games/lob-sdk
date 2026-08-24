@@ -90,7 +90,15 @@
     "cancelledBy": "Antrean dibatalkan oleh {{username}}.",
     "playersInQueue": "{{count}} pemain mencari",
     "disconnectedReconnecting": "Koneksi Terputus. Menyambung Ulang",
-    "eloBoostActive": "Boost Elo ×{{multiplier}} aktif"
+    "eloBoostActive": "Boost Elo ×{{multiplier}} aktif",
+    "watch": "Beri tahu saya jika ada yang masuk antrean",
+    "watchArmed": "Kami akan memberi tahu Anda jika ada yang masuk antrean, selama 24 jam ke depan."
+  },
+  "streak": {
+    "title": "Rentetan harian",
+    "kept": "Sudah dihitung untuk hari ini.",
+    "play": "Mainkan satu permainan peringkat hari ini.",
+    "nextReward": "Hari berikutnya: +{{amount}}"
   },
   "fastMode": "Mode Cepat",
   "slowMode": "Mode Lambat",
@@ -111,6 +119,15 @@
   "addMatchmakingConfig": "Tambah konfigurasi pencarian permainan",
   "matchmakingModeSwitchWarning": "Konfigurasi cepat dan lambat tidak dapat dikirim bersamaan. Jika Anda mengubah ke mode {{mode}}, konfigurasi lainnya akan disetel ulang. Apakah Anda ingin melanjutkan?",
   "matchmakingDescription": "Pencarian Permainan memungkinkan kamu untuk dengan cepat bergabung dalam permainan dengan pemain acak menggunakan pengaturan yang telah ditentukan sebelumnya.",
+  "matchmakingSpeed": {
+    "title": "Bagaimana kamu ingin bermain?",
+    "fastTitle": "Main sekarang",
+    "fastDescription": "Pertempuran langsung dari awal sampai akhir, dalam satu sesi.",
+    "slowTitle": "Main berhari-hari",
+    "slowDescription": "Satu giliran setiap kali. Main kapan pun kamu punya waktu.",
+    "slowDescriptionPush": "Satu giliran setiap kali. Kami memberi tahu saat giliranmu.",
+    "partyFastOnly": "Untuk saat ini, party hanya bisa bermain permainan langsung."
+  },
   "requiredInMatchmakingQueue": "Selalu dalam antrean",
   "requiredScenarioBadge": "Wajib",
   "custom": "Kustom",

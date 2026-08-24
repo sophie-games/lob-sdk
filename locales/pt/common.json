@@ -89,7 +89,15 @@
     "cancelledBy": "A fila foi cancelada por {{username}}.",
     "playersInQueue": "{{count}} jogadores procurando",
     "disconnectedReconnecting": "Conexão Perdida. Reconectando",
-    "eloBoostActive": "Boost de Elo ×{{multiplier}} ativo"
+    "eloBoostActive": "Boost de Elo ×{{multiplier}} ativo",
+    "watch": "Avise-me quando alguém entrar na fila",
+    "watchArmed": "Vamos avisar você quando alguém entrar na fila, nas próximas 24 horas."
+  },
+  "streak": {
+    "title": "Sequência diária",
+    "kept": "Contabilizado por hoje.",
+    "play": "Jogue um jogo ranqueado hoje.",
+    "nextReward": "Próximo dia: +{{amount}}"
   },
   "fastMode": "Modo Rápido",
   "slowMode": "Modo Lento",
@@ -110,6 +118,15 @@
   "addMatchmakingConfig": "Adicionar configuração de matchmaking",
   "matchmakingModeSwitchWarning": "Configurações rápidas e lentas não podem ser enviadas juntas. Se você mudar para o modo {{mode}}, as outras configurações serão redefinidas. Deseja continuar?",
   "matchmakingDescription": "O modo de matchmaking permite que você entre rapidamente em um jogo com jogadores aleatórios usando configurações predefinidas.",
+  "matchmakingSpeed": {
+    "title": "Como você quer jogar?",
+    "fastTitle": "Jogar agora",
+    "fastDescription": "Uma batalha ao vivo do início ao fim, de uma só vez.",
+    "slowTitle": "Jogar ao longo de dias",
+    "slowDescription": "Um turno por vez. Jogue quando tiver um minuto.",
+    "slowDescriptionPush": "Um turno por vez. Avisamos quando for sua vez.",
+    "partyFastOnly": "Por enquanto, grupos só podem jogar partidas ao vivo."
+  },
   "requiredInMatchmakingQueue": "Sempre na fila",
   "requiredScenarioBadge": "Obrigatório",
   "custom": "Personalizado",

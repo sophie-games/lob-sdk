@@ -89,7 +89,15 @@
     "cancelledBy": "Die Warteschlange wurde von {{username}} abgebrochen.",
     "playersInQueue": "{{count}} Spieler suchen",
     "disconnectedReconnecting": "Verbindung Verloren. Wiederverbindung",
-    "eloBoostActive": "Elo-Boost ×{{multiplier}} aktiv"
+    "eloBoostActive": "Elo-Boost ×{{multiplier}} aktiv",
+    "watch": "Benachrichtige mich, wenn jemand sucht",
+    "watchArmed": "Wir benachrichtigen dich in den nächsten 24 Stunden, wenn jemand sucht."
+  },
+  "streak": {
+    "title": "Tagesserie",
+    "kept": "Für heute gezählt.",
+    "play": "Spiele heute ein Ranglisten-Spiel.",
+    "nextReward": "Nächster Tag: +{{amount}}"
   },
   "fastMode": "schneller Modus",
   "slowMode": "langsamer Modus",
@@ -110,6 +118,15 @@
   "addMatchmakingConfig": "Matchmaking-Konfiguration hinzufügen",
   "matchmakingModeSwitchWarning": "Schnelle und langsame Konfigurationen können nicht zusammen gesendet werden. Wenn Sie in den Modus {{mode}} wechseln, werden die anderen Konfigurationen zurückgesetzt. Möchten Sie fortfahren?",
   "matchmakingDescription": "Spielsuchemodus erlaubt Ihnen schnell einem Spiel mit zufälligen Spielern und voreingestellten Einstellungen beizutreten.",
+  "matchmakingSpeed": {
+    "title": "Wie möchtest du spielen?",
+    "fastTitle": "Jetzt spielen",
+    "fastDescription": "Eine Live-Schlacht von Anfang bis Ende, in einer Sitzung.",
+    "slowTitle": "Über Tage spielen",
+    "slowDescription": "Eine Runde nach der anderen. Spiele, wann immer du eine Minute hast.",
+    "slowDescriptionPush": "Eine Runde nach der anderen. Wir benachrichtigen dich, wenn du am Zug bist.",
+    "partyFastOnly": "Gruppen können vorerst nur Live-Spiele spielen."
+  },
   "requiredInMatchmakingQueue": "Immer in der Warteschlange",
   "requiredScenarioBadge": "Pflicht",
   "custom": "Benutzerdefiniert",

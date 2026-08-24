@@ -88,7 +88,15 @@
     "cancelledBy": "{{username}} 님이 대기를 취소했습니다.",
     "playersInQueue": "{{count}} 명의 플레이어가 탐색 중",
     "disconnectedReconnecting": "연결 끔김. 재연결 중",
-    "eloBoostActive": "Elo 부스트 ×{{multiplier}} 활성화"
+    "eloBoostActive": "Elo 부스트 ×{{multiplier}} 활성화",
+    "watch": "누군가 대기열에 들어오면 알림",
+    "watchArmed": "앞으로 24시간 동안 누군가 대기열에 들어오면 알려드립니다."
+  },
+  "streak": {
+    "title": "연속 일수",
+    "kept": "오늘은 완료되었습니다.",
+    "play": "오늘 순위전을 한 판 플레이하세요.",
+    "nextReward": "다음 날: +{{amount}}"
   },
   "fastMode": "단기전",
   "slowMode": "장기전",
@@ -109,6 +117,15 @@
   "addMatchmakingConfig": "경기 탐색 설정 추가",
   "matchmakingModeSwitchWarning": "빠른 모드와 느린 모드 설정을 동시에 보낼 수 없습니다. {{mode}} 모드로 변경하면 다른 설정이 초기화됩니다. 계속하시겠습니까?",
   "matchmakingDescription": "경기 탐색을 통해 미리 설정된 설정으로 무작위 플레이어와 빠르게 경기할 수 있습니다.",
+  "matchmakingSpeed": {
+    "title": "어떻게 플레이하시겠습니까?",
+    "fastTitle": "지금 플레이",
+    "fastDescription": "처음부터 끝까지 한 번에 치르는 실시간 전투.",
+    "slowTitle": "며칠에 걸쳐 플레이",
+    "slowDescription": "한 번에 한 턴씩. 시간이 날 때마다 플레이하세요.",
+    "slowDescriptionPush": "한 번에 한 턴씩. 차례가 되면 알려드립니다.",
+    "partyFastOnly": "조는 현재 실시간 게임만 플레이할 수 있습니다."
+  },
   "requiredInMatchmakingQueue": "항상 대기열에 포함",
   "requiredScenarioBadge": "필수",
   "onlyPartyLeaderCanSearch": "조장만 경기를 찾을 수 있습니다.",

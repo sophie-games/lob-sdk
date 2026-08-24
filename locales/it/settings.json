@@ -207,6 +207,25 @@
     "description": "Controlla la qualità delle texture del terreno. Una qualità più alta fornisce migliori dettagli visivi ma può influire sulle prestazioni. Richiede di aggiornare la mappa."
   },
   "appearance": "Aspetto",
+  "notifications": {
+    "title": "Notifiche",
+    "turnActivity": {
+      "title": "Turni",
+      "description": "Avvisami quando un turno si risolve e quando il mio tempo di bank sta per esaurirsi."
+    },
+    "chat": {
+      "title": "Messaggi",
+      "description": "Avvisami quando un amico mi manda un messaggio."
+    },
+    "matchmaking": {
+      "title": "Matchmaking",
+      "description": "Avvisami quando qualcuno entra in una coda che sto osservando e quando una partita lenta trova i suoi giocatori."
+    },
+    "reminders": {
+      "title": "Promemoria",
+      "description": "Avvisami quando la mia serie di giorni sta per finire."
+    }
+  },
   "theme": {
     "presetTitle": "Tema predefinito",
     "presetDescription": "Ricolora tutta l'app. I colori personalizzati richiedono un livello a pagamento.",

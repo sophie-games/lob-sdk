@@ -88,7 +88,15 @@
     "cancelledBy": "匹配被{{username}}取消了。",
     "playersInQueue": "{{count}}名玩家正在匹配",
     "disconnectedReconnecting": "连接丢失。正在重新连接",
-    "eloBoostActive": "Elo 加成 ×{{multiplier}} 已启用"
+    "eloBoostActive": "Elo 加成 ×{{multiplier}} 已启用",
+    "watch": "有人排队时通知我",
+    "watchArmed": "接下来 24 小时内，有人排队时我们会通知你。"
+  },
+  "streak": {
+    "title": "连续天数",
+    "kept": "今天已计入。",
+    "play": "今天来一局排位赛。",
+    "nextReward": "下一天：+{{amount}}"
   },
   "fastMode": "快速模式",
   "slowMode": "慢速模式",
@@ -109,6 +117,15 @@
   "addMatchmakingConfig": "添加匹配配置",
   "matchmakingModeSwitchWarning": "快速和慢速配置不能同时发送。如果您更改为{{mode}}模式，其他配置将被重置。您要继续吗？",
   "matchmakingDescription": "匹配模式下能让你快速找到一个随机的对手，并使用预先配置好的军队战斗。",
+  "matchmakingSpeed": {
+    "title": "你想怎么玩？",
+    "fastTitle": "立即开始",
+    "fastDescription": "一场从头打到尾的实时对战，一次玩完。",
+    "slowTitle": "分多天进行",
+    "slowDescription": "一次一回合。有空就下一步。",
+    "slowDescriptionPush": "一次一回合。轮到你时我们会通知你。",
+    "partyFastOnly": "队伍目前只能进行实时对战。"
+  },
   "requiredInMatchmakingQueue": "始终在匹配队列中",
   "requiredScenarioBadge": "必选",
   "onlyPartyLeaderCanSearch": "只有队长才可以开始匹配。",

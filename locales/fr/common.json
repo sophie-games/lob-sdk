@@ -78,7 +78,15 @@
     "cancelledBy": "La file a été annulée par {{username}}.",
     "playersInQueue": "{{count}} joueurs en recherche",
     "disconnectedReconnecting": "Connexion Perdue. Reconnexion",
-    "eloBoostActive": "Boost Elo ×{{multiplier}} actif"
+    "eloBoostActive": "Boost Elo ×{{multiplier}} actif",
+    "watch": "Me prévenir quand quelqu'un rejoint la file",
+    "watchArmed": "Nous vous préviendrons quand quelqu'un rejoint la file, pendant les 24 prochaines heures."
+  },
+  "streak": {
+    "title": "Série de jours",
+    "kept": "Comptabilisé pour aujourd'hui.",
+    "play": "Jouez une partie classée aujourd'hui.",
+    "nextReward": "Jour suivant : +{{amount}}"
   },
   "fastMode": "Partie rapide",
   "slowMode": "Partie longue",
@@ -99,6 +107,15 @@
   "addMatchmakingConfig": "Ajouter une configuration d'appariement",
   "matchmakingModeSwitchWarning": "Les configurations rapides et lentes ne peuvent pas être envoyées ensemble. Si vous passez au mode {{mode}}, les autres configurations seront réinitialisées. Voulez-vous continuer ?",
   "matchmakingDescription": "Le mode classé vous permet de rejoindre une bataille contre des joueurs inconnus en utilisant des réglages prédéfinis.",
+  "matchmakingSpeed": {
+    "title": "Comment voulez-vous jouer ?",
+    "fastTitle": "Jouer maintenant",
+    "fastDescription": "Une bataille en direct du début à la fin, d'une traite.",
+    "slowTitle": "Jouer sur plusieurs jours",
+    "slowDescription": "Un tour à la fois. Jouez dès que vous avez une minute.",
+    "slowDescriptionPush": "Un tour à la fois. Nous vous prévenons quand c'est à vous.",
+    "partyFastOnly": "Les groupes ne peuvent jouer que des parties en direct pour l'instant."
+  },
   "requiredInMatchmakingQueue": "Toujours dans la file",
   "requiredScenarioBadge": "Requis",
   "custom": "Personnalisé",

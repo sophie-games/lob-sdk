@@ -88,7 +88,15 @@
     "cancelledBy": "कतार {{username}} द्वारा रद्द कर दी गई।",
     "playersInQueue": "{{count}} खिलाड़ी खोज रहे हैं",
     "disconnectedReconnecting": "कनेक्शन खो गया। पुन: कनेक्ट हो रहा है",
-    "eloBoostActive": "Elo बूस्ट ×{{multiplier}} सक्रिय"
+    "eloBoostActive": "Elo बूस्ट ×{{multiplier}} सक्रिय",
+    "watch": "जब कोई कतार में आए तो मुझे सूचित करें",
+    "watchArmed": "अगले 24 घंटों तक, कोई कतार में आने पर हम आपको सूचित करेंगे।"
+  },
+  "streak": {
+    "title": "दैनिक स्ट्रीक",
+    "kept": "आज के लिए गिना गया।",
+    "play": "आज एक रैंक किया गया गेम खेलें।",
+    "nextReward": "अगला दिन: +{{amount}}"
   },
   "fastMode": "तेज़ मोड",
   "slowMode": "धीमा मोड",
@@ -109,6 +117,15 @@
   "addMatchmakingConfig": "मैचमेकिंग कॉन्फ़िगरेशन जोड़ें",
   "matchmakingModeSwitchWarning": "तेज़ और धीमी कॉन्फ़िगरेशन एक साथ नहीं भेजी जा सकतीं। यदि आप {{mode}} मोड में बदलते हैं, तो अन्य कॉन्फ़िگرेशन रीसेट हो जाएंगे। क्या आप आगे बढ़ना चाहते हैं?",
   "matchmakingDescription": "मैचमेकिंग मोड आपको पूर्वनिर्धारित सेटिंग्स का उपयोग करके यादृच्छिक खिलाड़ियों के साथ तेज़ी से खेल में शामिल होने देता है।",
+  "matchmakingSpeed": {
+    "title": "आप कैसे खेलना चाहते हैं?",
+    "fastTitle": "अभी खेलें",
+    "fastDescription": "शुरू से अंत तक एक ही बैठक में लाइव लड़ाई।",
+    "slowTitle": "कई दिनों में खेलें",
+    "slowDescription": "एक बार में एक चाल। जब भी एक मिनट मिले, खेलें।",
+    "slowDescriptionPush": "एक बार में एक चाल। आपकी बारी आने पर हम आपको सूचित करेंगे।",
+    "partyFastOnly": "फ़िलहाल पार्टियां केवल लाइव गेम ही खेल सकती हैं।"
+  },
   "requiredInMatchmakingQueue": "हमेशा कतार में",
   "requiredScenarioBadge": "अनिवार्य",
   "onlyPartyLeaderCanSearch": "केवल पार्टी लीडर ही मैच की खोज कर सकता है।",

@@ -78,7 +78,15 @@
     "cancelledBy": "La cola fue cancelada por {{username}}.",
     "playersInQueue": "{{count}} jugadores buscando",
     "disconnectedReconnecting": "Conexión Perdida. Reconectando",
-    "eloBoostActive": "Boost de Elo ×{{multiplier}} activo"
+    "eloBoostActive": "Boost de Elo ×{{multiplier}} activo",
+    "watch": "Avísame cuando alguien entre a la cola",
+    "watchArmed": "Te avisamos cuando alguien entre a la cola, durante las próximas 24 horas."
+  },
+  "streak": {
+    "title": "Racha diaria",
+    "kept": "Ya cuenta por hoy.",
+    "play": "Juega una partida clasificatoria hoy.",
+    "nextReward": "Próximo día: +{{amount}}"
   },
   "fastMode": "Modo rápido",
   "slowMode": "Modo lento",
@@ -99,6 +107,15 @@
   "addMatchmakingConfig": "Agregar configuración de matchmaking",
   "matchmakingModeSwitchWarning": "Las configuraciones rápidas (fast) y lentas (slow) no se pueden enviar juntas. Si cambias a modo {{mode}} se resetearán las configuraciones. ¿Deseas hacerlo?",
   "matchmakingDescription": "El modo de emparejamiento te permite unirte rápidamente a un juego con jugadores aleatorios usando configuraciones predefinidas.",
+  "matchmakingSpeed": {
+    "title": "¿Cómo quieres jugar?",
+    "fastTitle": "Jugar ahora",
+    "fastDescription": "Una batalla en vivo de principio a fin, de una sentada.",
+    "slowTitle": "Jugar en varios días",
+    "slowDescription": "Un turno por vez. Juega cuando tengas un minuto.",
+    "slowDescriptionPush": "Un turno por vez. Te avisamos cuando sea tu turno.",
+    "partyFastOnly": "Por ahora las parties solo pueden jugar partidas en vivo."
+  },
   "requiredInMatchmakingQueue": "Siempre en la cola",
   "requiredScenarioBadge": "Obligatorio",
   "onlyPartyLeaderCanSearch": "Solo el líder de la party puede buscar partida.",

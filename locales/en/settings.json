@@ -238,6 +238,25 @@
     "description": "Select the era for gameplay. Changing this will affect available units, scenarios, and game mechanics."
   },
   "appearance": "Appearance",
+  "notifications": {
+    "title": "Notifications",
+    "turnActivity": {
+      "title": "Turns",
+      "description": "Notify me when a turn resolves and when my time bank is about to run out."
+    },
+    "chat": {
+      "title": "Messages",
+      "description": "Notify me when a friend sends me a message."
+    },
+    "matchmaking": {
+      "title": "Matchmaking",
+      "description": "Notify me when someone joins a queue I am watching, and when a slow game finds its players."
+    },
+    "reminders": {
+      "title": "Reminders",
+      "description": "Notify me when my day streak is about to end."
+    }
+  },
   "theme": {
     "presetTitle": "Theme preset",
     "presetDescription": "Recolor the whole app. Custom colors need a paid tier.",
