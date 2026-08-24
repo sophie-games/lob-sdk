@@ -891,9 +891,9 @@
   "altWarning": "The use of alternate accounts to farm Elo is prohibited. If detected, actions may be taken against the accounts involved.",
   "steamBanner": {
     "title": "Lines of Battle 3D on Steam",
-    "description": "We're trying to reach <0>{{wishlistCount}}</0> before launch.",
+    "description": "Help us reach <0>{{wishlistCount}}</0> before launch.",
     "descriptionBoldPart": "{{wishlists}} wishlists",
-    "buttonText": "View on Steam"
+    "buttonText": "Wishlist on Steam"
   },
   "offerDrawCooldownMessage": "The last draw was offered a few turns ago. You may offer a new draw in {{turns}} turns.",
   "acceptDrawModal": {
@@ -1071,6 +1071,9 @@
   "discord": {
     "link": "Link Discord",
     "unlink": "Unlink Discord",
+    "communityTitle": "Come hang out on Discord",
+    "communityDescription": "Find people to play with, share feedback, or see what we're working on.",
+    "joinCommunity": "Join the Discord",
     "confirmMessage": "Are you sure you want to unlink your Discord account?",
     "authWaitMessage": "Please wait while we process your Discord authorization...",
     "authSuccessMessage": "Discord account linked successfully!",
