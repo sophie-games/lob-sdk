@@ -13,6 +13,7 @@
     "basicDescription": "<currency/>: Ganalos jugando partidas de emparejamiento. Usalos para reclutar unidades y armar tu ejército.",
     "premiumDescription": "<currency/>: Usalo para conseguir cosméticos. Podés comprarlo o ganar una pequeña cantidad mientras jugás.",
     "rate": "{{rate}} {{currency}} por USD",
+    "packageExtra": "Bonificación de {{amount}} incluida en el total",
     "purchase": "Comprar {{amount}} {{currency}}"
   },
 
@@ -25,7 +26,8 @@
 
   "firstPurchase": {
     "banner": "Tu primera compra se duplica: cada paquete acredita {{multiplier}}x de {{currency}}.",
-    "badge": "{{multiplier}}x primera compra"
+    "badge": "Primera compra · valor x{{multiplier}}",
+    "packageExtra": "{{base}} base + {{bonus}} de bonificación por primera compra"
   },
 
   "purchaseConfirmation": "Estás seguro de que querés comprar {{item}}?",
