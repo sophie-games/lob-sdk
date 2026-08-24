@@ -135,6 +135,8 @@
   "loading": "Loading...",
   "yes": "Yes",
   "no": "No",
+  "previousSlide": "Previous slide",
+  "nextSlide": "Next slide",
   "by": "By",
   "logout": "Logout",
   "createNewGame": "Create new game",
@@ -742,6 +744,12 @@
     "searchingForPlayer": "Searching for another player for you",
     "leaderboard": "Leaderboard",
     "noArenas": "No active or scheduled arenas.",
+    "status": {
+      "scheduled": "Scheduled",
+      "active": "Active",
+      "finished": "Finished",
+      "cancelled": "Cancelled"
+    },
     "failedToLoadArenas": "Failed to load arenas",
     "failedToRejoin": "Failed to rejoin",
     "failedToJoin": "Failed to join",
