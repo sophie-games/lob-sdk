@@ -39,6 +39,18 @@
   "filters": "Filters",
   "reset": "Reset",
   "admin": "Admin",
+  "adminDatabaseSweep": {
+    "title": "Abandoned-game sweep",
+    "description": "Rotation health for games currently selected by the abandoned-game sweep.",
+    "candidateCaveat": "Candidates are not necessarily slow or stuck games.",
+    "backlog": "Rancid backlog",
+    "backlogHint": "active games selected by the sweep",
+    "neverAttempted": "Never attempted",
+    "neverAttemptedHint": "current candidates never claimed by the sweep",
+    "oldestAttemptAge": "Oldest attempt age",
+    "oldestAttemptAgeHint": "oldest claim among the current candidates",
+    "none": "None"
+  },
   "analytics": "Analytics",
   "language": "Language",
   "tutorial": "Tutorial",
