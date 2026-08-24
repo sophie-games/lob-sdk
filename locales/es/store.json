@@ -16,6 +16,18 @@
     "purchase": "Comprar {{amount}} {{currency}}"
   },
 
+  "sale": {
+    "title": "Oferta semanal",
+    "description": "{{items}} artículos con -{{discount}}% de descuento, solo esta semana.",
+    "endsIn": "Termina en {{days}}d {{hours}}h",
+    "endsInHours": "Termina en {{hours}}h"
+  },
+
+  "firstPurchase": {
+    "banner": "Tu primera compra se duplica: cada paquete acredita {{multiplier}}x de {{currency}}.",
+    "badge": "{{multiplier}}x primera compra"
+  },
+
   "purchaseConfirmation": "Estás seguro de que querés comprar {{item}}?",
   "offlineWarning": "Las compras solo funcionan en modo online, no en offline."
 }

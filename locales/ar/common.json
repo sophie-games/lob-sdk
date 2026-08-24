@@ -88,7 +88,15 @@
     "cancelledBy": "تم إلغاء الطابور بواسطة {{username}}.",
     "playersInQueue": "{{count}} لاعب يبحث",
     "disconnectedReconnecting": "فُقد الاتصال. إعادة الاتصال",
-    "eloBoostActive": "تعزيز Elo ×{{multiplier}} مفعّل"
+    "eloBoostActive": "تعزيز Elo ×{{multiplier}} مفعّل",
+    "watch": "أعلمني عندما ينضم لاعب إلى الطابور",
+    "watchArmed": "سنعلمك عندما ينضم لاعب إلى الطابور، خلال الـ 24 ساعة القادمة."
+  },
+  "streak": {
+    "title": "سلسلة الأيام",
+    "kept": "تم احتسابه لليوم.",
+    "play": "العب مباراة مصنفة اليوم.",
+    "nextReward": "اليوم التالي: +{{amount}}"
   },
   "fastMode": "الوضع السريع",
   "slowMode": "الوضع البطيء",
@@ -109,6 +117,15 @@
   "addMatchmakingConfig": "إضافة تكوين مطابقة",
   "matchmakingModeSwitchWarning": "لا يمكن إرسال التكوينات السريعة والبطيئة معاً. إذا قمت بالتغيير إلى وضع {{mode}}، فسيتم إعادة تعيين التكوينات الأخرى. هل تريد الاستمرار؟",
   "matchmakingDescription": "وضع المطابقة يتيح لك الانضمام بسرعة إلى لعبة مع لاعبين عشوائيين باستخدام إعدادات محددة مسبقاً.",
+  "matchmakingSpeed": {
+    "title": "كيف تريد أن تلعب؟",
+    "fastTitle": "العب الآن",
+    "fastDescription": "معركة مباشرة من البداية إلى النهاية في جلسة واحدة.",
+    "slowTitle": "العب على مدى أيام",
+    "slowDescription": "دور واحد في كل مرة. العب متى توفرت لديك دقيقة.",
+    "slowDescriptionPush": "دور واحد في كل مرة. سنعلمك عندما يحين دورك.",
+    "partyFastOnly": "يمكن للمجموعات لعب المباريات المباشرة فقط في الوقت الحالي."
+  },
   "requiredInMatchmakingQueue": "دائماً في الطابور",
   "requiredScenarioBadge": "مطلوب",
   "onlyPartyLeaderCanSearch": "قائد المجموعة فقط يمكنه البحث عن مباراة.",

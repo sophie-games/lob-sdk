@@ -16,6 +16,18 @@
     "purchase": "Купить {{amount}} {{currency}}"
   },
 
+  "sale": {
+    "title": "Распродажа недели",
+    "description": "{{items}} предметов со скидкой -{{discount}}%, только на этой неделе.",
+    "endsIn": "Осталось {{days}}д {{hours}}ч",
+    "endsInHours": "Осталось {{hours}}ч"
+  },
+
+  "firstPurchase": {
+    "banner": "Первая покупка удваивается: каждый набор начисляет {{multiplier}}x {{currency}}.",
+    "badge": "{{multiplier}}x за первую покупку"
+  },
+
   "purchaseConfirmation": "Вы уверены, что хотите купить {{item}}?",
   "showPurchased": "Показывать уже купленное",
   "offlineWarning": "Купленные предметы работают только в онлайн-режиме, не в офлайн-режиме."

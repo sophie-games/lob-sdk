@@ -230,6 +230,25 @@
     "description": "Điều khiển chất lượng của kết cấu mặt đất. Chất lượng cao hơn cung cấp chi tiết hình ảnh tốt hơn nhưng có thể ảnh hưởng đến hiệu suất. Yêu cầu làm mới bản đồ."
   },
   "appearance": "Giao diện",
+  "notifications": {
+    "title": "Thông báo",
+    "turnActivity": {
+      "title": "Lượt",
+      "description": "Thông báo khi một lượt được xử lý và khi thời gian bank của tôi sắp hết."
+    },
+    "chat": {
+      "title": "Tin nhắn",
+      "description": "Thông báo khi bạn bè gửi tin nhắn cho tôi."
+    },
+    "matchmaking": {
+      "title": "Ghép trận",
+      "description": "Thông báo khi có người vào hàng đợi tôi đang theo dõi và khi trận chậm tìm đủ người chơi."
+    },
+    "reminders": {
+      "title": "Nhắc nhở",
+      "description": "Thông báo khi chuỗi ngày của tôi sắp kết thúc."
+    }
+  },
   "theme": {
     "presetTitle": "Chủ đề có sẵn",
     "presetDescription": "Đổi màu toàn bộ ứng dụng. Màu tùy chỉnh cần gói trả phí.",

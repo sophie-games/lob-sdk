@@ -207,6 +207,25 @@
     "description": "Mengontrol kualitas tekstur tanah. Kualitas yang lebih tinggi memberikan detail visual yang lebih baik tetapi dapat mempengaruhi kinerja. Memerlukan penyegaran peta."
   },
   "appearance": "Tampilan",
+  "notifications": {
+    "title": "Notifikasi",
+    "turnActivity": {
+      "title": "Giliran",
+      "description": "Beri tahu saya saat giliran selesai dan saat waktu bank saya hampir habis."
+    },
+    "chat": {
+      "title": "Pesan",
+      "description": "Beri tahu saya saat teman mengirim pesan."
+    },
+    "matchmaking": {
+      "title": "Pencarian Permainan",
+      "description": "Beri tahu saya saat ada yang masuk antrean yang saya pantau, dan saat permainan lambat menemukan pemainnya."
+    },
+    "reminders": {
+      "title": "Pengingat",
+      "description": "Beri tahu saya saat rentetan harian saya hampir berakhir."
+    }
+  },
   "theme": {
     "presetTitle": "Tema bawaan",
     "presetDescription": "Warnai ulang seluruh aplikasi. Warna kustom memerlukan tingkat berbayar.",

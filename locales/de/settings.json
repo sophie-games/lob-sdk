@@ -200,6 +200,25 @@
     "description": "Steuert die Qualität der Bodenstrukturen. Höhere Qualität bietet bessere visuelle Details, kann aber die Leistung beeinträchtigen. Erfordert das Aktualisieren der Karte."
   },
   "appearance": "Darstellung",
+  "notifications": {
+    "title": "Benachrichtigungen",
+    "turnActivity": {
+      "title": "Runden",
+      "description": "Benachrichtige mich, wenn eine Runde ausgewertet wird und wenn meine Bankzeit fast aufgebraucht ist."
+    },
+    "chat": {
+      "title": "Nachrichten",
+      "description": "Benachrichtige mich, wenn ein Freund mir eine Nachricht schickt."
+    },
+    "matchmaking": {
+      "title": "Spielsuche",
+      "description": "Benachrichtige mich, wenn jemand einer beobachteten Warteschlange beitritt und wenn ein langsames Spiel seine Spieler findet."
+    },
+    "reminders": {
+      "title": "Erinnerungen",
+      "description": "Benachrichtige mich, wenn meine Tagesserie zu enden droht."
+    }
+  },
   "theme": {
     "presetTitle": "Design-Voreinstellung",
     "presetDescription": "Färbe die ganze App neu. Eigene Farben erfordern eine kostenpflichtige Stufe.",

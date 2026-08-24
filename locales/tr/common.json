@@ -89,7 +89,15 @@
     "cancelledBy": "Kuyruk {{username}} tarafından iptal edildi.",
     "playersInQueue": "{{count}} oyuncu aranıyor",
     "disconnectedReconnecting": "Bağlantı Kesildi. Yeniden Bağlanıyor",
-    "eloBoostActive": "Elo boost ×{{multiplier}} aktif"
+    "eloBoostActive": "Elo boost ×{{multiplier}} aktif",
+    "watch": "Biri kuyruğa girdiğinde bana bildir",
+    "watchArmed": "Önümüzdeki 24 saat boyunca biri kuyruğa girdiğinde sizi bilgilendireceğiz."
+  },
+  "streak": {
+    "title": "Gün serisi",
+    "kept": "Bugün için sayıldı.",
+    "play": "Bugün bir sıralama oyunu oynayın.",
+    "nextReward": "Sonraki gün: +{{amount}}"
   },
   "fastMode": "Hızlı Mod",
   "slowMode": "Yavaş Mod",
@@ -110,6 +118,15 @@
   "addMatchmakingConfig": "Eşleştirme yapılandırması ekle",
   "matchmakingModeSwitchWarning": "Hızlı ve yavaş yapılandırmalar birlikte gönderilemez. {{mode}} moduna geçerseniz, diğer yapılandırmalar sıfırlanacaktır. Devam etmek istiyor musunuz?",
   "matchmakingDescription": "Eşleştirme modu, önceden tanımlanmış ayarlarla rastgele oyuncularla hızlıca bir oyuna katılmanızı sağlar.",
+  "matchmakingSpeed": {
+    "title": "Nasıl oynamak istersiniz?",
+    "fastTitle": "Şimdi oyna",
+    "fastDescription": "Baştan sona tek oturumda canlı bir savaş.",
+    "slowTitle": "Günlere yayarak oyna",
+    "slowDescription": "Her seferinde bir tur. Bir dakikanız olduğunda oynayın.",
+    "slowDescriptionPush": "Her seferinde bir tur. Sıra sizdeyken haber veririz.",
+    "partyFastOnly": "Gruplar şimdilik yalnızca canlı oyun oynayabilir."
+  },
   "requiredInMatchmakingQueue": "Her zaman kuyrukta",
   "requiredScenarioBadge": "Zorunlu",
   "custom": "Özel",

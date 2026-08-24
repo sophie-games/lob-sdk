@@ -207,6 +207,25 @@
     "description": "Kontroluje jakość tekstur terenu. Wyższa jakość zapewnia lepsze szczegóły wizualne, ale może wpływać na wydajność. Wymaga odświeżenia mapy."
   },
   "appearance": "Wygląd",
+  "notifications": {
+    "title": "Powiadomienia",
+    "turnActivity": {
+      "title": "Tury",
+      "description": "Powiadom mnie, gdy tura zostanie rozliczona i gdy mój czas banku będzie się kończył."
+    },
+    "chat": {
+      "title": "Wiadomości",
+      "description": "Powiadom mnie, gdy znajomy wyśle mi wiadomość."
+    },
+    "matchmaking": {
+      "title": "Losowa Partia",
+      "description": "Powiadom mnie, gdy ktoś dołączy do obserwowanej kolejki i gdy wolna partia znajdzie graczy."
+    },
+    "reminders": {
+      "title": "Przypomnienia",
+      "description": "Powiadom mnie, gdy moja seria dni ma się skończyć."
+    }
+  },
   "theme": {
     "presetTitle": "Gotowy motyw",
     "presetDescription": "Zmień kolory całej aplikacji. Własne kolory wymagają płatnego poziomu.",

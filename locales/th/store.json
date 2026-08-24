@@ -13,6 +13,16 @@
     "rate": "{{rate}} {{currency}} ต่อ 1 USD",
     "purchase": "ซื้อ {{amount}} {{currency}}"
   },
+  "sale": {
+    "title": "ลดราคาประจำสัปดาห์",
+    "description": "{{items}} ไอเทมลด -{{discount}}% เฉพาะสัปดาห์นี้",
+    "endsIn": "เหลืออีก {{days}} วัน {{hours}} ชม.",
+    "endsInHours": "เหลืออีก {{hours}} ชม."
+  },
+  "firstPurchase": {
+    "banner": "การซื้อครั้งแรกของคุณได้สองเท่า: ทุกแพ็กเกจให้ {{currency}} {{multiplier}} เท่า",
+    "badge": "ซื้อครั้งแรก {{multiplier}} เท่า"
+  },
   "purchaseConfirmation": "คุณแน่ใจหรือไม่ว่าต้องการซื้อ {{item}}?",
   "showPurchased": "แสดงไอเทมที่ซื้อแล้ว",
   "offlineWarning": "ไอเทมที่ซื้อจะสามารถใช้งานได้ในโหมดออนไลน์เท่านั้น ไม่สามารถใช้ในโหมดออฟไลน์ได้"

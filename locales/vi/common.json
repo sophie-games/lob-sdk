@@ -88,7 +88,15 @@
     "cancelledBy": "Hàng đợi đã bị hủy bởi {{username}}.",
     "playersInQueue": "{{count}} người chơi đang tìm kiếm",
     "disconnectedReconnecting": "Mất Kết Nối. Đang Kết Nối Lại",
-    "eloBoostActive": "Tăng Elo ×{{multiplier}} đang hoạt động"
+    "eloBoostActive": "Tăng Elo ×{{multiplier}} đang hoạt động",
+    "watch": "Thông báo khi có người vào hàng đợi",
+    "watchArmed": "Chúng tôi sẽ thông báo khi có người vào hàng đợi, trong 24 giờ tới."
+  },
+  "streak": {
+    "title": "Chuỗi ngày",
+    "kept": "Đã tính cho hôm nay.",
+    "play": "Chơi một trận có xếp hạng hôm nay.",
+    "nextReward": "Ngày tiếp theo: +{{amount}}"
   },
   "fastMode": "Chế độ nhanh",
   "slowMode": "Chế độ chậm",
@@ -109,6 +117,15 @@
   "addMatchmakingConfig": "Thêm cấu hình ghép trận",
   "matchmakingModeSwitchWarning": "Không thể gửi cùng lúc các cấu hình nhanh và chậm. Nếu bạn chuyển sang chế độ {{mode}}, các cấu hình khác sẽ bị đặt lại. Bạn có muốn tiếp tục không?",
   "matchmakingDescription": "Chế độ ghép trận cho phép bạn nhanh chóng tham gia trò chơi với người chơi ngẫu nhiên sử dụng cài đặt được định sẵn.",
+  "matchmakingSpeed": {
+    "title": "Bạn muốn chơi thế nào?",
+    "fastTitle": "Chơi ngay",
+    "fastDescription": "Một trận đánh trực tiếp từ đầu đến cuối, trong một lần chơi.",
+    "slowTitle": "Chơi trong nhiều ngày",
+    "slowDescription": "Mỗi lần một lượt. Chơi bất cứ khi nào bạn rảnh.",
+    "slowDescriptionPush": "Mỗi lần một lượt. Chúng tôi sẽ báo khi đến lượt bạn.",
+    "partyFastOnly": "Hiện tại nhóm chỉ có thể chơi trận trực tiếp."
+  },
   "requiredInMatchmakingQueue": "Luôn có trong hàng chờ",
   "requiredScenarioBadge": "Bắt buộc",
   "onlyPartyLeaderCanSearch": "Chỉ trưởng nhóm mới có thể tìm kiếm trận đấu.",

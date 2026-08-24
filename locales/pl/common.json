@@ -90,7 +90,15 @@
     "cancelledBy": "Kolejka została anulowana przez {{username}}.",
     "playersInQueue": "{{count}} graczy szuka",
     "disconnectedReconnecting": "Utracono Połączenie. Ponowne Łączenie",
-    "eloBoostActive": "Boost Elo ×{{multiplier}} aktywny"
+    "eloBoostActive": "Boost Elo ×{{multiplier}} aktywny",
+    "watch": "Powiadom mnie, gdy ktoś wejdzie do kolejki",
+    "watchArmed": "Przez najbliższe 24 godziny powiadomimy cię, gdy ktoś wejdzie do kolejki."
+  },
+  "streak": {
+    "title": "Seria dni",
+    "kept": "Zaliczone na dziś.",
+    "play": "Zagraj dziś grę rankingową.",
+    "nextReward": "Następny dzień: +{{amount}}"
   },
   "fastMode": "Tryb Szybki",
   "slowMode": "Tryb Wolny",
@@ -111,6 +119,15 @@
   "addMatchmakingConfig": "Dodaj konfigurację matchmakingu",
   "matchmakingModeSwitchWarning": "Szybkie i wolne konfiguracje nie mogą być wpisane razem. Jeśli zmienisz tryb na {{mode}}, pozostałe konfiguracje zostaną zresetowane. Czy chcesz kontynuować?",
   "matchmakingDescription": "Tryb Losowa Partia pozwala na szybkie stworzenie partii z losowymi graczami używając wcześniej ustalonych ustawień.",
+  "matchmakingSpeed": {
+    "title": "Jak chcesz zagrać?",
+    "fastTitle": "Zagraj teraz",
+    "fastDescription": "Bitwa na żywo od początku do końca, za jednym posiedzeniem.",
+    "slowTitle": "Graj przez kilka dni",
+    "slowDescription": "Jedna tura naraz. Graj, kiedy masz chwilę.",
+    "slowDescriptionPush": "Jedna tura naraz. Powiadomimy cię, gdy przyjdzie twoja kolej.",
+    "partyFastOnly": "Drużyny mogą na razie grać tylko w gry na żywo."
+  },
   "requiredInMatchmakingQueue": "Zawsze w kolejce",
   "requiredScenarioBadge": "Wymagane",
   "custom": "Niestandardowa Partia",
