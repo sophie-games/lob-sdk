@@ -89,7 +89,15 @@
     "cancelledBy": "A várólistát {{username}} törölte.",
     "playersInQueue": "{{count}} játékos keres",
     "disconnectedReconnecting": "Kapcsolat Megszakadt. Újracsatlakozás",
-    "eloBoostActive": "Elo-boost ×{{multiplier}} aktív"
+    "eloBoostActive": "Elo-boost ×{{multiplier}} aktív",
+    "watch": "Értesíts, ha valaki sorba áll",
+    "watchArmed": "A következő 24 órában értesítünk, ha valaki sorba áll."
+  },
+  "streak": {
+    "title": "Napi sorozat",
+    "kept": "Mára beszámítva.",
+    "play": "Játssz ma egy rangsorolt meccset.",
+    "nextReward": "Következő nap: +{{amount}}"
   },
   "fastMode": "Gyors mód",
   "slowMode": "Lassú mód",
@@ -110,6 +118,15 @@
   "addMatchmakingConfig": "Meccskeresési beállítás hozzáadása",
   "matchmakingModeSwitchWarning": "A gyors és lassú konfigurációk nem küldhetők el együtt. Ha átváltasz {{mode}} módra, a többi konfiguráció alaphelyzetbe áll. Szeretnéd folytatni?",
   "matchmakingDescription": "A meccskereső lehetővé teszi, hogy rövid idő alatt játékba került idegen játékosokkal.",
+  "matchmakingSpeed": {
+    "title": "Hogyan szeretnél játszani?",
+    "fastTitle": "Játék most",
+    "fastDescription": "Élő csata elejétől a végéig, egy ülésben.",
+    "slowTitle": "Játék napokon át",
+    "slowDescription": "Egyszerre egy kör. Játssz, amikor van egy perced.",
+    "slowDescriptionPush": "Egyszerre egy kör. Értesítünk, amikor te jössz.",
+    "partyFastOnly": "A csapatok egyelőre csak élő játékokat játszhatnak."
+  },
   "requiredInMatchmakingQueue": "Mindig a sorban",
   "requiredScenarioBadge": "Kötelező",
   "custom": "Személyre szabás",
@@ -511,10 +528,7 @@
     "message": "A szervert jelenleg frissítik. Kérjük, próbálja meg néhány perc múlva újra."
   },
   "whatsNew": {
-    "title": "Mi újság",
-    "p1": "Nézd meg a legújabb frissítéseket és funkciókat a Lines of Battle-ben!",
-    "p2": "Maradj velünk további frissítések és új funkciók érkezéséhez a Lines of Battle-ben!",
-    "p3": "Kövess minket a közösségi médiában a legfrissebb hírek és bejelentések érdekében."
+    "title": "Mi újság"
   },
   "arenas": "Arénák",
   "arena": {
@@ -578,7 +592,9 @@
     "leagueBracketTooltip": "Csak az ezen a liga-sávon belüli játékosok csatlakozhatnak",
     "eloTooLow": "A ligád túl alacsony ehhez az arénához",
     "eloTooHigh": "A ligád túl magas ehhez az arénához",
-    "invalidLeagueBracket": "Érvénytelen liga-sáv"
+    "invalidLeagueBracket": "Érvénytelen liga-sáv",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "era": "Korszak",
   "hasPassword": "Jelszóval védett",
@@ -651,9 +667,6 @@
   },
   "range": "Távolság",
   "discord": {
-    "joinTitle": "Csatlakozz a hivatalos Lines of Battle Discordhoz",
-    "joinSubtitle": "Beszélgess a közösséggel, találj ellenfeleket, és értesülj a legfrissebb hírekről.",
-    "joinButton": "Csatlakozás a szerverhez",
     "link": "Discord összekapcsolása",
     "unlink": "Discord leválasztása",
     "confirmMessage": "Biztosan le szeretnéd választani a Discord fiókodat?",
@@ -854,5 +867,28 @@
   "flankChargeResistance": "Szárnyi roham-ellenállás",
   "rearChargeResistance": "Hátulsó roham-ellenállás",
   "enfiladeFireResistance": "Oldalsótűz-ellenállás",
-  "rearFireResistance": "Háttűz-ellenállás"
+  "rearFireResistance": "Háttűz-ellenállás",
+  "clanAverageLeague": "Koalíciós liga",
+  "clanTag": "Koalíciócímke",
+  "clanTagHelp": "2–5 betű vagy szám. A címkék egyediek, és a játékosnevek mellett jelennek meg.",
+  "clanTagTaken": "Ez a koalíciócímke már foglalt.",
+  "clanTagInvalid": "A koalíciócímkéhez használj 2–5 betűt vagy számot.",
+  "setClanTag": "Címke beállítása",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

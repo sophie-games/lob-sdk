@@ -88,7 +88,15 @@
     "cancelledBy": "匹配被{{username}}取消了。",
     "playersInQueue": "{{count}}名玩家正在匹配",
     "disconnectedReconnecting": "连接丢失。正在重新连接",
-    "eloBoostActive": "Elo 加成 ×{{multiplier}} 已启用"
+    "eloBoostActive": "Elo 加成 ×{{multiplier}} 已启用",
+    "watch": "有人排队时通知我",
+    "watchArmed": "接下来 24 小时内，有人排队时我们会通知你。"
+  },
+  "streak": {
+    "title": "连续天数",
+    "kept": "今天已计入。",
+    "play": "今天来一局排位赛。",
+    "nextReward": "下一天：+{{amount}}"
   },
   "fastMode": "快速模式",
   "slowMode": "慢速模式",
@@ -109,6 +117,15 @@
   "addMatchmakingConfig": "添加匹配配置",
   "matchmakingModeSwitchWarning": "快速和慢速配置不能同时发送。如果您更改为{{mode}}模式，其他配置将被重置。您要继续吗？",
   "matchmakingDescription": "匹配模式下能让你快速找到一个随机的对手，并使用预先配置好的军队战斗。",
+  "matchmakingSpeed": {
+    "title": "你想怎么玩？",
+    "fastTitle": "立即开始",
+    "fastDescription": "一场从头打到尾的实时对战，一次玩完。",
+    "slowTitle": "分多天进行",
+    "slowDescription": "一次一回合。有空就下一步。",
+    "slowDescriptionPush": "一次一回合。轮到你时我们会通知你。",
+    "partyFastOnly": "队伍目前只能进行实时对战。"
+  },
   "requiredInMatchmakingQueue": "始终在匹配队列中",
   "requiredScenarioBadge": "必选",
   "onlyPartyLeaderCanSearch": "只有队长才可以开始匹配。",
@@ -700,7 +717,9 @@
     "leagueBracketTooltip": "只有处于此联赛段位范围内的玩家才能加入",
     "eloTooLow": "您的联赛段位过低，无法加入此竞技场",
     "eloTooHigh": "您的联赛段位过高，无法加入此竞技场",
-    "invalidLeagueBracket": "无效的联赛段位"
+    "invalidLeagueBracket": "无效的联赛段位",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "open": "开放",
   "closed": "已关闭",
@@ -869,10 +888,7 @@
   },
   "selectFormation": "选择阵型",
   "whatsNew": {
-    "title": "最新动态",
-    "p1": "查看 战线统帅：拿破仑 的最新更新和功能！",
-    "p2": "敬请期待更多更新和新功能即将登陆 战线统帅：拿破仑！",
-    "p3": "在社交媒体上关注我们，获取最新消息和公告。"
+    "title": "最新动态"
   },
   "invitedPlayers": "邀请玩家",
   "partyInviteFrom": "来自{{username}}的组队邀请",
@@ -963,9 +979,6 @@
   "show": "显示",
   "hide": "隐藏",
   "discord": {
-    "joinTitle": "加入 Lines of Battle 官方 Discord",
-    "joinSubtitle": "与社区交流、寻找对手，并获取最新资讯。",
-    "joinButton": "加入服务器",
     "link": "绑定Discord",
     "unlink": "解绑Discord",
     "confirmMessage": "你确定你要解绑你的Discord账号？",
@@ -1048,5 +1061,28 @@
   },
   "startGameAsSpectator": "以旁观者身份开始游戏",
   "continue": "继续",
-  "armyWithCount": "军队（{{count}}）"
+  "armyWithCount": "军队（{{count}}）",
+  "clanAverageLeague": "联盟联赛",
+  "clanTag": "联盟标签",
+  "clanTagHelp": "2–5 个字母或数字。标签不可重复，并会显示在玩家名称旁。",
+  "clanTagTaken": "该联盟标签已被占用。",
+  "clanTagInvalid": "联盟标签须使用 2–5 个字母或数字。",
+  "setClanTag": "设置标签",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

@@ -16,6 +16,18 @@
     "purchase": "{{amount}} {{currency}} Satın Al"
   },
 
+  "sale": {
+    "title": "Haftalık indirim",
+    "description": "{{items}} ürün -{{discount}}% indirimli, sadece bu hafta.",
+    "endsIn": "Bitişe {{days}}g {{hours}}s",
+    "endsInHours": "Bitişe {{hours}}s"
+  },
+
+  "firstPurchase": {
+    "banner": "İlk satın alımınız iki katı: her paket {{multiplier}}x {{currency}} verir.",
+    "badge": "{{multiplier}}x ilk alım"
+  },
+
   "purchaseConfirmation": "{{item}} satın almak istediğinizden emin misiniz?",
   "offlineWarning": "Satın alınan öğeler yalnızca çevrimiçi modda çalışır, çevrimdışı modda çalışmaz."
 }

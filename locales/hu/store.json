@@ -16,6 +16,18 @@
     "purchase": "{{amount}} {{currency}} vásárlása"
   },
 
+  "sale": {
+    "title": "Heti akció",
+    "description": "{{items}} tárgy -{{discount}}% kedvezménnyel, csak ezen a héten.",
+    "endsIn": "Vége {{days}}n {{hours}}ó múlva",
+    "endsInHours": "Vége {{hours}}ó múlva"
+  },
+
+  "firstPurchase": {
+    "banner": "Az első vásárlásod dupla: minden csomag {{multiplier}}x {{currency}} jóváír.",
+    "badge": "{{multiplier}}x első vásárlás"
+  },
+
   "purchaseConfirmation": "Biztos, hogy megakarod vásárolni ezt: {{item}}?",
   "offlineWarning": "A vásárolt tárgyak csak online módban működnek, offline módban nem."
 }

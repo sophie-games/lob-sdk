@@ -16,6 +16,18 @@
     "purchase": "Αγορά {{amount}} {{currency}}"
   },
 
+  "sale": {
+    "title": "Εβδομαδιαία προσφορά",
+    "description": "{{items}} αντικείμενα με -{{discount}}% έκπτωση, μόνο αυτή την εβδομάδα.",
+    "endsIn": "Λήγει σε {{days}}d {{hours}}h",
+    "endsInHours": "Λήγει σε {{hours}}h"
+  },
+
+  "firstPurchase": {
+    "banner": "Η πρώτη σου αγορά διπλασιάζεται: κάθε πακέτο δίνει {{multiplier}}x {{currency}}.",
+    "badge": "{{multiplier}}x πρώτη αγορά"
+  },
+
   "purchaseConfirmation": "Είστε σίγουροι ότι θέλετε να αγοράσετε {{item}}?",
   "showPurchased": "Εμφάνιση αγορασμένο",
   "offlineWarning": "Τα αγορασμένα αντικείμενα λειτουργούν μόνο σε λειτουργία online, όχι offline."

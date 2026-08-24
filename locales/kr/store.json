@@ -13,6 +13,16 @@
     "rate": "1 미국 달러 당 {{rate}} {{currency}}",
     "purchase": "{{amount}} {{currency}} 구입"
   },
+  "sale": {
+    "title": "주간 세일",
+    "description": "{{items}}개 아이템 -{{discount}}% 할인, 이번 주 한정.",
+    "endsIn": "{{days}}일 {{hours}}시간 남음",
+    "endsInHours": "{{hours}}시간 남음"
+  },
+  "firstPurchase": {
+    "banner": "첫 구매는 2배: 모든 패키지가 {{currency}}를 {{multiplier}}배로 지급합니다.",
+    "badge": "첫 구매 {{multiplier}}배"
+  },
   "purchaseConfirmation": "{{item}}(을)를 구입하시겠습니까?",
   "showPurchased": "구매한 품목 표시",
   "offlineWarning": "구매한 아이템은 온라인 모드에서만 작동하며 오프라인에서는 작동하지 않습니다."

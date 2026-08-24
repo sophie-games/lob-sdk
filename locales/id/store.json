@@ -16,6 +16,18 @@
     "purchase": "Beli {{amount}} {{currency}}"
   },
 
+  "sale": {
+    "title": "Diskon mingguan",
+    "description": "{{items}} item diskon -{{discount}}%, minggu ini saja.",
+    "endsIn": "Berakhir dalam {{days}}hr {{hours}}jm",
+    "endsInHours": "Berakhir dalam {{hours}}jm"
+  },
+
+  "firstPurchase": {
+    "banner": "Pembelian pertamamu digandakan: setiap paket memberi {{multiplier}}x {{currency}}.",
+    "badge": "{{multiplier}}x pembelian pertama"
+  },
+
   "purchaseConfirmation": "Anda yakin ingin membeli {{item}}?",
   "showPurchased": "Tampilkan yang Telah Dibeli",
   "offlineWarning": "Item yang dibeli hanya berfungsi dalam mode online, bukan offline."

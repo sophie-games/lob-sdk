@@ -89,7 +89,15 @@
     "cancelledBy": "A fila foi cancelada por {{username}}.",
     "playersInQueue": "{{count}} jogadores procurando",
     "disconnectedReconnecting": "Conexão Perdida. Reconectando",
-    "eloBoostActive": "Boost de Elo ×{{multiplier}} ativo"
+    "eloBoostActive": "Boost de Elo ×{{multiplier}} ativo",
+    "watch": "Avise-me quando alguém entrar na fila",
+    "watchArmed": "Vamos avisar você quando alguém entrar na fila, nas próximas 24 horas."
+  },
+  "streak": {
+    "title": "Sequência diária",
+    "kept": "Contabilizado por hoje.",
+    "play": "Jogue um jogo ranqueado hoje.",
+    "nextReward": "Próximo dia: +{{amount}}"
   },
   "fastMode": "Modo Rápido",
   "slowMode": "Modo Lento",
@@ -110,6 +118,15 @@
   "addMatchmakingConfig": "Adicionar configuração de matchmaking",
   "matchmakingModeSwitchWarning": "Configurações rápidas e lentas não podem ser enviadas juntas. Se você mudar para o modo {{mode}}, as outras configurações serão redefinidas. Deseja continuar?",
   "matchmakingDescription": "O modo de matchmaking permite que você entre rapidamente em um jogo com jogadores aleatórios usando configurações predefinidas.",
+  "matchmakingSpeed": {
+    "title": "Como você quer jogar?",
+    "fastTitle": "Jogar agora",
+    "fastDescription": "Uma batalha ao vivo do início ao fim, de uma só vez.",
+    "slowTitle": "Jogar ao longo de dias",
+    "slowDescription": "Um turno por vez. Jogue quando tiver um minuto.",
+    "slowDescriptionPush": "Um turno por vez. Avisamos quando for sua vez.",
+    "partyFastOnly": "Por enquanto, grupos só podem jogar partidas ao vivo."
+  },
   "requiredInMatchmakingQueue": "Sempre na fila",
   "requiredScenarioBadge": "Obrigatório",
   "custom": "Personalizado",
@@ -563,10 +580,7 @@
     "message": "O servidor está sendo atualizado. Por favor, tente novamente em alguns minutos."
   },
   "whatsNew": {
-    "title": "O que há de novo",
-    "p1": "Confira as últimas atualizações e recursos em Lines of Battle!",
-    "p2": "Fique atento para mais atualizações e novos recursos chegando ao Lines of Battle!",
-    "p3": "Siga-nos nas redes sociais para as últimas notícias e anúncios."
+    "title": "O que há de novo"
   },
   "allVisible": "Tudo Visível",
   "teamN": "Equipe {{number}}",
@@ -728,7 +742,9 @@
     "leagueBracketTooltip": "Apenas jogadores nesta faixa de liga podem entrar",
     "eloTooLow": "Sua liga é muito baixa para entrar nesta arena",
     "eloTooHigh": "Sua liga é muito alta para entrar nesta arena",
-    "invalidLeagueBracket": "Faixa de liga inválida"
+    "invalidLeagueBracket": "Faixa de liga inválida",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "era": "Era",
   "hasPassword": "Tem senha",
@@ -741,9 +757,6 @@
   "baseAmmo": "Munição base",
   "range": "Alcance",
   "discord": {
-    "joinTitle": "Entre no Discord oficial de Lines of Battle",
-    "joinSubtitle": "Converse com a comunidade, encontre adversários e receba as últimas novidades.",
-    "joinButton": "Entrar no servidor",
     "link": "Vincular Discord",
     "unlink": "Desvincular Discord",
     "confirmMessage": "Tem certeza de que deseja desvincular sua conta Discord?",
@@ -894,5 +907,28 @@
   "flankChargeResistance": "Resistência à carga de flanco",
   "rearChargeResistance": "Resistência à carga pela retaguarda",
   "enfiladeFireResistance": "Resistência a fogo de enfiada",
-  "rearFireResistance": "Resistência a fogo pela retaguarda"
+  "rearFireResistance": "Resistência a fogo pela retaguarda",
+  "clanAverageLeague": "Liga da coligação",
+  "clanTag": "Tag da coalizão",
+  "clanTagHelp": "De 2 a 5 letras ou números. Os tags são únicos e aparecem ao lado dos nomes dos jogadores.",
+  "clanTagTaken": "Esse tag de coalizão já está em uso.",
+  "clanTagInvalid": "Use de 2 a 5 letras ou números no tag da coalizão.",
+  "setClanTag": "Definir tag",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

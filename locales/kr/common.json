@@ -88,7 +88,15 @@
     "cancelledBy": "{{username}} 님이 대기를 취소했습니다.",
     "playersInQueue": "{{count}} 명의 플레이어가 탐색 중",
     "disconnectedReconnecting": "연결 끔김. 재연결 중",
-    "eloBoostActive": "Elo 부스트 ×{{multiplier}} 활성화"
+    "eloBoostActive": "Elo 부스트 ×{{multiplier}} 활성화",
+    "watch": "누군가 대기열에 들어오면 알림",
+    "watchArmed": "앞으로 24시간 동안 누군가 대기열에 들어오면 알려드립니다."
+  },
+  "streak": {
+    "title": "연속 일수",
+    "kept": "오늘은 완료되었습니다.",
+    "play": "오늘 순위전을 한 판 플레이하세요.",
+    "nextReward": "다음 날: +{{amount}}"
   },
   "fastMode": "단기전",
   "slowMode": "장기전",
@@ -109,6 +117,15 @@
   "addMatchmakingConfig": "경기 탐색 설정 추가",
   "matchmakingModeSwitchWarning": "빠른 모드와 느린 모드 설정을 동시에 보낼 수 없습니다. {{mode}} 모드로 변경하면 다른 설정이 초기화됩니다. 계속하시겠습니까?",
   "matchmakingDescription": "경기 탐색을 통해 미리 설정된 설정으로 무작위 플레이어와 빠르게 경기할 수 있습니다.",
+  "matchmakingSpeed": {
+    "title": "어떻게 플레이하시겠습니까?",
+    "fastTitle": "지금 플레이",
+    "fastDescription": "처음부터 끝까지 한 번에 치르는 실시간 전투.",
+    "slowTitle": "며칠에 걸쳐 플레이",
+    "slowDescription": "한 번에 한 턴씩. 시간이 날 때마다 플레이하세요.",
+    "slowDescriptionPush": "한 번에 한 턴씩. 차례가 되면 알려드립니다.",
+    "partyFastOnly": "조는 현재 실시간 게임만 플레이할 수 있습니다."
+  },
   "requiredInMatchmakingQueue": "항상 대기열에 포함",
   "requiredScenarioBadge": "필수",
   "onlyPartyLeaderCanSearch": "조장만 경기를 찾을 수 있습니다.",
@@ -649,7 +666,9 @@
     "leagueBracketTooltip": "이 리그 범위 내의 플레이어만 참가할 수 있습니다",
     "eloTooLow": "이 아레나에 참가하기에 리그가 너무 낮습니다",
     "eloTooHigh": "이 아레나에 참가하기에 리그가 너무 높습니다",
-    "invalidLeagueBracket": "유효하지 않은 리그 범위"
+    "invalidLeagueBracket": "유효하지 않은 리그 범위",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "open": "열기",
   "closed": "닫기",
@@ -864,10 +883,7 @@
   },
   "selectFormation": "진형 선택",
   "whatsNew": {
-    "title": "새로운 소식",
-    "p1": "Lines of Battle의 최신 업데이트와 기능을 확인해 보세요!",
-    "p2": "Lines of Battle에 더 많은 기능이 추가될 예정이니 기대해 주세요!",
-    "p3": "소셜 미디어에서 최신 소식와 공지사항을 확인하세요."
+    "title": "새로운 소식"
   },
   "invitedPlayers": "초대된 플레이어",
   "partyInviteFrom": "{{username}}의 초대",
@@ -953,9 +969,6 @@
   "baseAmmo": "기본 탄약",
   "range": "범위",
   "discord": {
-    "joinTitle": "Lines of Battle 공식 Discord에 참여하세요",
-    "joinSubtitle": "커뮤니티와 소통하고 상대를 찾고 최신 소식을 받아보세요.",
-    "joinButton": "서버 참여",
     "link": "Discord 연결",
     "unlink": "Discord 연결 해제",
     "confirmMessage": "Discord 계정 연결을 해제하시겠습니까?",
@@ -1036,5 +1049,28 @@
   "flankChargeResistance": "측면 돌격 저항력",
   "rearChargeResistance": "후방 돌격 저항력",
   "enfiladeFireResistance": "측방사격 저항력",
-  "rearFireResistance": "후방 사격 저항력"
+  "rearFireResistance": "후방 사격 저항력",
+  "clanAverageLeague": "연합 리그",
+  "clanTag": "연합 태그",
+  "clanTagHelp": "2~5자의 영문자 또는 숫자입니다. 태그는 고유하며 플레이어 이름 옆에 표시됩니다.",
+  "clanTagTaken": "이미 사용 중인 연합 태그입니다.",
+  "clanTagInvalid": "연합 태그에는 2~5자의 영문자 또는 숫자를 사용하세요.",
+  "setClanTag": "태그 설정",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

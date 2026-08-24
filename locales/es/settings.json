@@ -204,6 +204,25 @@
     "description": "Selecciona la era para el juego. Cambiar esto afectará las unidades disponibles, escenarios y mecánicas del juego."
   },
   "appearance": "Apariencia",
+  "notifications": {
+    "title": "Notificaciones",
+    "turnActivity": {
+      "title": "Turnos",
+      "description": "Avísame cuando se resuelva un turno y cuando mi tiempo de banco esté por acabarse."
+    },
+    "chat": {
+      "title": "Mensajes",
+      "description": "Avísame cuando un amigo me envíe un mensaje."
+    },
+    "matchmaking": {
+      "title": "Emparejamiento",
+      "description": "Avísame cuando alguien entre a una cola que estoy vigilando y cuando una partida lenta encuentre jugadores."
+    },
+    "reminders": {
+      "title": "Recordatorios",
+      "description": "Avísame cuando mi racha diaria esté por terminar."
+    }
+  },
   "theme": {
     "presetTitle": "Tema predefinido",
     "presetDescription": "Cambia el color de toda la app. Los colores personalizados requieren un nivel de pago.",
@@ -249,5 +268,11 @@
     "set": "Fijar grupo {{group}}",
     "add": "Agregar al grupo {{group}}",
     "setExclusive": "Asignar solo al grupo {{group}}"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

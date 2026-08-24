@@ -197,6 +197,25 @@
     "description": "Contrôle la qualité des textures du terrain. Une qualité plus élevée fournit de meilleurs détails visuels mais peut affecter les performances. Nécessite de rafraîchir la carte."
   },
   "appearance": "Apparence",
+  "notifications": {
+    "title": "Notifications",
+    "turnActivity": {
+      "title": "Tours",
+      "description": "Me prévenir quand un tour est résolu et quand mon temps de banque est presque épuisé."
+    },
+    "chat": {
+      "title": "Messages",
+      "description": "Me prévenir quand un ami m'envoie un message."
+    },
+    "matchmaking": {
+      "title": "Partie classée",
+      "description": "Me prévenir quand quelqu'un rejoint une file que je surveille et quand une partie longue trouve ses joueurs."
+    },
+    "reminders": {
+      "title": "Rappels",
+      "description": "Me prévenir quand ma série de jours est sur le point de s'arrêter."
+    }
+  },
   "theme": {
     "presetTitle": "Thème prédéfini",
     "presetDescription": "Recolorez toute l'application. Les couleurs personnalisées nécessitent un palier payant.",
@@ -242,5 +261,11 @@
     "set": "Définir le groupe {{group}}",
     "add": "Ajouter au groupe {{group}}",
     "setExclusive": "Affecter au seul groupe {{group}}"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

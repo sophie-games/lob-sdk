@@ -16,6 +16,18 @@
     "purchase": "شراء {{amount}} {{currency}}"
   },
 
+  "sale": {
+    "title": "عرض الأسبوع",
+    "description": "{{items}} عنصراً بخصم -{{discount}}%، هذا الأسبوع فقط.",
+    "endsIn": "ينتهي خلال {{days}}ي {{hours}}س",
+    "endsInHours": "ينتهي خلال {{hours}}س"
+  },
+
+  "firstPurchase": {
+    "banner": "أول عملية شراء لك مضاعفة: كل حزمة تمنحك {{multiplier}}x من {{currency}}.",
+    "badge": "{{multiplier}}x لأول شراء"
+  },
+
   "purchaseConfirmation": "هل أنت متأكد من أنك تريد شراء {{item}}؟",
   "showPurchased": "إظهار المشترى",
   "offlineWarning": "العناصر المشتراة تعمل فقط في الوضع عبر الإنترنت، وليس في الوضع غير المتصل."

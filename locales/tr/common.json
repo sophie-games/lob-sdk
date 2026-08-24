@@ -89,7 +89,15 @@
     "cancelledBy": "Kuyruk {{username}} tarafından iptal edildi.",
     "playersInQueue": "{{count}} oyuncu aranıyor",
     "disconnectedReconnecting": "Bağlantı Kesildi. Yeniden Bağlanıyor",
-    "eloBoostActive": "Elo boost ×{{multiplier}} aktif"
+    "eloBoostActive": "Elo boost ×{{multiplier}} aktif",
+    "watch": "Biri kuyruğa girdiğinde bana bildir",
+    "watchArmed": "Önümüzdeki 24 saat boyunca biri kuyruğa girdiğinde sizi bilgilendireceğiz."
+  },
+  "streak": {
+    "title": "Gün serisi",
+    "kept": "Bugün için sayıldı.",
+    "play": "Bugün bir sıralama oyunu oynayın.",
+    "nextReward": "Sonraki gün: +{{amount}}"
   },
   "fastMode": "Hızlı Mod",
   "slowMode": "Yavaş Mod",
@@ -110,6 +118,15 @@
   "addMatchmakingConfig": "Eşleştirme yapılandırması ekle",
   "matchmakingModeSwitchWarning": "Hızlı ve yavaş yapılandırmalar birlikte gönderilemez. {{mode}} moduna geçerseniz, diğer yapılandırmalar sıfırlanacaktır. Devam etmek istiyor musunuz?",
   "matchmakingDescription": "Eşleştirme modu, önceden tanımlanmış ayarlarla rastgele oyuncularla hızlıca bir oyuna katılmanızı sağlar.",
+  "matchmakingSpeed": {
+    "title": "Nasıl oynamak istersiniz?",
+    "fastTitle": "Şimdi oyna",
+    "fastDescription": "Baştan sona tek oturumda canlı bir savaş.",
+    "slowTitle": "Günlere yayarak oyna",
+    "slowDescription": "Her seferinde bir tur. Bir dakikanız olduğunda oynayın.",
+    "slowDescriptionPush": "Her seferinde bir tur. Sıra sizdeyken haber veririz.",
+    "partyFastOnly": "Gruplar şimdilik yalnızca canlı oyun oynayabilir."
+  },
   "requiredInMatchmakingQueue": "Her zaman kuyrukta",
   "requiredScenarioBadge": "Zorunlu",
   "custom": "Özel",
@@ -564,10 +581,7 @@
     "message": "Sunucu şu anda güncelleniyor. Lütfen birkaç dakika sonra tekrar deneyin."
   },
   "whatsNew": {
-    "title": "Yenilikler",
-    "p1": "Lines of Battle'deki en son güncellemeleri ve özellikleri kontrol edin!",
-    "p2": "Lines of Battle'e gelecek daha fazla güncelleme ve yeni özellikler için bizi takip edin!",
-    "p3": "En son haberler ve duyurular için bizi sosyal medyada takip edin."
+    "title": "Yenilikler"
   },
   "allVisible": "Tümü Görünür",
   "teamN": "Takım {{number}}",
@@ -729,7 +743,9 @@
     "leagueBracketTooltip": "Bu lig aralığındaki oyuncular katılabilir",
     "eloTooLow": "Ligin bu arenaya katılmak için çok düşük",
     "eloTooHigh": "Ligin bu arenaya katılmak için çok yüksek",
-    "invalidLeagueBracket": "Geçersiz lig aralığı"
+    "invalidLeagueBracket": "Geçersiz lig aralığı",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "era": "Dönem",
   "hasPassword": "Şifre var",
@@ -742,9 +758,6 @@
   "baseAmmo": "Temel cephane",
   "range": "Menzil",
   "discord": {
-    "joinTitle": "Resmi Lines of Battle Discord'una katıl",
-    "joinSubtitle": "Toplulukla sohbet et, rakip bul ve en son haberleri öğren.",
-    "joinButton": "Sunucuya katıl",
     "link": "Discord Bağla",
     "unlink": "Discord Bağlantısını Kes",
     "confirmMessage": "Discord hesabınızın bağlantısını kesmek istediğinizden emin misiniz?",
@@ -893,5 +906,28 @@
   "flankChargeResistance": "Flank Hücum Direnci",
   "rearChargeResistance": "Arkadan Hücum Direnci",
   "enfiladeFireResistance": "Yan Ateş Direnci",
-  "rearFireResistance": "Arka Ateş Direnci"
+  "rearFireResistance": "Arka Ateş Direnci",
+  "clanAverageLeague": "Koalisyon Ligi",
+  "clanTag": "Koalisyon etiketi",
+  "clanTagHelp": "2–5 harf veya rakam. Etiketler benzersizdir ve oyuncu adlarının yanında gösterilir.",
+  "clanTagTaken": "Bu koalisyon etiketi zaten alınmış.",
+  "clanTagInvalid": "Koalisyon etiketi için 2–5 harf veya rakam kullan.",
+  "setClanTag": "Etiketi ayarla",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

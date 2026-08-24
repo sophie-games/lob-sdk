@@ -88,7 +88,15 @@
     "cancelledBy": "Hàng đợi đã bị hủy bởi {{username}}.",
     "playersInQueue": "{{count}} người chơi đang tìm kiếm",
     "disconnectedReconnecting": "Mất Kết Nối. Đang Kết Nối Lại",
-    "eloBoostActive": "Tăng Elo ×{{multiplier}} đang hoạt động"
+    "eloBoostActive": "Tăng Elo ×{{multiplier}} đang hoạt động",
+    "watch": "Thông báo khi có người vào hàng đợi",
+    "watchArmed": "Chúng tôi sẽ thông báo khi có người vào hàng đợi, trong 24 giờ tới."
+  },
+  "streak": {
+    "title": "Chuỗi ngày",
+    "kept": "Đã tính cho hôm nay.",
+    "play": "Chơi một trận có xếp hạng hôm nay.",
+    "nextReward": "Ngày tiếp theo: +{{amount}}"
   },
   "fastMode": "Chế độ nhanh",
   "slowMode": "Chế độ chậm",
@@ -109,6 +117,15 @@
   "addMatchmakingConfig": "Thêm cấu hình ghép trận",
   "matchmakingModeSwitchWarning": "Không thể gửi cùng lúc các cấu hình nhanh và chậm. Nếu bạn chuyển sang chế độ {{mode}}, các cấu hình khác sẽ bị đặt lại. Bạn có muốn tiếp tục không?",
   "matchmakingDescription": "Chế độ ghép trận cho phép bạn nhanh chóng tham gia trò chơi với người chơi ngẫu nhiên sử dụng cài đặt được định sẵn.",
+  "matchmakingSpeed": {
+    "title": "Bạn muốn chơi thế nào?",
+    "fastTitle": "Chơi ngay",
+    "fastDescription": "Một trận đánh trực tiếp từ đầu đến cuối, trong một lần chơi.",
+    "slowTitle": "Chơi trong nhiều ngày",
+    "slowDescription": "Mỗi lần một lượt. Chơi bất cứ khi nào bạn rảnh.",
+    "slowDescriptionPush": "Mỗi lần một lượt. Chúng tôi sẽ báo khi đến lượt bạn.",
+    "partyFastOnly": "Hiện tại nhóm chỉ có thể chơi trận trực tiếp."
+  },
   "requiredInMatchmakingQueue": "Luôn có trong hàng chờ",
   "requiredScenarioBadge": "Bắt buộc",
   "onlyPartyLeaderCanSearch": "Chỉ trưởng nhóm mới có thể tìm kiếm trận đấu.",
@@ -702,7 +719,9 @@
     "leagueBracketTooltip": "Chỉ người chơi trong khoảng giải đấu này mới có thể tham gia",
     "eloTooLow": "Giải đấu của bạn quá thấp để tham gia đấu trường này",
     "eloTooHigh": "Giải đấu của bạn quá cao để tham gia đấu trường này",
-    "invalidLeagueBracket": "Khoảng giải đấu không hợp lệ"
+    "invalidLeagueBracket": "Khoảng giải đấu không hợp lệ",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "open": "Mở",
   "closed": "Đóng",
@@ -868,10 +887,7 @@
   },
   "selectFormation": "Chọn đội hình",
   "whatsNew": {
-    "title": "Có gì mới",
-    "p1": "Khám phá các cập nhật và tính năng mới nhất trong Lines of Battle!",
-    "p2": "Hãy theo dõi để biết thêm các cập nhật và tính năng mới sắp tới trong Lines of Battle!",
-    "p3": "Theo dõi chúng tôi trên mạng xã hội để biết tin tức và thông báo mới nhất."
+    "title": "Có gì mới"
   },
   "invitedPlayers": "Người chơi được mời",
   "partyInviteFrom": "Lời mời nhóm từ {{username}}",
@@ -957,9 +973,6 @@
   "baseAmmo": "Đạn cơ sở",
   "range": "Tầm",
   "discord": {
-    "joinTitle": "Tham gia Discord chính thức của Lines of Battle",
-    "joinSubtitle": "Trò chuyện với cộng đồng, tìm đối thủ và cập nhật tin tức mới nhất.",
-    "joinButton": "Tham gia máy chủ",
     "link": "Liên kết Discord",
     "unlink": "Hủy liên kết Discord",
     "confirmMessage": "Bạn có chắc chắn muốn hủy liên kết tài khoản Discord của mình?",
@@ -1040,5 +1053,28 @@
   "flankChargeResistance": "Kháng xung kích sườn",
   "rearChargeResistance": "Kháng xung kích sau",
   "enfiladeFireResistance": "Kháng hỏa lực dọc",
-  "rearFireResistance": "Kháng hỏa lực sau"
+  "rearFireResistance": "Kháng hỏa lực sau",
+  "clanAverageLeague": "Hạng liên minh",
+  "clanTag": "Thẻ liên minh",
+  "clanTagHelp": "Từ 2–5 chữ cái hoặc chữ số. Thẻ là duy nhất và hiển thị bên cạnh tên người chơi.",
+  "clanTagTaken": "Thẻ liên minh này đã được sử dụng.",
+  "clanTagInvalid": "Hãy dùng 2–5 chữ cái hoặc chữ số cho thẻ liên minh.",
+  "setClanTag": "Đặt thẻ",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

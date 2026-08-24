@@ -88,7 +88,15 @@
     "cancelledBy": "कतार {{username}} द्वारा रद्द कर दी गई।",
     "playersInQueue": "{{count}} खिलाड़ी खोज रहे हैं",
     "disconnectedReconnecting": "कनेक्शन खो गया। पुन: कनेक्ट हो रहा है",
-    "eloBoostActive": "Elo बूस्ट ×{{multiplier}} सक्रिय"
+    "eloBoostActive": "Elo बूस्ट ×{{multiplier}} सक्रिय",
+    "watch": "जब कोई कतार में आए तो मुझे सूचित करें",
+    "watchArmed": "अगले 24 घंटों तक, कोई कतार में आने पर हम आपको सूचित करेंगे।"
+  },
+  "streak": {
+    "title": "दैनिक स्ट्रीक",
+    "kept": "आज के लिए गिना गया।",
+    "play": "आज एक रैंक किया गया गेम खेलें।",
+    "nextReward": "अगला दिन: +{{amount}}"
   },
   "fastMode": "तेज़ मोड",
   "slowMode": "धीमा मोड",
@@ -109,6 +117,15 @@
   "addMatchmakingConfig": "मैचमेकिंग कॉन्फ़िगरेशन जोड़ें",
   "matchmakingModeSwitchWarning": "तेज़ और धीमी कॉन्फ़िगरेशन एक साथ नहीं भेजी जा सकतीं। यदि आप {{mode}} मोड में बदलते हैं, तो अन्य कॉन्फ़िگرेशन रीसेट हो जाएंगे। क्या आप आगे बढ़ना चाहते हैं?",
   "matchmakingDescription": "मैचमेकिंग मोड आपको पूर्वनिर्धारित सेटिंग्स का उपयोग करके यादृच्छिक खिलाड़ियों के साथ तेज़ी से खेल में शामिल होने देता है।",
+  "matchmakingSpeed": {
+    "title": "आप कैसे खेलना चाहते हैं?",
+    "fastTitle": "अभी खेलें",
+    "fastDescription": "शुरू से अंत तक एक ही बैठक में लाइव लड़ाई।",
+    "slowTitle": "कई दिनों में खेलें",
+    "slowDescription": "एक बार में एक चाल। जब भी एक मिनट मिले, खेलें।",
+    "slowDescriptionPush": "एक बार में एक चाल। आपकी बारी आने पर हम आपको सूचित करेंगे।",
+    "partyFastOnly": "फ़िलहाल पार्टियां केवल लाइव गेम ही खेल सकती हैं।"
+  },
   "requiredInMatchmakingQueue": "हमेशा कतार में",
   "requiredScenarioBadge": "अनिवार्य",
   "onlyPartyLeaderCanSearch": "केवल पार्टी लीडर ही मैच की खोज कर सकता है।",
@@ -703,7 +720,9 @@
     "leagueBracketTooltip": "केवल इस लीग रेंज के खिलाड़ी ही शामिल हो सकते हैं",
     "eloTooLow": "इस अखाड़े में शामिल होने के लिए आपकी लीग बहुत कम है",
     "eloTooHigh": "इस अखाड़े में शामिल होने के लिए आपकी लीग बहुत अधिक है",
-    "invalidLeagueBracket": "अमान्य लीग ब्रैकेट"
+    "invalidLeagueBracket": "अमान्य लीग ब्रैकेट",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "open": "खुला",
   "closed": "बंद",
@@ -869,10 +888,7 @@
   },
   "selectFormation": "गठन चुनें",
   "whatsNew": {
-    "title": "नया क्या है",
-    "p1": "लाइन्स ऑफ बैटल में नवीनतम अपडेट और सुविधाओं को देखें!",
-    "p2": "लाइन्स ऑफ बैटल में आने वाले अधिक अपडेट और नई सुविधाओं के लिए बने रहें!",
-    "p3": "नवीनतम समाचार और घोषणाओं के लिए सोशल मीडिया पर हमें फॉलो करें।"
+    "title": "नया क्या है"
   },
   "invitedPlayers": "आमंत्रित खिलाड़ी",
   "partyInviteFrom": "{{username}} से पार्टी आमंत्रण",
@@ -958,9 +974,6 @@
   "baseAmmo": "आधार गोला-बारूद",
   "range": "रेंज",
   "discord": {
-    "joinTitle": "Lines of Battle के आधिकारिक Discord से जुड़ें",
-    "joinSubtitle": "समुदाय से बातचीत करें, प्रतिद्वंद्वी खोजें और नवीनतम समाचार पाएं।",
-    "joinButton": "सर्वर से जुड़ें",
     "link": "Discord लिंक करें",
     "unlink": "Discord अनलिंक करें",
     "confirmMessage": "क्या आप वाकई अपना Discord खाता अनलिंक करना चाहते हैं?",
@@ -1043,5 +1056,28 @@
   "flankChargeResistance": "फ्लैंक चार्ज प्रतिरोध",
   "rearChargeResistance": "रियर चार्ज प्रतिरोध",
   "enfiladeFireResistance": "एन्फिलेड फायर प्रतिरोध",
-  "rearFireResistance": "पीछे से आग प्रतिरोध"
+  "rearFireResistance": "पीछे से आग प्रतिरोध",
+  "clanAverageLeague": "गठबंधन लीग",
+  "clanTag": "गठबंधन टैग",
+  "clanTagHelp": "2–5 अक्षर या अंक। टैग अलग-अलग होते हैं और खिलाड़ियों के नाम के पास दिखते हैं।",
+  "clanTagTaken": "यह गठबंधन टैग पहले से उपयोग में है।",
+  "clanTagInvalid": "गठबंधन टैग के लिए 2–5 अक्षर या अंक इस्तेमाल करें।",
+  "setClanTag": "टैग सेट करें",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

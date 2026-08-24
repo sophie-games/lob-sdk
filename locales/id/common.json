@@ -90,7 +90,15 @@
     "cancelledBy": "Antrean dibatalkan oleh {{username}}.",
     "playersInQueue": "{{count}} pemain mencari",
     "disconnectedReconnecting": "Koneksi Terputus. Menyambung Ulang",
-    "eloBoostActive": "Boost Elo ×{{multiplier}} aktif"
+    "eloBoostActive": "Boost Elo ×{{multiplier}} aktif",
+    "watch": "Beri tahu saya jika ada yang masuk antrean",
+    "watchArmed": "Kami akan memberi tahu Anda jika ada yang masuk antrean, selama 24 jam ke depan."
+  },
+  "streak": {
+    "title": "Rentetan harian",
+    "kept": "Sudah dihitung untuk hari ini.",
+    "play": "Mainkan satu permainan peringkat hari ini.",
+    "nextReward": "Hari berikutnya: +{{amount}}"
   },
   "fastMode": "Mode Cepat",
   "slowMode": "Mode Lambat",
@@ -111,6 +119,15 @@
   "addMatchmakingConfig": "Tambah konfigurasi pencarian permainan",
   "matchmakingModeSwitchWarning": "Konfigurasi cepat dan lambat tidak dapat dikirim bersamaan. Jika Anda mengubah ke mode {{mode}}, konfigurasi lainnya akan disetel ulang. Apakah Anda ingin melanjutkan?",
   "matchmakingDescription": "Pencarian Permainan memungkinkan kamu untuk dengan cepat bergabung dalam permainan dengan pemain acak menggunakan pengaturan yang telah ditentukan sebelumnya.",
+  "matchmakingSpeed": {
+    "title": "Bagaimana kamu ingin bermain?",
+    "fastTitle": "Main sekarang",
+    "fastDescription": "Pertempuran langsung dari awal sampai akhir, dalam satu sesi.",
+    "slowTitle": "Main berhari-hari",
+    "slowDescription": "Satu giliran setiap kali. Main kapan pun kamu punya waktu.",
+    "slowDescriptionPush": "Satu giliran setiap kali. Kami memberi tahu saat giliranmu.",
+    "partyFastOnly": "Untuk saat ini, party hanya bisa bermain permainan langsung."
+  },
   "requiredInMatchmakingQueue": "Selalu dalam antrean",
   "requiredScenarioBadge": "Wajib",
   "custom": "Kustom",
@@ -574,10 +591,7 @@
     "message": "Server sedang diperbarui. Silakan coba lagi dalam beberapa menit."
   },
   "whatsNew": {
-    "title": "Apa yang baru",
-    "p1": "Lihat pembaruan dan fitur terbaru di Lines of Battle!",
-    "p2": "Nantikan lebih banyak pembaruan dan fitur baru yang akan datang ke Lines of Battle!",
-    "p3": "Ikuti kami di media sosial untuk berita dan pengumuman terbaru."
+    "title": "Apa yang baru"
   },
   "allVisible": "Semua Terlihat",
   "teamN": "Tim {{number}}",
@@ -739,7 +753,9 @@
     "leagueBracketTooltip": "Hanya pemain dalam rentang liga ini yang dapat bergabung",
     "eloTooLow": "Liga kamu terlalu rendah untuk bergabung ke arena ini",
     "eloTooHigh": "Liga kamu terlalu tinggi untuk bergabung ke arena ini",
-    "invalidLeagueBracket": "Rentang liga tidak valid"
+    "invalidLeagueBracket": "Rentang liga tidak valid",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "era": "Era",
   "hasPassword": "Memiliki kata sandi",
@@ -752,9 +768,6 @@
   "baseAmmo": "Ammunisi dasar",
   "range": "Jangkauan",
   "discord": {
-    "joinTitle": "Gabung ke Discord resmi Lines of Battle",
-    "joinSubtitle": "Mengobrol dengan komunitas, temukan lawan, dan dapatkan berita terbaru.",
-    "joinButton": "Gabung server",
     "link": "Tautkan Discord",
     "unlink": "Putuskan Discord",
     "confirmMessage": "Apakah Anda yakin ingin memutuskan akun Discord Anda?",
@@ -896,5 +909,28 @@
   "flankChargeResistance": "Ketahanan serangan sisi",
   "rearChargeResistance": "Ketahanan serangan belakang",
   "enfiladeFireResistance": "Ketahanan tembakan sepanjang garis",
-  "rearFireResistance": "Ketahanan tembakan belakang"
+  "rearFireResistance": "Ketahanan tembakan belakang",
+  "clanAverageLeague": "Liga koalisi",
+  "clanTag": "Tag koalisi",
+  "clanTagHelp": "2–5 huruf atau angka. Tag bersifat unik dan ditampilkan di samping nama pemain.",
+  "clanTagTaken": "Tag koalisi tersebut sudah digunakan.",
+  "clanTagInvalid": "Gunakan 2–5 huruf atau angka untuk tag koalisi.",
+  "setClanTag": "Atur tag",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

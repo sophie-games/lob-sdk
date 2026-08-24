@@ -86,7 +86,15 @@
     "cancelledBy": "キューは{{username}}によってキャンセルされました。",
     "playersInQueue": "{{count}}人のプレイヤーが検索中",
     "disconnectedReconnecting": "接続が切断されました。再接続中",
-    "eloBoostActive": "Eloブースト ×{{multiplier}} 有効"
+    "eloBoostActive": "Eloブースト ×{{multiplier}} 有効",
+    "watch": "誰かがキューに入ったら通知",
+    "watchArmed": "今後24時間、誰かがキューに入ったら通知します。"
+  },
+  "streak": {
+    "title": "連続日数",
+    "kept": "本日分は達成済みです。",
+    "play": "今日ランクマッチをプレイしましょう。",
+    "nextReward": "次の日: +{{amount}}"
   },
   "fastMode": "高速モード",
   "slowMode": "低速モード",
@@ -107,6 +115,15 @@
   "addMatchmakingConfig": "マッチメイキング設定を追加",
   "matchmakingModeSwitchWarning": "高速と低速の設定を同時に送信することはできません。{{mode}}モードに変更すると、他の設定はリセットされます。続行しますか？",
   "matchmakingDescription": "マッチメイキングモードでは、設定済みの条件でランダムなプレイヤーとすぐに対戦できます。",
+  "matchmakingSpeed": {
+    "title": "どのように遊びますか？",
+    "fastTitle": "今すぐプレイ",
+    "fastDescription": "最初から最後までリアルタイムで一気に戦います。",
+    "slowTitle": "数日かけてプレイ",
+    "slowDescription": "1ターンずつ。空いた時間にプレイできます。",
+    "slowDescriptionPush": "1ターンずつ。あなたの番になったら通知します。",
+    "partyFastOnly": "パーティーは現在ライブ対戦のみプレイできます。"
+  },
   "skipTutorialTitle": "チュートリアルをスキップ",
   "skipTutorialMessage": "チュートリアルの残りをスキップしてメニューに戻りますか？再度完了を求められることはありません。",
   "goToTutorial": "チュートリアルへ",
@@ -701,7 +718,9 @@
     "leagueBracketTooltip": "このリーグ範囲内のプレイヤーのみ参加できます",
     "eloTooLow": "あなたのリーグはこのアリーナに参加するには低すぎます",
     "eloTooHigh": "あなたのリーグはこのアリーナに参加するには高すぎます",
-    "invalidLeagueBracket": "無効なリーグ帯"
+    "invalidLeagueBracket": "無効なリーグ帯",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "open": "オープン",
   "closed": "クローズド",
@@ -872,10 +891,7 @@
   },
   "selectFormation": "隊形を選択",
   "whatsNew": {
-    "title": "新着情報",
-    "p1": "Lines of Battleの最新アップデートと機能をご覧ください！",
-    "p2": "Lines of Battleに来るさらなるアップデートと新機能にご期待ください！",
-    "p3": "最新のニュースとお知らせについては、ソーシャルメディアでフォローしてください。"
+    "title": "新着情報"
   },
   "invitedPlayers": "招待したプレイヤー",
   "partyInviteFrom": "{{username}}からパーティに招待されました",
@@ -966,9 +982,6 @@
   "show": "表示",
   "hide": "非表示",
   "discord": {
-    "joinTitle": "Lines of Battle 公式Discordに参加",
-    "joinSubtitle": "コミュニティと交流し、対戦相手を見つけ、最新情報をチェックしよう。",
-    "joinButton": "サーバーに参加",
     "link": "Discordをリンク",
     "unlink": "Discordのリンクを解除",
     "confirmMessage": "Discordアカウントのリンクを解除してもよろしいですか？",
@@ -1050,5 +1063,28 @@
     "error": "アカウント削除を予約できませんでした。もう一度お試しください。"
   },
   "startGameAsSpectator": "観戦者としてゲームを開始",
-  "armyWithCount": "軍隊（{{count}}）"
+  "armyWithCount": "軍隊（{{count}}）",
+  "clanAverageLeague": "連合リーグ",
+  "clanTag": "連合タグ",
+  "clanTagHelp": "2～5文字の英数字。タグは一意で、プレイヤー名の横に表示されます。",
+  "clanTagTaken": "その連合タグはすでに使用されています。",
+  "clanTagInvalid": "連合タグには2～5文字の英数字を使用してください。",
+  "setClanTag": "タグを設定",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

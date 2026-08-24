@@ -95,6 +95,8 @@ export interface Player {
 export interface PlayerInfo {
   userId: number;
   username: string;
+  /** Short tag of the player's coalition, if any. Public information. */
+  clanTag?: string | null;
   playerNumber: number;
   team: number;
   elo: number;

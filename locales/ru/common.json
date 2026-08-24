@@ -88,7 +88,15 @@
     "cancelledBy": "Очередь была отменена {{username}}.",
     "playersInQueue": "{{count}} игроков в очереди",
     "disconnectedReconnecting": "Соединение Потеряно. Переподключение...",
-    "eloBoostActive": "Elo-буст ×{{multiplier}} активен"
+    "eloBoostActive": "Elo-буст ×{{multiplier}} активен",
+    "watch": "Уведомить, когда кто-то встанет в очередь",
+    "watchArmed": "В течение 24 часов мы сообщим, когда кто-то встанет в очередь."
+  },
+  "streak": {
+    "title": "Серия дней",
+    "kept": "Сегодня засчитано.",
+    "play": "Сыграйте сегодня рейтинговую игру.",
+    "nextReward": "Следующий день: +{{amount}}"
   },
   "fastMode": "Быстрая игра",
   "slowMode": "Медленная игра",
@@ -109,6 +117,15 @@
   "addMatchmakingConfig": "Добавить настройку подбора",
   "matchmakingModeSwitchWarning": "Быстрые и медленные настройки нельзя отправить вместе. Если вы перейдете в режим {{mode}}, остальные настройки будут сброшены. Продолжить?",
   "matchmakingDescription": "Подбор соперника позволяет быстро начать игру со случайным игроком, используя выбранные настройки.",
+  "matchmakingSpeed": {
+    "title": "Как вы хотите играть?",
+    "fastTitle": "Играть сейчас",
+    "fastDescription": "Живой бой от начала до конца, за один заход.",
+    "slowTitle": "Играть несколько дней",
+    "slowDescription": "По одному ходу за раз. Играйте, когда есть минута.",
+    "slowDescriptionPush": "По одному ходу за раз. Мы сообщим, когда настанет ваш ход.",
+    "partyFastOnly": "Пока группы могут играть только в живые игры."
+  },
   "requiredInMatchmakingQueue": "Всегда в очереди",
   "requiredScenarioBadge": "Обязательно",
   "onlyPartyLeaderCanSearch": "Только лидер группы может начать поиск игры.",
@@ -700,7 +717,9 @@
     "leagueBracketTooltip": "Присоединиться могут только игроки в этом диапазоне лиги",
     "eloTooLow": "Ваша лига слишком низкая для вступления в эту арену",
     "eloTooHigh": "Ваша лига слишком высокая для вступления в эту арену",
-    "invalidLeagueBracket": "Недействительный диапазон лиги"
+    "invalidLeagueBracket": "Недействительный диапазон лиги",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "open": "Открыто",
   "closed": "Закрыто",
@@ -869,10 +888,7 @@
   },
   "selectFormation": "Выбор боевого порядка",
   "whatsNew": {
-    "title": "Что нового",
-    "p1": "Ознакомьтесь с последними обновлениями и функциями в Lines of Battle!",
-    "p2": "Следите за новостями о дальнейших обновлениях и новых функциях, которые появятся в Lines of Battle!",
-    "p3": "Подписывайтесь на нас в социальных сетях для получения последних новостей и объявлений."
+    "title": "Что нового"
   },
   "invitedPlayers": "Приглашённые игроки",
   "partyInviteFrom": "Приглашение в группу от {{username}}",
@@ -963,9 +979,6 @@
   "show": "Показать",
   "hide": "Скрыть",
   "discord": {
-    "joinTitle": "Присоединяйтесь к официальному Discord Lines of Battle",
-    "joinSubtitle": "Общайтесь с сообществом, находите соперников и узнавайте последние новости.",
-    "joinButton": "Войти на сервер",
     "link": "Привязать Discord",
     "unlink": "Отвязать Discord",
     "confirmMessage": "Вы уверены, что хотите отвязать свой аккаунт Discord?",
@@ -1054,5 +1067,28 @@
   },
   "startGameAsSpectator": "Начать игру как наблюдатель",
   "continue": "Продолжить",
-  "armyWithCount": "Армия ({{count}})"
+  "armyWithCount": "Армия ({{count}})",
+  "clanAverageLeague": "Лига коалиции",
+  "clanTag": "Тег коалиции",
+  "clanTagHelp": "От 2 до 5 букв или цифр. Теги уникальны и отображаются рядом с именами игроков.",
+  "clanTagTaken": "Этот тег коалиции уже занят.",
+  "clanTagInvalid": "Используйте от 2 до 5 букв или цифр для тега коалиции.",
+  "setClanTag": "Установить тег",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }
