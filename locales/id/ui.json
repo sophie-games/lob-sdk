@@ -1,0 +1,34 @@
+{
+  "dialog": {
+    "close": "Tutup",
+    "label": "Dialog"
+  },
+  "passwordReset": {
+    "linkSent": "Tautan pengaturan ulang kata sandi telah dikirim. Periksa email Anda.",
+    "unexpectedError": "Terjadi kesalahan yang tidak terduga.",
+    "userNotFound": "Tidak ditemukan akun yang cocok.",
+    "invalidOrExpiredToken": "Tautan pengaturan ulang kata sandi ini tidak valid atau telah kedaluwarsa.",
+    "error": "Kesalahan saat mengatur ulang kata sandi: {{message}}",
+    "invalidLink": "Tautan pengaturan ulang kata sandi ini tidak valid atau tidak lengkap.",
+    "passwordsDoNotMatch": "Kata sandi tidak cocok."
+  },
+  "pushDiagnostics": {
+    "sectionTitle": "Diagnostik notifikasi push",
+    "title": "Pengujian push menyeluruh",
+    "description": "Mengirim notifikasi giliran nyata ke perangkat terdaftar dan memeriksa setiap tahap pengiriman.",
+    "fcmCredentials": "Kredensial FCM",
+    "registeredDevices": "Perangkat terdaftar",
+    "delivered": "Terkirim",
+    "ready": "Siap",
+    "missing": "Tidak ada",
+    "dropped": "({{count}} ditolak)",
+    "sendTest": "Kirim notifikasi pengujian",
+    "sendingTest": "Mengirim pengujian…",
+    "results": {
+      "fcmNotConfigured": "FCM belum dikonfigurasi. Atur FCM_SERVICE_ACCOUNT_JSON.",
+      "noDevices": "Tidak ada perangkat yang terdaftar untuk akun ini. Masuklah ke aplikasi terlebih dahulu.",
+      "accepted": "FCM menerima {{sent}} dari {{devices}} permintaan pengiriman. Konfirmasikan penerimaan di ponsel.",
+      "testFailed": "Pengujian push gagal."
+    }
+  }
+}

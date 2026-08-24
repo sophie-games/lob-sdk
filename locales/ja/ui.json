@@ -1,0 +1,34 @@
+{
+  "dialog": {
+    "close": "閉じる",
+    "label": "ダイアログ"
+  },
+  "passwordReset": {
+    "linkSent": "パスワード再設定リンクを送信しました。メールを確認してください。",
+    "unexpectedError": "予期しないエラーが発生しました。",
+    "userNotFound": "該当するアカウントが見つかりませんでした。",
+    "invalidOrExpiredToken": "このパスワード再設定リンクは無効か、有効期限が切れています。",
+    "error": "パスワードの再設定中にエラーが発生しました：{{message}}",
+    "invalidLink": "このパスワード再設定リンクは無効か不完全です。",
+    "passwordsDoNotMatch": "パスワードが一致しません。"
+  },
+  "pushDiagnostics": {
+    "sectionTitle": "プッシュ通知診断",
+    "title": "エンドツーエンドのプッシュテスト",
+    "description": "登録済みの端末に実際のターン通知を送り、配信経路の各段階を確認します。",
+    "fcmCredentials": "FCM認証情報",
+    "registeredDevices": "登録済み端末",
+    "delivered": "配信済み",
+    "ready": "準備完了",
+    "missing": "未設定",
+    "dropped": "（{{count}}件破棄）",
+    "sendTest": "テスト通知を送信",
+    "sendingTest": "テストを送信中…",
+    "results": {
+      "fcmNotConfigured": "FCMが設定されていません。FCM_SERVICE_ACCOUNT_JSONを設定してください。",
+      "noDevices": "このアカウントに登録された端末はありません。先にアプリへログインしてください。",
+      "accepted": "FCMは{{devices}}件中{{sent}}件の送信要求を受け付けました。端末で受信を確認してください。",
+      "testFailed": "プッシュテストに失敗しました。"
+    }
+  }
+}

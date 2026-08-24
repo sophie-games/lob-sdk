@@ -1,0 +1,34 @@
+{
+  "dialog": {
+    "close": "닫기",
+    "label": "대화 상자"
+  },
+  "passwordReset": {
+    "linkSent": "비밀번호 재설정 링크를 보냈습니다. 이메일을 확인하세요.",
+    "unexpectedError": "예기치 않은 오류가 발생했습니다.",
+    "userNotFound": "일치하는 계정을 찾을 수 없습니다.",
+    "invalidOrExpiredToken": "이 비밀번호 재설정 링크는 유효하지 않거나 만료되었습니다.",
+    "error": "비밀번호 재설정 오류: {{message}}",
+    "invalidLink": "이 비밀번호 재설정 링크는 유효하지 않거나 완전하지 않습니다.",
+    "passwordsDoNotMatch": "비밀번호가 일치하지 않습니다."
+  },
+  "pushDiagnostics": {
+    "sectionTitle": "푸시 알림 진단",
+    "title": "엔드투엔드 푸시 테스트",
+    "description": "등록된 기기에 실제 턴 알림을 보내고 전송 과정의 각 단계를 확인합니다.",
+    "fcmCredentials": "FCM 인증 정보",
+    "registeredDevices": "등록된 기기",
+    "delivered": "전송됨",
+    "ready": "준비됨",
+    "missing": "없음",
+    "dropped": "({{count}}건 폐기)",
+    "sendTest": "테스트 알림 보내기",
+    "sendingTest": "테스트 전송 중…",
+    "results": {
+      "fcmNotConfigured": "FCM이 설정되지 않았습니다. FCM_SERVICE_ACCOUNT_JSON을 설정하세요.",
+      "noDevices": "이 계정에 등록된 기기가 없습니다. 먼저 앱에서 로그인하세요.",
+      "accepted": "FCM이 {{devices}}건 중 {{sent}}건의 전송 요청을 수락했습니다. 휴대전화에서 수신을 확인하세요.",
+      "testFailed": "푸시 테스트에 실패했습니다."
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "dialog": {
+    "close": "Chiudi",
+    "label": "Finestra di dialogo"
+  },
+  "passwordReset": {
+    "linkSent": "Link per reimpostare la password inviato. Controlla la tua e-mail.",
+    "unexpectedError": "Si è verificato un errore imprevisto.",
+    "userNotFound": "Non è stato trovato alcun account corrispondente.",
+    "invalidOrExpiredToken": "Questo link per reimpostare la password non è valido o è scaduto.",
+    "error": "Errore durante la reimpostazione della password: {{message}}",
+    "invalidLink": "Questo link per reimpostare la password non è valido o è incompleto.",
+    "passwordsDoNotMatch": "Le password non corrispondono."
+  },
+  "pushDiagnostics": {
+    "sectionTitle": "Diagnostica notifiche push",
+    "title": "Test push end-to-end",
+    "description": "Invia una vera notifica di turno ai dispositivi registrati e verifica ogni fase della consegna.",
+    "fcmCredentials": "Credenziali FCM",
+    "registeredDevices": "Dispositivi registrati",
+    "delivered": "Consegnate",
+    "ready": "Pronte",
+    "missing": "Mancanti",
+    "dropped": "({{count}} scartate)",
+    "sendTest": "Invia notifica di prova",
+    "sendingTest": "Invio della prova…",
+    "results": {
+      "fcmNotConfigured": "FCM non è configurato. Imposta FCM_SERVICE_ACCOUNT_JSON.",
+      "noDevices": "Non ci sono dispositivi registrati per questo account. Accedi prima nell'app.",
+      "accepted": "FCM ha accettato {{sent}} richieste di invio su {{devices}}. Conferma la consegna sul telefono.",
+      "testFailed": "Il test push non è riuscito."
+    }
+  }
+}

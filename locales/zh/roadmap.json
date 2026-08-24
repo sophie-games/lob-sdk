@@ -1,0 +1,92 @@
+{
+  "home": "首页",
+  "title": "开发路线图",
+  "subtitle": "我们正在开发的内容与后续计划",
+  "vision": {
+    "sharedBase": "Lines of Battle 是一款采用同步回合制的战术策略游戏：每位玩家先规划行动，然后所有行动同时结算。我们正在开发两个共享这一基础的版本：免费的 Lines of Battle <twoD>2D</twoD>（网页和移动端），专注于在线排位对战；以及 Lines of Battle <threeD>3D</threeD>（Steam），这是一款独立付费的桌面游戏，包含历史战役和更长的战斗。",
+    "separateGames": "你学到的战术可以互通，但 <twoD>2D</twoD> 和 <threeD>3D</threeD> 是使用不同引擎和多人系统的独立游戏。网页端和移动端玩家可以在 2D 中共同匹配；3D 多人游戏则仅限 Steam。"
+  },
+  "twoD": {
+    "platform": "网页和移动端",
+    "title": "Lines of Battle 2D",
+    "focus": "网页、Android 和 iOS 免费游玩。",
+    "badges": { "web": "网页", "android": "Android", "ios": "iOS" },
+    "intro": "这是你现在就能游玩的版本。游戏免费，并通过不影响比赛结果的外观物品和便利功能来支持开发。部分工作已经开始，其余内容也已列入计划。你可以在我们的<projectLink>公开 GitHub 项目</projectLink>中关注进展。",
+    "items": [
+      {
+        "name": "质量与稳定性",
+        "description": "修复错误、优化性能、改进后端、增加测试并调整平衡。"
+      },
+      { "name": "操作", "description": "改善移动端和电脑端的操作体验。" },
+      { "name": "新团队模式", "description": "增加多人游戏选项和团队玩法。" },
+      {
+        "name": "竞技与公平游戏",
+        "description": "继续改进匹配、排名、小号和多账号问题。"
+      },
+      {
+        "name": "玩家成长",
+        "description": "增加长期目标、里程碑和展示成长进度的方式。"
+      },
+      {
+        "name": "社交功能",
+        "description": "增加与其他玩家共同游玩的工具，包括进一步完善联盟。"
+      },
+      {
+        "name": "支持开发",
+        "description": "外观物品、便利功能，以及对帮助资助开发的玩家进行鸣谢。"
+      },
+      {
+        "name": "新时代",
+        "description": "逐步增加更多历史内容。每个新时代都是独立且可选的。"
+      }
+    ]
+  },
+  "threeD": {
+    "platform": "Steam · 桌面端",
+    "title": "Lines of Battle 3D",
+    "focus": "面向 Steam 的独立付费游戏。",
+    "badges": { "steam": "Steam", "paidGame": "付费游戏", "desktop": "桌面端" },
+    "intro": "Lines of Battle 3D 是一款独立桌面游戏，包含历史单人战役和更长的战斗。",
+    "items": [
+      {
+        "name": "相同的战斗系统",
+        "description": "将 2D 战斗系统带入 3D。表现形式会改变，但战术基础保持不变。"
+      },
+      { "name": "3D 引擎", "description": "使用开源 Godot 引擎开发。" },
+      {
+        "name": "战役",
+        "description": "历史单人任务、战略选择、成长系统和 Steam 成就。"
+      },
+      {
+        "name": "Steam 多人游戏",
+        "description": "在 Steam 上与好友和受邀玩家进行在线对战。"
+      },
+      {
+        "name": "战术 AI",
+        "description": "以 2D 已使用的 AI 为基础，进一步改进战役和战斗中的电脑对手。"
+      },
+      {
+        "name": "模组支持",
+        "description": "计划提供工具和 Steam 创意工坊支持，用于分享地图、场景、单位和时代。"
+      },
+      {
+        "name": "更多时代与战役",
+        "description": "逐步增加更多时代和战役内容。"
+      }
+    ],
+    "timeline": {
+      "label": "当前目标 · 可能调整",
+      "late2026": "2026 年末",
+      "earlyAccess": "Steam 抢先体验",
+      "year2027": "2027 年",
+      "fullRelease": "正式发布"
+    }
+  },
+  "closing": {
+    "title": "关于这份路线图",
+    "parallel": "这里列出了我们正在开发以及接下来想做的内容。两个版本将并行推进。",
+    "studio": "我们是 Sophie Games，一家小型独立工作室。计划可能会在开发过程中调整。",
+    "thanks": "感谢你游玩并关注本项目。"
+  },
+  "lastUpdated": "最后更新 · 2026 年 8 月"
+}

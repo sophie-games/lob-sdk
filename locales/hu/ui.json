@@ -1,0 +1,34 @@
+{
+  "dialog": {
+    "close": "Bezárás",
+    "label": "Párbeszédablak"
+  },
+  "passwordReset": {
+    "linkSent": "Elküldtük a jelszó-visszaállító hivatkozást. Ellenőrizd az e-mailjeidet.",
+    "unexpectedError": "Váratlan hiba történt.",
+    "userNotFound": "Nem található megfelelő fiók.",
+    "invalidOrExpiredToken": "Ez a jelszó-visszaállító hivatkozás érvénytelen vagy lejárt.",
+    "error": "Hiba a jelszó visszaállításakor: {{message}}",
+    "invalidLink": "Ez a jelszó-visszaállító hivatkozás érvénytelen vagy hiányos.",
+    "passwordsDoNotMatch": "A jelszavak nem egyeznek."
+  },
+  "pushDiagnostics": {
+    "sectionTitle": "Push értesítések diagnosztikája",
+    "title": "Teljes körű push teszt",
+    "description": "Valódi körértesítést küld a regisztrált eszközeidre, és ellenőrzi a kézbesítés minden lépését.",
+    "fcmCredentials": "FCM hitelesítő adatok",
+    "registeredDevices": "Regisztrált eszközök",
+    "delivered": "Kézbesítve",
+    "ready": "Kész",
+    "missing": "Hiányzik",
+    "dropped": "({{count}} elutasítva)",
+    "sendTest": "Tesztértesítés küldése",
+    "sendingTest": "Teszt küldése…",
+    "results": {
+      "fcmNotConfigured": "Az FCM nincs beállítva. Add meg az FCM_SERVICE_ACCOUNT_JSON értékét.",
+      "noDevices": "Ehhez a fiókhoz nincs regisztrált eszköz. Előbb jelentkezz be az alkalmazásban.",
+      "accepted": "Az FCM {{devices}} küldési kérésből {{sent}} darabot elfogadott. Ellenőrizd a kézbesítést a telefonon.",
+      "testFailed": "A push teszt sikertelen volt."
+    }
+  }
+}
