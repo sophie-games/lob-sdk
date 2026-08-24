@@ -49,15 +49,15 @@
     "title": "Juego {{id}}",
     "turn": "Turno {{turnNumber}}/{{maxTurn}}"
   },
-  "withdrawMessage": "Si te retiras de este juego, contará como una derrota y eso reducirá tu Elo, ¿estás seguro de que deseas retirarte?",
+  "withdrawMessage": "Si te retirás de esta partida, cuenta como derrota y baja tu Elo. ¿Seguro que querés retirarte?",
   "loading": "Cargando...",
   "yes": "Sí",
   "no": "No",
   "by": "De",
   "logout": "Cerrar sesión",
   "createNewGame": "Crear nuevo juego",
-  "randomGameInfo": "Para los juegos generados aleatoriamente, el juego utilizará el ejército que has creado para el modo de batalla seleccionado. Puedes ver y gestionar tus ejércitos en las <0>Composiciones de Ejército</0>. Si no has creado ejércitos para ese modo aún, se usará un ejército predeterminado.",
-  "selectGameMode": "Selecciona el modo de juego de las opciones a continuación.",
+  "randomGameInfo": "Para las partidas generadas al azar, se usa el ejército que creaste para el modo de batalla elegido. Podés verlo y editarlo en <0>Composiciones de Ejército</0>. Si todavía no creaste uno para ese modo, se usa un ejército predeterminado.",
+  "selectGameMode": "Elegí un modo de juego.",
   "or": "O",
   "ranked": "Clasificado",
   "rankedTooltip": "Las partidas clasificatorias afectan tu Elo y tu liga.",
@@ -87,7 +87,7 @@
   "streak": {
     "title": "Racha diaria",
     "kept": "Ya cuenta por hoy.",
-    "play": "Juega una partida clasificatoria hoy.",
+    "play": "Jugá una partida clasificatoria hoy.",
     "nextReward": "Próximo día: +{{amount}}"
   },
   "fastMode": "Modo rápido",
@@ -164,34 +164,25 @@
   "importScenarioModal": {
     "importInfo": "Podés importar cualquier escenario que quieras.",
     "createInfo": "Incluso podés crear tus propios escenarios en el <scenarioEditorLink/>.",
-    "createInfo2": "O explora el <0>Centro Comunitario</0> para escenarios listos para usar."
+    "createInfo2": "O explorá el <0>Centro Comunitario</0> para buscar escenarios listos para usar."
   },
   "scenarioEditorTags": {
-    "creatorMode": "Herramientas de escenario",
-    "heroTitle": "Creá un escenario o seguí trabajando en uno.",
-    "heroDescription": "Armá el mapa, los ejércitos y las reglas, y después probá todo dentro del juego.",
     "createDescription": "Empezá un escenario nuevo desde cero.",
     "loadDescription": "Abrí un archivo de escenario desde tu dispositivo.",
-    "stepBuild": "Creá",
-    "stepBuildDescription": "Terreno, fuerzas y reglas",
-    "stepTest": "Probá",
-    "stepTestDescription": "Probalo dentro del juego",
-    "stepShare": "Compartí",
-    "stepShareDescription": "Exportá un único archivo portable",
     "tutorialMessage": "¿Necesitás una mano? <tutorialLink>Mirá el tutorial.</tutorialLink>",
     "randomGuide": "Para crear mapas aleatorios, leé <0>esta guía</0>.",
     "baleriiMessage": "Balerii y Nytka hicieron su propio editor de mapas. En este video muestran cómo funciona:"
   },
   "scenarioEditorAutosave": {
     "title": "Escenario Autoguardado",
-    "message": "Se encontró un escenario autoguardado. ¿Deseas continuar editándolo o descartarlo?",
+    "message": "Encontramos un escenario autoguardado. ¿Querés seguir editándolo o descartarlo?",
     "name": "Nombre: {{name}}",
     "continue": "Continuar",
     "discard": "Descartar"
   },
   "createScenario": "Crear Escenario",
   "loadScenario": "Cargar Escenario",
-  "invalidScenarioType": "Solo puedes cargar escenarios preestablecidos o híbridos.",
+  "invalidScenarioType": "Solo podés cargar escenarios preestablecidos o híbridos.",
   "invalidScenarioFile": "Este archivo no es un escenario válido.",
   "playOffline": "Jugá offline!",
   "createOfflineGame": "Crear juego offline",
@@ -200,8 +191,8 @@
     "importScript": "Importar Script",
     "clearScript": "Limpiar Script",
     "scriptLoaded": "Script cargado exitosamente",
-    "scriptDescription": "Aprende cómo crear scripts <0>aquí</0>.",
-    "scriptWarning": "Solo usa scripts que entiendas. Los scripts desconocidos pueden contener código malicioso que podría comprometer tu cuenta, robar tus datos, minar criptomonedas o causar comportamiento inesperado en el juego.",
+    "scriptDescription": "Aprendé cómo crear scripts <0>acá</0>.",
+    "scriptWarning": "Usá solamente scripts que entiendas. Un script desconocido puede incluir código malicioso que comprometa tu cuenta, robe tus datos, mine criptomonedas o cause errores en el juego.",
     "iUnderstand": "Entiendo los riesgos",
     "invalidFileType": "El archivo debe ser un archivo JavaScript (.js)",
     "compilationFailed": "Falló la compilación del script. Por favor verifica la sintaxis de JavaScript.",
@@ -704,9 +695,9 @@
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
-    "homeBannerAvailable": "Modo {{title}} disponible para crear",
-    "homeBannerJoinable": "Únete a {{title}}, empieza en {{countdown}}",
-    "homeBannerCooldown": "{{title}} se desbloquea en {{countdown}}",
+    "homeBannerAvailable": "Ya podés crear una partida de {{title}}",
+    "homeBannerJoinable": "Sumate a {{title}}. Empieza en {{countdown}}",
+    "homeBannerCooldown": "{{title}} vuelve en {{countdown}}",
     "create": "Crear",
     "createTitle": "Crear {{title}}",
     "createDescription": "Se creará una partida {{title}}. La sala está abierta a todos los jugadores hasta que se llene o inicie automáticamente.",
@@ -827,10 +818,7 @@
     "message": "El servidor se está actualizando. Por favor, inténtalo de nuevo en unos minutos."
   },
   "whatsNew": {
-    "title": "Últimas novedades",
-    "p1": "Notas del desarrollo y de cada versión.",
-    "p2": "Las publicaciones nuevas aparecen acá cuando están listas.",
-    "p3": "También podés seguir el proyecto en las redes."
+    "title": "Últimas novedades"
   },
   "allVisible": "Todo Visible",
   "teamN": "Equipo {{number}}",
@@ -878,15 +866,12 @@
   "show": "Mostrar",
   "hide": "Ocultar",
   "discord": {
-    "joinTitle": "Discord de Lines of Battle",
-    "joinSubtitle": "Buscá rivales, hacé preguntas o seguí el desarrollo.",
-    "joinButton": "Abrir Discord",
     "link": "Vincular Discord",
     "unlink": "Desvincular Discord",
-    "confirmMessage": "¿Estás seguro de que quieres desvincular tu cuenta de Discord?",
-    "authWaitMessage": "Por favor espera mientras procesamos tu autorización de Discord...",
+    "confirmMessage": "¿Seguro que querés desvincular tu cuenta de Discord?",
+    "authWaitMessage": "Esperá mientras procesamos tu autorización de Discord...",
     "authSuccessMessage": "¡Cuenta de Discord vinculada exitosamente!",
-    "authErrorMessage": "Falló la autorización de Discord. Por favor intenta de nuevo.",
+    "authErrorMessage": "Falló la autorización de Discord. Intentá de nuevo.",
     "linkingAccount": "Vinculando cuenta de Discord..."
   },
   "redirecting": "Redirigiendo...",
@@ -988,9 +973,6 @@
     "findOne": "Encontrar una coalición",
     "findTitle": "Encontrá una coalición",
     "firstScore": "La tabla se va a actualizar cuando una coalición consiga su primer punto.",
-    "foundBenefitOne": "Nombre",
-    "foundBenefitThree": "Crear",
-    "foundBenefitTwo": "Etiqueta",
     "founderPreview": "Vista previa",
     "foundWith": "Pagar con",
     "heroDescription": "Los mejores jugadores definen el puntaje semanal. Las victorias clasificatorias y el primer empate de una racha suman puntos.",
@@ -1017,7 +999,7 @@
     "seasonLive": "La liga semanal está activa",
     "unnamedBanner": "Tu coalición",
     "viewStandings": "Ver clasificación semanal",
-    "weeklyRace": "La carrera semanal",
+    "weeklyRace": "Liga semanal",
     "weeklyRank": "Puesto semanal",
     "weeklyScore": "Puntaje semanal",
     "weekScore": "Esta semana",
@@ -1035,7 +1017,7 @@
   "alreadyScoredThisWeek": "Este jugador ya puntuó para otra coalición esta semana y no puede cambiar hasta el lunes.",
   "clanChat": "Chat de la coalición",
   "clanChatPlaceholder": "Escribí a tu coalición…",
-  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
-  "chatSendFailed": "Failed to send message.",
-  "challengeClan": "Challenge"
+  "clanChatWarning": "El chat de la coalición es privado y queda guardado. Las reglas de la comunidad también se aplican.",
+  "chatSendFailed": "No se pudo enviar el mensaje.",
+  "challengeClan": "Desafiar"
 }

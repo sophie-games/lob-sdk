@@ -68,9 +68,6 @@
     "findOne": "Find a coalition",
     "findTitle": "Find a coalition",
     "firstScore": "The table will update after a coalition earns its first point.",
-    "foundBenefitOne": "Name",
-    "foundBenefitThree": "Create",
-    "foundBenefitTwo": "Tag",
     "founderPreview": "Preview",
     "foundWith": "Pay with",
     "heroDescription": "The top contributors define the weekly score. Ranked wins and the first draw in a streak add points.",
@@ -97,7 +94,7 @@
     "seasonLive": "The weekly league is open",
     "unnamedBanner": "Your coalition",
     "viewStandings": "View weekly standings",
-    "weeklyRace": "The weekly race",
+    "weeklyRace": "Weekly league",
     "weeklyRank": "Weekly rank",
     "weeklyScore": "Weekly score",
     "weekScore": "This week",
@@ -257,17 +254,8 @@
     "createInfo2": "Or explore the <0>Community Hub</0> for ready-made scenarios."
   },
   "scenarioEditorTags": {
-    "creatorMode": "Scenario tools",
-    "heroTitle": "Create a scenario or keep working on one.",
-    "heroDescription": "Build the map, armies and rules, then test everything in the game.",
     "createDescription": "Start a new scenario from scratch.",
     "loadDescription": "Open a scenario file from your device.",
-    "stepBuild": "Build",
-    "stepBuildDescription": "Terrain, forces and rules",
-    "stepTest": "Test",
-    "stepTestDescription": "Run it in the game",
-    "stepShare": "Share",
-    "stepShareDescription": "Export one portable file",
     "tutorialMessage": "Need a hand? <tutorialLink>Watch the tutorial.</tutorialLink>",
     "randomGuide": "For random maps, read <0>this guide</0>.",
     "baleriiMessage": "Balerii and Nytka made their own map editor. This video shows how it works:"
@@ -735,9 +723,9 @@
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
-    "homeBannerAvailable": "{{title}} mode available to create",
-    "homeBannerJoinable": "Join {{title}}, starts in {{countdown}}",
-    "homeBannerCooldown": "{{title}} unlocks in {{countdown}}",
+    "homeBannerAvailable": "You can create a {{title}} game now",
+    "homeBannerJoinable": "Join {{title}}. Starts in {{countdown}}",
+    "homeBannerCooldown": "{{title}} returns in {{countdown}}",
     "create": "Create",
     "createTitle": "Create {{title}}",
     "createDescription": "A {{title}} game will be created. The lobby is open to all players until it fills or auto-starts.",
@@ -982,10 +970,7 @@
   },
   "selectFormation": "Select formation",
   "whatsNew": {
-    "title": "Latest updates",
-    "p1": "Development notes and release updates.",
-    "p2": "New posts appear here when they're ready.",
-    "p3": "You can also follow the project on social media."
+    "title": "Latest updates"
   },
   "invitedPlayers": "Invited players",
   "partyInviteFrom": "Party invite from {{username}}",
@@ -1076,9 +1061,6 @@
   "show": "Show",
   "hide": "Hide",
   "discord": {
-    "joinTitle": "Lines of Battle Discord",
-    "joinSubtitle": "Find players, ask questions, or follow development.",
-    "joinButton": "Open Discord",
     "link": "Link Discord",
     "unlink": "Unlink Discord",
     "confirmMessage": "Are you sure you want to unlink your Discord account?",
