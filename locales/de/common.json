@@ -625,7 +625,9 @@
     "leagueBracketTooltip": "Nur Spieler in diesem Liga-Bereich können beitreten",
     "eloTooLow": "Deine Liga ist zu niedrig, um dieser Arena beizutreten",
     "eloTooHigh": "Deine Liga ist zu hoch, um dieser Arena beizutreten",
-    "invalidLeagueBracket": "Ungültiger Liga-Bereich"
+    "invalidLeagueBracket": "Ungültiger Liga-Bereich",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "hasPassword": "Hat Passwort",
   "optional": "Optional",
@@ -861,5 +863,28 @@
     "scheduled": "Dein Konto ist zur Löschung in {{graceDays}} Tagen vorgemerkt. Melde dich vorher wieder an, um sie abzubrechen.",
     "error": "Kontolöschung konnte nicht geplant werden. Bitte versuche es erneut."
   },
-  "startGameAsSpectator": "Spiel als Zuschauer starten"
+  "startGameAsSpectator": "Spiel als Zuschauer starten",
+  "clanAverageLeague": "Koalitionsliga",
+  "clanTag": "Koalitionskürzel",
+  "clanTagHelp": "2–5 Buchstaben oder Ziffern. Kürzel sind eindeutig und werden neben Spielernamen angezeigt.",
+  "clanTagTaken": "Dieses Koalitionskürzel ist bereits vergeben.",
+  "clanTagInvalid": "Verwende 2–5 Buchstaben oder Ziffern für das Koalitionskürzel.",
+  "setClanTag": "Kürzel festlegen",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

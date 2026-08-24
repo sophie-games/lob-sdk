@@ -638,7 +638,9 @@
     "leagueBracketTooltip": "Seuls les joueurs dans cette tranche de ligue peuvent rejoindre",
     "eloTooLow": "Votre ligue est trop basse pour rejoindre cette arène",
     "eloTooHigh": "Votre ligue est trop haute pour rejoindre cette arène",
-    "invalidLeagueBracket": "Tranche de ligue invalide"
+    "invalidLeagueBracket": "Tranche de ligue invalide",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "hasPassword": "A un mot de passe",
   "optional": "Optionnel",
@@ -874,5 +876,28 @@
     "scheduled": "Votre compte est programmé pour suppression dans {{graceDays}} jours. Reconnectez-vous avant cette échéance pour l'annuler.",
     "error": "Impossible de programmer la suppression du compte. Veuillez réessayer."
   },
-  "startGameAsSpectator": "Lancer la partie en tant que spectateur"
+  "startGameAsSpectator": "Lancer la partie en tant que spectateur",
+  "clanAverageLeague": "Ligue de la coalition",
+  "clanTag": "Tag de coalition",
+  "clanTagHelp": "2 à 5 lettres ou chiffres. Les tags sont uniques et affichés à côté du nom des joueurs.",
+  "clanTagTaken": "Ce tag de coalition est déjà utilisé.",
+  "clanTagInvalid": "Utilisez 2 à 5 lettres ou chiffres pour le tag de coalition.",
+  "setClanTag": "Définir le tag",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

@@ -9,5 +9,9 @@
   "banDodge": {
     "title": "你已被禁赛{{minutes}}",
     "message": "您放弃了最近的 {{games}} 场排位赛，因此需要稍等片刻才能继续玩排位赛。"
+  },
+  "clanLeagueReward": {
+    "title": "Coalition league reward",
+    "message": "{{clanName}} finished #{{rank}}. You earned {{amount}} coins."
   }
 }

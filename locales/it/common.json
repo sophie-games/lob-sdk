@@ -626,7 +626,9 @@
     "leagueBracketTooltip": "Solo i giocatori in questa fascia di lega possono unirsi",
     "eloTooLow": "La tua lega è troppo bassa per unirsi a questa arena",
     "eloTooHigh": "La tua lega è troppo alta per unirsi a questa arena",
-    "invalidLeagueBracket": "Fascia di lega non valida"
+    "invalidLeagueBracket": "Fascia di lega non valida",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "hasPassword": "Ha password",
   "optional": "Opzionale",
@@ -862,5 +864,28 @@
     "scheduled": "Il tuo account è programmato per l'eliminazione tra {{graceDays}} giorni. Effettua di nuovo l'accesso prima di allora per annullarla.",
     "error": "Impossibile programmare l'eliminazione dell'account. Riprova."
   },
-  "startGameAsSpectator": "Avvia partita come spettatore"
+  "startGameAsSpectator": "Avvia partita come spettatore",
+  "clanAverageLeague": "Lega della coalizione",
+  "clanTag": "Tag della coalizione",
+  "clanTagHelp": "Da 2 a 5 lettere o numeri. I tag sono univoci e vengono mostrati accanto ai nomi dei giocatori.",
+  "clanTagTaken": "Questo tag della coalizione è già in uso.",
+  "clanTagInvalid": "Usa da 2 a 5 lettere o numeri per il tag della coalizione.",
+  "setClanTag": "Imposta tag",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

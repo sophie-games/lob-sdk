@@ -724,7 +724,9 @@
     "leagueBracketTooltip": "Apenas jogadores nesta faixa de liga podem entrar",
     "eloTooLow": "Sua liga é muito baixa para entrar nesta arena",
     "eloTooHigh": "Sua liga é muito alta para entrar nesta arena",
-    "invalidLeagueBracket": "Faixa de liga inválida"
+    "invalidLeagueBracket": "Faixa de liga inválida",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "era": "Era",
   "hasPassword": "Tem senha",
@@ -862,5 +864,28 @@
     "scheduled": "Sua conta está agendada para exclusão em {{graceDays}} dias. Entre novamente antes desse prazo para cancelar.",
     "error": "Não foi possível agendar a exclusão da conta. Tente novamente."
   },
-  "startGameAsSpectator": "Iniciar partida como espectador"
+  "startGameAsSpectator": "Iniciar partida como espectador",
+  "clanAverageLeague": "Liga da coligação",
+  "clanTag": "Tag da coalizão",
+  "clanTagHelp": "De 2 a 5 letras ou números. Os tags são únicos e aparecem ao lado dos nomes dos jogadores.",
+  "clanTagTaken": "Esse tag de coalizão já está em uso.",
+  "clanTagInvalid": "Use de 2 a 5 letras ou números no tag da coalizão.",
+  "setClanTag": "Definir tag",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

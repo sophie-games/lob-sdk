@@ -9,5 +9,9 @@
   "banDodge": {
     "title": "คุณถูกระงับการเข้าเล่นชั่วคราวเป็นเวลา {{minutes}} นาที",
     "message": "คุณได้ออกจากเกมจัดอันดับล่าสุดจำนวน {{games}} เกมติดต่อกัน ดังนั้นคุณต้องรอสักครู่เพื่อกลับเข้าเล่นในโหมดจัดอันดับอีกครั้ง"
+  },
+  "clanLeagueReward": {
+    "title": "Coalition league reward",
+    "message": "{{clanName}} finished #{{rank}}. You earned {{amount}} coins."
   }
 }
