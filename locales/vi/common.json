@@ -716,7 +716,9 @@
     "leagueBracketTooltip": "Chỉ người chơi trong khoảng giải đấu này mới có thể tham gia",
     "eloTooLow": "Giải đấu của bạn quá thấp để tham gia đấu trường này",
     "eloTooHigh": "Giải đấu của bạn quá cao để tham gia đấu trường này",
-    "invalidLeagueBracket": "Khoảng giải đấu không hợp lệ"
+    "invalidLeagueBracket": "Khoảng giải đấu không hợp lệ",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "open": "Mở",
   "closed": "Đóng",
@@ -1045,5 +1047,28 @@
     "scheduled": "Tài khoản của bạn được lên lịch xóa sau {{graceDays}} ngày. Đăng nhập lại trước thời hạn đó để hủy.",
     "error": "Không thể lên lịch xóa tài khoản. Vui lòng thử lại."
   },
-  "startGameAsSpectator": "Bắt đầu trò chơi với tư cách khán giả"
+  "startGameAsSpectator": "Bắt đầu trò chơi với tư cách khán giả",
+  "clanAverageLeague": "Hạng liên minh",
+  "clanTag": "Thẻ liên minh",
+  "clanTagHelp": "Từ 2–5 chữ cái hoặc chữ số. Thẻ là duy nhất và hiển thị bên cạnh tên người chơi.",
+  "clanTagTaken": "Thẻ liên minh này đã được sử dụng.",
+  "clanTagInvalid": "Hãy dùng 2–5 chữ cái hoặc chữ số cho thẻ liên minh.",
+  "setClanTag": "Đặt thẻ",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

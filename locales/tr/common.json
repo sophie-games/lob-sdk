@@ -725,7 +725,9 @@
     "leagueBracketTooltip": "Bu lig aralığındaki oyuncular katılabilir",
     "eloTooLow": "Ligin bu arenaya katılmak için çok düşük",
     "eloTooHigh": "Ligin bu arenaya katılmak için çok yüksek",
-    "invalidLeagueBracket": "Geçersiz lig aralığı"
+    "invalidLeagueBracket": "Geçersiz lig aralığı",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "era": "Dönem",
   "hasPassword": "Şifre var",
@@ -861,5 +863,28 @@
     "scheduled": "Hesabınız {{graceDays}} gün içinde silinmek üzere planlandı. İptal etmek için bu süre dolmadan tekrar giriş yapın.",
     "error": "Hesap silme planlanamadı. Lütfen tekrar deneyin."
   },
-  "startGameAsSpectator": "İzleyici olarak oyunu başlat"
+  "startGameAsSpectator": "İzleyici olarak oyunu başlat",
+  "clanAverageLeague": "Koalisyon Ligi",
+  "clanTag": "Koalisyon etiketi",
+  "clanTagHelp": "2–5 harf veya rakam. Etiketler benzersizdir ve oyuncu adlarının yanında gösterilir.",
+  "clanTagTaken": "Bu koalisyon etiketi zaten alınmış.",
+  "clanTagInvalid": "Koalisyon etiketi için 2–5 harf veya rakam kullan.",
+  "setClanTag": "Etiketi ayarla",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

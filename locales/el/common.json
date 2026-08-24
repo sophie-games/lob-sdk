@@ -662,7 +662,9 @@
     "leagueBracketTooltip": "Μπορούν να συμμετέχουν μόνο παίκτες εντός αυτού του εύρους λίγκας",
     "eloTooLow": "Η λίγκα σου είναι πολύ χαμηλή για να συμμετέχεις σε αυτή την αρένα",
     "eloTooHigh": "Η λίγκα σου είναι πολύ υψηλή για να συμμετέχεις σε αυτή την αρένα",
-    "invalidLeagueBracket": "Μη έγκυρο εύρος λίγκας"
+    "invalidLeagueBracket": "Μη έγκυρο εύρος λίγκας",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "open": "Ανοιχτό",
   "closed": "Κλειστό",
@@ -1002,5 +1004,28 @@
     "scheduled": "Ο λογαριασμός σας έχει προγραμματιστεί για διαγραφή σε {{graceDays}} ημέρες. Συνδεθείτε ξανά πριν από τότε για να την ακυρώσετε.",
     "error": "Δεν ήταν δυνατός ο προγραμματισμός διαγραφής λογαριασμού. Δοκιμάστε ξανά."
   },
-  "startGameAsSpectator": "Έναρξη παιχνιδιού ως θεατής"
+  "startGameAsSpectator": "Έναρξη παιχνιδιού ως θεατής",
+  "clanAverageLeague": "Λίγκα Συμμαχίας",
+  "clanTag": "Ετικέτα συνασπισμού",
+  "clanTagHelp": "2–5 γράμματα ή αριθμοί. Οι ετικέτες είναι μοναδικές και εμφανίζονται δίπλα στα ονόματα παικτών.",
+  "clanTagTaken": "Αυτή η ετικέτα συνασπισμού χρησιμοποιείται ήδη.",
+  "clanTagInvalid": "Χρησιμοποίησε 2–5 γράμματα ή αριθμούς για την ετικέτα συνασπισμού.",
+  "setClanTag": "Ορισμός ετικέτας",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

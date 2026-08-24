@@ -717,7 +717,9 @@
     "leagueBracketTooltip": "只有处于此联赛段位范围内的玩家才能加入",
     "eloTooLow": "您的联赛段位过低，无法加入此竞技场",
     "eloTooHigh": "您的联赛段位过高，无法加入此竞技场",
-    "invalidLeagueBracket": "无效的联赛段位"
+    "invalidLeagueBracket": "无效的联赛段位",
+    "clanChallenge": "Coalition challenge",
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
   },
   "open": "开放",
   "closed": "已关闭",
@@ -1063,5 +1065,28 @@
     "scheduled": "您的账户已安排在 {{graceDays}} 天后删除。请在期限之前重新登录以取消。",
     "error": "无法安排账户删除。请重试。"
   },
-  "startGameAsSpectator": "以旁观者身份开始游戏"
+  "startGameAsSpectator": "以旁观者身份开始游戏",
+  "clanAverageLeague": "联盟联赛",
+  "clanTag": "联盟标签",
+  "clanTagHelp": "2–5 个字母或数字。标签不可重复，并会显示在玩家名称旁。",
+  "clanTagTaken": "该联盟标签已被占用。",
+  "clanTagInvalid": "联盟标签须使用 2–5 个字母或数字。",
+  "setClanTag": "设置标签",
+  "coalition": "Coalition",
+  "coalitions": "Coalitions",
+  "points": "Points",
+  "leagueCurrentWeek": "Current week",
+  "leaguePreviousWeek": "Previous week",
+  "clanLeagueClosed": "Final standings",
+  "clanLeagueEnds": "Ends {{date}}",
+  "reigningChampion": "Reigning champion",
+  "noClanLeagueScores": "No coalition has scored this week yet.",
+  "weeklyGames": "games",
+  "scoringMember": "scoring",
+  "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
+  "clanChat": "Coalition chat",
+  "clanChatPlaceholder": "Message your coalition…",
+  "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
+  "chatSendFailed": "Failed to send message.",
+  "challengeClan": "Challenge"
 }

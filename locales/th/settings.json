@@ -302,5 +302,11 @@
     "set": "ตั้งกลุ่ม {{group}}",
     "add": "เพิ่มเข้ากลุ่ม {{group}}",
     "setExclusive": "กำหนดเฉพาะกลุ่ม {{group}}"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

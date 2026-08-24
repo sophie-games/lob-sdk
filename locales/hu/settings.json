@@ -271,5 +271,11 @@
     "set": "{{group}}. csoport beállítása",
     "add": "Hozzáadás a(z) {{group}}. csoporthoz",
     "setExclusive": "Csak a(z) {{group}}. csoportba"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

@@ -294,5 +294,11 @@
     "set": "{{group}}번 그룹 지정",
     "add": "{{group}}번 그룹에 추가",
     "setExclusive": "그룹 {{group}}에만 지정"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }
