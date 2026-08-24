@@ -1,0 +1,34 @@
+{
+  "dialog": {
+    "close": "Cerrar",
+    "label": "Cuadro de diálogo"
+  },
+  "passwordReset": {
+    "linkSent": "Se envió el enlace para restablecer la contraseña. Revisá tu correo.",
+    "unexpectedError": "Ocurrió un error inesperado.",
+    "userNotFound": "No se encontró una cuenta que coincida.",
+    "invalidOrExpiredToken": "Este enlace para restablecer la contraseña no es válido o venció.",
+    "error": "Error al restablecer la contraseña: {{message}}",
+    "invalidLink": "Este enlace para restablecer la contraseña no es válido o está incompleto.",
+    "passwordsDoNotMatch": "Las contraseñas no coinciden."
+  },
+  "pushDiagnostics": {
+    "sectionTitle": "Diagnóstico de notificaciones push",
+    "title": "Prueba push de extremo a extremo",
+    "description": "Envía una notificación real de turno a tus dispositivos registrados y verifica cada etapa de la entrega.",
+    "fcmCredentials": "Credenciales de FCM",
+    "registeredDevices": "Dispositivos registrados",
+    "delivered": "Entregadas",
+    "ready": "Listas",
+    "missing": "Faltantes",
+    "dropped": "({{count}} descartadas)",
+    "sendTest": "Enviar notificación de prueba",
+    "sendingTest": "Enviando prueba…",
+    "results": {
+      "fcmNotConfigured": "FCM no está configurado. Definí FCM_SERVICE_ACCOUNT_JSON.",
+      "noDevices": "No hay dispositivos registrados para esta cuenta. Primero iniciá sesión en la aplicación.",
+      "accepted": "FCM aceptó {{sent}} de {{devices}} solicitudes de envío. Confirmá la entrega en el teléfono.",
+      "testFailed": "Falló la prueba de notificaciones push."
+    }
+  }
+}

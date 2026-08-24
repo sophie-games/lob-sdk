@@ -1,0 +1,105 @@
+{
+  "home": "Kezdőlap",
+  "title": "Fejlesztési terv",
+  "subtitle": "Amin dolgozunk, és ami ezután következik",
+  "vision": {
+    "sharedBase": "A Lines of Battle egy taktikai stratégiai játék egyidejű körökkel: minden játékos megtervezi a lépését, majd minden lépés egyszerre hajtódik végre. Két, közös alapokra épülő változaton dolgozunk: az ingyenes, online rangsorolt mérkőzésekre összpontosító Lines of Battle <twoD>2D</twoD>-n (web és mobil), valamint a Lines of Battle <threeD>3D</threeD>-n (Steam), amely egy különálló, fizetős asztali játék történelmi hadjáratokkal és hosszabb csatákkal.",
+    "separateGames": "A megszerzett tudás mindkettőben hasznos, de a <twoD>2D</twoD> és a <threeD>3D</threeD> különálló játék, eltérő motorral és többjátékos rendszerrel. A webes és mobilos játékosok együtt játszhatnak 2D-ben; a 3D többjátékos módja a Steamen marad."
+  },
+  "twoD": {
+    "platform": "Web és mobil",
+    "title": "Lines of Battle 2D",
+    "focus": "Ingyenes weben, Androidon és iOS-en.",
+    "badges": { "web": "Web", "android": "Android", "ios": "iOS" },
+    "intro": "Ezzel a játékkal már most játszhatsz. Ingyenes, és olyan kozmetikai elemekből és kényelmi funkciókból tartjuk fenn, amelyek nem befolyásolják a mérkőzések eredményét. A munka egy része már folyamatban van, a többi tervben szerepel. A haladást <projectLink>nyilvános GitHub-projektünkben</projectLink> követheted.",
+    "items": [
+      {
+        "name": "Minőség és stabilitás",
+        "description": "Hibajavítások, teljesítményfejlesztés, backend-módosítások, tesztelés és egyensúlyfrissítések."
+      },
+      {
+        "name": "Irányítás",
+        "description": "Az irányítás javítása mobilon és PC-n."
+      },
+      {
+        "name": "Új csapatmódok",
+        "description": "Több többjátékos lehetőség és csapatalapú formátum."
+      },
+      {
+        "name": "Verseny és tisztességes játék",
+        "description": "További munka a párosításon, ranglistákon, smurfölésen és több fiók használatán."
+      },
+      {
+        "name": "Játékosfejlődés",
+        "description": "Hosszú távú célok, mérföldkövek és a fejlődés bemutatásának módjai."
+      },
+      {
+        "name": "Közösségi funkciók",
+        "description": "Több eszköz a közös játékhoz, beleértve a koalíciók további fejlesztését."
+      },
+      {
+        "name": "A fejlesztés támogatása",
+        "description": "Kozmetikai elemek, kényelmi funkciók és elismerés azoknak, akik segítik a fejlesztés finanszírozását."
+      },
+      {
+        "name": "Új korszakok",
+        "description": "Idővel több történelmi tartalom. Minden új korszak különálló és választható lesz."
+      }
+    ]
+  },
+  "threeD": {
+    "platform": "Steam · Asztali gép",
+    "title": "Lines of Battle 3D",
+    "focus": "Különálló, fizetős játék a Steamre.",
+    "badges": {
+      "steam": "Steam",
+      "paidGame": "Fizetős játék",
+      "desktop": "Asztali gép"
+    },
+    "intro": "A Lines of Battle 3D egy különálló asztali játék történelmi egyjátékos hadjáratokkal és hosszabb csatákkal.",
+    "items": [
+      {
+        "name": "Ugyanaz a harcrendszer",
+        "description": "A 2D harcrendszer 3D-be átültetve. A megjelenítés változik, a taktikai alap ugyanaz marad."
+      },
+      {
+        "name": "3D motor",
+        "description": "A nyílt forráskódú Godot motorral készül."
+      },
+      {
+        "name": "Hadjáratok",
+        "description": "Történelmi egyjátékos küldetések, stratégiai döntések, fejlődés és Steam-teljesítmények."
+      },
+      {
+        "name": "Steam többjátékos mód",
+        "description": "Online mérkőzések a Steamen barátokkal és meghívókkal."
+      },
+      {
+        "name": "Taktikai MI",
+        "description": "A hadjáratok és csaták gépi ellenfelének további fejlesztése a 2D-ben már használt MI-re építve."
+      },
+      {
+        "name": "Modolás",
+        "description": "Tervezett eszközök és Steam Workshop-támogatás térképek, forgatókönyvek, egységek és korszakok megosztásához."
+      },
+      {
+        "name": "További korszakok és hadjáratok",
+        "description": "Idővel újabb korszakok és hadjárattartalmak."
+      }
+    ],
+    "timeline": {
+      "label": "Jelenlegi célok · változhatnak",
+      "late2026": "2026 vége",
+      "earlyAccess": "Steam korai hozzáférés",
+      "year2027": "2027",
+      "fullRelease": "Teljes megjelenés"
+    }
+  },
+  "closing": {
+    "title": "A fejlesztési tervről",
+    "parallel": "Ezeken dolgozunk most, és ezeket szeretnénk megvalósítani ezután. A két változat párhuzamosan halad.",
+    "studio": "Mi vagyunk a Sophie Games, egy kis független stúdió. Munka közben a tervek változhatnak.",
+    "thanks": "Köszönjük, hogy játszol és követed a projektet."
+  },
+  "lastUpdated": "Legutóbbi frissítés · 2026. augusztus"
+}

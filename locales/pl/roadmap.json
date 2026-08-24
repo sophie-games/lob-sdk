@@ -1,0 +1,105 @@
+{
+  "home": "Strona główna",
+  "title": "Plan rozwoju",
+  "subtitle": "Nad czym pracujemy i co będzie dalej",
+  "vision": {
+    "sharedBase": "Lines of Battle to taktyczna gra strategiczna z jednoczesnymi turami: każdy gracz planuje ruch, a następnie wszystkie ruchy są rozpatrywane naraz. Pracujemy nad dwiema wersjami opartymi na tej samej podstawie: Lines of Battle <twoD>2D</twoD> (przeglądarka i urządzenia mobilne), darmową i skupioną na rankingowych rozgrywkach online, oraz Lines of Battle <threeD>3D</threeD> (Steam), osobną płatną grą na komputery z historycznymi kampaniami i dłuższymi bitwami.",
+    "separateGames": "Zdobyte umiejętności przydadzą się w obu wersjach, ale <twoD>2D</twoD> i <threeD>3D</threeD> to osobne gry z różnymi silnikami i systemami wieloosobowymi. Gracze przeglądarkowi i mobilni mogą grać razem w 2D; tryb wieloosobowy 3D pozostaje na Steam."
+  },
+  "twoD": {
+    "platform": "Przeglądarka i urządzenia mobilne",
+    "title": "Lines of Battle 2D",
+    "focus": "Za darmo w przeglądarce, na Androidzie i iOS.",
+    "badges": { "web": "Przeglądarka", "android": "Android", "ios": "iOS" },
+    "intro": "To gra, w którą możesz zagrać już teraz. Jest darmowa i finansowana przez elementy kosmetyczne oraz udogodnienia, które nie wpływają na wyniki meczów. Część prac już trwa, a reszta jest zaplanowana. Postępy możesz śledzić w naszym <projectLink>publicznym projekcie na GitHubie</projectLink>.",
+    "items": [
+      {
+        "name": "Jakość i stabilność",
+        "description": "Naprawy błędów, poprawa wydajności, zmiany backendu, testy i aktualizacje balansu."
+      },
+      {
+        "name": "Sterowanie",
+        "description": "Lepsze sterowanie na urządzeniach mobilnych i komputerach."
+      },
+      {
+        "name": "Nowe tryby drużynowe",
+        "description": "Więcej opcji wieloosobowych i formatów drużynowych."
+      },
+      {
+        "name": "Rywalizacja i uczciwa gra",
+        "description": "Dalsze prace nad dobieraniem graczy, rankingami, smurfingiem i wieloma kontami."
+      },
+      {
+        "name": "Postęp gracza",
+        "description": "Długoterminowe cele, kamienie milowe i sposoby prezentowania postępów."
+      },
+      {
+        "name": "Funkcje społecznościowe",
+        "description": "Więcej narzędzi do wspólnej gry, w tym dalszy rozwój koalicji."
+      },
+      {
+        "name": "Wsparcie rozwoju",
+        "description": "Elementy kosmetyczne, udogodnienia i podziękowania dla osób finansujących rozwój."
+      },
+      {
+        "name": "Nowe epoki",
+        "description": "Z czasem więcej treści historycznych. Każda nowa epoka będzie osobna i opcjonalna."
+      }
+    ]
+  },
+  "threeD": {
+    "platform": "Steam · Komputer",
+    "title": "Lines of Battle 3D",
+    "focus": "Osobna płatna gra na Steam.",
+    "badges": {
+      "steam": "Steam",
+      "paidGame": "Gra płatna",
+      "desktop": "Komputer"
+    },
+    "intro": "Lines of Battle 3D to osobna gra na komputery z historycznymi kampaniami dla jednego gracza i dłuższymi bitwami.",
+    "items": [
+      {
+        "name": "Ten sam system bitew",
+        "description": "System bitew 2D przeniesiony do 3D. Prezentacja się zmienia, ale podstawa taktyczna pozostaje ta sama."
+      },
+      {
+        "name": "Silnik 3D",
+        "description": "Tworzony na otwartym silniku Godot."
+      },
+      {
+        "name": "Kampanie",
+        "description": "Historyczne misje dla jednego gracza, strategiczne wybory, postęp i osiągnięcia Steam."
+      },
+      {
+        "name": "Tryb wieloosobowy Steam",
+        "description": "Mecze online na Steam ze znajomymi i zaproszeniami."
+      },
+      {
+        "name": "Taktyczna SI",
+        "description": "Dalszy rozwój komputerowego przeciwnika w kampaniach i bitwach, oparty na SI używanej już w 2D."
+      },
+      {
+        "name": "Modyfikacje",
+        "description": "Planowane narzędzia i obsługa Warsztatu Steam do udostępniania map, scenariuszy, jednostek i epok."
+      },
+      {
+        "name": "Więcej epok i kampanii",
+        "description": "Z czasem pojawią się kolejne epoki i treści kampanii."
+      }
+    ],
+    "timeline": {
+      "label": "Obecne cele · mogą ulec zmianie",
+      "late2026": "Koniec 2026",
+      "earlyAccess": "Wczesny dostęp na Steam",
+      "year2027": "2027",
+      "fullRelease": "Pełna premiera"
+    }
+  },
+  "closing": {
+    "title": "O tym planie rozwoju",
+    "parallel": "Nad tym obecnie pracujemy i tym chcemy zająć się później. Obie wersje rozwijają się równolegle.",
+    "studio": "Jesteśmy Sophie Games, małym niezależnym studiem. Plany mogą się zmieniać w trakcie prac.",
+    "thanks": "Dziękujemy za grę i śledzenie projektu."
+  },
+  "lastUpdated": "Ostatnia aktualizacja · Sierpień 2026"
+}

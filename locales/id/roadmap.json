@@ -1,0 +1,105 @@
+{
+  "home": "Beranda",
+  "title": "Peta jalan",
+  "subtitle": "Yang sedang kami kerjakan dan yang akan datang",
+  "vision": {
+    "sharedBase": "Lines of Battle adalah gim strategi taktis dengan giliran serentak: setiap pemain merencanakan gerakan, lalu semua gerakan diselesaikan sekaligus. Kami sedang mengembangkan dua versi dengan dasar yang sama: Lines of Battle <twoD>2D</twoD> (Web dan Seluler), gratis dan berfokus pada pertandingan peringkat daring, serta Lines of Battle <threeD>3D</threeD> (Steam), gim desktop berbayar yang terpisah dengan kampanye sejarah dan pertempuran yang lebih panjang.",
+    "separateGames": "Hal yang Anda pelajari berlaku di keduanya, tetapi <twoD>2D</twoD> dan <threeD>3D</threeD> adalah gim terpisah dengan mesin dan sistem multipemain yang berbeda. Pemain Web dan Seluler dapat bertanding bersama dalam 2D; multipemain 3D tetap berada di Steam."
+  },
+  "twoD": {
+    "platform": "Web dan Seluler",
+    "title": "Lines of Battle 2D",
+    "focus": "Gratis di Web, Android, dan iOS.",
+    "badges": { "web": "Web", "android": "Android", "ios": "iOS" },
+    "intro": "Inilah gim yang dapat Anda mainkan sekarang. Gim ini gratis dan didanai melalui kosmetik serta fitur kenyamanan yang tidak memengaruhi hasil pertandingan. Sebagian pekerjaan ini sedang berlangsung dan sisanya sudah direncanakan. Ikuti perkembangannya di <projectLink>proyek GitHub publik kami</projectLink>.",
+    "items": [
+      {
+        "name": "Kualitas dan stabilitas",
+        "description": "Perbaikan bug, peningkatan performa, perubahan backend, pengujian, dan pembaruan keseimbangan."
+      },
+      {
+        "name": "Kontrol",
+        "description": "Meningkatkan kontrol di perangkat seluler dan PC."
+      },
+      {
+        "name": "Mode tim baru",
+        "description": "Lebih banyak opsi multipemain dan format berbasis tim."
+      },
+      {
+        "name": "Kompetisi dan permainan adil",
+        "description": "Peningkatan lebih lanjut pada matchmaking, peringkat, smurfing, dan penggunaan banyak akun."
+      },
+      {
+        "name": "Progres pemain",
+        "description": "Tujuan jangka panjang, pencapaian, dan cara menampilkan progres pemain."
+      },
+      {
+        "name": "Fitur sosial",
+        "description": "Lebih banyak alat untuk bermain bersama orang lain, termasuk pengembangan koalisi lebih lanjut."
+      },
+      {
+        "name": "Dukungan pengembangan",
+        "description": "Kosmetik, fitur kenyamanan, dan penghargaan bagi mereka yang membantu mendanai pengembangan."
+      },
+      {
+        "name": "Era baru",
+        "description": "Lebih banyak konten sejarah seiring waktu. Setiap era baru akan terpisah dan opsional."
+      }
+    ]
+  },
+  "threeD": {
+    "platform": "Steam · Desktop",
+    "title": "Lines of Battle 3D",
+    "focus": "Gim berbayar terpisah untuk Steam.",
+    "badges": {
+      "steam": "Steam",
+      "paidGame": "Gim berbayar",
+      "desktop": "Desktop"
+    },
+    "intro": "Lines of Battle 3D adalah gim desktop terpisah dengan kampanye sejarah pemain tunggal dan pertempuran yang lebih panjang.",
+    "items": [
+      {
+        "name": "Sistem pertempuran yang sama",
+        "description": "Sistem pertempuran 2D dibawa ke 3D. Penyajiannya berubah, tetapi dasar taktisnya tetap sama."
+      },
+      {
+        "name": "Mesin 3D",
+        "description": "Dibangun dengan mesin sumber terbuka Godot."
+      },
+      {
+        "name": "Kampanye",
+        "description": "Misi sejarah pemain tunggal, pilihan strategis, progres, dan pencapaian Steam."
+      },
+      {
+        "name": "Multipemain Steam",
+        "description": "Pertandingan daring di Steam bersama teman dan undangan."
+      },
+      {
+        "name": "AI taktis",
+        "description": "Pengembangan lebih lanjut pada lawan komputer untuk kampanye dan pertempuran, berdasarkan AI yang sudah digunakan dalam 2D."
+      },
+      {
+        "name": "Modding",
+        "description": "Alat yang direncanakan dan dukungan Steam Workshop untuk berbagi peta, skenario, unit, dan era."
+      },
+      {
+        "name": "Lebih banyak era dan kampanye",
+        "description": "Era tambahan dan konten kampanye seiring waktu."
+      }
+    ],
+    "timeline": {
+      "label": "Target saat ini · dapat berubah",
+      "late2026": "Akhir 2026",
+      "earlyAccess": "Akses Awal Steam",
+      "year2027": "2027",
+      "fullRelease": "Rilis penuh"
+    }
+  },
+  "closing": {
+    "title": "Tentang peta jalan ini",
+    "parallel": "Inilah yang sedang kami kerjakan dan yang ingin kami kerjakan berikutnya. Kedua versi bergerak maju secara paralel.",
+    "studio": "Kami adalah Sophie Games, studio indie kecil. Rencana dapat berubah selama pengembangan.",
+    "thanks": "Terima kasih telah bermain dan mengikuti proyek ini."
+  },
+  "lastUpdated": "Terakhir diperbarui · Agustus 2026"
+}
