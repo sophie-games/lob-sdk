@@ -6,8 +6,10 @@ module.exports = {
   transform: {
     "^.+\\.tsx?$": "ts-jest",
   },
+  setupFiles: [
+    "<rootDir>/src/game-data-manager/register-all-scenario-catalogs.ts",
+  ],
   moduleNameMapper: {
     "^@lob-sdk/(.*)$": "<rootDir>/src/$1",
   },
 };
-
