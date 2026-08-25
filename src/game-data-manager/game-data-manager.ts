@@ -80,6 +80,14 @@ import { FormationManager } from "./formation-manager";
 import { UnitTemplateManager } from "./unit-template-manager";
 import { degreesToRadians, deepMerge, type DeepPartial } from "@lob-sdk/utils";
 import type { ScenarioCatalog } from "./scenario-catalog";
+import type { ScenarioIndex, ScenarioMeta } from "./scenario-index";
+import { napoleonicScenarioIndex } from "@lob-sdk/game-data/eras/napoleonic/scenario-index";
+import { ww2ScenarioIndex } from "@lob-sdk/game-data/eras/ww2/scenario-index";
+
+const SCENARIO_INDEXES: Record<GameEra, ScenarioIndex> = {
+  napoleonic: napoleonicScenarioIndex,
+  ww2: ww2ScenarioIndex,
+};
 
 /**
  * Scenario-scoped custom definitions layered onto an era registry by
@@ -208,6 +216,10 @@ export class GameDataManager {
       );
     }
     return catalog;
+  }
+
+  private get scenarioIndex(): ScenarioIndex {
+    return SCENARIO_INDEXES[this.era];
   }
 
   // Map sizes
@@ -1531,6 +1543,20 @@ export class GameDataManager {
     return normalized;
   }
 
+  /** Get lightweight scenario fields without loading the full catalog. */
+  public getScenarioMeta(scenarioName: ScenarioName): ScenarioMeta {
+    const meta = this.scenarioIndex[scenarioName];
+    if (!meta) {
+      throw new Error(`Scenario ${scenarioName} not found for era ${this.era}`);
+    }
+    return meta;
+  }
+
+  /** Try to get lightweight scenario fields without loading the full catalog. */
+  public tryGetScenarioMeta(scenarioName: ScenarioName): ScenarioMeta | null {
+    return this.scenarioIndex[scenarioName] ?? null;
+  }
+
   /**
    * Try to get a normalized scenario by name. Returns `null` if missing.
    * A scenario registered via {@link registerScenario} (e.g. the editor's live
@@ -1587,17 +1613,16 @@ export class GameDataManager {
   }
 
   public getScenarios(): Array<ScenarioName> {
-    return Object.keys(this.scenarios).filter((scenarioName) => {
-      const scenario = this.scenarios[scenarioName];
-      return !scenario.hidden;
-    });
+    return Object.keys(this.scenarioIndex).filter(
+      (scenarioName) => !this.scenarioIndex[scenarioName].hidden,
+    );
   }
 
   /**
    * Get all scenario names for this era
    */
   public getScenarioNames(): ScenarioName[] {
-    return Object.keys(this.scenarios);
+    return Object.keys(this.scenarioIndex);
   }
 
   /**

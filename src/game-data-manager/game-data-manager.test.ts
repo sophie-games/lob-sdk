@@ -57,6 +57,42 @@ describe("GameDataManager", () => {
     });
   });
 
+  describe("scenario metadata", () => {
+    it("matches the lightweight fields from every full scenario", () => {
+      GameDataManager.getAvailableEras().forEach((era) => {
+        const manager = GameDataManager.get(era);
+
+        manager.getScenarioNames().forEach((scenarioName) => {
+          const scenario = manager.getScenario(scenarioName);
+          const locales = scenario.locales
+            ? Object.fromEntries(
+                Object.entries(scenario.locales).map(([language, values]) => [
+                  language,
+                  Object.fromEntries(
+                    ["name", "description"]
+                      .filter((key) => values[key] !== undefined)
+                      .map((key) => [key, values[key]]),
+                  ),
+                ]),
+              )
+            : undefined;
+
+          expect(manager.getScenarioMeta(scenarioName)).toEqual({
+            name: scenario.name,
+            description: scenario.description,
+            locales,
+            ranked: scenario.ranked ?? false,
+            hidden: scenario.hidden ?? false,
+            playerCount: scenario.players?.length ?? null,
+            mapSize: scenario.map
+              ? { width: scenario.map.width, height: scenario.map.height }
+              : (scenario.fixedSize ?? null),
+          });
+        });
+      });
+    });
+  });
+
   describe("registerScenario / tryGetScenario", () => {
     const EDITOR_NAME = "__editor_test_scenario__";
     afterEach(() => gameDataManager.unregisterScenario(EDITOR_NAME));

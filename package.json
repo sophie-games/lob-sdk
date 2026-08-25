@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "npm run generate:scenario-index && tsc -p tsconfig.build.json",
+    "generate:scenario-index": "node scripts/generate-scenario-index.cjs",
     "test": "jest",
     "test:watch": "jest --watch"
   },
