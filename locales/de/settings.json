@@ -200,6 +200,10 @@
     "description": "Steuert die Qualität der Bodenstrukturen. Höhere Qualität bietet bessere visuelle Details, kann aber die Leistung beeinträchtigen. Erfordert das Aktualisieren der Karte."
   },
   "appearance": "Darstellung",
+  "era": {
+    "title": "Epoche",
+    "description": "Wähle die Epoche für das Spiel. Eine Änderung wirkt sich auf verfügbare Einheiten, Szenarien und Spielmechaniken aus."
+  },
   "notifications": {
     "title": "Benachrichtigungen",
     "turnActivity": {

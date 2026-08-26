@@ -207,6 +207,10 @@
     "description": "Mengontrol kualitas tekstur tanah. Kualitas yang lebih tinggi memberikan detail visual yang lebih baik tetapi dapat mempengaruhi kinerja. Memerlukan penyegaran peta."
   },
   "appearance": "Tampilan",
+  "era": {
+    "title": "Era",
+    "description": "Pilih era permainan. Mengubahnya akan memengaruhi unit, skenario, dan mekanisme permainan yang tersedia."
+  },
   "notifications": {
     "title": "Notifikasi",
     "turnActivity": {
