@@ -1,0 +1,105 @@
+{
+  "home": "Ana sayfa",
+  "title": "Yol haritası",
+  "subtitle": "Üzerinde çalıştıklarımız ve sırada olanlar",
+  "vision": {
+    "sharedBase": "Lines of Battle, eş zamanlı turlara sahip taktiksel bir strateji oyunudur: her oyuncu bir hamle planlar, ardından tüm hamleler aynı anda çözülür. Aynı temeli paylaşan iki sürüm üzerinde çalışıyoruz: ücretsiz ve çevrimiçi dereceli maçlara odaklanan Lines of Battle <twoD>2D</twoD> (Web ve Mobil) ile tarihî seferler ve daha uzun savaşlar içeren, masaüstüne özel ücretli Lines of Battle <threeD>3D</threeD> (Steam).",
+    "separateGames": "Öğrendikleriniz iki sürüme de aktarılır, ancak <twoD>2D</twoD> ve <threeD>3D</threeD> farklı motorlara ve çok oyunculu sistemlere sahip ayrı oyunlardır. Web ve Mobil oyuncuları 2D'de birlikte eşleşebilir; 3D çok oyunculu modu Steam'de kalır."
+  },
+  "twoD": {
+    "platform": "Web ve Mobil",
+    "title": "Lines of Battle 2D",
+    "focus": "Web, Android ve iOS'ta ücretsiz.",
+    "badges": { "web": "Web", "android": "Android", "ios": "iOS" },
+    "intro": "Şu anda oynayabileceğiniz oyun budur. Ücretsizdir ve maç sonuçlarını etkilemeyen kozmetiklerle ve kullanım kolaylığı özellikleriyle finanse edilir. Bu çalışmaların bir kısmı sürüyor, geri kalanı planlandı. Gelişmeleri <projectLink>herkese açık GitHub projemizden</projectLink> takip edebilirsiniz.",
+    "items": [
+      {
+        "name": "Kalite ve kararlılık",
+        "description": "Hata düzeltmeleri, performans çalışmaları, arka uç değişiklikleri, testler ve denge güncellemeleri."
+      },
+      {
+        "name": "Kontroller",
+        "description": "Kontrolleri mobil cihazlarda ve bilgisayarda daha iyi hâle getirmek."
+      },
+      {
+        "name": "Yeni takım modları",
+        "description": "Daha fazla çok oyunculu seçenek ve takım tabanlı format."
+      },
+      {
+        "name": "Rekabet ve adil oyun",
+        "description": "Eşleştirme, sıralamalar, smurf hesaplar ve çoklu hesap kullanımı üzerinde daha fazla çalışma."
+      },
+      {
+        "name": "Oyuncu ilerlemesi",
+        "description": "Uzun vadeli hedefler, dönüm noktaları ve ilerlemeyi gösterme yolları."
+      },
+      {
+        "name": "Sosyal özellikler",
+        "description": "Koalisyonlar üzerindeki çalışmalar dâhil, başkalarıyla oynamak için daha fazla araç."
+      },
+      {
+        "name": "Geliştirme desteği",
+        "description": "Kozmetikler, kullanım kolaylığı özellikleri ve geliştirmeyi finanse edenlere özel teşekkürler."
+      },
+      {
+        "name": "Yeni dönemler",
+        "description": "Zamanla daha fazla tarihî içerik. Her yeni dönem ayrı ve isteğe bağlı olacak."
+      }
+    ]
+  },
+  "threeD": {
+    "platform": "Steam · Masaüstü",
+    "title": "Lines of Battle 3D",
+    "focus": "Steam için ayrı ve ücretli bir oyun.",
+    "badges": {
+      "steam": "Steam",
+      "paidGame": "Ücretli oyun",
+      "desktop": "Masaüstü"
+    },
+    "intro": "Lines of Battle 3D, tarihî tek oyunculu seferler ve daha uzun savaşlar içeren ayrı bir masaüstü oyunudur.",
+    "items": [
+      {
+        "name": "Aynı savaş sistemi",
+        "description": "2D savaş sisteminin 3D'ye taşınmış hâli. Sunum değişir, ancak taktiksel temel aynı kalır."
+      },
+      {
+        "name": "3D motoru",
+        "description": "Açık kaynaklı Godot motoruyla geliştiriliyor."
+      },
+      {
+        "name": "Seferler",
+        "description": "Tarihî tek oyunculu görevler, stratejik seçimler, ilerleme ve Steam başarımları."
+      },
+      {
+        "name": "Steam çok oyunculu",
+        "description": "Arkadaşlar ve davetlerle Steam üzerinden çevrimiçi maçlar."
+      },
+      {
+        "name": "Taktiksel yapay zekâ",
+        "description": "2D'de kullanılan yapay zekâ temel alınarak seferler ve savaşlardaki bilgisayar rakibi üzerinde daha fazla çalışma."
+      },
+      {
+        "name": "Modlama",
+        "description": "Harita, senaryo, birlik ve dönem paylaşmak için planlanan araçlar ve Steam Atölyesi desteği."
+      },
+      {
+        "name": "Daha fazla dönem ve sefer",
+        "description": "Zamanla ek dönemler ve sefer içerikleri."
+      }
+    ],
+    "timeline": {
+      "label": "Güncel hedefler · değişebilir",
+      "late2026": "2026 sonu",
+      "earlyAccess": "Steam Erken Erişim",
+      "year2027": "2027",
+      "fullRelease": "Tam sürüm"
+    }
+  },
+  "closing": {
+    "title": "Bu yol haritası hakkında",
+    "parallel": "Şu anda üzerinde çalıştıklarımız ve sonrasında yapmak istediklerimiz bunlar. İki sürüm de paralel ilerliyor.",
+    "studio": "Biz küçük bir bağımsız stüdyo olan Sophie Games'iz. Çalışmalar sırasında planlar değişebilir.",
+    "thanks": "Oynadığınız ve projeyi takip ettiğiniz için teşekkürler."
+  },
+  "lastUpdated": "Son güncelleme · Ağustos 2026"
+}

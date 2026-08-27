@@ -1,0 +1,34 @@
+{
+  "dialog": {
+    "close": "إغلاق",
+    "label": "مربع حوار"
+  },
+  "passwordReset": {
+    "linkSent": "تم إرسال رابط إعادة تعيين كلمة المرور. تحقق من بريدك الإلكتروني.",
+    "unexpectedError": "حدث خطأ غير متوقع.",
+    "userNotFound": "لم يتم العثور على حساب مطابق.",
+    "invalidOrExpiredToken": "رابط إعادة تعيين كلمة المرور غير صالح أو انتهت صلاحيته.",
+    "error": "حدث خطأ أثناء إعادة تعيين كلمة المرور: {{message}}",
+    "invalidLink": "رابط إعادة تعيين كلمة المرور هذا غير صالح أو غير مكتمل.",
+    "passwordsDoNotMatch": "كلمتا المرور غير متطابقتين."
+  },
+  "pushDiagnostics": {
+    "sectionTitle": "تشخيص إشعارات Push",
+    "title": "اختبار Push من البداية إلى النهاية",
+    "description": "يرسل إشعار دور حقيقيًا إلى أجهزتك المسجلة ويتحقق من كل مرحلة في سلسلة التسليم.",
+    "fcmCredentials": "بيانات اعتماد FCM",
+    "registeredDevices": "الأجهزة المسجلة",
+    "delivered": "تم التسليم",
+    "ready": "جاهز",
+    "missing": "مفقود",
+    "dropped": "(تم رفض {{count}})",
+    "sendTest": "إرسال إشعار تجريبي",
+    "sendingTest": "جارٍ إرسال الاختبار…",
+    "results": {
+      "fcmNotConfigured": "لم تتم تهيئة FCM. عيّن FCM_SERVICE_ACCOUNT_JSON.",
+      "noDevices": "لا توجد أجهزة مسجلة لهذا الحساب. سجّل الدخول في التطبيق أولًا.",
+      "accepted": "قبلت FCM عدد {{sent}} من أصل {{devices}} من طلبات الإرسال. تأكد من وصولها إلى الهاتف.",
+      "testFailed": "فشل اختبار إشعارات Push."
+    }
+  }
+}

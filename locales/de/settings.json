@@ -138,7 +138,6 @@
   "keybindings": {
     "rotateCameraLeft": "Kamera nach links drehen",
     "rotateCameraRight": "Kamera nach rechts drehen",
-    "rotateCameraSnap": "Kamera um 90° drehen",
     "title": "Tastenkombinationen",
     "pressAKey": "Drücke eine Taste...",
     "moveUp": "Nach oben bewegen",
@@ -200,6 +199,10 @@
     "description": "Steuert die Qualität der Bodenstrukturen. Höhere Qualität bietet bessere visuelle Details, kann aber die Leistung beeinträchtigen. Erfordert das Aktualisieren der Karte."
   },
   "appearance": "Darstellung",
+  "era": {
+    "title": "Epoche",
+    "description": "Wähle die Epoche für das Spiel. Eine Änderung wirkt sich auf verfügbare Einheiten, Szenarien und Spielmechaniken aus."
+  },
   "notifications": {
     "title": "Benachrichtigungen",
     "turnActivity": {

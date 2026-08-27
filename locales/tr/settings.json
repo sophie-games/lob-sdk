@@ -135,7 +135,6 @@
   "keybindings": {
     "rotateCameraLeft": "Kamerayı sola döndür",
     "rotateCameraRight": "Kamerayı sağa döndür",
-    "rotateCameraSnap": "Kamerayı 90° döndür",
     "title": "Tuş Atamaları",
     "pressAKey": "Bir tuşa basın...",
     "moveUp": "Yukarı hareket et",
@@ -207,6 +206,10 @@
     "description": "Arazi dokularının kalitesini kontrol eder. Daha yüksek kalite daha iyi görsel detaylar sağlar ancak performansı etkileyebilir. Haritanın yenilenmesini gerektirir."
   },
   "appearance": "Görünüm",
+  "era": {
+    "title": "Dönem",
+    "description": "Oyun dönemini seçin. Değiştirmek mevcut birlikleri, senaryoları ve oyun mekaniklerini etkiler."
+  },
   "notifications": {
     "title": "Bildirimler",
     "turnActivity": {

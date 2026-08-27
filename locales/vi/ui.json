@@ -1,0 +1,34 @@
+{
+  "dialog": {
+    "close": "Đóng",
+    "label": "Hộp thoại"
+  },
+  "passwordReset": {
+    "linkSent": "Đã gửi liên kết đặt lại mật khẩu. Hãy kiểm tra email của bạn.",
+    "unexpectedError": "Đã xảy ra lỗi không mong muốn.",
+    "userNotFound": "Không tìm thấy tài khoản phù hợp.",
+    "invalidOrExpiredToken": "Liên kết đặt lại mật khẩu này không hợp lệ hoặc đã hết hạn.",
+    "error": "Lỗi khi đặt lại mật khẩu: {{message}}",
+    "invalidLink": "Liên kết đặt lại mật khẩu này không hợp lệ hoặc không đầy đủ.",
+    "passwordsDoNotMatch": "Mật khẩu không khớp."
+  },
+  "pushDiagnostics": {
+    "sectionTitle": "Chẩn đoán thông báo push",
+    "title": "Kiểm tra push toàn trình",
+    "description": "Gửi thông báo lượt chơi thật đến các thiết bị đã đăng ký và kiểm tra từng bước trong quá trình phân phối.",
+    "fcmCredentials": "Thông tin xác thực FCM",
+    "registeredDevices": "Thiết bị đã đăng ký",
+    "delivered": "Đã phân phối",
+    "ready": "Sẵn sàng",
+    "missing": "Thiếu",
+    "dropped": "({{count}} bị loại)",
+    "sendTest": "Gửi thông báo kiểm tra",
+    "sendingTest": "Đang gửi kiểm tra…",
+    "results": {
+      "fcmNotConfigured": "FCM chưa được cấu hình. Hãy đặt FCM_SERVICE_ACCOUNT_JSON.",
+      "noDevices": "Không có thiết bị nào được đăng ký cho tài khoản này. Hãy đăng nhập vào ứng dụng trước.",
+      "accepted": "FCM đã chấp nhận {{sent}} trên {{devices}} yêu cầu gửi. Hãy xác nhận việc nhận trên điện thoại.",
+      "testFailed": "Kiểm tra push thất bại."
+    }
+  }
+}

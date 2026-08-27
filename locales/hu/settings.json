@@ -135,7 +135,6 @@
   "keybindings": {
     "rotateCameraLeft": "Kamera forgatása balra",
     "rotateCameraRight": "Kamera forgatása jobbra",
-    "rotateCameraSnap": "Kamera forgatása 90°-kal",
     "title": "Billentyűparancsok",
     "pressAKey": "Nyomj meg egy billentyűt...",
     "moveUp": "Mozgás felfelé",
@@ -207,6 +206,10 @@
     "description": "Szabályozza a terep textúrák minőségét. A magasabb minőség jobb vizuális részleteket biztosít, de befolyásolhatja a teljesítményt. Megköveteli a térkép frissítését."
   },
   "appearance": "Megjelenés",
+  "era": {
+    "title": "Korszak",
+    "description": "Válaszd ki a játék korszakát. A módosítás hatással van az elérhető egységekre, pályákra és játékmechanikákra."
+  },
   "notifications": {
     "title": "Értesítések",
     "turnActivity": {

@@ -1,0 +1,34 @@
+{
+  "dialog": {
+    "close": "Kapat",
+    "label": "İletişim kutusu"
+  },
+  "passwordReset": {
+    "linkSent": "Parola sıfırlama bağlantısı gönderildi. E-postanızı kontrol edin.",
+    "unexpectedError": "Beklenmeyen bir hata oluştu.",
+    "userNotFound": "Eşleşen bir hesap bulunamadı.",
+    "invalidOrExpiredToken": "Bu parola sıfırlama bağlantısı geçersiz veya süresi dolmuş.",
+    "error": "Parola sıfırlanırken hata oluştu: {{message}}",
+    "invalidLink": "Bu parola sıfırlama bağlantısı geçersiz veya eksik.",
+    "passwordsDoNotMatch": "Parolalar eşleşmiyor."
+  },
+  "pushDiagnostics": {
+    "sectionTitle": "Push bildirimi tanılama",
+    "title": "Uçtan uca push testi",
+    "description": "Kayıtlı cihazlarınıza gerçek bir tur bildirimi gönderir ve teslimat zincirinin her adımını doğrular.",
+    "fcmCredentials": "FCM kimlik bilgileri",
+    "registeredDevices": "Kayıtlı cihazlar",
+    "delivered": "Teslim edildi",
+    "ready": "Hazır",
+    "missing": "Eksik",
+    "dropped": "({{count}} reddedildi)",
+    "sendTest": "Test bildirimi gönder",
+    "sendingTest": "Test gönderiliyor…",
+    "results": {
+      "fcmNotConfigured": "FCM yapılandırılmamış. FCM_SERVICE_ACCOUNT_JSON değerini ayarlayın.",
+      "noDevices": "Bu hesap için kayıtlı cihaz yok. Önce uygulamada oturum açın.",
+      "accepted": "FCM, {{devices}} gönderim isteğinin {{sent}} tanesini kabul etti. Telefonda teslimatı doğrulayın.",
+      "testFailed": "Push testi başarısız oldu."
+    }
+  }
+}

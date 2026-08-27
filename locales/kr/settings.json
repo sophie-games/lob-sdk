@@ -158,7 +158,6 @@
   "keybindings": {
     "rotateCameraLeft": "카메라 왼쪽으로 회전",
     "rotateCameraRight": "카메라 오른쪽으로 회전",
-    "rotateCameraSnap": "카메라 90° 회전",
     "title": "키보드 단축키",
     "pressAKey": "지정할 키를 누르세요...",
     "moveUp": "위로 이동",
@@ -230,6 +229,10 @@
     "description": "지형 텍스쳐의 품질을 설정합니다. 품질이 높을수록 시각적 세부사항의 질이 향상되지만 성능에 영향을 줄 수 있습니다. 지도를 새로 고쳐야 합니다."
   },
   "appearance": "모양",
+  "era": {
+    "title": "시대",
+    "description": "플레이할 시대를 선택하세요. 변경하면 사용 가능한 유닛, 시나리오, 게임 방식이 달라집니다."
+  },
   "notifications": {
     "title": "알림",
     "turnActivity": {

@@ -1,0 +1,105 @@
+{
+  "home": "Startseite",
+  "title": "Roadmap",
+  "subtitle": "Woran wir arbeiten und was als Nächstes kommt",
+  "vision": {
+    "sharedBase": "Lines of Battle ist ein taktisches Strategiespiel mit gleichzeitigen Zügen: Jeder Spieler plant einen Zug, dann werden alle Züge gleichzeitig ausgeführt. Wir arbeiten an zwei Versionen mit derselben Grundlage: Lines of Battle <twoD>2D</twoD> (Web und Mobil), kostenlos und auf gewertete Online-Partien ausgerichtet, sowie Lines of Battle <threeD>3D</threeD> (Steam), ein separates kostenpflichtiges Desktop-Spiel mit historischen Kampagnen und längeren Schlachten.",
+    "separateGames": "Das Gelernte lässt sich übertragen, aber <twoD>2D</twoD> und <threeD>3D</threeD> sind getrennte Spiele mit unterschiedlichen Engines und Mehrspielersystemen. Web- und Mobilspieler können in 2D gemeinsam spielen; der 3D-Mehrspielermodus bleibt auf Steam."
+  },
+  "twoD": {
+    "platform": "Web und Mobil",
+    "title": "Lines of Battle 2D",
+    "focus": "Kostenlos im Web, auf Android und iOS.",
+    "badges": { "web": "Web", "android": "Android", "ios": "iOS" },
+    "intro": "Das ist das Spiel, das du jetzt spielen kannst. Es ist kostenlos und wird durch kosmetische Inhalte und Komfortfunktionen finanziert, die den Ausgang von Partien nicht beeinflussen. Ein Teil dieser Arbeiten läuft bereits, der Rest ist geplant. Verfolge den Fortschritt in unserem <projectLink>öffentlichen GitHub-Projekt</projectLink>.",
+    "items": [
+      {
+        "name": "Qualität und Stabilität",
+        "description": "Fehlerbehebungen, Leistungsverbesserungen, Backend-Änderungen, Tests und Balancing-Updates."
+      },
+      {
+        "name": "Steuerung",
+        "description": "Verbesserung der Steuerung auf Mobilgeräten und PC."
+      },
+      {
+        "name": "Neue Teammodi",
+        "description": "Mehr Mehrspieleroptionen und teambasierte Formate."
+      },
+      {
+        "name": "Wettbewerb und Fairplay",
+        "description": "Weitere Arbeit an Spielersuche, Ranglisten, Smurfing und Mehrfachkonten."
+      },
+      {
+        "name": "Spielerfortschritt",
+        "description": "Langfristige Ziele, Meilensteine und Möglichkeiten, Fortschritt zu zeigen."
+      },
+      {
+        "name": "Soziale Funktionen",
+        "description": "Mehr Werkzeuge zum gemeinsamen Spielen, einschließlich weiterer Arbeit an Koalitionen."
+      },
+      {
+        "name": "Unterstützung der Entwicklung",
+        "description": "Kosmetische Inhalte, Komfortfunktionen und Credits für alle, die die Entwicklung finanzieren."
+      },
+      {
+        "name": "Neue Epochen",
+        "description": "Mit der Zeit mehr historische Inhalte. Jede neue Epoche wird separat und optional sein."
+      }
+    ]
+  },
+  "threeD": {
+    "platform": "Steam · Desktop",
+    "title": "Lines of Battle 3D",
+    "focus": "Ein separates kostenpflichtiges Spiel für Steam.",
+    "badges": {
+      "steam": "Steam",
+      "paidGame": "Kostenpflichtig",
+      "desktop": "Desktop"
+    },
+    "intro": "Lines of Battle 3D ist ein separates Desktop-Spiel mit historischen Einzelspielerkampagnen und längeren Schlachten.",
+    "items": [
+      {
+        "name": "Dasselbe Kampfsystem",
+        "description": "Das 2D-Kampfsystem in 3D. Die Darstellung ändert sich, die taktische Grundlage bleibt gleich."
+      },
+      {
+        "name": "3D-Engine",
+        "description": "Entwickelt mit der quelloffenen Godot-Engine."
+      },
+      {
+        "name": "Kampagnen",
+        "description": "Historische Einzelspielermissionen, strategische Entscheidungen, Fortschritt und Steam-Erfolge."
+      },
+      {
+        "name": "Steam-Mehrspieler",
+        "description": "Online-Partien auf Steam mit Freunden und Einladungen."
+      },
+      {
+        "name": "Taktische KI",
+        "description": "Weitere Arbeit am Computergegner für Kampagnen und Schlachten, aufbauend auf der bereits in 2D verwendeten KI."
+      },
+      {
+        "name": "Modding",
+        "description": "Geplante Werkzeuge und Steam-Workshop-Unterstützung zum Teilen von Karten, Szenarien, Einheiten und Epochen."
+      },
+      {
+        "name": "Mehr Epochen und Kampagnen",
+        "description": "Im Laufe der Zeit zusätzliche Epochen und Kampagneninhalte."
+      }
+    ],
+    "timeline": {
+      "label": "Aktuelle Ziele · Änderungen vorbehalten",
+      "late2026": "Ende 2026",
+      "earlyAccess": "Steam Early Access",
+      "year2027": "2027",
+      "fullRelease": "Vollversion"
+    }
+  },
+  "closing": {
+    "title": "Über diese Roadmap",
+    "parallel": "Daran arbeiten wir und das möchten wir als Nächstes angehen. Beide Versionen werden parallel weiterentwickelt.",
+    "studio": "Wir sind Sophie Games, ein kleines Indie-Studio. Pläne können sich während der Entwicklung ändern.",
+    "thanks": "Danke fürs Spielen und dafür, dass du das Projekt verfolgst."
+  },
+  "lastUpdated": "Zuletzt aktualisiert · August 2026"
+}

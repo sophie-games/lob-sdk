@@ -135,7 +135,6 @@
   "keybindings": {
     "rotateCameraLeft": "Obróć kamerę w lewo",
     "rotateCameraRight": "Obróć kamerę w prawo",
-    "rotateCameraSnap": "Obróć kamerę o 90°",
     "title": "Skróty klawiszowe",
     "pressAKey": "Wciśnij przycisk...",
     "moveUp": "Ruch w górę",
@@ -207,6 +206,10 @@
     "description": "Kontroluje jakość tekstur terenu. Wyższa jakość zapewnia lepsze szczegóły wizualne, ale może wpływać na wydajność. Wymaga odświeżenia mapy."
   },
   "appearance": "Wygląd",
+  "era": {
+    "title": "Era",
+    "description": "Wybierz erę rozgrywki. Zmiana wpłynie na dostępne jednostki, scenariusze i mechaniki gry."
+  },
   "notifications": {
     "title": "Powiadomienia",
     "turnActivity": {

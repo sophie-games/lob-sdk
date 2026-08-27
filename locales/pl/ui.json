@@ -1,0 +1,34 @@
+{
+  "dialog": {
+    "close": "Zamknij",
+    "label": "Okno dialogowe"
+  },
+  "passwordReset": {
+    "linkSent": "Link do zresetowania hasła został wysłany. Sprawdź pocztę.",
+    "unexpectedError": "Wystąpił nieoczekiwany błąd.",
+    "userNotFound": "Nie znaleziono pasującego konta.",
+    "invalidOrExpiredToken": "Ten link do zresetowania hasła jest nieprawidłowy lub wygasł.",
+    "error": "Błąd podczas resetowania hasła: {{message}}",
+    "invalidLink": "Ten link do zresetowania hasła jest nieprawidłowy lub niekompletny.",
+    "passwordsDoNotMatch": "Hasła nie są takie same."
+  },
+  "pushDiagnostics": {
+    "sectionTitle": "Diagnostyka powiadomień push",
+    "title": "Pełny test powiadomień push",
+    "description": "Wysyła prawdziwe powiadomienie o turze na zarejestrowane urządzenia i sprawdza każdy etap dostarczenia.",
+    "fcmCredentials": "Dane logowania FCM",
+    "registeredDevices": "Zarejestrowane urządzenia",
+    "delivered": "Dostarczono",
+    "ready": "Gotowe",
+    "missing": "Brak",
+    "dropped": "({{count}} odrzucono)",
+    "sendTest": "Wyślij powiadomienie testowe",
+    "sendingTest": "Wysyłanie testu…",
+    "results": {
+      "fcmNotConfigured": "FCM nie jest skonfigurowane. Ustaw FCM_SERVICE_ACCOUNT_JSON.",
+      "noDevices": "Dla tego konta nie zarejestrowano żadnych urządzeń. Najpierw zaloguj się w aplikacji.",
+      "accepted": "FCM zaakceptowało {{sent}} z {{devices}} żądań wysłania. Potwierdź dostarczenie na telefonie.",
+      "testFailed": "Test powiadomień push nie powiódł się."
+    }
+  }
+}

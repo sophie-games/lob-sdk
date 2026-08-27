@@ -135,7 +135,6 @@
   "keybindings": {
     "rotateCameraLeft": "Girar câmera para a esquerda",
     "rotateCameraRight": "Girar câmera para a direita",
-    "rotateCameraSnap": "Girar câmera 90°",
     "title": "Atalhos de teclado",
     "pressAKey": "Pressione uma tecla...",
     "moveUp": "Mover para cima",
@@ -207,6 +206,10 @@
     "description": "Controla a qualidade das texturas do terreno. Qualidade mais alta fornece melhores detalhes visuais, mas pode afetar o desempenho. Requer atualizar o mapa."
   },
   "appearance": "Aparência",
+  "era": {
+    "title": "Era",
+    "description": "Selecione a era do jogo. A alteração afetará as unidades, os cenários e as mecânicas disponíveis."
+  },
   "notifications": {
     "title": "Notificações",
     "turnActivity": {

@@ -1,0 +1,34 @@
+{
+  "dialog": {
+    "close": "Schließen",
+    "label": "Dialog"
+  },
+  "passwordReset": {
+    "linkSent": "Der Link zum Zurücksetzen des Passworts wurde gesendet. Prüfe deine E-Mails.",
+    "unexpectedError": "Ein unerwarteter Fehler ist aufgetreten.",
+    "userNotFound": "Es wurde kein passendes Konto gefunden.",
+    "invalidOrExpiredToken": "Der Link zum Zurücksetzen des Passworts ist ungültig oder abgelaufen.",
+    "error": "Fehler beim Zurücksetzen des Passworts: {{message}}",
+    "invalidLink": "Dieser Link zum Zurücksetzen des Passworts ist ungültig oder unvollständig.",
+    "passwordsDoNotMatch": "Die Passwörter stimmen nicht überein."
+  },
+  "pushDiagnostics": {
+    "sectionTitle": "Push-Diagnose",
+    "title": "End-to-End-Push-Test",
+    "description": "Sendet eine echte Zugbenachrichtigung an deine registrierten Geräte und prüft jeden Schritt der Zustellung.",
+    "fcmCredentials": "FCM-Zugangsdaten",
+    "registeredDevices": "Registrierte Geräte",
+    "delivered": "Zugestellt",
+    "ready": "Bereit",
+    "missing": "Fehlt",
+    "dropped": "({{count}} verworfen)",
+    "sendTest": "Testbenachrichtigung senden",
+    "sendingTest": "Test wird gesendet…",
+    "results": {
+      "fcmNotConfigured": "FCM ist nicht konfiguriert. Lege FCM_SERVICE_ACCOUNT_JSON fest.",
+      "noDevices": "Für dieses Konto sind keine Geräte registriert. Melde dich zuerst in der App an.",
+      "accepted": "FCM hat {{sent}} von {{devices}} Sendeanfragen angenommen. Bestätige die Zustellung auf dem Telefon.",
+      "testFailed": "Der Push-Test ist fehlgeschlagen."
+    }
+  }
+}

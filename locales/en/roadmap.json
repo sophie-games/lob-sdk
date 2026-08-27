@@ -1,0 +1,105 @@
+{
+  "home": "Home",
+  "title": "Roadmap",
+  "subtitle": "What we're working on and what comes next",
+  "vision": {
+    "sharedBase": "Lines of Battle is a tactical strategy game with simultaneous turns: each player plans a move, then every move resolves at once. We're working on two versions that share that base: Lines of Battle <twoD>2D</twoD> (Web & Mobile), free and focused on online ranked matches, and Lines of Battle <threeD>3D</threeD> (Steam), a separate paid desktop game with historical campaigns and longer battles.",
+    "separateGames": "What you learn carries over, but <twoD>2D</twoD> and <threeD>3D</threeD> are separate games with different engines and multiplayer systems. Web and Mobile players can match together in 2D; 3D multiplayer stays on Steam."
+  },
+  "twoD": {
+    "platform": "Web & Mobile",
+    "title": "Lines of Battle 2D",
+    "focus": "Free on Web, Android, and iOS.",
+    "badges": { "web": "Web", "android": "Android", "ios": "iOS" },
+    "intro": "This is the game you can play now. It is free and funded through cosmetics and convenience features that don't affect match outcomes. Some of this work is underway and the rest is planned. You can follow it on our <projectLink>public GitHub project</projectLink>.",
+    "items": [
+      {
+        "name": "Quality and stability",
+        "description": "Bug fixes, performance work, backend changes, testing, and balance updates."
+      },
+      {
+        "name": "Controls",
+        "description": "Making the controls work better across mobile and PC."
+      },
+      {
+        "name": "New team modes",
+        "description": "More multiplayer options and team-based formats."
+      },
+      {
+        "name": "Competition and fair play",
+        "description": "More work on matchmaking, rankings, smurfing, and multi-accounting."
+      },
+      {
+        "name": "Player progression",
+        "description": "Long-term goals, milestones, and ways to show player progress."
+      },
+      {
+        "name": "Social features",
+        "description": "More tools for playing with other people, including more work on coalitions."
+      },
+      {
+        "name": "Development support",
+        "description": "Cosmetics, convenience features, and credits for the people who help fund development."
+      },
+      {
+        "name": "New eras",
+        "description": "More historical content over time. Each new era will be separate and optional."
+      }
+    ]
+  },
+  "threeD": {
+    "platform": "Steam · Desktop",
+    "title": "Lines of Battle 3D",
+    "focus": "A separate paid game for Steam.",
+    "badges": {
+      "steam": "Steam",
+      "paidGame": "Paid game",
+      "desktop": "Desktop"
+    },
+    "intro": "Lines of Battle 3D is a separate desktop game with historical single-player campaigns and longer battles.",
+    "items": [
+      {
+        "name": "The same battle system",
+        "description": "The 2D battle system brought into 3D. The presentation changes, but the tactical base stays the same."
+      },
+      {
+        "name": "3D engine",
+        "description": "Built with the open-source Godot engine."
+      },
+      {
+        "name": "Campaigns",
+        "description": "Historical single-player missions, strategic choices, progression, and Steam achievements."
+      },
+      {
+        "name": "Steam multiplayer",
+        "description": "Online matches on Steam, with friends and invites."
+      },
+      {
+        "name": "Tactical AI",
+        "description": "More work on the computer opponent for campaigns and battles, building on the AI already used in 2D."
+      },
+      {
+        "name": "Modding",
+        "description": "Planned tools and Steam Workshop support for sharing maps, scenarios, units, and eras."
+      },
+      {
+        "name": "More eras and campaigns",
+        "description": "Additional eras and campaign content over time."
+      }
+    ],
+    "timeline": {
+      "label": "Current targets · subject to change",
+      "late2026": "Late 2026",
+      "earlyAccess": "Steam Early Access",
+      "year2027": "2027",
+      "fullRelease": "Full Release"
+    }
+  },
+  "closing": {
+    "title": "About this roadmap",
+    "parallel": "This is what we're working on and what we want to work on next. Both versions move forward in parallel.",
+    "studio": "We're Sophie Games, a small indie studio. Plans can change as we work.",
+    "thanks": "Thanks for playing and following the project."
+  },
+  "lastUpdated": "Last updated · August 2026"
+}
