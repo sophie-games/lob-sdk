@@ -39,7 +39,8 @@
     "optionCustom": "{{name}} (özel)",
     "optionAllUnitCategories": "Tüm birim kategorileri",
     "nameWithKind": "{{name}} ({{kind}})",
-    "rotationSpeedModifier": "Dönüş hızı değiştirici"
+    "rotationSpeedModifier": "Dönüş hızı değiştirici",
+    "jsonPlaceholder": "JSON'u buraya girin..."
   },
   "editorPanel": {
     "tabs": {
@@ -56,7 +57,8 @@
     "workshopBands": {
       "units": "Birimler",
       "terrain": "Arazi",
-      "global": "Genel"
+      "global": "Genel",
+      "transfer": "Aktarım"
     },
     "restingHint": "İncelemek için bir parçaya tıklayın veya boyamaya başlamak için bir araç seçin.",
     "togglePanel": "Paneli aç/kapat",
@@ -81,58 +83,91 @@
     "goBackConfirm": "Geri dönüp editörden çıkmak istediğinizden emin misiniz?",
     "display": "Görünüm",
     "scenarioBands": {
-      "about": "Genel",
       "forces": "Kuvvetler",
       "rules": "Kurallar",
-      "presentation": "Sunum"
+      "presentation": "Sunum",
+      "victoryPoints": "Zafer puanları"
+    },
+    "testScenario": "Senaryoyu test et",
+    "placeableObjectives": "Oyuncunun yerleştirdiği hedefler",
+    "placeableObjectivesHelp": "Etkinleştirildiğinde her oyuncu kendi hedeflerini yerleşim aşamasında kendi bölgesi içinde konumlandırır. Devre dışı bırakıldığında savaş yalnızca haritaya yerleştirdiğiniz hedefleri kullanır.",
+    "placeableObjectivesNeedsDeployment": "Yerleşim aşamasını da açın; aksi halde oyuncular bu hedefleri yerleştirecekleri tura hiç ulaşamaz ve hiçbiri görünmez.",
+    "resting": {
+      "thisScenario": "Bu senaryo",
+      "gettingStarted": "Başlarken",
+      "untitled": "Adsız",
+      "mapSize": "{{width}} x {{height}} kare",
+      "objectives": "Hedefler",
+      "noneYet": "Henüz yok",
+      "modes": "Senaryo bu savaşı kurar. Atölye her savaşın kullandığı parçaları değiştirir.",
+      "placing": "Bir araç seçin, ardından bir şey yerleştirmek için haritaya sağ tıklayın.",
+      "disarm": "Aracı bırakıp seçime dönmek için aynı araca tekrar tıklayın.",
+      "inspect": "Yerleştirdiğiniz bir parçayı seçin; ayarları burada görünür.",
+      "test": "Üstteki oynat düğmesi savaşınızı bir bota karşı dener.",
+      "saved": "Çalışmanız siz ilerledikçe saklanır, böylece ayrılıp sonra kaldığınız yerden devam edebilirsiniz.",
+      "placingTouch": "Bir araç seçin, ardından bir şey yerleştirmek için haritaya dokunun."
     }
   },
   "createScenario": {
-    "randomMap": "Rastgele (prosedürel) harita?",
-    "isHybrid": "Hibrit mi?"
+    "mapBand": "Harita",
+    "forcesBand": "Kuvvetler",
+    "terrainLabel": "Arazi",
+    "terrainPreset": "Boyanmış",
+    "terrainProcedural": "Üretilen",
+    "terrainHelp": "Boyanmış araziyi kare kare siz döşersiniz ve senaryoyla birlikte bıraktığınız haliyle gelir. Üretilen arazi, Harita panelinde yazdığınız talimatlardan her savaş için yeniden çizilir; böylece iki maç aynı zeminde geçmez.",
+    "rosterLabel": "Kadro",
+    "rosterFixed": "Sabit",
+    "rosterDynamic": "Dinamik",
+    "rosterHelp": "Sabit kadro, oyuncu yuvalarına, takımlara ve cephaneye senaryonun karar vermesi demektir; herkes sizin yerleştirdiğiniz birimlerle savaşır. Dinamik kadro yuvaları lobiye ya da eşleştirmeye bırakır ve oyuncular savaşa kendi ordularını getirir."
   },
   "playersPanel": {
     "removePlayer": "Oyuncuyu kaldır",
     "ammoReserve": "Yedek",
-    "ammoBase": "Temel"
+    "ammoBase": "Temel",
+    "playerNumbered": "Oyuncu {{number}}",
+    "rosterLimits": "Bir senaryo en az {{min}} oyuncu gerektirir ve en fazla {{max}} oyuncuya izin verir.",
+    "ammoHelp": "Bu oyuncunun ordusunun ne kadar cephanesi olduğu. Yedek, savaş boyunca harcadığıdır; temel ise yedeğin her tur geri tırmandığı seviyedir."
   },
   "terrainPanel": {
     "brush": "Fırça",
     "shape": "Şekil",
     "height": "Yükseklik",
     "elevation": "Rakım",
-    "keepHeight": "Mevcut yüksekliği koru",
     "paintBucket": "Boya Kovası",
-    "none": "Yok"
+    "none": "Yok",
+    "setHeight": "Yüksekliği ayarla",
+    "setHeightHelp": "İşaretliyken fırça, yukarıdaki yüksekliği boyadığı her kareye yazar. İşaretli değilken yalnızca arazi boyar ve her kareyi mevcut rakımında bırakır.",
+    "paintBucketHelp": "İşaretliyken tek bir basış, eşleşen arazinin bağlantılı tüm alanını ne kadar büyük olursa olsun doldurur; bu yüzden yarıçap geçerli olmaz. İşaretli değilken fırça belirlediğiniz yarıçapı kaplar.",
+    "brushHeightGroup": "Rakım",
+    "brushShapeGroup": "Şekil"
   },
   "unitPanel": {
-    "title": "Seçili Birim",
     "unitType": "Birim Türü",
     "rotation": "Dönüş",
-    "copyJson": "JSON kopyala",
     "copyUnits": "Birimleri kopyala",
     "unitsCopied": "Birimler kopyalandı ({{count}})",
-    "removeSelectedUnits": "Seçili birimleri kaldır"
+    "removeSelectedUnits": "Seçili birimleri kaldır",
+    "nameSingleOnly": "Adlandırma tek seferde bir birim üzerinde çalışır; bu yüzden alan yalnızca tek bir birim seçiliyken kullanılabilir.",
+    "copyUnitData": "Birim verisini kopyala"
   },
   "createUnit": {
-    "title": "Birim Oluştur",
     "placingCopied": "Kopyalanan birimler yerleştiriliyor ({{count}}). Yerleştirmek için haritaya tıklayın.",
-    "customLabel": "{{name}} (özel)"
+    "customLabel": "{{name}} (özel)",
+    "placingCopied_other": "Kopyaladığınız {{count}} birimi yerleştirmek için haritaya sağ tıklayın.",
+    "placingCopied_one": "Kopyaladığınız birimi yerleştirmek için haritaya sağ tıklayın.",
+    "placingCopiedTouch_other": "Kopyaladığınız {{count}} birimi yerleştirmek için haritaya dokunun.",
+    "placingCopiedTouch_one": "Kopyaladığınız birimi yerleştirmek için haritaya dokunun."
   },
   "objectivePanel": {
-    "title": "Seçili Hedef",
     "removeSelected": "Seçili hedefi kaldır",
     "fields": {
       "manpowerPerTurn": "Tur Başına İnsan Gücü",
       "goldPerTurn": "Tur Başına Altın"
-    }
+    },
+    "copyObjectiveData": "Hedef verisini kopyala"
   },
   "createObjective": {
-    "title": "Hedef Oluştur",
-    "gaia": "Gaia",
-    "fields": {
-      "objectiveType": "Hedef Türü"
-    }
+    "gaia": "Gaia"
   },
   "deployment": {
     "title": "Yerleşim bölgeleri",
@@ -143,7 +178,9 @@
     "fields": {
       "x": "X",
       "y": "Y"
-    }
+    },
+    "phaseHelp": "Yerleşim aşaması açıkken oyuncular, çarpışma başlamadan önce yalnızca birimlerini kendi bölgeleri içinde yeniden dizmek için fazladan bir tur kazanır.",
+    "gateHelp": "Dinamik orduya izin ver, Yerleşim aşaması veya Oyuncunun yerleştirdiği hedefler seçeneklerinden herhangi biri açıkken bu bölgeler düzenlenebilir; çünkü üçünün de gelen bir ordunun başlayacağı bir yere ihtiyacı vardır. Üçü de kapalıyken soluklaşır; prosedürel bir haritada da soluklaşır, çünkü oradaki bölgeler bunun yerine Rastgele Harita panelinde yüzde olarak yazılır."
   },
   "vpBalance": {
     "heading": "ZP dengesi (kayıplar vs hedefler)",
@@ -438,7 +475,9 @@
   "customDefs": {
     "common": {
       "importFromScenario": "Senaryodan içe aktar",
-      "duplicate": "Çoğalt"
+      "duplicate": "Çoğalt",
+      "inThisScenario": "Bu senaryoda",
+      "builtIntoThisEra": "Bu döneme yerleşik"
     },
     "spritesPanel": {
       "title": "Birim sprite'ları",
@@ -457,7 +496,8 @@
       "filterPlaceholder": "İsme göre filtrele...",
       "unitBase": "Birim tabanı ({{count}})",
       "unitOverlay": "Birim kaplaması ({{count}})",
-      "noMatches": "Eşleşme yok."
+      "noMatches": "Eşleşme yok.",
+      "uploading": "Yükleniyor…"
     },
     "unitTemplatesPanel": {
       "title": "Birim şablonları",
@@ -552,7 +592,27 @@
     },
     "gameConstants": {
       "title": "Oyun sabitleri",
-      "description": "Bu senaryo için dönemin sayısal sabitlerini geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; Sıfırla bir alanı dönem varsayılanına döndürür. ⚠ ile işaretli anahtarlar yapısaldır - bunları değiştirmek render'ı, tekrarları veya eşleştirmeyi bozabilir. Değerler ham iç birimlerdir."
+      "description": "Bu senaryo için dönemin sayısal sabitlerini geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; Sıfırla bir alanı dönem varsayılanına döndürür. ⚠ ile işaretli anahtarlar yapısaldır - bunları değiştirmek render'ı, tekrarları veya eşleştirmeyi bozabilir. Değerler ham iç birimlerdir.",
+      "category": {
+        "mapDimensions": "Harita boyutları",
+        "deployment": "Yerleşim",
+        "gameLimits": "Oyun limitleri",
+        "victoryPoints": "Zafer puanları",
+        "fogOfWar": "Savaş sisi",
+        "combat": "Savaş",
+        "ammunition": "Cephane",
+        "stamina": "Dayanıklılık",
+        "unitProximity": "Birim yakınlığı",
+        "unitDimensions": "Birim boyutları",
+        "allyBehavior": "Dost davranışı",
+        "collision": "Çarpışma",
+        "movement": "Hareket",
+        "mapBoundaries": "Harita sınırları",
+        "effects": "Etkiler",
+        "gameMechanics": "Oyun mekanikleri",
+        "routing": "Kaçma",
+        "Other": "Diğer"
+      }
     },
     "gameRules": {
       "title": "Oyun kuralları",
@@ -590,8 +650,9 @@
       "title": "Ordu kompozisyonları",
       "betaNotice": "Senaryolar için özel ordu kompozisyonu seçenekleri beta özelliğidir; lütfen hataları resmi Discord sunucusunda bildirin.",
       "disableEraUnits": "Dönem varsayılan birimlerini devre dışı bırak",
-      "disableEraUnitsDescription": "Yalnızca bu senaryonun kendi özel birimlerini sahaya sürün. Dönemin varsayılan birimleri ordu ekranından gizlenir ve ordu kurulurken reddedilir.",
-      "disableEraUnitsWarning": "En az bir özel birim şablonu ekleyin, aksi halde oyuncuların sahaya sürecek birimi olmaz."
+      "disableEraUnitsWarning": "En az bir özel birim şablonu ekleyin, aksi halde oyuncuların sahaya sürecek birimi olmaz.",
+      "useEraUnits": "Dönemin kendi birimlerini kullan",
+      "useEraUnitsHelp": "Açıkken oyuncular, bu senaryonun eklediklerinin yanı sıra dönemin kendi birimlerini de sahaya sürebilir. Kapalıyken yalnızca bu senaryonun sunduğu birimlerle oynarlar — dönemin birimleri ordu ekranından kaybolur ve seçilemez."
     },
     "unitCaps": {
       "title": "Birim limitleri",
@@ -615,14 +676,35 @@
       "gold": "Altın",
       "default": "Savaş türü bütçesi",
       "empty": "Henüz oyuncu bütçesi yok. Geçersiz kılmak için bir oyuncu ekleyin."
+    },
+    "transfer": {
+      "importTitle": "İçe aktar",
+      "importDescription": "Başka bir senaryodan çalışmaları buraya getirin. Bir dosya seçin, ardından hepsini alın ya da bırakmak istediklerinizin işaretini kaldırın. O senaryonun taşımadığı her şey soluk görünür.",
+      "whatComesIn": "Neler geliyor",
+      "importAction": "İçe aktar",
+      "exportTitle": "Dışa aktar",
+      "exportDescription": "Bu senaryonun kendi çalışmasını, başka bir senaryoya getirilmeye hazır bir dosya olarak gönderin. İşaretini kaldırmadığınız sürece her şey dahildir.",
+      "whatGoesOut": "Neler gidiyor",
+      "exportAction": "Dışa aktar",
+      "allCategories": "Tüm kategoriler",
+      "replaceTitle": "Kendi değerleriniz değiştirilsin mi?",
+      "replaceWarning_other": "Bunu içe aktarmak, kendi belirlediğiniz {{count}} değeri değiştirir. Geri kalan her şey çalışmanızın yanına eklenir.",
+      "replaceWarning_one": "Bunu içe aktarmak, kendi belirlediğiniz {{count}} değeri değiştirir. Geri kalan her şey çalışmanızın yanına eklenir.",
+      "replaceRow_other": "{{category}}: {{count}} değer",
+      "replaceRow_one": "{{category}}: {{count}} değer",
+      "replaceConfirm": "İçe aktar ve değiştir",
+      "imported_other": "{{count}} kategori içe aktarıldı.",
+      "imported_one": "{{count}} kategori içe aktarıldı.",
+      "exported_other": "{{count}} kategori dışa aktarıldı.",
+      "exported_one": "{{count}} kategori dışa aktarıldı.",
+      "exceededCap": "{{category}}: içe aktarmak {{max}} olan limiti aşar ({{count}} olurdu)."
     }
   },
   "resize": {
-    "currentSize": "Mevcut boyut: {{width}} × {{height}} kare",
     "newSize": "Yeni boyut: {{width}} × {{height}} kare",
     "current": "Mevcut: {{width}} × {{height}} kare",
     "confirmTitle": "Harita Yeniden Boyutlandırmayı Onayla",
-    "warningCannotUndo": "⚠️ <0>Uyarı:</0> Bu işlem geri alınamaz.",
+    "warningCannotUndo": "⚠ <0>Uyarı:</0> Bu işlem geri alınamaz.",
     "tabScale": "Ölçek",
     "tabExpandCut": "Genişlet / Kenarları Kes",
     "scale": {
@@ -647,7 +729,11 @@
       "changesHeading": "Değişiklikler:",
       "changesHorizontal": "Sol: {{left}} kare, Sağ: {{right}} kare",
       "changesVertical": "Üst: {{top}} kare, Alt: {{bottom}} kare"
-    }
+    },
+    "currentSizeLabel": "Mevcut boyut",
+    "newSizeLabel": "Yeni boyut",
+    "methodLabel": "Yöntem",
+    "sizeValue": "{{width}} × {{height}} kare"
   },
   "mapSize": {
     "widthInTiles": "Kare cinsinden genişlik",
@@ -657,7 +743,8 @@
     "scaleAllSizesBy": "Tüm boyutları şununla ölçekle",
     "apply": "Uygula",
     "background": "Arka plan",
-    "chooseImage": "Görsel seç"
+    "chooseImage": "Görsel seç",
+    "backgroundHelp": "Haritanın altına yarı yoğunlukta bir görsel serer; böylece araziyi ona uyacak şekilde çizebilirsiniz. Çalışırken bir yardımcıdır ve senaryoyla birlikte asla kaydedilmez."
   },
   "localesPanel": {
     "title": "Diller",
@@ -683,7 +770,6 @@
   "triggers": {
     "title": "Tetikleyiciler",
     "moreInfo": "Tetikleyiciler hakkında daha fazla bilgi burada",
-    "lastPositionClicked": "Son tıklanan konum: [{{x}}, {{y}}]",
     "createTrigger": "Tetikleyici Oluştur",
     "createTriggerButton": "Tetikleyici oluştur",
     "format": "Biçim",
@@ -696,7 +782,14 @@
     "addCondition": "Koşul Ekle",
     "actions": "Eylemler",
     "addAction": "Eylem Ekle",
-    "once": "Bir kez"
+    "once": "Bir kez",
+    "intro": "Bir tetikleyici, savaşı turun başında veya sonunda kontrol eder, ardından belirlediğiniz koşullar doğru olduğunda harekete geçer. Aşağıdan bir tane oluşturun.",
+    "lastClick": "Kopyalanacak konum",
+    "lastClickHint": "Haritada en son seçtiğiniz yer; bir tetikleyicinin birim yerleştirmek veya kamerayı taşımak için kullandığı koordinatlarla.",
+    "createDisabledInvalidJson": "Tetikleyici oluşturabilmek için aşağıdaki JSON'u düzeltin.",
+    "createDisabledNeedsConditionAndAction": "Bir tetikleyicinin en az bir koşula ve bir eyleme ihtiyacı vardır.",
+    "groupTrigger": "Tetikleyici",
+    "value": "Değer"
   },
   "randomMap": {
     "title": "Rastgele Harita",
@@ -730,7 +823,128 @@
     "modePreset": "Hazır (sabit arazi)",
     "modeHybrid": "Karma (hazır + talimatlar)",
     "modeProcedural": "Yordamsal (üretilen)",
-    "hybridExplanation": "Sabitlenmiş arazi korunur ve bu talimatlar her maçta üzerine katman olarak yeniden çalışır. Katmanların maçlar arasında kaymaması için haritada bir tohum sabitleyin."
+    "hybridExplanation": "Sabitlenmiş arazi korunur ve bu talimatlar her maçta üzerine katman olarak yeniden çalışır. Katmanların maçlar arasında kaymaması için haritada bir tohum sabitleyin.",
+    "proceduralExplanationDetail": "Burada gösterilen harita yalnızca bir önizlemedir. Hedef veya Hedef katmanı talimatlarıyla yerleştirilen hedefler bu önizlemede değil, maç anında görünür.",
+    "switchToPresetTitle": "Hazır bir haritaya geç",
+    "replaceInstructionsTitle": "Talimatları değiştir",
+    "confirmOverwriteHelp": "Aşağıdaki Oluştur'un kilidini açan budur. Açıkken oluşturma, haritadaki her arazi karesini atar ve bu talimatlardan yenisini çizer. Kapalıyken Oluştur devre dışı kalır; böylece üzerinde çalıştığınız bir harita yanlış bir basışla üzerine yazılamaz.",
+    "hybridExplanationDetail": "Katmanların maçlar arasında kaymaması için haritada bir tohum sabitleyin.",
+    "sourceLabel": "Kaynak",
+    "sourceBuiltIn": "Yerleşik",
+    "sourceImport": "İçe aktar",
+    "intro": "Haritanın arazisini elle boyamak yerine bir şablondan doldurun.",
+    "rollSeed": "Yeni tohum at",
+    "changeFile": "Dosyayı değiştir",
+    "selectFile": "Dosya seç",
+    "importedFile": "İçe aktarılan dosya",
+    "field": {
+      "amount": "Miktar",
+      "between": "Arasında",
+      "border": "Sınır",
+      "chance": "Olasılık",
+      "coords": "Koordinatlar",
+      "cost": "Maliyet",
+      "count": "Sayı",
+      "countPer100x100": "100×100 kare başına sayı",
+      "curveLen": "Eğri uzunluğu",
+      "curveWeight": "Eğri ağırlığı",
+      "deep": "Derin su",
+      "downHillHeightCost": "Yokuş aşağı maliyeti",
+      "edgeDistance": "Kenar mesafesi",
+      "edgeWeight": "Kenar ağırlığı",
+      "endHeightRanges": "Bitiş yükseklik aralıkları",
+      "excludeTerrains": "Arazileri hariç tut",
+      "falloff": "Azalma",
+      "fromTerrain": "Kaynak arazi",
+      "height": "Yükseklik",
+      "heightDiffCost": "Yükseklik farkı maliyeti",
+      "heightDiffCosts": "Yükseklik farkı maliyetleri",
+      "heightFilter": "Yükseklik filtresi",
+      "heightRanges": "Yükseklik aralıkları",
+      "heights": "Yükseklikler",
+      "l": "Büyük",
+      "m": "Orta",
+      "max": "Maks",
+      "maxDistance": "Maks mesafe",
+      "maxHeight": "Maks yükseklik",
+      "maxHeightThreshold": "Maks yükseklik eşiği",
+      "maxHeightValue": "Maks yükseklik değeri",
+      "maxObj": "Maks hedef",
+      "maxWidth": "Maks genişlik",
+      "max_scaling_factor": "Harita boyutuna göre maks ölçekleme",
+      "mergeStrategy": "Birleştirme stratejisi",
+      "midPoints": "Ara noktalar",
+      "min": "Min",
+      "minAmount": "Min miktar",
+      "minDistance": "Min mesafe",
+      "minGroupSize": "Min grup boyutu",
+      "minHeight": "Min yükseklik",
+      "minHeightValue": "Min yükseklik değeri",
+      "minSurrounding": "Min çevre karesi",
+      "minWidth": "Min genişlik",
+      "min_scaling_factor": "Harita boyutuna göre min ölçekleme",
+      "multiplier": "Çarpan",
+      "name": "İsim",
+      "noiseSmoothness": "Gürültü pürüzsüzlüğü",
+      "noiseWeight": "Gürültü ağırlığı",
+      "noises": "Gürültü katmanları",
+      "objectiveType": "Hedef türü",
+      "offset": "Ofset",
+      "organicness": "Organiklik",
+      "pathTerrain": "Yol arazisi",
+      "player": "Oyuncu",
+      "position": "Konum",
+      "preferLowElevation": "Alçak zemini tercih et",
+      "printNoiseDebug": "Gürültü hata ayıklamasını yazdır",
+      "radius": "Yarıçap",
+      "randomness": "Rastgelelik",
+      "range": "Aralık",
+      "ranges": "Aralıklar",
+      "reverse": "Ters",
+      "reversed": "Ters",
+      "rotation": "Dönüş",
+      "s": "Küçük",
+      "scale": "Ölçek",
+      "scatter": "Dağılım",
+      "searchRadius": "Arama yarıçapı",
+      "shallow": "Sığ su",
+      "shore": "Kıyı",
+      "size": "Boyut",
+      "smoothing": "Yumuşatma",
+      "startHeightRanges": "Başlangıç yükseklik aralıkları",
+      "team": "Takım",
+      "terrain": "Arazi",
+      "terrainCosts": "Arazi maliyetleri",
+      "terrainFilter": "Arazi filtresi",
+      "terrainReplacements": "Arazi değişimleri",
+      "terrains": "Araziler",
+      "toTerrain": "Hedef arazi",
+      "type": "Tür",
+      "uphillHeightCost": "Yokuş yukarı maliyeti",
+      "width": "Genişlik",
+      "x": "X",
+      "xBounds": "X sınırları",
+      "xRange": "X aralığı",
+      "xl": "Çok büyük",
+      "y": "Y",
+      "yBounds": "Y sınırları",
+      "yRange": "Y aralığı"
+    },
+    "instructionType": {
+      "terrainNoise": "Arazi gürültüsü",
+      "heightNoise": "Yükseklik gürültüsü",
+      "terrainCircle": "Arazi dairesi",
+      "terrainRectangle": "Arazi dikdörtgeni",
+      "naturalPath": "Doğal yol",
+      "connectClusters": "Kümeleri bağla",
+      "objective": "Hedef",
+      "lake": "Göl",
+      "objectiveLayer": "Hedef katmanı"
+    },
+    "objectiveType": {
+      "small": "Küçük",
+      "big": "Büyük"
+    }
   },
   "randomDeployment": {
     "title": "Konuşlanma bölgeleri",
@@ -773,5 +987,16 @@
     "bigInset": "Büyük hedef bölgesi kırpması",
     "smallInsetInfo": "Küçük hedef bölgesinin her iki yandan ne kadar daraltılacağı. Yalnızca genişliği kırpar, yüksekliği korur.",
     "bigInsetInfo": "Büyük hedef kutusunun her iki yandan ne kadar küçültüleceği, konuşlanma bölgesinde ortalanmış."
+  },
+  "mapPoint": {
+    "title": "Harita noktası",
+    "help": "Bu, haritada imlecinizi takip eder ve altındaki kareyi okur. Sabitlemek için sağ tıklayın; böylece siz panelde çalışırken sayılar yerinde kalır. Haritanın üzerine dönün, yeniden takip etmeye başlar.",
+    "tile": "Kare",
+    "terrain": "Arazi",
+    "height": "Yükseklik",
+    "unknown": "-"
+  },
+  "objectiveOwnership": {
+    "help": "Hedefler her zaman bir takıma aittir. Sabit kadrolu bir senaryoda bu alan bir oyuncuyu belirtir ve hedef o oyuncunun takımına ait olur. Dinamik ordular için kurulmuş bir senaryoda ise eşleştirme doldurana kadar oyuncu yuvası yoktur; bu yüzden alan doğrudan takımı belirtir."
   }
 }

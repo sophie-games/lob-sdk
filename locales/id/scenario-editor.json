@@ -39,7 +39,8 @@
     "optionCustom": "{{name}} (kustom)",
     "optionAllUnitCategories": "Semua kategori unit",
     "nameWithKind": "{{name}} ({{kind}})",
-    "rotationSpeedModifier": "Modifier kecepatan rotasi"
+    "rotationSpeedModifier": "Modifier kecepatan rotasi",
+    "jsonPlaceholder": "Masukkan JSON di sini..."
   },
   "editorPanel": {
     "tabs": {
@@ -56,7 +57,8 @@
     "workshopBands": {
       "units": "Unit",
       "terrain": "Medan",
-      "global": "Global"
+      "global": "Global",
+      "transfer": "Transfer"
     },
     "restingHint": "Klik sebuah bidak untuk memeriksanya, atau pilih alat untuk mulai melukis.",
     "togglePanel": "Alihkan panel",
@@ -81,58 +83,89 @@
     "goBackConfirm": "Apakah Anda yakin ingin kembali dan keluar dari editor?",
     "display": "Tampilan",
     "scenarioBands": {
-      "about": "Tentang",
       "forces": "Pasukan",
       "rules": "Aturan",
-      "presentation": "Presentasi"
+      "presentation": "Presentasi",
+      "victoryPoints": "Poin kemenangan"
+    },
+    "testScenario": "Uji skenario",
+    "placeableObjectives": "Objektif yang ditempatkan pemain",
+    "placeableObjectivesHelp": "Saat aktif, setiap pemain menempatkan objektifnya sendiri selama fase penempatan, di dalam zonanya sendiri. Saat nonaktif, pertempuran hanya memakai objektif yang Anda tempatkan di peta.",
+    "placeableObjectivesNeedsDeployment": "Aktifkan juga fase penempatan, atau pemain tidak akan pernah mencapai giliran saat mereka menempatkan objektif ini dan tidak ada yang akan muncul.",
+    "resting": {
+      "thisScenario": "Skenario ini",
+      "gettingStarted": "Memulai",
+      "untitled": "Tanpa judul",
+      "mapSize": "{{width}} x {{height}} tile",
+      "objectives": "Objektif",
+      "noneYet": "Belum ada",
+      "modes": "Skenario membangun pertempuran ini. Workshop mengubah komponen yang dipakai setiap pertempuran.",
+      "placing": "Pilih alat, lalu klik kanan peta untuk menempatkan sesuatu.",
+      "disarm": "Pilih alat itu lagi untuk menyimpannya dan kembali memilih.",
+      "inspect": "Pilih bidak yang telah Anda tempatkan dan pengaturannya muncul di sini.",
+      "test": "Tombol putar di bagian atas mencoba pertempuran Anda melawan bot.",
+      "saved": "Pekerjaan Anda tersimpan sambil jalan, jadi Anda bisa pergi dan melanjutkannya nanti.",
+      "placingTouch": "Pilih alat, lalu ketuk peta untuk menempatkan sesuatu."
     }
   },
   "createScenario": {
-    "randomMap": "Peta acak (prosedural)?",
-    "isHybrid": "Hibrida?"
+    "mapBand": "Peta",
+    "forcesBand": "Pasukan",
+    "terrainLabel": "Medan",
+    "terrainPreset": "Dilukis",
+    "terrainProcedural": "Dihasilkan",
+    "terrainHelp": "Medan yang dilukis Anda susun tile demi tile, dan ikut dalam skenario persis seperti Anda meninggalkannya. Medan yang dihasilkan digambar ulang untuk setiap pertempuran dari instruksi yang Anda tulis di panel Peta, sehingga tidak ada dua pertandingan yang bertempur di tanah yang sama.",
+    "rosterLabel": "Daftar pemain",
+    "rosterFixed": "Tetap",
+    "rosterDynamic": "Dinamis",
+    "rosterHelp": "Daftar pemain tetap berarti skenario menentukan slot pemain, tim, dan amunisinya, dan semua orang bertempur dengan unit yang Anda tempatkan. Daftar pemain dinamis menyerahkan slot kepada lobi atau pencarian permainan, dan pemain membawa pasukan mereka sendiri ke pertempuran."
   },
   "playersPanel": {
     "removePlayer": "Hapus pemain",
     "ammoReserve": "Cadangan",
-    "ammoBase": "Dasar"
+    "ammoBase": "Dasar",
+    "playerNumbered": "Pemain {{number}}",
+    "rosterLimits": "Sebuah skenario memerlukan setidaknya {{min}} pemain dan mengizinkan paling banyak {{max}}.",
+    "ammoHelp": "Berapa banyak amunisi yang dimiliki pasukan pemain ini. Cadangan adalah yang dihabiskan selama pertempuran, dan dasar adalah tingkat yang dituju cadangan saat mengisi kembali setiap giliran."
   },
   "terrainPanel": {
     "brush": "Kuas",
     "shape": "Bentuk",
     "height": "Tinggi",
     "elevation": "Elevasi",
-    "keepHeight": "Pertahankan tinggi yang ada",
     "paintBucket": "Ember Cat",
-    "none": "Tidak ada"
+    "none": "Tidak ada",
+    "setHeight": "Atur tinggi",
+    "setHeightHelp": "Bila dicentang, kuas menuliskan tinggi di atas ke setiap tile yang dilukisnya. Bila tidak dicentang, kuas hanya melukis medan dan membiarkan setiap tile pada elevasi yang sudah dimilikinya.",
+    "paintBucketHelp": "Bila dicentang, satu tekanan mengisi seluruh rangkaian medan cocok yang terhubung, sebesar apa pun, sehingga radius tidak berlaku. Bila tidak dicentang, kuas menutupi radius yang Anda atur.",
+    "brushHeightGroup": "Elevasi",
+    "brushShapeGroup": "Bentuk"
   },
   "unitPanel": {
-    "title": "Unit Terpilih",
     "unitType": "Tipe Unit",
     "rotation": "Rotasi",
-    "copyJson": "Salin JSON",
     "copyUnits": "Salin unit",
     "unitsCopied": "Unit disalin ({{count}})",
-    "removeSelectedUnits": "Hapus unit terpilih"
+    "removeSelectedUnits": "Hapus unit terpilih",
+    "nameSingleOnly": "Penamaan bekerja pada satu unit dalam satu waktu, jadi kolom ini hanya tersedia saat satu unit terpilih.",
+    "copyUnitData": "Salin data unit"
   },
   "createUnit": {
-    "title": "Buat Unit",
     "placingCopied": "Menempatkan unit yang disalin ({{count}}). Klik peta untuk menempatkannya.",
-    "customLabel": "{{name}} (kustom)"
+    "customLabel": "{{name}} (kustom)",
+    "placingCopied_other": "Klik kanan peta untuk menempatkan {{count}} unit yang Anda salin.",
+    "placingCopiedTouch_other": "Ketuk peta untuk menempatkan {{count}} unit yang Anda salin."
   },
   "objectivePanel": {
-    "title": "Objektif Terpilih",
     "removeSelected": "Hapus objektif terpilih",
     "fields": {
       "manpowerPerTurn": "Tenaga per Giliran",
       "goldPerTurn": "Emas per Giliran"
-    }
+    },
+    "copyObjectiveData": "Salin data objektif"
   },
   "createObjective": {
-    "title": "Buat Objektif",
-    "gaia": "Gaia",
-    "fields": {
-      "objectiveType": "Tipe Objektif"
-    }
+    "gaia": "Gaia"
   },
   "deployment": {
     "title": "Zona penempatan",
@@ -143,7 +176,9 @@
     "fields": {
       "x": "X",
       "y": "Y"
-    }
+    },
+    "phaseHelp": "Dengan fase penempatan aktif, pemain mendapat satu giliran tambahan sebelum pertempuran dimulai, semata-mata untuk mengatur ulang posisi unit di dalam zona mereka.",
+    "gateHelp": "Zona ini dapat diedit selama salah satu dari Izinkan pasukan dinamis, Fase penempatan, atau Objektif yang ditempatkan pemain aktif, karena ketiganya sama-sama memerlukan tempat bagi pasukan yang datang untuk memulai. Dengan ketiganya nonaktif, zona ini berwarna abu-abu, dan pada peta prosedural zona ini juga berwarna abu-abu, karena di sana zona ditulis sebagai persentase di panel Peta Acak."
   },
   "vpBalance": {
     "heading": "Keseimbangan VP (korban vs objektif)",
@@ -438,7 +473,9 @@
   "customDefs": {
     "common": {
       "importFromScenario": "Impor dari skenario",
-      "duplicate": "Duplikat"
+      "duplicate": "Duplikat",
+      "inThisScenario": "Dalam skenario ini",
+      "builtIntoThisEra": "Bawaan era ini"
     },
     "spritesPanel": {
       "title": "Sprite unit",
@@ -457,7 +494,8 @@
       "filterPlaceholder": "Filter berdasarkan nama...",
       "unitBase": "Dasar unit ({{count}})",
       "unitOverlay": "Lapisan unit ({{count}})",
-      "noMatches": "Tidak ada yang cocok."
+      "noMatches": "Tidak ada yang cocok.",
+      "uploading": "Mengunggah…"
     },
     "unitTemplatesPanel": {
       "title": "Templat unit",
@@ -551,7 +589,27 @@
     },
     "gameConstants": {
       "title": "Konstanta permainan",
-      "description": "Timpa konstanta numerik era ini untuk skenario ini. Hanya nilai yang diubah yang disimpan; Reset mengembalikan field ke bawaan era. Kunci bertanda ⚠ bersifat struktural - mengubahnya dapat merusak rendering, replay, atau pencarian permainan. Nilai adalah unit internal mentah."
+      "description": "Timpa konstanta numerik era ini untuk skenario ini. Hanya nilai yang diubah yang disimpan; Reset mengembalikan field ke bawaan era. Kunci bertanda ⚠ bersifat struktural - mengubahnya dapat merusak rendering, replay, atau pencarian permainan. Nilai adalah unit internal mentah.",
+      "category": {
+        "mapDimensions": "Dimensi peta",
+        "deployment": "Penempatan",
+        "gameLimits": "Batas permainan",
+        "victoryPoints": "Poin kemenangan",
+        "fogOfWar": "Kabut perang",
+        "combat": "Pertempuran",
+        "ammunition": "Amunisi",
+        "stamina": "Stamina",
+        "unitProximity": "Kedekatan unit",
+        "unitDimensions": "Dimensi unit",
+        "allyBehavior": "Perilaku sekutu",
+        "collision": "Tabrakan",
+        "movement": "Pergerakan",
+        "mapBoundaries": "Batas peta",
+        "effects": "Efek",
+        "gameMechanics": "Mekanika permainan",
+        "routing": "Kabur",
+        "Other": "Lainnya"
+      }
     },
     "gameRules": {
       "title": "Aturan permainan",
@@ -589,8 +647,9 @@
       "title": "Komposisi pasukan",
       "betaNotice": "Opsi komposisi pasukan kustom untuk skenario adalah fitur beta; harap laporkan bug apa pun di server Discord resmi.",
       "disableEraUnits": "Nonaktifkan unit bawaan era",
-      "disableEraUnitsDescription": "Hanya gunakan unit kustom skenario ini sendiri. Unit bawaan era disembunyikan dari layar pasukan dan ditolak saat membangun pasukan.",
-      "disableEraUnitsWarning": "Tambahkan setidaknya satu templat unit kustom, atau pemain tidak akan memiliki unit untuk digunakan."
+      "disableEraUnitsWarning": "Tambahkan setidaknya satu templat unit kustom, atau pemain tidak akan memiliki unit untuk digunakan.",
+      "useEraUnits": "Gunakan unit bawaan era",
+      "useEraUnitsHelp": "Aktif, dan pemain boleh menggunakan unit bawaan era bersama apa pun yang ditambahkan skenario ini. Nonaktif, dan mereka bermain hanya dengan unit yang disediakan skenario ini — unit era menghilang dari layar pasukan dan tidak dapat dipilih."
     },
     "unitCaps": {
       "title": "Batas unit",
@@ -614,14 +673,31 @@
       "gold": "Emas",
       "default": "Anggaran jenis pertempuran",
       "empty": "Belum ada anggaran pemain. Tambahkan pemain untuk menimpa anggaran mereka."
+    },
+    "transfer": {
+      "importTitle": "Impor",
+      "importDescription": "Bawa pekerjaan dari skenario lain. Pilih file, lalu ambil semuanya atau hapus centang apa pun yang ingin Anda tinggalkan. Apa pun yang tidak dimiliki skenario itu berwarna abu-abu.",
+      "whatComesIn": "Apa yang masuk",
+      "importAction": "Impor",
+      "exportTitle": "Ekspor",
+      "exportDescription": "Kirim pekerjaan skenario ini keluar sebagai file, siap dibawa ke skenario lain. Semuanya disertakan kecuali Anda menghapus centangnya.",
+      "whatGoesOut": "Apa yang keluar",
+      "exportAction": "Ekspor",
+      "allCategories": "Semua kategori",
+      "replaceTitle": "Ganti nilai Anda sendiri?",
+      "replaceWarning_other": "Mengimpor ini akan mengganti {{count}} nilai yang Anda atur sendiri. Semua lainnya ditambahkan bersama pekerjaan Anda.",
+      "replaceRow_other": "{{category}}: {{count}} nilai",
+      "replaceConfirm": "Impor dan ganti",
+      "imported_other": "Diimpor {{count}} kategori.",
+      "exported_other": "Diekspor {{count}} kategori.",
+      "exceededCap": "{{category}}: mengimpor akan melebihi batas maksimum {{max}} (akan menjadi {{count}})."
     }
   },
   "resize": {
-    "currentSize": "Ukuran saat ini: {{width}} × {{height}} tile",
     "newSize": "Ukuran baru: {{width}} × {{height}} tile",
     "current": "Saat ini: {{width}} × {{height}} tile",
     "confirmTitle": "Konfirmasi Ubah Ukuran Peta",
-    "warningCannotUndo": "⚠️ <0>Peringatan:</0> Operasi ini tidak dapat dibatalkan.",
+    "warningCannotUndo": "⚠ <0>Peringatan:</0> Operasi ini tidak dapat dibatalkan.",
     "tabScale": "Skala",
     "tabExpandCut": "Perluas / Potong Sisi",
     "scale": {
@@ -646,7 +722,11 @@
       "changesHeading": "Perubahan:",
       "changesHorizontal": "Kiri: {{left}} tile, Kanan: {{right}} tile",
       "changesVertical": "Atas: {{top}} tile, Bawah: {{bottom}} tile"
-    }
+    },
+    "currentSizeLabel": "Ukuran saat ini",
+    "newSizeLabel": "Ukuran baru",
+    "methodLabel": "Metode",
+    "sizeValue": "{{width}} × {{height}} tile"
   },
   "mapSize": {
     "widthInTiles": "Lebar dalam tile",
@@ -656,7 +736,8 @@
     "scaleAllSizesBy": "Skalakan semua ukuran dengan",
     "apply": "Terapkan",
     "background": "Latar belakang",
-    "chooseImage": "Pilih gambar"
+    "chooseImage": "Pilih gambar",
+    "backgroundHelp": "Meletakkan gambar di bawah peta dengan setengah kekuatan, sehingga Anda dapat menggambar medan agar sesuai dengannya. Ini alat bantu saat Anda bekerja dan tidak pernah disimpan bersama skenario."
   },
   "localesPanel": {
     "title": "Pelokalan",
@@ -682,7 +763,6 @@
   "triggers": {
     "title": "Pemicu",
     "moreInfo": "Info lebih lanjut tentang pemicu di sini",
-    "lastPositionClicked": "Posisi terakhir diklik: [{{x}}, {{y}}]",
     "createTrigger": "Buat Pemicu",
     "createTriggerButton": "Buat pemicu",
     "format": "Format",
@@ -695,7 +775,14 @@
     "addCondition": "Tambah Kondisi",
     "actions": "Aksi",
     "addAction": "Tambah Aksi",
-    "once": "Sekali"
+    "once": "Sekali",
+    "intro": "Pemicu memeriksa pertempuran di awal atau akhir giliran, lalu bertindak saat kondisi yang Anda atur terpenuhi. Buat satu di bawah.",
+    "lastClick": "Posisi untuk disalin",
+    "lastClickHint": "Tempat terakhir Anda memilih di peta, dalam koordinat yang dipakai pemicu untuk menempatkan unit atau memindahkan kamera.",
+    "createDisabledInvalidJson": "Perbaiki JSON di bawah sebelum Anda dapat membuat pemicu.",
+    "createDisabledNeedsConditionAndAction": "Pemicu memerlukan setidaknya satu kondisi dan satu aksi.",
+    "groupTrigger": "Pemicu",
+    "value": "Nilai"
   },
   "randomMap": {
     "title": "Peta Acak",
@@ -729,7 +816,128 @@
     "modePreset": "Preset (medan tetap)",
     "modeHybrid": "Hibrida (preset + instruksi)",
     "modeProcedural": "Prosedural (dihasilkan)",
-    "hybridExplanation": "Medan yang dipanggang tetap dipertahankan dan instruksi ini dijalankan ulang di atasnya sebagai lapisan setiap pertandingan. Kunci seed pada peta agar lapisan tidak bergeser antar pertandingan."
+    "hybridExplanation": "Medan yang dipanggang tetap dipertahankan dan instruksi ini dijalankan ulang di atasnya sebagai lapisan setiap pertandingan. Kunci seed pada peta agar lapisan tidak bergeser antar pertandingan.",
+    "proceduralExplanationDetail": "Peta yang ditampilkan di sini hanyalah pratinjau. Objektif yang ditempatkan oleh instruksi Objektif atau Lapisan objektif muncul saat pertandingan, bukan dalam pratinjau ini.",
+    "switchToPresetTitle": "Beralih ke peta preset",
+    "replaceInstructionsTitle": "Ganti instruksi",
+    "confirmOverwriteHelp": "Ini yang membuka Hasilkan di bawah. Saat aktif, menghasilkan akan membuang setiap tile medan di peta dan menggambar yang baru dari instruksi ini. Saat nonaktif, Hasilkan tetap dinonaktifkan, sehingga peta yang telah Anda kerjakan tidak dapat ditimpa oleh tekanan yang tidak sengaja.",
+    "hybridExplanationDetail": "Kunci seed pada peta agar lapisan tidak bergeser antar pertandingan.",
+    "sourceLabel": "Sumber",
+    "sourceBuiltIn": "Bawaan",
+    "sourceImport": "Impor",
+    "intro": "Isi medan peta dari templat alih-alih melukisnya dengan tangan.",
+    "rollSeed": "Acak seed baru",
+    "changeFile": "Ganti file",
+    "selectFile": "Pilih file",
+    "importedFile": "File yang diimpor",
+    "field": {
+      "amount": "Banyaknya",
+      "between": "Antara",
+      "border": "Batas",
+      "chance": "Peluang",
+      "coords": "Koordinat",
+      "cost": "Biaya",
+      "count": "Jumlah",
+      "countPer100x100": "Jumlah per 100×100 tile",
+      "curveLen": "Panjang kurva",
+      "curveWeight": "Bobot kurva",
+      "deep": "Air dalam",
+      "downHillHeightCost": "Biaya menurun",
+      "edgeDistance": "Jarak tepi",
+      "edgeWeight": "Bobot tepi",
+      "endHeightRanges": "Rentang tinggi akhir",
+      "excludeTerrains": "Kecualikan medan",
+      "falloff": "Peluruhan",
+      "fromTerrain": "Dari medan",
+      "height": "Tinggi",
+      "heightDiffCost": "Biaya selisih tinggi",
+      "heightDiffCosts": "Biaya selisih tinggi",
+      "heightFilter": "Filter tinggi",
+      "heightRanges": "Rentang tinggi",
+      "heights": "Ketinggian",
+      "l": "Besar",
+      "m": "Sedang",
+      "max": "Maks",
+      "maxDistance": "Jarak maks",
+      "maxHeight": "Tinggi maks",
+      "maxHeightThreshold": "Ambang tinggi maks",
+      "maxHeightValue": "Nilai tinggi maks",
+      "maxObj": "Objektif maks",
+      "maxWidth": "Lebar maks",
+      "max_scaling_factor": "Penskalaan maks menurut ukuran peta",
+      "mergeStrategy": "Strategi penggabungan",
+      "midPoints": "Titik tengah",
+      "min": "Min",
+      "minAmount": "Banyaknya min",
+      "minDistance": "Jarak min",
+      "minGroupSize": "Ukuran grup min",
+      "minHeight": "Tinggi min",
+      "minHeightValue": "Nilai tinggi min",
+      "minSurrounding": "Tile sekitar min",
+      "minWidth": "Lebar min",
+      "min_scaling_factor": "Penskalaan min menurut ukuran peta",
+      "multiplier": "Pengali",
+      "name": "Nama",
+      "noiseSmoothness": "Kehalusan noise",
+      "noiseWeight": "Bobot noise",
+      "noises": "Lapisan noise",
+      "objectiveType": "Tipe objektif",
+      "offset": "Offset",
+      "organicness": "Tingkat organik",
+      "pathTerrain": "Medan jalur",
+      "player": "Pemain",
+      "position": "Posisi",
+      "preferLowElevation": "Utamakan dataran rendah",
+      "printNoiseDebug": "Cetak debug noise",
+      "radius": "Radius",
+      "randomness": "Keacakan",
+      "range": "Rentang",
+      "ranges": "Rentang",
+      "reverse": "Terbalik",
+      "reversed": "Terbalik",
+      "rotation": "Rotasi",
+      "s": "Kecil",
+      "scale": "Skala",
+      "scatter": "Sebaran",
+      "searchRadius": "Radius pencarian",
+      "shallow": "Air dangkal",
+      "shore": "Pantai",
+      "size": "Ukuran",
+      "smoothing": "Penghalusan",
+      "startHeightRanges": "Rentang tinggi awal",
+      "team": "Tim",
+      "terrain": "Medan",
+      "terrainCosts": "Biaya medan",
+      "terrainFilter": "Filter medan",
+      "terrainReplacements": "Penggantian medan",
+      "terrains": "Medan",
+      "toTerrain": "Ke medan",
+      "type": "Tipe",
+      "uphillHeightCost": "Biaya menanjak",
+      "width": "Lebar",
+      "x": "X",
+      "xBounds": "Batas X",
+      "xRange": "Rentang X",
+      "xl": "Sangat besar",
+      "y": "Y",
+      "yBounds": "Batas Y",
+      "yRange": "Rentang Y"
+    },
+    "instructionType": {
+      "terrainNoise": "Noise medan",
+      "heightNoise": "Noise tinggi",
+      "terrainCircle": "Lingkaran medan",
+      "terrainRectangle": "Persegi panjang medan",
+      "naturalPath": "Jalur alami",
+      "connectClusters": "Hubungkan klaster",
+      "objective": "Objektif",
+      "lake": "Danau",
+      "objectiveLayer": "Lapisan objektif"
+    },
+    "objectiveType": {
+      "small": "Kecil",
+      "big": "Besar"
+    }
   },
   "randomDeployment": {
     "title": "Zona penempatan",
@@ -772,5 +980,16 @@
     "bigInset": "Pemangkasan zona objektif besar",
     "smallInsetInfo": "Seberapa besar mempersempit zona objektif kecil di setiap sisi. Hanya memangkas lebarnya, mempertahankan tingginya.",
     "bigInsetInfo": "Seberapa besar mengecilkan kotak objektif besar di setiap sisi, berpusat di dalam zona penempatan."
+  },
+  "mapPoint": {
+    "title": "Titik peta",
+    "help": "Ini mengikuti penunjuk Anda di seluruh peta dan membacakan tile di bawahnya. Klik kanan untuk menyematkannya, agar angkanya tetap diam saat Anda bekerja di panel. Kembalilah ke atas peta dan ia akan mengikuti lagi.",
+    "tile": "Tile",
+    "terrain": "Medan",
+    "height": "Tinggi",
+    "unknown": "-"
+  },
+  "objectiveOwnership": {
+    "help": "Objektif selalu dipegang oleh sebuah tim. Pada skenario dengan daftar pemain tetap, kolom ini menyebut seorang pemain, dan objektif itu milik tim pemain tersebut. Pada skenario yang dibangun untuk pasukan dinamis tidak ada slot pemain sampai pencarian permainan mengisinya, sehingga kolom ini menyebut tim secara langsung."
   }
 }

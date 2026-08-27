@@ -33,7 +33,8 @@
     "damageModifier": "Damage modifier",
     "orgModifier": "Org modifier",
     "invalidJson": "Invalid JSON",
-    "resizeMap": "Resize Map",
+    "jsonPlaceholder": "Enter JSON here...",
+    "resizeMap": "Resize map",
     "addLanguage": "Add Language",
     "optionBuiltIn": "{{name}} (built-in)",
     "optionCustom": "{{name}} (custom)",
@@ -56,13 +57,14 @@
     "workshopBands": {
       "units": "Units",
       "terrain": "Terrain",
-      "global": "Global"
+      "global": "Global",
+      "transfer": "Transfer"
     },
     "scenarioBands": {
-      "about": "About",
       "forces": "Forces",
       "rules": "Rules",
-      "presentation": "Presentation"
+      "presentation": "Presentation",
+      "victoryPoints": "Victory points"
     },
     "restingHint": "Click a piece to inspect it, or pick a tool to start painting.",
     "togglePanel": "Toggle panel",
@@ -74,71 +76,103 @@
     "expandPanel": "Expand panel",
     "collapsePanel": "Collapse panel",
     "allowDynamicArmy": "Allow dynamic army",
-    "allowDynamicArmyHelp": "When enabled, players bring their own army based on the matchmaking battle type and deploy it inside their zones. When disabled, the scenario's pre-placed units define the full roster (army composition is skipped).",
+    "allowDynamicArmyHelp": "When on, players build their own army for the battle type and deploy it inside their zones. When off, they fight with the units you placed on the map and the army screen is skipped.",
     "fixedRoster": "Fixed roster",
-    "fixedRosterHelp": "When enabled, the scenario owns its player slots, teams and ammo reserves, and the lobby cannot add or remove players. When disabled, the roster comes from the lobby or matchmaking.",
+    "fixedRosterHelp": "When on, the scenario decides the player slots, the teams, and the ammunition each side gets, and nobody can be added or removed in the lobby, and the Players section below is yours to edit. When off, the lobby or matchmaking decides who plays, and that section is grayed because the roster is no longer the scenario's to set.",
     "allowDeploymentPhase": "Deployment phase",
-    "allowDeploymentPhaseHelp": "When enabled, the battle opens on turn 0 so each player can reposition their units inside their deployment zones before the fighting starts.",
-    "noInherentAmmo": "No inherent ammo",
-    "noInherentAmmoHelp": "When enabled, units with an ammo system spawn with no ammo of their own and draw their whole supply from the shared reserve, so they can't fire on the first turn and only open up once the reserve resupplies them.",
+    "allowDeploymentPhaseHelp": "When on, the battle opens with one extra turn before any fighting, so each player can rearrange their units inside their deployment zone. When off, the fighting starts at once, with no chance to reposition first.",
+    "placeableObjectives": "Player-placed objectives",
+    "placeableObjectivesHelp": "When on, each player positions their own objectives during the deployment phase, inside their own zone. When off, the battle uses only the objectives you placed on the map.",
+    "placeableObjectivesNeedsDeployment": "Switch on the deployment phase as well, or players never reach the turn in which they would place these objectives and none will appear.",
+    "noInherentAmmo": "Ammunition from the reserve only",
+    "noInherentAmmoHelp": "When on, units start with no ammunition and draw everything from their side's shared reserve, so they cannot fire until the first resupply reaches them. When off, they begin the battle with their own supply as usual.",
     "showGrid": "Show grid",
     "showUnits": "Show units",
     "showObjectives": "Show objectives",
     "goBack": "Go back",
-    "goBackConfirm": "Are you sure you want to go back and exit the editor?",
-    "display": "Display"
+    "goBackConfirm": "Leave the editor and go back to the menu?",
+    "display": "Display",
+    "resting": {
+      "thisScenario": "This scenario",
+      "gettingStarted": "Getting started",
+      "untitled": "Untitled",
+      "mapSize": "{{width}} x {{height}} tiles",
+      "objectives": "Objectives",
+      "noneYet": "None yet",
+      "modes": "Scenario builds this battle. Workshop changes the pieces every battle uses.",
+      "placing": "Pick a tool, then right-click the map to put something down.",
+      "disarm": "Pick that tool again to put it away and go back to selecting.",
+      "inspect": "Choose a piece you have placed and its settings appear here.",
+      "test": "The play button at the top tries your battle out against a bot.",
+      "saved": "Your work is kept as you go, so you can leave and pick it up later.",
+      "placingTouch": "Pick a tool, then tap the map to put something down."
+    }
   },
   "createScenario": {
-    "randomMap": "Random (procedural) map?",
-    "isHybrid": "Is Hybrid?"
+    "mapBand": "Map",
+    "forcesBand": "Forces",
+    "terrainLabel": "Terrain",
+    "terrainPreset": "Painted",
+    "terrainProcedural": "Generated",
+    "terrainHelp": "Painted terrain is yours to lay down tile by tile, and ships with the scenario exactly as you leave it. Generated terrain is drawn fresh for every battle from instructions you write in the Map panel, so no two matches are fought on the same ground.",
+    "rosterLabel": "Roster",
+    "rosterFixed": "Fixed",
+    "rosterDynamic": "Dynamic",
+    "rosterHelp": "A fixed roster means the scenario decides the player slots, the teams and the ammunition, and everyone fights with the units you placed. A dynamic roster leaves the slots to the lobby or to matchmaking, and players bring their own armies to the battle."
   },
   "playersPanel": {
+    "playerNumbered": "Player {{number}}",
     "removePlayer": "Remove player",
+    "rosterLimits": "A scenario needs at least {{min}} players and allows at most {{max}}.",
     "ammoReserve": "Reserve",
     "ammoBase": "Base",
-    "ammoHelp": "Ammunition for this player's army: the reserve it spends over the battle and the base amount it resupplies toward."
+    "ammoHelp": "How much ammunition this player's army has. The reserve is what it spends over the battle, and the base is the level the reserve climbs back toward each turn."
   },
   "terrainPanel": {
     "brush": "Brush",
     "shape": "Shape",
     "height": "Height",
     "elevation": "Elevation",
-    "keepHeight": "Keep existing height",
-    "paintBucket": "Paint Bucket",
-    "none": "None"
+    "setHeight": "Set height",
+    "setHeightHelp": "Ticked, the brush writes the height above onto every tile it paints. Unticked, it paints terrain only and leaves each tile at the elevation it already has.",
+    "paintBucket": "Paint bucket",
+    "paintBucketHelp": "Ticked, one press fills the whole connected run of matching terrain, however large, so radius does not apply. Unticked, the brush covers the radius you set.",
+    "none": "None",
+    "brushHeightGroup": "Elevation",
+    "brushShapeGroup": "Shape"
   },
   "unitPanel": {
-    "title": "Selected Unit",
-    "unitType": "Unit Type",
+    "unitType": "Unit type",
+    "nameSingleOnly": "Naming works on one unit at a time, so the field is available only while a single unit is selected.",
     "rotation": "Rotation",
-    "copyJson": "Copy JSON",
+    "copyUnitData": "Copy unit data",
     "copyUnits": "Copy units",
-    "unitsCopied": "Units copied ({{count}})",
+    "unitsCopied": "Copied ({{count}})",
     "removeSelectedUnits": "Remove selected units"
   },
   "createUnit": {
-    "title": "Create Unit",
-    "placingCopied": "Placing copied units ({{count}}). Click the map to place them.",
+    "placingCopied_one": "Right-click the map to place your copied unit.",
+    "placingCopied_other": "Right-click the map to place your {{count}} copied units.",
+    "placingCopiedTouch_one": "Tap the map to place your copied unit.",
+    "placingCopiedTouch_other": "Tap the map to place your {{count}} copied units.",
     "customLabel": "{{name}} (custom)"
   },
   "objectivePanel": {
-    "title": "Selected Objective",
+    "copyObjectiveData": "Copy objective data",
     "removeSelected": "Remove selected objective",
     "fields": {
-      "manpowerPerTurn": "Manpower per Turn",
-      "goldPerTurn": "Gold per Turn"
+      "manpowerPerTurn": "Manpower per turn",
+      "goldPerTurn": "Gold per turn"
     }
   },
   "createObjective": {
-    "title": "Create Objective",
-    "gaia": "Gaia",
-    "fields": {
-      "objectiveType": "Objective Type"
-    }
+    "gaia": "Neutral"
   },
   "deployment": {
     "title": "Deployment zones",
-    "hint": "These zones set where each army starts. The deployment phase only adds a turn 0 for players to rearrange inside them.",
+    "hint": "These zones are where each army starts the battle.",
+    "phaseHelp": "With the deployment phase on, players get one extra turn before the fighting begins, purely to shuffle their units around inside their zone.",
+    "gateHelp": "These zones are editable while any one of Allow dynamic army, Deployment phase or Player-placed objectives is on, since each of the three needs somewhere for an arriving army to start. With all three off they are grayed, and on a procedural map they are grayed as well, the zones there being authored as percentages in the Random map panel instead.",
     "team": "Team {{team}}",
     "mainZone": "Main",
     "forwardZone": "Forward",
@@ -159,7 +193,7 @@
     "drawLineRank": "Draw-line rank (lower = front)",
     "title": "Edit custom formation",
     "collision": "Collision",
-    "collisionHelp": "Footprint shape: a circle (radius) or a rectangle (frontage across the front, depth front-to-back). Use radius 0 for no collision (flying / ghost).",
+    "collisionHelp": "The space this formation takes up on the ground. A circle needs only a radius, while a rectangle needs its frontage across the front and its depth from front to back. Set the radius to 0 and the formation takes up no space at all, passing through everything.",
     "shape": "Shape",
     "shapeRectangle": "Rectangle",
     "shapeCircle": "Circle",
@@ -219,7 +253,7 @@
     "orgRadius": "Org radius",
     "orgRadiusBonus": "Org radius bonus",
     "reportStats": "Report stats",
-    "reportStatsHelp": "Tally each unit contributes to battle reports (e.g. men, horses, guns). Keys come from the era's built-in units.",
+    "reportStatsHelp": "What this unit adds to the tallies in a battle report, such as men, horses, or guns. The categories come from the era's own units.",
     "tallyPerUnit": "Tally per unit",
     "walkMovement": "Walk movement",
     "runMovement": "Run movement",
@@ -260,9 +294,9 @@
     "optionCustom": "{{name}} (custom)",
     "errors": {
       "idInUse": "Unit category id \"{{id}}\" is already in use",
-      "firingAltitudeRequired": "firingAltitude is required",
-      "orphanedResistances": "damageTypeResistances references unknown damage types: {{types}}",
-      "orphanedAutofire": "autofirePriority references unknown unit categories: {{categories}}",
+      "firingAltitudeRequired": "Set a Firing Altitude.",
+      "orphanedResistances": "Resistances point at damage types that do not exist: {{types}}",
+      "orphanedAutofire": "Autofire priority points at unit categories that do not exist: {{categories}}",
       "allowedOrderRequired": "All allowed-order entries must be selected",
       "allowedOrderUnknown": "Allowed order \"{{name}}\" is not a known order for this era"
     },
@@ -297,7 +331,7 @@
     },
     "chargeBacklash": {
       "legend": "Charge backlash",
-      "description": "Multiplier on the counter-hit this category deals back to a charger (higher = braces and hits back harder, 0 = none). The after-running value applies when the defender has already run and can't brace; it falls back to the base multiplier. Defaults to 1.",
+      "description": "How hard this category hits back when something charges it. Higher means it braces and strikes back harder, and 0 means it does not hit back at all. The after-running value is used when the defender has already run and cannot brace, and falls back to the base figure. Defaults to 1.",
       "multiplier": "Backlash multiplier",
       "multiplierAfterRunning": "Backlash multiplier (after running)"
     },
@@ -308,7 +342,7 @@
     },
     "resistances": {
       "legend": "Damage type resistances",
-      "description": "Per-damage-type resistance modifier (negative = take more damage, positive = take less).",
+      "description": "How well this category stands up to each damage type. A negative figure means it takes more damage, a positive figure means it takes less.",
       "fieldLabel": "Resistance by damage type"
     },
     "autofire": {
@@ -316,7 +350,7 @@
       "fieldLabel": "Priority by target category",
       "defaultRange": "Default range",
       "warnOnMax": "Warn that Max wastes ammo",
-      "warnOnMaxHint": "Shows an ammo-waste warning on the Max tier (e.g. artillery)."
+      "warnOnMaxHint": "Warns that ammunition is being wasted when this category fires at its Max tier. Useful for artillery."
     },
     "allowedOrders": {
       "legend": "Allowed orders",
@@ -386,7 +420,7 @@
       "nameInUse": "Damage type name \"{{name}}\" is already in use",
       "idBelongsToBuiltIn": "Damage type id {{id}} belongs to built-in \"{{name}}\". Keep the name to override it, or pick a different id.",
       "nameBelongsToBuiltIn": "Name \"{{name}}\" belongs to built-in id {{id}}. Set id to {{id}} to override it, or pick a different name.",
-      "orgDamageRatioRequired": "orgDamageRatio is required",
+      "orgDamageRatioRequired": "Set an Org Damage Ratio.",
       "rangedNeedsBracket": "Ranged damage types need at least one range bracket",
       "maxRangeRequired": "Max range must be greater than 0",
       "rangeBandBounds": "Each band's From/To must be within 0–100%, with From ≤ To.",
@@ -398,7 +432,7 @@
       "max": "Max (default)"
     },
     "targetStat": {
-      "helper": "In % of the target's stat. No effect above 'from'; full 'value' at or below 'to'. Grows as the target's HP/org drops."
+      "helper": "Measured as a percentage of the target's own stat. Nothing happens above the From figure, the full value applies at or below the To figure, and the effect grows as the target weakens in between."
     }
   },
   "terrainCategoryModal": {
@@ -408,9 +442,9 @@
       "perUnitCategoryModifiers": "Per unit category modifiers",
       "projectileAbsorption": "Projectile absorption"
     },
-    "identityHint": "Overrides the era's terrain category config for this scenario. The id is fixed to a built-in category - terrains keep their category assignments, you only adjust the modifiers.",
-    "perUnitCategoryHint": "Keys are unit category ids. Use the `*` wildcard to set a default applied to all categories that don't have an explicit entry. Removing a row that `*` covers has no effect: it comes back on the next edit. Keep the row and give it its own value instead (No, to make the terrain passable).",
-    "projectileAbsorptionHint": "Keys are damage type names.",
+    "identityHint": "This overrides one of the era's terrain categories, for this scenario only. You cannot change which terrains belong to it, since the era fixes that. What you can change is how the category treats the troops standing on it.",
+    "perUnitCategoryHint": "Each row sets the value for one kind of troops. The `*` row is the default, used by any kind you have not given a row of its own. Deleting a row that `*` covers will not stick, because it returns the next time you edit. Give that row its own value instead.",
+    "projectileAbsorptionHint": "Each row sets the value for one damage type.",
     "option": {
       "builtIn": "{{name}} (built-in)",
       "custom": "{{name}} (custom)"
@@ -434,28 +468,53 @@
     "errors": {
       "idInUse": "Terrain category id \"{{id}}\" is already in use",
       "unknownUnitCategories": "{{field}} references unknown unit categories: {{keys}}",
-      "unknownDamageTypes": "projectileAbsorption references unknown damage types: {{keys}}"
+      "unknownDamageTypes": "Projectile absorption points at damage types that do not exist: {{keys}}"
     }
   },
   "customDefs": {
     "common": {
       "importFromScenario": "Import from scenario",
-      "duplicate": "Duplicate"
+      "duplicate": "Duplicate",
+      "inThisScenario": "In this scenario",
+      "builtIntoThisEra": "Built into this era"
+    },
+    "transfer": {
+      "importTitle": "Import",
+      "importDescription": "Bring work across from another scenario. Choose a file, then take all of it or untick anything you would rather leave behind. Anything that scenario does not carry is grayed out.",
+      "whatComesIn": "What comes in",
+      "importAction": "Import",
+      "exportTitle": "Export",
+      "exportDescription": "Send this scenario's own work out as a file, ready to bring into another. Everything is included unless you untick it.",
+      "whatGoesOut": "What goes out",
+      "exportAction": "Export",
+      "allCategories": "All categories",
+      "replaceTitle": "Replace your own values?",
+      "replaceWarning_one": "Importing this will replace {{count}} value you have set yourself. Everything else is added alongside your work.",
+      "replaceWarning_other": "Importing this will replace {{count}} values you have set yourself. Everything else is added alongside your work.",
+      "replaceRow_one": "{{category}}: {{count}} value",
+      "replaceRow_other": "{{category}}: {{count}} values",
+      "replaceConfirm": "Import and replace",
+      "imported_one": "Imported {{count}} category.",
+      "imported_other": "Imported {{count}} categories.",
+      "exported_one": "Exported {{count}} category.",
+      "exported_other": "Exported {{count}} categories.",
+      "exceededCap": "{{category}}: importing would exceed the limit of {{max}} (would be {{count}})."
     },
     "spritesPanel": {
       "title": "Unit sprites",
-      "description": "Upload your own sprites here, then pick them in a unit's formations. They are embedded in the scenario (max {{kb}}KB each).",
+      "description": "A sprite is the picture a unit wears on the field. Upload your own and you can pick them when you set up a unit's formations. They ride inside the scenario file itself, so each one has to stay under {{kb}}KB. Upload one below.",
       "yourSprites": "Your sprites",
-      "noSprites": "No custom sprites yet.",
+      "noSprites": "None yet, so your units wear the pictures the era already provides.",
       "uploadSprite": "Upload sprite",
+      "uploading": "Uploading…",
       "renderWidthAria": "Render width in px",
       "renderHeightAria": "Render height in px",
-      "maxSpritesAlert": "You can upload at most {{count}} custom sprites.",
+      "maxSpritesAlert": "You can keep at most {{count}} sprites in a scenario. Delete one to make room.",
       "tooLargeAlert": "Image too large; could not compress under {{kb}}KB. Try a smaller or simpler image.",
       "invalidImageAlert": "Could not read the image. Use a PNG or WebP file.",
-      "deleteBlockedAlert": "Can't delete: still used by {{where}}. Change those formations first.",
+      "deleteBlockedAlert": "You can't delete this sprite while {{where}} still use it. Change those formations first.",
       "libraryTitle": "Sprite library",
-      "libraryDescription": "Browse the era's built-in sprites for inspiration.",
+      "libraryDescription": "Every sprite the era already provides, free for you to use. Have a look before you make your own.",
       "filterPlaceholder": "Filter by name...",
       "unitBase": "Unit base ({{count}})",
       "unitOverlay": "Unit overlay ({{count}})",
@@ -463,51 +522,51 @@
     },
     "unitTemplatesPanel": {
       "title": "Unit templates",
-      "description": "Define new unit templates with custom stats, formations, and damage types. Use \"Override\" to replace a built-in for this scenario (useful for balance testing) or \"Clone\" to add a fresh template with id >= {{minId}}.",
-      "noTemplates": "No custom unit templates yet.",
+      "description": "A template is the blueprint every unit on the map is stamped from. Override one of the era's own to change it for this scenario alone, or clone one to start a unit of your own. Add one below.",
+      "noTemplates": "None yet, so this scenario fields the era's own units.",
       "templateLabel": "{{name}} (type {{type}})",
-      "deleteBlocked": "Can't delete \"{{name}}\" - still used by {{refs}}. Remove those units first.",
+      "deleteBlocked": "You can't delete \"{{name}}\" while {{refs}} still use it. Remove those first.",
       "addTemplate": "Add unit template",
       "clonePickerTitle": "Clone a built-in unit template"
     },
     "formationsPanel": {
       "title": "Unit formations",
-      "description": "Define new formation templates (collision, modifiers, shooting rules) that custom units can use.",
-      "noFormations": "No custom formations yet.",
-      "deleteBlocked": "Can't delete \"{{id}}\" - still used by {{refs}}. Remove those references first.",
+      "description": "A formation is how a unit arranges itself: line, column, square. Every unit you create or edit carries the ones it can use, and switching between them changes how it fights. Add a formation of your own below.",
+      "noFormations": "None yet, so your units form up the way the era already allows.",
+      "deleteBlocked": "You can't delete \"{{id}}\" while {{refs}} still use it. Remove those first.",
       "clonePickerTitle": "Clone a built-in formation"
     },
     "unitCategoriesPanel": {
       "title": "Unit categories",
-      "description": "Define new unit categories (collision levels, deployment section, allowed orders, routing behavior). Referenced by custom units via their category field.",
-      "noCategories": "No custom unit categories yet.",
-      "deleteBlocked": "Can't delete \"{{id}}\" - still used by {{refs}}. Remove those references first.",
+      "description": "A category is the kind of troops a unit is: infantry, skirmishers, artillery. Every unit you create or edit belongs to one, and units sharing a category behave alike. Add one of your own below.",
+      "noCategories": "None yet, so every unit belongs to one of the era's own kinds of troops.",
+      "deleteBlocked": "You can't delete \"{{id}}\" while {{refs}} still use it. Remove those first.",
       "addCategory": "Add unit category",
       "clonePickerTitle": "Clone a built-in unit category"
     },
     "damageTypesPanel": {
       "title": "Damage types",
-      "description": "Define new melee or ranged damage types. Referenced by custom units via meleeDamageType or rangedDamageTypes.",
-      "noDamageTypes": "No custom damage types yet.",
+      "description": "A damage type decides how a weapon works. Every unit you create or edit has one for melee and can carry several more for shooting at range. Add your own below.",
+      "noDamageTypes": "None yet, so your units fight with the weapons the era already provides.",
       "ranged": "ranged",
       "melee": "melee",
       "cloneOptionLabel": "{{name}} ({{kind}})",
       "itemLabel": "{{name}} ({{kind}}, id {{id}})",
-      "deleteBlocked": "Can't delete \"{{name}}\" - still used by {{refs}}. Remove those references first.",
+      "deleteBlocked": "You can't delete \"{{name}}\" while {{refs}} still use it. Remove those first.",
       "addDamageType": "Add damage type",
       "clonePickerTitle": "Clone a built-in damage type"
     },
     "terrainCategoriesPanel": {
       "title": "Terrain categories",
-      "description": "Override terrain category configs for this scenario. Use this to give custom unit categories specific terrain modifiers, or to introduce new terrain category ids.",
-      "noOverrides": "No custom terrain category overrides yet.",
+      "description": "A terrain category is how a patch of ground treats the troops standing on it: what it slows, what it shelters, what it blocks. Override the era's version here and the change applies to this scenario alone. Add an override below.",
+      "noOverrides": "Nothing overridden yet, so terrain behaves exactly as the era intends.",
       "addTerrainCategory": "Add terrain category",
       "clonePickerTitle": "Clone a built-in terrain category"
     },
     "overrideEditor": {
       "reset": "Reset",
       "eraDefault": "era default: {{value}}",
-      "structuralTooltip": "Structural / determinism constant. Changing it can break rendering, replays, or matchmaking."
+      "structuralTooltip": "This one shapes how the game itself runs. Changing it can break how battles are drawn, how replays play back, and how matchmaking works."
     },
     "importModal": {
       "kindUnitTemplates": "unit templates",
@@ -520,16 +579,16 @@
       "damageTypeItemLabel": "{{name}} ({{kind}})",
       "nothing": "nothing",
       "title": "Import {{kind}} from scenario",
-      "pickFilePrompt": "Pick a scenario file (the JSON the editor's Download button produces) to import its custom {{kind}} from.",
-      "fileReadError": "Couldn't read that file as a scenario.",
-      "invalidForEra": "This scenario's custom definitions aren't valid for the current era (e.g. {{message}}).",
-      "importWouldInvalidate": "Import would make the scenario invalid (e.g. {{message}}). Nothing was changed.",
+      "pickFilePrompt": "Choose a scenario file to bring its {{kind}} across. Any scenario you have downloaded from the editor will do.",
+      "fileReadError": "That doesn't look like a scenario file. Try another.",
+      "invalidForEra": "That scenario's custom definitions don't fit the era you're working in: {{message}}",
+      "importWouldInvalidate": "Nothing was imported, because that would have left your scenario invalid: {{message}}",
       "fromLabel": "From: {{name}}",
       "importedScenario": "imported scenario",
       "changeFile": "Change file",
-      "noCustomDefs": "This scenario has no custom {{kind}}.",
-      "willImport": "Will import (with dependencies): {{summary}}.",
-      "resultSummary": "Imported {{imported}}, renamed {{renamed}}, skipped {{skipped}}.",
+      "noCustomDefs": "That scenario has no custom {{kind}} to bring across.",
+      "willImport": "This will bring across {{summary}}, plus anything they depend on.",
+      "resultSummary": "Added {{imported}}. Renamed {{renamed}} that would have clashed. Skipped {{skipped}} you already had.",
       "importSelected": "Import selected"
     },
     "importOverridesModal": {
@@ -537,32 +596,52 @@
       "targetGameRules": "game rule overrides",
       "targetOrders": "order overrides",
       "title": "Import {{target}} from scenario",
-      "pickFilePrompt": "Pick a scenario file (the JSON the editor's Download button produces) to import its {{target}} from.",
+      "pickFilePrompt": "Choose a scenario file to bring its {{target}} across. Any scenario you have downloaded from the editor will do.",
       "noOverrides": "This scenario has no {{target}}.",
-      "importedCount_one": "Imported {{count}} override.",
-      "importedCount_other": "Imported {{count}} overrides."
+      "importedCount_one": "Added {{count}} override.",
+      "importedCount_other": "Added {{count}} overrides."
     },
     "importArmyCompositionsModal": {
       "title": "Import army compositions from scenario",
-      "pickFilePrompt": "Pick a scenario file (the JSON the editor's Download button produces) to import its army compositions from.",
+      "pickFilePrompt": "Choose a scenario file to bring its army compositions across. Any scenario you have downloaded from the editor will do.",
       "noArmyCompositions": "This scenario has no army composition settings to import.",
       "fieldBattleTypes": "Battle-type budgets & unit caps",
       "fieldPlayerBudgets": "Per-player budgets",
       "fieldArmyPanelGroups": "Army panel groups",
       "fieldDisableEraUnits": "Disable era default units",
-      "resultSummary": "Imported: {{fields}}."
+      "resultSummary": "Added: {{fields}}."
     },
     "gameConstants": {
       "title": "Game constants",
-      "description": "Override this era's numeric constants for this scenario. Only changed values are saved; Reset returns a field to the era default. Keys marked ⚠ are structural - changing them can break rendering, replays, or matchmaking. Values are raw internal units."
+      "description": "These are the era's underlying numbers: how long a turn lasts, how large a tile is, how many turns a battle runs. Anything you change applies to this scenario alone, and Reset puts a value back as you found it.",
+      "category": {
+        "mapDimensions": "Map dimensions",
+        "deployment": "Deployment",
+        "gameLimits": "Game limits",
+        "victoryPoints": "Victory points",
+        "fogOfWar": "Fog of war",
+        "combat": "Combat",
+        "ammunition": "Ammunition",
+        "stamina": "Stamina",
+        "unitProximity": "Unit proximity",
+        "unitDimensions": "Unit dimensions",
+        "allyBehavior": "Ally behavior",
+        "collision": "Collision",
+        "movement": "Movement",
+        "mapBoundaries": "Map boundaries",
+        "effects": "Effects",
+        "gameMechanics": "Game mechanics",
+        "routing": "Routing",
+        "Other": "Other"
+      }
     },
     "gameRules": {
       "title": "Game rules",
-      "description": "Override this era's gameplay rules for this scenario. Only changed values are saved; use Reset to return a field to the era default. Values are raw internal units (some stats are stored pre-scaled)."
+      "description": "These are the systems your era runs on, from how units hold their nerve to how a battle is won. Anything you change applies to this scenario alone, and Reset puts a value back as you found it. The numbers are in the game's own units, so a figure may not read as meters or minutes."
     },
     "ordersPanel": {
       "title": "Orders",
-      "description": "Override the values of this era's built-in orders for this scenario. Only changed values are saved; use Reset to return a field to the era default. You can modify existing orders but not add new ones."
+      "description": "Orders are the instructions a player can give a unit during a battle. You can retune the era's own orders here for this scenario, though you cannot invent new ones. Reset puts a value back as you found it."
     },
     "clonePicker": {
       "alreadyOverridden": "(already overridden)",
@@ -578,60 +657,60 @@
     "armyPanelGroups": {
       "title": "Army panel groups",
       "description": "Choose the headings players see when buying an army, which units sit under each, and their order. This starts from the era's default layout.",
-      "statusDefault": "Untouched — this scenario uses the era's standard army compositions. Editing anything below switches it to your own list.",
-      "statusCustom": "Customised — this scenario overrides the era layout with your list. The army screen shows only the units you place in a group and omits the rest. This list is now a fixed snapshot: any unit you add to the scenario later stays hidden until you place it in a group here.",
-      "statusEraDisabled": "Era default units are disabled, so the standard layout is hidden. Add groups from your scenario's own custom units below.",
+      "statusDefault": "Untouched. This scenario uses the era's standard army compositions, and editing anything below switches it to a list of your own.",
+      "statusCustom": "Customized. Players now see only the units you put into a group, and nothing else. Add a new unit to the scenario later and it stays hidden until you group it here too.",
+      "statusEraDisabled": "The era's own units are switched off, so the standard layout is hidden. Build your groups from this scenario's units below.",
       "namePlaceholder": "Group name",
       "addGroup": "Add group",
       "addUnit": "Add a unit…",
-      "noUnits": "No units yet.",
+      "noUnits": "No units in this group yet.",
       "moveUp": "Move up",
       "moveDown": "Move down"
     },
     "customArmyCompositions": {
       "title": "Army compositions",
-      "betaNotice": "Custom army composition options for scenarios is a beta feature; please report any bugs in the official Discord server.",
+      "betaNotice": "The army composition options below are still in beta. They apply when players build an army for an offline game or a custom game. If you find a bug, please report it in the official Discord server.",
       "disableEraUnits": "Disable era default units",
-      "disableEraUnitsDescription": "Field only this scenario's own custom units. The era's default units are hidden from the army screen and rejected when building an army.",
-      "disableEraUnitsWarning": "Add at least one custom unit template, or players will have no units to field."
+      "useEraUnits": "Use the era's own units",
+      "useEraUnitsHelp": "On, and players may field the era's own units alongside anything this scenario adds. Off, and they play with only the units this scenario provides — the era's disappear from the army screen and cannot be chosen.",
+      "disableEraUnitsWarning": "You will want at least one unit template of your own first, or players will have nothing to field."
     },
     "unitCaps": {
       "title": "Unit caps",
-      "description": "Limit how many of each unit a player may field. Add a unit, then set its cap per dynamic battle type. Each field shows this era's cap as the placeholder; leave it empty to keep that. A cap of 0 removes the unit from that battle type. Units with an era cap are listed automatically.",
+      "description": "Limit how many of each unit a player may field. Add a unit, then set its cap for each battle type. Leave a field empty and the era's own cap applies, which is the number already shown in it. A cap of 0 removes that unit from the battle type entirely.",
       "noLimit": "No limit",
       "addUnit": "Add a unit…",
-      "empty": "No unit caps yet. Add a unit to cap it."
+      "empty": "None yet, so each unit is limited exactly as the era limits it."
     },
     "battleTypeBudgets": {
       "title": "Battle-type budgets",
-      "description": "Override the starting manpower and gold each player gets in each dynamic battle type. Leave a field empty to keep this era's default (shown as the placeholder).",
+      "description": "Change the manpower and gold each player starts with in each battle type. Leave a field empty and the era's own figure applies, which is the number already shown in it.",
       "manpower": "Manpower",
       "gold": "Gold"
     },
     "playerBudgets": {
       "title": "Per-player budgets",
-      "description": "Give specific players their own absolute manpower and gold budget, overriding the battle type's for that player only. Add a player, then set either value; leave a field empty to keep the battle-type budget. Applies in the lobby by seat number.",
+      "description": "Give one player a budget of their own, overriding the battle type's for that seat alone. Add a player, then set either figure, and leave one empty to keep the battle-type budget. Players are matched by their seat number in the lobby.",
       "addPlayer": "Add a player…",
       "player": "Player {{number}}",
       "manpower": "Manpower",
       "gold": "Gold",
       "default": "Battle-type budget",
-      "empty": "No player budgets yet. Add a player to override theirs."
+      "empty": "None yet, so every player gets the battle-type budget."
     }
   },
   "resize": {
-    "currentSize": "Current size: {{width}} × {{height}} tiles",
     "newSize": "New size: {{width}} × {{height}} tiles",
     "current": "Current: {{width}} × {{height}} tiles",
-    "confirmTitle": "Confirm Resize Map",
-    "warningCannotUndo": "⚠️ <0>Warning:</0> This operation cannot be undone.",
+    "confirmTitle": "Confirm resize map",
+    "warningCannotUndo": "⚠ <0>Warning:</0> This operation cannot be undone.",
     "tabScale": "Scale",
-    "tabExpandCut": "Expand / Cut Sides",
+    "tabExpandCut": "Edges",
     "scale": {
       "newWidth": "New width (tiles)",
       "newHeight": "New height (tiles)",
-      "errorInvalid": "Please enter valid positive numbers for width and height in tiles",
-      "warningBody": "Make sure you have saved your scenario before proceeding. Resizing will scale all terrains, heights, units, objectives, and trigger positions."
+      "errorInvalid": "Enter a positive width and height, in tiles.",
+      "warningBody": "It may be worth saving your scenario before you do this. Resizing stretches everything on the map along with it: terrain, heights, units, objectives, and triggers."
     },
     "expandCut": {
       "intro": "Positive values add tiles, negative values remove tiles from each side.",
@@ -642,28 +721,41 @@
       "sideExpand": "+{{count}} tiles (expand)",
       "sideCut": "{{count}} tiles (cut)",
       "noChange": "No change",
-      "apply": "Apply Changes",
+      "apply": "Apply changes",
       "errorTooSmall": "Cannot resize: resulting map would be smaller than 1×1 tiles. Please adjust the values.",
       "errorTooLarge": "Cannot resize: resulting map would exceed maximum size of {{maxWidth}}×{{maxHeight}} tiles.",
-      "warningBody": "Make sure you have saved your scenario before proceeding. Expanding/cutting will add or remove tiles from the specified sides. Units and objectives outside the new bounds will be removed.",
+      "warningBody": "You might want to save your scenario first. Adding or removing tiles moves the map's edges, and anything left outside the new bounds is removed with them.",
       "changesHeading": "Changes:",
       "changesHorizontal": "Left: {{left}} tiles, Right: {{right}} tiles",
       "changesVertical": "Top: {{top}} tiles, Bottom: {{bottom}} tiles"
-    }
+    },
+    "currentSizeLabel": "Current size",
+    "newSizeLabel": "New size",
+    "methodLabel": "Method",
+    "sizeValue": "{{width}} × {{height}} tiles"
   },
   "mapSize": {
     "widthInTiles": "Width in tiles",
     "heightInTiles": "Height in tiles"
   },
+  "mapPoint": {
+    "title": "Map point",
+    "help": "This follows your pointer across the map and reads out the tile under it. Right click to pin it, so the numbers stay put while you work in the panel. Move back over the map and it follows again.",
+    "tile": "Tile",
+    "terrain": "Terrain",
+    "height": "Height",
+    "unknown": "-"
+  },
   "misc": {
     "scaleAllSizesBy": "Scale all sizes by",
     "apply": "Apply",
-    "background": "Background",
+    "background": "Reference image",
+    "backgroundHelp": "Lays a picture under the map at half strength, so you can draw terrain to match it. It is an aid while you work and is never saved with the scenario.",
     "chooseImage": "Choose image"
   },
   "localesPanel": {
     "title": "Locales",
-    "description": "Locales are used to translate the scenario into different languages.",
+    "description": "Locales let you translate your scenario, so players read its names and descriptions in their own language. Add a language, then give each piece of text a translation.",
     "removeLanguage": "Remove language",
     "noKeys": "No translation keys. Add a key to get started.",
     "addKey": "Add Key",
@@ -684,28 +776,35 @@
   },
   "triggers": {
     "title": "Triggers",
-    "moreInfo": "More info about triggers here",
-    "lastPositionClicked": "Last position clicked: [{{x}}, {{y}}]",
-    "createTrigger": "Create Trigger",
+    "intro": "A trigger checks the battle at the start or the end of a turn, then acts when the conditions you set are true. Make one below.",
+    "moreInfo": "Read how triggers work.",
+    "lastClick": "Position to copy",
+    "lastClickHint": "Where you last picked on the map, in the coordinates a trigger uses for placing a unit or moving the camera.",
+    "createTrigger": "Create trigger",
     "createTriggerButton": "Create trigger",
-    "format": "Format",
+    "createDisabledInvalidJson": "Fix the JSON below before you can make a trigger.",
+    "createDisabledNeedsConditionAndAction": "A trigger needs at least one condition and one action.",
+    "format": "Tidy the formatting",
     "invalidJsonFormat": "Invalid JSON format",
     "event": "Event",
-    "conditionLogic": "Condition Logic",
+    "conditionLogic": "Condition logic",
     "conditionLogicAnd": "All conditions (AND)",
     "conditionLogicOr": "Any condition (OR)",
     "conditions": "Conditions",
-    "addCondition": "Add Condition",
+    "addCondition": "Add condition",
     "actions": "Actions",
-    "addAction": "Add Action",
-    "once": "Once"
+    "addAction": "Add action",
+    "once": "Once",
+    "groupTrigger": "Trigger",
+    "value": "Value"
   },
   "randomMap": {
-    "title": "Random Map",
-    "moreInfo": "More info about random maps here",
-    "proceduralExplanation": "These instructions generate the map from a new seed each match; the saved scenario drops its baked map. The map shown here is only a preview. Objectives placed by Objective / Objective layer instructions appear at match time, not in this preview.",
+    "title": "Random map",
+    "moreInfo": "Read how random maps work.",
+    "proceduralExplanation": "These instructions generate the map from a new seed each match; the saved scenario drops its baked map.",
+    "proceduralExplanationDetail": "The map shown here is only a preview. Objectives placed by Objective or Objective layer instructions appear at match time, not in this preview.",
     "startFromTemplate": "Start from a template",
-    "loadInstructionsFromTemplate": "Load instructions from template",
+    "loadInstructionsFromTemplate": "Load template",
     "generating": "Generating…",
     "generatePreview": "Generate preview",
     "instructions": "Instructions",
@@ -716,28 +815,148 @@
     "moveUp": "Move up",
     "moveDown": "Move down",
     "switchToPresetConfirm": "Switching to a preset keeps the current terrain and clears the generation instructions. Continue?",
+    "switchToPresetTitle": "Switch to a preset map",
     "replaceInstructionsConfirm": "Replace the current instructions with the template's?",
+    "replaceInstructionsTitle": "Replace instructions",
     "fillFromTemplateDescription": "Fill the current map's terrain from a procedural template. This bakes a fixed (preset) map and does not keep any generation instructions.",
     "template": "Template",
     "useSeed": "Use seed?",
     "useSeedDescription": "Generate terrain using procedural generation",
-    "confirmOverwriteLabel": "I understand this will overwrite all terrain",
+    "confirmOverwriteLabel": "Replace all the terrain",
+    "confirmOverwriteHelp": "This is what unlocks Generate below. When on, generating discards every tile of terrain on the map and draws a new one from these instructions. When off, Generate stays disabled, so a map you have worked on cannot be overwritten by a stray press.",
     "lastUsedSeed": "Last used seed:",
     "generate": "Generate",
-    "importMustBeProcedural": "The imported file must be a procedural template (no baked map, with generation instructions).",
-    "invalidJsonFile": "Invalid JSON file. Please check the file format.",
-    "confirmOverwriteWarning": "Please confirm that you understand this will overwrite the terrain.",
+    "importMustBeProcedural": "That file needs to be a procedural template. It must carry generation instructions and no baked map.",
+    "invalidJsonFile": "That file could not be read. Check that it is a scenario the editor produced.",
+    "confirmOverwriteWarning": "Tick the box to confirm you are happy to overwrite the terrain.",
     "selectedNotProcedural": "Selected scenario is not a procedural template.",
     "mapMode": "Map mode",
     "modePreset": "Preset (fixed terrain)",
     "modeHybrid": "Hybrid (preset + instructions)",
     "modeProcedural": "Procedural (generated)",
-    "hybridExplanation": "The baked terrain is kept and these instructions re-run on top of it as overlays each match. Pin a seed on the map to stop the overlays drifting between matches."
+    "hybridExplanation": "The baked terrain is kept and these instructions re-run on top of it as overlays each match.",
+    "hybridExplanationDetail": "Pin a seed on the map to stop the overlays drifting between matches.",
+    "sourceLabel": "Source",
+    "sourceBuiltIn": "Built in",
+    "sourceImport": "Import",
+    "intro": "Fill the map's terrain from a template instead of painting it by hand.",
+    "rollSeed": "Roll a new seed",
+    "changeFile": "Change file",
+    "selectFile": "Select file",
+    "importedFile": "Imported file",
+    "field": {
+      "amount": "Amount",
+      "between": "Between",
+      "border": "Border",
+      "chance": "Chance",
+      "coords": "Coordinates",
+      "cost": "Cost",
+      "count": "Count",
+      "countPer100x100": "Count per 100×100 tiles",
+      "curveLen": "Curve length",
+      "curveWeight": "Curve weight",
+      "deep": "Deep water",
+      "downHillHeightCost": "Downhill cost",
+      "edgeDistance": "Edge distance",
+      "edgeWeight": "Edge weight",
+      "endHeightRanges": "End height ranges",
+      "excludeTerrains": "Exclude terrains",
+      "falloff": "Falloff",
+      "fromTerrain": "From terrain",
+      "height": "Height",
+      "heightDiffCost": "Height difference cost",
+      "heightDiffCosts": "Height difference costs",
+      "heightFilter": "Height filter",
+      "heightRanges": "Height ranges",
+      "heights": "Heights",
+      "l": "Large",
+      "m": "Medium",
+      "max": "Max",
+      "maxDistance": "Max distance",
+      "maxHeight": "Max height",
+      "maxHeightThreshold": "Max height threshold",
+      "maxHeightValue": "Max height value",
+      "maxObj": "Max objectives",
+      "maxWidth": "Max width",
+      "max_scaling_factor": "Max scaling by map size",
+      "mergeStrategy": "Merge strategy",
+      "midPoints": "Mid points",
+      "min": "Min",
+      "minAmount": "Min amount",
+      "minDistance": "Min distance",
+      "minGroupSize": "Min group size",
+      "minHeight": "Min height",
+      "minHeightValue": "Min height value",
+      "minSurrounding": "Min surrounding tiles",
+      "minWidth": "Min width",
+      "min_scaling_factor": "Min scaling by map size",
+      "multiplier": "Multiplier",
+      "name": "Name",
+      "noiseSmoothness": "Noise smoothness",
+      "noiseWeight": "Noise weight",
+      "noises": "Noise layers",
+      "objectiveType": "Objective type",
+      "offset": "Offset",
+      "organicness": "Organicness",
+      "pathTerrain": "Path terrain",
+      "player": "Player",
+      "position": "Position",
+      "preferLowElevation": "Prefer low ground",
+      "printNoiseDebug": "Print noise debug",
+      "radius": "Radius",
+      "randomness": "Randomness",
+      "range": "Range",
+      "ranges": "Ranges",
+      "reverse": "Reversed",
+      "reversed": "Reversed",
+      "rotation": "Rotation",
+      "s": "Small",
+      "scale": "Scale",
+      "scatter": "Scatter",
+      "searchRadius": "Search radius",
+      "shallow": "Shallow water",
+      "shore": "Shore",
+      "size": "Size",
+      "smoothing": "Smoothing",
+      "startHeightRanges": "Start height ranges",
+      "team": "Team",
+      "terrain": "Terrain",
+      "terrainCosts": "Terrain costs",
+      "terrainFilter": "Terrain filter",
+      "terrainReplacements": "Terrain replacements",
+      "terrains": "Terrains",
+      "toTerrain": "To terrain",
+      "type": "Type",
+      "uphillHeightCost": "Uphill cost",
+      "width": "Width",
+      "x": "X",
+      "xBounds": "X bounds",
+      "xRange": "X range",
+      "xl": "Extra large",
+      "y": "Y",
+      "yBounds": "Y bounds",
+      "yRange": "Y range"
+    },
+    "instructionType": {
+      "terrainNoise": "Terrain noise",
+      "heightNoise": "Height noise",
+      "terrainCircle": "Terrain circle",
+      "terrainRectangle": "Terrain rectangle",
+      "naturalPath": "Natural path",
+      "connectClusters": "Connect clusters",
+      "objective": "Objective",
+      "lake": "Lake",
+      "objectiveLayer": "Objective layer"
+    },
+    "objectiveType": {
+      "small": "Small",
+      "big": "Big"
+    }
   },
   "randomDeployment": {
     "title": "Deployment zones",
     "explanation": "Where each team's units start, as percentages of the map. Keep it symmetric for a fair match, or uncheck to author each side.",
-    "symmetric": "Symmetric map (mirror top to bottom)",
+    "symmetric": "Mirror top and bottom",
     "topSide": "Top side",
     "bottomSide": "Bottom side",
     "bothSides": "Both sides",
@@ -752,28 +971,31 @@
   },
   "scoring": {
     "heading": "VP weights",
-    "hint": "Leave a field empty to inherit the battle-type or era default.",
+    "hint": "How each side's victory points are earned and weighted over the battle.",
     "basePoints": "Base points weight",
     "casualties": "Casualties weight",
     "underPressure": "Under-pressure penalty",
     "pressureThreshold": "Pressure threshold",
-    "basePointsInfo": "Starting VP both teams get before casualties, objectives, or pressure are applied.",
-    "casualtiesInfo": "Max VP from the casualty difference between teams. Higher favours attrition over holding objectives.",
-    "underPressureInfo": "VP a team loses per turn while under pressure. 0 disables the penalty.",
-    "pressureThresholdInfo": "A team is under pressure while it holds this % of objective VP or less.",
+    "basePointsInfo": "Starting VP both teams get before casualties, objectives, or pressure are applied. Leave it empty to use the battle type's own figure, or the era's.",
+    "casualtiesInfo": "Max VP from the casualty difference between teams. Higher favours attrition over holding objectives. Leave it empty to use the battle type's own figure, or the era's.",
+    "underPressureInfo": "VP a team loses per turn while under pressure. 0 disables the penalty. Leave it empty to use the battle type's own figure, or the era's.",
+    "pressureThresholdInfo": "A team is under pressure while it holds this % of objective VP or less. Leave it empty to use the battle type's own figure, or the era's.",
     "bigDefault": "Default big-objective VP",
-    "bigDefaultInfo": "Fallback VP for a big objective that doesn't set its own value. Individual objectives can still override it.",
+    "bigDefaultInfo": "Fallback VP for a big objective that doesn't set its own value. Individual objectives can still override it. Leave it empty to use the battle type's own figure, or the era's.",
     "smallDefault": "Default small-objective VP",
-    "smallDefaultInfo": "Fallback VP for a small objective that doesn't set its own value. Individual objectives can still override it.",
+    "smallDefaultInfo": "Fallback VP for a small objective that doesn't set its own value. Individual objectives can still override it. Leave it empty to use the battle type's own figure, or the era's.",
     "tieBreak": "Tie-break margin",
-    "tieBreakInfo": "On the final turn, a team trailing on VP by more than this is treated as defeated."
+    "tieBreakInfo": "On the final turn, a team trailing on VP by more than this is treated as defeated. Leave it empty to use the battle type's own figure, or the era's."
+  },
+  "objectiveOwnership": {
+    "help": "Objectives are held by a team, always. On a scenario with a fixed roster this field names a player, and the objective belongs to that player's team. On a scenario built for dynamic armies there are no player slots until matchmaking fills them, so the field names the team directly."
   },
   "objectiveZones": {
     "heading": "Objective zones",
-    "hint": "How much to shrink the placeable-objective zones. Leave a field empty to inherit the battle-type or era default.",
+    "hint": "How much to shrink the areas where objectives can be placed.",
     "smallInset": "Small-objective zone trim",
     "bigInset": "Big-objective zone trim",
-    "smallInsetInfo": "How much to narrow the small-objective zone on each side. Trims only its width, keeping its vertical reach.",
-    "bigInsetInfo": "How much to shrink the big-objective box on each side, centered inside the deployment zone."
+    "smallInsetInfo": "How much to narrow the small-objective zone on each side. Trims only its width, keeping its vertical reach. Leave it empty to use the battle type's own figure, or the era's.",
+    "bigInsetInfo": "How much to shrink the big-objective box on each side, centered inside the deployment zone. Leave it empty to use the battle type's own figure, or the era's."
   }
 }

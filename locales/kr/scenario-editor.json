@@ -39,7 +39,8 @@
     "optionCustom": "{{name}} (사용자 지정)",
     "optionAllUnitCategories": "모든 부대 유형",
     "nameWithKind": "{{name}} ({{kind}})",
-    "rotationSpeedModifier": "회전 속도 수정치"
+    "rotationSpeedModifier": "회전 속도 수정치",
+    "jsonPlaceholder": "여기에 JSON을 입력하세요..."
   },
   "editorPanel": {
     "tabs": {
@@ -56,7 +57,8 @@
     "workshopBands": {
       "units": "부대",
       "terrain": "지형",
-      "global": "전역"
+      "global": "전역",
+      "transfer": "가져오기/내보내기"
     },
     "restingHint": "조각을 클릭하여 확인하거나, 도구를 선택하여 그리기를 시작하세요.",
     "togglePanel": "패널 전환",
@@ -81,58 +83,89 @@
     "goBackConfirm": "정말 뒤로 가서 편집기를 종료하시겠습니까?",
     "display": "표시",
     "scenarioBands": {
-      "about": "정보",
       "forces": "병력",
       "rules": "규칙",
-      "presentation": "표시"
+      "presentation": "표시",
+      "victoryPoints": "승점"
+    },
+    "testScenario": "전역 테스트",
+    "placeableObjectives": "플레이어 배치 지점목표",
+    "placeableObjectivesHelp": "활성화하면 각 플레이어가 배치 단계에서 자신의 구역 안에 자기 지점목표를 직접 배치합니다. 비활성화하면 전투는 여러분이 맵에 배치한 지점목표만 사용합니다.",
+    "placeableObjectivesNeedsDeployment": "배치 단계도 함께 활성화하세요. 그렇지 않으면 플레이어가 이 지점목표를 배치할 턴에 도달하지 못해 아무것도 나타나지 않습니다.",
+    "resting": {
+      "thisScenario": "이 전역",
+      "gettingStarted": "시작하기",
+      "untitled": "제목 없음",
+      "mapSize": "{{width}} x {{height}} 타일",
+      "objectives": "지점목표",
+      "noneYet": "아직 없음",
+      "modes": "전역은 이 전투를 만듭니다. 워크숍은 모든 전투가 사용하는 조각을 바꿉니다.",
+      "placing": "도구를 선택한 뒤 맵을 오른쪽 클릭하여 배치하세요.",
+      "disarm": "같은 도구를 다시 선택하면 도구가 해제되고 선택 모드로 돌아갑니다.",
+      "inspect": "배치한 조각을 선택하면 그 설정이 여기에 표시됩니다.",
+      "test": "상단의 재생 버튼으로 봇을 상대로 전투를 시험해 볼 수 있습니다.",
+      "saved": "작업은 진행하면서 저장되므로, 나갔다가 나중에 이어서 할 수 있습니다.",
+      "placingTouch": "도구를 선택한 뒤 맵을 탭하여 배치하세요."
     }
   },
   "createScenario": {
-    "randomMap": "무작위(절차적) 맵?",
-    "isHybrid": "혼합형?"
+    "mapBand": "맵",
+    "forcesBand": "병력",
+    "terrainLabel": "지형",
+    "terrainPreset": "직접 그리기",
+    "terrainProcedural": "자동 생성",
+    "terrainHelp": "직접 그리는 지형은 타일 하나하나를 손수 깔며, 남겨 둔 그대로 전역에 담깁니다. 자동 생성 지형은 맵 패널에 작성한 지시에 따라 매 전투마다 새로 그려지므로, 같은 땅에서 싸우는 경기는 두 번 나오지 않습니다.",
+    "rosterLabel": "명단",
+    "rosterFixed": "고정",
+    "rosterDynamic": "동적",
+    "rosterHelp": "고정 명단은 전역이 플레이어 자리, 팀, 탄약을 정하고 모두가 여러분이 배치한 부대로 싸운다는 뜻입니다. 동적 명단은 자리를 로비나 매치메이킹에 맡기며, 플레이어가 자신의 군대를 가져와 전투에 참가합니다."
   },
   "playersPanel": {
     "removePlayer": "플레이어 제거",
     "ammoReserve": "예비",
-    "ammoBase": "기본"
+    "ammoBase": "기본",
+    "playerNumbered": "플레이어 {{number}}",
+    "rosterLimits": "전역에는 플레이어가 최소 {{min}}명 필요하며 최대 {{max}}명까지 가능합니다.",
+    "ammoHelp": "이 플레이어의 군대가 보유한 탄약량입니다. 예비는 전투 동안 소모하는 양이고, 기본은 예비가 매 턴 회복하며 다가가는 수준입니다."
   },
   "terrainPanel": {
     "brush": "브러시",
     "shape": "모양",
     "height": "높이",
     "elevation": "고도",
-    "keepHeight": "기존 높이 유지",
     "paintBucket": "채우기",
-    "none": "없음"
+    "none": "없음",
+    "setHeight": "높이 설정",
+    "setHeightHelp": "체크하면 브러시가 위의 높이를 칠하는 모든 타일에 기록합니다. 해제하면 지형만 칠하고 각 타일의 고도는 그대로 둡니다.",
+    "paintBucketHelp": "체크하면 한 번 누를 때 이어진 같은 지형 전체가 크기와 상관없이 채워지므로 반지름은 적용되지 않습니다. 해제하면 브러시가 설정한 반지름만큼 칠합니다.",
+    "brushHeightGroup": "고도",
+    "brushShapeGroup": "모양"
   },
   "unitPanel": {
-    "title": "선택한 부대",
     "unitType": "부대 유형",
     "rotation": "회전",
-    "copyJson": "JSON 복사",
     "copyUnits": "부대 복사",
     "unitsCopied": "부대 복사됨 ({{count}})",
-    "removeSelectedUnits": "선택한 부대 제거"
+    "removeSelectedUnits": "선택한 부대 제거",
+    "nameSingleOnly": "이름 지정은 한 번에 한 부대만 가능하므로, 부대를 하나만 선택했을 때에만 이 항목을 사용할 수 있습니다.",
+    "copyUnitData": "부대 데이터 복사"
   },
   "createUnit": {
-    "title": "부대 생성",
     "placingCopied": "복사한 부대 배치 중 ({{count}}). 지도를 클릭하여 배치하세요.",
-    "customLabel": "{{name}} (사용자 지정)"
+    "customLabel": "{{name}} (사용자 지정)",
+    "placingCopied_other": "복사한 부대 {{count}}개를 배치하려면 지도를 오른쪽 클릭하세요.",
+    "placingCopiedTouch_other": "복사한 부대 {{count}}개를 배치하려면 지도를 탭하세요."
   },
   "objectivePanel": {
-    "title": "선택한 지점목표",
     "removeSelected": "선택한 지점목표 제거",
     "fields": {
       "manpowerPerTurn": "턴당 병력",
       "goldPerTurn": "턴당 골드"
-    }
+    },
+    "copyObjectiveData": "지점목표 데이터 복사"
   },
   "createObjective": {
-    "title": "지점목표 생성",
-    "gaia": "가이아",
-    "fields": {
-      "objectiveType": "지점목표 유형"
-    }
+    "gaia": "가이아"
   },
   "deployment": {
     "title": "배치 구역",
@@ -143,7 +176,9 @@
     "fields": {
       "x": "X",
       "y": "Y"
-    }
+    },
+    "phaseHelp": "배치 단계를 켜면 플레이어는 전투가 시작되기 전에 자신의 구역 안에서 부대를 재배치하기 위한 턴을 하나 더 얻습니다.",
+    "gateHelp": "동적 군대 허용, 배치 단계, 플레이어 배치 지점목표 중 하나라도 켜져 있으면 이 구역을 편집할 수 있습니다. 셋 모두 도착하는 군대가 시작할 자리를 필요로 하기 때문입니다. 셋 다 꺼져 있으면 비활성화되며, 절차적 맵에서도 비활성화됩니다. 그런 맵의 구역은 무작위 맵 패널에서 백분율로 작성하기 때문입니다."
   },
   "vpBalance": {
     "heading": "승점 균형 (사상자 vs 지점목표)",
@@ -431,14 +466,16 @@
     },
     "errors": {
       "idInUse": "지형 유형 id \"{{id}}\" 이(가) 이미 사용 중입니다",
-      "unknownUnitCategories": "{{field}} references unknown unit categories: {{keys}}",
+      "unknownUnitCategories": "{{field}} 이(가) 알 수 없는 부대 유형을 참조합니다: {{keys}}",
       "unknownDamageTypes": "projectileAbsorption references unknown damage types: {{keys}}"
     }
   },
   "customDefs": {
     "common": {
       "importFromScenario": "전역에서 가져오기",
-      "duplicate": "복제"
+      "duplicate": "복제",
+      "inThisScenario": "이 전역에서",
+      "builtIntoThisEra": "이 시대 기본 제공"
     },
     "spritesPanel": {
       "title": "부대 스프라이트",
@@ -457,7 +494,8 @@
       "filterPlaceholder": "이름으로 필터링...",
       "unitBase": "부대 기본 ({{count}})",
       "unitOverlay": "부대 오버레이 ({{count}})",
-      "noMatches": "일치 항목 없음."
+      "noMatches": "일치 항목 없음.",
+      "uploading": "업로드 중…"
     },
     "unitTemplatesPanel": {
       "title": "부대 템플릿",
@@ -551,7 +589,27 @@
     },
     "gameConstants": {
       "title": "게임 상수",
-      "description": "이 전역에 대해 시대의 숫자 상수를 재정의합니다. 변경된 값만 저장됩니다. 초기화하면 필드가 시대 기본값으로 돌아갑니다. ⚠ 로 표시된 키는 구조적이며, 변경하면 렌더링, 리플레이 또는 경기 탐색이 손상될 수 있습니다. 값은 가공되지 않은 내부 단위입니다."
+      "description": "이 전역에 대해 시대의 숫자 상수를 재정의합니다. 변경된 값만 저장됩니다. 초기화하면 필드가 시대 기본값으로 돌아갑니다. ⚠ 로 표시된 키는 구조적이며, 변경하면 렌더링, 리플레이 또는 경기 탐색이 손상될 수 있습니다. 값은 가공되지 않은 내부 단위입니다.",
+      "category": {
+        "mapDimensions": "맵 크기",
+        "deployment": "배치",
+        "gameLimits": "게임 제한",
+        "victoryPoints": "승점",
+        "fogOfWar": "전장의 안개",
+        "combat": "전투",
+        "ammunition": "탄약",
+        "stamina": "활력",
+        "unitProximity": "부대 근접",
+        "unitDimensions": "부대 크기",
+        "allyBehavior": "아군 행동",
+        "collision": "충돌",
+        "movement": "이동",
+        "mapBoundaries": "맵 경계",
+        "effects": "효과",
+        "gameMechanics": "게임 메커니즘",
+        "routing": "궤멸",
+        "Other": "기타"
+      }
     },
     "gameRules": {
       "title": "게임 규칙",
@@ -589,8 +647,9 @@
       "title": "편제",
       "betaNotice": "시나리오의 사용자 지정 편제 옵션은 베타 기능입니다. 버그가 있으면 공식 Discord 서버에 신고해 주세요.",
       "disableEraUnits": "시대 기본 부대 비활성화",
-      "disableEraUnitsDescription": "이 전역만의 사용자 지정 부대만 운용합니다. 시대의 기본 부대는 군대 화면에서 숨겨지며 군대를 구성할 때 거부됩니다.",
-      "disableEraUnitsWarning": "최소 하나의 사용자 지정 부대 템플릿을 추가하세요. 그렇지 않으면 플레이어가 운용할 부대가 없게 됩니다."
+      "disableEraUnitsWarning": "최소 하나의 사용자 지정 부대 템플릿을 추가하세요. 그렇지 않으면 플레이어가 운용할 부대가 없게 됩니다.",
+      "useEraUnits": "시대 기본 부대 사용",
+      "useEraUnitsHelp": "활성화하면 플레이어가 이 전역이 추가한 부대와 함께 시대 기본 부대도 운용할 수 있습니다. 비활성화하면 이 전역이 제공하는 부대만 사용하며, 시대 기본 부대는 군대 화면에서 사라져 선택할 수 없습니다."
     },
     "unitCaps": {
       "title": "부대 상한",
@@ -614,14 +673,31 @@
       "gold": "골드",
       "default": "전투 유형 자원",
       "empty": "아직 플레이어별 자원이 없습니다. 플레이어를 추가하여 재정의하세요."
+    },
+    "transfer": {
+      "importTitle": "가져오기",
+      "importDescription": "다른 전역에서 작업물을 가져옵니다. 파일을 선택한 뒤 전부 가져오거나, 남겨 두고 싶은 항목은 체크를 해제하세요. 해당 전역에 없는 항목은 비활성화됩니다.",
+      "whatComesIn": "들여올 항목",
+      "importAction": "가져오기",
+      "exportTitle": "내보내기",
+      "exportDescription": "이 전역의 작업물을 다른 전역으로 가져갈 수 있도록 파일로 내보냅니다. 체크를 해제하지 않는 한 모든 항목이 포함됩니다.",
+      "whatGoesOut": "내보낼 항목",
+      "exportAction": "내보내기",
+      "allCategories": "모든 범주",
+      "replaceTitle": "직접 설정한 값을 대체하시겠습니까?",
+      "replaceWarning_other": "가져오면 직접 설정한 값 {{count}}개가 대체됩니다. 나머지는 기존 작업물과 함께 추가됩니다.",
+      "replaceRow_other": "{{category}}: {{count}}개 값",
+      "replaceConfirm": "가져와서 대체",
+      "imported_other": "범주 {{count}}개를 가져왔습니다.",
+      "exported_other": "범주 {{count}}개를 내보냈습니다.",
+      "exceededCap": "{{category}}: 가져오면 상한 {{max}}개를 초과합니다({{count}}개가 됩니다)."
     }
   },
   "resize": {
-    "currentSize": "현재 크기: {{width}} × {{height}} 타일",
     "newSize": "새 크기: {{width}} × {{height}} 타일",
     "current": "현재: {{width}} × {{height}} 타일",
     "confirmTitle": "맵 크기 조정 확인",
-    "warningCannotUndo": "⚠️ <0>경고:</0> 이 작업은 되돌릴 수 없습니다.",
+    "warningCannotUndo": "⚠ <0>경고:</0> 이 작업은 되돌릴 수 없습니다.",
     "tabScale": "비율 조정",
     "tabExpandCut": "측면 확장 / 절단",
     "scale": {
@@ -646,7 +722,11 @@
       "changesHeading": "변경 사항:",
       "changesHorizontal": "좌측: {{left}} 타일, 우측: {{right}} 타일",
       "changesVertical": "상단: {{top}} 타일, 하단: {{bottom}} 타일"
-    }
+    },
+    "currentSizeLabel": "현재 크기",
+    "newSizeLabel": "새 크기",
+    "methodLabel": "방식",
+    "sizeValue": "{{width}} × {{height}} 타일"
   },
   "mapSize": {
     "widthInTiles": "너비 (타일)",
@@ -656,7 +736,8 @@
     "scaleAllSizesBy": "모든 크기 비율 조정",
     "apply": "적용",
     "background": "배경",
-    "chooseImage": "이미지 선택"
+    "chooseImage": "이미지 선택",
+    "backgroundHelp": "맵 아래에 그림을 절반 밝기로 깔아, 그에 맞춰 지형을 그릴 수 있게 합니다. 작업용 보조 기능이며 전역에 저장되지 않습니다."
   },
   "localesPanel": {
     "title": "로케일",
@@ -682,7 +763,6 @@
   "triggers": {
     "title": "트리거",
     "moreInfo": "트리거에 대한 자세한 정보는 여기에서",
-    "lastPositionClicked": "마지막으로 클릭한 위치: [{{x}}, {{y}}]",
     "createTrigger": "트리거 생성",
     "createTriggerButton": "트리거 생성",
     "format": "형식",
@@ -695,7 +775,14 @@
     "addCondition": "조건 추가",
     "actions": "행동",
     "addAction": "행동 추가",
-    "once": "한 번"
+    "once": "한 번",
+    "intro": "트리거는 턴 시작이나 종료 시점에 전투를 검사한 뒤, 설정한 조건이 참이면 행동합니다. 아래에서 만들어 보세요.",
+    "lastClick": "복사할 위치",
+    "lastClickHint": "맵에서 마지막으로 선택한 지점을, 트리거가 부대 배치나 카메라 이동에 사용하는 좌표로 표시합니다.",
+    "createDisabledInvalidJson": "트리거를 만들려면 아래 JSON을 먼저 수정하세요.",
+    "createDisabledNeedsConditionAndAction": "트리거에는 조건과 행동이 각각 최소 하나씩 필요합니다.",
+    "groupTrigger": "트리거",
+    "value": "값"
   },
   "randomMap": {
     "title": "무작위 맵",
@@ -729,7 +816,128 @@
     "modePreset": "프리셋 (고정 지형)",
     "modeHybrid": "하이브리드 (프리셋 + 명령)",
     "modeProcedural": "절차적 (생성)",
-    "hybridExplanation": "구워진 지형이 유지되고 이 명령들이 매 경기 그 위에 오버레이로 다시 실행됩니다. 오버레이가 경기마다 달라지지 않도록 맵에 시드를 고정하세요."
+    "hybridExplanation": "구워진 지형이 유지되고 이 명령들이 매 경기 그 위에 오버레이로 다시 실행됩니다. 오버레이가 경기마다 달라지지 않도록 맵에 시드를 고정하세요.",
+    "proceduralExplanationDetail": "여기에 표시된 맵은 미리보기일 뿐입니다. 지점목표 또는 지점목표 레이어 지시로 배치된 지점목표는 이 미리보기가 아니라 경기 시작 시 나타납니다.",
+    "switchToPresetTitle": "프리셋 맵으로 전환",
+    "replaceInstructionsTitle": "지시 교체",
+    "confirmOverwriteHelp": "아래의 생성을 잠금 해제하는 항목입니다. 켜면 생성 시 맵의 모든 지형 타일을 버리고 이 지시로 새로 그립니다. 끄면 생성이 비활성화된 채로 유지되어, 작업하던 맵이 잘못 누른 버튼에 덮어써지지 않습니다.",
+    "hybridExplanationDetail": "오버레이가 경기마다 달라지지 않도록 맵에 시드를 고정하세요.",
+    "sourceLabel": "출처",
+    "sourceBuiltIn": "기본 제공",
+    "sourceImport": "가져오기",
+    "intro": "손으로 그리는 대신 템플릿으로 맵의 지형을 채웁니다.",
+    "rollSeed": "새 시드 뽑기",
+    "changeFile": "파일 변경",
+    "selectFile": "파일 선택",
+    "importedFile": "가져온 파일",
+    "field": {
+      "amount": "양",
+      "between": "사이",
+      "border": "테두리",
+      "chance": "확률",
+      "coords": "좌표",
+      "cost": "비용",
+      "count": "개수",
+      "countPer100x100": "100×100 타일당 개수",
+      "curveLen": "곡선 길이",
+      "curveWeight": "곡선 가중치",
+      "deep": "깊은 물",
+      "downHillHeightCost": "내리막 비용",
+      "edgeDistance": "가장자리 거리",
+      "edgeWeight": "가장자리 가중치",
+      "endHeightRanges": "끝 높이 범위",
+      "excludeTerrains": "제외할 지형",
+      "falloff": "감쇠",
+      "fromTerrain": "원본 지형",
+      "height": "높이",
+      "heightDiffCost": "높이 차 비용",
+      "heightDiffCosts": "높이 차 비용",
+      "heightFilter": "높이 필터",
+      "heightRanges": "높이 범위",
+      "heights": "높이",
+      "l": "대",
+      "m": "중",
+      "max": "최대",
+      "maxDistance": "최대 거리",
+      "maxHeight": "최대 높이",
+      "maxHeightThreshold": "최대 높이 임계값",
+      "maxHeightValue": "최대 높이 값",
+      "maxObj": "최대 지점목표",
+      "maxWidth": "최대 너비",
+      "max_scaling_factor": "맵 크기별 최대 배율",
+      "mergeStrategy": "병합 방식",
+      "midPoints": "중간점",
+      "min": "최소",
+      "minAmount": "최소 양",
+      "minDistance": "최소 거리",
+      "minGroupSize": "최소 그룹 크기",
+      "minHeight": "최소 높이",
+      "minHeightValue": "최소 높이 값",
+      "minSurrounding": "최소 주변 타일",
+      "minWidth": "최소 너비",
+      "min_scaling_factor": "맵 크기별 최소 배율",
+      "multiplier": "배수",
+      "name": "이름",
+      "noiseSmoothness": "노이즈 부드러움",
+      "noiseWeight": "노이즈 가중치",
+      "noises": "노이즈 레이어",
+      "objectiveType": "지점목표 유형",
+      "offset": "오프셋",
+      "organicness": "자연스러움",
+      "pathTerrain": "경로 지형",
+      "player": "플레이어",
+      "position": "위치",
+      "preferLowElevation": "낮은 지대 선호",
+      "printNoiseDebug": "노이즈 디버그 출력",
+      "radius": "반지름",
+      "randomness": "무작위성",
+      "range": "범위",
+      "ranges": "범위",
+      "reverse": "반전",
+      "reversed": "반전",
+      "rotation": "회전",
+      "s": "소",
+      "scale": "배율",
+      "scatter": "산포",
+      "searchRadius": "탐색 반지름",
+      "shallow": "얕은 물",
+      "shore": "물가",
+      "size": "크기",
+      "smoothing": "평활화",
+      "startHeightRanges": "시작 높이 범위",
+      "team": "팀",
+      "terrain": "지형",
+      "terrainCosts": "지형 비용",
+      "terrainFilter": "지형 필터",
+      "terrainReplacements": "지형 교체",
+      "terrains": "지형",
+      "toTerrain": "대상 지형",
+      "type": "유형",
+      "uphillHeightCost": "오르막 비용",
+      "width": "너비",
+      "x": "X",
+      "xBounds": "X 경계",
+      "xRange": "X 범위",
+      "xl": "특대",
+      "y": "Y",
+      "yBounds": "Y 경계",
+      "yRange": "Y 범위"
+    },
+    "instructionType": {
+      "terrainNoise": "지형 노이즈",
+      "heightNoise": "높이 노이즈",
+      "terrainCircle": "지형 원",
+      "terrainRectangle": "지형 직사각형",
+      "naturalPath": "자연 경로",
+      "connectClusters": "군집 연결",
+      "objective": "지점목표",
+      "lake": "호수",
+      "objectiveLayer": "지점목표 레이어"
+    },
+    "objectiveType": {
+      "small": "소형",
+      "big": "대형"
+    }
   },
   "randomDeployment": {
     "title": "배치 구역",
@@ -772,5 +980,16 @@
     "bigInset": "대형 목표 구역 잘라내기",
     "smallInsetInfo": "소형 목표 구역을 양쪽에서 얼마나 좁힐지. 너비만 잘라내고 높이는 유지합니다.",
     "bigInsetInfo": "대형 목표 상자를 양쪽에서 얼마나 줄일지, 배치 구역 안에서 가운데 정렬됩니다."
+  },
+  "mapPoint": {
+    "title": "맵 지점",
+    "help": "포인터를 따라 맵을 이동하며 그 아래 타일을 읽어 줍니다. 오른쪽 클릭하면 고정되어, 패널에서 작업하는 동안 수치가 그대로 유지됩니다. 다시 맵 위로 이동하면 또 따라옵니다.",
+    "tile": "타일",
+    "terrain": "지형",
+    "height": "높이",
+    "unknown": "-"
+  },
+  "objectiveOwnership": {
+    "help": "지점목표는 항상 팀이 보유합니다. 고정 명단 전역에서는 이 항목이 플레이어를 지정하며, 지점목표는 그 플레이어의 팀에 속합니다. 동적 군대용으로 만든 전역에서는 매치메이킹이 자리를 채우기 전까지 플레이어 자리가 없으므로, 이 항목이 팀을 직접 지정합니다."
   }
 }

@@ -284,7 +284,8 @@
     "routesAtOrg": "يفر عند التنظيم",
     "recoversAtOrg": "يتعافى عند التنظيم",
     "ralliesAtOrg": "يتجمع عند التنظيم",
-    "unlimberTime": "وقت النشر"
+    "unlimberTime": "وقت النشر",
+    "supply": "الإمدادات"
   },
   "category": "الفئة",
   "routingBehavior": "سلوك الفرار",
@@ -356,6 +357,8 @@
     "20": "طريق، غارق",
     "21": "خندق",
     "22": "معقل",
+    "23": "سكة حديد",
+    "24": "سكة حديد/طريق",
     "25": "معسكر"
   },
   "clearPlayerUnits": "مسح وحدات اللاعب",
@@ -1055,6 +1058,15 @@
     "error": "تعذّرت جدولة حذف الحساب. يرجى المحاولة مرة أخرى."
   },
   "startGameAsSpectator": "بدء اللعبة كمشاهد",
+  "continue": "متابعة",
+  "armyWithCount": "الجيش ({{count}})",
+  "disablesFlankMelee": "يعطّل القتال القريب الجانبي",
+  "disablesEnfiladeFire": "يعطّل النيران الجانبية",
+  "disablesRearFire": "يعطّل النيران الخلفية",
+  "flankChargeResistance": "مقاومة الهجوم الجانبي",
+  "rearChargeResistance": "مقاومة الهجوم الخلفي",
+  "enfiladeFireResistance": "مقاومة النيران الجانبية",
+  "rearFireResistance": "مقاومة النيران الخلفية",
   "clanAverageLeague": "دوري التحالف",
   "clanTag": "وسم الائتلاف",
   "clanTagHelp": "من حرفين إلى 5 أحرف أو أرقام. الوسوم فريدة وتظهر بجانب أسماء اللاعبين.",

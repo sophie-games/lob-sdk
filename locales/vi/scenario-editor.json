@@ -39,7 +39,8 @@
     "optionCustom": "{{name}} (tùy chỉnh)",
     "optionAllUnitCategories": "Tất cả danh mục đơn vị",
     "nameWithKind": "{{name}} ({{kind}})",
-    "rotationSpeedModifier": "Hệ số tốc độ xoay"
+    "rotationSpeedModifier": "Hệ số tốc độ xoay",
+    "jsonPlaceholder": "Nhập JSON ở đây..."
   },
   "editorPanel": {
     "tabs": {
@@ -56,7 +57,8 @@
     "workshopBands": {
       "units": "Đơn vị",
       "terrain": "Địa hình",
-      "global": "Toàn cục"
+      "global": "Toàn cục",
+      "transfer": "Nhập và xuất"
     },
     "restingHint": "Nhấp vào một quân để kiểm tra, hoặc chọn một công cụ để bắt đầu vẽ.",
     "togglePanel": "Bật/tắt bảng",
@@ -81,58 +83,89 @@
     "goBackConfirm": "Bạn có chắc chắn muốn quay lại và thoát trình chỉnh sửa?",
     "display": "Hiển thị",
     "scenarioBands": {
-      "about": "Giới thiệu",
       "forces": "Lực lượng",
       "rules": "Luật",
-      "presentation": "Trình bày"
+      "presentation": "Trình bày",
+      "victoryPoints": "Điểm chiến thắng"
+    },
+    "testScenario": "Thử kịch bản",
+    "placeableObjectives": "Mục tiêu do người chơi đặt",
+    "placeableObjectivesHelp": "Khi bật, mỗi người chơi tự đặt mục tiêu của mình trong giai đoạn triển khai, bên trong vùng của họ. Khi tắt, trận đánh chỉ dùng các mục tiêu bạn đã đặt trên bản đồ.",
+    "placeableObjectivesNeedsDeployment": "Hãy bật cả giai đoạn triển khai, nếu không người chơi sẽ không bao giờ đến lượt đặt các mục tiêu này và sẽ không có mục tiêu nào xuất hiện.",
+    "resting": {
+      "thisScenario": "Kịch bản này",
+      "gettingStarted": "Bắt đầu",
+      "untitled": "Chưa đặt tên",
+      "mapSize": "{{width}} x {{height}} ô",
+      "objectives": "Mục tiêu",
+      "noneYet": "Chưa có",
+      "modes": "Kịch bản dựng nên trận đánh này. Workshop thay đổi các thành phần mà mọi trận đánh đều dùng.",
+      "placing": "Chọn một công cụ, rồi nhấp chuột phải vào bản đồ để đặt thứ gì đó xuống.",
+      "disarm": "Chọn lại công cụ đó để cất nó đi và quay về chế độ chọn.",
+      "inspect": "Chọn một thứ bạn đã đặt và các thiết lập của nó sẽ hiện ra ở đây.",
+      "test": "Nút phát ở phía trên cho bạn thử trận đánh của mình với một bot.",
+      "saved": "Công việc của bạn được lưu giữ liên tục, nên bạn có thể rời đi và quay lại sau.",
+      "placingTouch": "Chọn một công cụ, rồi chạm vào bản đồ để đặt thứ gì đó xuống."
     }
   },
   "createScenario": {
-    "randomMap": "Bản đồ ngẫu nhiên (theo thủ tục)?",
-    "isHybrid": "Là lai?"
+    "mapBand": "Bản đồ",
+    "forcesBand": "Lực lượng",
+    "terrainLabel": "Địa hình",
+    "terrainPreset": "Vẽ tay",
+    "terrainProcedural": "Tạo sinh",
+    "terrainHelp": "Địa hình vẽ tay là do bạn đặt xuống từng ô một, và đi kèm kịch bản đúng như bạn để lại. Địa hình tạo sinh được vẽ mới cho mỗi trận từ các hướng dẫn bạn viết trong bảng Bản đồ, nên không có hai trận nào đánh trên cùng một địa thế.",
+    "rosterLabel": "Danh sách người chơi",
+    "rosterFixed": "Cố định",
+    "rosterDynamic": "Linh hoạt",
+    "rosterHelp": "Danh sách cố định nghĩa là kịch bản quy định các suất người chơi, các đội và kho đạn, và mọi người đều chiến đấu với những đơn vị bạn đã đặt. Danh sách linh hoạt để các suất cho sảnh chờ hoặc ghép trận quyết định, và người chơi mang quân đội của riêng mình vào trận."
   },
   "playersPanel": {
     "removePlayer": "Loại bỏ người chơi",
     "ammoReserve": "Dự bị",
-    "ammoBase": "Cơ bản"
+    "ammoBase": "Cơ bản",
+    "playerNumbered": "Người chơi {{number}}",
+    "rosterLimits": "Một kịch bản cần ít nhất {{min}} người chơi và cho phép nhiều nhất {{max}}.",
+    "ammoHelp": "Quân đội của người chơi này có bao nhiêu đạn. Kho dự trữ là phần tiêu dùng trong suốt trận đánh, còn mức cơ bản là mức mà kho dự trữ hồi về mỗi lượt."
   },
   "terrainPanel": {
     "brush": "Cọ",
     "shape": "Hình dạng",
     "height": "Chiều cao",
     "elevation": "Độ cao",
-    "keepHeight": "Giữ nguyên độ cao hiện có",
     "paintBucket": "Xô sơn",
-    "none": "Không"
+    "none": "Không",
+    "setHeight": "Đặt chiều cao",
+    "setHeightHelp": "Khi đánh dấu, cọ sẽ ghi chiều cao ở trên lên mọi ô nó vẽ. Khi bỏ đánh dấu, nó chỉ vẽ địa hình và giữ nguyên độ cao sẵn có của từng ô.",
+    "paintBucketHelp": "Khi đánh dấu, một lần nhấn sẽ tô toàn bộ vùng địa hình liền nhau cùng loại, dù lớn đến đâu, nên bán kính không có tác dụng. Khi bỏ đánh dấu, cọ chỉ phủ bán kính bạn đặt.",
+    "brushHeightGroup": "Độ cao",
+    "brushShapeGroup": "Hình dạng"
   },
   "unitPanel": {
-    "title": "Đơn vị đã chọn",
     "unitType": "Loại đơn vị",
     "rotation": "Xoay",
-    "copyJson": "Sao chép JSON",
     "copyUnits": "Sao chép đơn vị",
     "unitsCopied": "Đã sao chép đơn vị ({{count}})",
-    "removeSelectedUnits": "Loại bỏ đơn vị đã chọn"
+    "removeSelectedUnits": "Loại bỏ đơn vị đã chọn",
+    "nameSingleOnly": "Việc đặt tên chỉ áp dụng cho từng đơn vị một, nên trường này chỉ khả dụng khi đang chọn một đơn vị duy nhất.",
+    "copyUnitData": "Sao chép dữ liệu đơn vị"
   },
   "createUnit": {
-    "title": "Tạo đơn vị",
     "placingCopied": "Đang đặt đơn vị đã sao chép ({{count}}). Nhấp vào bản đồ để đặt chúng.",
-    "customLabel": "{{name}} (tùy chỉnh)"
+    "customLabel": "{{name}} (tùy chỉnh)",
+    "placingCopied_other": "Nhấp chuột phải vào bản đồ để đặt {{count}} đơn vị đã sao chép của bạn.",
+    "placingCopiedTouch_other": "Chạm vào bản đồ để đặt {{count}} đơn vị đã sao chép của bạn."
   },
   "objectivePanel": {
-    "title": "Mục tiêu đã chọn",
     "removeSelected": "Loại bỏ mục tiêu đã chọn",
     "fields": {
       "manpowerPerTurn": "Nhân lực mỗi lượt",
       "goldPerTurn": "Vàng mỗi lượt"
-    }
+    },
+    "copyObjectiveData": "Sao chép dữ liệu mục tiêu"
   },
   "createObjective": {
-    "title": "Tạo mục tiêu",
-    "gaia": "Gaia",
-    "fields": {
-      "objectiveType": "Loại mục tiêu"
-    }
+    "gaia": "Gaia"
   },
   "deployment": {
     "title": "Vùng triển khai",
@@ -143,7 +176,9 @@
     "fields": {
       "x": "X",
       "y": "Y"
-    }
+    },
+    "phaseHelp": "Khi bật giai đoạn triển khai, người chơi có thêm một lượt trước khi giao tranh bắt đầu, chỉ để sắp xếp lại đơn vị của mình bên trong vùng của họ.",
+    "gateHelp": "Các vùng này có thể chỉnh sửa khi bật một trong ba mục Cho phép quân đội linh hoạt, Giai đoạn triển khai hoặc Mục tiêu do người chơi đặt, vì cả ba đều cần một nơi để quân đội đến bắt đầu. Khi tắt cả ba, chúng bị làm mờ, và trên bản đồ tạo sinh chúng cũng bị làm mờ, vì ở đó các vùng được viết theo phần trăm trong bảng Bản đồ ngẫu nhiên."
   },
   "vpBalance": {
     "heading": "Cân bằng ĐCT (thương vong vs mục tiêu)",
@@ -438,7 +473,9 @@
   "customDefs": {
     "common": {
       "importFromScenario": "Nhập từ kịch bản",
-      "duplicate": "Nhân bản"
+      "duplicate": "Nhân bản",
+      "inThisScenario": "Trong kịch bản này",
+      "builtIntoThisEra": "Tích hợp trong thời đại này"
     },
     "spritesPanel": {
       "title": "Sprite đơn vị",
@@ -457,7 +494,8 @@
       "filterPlaceholder": "Lọc theo tên...",
       "unitBase": "Nền đơn vị ({{count}})",
       "unitOverlay": "Lớp phủ đơn vị ({{count}})",
-      "noMatches": "Không có kết quả khớp."
+      "noMatches": "Không có kết quả khớp.",
+      "uploading": "Đang tải lên…"
     },
     "unitTemplatesPanel": {
       "title": "Mẫu đơn vị",
@@ -551,7 +589,27 @@
     },
     "gameConstants": {
       "title": "Hằng số trò chơi",
-      "description": "Ghi đè các hằng số dạng số của thời đại này cho kịch bản này. Chỉ lưu các giá trị đã thay đổi; Đặt lại đưa một trường về mặc định thời đại. Các khóa đánh dấu ⚠ là cấu trúc - thay đổi chúng có thể làm hỏng hiển thị, bản ghi hoặc ghép trận. Các giá trị là đơn vị nội bộ thô."
+      "description": "Ghi đè các hằng số dạng số của thời đại này cho kịch bản này. Chỉ lưu các giá trị đã thay đổi; Đặt lại đưa một trường về mặc định thời đại. Các khóa đánh dấu ⚠ là cấu trúc - thay đổi chúng có thể làm hỏng hiển thị, bản ghi hoặc ghép trận. Các giá trị là đơn vị nội bộ thô.",
+      "category": {
+        "mapDimensions": "Kích thước bản đồ",
+        "deployment": "Triển khai",
+        "gameLimits": "Giới hạn trò chơi",
+        "victoryPoints": "Điểm chiến thắng",
+        "fogOfWar": "Sương mù chiến tranh",
+        "combat": "Chiến đấu",
+        "ammunition": "Đạn",
+        "stamina": "Thể lực",
+        "unitProximity": "Khoảng cách đơn vị",
+        "unitDimensions": "Kích thước đơn vị",
+        "allyBehavior": "Hành vi đồng minh",
+        "collision": "Va chạm",
+        "movement": "Di chuyển",
+        "mapBoundaries": "Ranh giới bản đồ",
+        "effects": "Hiệu ứng",
+        "gameMechanics": "Cơ chế trò chơi",
+        "routing": "Rút lui",
+        "Other": "Khác"
+      }
     },
     "gameRules": {
       "title": "Quy tắc trò chơi",
@@ -589,8 +647,9 @@
       "title": "Cấu trúc quân đội",
       "betaNotice": "Các tùy chọn cấu trúc quân đội tùy chỉnh cho kịch bản là một tính năng beta; vui lòng báo cáo mọi lỗi trong máy chủ Discord chính thức.",
       "disableEraUnits": "Tắt đơn vị mặc định của thời đại",
-      "disableEraUnitsDescription": "Chỉ sử dụng các đơn vị tùy chỉnh riêng của kịch bản này. Các đơn vị mặc định của thời đại sẽ bị ẩn khỏi màn hình quân đội và bị từ chối khi xây dựng quân đội.",
-      "disableEraUnitsWarning": "Hãy thêm ít nhất một mẫu đơn vị tùy chỉnh, nếu không người chơi sẽ không có đơn vị nào để sử dụng."
+      "disableEraUnitsWarning": "Hãy thêm ít nhất một mẫu đơn vị tùy chỉnh, nếu không người chơi sẽ không có đơn vị nào để sử dụng.",
+      "useEraUnits": "Dùng đơn vị riêng của thời đại",
+      "useEraUnitsHelp": "Khi bật, người chơi có thể dùng các đơn vị riêng của thời đại cùng với những gì kịch bản này thêm vào. Khi tắt, họ chỉ chơi với các đơn vị mà kịch bản này cung cấp — đơn vị của thời đại biến mất khỏi màn hình quân đội và không thể chọn được."
     },
     "unitCaps": {
       "title": "Giới hạn đơn vị",
@@ -614,14 +673,31 @@
       "gold": "Vàng",
       "default": "Ngân sách theo loại trận chiến",
       "empty": "Chưa có ngân sách người chơi nào. Thêm một người chơi để ghi đè ngân sách của họ."
+    },
+    "transfer": {
+      "importTitle": "Nhập",
+      "importDescription": "Mang công việc từ một kịch bản khác sang. Chọn một tệp, rồi lấy toàn bộ hoặc bỏ đánh dấu những gì bạn muốn để lại. Những gì kịch bản đó không có sẽ bị làm mờ.",
+      "whatComesIn": "Những gì được nhập vào",
+      "importAction": "Nhập",
+      "exportTitle": "Xuất",
+      "exportDescription": "Gửi phần công việc riêng của kịch bản này ra thành một tệp, sẵn sàng mang vào kịch bản khác. Mọi thứ đều được đưa vào trừ khi bạn bỏ đánh dấu.",
+      "whatGoesOut": "Những gì được xuất ra",
+      "exportAction": "Xuất",
+      "allCategories": "Tất cả danh mục",
+      "replaceTitle": "Thay thế các giá trị của bạn?",
+      "replaceWarning_other": "Việc nhập này sẽ thay thế {{count}} giá trị bạn tự đặt. Mọi thứ còn lại được thêm vào bên cạnh công việc của bạn.",
+      "replaceRow_other": "{{category}}: {{count}} giá trị",
+      "replaceConfirm": "Nhập và thay thế",
+      "imported_other": "Đã nhập {{count}} danh mục.",
+      "exported_other": "Đã xuất {{count}} danh mục.",
+      "exceededCap": "{{category}}: việc nhập sẽ vượt quá giới hạn {{max}} (sẽ là {{count}})."
     }
   },
   "resize": {
-    "currentSize": "Kích thước hiện tại: {{width}} × {{height}} ô",
     "newSize": "Kích thước mới: {{width}} × {{height}} ô",
     "current": "Hiện tại: {{width}} × {{height}} ô",
     "confirmTitle": "Xác nhận đổi kích thước bản đồ",
-    "warningCannotUndo": "⚠️ <0>Cảnh báo:</0> Thao tác này không thể hoàn tác.",
+    "warningCannotUndo": "⚠ <0>Cảnh báo:</0> Thao tác này không thể hoàn tác.",
     "tabScale": "Tỷ lệ",
     "tabExpandCut": "Mở rộng / Cắt cạnh",
     "scale": {
@@ -646,7 +722,11 @@
       "changesHeading": "Thay đổi:",
       "changesHorizontal": "Trái: {{left}} ô, Phải: {{right}} ô",
       "changesVertical": "Trên: {{top}} ô, Dưới: {{bottom}} ô"
-    }
+    },
+    "currentSizeLabel": "Kích thước hiện tại",
+    "newSizeLabel": "Kích thước mới",
+    "methodLabel": "Phương thức",
+    "sizeValue": "{{width}} × {{height}} ô"
   },
   "mapSize": {
     "widthInTiles": "Chiều rộng tính bằng ô",
@@ -656,7 +736,8 @@
     "scaleAllSizesBy": "Co giãn toàn bộ kích thước theo",
     "apply": "Áp dụng",
     "background": "Nền",
-    "chooseImage": "Chọn ảnh"
+    "chooseImage": "Chọn ảnh",
+    "backgroundHelp": "Đặt một bức ảnh dưới bản đồ ở nửa độ đậm, để bạn vẽ địa hình khớp theo nó. Đây là công cụ hỗ trợ trong lúc làm việc và không bao giờ được lưu cùng kịch bản."
   },
   "localesPanel": {
     "title": "Ngôn ngữ",
@@ -682,7 +763,6 @@
   "triggers": {
     "title": "Trình kích hoạt",
     "moreInfo": "Thêm thông tin về trình kích hoạt tại đây",
-    "lastPositionClicked": "Vị trí nhấp cuối: [{{x}}, {{y}}]",
     "createTrigger": "Tạo trình kích hoạt",
     "createTriggerButton": "Tạo trình kích hoạt",
     "format": "Định dạng",
@@ -695,7 +775,14 @@
     "addCondition": "Thêm điều kiện",
     "actions": "Hành động",
     "addAction": "Thêm hành động",
-    "once": "Một lần"
+    "once": "Một lần",
+    "intro": "Trình kích hoạt kiểm tra trận đánh vào đầu hoặc cuối một lượt, rồi hành động khi các điều kiện bạn đặt là đúng. Hãy tạo một cái ở bên dưới.",
+    "lastClick": "Vị trí để sao chép",
+    "lastClickHint": "Nơi bạn chọn lần cuối trên bản đồ, theo hệ tọa độ mà trình kích hoạt dùng để đặt một đơn vị hoặc di chuyển camera.",
+    "createDisabledInvalidJson": "Hãy sửa JSON bên dưới trước khi có thể tạo trình kích hoạt.",
+    "createDisabledNeedsConditionAndAction": "Một trình kích hoạt cần ít nhất một điều kiện và một hành động.",
+    "groupTrigger": "Trình kích hoạt",
+    "value": "Giá trị"
   },
   "randomMap": {
     "title": "Bản đồ ngẫu nhiên",
@@ -729,7 +816,128 @@
     "modePreset": "Định sẵn (địa hình cố định)",
     "modeHybrid": "Lai (định sẵn + chỉ dẫn)",
     "modeProcedural": "Thủ tục (tạo sinh)",
-    "hybridExplanation": "Địa hình đã nướng được giữ lại và các chỉ dẫn này chạy lại chồng lên trên dưới dạng lớp phủ trong mỗi trận. Cố định seed trên bản đồ để lớp phủ không đổi giữa các trận."
+    "hybridExplanation": "Địa hình đã nướng được giữ lại và các chỉ dẫn này chạy lại chồng lên trên dưới dạng lớp phủ trong mỗi trận. Cố định seed trên bản đồ để lớp phủ không đổi giữa các trận.",
+    "proceduralExplanationDetail": "Bản đồ hiển thị ở đây chỉ là bản xem trước. Các mục tiêu đặt bởi hướng dẫn Mục tiêu hoặc Lớp mục tiêu xuất hiện vào lúc trận đấu, không phải trong bản xem trước này.",
+    "switchToPresetTitle": "Chuyển sang bản đồ định sẵn",
+    "replaceInstructionsTitle": "Thay thế hướng dẫn",
+    "confirmOverwriteHelp": "Đây là thứ mở khóa nút Tạo bên dưới. Khi bật, việc tạo sẽ bỏ mọi ô địa hình trên bản đồ và vẽ một bản đồ mới từ các hướng dẫn này. Khi tắt, nút Tạo vẫn bị vô hiệu, nên một bản đồ bạn đã dày công làm không thể bị ghi đè bởi một cú nhấn nhầm.",
+    "hybridExplanationDetail": "Cố định một hạt giống trên bản đồ để các lớp phủ không đổi giữa các trận.",
+    "sourceLabel": "Nguồn",
+    "sourceBuiltIn": "Tích hợp",
+    "sourceImport": "Nhập",
+    "intro": "Điền địa hình của bản đồ từ một mẫu thay vì vẽ bằng tay.",
+    "rollSeed": "Gieo hạt giống mới",
+    "changeFile": "Đổi tệp",
+    "selectFile": "Chọn tệp",
+    "importedFile": "Tệp đã nhập",
+    "field": {
+      "amount": "Số lượng",
+      "between": "Giữa",
+      "border": "Viền",
+      "chance": "Tỷ lệ",
+      "coords": "Tọa độ",
+      "cost": "Chi phí",
+      "count": "Số đếm",
+      "countPer100x100": "Số đếm mỗi 100×100 ô",
+      "curveLen": "Độ dài đường cong",
+      "curveWeight": "Trọng số đường cong",
+      "deep": "Nước sâu",
+      "downHillHeightCost": "Chi phí xuống dốc",
+      "edgeDistance": "Khoảng cách tới cạnh",
+      "edgeWeight": "Trọng số cạnh",
+      "endHeightRanges": "Khoảng chiều cao cuối",
+      "excludeTerrains": "Loại trừ địa hình",
+      "falloff": "Độ suy giảm",
+      "fromTerrain": "Từ địa hình",
+      "height": "Chiều cao",
+      "heightDiffCost": "Chi phí chênh lệch chiều cao",
+      "heightDiffCosts": "Các chi phí chênh lệch chiều cao",
+      "heightFilter": "Bộ lọc chiều cao",
+      "heightRanges": "Khoảng chiều cao",
+      "heights": "Chiều cao",
+      "l": "Lớn",
+      "m": "Trung bình",
+      "max": "Tối đa",
+      "maxDistance": "Khoảng cách tối đa",
+      "maxHeight": "Chiều cao tối đa",
+      "maxHeightThreshold": "Ngưỡng chiều cao tối đa",
+      "maxHeightValue": "Giá trị chiều cao tối đa",
+      "maxObj": "Mục tiêu tối đa",
+      "maxWidth": "Chiều rộng tối đa",
+      "max_scaling_factor": "Co giãn tối đa theo kích thước bản đồ",
+      "mergeStrategy": "Chiến lược hợp nhất",
+      "midPoints": "Điểm giữa",
+      "min": "Tối thiểu",
+      "minAmount": "Số lượng tối thiểu",
+      "minDistance": "Khoảng cách tối thiểu",
+      "minGroupSize": "Kích thước nhóm tối thiểu",
+      "minHeight": "Chiều cao tối thiểu",
+      "minHeightValue": "Giá trị chiều cao tối thiểu",
+      "minSurrounding": "Số ô xung quanh tối thiểu",
+      "minWidth": "Chiều rộng tối thiểu",
+      "min_scaling_factor": "Co giãn tối thiểu theo kích thước bản đồ",
+      "multiplier": "Hệ số nhân",
+      "name": "Tên",
+      "noiseSmoothness": "Độ mượt của nhiễu",
+      "noiseWeight": "Trọng số nhiễu",
+      "noises": "Lớp nhiễu",
+      "objectiveType": "Loại mục tiêu",
+      "offset": "Độ lệch",
+      "organicness": "Độ tự nhiên",
+      "pathTerrain": "Địa hình đường đi",
+      "player": "Người chơi",
+      "position": "Vị trí",
+      "preferLowElevation": "Ưu tiên vùng thấp",
+      "printNoiseDebug": "In gỡ lỗi nhiễu",
+      "radius": "Bán kính",
+      "randomness": "Độ ngẫu nhiên",
+      "range": "Khoảng",
+      "ranges": "Các khoảng",
+      "reverse": "Đảo ngược",
+      "reversed": "Đảo ngược",
+      "rotation": "Xoay",
+      "s": "Nhỏ",
+      "scale": "Tỷ lệ",
+      "scatter": "Phân tán",
+      "searchRadius": "Bán kính tìm kiếm",
+      "shallow": "Nước nông",
+      "shore": "Bờ",
+      "size": "Kích thước",
+      "smoothing": "Làm mượt",
+      "startHeightRanges": "Khoảng chiều cao đầu",
+      "team": "Đội",
+      "terrain": "Địa hình",
+      "terrainCosts": "Chi phí địa hình",
+      "terrainFilter": "Bộ lọc địa hình",
+      "terrainReplacements": "Thay thế địa hình",
+      "terrains": "Địa hình",
+      "toTerrain": "Đến địa hình",
+      "type": "Loại",
+      "uphillHeightCost": "Chi phí lên dốc",
+      "width": "Chiều rộng",
+      "x": "X",
+      "xBounds": "Giới hạn X",
+      "xRange": "Khoảng X",
+      "xl": "Rất lớn",
+      "y": "Y",
+      "yBounds": "Giới hạn Y",
+      "yRange": "Khoảng Y"
+    },
+    "instructionType": {
+      "terrainNoise": "Nhiễu địa hình",
+      "heightNoise": "Nhiễu chiều cao",
+      "terrainCircle": "Hình tròn địa hình",
+      "terrainRectangle": "Hình chữ nhật địa hình",
+      "naturalPath": "Đường tự nhiên",
+      "connectClusters": "Nối các cụm",
+      "objective": "Mục tiêu",
+      "lake": "Hồ",
+      "objectiveLayer": "Lớp mục tiêu"
+    },
+    "objectiveType": {
+      "small": "Nhỏ",
+      "big": "Lớn"
+    }
   },
   "randomDeployment": {
     "title": "Khu vực triển khai",
@@ -772,5 +980,16 @@
     "bigInset": "Cắt vùng mục tiêu lớn",
     "smallInsetInfo": "Thu hẹp vùng mục tiêu nhỏ ở mỗi bên bao nhiêu. Chỉ cắt chiều rộng, giữ nguyên chiều cao.",
     "bigInsetInfo": "Thu nhỏ ô mục tiêu lớn ở mỗi bên bao nhiêu, căn giữa trong vùng triển khai."
+  },
+  "mapPoint": {
+    "title": "Điểm trên bản đồ",
+    "help": "Mục này đi theo con trỏ của bạn trên bản đồ và đọc ra ô nằm dưới nó. Nhấp chuột phải để ghim lại, để các con số đứng yên trong lúc bạn làm việc trong bảng. Di chuột trở lại bản đồ và nó lại đi theo.",
+    "tile": "Ô",
+    "terrain": "Địa hình",
+    "height": "Chiều cao",
+    "unknown": "-"
+  },
+  "objectiveOwnership": {
+    "help": "Mục tiêu luôn luôn thuộc về một đội. Trong kịch bản có danh sách người chơi cố định, trường này chỉ định một người chơi, và mục tiêu thuộc về đội của người chơi đó. Trong kịch bản dựng cho quân đội linh hoạt thì không có suất người chơi nào cho đến khi ghép trận điền vào, nên trường này chỉ định thẳng đội."
   }
 }

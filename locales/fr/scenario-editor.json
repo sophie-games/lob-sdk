@@ -39,7 +39,8 @@
     "optionCustom": "{{name}} (personnalisé)",
     "optionAllUnitCategories": "Toutes les catégories d'unité",
     "nameWithKind": "{{name}} ({{kind}})",
-    "rotationSpeedModifier": "Modificateur de vitesse de rotation"
+    "rotationSpeedModifier": "Modificateur de vitesse de rotation",
+    "jsonPlaceholder": "Entrez du JSON ici..."
   },
   "editorPanel": {
     "tabs": {
@@ -56,7 +57,8 @@
     "workshopBands": {
       "units": "Unités",
       "terrain": "Terrain",
-      "global": "Global"
+      "global": "Global",
+      "transfer": "Transfert"
     },
     "restingHint": "Cliquez sur une pièce pour l'inspecter, ou choisissez un outil pour commencer à peindre.",
     "togglePanel": "Afficher/masquer le panneau",
@@ -81,58 +83,91 @@
     "goBackConfirm": "Êtes-vous sûr de vouloir revenir en arrière et quitter l'éditeur ?",
     "display": "Affichage",
     "scenarioBands": {
-      "about": "Général",
       "forces": "Forces",
       "rules": "Règles",
-      "presentation": "Présentation"
+      "presentation": "Présentation",
+      "victoryPoints": "Points de victoire"
+    },
+    "testScenario": "Tester le scénario",
+    "placeableObjectives": "Objectifs placés par les joueurs",
+    "placeableObjectivesHelp": "Activé, chaque joueur positionne ses propres objectifs pendant la phase de déploiement, à l'intérieur de sa propre zone. Désactivé, la bataille n'utilise que les objectifs que vous avez placés sur la carte.",
+    "placeableObjectivesNeedsDeployment": "Activez aussi la phase de déploiement, sinon les joueurs n'atteignent jamais le tour où ils placeraient ces objectifs et aucun n'apparaîtra.",
+    "resting": {
+      "thisScenario": "Ce scénario",
+      "gettingStarted": "Premiers pas",
+      "untitled": "Sans titre",
+      "mapSize": "{{width}} x {{height}} tuiles",
+      "objectives": "Objectifs",
+      "noneYet": "Aucun pour l'instant",
+      "modes": "Scénario construit cette bataille. Workshop modifie les éléments que chaque bataille utilise.",
+      "placing": "Choisissez un outil, puis cliquez droit sur la carte pour poser quelque chose.",
+      "disarm": "Choisissez à nouveau cet outil pour le ranger et revenir à la sélection.",
+      "inspect": "Choisissez une pièce que vous avez placée et ses réglages apparaissent ici.",
+      "test": "Le bouton de lecture en haut vous permet d'essayer votre bataille contre un bot.",
+      "saved": "Votre travail est conservé au fur et à mesure, vous pouvez donc partir et le reprendre plus tard.",
+      "placingTouch": "Choisissez un outil, puis touchez la carte pour poser quelque chose."
     }
   },
   "createScenario": {
-    "randomMap": "Carte aléatoire (procédurale) ?",
-    "isHybrid": "Hybride ?"
+    "mapBand": "Carte",
+    "forcesBand": "Forces",
+    "terrainLabel": "Terrain",
+    "terrainPreset": "Peint",
+    "terrainProcedural": "Généré",
+    "terrainHelp": "Le terrain peint est le vôtre à poser tuile par tuile, et accompagne le scénario exactement tel que vous le laissez. Le terrain généré est tracé à nouveau pour chaque bataille à partir d'instructions que vous écrivez dans le panneau Carte, si bien qu'aucun combat n'a lieu deux fois sur le même terrain.",
+    "rosterLabel": "Effectifs",
+    "rosterFixed": "Fixe",
+    "rosterDynamic": "Dynamique",
+    "rosterHelp": "Des effectifs fixes signifient que le scénario décide des places de joueur, des équipes et des munitions, et que tout le monde combat avec les unités que vous avez placées. Des effectifs dynamiques laissent les places au salon d'attente ou au matchmaking, et les joueurs apportent leurs propres armées à la bataille."
   },
   "playersPanel": {
     "removePlayer": "Retirer le joueur",
     "ammoReserve": "Réserve",
-    "ammoBase": "Base"
+    "ammoBase": "Niveau de base",
+    "playerNumbered": "Joueur {{number}}",
+    "rosterLimits": "Un scénario nécessite au moins {{min}} joueurs et en permet au plus {{max}}.",
+    "ammoHelp": "La quantité de munitions dont dispose l'armée de ce joueur. La réserve est ce qu'elle dépense pendant la bataille, et la base est le niveau vers lequel la réserve remonte à chaque tour."
   },
   "terrainPanel": {
     "brush": "Pinceau",
     "shape": "Forme",
     "height": "Hauteur",
     "elevation": "Élévation",
-    "keepHeight": "Conserver la hauteur existante",
     "paintBucket": "Pot de peinture",
-    "none": "Aucun"
+    "none": "Aucun",
+    "setHeight": "Définir la hauteur",
+    "setHeightHelp": "Cochée, la brosse inscrit la hauteur ci-dessus sur chaque tuile qu'elle peint. Décochée, elle peint uniquement le terrain et laisse chaque tuile à l'élévation qu'elle a déjà.",
+    "paintBucketHelp": "Cochée, une pression remplit toute la zone connectée de terrain correspondant, aussi grande soit-elle, le rayon ne s'applique donc pas. Décochée, la brosse couvre le rayon que vous définissez.",
+    "brushHeightGroup": "Élévation",
+    "brushShapeGroup": "Forme"
   },
   "unitPanel": {
-    "title": "Unité sélectionnée",
     "unitType": "Type d'unité",
     "rotation": "Rotation",
-    "copyJson": "Copier le JSON",
     "copyUnits": "Copier les unités",
     "unitsCopied": "Unités copiées ({{count}})",
-    "removeSelectedUnits": "Retirer les unités sélectionnées"
+    "removeSelectedUnits": "Retirer les unités sélectionnées",
+    "nameSingleOnly": "Le nommage fonctionne sur une seule unité à la fois, le champ n'est donc disponible que lorsqu'une seule unité est sélectionnée.",
+    "copyUnitData": "Copier les données de l'unité"
   },
   "createUnit": {
-    "title": "Créer une unité",
     "placingCopied": "Placement des unités copiées ({{count}}). Cliquez sur la carte pour les placer.",
-    "customLabel": "{{name}} (personnalisé)"
+    "customLabel": "{{name}} (personnalisé)",
+    "placingCopied_one": "Cliquez droit sur la carte pour placer votre unité copiée.",
+    "placingCopied_other": "Cliquez droit sur la carte pour placer vos {{count}} unités copiées.",
+    "placingCopiedTouch_one": "Touchez la carte pour placer votre unité copiée.",
+    "placingCopiedTouch_other": "Touchez la carte pour placer vos {{count}} unités copiées."
   },
   "objectivePanel": {
-    "title": "Objectif sélectionné",
     "removeSelected": "Retirer l'objectif sélectionné",
     "fields": {
       "manpowerPerTurn": "Effectifs par tour",
       "goldPerTurn": "Or par tour"
-    }
+    },
+    "copyObjectiveData": "Copier les données de l'objectif"
   },
   "createObjective": {
-    "title": "Créer un objectif",
-    "gaia": "Gaïa",
-    "fields": {
-      "objectiveType": "Type d'objectif"
-    }
+    "gaia": "Gaïa"
   },
   "deployment": {
     "title": "Zones de déploiement",
@@ -143,7 +178,9 @@
     "fields": {
       "x": "X",
       "y": "Y"
-    }
+    },
+    "phaseHelp": "Avec la phase de déploiement activée, les joueurs disposent d'un tour supplémentaire avant le début des combats, uniquement pour réorganiser leurs unités à l'intérieur de leur zone.",
+    "gateHelp": "Ces zones sont modifiables tant que l'une des options Armée dynamique autorisée, Phase de déploiement ou Objectifs placés par les joueurs est activée, chacune des trois ayant besoin d'un endroit où une armée arrivante puisse démarrer. Avec les trois désactivées, elles sont grisées, et sur une carte procédurale elles sont grisées également, les zones y étant définies sous forme de pourcentages dans le panneau Carte aléatoire à la place."
   },
   "vpBalance": {
     "heading": "Équilibre VP (pertes vs objectifs)",
@@ -438,7 +475,9 @@
   "customDefs": {
     "common": {
       "importFromScenario": "Importer depuis un scénario",
-      "duplicate": "Dupliquer"
+      "duplicate": "Dupliquer",
+      "inThisScenario": "Dans ce scénario",
+      "builtIntoThisEra": "Intégré à cette ère"
     },
     "spritesPanel": {
       "title": "Sprites d'unités",
@@ -457,7 +496,8 @@
       "filterPlaceholder": "Filtrer par nom...",
       "unitBase": "Base d'unité ({{count}})",
       "unitOverlay": "Surcouche d'unité ({{count}})",
-      "noMatches": "Aucune correspondance."
+      "noMatches": "Aucune correspondance.",
+      "uploading": "Envoi en cours…"
     },
     "unitTemplatesPanel": {
       "title": "Modèles d'unités",
@@ -552,7 +592,27 @@
     },
     "gameConstants": {
       "title": "Constantes du jeu",
-      "description": "Remplacez les constantes numériques de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; Réinitialiser ramène un champ au défaut de l'époque. Les clés marquées ⚠ sont structurelles - les modifier peut casser le rendu, les replays ou l'appariement. Les valeurs sont en unités internes brutes."
+      "description": "Remplacez les constantes numériques de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; Réinitialiser ramène un champ au défaut de l'époque. Les clés marquées ⚠ sont structurelles - les modifier peut casser le rendu, les replays ou l'appariement. Les valeurs sont en unités internes brutes.",
+      "category": {
+        "mapDimensions": "Dimensions de la carte",
+        "deployment": "Déploiement",
+        "gameLimits": "Limites de jeu",
+        "victoryPoints": "Points de victoire",
+        "fogOfWar": "Brouillard de guerre",
+        "combat": "Combat",
+        "ammunition": "Munitions",
+        "stamina": "Endurance",
+        "unitProximity": "Proximité des unités",
+        "unitDimensions": "Dimensions des unités",
+        "allyBehavior": "Comportement des alliés",
+        "collision": "Collision",
+        "movement": "Mouvement",
+        "mapBoundaries": "Limites de la carte",
+        "effects": "Effets",
+        "gameMechanics": "Mécaniques de jeu",
+        "routing": "Déroute",
+        "Other": "Autre"
+      }
     },
     "gameRules": {
       "title": "Règles du jeu",
@@ -590,8 +650,9 @@
       "title": "Ordre de bataille",
       "betaNotice": "Les options d'ordre de bataille personnalisé pour les scénarios sont une fonctionnalité bêta ; veuillez signaler tout bug sur le serveur Discord officiel.",
       "disableEraUnits": "Désactiver les unités par défaut de l'époque",
-      "disableEraUnitsDescription": "N'alignez que les unités personnalisées propres à ce scénario. Les unités par défaut de l'époque sont masquées de l'écran d'armée et rejetées lors de la construction d'une armée.",
-      "disableEraUnitsWarning": "Ajoutez au moins un modèle d'unité personnalisé, sinon les joueurs n'auront aucune unité à aligner."
+      "disableEraUnitsWarning": "Ajoutez au moins un modèle d'unité personnalisé, sinon les joueurs n'auront aucune unité à aligner.",
+      "useEraUnits": "Utiliser les unités propres à l'ère",
+      "useEraUnitsHelp": "Activé, les joueurs peuvent aligner les unités propres à l'ère en plus de tout ce que ce scénario ajoute. Désactivé, ils jouent uniquement avec les unités fournies par ce scénario — celles de l'ère disparaissent de l'écran d'armée et ne peuvent pas être choisies."
     },
     "unitCaps": {
       "title": "Plafonds d'unités",
@@ -615,14 +676,35 @@
       "gold": "Or",
       "default": "Budget du type de bataille",
       "empty": "Aucun budget de joueur pour le moment. Ajoutez un joueur pour définir le sien."
+    },
+    "transfer": {
+      "importTitle": "Importer",
+      "importDescription": "Ramenez du travail depuis un autre scénario. Choisissez un fichier, puis prenez tout ou décochez ce que vous préférez laisser de côté. Tout ce que ce scénario ne comporte pas est grisé.",
+      "whatComesIn": "Ce qui entre",
+      "importAction": "Importer",
+      "exportTitle": "Exporter",
+      "exportDescription": "Envoyez le travail propre à ce scénario sous forme de fichier, prêt à être importé dans un autre. Tout est inclus sauf ce que vous décochez.",
+      "whatGoesOut": "Ce qui sort",
+      "exportAction": "Exporter",
+      "allCategories": "Toutes les catégories",
+      "replaceTitle": "Remplacer vos propres valeurs ?",
+      "replaceWarning_one": "L'importation remplacera {{count}} valeur que vous avez définie vous-même. Tout le reste s'ajoute à votre travail.",
+      "replaceWarning_other": "L'importation remplacera {{count}} valeurs que vous avez définies vous-même. Tout le reste s'ajoute à votre travail.",
+      "replaceRow_one": "{{category}} : {{count}} valeur",
+      "replaceRow_other": "{{category}} : {{count}} valeurs",
+      "replaceConfirm": "Importer et remplacer",
+      "imported_one": "{{count}} catégorie importée.",
+      "imported_other": "{{count}} catégories importées.",
+      "exported_one": "{{count}} catégorie exportée.",
+      "exported_other": "{{count}} catégories exportées.",
+      "exceededCap": "{{category}} : l'importation dépasserait la limite de {{max}} (il y en aurait {{count}})."
     }
   },
   "resize": {
-    "currentSize": "Taille actuelle : {{width}} × {{height}} tuiles",
     "newSize": "Nouvelle taille : {{width}} × {{height}} tuiles",
     "current": "Actuel : {{width}} × {{height}} tuiles",
     "confirmTitle": "Confirmer le redimensionnement",
-    "warningCannotUndo": "⚠️ <0>Avertissement :</0> Cette opération ne peut pas être annulée.",
+    "warningCannotUndo": "⚠ <0>Avertissement :</0> Cette opération ne peut pas être annulée.",
     "tabScale": "Échelle",
     "tabExpandCut": "Étendre / Rogner les côtés",
     "scale": {
@@ -647,7 +729,11 @@
       "changesHeading": "Changements :",
       "changesHorizontal": "Gauche : {{left}} tuiles, Droite : {{right}} tuiles",
       "changesVertical": "Haut : {{top}} tuiles, Bas : {{bottom}} tuiles"
-    }
+    },
+    "currentSizeLabel": "Taille actuelle",
+    "newSizeLabel": "Nouvelle taille",
+    "methodLabel": "Méthode",
+    "sizeValue": "{{width}} × {{height}} tuiles"
   },
   "mapSize": {
     "widthInTiles": "Largeur en tuiles",
@@ -657,7 +743,8 @@
     "scaleAllSizesBy": "Mettre toutes les tailles à l'échelle de",
     "apply": "Appliquer",
     "background": "Arrière-plan",
-    "chooseImage": "Choisir une image"
+    "chooseImage": "Choisir une image",
+    "backgroundHelp": "Pose une image sous la carte à demi-intensité, pour que vous puissiez dessiner le terrain en accord avec elle. C'est une aide pendant que vous travaillez et elle n'est jamais enregistrée avec le scénario."
   },
   "localesPanel": {
     "title": "Langues",
@@ -683,7 +770,6 @@
   "triggers": {
     "title": "Déclencheurs",
     "moreInfo": "Plus d'infos sur les déclencheurs ici",
-    "lastPositionClicked": "Dernière position cliquée : [{{x}}, {{y}}]",
     "createTrigger": "Créer un déclencheur",
     "createTriggerButton": "Créer un déclencheur",
     "format": "Formater",
@@ -696,7 +782,14 @@
     "addCondition": "Ajouter une condition",
     "actions": "Actions",
     "addAction": "Ajouter une action",
-    "once": "Une fois"
+    "once": "Une fois",
+    "intro": "Un déclencheur vérifie la bataille au début ou à la fin d'un tour, puis agit lorsque les conditions que vous avez définies sont vraies. Créez-en un ci-dessous.",
+    "lastClick": "Position à copier",
+    "lastClickHint": "L'endroit que vous avez sélectionné en dernier sur la carte, dans les coordonnées qu'un déclencheur utilise pour placer une unité ou déplacer la caméra.",
+    "createDisabledInvalidJson": "Corrigez le JSON ci-dessous avant de pouvoir créer un déclencheur.",
+    "createDisabledNeedsConditionAndAction": "Un déclencheur nécessite au moins une condition et une action.",
+    "groupTrigger": "Déclencheur",
+    "value": "Valeur"
   },
   "randomMap": {
     "title": "Carte aléatoire",
@@ -730,7 +823,128 @@
     "modePreset": "Prédéfini (terrain fixe)",
     "modeHybrid": "Hybride (prédéfini + instructions)",
     "modeProcedural": "Procédural (généré)",
-    "hybridExplanation": "Le terrain figé est conservé et ces instructions sont réappliquées par-dessus à chaque partie. Fixez une graine sur la carte pour éviter que les calques ne varient d'une partie à l'autre."
+    "hybridExplanation": "Le terrain figé est conservé et ces instructions sont réappliquées par-dessus à chaque partie. Fixez une graine sur la carte pour éviter que les calques ne varient d'une partie à l'autre.",
+    "proceduralExplanationDetail": "La carte affichée ici n'est qu'un aperçu. Les objectifs placés par les instructions Objectif ou Couche d'objectifs apparaissent au moment de la partie, pas dans cet aperçu.",
+    "switchToPresetTitle": "Basculer vers une carte prédéfinie",
+    "replaceInstructionsTitle": "Remplacer les instructions",
+    "confirmOverwriteHelp": "Ceci déverrouille Générer ci-dessous. Activé, générer supprime chaque tuile de terrain sur la carte et en trace une nouvelle à partir de ces instructions. Désactivé, Générer reste désactivé, afin qu'une carte sur laquelle vous avez travaillé ne puisse pas être écrasée par une pression accidentelle.",
+    "hybridExplanationDetail": "Épinglez une graine sur la carte pour empêcher les superpositions de dériver entre les parties.",
+    "sourceLabel": "Source",
+    "sourceBuiltIn": "Intégré",
+    "sourceImport": "Import",
+    "intro": "Remplissez le terrain de la carte à partir d'un modèle au lieu de le peindre à la main.",
+    "rollSeed": "Tirer une nouvelle graine",
+    "changeFile": "Changer de fichier",
+    "selectFile": "Sélectionner un fichier",
+    "importedFile": "Fichier importé",
+    "field": {
+      "amount": "Quantité",
+      "between": "Entre",
+      "border": "Bordure",
+      "chance": "Chance",
+      "coords": "Coordonnées",
+      "cost": "Coût",
+      "count": "Nombre",
+      "countPer100x100": "Nombre par 100×100 tuiles",
+      "curveLen": "Longueur de courbe",
+      "curveWeight": "Poids de courbe",
+      "deep": "Eau profonde",
+      "downHillHeightCost": "Coût en descente",
+      "edgeDistance": "Distance au bord",
+      "edgeWeight": "Poids du bord",
+      "endHeightRanges": "Plages de hauteur finale",
+      "excludeTerrains": "Exclure des terrains",
+      "falloff": "Atténuation",
+      "fromTerrain": "Terrain de départ",
+      "height": "Hauteur",
+      "heightDiffCost": "Coût de différence de hauteur",
+      "heightDiffCosts": "Coûts de différence de hauteur",
+      "heightFilter": "Filtre de hauteur",
+      "heightRanges": "Plages de hauteur",
+      "heights": "Hauteurs",
+      "l": "Grand",
+      "m": "Moyen",
+      "max": "Maximal",
+      "maxDistance": "Distance max",
+      "maxHeight": "Hauteur max",
+      "maxHeightThreshold": "Seuil de hauteur max",
+      "maxHeightValue": "Valeur de hauteur max",
+      "maxObj": "Objectifs max",
+      "maxWidth": "Largeur max",
+      "max_scaling_factor": "Mise à l'échelle max selon la taille de carte",
+      "mergeStrategy": "Stratégie de fusion",
+      "midPoints": "Points intermédiaires",
+      "min": "Minimal",
+      "minAmount": "Quantité min",
+      "minDistance": "Distance min",
+      "minGroupSize": "Taille de groupe min",
+      "minHeight": "Hauteur min",
+      "minHeightValue": "Valeur de hauteur min",
+      "minSurrounding": "Tuiles environnantes min",
+      "minWidth": "Largeur min",
+      "min_scaling_factor": "Mise à l'échelle min selon la taille de carte",
+      "multiplier": "Multiplicateur",
+      "name": "Nom",
+      "noiseSmoothness": "Lissage du bruit",
+      "noiseWeight": "Poids du bruit",
+      "noises": "Couches de bruit",
+      "objectiveType": "Type d'objectif",
+      "offset": "Décalage",
+      "organicness": "Naturel",
+      "pathTerrain": "Terrain du chemin",
+      "player": "Joueur",
+      "position": "Position",
+      "preferLowElevation": "Préférer les terrains bas",
+      "printNoiseDebug": "Afficher le débogage du bruit",
+      "radius": "Rayon",
+      "randomness": "Aléa",
+      "range": "Portée",
+      "ranges": "Plages",
+      "reverse": "Inversé",
+      "reversed": "Inversé",
+      "rotation": "Rotation",
+      "s": "Petit",
+      "scale": "Échelle",
+      "scatter": "Dispersion",
+      "searchRadius": "Rayon de recherche",
+      "shallow": "Eau peu profonde",
+      "shore": "Rivage",
+      "size": "Taille",
+      "smoothing": "Lissage",
+      "startHeightRanges": "Plages de hauteur initiale",
+      "team": "Équipe",
+      "terrain": "Terrain",
+      "terrainCosts": "Coûts de terrain",
+      "terrainFilter": "Filtre de terrain",
+      "terrainReplacements": "Remplacements de terrain",
+      "terrains": "Terrains",
+      "toTerrain": "Terrain d'arrivée",
+      "type": "Type",
+      "uphillHeightCost": "Coût en montée",
+      "width": "Largeur",
+      "x": "X",
+      "xBounds": "Limites X",
+      "xRange": "Plage X",
+      "xl": "Très grand",
+      "y": "Y",
+      "yBounds": "Limites Y",
+      "yRange": "Plage Y"
+    },
+    "instructionType": {
+      "terrainNoise": "Bruit de terrain",
+      "heightNoise": "Bruit de hauteur",
+      "terrainCircle": "Cercle de terrain",
+      "terrainRectangle": "Rectangle de terrain",
+      "naturalPath": "Chemin naturel",
+      "connectClusters": "Connecter les groupes",
+      "objective": "Objectif",
+      "lake": "Lac",
+      "objectiveLayer": "Couche d'objectifs"
+    },
+    "objectiveType": {
+      "small": "Petit",
+      "big": "Grand"
+    }
   },
   "randomDeployment": {
     "title": "Zones de déploiement",
@@ -773,5 +987,16 @@
     "bigInset": "Rognage de la zone des grands objectifs",
     "smallInsetInfo": "De combien rétrécir la zone des petits objectifs de chaque côté. Rogne uniquement la largeur, en conservant la hauteur.",
     "bigInsetInfo": "De combien réduire la boîte des grands objectifs de chaque côté, centrée dans la zone de déploiement."
+  },
+  "mapPoint": {
+    "title": "Point de carte",
+    "help": "Ceci suit votre pointeur sur la carte et affiche la tuile en dessous. Cliquez droit pour l'épingler, afin que les valeurs restent fixes pendant que vous travaillez dans le panneau. Repassez sur la carte et il suit à nouveau.",
+    "tile": "Tuile",
+    "terrain": "Terrain",
+    "height": "Hauteur",
+    "unknown": "-"
+  },
+  "objectiveOwnership": {
+    "help": "Les objectifs appartiennent toujours à une équipe. Sur un scénario à effectifs fixes, ce champ nomme un joueur, et l'objectif appartient à l'équipe de ce joueur. Sur un scénario conçu pour des armées dynamiques, il n'y a pas de places de joueur avant que le matchmaking ne les remplisse, le champ nomme donc directement l'équipe."
   }
 }

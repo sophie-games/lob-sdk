@@ -281,7 +281,8 @@
     "routesAtOrg": "조직력에서 패주",
     "recoversAtOrg": "조직력에서 회복",
     "ralliesAtOrg": "조직력에서 재편성",
-    "unlimberTime": "전개 시간"
+    "unlimberTime": "전개 시간",
+    "supply": "보급"
   },
   "category": "유형",
   "routingBehavior": "궤멸 중 행동",
@@ -352,6 +353,8 @@
     "20": "수몰된 도로",
     "21": "참호",
     "22": "보루",
+    "23": "철도",
+    "24": "철도/도로",
     "25": "야영지"
   },
   "clearPlayerUnits": "플레이어 부대 지우기",
@@ -1040,6 +1043,15 @@
     "error": "계정 삭제를 예약할 수 없습니다. 다시 시도해 주세요."
   },
   "startGameAsSpectator": "관전자로 게임 시작",
+  "continue": "계속",
+  "armyWithCount": "군대 ({{count}})",
+  "disablesFlankMelee": "측면 근접 공격 무효화",
+  "disablesEnfiladeFire": "측방사격 무효화",
+  "disablesRearFire": "후방 사격 무효화",
+  "flankChargeResistance": "측면 돌격 저항력",
+  "rearChargeResistance": "후방 돌격 저항력",
+  "enfiladeFireResistance": "측방사격 저항력",
+  "rearFireResistance": "후방 사격 저항력",
   "clanAverageLeague": "연합 리그",
   "clanTag": "연합 태그",
   "clanTagHelp": "2~5자의 영문자 또는 숫자입니다. 태그는 고유하며 플레이어 이름 옆에 표시됩니다.",

@@ -284,7 +284,8 @@
     "routesAtOrg": "Bỏ Chạy Ở Org",
     "recoversAtOrg": "Phục Hồi Ở Org",
     "ralliesAtOrg": "Tập Hợp Ở Org",
-    "unlimberTime": "Thời gian triển khai"
+    "unlimberTime": "Thời gian triển khai",
+    "supply": "Tiếp tế"
   },
   "category": "Danh mục",
   "routingBehavior": "Hành vi rút lui",
@@ -356,6 +357,8 @@
     "20": "Đường, Lún",
     "21": "Hào",
     "22": "Pháo đài",
+    "23": "Đường sắt",
+    "24": "Đường sắt/Đường",
     "25": "Trại"
   },
   "clearPlayerUnits": "Xóa đơn vị người chơi",
@@ -1044,6 +1047,15 @@
     "error": "Không thể lên lịch xóa tài khoản. Vui lòng thử lại."
   },
   "startGameAsSpectator": "Bắt đầu trò chơi với tư cách khán giả",
+  "continue": "Tiếp tục",
+  "armyWithCount": "Quân đội ({{count}})",
+  "disablesFlankMelee": "Vô hiệu hóa cận chiến sườn",
+  "disablesEnfiladeFire": "Vô hiệu hóa hỏa lực dọc",
+  "disablesRearFire": "Vô hiệu hóa hỏa lực sau",
+  "flankChargeResistance": "Kháng xung kích sườn",
+  "rearChargeResistance": "Kháng xung kích sau",
+  "enfiladeFireResistance": "Kháng hỏa lực dọc",
+  "rearFireResistance": "Kháng hỏa lực sau",
   "clanAverageLeague": "Hạng liên minh",
   "clanTag": "Thẻ liên minh",
   "clanTagHelp": "Từ 2–5 chữ cái hoặc chữ số. Thẻ là duy nhất và hiển thị bên cạnh tên người chơi.",

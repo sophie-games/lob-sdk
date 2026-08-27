@@ -39,7 +39,8 @@
     "optionCustom": "{{name}} (benutzerdefiniert)",
     "optionAllUnitCategories": "Alle Einheitenkategorien",
     "nameWithKind": "{{name}} ({{kind}})",
-    "rotationSpeedModifier": "Drehgeschwindigkeitsmodifikator"
+    "rotationSpeedModifier": "Drehgeschwindigkeitsmodifikator",
+    "jsonPlaceholder": "JSON hier eingeben..."
   },
   "editorPanel": {
     "tabs": {
@@ -56,7 +57,8 @@
     "workshopBands": {
       "units": "Einheiten",
       "terrain": "Gelände",
-      "global": "Global"
+      "global": "Global",
+      "transfer": "Transfer"
     },
     "restingHint": "Klicke auf ein Objekt, um es zu untersuchen, oder wähle ein Werkzeug, um mit dem Malen zu beginnen.",
     "togglePanel": "Panel umschalten",
@@ -81,58 +83,91 @@
     "goBackConfirm": "Möchtest du wirklich zurückgehen und den Editor verlassen?",
     "display": "Anzeige",
     "scenarioBands": {
-      "about": "Allgemein",
       "forces": "Streitkräfte",
       "rules": "Regeln",
-      "presentation": "Darstellung"
+      "presentation": "Darstellung",
+      "victoryPoints": "Siegespunkte"
+    },
+    "testScenario": "Szenario testen",
+    "placeableObjectives": "Spielerplatzierte Ziele",
+    "placeableObjectivesHelp": "Wenn aktiviert, platziert jeder Spieler seine eigenen Ziele während der Aufstellungsphase, innerhalb seiner eigenen Zone. Wenn deaktiviert, verwendet die Schlacht nur die Ziele, die du auf der Karte platziert hast.",
+    "placeableObjectivesNeedsDeployment": "Aktiviere auch die Aufstellungsphase, sonst erreichen die Spieler nie den Zug, in dem sie diese Ziele platzieren würden, und es erscheint keines.",
+    "resting": {
+      "thisScenario": "Dieses Szenario",
+      "gettingStarted": "Erste Schritte",
+      "untitled": "Unbenannt",
+      "mapSize": "{{width}} x {{height}} Kacheln",
+      "objectives": "Ziele",
+      "noneYet": "Noch keine",
+      "modes": "Szenario baut diese Schlacht auf. Workshop verändert die Bestandteile, die jede Schlacht verwendet.",
+      "placing": "Wähle ein Werkzeug und klicke dann mit rechts auf die Karte, um etwas zu platzieren.",
+      "disarm": "Wähle das Werkzeug erneut, um es wegzulegen und zur Auswahl zurückzukehren.",
+      "inspect": "Wähle ein platziertes Objekt, und seine Einstellungen erscheinen hier.",
+      "test": "Die Play-Schaltfläche oben lässt dich deine Schlacht gegen einen Bot ausprobieren.",
+      "saved": "Deine Arbeit wird laufend gespeichert, sodass du sie später fortsetzen kannst.",
+      "placingTouch": "Wähle ein Werkzeug und tippe dann auf die Karte, um etwas zu platzieren."
     }
   },
   "createScenario": {
-    "randomMap": "Zufällige (prozedurale) Karte?",
-    "isHybrid": "Hybrid?"
+    "mapBand": "Karte",
+    "forcesBand": "Streitkräfte",
+    "terrainLabel": "Gelände",
+    "terrainPreset": "Gemalt",
+    "terrainProcedural": "Generiert",
+    "terrainHelp": "Gemaltes Gelände legst du selbst Kachel für Kachel an, und es wird genau so mit dem Szenario ausgeliefert, wie du es verlässt. Generiertes Gelände wird für jede Schlacht neu aus Anweisungen gezeichnet, die du im Panel Karte schreibst, sodass keine zwei Partien auf demselben Boden ausgetragen werden.",
+    "rosterLabel": "Spielerliste",
+    "rosterFixed": "Fest",
+    "rosterDynamic": "Dynamisch",
+    "rosterHelp": "Eine feste Spielerliste bedeutet, dass das Szenario die Spielerplätze, die Teams und die Munition festlegt, und alle kämpfen mit den Einheiten, die du platziert hast. Eine dynamische Spielerliste überlässt die Plätze der Lobby oder dem Matchmaking, und die Spieler bringen ihre eigenen Armeen in die Schlacht."
   },
   "playersPanel": {
     "removePlayer": "Spieler entfernen",
     "ammoReserve": "Reserve",
-    "ammoBase": "Basis"
+    "ammoBase": "Basis",
+    "playerNumbered": "Spieler {{number}}",
+    "rosterLimits": "Ein Szenario benötigt mindestens {{min}} Spieler und erlaubt höchstens {{max}}.",
+    "ammoHelp": "Wie viel Munition die Armee dieses Spielers hat. Die Reserve ist das, was sie im Verlauf der Schlacht verbraucht, und die Basis ist der Stand, auf den die Reserve jeden Zug wieder zusteuert."
   },
   "terrainPanel": {
     "brush": "Pinsel",
     "shape": "Form",
     "height": "Höhe",
     "elevation": "Erhebung",
-    "keepHeight": "Vorhandene Höhe beibehalten",
     "paintBucket": "Füllwerkzeug",
-    "none": "Keine"
+    "none": "Keine",
+    "setHeight": "Höhe setzen",
+    "setHeightHelp": "Aktiviert, schreibt der Pinsel die obige Höhe auf jede Kachel, die er malt. Deaktiviert, malt er nur Gelände und belässt jede Kachel auf ihrer bisherigen Höhe.",
+    "paintBucketHelp": "Aktiviert, füllt ein Klick den gesamten zusammenhängenden Bereich mit passendem Gelände, wie groß er auch ist, sodass der Radius nicht gilt. Deaktiviert, deckt der Pinsel den eingestellten Radius ab.",
+    "brushHeightGroup": "Erhebung",
+    "brushShapeGroup": "Form"
   },
   "unitPanel": {
-    "title": "Ausgewählte Einheit",
     "unitType": "Einheitentyp",
     "rotation": "Drehung",
-    "copyJson": "JSON kopieren",
     "copyUnits": "Einheiten kopieren",
     "unitsCopied": "Einheiten kopiert ({{count}})",
-    "removeSelectedUnits": "Ausgewählte Einheiten entfernen"
+    "removeSelectedUnits": "Ausgewählte Einheiten entfernen",
+    "nameSingleOnly": "Die Benennung funktioniert immer nur für eine Einheit, daher ist das Feld nur verfügbar, wenn genau eine Einheit ausgewählt ist.",
+    "copyUnitData": "Einheitendaten kopieren"
   },
   "createUnit": {
-    "title": "Einheit erstellen",
     "placingCopied": "Kopierte Einheiten platzieren ({{count}}). Auf die Karte klicken, um sie zu setzen.",
-    "customLabel": "{{name}} (benutzerdefiniert)"
+    "customLabel": "{{name}} (benutzerdefiniert)",
+    "placingCopied_one": "Rechtsklicke auf die Karte, um deine kopierte Einheit zu platzieren.",
+    "placingCopied_other": "Rechtsklicke auf die Karte, um deine {{count}} kopierten Einheiten zu platzieren.",
+    "placingCopiedTouch_one": "Tippe auf die Karte, um deine kopierte Einheit zu platzieren.",
+    "placingCopiedTouch_other": "Tippe auf die Karte, um deine {{count}} kopierten Einheiten zu platzieren."
   },
   "objectivePanel": {
-    "title": "Ausgewähltes Ziel",
     "removeSelected": "Ausgewähltes Ziel entfernen",
     "fields": {
       "manpowerPerTurn": "Mannschaftsstärke pro Runde",
       "goldPerTurn": "Gold pro Runde"
-    }
+    },
+    "copyObjectiveData": "Zieldaten kopieren"
   },
   "createObjective": {
-    "title": "Ziel erstellen",
-    "gaia": "Gaia",
-    "fields": {
-      "objectiveType": "Zieltyp"
-    }
+    "gaia": "Gaia"
   },
   "deployment": {
     "title": "Aufstellungszonen",
@@ -143,7 +178,9 @@
     "fields": {
       "x": "X",
       "y": "Y"
-    }
+    },
+    "phaseHelp": "Mit aktivierter Aufstellungsphase erhalten die Spieler einen zusätzlichen Zug, bevor die Kämpfe beginnen, nur um ihre Einheiten innerhalb ihrer Zone neu zu ordnen.",
+    "gateHelp": "Diese Zonen sind bearbeitbar, solange eine der drei Optionen Dynamische Armee erlauben, Aufstellungsphase oder Spielerplatzierte Ziele aktiviert ist, da jede von ihnen einen Startpunkt für eine ankommende Armee benötigt. Sind alle drei deaktiviert, sind sie ausgegraut, und auf einer prozeduralen Karte sind sie ebenfalls ausgegraut, da die Zonen dort stattdessen als Prozentwerte im Panel Zufällige Karte festgelegt werden."
   },
   "vpBalance": {
     "heading": "VP-Bilanz (Verluste vs Ziele)",
@@ -438,7 +475,9 @@
   "customDefs": {
     "common": {
       "importFromScenario": "Aus Szenario importieren",
-      "duplicate": "Duplizieren"
+      "duplicate": "Duplizieren",
+      "inThisScenario": "In diesem Szenario",
+      "builtIntoThisEra": "In dieser Epoche integriert"
     },
     "spritesPanel": {
       "title": "Einheiten-Sprites",
@@ -457,7 +496,8 @@
       "filterPlaceholder": "Nach Name filtern...",
       "unitBase": "Einheitenbasis ({{count}})",
       "unitOverlay": "Einheiten-Overlay ({{count}})",
-      "noMatches": "Keine Treffer."
+      "noMatches": "Keine Treffer.",
+      "uploading": "Wird hochgeladen…"
     },
     "unitTemplatesPanel": {
       "title": "Einheitenvorlagen",
@@ -552,7 +592,27 @@
     },
     "gameConstants": {
       "title": "Spielkonstanten",
-      "description": "Überschreibe die numerischen Konstanten dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; Zurücksetzen stellt ein Feld auf den Epochenstandard zurück. Mit ⚠ markierte Schlüssel sind strukturell - eine Änderung kann Darstellung, Wiederholungen oder Matchmaking beschädigen. Die Werte sind interne Roheinheiten."
+      "description": "Überschreibe die numerischen Konstanten dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; Zurücksetzen stellt ein Feld auf den Epochenstandard zurück. Mit ⚠ markierte Schlüssel sind strukturell - eine Änderung kann Darstellung, Wiederholungen oder Matchmaking beschädigen. Die Werte sind interne Roheinheiten.",
+      "category": {
+        "mapDimensions": "Kartenabmessungen",
+        "deployment": "Aufstellung",
+        "gameLimits": "Spielbegrenzungen",
+        "victoryPoints": "Siegespunkte",
+        "fogOfWar": "Nebel des Krieges",
+        "combat": "Kampf",
+        "ammunition": "Munition",
+        "stamina": "Ausdauer",
+        "unitProximity": "Einheitennähe",
+        "unitDimensions": "Einheitenabmessungen",
+        "allyBehavior": "Verbündetenverhalten",
+        "collision": "Kollision",
+        "movement": "Bewegung",
+        "mapBoundaries": "Kartengrenzen",
+        "effects": "Effekte",
+        "gameMechanics": "Spielmechanik",
+        "routing": "Fluchtverhalten",
+        "Other": "Sonstiges"
+      }
     },
     "gameRules": {
       "title": "Spielregeln",
@@ -590,8 +650,9 @@
       "title": "Armeezusammensetzungen",
       "betaNotice": "Optionen für benutzerdefinierte Armeezusammensetzungen in Szenarien sind eine Beta-Funktion; bitte melde alle Fehler im offiziellen Discord-Server.",
       "disableEraUnits": "Standard-Einheiten der Epoche deaktivieren",
-      "disableEraUnitsDescription": "Setze nur die eigenen benutzerdefinierten Einheiten dieses Szenarios ein. Die Standard-Einheiten der Epoche werden im Armee-Bildschirm ausgeblendet und beim Zusammenstellen einer Armee abgelehnt.",
-      "disableEraUnitsWarning": "Füge mindestens eine benutzerdefinierte Einheitenvorlage hinzu, sonst haben Spieler keine Einheiten zum Einsetzen."
+      "disableEraUnitsWarning": "Füge mindestens eine benutzerdefinierte Einheitenvorlage hinzu, sonst haben Spieler keine Einheiten zum Einsetzen.",
+      "useEraUnits": "Eigene Einheiten der Epoche verwenden",
+      "useEraUnitsHelp": "Aktiviert, können Spieler die eigenen Einheiten der Epoche neben allem einsetzen, was dieses Szenario hinzufügt. Deaktiviert, spielen sie nur mit den Einheiten, die dieses Szenario bereitstellt - die Einheiten der Epoche verschwinden vom Armeebildschirm und können nicht gewählt werden."
     },
     "unitCaps": {
       "title": "Einheiten-Obergrenzen",
@@ -615,14 +676,35 @@
       "gold": "Gold",
       "default": "Schlachttyp-Budget",
       "empty": "Noch keine Spieler-Budgets. Füge einen Spieler hinzu, um sein Budget zu überschreiben."
+    },
+    "transfer": {
+      "importTitle": "Import",
+      "importDescription": "Bringe Arbeit aus einem anderen Szenario herüber. Wähle eine Datei, und übernimm dann alles daraus oder wähle ab, was du lieber zurücklassen möchtest. Was jenes Szenario nicht enthält, ist ausgegraut.",
+      "whatComesIn": "Was hereinkommt",
+      "importAction": "Importieren",
+      "exportTitle": "Export",
+      "exportDescription": "Exportiere die eigene Arbeit dieses Szenarios als Datei, bereit für den Import in ein anderes. Alles ist enthalten, außer du wählst es ab.",
+      "whatGoesOut": "Was hinausgeht",
+      "exportAction": "Exportieren",
+      "allCategories": "Alle Kategorien",
+      "replaceTitle": "Eigene Werte ersetzen?",
+      "replaceWarning_one": "Der Import ersetzt {{count}} Wert, den du selbst festgelegt hast. Alles andere wird zusätzlich zu deiner Arbeit hinzugefügt.",
+      "replaceWarning_other": "Der Import ersetzt {{count}} Werte, die du selbst festgelegt hast. Alles andere wird zusätzlich zu deiner Arbeit hinzugefügt.",
+      "replaceRow_one": "{{category}}: {{count}} Wert",
+      "replaceRow_other": "{{category}}: {{count}} Werte",
+      "replaceConfirm": "Importieren und ersetzen",
+      "imported_one": "{{count}} Kategorie importiert.",
+      "imported_other": "{{count}} Kategorien importiert.",
+      "exported_one": "{{count}} Kategorie exportiert.",
+      "exported_other": "{{count}} Kategorien exportiert.",
+      "exceededCap": "{{category}}: Der Import würde das Limit von {{max}} überschreiten (es wären {{count}})."
     }
   },
   "resize": {
-    "currentSize": "Aktuelle Größe: {{width}} × {{height}} Kacheln",
     "newSize": "Neue Größe: {{width}} × {{height}} Kacheln",
     "current": "Aktuell: {{width}} × {{height}} Kacheln",
     "confirmTitle": "Kartengröße bestätigen",
-    "warningCannotUndo": "⚠️ <0>Warnung:</0> Dieser Vorgang kann nicht rückgängig gemacht werden.",
+    "warningCannotUndo": "⚠ <0>Warnung:</0> Dieser Vorgang kann nicht rückgängig gemacht werden.",
     "tabScale": "Skalieren",
     "tabExpandCut": "Seiten erweitern / kürzen",
     "scale": {
@@ -647,7 +729,11 @@
       "changesHeading": "Änderungen:",
       "changesHorizontal": "Links: {{left}} Kacheln, Rechts: {{right}} Kacheln",
       "changesVertical": "Oben: {{top}} Kacheln, Unten: {{bottom}} Kacheln"
-    }
+    },
+    "currentSizeLabel": "Aktuelle Größe",
+    "newSizeLabel": "Neue Größe",
+    "methodLabel": "Methode",
+    "sizeValue": "{{width}} × {{height}} Kacheln"
   },
   "mapSize": {
     "widthInTiles": "Breite in Kacheln",
@@ -657,7 +743,8 @@
     "scaleAllSizesBy": "Alle Größen skalieren um",
     "apply": "Anwenden",
     "background": "Hintergrund",
-    "chooseImage": "Bild wählen"
+    "chooseImage": "Bild wählen",
+    "backgroundHelp": "Legt ein Bild mit halber Deckkraft unter die Karte, sodass du Gelände passend dazu zeichnen kannst. Es ist nur eine Arbeitshilfe und wird nie mit dem Szenario gespeichert."
   },
   "localesPanel": {
     "title": "Sprachen",
@@ -683,7 +770,6 @@
   "triggers": {
     "title": "Auslöser",
     "moreInfo": "Mehr Informationen zu Auslösern hier",
-    "lastPositionClicked": "Zuletzt angeklickte Position: [{{x}}, {{y}}]",
     "createTrigger": "Auslöser erstellen",
     "createTriggerButton": "Auslöser erstellen",
     "format": "Formatieren",
@@ -696,7 +782,14 @@
     "addCondition": "Bedingung hinzufügen",
     "actions": "Aktionen",
     "addAction": "Aktion hinzufügen",
-    "once": "Einmalig"
+    "once": "Einmalig",
+    "intro": "Ein Auslöser prüft die Schlacht zu Beginn oder Ende eines Zugs und handelt dann, wenn die von dir festgelegten Bedingungen zutreffen. Erstelle unten einen.",
+    "lastClick": "Position zum Kopieren",
+    "lastClickHint": "Wo du zuletzt auf der Karte geklickt hast, in den Koordinaten, die ein Auslöser zum Platzieren einer Einheit oder Bewegen der Kamera verwendet.",
+    "createDisabledInvalidJson": "Behebe zuerst das JSON unten, bevor du einen Auslöser erstellen kannst.",
+    "createDisabledNeedsConditionAndAction": "Ein Auslöser benötigt mindestens eine Bedingung und eine Aktion.",
+    "groupTrigger": "Auslöser",
+    "value": "Wert"
   },
   "randomMap": {
     "title": "Zufällige Karte",
@@ -730,7 +823,128 @@
     "modePreset": "Vorgefertigt (festes Gelände)",
     "modeHybrid": "Hybrid (vorgefertigt + Anweisungen)",
     "modeProcedural": "Prozedural (generiert)",
-    "hybridExplanation": "Das gebackene Gelände bleibt erhalten und diese Anweisungen laufen in jedem Spiel als Overlays darüber. Setze einen Seed auf der Karte, damit die Overlays zwischen Spielen nicht abweichen."
+    "hybridExplanation": "Das gebackene Gelände bleibt erhalten und diese Anweisungen laufen in jedem Spiel als Overlays darüber. Setze einen Seed auf der Karte, damit die Overlays zwischen Spielen nicht abweichen.",
+    "proceduralExplanationDetail": "Die hier gezeigte Karte ist nur eine Vorschau. Ziele, die durch Ziel- oder Zielebenen-Anweisungen platziert werden, erscheinen zur Spielzeit, nicht in dieser Vorschau.",
+    "switchToPresetTitle": "Zu einer voreingestellten Karte wechseln",
+    "replaceInstructionsTitle": "Anweisungen ersetzen",
+    "confirmOverwriteHelp": "Das schaltet Erzeugen unten frei. Aktiviert, verwirft das Erzeugen jede Kachel Gelände auf der Karte und zeichnet aus diesen Anweisungen ein neues. Deaktiviert, bleibt Erzeugen gesperrt, damit eine Karte, an der du gearbeitet hast, nicht durch einen versehentlichen Klick überschrieben werden kann.",
+    "hybridExplanationDetail": "Setze einen Seed auf der Karte, damit die Overlays zwischen Spielen nicht abweichen.",
+    "sourceLabel": "Quelle",
+    "sourceBuiltIn": "Integriert",
+    "sourceImport": "Import",
+    "intro": "Fülle das Gelände der Karte aus einer Vorlage, statt es von Hand zu malen.",
+    "rollSeed": "Neuen Seed würfeln",
+    "changeFile": "Datei ändern",
+    "selectFile": "Datei auswählen",
+    "importedFile": "Importierte Datei",
+    "field": {
+      "amount": "Menge",
+      "between": "Zwischen",
+      "border": "Rand",
+      "chance": "Wahrscheinlichkeit",
+      "coords": "Koordinaten",
+      "cost": "Kosten",
+      "count": "Anzahl",
+      "countPer100x100": "Anzahl pro 100×100 Kacheln",
+      "curveLen": "Kurvenlänge",
+      "curveWeight": "Kurvengewicht",
+      "deep": "Tiefwasser",
+      "downHillHeightCost": "Bergab-Kosten",
+      "edgeDistance": "Randabstand",
+      "edgeWeight": "Randgewicht",
+      "endHeightRanges": "End-Höhenbereiche",
+      "excludeTerrains": "Ausgeschlossene Geländearten",
+      "falloff": "Abfall",
+      "fromTerrain": "Von Gelände",
+      "height": "Höhe",
+      "heightDiffCost": "Höhendifferenz-Kosten",
+      "heightDiffCosts": "Höhendifferenz-Kosten",
+      "heightFilter": "Höhenfilter",
+      "heightRanges": "Höhenbereiche",
+      "heights": "Höhen",
+      "l": "Groß",
+      "m": "Mittel",
+      "max": "Max.",
+      "maxDistance": "Max. Entfernung",
+      "maxHeight": "Max. Höhe",
+      "maxHeightThreshold": "Max. Höhenschwelle",
+      "maxHeightValue": "Max. Höhenwert",
+      "maxObj": "Max. Ziele",
+      "maxWidth": "Max. Breite",
+      "max_scaling_factor": "Max. Skalierung nach Kartengröße",
+      "mergeStrategy": "Zusammenführungsstrategie",
+      "midPoints": "Mittelpunkte",
+      "min": "Min.",
+      "minAmount": "Min. Menge",
+      "minDistance": "Min. Entfernung",
+      "minGroupSize": "Min. Gruppengröße",
+      "minHeight": "Min. Höhe",
+      "minHeightValue": "Min. Höhenwert",
+      "minSurrounding": "Min. umgebende Kacheln",
+      "minWidth": "Min. Breite",
+      "min_scaling_factor": "Min. Skalierung nach Kartengröße",
+      "multiplier": "Multiplikator",
+      "name": "Name",
+      "noiseSmoothness": "Rauschglättung",
+      "noiseWeight": "Rauschgewicht",
+      "noises": "Rauschebenen",
+      "objectiveType": "Zieltyp",
+      "offset": "Versatz",
+      "organicness": "Natürlichkeit",
+      "pathTerrain": "Pfadgelände",
+      "player": "Spieler",
+      "position": "Position",
+      "preferLowElevation": "Tiefland bevorzugen",
+      "printNoiseDebug": "Rausch-Debug ausgeben",
+      "radius": "Radius",
+      "randomness": "Zufälligkeit",
+      "range": "Reichweite",
+      "ranges": "Bereiche",
+      "reverse": "Umgekehrt",
+      "reversed": "Umgekehrt",
+      "rotation": "Drehung",
+      "s": "Klein",
+      "scale": "Skalierung",
+      "scatter": "Streuung",
+      "searchRadius": "Suchradius",
+      "shallow": "Flachwasser",
+      "shore": "Ufer",
+      "size": "Größe",
+      "smoothing": "Glättung",
+      "startHeightRanges": "Start-Höhenbereiche",
+      "team": "Team",
+      "terrain": "Gelände",
+      "terrainCosts": "Geländekosten",
+      "terrainFilter": "Geländefilter",
+      "terrainReplacements": "Geländeersetzungen",
+      "terrains": "Geländearten",
+      "toTerrain": "Zu Gelände",
+      "type": "Typ",
+      "uphillHeightCost": "Bergauf-Kosten",
+      "width": "Breite",
+      "x": "X",
+      "xBounds": "X-Grenzen",
+      "xRange": "X-Bereich",
+      "xl": "Extra groß",
+      "y": "Y",
+      "yBounds": "Y-Grenzen",
+      "yRange": "Y-Bereich"
+    },
+    "instructionType": {
+      "terrainNoise": "Geländerauschen",
+      "heightNoise": "Höhenrauschen",
+      "terrainCircle": "Geländekreis",
+      "terrainRectangle": "Geländerechteck",
+      "naturalPath": "Natürlicher Pfad",
+      "connectClusters": "Cluster verbinden",
+      "objective": "Ziel",
+      "lake": "See",
+      "objectiveLayer": "Zielebene"
+    },
+    "objectiveType": {
+      "small": "Klein",
+      "big": "Groß"
+    }
   },
   "randomDeployment": {
     "title": "Aufstellungszonen",
@@ -773,5 +987,16 @@
     "bigInset": "Beschnitt der Zone für große Objektive",
     "smallInsetInfo": "Wie stark die Zone für kleine Objektive auf jeder Seite verschmälert wird. Beschneidet nur die Breite und behält die Höhe.",
     "bigInsetInfo": "Wie stark die Box für große Objektive auf jeder Seite verkleinert wird, zentriert innerhalb der Einsatzzone."
+  },
+  "mapPoint": {
+    "title": "Kartenpunkt",
+    "help": "Dies folgt deinem Zeiger über die Karte und liest die Kachel darunter aus. Rechtsklicke, um es zu pinnen, damit die Werte stehen bleiben, während du im Panel arbeitest. Bewege dich wieder über die Karte, und es folgt erneut.",
+    "tile": "Kachel",
+    "terrain": "Gelände",
+    "height": "Höhe",
+    "unknown": "-"
+  },
+  "objectiveOwnership": {
+    "help": "Ziele gehören immer einem Team. Bei einem Szenario mit fester Spielerliste benennt dieses Feld einen Spieler, und das Ziel gehört dem Team dieses Spielers. Bei einem Szenario für dynamische Armeen gibt es vor dem Matchmaking noch keine Spielerplätze, daher benennt das Feld direkt das Team."
   }
 }
