@@ -15,23 +15,26 @@ const square = (cx: number, cy: number, h: number) =>
   ]);
 
 describe("fireEdgeRegionPolygon", () => {
-  it("does not repeat the tip of a degenerate one-emitter cone", () => {
-    const points = fireEdgeRegionPolygon(
-      { x: 5, y: 0 },
-      { x: 5, y: 0 },
-      1,
-      0,
-      Math.PI / 4,
-      100,
-    );
+  it.each([Math.PI / 4, 0])(
+    "does not repeat points in a degenerate one-emitter cone (half arc %s)",
+    (halfArc) => {
+      const points = fireEdgeRegionPolygon(
+        { x: 5, y: 0 },
+        { x: 5, y: 0 },
+        1,
+        0,
+        halfArc,
+        100,
+      );
 
-    for (let i = 2; i < points.length; i += 2) {
-      expect([points[i], points[i + 1]]).not.toEqual([
-        points[i - 2],
-        points[i - 1],
-      ]);
-    }
-  });
+      for (let i = 2; i < points.length; i += 2) {
+        expect([points[i], points[i + 1]]).not.toEqual([
+          points[i - 2],
+          points[i - 1],
+        ]);
+      }
+    },
+  );
 });
 
 describe("CircleShape", () => {
