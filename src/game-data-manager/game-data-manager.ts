@@ -83,6 +83,7 @@ import type { ScenarioCatalog } from "./scenario-catalog";
 import type { ScenarioIndex, ScenarioMeta } from "./scenario-index";
 import { napoleonicScenarioIndex } from "@lob-sdk/game-data/eras/napoleonic/scenario-index";
 import { ww2ScenarioIndex } from "@lob-sdk/game-data/eras/ww2/scenario-index";
+import { normalizeDamageType } from "./normalize-damage-type";
 
 const SCENARIO_INDEXES: Record<GameEra, ScenarioIndex> = {
   napoleonic: napoleonicScenarioIndex,
@@ -422,7 +423,8 @@ export class GameDataManager {
     if (customDefs.customDamageTypes?.length) {
       // Replace-by-id (and re-key by name) so override doesn't duplicate.
       this.damageTypes = [...this.damageTypes];
-      for (const dt of customDefs.customDamageTypes) {
+      for (const customDamageType of customDefs.customDamageTypes) {
+        const dt = normalizeDamageType(customDamageType);
         const existingIdx = this.damageTypes.findIndex((d) => d.id === dt.id);
         const previousName =
           existingIdx >= 0 ? this.damageTypes[existingIdx].name : null;
