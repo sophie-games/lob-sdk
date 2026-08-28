@@ -76,26 +76,30 @@ export function fireEdgeRegionPolygon(
   const nAng = Math.atan2(ny, nx);
   const steps = Math.max(6, Math.ceil((half * 48) / Math.PI));
 
-  const pts: number[] = [a.x, a.y];
+  const pts: number[] = [];
+  const pushPoint = (x: number, y: number) => {
+    const last = pts.length - 2;
+    if (last < 0 || pts[last] !== x || pts[last + 1] !== y) {
+      pts.push(x, y);
+    }
+  };
+
+  // Pixi divides by segment length while tessellating strokes. Keep every adjacent
+  // pair distinct, including for a one-emitter edge or a valid zero-degree arc.
+  pushPoint(a.x, a.y);
   // a-corner arc: flank ray (nAng - half) sweeping up to dead-ahead (nAng).
   for (let i = 0; i <= steps; i++) {
     const ang = nAng - half + (half * i) / steps;
-    pts.push(a.x + Math.cos(ang) * maxRadius, a.y + Math.sin(ang) * maxRadius);
+    pushPoint(a.x + Math.cos(ang) * maxRadius, a.y + Math.sin(ang) * maxRadius);
   }
   // Flat top at maxRadius spanning the frontage (a-side dead-ahead -> b-side).
-  // A one-emitter face collapses a and b to the same point, so the a-side arc
-  // already ended here. Do not emit the point twice: Pixi's stroke tessellator
-  // divides by segment length and a zero-length segment produces NaN vertices
-  // on the GPU (rendered as long stray lines by some Android drivers).
-  if (a.x !== b.x || a.y !== b.y) {
-    pts.push(b.x + nx * maxRadius, b.y + ny * maxRadius);
-  }
+  pushPoint(b.x + nx * maxRadius, b.y + ny * maxRadius);
   // b-corner arc: dead-ahead (nAng) sweeping out to flank ray (nAng + half).
   for (let i = 1; i <= steps; i++) {
     const ang = nAng + (half * i) / steps;
-    pts.push(b.x + Math.cos(ang) * maxRadius, b.y + Math.sin(ang) * maxRadius);
+    pushPoint(b.x + Math.cos(ang) * maxRadius, b.y + Math.sin(ang) * maxRadius);
   }
-  pts.push(b.x, b.y);
+  pushPoint(b.x, b.y);
   return pts;
 }
 
