@@ -83,7 +83,13 @@ export function fireEdgeRegionPolygon(
     pts.push(a.x + Math.cos(ang) * maxRadius, a.y + Math.sin(ang) * maxRadius);
   }
   // Flat top at maxRadius spanning the frontage (a-side dead-ahead -> b-side).
-  pts.push(b.x + nx * maxRadius, b.y + ny * maxRadius);
+  // A one-emitter face collapses a and b to the same point, so the a-side arc
+  // already ended here. Do not emit the point twice: Pixi's stroke tessellator
+  // divides by segment length and a zero-length segment produces NaN vertices
+  // on the GPU (rendered as long stray lines by some Android drivers).
+  if (a.x !== b.x || a.y !== b.y) {
+    pts.push(b.x + nx * maxRadius, b.y + ny * maxRadius);
+  }
   // b-corner arc: dead-ahead (nAng) sweeping out to flank ray (nAng + half).
   for (let i = 1; i <= steps; i++) {
     const ang = nAng + (half * i) / steps;
