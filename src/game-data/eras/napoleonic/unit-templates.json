@@ -90,7 +90,7 @@
     "flankMeleeOrgModifier": 0.75,
     "walkMovement": 125,
     "runMovement": 195,
-    "timeToRun": 3,
+    "timeToRun": 4,
     "runCost": 10000,
     "hp": 55000,
     "org": 82500,
@@ -105,9 +105,9 @@
     "manpower": 125,
     "gold": 75,
     "unknownType": 22,
-    "rotationSpeed": 0.45,
+    "rotationSpeed": 0.35,
     "rotationMaxThreshold": 0.75,
-    "runRotationSpeed": 0.35,
+    "runRotationSpeed": 0.27,
     "turningDelay": 2,
     "reportStats": {
       "men": 250,
@@ -122,8 +122,8 @@
         "overlaySprite": "dragoons"
       }
     ],
-    "pushStrength": 100,
-    "pushDistance": 0
+    "pushStrength": 16,
+    "pushDistance": 1
   },
   {
     "name": "8lb_artillery",
@@ -276,7 +276,7 @@
     "flankMeleeOrgModifier": 0.75,
     "walkMovement": 125,
     "runMovement": 200,
-    "timeToRun": 3,
+    "timeToRun": 4,
     "runCost": 10000,
     "hp": 45000,
     "org": 90000,
@@ -299,9 +299,9 @@
       "horse": 250,
       "guns": 0
     },
-    "rotationSpeed": 0.48,
+    "rotationSpeed": 0.37,
     "rotationMaxThreshold": 0.77,
-    "runRotationSpeed": 0.38,
+    "runRotationSpeed": 0.3,
     "turningDelay": 2,
     "defaultFormation": "cavalry",
     "formations": [
@@ -311,8 +311,8 @@
         "overlaySprite": "lancers"
       }
     ],
-    "pushStrength": 100,
-    "pushDistance": 0
+    "pushStrength": 12,
+    "pushDistance": 0.8
   },
   {
     "name": "6lb_artillery_horse",
@@ -467,7 +467,7 @@
     "flankMeleeOrgModifier": 0.75,
     "walkMovement": 125,
     "runMovement": 195,
-    "timeToRun": 3,
+    "timeToRun": 4,
     "runCost": 10000,
     "hp": 60000,
     "org": 95000,
@@ -489,9 +489,9 @@
       "horse": 250,
       "guns": 0
     },
-    "rotationSpeed": 0.42,
+    "rotationSpeed": 0.33,
     "rotationMaxThreshold": 0.7,
-    "runRotationSpeed": 0.33,
+    "runRotationSpeed": 0.25,
     "turningDelay": 2,
     "defaultFormation": "cavalry",
     "formations": [
@@ -501,8 +501,8 @@
         "overlaySprite": "cuirassiers"
       }
     ],
-    "pushStrength": 100,
-    "pushDistance": 0
+    "pushStrength": 20,
+    "pushDistance": 1.2
   },
   {
     "name": "6in_howitzer",
@@ -644,7 +644,7 @@
     "flankMeleeOrgModifier": 0.75,
     "walkMovement": 125,
     "runMovement": 205,
-    "timeToRun": 3,
+    "timeToRun": 4,
     "runCost": 10000,
     "hp": 45000,
     "org": 80000,
@@ -665,9 +665,9 @@
       "horse": 250,
       "guns": 0
     },
-    "rotationSpeed": 0.5,
+    "rotationSpeed": 0.37,
     "rotationMaxThreshold": 0.8,
-    "runRotationSpeed": 0.37,
+    "runRotationSpeed": 0.34,
     "turningDelay": 2,
     "defaultFormation": "cavalry",
     "formations": [
@@ -677,8 +677,8 @@
         "overlaySprite": "cavalry"
       }
     ],
-    "pushStrength": 100,
-    "pushDistance": 0
+    "pushStrength": 12,
+    "pushDistance": 0.8
   },
   {
     "name": "12lb_artillery",
@@ -753,7 +753,7 @@
     "flankMeleeOrgModifier": 0.75,
     "walkMovement": 130,
     "runMovement": 205,
-    "timeToRun": 3,
+    "timeToRun": 4,
     "runCost": 10000,
     "hp": 45000,
     "org": 40000,
@@ -778,9 +778,9 @@
       "horse": 250,
       "guns": 0
     },
-    "rotationSpeed": 0.5,
+    "rotationSpeed": 0.37,
     "rotationMaxThreshold": 0.8,
-    "runRotationSpeed": 0.37,
+    "runRotationSpeed": 0.34,
     "turningDelay": 6,
     "defaultFormation": "cavalry",
     "formations": [
@@ -790,8 +790,8 @@
         "overlaySprite": "horse-archers"
       }
     ],
-    "pushStrength": 100,
-    "pushDistance": 0
+    "pushStrength": 12,
+    "pushDistance": 0.8
   },
   {
     "name": "grenadiers",
