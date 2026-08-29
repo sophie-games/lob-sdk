@@ -7,6 +7,15 @@ export enum UserTier {
   Gold = "gold",
 }
 
+/** Public subscription service identity, independent from gameplay access. */
+export enum SubscriptionLevel {
+  None = "none",
+  Officer = "officer",
+  Silver = "silver",
+  General = "general",
+  FieldMarshal = "field_marshal",
+}
+
 export enum LostReason {
   Withdrew = 1,
   TimedOut = 2,
@@ -135,6 +144,8 @@ export interface PlayerInfo {
   countryCode?: string;
   /** Whether this account carries the verified badge. */
   isVerified?: boolean;
+  /** Public subscription badge shown beside the player's identity. */
+  subscriptionLevel?: SubscriptionLevel;
   /**
    * Timestamp when this player submitted their turn (seconds since epoch).
    * Used for Fischer timing. Null if player hasn't submitted.

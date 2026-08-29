@@ -9,7 +9,14 @@
       "silver": "Plata",
       "gold": "Oro"
     },
-    "tierTitle": "Membresía {{tier}}",
+    "subscriptionLevel": {
+      "officer": "Officer",
+      "silver": "Silver",
+      "general": "General",
+      "field_marshal": "Field Marshal"
+    },
+    "serviceTitle": "Suscripción {{service}}",
+    "accessTitle": "Acceso {{tier}}",
     "tierPrestige": "{{amount}} de Prestigio por cada período de beneficios",
     "periodEnds": "Fin del período: {{date}}",
     "provider": {
@@ -29,7 +36,7 @@
       "prestige": "{{amount}} de Prestigio por período pago",
       "analytics": "Analíticas avanzadas del jugador",
       "themes": "Temas personalizados de interfaz",
-      "goldSkin": "Opción de skin de la membresía Gold"
+      "goldSkin": "Opción para desactivar skins"
     },
     "manageStripe": "Administrar con Stripe",
     "managePatreon": "Administrar en Patreon",
@@ -38,7 +45,7 @@
     "openingCheckout": "Abriendo Checkout…",
     "checkoutError": "No se pudo abrir Checkout. Intentá nuevamente.",
     "portalError": "No se pudo abrir la administración de facturación. Intentá nuevamente.",
-    "patreon": "Apoyar en Patreon",
+    "patreon": "Ver opciones de suscripción",
     "nativeStatusOnly": "Esta membresía está disponible en este dispositivo. Administrá la facturación con el proveedor indicado arriba.",
     "nativeNoPurchase": "Las suscripciones nativas no están disponibles en esta versión. Podés usar una membresía ya vinculada a esta cuenta."
   }
