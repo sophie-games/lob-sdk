@@ -267,6 +267,10 @@ export interface DeploymentZoneRect {
 export interface RandomDeploymentZone {
   /** Which units deploy here — see {@link DeploymentZoneType}. */
   role: DeploymentZoneType;
+  /** Player number this zone is reserved for. Omit for a team-wide zone. */
+  player?: number;
+  /** Clockwise rotation in radians around the generated rectangle's center. */
+  rotation?: number;
   rect: DeploymentZoneRect;
 }
 
