@@ -91,6 +91,24 @@ const SCENARIO_INDEXES: Record<GameEra, ScenarioIndex> = {
 };
 
 /**
+ * Damage-type ids persisted in pre-1.7 action streams whose templates were
+ * later merged. These are lookup-only aliases: retired templates stay out of
+ * the catalog, so new games and custom-scenario tooling cannot select them.
+ */
+const LEGACY_DAMAGE_TYPE_NAMES: Partial<
+  Record<GameEra, Readonly<Record<number, string>>>
+> = {
+  napoleonic: {
+    28: "rocket",
+    29: "4lb-cannon-ball",
+    30: "12lb-cannon-ball",
+    31: "8lb-cannon-ball",
+    32: "6lb-cannon-ball",
+    34: "ship-cannon",
+  },
+};
+
+/**
  * Scenario-scoped custom definitions layered onto an era registry by
  * {@link GameDataManager.createWithCustomDefs} / {@link GameDataManager.loadCustomDefs}.
  * Spelled once here so the two methods and the {@link CUSTOM_DEF_PRESENCE}
@@ -1270,10 +1288,16 @@ export class GameDataManager {
    */
   public damageTypeIdToName(id: number): string {
     const template = this._damageTypeMap.get(id);
-    if (!template) {
-      throw new Error(`Damage type with id ${id} not found`);
+    if (template) {
+      return template.name;
     }
-    return template.name;
+
+    const legacyName = LEGACY_DAMAGE_TYPE_NAMES[this.era]?.[id];
+    if (legacyName && this._damageTypeNameMap.has(legacyName)) {
+      return legacyName;
+    }
+
+    throw new Error(`Damage type with id ${id} not found`);
   }
 
   /**

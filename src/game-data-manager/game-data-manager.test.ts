@@ -229,6 +229,22 @@ describe("GameDataManager", () => {
   });
 
   describe("Damage Type Methods", () => {
+    describe("legacy action ids", () => {
+      it.each([
+        [28, "rocket"],
+        [29, "4lb-cannon-ball"],
+        [30, "12lb-cannon-ball"],
+        [31, "8lb-cannon-ball"],
+        [32, "6lb-cannon-ball"],
+        [34, "ship-cannon"],
+      ])("maps retired id %i to current damage type %s", (id, name) => {
+        expect(gameDataManager.damageTypeIdToName(id)).toBe(name);
+        expect(
+          gameDataManager.getDamageTypes().some((type) => type.id === id),
+        ).toBe(false);
+      });
+    });
+
     describe("damageTypeNameToId mapping", () => {
       it("should map every DamageType to its corresponding id", () => {
         const ids = new Set<number>();
