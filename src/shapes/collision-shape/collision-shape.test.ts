@@ -1,4 +1,8 @@
-import { ObbShape, CircleShape } from "./collision-shape";
+import {
+  ObbShape,
+  CircleShape,
+  fireEdgeRegionPolygon,
+} from "./collision-shape";
 import { ShapeType } from "../types";
 
 // A square centred at (cx, cy) with half-size h, in OBB corner order.
@@ -9,6 +13,29 @@ const square = (cx: number, cy: number, h: number) =>
     { x: cx + h, y: cy + h },
     { x: cx - h, y: cy + h },
   ]);
+
+describe("fireEdgeRegionPolygon", () => {
+  it.each([Math.PI / 4, 0])(
+    "does not repeat points in a degenerate one-emitter cone (half arc %s)",
+    (halfArc) => {
+      const points = fireEdgeRegionPolygon(
+        { x: 5, y: 0 },
+        { x: 5, y: 0 },
+        1,
+        0,
+        halfArc,
+        100,
+      );
+
+      for (let i = 2; i < points.length; i += 2) {
+        expect([points[i], points[i + 1]]).not.toEqual([
+          points[i - 2],
+          points[i - 1],
+        ]);
+      }
+    },
+  );
+});
 
 describe("CircleShape", () => {
   it("tags itself a circle and reports its radius as the bounding radius", () => {
