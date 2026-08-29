@@ -1,0 +1,45 @@
+{
+  "membership": {
+    "title": "Membership",
+    "loading": "Loading membership…",
+    "loadError": "We couldn't load your membership right now.",
+    "freeTitle": "Free account",
+    "tier": {
+      "bronze": "Bronze",
+      "silver": "Silver",
+      "gold": "Gold"
+    },
+    "tierTitle": "{{tier}} membership",
+    "tierPrestige": "{{amount}} Prestige every benefit window",
+    "periodEnds": "Period end: {{date}}",
+    "provider": {
+      "stripe": "Billed by Stripe",
+      "patreon": "Billed by Patreon",
+      "manual": "Granted by Lines of Battle support"
+    },
+    "state": {
+      "pending": "Payment pending",
+      "entitled": "Active",
+      "ending": "Ends after the current period",
+      "paused": "Paused",
+      "expired": "Expired",
+      "revoked": "Revoked"
+    },
+    "benefits": {
+      "prestige": "{{amount}} Prestige per paid benefit window",
+      "analytics": "Advanced player analytics",
+      "themes": "Custom interface themes",
+      "goldSkin": "Gold membership skin option"
+    },
+    "manageStripe": "Manage with Stripe",
+    "managePatreon": "Manage on Patreon",
+    "openingPortal": "Opening billing…",
+    "subscribe": "Subscribe",
+    "openingCheckout": "Opening Checkout…",
+    "checkoutError": "Checkout could not be opened. Please try again.",
+    "portalError": "Billing management could not be opened. Please try again.",
+    "patreon": "Support on Patreon",
+    "nativeStatusOnly": "This membership is available on this device. Manage billing with the provider shown above.",
+    "nativeNoPurchase": "Native subscriptions are not available in this release. You can still use a membership already linked to this account."
+  }
+}
