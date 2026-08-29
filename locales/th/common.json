@@ -76,7 +76,20 @@
   "experience": "ค่าประสบการณ์",
   "season": "ซีซั่น",
   "time": "เวลา",
+  "gameTimePreset": {
+    "bullet": "บูลเล็ต"
+  },
+  "timeUnits": {
+    "second": "วิ",
+    "minute": "นาที",
+    "hour": "ชม.",
+    "day": "วัน",
+    "week": "สัปดาห์",
+    "month": "เดือน",
+    "year": "ปี"
+  },
   "of": "จาก",
+  "or": "หรือ",
   "joinedAt": "เข้าร่วมเมื่อ {{date}}",
   "createdAt": "สร้างเมื่อ {{date}}",
   "addPlayer": "เพิ่มผู้เล่น",
@@ -316,6 +329,7 @@
   "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
   "chatSendFailed": "Failed to send message.",
   "limitedMode": {
+    "title": "{{playersPerTeam}} ต่อ {{playersPerTeam}} {{battleTypeName}}",
     "sectionTitle": "กิจกรรม",
     "featured": "แนะนำ",
     "largeScale": "ขนาดใหญ่",
@@ -328,11 +342,20 @@
     "lobbyOpenStatus": "ล็อบบี้เปิดอยู่",
     "lobbyProgress": "ต้องการผู้เล่น {{joined}} / {{required}} คน",
     "lobbyClosesIn": "ล็อบบี้จะปิดใน {{countdown}}",
-    "createAgainIn": "สร้างอีกครั้งได้ใน {{countdown}}"
+    "createAgainIn": "สร้างอีกครั้งได้ใน {{countdown}}",
+    "homeBannerAvailable": "คุณสามารถสร้างเกม {{title}} ได้แล้ว",
+    "create": "สร้าง",
+    "join": "เข้าร่วม",
+    "viewLastGame": "ดูเกมล่าสุด",
+    "mapPoolTitle": "ชุดแผนที่",
+    "mapPoolDescription": "ระบบจะสุ่มเลือกหนึ่งในแผนที่เหล่านี้ โดยถ่วงน้ำหนักตามโอกาสด้านล่าง"
   },
   "challengeClan": "Challenge",
   "arena": {
     "clanChallenge": "Coalition challenge",
-    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}"
+    "clanChallengeBetween": "Challenge between {{clanA}} and {{clanB}}",
+    "status": {
+      "scheduled": "กำหนดเวลาแล้ว"
+    }
   }
 }
