@@ -173,11 +173,18 @@
     "title": "Zonas de despliegue",
     "hint": "Estas zonas definen dónde empieza cada ejército. La fase de despliegue solo agrega un turno 0 para que los jugadores se reacomoden dentro de ellas.",
     "team": "Equipo {{team}}",
+    "wholeTeam": "Todos los jugadores del equipo",
+    "player": "Jugador {{player}}",
     "mainZone": "Principal",
     "forwardZone": "Avanzada",
+    "addMainZone": "Añadir zona principal",
+    "addForwardZone": "Añadir zona avanzada",
+    "removeZone": "Eliminar zona",
     "fields": {
       "x": "X",
-      "y": "Y"
+      "y": "Y",
+      "player": "Asignada a",
+      "rotation": "Rotación (grados)"
     },
     "phaseHelp": "Con la fase de despliegue activada, los jugadores obtienen un turno extra antes de que empiece el combate, únicamente para reacomodar sus unidades dentro de su zona.",
     "gateHelp": "Estas zonas son editables mientras cualquiera de Permitir ejército dinámico, Fase de despliegue u Objetivos colocados por el jugador esté activado, ya que las tres necesitan un lugar donde empiece un ejército que llega. Con las tres desactivadas quedan en gris, y en un mapa procedural también quedan en gris, ya que ahí las zonas se definen como porcentajes en el panel de Mapa aleatorio."

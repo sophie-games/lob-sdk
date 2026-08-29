@@ -171,11 +171,18 @@
     "title": "Zona penempatan",
     "hint": "Zona ini menentukan di mana setiap pasukan memulai. Fase penempatan hanya menambahkan giliran 0 agar pemain dapat mengatur ulang posisi di dalamnya.",
     "team": "Tim {{team}}",
+    "wholeTeam": "Semua pemain tim",
+    "player": "Pemain {{player}}",
     "mainZone": "Utama",
     "forwardZone": "Depan",
+    "addMainZone": "Tambah zona utama",
+    "addForwardZone": "Tambah zona depan",
+    "removeZone": "Hapus zona",
     "fields": {
       "x": "X",
-      "y": "Y"
+      "y": "Y",
+      "player": "Ditugaskan ke",
+      "rotation": "Rotasi (derajat)"
     },
     "phaseHelp": "Dengan fase penempatan aktif, pemain mendapat satu giliran tambahan sebelum pertempuran dimulai, semata-mata untuk mengatur ulang posisi unit di dalam zona mereka.",
     "gateHelp": "Zona ini dapat diedit selama salah satu dari Izinkan pasukan dinamis, Fase penempatan, atau Objektif yang ditempatkan pemain aktif, karena ketiganya sama-sama memerlukan tempat bagi pasukan yang datang untuk memulai. Dengan ketiganya nonaktif, zona ini berwarna abu-abu, dan pada peta prosedural zona ini juga berwarna abu-abu, karena di sana zona ditulis sebagai persentase di panel Peta Acak."

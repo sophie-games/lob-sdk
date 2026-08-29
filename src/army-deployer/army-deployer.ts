@@ -8,7 +8,11 @@ import {
 } from "@lob-sdk/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { DeploymentSection } from "@lob-sdk/game-data-manager";
-import { divideArrayInHalf, getClosestPointInsideZone } from "@lob-sdk/utils";
+import {
+  divideArrayInHalf,
+  getClosestPointInsideZone,
+  rotatePointAroundZoneCenter,
+} from "@lob-sdk/utils";
 
 /**
  * Metrics for calculating unit deployment positions within the deployment zone.
@@ -184,15 +188,14 @@ export class ArmyDeployer {
     const template = this.gameDataManager
       .getUnitTemplateManager()
       .getTemplate(type);
+    const zone = template.canDeployForward
+      ? this.forwardDeploymentZone
+      : this.mainDeploymentZone;
+    const rotatedPosition = rotatePointAroundZoneCenter(zone, { x, y });
 
     this.unitDtos.push({
       player: this.player,
-      pos: getClosestPointInsideZone(
-        template.canDeployForward
-          ? this.forwardDeploymentZone
-          : this.mainDeploymentZone,
-        { x, y },
-      ),
+      pos: getClosestPointInsideZone(zone, rotatedPosition),
       rotation: this.rotation,
       type,
     });

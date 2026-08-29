@@ -173,11 +173,18 @@
     "title": "Felállítási zónák",
     "hint": "Ezek a zónák határozzák meg, hol indul minden hadsereg. A felállítási fázis csak egy 0. kört ad hozzá, amelyben a játékosok átrendezhetnek a zónákon belül.",
     "team": "{{team}}. csapat",
+    "wholeTeam": "A csapat összes játékosa",
+    "player": "{{player}}. játékos",
     "mainZone": "Fő",
     "forwardZone": "Előretolt",
+    "addMainZone": "Fő zóna hozzáadása",
+    "addForwardZone": "Előretolt zóna hozzáadása",
+    "removeZone": "Zóna eltávolítása",
     "fields": {
       "x": "X",
-      "y": "Y"
+      "y": "Y",
+      "player": "Hozzárendelve",
+      "rotation": "Forgatás (fok)"
     },
     "phaseHelp": "Bekapcsolt felállítási fázissal a játékosok egy extra kört kapnak a harc kezdete előtt, pusztán azért, hogy a zónájukon belül átrendezzék az egységeiket.",
     "gateHelp": "Ezek a zónák akkor szerkeszthetők, ha a Dinamikus sereg engedélyezése, a Felállítási fázis vagy a Játékos által elhelyezett objektívák közül bármelyik be van kapcsolva, mivel mindháromhoz kell egy hely, ahonnan az érkező sereg indul. Ha mindhárom ki van kapcsolva, szürkék, és procedurális térképen szintén szürkék, mivel ott a zónákat százalékként a Véletlenszerű pálya panelen kell megadni."

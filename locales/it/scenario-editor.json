@@ -173,11 +173,18 @@
     "title": "Zone di schieramento",
     "hint": "Queste zone definiscono dove inizia ogni esercito. La fase di schieramento aggiunge solo un turno 0 perché i giocatori si riorganizzino al loro interno.",
     "team": "Squadra {{team}}",
+    "wholeTeam": "Tutti i giocatori della squadra",
+    "player": "Giocatore {{player}}",
     "mainZone": "Principale",
     "forwardZone": "Avanzata",
+    "addMainZone": "Aggiungi zona principale",
+    "addForwardZone": "Aggiungi zona avanzata",
+    "removeZone": "Rimuovi zona",
     "fields": {
       "x": "X",
-      "y": "Y"
+      "y": "Y",
+      "player": "Assegnata a",
+      "rotation": "Rotazione (gradi)"
     },
     "phaseHelp": "Con la fase di schieramento attiva, i giocatori ottengono un turno extra prima che inizi il combattimento, solo per riorganizzare le proprie unità all'interno della propria zona.",
     "gateHelp": "Queste zone sono modificabili quando almeno una tra Consenti esercito dinamico, Fase di schieramento o Obiettivi posizionati dai giocatori è attiva, poiché ciascuna delle tre ha bisogno di un punto da cui far partire un esercito in arrivo. Con tutte e tre disattive sono in grigio, e su una mappa procedurale sono in grigio anche in quel caso, poiché lì le zone sono definite come percentuali nel pannello Mappa casuale."

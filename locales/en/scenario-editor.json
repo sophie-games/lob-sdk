@@ -170,15 +170,22 @@
   },
   "deployment": {
     "title": "Deployment zones",
-    "hint": "These zones are where each army starts the battle.",
+    "hint": "Each team can have several zones, with individual zones reserved for a player when needed.",
     "phaseHelp": "With the deployment phase on, players get one extra turn before the fighting begins, purely to shuffle their units around inside their zone.",
     "gateHelp": "These zones are editable while any one of Allow dynamic army, Deployment phase or Player-placed objectives is on, since each of the three needs somewhere for an arriving army to start. With all three off they are grayed, and on a procedural map they are grayed as well, the zones there being authored as percentages in the Random map panel instead.",
     "team": "Team {{team}}",
+    "wholeTeam": "All team players",
+    "player": "Player {{player}}",
     "mainZone": "Main",
     "forwardZone": "Forward",
+    "addMainZone": "Add main zone",
+    "addForwardZone": "Add forward zone",
+    "removeZone": "Remove zone",
     "fields": {
       "x": "X",
-      "y": "Y"
+      "y": "Y",
+      "player": "Assigned to",
+      "rotation": "Rotation (degrees)"
     }
   },
   "vpBalance": {

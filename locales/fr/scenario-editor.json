@@ -173,11 +173,18 @@
     "title": "Zones de déploiement",
     "hint": "Ces zones définissent où chaque armée commence. La phase de déploiement ajoute seulement un tour 0 pour que les joueurs se réorganisent à l'intérieur.",
     "team": "Équipe {{team}}",
+    "wholeTeam": "Tous les joueurs de l'équipe",
+    "player": "Joueur {{player}}",
     "mainZone": "Principale",
     "forwardZone": "Avancée",
+    "addMainZone": "Ajouter une zone principale",
+    "addForwardZone": "Ajouter une zone avancée",
+    "removeZone": "Supprimer la zone",
     "fields": {
       "x": "X",
-      "y": "Y"
+      "y": "Y",
+      "player": "Assignée à",
+      "rotation": "Rotation (degrés)"
     },
     "phaseHelp": "Avec la phase de déploiement activée, les joueurs disposent d'un tour supplémentaire avant le début des combats, uniquement pour réorganiser leurs unités à l'intérieur de leur zone.",
     "gateHelp": "Ces zones sont modifiables tant que l'une des options Armée dynamique autorisée, Phase de déploiement ou Objectifs placés par les joueurs est activée, chacune des trois ayant besoin d'un endroit où une armée arrivante puisse démarrer. Avec les trois désactivées, elles sont grisées, et sur une carte procédurale elles sont grisées également, les zones y étant définies sous forme de pourcentages dans le panneau Carte aléatoire à la place."

@@ -173,11 +173,18 @@
     "title": "Aufstellungszonen",
     "hint": "Diese Zonen legen fest, wo jede Armee startet. Die Aufstellungsphase fügt lediglich einen Zug 0 hinzu, in dem die Spieler sich darin neu ordnen können.",
     "team": "Team {{team}}",
+    "wholeTeam": "Alle Teamspieler",
+    "player": "Spieler {{player}}",
     "mainZone": "Haupt",
     "forwardZone": "Vorgeschoben",
+    "addMainZone": "Hauptzone hinzufügen",
+    "addForwardZone": "Vorgeschobene Zone hinzufügen",
+    "removeZone": "Zone entfernen",
     "fields": {
       "x": "X",
-      "y": "Y"
+      "y": "Y",
+      "player": "Zugewiesen an",
+      "rotation": "Drehung (Grad)"
     },
     "phaseHelp": "Mit aktivierter Aufstellungsphase erhalten die Spieler einen zusätzlichen Zug, bevor die Kämpfe beginnen, nur um ihre Einheiten innerhalb ihrer Zone neu zu ordnen.",
     "gateHelp": "Diese Zonen sind bearbeitbar, solange eine der drei Optionen Dynamische Armee erlauben, Aufstellungsphase oder Spielerplatzierte Ziele aktiviert ist, da jede von ihnen einen Startpunkt für eine ankommende Armee benötigt. Sind alle drei deaktiviert, sind sie ausgegraut, und auf einer prozeduralen Karte sind sie ebenfalls ausgegraut, da die Zonen dort stattdessen als Prozentwerte im Panel Zufällige Karte festgelegt werden."

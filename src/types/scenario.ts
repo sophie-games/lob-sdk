@@ -93,6 +93,11 @@ export type DeploymentZoneType = "main" | "forward";
 export interface TeamDeploymentZone {
   /** The team number this zone belongs to. */
   team: number;
+  /**
+   * Player number this zone is reserved for. Omit for a team-wide zone, which
+   * keeps the legacy behavior of being divided between that team's players.
+   */
+  player?: number;
   /** Whether the zone is a main or a forward (skirmisher-allowed) zone. */
   type: DeploymentZoneType;
   /** X coordinate of the zone's top-left corner. */
@@ -103,6 +108,8 @@ export interface TeamDeploymentZone {
   width: number;
   /** Height of the deployment zone. */
   height: number;
+  /** Clockwise rotation in radians around the zone's center. Defaults to 0. */
+  rotation?: number;
 }
 
 /**

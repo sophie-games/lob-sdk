@@ -177,11 +177,18 @@
     "title": "Strefy rozstawienia",
     "hint": "Te strefy określają, gdzie zaczyna każda armia. Faza rozstawienia dodaje tylko turę 0, w której gracze mogą przestawić jednostki w ich obrębie.",
     "team": "Drużyna {{team}}",
+    "wholeTeam": "Wszyscy gracze drużyny",
+    "player": "Gracz {{player}}",
     "mainZone": "Główna",
     "forwardZone": "Wysunięta",
+    "addMainZone": "Dodaj strefę główną",
+    "addForwardZone": "Dodaj strefę wysuniętą",
+    "removeZone": "Usuń strefę",
     "fields": {
       "x": "X",
-      "y": "Y"
+      "y": "Y",
+      "player": "Przypisana do",
+      "rotation": "Obrót (stopnie)"
     },
     "phaseHelp": "Gdy faza rozstawienia jest włączona, gracze dostają jedną dodatkową turę przed rozpoczęciem walki, wyłącznie po to, by przestawić jednostki w obrębie swojej strefy.",
     "gateHelp": "Te strefy można edytować, gdy włączona jest którakolwiek z opcji: Zezwól na dynamiczną armię, Faza rozstawienia lub Cele rozstawiane przez graczy, ponieważ każda z tych trzech potrzebuje miejsca, w którym przybywająca armia zaczyna. Gdy wszystkie trzy są wyłączone, strefy są wyszarzone; na mapie proceduralnej także są wyszarzone, ponieważ tam definiuje się je w procentach w panelu Mapa losowa."

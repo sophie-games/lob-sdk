@@ -173,11 +173,18 @@
     "title": "Yerleşim bölgeleri",
     "hint": "Bu bölgeler her ordunun nerede başlayacağını belirler. Yerleşim aşaması yalnızca oyuncuların bölgeler içinde yeniden düzenleme yapabileceği bir 0. tur ekler.",
     "team": "Takım {{team}}",
+    "wholeTeam": "Takımdaki tüm oyuncular",
+    "player": "Oyuncu {{player}}",
     "mainZone": "Ana",
     "forwardZone": "İleri",
+    "addMainZone": "Ana bölge ekle",
+    "addForwardZone": "İleri bölge ekle",
+    "removeZone": "Bölgeyi kaldır",
     "fields": {
       "x": "X",
-      "y": "Y"
+      "y": "Y",
+      "player": "Atanan oyuncu",
+      "rotation": "Döndürme (derece)"
     },
     "phaseHelp": "Yerleşim aşaması açıkken oyuncular, çarpışma başlamadan önce yalnızca birimlerini kendi bölgeleri içinde yeniden dizmek için fazladan bir tur kazanır.",
     "gateHelp": "Dinamik orduya izin ver, Yerleşim aşaması veya Oyuncunun yerleştirdiği hedefler seçeneklerinden herhangi biri açıkken bu bölgeler düzenlenebilir; çünkü üçünün de gelen bir ordunun başlayacağı bir yere ihtiyacı vardır. Üçü de kapalıyken soluklaşır; prosedürel bir haritada da soluklaşır, çünkü oradaki bölgeler bunun yerine Rastgele Harita panelinde yüzde olarak yazılır."
