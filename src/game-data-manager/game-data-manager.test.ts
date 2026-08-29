@@ -273,6 +273,14 @@ describe("GameDataManager", () => {
   });
 
   describe("Unit Skins", () => {
+    it("uses blue attacks for the Rebellious AI Guards in column", () => {
+      const skin = gameDataManager
+        .getUnitSkins()
+        .find(({ name }) => name === "the-rebellious-ai-guards");
+
+      expect(skin?.formations.column?.attackColor).toBe("0000ff");
+    });
+
     it("should not have repeated skin ids", () => {
       const ids = new Set<number>();
       const skins = gameDataManager.getUnitSkins();
