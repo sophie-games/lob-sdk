@@ -2,6 +2,7 @@ import {
   GameDataManager,
   STAT_PRECISION_SCALE,
 } from "@lob-sdk/game-data-manager";
+import type { RangedDamageTypeTemplate } from "@lob-sdk/game-data-manager/types";
 
 describe("Napoleonic balance", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
@@ -105,6 +106,171 @@ describe("Napoleonic balance", () => {
         gameDataManager.getDamageTypeByName(damageType);
 
       expect(orgDamageRatio / STAT_PRECISION_SCALE).toBe(450);
+    }
+  });
+
+  it("uses the requested artillery canister and long-range field-gun balance", () => {
+    const canisterNames = [
+      "18lb-canister-fire",
+      "12lb-canister-fire",
+      "10lb-canister-fire",
+      "8lb-canister-fire",
+      "6lb-canister-fire",
+      "4lb-canister-fire",
+      "howitzer-canister",
+    ];
+
+    for (const name of canisterNames) {
+      const canister =
+        gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(name);
+
+      expect(canister.orgDamageRatio / STAT_PRECISION_SCALE).toBe(285);
+    }
+
+    const normalCanisterAmmo = {
+      "12lb-canister-fire": 193,
+      "8lb-canister-fire": 187,
+      "6lb-canister-fire": 180,
+      "4lb-canister-fire": 175,
+    };
+
+    for (const [name, ammoCost] of Object.entries(normalCanisterAmmo)) {
+      const canister =
+        gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(name);
+
+      expect(canister.ammoCost! / STAT_PRECISION_SCALE).toBe(ammoCost);
+      expect(canister.ranges).toMatchObject([
+        {
+          name: "close",
+          damageModifier: { near: 3.5, far: 2.7 },
+        },
+        {
+          name: "long",
+          damageModifier: { near: 2.2, far: 1 },
+        },
+      ]);
+    }
+
+    expect(
+      gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(
+        "18lb-canister-fire",
+      ).ammoCost! / STAT_PRECISION_SCALE,
+    ).toBe(193);
+    expect(
+      gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(
+        "10lb-canister-fire",
+      ).ammoCost! / STAT_PRECISION_SCALE,
+    ).toBe(187);
+    expect(
+      gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(
+        "howitzer-canister",
+      ).ammoCost! / STAT_PRECISION_SCALE,
+    ).toBe(197);
+
+    for (const name of [
+      "12lb-cannon-ball",
+      "8lb-cannon-ball",
+      "6lb-cannon-ball",
+      "4lb-cannon-ball",
+    ]) {
+      const cannonBall =
+        gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(name);
+      const longRange = cannonBall.ranges.find((range) => range.name === "long");
+
+      expect(longRange).toMatchObject({
+        damageModifier: { near: 0.25, far: -0.65 },
+        orgDamageModifier: { near: 0.24, far: 0.31 },
+      });
+    }
+  });
+
+  it("uses eight-gun tallies and 100 push strength for combat artillery", () => {
+    const artilleryNames = [
+      "8lb_artillery",
+      "6lb_artillery_horse",
+      "6in_howitzer",
+      "12lb_artillery",
+      "4lb_artillery",
+      "6lb_artillery",
+      "rockets",
+      "10lb_licorne",
+      "18lb_licorne",
+    ];
+    const artillery = gameDataManager
+      .getUnitTemplateManager()
+      .getTemplates()
+      .filter((template) => artilleryNames.includes(template.name));
+
+    expect(artillery).toHaveLength(artilleryNames.length);
+    for (const unit of artillery) {
+      expect(unit.pushStrength).toBe(100);
+      expect(unit.reportStats!.guns).toBe(unit.name === "rockets" ? 6 : 8);
+    }
+  });
+
+  it("uses the requested Licorne shell balance", () => {
+    const tenPound =
+      gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(
+        "10lb-explosive-shell",
+      );
+    const eighteenPound =
+      gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(
+        "18lb-explosive-shell",
+      );
+
+    expect(tenPound.reorgDebuff).toBe(0.85);
+    expect(tenPound.areaOfEffect).toMatchObject({
+      edgeDamageModifier: -0.65,
+      ranges: [{ startRadius: 32, endRadius: 38 }],
+    });
+    expect(eighteenPound.areaOfEffect).toMatchObject({
+      edgeDamageModifier: -0.7,
+    });
+  });
+
+  it("uses the requested infantry, column, and cavalry charge balance", () => {
+    const unitTemplates = gameDataManager
+      .getUnitTemplateManager()
+      .getTemplates();
+    const expectedInfantry = [
+      "line_infantry",
+      "guards",
+      "light_infantry",
+      "militia",
+      "grenadiers",
+      "skirmishers",
+      "rifles",
+    ];
+
+    for (const name of expectedInfantry) {
+      const unit = unitTemplates.find((template) => template.name === name);
+
+      expect(unit?.flankChargePenBonus).toBe(0.25);
+    }
+
+    expect(
+      unitTemplates.find((template) => template.name === "grenadiers")
+        ?.chargePenetration,
+    ).toBe(0.9);
+
+    expect(
+      gameDataManager.getFormationManager().getTemplate("column"),
+    ).toMatchObject({
+      chargeResistanceModifier: 0.1,
+      rangedOrgResistance: 0.3,
+      receivedMeleeDamageModifier: 0,
+    });
+
+    for (const category of [
+      "midCavalry",
+      "scoutCavalry",
+      "lightCavalry",
+      "heavyCavalry",
+    ]) {
+      const cavalry = gameDataManager.getUnitCategoryTemplate(category);
+
+      expect(cavalry.damageTypeResistances?.bayonet).toBe(-0.25);
+      expect(cavalry.chargeStaminaCost! / STAT_PRECISION_SCALE).toBe(25);
     }
   });
 });

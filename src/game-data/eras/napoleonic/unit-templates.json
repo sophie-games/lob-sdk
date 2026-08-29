@@ -12,7 +12,7 @@
     "chargeResistance": 0.5,
     "runChargeResistanceModifier": -1.1,
     "chargePenetration": 0.65,
-    "flankChargePenBonus": 0.55,
+    "flankChargePenBonus": 0.25,
     "flankMeleeOrgModifier": 1,
     "walkMovement": 70,
     "runMovement": 110,
@@ -180,7 +180,7 @@
         "overlaySprite": null
       }
     ],
-    "pushStrength": 0,
+    "pushStrength": 100,
     "pushDistance": 0
   },
   {
@@ -196,7 +196,7 @@
     "chargeResistance": 0.55,
     "runChargeResistanceModifier": -0.75,
     "chargePenetration": 0.75,
-    "flankChargePenBonus": 0.65,
+    "flankChargePenBonus": 0.25,
     "flankMeleeOrgModifier": 1,
     "walkMovement": 70,
     "runMovement": 110,
@@ -357,7 +357,7 @@
     "reportStats": {
       "men": 84,
       "horse": 64,
-      "guns": 6
+      "guns": 8
     },
     "rotationSpeed": 0.4,
     "rotationMaxThreshold": 3,
@@ -370,7 +370,7 @@
         "overlaySprite": "horse-artillery"
       }
     ],
-    "pushStrength": 0,
+    "pushStrength": 100,
     "pushDistance": 0
   },
   {
@@ -386,7 +386,7 @@
     "chargeResistance": 0.5,
     "runChargeResistanceModifier": -1.1,
     "chargePenetration": 0.65,
-    "flankChargePenBonus": 0.55,
+    "flankChargePenBonus": 0.25,
     "flankMeleeOrgModifier": 1,
     "walkMovement": 70,
     "runMovement": 125,
@@ -544,7 +544,7 @@
     "reportStats": {
       "men": 80,
       "horse": 24,
-      "guns": 6
+      "guns": 8
     },
     "rotationSpeed": 0.75,
     "rotationMaxThreshold": 3,
@@ -557,7 +557,7 @@
         "overlaySprite": null
       }
     ],
-    "pushStrength": 0,
+    "pushStrength": 100,
     "pushDistance": 0
   },
   {
@@ -573,7 +573,7 @@
     "chargeResistance": 0.1,
     "runChargeResistanceModifier": -1.1,
     "chargePenetration": 0.2,
-    "flankChargePenBonus": 0.55,
+    "flankChargePenBonus": 0.25,
     "flankMeleeOrgModifier": 0.75,
     "walkMovement": 70,
     "runMovement": 110,
@@ -733,7 +733,7 @@
         "overlaySprite": null
       }
     ],
-    "pushStrength": 0,
+    "pushStrength": 100,
     "pushDistance": 0
   },
   {
@@ -805,8 +805,8 @@
     "chargeBonus": 6500,
     "chargeResistance": 0.6,
     "runChargeResistanceModifier": -0.75,
-    "chargePenetration": 1,
-    "flankChargePenBonus": 0.4,
+    "chargePenetration": 0.9,
+    "flankChargePenBonus": 0.25,
     "flankMeleeOrgModifier": 1,
     "walkMovement": 70,
     "runMovement": 115,
@@ -912,7 +912,7 @@
     "reportStats": {
       "men": 64,
       "horse": 40,
-      "guns": 6
+      "guns": 8
     },
     "rotationSpeed": 0.4,
     "rotationMaxThreshold": 3,
@@ -925,7 +925,7 @@
         "overlaySprite": null
       }
     ],
-    "pushStrength": 0,
+    "pushStrength": 100,
     "pushDistance": 0
   },
   {
@@ -938,6 +938,7 @@
     "meleeDamageType": "bayonet",
     "rangedDamageTypes": ["marksman-musket"],
     "chargeBonus": 0,
+    "flankChargePenBonus": 0.25,
     "walkMovement": 70,
     "runMovement": 130,
     "timeToRun": 4,
@@ -992,6 +993,7 @@
     "meleeDamageType": "bayonet",
     "rangedDamageTypes": ["rifle"],
     "chargeBonus": 0,
+    "flankChargePenBonus": 0.25,
     "walkMovement": 70,
     "runMovement": 135,
     "timeToRun": 4,
@@ -1088,7 +1090,7 @@
         "overlaySprite": null
       }
     ],
-    "pushStrength": 0,
+    "pushStrength": 100,
     "pushDistance": 0
   },
   {
@@ -1145,7 +1147,7 @@
         "overlaySprite": "rockets"
       }
     ],
-    "pushStrength": 0,
+    "pushStrength": 100,
     "pushDistance": 0
   },
   {
@@ -1365,7 +1367,7 @@
     "reportStats": {
       "men": 104,
       "horse": 32,
-      "guns": 6
+      "guns": 8
     },
     "defaultFormation": "artillery",
     "formations": [
@@ -1375,7 +1377,7 @@
         "overlaySprite": null
       }
     ],
-    "pushStrength": 0,
+    "pushStrength": 100,
     "pushDistance": 0
   },
   {
@@ -1424,7 +1426,7 @@
     "reportStats": {
       "men": 122,
       "horse": 54,
-      "guns": 6
+      "guns": 8
     },
     "defaultFormation": "artillery",
     "formations": [
@@ -1434,7 +1436,7 @@
         "overlaySprite": null
       }
     ],
-    "pushStrength": 0,
+    "pushStrength": 100,
     "pushDistance": 0
   },
   {

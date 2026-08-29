@@ -61,7 +61,7 @@
   },
   {
     "id": "midCavalry",
-    "chargeStaminaCost": 10000,
+    "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
     "deploymentSection": "front",
     "firingAltitude": 0.98,
@@ -69,7 +69,7 @@
       "baseSpeed": "run"
     },
     "damageTypeResistances": {
-      "bayonet": -0.35,
+      "bayonet": -0.25,
       "cavalry-sabre": 0,
       "musket": -0.35,
       "marksman-musket": -0.35,
@@ -163,7 +163,7 @@
   },
   {
     "id": "scoutCavalry",
-    "chargeStaminaCost": 10000,
+    "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
     "deploymentSection": "front",
     "firingAltitude": 0.98,
@@ -171,7 +171,7 @@
       "baseSpeed": "run"
     },
     "damageTypeResistances": {
-      "bayonet": -0.35,
+      "bayonet": -0.25,
       "dragoon-sword": 0,
       "cavalry-sword": 0,
       "musket": -0.5,
@@ -209,7 +209,7 @@
   },
   {
     "id": "lightCavalry",
-    "chargeStaminaCost": 10000,
+    "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
     "deploymentSection": "front",
     "firingAltitude": 0.98,
@@ -217,7 +217,7 @@
       "baseSpeed": "run"
     },
     "damageTypeResistances": {
-      "bayonet": -0.35,
+      "bayonet": -0.25,
       "cavalry-sword": 0,
       "dragoon-sword": 0,
       "cavalry-sabre": 0,
@@ -255,7 +255,7 @@
   },
   {
     "id": "heavyCavalry",
-    "chargeStaminaCost": 10000,
+    "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
     "deploymentSection": "front",
     "firingAltitude": 0.98,
@@ -263,7 +263,7 @@
       "baseSpeed": "run"
     },
     "damageTypeResistances": {
-      "bayonet": -0.35,
+      "bayonet": -0.25,
       "cavalry-sabre": 0,
       "dragoon-sword": 0,
       "musket": -0.4,
