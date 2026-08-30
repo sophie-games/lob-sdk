@@ -228,7 +228,27 @@
     "errIdInUse": "Formasyon id \"{{id}}\" zaten kullanımda",
     "errEdgeIndex": "Ateş kenarı {{n}}: kenar indeksi 0-3 olmalı",
     "errEdgeArc": "Ateş kenarı {{n}}: yay 0 ile 360 arasında olmalı",
-    "errEdgeEmitters": "Ateş kenarı {{n}}: yayıcılar pozitif bir tam sayı olmalı"
+    "errEdgeEmitters": "Ateş kenarı {{n}}: yayıcılar pozitif bir tam sayı olmalı",
+    "rangedResistance": "Uzak menzil direnci",
+    "rangedResistanceHelp": "Bu formasyonun gelen ateşe nasıl dayandığı: ne kadar hasarı ve org kaybını savuşturduğu ve atışların içinden geçip arkasında duranlara ulaşıp ulaşmadığı.",
+    "friendlyFireImmuneDamageTypes": "Şu türlerin dost ateşine karşı bağışık",
+    "firepowerPooling": "Ateş gücü havuzlaması",
+    "firepowerPoolingHelp": "Bu formasyonun ateş gücünün ateş kenarları arasında nasıl bölündüğü. Paylaşımlı seçeneği tüm birime tek bir havuz verir, böylece her yüzünden ateş eden bir kare her kenara gücünün yalnızca bir kısmını koyar. Kenar başına tam havuz ise her kenara birimin ateş gücünün tamamını verir; bir geminin her iki bordasından da tam yaylım ateşi açması böyle olur.",
+    "firepowerPoolingShared": "Tüm kenarlar arasında paylaşımlı",
+    "firepowerPoolingPerEdge": "Kenar başına tam havuz",
+    "effects": "Bu formasyona geçerken uygulanan etkiler",
+    "effectsHelp": "Bir birim bu formasyona geçtiği anda ona uygulanan ve verilen tick sayısı kadar süren etkiler. Dönem bunu bugün tek bir yerde kullanır: kaçış formasyonu 12 tick boyunca Düşmanların içinden geçebilir verir; bozulan bir birim hatların içine yığılmak yerine böylece aralarından koşarak geçer.",
+    "effect": "Etki",
+    "effectDuration": "Süre (ticks)",
+    "effectReorgDebuff": "Yeniden örgütlenme cezası",
+    "effectInfo": {
+      "been_in_melee": "Bir birimi yakın zamanda yakın dövüşte bulunmuş olarak işaretler ve süre boyunca düzensiz tutar.",
+      "can_pass_through_enemies": "Birimin düşman birimlere çarpmak yerine içlerinden geçmesini sağlar.",
+      "has_ran": "Bir birimi yakın zamanda koşmuş olarak işaretler; koşmaya bağlı hücum direnci cezası buna dayanır.",
+      "rotated_180": "Bir birimi az önce geri dönmüş olarak işaretler; 180 derecelik bir dönüşün ardında bıraktığı durum budur.",
+      "started_routing": "Bir birimi az önce bozulmuş olarak işaretler; bir kaçışı başlatan durum budur.",
+      "taken_fire": "Bir birimi yakın zamanda ateş altında kalmış olarak işaretler ve süre boyunca düzensiz tutar."
+    }
   },
   "unitTemplateModal": {
     "title": "Özel birim şablonunu düzenle",
@@ -287,7 +307,13 @@
     "pushStrength": "İtme gücü",
     "pushDistance": "İtme mesafesi",
     "maxEntrenchment": "Maks siper",
-    "locked": "Kilitli"
+    "locked": "Kilitli",
+    "unlimberTime": "Yerleşme süresi (ticks)",
+    "unlimberTimeHelp": "Bu birimin hareket ettikten sonra Koştu işaretini kaç tick taşıyacağı. Hasar tipi koşudan sonra kullanılamayan bir silah, bu işaret üzerindeyken kullanılamaz; dolayısıyla bir top için bu, yerleşme gecikmesidir: dönemin bataryaları 4 libreli bir topta 3 ile 18 libreli bir Licorne'da 14 arasında değişir. Bir birimin hiç yerleşip yerleşmediği burada değil, silahta ayarlanır: hasar tipinde Koştuktan sonra kullanılamaz kutusunu işaretleyin. Kutuyu boş bırakmak EFFECT_HAS_RAN_TICKS oyun sabitine geri döner, bu da yayımlanan her iki dönemde de 12'dir; 0 girmek de aynı şeyi yapar, yani buraya girilen hiçbir değer gecikmeyi kapatmaz. En kısası 1'dir.",
+    "runChargeResistanceModifier": "Koşma hücum direnci değiştirici",
+    "runChargeResistanceModifierHelp": "Bu birimin hücum direncine eklenir, ancak yalnızca hareketten gelen Koştu işaretini taşıdığı sürece. İşaret sona erdiğinde hiçbir etkisi kalmaz. Negatif değer, bir birimi hareket ettikten sonraki anlarda daha kolay ezilir kılar; yürüyüş hâlindeki bir bataryayı süvarinin insafına bırakan da budur: dönemin 8 libreli topları -0.75 kullanır. Bu sürenin ne kadar olacağı yukarıdaki Yerleşme süresi alanıyla belirlenir.",
+    "changeAnimations": "Değişim animasyonları (şu formasyona)",
+    "changeAnimationsHelp": "Bir birim bu formasyondan bir başkasına geçerken oynatılan animasyon. Önce geçtiği formasyonu, sonra bu sırada oynatılacak animasyonu seçin. Burada satırı olmayan bir geçiş bozuk değildir: birim aradaki hiçbir şey olmadan bir sprite'tan diğerine geçer; bugün girdisi olmayan her formasyonda olan budur. Liste bu dönemin sunduğu animasyonları içerir ve dönemin hat piyadesi bunlardan altısını kullanır."
   },
   "unitCategoryModal": {
     "title": "Özel birim kategorisini düzenle",
@@ -364,7 +390,8 @@
       "projectile": "Mermi",
       "rangeBrackets": "Menzil aralıkları",
       "areaOfEffect": "Etki alanı",
-      "targetStatModifiers": "Hedef istatistiğine göre değiştiriciler"
+      "targetStatModifiers": "Hedef istatistiğine göre değiştiriciler",
+      "melee": "Yakın dövüş"
     },
     "fields": {
       "ranged": "Uzak mesafe",
@@ -380,7 +407,9 @@
       "canShootLocation": "Bir konuma ateş edebilir",
       "aimMode": "Nişan modu",
       "maxRange": "Maks. menzil",
-      "engagementTier": "Otomatik ateş kademesi"
+      "engagementTier": "Otomatik ateş kademesi",
+      "shotImpactAnim": "Çarpma animasyonu",
+      "bandName": "Menzil aralığı"
     },
     "aimMode": {
       "targetCenter": "Hedef merkezi (dairesel patlamalar)",
@@ -409,7 +438,10 @@
       "startBottomWidth": "Başlangıç alt genişliği",
       "endBottomWidth": "Bitiş alt genişliği",
       "startHeight": "Başlangıç yüksekliği",
-      "endHeight": "Bitiş yüksekliği"
+      "endHeight": "Bitiş yüksekliği",
+      "heightModifierPerLevelHelp": "İlkinden sonraki her yükselti seviyesi farkı için patlama şeklinin derinliğini bu oranda değiştirir. Negatif değer alanı daraltır, pozitif değer uzatır. Dönemin gülleleri -0.15 kullanır.",
+      "damageModifierPerLevelHelp": "İlkinden sonraki her yükselti seviyesi farkı için bu hasar değiştiricisini ekler. Negatif değer vuruşu yumuşatır, pozitif değer sertleştirir. Dönemin gülleleri -0.05 kullanır.",
+      "maxElevationDiffHelp": "Sayılabilecek en fazla yükselti seviyesi farkı. Fark mutlak değer olarak ölçülür, bu yüzden yukarı ve aşağı ateş etmek aynı sayılır ve bir seviye ya da daha az fark hiçbir şey uygulamaz. Dönemin gülleleri 4 ile sınırlıdır."
     },
     "addRangeBracket": "Menzil aralığı ekle",
     "addAreaOfEffect": "Etki alanı ekle",

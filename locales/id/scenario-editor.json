@@ -226,7 +226,27 @@
     "errIdInUse": "ID formasi \"{{id}}\" sudah digunakan",
     "errEdgeIndex": "Tepi tembak {{n}}: indeks tepi harus 0-3",
     "errEdgeArc": "Tepi tembak {{n}}: busur harus antara 0 dan 360",
-    "errEdgeEmitters": "Tepi tembak {{n}}: pemancar harus berupa bilangan bulat positif"
+    "errEdgeEmitters": "Tepi tembak {{n}}: pemancar harus berupa bilangan bulat positif",
+    "rangedResistance": "Ketahanan jarak jauh",
+    "rangedResistanceHelp": "Seberapa tangguh formasi ini menghadapi tembakan yang datang: berapa banyak kerusakan dan kehilangan org yang ditahannya, dan apakah tembakan menembusnya hingga mengenai apa pun yang berada di belakangnya.",
+    "friendlyFireImmuneDamageTypes": "Kebal terhadap tembakan kawan dari",
+    "firepowerPooling": "Pembagian daya tembak",
+    "firepowerPoolingHelp": "Bagaimana daya tembak formasi ini dibagi di antara tepi tembaknya. Dibagi memberi seluruh unit satu kumpulan, sehingga formasi kotak yang menembak dari setiap sisi hanya menaruh sebagian kecil kekuatannya di masing masing sisi. Kumpulan penuh per tepi memberi setiap tepi seluruh daya tembak unit, dan begitulah sebuah kapal melepaskan tembakan sisi penuh dari salah satu lambungnya.",
+    "firepowerPoolingShared": "Dibagi ke seluruh tepi",
+    "firepowerPoolingPerEdge": "Kumpulan penuh per tepi",
+    "effects": "Efek saat mengambil formasi ini",
+    "effectsHelp": "Efek yang diterapkan pada unit begitu ia berganti ke formasi ini, masing masing berlangsung selama jumlah ticks yang ditentukan. Era ini hanya memakainya di satu tempat saat ini: formasi kabur memberikan Dapat melewati musuh selama 12 ticks, dan begitulah unit yang patah semangat berlari menembus barisan alih alih menumpuk di depannya.",
+    "effect": "Efek",
+    "effectDuration": "Durasi (ticks)",
+    "effectReorgDebuff": "Penalti reorganisasi",
+    "effectInfo": {
+      "been_in_melee": "Menandai unit sebagai baru saja bertempur jarak dekat, membuatnya kacau selama durasi tersebut.",
+      "can_pass_through_enemies": "Memungkinkan unit bergerak menembus unit musuh alih alih bertabrakan dengan mereka.",
+      "has_ran": "Menandai unit sebagai baru saja berlari, dan inilah yang menjadi dasar penalti ketahanan serangan karena berlari.",
+      "rotated_180": "Menandai unit sebagai baru saja berbalik, keadaan yang ditinggalkan oleh putaran 180 derajat.",
+      "started_routing": "Menandai unit sebagai baru saja patah semangat, keadaan yang mengawali pelarian.",
+      "taken_fire": "Menandai unit sebagai baru saja terkena tembakan, membuatnya kacau selama durasi tersebut."
+    }
   },
   "unitTemplateModal": {
     "title": "Edit templat unit kustom",
@@ -285,7 +305,13 @@
     "pushStrength": "Kekuatan dorong",
     "pushDistance": "Jarak dorong",
     "maxEntrenchment": "Pertahanan maksimal",
-    "locked": "Terkunci"
+    "locked": "Terkunci",
+    "unlimberTime": "Waktu persiapan meriam (ticks)",
+    "unlimberTimeHelp": "Berapa lama unit ini membawa tanda Telah berlari setelah bergerak, dalam ticks. Senjata yang tipe kerusakannya tidak bisa dipakai setelah berlari menjadi tidak berguna selama tanda itu masih aktif, jadi bagi meriam inilah jeda persiapannya: baterai era ini berkisar dari 3 pada meriam 4 pon sampai 14 pada Licorne 18 pon. Apakah sebuah unit perlu persiapan sama sekali diatur pada senjatanya, bukan di sini: centang Tidak dapat digunakan setelah lari pada tipe kerusakannya. Membiarkan kotak ini kosong akan kembali ke konstanta permainan EFFECT_HAS_RAN_TICKS, yang bernilai 12 di kedua era yang dirilis, dan mengisi 0 memberi hasil yang sama, jadi tidak ada nilai di sini yang mematikan jeda tersebut. Nilai terpendek adalah 1.",
+    "runChargeResistanceModifier": "Modifier ketahanan serangan setelah berlari",
+    "runChargeResistanceModifierHelp": "Ditambahkan ke ketahanan serangan unit ini, tetapi hanya selama ia membawa tanda Telah berlari dari pergerakan. Begitu tanda itu habis, nilainya tidak berlaku lagi. Nilai negatif membuat unit lebih mudah ditumbangkan pada saat saat setelah bergerak, dan itulah yang membuat baterai yang sedang bergerak tidak berdaya menghadapi kavaleri: meriam 8 pon era ini memakai -0.75. Lamanya jendela itu ditentukan oleh kolom Waktu persiapan meriam di atas.",
+    "changeAnimations": "Animasi perubahan (ke formasi)",
+    "changeAnimationsHelp": "Animasi yang diputar saat sebuah unit meninggalkan formasi ini menuju formasi lain. Pilih formasi tujuannya, lalu animasi yang diputar selama perpindahan itu. Transisi tanpa baris di sini bukan berarti rusak: unit hanya berpindah langsung dari satu sprite ke sprite lain tanpa apa pun di antaranya, dan begitulah semua formasi tanpa entri bekerja saat ini. Daftar ini berisi animasi yang disertakan era ini, dan infanteri baris era ini memakai enam di antaranya."
   },
   "unitCategoryModal": {
     "title": "Edit kategori unit kustom",
@@ -362,7 +388,8 @@
       "projectile": "Proyektil",
       "rangeBrackets": "Rentang jarak",
       "areaOfEffect": "Area efek",
-      "targetStatModifiers": "Pengubah berdasarkan stat target"
+      "targetStatModifiers": "Pengubah berdasarkan stat target",
+      "melee": "Jarak dekat"
     },
     "fields": {
       "ranged": "Jarak jauh",
@@ -378,7 +405,9 @@
       "canShootLocation": "Bisa menembak ke lokasi",
       "aimMode": "Mode bidik",
       "maxRange": "Jangkauan maks.",
-      "engagementTier": "Tingkat tembak otomatis"
+      "engagementTier": "Tingkat tembak otomatis",
+      "shotImpactAnim": "Animasi benturan",
+      "bandName": "Pita jarak"
     },
     "aimMode": {
       "targetCenter": "Pusat target (ledakan melingkar)",
@@ -407,7 +436,10 @@
       "startBottomWidth": "Lebar bawah awal",
       "endBottomWidth": "Lebar bawah akhir",
       "startHeight": "Tinggi awal",
-      "endHeight": "Tinggi akhir"
+      "endHeight": "Tinggi akhir",
+      "heightModifierPerLevelHelp": "Mengubah kedalaman bentuk ledakan sebesar pecahan ini untuk setiap tingkat perbedaan elevasi setelah tingkat pertama. Nilai negatif mengecilkan jejaknya, nilai positif memanjangkannya. Bola meriam era ini memakai -0.15.",
+      "damageModifierPerLevelHelp": "Menambahkan modifier kerusakan ini untuk setiap tingkat perbedaan elevasi setelah tingkat pertama. Nilai negatif melunakkan pukulan, nilai positif mengeraskannya. Bola meriam era ini memakai -0.05.",
+      "maxElevationDiffHelp": "Jumlah tingkat perbedaan elevasi terbanyak yang masih diperhitungkan. Perbedaan diukur secara mutlak, jadi menembak ke atas dan ke bawah bukit diperlakukan sama, dan perbedaan satu tingkat atau kurang tidak berpengaruh sama sekali. Bola meriam era ini berhenti di 4."
     },
     "addRangeBracket": "Tambah rentang jarak",
     "addAreaOfEffect": "Tambah area efek",

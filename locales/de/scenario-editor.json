@@ -228,7 +228,27 @@
     "errIdInUse": "Formations-ID \"{{id}}\" wird bereits verwendet",
     "errEdgeIndex": "Feuerkante {{n}}: Kantenindex muss 0-3 sein",
     "errEdgeArc": "Feuerkante {{n}}: Bogen muss zwischen 0 und 360 liegen",
-    "errEdgeEmitters": "Feuerkante {{n}}: Emitter muss eine positive ganze Zahl sein"
+    "errEdgeEmitters": "Feuerkante {{n}}: Emitter muss eine positive ganze Zahl sein",
+    "rangedResistance": "Fernkampfresistenz",
+    "rangedResistanceHelp": "Wie gut diese Formation eintreffendem Feuer standhält: wie viel Schaden und Org-Verlust sie abschüttelt und ob Schüsse durch sie hindurchgehen und treffen, was dahinter steht.",
+    "friendlyFireImmuneDamageTypes": "Immun gegen eigenes Feuer von",
+    "firepowerPooling": "Feuerkraftbündelung",
+    "firepowerPoolingHelp": "Wie die Feuerkraft dieser Formation auf ihre Feuerkanten verteilt wird. Geteilt gibt der ganzen Einheit einen einzigen Pool, sodass ein Karree, das von jeder Seite feuert, nur einen Bruchteil seiner Stärke in jede Kante legt. Voller Pool pro Kante gibt jeder Kante die gesamte Feuerkraft der Einheit, so wie ein Schiff von beiden Seiten eine vollständige Breitseite abfeuert.",
+    "firepowerPoolingShared": "Geteilt über alle Kanten",
+    "firepowerPoolingPerEdge": "Voller Pool pro Kante",
+    "effects": "Effekte beim Einnehmen dieser Formation",
+    "effectsHelp": "Effekte, die einer Einheit in dem Moment zugewiesen werden, in dem sie in diese Formation wechselt, jeweils für die angegebene Anzahl an ticks. Die Ära nutzt das heute an einer einzigen Stelle: Die Fluchtformation gewährt Kann durch Feinde hindurchgehen für 12 ticks, wodurch eine gebrochene Einheit durch die Linien läuft, statt in sie hineinzulaufen.",
+    "effect": "Effekt",
+    "effectDuration": "Dauer (ticks)",
+    "effectReorgDebuff": "Reorganisations-Malus",
+    "effectInfo": {
+      "been_in_melee": "Markiert eine Einheit als kürzlich im Nahkampf und hält sie für die Dauer ungeordnet.",
+      "can_pass_through_enemies": "Lässt die Einheit sich durch feindliche Einheiten bewegen, statt mit ihnen zu kollidieren.",
+      "has_ran": "Markiert eine Einheit als kürzlich gelaufen, woran der Ansturmwiderstands-Malus fürs Laufen anknüpft.",
+      "rotated_180": "Markiert eine Einheit als soeben umgedreht, der Zustand, den eine Kehrtwendung um 180 Grad hinterlässt.",
+      "started_routing": "Markiert eine Einheit als soeben gebrochen, der Zustand, mit dem eine Flucht beginnt.",
+      "taken_fire": "Markiert eine Einheit als kürzlich unter Feuer und hält sie für die Dauer ungeordnet."
+    }
   },
   "unitTemplateModal": {
     "title": "Benutzerdefinierte Einheitenvorlage bearbeiten",
@@ -287,7 +307,13 @@
     "pushStrength": "Schubkraft",
     "pushDistance": "Schubdistanz",
     "maxEntrenchment": "Maximale Verschanzung",
-    "locked": "Gesperrt"
+    "locked": "Gesperrt",
+    "unlimberTime": "Protzzeit (ticks)",
+    "unlimberTimeHelp": "Wie lange diese Einheit nach einer Bewegung die Markierung Ist gelaufen trägt, in ticks. Eine Waffe, deren Schadenstyp nach dem Laufen nicht verwendet werden kann, ist unbrauchbar, solange diese Markierung anliegt, für ein Geschütz ist das also die Protzverzögerung: Die Batterien der Ära reichen von 3 bei einem 4-Pfünder bis 14 bei einer 18-pfündigen Licorne. Ob eine Einheit überhaupt protzt, wird an der Waffe festgelegt, nicht hier: Setze Nach dem Laufen nicht nutzbar auf ihrem Schadenstyp. Bleibt das Feld leer, greift die Spielkonstante EFFECT_HAS_RAN_TICKS, die in beiden ausgelieferten Ären 12 beträgt, und eine 0 bewirkt dasselbe, kein Wert hier schaltet die Verzögerung also ab. Der kürzeste Wert ist 1.",
+    "runChargeResistanceModifier": "Ansturmwiderstandsmodifikator beim Laufen",
+    "runChargeResistanceModifierHelp": "Wird zum Ansturmwiderstand dieser Einheit addiert, aber nur solange sie die Markierung Ist gelaufen von einer Bewegung trägt. Sobald die Markierung abläuft, zählt er nichts mehr. Ein negativer Wert macht eine Einheit in den Momenten nach einer Bewegung leichter niederzureiten, was eine Batterie auf dem Marsch der Kavallerie ausliefert: Die 8-Pfünder der Ära nutzen -0.75. Wie lange dieses Fenster dauert, legt das Feld Protzzeit darüber fest.",
+    "changeAnimations": "Wechselanimationen (zu Formation)",
+    "changeAnimationsHelp": "Die Animation, die abgespielt wird, während eine Einheit diese Formation für eine andere verlässt. Wähle die Formation, in die sie wechselt, und dann die Animation, die dabei laufen soll. Ein Übergang ohne Zeile hier ist nicht kaputt: Die Einheit springt einfach von einem Sprite zum anderen, ohne etwas dazwischen, und genau das tut heute jede Formation ohne Einträge. Die Liste enthält die Animationen, die diese Ära mitbringt, und die Linieninfanterie der Ära nutzt sechs davon."
   },
   "unitCategoryModal": {
     "title": "Benutzerdefinierte Einheitenkategorie bearbeiten",
@@ -364,7 +390,8 @@
       "projectile": "Projektil",
       "rangeBrackets": "Reichweitenbereiche",
       "areaOfEffect": "Wirkungsbereich",
-      "targetStatModifiers": "Zielwert-Modifikatoren"
+      "targetStatModifiers": "Zielwert-Modifikatoren",
+      "melee": "Nahkampf"
     },
     "fields": {
       "ranged": "Fernkampf",
@@ -380,7 +407,9 @@
       "canShootLocation": "Kann auf Position feuern",
       "aimMode": "Zielmodus",
       "maxRange": "Max. Reichweite",
-      "engagementTier": "Autofeuer-Stufe"
+      "engagementTier": "Autofeuer-Stufe",
+      "shotImpactAnim": "Einschlaganimation",
+      "bandName": "Reichweitenband"
     },
     "aimMode": {
       "targetCenter": "Zielmitte (kreisförmige Explosionen)",
@@ -409,7 +438,10 @@
       "startBottomWidth": "Untere Startbreite",
       "endBottomWidth": "Untere Endbreite",
       "startHeight": "Starthöhe",
-      "endHeight": "Endhöhe"
+      "endHeight": "Endhöhe",
+      "heightModifierPerLevelHelp": "Ändert die Tiefe der Explosionsform um diesen Anteil für jede Höhenstufe Unterschied über die erste hinaus. Negativ verkleinert die Grundfläche, positiv streckt sie. Die Kanonenkugeln der Ära nutzen -0.15.",
+      "damageModifierPerLevelHelp": "Fügt diesen Schadensmodifikator für jede Höhenstufe Unterschied über die erste hinaus hinzu. Negativ mildert den Treffer, positiv verschärft ihn. Die Kanonenkugeln der Ära nutzen -0.05.",
+      "maxElevationDiffHelp": "Die größte Anzahl an Höhenstufen Unterschied, die zählen kann. Der Unterschied wird als Absolutwert gemessen, sodass Feuer bergauf und bergab gleich behandelt werden, und ein Unterschied von einer Stufe oder weniger wirkt überhaupt nicht. Die Kanonenkugeln der Ära sind bei 4 gedeckelt."
     },
     "addRangeBracket": "Reichweitenbereich hinzufügen",
     "addAreaOfEffect": "Wirkungsbereich hinzufügen",

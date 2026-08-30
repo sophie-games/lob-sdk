@@ -226,7 +226,27 @@
     "errIdInUse": "阵型 id “{{id}}” 已被占用",
     "errEdgeIndex": "射击边 {{n}}：边索引必须为 0-3",
     "errEdgeArc": "射击边 {{n}}：弧度必须介于 0 到 360 之间",
-    "errEdgeEmitters": "射击边 {{n}}：发射点必须为正整数"
+    "errEdgeEmitters": "射击边 {{n}}：发射点必须为正整数",
+    "rangedResistance": "远程抗性",
+    "rangedResistanceHelp": "该阵型如何承受射来的火力：它能抵消多少伤害与组织度损失，以及弹丸是否会穿过它打到其身后的目标。",
+    "friendlyFireImmuneDamageTypes": "免疫来自以下类型的友军火力",
+    "firepowerPooling": "火力汇集方式",
+    "firepowerPoolingHelp": "该阵型的火力如何在各射击边之间分配。共享表示整个单位共用一个火力池，因此四面开火的方阵只把一部分兵力投入每条边。每边独立满池则让每条边都拥有单位的全部火力，战舰能从任一舷打出完整的侧舷齐射就是这样实现的。",
+    "firepowerPoolingShared": "在所有边之间共享",
+    "firepowerPoolingPerEdge": "每边独立满池",
+    "effects": "变为该阵型时施加的效果",
+    "effectsHelp": "单位变为该阵型的瞬间对其施加的效果，每个效果持续给定的 ticks 数。本时代目前只在一处用到它：溃退阵型会授予 可以穿过敌方单位 持续 12 ticks，崩溃的单位正是靠它从阵线中穿行而过，而不是挤作一团。",
+    "effect": "效果",
+    "effectDuration": "持续时间（ticks）",
+    "effectReorgDebuff": "组织度恢复惩罚",
+    "effectInfo": {
+      "been_in_melee": "将单位标记为刚经历近战，并在持续时间内让它保持混乱。",
+      "can_pass_through_enemies": "让单位可以穿过敌方单位，而不是与其碰撞。",
+      "has_ran": "将单位标记为刚刚疾跑过，疾跑带来的冲锋抗性惩罚正是以此为依据。",
+      "rotated_180": "将单位标记为刚刚掉头，即 180 度转向之后留下的状态。",
+      "started_routing": "将单位标记为刚刚崩溃，即溃退开始时的状态。",
+      "taken_fire": "将单位标记为刚遭受火力，并在持续时间内让它保持混乱。"
+    }
   },
   "unitTemplateModal": {
     "title": "编辑自定义单位模板",
@@ -285,7 +305,13 @@
     "pushStrength": "推力强度",
     "pushDistance": "推力距离",
     "maxEntrenchment": "堑壕上限",
-    "locked": "已锁定"
+    "locked": "已锁定",
+    "unlimberTime": "架设时间（ticks）",
+    "unlimberTimeHelp": "该单位在移动之后携带 已疾跑 标记的时长，以 ticks 计。若一件武器的伤害类型不能在疾跑后使用，则该标记存在期间这件武器无法使用，所以对火炮来说这就是架设延迟：本时代的炮兵连从 4 磅炮的 3 到 18 磅独角兽炮的 14 不等。一个单位是否需要架设由武器决定，而不是在这里：请在其伤害类型上勾选 无法在疾跑后使用。留空此框会退回到游戏常量 EFFECT_HAS_RAN_TICKS，它在两个已发布的时代中都是 12，填 0 也是同样效果，因此这里填任何值都无法关闭该延迟。最短为 1。",
+    "runChargeResistanceModifier": "疾跑冲锋抗性修正",
+    "runChargeResistanceModifierHelp": "加到该单位的冲锋抗性上，但仅在它因移动而携带 已疾跑 标记期间有效。标记一旦到期便不再计入。负值会让单位在移动之后的片刻更容易被冲垮，行军途中的炮兵连之所以任由骑兵宰割正是因为如此：本时代的 8 磅炮使用 -0.75。这段时间持续多久由上方的架设时间字段决定。",
+    "changeAnimations": "变阵动画（变为阵型）",
+    "changeAnimationsHelp": "单位从该阵型转入另一阵型时播放的动画。先选择它要变成的阵型，再选择途中播放的动画。此处没有条目的转换并非出错：单位只是从一张精灵图直接切换到另一张，中间没有任何过渡，今天所有没有条目的阵型都是如此。列表中是本时代提供的动画，本时代的线列步兵用到了其中六种。"
   },
   "unitCategoryModal": {
     "title": "编辑自定义单位类别",
@@ -362,7 +388,8 @@
       "projectile": "弹丸",
       "rangeBrackets": "距离区段",
       "areaOfEffect": "作用范围",
-      "targetStatModifiers": "基于目标属性的修正"
+      "targetStatModifiers": "基于目标属性的修正",
+      "melee": "近战"
     },
     "fields": {
       "ranged": "远程",
@@ -378,7 +405,9 @@
       "canShootLocation": "可向地点射击",
       "aimMode": "瞄准模式",
       "maxRange": "最大射程",
-      "engagementTier": "自动开火档位"
+      "engagementTier": "自动开火档位",
+      "shotImpactAnim": "命中动画",
+      "bandName": "距离区段"
     },
     "aimMode": {
       "targetCenter": "目标中心（圆形爆炸）",
@@ -407,7 +436,10 @@
       "startBottomWidth": "起始底边宽",
       "endBottomWidth": "结束底边宽",
       "startHeight": "起始高度",
-      "endHeight": "结束高度"
+      "endHeight": "结束高度",
+      "heightModifierPerLevelHelp": "每超出第一级的高度差等级，按此比例改变爆炸形状的纵深。负值缩小覆盖范围，正值将其拉长。本时代的实心弹使用 -0.15。",
+      "damageModifierPerLevelHelp": "每超出第一级的高度差等级，加上这一伤害修正。负值削弱这一击，正值使其加重。本时代的实心弹使用 -0.05。",
+      "maxElevationDiffHelp": "可以计入的最大高度差等级数。高度差按绝对值计算，因此向上射击与向下射击同等对待，而一级或更小的高度差完全不产生作用。本时代的实心弹上限为 4。"
     },
     "addRangeBracket": "添加距离区段",
     "addAreaOfEffect": "添加作用范围",

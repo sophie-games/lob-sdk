@@ -226,7 +226,27 @@
     "errIdInUse": "진형 id \"{{id}}\" 이(가) 이미 사용 중입니다",
     "errEdgeIndex": "사격 모서리 {{n}}: 모서리 인덱스는 0-3 이어야 합니다",
     "errEdgeArc": "사격 모서리 {{n}}: 호는 0과 360 사이여야 합니다",
-    "errEdgeEmitters": "사격 모서리 {{n}}: 발사구는 양의 정수여야 합니다"
+    "errEdgeEmitters": "사격 모서리 {{n}}: 발사구는 양의 정수여야 합니다",
+    "rangedResistance": "사격 저항력",
+    "rangedResistanceHelp": "이 진형이 날아드는 사격을 얼마나 버티는지, 즉 피해와 조직력 손실을 얼마나 흘려보내는지, 그리고 탄이 진형을 통과해 뒤에 선 대상까지 나아가는지를 정합니다.",
+    "friendlyFireImmuneDamageTypes": "아군 오사에 면역인 피해 유형",
+    "firepowerPooling": "화력 배분",
+    "firepowerPoolingHelp": "이 진형의 화력이 사격 모서리들 사이에 어떻게 나뉘는지를 정합니다. 공유는 부대 전체가 하나의 화력을 쓰므로, 모든 면에서 사격하는 방진은 각 면에 전체 화력의 일부만 씁니다. 모서리마다 전체 화력은 각 모서리가 부대의 화력 전부를 쓰게 하며, 이는 함선이 어느 쪽 현에서든 완전한 현측 일제 사격을 하는 방식입니다.",
+    "firepowerPoolingShared": "모든 모서리에 걸쳐 공유",
+    "firepowerPoolingPerEdge": "모서리마다 전체 화력",
+    "effects": "이 진형을 취할 때의 효과",
+    "effectsHelp": "부대가 이 진형으로 바뀌는 순간 부대에 적용되는 효과이며, 각각 지정한 틱(ticks) 수만큼 지속됩니다. 현재 시대에서는 한 곳에만 쓰입니다. 궤멸 진형이 적을 통과할 수 있음를 12틱 동안 부여하며, 이것이 무너진 부대가 아군 대열에 얽히지 않고 뚫고 달아나는 방식입니다.",
+    "effect": "효과",
+    "effectDuration": "지속 시간 (ticks)",
+    "effectReorgDebuff": "재편성 페널티",
+    "effectInfo": {
+      "been_in_melee": "최근에 근접전을 치른 부대로 표시하여, 지속 시간 동안 혼란 상태로 묶어 둡니다.",
+      "can_pass_through_enemies": "부대가 적 부대와 충돌하지 않고 그 사이를 통과해 이동할 수 있게 합니다.",
+      "has_ran": "최근에 주행한 부대로 표시하며, 주행에 따른 돌격 저항력 페널티가 이 표시를 기준으로 적용됩니다.",
+      "rotated_180": "방금 방향을 돌린 부대로 표시하며, 180도 선회가 남기는 상태입니다.",
+      "started_routing": "방금 무너진 부대로 표시하며, 궤멸이 시작되는 상태입니다.",
+      "taken_fire": "최근에 사격을 받은 부대로 표시하여, 지속 시간 동안 혼란 상태로 묶어 둡니다."
+    }
   },
   "unitTemplateModal": {
     "title": "사용자 지정 부대 템플릿 편집",
@@ -285,7 +305,13 @@
     "pushStrength": "밀어내기 강도",
     "pushDistance": "밀어내기 거리",
     "maxEntrenchment": "최대 참호",
-    "locked": "잠김"
+    "locked": "잠김",
+    "unlimberTime": "방렬 시간 (ticks)",
+    "unlimberTimeHelp": "이 부대가 이동한 뒤 주행 중 표시를 얼마나 오래 지니는지를 틱 단위로 정합니다. 주행 후 사용할 수 없는 피해 유형의 무기는 그 표시가 남아 있는 동안 쓸 수 없으므로, 화포에서는 이것이 곧 방렬 지연입니다. 이 시대의 포병대는 4파운드 포의 3부터 18파운드 리코른의 14까지 이릅니다. 부대가 방렬을 하는지 여부는 여기가 아니라 무기에서 정합니다. 해당 피해 유형에서 주행 후 사용 불가을 체크하세요. 칸을 비워 두면 EFFECT_HAS_RAN_TICKS 게임 상수로 되돌아가며, 이 값은 출시된 두 시대 모두에서 12입니다. 0을 넣어도 같으므로, 여기서는 어떤 값으로도 지연을 끌 수 없습니다. 가장 짧은 값은 1입니다.",
+    "runChargeResistanceModifier": "주행 돌격 저항력 수정치",
+    "runChargeResistanceModifierHelp": "이 부대의 돌격 저항력에 더해지지만, 이동으로 얻은 주행 중 표시를 지니고 있는 동안에만 적용됩니다. 표시가 사라지면 아무 효과도 없습니다. 음수는 부대가 움직인 직후에 더 쉽게 짓밟히게 만들며, 이것이 행군 중인 포병대를 기병 앞에 무방비로 두는 이유입니다. 이 시대의 8파운드 포는 -0.75를 씁니다. 그 시간이 얼마나 이어지는지는 위의 방렬 시간 항목에서 정합니다.",
+    "changeAnimations": "변경 애니메이션 (대상 진형)",
+    "changeAnimationsHelp": "부대가 이 진형에서 다른 진형으로 바뀌는 동안 재생되는 애니메이션입니다. 바뀌어 갈 진형을 고른 다음, 그 과정에서 재생할 애니메이션을 고르세요. 여기에 항목이 없는 전환도 잘못된 것이 아닙니다. 부대는 그저 한 스프라이트에서 다른 스프라이트로 바로 바뀌며, 오늘날 항목이 없는 모든 진형이 그렇습니다. 목록에는 이 시대가 제공하는 애니메이션이 담기며, 이 시대의 전열 보병은 그중 여섯 개를 씁니다."
   },
   "unitCategoryModal": {
     "title": "사용자 지정 부대 유형 편집",
@@ -362,7 +388,8 @@
       "projectile": "발사체",
       "rangeBrackets": "사거리 구간",
       "areaOfEffect": "유효 범위",
-      "targetStatModifiers": "대상 스탯 기반 수정"
+      "targetStatModifiers": "대상 스탯 기반 수정",
+      "melee": "근접"
     },
     "fields": {
       "ranged": "사격",
@@ -378,7 +405,9 @@
       "canShootLocation": "지점 사격 가능",
       "aimMode": "조준 방식",
       "maxRange": "최대 사거리",
-      "engagementTier": "자동 사격 단계"
+      "engagementTier": "자동 사격 단계",
+      "shotImpactAnim": "착탄 애니메이션",
+      "bandName": "사거리 구간"
     },
     "aimMode": {
       "targetCenter": "표적 중심 (원형 폭발)",
@@ -407,7 +436,10 @@
       "startBottomWidth": "시작 밑변 너비",
       "endBottomWidth": "끝 밑변 너비",
       "startHeight": "시작 높이",
-      "endHeight": "끝 높이"
+      "endHeight": "끝 높이",
+      "heightModifierPerLevelHelp": "첫 단계를 넘는 고도 차 한 단계마다 폭발 형태의 깊이를 이 비율만큼 바꿉니다. 음수는 범위를 줄이고, 양수는 늘립니다. 이 시대의 포탄은 -0.15를 씁니다.",
+      "damageModifierPerLevelHelp": "첫 단계를 넘는 고도 차 한 단계마다 이 피해 수정치를 더합니다. 음수는 타격을 약하게, 양수는 강하게 만듭니다. 이 시대의 포탄은 -0.05를 씁니다.",
+      "maxElevationDiffHelp": "계산에 반영될 수 있는 고도 차의 최대 단계 수입니다. 고도 차는 절댓값으로 재기 때문에 위로 쏘든 아래로 쏘든 똑같이 다루며, 한 단계 이하의 차이는 아무 효과도 내지 않습니다. 이 시대의 포탄은 4에서 상한이 걸립니다."
     },
     "addRangeBracket": "사거리 구간 추가",
     "addAreaOfEffect": "유효 범위 추가",
