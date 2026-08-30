@@ -98,6 +98,8 @@ export interface UnitCategoryTemplate {
   enfiladeFire?: EnfiladeFireConfig;
   rearFire?: RearFireConfig;
 
+  /** Sound asset played when a unit in this category charges. */
+  chargeSound?: string;
   /** Charge backlash multiplier (counter-hit dealt back to a charger); ranged categories brace harder, cavalry/melee less. Defaults to 1. */
   chargeBacklashMultiplier?: number;
   /** Backlash multiplier when the defender has run (HasRan) and can't brace; falls back to chargeBacklashMultiplier. */
