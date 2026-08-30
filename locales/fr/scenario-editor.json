@@ -235,7 +235,27 @@
     "errIdInUse": "L'ID de formation \"{{id}}\" est déjà utilisé",
     "errEdgeIndex": "Bord de tir {{n}} : l'index du bord doit être entre 0 et 3",
     "errEdgeArc": "Bord de tir {{n}} : l'arc doit être entre 0 et 360",
-    "errEdgeEmitters": "Bord de tir {{n}} : les émetteurs doivent être un entier positif"
+    "errEdgeEmitters": "Bord de tir {{n}} : les émetteurs doivent être un entier positif",
+    "rangedResistance": "Résistance à distance",
+    "rangedResistanceHelp": "Comment cette formation encaisse le feu reçu : la part de dégâts et de perte d'org. qu'elle absorbe, et si les tirs la traversent pour atteindre ce qui se trouve derrière.",
+    "friendlyFireImmuneDamageTypes": "Immunisé au tir ami de",
+    "firepowerPooling": "Répartition de la puissance de feu",
+    "firepowerPoolingHelp": "Comment la puissance de feu de cette formation se répartit entre ses bords de tir. Partagée donne à toute l'unité une seule réserve, si bien qu'un carré qui tire par chaque face n'engage qu'une fraction de sa force dans chacune. Réserve complète par bord donne à chaque bord la puissance de feu entière de l'unité, comme un navire qui lâche une bordée complète de l'un ou l'autre côté.",
+    "firepowerPoolingShared": "Partagée entre tous les bords",
+    "firepowerPoolingPerEdge": "Réserve complète par bord",
+    "effects": "Effets à la prise de cette formation",
+    "effectsHelp": "Effets appliqués à une unité au moment où elle passe dans cette formation, chacun durant le nombre de ticks indiqué. L'ère ne s'en sert aujourd'hui qu'à un seul endroit : la formation de fuite accorde Peut traverser les ennemis pendant 12 ticks, ce qui permet à une unité brisée de courir à travers les lignes au lieu de s'y entasser.",
+    "effect": "Effet",
+    "effectDuration": "Durée (ticks)",
+    "effectReorgDebuff": "Malus de réorganisation",
+    "effectInfo": {
+      "been_in_melee": "Marque une unité comme sortant d'une mêlée récente, ce qui la maintient désordonnée pendant toute la durée.",
+      "can_pass_through_enemies": "Permet à l'unité de traverser les unités ennemies au lieu d'entrer en collision avec elles.",
+      "has_ran": "Marque une unité comme ayant couru récemment, ce sur quoi s'appuie le malus de résistance aux charges lié à la course.",
+      "rotated_180": "Marque une unité comme venant de faire volte-face, l'état que laisse un demi-tour à 180 degrés.",
+      "started_routing": "Marque une unité comme venant de se briser, l'état par lequel commence une déroute.",
+      "taken_fire": "Marque une unité comme récemment sous le feu, ce qui la maintient désordonnée pendant toute la durée."
+    }
   },
   "unitTemplateModal": {
     "title": "Modifier le modèle d'unité personnalisé",
@@ -294,7 +314,13 @@
     "pushStrength": "Force de poussée",
     "pushDistance": "Distance de poussée",
     "maxEntrenchment": "Retranchement maximum",
-    "locked": "Verrouillé"
+    "locked": "Verrouillé",
+    "unlimberTime": "Temps de mise en batterie (ticks)",
+    "unlimberTimeHelp": "Combien de temps cette unité porte la marque A couru après s'être déplacée, en ticks. Une arme dont le type de dégâts ne peut pas servir après la course est inutilisable tant que cette marque est active : pour une pièce, c'est donc le délai de mise en batterie, et les batteries de l'ère vont de 3 pour une pièce de 4 livres à 14 pour un Licorne de 18 livres. Le fait qu'une unité se mette en batterie ou non se règle sur l'arme, pas ici : cochez Inutilisable après une course sur son type de dégâts. Laisser la case vide retombe sur la constante de jeu EFFECT_HAS_RAN_TICKS, qui vaut 12 dans les deux ères livrées, et saisir 0 fait la même chose : aucune valeur ici ne désactive le délai. La plus courte est 1.",
+    "runChargeResistanceModifier": "Modificateur de résistance aux charges après course",
+    "runChargeResistanceModifierHelp": "S'ajoute à la résistance aux charges de cette unité, mais seulement tant qu'elle porte la marque A couru laissée par son déplacement. Une fois la marque expirée, il ne compte plus. Une valeur négative rend l'unité plus facile à enfoncer dans les instants qui suivent son déplacement, ce qui livre une batterie en marche à la merci de la cavalerie : les pièces de 8 livres de l'ère utilisent -0.75. La durée de cette fenêtre est fixée par le champ Temps de mise en batterie ci-dessus.",
+    "changeAnimations": "Animations de changement (vers la formation)",
+    "changeAnimationsHelp": "L'animation jouée pendant qu'une unité quitte cette formation pour une autre. Choisissez la formation vers laquelle elle change, puis l'animation à jouer en chemin. Une transition sans ligne ici n'est pas cassée : l'unité passe simplement d'un sprite à l'autre sans rien entre les deux, ce que fait aujourd'hui toute formation sans entrées. La liste contient les animations livrées avec cette ère, et l'infanterie de ligne de l'ère en utilise six."
   },
   "unitCategoryModal": {
     "title": "Modifier la catégorie d'unité personnalisée",
@@ -371,7 +397,8 @@
       "projectile": "Projectile",
       "rangeBrackets": "Tranches de portée",
       "areaOfEffect": "Zone d'effet",
-      "targetStatModifiers": "Modificateurs selon la stat de la cible"
+      "targetStatModifiers": "Modificateurs selon la stat de la cible",
+      "melee": "Mêlée"
     },
     "fields": {
       "ranged": "À distance",
@@ -387,7 +414,9 @@
       "canShootLocation": "Peut tirer sur une position",
       "aimMode": "Mode de visée",
       "maxRange": "Portée max.",
-      "engagementTier": "Niveau de tir automatique"
+      "engagementTier": "Niveau de tir automatique",
+      "shotImpactAnim": "Animation d'impact",
+      "bandName": "Bande de portée"
     },
     "aimMode": {
       "targetCenter": "Centre de la cible (explosions circulaires)",
@@ -416,7 +445,10 @@
       "startBottomWidth": "Largeur inf. de début",
       "endBottomWidth": "Largeur inf. de fin",
       "startHeight": "Hauteur de début",
-      "endHeight": "Hauteur de fin"
+      "endHeight": "Hauteur de fin",
+      "heightModifierPerLevelHelp": "Modifie la profondeur de la zone d'explosion de cette fraction pour chaque niveau d'écart d'élévation au-delà du premier. Une valeur négative rétrécit l'empreinte, une valeur positive l'étire. Les boulets de l'ère utilisent -0.15.",
+      "damageModifierPerLevelHelp": "Ajoute ce modificateur de dégâts pour chaque niveau d'écart d'élévation au-delà du premier. Une valeur négative adoucit le coup, une valeur positive le durcit. Les boulets de l'ère utilisent -0.05.",
+      "maxElevationDiffHelp": "Le nombre maximal de niveaux d'écart d'élévation qui peuvent compter. L'écart est mesuré en valeur absolue, si bien que tirer vers le haut et tirer vers le bas sont traités de la même façon, et un écart d'un niveau ou moins n'applique rien du tout. Les boulets de l'ère plafonnent à 4."
     },
     "addRangeBracket": "Ajouter une tranche de portée",
     "addAreaOfEffect": "Ajouter une zone d'effet",

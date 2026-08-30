@@ -235,7 +235,27 @@
     "errIdInUse": "O id de formação \"{{id}}\" já está em uso",
     "errEdgeIndex": "Borda de fogo {{n}}: o índice da borda deve ser 0-3",
     "errEdgeArc": "Borda de fogo {{n}}: o arco deve estar entre 0 e 360",
-    "errEdgeEmitters": "Borda de fogo {{n}}: os emissores devem ser um inteiro positivo"
+    "errEdgeEmitters": "Borda de fogo {{n}}: os emissores devem ser um inteiro positivo",
+    "rangedResistance": "Resistência a fogo",
+    "rangedResistanceHelp": "Como esta formação resiste ao fogo recebido: quanto dano e perda de org ela absorve, e se os tiros a atravessam até o que estiver atrás.",
+    "friendlyFireImmuneDamageTypes": "Imune a fogo amigo de",
+    "firepowerPooling": "Reserva de poder de fogo",
+    "firepowerPoolingHelp": "Como o poder de fogo desta formação é dividido entre as suas bordas de fogo. Compartilhada dá a toda a unidade uma única reserva, portanto um quadrado que dispara por todas as faces coloca apenas uma fração da sua força em cada uma. Reserva total por borda dá a cada borda todo o poder de fogo da unidade, que é como um navio dispara uma bordada completa de qualquer um dos lados.",
+    "firepowerPoolingShared": "Compartilhada entre todas as bordas",
+    "firepowerPoolingPerEdge": "Reserva total por borda",
+    "effects": "Efeitos ao assumir esta formação",
+    "effectsHelp": "Efeitos aplicados a uma unidade no momento em que ela muda para esta formação, cada um durando o número de ticks indicado. A era usa isto hoje em um só lugar: a formação de fuga concede Pode atravessar inimigos por 12 ticks, que é como uma unidade quebrada corre através das linhas em vez de se amontoar nelas.",
+    "effect": "Efeito",
+    "effectDuration": "Duração (ticks)",
+    "effectReorgDebuff": "Penalidade de reorganização",
+    "effectInfo": {
+      "been_in_melee": "Marca uma unidade como tendo estado recentemente em combate corpo a corpo, mantendo-a desorganizada durante toda a duração.",
+      "can_pass_through_enemies": "Permite que a unidade se mova através de unidades inimigas em vez de colidir com elas.",
+      "has_ran": "Marca uma unidade como tendo corrido recentemente, que é o que a penalidade de resistência à carga por correr usa como referência.",
+      "rotated_180": "Marca uma unidade como tendo acabado de dar meia volta, o estado que uma rotação de 180 graus deixa para trás.",
+      "started_routing": "Marca uma unidade como tendo acabado de quebrar, o estado que inicia uma fuga.",
+      "taken_fire": "Marca uma unidade como tendo estado recentemente sob fogo, mantendo-a desorganizada durante toda a duração."
+    }
   },
   "unitTemplateModal": {
     "title": "Editar modelo de unidade personalizado",
@@ -294,7 +314,13 @@
     "pushStrength": "Força de empurrão",
     "pushDistance": "Distância de empurrão",
     "maxEntrenchment": "Entrincheiramento máximo",
-    "locked": "Bloqueado"
+    "locked": "Bloqueado",
+    "unlimberTime": "Tempo de atrelagem (ticks)",
+    "unlimberTimeHelp": "Por quanto tempo esta unidade carrega a marca Correu depois de se mover, em ticks. Uma arma cujo tipo de dano não pode ser usado após correr fica inutilizável enquanto essa marca durar, portanto, para um canhão, este é o atraso de atrelagem: as baterias da era vão de 3 num canhão de 4lb a 14 num Licorne de 18lb. Se uma unidade se atrela ou não é definido na arma, não aqui: marque Não pode ser usado após correr no seu tipo de dano. Deixar a caixa vazia recorre à constante de jogo EFFECT_HAS_RAN_TICKS, que é 12 nas duas eras publicadas, e digitar 0 faz o mesmo, portanto nenhum valor aqui desliga o atraso. O mínimo é 1.",
+    "runChargeResistanceModifier": "Modificador de resistência à carga em corrida",
+    "runChargeResistanceModifierHelp": "Somado à resistência à carga desta unidade, mas apenas enquanto ela carrega a marca Correu por ter se movido. Assim que a marca expira, não conta para nada. Negativo torna a unidade mais fácil de atropelar nos momentos após se mover, que é o que deixa uma bateria em marcha à mercê da cavalaria: os canhões de 8lb da era usam -0.75. Quanto tempo dura essa janela é definido no campo Tempo de atrelagem acima.",
+    "changeAnimations": "Animações de mudança (para formação)",
+    "changeAnimationsHelp": "A animação reproduzida enquanto uma unidade deixa esta formação por outra. Escolha a formação para a qual ela está mudando e depois a animação a reproduzir pelo caminho. Uma transição sem linha aqui não está quebrada: a unidade simplesmente salta de um sprite para o outro sem nada pelo meio, que é o que hoje fazem todas as formações sem entradas. A lista contém as animações que esta era inclui, e a infantaria de linha da era usa seis delas."
   },
   "unitCategoryModal": {
     "title": "Editar categoria de unidade personalizada",
@@ -371,7 +397,8 @@
       "projectile": "Projétil",
       "rangeBrackets": "Faixas de alcance",
       "areaOfEffect": "Área de efeito",
-      "targetStatModifiers": "Modificadores por stat do alvo"
+      "targetStatModifiers": "Modificadores por stat do alvo",
+      "melee": "Corpo a corpo"
     },
     "fields": {
       "ranged": "À distância",
@@ -387,7 +414,9 @@
       "canShootLocation": "Pode disparar numa posição",
       "aimMode": "Modo de mira",
       "maxRange": "Alcance máx.",
-      "engagementTier": "Nível de tiro automático"
+      "engagementTier": "Nível de tiro automático",
+      "shotImpactAnim": "Animação de impacto",
+      "bandName": "Faixa de alcance"
     },
     "aimMode": {
       "targetCenter": "Centro do alvo (explosões circulares)",
@@ -416,7 +445,10 @@
       "startBottomWidth": "Largura inferior inicial",
       "endBottomWidth": "Largura inferior final",
       "startHeight": "Altura inicial",
-      "endHeight": "Altura final"
+      "endHeight": "Altura final",
+      "heightModifierPerLevelHelp": "Altera a profundidade da forma da explosão nesta fração por cada nível de diferença de elevação além do primeiro. Negativo encolhe a área, positivo a alonga. As balas de canhão da era usam -0.15.",
+      "damageModifierPerLevelHelp": "Adiciona este modificador de dano por cada nível de diferença de elevação além do primeiro. Negativo suaviza o impacto, positivo o reforça. As balas de canhão da era usam -0.05.",
+      "maxElevationDiffHelp": "O maior número de níveis de diferença de elevação que pode contar. A diferença é medida em termos absolutos, portanto disparar para cima e para baixo é tratado da mesma forma, e uma diferença de um nível ou menos não aplica nada. As balas de canhão da era têm limite de 4."
     },
     "addRangeBracket": "Adicionar faixa de alcance",
     "addAreaOfEffect": "Adicionar área de efeito",

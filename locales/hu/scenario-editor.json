@@ -235,7 +235,27 @@
     "errIdInUse": "A(z) \"{{id}}\" formáció id már használatban van",
     "errEdgeIndex": "{{n}}. tűzél: az él indexe 0-3 lehet",
     "errEdgeArc": "{{n}}. tűzél: az ívnek 0 és 360 között kell lennie",
-    "errEdgeEmitters": "{{n}}. tűzél: a kibocsátóknak pozitív egész számnak kell lenniük"
+    "errEdgeEmitters": "{{n}}. tűzél: a kibocsátóknak pozitív egész számnak kell lenniük",
+    "rangedResistance": "Távolsági ellenállás",
+    "rangedResistanceHelp": "Mennyire állja ez a formáció a beérkező tüzet: mennyi sebzést és org-veszteséget ráz le magáról, és hogy a lövedékek áthatolnak-e rajta a mögötte állókra.",
+    "friendlyFireImmuneDamageTypes": "Immunis a baráti tűzre ettől",
+    "firepowerPooling": "Tűzerő elosztása",
+    "firepowerPoolingHelp": "Hogyan oszlik meg ennek a formációnak a tűzereje a tűzélek között. A megosztott az egész egységnek egyetlen közös készletet ad, így egy minden oldaláról tüzelő négyszög mindegyikbe csak az erejének egy töredékét teszi. A teljes készlet élenként minden élnek az egység teljes tűzerejét adja, így ad le egy hajó teljes sortüzet bármelyik oldaláról.",
+    "firepowerPoolingShared": "Megosztott az összes él között",
+    "firepowerPoolingPerEdge": "Teljes készlet élenként",
+    "effects": "Hatások a formáció felvételekor",
+    "effectsHelp": "Hatások, amelyeket az egység abban a pillanatban kap meg, amikor ebbe a formációba vált, mindegyik a megadott számú tickig tart. A korszak ma egyetlen helyen használja: a menekülő formáció 12 tickre megadja a Áthaladhat az ellenségeken hatást, így fut át egy megtört egység a vonalakon ahelyett, hogy nekitorlódna.",
+    "effect": "Hatás",
+    "effectDuration": "Időtartam (tick)",
+    "effectReorgDebuff": "Reorg büntetés",
+    "effectInfo": {
+      "been_in_melee": "Megjelöli az egységet mint nemrég közelharcban lévőt, és az időtartam alatt rendezetlenül tartja.",
+      "can_pass_through_enemies": "Lehetővé teszi, hogy az egység átmozogjon az ellenséges egységeken ahelyett, hogy nekik ütközne.",
+      "has_ran": "Megjelöli az egységet mint nemrég futót, és a futás miatti roham-ellenállás büntetés ehhez igazodik.",
+      "rotated_180": "Megjelöli az egységet mint épp megfordultat, ezt az állapotot hagyja maga után egy 180 fokos fordulat.",
+      "started_routing": "Megjelöli az egységet mint épp megtörtet, ez az állapot indítja a menekülést.",
+      "taken_fire": "Megjelöli az egységet mint nemrég tűz alatt állót, és az időtartam alatt rendezetlenül tartja."
+    }
   },
   "unitTemplateModal": {
     "title": "Egyéni egységsablon szerkesztése",
@@ -294,7 +314,13 @@
     "pushStrength": "Lökéserő",
     "pushDistance": "Lökés távolság",
     "maxEntrenchment": "Max. elásás",
-    "locked": "Zárolva"
+    "locked": "Zárolva",
+    "unlimberTime": "Tüzelésre készülési idő (tick)",
+    "unlimberTimeHelp": "Hány tickig viseli ez az egység a Futott jelölést a mozgás után. Az a fegyver, amelynek a sebzéstípusa futás után nem használható, addig használhatatlan, amíg ez a jelölés fennáll, így egy ágyúnál ez a tüzelésre készülés késleltetése: a korszak ütegeinél ez 3-tól (4 fontos ágyú) 14-ig (18 fontos Licorne) terjed. Azt, hogy egy egységnek egyáltalán készülnie kell-e, a fegyveren állítod be, nem itt: pipáld ki a Futás után nem használható beállítást a sebzéstípusán. Ha üresen hagyod a mezőt, az EFFECT_HAS_RAN_TICKS játékkonstans érvényesül, ami mindkét kiadott korszakban 12, és a 0 beírása ugyanezt teszi, tehát itt semmilyen érték nem kapcsolja ki a késleltetést. A legrövidebb az 1.",
+    "runChargeResistanceModifier": "Futás utáni roham-ellenállás módosító",
+    "runChargeResistanceModifierHelp": "Hozzáadódik az egység roham-ellenállásához, de csak amíg a mozgásból származó Futott jelölést viseli. Amint a jelölés lejár, semmit nem számít. A negatív érték könnyebben letiporhatóvá teszi az egységet a mozgást követő pillanatokban, és ez az, ami a menetelő üteget a lovasság kényére hagyja: a korszak 8 fontos ágyúi -0.75 értéket használnak. Hogy ez az ablak meddig tart, azt a fenti Tüzelésre készülési idő mező adja meg.",
+    "changeAnimations": "Váltási animációk (célformáció szerint)",
+    "changeAnimationsHelp": "Az az animáció, amely akkor játszódik le, amikor egy egység ebből a formációból egy másikba vált. Válaszd ki a formációt, amelybe vált, majd a közben lejátszandó animációt. Az a váltás, amelyhez nincs itt sor, nem hibás: az egység egyszerűen átugrik az egyik sprite-ról a másikra, közben nincs semmi, és ma minden bejegyzés nélküli formáció így működik. A lista a korszakkal szállított animációkat tartalmazza, és a korszak sorgyalogsága hatot használ közülük."
   },
   "unitCategoryModal": {
     "title": "Egyéni egységkategória szerkesztése",
@@ -371,7 +397,8 @@
       "projectile": "Lövedék",
       "rangeBrackets": "Hatótáv-sávok",
       "areaOfEffect": "Hatásterület",
-      "targetStatModifiers": "Célpont-statisztika módosítók"
+      "targetStatModifiers": "Célpont-statisztika módosítók",
+      "melee": "Közelharc"
     },
     "fields": {
       "ranged": "Távolsági",
@@ -387,7 +414,9 @@
       "canShootLocation": "Lőhet egy pontra",
       "aimMode": "Célzási mód",
       "maxRange": "Max. hatótáv",
-      "engagementTier": "Automatikus tüzelés szintje"
+      "engagementTier": "Automatikus tüzelés szintje",
+      "shotImpactAnim": "Becsapódás-animáció",
+      "bandName": "Hatótáv-sáv"
     },
     "aimMode": {
       "targetCenter": "Célpont közepe (körkörös robbanások)",
@@ -416,7 +445,10 @@
       "startBottomWidth": "Kezdő alsó szélesség",
       "endBottomWidth": "Végső alsó szélesség",
       "startHeight": "Kezdő magasság",
-      "endHeight": "Végső magasság"
+      "endHeight": "Végső magasság",
+      "heightModifierPerLevelHelp": "Az elsőn túli minden egyes szintnyi magasságkülönbséggel ennyivel változtatja a robbanás alakjának mélységét. A negatív érték zsugorítja a lefedett területet, a pozitív megnyújtja. A korszak ágyúgolyói -0.15 értéket használnak.",
+      "damageModifierPerLevelHelp": "Az elsőn túli minden egyes szintnyi magasságkülönbséggel hozzáadja ezt a sebzésmódosítót. A negatív érték tompítja a találatot, a pozitív erősíti. A korszak ágyúgolyói -0.05 értéket használnak.",
+      "maxElevationDiffHelp": "A legtöbb szintnyi magasságkülönbség, ami még számíthat. A különbséget abszolút értékben mérjük, így a felfelé és a lefelé tüzelés ugyanúgy számít, és egy szintnyi vagy kisebb különbség egyáltalán nem érvényesül. A korszak ágyúgolyói 4-nél állnak meg."
     },
     "addRangeBracket": "Hatótáv-sáv hozzáadása",
     "addAreaOfEffect": "Hatásterület hozzáadása",

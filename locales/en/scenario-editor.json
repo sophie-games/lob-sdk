@@ -234,7 +234,27 @@
     "errIdInUse": "Formation id \"{{id}}\" is already in use",
     "errEdgeIndex": "Fire edge {{n}}: edge index must be 0-3",
     "errEdgeArc": "Fire edge {{n}}: arc must be between 0 and 360",
-    "errEdgeEmitters": "Fire edge {{n}}: emitters must be a positive integer"
+    "errEdgeEmitters": "Fire edge {{n}}: emitters must be a positive integer",
+    "rangedResistance": "Ranged resistance",
+    "rangedResistanceHelp": "How this formation stands up to incoming fire: how much damage and organization loss it shrugs off, and whether shots pass through it to whatever stands behind.",
+    "friendlyFireImmuneDamageTypes": "Immune to friendly fire from",
+    "firepowerPooling": "Firepower pooling",
+    "firepowerPoolingHelp": "How this formation's firepower is divided between its firing edges. Shared gives the whole unit one pool, so a square firing from every face puts a fraction of its strength into each. Full pool per edge gives every edge the unit's whole firepower, which is how a ship fires a complete broadside from either side.",
+    "firepowerPoolingShared": "Shared across all edges",
+    "firepowerPoolingPerEdge": "Full pool per edge",
+    "effects": "Effects on taking this formation",
+    "effectsHelp": "Effects applied to a unit the moment it changes into this formation, each lasting the given number of ticks. The era uses this in one place today: the routing formation grants Can pass through enemies for 12 ticks, which is how a broken unit runs through the lines instead of piling into them.",
+    "effect": "Effect",
+    "effectDuration": "Duration (ticks)",
+    "effectReorgDebuff": "Reorganization debuff",
+    "effectInfo": {
+      "been_in_melee": "Marks a unit as recently in melee, holding it disordered for the duration.",
+      "can_pass_through_enemies": "Lets the unit move through enemy units instead of colliding with them.",
+      "has_ran": "Marks a unit as recently running, which is what the charge-resistance penalty for running keys off.",
+      "rotated_180": "Marks a unit as having just turned about, the state a 180 degree turnaround leaves behind.",
+      "started_routing": "Marks a unit as having just broken, the state that begins a rout.",
+      "taken_fire": "Marks a unit as recently under fire, holding it disordered for the duration."
+    }
   },
   "unitTemplateModal": {
     "title": "Edit custom unit template",
@@ -293,7 +313,13 @@
     "pushStrength": "Push strength",
     "pushDistance": "Push distance",
     "maxEntrenchment": "Max entrenchment",
-    "locked": "Locked"
+    "locked": "Locked",
+    "unlimberTime": "Limbering time (ticks)",
+    "unlimberTimeHelp": "How long this unit carries the Has ran mark after it moves, in ticks. A weapon whose damage type cannot be used after running is unusable while that mark is on, so for a gun this is the limbering delay: the era's batteries run from 3 on a 4lb gun to 14 on an 18lb Licorne. Whether a unit limbers at all is set on the weapon, not here: tick Cannot use after run on its damage type. Leaving the box empty falls back to the EFFECT_HAS_RAN_TICKS game constant, which is 12 in both shipped eras, and entering 0 does the same, so no value here switches the delay off. The shortest is 1.",
+    "runChargeResistanceModifier": "Run charge resistance modifier",
+    "runChargeResistanceModifierHelp": "Added to this unit's charge resistance, but only while it carries the Has ran mark from moving. Once the mark expires it counts for nothing. Negative makes a unit easier to ride down in the moments after it moves, which is what leaves a battery on the march at the mercy of cavalry: the era's 8lb guns use -0.75. How long that window lasts is the Limbering time field above.",
+    "changeAnimations": "Change animations (to formation)",
+    "changeAnimationsHelp": "The animation played while a unit leaves this formation for another one. Pick the formation it is changing into, then the animation to play on the way. A transition with no row here is not broken: the unit simply snaps from one sprite to the other with nothing in between, which is what every formation without entries does today. The list holds the animations this era ships, and the era's line infantry uses six of them."
   },
   "unitCategoryModal": {
     "title": "Edit custom unit category",
@@ -370,7 +396,8 @@
       "projectile": "Projectile",
       "rangeBrackets": "Range brackets",
       "areaOfEffect": "Area of effect",
-      "targetStatModifiers": "Target-stat modifiers"
+      "targetStatModifiers": "Target-stat modifiers",
+      "melee": "Melee"
     },
     "fields": {
       "ranged": "Ranged",
@@ -386,7 +413,9 @@
       "canShootLocation": "Can shoot at location",
       "aimMode": "Aim mode",
       "maxRange": "Max range",
-      "engagementTier": "Autofire tier"
+      "engagementTier": "Autofire tier",
+      "shotImpactAnim": "Impact animation",
+      "bandName": "Range band"
     },
     "aimMode": {
       "targetCenter": "Target centre (circular blasts)",
@@ -415,7 +444,10 @@
       "startBottomWidth": "Start bottom width",
       "endBottomWidth": "End bottom width",
       "startHeight": "Start height",
-      "endHeight": "End height"
+      "endHeight": "End height",
+      "heightModifierPerLevelHelp": "Changes the depth of the blast shape by this fraction for every level of elevation difference past the first. Negative shrinks the footprint, positive stretches it. The era's cannonballs use -0.15.",
+      "damageModifierPerLevelHelp": "Adds this damage modifier for every level of elevation difference past the first. Negative softens the hit, positive hardens it. The era's cannonballs use -0.05.",
+      "maxElevationDiffHelp": "The most levels of elevation difference that can count. The difference is measured in absolute terms, so firing uphill and downhill are treated the same, and a difference of one level or less applies nothing at all. The era's cannonballs cap at 4."
     },
     "addRangeBracket": "Add range bracket",
     "addAreaOfEffect": "Add area of effect",
