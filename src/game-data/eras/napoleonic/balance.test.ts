@@ -96,6 +96,16 @@ describe("Napoleonic balance", () => {
     }
   });
 
+  it("limits skirmishers to a 120-degree firing arc", () => {
+    const skirmish = gameDataManager
+      .getFormationManager()
+      .getTemplate("skirmish");
+
+    expect(skirmish?.fireEdges).toEqual([
+      { edge: 1, arc: 120, emitters: 2 },
+    ]);
+  });
+
   it("uses a 450 organization damage ratio for skirmisher and rifle fire", () => {
     for (const damageType of ["marksman-musket", "rifle"]) {
       const { orgDamageRatio } =
