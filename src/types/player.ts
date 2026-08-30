@@ -7,13 +7,13 @@ export enum UserTier {
   Gold = "gold",
 }
 
-/** Public subscription service identity, independent from gameplay access. */
-export enum SubscriptionLevel {
+/** Stable subscription plan identifier, independent from display names and gameplay access. */
+export enum SubscriptionPlanId {
   None = "none",
-  Officer = "officer",
-  Silver = "silver",
-  General = "general",
-  FieldMarshal = "field_marshal",
+  Plan001 = "plan_001",
+  Plan002 = "plan_002",
+  Plan003 = "plan_003",
+  Plan004 = "plan_004",
 }
 
 export enum LostReason {
@@ -144,8 +144,8 @@ export interface PlayerInfo {
   countryCode?: string;
   /** Whether this account carries the verified badge. */
   isVerified?: boolean;
-  /** Public subscription badge shown beside the player's identity. */
-  subscriptionLevel?: SubscriptionLevel;
+  /** Stable subscription plan used to select the player's public badge. */
+  subscriptionPlanId?: SubscriptionPlanId;
   /**
    * Timestamp when this player submitted their turn (seconds since epoch).
    * Used for Fischer timing. Null if player hasn't submitted.
