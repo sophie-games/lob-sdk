@@ -109,6 +109,23 @@ describe("Napoleonic balance", () => {
     }
   });
 
+  it("uses the 1.7.4 ammo received per 25 unspent gold", () => {
+    const ammoPer25Gold = {
+      micro: 200,
+      clash: 190,
+      combat: 180,
+      battle: 170,
+      grand_battle: 160,
+    } as const;
+
+    for (const [battleType, expectedAmmo] of Object.entries(ammoPer25Gold)) {
+      expect(
+        (25 * gameDataManager.getGoldToAmmoRate(battleType)) /
+          STAT_PRECISION_SCALE,
+      ).toBe(expectedAmmo);
+    }
+  });
+
   it("uses the requested artillery canister and long-range field-gun balance", () => {
     const canisterNames = [
       "18lb-canister-fire",
@@ -117,7 +134,6 @@ describe("Napoleonic balance", () => {
       "8lb-canister-fire",
       "6lb-canister-fire",
       "4lb-canister-fire",
-      "howitzer-canister",
     ];
 
     for (const name of canisterNames) {
@@ -126,6 +142,12 @@ describe("Napoleonic balance", () => {
 
       expect(canister.orgDamageRatio / STAT_PRECISION_SCALE).toBe(285);
     }
+
+    expect(
+      gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(
+        "howitzer-canister",
+      ).orgDamageRatio / STAT_PRECISION_SCALE,
+    ).toBe(320);
 
     const normalCanisterAmmo = {
       "12lb-canister-fire": 193,
