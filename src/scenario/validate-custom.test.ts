@@ -1205,6 +1205,30 @@ describe("validateCustomSprites", () => {
     );
   });
 
+  it("accepts a damage type referencing an embedded custom sprite", () => {
+    expect(
+      spriteErrors({
+        customDamageTypes: [makeMeleeDt({ imageAlias: "cs_custom_hit" })],
+        customSprites: { cs_custom_hit: validSprite },
+      }),
+    ).toEqual([]);
+  });
+
+  it("flags a damage type referencing a missing cs_ sprite", () => {
+    const errors = spriteErrors({
+      customDamageTypes: [makeMeleeDt({ imageAlias: "cs_missing" })],
+      customSprites: {},
+    });
+
+    expect(
+      errors.some(
+        (e) =>
+          e.field === "custom-melee" &&
+          /damage type .* references missing custom sprite/.test(e.message),
+      ),
+    ).toBe(true);
+  });
+
   describe("game constant & rule overrides", () => {
     it("accepts a valid sparse override with no errors", () => {
       const errors = validateScenarioCustomDefs(

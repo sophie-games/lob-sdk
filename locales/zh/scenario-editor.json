@@ -527,7 +527,7 @@
       "maxSpritesAlert": "最多可上传 {{count}} 张自定义精灵图。",
       "tooLargeAlert": "图片过大；无法压缩到 {{kb}}KB 以下。请尝试更小或更简单的图片。",
       "invalidImageAlert": "无法读取图片。请使用 PNG 或 WebP 文件。",
-      "deleteBlockedAlert": "无法删除：仍被 {{where}} 使用。请先更改那些阵型。",
+      "deleteBlockedAlert": "无法删除：仍被 {{where}} 使用。请先更改这些引用。",
       "libraryTitle": "精灵图库",
       "libraryDescription": "浏览该时代的内置精灵图以获取灵感。",
       "filterPlaceholder": "按名称筛选……",

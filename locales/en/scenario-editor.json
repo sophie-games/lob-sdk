@@ -551,7 +551,7 @@
       "maxSpritesAlert": "You can keep at most {{count}} sprites in a scenario. Delete one to make room.",
       "tooLargeAlert": "Image too large; could not compress under {{kb}}KB. Try a smaller or simpler image.",
       "invalidImageAlert": "Could not read the image. Use a PNG or WebP file.",
-      "deleteBlockedAlert": "You can't delete this sprite while {{where}} still use it. Change those formations first.",
+      "deleteBlockedAlert": "You can't delete this sprite while {{where}} still use it. Change those references first.",
       "libraryTitle": "Sprite library",
       "libraryDescription": "Every sprite the era already provides, free for you to use. Have a look before you make your own.",
       "filterPlaceholder": "Filter by name...",
