@@ -268,19 +268,20 @@ describe("Napoleonic balance", () => {
     });
   });
 
-  it("uses the 1.7.5 elite infantry organization balance", () => {
+  it("uses the 1.7.5 elite infantry organization and charge balance", () => {
     const expectedByName = {
-      guards: 950,
-      grenadiers: 725,
+      guards: { org: 950, chargeResistance: 0.5 },
+      grenadiers: { org: 725, chargeResistance: 0.5 },
     } as const;
     const unitTemplates = gameDataManager
       .getUnitTemplateManager()
       .getTemplates();
 
-    for (const [name, expectedOrg] of Object.entries(expectedByName)) {
+    for (const [name, expected] of Object.entries(expectedByName)) {
       const unit = unitTemplates.find((template) => template.name === name)!;
 
-      expect(unit.org / STAT_PRECISION_SCALE).toBe(expectedOrg);
+      expect(unit.org / STAT_PRECISION_SCALE).toBe(expected.org);
+      expect(unit.chargeResistance).toBe(expected.chargeResistance);
     }
   });
 
