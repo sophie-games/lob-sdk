@@ -157,6 +157,9 @@ export abstract class BaseUnit extends Entity {
   get canDeployForward(): boolean { return this.template.canDeployForward ?? false; }
   get maxEntrenchment(): number { return this.template.maxEntrenchment ?? 0; }
   get movementSound(): string { return this.template.movementSound; }
+  get runMovementSound(): string {
+    return this.template.runMovementSound ?? this.template.movementSound;
+  }
   get chargeSound(): string | undefined { return this.template.chargeSound; }
   get skirmisherRatio(): number { return this.template.skirmisherRatio ?? 0; }
   get supplyConsumptionIdle(): number | undefined { return this.template.supplyConsumptionIdle; }

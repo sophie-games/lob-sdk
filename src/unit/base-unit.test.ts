@@ -77,6 +77,19 @@ describe("BaseUnit", () => {
     expect(unit.chargeSound).toBe("infantry-charge");
   });
 
+  it("falls back to the movement sound when no run movement sound is configured", () => {
+    expect(unit.runMovementSound).toBe(unit.movementSound);
+  });
+
+  it("exposes a configured run movement sound", () => {
+    unit.template = {
+      ...template,
+      runMovementSound: "infantry-running",
+    };
+
+    expect(unit.runMovementSound).toBe("infantry-running");
+  });
+
   describe("hasEffect()", () => {
     it("should return true if the effect exists", () => {
       unit.effects.set(Rotated180.id, new Rotated180(10));

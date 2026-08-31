@@ -21,6 +21,15 @@ describe("unit template sounds", () => {
     },
   );
 
+  it.each([2, 5, 8, 11, 13, 22])(
+    "configures cavalry run audio for unit type %s",
+    (type) => {
+      expect(
+        napoleonic.getUnitTemplateManager().getTemplate(type).runMovementSound,
+      ).toBe("cavalry-running");
+    },
+  );
+
   it("leaves non-charging Napoleonic unit templates without charge audio", () => {
     const configuredTypes = new Set([
       1, 2, 4, 5, 7, 8, 10, 11, 13, 14, 16, 17, 20, 21, 22,

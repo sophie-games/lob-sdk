@@ -86,6 +86,8 @@ export interface MoveAction extends BaseAction {
   unitId: EntityId;
   /** Path the unit moved along, as array of [x, y] coordinates. */
   path: [number, number][];
+  /** Present and true when this movement is at sustained-run pace. */
+  r?: true;
 }
 
 /**
