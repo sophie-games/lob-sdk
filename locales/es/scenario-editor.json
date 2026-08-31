@@ -173,11 +173,18 @@
     "title": "Zonas de despliegue",
     "hint": "Estas zonas definen dónde empieza cada ejército. La fase de despliegue solo agrega un turno 0 para que los jugadores se reacomoden dentro de ellas.",
     "team": "Equipo {{team}}",
+    "wholeTeam": "Todos los jugadores del equipo",
+    "player": "Jugador {{player}}",
     "mainZone": "Principal",
     "forwardZone": "Avanzada",
+    "addMainZone": "Añadir zona principal",
+    "addForwardZone": "Añadir zona avanzada",
+    "removeZone": "Eliminar zona",
     "fields": {
       "x": "X",
-      "y": "Y"
+      "y": "Y",
+      "player": "Asignada a",
+      "rotation": "Rotación (grados)"
     },
     "phaseHelp": "Con la fase de despliegue activada, los jugadores obtienen un turno extra antes de que empiece el combate, únicamente para reacomodar sus unidades dentro de su zona.",
     "gateHelp": "Estas zonas son editables mientras cualquiera de Permitir ejército dinámico, Fase de despliegue u Objetivos colocados por el jugador esté activado, ya que las tres necesitan un lugar donde empiece un ejército que llega. Con las tres desactivadas quedan en gris, y en un mapa procedural también quedan en gris, ya que ahí las zonas se definen como porcentajes en el panel de Mapa aleatorio."
@@ -228,7 +235,27 @@
     "errIdInUse": "El id de formación \"{{id}}\" ya está en uso",
     "errEdgeIndex": "Borde de fuego {{n}}: el índice del borde debe ser 0-3",
     "errEdgeArc": "Borde de fuego {{n}}: el arco debe estar entre 0 y 360",
-    "errEdgeEmitters": "Borde de fuego {{n}}: los emisores deben ser un entero positivo"
+    "errEdgeEmitters": "Borde de fuego {{n}}: los emisores deben ser un entero positivo",
+    "rangedResistance": "Resistencia a distancia",
+    "rangedResistanceHelp": "Cómo aguanta esta formación el fuego entrante: cuánto daño y cuánta pérdida de org. soporta, y si los disparos la atraviesan hasta alcanzar lo que haya detrás.",
+    "friendlyFireImmuneDamageTypes": "Inmune al fuego amigo de",
+    "firepowerPooling": "Reparto de potencia de fuego",
+    "firepowerPoolingHelp": "Cómo se reparte la potencia de fuego de esta formación entre sus bordes de fuego. Compartida da a toda la unidad un único conjunto, de modo que un cuadro que dispara por todas sus caras pone solo una fracción de su fuerza en cada una. Conjunto completo por borde da a cada borde toda la potencia de fuego de la unidad, que es como un barco dispara una andanada completa por cualquiera de sus costados.",
+    "firepowerPoolingShared": "Compartida entre todos los bordes",
+    "firepowerPoolingPerEdge": "Conjunto completo por borde",
+    "effects": "Efectos al adoptar esta formación",
+    "effectsHelp": "Efectos que se aplican a una unidad en el momento en que cambia a esta formación, cada uno con la duración indicada en ticks. La era usa esto hoy en un solo lugar: la formación de huida concede Puede atravesar enemigos durante 12 ticks, que es como una unidad quebrada corre entre las líneas en lugar de amontonarse contra ellas.",
+    "effect": "Efecto",
+    "effectDuration": "Duración (ticks)",
+    "effectReorgDebuff": "Penalización de reorganización",
+    "effectInfo": {
+      "been_in_melee": "Marca a una unidad como recién salida del cuerpo a cuerpo y la mantiene desordenada mientras dure.",
+      "can_pass_through_enemies": "Permite que la unidad se mueva a través de unidades enemigas en lugar de chocar con ellas.",
+      "has_ran": "Marca a una unidad como recién corrida, que es de lo que depende la penalización de resistencia a la carga por correr.",
+      "rotated_180": "Marca a una unidad como recién girada, el estado que deja un giro de 180 grados.",
+      "started_routing": "Marca a una unidad como recién quebrada, el estado con el que empieza una huida.",
+      "taken_fire": "Marca a una unidad como recién batida por el fuego y la mantiene desordenada mientras dure."
+    }
   },
   "unitTemplateModal": {
     "title": "Editar plantilla de unidad personalizada",
@@ -264,6 +291,7 @@
     "turningDelay": "Retraso de giro (ticks)",
     "startsRunning": "Empieza corriendo",
     "movementSound": "Sonido de movimiento",
+    "chargeSound": "Sonido de carga",
     "rangedCombat": "Combate a distancia",
     "rangedAttack": "Ataque a distancia",
     "panicFireDistance": "Distancia de fuego de pánico",
@@ -287,7 +315,13 @@
     "pushStrength": "Fuerza de empuje",
     "pushDistance": "Distancia de empuje",
     "maxEntrenchment": "Atrincheramiento máximo",
-    "locked": "Bloqueada"
+    "locked": "Bloqueada",
+    "unlimberTime": "Tiempo de despliegue (ticks)",
+    "unlimberTimeHelp": "Cuánto tiempo lleva esta unidad la marca Ha corrido después de moverse, en ticks. Un arma cuyo tipo de daño no puede usarse después de correr queda inutilizable mientras esa marca esté activa, así que para una pieza de artillería este es el retardo de despliegue: las baterías de la era van de 3 en una pieza de 4 libras a 14 en una Licorne de 18 libras. Si una unidad se despliega o no se define en el arma, no aquí: marca No usable tras correr en su tipo de daño. Dejar la casilla vacía recurre a la constante de juego EFFECT_HAS_RAN_TICKS, que vale 12 en las dos eras publicadas, y escribir 0 hace lo mismo, así que ningún valor de aquí desactiva el retardo. El mínimo es 1.",
+    "runChargeResistanceModifier": "Modificador de resistencia a la carga al correr",
+    "runChargeResistanceModifierHelp": "Se suma a la resistencia a la carga de esta unidad, pero solo mientras lleve la marca Ha corrido por haberse movido. Cuando la marca expira deja de contar. Un valor negativo hace que la unidad sea más fácil de arrollar en los momentos posteriores a moverse, que es lo que deja a una batería en marcha a merced de la caballería: las piezas de 8 libras de la era usan -0.75. Cuánto dura esa ventana lo fija el campo Tiempo de despliegue de arriba.",
+    "changeAnimations": "Animaciones de cambio (a formación)",
+    "changeAnimationsHelp": "La animación que se reproduce mientras una unidad abandona esta formación por otra. Elige la formación a la que cambia y luego la animación que debe reproducirse por el camino. Una transición sin fila aquí no está rota: la unidad simplemente salta de un sprite a otro sin nada en medio, que es lo que hace hoy toda formación sin entradas. La lista contiene las animaciones que trae esta era, y la infantería de línea de la era usa seis de ellas."
   },
   "unitCategoryModal": {
     "title": "Editar categoría de unidad personalizada",
@@ -364,7 +398,8 @@
       "projectile": "Proyectil",
       "rangeBrackets": "Tramos de alcance",
       "areaOfEffect": "Área de efecto",
-      "targetStatModifiers": "Modificadores según stat del objetivo"
+      "targetStatModifiers": "Modificadores según stat del objetivo",
+      "melee": "Cuerpo a cuerpo"
     },
     "fields": {
       "ranged": "A distancia",
@@ -380,7 +415,9 @@
       "canShootLocation": "Puede disparar a una posición",
       "aimMode": "Modo de puntería",
       "maxRange": "Alcance máx.",
-      "engagementTier": "Nivel de fuego automático"
+      "engagementTier": "Nivel de fuego automático",
+      "shotImpactAnim": "Animación de impacto",
+      "bandName": "Banda de alcance"
     },
     "aimMode": {
       "targetCenter": "Centro del objetivo (estallidos circulares)",
@@ -409,7 +446,10 @@
       "startBottomWidth": "Ancho inferior inicial",
       "endBottomWidth": "Ancho inferior final",
       "startHeight": "Altura inicial",
-      "endHeight": "Altura final"
+      "endHeight": "Altura final",
+      "heightModifierPerLevelHelp": "Cambia la profundidad de la forma de la explosión en esta fracción por cada nivel de diferencia de elevación más allá del primero. Un valor negativo encoge la huella, uno positivo la alarga. Las balas de cañón de la era usan -0.15.",
+      "damageModifierPerLevelHelp": "Añade este modificador de daño por cada nivel de diferencia de elevación más allá del primero. Un valor negativo suaviza el impacto, uno positivo lo endurece. Las balas de cañón de la era usan -0.05.",
+      "maxElevationDiffHelp": "El máximo de niveles de diferencia de elevación que pueden contar. La diferencia se mide en valor absoluto, así que disparar cuesta arriba y cuesta abajo se tratan igual, y una diferencia de un nivel o menos no aplica nada en absoluto. Las balas de cañón de la era se limitan a 4."
     },
     "addRangeBracket": "Agregar tramo de alcance",
     "addAreaOfEffect": "Agregar área de efecto",
@@ -490,7 +530,7 @@
       "maxSpritesAlert": "Puedes subir como máximo {{count}} sprites personalizados.",
       "tooLargeAlert": "Imagen demasiado grande; no se pudo comprimir por debajo de {{kb}}KB. Prueba con una imagen más pequeña o simple.",
       "invalidImageAlert": "No se pudo leer la imagen. Usa un archivo PNG o WebP.",
-      "deleteBlockedAlert": "No se puede eliminar: aún la usan {{where}}. Cambia esas formaciones primero.",
+      "deleteBlockedAlert": "No se puede eliminar: aún la usan {{where}}. Cambia esas referencias primero.",
       "libraryTitle": "Biblioteca de sprites",
       "libraryDescription": "Explora los sprites integrados de la era para inspirarte.",
       "filterPlaceholder": "Filtrar por nombre...",

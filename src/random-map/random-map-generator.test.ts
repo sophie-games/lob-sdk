@@ -788,6 +788,51 @@ describe("RandomMapGenerator", () => {
   });
 
   describe("deployment zone symmetry (regression)", () => {
+    it("preserves player assignments and mirrors rotation for percentage zones", () => {
+      const scenario: Scenario = {
+        version: SCENARIO_SCHEMA_VERSION,
+        name: "assigned-rotated-zones",
+        description: "test",
+        baseTerrain: TerrainType.Grass,
+        fixedSize: { tilesX: 20, tilesY: 20 },
+        players: [
+          { player: 1, team: 1 },
+          { player: 2, team: 2 },
+        ],
+        randomDeploymentZones: {
+          top: [
+            {
+              role: "main",
+              player: 2,
+              rotation: Math.PI / 4,
+              rect: {
+                x: { min: 10, max: 10 },
+                y: { min: 5, max: 5 },
+                width: 80,
+                height: 10,
+              },
+            },
+          ],
+        },
+      };
+
+      const result = new RandomMapGenerator().generate({
+        scenario,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
+        maxPlayers: 2,
+        tileSize: TILE_SIZE,
+        era: "napoleonic",
+      });
+
+      const [bottom, top] = result.map.deploymentZones ?? [];
+      expect(top.zones[0]).toEqual(
+        expect.objectContaining({ player: 2, rotation: Math.PI / 4 }),
+      );
+      expect(bottom.zones[0]).toEqual(
+        expect.objectContaining({ player: 1, rotation: -Math.PI / 4 }),
+      );
+    });
+
     it("generates vertically mirror-symmetric team deployment zones", () => {
       const scenario = gameDataManager.getScenario("plains");
       const result = new RandomMapGenerator().generate({

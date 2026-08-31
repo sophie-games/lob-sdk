@@ -2,6 +2,7 @@ import { Direction } from "@lob-sdk/types";
 import {
   checkCollision,
   degreesToRadians,
+  getClosestPointInsideZone,
   getDirectionToPoint,
   getFlankingPercent,
   getMaxOrgProportionDebuff,
@@ -10,6 +11,24 @@ import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { TWO_PI } from "@lob-sdk/constants";
 
 const gameDataManager = GameDataManager.get("napoleonic");
+
+describe("getClosestPointInsideZone()", () => {
+  it("clamps against a rectangle rotated around its center", () => {
+    const result = getClosestPointInsideZone(
+      {
+        x: 0,
+        y: 0,
+        width: 100,
+        height: 20,
+        rotation: Math.PI / 2,
+      },
+      { x: 50, y: -100 },
+    );
+
+    expect(result.x).toBeCloseTo(50);
+    expect(result.y).toBeCloseTo(-40);
+  });
+});
 
 const { organization } = gameDataManager.getGameRules();
 if (!organization) {

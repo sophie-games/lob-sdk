@@ -177,11 +177,18 @@
     "title": "Strefy rozstawienia",
     "hint": "Te strefy określają, gdzie zaczyna każda armia. Faza rozstawienia dodaje tylko turę 0, w której gracze mogą przestawić jednostki w ich obrębie.",
     "team": "Drużyna {{team}}",
+    "wholeTeam": "Wszyscy gracze drużyny",
+    "player": "Gracz {{player}}",
     "mainZone": "Główna",
     "forwardZone": "Wysunięta",
+    "addMainZone": "Dodaj strefę główną",
+    "addForwardZone": "Dodaj strefę wysuniętą",
+    "removeZone": "Usuń strefę",
     "fields": {
       "x": "X",
-      "y": "Y"
+      "y": "Y",
+      "player": "Przypisana do",
+      "rotation": "Obrót (stopnie)"
     },
     "phaseHelp": "Gdy faza rozstawienia jest włączona, gracze dostają jedną dodatkową turę przed rozpoczęciem walki, wyłącznie po to, by przestawić jednostki w obrębie swojej strefy.",
     "gateHelp": "Te strefy można edytować, gdy włączona jest którakolwiek z opcji: Zezwól na dynamiczną armię, Faza rozstawienia lub Cele rozstawiane przez graczy, ponieważ każda z tych trzech potrzebuje miejsca, w którym przybywająca armia zaczyna. Gdy wszystkie trzy są wyłączone, strefy są wyszarzone; na mapie proceduralnej także są wyszarzone, ponieważ tam definiuje się je w procentach w panelu Mapa losowa."
@@ -232,7 +239,27 @@
     "errIdInUse": "ID formacji \"{{id}}\" jest już używane",
     "errEdgeIndex": "Krawędź ognia {{n}}: indeks krawędzi musi wynosić 0-3",
     "errEdgeArc": "Krawędź ognia {{n}}: łuk musi być między 0 a 360",
-    "errEdgeEmitters": "Krawędź ognia {{n}}: emitery muszą być dodatnią liczbą całkowitą"
+    "errEdgeEmitters": "Krawędź ognia {{n}}: emitery muszą być dodatnią liczbą całkowitą",
+    "rangedResistance": "Odporność na ostrzał",
+    "rangedResistanceHelp": "Jak ta formacja znosi nadlatujący ostrzał: ile obrażeń i utraty org. z siebie strząsa oraz czy pociski przelatują przez nią do tego, co stoi za nią.",
+    "friendlyFireImmuneDamageTypes": "Niewrażliwa na ogień sojuszniczy od",
+    "firepowerPooling": "Pula siły ognia",
+    "firepowerPoolingHelp": "Jak siła ognia tej formacji dzieli się między jej krawędzie ognia. Wspólna daje całej jednostce jedną pulę, więc czworobok strzelający każdą ścianą wkłada w każdą z nich tylko ułamek swojej siły. Pełna pula na krawędź daje każdej krawędzi całą siłę ognia jednostki, i tak właśnie okręt oddaje pełną salwę burtową z każdej burty.",
+    "firepowerPoolingShared": "Wspólna dla wszystkich krawędzi",
+    "firepowerPoolingPerEdge": "Pełna pula na krawędź",
+    "effects": "Efekty przy przyjęciu tej formacji",
+    "effectsHelp": "Efekty nakładane na jednostkę w chwili, gdy zmienia się w tę formację, każdy trwający podaną liczbę ticks. Epoka używa tego dziś w jednym miejscu: formacja ucieczki przyznaje Może przechodzić przez wrogów na 12 ticks, i tak właśnie złamana jednostka przebiega przez linie, zamiast wpadać na nie.",
+    "effect": "Efekt",
+    "effectDuration": "Czas trwania (ticks)",
+    "effectReorgDebuff": "Kara reorganizacji",
+    "effectInfo": {
+      "been_in_melee": "Oznacza jednostkę jako niedawno walczącą wręcz, utrzymując ją w nieładzie przez cały czas trwania.",
+      "can_pass_through_enemies": "Pozwala jednostce przechodzić przez jednostki wroga, zamiast się z nimi zderzać.",
+      "has_ran": "Oznacza jednostkę jako niedawno biegnącą, i to na tym opiera się kara do odporności na szarżę za bieg.",
+      "rotated_180": "Oznacza jednostkę jako właśnie zawróconą, czyli stan pozostawiony przez obrót o 180 stopni.",
+      "started_routing": "Oznacza jednostkę jako właśnie złamaną, czyli stan rozpoczynający ucieczkę.",
+      "taken_fire": "Oznacza jednostkę jako niedawno ostrzelaną, utrzymując ją w nieładzie przez cały czas trwania."
+    }
   },
   "unitTemplateModal": {
     "title": "Edytuj niestandardowy szablon jednostki",
@@ -268,6 +295,7 @@
     "turningDelay": "Opóźnienie obrotu (ticks)",
     "startsRunning": "Zaczyna w biegu",
     "movementSound": "Dźwięk ruchu",
+    "chargeSound": "Dźwięk szarży",
     "rangedCombat": "Walka dystansowa",
     "rangedAttack": "Atak dystansowy",
     "panicFireDistance": "Dystans panicznego ognia",
@@ -291,7 +319,13 @@
     "pushStrength": "Siła pchania",
     "pushDistance": "Dystans pchania",
     "maxEntrenchment": "Maks. okopanie",
-    "locked": "Zablokowane"
+    "locked": "Zablokowane",
+    "unlimberTime": "Czas zaprzęgania (ticks)",
+    "unlimberTimeHelp": "Jak długo ta jednostka nosi znacznik Uciekła po ruchu, liczone w ticks. Broń, której typu obrażeń nie można użyć po biegu, jest bezużyteczna, dopóki ten znacznik trwa, więc dla działa jest to opóźnienie zaprzęgania: baterie tej epoki idą od 3 przy dziale 4lb do 14 przy jednorożcu 18lb. To, czy jednostka w ogóle się zaprzęga, ustawia się na broni, a nie tutaj: zaznacz Nie można użyć po biegu w jej typie obrażeń. Pozostawienie pola pustego cofa się do stałej gry EFFECT_HAS_RAN_TICKS, która w obu wydanych epokach wynosi 12, a wpisanie 0 działa tak samo, więc żadna wartość tutaj nie wyłączy opóźnienia. Najkrótsza to 1.",
+    "runChargeResistanceModifier": "Modyfikator odporności na szarżę po biegu",
+    "runChargeResistanceModifierHelp": "Dodawany do odporności tej jednostki na szarżę, ale tylko wtedy, gdy nosi ona znacznik Uciekła po ruchu. Gdy znacznik wygaśnie, nie liczy się wcale. Wartość ujemna sprawia, że jednostkę łatwiej stratować w chwilach po ruchu, i to właśnie zostawia baterię w marszu na łasce kawalerii: działa 8lb tej epoki używają -0.75. Jak długo trwa to okno, ustawia pole Czas zaprzęgania powyżej.",
+    "changeAnimations": "Animacje zmiany (na formację)",
+    "changeAnimationsHelp": "Animacja odtwarzana, gdy jednostka opuszcza tę formację na rzecz innej. Wybierz formację, w którą się zmienia, a potem animację do odtworzenia po drodze. Przejście bez wiersza tutaj nie jest zepsute: jednostka po prostu przeskakuje z jednego sprite'a na drugi bez niczego pomiędzy, i tak dziś działa każda formacja bez wpisów. Lista zawiera animacje, które dostarcza ta epoka, a piechota liniowa tej epoki używa sześciu z nich."
   },
   "unitCategoryModal": {
     "title": "Edytuj niestandardową kategorię jednostki",
@@ -368,7 +402,8 @@
       "projectile": "Pocisk",
       "rangeBrackets": "Przedziały zasięgu",
       "areaOfEffect": "Obszar działania",
-      "targetStatModifiers": "Modyfikatory wg statystyki celu"
+      "targetStatModifiers": "Modyfikatory wg statystyki celu",
+      "melee": "Wręcz"
     },
     "fields": {
       "ranged": "Dystansowy",
@@ -384,7 +419,9 @@
       "canShootLocation": "Może strzelać w miejsce",
       "aimMode": "Tryb celowania",
       "maxRange": "Maks. zasięg",
-      "engagementTier": "Poziom automatycznego ognia"
+      "engagementTier": "Poziom automatycznego ognia",
+      "shotImpactAnim": "Animacja trafienia",
+      "bandName": "Przedział zasięgu"
     },
     "aimMode": {
       "targetCenter": "Środek celu (wybuchy okrągłe)",
@@ -413,7 +450,10 @@
       "startBottomWidth": "Początkowa szerokość dołu",
       "endBottomWidth": "Końcowa szerokość dołu",
       "startHeight": "Wysokość początkowa",
-      "endHeight": "Wysokość końcowa"
+      "endHeight": "Wysokość końcowa",
+      "heightModifierPerLevelHelp": "Zmienia głębokość kształtu wybuchu o ten ułamek na każdy poziom różnicy wzniesienia powyżej pierwszego. Wartość ujemna kurczy obszar, dodatnia go wydłuża. Kule armatnie tej epoki używają -0.15.",
+      "damageModifierPerLevelHelp": "Dodaje ten modyfikator obrażeń za każdy poziom różnicy wzniesienia powyżej pierwszego. Wartość ujemna osłabia trafienie, dodatnia je wzmacnia. Kule armatnie tej epoki używają -0.05.",
+      "maxElevationDiffHelp": "Największa liczba poziomów różnicy wzniesienia, jaka może się liczyć. Różnicę mierzy się bezwzględnie, więc ogień pod górę i z góry traktowane są tak samo, a różnica jednego poziomu lub mniejsza nie daje nic. Kule armatnie tej epoki mają limit 4."
     },
     "addRangeBracket": "Dodaj przedział zasięgu",
     "addAreaOfEffect": "Dodaj obszar działania",
@@ -494,7 +534,7 @@
       "maxSpritesAlert": "Możesz wgrać maksymalnie {{count}} niestandardowych sprite'ów.",
       "tooLargeAlert": "Obraz zbyt duży; nie udało się skompresować poniżej {{kb}}KB. Spróbuj mniejszego lub prostszego obrazu.",
       "invalidImageAlert": "Nie udało się odczytać obrazu. Użyj pliku PNG lub WebP.",
-      "deleteBlockedAlert": "Nie można usunąć: wciąż używany przez {{where}}. Najpierw zmień te formacje.",
+      "deleteBlockedAlert": "Nie można usunąć: wciąż używany przez {{where}}. Najpierw zmień te odwołania.",
       "libraryTitle": "Biblioteka sprite'ów",
       "libraryDescription": "Przeglądaj wbudowane sprite'y epoki dla inspiracji.",
       "filterPlaceholder": "Filtruj po nazwie...",

@@ -73,6 +73,10 @@ describe("BaseUnit", () => {
     unit = new TestUnit(id, gameDataManager);
   });
 
+  it("exposes its unit template charge sound", () => {
+    expect(unit.chargeSound).toBe("infantry-charge");
+  });
+
   describe("hasEffect()", () => {
     it("should return true if the effect exists", () => {
       unit.effects.set(Rotated180.id, new Rotated180(10));

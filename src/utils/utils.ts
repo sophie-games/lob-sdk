@@ -64,6 +64,27 @@ export function divideArrayInHalf<T>(array: T[]): [T[], T[]] {
 }
 
 /**
+ * Rotates a map point around a zone's center. Uses the zone's authored rotation
+ * by default; pass an explicit angle to transform in the opposite direction.
+ */
+export const rotatePointAroundZoneCenter = (
+  zone: Zone,
+  point: Point2,
+  rotation: number = zone.rotation ?? 0,
+) => {
+  const centerX = zone.x + zone.width / 2;
+  const centerY = zone.y + zone.height / 2;
+  const dx = point.x - centerX;
+  const dy = point.y - centerY;
+  const cos = Math.cos(rotation);
+  const sin = Math.sin(rotation);
+  return new Vector2(
+    centerX + dx * cos - dy * sin,
+    centerY + dx * sin + dy * cos,
+  );
+};
+
+/**
  * Gets the closest point inside a zone to a given point, clamping the point to the zone boundaries.
  * @param zone - The zone to clamp the point to.
  * @param point - The point to clamp.
@@ -75,15 +96,25 @@ export const getClosestPointInsideZone = (
   point: Point2,
   buffer: number = 0,
 ) => {
+  const rotation = zone.rotation ?? 0;
+
+  // Rotate the point into the rectangle's local coordinate system, clamp it,
+  // then rotate the result back into map coordinates. Keeping x/y as the
+  // unrotated top-left preserves every existing scenario at rotation 0.
+  const localPoint = rotatePointAroundZoneCenter(zone, point, -rotation);
   const clampedX = Math.max(
     zone.x - buffer,
-    Math.min(point.x, zone.x + zone.width + buffer),
+    Math.min(localPoint.x, zone.x + zone.width + buffer),
   );
   const clampedY = Math.max(
     zone.y - buffer,
-    Math.min(point.y, zone.y + zone.height + buffer),
+    Math.min(localPoint.y, zone.y + zone.height + buffer),
   );
-  return new Vector2(clampedX, clampedY);
+  return rotatePointAroundZoneCenter(
+    zone,
+    { x: clampedX, y: clampedY },
+    rotation,
+  );
 };
 
 /**

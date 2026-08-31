@@ -93,6 +93,11 @@ export type DeploymentZoneType = "main" | "forward";
 export interface TeamDeploymentZone {
   /** The team number this zone belongs to. */
   team: number;
+  /**
+   * Player number this zone is reserved for. Omit for a team-wide zone, which
+   * keeps the legacy behavior of being divided between that team's players.
+   */
+  player?: number;
   /** Whether the zone is a main or a forward (skirmisher-allowed) zone. */
   type: DeploymentZoneType;
   /** X coordinate of the zone's top-left corner. */
@@ -103,6 +108,8 @@ export interface TeamDeploymentZone {
   width: number;
   /** Height of the deployment zone. */
   height: number;
+  /** Clockwise rotation in radians around the zone's center. Defaults to 0. */
+  rotation?: number;
 }
 
 /**
@@ -260,6 +267,10 @@ export interface DeploymentZoneRect {
 export interface RandomDeploymentZone {
   /** Which units deploy here — see {@link DeploymentZoneType}. */
   role: DeploymentZoneType;
+  /** Player number this zone is reserved for. Omit for a team-wide zone. */
+  player?: number;
+  /** Clockwise rotation in radians around the generated rectangle's center. */
+  rotation?: number;
   rect: DeploymentZoneRect;
 }
 
@@ -309,9 +320,10 @@ export type ScenarioName = string;
 /**
  * A sprite uploaded by a scenario creator, embedded inline as a base64
  * data-URL. Referenced by custom unit formations via `baseSprite`/`overlaySprite`
- * names carrying the `cs_` prefix. Kept small by the editor (re-encoded to webp
- * and size-capped); aggregate weight is bounded by the per-collection count
- * caps in validate-custom.ts and the server's decompressed-payload cap.
+ * or by custom damage types via `imageAlias`, using names carrying the `cs_`
+ * prefix. Kept small by the editor (re-encoded to webp and size-capped);
+ * aggregate weight is bounded by the per-collection count caps in
+ * validate-custom.ts and the server's decompressed-payload cap.
  */
 export interface CustomSprite {
   /** `data:image/webp;base64,...` (or png). */
@@ -559,9 +571,10 @@ export interface Scenario {
 
   /**
    * Uploaded sprites embedded inline (base64), keyed by a
-   * `cs_<type>_<formationId>_<base|overlay>` name that custom unit formations
-   * reference via `baseSprite`/`overlaySprite`. Registered client-side into the
-   * sprite data service so they render like built-in sprites.
+   * `cs_`-prefixed name that custom unit formations reference via
+   * `baseSprite`/`overlaySprite`, or custom damage types via `imageAlias`.
+   * Registered client-side into the sprite data service so they render like
+   * built-in sprites.
    */
   customSprites?: Record<string, CustomSprite>;
 

@@ -214,6 +214,7 @@ interface BaseUnitTemplate {
   orgRadius: number;
   orgRadiusBonus: number;
   movementSound: string;
+  chargeSound?: string;
   manpower: number;
   gold: number;
   chargeResistance?: number;

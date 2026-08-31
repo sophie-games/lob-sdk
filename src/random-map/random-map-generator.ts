@@ -230,6 +230,7 @@ export class RandomMapGenerator {
         terrains,
         tileSize,
         mapSeed,
+        scenario.players,
       );
     }
 
@@ -263,6 +264,7 @@ export class RandomMapGenerator {
     terrains: TerrainType[][],
     tileSize: number,
     seed: number,
+    playerSetups: Scenario["players"],
   ): [TeamDeploymentZones, TeamDeploymentZones] {
     const random = randomSeeded(deriveSeed(seed, 0));
     const tilesX = terrains.length;
@@ -288,6 +290,8 @@ export class RandomMapGenerator {
         ) * tileSize,
       width: this.percentToTiles(zone.rect.width, tilesX) * tileSize,
       height: this.percentToTiles(zone.rect.height, tilesY) * tileSize,
+      ...(zone.player !== undefined ? { player: zone.player } : {}),
+      ...(zone.rotation !== undefined ? { rotation: zone.rotation } : {}),
     });
 
     // The top side is authored; the bottom side is its exact vertical mirror
@@ -296,11 +300,30 @@ export class RandomMapGenerator {
     // percentToTiles flooring every edge toward the top, which would otherwise
     // hand the bottom team a consistent first-side advantage.
     const mapHeightPx = tilesY * tileSize;
-    const mirrorToBottom = (zone: TeamDeploymentZone): TeamDeploymentZone => ({
-      ...zone,
-      team: 1,
-      y: mapHeightPx - zone.y - zone.height,
-    });
+    const setups =
+      playerSetups ??
+      [
+        { player: 1, team: 1 },
+        { player: 2, team: 2 },
+      ];
+    const topPlayers = setups.filter((setup) => setup.team === 2);
+    const bottomPlayers = setups.filter((setup) => setup.team === 1);
+    const mirrorPlayer = (player: number | undefined): number | undefined => {
+      if (player === undefined) return undefined;
+      const teamOrder = topPlayers.findIndex((setup) => setup.player === player);
+      return teamOrder < 0 ? undefined : bottomPlayers[teamOrder]?.player;
+    };
+    const mirrorToBottom = (zone: TeamDeploymentZone): TeamDeploymentZone => {
+      const mirroredPlayer = mirrorPlayer(zone.player);
+      const { player: _player, rotation: _rotation, ...rect } = zone;
+      return {
+        ...rect,
+        team: 1,
+        y: mapHeightPx - zone.y - zone.height,
+        ...(mirroredPlayer !== undefined ? { player: mirroredPlayer } : {}),
+        ...(zone.rotation !== undefined ? { rotation: -zone.rotation } : {}),
+      };
+    };
 
     const topZones = deploymentZones.top.map((zone) => build(2, zone));
     const bottomZones = deploymentZones.bottom

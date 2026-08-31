@@ -719,4 +719,6 @@ export interface Zone {
   width: number;
   /** Height of the zone. */
   height: number;
+  /** Clockwise rotation in radians around the zone's center. Defaults to 0. */
+  rotation?: number;
 }
