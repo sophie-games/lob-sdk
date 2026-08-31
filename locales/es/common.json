@@ -716,6 +716,16 @@
     "ready": "Listo",
     "notReady": "No listo",
     "playersChoosingArmies": "Esperando a que {{count}} jugadores elijan su ejército.",
+    "gameMaster": "Game Master",
+    "youAreGameMaster": "Sos el Game Master",
+    "cancelManagedGame": "Cancelar War Room",
+    "cancelManagedGameTitle": "¿Cancelar este War Room?",
+    "cancelManagedGameMessage": "Esto cerrará el lobby para todos. El War Room no podrá volver a abrirse.",
+    "keepManagedGame": "Mantener lobby",
+    "cancellingManagedGame": "Cancelando...",
+    "cancelManagedGameFailed": "No se pudo cancelar el War Room. Intentá de nuevo.",
+    "managedGameCancelledTitle": "War Room cancelado",
+    "managedGameCancelledMessage": "El Game Master cerró este lobby.",
     "back": "Volver"
   },
   "limitedMode": {
