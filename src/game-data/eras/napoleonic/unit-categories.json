@@ -1,7 +1,6 @@
 [
   {
     "id": "infantry",
-    "chargeSound": "infantry-charge",
     "chargeStaminaCost": 10000,
     "chargeBacklashMultiplier": 1.5,
     "runChargeBacklashMultiplier": 0.75,
@@ -32,7 +31,6 @@
   },
   {
     "id": "guardsInfantry",
-    "chargeSound": "infantry-charge",
     "chargeStaminaCost": 10000,
     "chargeBacklashMultiplier": 1.5,
     "runChargeBacklashMultiplier": 0.75,
@@ -63,7 +61,6 @@
   },
   {
     "id": "midCavalry",
-    "chargeSound": "cavalry-charge",
     "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
     "deploymentSection": "front",
@@ -166,7 +163,6 @@
   },
   {
     "id": "scoutCavalry",
-    "chargeSound": "cavalry-charge",
     "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
     "deploymentSection": "front",
@@ -213,7 +209,6 @@
   },
   {
     "id": "lightCavalry",
-    "chargeSound": "cavalry-charge",
     "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
     "deploymentSection": "front",
@@ -260,7 +255,6 @@
   },
   {
     "id": "heavyCavalry",
-    "chargeSound": "cavalry-charge",
     "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
     "deploymentSection": "front",
@@ -307,7 +301,6 @@
   },
   {
     "id": "militiaInfantry",
-    "chargeSound": "infantry-charge",
     "chargeStaminaCost": 10000,
     "chargeBacklashMultiplier": 0.75,
     "runChargeBacklashMultiplier": 0.75,
@@ -349,7 +342,6 @@
   },
   {
     "id": "skirmishInfantry",
-    "chargeSound": "infantry-charge",
     "chargeStaminaCost": 10000,
     "chargeBacklashMultiplier": 0,
     "deploymentSection": "front",

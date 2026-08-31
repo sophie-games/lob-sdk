@@ -157,6 +157,7 @@ export abstract class BaseUnit extends Entity {
   get canDeployForward(): boolean { return this.template.canDeployForward ?? false; }
   get maxEntrenchment(): number { return this.template.maxEntrenchment ?? 0; }
   get movementSound(): string { return this.template.movementSound; }
+  get chargeSound(): string | undefined { return this.template.chargeSound; }
   get skirmisherRatio(): number { return this.template.skirmisherRatio ?? 0; }
   get supplyConsumptionIdle(): number | undefined { return this.template.supplyConsumptionIdle; }
   get supplyConsumptionMoving(): number | undefined { return this.template.supplyConsumptionMoving; }
@@ -172,7 +173,6 @@ export abstract class BaseUnit extends Entity {
   get flankChargePenBonus(): number { return this.template.flankChargePenBonus ?? 0; }
 
   // --- Category Statistics ---
-  get chargeSound(): string | undefined { return this.categoryTemplate.chargeSound; }
   get captureSpeed(): number { return this.categoryTemplate.captureSpeed ?? 0; }
   // Collision levels are formation-derived (see FormationTemplate); default solid.
   get allyCollisionLevel(): number { return this.effectiveFormationTemplate?.allyCollisionLevel ?? MIN_COLLISION_LEVEL; }
@@ -587,4 +587,3 @@ export abstract class BaseUnit extends Entity {
   abstract isMoving(): boolean;
   abstract inMelee(): boolean;
 }
-

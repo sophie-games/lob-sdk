@@ -73,7 +73,7 @@ describe("BaseUnit", () => {
     unit = new TestUnit(id, gameDataManager);
   });
 
-  it("exposes its category charge sound", () => {
+  it("exposes its unit template charge sound", () => {
     expect(unit.chargeSound).toBe("infantry-charge");
   });
 
