@@ -21,13 +21,11 @@ describe("ChargeInterrupted", () => {
     expect(unit.cannotCharge).toBe(true);
   });
 
-  it("preserves its remaining tick duration through DTO serialization", () => {
-    const dto = new ChargeInterrupted(11).toDto();
-    const restored = UnitEffectRegistry.create(dto) as ChargeInterrupted;
-
-    expect(dto).toEqual([ChargeInterrupted.id, 11]);
-    expect(restored).toBeInstanceOf(ChargeInterrupted);
-    expect(restored.duration).toBe(11);
+  it("is not registered as a generic wire or formation effect", () => {
+    expect(UnitEffectRegistry.getId(ChargeInterrupted.name)).toBeUndefined();
+    expect(
+      UnitEffectRegistry.getEffectClass(ChargeInterrupted.id),
+    ).toBeUndefined();
   });
 
   it("expires after its configured number of ticks", () => {

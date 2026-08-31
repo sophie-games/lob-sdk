@@ -49,6 +49,12 @@ export interface UnitDto {
   eff?: UnitEffectDto[];
 
   /**
+   * Remaining charge-interruption ticks. Kept outside `eff` so older clients
+   * and servers can safely ignore this newer temporary state.
+   */
+  ci?: number;
+
+  /**
    * Accumulated movement ticks.
    */
   ac?: number;

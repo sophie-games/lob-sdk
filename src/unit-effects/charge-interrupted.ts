@@ -1,6 +1,5 @@
 import { BaseUnit } from "@lob-sdk/unit";
 import { BaseUnitEffect } from "./base-unit-effect";
-import { UnitEffectRegistry } from "./unit-effect-registry";
 import { UnitEffectDisplayStat } from "./types";
 
 /**
@@ -29,5 +28,3 @@ export class ChargeInterrupted extends BaseUnitEffect {
     ];
   }
 }
-
-UnitEffectRegistry.register(ChargeInterrupted);
