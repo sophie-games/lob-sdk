@@ -50,7 +50,24 @@
       "badge": "Insignia de rango exclusiva junto a tu nombre",
       "analytics": "Analíticas avanzadas del jugador",
       "themes": "Temas personalizados de interfaz",
-      "goldSkin": "Opción para desactivar skins"
+      "goldSkin": "Opción para desactivar skins",
+      "managedGame": "Organizá un Salón de Guerra privado para hasta {{count}} jugadores, con asientos asignados, cohosts y un Spectator con Full Vision"
+    },
+    "managedGame": {
+      "title": "Salón de Guerra",
+      "enable": "Crear como Salón de Guerra privado",
+      "description": "Beneficio Field Marshal: una partida privada activa para hasta {{count}} jugadores, con asientos asignados, cohosts y un Spectator con Full Vision.",
+      "name": "Nombre del evento",
+      "namePlaceholder": "Invitacional de Waterloo",
+      "seats": "Asientos asignados",
+      "seatsPlaceholder": "Alice, 1\nBob, 2",
+      "seatsHelp": "Un jugador por línea: usuario, número de asiento.",
+      "managers": "Cohosts",
+      "managersPlaceholder": "Marshal\nModerador",
+      "managersHelp": "Un usuario por línea. Vos siempre sos cohost.",
+      "spectator": "Spectator con Full Vision",
+      "spectatorPlaceholder": "Usuario del recorder (opcional)",
+      "invalid": "Agregá el nombre del evento y usá “usuario, número de asiento” para cada asiento asignado."
     },
     "manageStripe": "Administrar con Stripe",
     "managePatreon": "Administrar en Patreon",

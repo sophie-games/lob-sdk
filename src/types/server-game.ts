@@ -257,6 +257,29 @@ export interface PlayerBudgetOverride {
   gold?: number;
 }
 
+export type ManagedGamePermission = "manage" | "spectate";
+
+/** Server-only membership for a private, rostered game. */
+export interface ManagedGameMember {
+  userId: number;
+  playerNumber?: number;
+  permissions?: ManagedGamePermission[];
+}
+
+/** Server-only access configuration persisted with the game metadata. */
+export interface ManagedGameConfig {
+  name: string;
+  members: ManagedGameMember[];
+}
+
+/** Safe subset returned to an authorized managed-game client. */
+export interface ManagedGameClientInfo {
+  name: string;
+  canManage: boolean;
+  canSpectate: boolean;
+  assignedPlayerNumber?: number;
+}
+
 /**
  * Metadata column in the games table.
  * Stores additional game information that doesn't affect gameplay.
@@ -308,6 +331,8 @@ export interface GameMetadata {
   closedSlots?: number[];
   /** Host-with-lobby games only: user ids the host has kicked and barred from rejoining this game; mutated during the lobby; server-only (never sent to clients). */
   kickedUserIds?: number[];
+  /** Private roster and roles for a subscription-managed game. Never sent to clients. */
+  managedGame?: ManagedGameConfig;
 }
 
 /**
@@ -346,6 +371,8 @@ export interface GameData {
   finished: boolean;
   /** Whether this is a ranked game. */
   ranked: boolean;
+  /** Authorized, non-sensitive managed-game information. */
+  managedGame?: ManagedGameClientInfo;
   /** Reason why the game ended, if finished. */
   endReason: GameEndReason | null;
   /**

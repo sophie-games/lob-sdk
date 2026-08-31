@@ -50,7 +50,24 @@
       "badge": "Exclusive rank badge next to your name",
       "analytics": "Advanced player analytics",
       "themes": "Custom interface themes",
-      "goldSkin": "Disable Skins option"
+      "goldSkin": "Disable Skins option",
+      "managedGame": "Host one private War Room for up to {{count}} players with assigned seats, co-hosts, and one Full Vision Spectator"
+    },
+    "managedGame": {
+      "title": "War Room",
+      "enable": "Create as a private War Room",
+      "description": "Field Marshal benefit: one active private game for up to {{count}} players, with assigned seats, co-hosts, and one Full Vision Spectator.",
+      "name": "Event name",
+      "namePlaceholder": "Waterloo Invitational",
+      "seats": "Assigned seats",
+      "seatsPlaceholder": "Alice, 1\nBob, 2",
+      "seatsHelp": "One player per line: username, seat number.",
+      "managers": "Co-hosts",
+      "managersPlaceholder": "Marshal\nModerator",
+      "managersHelp": "One username per line. You are always a co-host.",
+      "spectator": "Full Vision Spectator",
+      "spectatorPlaceholder": "Recorder username (optional)",
+      "invalid": "Add an event name and use “username, seat number” for every assigned seat."
     },
     "manageStripe": "Manage with Stripe",
     "managePatreon": "Manage on Patreon",
