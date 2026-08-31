@@ -29,6 +29,7 @@
   "allyCollision": {
     "collisionBounceScale": 0.02,
     "overlapStopCharge": 0.0,
+    "chargeInterruptionDuration": 5,
     "maxSpeedPenalty": -0.3,
     "maxOrgDamageReceived": 0.3,
     "maxMeleeAttackPenalty": -0.4,
