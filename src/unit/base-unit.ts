@@ -143,6 +143,7 @@ export abstract class BaseUnit extends Entity {
 
   get rotationSpeed(): number { return this.template.rotationSpeed; }
   get rotationMaxThreshold(): number { return this.template.rotationMaxThreshold; }
+  get runRotationMaxThreshold(): number { return this.template.runRotationMaxThreshold ?? this.rotationMaxThreshold; }
   get runRotationSpeed(): number { return this.template.runRotationSpeed; }
   get turningDelay(): number { return this.template.turningDelay ?? 0; }
 

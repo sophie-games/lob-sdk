@@ -90,6 +90,23 @@ describe("BaseUnit", () => {
     expect(unit.runMovementSound).toBe("infantry-running");
   });
 
+  describe("rotation thresholds", () => {
+    it("falls back to the walk threshold when no run threshold is configured", () => {
+      expect(unit.runRotationMaxThreshold).toBe(unit.rotationMaxThreshold);
+    });
+
+    it("exposes a separately configured run threshold", () => {
+      unit.template = {
+        ...template,
+        runRotationMaxThreshold: template.rotationMaxThreshold * 2,
+      };
+
+      expect(unit.runRotationMaxThreshold).toBe(
+        template.rotationMaxThreshold * 2,
+      );
+    });
+  });
+
   describe("hasEffect()", () => {
     it("should return true if the effect exists", () => {
       unit.effects.set(Rotated180.id, new Rotated180(10));

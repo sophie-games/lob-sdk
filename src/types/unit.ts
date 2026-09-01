@@ -266,6 +266,11 @@ interface BaseUnitTemplate {
    */
   rotationMaxThreshold: number;
   /**
+   * Maximum rotation threshold before the running speed penalty is applied.
+   * Defaults to rotationMaxThreshold when omitted.
+   */
+  runRotationMaxThreshold?: number;
+  /**
    * Rotation speed when running.
    */
   runRotationSpeed: number;
