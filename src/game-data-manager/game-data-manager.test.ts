@@ -127,6 +127,38 @@ describe("GameDataManager", () => {
   });
 
   describe("getBattleType", () => {
+    it("configures the ranked K-factor contribution for every battle type", () => {
+      const factorsByEra = Object.fromEntries(
+        GameDataManager.getAvailableEras().map((era) => {
+          const manager = GameDataManager.get(era);
+          return [
+            era,
+            Object.fromEntries(
+              manager
+                .getAllDynamicBattleTypes()
+                .map((battleType) => [
+                  battleType,
+                  manager.getBattleType(battleType).kFactor,
+                ]),
+            ),
+          ];
+        }),
+      );
+
+      expect(factorsByEra).toEqual({
+        napoleonic: {
+          micro: 16,
+          clash: 24,
+          combat: 32,
+          battle: 40,
+          grand_battle: 48,
+        },
+        ww2: {
+          operational: 32,
+        },
+      });
+    });
+
     describe("default armies respect unit caps from battle-types.json", () => {
       const battleTypes = gameDataManager.getAllDynamicBattleTypes();
 

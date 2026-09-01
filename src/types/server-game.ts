@@ -90,6 +90,8 @@ export interface BattleTypeTemplate {
   skirmisherRatio?: number[];
   /** Maximum number of each unit type allowed. */
   unitCaps: Record<UnitType, number>;
+  /** Ranked ELO K-factor contribution for this battle type. */
+  kFactor: number;
   /** Number of ticks required to capture small objectives. */
   ticksToCaptureSmall: number;
   /** Number of ticks required to capture big objectives. */
@@ -385,7 +387,7 @@ export interface GameData {
    */
   timePreset: GameTimePreset;
 
-  /** ELO K-factor for this game (from time control at creation; use 0 when not applicable). */
+  /** Combined ELO K-factor persisted for this game; use 0 when not applicable. */
   kFactor: number;
 
   /** Dynamic battle type configuration, if applicable. */
@@ -657,7 +659,7 @@ export interface ServerGameProps {
   turnStartedTime: number;
   /** Fischer timing settings */
   timePreset: GameTimePreset;
-  /** ELO K-factor persisted for this game (matches {@link GameTimePreset.kFactor} at creation). */
+  /** Combined ELO K-factor persisted for this game at creation. */
   kFactor?: number;
   /** Whether the game has started. */
   started: boolean;
