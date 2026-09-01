@@ -57,6 +57,8 @@ export interface Player {
   playerNumber: number;
   username: string;
   elo: number;
+  /** Ranked games settled for this era's rating in the current season. */
+  eloGames?: number;
   team: number;
   passed: boolean;
   defeated: boolean;

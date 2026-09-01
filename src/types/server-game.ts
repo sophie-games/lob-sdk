@@ -649,6 +649,8 @@ export interface AddNewPlayerProps {
   username: string;
   /** The player's ELO rating. */
   elo: number;
+  /** Ranked games settled for this rating in the current season. */
+  eloGames?: number;
   /** The player's tier level. */
   userTier?: UserTier;
   /** Optional unit composition for the player. */
