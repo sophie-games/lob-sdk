@@ -353,6 +353,39 @@ export type ObjectivesRuleOverride = Pick<
   | "bigObjectiveZoneInset"
 >;
 
+/** A reusable army composition offered for one managed-game seat. */
+export interface ManagedForcePreset {
+  /** Stable identifier stored in the event roster. */
+  id: string;
+  /** Player-facing name shown by the organizer UI. */
+  name: string;
+  /** Optional key in the scenario era locale; falls back to {@link name}. */
+  nameKey?: string;
+  /** Unit types assigned to the seat, in placement-slot order. */
+  units: UnitType[];
+  /** Unit within {@link units} that carries the player's identity and role badge. Defaults to 0. */
+  leaderUnitIndex?: number;
+}
+
+/** Optional force restrictions for one player number in a managed roster. */
+export interface ManagedRosterSeatOptions {
+  player: number;
+  /** Presets this seat may use. Omit to allow every preset in the roster. */
+  forcePresetIds?: string[];
+  /** Initial selection for the organizer. Defaults to the first allowed preset. */
+  defaultForcePresetId?: string;
+}
+
+/**
+ * Data used to turn a fixed map's unit placements into selectable forces.
+ * Existing scenario units are placement slots; a selected preset fills the
+ * first N slots for that player and unused trailing slots are removed.
+ */
+export interface ManagedRosterTemplate {
+  forcePresets: ManagedForcePreset[];
+  seats?: ManagedRosterSeatOptions[];
+}
+
 /**
  * Feature-based scenario schema (replaces the legacy preset/hybrid/random union).
  * All maps go through the procedural pipeline; fixed maps are wrapped in a single
@@ -373,6 +406,10 @@ export interface Scenario {
   ranked?: boolean;
   /** Whether the scenario should be hidden from selection. */
   hidden?: boolean;
+  /** Whether only subscription-managed custom games may create this scenario. */
+  managedGameOnly?: boolean;
+  /** Optional reusable force choices for subscription-managed games. */
+  managedRoster?: ManagedRosterTemplate;
   /** Game triggers that can modify game state during play. */
   triggers?: GameTrigger[];
   /** Default true. If false, disables automatic victory when only one team is alive. */
@@ -618,7 +655,9 @@ export interface Scenario {
    * the era battle type by the per-game GameDataManager so both the army panel
    * and validateArmy see the scenario's values.
    */
-  customBattleTypes?: Partial<Record<DynamicBattleType, ScenarioBattleTypeOverride>>;
+  customBattleTypes?: Partial<
+    Record<DynamicBattleType, ScenarioBattleTypeOverride>
+  >;
 
   /**
    * Absolute per-player budget overrides, keyed by player number. Each entry

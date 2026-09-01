@@ -260,18 +260,24 @@ export interface PlayerBudgetOverride {
 }
 
 export type ManagedGamePermission = "manage" | "spectate";
+export type ManagedGameMemberRole = "chief_of_staff" | "reserve";
 
 /** Server-only membership for a private, rostered game. */
 export interface ManagedGameMember {
   userId: number;
   playerNumber?: number;
   permissions?: ManagedGamePermission[];
+  role?: ManagedGameMemberRole;
 }
 
 /** Server-only access configuration persisted with the game metadata. */
 export interface ManagedGameConfig {
   name: string;
   members: ManagedGameMember[];
+  /** Unit that carries each seat's player identity and public role marker. */
+  identityUnitIds?: Record<number, EntityId>;
+  /** Epoch seconds at which the Game Master froze the current turn. */
+  pausedAt?: number;
 }
 
 /** Safe subset returned to an authorized managed-game client. */
@@ -280,6 +286,20 @@ export interface ManagedGameClientInfo {
   canManage: boolean;
   canSpectate: boolean;
   assignedPlayerNumber?: number;
+  /** Epoch seconds while the current turn is frozen. */
+  pausedAt?: number;
+  /** This viewer receives the authoritative, unredacted battlefield. */
+  fullVision: boolean;
+  /** One identity-bearing unit per player seat. */
+  identityUnits?: Array<{
+    playerNumber: number;
+    unitId: EntityId;
+  }>;
+  /** Public in-game roles, keyed only by seat so private membership stays hidden. */
+  roles: Array<{
+    playerNumber: number;
+    role: "chief_of_staff";
+  }>;
 }
 
 /**
@@ -312,7 +332,9 @@ export interface GameMetadata {
   /** Sparse per-order overrides (keyed by OrderType id) deep-merged onto the era orders for this game. */
   customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
   /** Sparse per-battle-type budget/cap overrides layered on the era battle types for this game. */
-  customBattleTypes?: Partial<Record<DynamicBattleType, ScenarioBattleTypeOverride>>;
+  customBattleTypes?: Partial<
+    Record<DynamicBattleType, ScenarioBattleTypeOverride>
+  >;
   /** Absolute per-player (keyed by player number) manpower/gold budget overrides, resolved per player at army validation / display time. */
   playerBudgetOverrides?: Record<number, PlayerBudgetOverride>;
   /** Scenario's army-panel card-grid layout captured at game creation, so the in-lobby army picker groups units like the scenario intends. */
