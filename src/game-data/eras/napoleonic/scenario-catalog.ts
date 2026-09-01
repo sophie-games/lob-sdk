@@ -32,6 +32,7 @@ import leipzig from "./scenarios/leipzig.json";
 import tutorial from "./scenarios/tutorial.json";
 import lineOfBattle from "./scenarios/line-of-battle.json";
 import oneHundredVsOneHundred from "./scenarios/100-vs-100.json";
+import warRoomFiftyVsFifty from "./scenarios/war-room-50-vs-50.json";
 
 export const napoleonicScenarioCatalog = {
   plains,
@@ -67,4 +68,5 @@ export const napoleonicScenarioCatalog = {
   tutorial,
   "line-of-battle": lineOfBattle,
   "100-vs-100": oneHundredVsOneHundred,
+  "war-room-50-vs-50": warRoomFiftyVsFifty,
 } as unknown as ScenarioCatalog;

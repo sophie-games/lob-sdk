@@ -372,6 +372,8 @@ export interface Scenario {
   ranked?: boolean;
   /** Whether the scenario should be hidden from selection. */
   hidden?: boolean;
+  /** Whether only subscription-managed custom games may create this scenario. */
+  managedGameOnly?: boolean;
   /** Game triggers that can modify game state during play. */
   triggers?: GameTrigger[];
   /** Default true. If false, disables automatic victory when only one team is alive. */
@@ -616,7 +618,9 @@ export interface Scenario {
    * the era battle type by the per-game GameDataManager so both the army panel
    * and validateArmy see the scenario's values.
    */
-  customBattleTypes?: Partial<Record<DynamicBattleType, ScenarioBattleTypeOverride>>;
+  customBattleTypes?: Partial<
+    Record<DynamicBattleType, ScenarioBattleTypeOverride>
+  >;
 
   /**
    * Absolute per-player budget overrides, keyed by player number. Each entry

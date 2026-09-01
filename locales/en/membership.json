@@ -51,12 +51,12 @@
       "analytics": "Advanced player analytics",
       "themes": "Custom interface themes",
       "goldSkin": "Disable Skins option",
-      "managedGame": "Host one private War Room for up to {{count}} players with assigned seats, co-hosts, and one Full Vision Spectator"
+      "managedGame": "Host one private War Room for up to {{count}} players with assigned units, live Game Master controls, reserves, and Full Vision recording"
     },
     "managedGame": {
       "title": "War Room",
       "enable": "Create as a private War Room",
-      "description": "Choose a preset map, then assign players to its seats. Field Marshal includes one active private game for up to {{count}} players, with assigned seats, co-hosts, and one Full Vision Spectator.",
+      "description": "Choose a preset map, then assign each player a team and unit. Field Marshal includes one active private event for up to {{count}} players, with Game Master controls, reserves, command roles, and Full Vision recording.",
       "name": "Event name",
       "namePlaceholder": "Waterloo Invitational",
       "seats": "Players",
@@ -75,6 +75,10 @@
       "managers": "Co-hosts",
       "managersPlaceholder": "Marshal\nModerator",
       "managersHelp": "One username per line. You are always a co-host.",
+      "reserves": "Reserves",
+      "reservesPlaceholder": "ReserveOne\nReserveTwo",
+      "reservesHelp": "One username per line. During the battle, replace a player in two taps.",
+      "chiefOfStaff": "Chief of Staff",
       "spectator": "Full Vision Spectator",
       "spectatorPlaceholder": "Recorder username (optional)",
       "invalid": "Add an event name and assign at least one player.",
