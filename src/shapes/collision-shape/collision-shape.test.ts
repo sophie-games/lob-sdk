@@ -1,9 +1,4 @@
-import {
-  ObbShape,
-  CircleShape,
-  fireEdgeRegionPolygon,
-} from "./collision-shape";
-import { ShapeType } from "../types";
+import { ObbShape, fireEdgeRegionPolygon } from "./collision-shape";
 
 // A square centred at (cx, cy) with half-size h, in OBB corner order.
 const square = (cx: number, cy: number, h: number) =>
@@ -37,35 +32,9 @@ describe("fireEdgeRegionPolygon", () => {
   );
 });
 
-describe("CircleShape", () => {
-  it("tags itself a circle and reports its radius as the bounding radius", () => {
-    const c = new CircleShape({ x: 0, y: 0 }, 5);
-    expect(c.shapeType).toBe(ShapeType.Circle);
-    expect(c.boundingRadius()).toBe(5);
-  });
-
-  it("circle-circle overlap is exact", () => {
-    const a = new CircleShape({ x: 0, y: 0 }, 5);
-    expect(a.overlapRatio(new CircleShape({ x: 100, y: 0 }, 5))).toBe(0); // disjoint
-    expect(a.overlapRatio(new CircleShape({ x: 0, y: 0 }, 5))).toBe(1); // identical
-    // Smaller fully inside the larger -> 1 (fraction of the smaller).
-    const big = new CircleShape({ x: 0, y: 0 }, 10);
-    expect(big.overlapRatio(new CircleShape({ x: 0, y: 0 }, 5))).toBe(1);
-    // Two equal r=5 circles at distance 5: lens / (pi r^2) ~= 0.391.
-    expect(a.overlapRatio(new CircleShape({ x: 5, y: 0 }, 5))).toBeCloseTo(0.391, 2);
-  });
-
-  it("a zero-radius (no-collision) circle overlaps nothing", () => {
-    const ghost = new CircleShape({ x: 0, y: 0 }, 0);
-    expect(ghost.overlapRatio(new CircleShape({ x: 0, y: 0 }, 5))).toBe(0);
-    expect(ghost.overlapRatio(square(0, 0, 10))).toBe(0);
-  });
-});
-
 describe("ObbShape", () => {
-  it("tags itself a rectangle and bounds by the half-diagonal", () => {
+  it("bounds a rectangle by its half-diagonal", () => {
     const s = square(0, 0, 5);
-    expect(s.shapeType).toBe(ShapeType.Rectangle);
     expect(s.boundingRadius()).toBeCloseTo(Math.hypot(5, 5));
   });
 
@@ -132,13 +101,6 @@ describe("distanceTo (edge-to-edge gap, 0 when touching/overlapping)", () => {
     );
   };
 
-  it("circle-circle gap is centre distance minus both radii", () => {
-    const a = new CircleShape({ x: 0, y: 0 }, 5);
-    expect(a.distanceTo(new CircleShape({ x: 20, y: 0 }, 5))).toBe(10); // 20 - 5 - 5
-    expect(a.distanceTo(new CircleShape({ x: 10, y: 0 }, 5))).toBe(0); // exactly touching
-    expect(a.distanceTo(new CircleShape({ x: 6, y: 0 }, 5))).toBe(0); // overlapping
-  });
-
   it("obb-obb gap is the clear space between the boxes", () => {
     // Two 10-wide squares (half-size 5) centres 20 apart on X: 20 - 5 - 5 = 10 gap.
     const a = square(0, 0, 5);
@@ -162,32 +124,5 @@ describe("distanceTo (edge-to-edge gap, 0 when touching/overlapping)", () => {
     // square's near edge at x=5, so gap ~= 7.93.
     expect(a.distanceTo(diamond)).toBeCloseTo(20 - 5 * Math.SQRT2 - 5);
     expect(a.distanceTo(diamond)).toBeCloseTo(diamond.distanceTo(a), 5);
-  });
-
-  it("circle-obb gap measures from the circle to the nearest box edge", () => {
-    const rect = square(0, 0, 5); // spans x,y in [-5,5]
-    expect(rect.distanceTo(new CircleShape({ x: 20, y: 0 }, 5))).toBe(10); // 20 - 5(box) - 5(r)
-    expect(new CircleShape({ x: 20, y: 0 }, 5).distanceTo(rect)).toBe(10); // symmetric
-    expect(rect.distanceTo(new CircleShape({ x: 10, y: 0 }, 5))).toBe(0); // touching
-    expect(rect.distanceTo(new CircleShape({ x: 0, y: 0 }, 5))).toBe(0); // circle inside box
-  });
-});
-
-describe("mixed circle / obb overlap (keeps the circle exact)", () => {
-  it("is 1 when the smaller circle sits inside the rectangle", () => {
-    const rect = square(0, 0, 50);
-    const circle = new CircleShape({ x: 0, y: 0 }, 5);
-    expect(rect.overlapRatio(circle)).toBeCloseTo(1, 1);
-    expect(circle.overlapRatio(rect)).toBeCloseTo(1, 1);
-  });
-
-  it("is 0 when they are apart, and symmetric otherwise", () => {
-    const rect = square(0, 0, 10);
-    expect(rect.overlapRatio(new CircleShape({ x: 100, y: 0 }, 5))).toBe(0);
-    // Partial overlap: the circle straddles the rectangle's right edge.
-    const circle = new CircleShape({ x: 10, y: 0 }, 6);
-    expect(rect.overlapRatio(circle)).toBeCloseTo(circle.overlapRatio(rect), 5);
-    expect(rect.overlapRatio(circle)).toBeGreaterThan(0);
-    expect(rect.overlapRatio(circle)).toBeLessThan(1);
   });
 });

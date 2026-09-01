@@ -361,12 +361,10 @@ describe("validateScenarioCustomDefs", () => {
       const errors = formationErrors({
         collisionShape: JSON.parse('{"type":5,"radius":8}'),
       });
-      expect(
-        errors.some((e) => /type must be 0 \(circle\) or 1 \(obb\)/.test(e.message)),
-      ).toBe(true);
+      expect(errors.some((e) => /type must be 1 \(obb\)/.test(e.message))).toBe(true);
     });
 
-    it("rejects a negative radius", () => {
+    it("rejects a negative radius in a legacy circle config", () => {
       const errors = formationErrors({
         collisionShape: JSON.parse('{"type":0,"radius":-4}'),
       });
@@ -374,6 +372,20 @@ describe("validateScenarioCustomDefs", () => {
         errors.some((e) => /radius must be a finite number >= 0/.test(e.message)),
       ).toBe(true);
     });
+
+    it.each(['"8"', "null", "true"])(
+      "rejects a non-numeric legacy circle radius %s",
+      (radius) => {
+        const errors = formationErrors({
+          collisionShape: JSON.parse(`{"type":0,"radius":${radius}}`),
+        });
+        expect(
+          errors.some((e) =>
+            /radius must be a finite number >= 0/.test(e.message),
+          ),
+        ).toBe(true);
+      },
+    );
 
     it("rejects a fire edge without an explicit emitter count", () => {
       const errors = formationErrors({
@@ -405,14 +417,23 @@ describe("validateScenarioCustomDefs", () => {
       expect(errors).toEqual([]);
     });
 
-    it("rejects fire edges on a circle collision shape (a circle never fires)", () => {
+    it("accepts a zero-size rectangle as a no-collision formation", () => {
       const errors = formationErrors({
-        collisionShape: { type: CollisionShapeType.Circle, radius: 16 },
+        collisionShape: {
+          type: CollisionShapeType.Obb,
+          frontage: 0,
+          depth: 0,
+        },
+      });
+      expect(errors).toEqual([]);
+    });
+
+    it("accepts fire edges on a legacy circle config after rectangular normalization", () => {
+      const errors = formationErrors({
+        collisionShape: { type: 0, radius: 16 } as never,
         fireEdges: [{ edge: 1, arc: 40, emitters: 2 }],
       });
-      expect(
-        errors.some((e) => /fireEdges require a rectangular \(obb\)/.test(e.message)),
-      ).toBe(true);
+      expect(errors).toEqual([]);
     });
 
     it("rejects a non-object collisionShape instead of throwing", () => {
@@ -435,9 +456,9 @@ describe("validateScenarioCustomDefs", () => {
       ).toBe(true);
     });
 
-    it("accepts a valid circle radius with no fire edges", () => {
+    it("accepts a valid legacy circle radius and normalizes it later", () => {
       const errors = formationErrors({
-        collisionShape: { type: CollisionShapeType.Circle, radius: 16 },
+        collisionShape: { type: 0, radius: 16 } as never,
       });
       expect(errors).toEqual([]);
     });
