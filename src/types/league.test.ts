@@ -1,4 +1,5 @@
 import {
+  ELO_K_FACTOR_FLOORS,
   ELO_PLACEMENT_GAMES,
   getEloAboveTopLeague,
   getLeagueBounds,
@@ -8,6 +9,16 @@ import {
   hasCompletedEloPlacements,
   LeagueType,
 } from "./league";
+
+describe("ELO_K_FACTOR_FLOORS", () => {
+  it("owns the adaptive rating policy as ordered SDK data", () => {
+    expect(ELO_K_FACTOR_FLOORS).toEqual([
+      { maxSettledRankedGamesExclusive: 10, minimumKFactor: 48 },
+      { maxSettledRankedGamesExclusive: 30, minimumKFactor: 40 },
+      { maxSettledRankedGamesExclusive: 100, minimumKFactor: 32 },
+    ]);
+  });
+});
 
 describe("hasCompletedEloPlacements()", () => {
   it("reveals the rating after ten settled ranked games", () => {
@@ -41,8 +52,12 @@ describe("getLeagueByElo()", () => {
   });
 
   it("degrades gracefully on non-finite input", () => {
-    expect(getLeagueByElo(Number.POSITIVE_INFINITY).type).toBe(LeagueType.Emperor);
-    expect(getLeagueByElo(Number.NEGATIVE_INFINITY).type).toBe(LeagueType.Iron1);
+    expect(getLeagueByElo(Number.POSITIVE_INFINITY).type).toBe(
+      LeagueType.Emperor,
+    );
+    expect(getLeagueByElo(Number.NEGATIVE_INFINITY).type).toBe(
+      LeagueType.Iron1,
+    );
     expect(getLeagueByElo(Number.NaN).type).toBe(LeagueType.Iron1);
   });
 });
