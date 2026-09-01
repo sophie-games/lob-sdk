@@ -1,11 +1,22 @@
 import {
+  ELO_PLACEMENT_GAMES,
   getEloAboveTopLeague,
   getLeagueBounds,
   getLeagueByElo,
   getLeagueProgress,
   hasReachedLeague,
+  hasCompletedEloPlacements,
   LeagueType,
 } from "./league";
+
+describe("hasCompletedEloPlacements()", () => {
+  it("reveals the rating after ten settled ranked games", () => {
+    expect(ELO_PLACEMENT_GAMES).toBe(10);
+    expect(hasCompletedEloPlacements(9)).toBe(false);
+    expect(hasCompletedEloPlacements(10)).toBe(true);
+    expect(hasCompletedEloPlacements(11)).toBe(true);
+  });
+});
 
 describe("getLeagueByElo()", () => {
   it("maps elo to the correct league at band boundaries", () => {

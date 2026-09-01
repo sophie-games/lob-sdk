@@ -47,6 +47,14 @@ export interface LeagueProgress {
   readonly total: number;
 }
 
+/** Settled ranked games required before the current rating is revealed. */
+export const ELO_PLACEMENT_GAMES = 10;
+
+/** True once the player's current-season Elo and league can be revealed. */
+export function hasCompletedEloPlacements(settledRankedGames: number): boolean {
+  return settledRankedGames >= ELO_PLACEMENT_GAMES;
+}
+
 /**
  * All leagues, ordered low → high. Bands are contiguous and disjoint.
  * Within each tier, sub-tier `III` is the top and `I` is the bottom.

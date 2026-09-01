@@ -876,7 +876,9 @@
   },
   "league": {
     "title": "Ligue",
-    "provisional": "Provisoire",
+    "placementTitle": "Batailles de placement",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "Terminez {{total}} batailles classées pour révéler votre Elo et votre ligue. Chaque résultat vous rapproche de la révélation.",
     "emperor": "Empereur",
     "diamond-3": "Diamant III",
     "diamond-2": "Diamant II",

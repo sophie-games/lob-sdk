@@ -787,7 +787,9 @@
   "projectilePenetration": "弾丸の貫通",
   "league": {
     "title": "リーグ",
-    "provisional": "暫定",
+    "placementTitle": "振り分け戦",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "ランク戦を{{total}}回完了すると、Eloとリーグが明らかになります。結果を重ねるたびに公開へ近づきます。",
     "unranked": "ランクなし",
     "emperor": "エンペラー",
     "diamond-1": "ダイヤモンド I",

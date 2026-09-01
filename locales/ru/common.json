@@ -784,7 +784,9 @@
   "projectilePenetration": "Мощь снаряда",
   "league": {
     "title": "Лига",
-    "provisional": "Предварительный",
+    "placementTitle": "Калибровочные бои",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "Завершите {{total}} рейтинговых боёв, чтобы открыть свой Elo и лигу. Каждый результат приближает вас к раскрытию.",
     "unranked": "Без ранга",
     "emperor": "Император",
     "diamond-1": "Алмаз I",

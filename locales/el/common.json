@@ -785,7 +785,9 @@
   "projectilePenetration": "Διείσδυση βλήματος",
   "league": {
     "title": "κατηγορία",
-    "provisional": "Προσωρινό",
+    "placementTitle": "Μάχες κατάταξης",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "Ολοκλήρωσε {{total}} μάχες κατάταξης για να αποκαλύψεις το Elo και το πρωτάθλημά σου. Κάθε αποτέλεσμα σε φέρνει πιο κοντά στην αποκάλυψη.",
     "unranked": "Χωρίς κατάταξη",
     "emperor": "Αυτοκράτορας",
     "diamond-1": "Diamond I",

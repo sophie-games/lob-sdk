@@ -863,7 +863,9 @@
   },
   "league": {
     "title": "Liga",
-    "provisional": "Vorläufig",
+    "placementTitle": "Platzierungsschlachten",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "Schließe {{total}} Ranglistenschlachten ab, um deine Elo und Liga aufzudecken. Jedes Ergebnis bringt dich der Enthüllung näher.",
     "emperor": "Imperator",
     "diamond-3": "Diamant III",
     "diamond-2": "Diamant II",

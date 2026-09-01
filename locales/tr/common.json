@@ -863,7 +863,9 @@
   },
   "league": {
     "title": "Lig",
-    "provisional": "Geçici",
+    "placementTitle": "Yerleştirme savaşları",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "Elo'nu ve ligini ortaya çıkarmak için {{total}} dereceli savaşı tamamla. Her sonuç seni açıklamaya bir adım daha yaklaştırır.",
     "emperor": "İmparator",
     "diamond-3": "Elmas III",
     "diamond-2": "Elmas II",

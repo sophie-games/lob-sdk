@@ -787,7 +787,9 @@
   "projectilePenetration": "اختراق المقذوفات",
   "league": {
     "title": "الدوري",
-    "provisional": "مؤقت",
+    "placementTitle": "معارك تحديد المستوى",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "أكمل {{total}} معارك مصنفة للكشف عن تصنيف Elo ودوريك. كل نتيجة تقرّبك من الكشف.",
     "unranked": "غير مصنّف",
     "emperor": "إمبراطور",
     "diamond-1": "ألماس I",

@@ -110,7 +110,8 @@ export interface PlayerInfo {
   clanTag?: string | null;
   playerNumber: number;
   team: number;
-  elo: number;
+  /** Current ELO; null while current-season placements are incomplete. */
+  elo: number | null;
   eloBefore: number | null;
   eloChange: number;
   basicCurrencyEarned: number | null;

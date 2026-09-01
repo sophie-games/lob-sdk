@@ -775,7 +775,9 @@
   "projectilePenetration": "Penetracja pocisku",
   "league": {
     "title": "Liga",
-    "provisional": "Tymczasowy",
+    "placementTitle": "Bitwy kwalifikacyjne",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "Ukończ {{total}} bitew rankingowych, aby odkryć swoje Elo i ligę. Każdy wynik przybliża cię do odkrycia.",
     "unranked": "Bez rangi",
     "emperor": "Cesarz",
     "diamond-1": "Diament I",

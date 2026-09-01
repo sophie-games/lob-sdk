@@ -867,7 +867,9 @@
   },
   "league": {
     "title": "Liga",
-    "provisional": "Sementara",
+    "placementTitle": "Pertempuran penempatan",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "Selesaikan {{total}} pertempuran berperingkat untuk mengungkap Elo dan ligamu. Setiap hasil membawamu lebih dekat pada pengungkapan.",
     "emperor": "Kaisar",
     "diamond-3": "Berlian III",
     "diamond-2": "Berlian II",
