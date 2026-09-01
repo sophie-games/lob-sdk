@@ -517,7 +517,9 @@
       "importFromScenario": "Importálás pályából",
       "duplicate": "Duplikálás",
       "inThisScenario": "Ezen a pályán",
-      "builtIntoThisEra": "A korszakba beépítve"
+      "builtIntoThisEra": "A korszakba beépítve",
+      "resetToEra": "Visszaállítás a korszakra",
+      "resetAllToEra": "Összes visszaállítása a korszakra"
     },
     "spritesPanel": {
       "title": "Egység-sprite-ok",
@@ -583,7 +585,6 @@
       "clonePickerTitle": "Beépített terepkategória klónozása"
     },
     "overrideEditor": {
-      "reset": "Visszaállítás",
       "eraDefault": "korszak alapértéke: {{value}}",
       "structuralTooltip": "Szerkezeti / determinizmus-konstans. A módosítása elronthatja a megjelenítést, a visszajátszásokat vagy a meccskeresést."
     },
@@ -632,7 +633,7 @@
     },
     "gameConstants": {
       "title": "Játékkonstansok",
-      "description": "Bírld felül a korszak numerikus konstansait erre a pályára. Csak a módosított értékek mentődnek; a Visszaállítás a korszak alapértékére állítja a mezőt. A ⚠ jelzéssel ellátott kulcsok szerkezetiek - a módosításuk elronthatja a megjelenítést, a visszajátszásokat vagy a meccskeresést. Az értékek nyers belső egységek.",
+      "description": "Ezek a korszak alapszámai: meddig tart egy kör, mekkora egy mező, hány körig tart egy csata. Amit módosítasz, csak erre a forgatókönyvre vonatkozik, és bármelyik érték visszaállítható a játék sajátjára.",
       "category": {
         "mapDimensions": "Térkép méretei",
         "deployment": "Felállítás",
@@ -656,11 +657,11 @@
     },
     "gameRules": {
       "title": "Játékszabályok",
-      "description": "Bírld felül a korszak játékmenet-szabályait erre a pályára. Csak a módosított értékek mentődnek; a Visszaállítással a korszak alapértékére állíthatod a mezőt. Az értékek nyers belső egységek (egyes statisztikák előre skálázva tárolódnak)."
+      "description": "Ezek azok a rendszerek, amelyeken a korszakod működik, az egységek helytállásától addig, hogyan nyerhető meg egy csata. Amit módosítasz, csak erre a forgatókönyvre vonatkozik, és bármelyik érték visszaállítható a játék sajátjára. A számok a játék saját mértékegységeiben állnak, így egy érték nem feltétlenül métert vagy percet jelent."
     },
     "ordersPanel": {
       "title": "Parancsok",
-      "description": "Bírld felül a korszak beépített parancsainak értékeit erre a pályára. Csak a módosított értékek mentődnek; a Visszaállítással a korszak alapértékére állíthatod a mezőt. A meglévő parancsokat módosíthatod, de újakat nem adhatsz hozzá."
+      "description": "A parancsok azok az utasítások, amelyeket egy játékos csata közben adhat egy egységnek. Itt a korszak parancsait hangolhatod át ehhez a forgatókönyvhöz, de újakat nem hozhatsz létre. Bármelyik érték visszaállítható a játék sajátjára."
     },
     "clonePicker": {
       "alreadyOverridden": "(már felülbírálva)",

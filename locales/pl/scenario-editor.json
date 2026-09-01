@@ -521,7 +521,9 @@
       "importFromScenario": "Importuj ze scenariusza",
       "duplicate": "Duplikuj",
       "inThisScenario": "W tym scenariuszu",
-      "builtIntoThisEra": "Wbudowane w tę epokę"
+      "builtIntoThisEra": "Wbudowane w tę epokę",
+      "resetToEra": "Przywróć do epoki",
+      "resetAllToEra": "Przywróć wszystko do epoki"
     },
     "spritesPanel": {
       "title": "Sprite'y jednostek",
@@ -587,7 +589,6 @@
       "clonePickerTitle": "Klonuj wbudowaną kategorię terenu"
     },
     "overrideEditor": {
-      "reset": "Resetuj",
       "eraDefault": "domyślne epoki: {{value}}",
       "structuralTooltip": "Stała strukturalna / determinizmu. Jej zmiana może zepsuć renderowanie, powtórki lub matchmaking."
     },
@@ -638,7 +639,7 @@
     },
     "gameConstants": {
       "title": "Stałe gry",
-      "description": "Nadpisz numeryczne stałe tej epoki dla tego scenariusza. Zapisywane są tylko zmienione wartości; Resetuj przywraca pole do wartości domyślnej epoki. Klucze oznaczone ⚠ są strukturalne - ich zmiana może zepsuć renderowanie, powtórki lub matchmaking. Wartości podane są w surowych jednostkach wewnętrznych.",
+      "description": "To podstawowe liczby epoki: jak długo trwa tura, jak duże jest pole, przez ile tur toczy się bitwa. Zmiany dotyczą tylko tego scenariusza, a każdą wartość można przywrócić do tej z gry.",
       "category": {
         "mapDimensions": "Wymiary mapy",
         "deployment": "Rozstawienie",
@@ -662,11 +663,11 @@
     },
     "gameRules": {
       "title": "Reguły gry",
-      "description": "Nadpisz reguły rozgrywki tej epoki dla tego scenariusza. Zapisywane są tylko zmienione wartości; użyj Resetuj, aby przywrócić pole do wartości domyślnej epoki. Wartości podane są w surowych jednostkach wewnętrznych (niektóre statystyki są przechowywane już przeskalowane)."
+      "description": "To systemy, na których opiera się twoja epoka, od tego jak oddziały trzymają morale, po to jak wygrywa się bitwę. Zmiany dotyczą tylko tego scenariusza, a każdą wartość można przywrócić do tej z gry. Liczby podano we własnych jednostkach gry, więc wartość nie musi oznaczać metrów ani minut."
     },
     "ordersPanel": {
       "title": "Rozkazy",
-      "description": "Nadpisz wartości wbudowanych rozkazów tej epoki dla tego scenariusza. Zapisywane są tylko zmienione wartości; użyj Resetuj, aby przywrócić pole do wartości domyślnej epoki. Możesz modyfikować istniejące rozkazy, ale nie dodawać nowych."
+      "description": "Rozkazy to polecenia, które gracz może wydać oddziałowi podczas bitwy. Możesz tu dostroić rozkazy epoki na potrzeby tego scenariusza, ale nie utworzysz nowych. Każdą wartość można przywrócić do tej z gry."
     },
     "clonePicker": {
       "alreadyOverridden": "(już nadpisane)",

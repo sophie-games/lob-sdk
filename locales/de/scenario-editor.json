@@ -517,7 +517,9 @@
       "importFromScenario": "Aus Szenario importieren",
       "duplicate": "Duplizieren",
       "inThisScenario": "In diesem Szenario",
-      "builtIntoThisEra": "In dieser Epoche integriert"
+      "builtIntoThisEra": "In dieser Epoche integriert",
+      "resetToEra": "Auf Epoche zurücksetzen",
+      "resetAllToEra": "Alle auf Epoche zurücksetzen"
     },
     "spritesPanel": {
       "title": "Einheiten-Sprites",
@@ -583,7 +585,6 @@
       "clonePickerTitle": "Eine integrierte Geländekategorie klonen"
     },
     "overrideEditor": {
-      "reset": "Zurücksetzen",
       "eraDefault": "Epochenstandard: {{value}}",
       "structuralTooltip": "Strukturelle / Determinismus-Konstante. Eine Änderung kann Darstellung, Wiederholungen oder Matchmaking beschädigen."
     },
@@ -632,7 +633,7 @@
     },
     "gameConstants": {
       "title": "Spielkonstanten",
-      "description": "Überschreibe die numerischen Konstanten dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; Zurücksetzen stellt ein Feld auf den Epochenstandard zurück. Mit ⚠ markierte Schlüssel sind strukturell - eine Änderung kann Darstellung, Wiederholungen oder Matchmaking beschädigen. Die Werte sind interne Roheinheiten.",
+      "description": "Dies sind die grundlegenden Zahlen der Epoche: wie lange ein Zug dauert, wie groß ein Feld ist, über wie viele Züge eine Schlacht läuft. Änderungen gelten nur für dieses Szenario, und jeder Wert lässt sich auf den des Spiels zurücksetzen.",
       "category": {
         "mapDimensions": "Kartenabmessungen",
         "deployment": "Aufstellung",
@@ -656,11 +657,11 @@
     },
     "gameRules": {
       "title": "Spielregeln",
-      "description": "Überschreibe die Spielregeln dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; verwende Zurücksetzen, um ein Feld auf den Epochenstandard zurückzustellen. Die Werte sind interne Roheinheiten (einige Werte werden vorskaliert gespeichert)."
+      "description": "Dies sind die Systeme, auf denen Ihre Epoche läuft, von der Standfestigkeit der Einheiten bis dazu, wie eine Schlacht gewonnen wird. Änderungen gelten nur für dieses Szenario, und jeder Wert lässt sich auf den des Spiels zurücksetzen. Die Zahlen stehen in den Einheiten des Spiels, eine Angabe muss also nicht Meter oder Minuten bedeuten."
     },
     "ordersPanel": {
       "title": "Befehle",
-      "description": "Überschreibe die Werte der integrierten Befehle dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; verwende Zurücksetzen, um ein Feld auf den Epochenstandard zurückzustellen. Du kannst bestehende Befehle ändern, aber keine neuen hinzufügen."
+      "description": "Befehle sind die Anweisungen, die ein Spieler einer Einheit im Gefecht geben kann. Sie können die Befehle der Epoche hier für dieses Szenario anpassen, aber keine neuen erfinden. Jeder Wert lässt sich auf den des Spiels zurücksetzen."
     },
     "clonePicker": {
       "alreadyOverridden": "(bereits überschrieben)",

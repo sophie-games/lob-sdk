@@ -515,7 +515,9 @@
       "importFromScenario": "从战役剧本导入",
       "duplicate": "复制",
       "inThisScenario": "本战役剧本中",
-      "builtIntoThisEra": "该时代内置"
+      "builtIntoThisEra": "该时代内置",
+      "resetToEra": "重置为时代默认",
+      "resetAllToEra": "全部重置为时代默认"
     },
     "spritesPanel": {
       "title": "单位精灵图",
@@ -581,7 +583,6 @@
       "clonePickerTitle": "克隆内置地形类别"
     },
     "overrideEditor": {
-      "reset": "重置",
       "eraDefault": "时代默认值：{{value}}",
       "structuralTooltip": "结构性 / 确定性常量。更改它可能破坏渲染、回放或匹配。"
     },
@@ -629,7 +630,7 @@
     },
     "gameConstants": {
       "title": "游戏常量",
-      "description": "为本战役覆盖该时代的数值常量。仅保存已更改的值；“重置”会将字段恢复为时代默认值。标记 ⚠ 的键是结构性的——更改它们可能破坏渲染、回放或匹配。数值为原始内部单位。",
+      "description": "这些是该时代的基础数值：一个回合有多长、一格有多大、一场战斗持续多少回合。你的更改只对本剧本生效，任何数值都可以还原为游戏原本的数值。",
       "category": {
         "mapDimensions": "地图尺寸",
         "deployment": "部署",
@@ -653,11 +654,11 @@
     },
     "gameRules": {
       "title": "游戏规则",
-      "description": "为本战役覆盖该时代的玩法规则。仅保存已更改的值；使用“重置”将字段恢复为时代默认值。数值为原始内部单位（部分数据以预缩放形式存储）。"
+      "description": "这些是支撑该时代运转的系统，从部队如何维持士气到如何赢得一场战斗。你的更改只对本剧本生效，任何数值都可以还原为游戏原本的数值。数值使用游戏自身的单位，因此不一定代表米或分钟。"
     },
     "ordersPanel": {
       "title": "指令",
-      "description": "为本战役覆盖该时代内置指令的数值。仅保存已更改的值；使用“重置”将字段恢复为时代默认值。你可以修改现有指令，但不能添加新指令。"
+      "description": "命令是玩家在战斗中可以下达给部队的指示。你可以在此为本剧本重新调整该时代的命令，但无法创建新的命令。任何数值都可以还原为游戏原本的数值。"
     },
     "clonePicker": {
       "alreadyOverridden": "（已覆盖）",

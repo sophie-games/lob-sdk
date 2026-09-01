@@ -517,7 +517,9 @@
       "importFromScenario": "Senaryodan içe aktar",
       "duplicate": "Çoğalt",
       "inThisScenario": "Bu senaryoda",
-      "builtIntoThisEra": "Bu döneme yerleşik"
+      "builtIntoThisEra": "Bu döneme yerleşik",
+      "resetToEra": "Döneme sıfırla",
+      "resetAllToEra": "Tümünü döneme sıfırla"
     },
     "spritesPanel": {
       "title": "Birim sprite'ları",
@@ -583,7 +585,6 @@
       "clonePickerTitle": "Yerleşik bir arazi kategorisini klonla"
     },
     "overrideEditor": {
-      "reset": "Sıfırla",
       "eraDefault": "dönem varsayılanı: {{value}}",
       "structuralTooltip": "Yapısal / determinizm sabiti. Değiştirmek render'ı, tekrarları veya eşleştirmeyi bozabilir."
     },
@@ -632,7 +633,7 @@
     },
     "gameConstants": {
       "title": "Oyun sabitleri",
-      "description": "Bu senaryo için dönemin sayısal sabitlerini geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; Sıfırla bir alanı dönem varsayılanına döndürür. ⚠ ile işaretli anahtarlar yapısaldır - bunları değiştirmek render'ı, tekrarları veya eşleştirmeyi bozabilir. Değerler ham iç birimlerdir.",
+      "description": "Bunlar dönemin temel sayılarıdır: bir turun ne kadar sürdüğü, bir karenin ne kadar büyük olduğu, bir muharebenin kaç tur sürdüğü. Değiştirdikleriniz yalnızca bu senaryo için geçerlidir ve her değer oyunun kendi değerine döndürülebilir.",
       "category": {
         "mapDimensions": "Harita boyutları",
         "deployment": "Yerleşim",
@@ -656,11 +657,11 @@
     },
     "gameRules": {
       "title": "Oyun kuralları",
-      "description": "Bu senaryo için dönemin oynanış kurallarını geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; bir alanı dönem varsayılanına döndürmek için Sıfırla kullanın. Değerler ham iç birimlerdir (bazı istatistikler önceden ölçeklenmiş olarak saklanır)."
+      "description": "Bunlar döneminizin işleyişini sağlayan sistemlerdir: birliklerin moralini korumasından bir muharebenin nasıl kazanıldığına kadar. Değiştirdikleriniz yalnızca bu senaryo için geçerlidir ve her değer oyunun kendi değerine döndürülebilir. Sayılar oyunun kendi birimlerindedir, dolayısıyla metre veya dakika anlamına gelmeyebilir."
     },
     "ordersPanel": {
       "title": "Emirler",
-      "description": "Bu senaryo için dönemin yerleşik emirlerinin değerlerini geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; bir alanı dönem varsayılanına döndürmek için Sıfırla kullanın. Mevcut emirleri değiştirebilirsiniz ama yenilerini ekleyemezsiniz."
+      "description": "Emirler, bir oyuncunun muharebe sırasında bir birliğe verebileceği talimatlardır. Burada dönemin emirlerini bu senaryo için yeniden ayarlayabilir, ancak yeni emirler oluşturamazsınız. Her değer oyunun kendi değerine döndürülebilir."
     },
     "clonePicker": {
       "alreadyOverridden": "(zaten geçersiz kılındı)",

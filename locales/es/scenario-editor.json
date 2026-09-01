@@ -517,7 +517,9 @@
       "importFromScenario": "Importar desde escenario",
       "duplicate": "Duplicar",
       "inThisScenario": "En este escenario",
-      "builtIntoThisEra": "Integrado en esta era"
+      "builtIntoThisEra": "Integrado en esta era",
+      "resetToEra": "Restablecer a la era",
+      "resetAllToEra": "Restablecer todo a la era"
     },
     "spritesPanel": {
       "title": "Sprites de unidades",
@@ -583,7 +585,6 @@
       "clonePickerTitle": "Clonar una categoría de terreno integrada"
     },
     "overrideEditor": {
-      "reset": "Restablecer",
       "eraDefault": "valor por defecto de la era: {{value}}",
       "structuralTooltip": "Constante estructural / de determinismo. Cambiarla puede romper el renderizado, las repeticiones o el emparejamiento."
     },
@@ -632,7 +633,7 @@
     },
     "gameConstants": {
       "title": "Constantes del juego",
-      "description": "Sobrescribe las constantes numéricas de esta era para este escenario. Solo se guardan los valores cambiados; Restablecer devuelve un campo al valor por defecto de la era. Las claves marcadas con ⚠ son estructurales - cambiarlas puede romper el renderizado, las repeticiones o el emparejamiento. Los valores están en unidades internas en bruto.",
+      "description": "Estos son los números básicos de la era: cuánto dura un turno, cuán grande es una casilla, cuántos turnos dura una batalla. Lo que cambies se aplica solo a este escenario, y cualquier valor puede devolverse al del juego.",
       "category": {
         "mapDimensions": "Dimensiones del mapa",
         "deployment": "Despliegue",
@@ -656,11 +657,11 @@
     },
     "gameRules": {
       "title": "Reglas del juego",
-      "description": "Sobrescribe las reglas de juego de esta era para este escenario. Solo se guardan los valores cambiados; usa Restablecer para devolver un campo al valor por defecto de la era. Los valores están en unidades internas en bruto (algunas estadísticas se almacenan preescaladas)."
+      "description": "Estos son los sistemas sobre los que funciona tu era, desde cómo mantienen la moral las unidades hasta cómo se gana una batalla. Lo que cambies se aplica solo a este escenario, y cualquier valor puede devolverse al del juego. Las cifras están en las unidades propias del juego, así que puede que no se lean como metros o minutos."
     },
     "ordersPanel": {
       "title": "Órdenes",
-      "description": "Sobrescribe los valores de las órdenes integradas de esta era para este escenario. Solo se guardan los valores cambiados; usa Restablecer para devolver un campo al valor por defecto de la era. Puedes modificar órdenes existentes pero no agregar nuevas."
+      "description": "Las órdenes son las instrucciones que un jugador puede dar a una unidad durante la batalla. Aquí puedes reajustar las órdenes de la era para este escenario, aunque no puedes inventar otras nuevas. Cualquier valor puede devolverse al del juego."
     },
     "clonePicker": {
       "alreadyOverridden": "(ya sobrescrita)",

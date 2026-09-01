@@ -516,7 +516,9 @@
       "importFromScenario": "Import from scenario",
       "duplicate": "Duplicate",
       "inThisScenario": "In this scenario",
-      "builtIntoThisEra": "Built into this era"
+      "builtIntoThisEra": "Built into this era",
+      "resetToEra": "Reset to era",
+      "resetAllToEra": "Reset all to era"
     },
     "transfer": {
       "importTitle": "Import",
@@ -604,7 +606,6 @@
       "clonePickerTitle": "Clone a built-in terrain category"
     },
     "overrideEditor": {
-      "reset": "Reset",
       "eraDefault": "era default: {{value}}",
       "structuralTooltip": "This one shapes how the game itself runs. Changing it can break how battles are drawn, how replays play back, and how matchmaking works."
     },
@@ -653,7 +654,7 @@
     },
     "gameConstants": {
       "title": "Game constants",
-      "description": "These are the era's underlying numbers: how long a turn lasts, how large a tile is, how many turns a battle runs. Anything you change applies to this scenario alone, and Reset puts a value back as you found it.",
+      "description": "These are the era's underlying numbers: how long a turn lasts, how large a tile is, how many turns a battle runs. Anything you change applies to this scenario alone, and any value can be put back to the game's own.",
       "category": {
         "mapDimensions": "Map dimensions",
         "deployment": "Deployment",
@@ -677,11 +678,11 @@
     },
     "gameRules": {
       "title": "Game rules",
-      "description": "These are the systems your era runs on, from how units hold their nerve to how a battle is won. Anything you change applies to this scenario alone, and Reset puts a value back as you found it. The numbers are in the game's own units, so a figure may not read as meters or minutes."
+      "description": "These are the systems your era runs on, from how units hold their nerve to how a battle is won. Anything you change applies to this scenario alone, and any value can be put back to the game's own. The numbers are in the game's own units, so a figure may not read as meters or minutes."
     },
     "ordersPanel": {
       "title": "Orders",
-      "description": "Orders are the instructions a player can give a unit during a battle. You can retune the era's own orders here for this scenario, though you cannot invent new ones. Reset puts a value back as you found it."
+      "description": "Orders are the instructions a player can give a unit during a battle. You can retune the era's own orders here for this scenario, though you cannot invent new ones. Any value can be put back to the game's own."
     },
     "clonePicker": {
       "alreadyOverridden": "(already overridden)",

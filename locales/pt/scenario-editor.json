@@ -517,7 +517,9 @@
       "importFromScenario": "Importar de cenário",
       "duplicate": "Duplicar",
       "inThisScenario": "Neste cenário",
-      "builtIntoThisEra": "Interno a esta era"
+      "builtIntoThisEra": "Interno a esta era",
+      "resetToEra": "Redefinir para a era",
+      "resetAllToEra": "Redefinir tudo para a era"
     },
     "spritesPanel": {
       "title": "Sprites de unidade",
@@ -583,7 +585,6 @@
       "clonePickerTitle": "Clonar uma categoria de terreno interna"
     },
     "overrideEditor": {
-      "reset": "Redefinir",
       "eraDefault": "padrão da era: {{value}}",
       "structuralTooltip": "Constante estrutural / de determinismo. Alterá-la pode quebrar a renderização, replays ou o matchmaking."
     },
@@ -632,7 +633,7 @@
     },
     "gameConstants": {
       "title": "Constantes do jogo",
-      "description": "Sobrescreva as constantes numéricas desta era para este cenário. Apenas os valores alterados são salvos; Redefinir retorna um campo ao padrão da era. As chaves marcadas com ⚠ são estruturais - alterá-las pode quebrar a renderização, replays ou o matchmaking. Os valores estão em unidades internas brutas.",
+      "description": "Estes são os números básicos da era: quanto dura um turno, o tamanho de um ladrilho, quantos turnos dura uma batalha. O que você mudar vale apenas para este cenário, e qualquer valor pode voltar ao do próprio jogo.",
       "category": {
         "mapDimensions": "Dimensões do mapa",
         "deployment": "Implantação",
@@ -656,11 +657,11 @@
     },
     "gameRules": {
       "title": "Regras do jogo",
-      "description": "Sobrescreva as regras de jogabilidade desta era para este cenário. Apenas os valores alterados são salvos; use Redefinir para retornar um campo ao padrão da era. Os valores estão em unidades internas brutas (algumas estatísticas são armazenadas pré-escaladas)."
+      "description": "Estes são os sistemas em que sua era funciona, de como as unidades mantêm a moral até como uma batalha é vencida. O que você mudar vale apenas para este cenário, e qualquer valor pode voltar ao do próprio jogo. Os números estão nas unidades do próprio jogo, portanto podem não corresponder a metros ou minutos."
     },
     "ordersPanel": {
       "title": "Ordens",
-      "description": "Sobrescreva os valores das ordens internas desta era para este cenário. Apenas os valores alterados são salvos; use Redefinir para retornar um campo ao padrão da era. Você pode modificar ordens existentes, mas não adicionar novas."
+      "description": "Ordens são as instruções que um jogador pode dar a uma unidade durante a batalha. Aqui você pode reajustar as ordens da era para este cenário, mas não pode criar novas. Qualquer valor pode voltar ao do próprio jogo."
     },
     "clonePicker": {
       "alreadyOverridden": "(já sobrescrito)",

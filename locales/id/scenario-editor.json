@@ -515,7 +515,9 @@
       "importFromScenario": "Impor dari skenario",
       "duplicate": "Duplikat",
       "inThisScenario": "Dalam skenario ini",
-      "builtIntoThisEra": "Bawaan era ini"
+      "builtIntoThisEra": "Bawaan era ini",
+      "resetToEra": "Reset ke era",
+      "resetAllToEra": "Reset semua ke era"
     },
     "spritesPanel": {
       "title": "Sprite unit",
@@ -581,7 +583,6 @@
       "clonePickerTitle": "Klon kategori medan bawaan"
     },
     "overrideEditor": {
-      "reset": "Reset",
       "eraDefault": "bawaan era: {{value}}",
       "structuralTooltip": "Konstanta struktural / determinisme. Mengubahnya dapat merusak rendering, replay, atau pencarian permainan."
     },
@@ -629,7 +630,7 @@
     },
     "gameConstants": {
       "title": "Konstanta permainan",
-      "description": "Timpa konstanta numerik era ini untuk skenario ini. Hanya nilai yang diubah yang disimpan; Reset mengembalikan field ke bawaan era. Kunci bertanda ⚠ bersifat struktural - mengubahnya dapat merusak rendering, replay, atau pencarian permainan. Nilai adalah unit internal mentah.",
+      "description": "Ini angka-angka dasar era: berapa lama satu giliran, seberapa besar satu petak, berapa giliran sebuah pertempuran berjalan. Perubahan Anda hanya berlaku untuk skenario ini, dan nilai apa pun dapat dikembalikan ke nilai bawaan game.",
       "category": {
         "mapDimensions": "Dimensi peta",
         "deployment": "Penempatan",
@@ -653,11 +654,11 @@
     },
     "gameRules": {
       "title": "Aturan permainan",
-      "description": "Timpa aturan permainan era ini untuk skenario ini. Hanya nilai yang diubah yang disimpan; gunakan Reset untuk mengembalikan field ke bawaan era. Nilai adalah unit internal mentah (beberapa statistik disimpan dalam keadaan terskala)."
+      "description": "Ini sistem yang menjalankan era Anda, dari cara unit menjaga keberanian hingga cara memenangkan pertempuran. Perubahan Anda hanya berlaku untuk skenario ini, dan nilai apa pun dapat dikembalikan ke nilai bawaan game. Angkanya memakai satuan game sendiri, jadi bisa jadi bukan meter atau menit."
     },
     "ordersPanel": {
       "title": "Perintah",
-      "description": "Timpa nilai perintah bawaan era ini untuk skenario ini. Hanya nilai yang diubah yang disimpan; gunakan Reset untuk mengembalikan field ke bawaan era. Anda dapat memodifikasi perintah yang ada tetapi tidak dapat menambah yang baru."
+      "description": "Perintah adalah instruksi yang bisa diberikan pemain kepada unit saat bertempur. Di sini Anda dapat menyetel ulang perintah era untuk skenario ini, tetapi tidak dapat membuat yang baru. Nilai apa pun dapat dikembalikan ke nilai bawaan game."
     },
     "clonePicker": {
       "alreadyOverridden": "(sudah ditimpa)",
