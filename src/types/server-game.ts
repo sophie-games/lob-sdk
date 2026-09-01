@@ -274,6 +274,8 @@ export interface ManagedGameMember {
 export interface ManagedGameConfig {
   name: string;
   members: ManagedGameMember[];
+  /** Unit that carries each seat's player identity and public role marker. */
+  identityUnitIds?: Record<number, EntityId>;
   /** Epoch seconds at which the Game Master froze the current turn. */
   pausedAt?: number;
 }
@@ -288,6 +290,11 @@ export interface ManagedGameClientInfo {
   pausedAt?: number;
   /** This viewer receives the authoritative, unredacted battlefield. */
   fullVision: boolean;
+  /** One identity-bearing unit per player seat. */
+  identityUnits?: Array<{
+    playerNumber: number;
+    unitId: EntityId;
+  }>;
   /** Public in-game roles, keyed only by seat so private membership stays hidden. */
   roles: Array<{
     playerNumber: number;

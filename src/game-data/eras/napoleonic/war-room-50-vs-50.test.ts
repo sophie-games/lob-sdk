@@ -1,4 +1,9 @@
-import { normalizeScenario, ScenarioFeatures } from "@lob-sdk/scenario";
+import { GameDataManager } from "@lob-sdk/game-data-manager";
+import {
+  describeManagedRoster,
+  normalizeScenario,
+  ScenarioFeatures,
+} from "@lob-sdk/scenario";
 import type { RawScenarioInput } from "@lob-sdk/scenario";
 import { napoleonicScenarioCatalog } from "./scenario-catalog";
 
@@ -25,5 +30,16 @@ describe("War Room 50v50 preset", () => {
     expect(ScenarioFeatures.hasOneUnitPerPlayer(scenario)).toBe(true);
     expect(ScenarioFeatures.hasDeploymentPhase(scenario)).toBe(true);
     expect(ScenarioFeatures.getInitialTurnNumber(scenario)).toBe(0);
+
+    const roster = describeManagedRoster(
+      GameDataManager.createWithCustomDefs("napoleonic", scenario),
+      scenario,
+    );
+    expect(roster.seats).toHaveLength(100);
+    expect(roster.seats[0]).toMatchObject({
+      unitSlotCount: 1,
+      defaultForcePresetId: expect.stringMatching(/^unit:/),
+    });
+    expect(roster.seats[0]!.forcePresets.length).toBeGreaterThan(1);
   });
 });
