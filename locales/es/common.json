@@ -515,6 +515,12 @@
   "level": "Nivel",
   "baseLevelExperience": "Experiencia base del nivel",
   "experience": "Experiencia",
+  "coalitionProgression": {
+    "title": "Expansión de la coalición",
+    "capacity": "{{current}} → {{next}} miembros",
+    "maxCapacity": "{{count}} miembros · capacidad máxima",
+    "upgradeWith": "Expandir con {{currency}}"
+  },
   "nextLevelExperience": "Experiencia del siguiente nivel",
   "season": "Temporada",
   "time": "Tiempo",

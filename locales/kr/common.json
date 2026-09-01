@@ -30,6 +30,12 @@
   "level": "레벨",
   "baseLevelExperience": "기본 레벨 경험치",
   "experience": "경험치",
+  "coalitionProgression": {
+    "title": "연합 확장",
+    "capacity": "{{current}} → {{next}}명",
+    "maxCapacity": "{{count}}명 · 최대 정원",
+    "upgradeWith": "{{currency}}으로 확장"
+  },
   "nextLevelExperience": "다음 레벨 경험치",
   "season": "시즌",
   "time": "시간",

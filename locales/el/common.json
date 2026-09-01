@@ -32,6 +32,12 @@
   "level": "Επίπεδο",
   "baseLevelExperience": "Βασική εμπειρία επιπέδου",
   "experience": "Εμπειρία",
+  "coalitionProgression": {
+    "title": "Επέκταση συνασπισμού",
+    "capacity": "{{current}} → {{next}} μέλη",
+    "maxCapacity": "{{count}} μέλη · μέγιστη χωρητικότητα",
+    "upgradeWith": "Επέκταση με {{currency}}"
+  },
   "nextLevelExperience": "Εμπειρία επόμενου επιπέδου",
   "season": "Σεζόν",
   "time": "Χρόνος",

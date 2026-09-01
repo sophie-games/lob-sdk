@@ -30,6 +30,12 @@
   "level": "Уровень",
   "baseLevelExperience": "Базовый опыт уровня",
   "experience": "Опыт",
+  "coalitionProgression": {
+    "title": "Расширение коалиции",
+    "capacity": "{{current}} → {{next}} участников",
+    "maxCapacity": "{{count}} участников · максимальная вместимость",
+    "upgradeWith": "Расширить за {{currency}}"
+  },
   "nextLevelExperience": "Опыт следующего уровня",
   "season": "Сезон",
   "time": "Время",

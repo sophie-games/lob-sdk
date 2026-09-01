@@ -67,6 +67,12 @@
   "nextLevelExperience": "Next level experience",
   "baseLevelExperience": "Base level experience",
   "experience": "Experience",
+  "coalitionProgression": {
+    "title": "Coalition expansion",
+    "capacity": "{{current}} → {{next}} members",
+    "maxCapacity": "{{count}} members · maximum capacity",
+    "upgradeWith": "Expand with {{currency}}"
+  },
   "season": "Season",
   "time": "Time",
   "of": "of",

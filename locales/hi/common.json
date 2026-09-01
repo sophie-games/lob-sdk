@@ -30,6 +30,12 @@
   "level": "स्तर",
   "baseLevelExperience": "आधार स्तर अनुभव",
   "experience": "अनुभव",
+  "coalitionProgression": {
+    "title": "गठबंधन विस्तार",
+    "capacity": "{{current}} → {{next}} सदस्य",
+    "maxCapacity": "{{count}} सदस्य · अधिकतम क्षमता",
+    "upgradeWith": "{{currency}} से विस्तार करें"
+  },
   "nextLevelExperience": "अगले स्तर का अनुभव",
   "season": "सीज़न",
   "time": "समय",

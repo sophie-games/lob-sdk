@@ -32,6 +32,12 @@
   "level": "Level",
   "baseLevelExperience": "Pengalaman dasar level",
   "experience": "Pengalaman",
+  "coalitionProgression": {
+    "title": "Perluasan koalisi",
+    "capacity": "{{current}} → {{next}} anggota",
+    "maxCapacity": "{{count}} anggota · kapasitas maksimum",
+    "upgradeWith": "Perluas dengan {{currency}}"
+  },
   "nextLevelExperience": "Pengalaman level berikutnya",
   "season": "Musim",
   "time": "Waktu",

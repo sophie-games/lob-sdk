@@ -32,6 +32,12 @@
   "level": "Рівень",
   "baseLevelExperience": "Базовий досвід рівня",
   "experience": "Досвід",
+  "coalitionProgression": {
+    "title": "Розширення коаліції",
+    "capacity": "{{current}} → {{next}} учасників",
+    "maxCapacity": "{{count}} учасників · максимальна місткість",
+    "upgradeWith": "Розширити за {{currency}}"
+  },
   "nextLevelExperience": "Досвід наступного рівня",
   "season": "Сезон",
   "time": "Час",

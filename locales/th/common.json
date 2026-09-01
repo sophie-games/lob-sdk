@@ -74,6 +74,12 @@
   "nextLevelExperience": "ค่าประสบการณ์สำหรับเลเวลถัดไป",
   "baseLevelExperience": "ค่าประสบการณ์พื้นฐานของเลเวล",
   "experience": "ค่าประสบการณ์",
+  "coalitionProgression": {
+    "title": "การขยายพันธมิตร",
+    "capacity": "สมาชิก {{current}} → {{next}} คน",
+    "maxCapacity": "สมาชิก {{count}} คน · ความจุสูงสุด",
+    "upgradeWith": "ขยายด้วย {{currency}}"
+  },
   "season": "ซีซั่น",
   "time": "เวลา",
   "gameTimePreset": {

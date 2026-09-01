@@ -32,6 +32,12 @@
   "level": "Szint",
   "baseLevelExperience": "Alapszint tapasztalat",
   "experience": "Tapasztalat",
+  "coalitionProgression": {
+    "title": "Koalíció bővítése",
+    "capacity": "{{current}} → {{next}} tag",
+    "maxCapacity": "{{count}} tag · maximális kapacitás",
+    "upgradeWith": "Bővítés ezzel: {{currency}}"
+  },
   "nextLevelExperience": "Következő szint tapasztalata",
   "season": "Szezon",
   "time": "Idő",

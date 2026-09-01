@@ -32,6 +32,12 @@
   "level": "Seviye",
   "baseLevelExperience": "Temel seviye deneyimi",
   "experience": "Deneyim",
+  "coalitionProgression": {
+    "title": "Koalisyon genişletme",
+    "capacity": "{{current}} → {{next}} üye",
+    "maxCapacity": "{{count}} üye · azami kapasite",
+    "upgradeWith": "{{currency}} ile genişlet"
+  },
   "nextLevelExperience": "Sonraki seviye deneyimi",
   "season": "Sezon",
   "time": "Süre",
