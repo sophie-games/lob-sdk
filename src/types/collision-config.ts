@@ -1,12 +1,17 @@
 import { CollisionShapeConfig, CollisionShapeType } from "./unit";
 
+interface LegacyCircleCollisionShapeConfig {
+  type: 0;
+  radius: number;
+}
+
 /**
  * The collision-related fields of a FormationTemplate, read by `getCollisionConfig`.
  * A FormationTemplate satisfies this structurally; the deprecated flat fields are
  * only consulted for older custom-scenario formations.
  */
 export interface CollisionFields {
-  collisionShape?: CollisionShapeConfig;
+  collisionShape?: CollisionShapeConfig | LegacyCircleCollisionShapeConfig;
   /** @deprecated */ frontage?: number;
   /** @deprecated */ depth?: number;
   /** @deprecated */ collisionCircles?: number;
@@ -15,23 +20,26 @@ export interface CollisionFields {
   /** @deprecated */ collisionCirclesVertical?: boolean;
 }
 
-/** True when a collision config is a circle (rather than a rotated rectangle). */
-export function isCircleCollision(
-  config: CollisionShapeConfig,
-): config is { type: CollisionShapeType.Circle; radius: number } {
-  return config.type === CollisionShapeType.Circle;
-}
-
 /**
- * A formation's collision footprint, normalised to a CollisionShapeConfig. Prefers
- * the `collisionShape` field; for older custom-scenario formations that predate it,
- * synthesises one from the deprecated flat fields (frontage/depth, else the circle
- * layout). This is the single place that reads the legacy collision fields.
+ * A formation's rotated-rectangle collision footprint. Legacy radius configs become
+ * equal-diameter square OBBs, while older flat circle layouts become the rectangle
+ * spanning their configured circles. This is the single place that reads legacy
+ * collision fields.
  */
 export function getCollisionConfig(
   formation: CollisionFields,
 ): CollisionShapeConfig {
-  if (formation.collisionShape) return formation.collisionShape;
+  if (formation.collisionShape) {
+    if (formation.collisionShape.type === 0) {
+      const diameter = formation.collisionShape.radius * 2;
+      return {
+        type: CollisionShapeType.Obb,
+        frontage: diameter,
+        depth: diameter,
+      };
+    }
+    return formation.collisionShape;
+  }
   if (formation.frontage != null && formation.depth != null) {
     return {
       type: CollisionShapeType.Obb,
@@ -39,13 +47,17 @@ export function getCollisionConfig(
       depth: formation.depth,
     };
   }
-  // Legacy multi-circle layout: a single circle, or a rectangle spanning the circles
-  // (so the derived dimensions match what the old layout produced).
+  // Legacy multi-circle layout: use the rectangle spanning the circles so the
+  // derived dimensions match what the old layout produced.
   const size = formation.collisionCircleSize ?? 32;
   const count = formation.collisionCircles ?? 1;
-  // legacy "no collision" (flying/ghost)
-  if (count <= 0 || size <= 0) return { type: CollisionShapeType.Circle, radius: 0 };
-  if (count <= 1) return { type: CollisionShapeType.Circle, radius: size / 2 };
+  // Legacy "no collision" (flying/ghost).
+  if (count <= 0 || size <= 0) {
+    return { type: CollisionShapeType.Obb, frontage: 0, depth: 0 };
+  }
+  if (count <= 1) {
+    return { type: CollisionShapeType.Obb, frontage: size, depth: size };
+  }
   const distance = formation.collisionCircleDistance ?? size;
   const span = (count - 1) * distance + size;
   return formation.collisionCirclesVertical
@@ -57,12 +69,10 @@ export function getCollisionConfig(
  * The full front (and symmetric back) arc width in DEGREES, derived from the OBB
  * footprint: the angle the front-face corners subtend at the centre, `2*atan2(frontage,
  * depth)`. A wide, shallow formation (a line) gets a broad front cone; a deep, narrow one
- * (a column) a slim one. Circles have no facing, so the whole 360 is "front" - returning
- * 360 makes `getDirectionToPoint` classify every hit as Front (no rear/flank direction).
+ * (a column) a slim one.
  */
 export function getFrontBackArc(formation: CollisionFields): number {
   const config = getCollisionConfig(formation);
-  if (isCircleCollision(config)) return 360;
   return (2 * Math.atan2(config.frontage, config.depth) * 180) / Math.PI;
 }
 
