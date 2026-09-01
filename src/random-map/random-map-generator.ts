@@ -77,6 +77,8 @@ export class RandomMapGenerator {
     if (fixedMap) {
       widthPx = fixedMap.width;
       heightPx = fixedMap.height;
+      const tilesX = Math.ceil(widthPx / tileSize);
+      const tilesY = Math.ceil(heightPx / tileSize);
       // Deep-copy AND repair: force both grids rectangular to the declared size.
       // A malformed import (e.g. an editor resize that left heightMap a few
       // columns shorter than terrains) would otherwise be indexed raw downstream
@@ -85,8 +87,8 @@ export class RandomMapGenerator {
       const repair = normalizeMapGrids(
         fixedMap.terrains,
         fixedMap.heightMap,
-        Math.floor(widthPx / tileSize),
-        Math.floor(heightPx / tileSize),
+        tilesX,
+        tilesY,
         scenario.baseTerrain ?? TerrainType.Grass,
       );
       terrains = repair.terrains;
@@ -96,7 +98,7 @@ export class RandomMapGenerator {
           `[RandomMapGenerator] Repaired malformed fixedMap grids for scenario "${scenario.name}": ` +
             `terrains ${fixedMap.terrains.length}x${fixedMap.terrains[0]?.length ?? 0}, ` +
             `heightMap ${fixedMap.heightMap.length}x${fixedMap.heightMap[0]?.length ?? 0} ` +
-            `-> ${Math.floor(widthPx / tileSize)}x${Math.floor(heightPx / tileSize)}.`,
+            `-> ${tilesX}x${tilesY}.`,
         );
       }
     } else {
