@@ -102,6 +102,10 @@
   "gridOpacity": {
     "title": "Grid Opacity"
   },
+  "tracerOpacity": {
+    "title": "Tracer Laser Opacity",
+    "description": "Controls the opacity of tracer lines during ranged attacks. Set to 0% to hide them."
+  },
   "showDebugShapes": {
     "title": "Show debug shapes",
     "description": "Shows debug shapes on units including collision shapes and terrain check points."

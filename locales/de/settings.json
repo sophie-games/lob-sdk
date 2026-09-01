@@ -95,6 +95,10 @@
   "gridOpacity": {
     "title": "Rasterdeckkraft"
   },
+  "tracerOpacity": {
+    "title": "Leuchtspur-Deckkraft",
+    "description": "Steuert die Deckkraft der Leuchtspuren bei Fernangriffen. Bei 0 % werden sie ausgeblendet."
+  },
   "showDebugShapes": {
     "title": "Debug-Formen anzeigen",
     "description": "Zeigt Debug-Formen auf Einheiten an, einschließlich Kollisionsformen und Geländeprüfpunkten."
