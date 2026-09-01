@@ -119,7 +119,7 @@
     "chargeResistanceModifier": {
       "infantry": 0.5,
       "guardsInfantry": 0.5,
-      "skirmishInfantry": 0.8,
+      "skirmishInfantry": 1,
       "militiaInfantry": 0.5,
       "midCavalry": -0.3,
       "lightCavalry": -0.3,
@@ -477,6 +477,9 @@
       "4lb-canister-fire": 1,
       "explosive-shell": 1,
       "howitzer-canister": 1
+    },
+    "chargeResistanceModifier": {
+      "skirmishInfantry": 1
     }
   },
   "redoubt": {

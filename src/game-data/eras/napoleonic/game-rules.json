@@ -31,11 +31,11 @@
       "grand_battle": 425000
     },
     "goldToAmmoRate": {
-      "micro": 1400,
-      "clash": 1300,
-      "combat": 1200,
-      "battle": 1100,
-      "grand_battle": 1000
+      "micro": 1200,
+      "clash": 1100,
+      "combat": 1000,
+      "battle": 900,
+      "grand_battle": 800
     }
   },
   "skirmisherSpawning": {
@@ -44,6 +44,7 @@
   "allyCollision": {
     "collisionBounceScale": 0.005,
     "overlapStopCharge": 0.4,
+    "chargeInterruptionDuration": 5,
     "maxSpeedPenalty": -0.4,
     "maxOrgDamageReceived": 0.3,
     "maxMeleeAttackPenalty": -0.5,

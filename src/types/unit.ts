@@ -49,6 +49,12 @@ export interface UnitDto {
   eff?: UnitEffectDto[];
 
   /**
+   * Remaining charge-interruption ticks. Kept outside `eff` so older clients
+   * and servers can safely ignore this newer temporary state.
+   */
+  ci?: number;
+
+  /**
    * Accumulated movement ticks.
    */
   ac?: number;
@@ -214,6 +220,9 @@ interface BaseUnitTemplate {
   orgRadius: number;
   orgRadiusBonus: number;
   movementSound: string;
+  /** Looping movement sound used at run pace. Falls back to movementSound. */
+  runMovementSound?: string;
+  chargeSound?: string;
   manpower: number;
   gold: number;
   chargeResistance?: number;

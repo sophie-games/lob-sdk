@@ -233,7 +233,27 @@
     "errIdInUse": "ID đội hình \"{{id}}\" đã được sử dụng",
     "errEdgeIndex": "Cạnh bắn {{n}}: chỉ số cạnh phải từ 0-3",
     "errEdgeArc": "Cạnh bắn {{n}}: cung phải từ 0 đến 360",
-    "errEdgeEmitters": "Cạnh bắn {{n}}: bộ phát phải là số nguyên dương"
+    "errEdgeEmitters": "Cạnh bắn {{n}}: bộ phát phải là số nguyên dương",
+    "rangedResistance": "Kháng hỏa lực tầm xa",
+    "rangedResistanceHelp": "Đội hình này chống chịu hỏa lực bắn tới ra sao: nó gạt bỏ được bao nhiêu sát thương và tổn thất tổ chức, và liệu đạn có xuyên qua nó tới những gì đứng phía sau hay không.",
+    "friendlyFireImmuneDamageTypes": "Miễn nhiễm hỏa lực đồng minh từ",
+    "firepowerPooling": "Gộp hỏa lực",
+    "firepowerPoolingHelp": "Cách hỏa lực của đội hình này được chia giữa các cạnh bắn. Dùng chung cho cả đơn vị một nguồn duy nhất, nên một đội hình vuông bắn từ mọi mặt chỉ đặt một phần sức mạnh vào mỗi cạnh. Nguồn đầy đủ cho mỗi cạnh trao cho từng cạnh toàn bộ hỏa lực của đơn vị, và đó là cách một con tàu bắn trọn một loạt đạn mạn tàu từ bất kỳ bên nào.",
+    "firepowerPoolingShared": "Dùng chung cho mọi cạnh",
+    "firepowerPoolingPerEdge": "Nguồn đầy đủ cho mỗi cạnh",
+    "effects": "Hiệu ứng khi chuyển sang đội hình này",
+    "effectsHelp": "Các hiệu ứng áp lên một đơn vị ngay khi nó chuyển sang đội hình này, mỗi hiệu ứng kéo dài số ticks đã cho. Thời đại này hiện chỉ dùng đến nó ở một chỗ: đội hình bỏ chạy cấp Có thể đi xuyên qua kẻ thù trong 12 ticks, và đó là cách một đơn vị tan vỡ chạy xuyên qua hàng ngũ thay vì dồn đống vào chúng.",
+    "effect": "Hiệu ứng",
+    "effectDuration": "Thời lượng (ticks)",
+    "effectReorgDebuff": "Hình phạt hồi phục tổ chức",
+    "effectInfo": {
+      "been_in_melee": "Đánh dấu một đơn vị vừa mới cận chiến, giữ nó ở trạng thái rối loạn trong suốt thời lượng đó.",
+      "can_pass_through_enemies": "Cho phép đơn vị đi xuyên qua các đơn vị địch thay vì va chạm với chúng.",
+      "has_ran": "Đánh dấu một đơn vị vừa mới chạy, đây chính là điều mà hình phạt kháng xung kích khi chạy dựa vào.",
+      "rotated_180": "Đánh dấu một đơn vị vừa quay đầu, trạng thái mà một cú xoay 180 độ để lại.",
+      "started_routing": "Đánh dấu một đơn vị vừa tan vỡ, trạng thái mở đầu một cuộc bỏ chạy.",
+      "taken_fire": "Đánh dấu một đơn vị vừa hứng hỏa lực, giữ nó ở trạng thái rối loạn trong suốt thời lượng đó."
+    }
   },
   "unitTemplateModal": {
     "title": "Chỉnh sửa mẫu đơn vị tùy chỉnh",
@@ -269,6 +289,8 @@
     "turningDelay": "Độ trễ xoay (ticks)",
     "startsRunning": "Bắt đầu chạy",
     "movementSound": "Âm thanh di chuyển",
+    "runMovementSound": "Âm thanh di chuyển khi chạy",
+    "chargeSound": "Âm thanh xung phong",
     "rangedCombat": "Chiến đấu tầm xa",
     "rangedAttack": "Tấn công tầm xa",
     "panicFireDistance": "Khoảng cách bắn hoảng loạn",
@@ -292,7 +314,13 @@
     "pushStrength": "Sức đẩy",
     "pushDistance": "Khoảng cách đẩy",
     "maxEntrenchment": "Công sự tối đa",
-    "locked": "Đã khóa"
+    "locked": "Đã khóa",
+    "unlimberTime": "Thời gian triển khai pháo (ticks)",
+    "unlimberTimeHelp": "Đơn vị này mang dấu Đã chạy bao lâu sau khi nó di chuyển, tính bằng ticks. Một vũ khí có loại sát thương không thể dùng sau khi chạy sẽ không dùng được chừng nào dấu đó còn đó, nên với một khẩu pháo đây chính là độ trễ triển khai: các khẩu đội của thời đại này chạy từ 3 với pháo 4 pound đến 14 với Licorne 18 pound. Việc một đơn vị có phải triển khai hay không được đặt trên vũ khí chứ không phải ở đây: đánh dấu Không thể sử dụng sau khi chạy trên loại sát thương của nó. Để trống ô này sẽ quay về hằng số trò chơi EFFECT_HAS_RAN_TICKS, vốn là 12 ở cả hai thời đại đã phát hành, và nhập 0 cũng cho kết quả như vậy, nên không có giá trị nào ở đây tắt được độ trễ. Giá trị nhỏ nhất là 1.",
+    "runChargeResistanceModifier": "Hệ số kháng xung kích khi chạy",
+    "runChargeResistanceModifierHelp": "Được cộng vào kháng xung kích của đơn vị này, nhưng chỉ khi nó còn mang dấu Đã chạy từ việc di chuyển. Một khi dấu hết hạn, nó không còn giá trị gì. Giá trị âm khiến một đơn vị dễ bị chà đạp hơn trong những khoảnh khắc ngay sau khi di chuyển, và đó là điều đặt một khẩu đội đang hành quân vào tay kỵ binh: pháo 8 pound của thời đại này dùng -0.75. Khoảng thời gian đó kéo dài bao lâu là do trường Thời gian triển khai pháo ở trên quyết định.",
+    "changeAnimations": "Hoạt ảnh chuyển đội hình (sang đội hình)",
+    "changeAnimationsHelp": "Hoạt ảnh được phát trong khi một đơn vị rời đội hình này để sang một đội hình khác. Chọn đội hình nó đang chuyển sang, rồi chọn hoạt ảnh phát trên đường đi. Một chuyển đổi không có dòng nào ở đây thì không phải là hỏng: đơn vị chỉ đơn giản nhảy từ sprite này sang sprite kia mà không có gì ở giữa, và đó là điều xảy ra hôm nay với mọi đội hình không có mục nào. Danh sách chứa các hoạt ảnh mà thời đại này cung cấp, và bộ binh tuyến của thời đại này dùng sáu trong số đó."
   },
   "unitCategoryModal": {
     "title": "Chỉnh sửa danh mục đơn vị tùy chỉnh",
@@ -369,7 +397,8 @@
       "projectile": "Đạn",
       "rangeBrackets": "Khoảng tầm bắn",
       "areaOfEffect": "Vùng ảnh hưởng",
-      "targetStatModifiers": "Hệ số theo chỉ số mục tiêu"
+      "targetStatModifiers": "Hệ số theo chỉ số mục tiêu",
+      "melee": "Cận chiến"
     },
     "fields": {
       "ranged": "Tầm xa",
@@ -385,7 +414,9 @@
       "canShootLocation": "Có thể bắn vào vị trí",
       "aimMode": "Chế độ ngắm",
       "maxRange": "Tầm tối đa",
-      "engagementTier": "Cấp tự động bắn"
+      "engagementTier": "Cấp tự động bắn",
+      "shotImpactAnim": "Hoạt ảnh va chạm",
+      "bandName": "Khoảng tầm bắn"
     },
     "aimMode": {
       "targetCenter": "Tâm mục tiêu (nổ tròn)",
@@ -414,7 +445,10 @@
       "startBottomWidth": "Chiều rộng dưới đầu",
       "endBottomWidth": "Chiều rộng dưới cuối",
       "startHeight": "Chiều cao đầu",
-      "endHeight": "Chiều cao cuối"
+      "endHeight": "Chiều cao cuối",
+      "heightModifierPerLevelHelp": "Thay đổi chiều sâu của hình nổ theo tỷ lệ này cho mỗi cấp chênh lệch độ cao sau cấp đầu tiên. Giá trị âm thu nhỏ vùng phủ, giá trị dương kéo dài nó. Đạn tròn của thời đại này dùng -0.15.",
+      "damageModifierPerLevelHelp": "Cộng thêm hệ số sát thương này cho mỗi cấp chênh lệch độ cao sau cấp đầu tiên. Giá trị âm làm nhẹ đòn đánh, giá trị dương làm nó nặng hơn. Đạn tròn của thời đại này dùng -0.05.",
+      "maxElevationDiffHelp": "Số cấp chênh lệch độ cao nhiều nhất có thể được tính. Chênh lệch được đo theo trị tuyệt đối, nên bắn lên dốc và bắn xuống dốc được xử lý như nhau, và chênh lệch một cấp trở xuống thì không áp dụng gì cả. Đạn tròn của thời đại này giới hạn ở 4."
     },
     "addRangeBracket": "Thêm khoảng tầm bắn",
     "addAreaOfEffect": "Thêm vùng ảnh hưởng",
@@ -495,7 +529,7 @@
       "maxSpritesAlert": "Bạn chỉ có thể tải lên tối đa {{count}} sprite tùy chỉnh.",
       "tooLargeAlert": "Ảnh quá lớn; không thể nén xuống dưới {{kb}}KB. Hãy thử ảnh nhỏ hơn hoặc đơn giản hơn.",
       "invalidImageAlert": "Không đọc được ảnh. Hãy dùng tệp PNG hoặc WebP.",
-      "deleteBlockedAlert": "Không thể xóa: vẫn được dùng bởi {{where}}. Hãy thay đổi các đội hình đó trước.",
+      "deleteBlockedAlert": "Không thể xóa: vẫn được dùng bởi {{where}}. Hãy thay đổi các tham chiếu đó trước.",
       "libraryTitle": "Thư viện sprite",
       "libraryDescription": "Duyệt các sprite tích hợp của thời đại để lấy cảm hứng.",
       "filterPlaceholder": "Lọc theo tên...",

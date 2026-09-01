@@ -698,6 +698,8 @@ export interface ObjectivesRule {
 export interface AllyCollisionRule {
   collisionBounceScale: number;
   overlapStopCharge: number;
+  /** How long (in ticks) an allied hard collision prevents charging. */
+  chargeInterruptionDuration: number;
   maxSpeedPenalty: number;
   maxOrgDamageReceived: number;
   maxMeleeAttackPenalty: number;

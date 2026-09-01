@@ -3,42 +3,38 @@ import {
   STAT_PRECISION_SCALE,
 } from "@lob-sdk/game-data-manager";
 import type { RangedDamageTypeTemplate } from "@lob-sdk/game-data-manager/types";
+import { TerrainType } from "@lob-sdk/types";
 
 describe("Napoleonic balance", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
 
-  it("uses the 1.7.1 cavalry movement and pushing values", () => {
+  it("uses the requested cavalry turning and pushing values", () => {
     const expectedByName = {
       hussars: {
-        timeToRun: 4,
         rotationSpeed: 0.37,
         runRotationSpeed: 0.34,
         pushStrength: 12,
         pushDistance: 0.8,
       },
       lancers: {
-        timeToRun: 4,
         rotationSpeed: 0.37,
         runRotationSpeed: 0.3,
         pushStrength: 12,
         pushDistance: 0.8,
       },
       horse_archers: {
-        timeToRun: 4,
         rotationSpeed: 0.37,
         runRotationSpeed: 0.34,
         pushStrength: 12,
         pushDistance: 0.8,
       },
       dragoons: {
-        timeToRun: 4,
         rotationSpeed: 0.35,
         runRotationSpeed: 0.27,
         pushStrength: 16,
         pushDistance: 1,
       },
       cuirassiers: {
-        timeToRun: 4,
         rotationSpeed: 0.33,
         runRotationSpeed: 0.25,
         pushStrength: 20,
@@ -57,16 +53,21 @@ describe("Napoleonic balance", () => {
     }
   });
 
-  it("gives skirmish infantry 80% resistance to the included artillery shot", () => {
+  it("gives skirmish infantry the requested 80% artillery shot resistance", () => {
     const includedDamageTypes = [
+      "18lb-cannon-ball",
+      "18lb-canister-fire",
       "12lb-cannon-ball",
       "12lb-canister-fire",
+      "10lb-cannon-ball",
+      "10lb-canister-fire",
       "8lb-cannon-ball",
       "8lb-canister-fire",
       "6lb-cannon-ball",
       "6lb-canister-fire",
       "4lb-cannon-ball",
       "4lb-canister-fire",
+      "howitzer-canister",
     ];
 
     for (const damageType of includedDamageTypes) {
@@ -80,13 +81,8 @@ describe("Napoleonic balance", () => {
 
     const excludedDamageTypes = [
       "18lb-explosive-shell",
-      "18lb-cannon-ball",
-      "18lb-canister-fire",
       "10lb-explosive-shell",
-      "10lb-cannon-ball",
-      "10lb-canister-fire",
       "explosive-shell",
-      "howitzer-canister",
       "rocket",
     ];
 
@@ -100,12 +96,39 @@ describe("Napoleonic balance", () => {
     }
   });
 
+  it("limits skirmishers to a 120-degree firing arc", () => {
+    const skirmish = gameDataManager
+      .getFormationManager()
+      .getTemplate("skirmish");
+
+    expect(skirmish?.fireEdges).toEqual([
+      { edge: 1, arc: 120, emitters: 2 },
+    ]);
+  });
+
   it("uses a 450 organization damage ratio for skirmisher and rifle fire", () => {
     for (const damageType of ["marksman-musket", "rifle"]) {
       const { orgDamageRatio } =
         gameDataManager.getDamageTypeByName(damageType);
 
       expect(orgDamageRatio / STAT_PRECISION_SCALE).toBe(450);
+    }
+  });
+
+  it("uses the 1.7.5 ammo received per 25 unspent gold", () => {
+    const ammoPer25Gold = {
+      micro: 300,
+      clash: 275,
+      combat: 250,
+      battle: 225,
+      grand_battle: 200,
+    } as const;
+
+    for (const [battleType, expectedAmmo] of Object.entries(ammoPer25Gold)) {
+      expect(
+        (25 * gameDataManager.getGoldToAmmoRate(battleType)) /
+          STAT_PRECISION_SCALE,
+      ).toBe(expectedAmmo);
     }
   });
 
@@ -117,7 +140,6 @@ describe("Napoleonic balance", () => {
       "8lb-canister-fire",
       "6lb-canister-fire",
       "4lb-canister-fire",
-      "howitzer-canister",
     ];
 
     for (const name of canisterNames) {
@@ -126,6 +148,12 @@ describe("Napoleonic balance", () => {
 
       expect(canister.orgDamageRatio / STAT_PRECISION_SCALE).toBe(285);
     }
+
+    expect(
+      gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(
+        "howitzer-canister",
+      ).orgDamageRatio / STAT_PRECISION_SCALE,
+    ).toBe(320);
 
     const normalCanisterAmmo = {
       "12lb-canister-fire": 193,
@@ -226,6 +254,86 @@ describe("Napoleonic balance", () => {
     expect(eighteenPound.areaOfEffect).toMatchObject({
       edgeDamageModifier: -0.7,
     });
+  });
+
+  it("uses the 1.7.5 infantry formation balance", () => {
+    const unitTemplates = gameDataManager
+      .getUnitTemplateManager()
+      .getTemplates();
+
+    expect(
+      unitTemplates.find((template) => template.name === "militia")
+        ?.chargeResistance,
+    ).toBe(0.15);
+    expect(
+      gameDataManager.getFormationManager().getTemplate("column"),
+    ).toMatchObject({
+      rangedAttackModifier: -0.8,
+      flankChargeResistance: -0.6,
+    });
+    expect(
+      gameDataManager.getFormationManager().getTemplate("line"),
+    ).toMatchObject({
+      flankChargeResistance: -0.6,
+    });
+  });
+
+  it("uses the 1.7.5 elite infantry organization and charge balance", () => {
+    const expectedByName = {
+      guards: { org: 950, chargeResistance: 0.5 },
+      grenadiers: { org: 725, chargeResistance: 0.5 },
+    } as const;
+    const unitTemplates = gameDataManager
+      .getUnitTemplateManager()
+      .getTemplates();
+
+    for (const [name, expected] of Object.entries(expectedByName)) {
+      const unit = unitTemplates.find((template) => template.name === name)!;
+
+      expect(unit.org / STAT_PRECISION_SCALE).toBe(expected.org);
+      expect(unit.chargeResistance).toBe(expected.chargeResistance);
+    }
+  });
+
+  it("uses the 1.7.5 cavalry charge and organization balance", () => {
+    const expectedByName = {
+      cuirassiers: { chargeBonus: 140, orgRadiusBonus: 9 },
+      lancers: { chargeBonus: 140, orgRadiusBonus: 6 },
+      dragoons: { chargeBonus: 125, orgRadiusBonus: 6, org: 850 },
+      hussars: { chargeBonus: 100, orgRadiusBonus: 4 },
+      horse_archers: { chargeBonus: 80, orgRadiusBonus: 4 },
+    } as const;
+    const unitTemplates = gameDataManager
+      .getUnitTemplateManager()
+      .getTemplates();
+
+    for (const [name, expected] of Object.entries(expectedByName)) {
+      const unit = unitTemplates.find((template) => template.name === name)!;
+
+      expect(unit.chargeBonus / STAT_PRECISION_SCALE).toBe(
+        expected.chargeBonus,
+      );
+      expect(unit.orgRadiusBonus! / STAT_PRECISION_SCALE).toBe(
+        expected.orgRadiusBonus,
+      );
+      expect(unit.orgRadius).toBe(64);
+      expect(unit.timeToRun).toBe(3);
+
+      if ("org" in expected) {
+        expect(unit.org / STAT_PRECISION_SCALE).toBe(expected.org);
+      }
+    }
+  });
+
+  it("gives skirmish infantry full charge resistance in forest and city", () => {
+    for (const terrain of [TerrainType.Forest, TerrainType.City]) {
+      expect(
+        gameDataManager.getChargeResistanceModifier(
+          "skirmishInfantry",
+          terrain,
+        ),
+      ).toBe(1);
+    }
   });
 
   it("uses the requested infantry, column, and cavalry charge balance", () => {

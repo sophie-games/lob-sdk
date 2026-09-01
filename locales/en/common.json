@@ -74,6 +74,7 @@
   "createdAt": "Created at {{date}}",
   "addPlayer": "Add player",
   "credits": "Credits",
+  "creditsSoundEffectsAttribution": "Some sound effects are from <quickSounds>QuickSounds</quickSounds>. <horseGalloping>Horse Galloping by DRAGON-STUDIO</horseGalloping> is used under the <pixabayLicense>Pixabay Content License</pixabayLicense>.",
   "settings": "Settings",
   "leagueDescription": "Your league reflects your skill level. Win games to earn progress within your league, and once you reach the top of a league, you advance to the next one. Lose too many games and you may drop down. Hover the league badge to see your current Elo.",
   "averageLeague": "Average League",
@@ -617,7 +618,8 @@
     "started_routing": "Started routing",
     "taken_fire": "Taken fire",
     "has_fired": "Has fired",
-    "can_pass_through_enemies": "Can pass through enemies"
+    "can_pass_through_enemies": "Can pass through enemies",
+    "charge_interrupted": "Charge interrupted"
   },
   "login": "Login",
   "signUp": "Sign up",

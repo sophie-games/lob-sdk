@@ -320,9 +320,10 @@ export type ScenarioName = string;
 /**
  * A sprite uploaded by a scenario creator, embedded inline as a base64
  * data-URL. Referenced by custom unit formations via `baseSprite`/`overlaySprite`
- * names carrying the `cs_` prefix. Kept small by the editor (re-encoded to webp
- * and size-capped); aggregate weight is bounded by the per-collection count
- * caps in validate-custom.ts and the server's decompressed-payload cap.
+ * or by custom damage types via `imageAlias`, using names carrying the `cs_`
+ * prefix. Kept small by the editor (re-encoded to webp and size-capped);
+ * aggregate weight is bounded by the per-collection count caps in
+ * validate-custom.ts and the server's decompressed-payload cap.
  */
 export interface CustomSprite {
   /** `data:image/webp;base64,...` (or png). */
@@ -570,9 +571,10 @@ export interface Scenario {
 
   /**
    * Uploaded sprites embedded inline (base64), keyed by a
-   * `cs_<type>_<formationId>_<base|overlay>` name that custom unit formations
-   * reference via `baseSprite`/`overlaySprite`. Registered client-side into the
-   * sprite data service so they render like built-in sprites.
+   * `cs_`-prefixed name that custom unit formations reference via
+   * `baseSprite`/`overlaySprite`, or custom damage types via `imageAlias`.
+   * Registered client-side into the sprite data service so they render like
+   * built-in sprites.
    */
   customSprites?: Record<string, CustomSprite>;
 

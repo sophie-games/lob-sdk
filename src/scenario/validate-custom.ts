@@ -152,7 +152,13 @@ export function validateScenarioCustomDefs(
       eraGameDataManager,
     ),
   );
-  errors.push(...validateCustomSprites(customSprites, customUnitTemplates));
+  errors.push(
+    ...validateCustomSprites(
+      customSprites,
+      customUnitTemplates,
+      customDamageTypes,
+    ),
+  );
   errors.push(...validateGameConstantOverrides(customGameConstants));
   errors.push(...validateGameRuleOverrides(customGameRules));
   errors.push(...validateCustomOrders(customOrders, eraGameDataManager));
@@ -1048,6 +1054,7 @@ export function dataUrlByteLength(dataUrl: string): number {
 function validateCustomSprites(
   customSprites: Record<string, CustomSprite>,
   customUnitTemplates: UnitTemplate[],
+  customDamageTypes: DamageTypeTemplate[],
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
 
@@ -1092,6 +1099,21 @@ function validateCustomSprites(
           });
         }
       }
+    }
+  }
+
+  for (const damageType of customDamageTypes) {
+    const ref = damageType?.imageAlias;
+    if (
+      typeof ref === "string" &&
+      ref.startsWith(CUSTOM_SPRITE_NAME_PREFIX) &&
+      !(ref in customSprites)
+    ) {
+      errors.push({
+        scope: "customSprite",
+        field: damageType.name,
+        message: `damage type "${damageType.name}" references missing custom sprite "${ref}"`,
+      });
     }
   }
 

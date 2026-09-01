@@ -235,7 +235,27 @@
     "errIdInUse": "L'id formazione \"{{id}}\" è già in uso",
     "errEdgeIndex": "Lato di fuoco {{n}}: l'indice del lato deve essere 0-3",
     "errEdgeArc": "Lato di fuoco {{n}}: l'arco deve essere tra 0 e 360",
-    "errEdgeEmitters": "Lato di fuoco {{n}}: gli emettitori devono essere un intero positivo"
+    "errEdgeEmitters": "Lato di fuoco {{n}}: gli emettitori devono essere un intero positivo",
+    "rangedResistance": "Resistenza a distanza",
+    "rangedResistanceHelp": "Quanto questa formazione regge il fuoco in arrivo: quanto danno e quanta perdita di organizzazione assorbe, e se i colpi la attraversano colpendo ciò che sta dietro.",
+    "friendlyFireImmuneDamageTypes": "Immune al fuoco amico da",
+    "firepowerPooling": "Ripartizione della potenza di fuoco",
+    "firepowerPoolingHelp": "Come la potenza di fuoco di questa formazione viene divisa fra i suoi lati di fuoco. Condivisa assegna a tutta l'unità un unico bacino, così un quadrato che spara da ogni faccia mette in ciascuna solo una frazione della sua forza. Bacino pieno per lato dà a ogni lato l'intera potenza di fuoco dell'unità, ed è così che una nave spara una bordata completa da entrambi i fianchi.",
+    "firepowerPoolingShared": "Condivisa fra tutti i lati",
+    "firepowerPoolingPerEdge": "Bacino pieno per lato",
+    "effects": "Effetti nell'assumere questa formazione",
+    "effectsHelp": "Effetti applicati a un'unità nel momento in cui passa a questa formazione, ciascuno della durata indicata in ticks. L'epoca oggi lo usa in un solo punto: la formazione in rotta concede Può attraversare i nemici per 12 ticks, ed è così che un'unità spezzata corre attraverso le linee invece di ammassarsi contro di esse.",
+    "effect": "Effetto",
+    "effectDuration": "Durata (ticks)",
+    "effectReorgDebuff": "Malus riorganizzazione",
+    "effectInfo": {
+      "been_in_melee": "Segna un'unità come reduce dal corpo a corpo, tenendola in disordine per tutta la durata.",
+      "can_pass_through_enemies": "Permette all'unità di muoversi attraverso le unità nemiche invece di scontrarvisi.",
+      "has_ran": "Segna un'unità come reduce da una corsa, ed è su questo che si basa la penalità alla resistenza carica per la corsa.",
+      "rotated_180": "Segna un'unità come appena voltata, lo stato lasciato da un'inversione di 180 gradi.",
+      "started_routing": "Segna un'unità come appena spezzata, lo stato con cui inizia una rotta.",
+      "taken_fire": "Segna un'unità come reduce dal fuoco nemico, tenendola in disordine per tutta la durata."
+    }
   },
   "unitTemplateModal": {
     "title": "Modifica modello di unità personalizzato",
@@ -271,6 +291,8 @@
     "turningDelay": "Ritardo di rotazione (ticks)",
     "startsRunning": "Inizia correndo",
     "movementSound": "Suono movimento",
+    "runMovementSound": "Suono di movimento in corsa",
+    "chargeSound": "Suono della carica",
     "rangedCombat": "Combattimento a distanza",
     "rangedAttack": "Attacco a distanza",
     "panicFireDistance": "Distanza fuoco panico",
@@ -294,7 +316,13 @@
     "pushStrength": "Forza di spinta",
     "pushDistance": "Distanza di spinta",
     "maxEntrenchment": "Trinceramento massimo",
-    "locked": "Bloccato"
+    "locked": "Bloccato",
+    "unlimberTime": "Tempo di messa in batteria (ticks)",
+    "unlimberTimeHelp": "Per quanti ticks questa unità porta il marchio È corso dopo essersi mossa. Un'arma il cui tipo di danno non può essere usato dopo la corsa è inutilizzabile finché quel marchio è attivo, quindi per un cannone questo è il ritardo di messa in batteria: le batterie dell'epoca vanno da 3 su un pezzo da 4 libbre a 14 su un Licorne da 18 libbre. Se un'unità debba mettersi in batteria si imposta sull'arma, non qui: spunta Non utilizzabile dopo la corsa sul suo tipo di danno. Lasciare la casella vuota ricade sulla costante di gioco EFFECT_HAS_RAN_TICKS, che vale 12 in entrambe le epoche distribuite, e inserire 0 fa lo stesso, quindi nessun valore qui disattiva il ritardo. Il minimo è 1.",
+    "runChargeResistanceModifier": "Modificatore resistenza carica in corsa",
+    "runChargeResistanceModifierHelp": "Si aggiunge alla resistenza carica di questa unità, ma solo mentre porta il marchio È corso dovuto al movimento. Una volta scaduto il marchio non conta più nulla. Un valore negativo rende l'unità più facile da travolgere nei momenti successivi al movimento, ed è ciò che lascia una batteria in marcia alla mercé della cavalleria: i cannoni da 8 libbre dell'epoca usano -0.75. La durata di quella finestra è data dal campo Tempo di messa in batteria qui sopra.",
+    "changeAnimations": "Animazioni di cambio (verso la formazione)",
+    "changeAnimationsHelp": "L'animazione riprodotta mentre un'unità lascia questa formazione per un'altra. Scegli la formazione verso cui sta cambiando, poi l'animazione da riprodurre durante il passaggio. Una transizione senza una riga qui non è guasta: l'unità passa semplicemente da uno sprite all'altro senza nulla in mezzo, ed è ciò che fa oggi ogni formazione senza voci. L'elenco contiene le animazioni distribuite con questa epoca, e la fanteria di linea dell'epoca ne usa sei."
   },
   "unitCategoryModal": {
     "title": "Modifica categoria di unità personalizzata",
@@ -371,7 +399,8 @@
       "projectile": "Proiettile",
       "rangeBrackets": "Fasce di gittata",
       "areaOfEffect": "Area d'effetto",
-      "targetStatModifiers": "Modificatori per stat del bersaglio"
+      "targetStatModifiers": "Modificatori per stat del bersaglio",
+      "melee": "Corpo a corpo"
     },
     "fields": {
       "ranged": "A distanza",
@@ -387,7 +416,9 @@
       "canShootLocation": "Può sparare su una posizione",
       "aimMode": "Modalità mira",
       "maxRange": "Gittata max",
-      "engagementTier": "Livello di fuoco automatico"
+      "engagementTier": "Livello di fuoco automatico",
+      "shotImpactAnim": "Animazione di impatto",
+      "bandName": "Fascia di gittata"
     },
     "aimMode": {
       "targetCenter": "Centro bersaglio (esplosioni circolari)",
@@ -416,7 +447,10 @@
       "startBottomWidth": "Larghezza inferiore iniziale",
       "endBottomWidth": "Larghezza inferiore finale",
       "startHeight": "Altezza iniziale",
-      "endHeight": "Altezza finale"
+      "endHeight": "Altezza finale",
+      "heightModifierPerLevelHelp": "Cambia la profondità della forma dell'esplosione di questa frazione per ogni livello di differenza di elevazione oltre il primo. Un valore negativo riduce l'impronta, uno positivo la allunga. Le palle di cannone dell'epoca usano -0.15.",
+      "damageModifierPerLevelHelp": "Aggiunge questo modificatore di danno per ogni livello di differenza di elevazione oltre il primo. Un valore negativo attenua il colpo, uno positivo lo rafforza. Le palle di cannone dell'epoca usano -0.05.",
+      "maxElevationDiffHelp": "Il numero massimo di livelli di differenza di elevazione che possono contare. La differenza è misurata in valore assoluto, quindi sparare in salita e in discesa sono trattati allo stesso modo, e una differenza di un livello o meno non applica nulla. Le palle di cannone dell'epoca si fermano a 4."
     },
     "addRangeBracket": "Aggiungi fascia di gittata",
     "addAreaOfEffect": "Aggiungi area d'effetto",
@@ -497,7 +531,7 @@
       "maxSpritesAlert": "Puoi caricare al massimo {{count}} sprite personalizzati.",
       "tooLargeAlert": "Immagine troppo grande; impossibile comprimere sotto {{kb}}KB. Prova un'immagine più piccola o più semplice.",
       "invalidImageAlert": "Impossibile leggere l'immagine. Usa un file PNG o WebP.",
-      "deleteBlockedAlert": "Impossibile eliminare: ancora usato da {{where}}. Modifica prima quelle formazioni.",
+      "deleteBlockedAlert": "Impossibile eliminare: ancora usato da {{where}}. Modifica prima quei riferimenti.",
       "libraryTitle": "Libreria sprite",
       "libraryDescription": "Sfoglia gli sprite integrati dell'epoca per trarne ispirazione.",
       "filterPlaceholder": "Filtra per nome...",

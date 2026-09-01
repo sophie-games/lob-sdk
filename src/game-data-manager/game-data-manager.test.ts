@@ -321,6 +321,10 @@ describe("GameDataManager", () => {
   });
 
   describe("Unit Skins", () => {
+    it("assigns Mexican Batallón Tres Villas to light infantry", () => {
+      expect(gameDataManager.getUnitSkin(255)?.unitType).toBe(7);
+    });
+
     it("uses blue attacks for the Rebellious AI Guards in column", () => {
       const skin = gameDataManager
         .getUnitSkins()
