@@ -52,12 +52,8 @@ describe("getLeagueByElo()", () => {
   });
 
   it("degrades gracefully on non-finite input", () => {
-    expect(getLeagueByElo(Number.POSITIVE_INFINITY).type).toBe(
-      LeagueType.Emperor,
-    );
-    expect(getLeagueByElo(Number.NEGATIVE_INFINITY).type).toBe(
-      LeagueType.Iron1,
-    );
+    expect(getLeagueByElo(Number.POSITIVE_INFINITY).type).toBe(LeagueType.Emperor);
+    expect(getLeagueByElo(Number.NEGATIVE_INFINITY).type).toBe(LeagueType.Iron1);
     expect(getLeagueByElo(Number.NaN).type).toBe(LeagueType.Iron1);
   });
 });
