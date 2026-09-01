@@ -369,9 +369,23 @@ describe("validateScenarioCustomDefs", () => {
         collisionShape: JSON.parse('{"type":0,"radius":-4}'),
       });
       expect(
-        errors.some((e) => /frontage and depth greater than 0/.test(e.message)),
+        errors.some((e) => /radius must be a finite number >= 0/.test(e.message)),
       ).toBe(true);
     });
+
+    it.each(['"8"', "null", "true"])(
+      "rejects a non-numeric legacy circle radius %s",
+      (radius) => {
+        const errors = formationErrors({
+          collisionShape: JSON.parse(`{"type":0,"radius":${radius}}`),
+        });
+        expect(
+          errors.some((e) =>
+            /radius must be a finite number >= 0/.test(e.message),
+          ),
+        ).toBe(true);
+      },
+    );
 
     it("rejects a fire edge without an explicit emitter count", () => {
       const errors = formationErrors({

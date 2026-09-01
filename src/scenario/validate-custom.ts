@@ -723,6 +723,13 @@ function validateCustomUnitFormations(
         const rawShape = shape as unknown as Record<string, unknown>;
         if (rawShape.type !== CollisionShapeType.Obb && rawShape.type !== 0) {
           pushErr("collisionShape.type must be 1 (obb)");
+        } else if (
+          rawShape.type === 0 &&
+          (typeof rawShape.radius !== "number" ||
+            !Number.isFinite(rawShape.radius) ||
+            rawShape.radius < 0)
+        ) {
+          pushErr("collisionShape.radius must be a finite number >= 0");
         } else {
           const resolvedShape = getCollisionConfig(
             formation as unknown as Parameters<typeof getCollisionConfig>[0],
