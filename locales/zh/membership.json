@@ -1,0 +1,45 @@
+﻿{
+  "membership": {
+    "title": "会籍资格",
+    "loading": "正在加载会籍资格…",
+    "loadError": "暂时无法获取你的会籍资格。",
+    "freeTitle": "免费账号",
+    "tier": {
+      "bronze": "青铜",
+      "silver": "白银",
+      "gold": "黄金"
+    },
+    "tierTitle": "{{tier}}级会籍",
+    "tierPrestige": "每周期获取 {{amount}} 威望",
+    "periodEnds": "周期结束：{{date}}",
+    "provider": {
+      "stripe": "来自Stripe付费",
+      "patreon": "来自Patreon付费",
+      "manual": "由战线统帅运营组授予"
+    },
+    "state": {
+      "pending": "付款待处理",
+      "entitled": "生效",
+      "ending": "在当前周期结束后失效",
+      "paused": "暂停",
+      "expired": "失效",
+      "revoked": "撤销"
+    },
+    "benefits": {
+      "prestige": "每个付费周期获取 {{amount}} 威望",
+      "analytics": "高级玩家数据统计",
+      "themes": "自定义界面主题",
+      "goldSkin": "黄金会籍专属皮肤"
+    },
+    "manageStripe": "管理Stripe订阅",
+    "managePatreon": "管理Patreon订阅",
+    "openingPortal": "正在打开资费界面…",
+    "subscribe": "订阅",
+    "openingCheckout": "正在打开付款界面…",
+    "checkoutError": "无法打开付款界面，请重试。",
+    "portalError": "无法打开资费管理，请重试。",
+    "patreon": "在Patreon上提供支持",
+    "nativeStatusOnly": "该会籍资格只在该设备上有效。可以通过以上会籍提供方来管理资费。",
+    "nativeNoPurchase": "当前版本不支持本地订阅。你依旧可以使用与该账号连接的其他会籍资格。"
+  }
+}
