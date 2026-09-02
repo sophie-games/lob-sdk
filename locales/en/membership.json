@@ -10,8 +10,11 @@
     "monthlyDescription": "The best ongoing value for players who want to support Lines of Battle.",
     "noActiveTitle": "No active membership",
     "perMonth": "/ month",
-    "recommended": "Recommended",
-    "maximumSupport": "Maximum support",
+    "positioning": {
+      "colonel": "For committed players",
+      "general": "For group and club organizers",
+      "field_marshal": "For large communities and maximum support"
+    },
     "choosePlan": "Choose {{service}}",
     "billingTrust": "Secure monthly billing with Stripe. Change plans or cancel anytime.",
     "viewOptions": "View memberships",
@@ -51,7 +54,9 @@
       "analytics": "Advanced player analytics",
       "themes": "Custom interface themes",
       "goldSkin": "Disable Skins option",
-      "managedGame": "Host one private War Room for up to {{count}} players with assigned units, live Game Master controls, reserves, and Full Vision recording"
+      "managedGame": "Host one active private War Room using preset scenarios for up to {{count}} players, with assigned units, live Game Master controls, reserves, and Full Vision recording",
+      "includesColonel": "Includes all Colonel player benefits",
+      "includesGeneral": "Includes all General player benefits"
     },
     "managedGame": {
       "title": "War Room",
