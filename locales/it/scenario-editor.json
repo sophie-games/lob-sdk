@@ -811,6 +811,18 @@
     "createTriggerButton": "Crea trigger",
     "format": "Formatta",
     "invalidJsonFormat": "Formato JSON non valido",
+    "fixBeforeTesting": "Correggi gli errori dei trigger prima di provare questo scenario.",
+    "validation": {
+      "expectedArray": "{{path}} deve essere un array.",
+      "expectedObject": "{{path}} deve essere un oggetto.",
+      "unitAtTriggerLevel": "{{path}} sembra un’unità. Inseriscila in un’azione addUnit.",
+      "invalidEvent": "{{path}} deve essere onTurnStart o onTurnEnd.",
+      "invalidConditionLogic": "{{path}} deve essere AND o OR.",
+      "invalidOnce": "{{path}} deve essere true o false.",
+      "invalidConditionType": "{{path}} ha un tipo di condizione sconosciuto.",
+      "invalidActionType": "{{path}} ha un tipo di azione sconosciuto.",
+      "invalidValue": "{{path}} ha un valore non valido per {{type}}."
+    },
     "event": "Evento",
     "conditionLogic": "Logica delle condizioni",
     "conditionLogicAnd": "Tutte le condizioni (AND)",
