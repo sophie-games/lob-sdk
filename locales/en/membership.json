@@ -11,9 +11,9 @@
     "noActiveTitle": "No active membership",
     "perMonth": "/ month",
     "positioning": {
-      "colonel": "For committed players",
-      "general": "For group and club organizers",
-      "field_marshal": "For large communities and maximum support"
+      "colonel": "Players",
+      "general": "Hosts",
+      "field_marshal": "Organizers"
     },
     "choosePlan": "Choose {{service}}",
     "billingTrust": "Secure monthly billing with Stripe. Change plans or cancel anytime.",
@@ -54,9 +54,9 @@
       "analytics": "Advanced player analytics",
       "themes": "Custom interface themes",
       "goldSkin": "Disable Skins option",
-      "managedGame": "Host one active private War Room using preset scenarios for up to {{count}} players, with assigned units, live Game Master controls, reserves, and Full Vision recording",
-      "includesColonel": "Includes all Colonel player benefits",
-      "includesGeneral": "Includes all General player benefits"
+      "managedGame": "1 active private War Room · up to {{count}} players · preset scenarios",
+      "includesColonel": "Colonel benefits included",
+      "includesGeneral": "General benefits included"
     },
     "managedGame": {
       "title": "War Room",
