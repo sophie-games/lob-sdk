@@ -27,6 +27,35 @@ describe("War Room 50v50 preset", () => {
     expect(teamCounts).toEqual({ 1: 50, 2: 50 });
     expect(scenario.players).toHaveLength(100);
     expect(scenario.units).toHaveLength(100);
+    const unitTypeCountsByTeam = scenario.units!.reduce<
+      Record<number, Record<number, number>>
+    >((counts, unit) => {
+      const team = scenario.players!.find(
+        (player) => player.player === unit.player,
+      )!.team;
+      counts[team] ??= {};
+      counts[team]![unit.type] = (counts[team]![unit.type] ?? 0) + 1;
+      return counts;
+    }, {});
+    expect(unitTypeCountsByTeam).toEqual({
+      1: { 1: 38, 3: 4, 11: 8 },
+      2: { 1: 38, 3: 4, 11: 8 },
+    });
+
+    const formationTypes = (team: number) =>
+      scenario
+        .units!.filter((unit) =>
+          scenario.players!.some(
+            (player) => player.player === unit.player && player.team === team,
+          ),
+        )
+        .sort(
+          (a, b) =>
+            (team === 1 ? a.pos.y - b.pos.y : b.pos.y - a.pos.y) ||
+            a.pos.x - b.pos.x,
+        )
+        .map((unit) => unit.type);
+    expect(formationTypes(1)).toEqual(formationTypes(2));
     expect(ScenarioFeatures.hasOneUnitPerPlayer(scenario)).toBe(true);
     expect(ScenarioFeatures.hasDeploymentPhase(scenario)).toBe(true);
     expect(ScenarioFeatures.getInitialTurnNumber(scenario)).toBe(0);
@@ -36,10 +65,20 @@ describe("War Room 50v50 preset", () => {
       scenario,
     );
     expect(roster.seats).toHaveLength(100);
-    expect(roster.seats[0]).toMatchObject({
-      unitSlotCount: 1,
-      defaultForcePresetId: expect.stringMatching(/^unit:/),
-    });
-    expect(roster.seats[0]!.forcePresets.length).toBeGreaterThan(1);
+    for (const seat of roster.seats) {
+      const unit = scenario.units!.find(
+        (candidate) => candidate.player === seat.playerNumber,
+      );
+      expect(seat).toMatchObject({
+        unitSlotCount: 1,
+        defaultForcePresetId: `unit:${unit!.type}`,
+      });
+      expect(seat.forcePresets).toEqual([
+        expect.objectContaining({
+          id: `unit:${unit!.type}`,
+          units: [unit!.type],
+        }),
+      ]);
+    }
   });
 });

@@ -57,7 +57,7 @@ describe("describeManagedRoster", () => {
     });
   });
 
-  it("normalizes the existing one-unit picker into force presets", () => {
+  it("exposes only the unit type authored for each one-unit map seat", () => {
     const scenario: Scenario = {
       version: 1,
       name: "One unit per player",
@@ -74,12 +74,9 @@ describe("describeManagedRoster", () => {
     ).seats;
 
     expect(seat.defaultForcePresetId).toBe("unit:2");
-    expect(seat.forcePresets).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({ id: "unit:1", units: [1], unitNameType: 1 }),
-        expect.objectContaining({ id: "unit:2", units: [2], unitNameType: 2 }),
-      ]),
-    );
+    expect(seat.forcePresets).toEqual([
+      expect.objectContaining({ id: "unit:2", units: [2], unitNameType: 2 }),
+    ]);
   });
 
   it("does not mark scenario-owned one-unit Force Presets for translation", () => {

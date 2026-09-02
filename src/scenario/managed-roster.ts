@@ -182,9 +182,16 @@ export const describeManagedRoster = (
 
   const seats = scenario.players!.map((player) => {
     const seatOptions = seatOptionsByPlayer.get(player.player);
+    const authoredUnitPresetId = usesSingleUnitPresets
+      ? `unit:${
+          scenario.units!.find((unit) => unit.player === player.player)!.type
+        }`
+      : undefined;
     const allowedIds = seatOptions?.forcePresetIds
       ? new Set(seatOptions.forcePresetIds)
-      : null;
+      : authoredUnitPresetId
+        ? new Set([authoredUnitPresetId])
+        : null;
     const allowedForcePresets = forcePresets.filter(
       (preset) => !allowedIds || allowedIds.has(preset.id),
     );
@@ -197,14 +204,7 @@ export const describeManagedRoster = (
       ).length,
       defaultForcePresetId:
         seatOptions?.defaultForcePresetId ??
-        (managedRoster
-          ? allowedForcePresets[0]?.id
-          : usesSingleUnitPresets
-            ? `unit:${
-                scenario.units!.find((unit) => unit.player === player.player)!
-                  .type
-              }`
-            : undefined),
+        (managedRoster ? allowedForcePresets[0]?.id : authoredUnitPresetId),
       forcePresets: allowedForcePresets,
     };
   });
