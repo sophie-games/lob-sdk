@@ -5,7 +5,6 @@ import {
   TerrainType,
   FormationTemplate,
   getCollisionConfig,
-  isCircleCollision,
   CollisionShapeType,
 } from "@lob-sdk/types";
 import { DamageTypeTemplate, GameEra } from "@lob-sdk/game-data-manager";
@@ -500,7 +499,7 @@ describe("GameDataManager", () => {
         // Overridden categories
         expect(path.movementModifier.midCavalry).toBe(0.2);
         expect(path.movementModifier.heavyCavalry).toBe(0.2);
-        
+
         // Inherited categories
         expect(path.movementModifier.infantry).toBe(0.3);
         expect(path.movementModifier.artillery).toBe(0.3);
@@ -694,11 +693,11 @@ describe("GameDataManager", () => {
       });
     });
 
-    it("uses a circle footprint's diameter for both dimensions", () => {
+    it("upgrades a legacy circle footprint to equal square dimensions", () => {
       const m = GameDataManager.createWithCustomDefs("napoleonic", {
         customUnitFormations: [
           cloneFormation({
-            collisionShape: { type: CollisionShapeType.Circle, radius: 20 },
+            collisionShape: { type: 0, radius: 20 } as never,
           }),
         ],
       });
@@ -707,19 +706,23 @@ describe("GameDataManager", () => {
         height: 40,
       });
     });
+
+    it("uses the same 16px square fallback as BaseUnit for a missing formation", () => {
+      expect(
+        gameDataManager.getUnitDimensions(unitType, "missing-formation"),
+      ).toEqual({ width: 16, height: 16 });
+    });
   });
 
-  describe("collision shape gating (only WW2 stays a circle; napoleonic uses Obb)", () => {
+  describe("collision shape configuration", () => {
     const shapeOf = (era: GameEra, id: string) => {
       const formation = GameDataManager.get(era)
         .getFormationManager()
         .getTemplate(id)!;
-      return isCircleCollision(getCollisionConfig(formation)) ? "circle" : "obb";
+      return getCollisionConfig(formation).type;
     };
 
-    // Real napoleonic units collide as rotated rectangles; only the `unknown`
-    // fallback stays a circle. Pinned so a formation can't silently flip shapes.
-    const napoleonicObb = [
+    const napoleonicFormations = [
       "line",
       "column",
       "square",
@@ -729,19 +732,19 @@ describe("GameDataManager", () => {
       "artillery",
       "ship",
     ];
-    napoleonicObb.forEach((id) => {
+    napoleonicFormations.forEach((id) => {
       it(`napoleonic ${id} collides as an Obb`, () => {
-        expect(shapeOf("napoleonic", id)).toBe("obb");
+        expect(shapeOf("napoleonic", id)).toBe(CollisionShapeType.Obb);
       });
     });
 
-    it("napoleonic unknown fallback stays a circle", () => {
-      expect(shapeOf("napoleonic", "unknown")).toBe("circle");
+    it("napoleonic unknown fallback collides as an Obb", () => {
+      expect(shapeOf("napoleonic", "unknown")).toBe(CollisionShapeType.Obb);
     });
 
     ["default", "dispersed"].forEach((id) => {
-      it(`ww2 ${id} collides as a circle`, () => {
-        expect(shapeOf("ww2", id)).toBe("circle");
+      it(`ww2 ${id} collides as an Obb`, () => {
+        expect(shapeOf("ww2", id)).toBe(CollisionShapeType.Obb);
       });
     });
   });

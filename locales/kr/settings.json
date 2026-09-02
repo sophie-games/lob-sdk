@@ -102,6 +102,10 @@
   "gridOpacity": {
     "title": "그리드 불투명도"
   },
+  "tracerOpacity": {
+    "title": "예광선 불투명도",
+    "description": "원거리 공격 중 표시되는 예광선의 불투명도를 조절합니다. 0%로 설정하면 숨겨집니다."
+  },
   "showDebugShapes": {
     "title": "디버그 모양 표시",
     "description": "부대에 충돌 범위 및 지형 확인 지점을 포함한 디버그 모양을 표시합니다."

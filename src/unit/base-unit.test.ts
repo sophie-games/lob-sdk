@@ -268,23 +268,26 @@ describe("BaseUnit", () => {
       );
     });
 
-    it("returns Front from any angle for a circle formation (no facing/rear)", () => {
+    it("treats a legacy circle formation as a facing square", () => {
       const customManager = GameDataManager.createWithCustomDefs("napoleonic", {
         customUnitFormations: [
           {
             id: "test-circle",
             baseSprite: "infantry/line",
-            collisionShape: { type: CollisionShapeType.Circle, radius: 8 },
+            collisionShape: { type: 0, radius: 8 },
           } as never,
         ],
       });
-      const circle = new TestUnit(22, customManager);
-      circle.currentFormation = "test-circle";
-      circle.position = new Vector2(0, 0);
-      circle.rotation = 0;
-      // No explicit arc -> derived from the formation; a circle classifies every hit as Front.
-      expect(circle.getDirectionToPoint(new Vector2(-10, 0))).toBe(Direction.Front);
-      expect(circle.getDirectionToPoint(new Vector2(0, 10))).toBe(Direction.Front);
+      const unit = new TestUnit(22, customManager);
+      unit.currentFormation = "test-circle";
+      unit.position = new Vector2(0, 0);
+      unit.rotation = 0;
+      expect(unit.getDirectionToPoint(new Vector2(-10, 0))).toBe(
+        Direction.Back,
+      );
+      expect(unit.getDirectionToPoint(new Vector2(10, 0))).toBe(
+        Direction.Front,
+      );
     });
   });
 
@@ -350,6 +353,28 @@ describe("BaseUnit", () => {
       return u;
     };
 
+    it("uses the same 16px fallback square for every collision calculation", () => {
+      unit.currentFormation = "missing-formation";
+      unit.position = new Vector2(10, 20);
+      unit.rotation = 0;
+
+      const corners = [
+        { x: 2, y: 12 },
+        { x: 18, y: 12 },
+        { x: 18, y: 28 },
+        { x: 2, y: 28 },
+      ];
+      expect(unit.calculateObbCorners()).toEqual(corners);
+      expect(unit.getCollisionShape().corners).toEqual(corners);
+      expect(unit.getCollisionBoundingRadius()).toBeCloseTo(Math.hypot(8, 8));
+      expect(unit.calculateCollisionShapes()).toEqual([
+        expect.objectContaining({
+          position: expect.objectContaining({ x: 10, y: 20 }),
+          radius: 8,
+        }),
+      ]);
+    });
+
     it("puts the front on +X (depth) and the frontage on Y at rotation 0", () => {
       const u = makeObbUnit();
       u.rotation = 0;
@@ -382,8 +407,8 @@ describe("BaseUnit", () => {
 
   describe("getFlankMod()", () => {
     // getFlankMod derives the flank ramp from the formation's OBB footprint (getFlankAngles):
-    // no flank within the front face, full once the rear face begins. Circles (no facing) and
-    // formations flagged disablesFlankMelee take no flank from any angle.
+    // no flank within the front face, full once the rear face begins. Formations flagged
+    // disablesFlankMelee take no flank from any angle.
     const makeFlankUnit = (formation: object): TestUnit => {
       const customManager = GameDataManager.createWithCustomDefs("napoleonic", {
         customUnitFormations: [
@@ -416,11 +441,11 @@ describe("BaseUnit", () => {
       expect(mod).toBe(1);
     });
 
-    it("returns 0 for a circle formation (no facing)", () => {
+    it("upgrades a legacy circle formation to a flankable square", () => {
       const u = makeFlankUnit({
-        collisionShape: { type: CollisionShapeType.Circle, radius: 4 },
+        collisionShape: { type: 0, radius: 4 },
       });
-      expect(u.getFlankMod(new Vector2(-10, 0))).toBe(0);
+      expect(u.getFlankMod(new Vector2(-10, 0))).toBe(1);
     });
 
     it("returns 0 for an unflankable formation (disablesFlankMelee)", () => {

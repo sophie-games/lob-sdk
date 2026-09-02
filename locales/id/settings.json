@@ -95,6 +95,10 @@
   "gridOpacity": {
     "title": "Opasitas Grid"
   },
+  "tracerOpacity": {
+    "title": "Opasitas Garis Pelacak",
+    "description": "Mengatur opasitas garis pelacak selama serangan jarak jauh. Atur ke 0% untuk menyembunyikannya."
+  },
   "showDebugShapes": {
     "title": "Tampilkan bentuk debug",
     "description": "Menampilkan bentuk debug pada unit termasuk bentuk tabrakan dan titik pemeriksaan medan."

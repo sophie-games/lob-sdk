@@ -95,6 +95,10 @@
   "gridOpacity": {
     "title": "Opacidade da grade"
   },
+  "tracerOpacity": {
+    "title": "Opacidade dos traçadores",
+    "description": "Controla a opacidade das linhas traçadoras durante ataques à distância. Defina como 0% para ocultá-las."
+  },
   "showDebugShapes": {
     "title": "Mostrar formas de depuração",
     "description": "Mostra formas de depuração nas unidades incluindo formas de colisão e pontos de verificação de terreno."
