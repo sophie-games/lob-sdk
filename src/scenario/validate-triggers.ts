@@ -35,6 +35,7 @@ const looksLikeUnit = (value: Record<string, unknown>): boolean =>
 
 const conditionTypes = new Set<string>(Object.values(GameTriggerConditionType));
 const actionTypes = new Set<string>(Object.values(GameTriggerActionType));
+const MAX_NESTED_TRIGGER_DEPTH = 32;
 
 const isNumber = (value: unknown): value is number =>
   typeof value === "number" && Number.isFinite(value);
@@ -145,6 +146,7 @@ const validateConditions = (
 const validateActions = (
   actions: unknown[],
   triggerPath: string,
+  triggerDepth: number,
 ): ScenarioTriggerValidationIssue[] =>
   actions.flatMap<ScenarioTriggerValidationIssue>((action, index) => {
     const path = `${triggerPath}.actions[${index}]`;
@@ -172,8 +174,22 @@ const validateActions = (
       ];
     }
     if (action.type === GameTriggerActionType.AddTrigger) {
+      if (triggerDepth >= MAX_NESTED_TRIGGER_DEPTH) {
+        return [
+          {
+            code: "invalidValue",
+            path: `${path}.value`,
+            type: action.type,
+          },
+        ];
+      }
       return (action.value as unknown[]).flatMap((nestedTrigger, index) =>
-        validateTrigger(nestedTrigger, index, `${path}.value`),
+        validateTrigger(
+          nestedTrigger,
+          index,
+          `${path}.value`,
+          triggerDepth + 1,
+        ),
       );
     }
     return [];
@@ -241,6 +257,7 @@ const validateTrigger = (
   trigger: unknown,
   index: number,
   rootPath: string,
+  depth: number,
 ): ScenarioTriggerValidationIssue[] => {
   const path = `${rootPath}[${index}]`;
   if (!isRecord(trigger)) {
@@ -265,7 +282,7 @@ const validateTrigger = (
   if (!Array.isArray(trigger.actions)) {
     issues.push({ code: "expectedArray", path: `${path}.actions` });
   } else {
-    issues.push(...validateActions(trigger.actions, path));
+    issues.push(...validateActions(trigger.actions, path, depth));
   }
   if (
     trigger.conditionLogic !== undefined &&
@@ -292,6 +309,6 @@ export const validateScenarioTriggers = (
   }
 
   return triggers.flatMap((trigger, index) =>
-    validateTrigger(trigger, index, "triggers"),
+    validateTrigger(trigger, index, "triggers", 0),
   );
 };

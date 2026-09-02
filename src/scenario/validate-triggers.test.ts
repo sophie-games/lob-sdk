@@ -221,6 +221,29 @@ describe("validateScenarioTriggers", () => {
     ]);
   });
 
+  it("rejects deeply nested addTrigger actions without overflowing the stack", () => {
+    let nestedTrigger: unknown = {
+      event: "onTurnStart",
+      conditions: [],
+      actions: [],
+    };
+    for (let depth = 0; depth < 1_000; depth++) {
+      nestedTrigger = {
+        event: "onTurnStart",
+        conditions: [],
+        actions: [{ type: "addTrigger", value: [nestedTrigger] }],
+      };
+    }
+
+    const issues = validateScenarioTriggers([nestedTrigger]);
+
+    expect(issues).toHaveLength(1);
+    expect(issues[0]).toMatchObject({
+      code: "invalidValue",
+      type: "addTrigger",
+    });
+  });
+
   it("accepts the complete trigger vocabulary", () => {
     expect(
       validateScenarioTriggers([
