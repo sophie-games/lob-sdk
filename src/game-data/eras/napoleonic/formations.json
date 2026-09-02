@@ -138,7 +138,7 @@
   },
   {
     "id": "unknown",
-    "collisionShape": { "type": 1, "frontage": 16, "depth": 16 },
+    "collisionShape": { "type": 0, "radius": 8 },
     "allyCollisionLevel": 2,
     "enemyCollisionLevel": 2
   },

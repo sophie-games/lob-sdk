@@ -315,20 +315,20 @@ export interface RangeUnitTemplate extends BaseUnitTemplate {
 export type UnitTemplate = Readonly<BaseUnitTemplate | RangeUnitTemplate>;
 export type UnitTemplates = Record<UnitType, UnitTemplate>;
 
-/** Discriminates a collision footprint. Value 0 remains reserved for legacy circles. */
+/** Discriminates a collision footprint: a circle or a rotated rectangle (OBB). */
 export enum CollisionShapeType {
-  Obb = 1,
+  Circle,
+  Obb,
 }
 
 /**
- * A formation's rotated-rectangle collision footprint. Resolve it through
- * `getCollisionConfig`, which upgrades legacy radius-based inputs to square OBBs.
+ * A formation's collision footprint, discriminated by `type`: a rotated rectangle
+ * (`Obb`, `{ frontage, depth }`, turns with the unit) or a circle (`Circle`,
+ * `{ radius }`). One shape per unit; resolve it through `getCollisionConfig`.
  */
-export interface CollisionShapeConfig {
-  type: CollisionShapeType.Obb;
-  frontage: number;
-  depth: number;
-}
+export type CollisionShapeConfig =
+  | { type: CollisionShapeType.Obb; frontage: number; depth: number }
+  | { type: CollisionShapeType.Circle; radius: number };
 
 /**
  * A ranged-fire emitter mounted on one edge of the unit's OBB (edge-fire model).
@@ -362,9 +362,10 @@ export interface FormationTemplate {
   id: string;
 
   /**
-   * The rotated-rectangle collision footprint. Read it through `getCollisionConfig`,
-   * which also upgrades older custom-scenario formations that used a radius or the
-   * deprecated flat frontage/depth and collision-circle fields.
+   * The collision footprint: a rotated rectangle (`{ frontage, depth }`) or a circle
+   * (`{ radius }`). Read it through `getCollisionConfig`, which also upgrades older
+   * custom-scenario formations that predate this field (they carried flat
+   * frontage/depth or collision-circle fields, still honoured by the normaliser).
    */
   collisionShape?: CollisionShapeConfig;
 
@@ -402,7 +403,7 @@ export interface FormationTemplate {
 
   /**
    * OBB edges that emit ranged fire (edge-fire model). A formation with no fire edges
-   * fires a default single front edge.
+   * fires a default single front edge; circle formations do not fire.
    */
   fireEdges?: FireEdge[];
 

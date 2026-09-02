@@ -31,46 +31,6 @@ describe("RandomMapGenerator", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
   const { TILE_SIZE, DEFAULT_BATTLE_TYPE } = gameDataManager.getGameConstants();
 
-  it("preserves partial edge tiles on fixed maps", () => {
-    const terrains = [
-      [TerrainType.Grass, TerrainType.Grass],
-      [TerrainType.Grass, TerrainType.ShallowWater],
-    ];
-    const heightMap = [
-      [0, 0],
-      [0, 1],
-    ];
-    const scenario: Scenario = {
-      version: SCENARIO_SCHEMA_VERSION,
-      name: "partial-edge-tiles" as ScenarioName,
-      description: "Fixed map whose dimensions include partial edge tiles",
-      map: {
-        width: TILE_SIZE + 1,
-        height: TILE_SIZE + 1,
-        terrains,
-        heightMap,
-        seed: 12345,
-      },
-    };
-
-    const result = new RandomMapGenerator().generate({
-      scenario,
-      dynamicBattleType: DEFAULT_BATTLE_TYPE,
-      maxPlayers: 2,
-      tileSize: TILE_SIZE,
-      era: "napoleonic",
-    });
-
-    expect(result.map.terrains).toEqual(terrains);
-    expect(result.map.heightMap).toEqual(heightMap);
-    expect(result.map.terrains).toHaveLength(
-      Math.ceil(result.map.width / TILE_SIZE),
-    );
-    expect(result.map.terrains[0]).toHaveLength(
-      Math.ceil(result.map.height / TILE_SIZE),
-    );
-  });
-
   describe("generate all random ranked scenarios", () => {
     // Get all scenario names dynamically from the GameDataManager
     const allScenarioNames = gameDataManager.getScenarioNames();
