@@ -1,3 +1,4 @@
+import { Point2 } from "@lob-sdk/vector";
 import {
   GameTrigger,
   ObjectiveDto,
@@ -161,6 +162,19 @@ export const getForwardZone = (
 };
 
 /**
+ * A place name drawn on the map: a town, a village, a landmark.
+ */
+export interface MapLabel {
+  /** Position in pixels. */
+  pos: Point2;
+  /**
+   * The name as written. A scenario-supplied domain value, not an i18next key,
+   * so it renders as-is.
+   */
+  text: string;
+}
+
+/**
  * Represents the game map with terrain, height data, and deployment zones.
  */
 export interface GameMap {
@@ -176,6 +190,8 @@ export interface GameMap {
   heightMap: number[][];
   /** Seed used for random map generation. */
   seed?: number;
+  /** Optional place names drawn over the terrain. */
+  labels?: MapLabel[];
 }
 
 /**
