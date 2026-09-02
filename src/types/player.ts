@@ -57,6 +57,8 @@ export interface Player {
   playerNumber: number;
   username: string;
   elo: number;
+  /** Ranked games settled for this era's rating in the current season. */
+  eloGames?: number;
   team: number;
   passed: boolean;
   defeated: boolean;
@@ -108,7 +110,8 @@ export interface PlayerInfo {
   clanTag?: string | null;
   playerNumber: number;
   team: number;
-  elo: number;
+  /** Current ELO; null while current-season placements are incomplete. */
+  elo: number | null;
   eloBefore: number | null;
   eloChange: number;
   basicCurrencyEarned: number | null;

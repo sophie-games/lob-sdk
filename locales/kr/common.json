@@ -779,6 +779,9 @@
   "projectilePenetration": "발사체 관통",
   "league": {
     "title": "리그",
+    "placementTitle": "배치 전투",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "랭크 전투 {{total}}회를 완료하면 Elo와 리그가 공개됩니다. 매 결과가 공개에 한 걸음 더 가까워집니다.",
     "unranked": "랭크 없음",
     "emperor": "황제",
     "diamond-1": "다이아몬드 I",
