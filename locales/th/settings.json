@@ -32,10 +32,6 @@
     "title": "เปิดหน้าต่างเลือกคำสั่ง",
     "description": "เปิดใช้งานตัวเลือกนี้เพื่อแสดงหน้าต่างสำหรับเลือกคำสั่งระหว่างการเล่น"
   },
-  "openSelectFormationModal": {
-    "title": "เปิดหน้าต่างเลือกกระบวนทัพ",
-    "description": "เปิดใช้งานตัวเลือกนี้เพื่อแสดงหน้าต่างสำหรับเลือกกระบวนทัพระหว่างการเล่น"
-  },
   "showPlayableGamesAvailableModal": {
     "title": "แสดงหน้าต่างเกมที่สามารถเล่นได้"
   },
@@ -156,8 +152,6 @@
     "title": "แสดงแชต"
   },
   "keybindings": {
-    "rotateCameraContinuous": "หมุนกล้อง (กดค้าง)",
-    "rotateCameraSnap": "หมุนกล้อง 90°",
     "title": "การตั้งค่าปุ่ม",
     "pressAKey": "กดปุ่ม...",
     "moveUp": "เลื่อนขึ้น",
@@ -177,7 +171,6 @@
     "toggleFowPerspective": "สลับมุมมองหมอกแห่งสงคราม",
     "toggleMultiTurnPathOrders": "สลับคำสั่งเส้นทางหลายเทิร์น",
     "openChat": "เปิดแชต",
-    "openFormationModal": "เปิดหน้าต่างกระบวนทัพ",
     "showBattleOverview": "กดค้างเพื่อดูภาพรวมการรบ",
     "formation1": "กระบวนทัพ 1",
     "formation2": "กระบวนทัพ 2",
@@ -199,7 +192,12 @@
     "controlGroup8": "กลุ่มควบคุม 8",
     "controlGroup9": "กลุ่มควบคุม 9",
     "controlGroup0": "กลุ่มควบคุม 0",
-    "openPingWheel": "เปิดวงล้อปิง"
+    "openPingWheel": "เปิดวงล้อปิง",
+    "rotateCameraLeft": "หมุนกล้องซ้าย",
+    "rotateCameraRight": "หมุนกล้องขวา",
+    "toggleApplyOrderTypeToSelection": "เปิด/ปิด การใช้ประเภทคำสั่งกับหน่วยที่เลือก",
+    "openTacticsModal": "เปิดเมนูยุทธวิธี",
+    "controlGroupsHelp": "กดตัวเลขเปล่าจะเป็นการสั่งการ เรียกกลุ่มด้วย {{modifier}} + ตัวเลขของกลุ่ม"
   },
   "routingTransparency": {
     "title": "ความโปร่งใสของหน่วยที่กำลังแตกพ่าย"
@@ -229,5 +227,70 @@
   "era": {
     "title": "ยุคสมัย",
     "description": "เลือกยุคสมัยสำหรับการเล่น การเปลี่ยนค่านี้จะส่งผลต่อหน่วย สถานการณ์ และกลไกของเกมที่สามารถใช้งานได้"
+  },
+  "showControlGroupsBar": {
+    "title": "แถบกลุ่มควบคุม",
+    "description": "แสดงแถบกลุ่มควบคุม (Control groups) ปิดฟีเจอร์นี้เพื่อป้องกันการกดโดนโดยไม่ได้ตั้งใจบนอุปกรณ์สัมผัส"
+  },
+  "tracerOpacity": {
+    "title": "ความทึบของเส้นวิถีกระสุน",
+    "description": "ปรับความทึบของเส้นวิถีกระสุนระหว่างการโจมตีระยะไกล ตั้งเป็น 0% เพื่อซ่อนเส้นทั้งหมด"
+  },
+  "applyOrderTypeToSelection": {
+    "title": "ประเภทคำสั่งมีผลกับหน่วยที่เลือก",
+    "description": "เปิด: การเปลี่ยนประเภทการเคลื่อนที่จะเปลี่ยนคำสั่งปัจจุบันของหน่วยที่เลือก และปุ่มคำสั่งจะสะท้อนการเลือกของคุณ ปิด: กำหนดเฉพาะประเภทของคำสั่งถัดไปที่คุณวาด (แบบดั้งเดิม)"
+  },
+  "appearance": "ลักษณะที่ปรากฏ",
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
+  },
+  "theme": {
+    "presetTitle": "ธีมสำเร็จรูป",
+    "presetDescription": "เปลี่ยนสีทั้งแอป สีที่กำหนดเองต้องใช้ระดับแบบเสียเงิน",
+    "presets": {
+      "default": "ค่าเริ่มต้น",
+      "warm": "โทนอุ่น",
+      "navy": "น้ำเงินเข้ม",
+      "modern": "โมเดิร์น"
+    },
+    "customTitle": "สีที่กำหนดเอง",
+    "unlock": "สีธีมที่กำหนดเอง",
+    "groups": {
+      "surfaces": "พื้นผิว",
+      "accent": "สีเน้น",
+      "borders": "เส้นขอบ",
+      "text": "ข้อความ"
+    },
+    "tokens": {
+      "surface": "พื้นหลังแผง",
+      "surfaceDeep": "พื้นหลังเว้าลึก",
+      "surfaceData": "พื้นหลังข้อมูล",
+      "surfaceDataRaised": "พื้นหลังข้อมูล (ยกขึ้น)",
+      "surfaceHover": "พื้นหลังเมื่อชี้",
+      "surfaceDisabled": "พื้นหลังที่ปิดใช้งาน",
+      "accent": "สีเน้น",
+      "accentSoft": "สีเน้น (อ่อน)",
+      "accentDeep": "สีเน้น (เข้ม)",
+      "line": "เส้นขอบ",
+      "brass": "พื้น / เส้นขอบปุ่ม",
+      "brassHover": "ปุ่ม (เมื่อชี้)",
+      "brassDisabled": "ปุ่ม (ปิดใช้งาน)",
+      "fg": "ข้อความ",
+      "fgStrong": "ข้อความ (เข้ม)",
+      "fgMuted": "ข้อความ (จาง)",
+      "fgDisabled": "ข้อความ (ปิดใช้งาน)",
+      "onAccent": "ข้อความบนสีเน้น"
+    },
+    "resetTitle": "รีเซ็ตธีม",
+    "resetDescription": "กลับไปใช้จานสีเริ่มต้น"
+  },
+  "controlGroups": {
+    "recall": "เรียกกลุ่ม {{group}}",
+    "set": "ตั้งกลุ่ม {{group}}",
+    "add": "เพิ่มเข้ากลุ่ม {{group}}",
+    "setExclusive": "กำหนดเฉพาะกลุ่ม {{group}}"
   }
 }
