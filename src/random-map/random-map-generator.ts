@@ -158,6 +158,7 @@ export class RandomMapGenerator {
         terrains,
         heightMap,
         ...(deploymentZones ? { deploymentZones } : {}),
+        ...(fixedMap?.labels !== undefined ? { labels: fixedMap.labels } : {}),
         seed: mapSeed,
       },
       objectives,
