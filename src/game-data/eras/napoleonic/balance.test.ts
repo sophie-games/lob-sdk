@@ -417,7 +417,7 @@ describe("Napoleonic balance", () => {
   it("uses the requested dispersed formation run speed modifier", () => {
     expect(
       gameDataManager.getFormationManager().getTemplate("dispersed"),
-    ).toMatchObject({ runMovementModifier: 3 });
+    ).toMatchObject({ runMovementModifier: 2 });
   });
 
   it("uses the requested infantry, column, and cavalry charge balance", () => {
