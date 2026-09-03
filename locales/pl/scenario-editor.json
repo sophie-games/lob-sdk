@@ -829,6 +829,18 @@
     "createTriggerButton": "Stwórz wyzwalacz",
     "format": "Formatuj",
     "invalidJsonFormat": "Nieprawidłowy format JSON",
+    "fixBeforeTesting": "Popraw błędy wyzwalaczy przed przetestowaniem tego scenariusza.",
+    "validation": {
+      "expectedArray": "{{path}} musi być tablicą.",
+      "expectedObject": "{{path}} musi być obiektem.",
+      "unitAtTriggerLevel": "{{path}} wygląda jak jednostka. Umieść ją wewnątrz akcji addUnit.",
+      "invalidEvent": "{{path}} musi mieć wartość onTurnStart lub onTurnEnd.",
+      "invalidConditionLogic": "{{path}} musi mieć wartość AND lub OR.",
+      "invalidOnce": "{{path}} musi mieć wartość true lub false.",
+      "invalidConditionType": "{{path}} ma nieznany typ warunku.",
+      "invalidActionType": "{{path}} ma nieznany typ akcji.",
+      "invalidValue": "{{path}} ma nieprawidłową wartość dla {{type}}."
+    },
     "event": "Zdarzenie",
     "conditionLogic": "Logika warunków",
     "conditionLogicAnd": "Wszystkie warunki (AND)",

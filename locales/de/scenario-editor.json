@@ -815,6 +815,18 @@
     "createTriggerButton": "Auslöser erstellen",
     "format": "Formatieren",
     "invalidJsonFormat": "Ungültiges JSON-Format",
+    "fixBeforeTesting": "Behebe die Triggerfehler, bevor du dieses Szenario testest.",
+    "validation": {
+      "expectedArray": "{{path}} muss ein Array sein.",
+      "expectedObject": "{{path}} muss ein Objekt sein.",
+      "unitAtTriggerLevel": "{{path}} sieht wie eine Einheit aus. Lege sie in eine addUnit-Aktion.",
+      "invalidEvent": "{{path}} muss onTurnStart oder onTurnEnd sein.",
+      "invalidConditionLogic": "{{path}} muss AND oder OR sein.",
+      "invalidOnce": "{{path}} muss true oder false sein.",
+      "invalidConditionType": "{{path}} hat einen unbekannten Bedingungstyp.",
+      "invalidActionType": "{{path}} hat einen unbekannten Aktionstyp.",
+      "invalidValue": "{{path}} hat einen ungültigen Wert für {{type}}."
+    },
     "event": "Ereignis",
     "conditionLogic": "Bedingungslogik",
     "conditionLogicAnd": "Alle Bedingungen (UND)",

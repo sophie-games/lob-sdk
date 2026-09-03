@@ -815,6 +815,18 @@
     "createTriggerButton": "Tetikleyici oluştur",
     "format": "Biçim",
     "invalidJsonFormat": "Geçersiz JSON biçimi",
+    "fixBeforeTesting": "Bu senaryoyu test etmeden önce tetikleyici hatalarını düzeltin.",
+    "validation": {
+      "expectedArray": "{{path}} bir dizi olmalıdır.",
+      "expectedObject": "{{path}} bir nesne olmalıdır.",
+      "unitAtTriggerLevel": "{{path}} bir birim gibi görünüyor. Bunu bir addUnit eyleminin içine koyun.",
+      "invalidEvent": "{{path}} onTurnStart veya onTurnEnd olmalıdır.",
+      "invalidConditionLogic": "{{path}} AND veya OR olmalıdır.",
+      "invalidOnce": "{{path}} true veya false olmalıdır.",
+      "invalidConditionType": "{{path}} bilinmeyen bir koşul türüne sahip.",
+      "invalidActionType": "{{path}} bilinmeyen bir eylem türüne sahip.",
+      "invalidValue": "{{path}}, {{type}} için geçersiz bir değere sahip."
+    },
     "event": "Olay",
     "conditionLogic": "Koşul Mantığı",
     "conditionLogicAnd": "Tüm koşullar (VE)",

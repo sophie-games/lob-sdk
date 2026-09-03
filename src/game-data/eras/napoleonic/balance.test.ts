@@ -132,6 +132,24 @@ describe("Napoleonic balance", () => {
     }
   });
 
+  it("uses the requested universal ammo reserves", () => {
+    const ammoReserveByBattleType = {
+      micro: 500,
+      clash: 1000,
+      combat: 2000,
+      battle: 3000,
+      grand_battle: 4800,
+    } as const;
+
+    for (const [battleType, expectedAmmo] of Object.entries(
+      ammoReserveByBattleType,
+    )) {
+      expect(
+        gameDataManager.getAmmoReserve(battleType) / STAT_PRECISION_SCALE,
+      ).toBe(expectedAmmo);
+    }
+  });
+
   it("uses the requested artillery canister and long-range field-gun balance", () => {
     const canisterNames = [
       "18lb-canister-fire",
@@ -264,7 +282,7 @@ describe("Napoleonic balance", () => {
     expect(
       unitTemplates.find((template) => template.name === "militia")
         ?.chargeResistance,
-    ).toBe(0.15);
+    ).toBe(0.2);
     expect(
       gameDataManager.getFormationManager().getTemplate("column"),
     ).toMatchObject({
@@ -278,10 +296,15 @@ describe("Napoleonic balance", () => {
     });
   });
 
-  it("uses the 1.7.5 elite infantry organization and charge balance", () => {
+  it("uses the requested elite infantry balance", () => {
     const expectedByName = {
-      guards: { org: 950, chargeResistance: 0.5 },
-      grenadiers: { org: 725, chargeResistance: 0.5 },
+      guards: {
+        org: 950,
+        chargeResistance: 0.5,
+        meleeAttack: 48,
+        orgRadiusBonus: 13,
+      },
+      grenadiers: { org: 725, chargeResistance: 0.55 },
     } as const;
     const unitTemplates = gameDataManager
       .getUnitTemplateManager()
@@ -292,16 +315,63 @@ describe("Napoleonic balance", () => {
 
       expect(unit.org / STAT_PRECISION_SCALE).toBe(expected.org);
       expect(unit.chargeResistance).toBe(expected.chargeResistance);
+
+      if ("meleeAttack" in expected) {
+        expect(unit.meleeAttack / STAT_PRECISION_SCALE).toBe(
+          expected.meleeAttack,
+        );
+        expect(unit.orgRadiusBonus! / STAT_PRECISION_SCALE).toBe(
+          expected.orgRadiusBonus,
+        );
+      }
     }
   });
 
-  it("uses the 1.7.5 cavalry charge and organization balance", () => {
+  it("uses the requested light infantry attack and organization", () => {
+    const lightInfantry = gameDataManager
+      .getUnitTemplateManager()
+      .getTemplates()
+      .find((template) => template.name === "light_infantry")!;
+
+    expect(lightInfantry).toMatchObject({
+      rangedAttack: 20 * STAT_PRECISION_SCALE,
+      org: 725 * STAT_PRECISION_SCALE,
+    });
+  });
+
+  it("uses the requested cavalry charge and organization balance", () => {
     const expectedByName = {
-      cuirassiers: { chargeBonus: 140, orgRadiusBonus: 9 },
-      lancers: { chargeBonus: 140, orgRadiusBonus: 6 },
-      dragoons: { chargeBonus: 125, orgRadiusBonus: 6, org: 850 },
-      hussars: { chargeBonus: 100, orgRadiusBonus: 4 },
-      horse_archers: { chargeBonus: 80, orgRadiusBonus: 4 },
+      cuirassiers: {
+        chargeBonus: 140,
+        chargeResistance: 0.35,
+        orgRadiusBonus: 9,
+        timeToRun: 5,
+      },
+      lancers: {
+        chargeBonus: 140,
+        chargeResistance: 0.2,
+        orgRadiusBonus: 6,
+        timeToRun: 5,
+      },
+      dragoons: {
+        chargeBonus: 125,
+        chargeResistance: 0.3,
+        orgRadiusBonus: 6,
+        org: 850,
+        timeToRun: 4,
+      },
+      hussars: {
+        chargeBonus: 100,
+        chargeResistance: 0.2,
+        orgRadiusBonus: 4,
+        timeToRun: 3,
+      },
+      horse_archers: {
+        chargeBonus: 80,
+        chargeResistance: 0.2,
+        orgRadiusBonus: 4,
+        timeToRun: 3,
+      },
     } as const;
     const unitTemplates = gameDataManager
       .getUnitTemplateManager()
@@ -317,7 +387,8 @@ describe("Napoleonic balance", () => {
         expected.orgRadiusBonus,
       );
       expect(unit.orgRadius).toBe(64);
-      expect(unit.timeToRun).toBe(3);
+      expect(unit.timeToRun).toBe(expected.timeToRun);
+      expect(unit.chargeResistance).toBe(expected.chargeResistance);
 
       if ("org" in expected) {
         expect(unit.org / STAT_PRECISION_SCALE).toBe(expected.org);
@@ -334,6 +405,12 @@ describe("Napoleonic balance", () => {
         ),
       ).toBe(1);
     }
+  });
+
+  it("uses the requested dispersed formation run speed modifier", () => {
+    expect(
+      gameDataManager.getFormationManager().getTemplate("dispersed"),
+    ).toMatchObject({ runMovementModifier: 3 });
   });
 
   it("uses the requested infantry, column, and cavalry charge balance", () => {

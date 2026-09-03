@@ -829,6 +829,18 @@
     "createTriggerButton": "Создать триггер",
     "format": "Форматировать",
     "invalidJsonFormat": "Недопустимый формат JSON",
+    "fixBeforeTesting": "Исправьте ошибки триггеров перед проверкой этого сценария.",
+    "validation": {
+      "expectedArray": "{{path}} должно быть массивом.",
+      "expectedObject": "{{path}} должно быть объектом.",
+      "unitAtTriggerLevel": "{{path}} похоже на юнита. Поместите его внутрь действия addUnit.",
+      "invalidEvent": "{{path}} должно быть onTurnStart или onTurnEnd.",
+      "invalidConditionLogic": "{{path}} должно быть AND или OR.",
+      "invalidOnce": "{{path}} должно быть true или false.",
+      "invalidConditionType": "{{path}} содержит неизвестный тип условия.",
+      "invalidActionType": "{{path}} содержит неизвестный тип действия.",
+      "invalidValue": "{{path}} содержит недопустимое значение для {{type}}."
+    },
     "event": "Событие",
     "conditionLogic": "Логика условий",
     "conditionLogicAnd": "Все условия (И)",
