@@ -539,6 +539,32 @@ describe("RandomMapGenerator", () => {
       expect(result.map.terrains[3][4]).toBe(TerrainType.ShallowWater);
     });
 
+    it("preserves place labels from a handcrafted map", () => {
+      const labels = [{ pos: { x: 64, y: 96 }, text: "Quatre Bras" }];
+      const scenario: Scenario = {
+        version: SCENARIO_SCHEMA_VERSION,
+        name: "fixed-map-labels",
+        description: "test",
+        map: {
+          width: TILES_X * TILE_SIZE,
+          height: TILES_Y * TILE_SIZE,
+          terrains: buildBakedTerrains(),
+          heightMap: buildBakedHeightMap(),
+          labels,
+        },
+      };
+
+      const result = new RandomMapGenerator().generate({
+        scenario,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
+        maxPlayers: 2,
+        tileSize: TILE_SIZE,
+        era: "napoleonic",
+      });
+
+      expect(result.map.labels).toEqual(labels);
+    });
+
     it("pads a heightMap shorter than terrains to the declared dimensions", () => {
       // Regression: a real user scenario shipped with heightMap a few columns
       // shorter than terrains (an editor resize desync). Left as-is it crashed
