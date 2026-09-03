@@ -804,6 +804,18 @@
     "createTriggerButton": "Tạo trình kích hoạt",
     "format": "Định dạng",
     "invalidJsonFormat": "Định dạng JSON không hợp lệ",
+    "fixBeforeTesting": "Hãy sửa lỗi trình kích hoạt trước khi thử kịch bản này.",
+    "validation": {
+      "expectedArray": "{{path}} phải là một mảng.",
+      "expectedObject": "{{path}} phải là một đối tượng.",
+      "unitAtTriggerLevel": "{{path}} có vẻ là một đơn vị. Hãy đặt nó bên trong hành động addUnit.",
+      "invalidEvent": "{{path}} phải là onTurnStart hoặc onTurnEnd.",
+      "invalidConditionLogic": "{{path}} phải là AND hoặc OR.",
+      "invalidOnce": "{{path}} phải là giá trị boolean.",
+      "invalidConditionType": "{{path}} có loại điều kiện không xác định.",
+      "invalidActionType": "{{path}} có loại hành động không xác định.",
+      "invalidValue": "Giá trị tại {{path}} không hợp lệ cho {{type}}."
+    },
     "event": "Sự kiện",
     "conditionLogic": "Logic điều kiện",
     "conditionLogicAnd": "Tất cả điều kiện (AND)",

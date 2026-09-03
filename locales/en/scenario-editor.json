@@ -825,6 +825,18 @@
     "createDisabledNeedsConditionAndAction": "A trigger needs at least one condition and one action.",
     "format": "Tidy the formatting",
     "invalidJsonFormat": "Invalid JSON format",
+    "fixBeforeTesting": "Fix the trigger errors before testing this scenario.",
+    "validation": {
+      "expectedArray": "{{path}} must be an array.",
+      "expectedObject": "{{path}} must be an object.",
+      "unitAtTriggerLevel": "{{path}} looks like a unit. Put it inside an addUnit action.",
+      "invalidEvent": "{{path}} must be onTurnStart or onTurnEnd.",
+      "invalidConditionLogic": "{{path}} must be AND or OR.",
+      "invalidOnce": "{{path}} must be true or false.",
+      "invalidConditionType": "{{path}} has an unknown condition type.",
+      "invalidActionType": "{{path}} has an unknown action type.",
+      "invalidValue": "{{path}} has an invalid value for {{type}}."
+    },
     "event": "Event",
     "conditionLogic": "Condition logic",
     "conditionLogicAnd": "All conditions (AND)",

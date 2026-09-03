@@ -811,6 +811,18 @@
     "createTriggerButton": "ट्रिगर बनाएं",
     "format": "प्रारूप",
     "invalidJsonFormat": "अमान्य JSON प्रारूप",
+    "fixBeforeTesting": "इस परिदृश्य को जाँचने से पहले ट्रिगर की त्रुटियाँ ठीक करें।",
+    "validation": {
+      "expectedArray": "{{path}} एक सरणी होनी चाहिए।",
+      "expectedObject": "{{path}} एक ऑब्जेक्ट होना चाहिए।",
+      "unitAtTriggerLevel": "{{path}} एक यूनिट जैसी दिखती है। इसे addUnit कार्रवाई के अंदर रखें।",
+      "invalidEvent": "{{path}} onTurnStart या onTurnEnd होना चाहिए।",
+      "invalidConditionLogic": "{{path}} AND या OR होना चाहिए।",
+      "invalidOnce": "{{path}} true या false होना चाहिए।",
+      "invalidConditionType": "{{path}} में अज्ञात शर्त प्रकार है।",
+      "invalidActionType": "{{path}} में अज्ञात कार्रवाई प्रकार है।",
+      "invalidValue": "{{path}} में {{type}} के लिए अमान्य मान है।"
+    },
     "event": "घटना",
     "conditionLogic": "शर्त तर्क",
     "conditionLogicAnd": "सभी शर्तें (AND)",

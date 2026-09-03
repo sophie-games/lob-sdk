@@ -811,6 +811,18 @@
     "createTriggerButton": "Criar gatilho",
     "format": "Formatar",
     "invalidJsonFormat": "Formato JSON inválido",
+    "fixBeforeTesting": "Corrija os erros dos gatilhos antes de testar este cenário.",
+    "validation": {
+      "expectedArray": "{{path}} deve ser uma lista.",
+      "expectedObject": "{{path}} deve ser um objeto.",
+      "unitAtTriggerLevel": "{{path}} parece ser uma unidade. Coloque-a dentro de uma ação addUnit.",
+      "invalidEvent": "{{path}} deve ser onTurnStart ou onTurnEnd.",
+      "invalidConditionLogic": "{{path}} deve ser AND ou OR.",
+      "invalidOnce": "{{path}} deve ser true ou false.",
+      "invalidConditionType": "{{path}} tem um tipo de condição desconhecido.",
+      "invalidActionType": "{{path}} tem um tipo de ação desconhecido.",
+      "invalidValue": "{{path}} tem um valor inválido para {{type}}."
+    },
     "event": "Evento",
     "conditionLogic": "Lógica de Condição",
     "conditionLogicAnd": "Todas as condições (E)",

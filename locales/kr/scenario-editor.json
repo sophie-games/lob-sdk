@@ -804,6 +804,18 @@
     "createTriggerButton": "트리거 생성",
     "format": "형식",
     "invalidJsonFormat": "잘못된 JSON 형식",
+    "fixBeforeTesting": "이 시나리오를 테스트하기 전에 트리거 오류를 수정하세요.",
+    "validation": {
+      "expectedArray": "{{path}}은(는) 배열이어야 합니다.",
+      "expectedObject": "{{path}}은(는) 객체여야 합니다.",
+      "unitAtTriggerLevel": "{{path}}은(는) 유닛으로 보입니다. addUnit 작업 안에 배치하세요.",
+      "invalidEvent": "{{path}}은(는) onTurnStart 또는 onTurnEnd여야 합니다.",
+      "invalidConditionLogic": "{{path}}은(는) AND 또는 OR이어야 합니다.",
+      "invalidOnce": "{{path}}은(는) 불리언 값이어야 합니다.",
+      "invalidConditionType": "{{path}}에 알 수 없는 조건 유형이 있습니다.",
+      "invalidActionType": "{{path}}에 알 수 없는 작업 유형이 있습니다.",
+      "invalidValue": "{{path}}의 값이 {{type}}에 유효하지 않습니다."
+    },
     "event": "이벤트",
     "conditionLogic": "조건 논리",
     "conditionLogicAnd": "모든 조건 (AND)",

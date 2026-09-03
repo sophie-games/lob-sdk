@@ -811,6 +811,18 @@
     "createTriggerButton": "Crear disparador",
     "format": "Formatear",
     "invalidJsonFormat": "Formato JSON no válido",
+    "fixBeforeTesting": "Corrige los errores de los disparadores antes de probar este escenario.",
+    "validation": {
+      "expectedArray": "{{path}} debe ser una lista.",
+      "expectedObject": "{{path}} debe ser un objeto.",
+      "unitAtTriggerLevel": "{{path}} parece una unidad. Colócala dentro de una acción addUnit.",
+      "invalidEvent": "{{path}} debe ser onTurnStart u onTurnEnd.",
+      "invalidConditionLogic": "{{path}} debe ser AND u OR.",
+      "invalidOnce": "{{path}} debe ser true o false.",
+      "invalidConditionType": "{{path}} tiene un tipo de condición desconocido.",
+      "invalidActionType": "{{path}} tiene un tipo de acción desconocido.",
+      "invalidValue": "{{path}} tiene un valor no válido para {{type}}."
+    },
     "event": "Evento",
     "conditionLogic": "Lógica de condiciones",
     "conditionLogicAnd": "Todas las condiciones (AND)",
