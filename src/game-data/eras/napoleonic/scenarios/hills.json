@@ -4,103 +4,28 @@
   "description": "description",
   "ranked": true,
   "randomDeploymentZones": {
-    "topMainDeploymentZone": {
-      "minX": 5,
-      "maxX": 5,
-      "minY": 3,
-      "maxY": 3,
-      "width": 90,
-      "height": 10
-    },
-    "topForwardDeploymentZone": {
-      "minX": 5,
-      "maxX": 5,
-      "minY": 13,
-      "maxY": 13,
-      "width": 90,
-      "height": 10
-    },
-    "bottomMainDeploymentZone": {
-      "minX": 5,
-      "maxX": 5,
-      "minY": 90,
-      "maxY": 90,
-      "width": 90,
-      "height": 10
-    },
-    "bottomForwardDeploymentZone": {
-      "minX": 5,
-      "maxX": 5,
-      "minY": 80,
-      "maxY": 80,
-      "width": 90,
-      "height": 10
-    }
+    "top": [
+      {
+        "role": "main",
+        "rect": {
+          "x": { "min": 5, "max": 5 },
+          "y": { "min": 3, "max": 3 },
+          "width": 90,
+          "height": 10
+        }
+      },
+      {
+        "role": "forward",
+        "rect": {
+          "x": { "min": 5, "max": 5 },
+          "y": { "min": 13, "max": 13 },
+          "width": 90,
+          "height": 10
+        }
+      }
+    ]
   },
   "instructions": [
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [37, 37],
-        "max": [37, 37]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [63, 37],
-        "max": [63, 37]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [37, 63],
-        "max": [37, 63]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [63, 63],
-        "max": [63, 63]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [25, 50],
-        "max": [25, 50]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [50, 50],
-        "max": [50, 50]
-      }
-    },
-    {
-      "type": "OBJECTIVE",
-      "player": 0,
-      "position": {
-        "type": "range",
-        "min": [75, 50],
-        "max": [75, 50]
-      }
-    },
     {
       "type": "TERRAIN_NOISE",
       "terrain": 0,
@@ -108,7 +33,6 @@
       "ranges": [{ "min": 0, "max": 1 }],
       "multiplier": 1
     },
-
     {
       "type": "HEIGHT_NOISE",
       "noises": [
@@ -120,7 +44,6 @@
       "min": 1.1,
       "max": 5
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 1.09, "max": 2.01 }],
@@ -129,7 +52,6 @@
       "min": 2.1,
       "max": 2.1
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2.09, "max": 2.11 }],
@@ -179,7 +101,6 @@
         "max": 2.12
       }
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 1,
@@ -213,7 +134,6 @@
         "max": 7
       }
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 12,
@@ -225,7 +145,6 @@
         "max": 3.12
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2.09, "max": 2.11 }],
@@ -259,7 +178,6 @@
       "min": 2.1,
       "max": 2.13
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 12,
@@ -271,7 +189,6 @@
         "max": 2.14
       }
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 3,
@@ -314,7 +231,6 @@
         { "terrain": 12, "cost": -1 }
       ]
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 3,
@@ -399,7 +315,6 @@
         { "terrain": 12, "cost": -1 }
       ]
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2.045, "max": 2.055 }],
@@ -408,7 +323,6 @@
       "min": 3,
       "max": 3
     },
-
     {
       "type": "NATURAL_PATH",
       "terrain": 3,
@@ -535,7 +449,6 @@
         { "terrain": 12, "cost": -1 }
       ]
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 0,
@@ -555,7 +468,6 @@
       "min": 2.1,
       "max": 2.1
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 0,
@@ -567,7 +479,6 @@
         "max": 7
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 3.045, "max": 3.055 }],
@@ -576,7 +487,6 @@
       "min": 2.1,
       "max": 2.1
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2.99, "max": 3.01 }],
@@ -585,7 +495,6 @@
       "min": 3.07,
       "max": 3.07
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
@@ -597,7 +506,6 @@
       "min": 2.7,
       "max": 2.7
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2.06, "max": 2.08 }],
@@ -614,7 +522,6 @@
       "min": 3.2,
       "max": 3.22
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 3.19, "max": 3.21 }],
@@ -623,7 +530,6 @@
       "min": 3.2,
       "max": 3.24
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 2,
@@ -646,7 +552,6 @@
         "max": 2.25
       }
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2.215, "max": 2.25 }],
@@ -655,7 +560,6 @@
       "min": 3.21,
       "max": 3.21
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 1,
@@ -667,7 +571,6 @@
         "max": 2.215
       }
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 0,
@@ -698,7 +601,6 @@
       "min": 3.21,
       "max": 3.21
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [
@@ -710,7 +612,6 @@
       "min": 2.7,
       "max": 2.7
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2.09, "max": 2.101 }],
@@ -744,7 +645,6 @@
       "min": 2.16,
       "max": 2.1
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2.09, "max": 2.11 }],
@@ -753,7 +653,6 @@
       "min": 2.12,
       "max": 2.1
     },
-
     {
       "type": "HEIGHT_NOISE",
       "ranges": [{ "min": 2.09, "max": 2.11 }],
@@ -812,7 +711,6 @@
         "max": 2.15
       }
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 1,
@@ -848,7 +746,6 @@
       "min": 4,
       "max": 4
     },
-
     {
       "type": "TERRAIN_NOISE",
       "terrain": 1,
@@ -902,79 +799,79 @@
   "locales": {
     "en": {
       "name": "Hills",
-      "description": "Flat grasslands where tactical battles take place on randomly generated maps. The hills may include patches of forests and scattered buildings, adding strategic depth to unit positioning and gameplay."
+      "description": "Flat grasslands where tactical battles take place on randomly generated maps. The hills may include patches of forests and scattered buildings, adding strategic depth to unit positioning and gameplay. Map by usquebaugh."
     },
     "ru": {
       "name": "Холмы",
-      "description": "Случайно сгенерированная холмистая карта с участками леса и зданиями предлагает стратегическую глубину и тактическое разнообразие игрового процесса. "
+      "description": "Случайно сгенерированная холмистая карта с участками леса и зданиями предлагает стратегическую глубину и тактическое разнообразие игрового процесса. Карта от usquebaugh."
     },
     "ar": {
       "name": "التلال",
-      "description": "الأراضي العشبية المسطحة حيث تجري المعارك التكتيكية على خرائط تم إنشاؤها عشوائيا. قد تشمل التلال بقعا من الغابات والمباني المتناثرة ، مما يضيف عمقا استراتيجيا إلى تحديد موقع الوحدة وطريقة اللعب."
+      "description": "الأراضي العشبية المسطحة حيث تجري المعارك التكتيكية على خرائط تم إنشاؤها عشوائيا. قد تشمل التلال بقعا من الغابات والمباني المتناثرة ، مما يضيف عمقا استراتيجيا إلى تحديد موقع الوحدة وطريقة اللعب. خريطة من إعداد usquebaugh."
     },
     "de": {
       "name": "Hügel",
-      "description": "Flaches Grasland, in dem taktische Schlachten auf zufällig generierten Karten stattfinden. Die Hügel können Waldstücke und verstreute Gebäude enthalten, was der Positionierung und dem Gameplay der Einheiten strategische Tiefe verleiht."
+      "description": "Flaches Grasland, in dem taktische Schlachten auf zufällig generierten Karten stattfinden. Die Hügel können Waldstücke und verstreute Gebäude enthalten, was der Positionierung und dem Gameplay der Einheiten strategische Tiefe verleiht. Karte von usquebaugh."
     },
     "el": {
       "name": "Λόφους",
-      "description": "Επίπεδα λιβάδια όπου πραγματοποιούνται τακτικές μάχες σε τυχαία δημιουργημένους χάρτες. Οι λόφοι μπορεί να περιλαμβάνουν κομμάτια δασών και διάσπαρτα κτίρια, προσθέτοντας στρατηγικό βάθος στην τοποθέτηση και το παιχνίδι της μονάδας."
+      "description": "Επίπεδα λιβάδια όπου πραγματοποιούνται τακτικές μάχες σε τυχαία δημιουργημένους χάρτες. Οι λόφοι μπορεί να περιλαμβάνουν κομμάτια δασών και διάσπαρτα κτίρια, προσθέτοντας στρατηγικό βάθος στην τοποθέτηση και το παιχνίδι της μονάδας. Χάρτης από τον usquebaugh."
     },
     "es": {
       "name": "Colinas",
-      "description": "Praderas planas donde se llevan a cabo batallas tácticas en mapas generados aleatoriamente. Las colinas pueden incluir parches de bosques y edificios dispersos, lo que agrega profundidad estratégica al posicionamiento y la jugabilidad de las unidades."
+      "description": "Praderas planas donde se llevan a cabo batallas tácticas en mapas generados aleatoriamente. Las colinas pueden incluir parches de bosques y edificios dispersos, lo que agrega profundidad estratégica al posicionamiento y la jugabilidad de las unidades. Mapa de usquebaugh."
     },
     "fr": {
       "name": "Collines",
-      "description": "Prairies plates où des batailles tactiques se déroulent sur des cartes générées aléatoirement. Les collines peuvent inclure des parcelles de forêts et des bâtiments dispersés, ajoutant une profondeur stratégique au positionnement et au gameplay de l'unité."
+      "description": "Prairies plates où des batailles tactiques se déroulent sur des cartes générées aléatoirement. Les collines peuvent inclure des parcelles de forêts et des bâtiments dispersés, ajoutant une profondeur stratégique au positionnement et au gameplay de l'unité. Carte de usquebaugh."
     },
     "hi": {
       "name": "पहाड़ियों",
-      "description": "समतल घास के मैदान जहां बेतरतीब ढंग से उत्पन्न मानचित्रों पर सामरिक लड़ाई होती है ।  पहाड़ियों में जंगलों और बिखरी हुई इमारतों के पैच शामिल हो सकते हैं, जो यूनिट पोजिशनिंग और गेमप्ले में रणनीतिक गहराई जोड़ते हैं । "
+      "description": "समतल घास के मैदान जहां बेतरतीब ढंग से उत्पन्न मानचित्रों पर सामरिक लड़ाई होती है ।  पहाड़ियों में जंगलों और बिखरी हुई इमारतों के पैच शामिल हो सकते हैं, जो यूनिट पोजिशनिंग और गेमप्ले में रणनीतिक गहराई जोड़ते हैं । मानचित्र निर्माता: usquebaugh।"
     },
     "hu": {
       "name": "Dombok",
-      "description": "Sík gyepek, ahol taktikai csaták zajlanak véletlenszerűen generált térképeken. A dombok erdőket és szétszórt épületeket tartalmazhatnak, stratégiai mélységet adva az egység pozícionálásához és a játékmenethez."
+      "description": "Sík gyepek, ahol taktikai csaták zajlanak véletlenszerűen generált térképeken. A dombok erdőket és szétszórt épületeket tartalmazhatnak, stratégiai mélységet adva az egység pozícionálásához és a játékmenethez. Készítette: usquebaugh."
     },
     "id": {
       "name": "Bukit",
-      "description": "Padang rumput datar tempat pertempuran taktis berlangsung di peta yang dibuat secara acak. Perbukitan mungkin termasuk petak hutan dan bangunan yang tersebar, menambah kedalaman strategis pada posisi unit dan gameplay."
+      "description": "Padang rumput datar tempat pertempuran taktis berlangsung di peta yang dibuat secara acak. Perbukitan mungkin termasuk petak hutan dan bangunan yang tersebar, menambah kedalaman strategis pada posisi unit dan gameplay. Peta oleh usquebaugh."
     },
     "it": {
       "name": "Collina",
-      "description": "Praterie piatte dove si svolgono battaglie tattiche su mappe generate casualmente. Le colline possono includere zone di foreste e edifici sparsi, aggiungendo profondità strategica al posizionamento delle unità e al gameplay."
+      "description": "Praterie piatte dove si svolgono battaglie tattiche su mappe generate casualmente. Le colline possono includere zone di foreste e edifici sparsi, aggiungendo profondità strategica al posizionamento delle unità e al gameplay. Mappa di usquebaugh."
     },
     "ja": {
       "name": "ザ-ヒルズ",
-      "description": "ランダムに生成されたマップ上で戦術的な戦いが行われる平らな草原。 丘には森林や散在する建物のパッチが含まれている場合があり、ユニットの配置とゲームプレイに戦略的な深さを追加します。"
+      "description": "ランダムに生成されたマップ上で戦術的な戦いが行われる平らな草原。 丘には森林や散在する建物のパッチが含まれている場合があり、ユニットの配置とゲームプレイに戦略的な深さを追加します。 マップ制作：usquebaugh"
     },
     "kr": {
       "name": "언덕",
-      "description": "전술 전투가 무작위로 생성 된지도에서 일어나는 평평한 초원. 언덕에는 숲과 산란한 건물들이 포함될 수 있으며,유닛 위치와 게임 플레이에 전략적 깊이를 더합니다."
+      "description": "전술 전투가 무작위로 생성 된지도에서 일어나는 평평한 초원. 언덕에는 숲과 산란한 건물들이 포함될 수 있으며,유닛 위치와 게임 플레이에 전략적 깊이를 더합니다. 맵 제작: usquebaugh"
     },
     "pl": {
       "name": "Wzgórza",
-      "description": "Płaskie łąki, na których toczą się bitwy taktyczne na losowo generowanych mapach. Wzgórza mogą zawierać skrawki lasów i rozproszone budynki, dodając strategiczną głębię pozycjonowaniu jednostek i rozgrywce."
+      "description": "Płaskie łąki, na których toczą się bitwy taktyczne na losowo generowanych mapach. Wzgórza mogą zawierać skrawki lasów i rozproszone budynki, dodając strategiczną głębię pozycjonowaniu jednostek i rozgrywce. Mapa autorstwa usquebaugh."
     },
     "pt": {
       "name": "Colinas",
-      "description": "Pastagens planas onde as batalhas táticas ocorrem em mapas gerados aleatoriamente. As colinas podem incluir manchas de florestas e edifícios dispersos, adicionando profundidade estratégica ao posicionamento da unidade e jogabilidade."
+      "description": "Pastagens planas onde as batalhas táticas ocorrem em mapas gerados aleatoriamente. As colinas podem incluir manchas de florestas e edifícios dispersos, adicionando profundidade estratégica ao posicionamento da unidade e jogabilidade. Mapa de usquebaugh."
     },
     "tr": {
       "name": "Tepeler",
-      "description": "Taktiksel savaşların rastgele oluşturulan haritalarda gerçekleştiği düz otlaklar. Tepeler, orman parçaları ve dağınık binalar içerebilir; bu da birim konumlandırması ve oynanışa stratejik derinlik katar."
+      "description": "Taktiksel savaşların rastgele oluşturulan haritalarda gerçekleştiği düz otlaklar. Tepeler, orman parçaları ve dağınık binalar içerebilir; bu da birim konumlandırması ve oynanışa stratejik derinlik katar. Harita: usquebaugh."
     },
     "uk": {
       "name": "Пагорби",
-      "description": "Рівнинні луки, на яких відбуваються тактичні битви на випадково згенерованих картах. Пагорби можуть включати ділянки лісів та розкидані будівлі, що надає стратегічну глибину позиціонуванню підрозділів та геймплею."
+      "description": "Рівнинні луки, на яких відбуваються тактичні битви на випадково згенерованих картах. Пагорби можуть включати ділянки лісів та розкидані будівлі, що надає стратегічну глибину позиціонуванню підрозділів та геймплею. Карта від usquebaugh."
     },
     "vi": {
       "name": "Đồi",
-      "description": "Đồng cỏ bằng phẳng nơi các trận chiến chiến thuật diễn ra trên các bản đồ được tạo ngẫu nhiên. Những ngọn đồi có thể bao gồm các mảng rừng và các tòa nhà rải rác, thêm chiều sâu chiến lược để định vị đơn vị và lối chơi."
+      "description": "Đồng cỏ bằng phẳng nơi các trận chiến chiến thuật diễn ra trên các bản đồ được tạo ngẫu nhiên. Những ngọn đồi có thể bao gồm các mảng rừng và các tòa nhà rải rác, thêm chiều sâu chiến lược để định vị đơn vị và lối chơi. Bản đồ bởi usquebaugh."
     },
     "zh": {
       "name": "山丘",
-      "description": "在随机生成的地图上进行战术战斗的平坦草原。 山丘可能包括森林补丁和分散的建筑物，为单位定位和游戏玩法增加了战略深度。"
+      "description": "在随机生成的地图上进行战术战斗的平坦草原。 山丘可能包括森林补丁和分散的建筑物，为单位定位和游戏玩法增加了战略深度。 地图作者：usquebaugh"
     }
   },
   "allowDynamicArmy": true

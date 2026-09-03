@@ -99,13 +99,15 @@
     "18lb-cannon-ball": "18 lb top güllesi",
     "18lb-explosive-shell": "18 lb patlayıcı mermi"
   },
+  "formationRole": {
+    "column": "Yürüyüş ve hücum",
+    "line": "Ateş gücü",
+    "square": "Kanat savunması"
+  },
   "formation": {
-    "mass": "Yığın",
     "line": "Hat",
     "column": "Sütun",
     "square": "Kare",
-    "militia_mass": "Yığın",
-    "militia_line": "Hat",
     "dispersed": "Dağınık"
   },
   "reportStats": {

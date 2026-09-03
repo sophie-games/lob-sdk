@@ -20,6 +20,10 @@
     "title": "السماح بصندوق الاختيار باللمس",
     "description": "تفعيل صناديق الاختيار على أجهزة اللمس لاختيار عدة وحدات في وقت واحد."
   },
+  "showControlGroupsBar": {
+    "title": "شريط مجموعات التحكم",
+    "description": "يعرض شريط مجموعات التحكم. عطّله لمنع اللمسات العرضية من تغيير تحديدك على الأجهزة التي تعمل باللمس."
+  },
   "smartCurvedMovements": {
     "title": "الحركات المنحنية الذكية",
     "description": "تفعيل هذا الخيار لتحسين مسارات الحركة بمنحنيات سلسة، مما يقلل من فقدان السرعة أثناء الدوران."
@@ -31,10 +35,6 @@
   "openSelectOrderModal": {
     "title": "فتح نافذة اختيار الأوامر",
     "description": "تفعيل هذا الخيار لإظهار نافذة لاختيار الأوامر أثناء اللعب."
-  },
-  "openSelectFormationModal": {
-    "title": "فتح نافذة اختيار التشكيل",
-    "description": "تفعيل هذا الخيار لإظهار نافذة لاختيار التشكيلات أثناء اللعب."
   },
   "showPlayableGamesAvailableModal": {
     "title": "إظهار نافذة الألعاب القابلة للعب المتاحة"
@@ -102,6 +102,10 @@
   "gridOpacity": {
     "title": "عتامة الشبكة"
   },
+  "tracerOpacity": {
+    "title": "عتامة خطوط التتبّع",
+    "description": "تتحكم في عتامة خطوط التتبّع أثناء الهجمات بعيدة المدى. اضبطها على 0% لإخفائها."
+  },
   "showDebugShapes": {
     "title": "إظهار أشكال التصحيح",
     "description": "إظهار أشكال التصحيح على الوحدات بما في ذلك أشكال التصادم ونقاط فحص التضاريس."
@@ -148,12 +152,16 @@
     "title": "يشمل اختيار الوحدات الخاملة الأوامر غير المعدّلة",
     "description": "إيقاف: الوحدات بلا أوامر فقط. تشغيل: أيضًا الوحدات التي ما زال لديها أمر الدورة السابقة إذا لم تُغيّره في هذه الدورة."
   },
+  "applyOrderTypeToSelection": {
+    "title": "نوع الأمر يُطبَّق على التحديد",
+    "description": "مُفعّل: تغيير نوع الحركة يُعيد تعيين الأوامر الحالية للوحدات المحددة، ويعكس زر الأوامر تحديدك. مُعطّل: يحدد فقط نوع الأمر التالي الذي ترسمه (كلاسيكي)."
+  },
   "showChat": {
     "title": "إظهار الدردشة"
   },
   "keybindings": {
-    "rotateCameraContinuous": "تدوير الكاميرا (استمر بالضغط)",
-    "rotateCameraSnap": "تدوير الكاميرا 90°",
+    "rotateCameraLeft": "تدوير الكاميرا يسارًا",
+    "rotateCameraRight": "تدوير الكاميرا يمينًا",
     "title": "ربط المفاتيح",
     "pressAKey": "اضغط على مفتاح...",
     "moveUp": "التحرك لأعلى",
@@ -172,8 +180,9 @@
     "togglePathFinding": "تبديل البحث عن المسار",
     "toggleFowPerspective": "تبديل منظور ضباب الحرب",
     "toggleMultiTurnPathOrders": "تبديل أوامر المسار متعدد الأدوار",
+    "toggleApplyOrderTypeToSelection": "تبديل تطبيق نوع الأمر على التحديد",
     "openChat": "فتح الدردشة",
-    "openFormationModal": "فتح نافذة التشكيل",
+    "openTacticsModal": "فتح قائمة التكتيكات",
     "showBattleOverview": "الضغط لعرض ملخص المعركة",
     "formation1": "التشكيل ١",
     "formation2": "التشكيل ٢",
@@ -195,7 +204,8 @@
     "controlGroup8": "مجموعة التحكم 8",
     "controlGroup9": "مجموعة التحكم 9",
     "controlGroup0": "مجموعة التحكم 0",
-    "openPingWheel": "فتح عجلة الإشارات"
+    "openPingWheel": "فتح عجلة الإشارات",
+    "controlGroupsHelp": "الرقم وحده يُصدر أمرًا. استدعِ مجموعة بـ {{modifier}} + رقمها."
   },
   "routingTransparency": {
     "title": "شفافية الوحدة المنسحبة"
@@ -221,5 +231,81 @@
   "groundQuality": {
     "title": "جودة الأرض",
     "description": "يتحكم في جودة نسيج الأرض. الجودة الأعلى توفر تفاصيل بصرية أفضل ولكن قد تؤثر على الأداء. يتطلب تحديث الخريطة."
+  },
+  "appearance": "المظهر",
+  "era": {
+    "title": "العصر",
+    "description": "اختر عصر اللعب. سيؤثر تغييره في الوحدات والسيناريوهات وآليات اللعب المتاحة."
+  },
+  "notifications": {
+    "title": "الإشعارات",
+    "turnActivity": {
+      "title": "الأدوار",
+      "description": "أعلمني عند انتهاء الدور وعندما يوشك بنك الوقت على النفاد."
+    },
+    "chat": {
+      "title": "الرسائل",
+      "description": "أعلمني عندما يرسل لي صديق رسالة."
+    },
+    "matchmaking": {
+      "title": "المطابقة",
+      "description": "أعلمني عندما ينضم أحد إلى طابور أراقبه، وعندما تجد لعبة بطيئة لاعبيها."
+    },
+    "reminders": {
+      "title": "التذكيرات",
+      "description": "أعلمني عندما توشك سلسلة أيامي على الانتهاء."
+    }
+  },
+  "theme": {
+    "presetTitle": "نمط جاهز",
+    "presetDescription": "أعد تلوين التطبيق بالكامل. الألوان المخصصة تتطلب مستوى مدفوعاً.",
+    "presets": {
+      "default": "افتراضي",
+      "warm": "دافئ",
+      "navy": "كحلي",
+      "modern": "عصري"
+    },
+    "customTitle": "ألوان مخصصة",
+    "unlock": "ألوان النمط المخصصة",
+    "groups": {
+      "surfaces": "الأسطح",
+      "accent": "اللون المميز",
+      "borders": "الحدود",
+      "text": "النص"
+    },
+    "tokens": {
+      "surface": "خلفية اللوحة",
+      "surfaceDeep": "خلفية غائرة",
+      "surfaceData": "خلفية البيانات",
+      "surfaceDataRaised": "خلفية البيانات (مرتفعة)",
+      "surfaceHover": "خلفية عند التمرير",
+      "surfaceDisabled": "خلفية معطّلة",
+      "accent": "اللون المميز",
+      "accentSoft": "اللون المميز (ناعم)",
+      "accentDeep": "اللون المميز (غامق)",
+      "line": "الحد",
+      "brass": "تعبئة / حد الزر",
+      "brassHover": "الزر (عند التمرير)",
+      "brassDisabled": "الزر (معطّل)",
+      "fg": "النص",
+      "fgStrong": "النص (قوي)",
+      "fgMuted": "النص (خافت)",
+      "fgDisabled": "النص (معطّل)",
+      "onAccent": "نص فوق اللون المميز"
+    },
+    "resetTitle": "إعادة ضبط النمط",
+    "resetDescription": "العودة إلى اللوحة الافتراضية."
+  },
+  "controlGroups": {
+    "recall": "استدعاء المجموعة {{group}}",
+    "set": "تعيين المجموعة {{group}}",
+    "add": "إضافة إلى المجموعة {{group}}",
+    "setExclusive": "تعيين للمجموعة {{group}} فقط"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

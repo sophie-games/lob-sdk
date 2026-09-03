@@ -1,10 +1,12 @@
 {
   "USER_REGISTERED": "A regisztrációd befejeződött! Ellenőrizd az emailjeidet egy megerősítő linkért. Ha nem találod meg azonnal, nézd meg a spam mappádat.",
+  "PARTY_REQUIRES_TEAM_MODE": "A csapatod csak csapatmódokra állhat sorba. Válassz olyan módot, amely támogatja a csapatjátékot.",
   "NOT_CUSTOM_GAME": "Csak egyéni játékok indíthatók a lobby megtelte előtt.",
   "GAME_ALREADY_STARTED": "Ez a játék már elkezdődött.",
   "GAME_ALREADY_FINISHED": "Ez a játék már véget ért.",
   "NOT_GAME_CREATOR": "Csak a játék készítője indíthatja el korábban.",
   "MISSING_TEAM_PLAYERS": "Indítás előtt minden csapatban legalább egy játékosnak csatlakoznia kell.",
+  "PLAYERS_CHOOSING_ARMIES": "Minden játékosnak ki kell választania a seregét, mielőtt elindíthatod a játékot.",
   "GAME_DOES_NOT_EXIST": "Ez a játék már nem létezik.",
   "ERROR_STARTING_GAME": "Hiba történt a játék indítása közben. Kérjük, próbáld újra.",
   "ORDERS_ALREADY_SUBMITTED": "A parancsok erre a körre már megérkeztek.",
@@ -16,6 +18,8 @@
   "LIMITED_MODE_NOT_AVAILABLE": "Ez a mód jelenleg nem érhető el.",
   "LIMITED_MODE_BUSY": "Egy másik játékos éppen játékot hoz létre. Próbáld újra hamarosan.",
   "INSUFFICIENT_CURRENCY": "Nincs elég pénznem.",
+  "MAX_SLOW_QUEUE_LIMIT_REACHED": "Már a maximális számú játékod vár a sorban. Vonj vissza egyet, mielőtt újra sorba állsz.",
+  "USER_NOT_ADDED_TO_THE_QUEUE": "Nem sikerült felvenni a sorba. Kérjük, próbáld újra.",
   "INVALID_CURRENCY_TYPE": "Érvénytelen pénznem-választás.",
   "INTERNAL_ERROR": "Valami elromlott. Próbáld újra."
 }

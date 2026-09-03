@@ -20,6 +20,10 @@
     "title": "터키 기기에서의 선택 상자 사용 허용",
     "description": "터치 기기에서의 선택 상자 사용을 활성화하여 한 번에 여러 부대를 선택할 수 있도록 합니다."
   },
+  "showControlGroupsBar": {
+    "title": "부대 지정 바",
+    "description": "부대 지정 바를 표시합니다. 터치 기기에서 실수로 탭하여 선택이 바뀌는 것을 막으려면 끄세요."
+  },
   "smartCurvedMovements": {
     "title": "지능적 회전 이동",
     "description": "이 설정을 활성화하면 부대의 이동 경로를 부드러운 곡선형으로 최적화하여 회전 중 속도 손실을 최소화할 수 있습니다."
@@ -31,10 +35,6 @@
   "openSelectOrderModal": {
     "title": "명령 선택 모달 창 사용",
     "description": "이 설정을 활성화하면 경기 중 명령 선택을 위한 모달 창이 표시됩니다."
-  },
-  "openSelectFormationModal": {
-    "title": "명령 진형 모달 창 사용",
-    "description": "이 설정을 활성화하면 경기 중 진형 선택을 위한 모달 창이 표시됩니다."
   },
   "showPlayableGamesAvailableModal": {
     "title": "플레이 가능 경기 모달 창 표시"
@@ -102,6 +102,10 @@
   "gridOpacity": {
     "title": "그리드 불투명도"
   },
+  "tracerOpacity": {
+    "title": "예광선 불투명도",
+    "description": "원거리 공격 중 표시되는 예광선의 불투명도를 조절합니다. 0%로 설정하면 숨겨집니다."
+  },
   "showDebugShapes": {
     "title": "디버그 모양 표시",
     "description": "부대에 충돌 범위 및 지형 확인 지점을 포함한 디버그 모양을 표시합니다."
@@ -148,12 +152,16 @@
     "title": "대기 선택에 변경되지 않은 명령 포함",
     "description": "끔: 명령이 없는 유닛만. 켬: 이번 턴에 바꾸지 않았다면 지난 턴 명령이 그대로인 유닛도 포함합니다."
   },
+  "applyOrderTypeToSelection": {
+    "title": "명령 유형을 선택한 유닛에 적용",
+    "description": "켜짐: 이동 유형을 바꾸면 선택한 유닛의 현재 명령이 변경되고, 명령 버튼이 선택 상태를 반영합니다. 꺼짐: 다음에 그릴 명령의 유형만 설정합니다(클래식)."
+  },
   "showChat": {
     "title": "채팅 보기"
   },
   "keybindings": {
-    "rotateCameraContinuous": "카메라 회전 (누르고 있기)",
-    "rotateCameraSnap": "카메라 90° 회전",
+    "rotateCameraLeft": "카메라 왼쪽으로 회전",
+    "rotateCameraRight": "카메라 오른쪽으로 회전",
     "title": "키보드 단축키",
     "pressAKey": "지정할 키를 누르세요...",
     "moveUp": "위로 이동",
@@ -172,8 +180,9 @@
     "togglePathFinding": "경로 찾기 전환",
     "toggleFowPerspective": "전장의 안개 시점 전환",
     "toggleMultiTurnPathOrders": "다중 턴 경로 명령 전환",
+    "toggleApplyOrderTypeToSelection": "명령 유형을 선택한 유닛에 적용 전환",
     "openChat": "채팅 열기",
-    "openFormationModal": "진형 창 열기",
+    "openTacticsModal": "전술 메뉴 열기",
     "showBattleOverview": "전투 개요 보기 (키 유지)",
     "formation1": "진형 1",
     "formation2": "진형 2",
@@ -195,7 +204,8 @@
     "controlGroup8": "부대 지정 8",
     "controlGroup9": "부대 지정 9",
     "controlGroup0": "부대 지정 0",
-    "openPingWheel": "핑 휠 열기"
+    "openPingWheel": "핑 휠 열기",
+    "controlGroupsHelp": "숫자만 누르면 명령이 내려집니다. 그룹 호출은 {{modifier}} + 숫자."
   },
   "routingTransparency": {
     "title": "궤멸 상태 부대 투명도"
@@ -221,5 +231,81 @@
   "groundQuality": {
     "title": "지형 품질",
     "description": "지형 텍스쳐의 품질을 설정합니다. 품질이 높을수록 시각적 세부사항의 질이 향상되지만 성능에 영향을 줄 수 있습니다. 지도를 새로 고쳐야 합니다."
+  },
+  "appearance": "모양",
+  "era": {
+    "title": "시대",
+    "description": "플레이할 시대를 선택하세요. 변경하면 사용 가능한 유닛, 시나리오, 게임 방식이 달라집니다."
+  },
+  "notifications": {
+    "title": "알림",
+    "turnActivity": {
+      "title": "턴",
+      "description": "턴이 처리될 때와 뱅크 시간이 얼마 남지 않았을 때 알립니다."
+    },
+    "chat": {
+      "title": "메시지",
+      "description": "친구가 메시지를 보내면 알립니다."
+    },
+    "matchmaking": {
+      "title": "경기 탐색",
+      "description": "지켜보는 대기열에 누군가 들어오거나 장기전의 상대가 모였을 때 알립니다."
+    },
+    "reminders": {
+      "title": "리마인더",
+      "description": "연속 일수가 끊기기 직전에 알립니다."
+    }
+  },
+  "theme": {
+    "presetTitle": "테마 프리셋",
+    "presetDescription": "앱 전체의 색을 바꿉니다. 사용자 지정 색상은 유료 등급이 필요합니다.",
+    "presets": {
+      "default": "기본",
+      "warm": "따뜻한",
+      "navy": "네이비",
+      "modern": "모던"
+    },
+    "customTitle": "사용자 지정 색상",
+    "unlock": "사용자 지정 테마 색상",
+    "groups": {
+      "surfaces": "표면",
+      "accent": "강조색",
+      "borders": "테두리",
+      "text": "텍스트"
+    },
+    "tokens": {
+      "surface": "패널 배경",
+      "surfaceDeep": "움푹한 배경",
+      "surfaceData": "데이터 배경",
+      "surfaceDataRaised": "데이터 배경(돌출)",
+      "surfaceHover": "호버 배경",
+      "surfaceDisabled": "비활성 배경",
+      "accent": "강조색",
+      "accentSoft": "강조색(연한)",
+      "accentDeep": "강조색(짙은)",
+      "line": "테두리",
+      "brass": "버튼 채우기 / 테두리",
+      "brassHover": "버튼(호버)",
+      "brassDisabled": "버튼(비활성)",
+      "fg": "텍스트",
+      "fgStrong": "텍스트(강조)",
+      "fgMuted": "텍스트(흐림)",
+      "fgDisabled": "텍스트(비활성)",
+      "onAccent": "강조색 위 텍스트"
+    },
+    "resetTitle": "테마 초기화",
+    "resetDescription": "기본 팔레트로 돌아갑니다."
+  },
+  "controlGroups": {
+    "recall": "{{group}}번 그룹 호출",
+    "set": "{{group}}번 그룹 지정",
+    "add": "{{group}}번 그룹에 추가",
+    "setExclusive": "그룹 {{group}}에만 지정"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

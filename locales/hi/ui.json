@@ -1,0 +1,34 @@
+{
+  "dialog": {
+    "close": "बंद करें",
+    "label": "संवाद"
+  },
+  "passwordReset": {
+    "linkSent": "पासवर्ड रीसेट लिंक भेज दिया गया है। अपना ईमेल देखें।",
+    "unexpectedError": "एक अनपेक्षित त्रुटि हुई।",
+    "userNotFound": "कोई मेल खाता खाता नहीं मिला।",
+    "invalidOrExpiredToken": "यह पासवर्ड रीसेट लिंक अमान्य है या इसकी समय-सीमा समाप्त हो गई है।",
+    "error": "पासवर्ड रीसेट करने में त्रुटि: {{message}}",
+    "invalidLink": "यह पासवर्ड रीसेट लिंक अमान्य या अधूरा है।",
+    "passwordsDoNotMatch": "पासवर्ड मेल नहीं खाते।"
+  },
+  "pushDiagnostics": {
+    "sectionTitle": "Push सूचना जाँच",
+    "title": "संपूर्ण Push परीक्षण",
+    "description": "आपके पंजीकृत उपकरणों पर वास्तविक टर्न सूचना भेजता है और वितरण की हर कड़ी की जाँच करता है।",
+    "fcmCredentials": "FCM क्रेडेंशियल",
+    "registeredDevices": "पंजीकृत उपकरण",
+    "delivered": "पहुंचे",
+    "ready": "तैयार",
+    "missing": "अनुपलब्ध",
+    "dropped": "({{count}} अस्वीकार)",
+    "sendTest": "परीक्षण सूचना भेजें",
+    "sendingTest": "परीक्षण भेजा जा रहा है…",
+    "results": {
+      "fcmNotConfigured": "FCM कॉन्फ़िगर नहीं है। FCM_SERVICE_ACCOUNT_JSON सेट करें।",
+      "noDevices": "इस खाते के लिए कोई उपकरण पंजीकृत नहीं है। पहले ऐप में साइन इन करें।",
+      "accepted": "FCM ने {{devices}} में से {{sent}} भेजने के अनुरोध स्वीकार किए। फ़ोन पर वितरण की पुष्टि करें।",
+      "testFailed": "Push परीक्षण विफल रहा।"
+    }
+  }
+}

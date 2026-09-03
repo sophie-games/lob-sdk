@@ -15,6 +15,7 @@ export * from "./terrain";
 export * from "./trigger";
 export * from "./tutorial";
 export * from "./unit";
+export * from "./collision-config";
 export * from "./skin";
 export * from "./army";
 export * from "./util-types";

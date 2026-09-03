@@ -20,6 +20,10 @@
     "title": "Cho phép hộp chọn cảm ứng",
     "description": "Bật hộp chọn trên thiết bị cảm ứng để chọn nhiều đơn vị cùng lúc."
   },
+  "showControlGroupsBar": {
+    "title": "Thanh nhóm điều khiển",
+    "description": "Hiển thị thanh nhóm điều khiển. Tắt đi để tránh việc chạm nhầm làm thay đổi lựa chọn của bạn trên thiết bị cảm ứng."
+  },
   "smartCurvedMovements": {
     "title": "Di chuyển cong thông minh",
     "description": "Bật tùy chọn này để tối ưu hóa đường di chuyển với các đường cong mượt mà, giảm thiểu mất tốc độ trong quá trình xoay."
@@ -31,10 +35,6 @@
   "openSelectOrderModal": {
     "title": "Mở modal chọn lệnh",
     "description": "Bật tùy chọn này để hiển thị modal để chọn lệnh trong quá trình chơi."
-  },
-  "openSelectFormationModal": {
-    "title": "Mở modal chọn đội hình",
-    "description": "Bật tùy chọn này để hiển thị modal để chọn đội hình trong quá trình chơi."
   },
   "showPlayableGamesAvailableModal": {
     "title": "Hiển thị modal trò chơi có thể chơi"
@@ -102,6 +102,10 @@
   "gridOpacity": {
     "title": "Độ mờ lưới"
   },
+  "tracerOpacity": {
+    "title": "Độ mờ vệt đạn",
+    "description": "Điều chỉnh độ mờ của vệt đạn trong các đòn tấn công tầm xa. Đặt thành 0% để ẩn chúng."
+  },
   "showDebugShapes": {
     "title": "Hiển thị hình dạng debug",
     "description": "Hiển thị hình dạng debug trên các đơn vị bao gồm hình dạng va chạm và điểm kiểm tra địa hình."
@@ -148,12 +152,16 @@
     "title": "Chọn đơn vị rảnh gồm cả lệnh không đổi",
     "description": "Tắt: chỉ đơn vị không có lệnh. Bật: cả đơn vị vẫn giữ lệnh lượt trước nếu bạn chưa sửa trong lượt này."
   },
+  "applyOrderTypeToSelection": {
+    "title": "Loại lệnh áp dụng cho lựa chọn",
+    "description": "Bật: thay đổi loại di chuyển sẽ đổi lại lệnh hiện tại của các đơn vị đã chọn, và nút lệnh phản ánh lựa chọn của bạn. Tắt: chỉ đặt loại cho lệnh tiếp theo bạn vẽ (cổ điển)."
+  },
   "showChat": {
     "title": "Hiển thị trò chuyện"
   },
   "keybindings": {
-    "rotateCameraContinuous": "Xoay camera (giữ)",
-    "rotateCameraSnap": "Xoay camera 90°",
+    "rotateCameraLeft": "Xoay camera sang trái",
+    "rotateCameraRight": "Xoay camera sang phải",
     "title": "Phím tắt",
     "pressAKey": "Nhấn một phím...",
     "moveUp": "Di chuyển lên",
@@ -172,8 +180,9 @@
     "togglePathFinding": "Chuyển đổi tìm đường",
     "toggleFowPerspective": "Chuyển đổi góc nhìn sương mù chiến tranh",
     "toggleMultiTurnPathOrders": "Chuyển đổi lệnh đường đi đa lượt",
+    "toggleApplyOrderTypeToSelection": "Chuyển đổi áp dụng loại lệnh cho lựa chọn",
     "openChat": "Mở trò chuyện",
-    "openFormationModal": "Mở cửa sổ đội hình",
+    "openTacticsModal": "Mở menu chiến thuật",
     "showBattleOverview": "Giữ phím để xem tóm tắt trận đánh",
     "formation1": "Đội hình 1",
     "formation2": "Đội hình 2",
@@ -195,7 +204,8 @@
     "controlGroup8": "Nhóm điều khiển 8",
     "controlGroup9": "Nhóm điều khiển 9",
     "controlGroup0": "Nhóm điều khiển 0",
-    "openPingWheel": "Mở vòng ping"
+    "openPingWheel": "Mở vòng ping",
+    "controlGroupsHelp": "Chữ số đơn lẻ sẽ ra lệnh. Gọi lại một nhóm bằng {{modifier}} + chữ số của nhóm."
   },
   "routingTransparency": {
     "title": "Độ trong suốt đơn vị rút lui"
@@ -221,5 +231,81 @@
   "groundQuality": {
     "title": "Chất lượng mặt đất",
     "description": "Điều khiển chất lượng của kết cấu mặt đất. Chất lượng cao hơn cung cấp chi tiết hình ảnh tốt hơn nhưng có thể ảnh hưởng đến hiệu suất. Yêu cầu làm mới bản đồ."
+  },
+  "appearance": "Giao diện",
+  "era": {
+    "title": "Thời đại",
+    "description": "Chọn thời đại để chơi. Thay đổi này sẽ ảnh hưởng đến các đơn vị, kịch bản và cơ chế trò chơi hiện có."
+  },
+  "notifications": {
+    "title": "Thông báo",
+    "turnActivity": {
+      "title": "Lượt",
+      "description": "Thông báo khi một lượt được xử lý và khi thời gian bank của tôi sắp hết."
+    },
+    "chat": {
+      "title": "Tin nhắn",
+      "description": "Thông báo khi bạn bè gửi tin nhắn cho tôi."
+    },
+    "matchmaking": {
+      "title": "Ghép trận",
+      "description": "Thông báo khi có người vào hàng đợi tôi đang theo dõi và khi trận chậm tìm đủ người chơi."
+    },
+    "reminders": {
+      "title": "Nhắc nhở",
+      "description": "Thông báo khi chuỗi ngày của tôi sắp kết thúc."
+    }
+  },
+  "theme": {
+    "presetTitle": "Chủ đề có sẵn",
+    "presetDescription": "Đổi màu toàn bộ ứng dụng. Màu tùy chỉnh cần gói trả phí.",
+    "presets": {
+      "default": "Mặc định",
+      "warm": "Ấm",
+      "navy": "Xanh hải quân",
+      "modern": "Hiện đại"
+    },
+    "customTitle": "Màu tùy chỉnh",
+    "unlock": "Màu chủ đề tùy chỉnh",
+    "groups": {
+      "surfaces": "Bề mặt",
+      "accent": "Màu nhấn",
+      "borders": "Viền",
+      "text": "Văn bản"
+    },
+    "tokens": {
+      "surface": "Nền bảng",
+      "surfaceDeep": "Nền lõm",
+      "surfaceData": "Nền dữ liệu",
+      "surfaceDataRaised": "Nền dữ liệu (nổi)",
+      "surfaceHover": "Nền khi di chuột",
+      "surfaceDisabled": "Nền bị tắt",
+      "accent": "Màu nhấn",
+      "accentSoft": "Màu nhấn (dịu)",
+      "accentDeep": "Màu nhấn (đậm)",
+      "line": "Viền",
+      "brass": "Nền / viền nút",
+      "brassHover": "Nút (di chuột)",
+      "brassDisabled": "Nút (bị tắt)",
+      "fg": "Văn bản",
+      "fgStrong": "Văn bản (đậm)",
+      "fgMuted": "Văn bản (mờ)",
+      "fgDisabled": "Văn bản (bị tắt)",
+      "onAccent": "Văn bản trên màu nhấn"
+    },
+    "resetTitle": "Đặt lại chủ đề",
+    "resetDescription": "Quay về bảng màu mặc định."
+  },
+  "controlGroups": {
+    "recall": "Gọi nhóm {{group}}",
+    "set": "Đặt nhóm {{group}}",
+    "add": "Thêm vào nhóm {{group}}",
+    "setExclusive": "Chỉ đặt vào nhóm {{group}}"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

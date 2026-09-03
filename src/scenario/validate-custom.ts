@@ -7,8 +7,16 @@ import {
   CustomSprite,
   OrderTemplate,
   OrderType,
+  CollisionShapeType,
+  DynamicBattleType,
+  ScenarioBattleTypeOverride,
+  PlayerBudgetOverride,
+  ArmyPanelGroup,
+  UnitType,
+  getCollisionConfig,
 } from "@lob-sdk/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
+import { NO_COLLISION_LEVEL } from "@lob-sdk/constants";
 import type {
   DamageTypeTemplate,
   UnitCategoryTemplate,
@@ -24,6 +32,13 @@ import type { DeepPartial } from "../utils/object-merge";
 export const CUSTOM_UNIT_TYPE_MIN = 10000;
 
 /**
+ * Upper bound on a custom formation's OBB dimensions (px). Presets top out at 40;
+ * this generous ceiling rejects pathological sizes that would make per-tile terrain
+ * sampling (obbTileCoverage) clip hundreds of tiles per unit per tick.
+ */
+const MAX_FORMATION_DIMENSION = 256;
+
+/**
  * Hard safety ceilings on how many custom defs a single scenario may carry.
  * Abuse bounds (independent of tier gating), enforced server-side so a crafted
  * import can't pack thousands of defs that get re-parsed per game.
@@ -35,6 +50,9 @@ export const MAX_CUSTOM_UNIT_CATEGORIES = 50;
 export const MAX_CUSTOM_TERRAIN_CATEGORIES = 50;
 export const MAX_CUSTOM_SPRITES = 200;
 export const MAX_CUSTOM_ORDERS = 50;
+export const MAX_CUSTOM_BATTLE_TYPES = 50;
+export const MAX_PLAYER_BUDGET_OVERRIDES = 100;
+export const MAX_CUSTOM_ARMY_PANEL_GROUPS = 50;
 
 /**
  * Generous magnitude ceiling for any single numeric stat in a custom def. The
@@ -42,6 +60,11 @@ export const MAX_CUSTOM_ORDERS = 50;
  * poison the simulation math.
  */
 export const MAX_ABS_STAT = 1e9;
+
+/** Runtime guard for untrusted imported JSON: rejects null/primitives before property access. */
+function isObject(value: unknown): boolean {
+  return value !== null && typeof value === "object";
+}
 
 export interface CustomDefValidationError {
   scope:
@@ -53,7 +76,10 @@ export interface CustomDefValidationError {
     | "customSprite"
     | "gameConstants"
     | "gameRules"
-    | "order";
+    | "order"
+    | "battleType"
+    | "playerBudget"
+    | "armyPanelGroup";
   field?: string;
   message: string;
 }
@@ -69,15 +95,24 @@ export function validateScenarioCustomDefs(
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
 
-  const customUnitTemplates = scenario.customUnitTemplates ?? [];
-  const customDamageTypes = scenario.customDamageTypes ?? [];
-  const customUnitFormations = scenario.customUnitFormations ?? [];
-  const customUnitCategories = scenario.customUnitCategories ?? [];
-  const customTerrainCategories = scenario.customTerrainCategories ?? [];
+  // Array collections use Array.isArray, not `?? []`: a non-array import survives
+  // `??` and later throws in a `for..of` — unhandled, since api-server has no error
+  // middleware. Object collections read via Object.entries, so `??` is safe there.
+  const asArray = <T>(value: T[] | undefined): T[] =>
+    Array.isArray(value) ? value : [];
+  const customUnitTemplates = asArray(scenario.customUnitTemplates);
+  const customDamageTypes = asArray(scenario.customDamageTypes);
+  const customUnitFormations = asArray(scenario.customUnitFormations);
+  const customUnitCategories = asArray(scenario.customUnitCategories);
+  const customTerrainCategories = asArray(scenario.customTerrainCategories);
   const customSprites = scenario.customSprites ?? {};
   const customGameConstants = scenario.customGameConstants ?? {};
   const customGameRules = scenario.customGameRules ?? {};
   const customOrders = scenario.customOrders ?? {};
+  const customBattleTypes = scenario.customBattleTypes ?? {};
+  const playerBudgetOverrides = scenario.playerBudgetOverrides ?? {};
+  const customArmyPanelGroups = asArray(scenario.customArmyPanelGroups);
+  const disableEraDefaultUnits = scenario.disableEraDefaultUnits ?? false;
 
   const countLimits: Array<
     [number, number, CustomDefValidationError["scope"], string]
@@ -89,6 +124,9 @@ export function validateScenarioCustomDefs(
     [customTerrainCategories.length, MAX_CUSTOM_TERRAIN_CATEGORIES, "terrainCategory", "terrain categories"],
     [Object.keys(customSprites).length, MAX_CUSTOM_SPRITES, "customSprite", "sprites"],
     [Object.keys(customOrders).length, MAX_CUSTOM_ORDERS, "order", "order overrides"],
+    [Object.keys(customBattleTypes).length, MAX_CUSTOM_BATTLE_TYPES, "battleType", "battle type overrides"],
+    [Object.keys(playerBudgetOverrides).length, MAX_PLAYER_BUDGET_OVERRIDES, "playerBudget", "player budget overrides"],
+    [customArmyPanelGroups.length, MAX_CUSTOM_ARMY_PANEL_GROUPS, "armyPanelGroup", "army panel groups"],
   ];
   for (const [count, max, scope, label] of countLimits) {
     if (count > max) {
@@ -113,11 +151,261 @@ export function validateScenarioCustomDefs(
       eraGameDataManager,
     ),
   );
-  errors.push(...validateCustomSprites(customSprites, customUnitTemplates));
+  errors.push(
+    ...validateCustomSprites(
+      customSprites,
+      customUnitTemplates,
+      customDamageTypes,
+    ),
+  );
   errors.push(...validateGameConstantOverrides(customGameConstants));
   errors.push(...validateGameRuleOverrides(customGameRules));
   errors.push(...validateCustomOrders(customOrders, eraGameDataManager));
+  errors.push(...validateCustomBattleTypes(customBattleTypes, eraGameDataManager));
+  errors.push(
+    ...validatePlayerBudgetOverrides(playerBudgetOverrides, eraGameDataManager),
+  );
+  errors.push(
+    ...validateCustomArmyPanelGroups(
+      customArmyPanelGroups,
+      customUnitTemplates,
+      eraGameDataManager,
+      disableEraDefaultUnits,
+    ),
+  );
 
+  // Disabling era defaults needs >= 1 fieldable custom unit (type >= CUSTOM_UNIT_TYPE_MIN,
+  // unlocked): validateArmy rejects era defaults yet still requires unitCount >= 1, so
+  // with none no army can validate — reject the unplayable scenario at the import gate.
+  if (disableEraDefaultUnits) {
+    const hasFieldableCustomUnit = customUnitTemplates.some(
+      (template) => template.type >= CUSTOM_UNIT_TYPE_MIN && !template.locked,
+    );
+    if (!hasFieldableCustomUnit) {
+      errors.push({
+        scope: "unitTemplate",
+        message: `disableEraDefaultUnits needs at least one fieldable custom unit (type >= ${CUSTOM_UNIT_TYPE_MIN}, unlocked); with none, no army can be fielded`,
+      });
+    }
+  }
+
+  return errors;
+}
+
+/**
+ * Validates the author-defined buy-menu headings: each group is an object with a
+ * unique non-empty id and (when present) a `unitTypes` array of known types. A
+ * non-array `unitTypes` throws in the panel's `for..of`, so this server-side gate
+ * rejects it. Whole-layout emptiness is caught below.
+ */
+function validateCustomArmyPanelGroups(
+  groups: ArmyPanelGroup[],
+  customUnitTemplates: UnitTemplate[],
+  eraGameDataManager: GameDataManager,
+  disableEraDefaultUnits: boolean,
+): CustomDefValidationError[] {
+  const errors: CustomDefValidationError[] = [];
+  const seenIds = new Set<string>();
+  const allTemplates = [
+    ...eraGameDataManager.getUnitTemplateManager().getTemplates(),
+    ...customUnitTemplates,
+  ];
+  const knownTypes = new Set<UnitType>(
+    allTemplates.map((template) => template.type),
+  );
+  // Units that reach the panel and pass validateArmy: locked ones are filtered out,
+  // and with era defaults disabled only custom types (>= CUSTOM_UNIT_TYPE_MIN) qualify.
+  const fieldableTypes = new Set<UnitType>();
+  for (const template of allTemplates) {
+    if (template.locked) continue;
+    if (disableEraDefaultUnits && template.type < CUSTOM_UNIT_TYPE_MIN) continue;
+    fieldableTypes.add(template.type);
+  }
+
+  for (const group of groups) {
+    if (!isObject(group)) {
+      errors.push({
+        scope: "armyPanelGroup",
+        message: "Army panel group must be an object",
+      });
+      continue;
+    }
+    if (typeof group.id !== "string" || group.id.trim() === "") {
+      errors.push({
+        scope: "armyPanelGroup",
+        message: "Army panel group id is required",
+      });
+      continue;
+    }
+    if (seenIds.has(group.id)) {
+      errors.push({
+        scope: "armyPanelGroup",
+        field: group.id,
+        message: `Duplicate army panel group id "${group.id}"`,
+      });
+    }
+    seenIds.add(group.id);
+
+    if (group.unitTypes !== undefined) {
+      if (!Array.isArray(group.unitTypes)) {
+        errors.push({
+          scope: "armyPanelGroup",
+          field: group.id,
+          message: `Army panel group "${group.id}" unitTypes must be an array`,
+        });
+      } else {
+        for (const type of group.unitTypes) {
+          if (!knownTypes.has(type)) {
+            errors.push({
+              scope: "armyPanelGroup",
+              field: group.id,
+              message: `Army panel group "${group.id}" references unit type ${type}, which is not a built-in or custom unit type`,
+            });
+          }
+        }
+      }
+    }
+  }
+
+  // A present layout is authoritative (buildUnitGroups adds no "Custom" fallback),
+  // so one naming no fieldable unit yields an empty, unplayable panel. An absent or
+  // empty layout uses the era fallback and is fine — so only guard a non-empty one.
+  if (
+    groups.length > 0 &&
+    !groups.some(
+      (group) =>
+        isObject(group) &&
+        Array.isArray(group.unitTypes) &&
+        group.unitTypes.some((type) => fieldableTypes.has(type)),
+    )
+  ) {
+    errors.push({
+      scope: "armyPanelGroup",
+      message:
+        "army panel layout names no fieldable unit; the army panel would be empty and no army could be built",
+    });
+  }
+
+  return errors;
+}
+
+/**
+ * Validates the sparse per-battle-type budget/cap overrides. Each key must name
+ * a battle type that exists in this era — an override modifies an existing
+ * battle type, it cannot add a new one — otherwise the per-game merge
+ * (loadCustomDefs) silently skips it (`if (!base) continue`) and the override
+ * does nothing with no error anywhere. Budgets (manpower, gold) must be finite
+ * and non-negative; per-unit caps must be non-negative integers.
+ * findOutOfRangeNumbers only guards magnitude/finiteness (via Math.abs), so the
+ * sign and integer-ness are checked explicitly, mirroring the custom-unit-
+ * template price guard.
+ */
+function validateCustomBattleTypes(
+  customBattleTypes: Partial<
+    Record<DynamicBattleType, ScenarioBattleTypeOverride>
+  >,
+  eraGameDataManager: GameDataManager,
+): CustomDefValidationError[] {
+  const errors: CustomDefValidationError[] = [];
+  for (const [battleType, override] of Object.entries(customBattleTypes)) {
+    if (!eraGameDataManager.tryGetBattleType(battleType as DynamicBattleType)) {
+      errors.push({
+        scope: "battleType",
+        field: battleType,
+        message: `Battle type "${battleType}" is not a known battle type for this era; only existing battle types can be overridden`,
+      });
+      continue;
+    }
+    if (!override || typeof override !== "object") {
+      errors.push({
+        scope: "battleType",
+        field: battleType,
+        message: `Battle type override "${battleType}" must be an object`,
+      });
+      continue;
+    }
+    for (const message of findOutOfRangeNumbers(override, "")) {
+      errors.push({ scope: "battleType", field: battleType, message });
+    }
+    for (const key of ["manpower", "gold"] as const) {
+      const value = override[key];
+      // Optional (absent inherits the battle type's value): undefined stays valid,
+      // but a present value must be a non-negative finite number. A string/null
+      // slipped past the old `typeof === "number"` guard.
+      if (value !== undefined && (!Number.isFinite(value) || value < 0)) {
+        errors.push({
+          scope: "battleType",
+          field: battleType,
+          message: `${key} must be >= 0; a negative starting budget is invalid`,
+        });
+      }
+    }
+    for (const [unitType, cap] of Object.entries(override.unitCaps ?? {})) {
+      // A present cap must be a non-negative integer (0 removes the unit); a
+      // wrong-typed value fails Number.isInteger, so it's rejected outright.
+      if (!Number.isInteger(cap) || cap < 0) {
+        errors.push({
+          scope: "battleType",
+          field: battleType,
+          message: `unitCaps["${unitType}"] must be a non-negative integer`,
+        });
+      }
+    }
+  }
+  return errors;
+}
+
+/**
+ * Validates the absolute per-player budget overrides. Each key must be a 1-based
+ * slot number (1..MAX_PLAYERS) in canonical form: the runtime looks overrides up
+ * by player number, so a non-integer / out-of-range / non-canonical key (e.g.
+ * "01", "1 ") silently matches no one. manpower/gold must be finite and non-negative.
+ */
+function validatePlayerBudgetOverrides(
+  playerBudgetOverrides: Record<number, PlayerBudgetOverride>,
+  eraGameDataManager: GameDataManager,
+): CustomDefValidationError[] {
+  const errors: CustomDefValidationError[] = [];
+  const maxPlayers = eraGameDataManager.getGameConstants().MAX_PLAYERS;
+  for (const [player, override] of Object.entries(playerBudgetOverrides)) {
+    const slot = Number(player);
+    if (
+      !Number.isInteger(slot) ||
+      slot < 1 ||
+      slot > maxPlayers ||
+      String(slot) !== player
+    ) {
+      errors.push({
+        scope: "playerBudget",
+        field: player,
+        message: `Player budget override key "${player}" must be a 1-based player slot number from 1 to ${maxPlayers}`,
+      });
+      continue;
+    }
+    if (!override || typeof override !== "object") {
+      errors.push({
+        scope: "playerBudget",
+        field: player,
+        message: `Player budget override "${player}" must be an object`,
+      });
+      continue;
+    }
+    for (const message of findOutOfRangeNumbers(override, "")) {
+      errors.push({ scope: "playerBudget", field: player, message });
+    }
+    for (const key of ["manpower", "gold"] as const) {
+      const value = override[key];
+      // Optional field: undefined inherits the battle type's value; a present
+      // value must be a non-negative finite number (rejects string/null/NaN).
+      if (value !== undefined && (!Number.isFinite(value) || value < 0)) {
+        errors.push({
+          scope: "playerBudget",
+          field: player,
+          message: `${key} must be >= 0; a negative starting budget is invalid`,
+        });
+      }
+    }
+  }
   return errors;
 }
 
@@ -353,18 +641,40 @@ function validateCustomDamageTypes(
         message: `Ranged damage type "${dt.name}" needs at least one range bracket`,
       });
     }
-    // angleOffset re-centers the firing arc relative to the front; keep it
-    // within a full turn so a typo can't point a battery off into nonsense.
-    if (
-      dt.ranged === true &&
-      dt.angleOffset !== undefined &&
-      (dt.angleOffset < -360 || dt.angleOffset > 360)
-    ) {
+    // maxRange is required and multiplies the bands' from/to fractions into absolute
+    // distances; a missing value makes band comparisons NaN (no band matches, zero
+    // falloff) and a 0 collapses every band to distance 0. The editor guards this, but
+    // an imported scenario JSON can bypass it.
+    if (dt.ranged === true && !(dt.maxRange > 0)) {
       errors.push({
         scope: "damageType",
         field: dt.name,
-        message: `Ranged damage type "${dt.name}" angleOffset must be between -360 and 360 degrees`,
+        message: `Ranged damage type "${dt.name}" needs a max range greater than 0`,
       });
+    }
+    // Bands author from/to as fractions of maxRange; the engine only fires falloff inside a
+    // matching band, and a shot past the last band's `to` deals full base damage. Enforce
+    // 0 <= from <= to <= 1 per band and that the last band reaches maxRange (to === 1), so a
+    // hand-authored import can't leave a silent full-damage gap the editor would never build.
+    if (dt.ranged === true) {
+      const bands = dt.ranges ?? [];
+      bands.forEach((b, i) => {
+        if (!(b.from >= 0 && b.from <= b.to && b.to <= 1)) {
+          errors.push({
+            scope: "damageType",
+            field: dt.name,
+            message: `Ranged damage type "${dt.name}" band ${i + 1} must satisfy 0 <= from <= to <= 1`,
+          });
+        }
+      });
+      const last = bands[bands.length - 1];
+      if (last && last.to < 1) {
+        errors.push({
+          scope: "damageType",
+          field: dt.name,
+          message: `Ranged damage type "${dt.name}" last band must reach max range (to = 1)`,
+        });
+      }
     }
     for (const message of findOutOfRangeNumbers(dt, "")) {
       errors.push({ scope: "damageType", field: dt.name, message });
@@ -396,6 +706,99 @@ function validateCustomUnitFormations(
 
     for (const message of findOutOfRangeNumbers(formation, "")) {
       errors.push({ scope: "unitFormation", field: formation.id, message });
+    }
+
+    const pushErr = (message: string) =>
+      errors.push({ scope: "unitFormation", field: formation.id, message });
+
+    // collisionShape must resolve to a rectangle { type: Obb, frontage>0, depth>0 }.
+    // Legacy type-0 radius inputs remain readable and normalize to a square before
+    // validation. A half-specified shape would produce NaN corners that silently
+    // break collision and rendering for the whole match.
+    const shape = formation.collisionShape;
+    if (shape !== undefined) {
+      if (!isObject(shape)) {
+        pushErr("collisionShape must be an object { type, frontage, depth }");
+      } else {
+        const rawShape = shape as unknown as Record<string, unknown>;
+        if (rawShape.type !== CollisionShapeType.Obb && rawShape.type !== 0) {
+          pushErr("collisionShape.type must be 1 (obb)");
+        } else if (
+          rawShape.type === 0 &&
+          (typeof rawShape.radius !== "number" ||
+            !Number.isFinite(rawShape.radius) ||
+            rawShape.radius < 0)
+        ) {
+          pushErr("collisionShape.radius must be a finite number >= 0");
+        } else {
+          const resolvedShape = getCollisionConfig(
+            formation as unknown as Parameters<typeof getCollisionConfig>[0],
+          );
+          const isNoCollisionShape =
+            resolvedShape.frontage === 0 && resolvedShape.depth === 0;
+          if (
+            !isNoCollisionShape &&
+            (!Number.isFinite(resolvedShape.frontage) ||
+              resolvedShape.frontage <= 0 ||
+              !Number.isFinite(resolvedShape.depth) ||
+              resolvedShape.depth <= 0)
+          ) {
+            pushErr(
+              "collisionShape must have a finite frontage and depth greater than 0",
+            );
+          } else if (
+            resolvedShape.frontage > MAX_FORMATION_DIMENSION ||
+            resolvedShape.depth > MAX_FORMATION_DIMENSION
+          ) {
+            pushErr(
+              `collisionShape frontage and depth must each be <= ${MAX_FORMATION_DIMENSION}`,
+            );
+          }
+        }
+      }
+    }
+
+    // Collision levels are discrete tiers compared by checkCollision; -1
+    // (NO_COLLISION_LEVEL) is the soft-overlap sentinel and the lowest valid value.
+    const checkCollisionLevel = (
+      key: "allyCollisionLevel" | "enemyCollisionLevel",
+    ) => {
+      const level = formation[key];
+      if (
+        level !== undefined &&
+        (!Number.isInteger(level) || level < NO_COLLISION_LEVEL)
+      ) {
+        pushErr(`${key} must be an integer >= ${NO_COLLISION_LEVEL}`);
+      }
+    };
+    checkCollisionLevel("allyCollisionLevel");
+    checkCollisionLevel("enemyCollisionLevel");
+
+    // Each fire edge needs a valid edge index, an in-range arc, and an explicit
+    // positive emitter count (the firepower and the simultaneous-target cap).
+    if (formation.fireEdges !== undefined) {
+      if (!Array.isArray(formation.fireEdges)) {
+        pushErr("fireEdges must be an array");
+      } else {
+        formation.fireEdges.forEach((fe, i) => {
+          if (!isObject(fe)) {
+            pushErr(`fireEdges[${i}] must be an object`);
+            return;
+          }
+          if (!Number.isInteger(fe.edge) || fe.edge < 0 || fe.edge > 3) {
+            pushErr(`fireEdges[${i}].edge must be an integer between 0 and 3`);
+          }
+          if (
+            fe.arc !== undefined &&
+            (!Number.isFinite(fe.arc) || fe.arc < 0 || fe.arc > 360)
+          ) {
+            pushErr(`fireEdges[${i}].arc must be between 0 and 360`);
+          }
+          if (!Number.isInteger(fe.emitters) || fe.emitters <= 0) {
+            pushErr(`fireEdges[${i}].emitters must be a positive integer`);
+          }
+        });
+      }
     }
   }
 
@@ -579,6 +982,22 @@ function validateCustomUnitTemplates(
       });
     }
 
+    // Army cost is `price * count` (common/src/army/index.ts), so a negative price
+    // *reduces* the total — one negative unit buys an unlimited army.
+    // findOutOfRangeNumbers guards magnitude only (Math.abs), so check the sign here.
+    for (const key of ["manpower", "gold"] as const) {
+      const price = template[key];
+      // Optional price: undefined defers to the template's own defaulting; a present
+      // value must be non-negative and finite (a wrong-typed one slipped past the old guard).
+      if (price !== undefined && (!Number.isFinite(price) || price < 0)) {
+        errors.push({
+          scope: "unitTemplate",
+          field: template.name,
+          message: `${key} must be >= 0; a negative price lets an army exceed its budget without limit`,
+        });
+      }
+    }
+
     // Only runnable units read runCost/walkMovement (and NaN-freeze without them);
     // immobile units (walls, static artillery) legitimately omit them.
     if ((template.runMovement ?? 0) > 0) {
@@ -603,11 +1022,11 @@ function validateCustomUnitTemplates(
 
 /**
  * Max size of a *compressed* scenario the client lets the user import, kept as a
- * margin below the server's 200KB request-body cap (server/src/app.ts). Single
+ * margin below the server's 512KB request-body cap (server/src/app.ts). Single
  * source of truth for the import-size limit: the editor budgets and the
  * "scenario too large" message all derive from this.
  */
-export const MAX_COMPRESSED_SCENARIO_IMPORT_BYTES = 150 * 1024;
+export const MAX_COMPRESSED_SCENARIO_IMPORT_BYTES = 384 * 1024;
 
 /**
  * Per-sprite byte budget for uploaded custom sprites: the editor re-encodes to
@@ -632,6 +1051,7 @@ export function dataUrlByteLength(dataUrl: string): number {
 function validateCustomSprites(
   customSprites: Record<string, CustomSprite>,
   customUnitTemplates: UnitTemplate[],
+  customDamageTypes: DamageTypeTemplate[],
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
 
@@ -676,6 +1096,21 @@ function validateCustomSprites(
           });
         }
       }
+    }
+  }
+
+  for (const damageType of customDamageTypes) {
+    const ref = damageType?.imageAlias;
+    if (
+      typeof ref === "string" &&
+      ref.startsWith(CUSTOM_SPRITE_NAME_PREFIX) &&
+      !(ref in customSprites)
+    ) {
+      errors.push({
+        scope: "customSprite",
+        field: damageType.name,
+        message: `damage type "${damageType.name}" references missing custom sprite "${ref}"`,
+      });
     }
   }
 

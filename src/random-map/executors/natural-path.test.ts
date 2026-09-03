@@ -160,4 +160,36 @@ describe("NaturalPathExecutor", () => {
       expect(mockTerrains.flat()).not.toContain(4);
     });
   });
+
+  describe("path width and terrain replacement", () => {
+    it("replaces terrain on every tile of a wide path, even where width windows overlap", () => {
+      const instruction = createInstruction({
+        terrain: TerrainType.Road,
+        width: 3,
+        terrainReplacements: [
+          { fromTerrain: TerrainType.Grass, toTerrain: TerrainType.Forest },
+        ],
+      });
+
+      executor = new NaturalPathExecutor(
+        instruction,
+        mockScenario,
+        123,
+        0,
+        mockTerrains,
+        mockHeightMap,
+        Size.Medium,
+      );
+
+      executor.execute();
+
+      // Whole map is Grass with a Grass->Forest replacement, so the path must
+      // paint Forest on every tile it covers and never leak the base Road terrain.
+      // Before the snapshot fix, overlapping width windows re-read an already-
+      // painted tile, found no rule for it, and reset it to Road.
+      const tiles = mockTerrains.flat();
+      expect(tiles).toContain(TerrainType.Forest);
+      expect(tiles).not.toContain(TerrainType.Road);
+    });
+  });
 });

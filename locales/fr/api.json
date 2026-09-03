@@ -1,10 +1,12 @@
 {
   "USER_REGISTERED": "Votre inscription est terminée ! Vérifiez votre boîte de réception pour un lien de confirmation. Si vous ne le trouvez pas immédiatement, vérifiez votre dossier de spam.",
+  "PARTY_REQUIRES_TEAM_MODE": "Votre groupe ne peut rejoindre la file que pour les modes en équipe. Choisissez un mode qui prend en charge le jeu en équipe.",
   "NOT_CUSTOM_GAME": "Seules les parties personnalisées peuvent être lancées avant que le salon soit plein.",
   "GAME_ALREADY_STARTED": "Cette partie a déjà commencé.",
   "GAME_ALREADY_FINISHED": "Cette partie est déjà terminée.",
   "NOT_GAME_CREATOR": "Seul le créateur de la partie peut la lancer avant l'heure.",
   "MISSING_TEAM_PLAYERS": "Au moins un joueur doit avoir rejoint chaque équipe avant de pouvoir lancer.",
+  "PLAYERS_CHOOSING_ARMIES": "Tous les joueurs doivent choisir leur armée avant de pouvoir lancer la partie.",
   "GAME_DOES_NOT_EXIST": "Cette partie n'existe plus.",
   "ERROR_STARTING_GAME": "Un problème est survenu au démarrage de la partie. Veuillez réessayer.",
   "ORDERS_ALREADY_SUBMITTED": "Les ordres pour ce tour ont déjà été reçus.",
@@ -16,6 +18,8 @@
   "LIMITED_MODE_NOT_AVAILABLE": "Ce mode est actuellement indisponible.",
   "LIMITED_MODE_BUSY": "Un autre joueur est en train de créer une partie. Réessayez dans un instant.",
   "INSUFFICIENT_CURRENCY": "Monnaie insuffisante.",
+  "MAX_SLOW_QUEUE_LIMIT_REACHED": "Vous avez déjà le nombre maximum de parties en attente dans la file. Retirez-en une avant de relancer une recherche.",
+  "USER_NOT_ADDED_TO_THE_QUEUE": "Impossible de vous ajouter à la file. Veuillez réessayer.",
   "INVALID_CURRENCY_TYPE": "Sélection de monnaie invalide.",
   "INTERNAL_ERROR": "Une erreur est survenue. Réessayez."
 }

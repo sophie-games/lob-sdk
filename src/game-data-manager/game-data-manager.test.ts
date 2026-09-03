@@ -1,10 +1,129 @@
 import { GameDataManager } from "@lob-sdk/game-data-manager";
-import { LeagueType, UnitType, TerrainType } from "@lob-sdk/types";
-import { DamageTypeTemplate } from "@lob-sdk/game-data-manager";
+import {
+  LeagueType,
+  UnitType,
+  TerrainType,
+  FormationTemplate,
+  getCollisionConfig,
+  CollisionShapeType,
+} from "@lob-sdk/types";
+import { DamageTypeTemplate, GameEra } from "@lob-sdk/game-data-manager";
 import { generateDefaultArmy } from "@lob-sdk/army-deployer";
 
 describe("GameDataManager", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
+
+  describe("getObjectiveSpacing", () => {
+    it("returns a positive spacing for every napoleonic battle type", () => {
+      gameDataManager.getAllDynamicBattleTypes().forEach((battleType) => {
+        expect(
+          gameDataManager.getObjectiveSpacing(battleType),
+        ).toBeGreaterThan(0);
+      });
+    });
+
+    it("returns 0 for a null battle type (preset scenarios)", () => {
+      expect(gameDataManager.getObjectiveSpacing(null)).toBe(0);
+    });
+  });
+
+  describe("getSmallObjectivesPerSide", () => {
+    it("returns a positive count for every napoleonic battle type", () => {
+      gameDataManager.getAllDynamicBattleTypes().forEach((battleType) => {
+        expect(
+          gameDataManager.getSmallObjectivesPerSide(battleType),
+        ).toBeGreaterThan(0);
+      });
+    });
+
+    it("returns 0 for a null battle type (preset scenarios)", () => {
+      expect(gameDataManager.getSmallObjectivesPerSide(null)).toBe(0);
+    });
+  });
+
+  describe("getCentralNeutralObjectives", () => {
+    it("returns the configured central count per battle type", () => {
+      expect(gameDataManager.getCentralNeutralObjectives("micro")).toBe(2);
+      expect(gameDataManager.getCentralNeutralObjectives("combat")).toBe(2);
+      expect(gameDataManager.getCentralNeutralObjectives("battle")).toBe(3);
+      expect(gameDataManager.getCentralNeutralObjectives("grand_battle")).toBe(
+        3,
+      );
+    });
+
+    it("defaults to 1 (single drifting objective) for a null battle type", () => {
+      expect(gameDataManager.getCentralNeutralObjectives(null)).toBe(1);
+    });
+  });
+
+  describe("scenario metadata", () => {
+    it("matches the lightweight fields from every full scenario", () => {
+      GameDataManager.getAvailableEras().forEach((era) => {
+        const manager = GameDataManager.get(era);
+
+        manager.getScenarioNames().forEach((scenarioName) => {
+          const scenario = manager.getScenario(scenarioName);
+          const locales = scenario.locales
+            ? Object.fromEntries(
+                Object.entries(scenario.locales).map(([language, values]) => [
+                  language,
+                  Object.fromEntries(
+                    ["name", "description"]
+                      .filter((key) => values[key] !== undefined)
+                      .map((key) => [key, values[key]]),
+                  ),
+                ]),
+              )
+            : undefined;
+
+          expect(manager.getScenarioMeta(scenarioName)).toEqual({
+            name: scenario.name,
+            description: scenario.description,
+            locales,
+            ranked: scenario.ranked ?? false,
+            hidden: scenario.hidden ?? false,
+            playerCount: scenario.players?.length ?? null,
+            mapSize: scenario.map
+              ? { width: scenario.map.width, height: scenario.map.height }
+              : (scenario.fixedSize ?? null),
+          });
+        });
+      });
+    });
+  });
+
+  describe("registerScenario / tryGetScenario", () => {
+    const EDITOR_NAME = "__editor_test_scenario__";
+    afterEach(() => gameDataManager.unregisterScenario(EDITOR_NAME));
+
+    it("returns null for an unknown scenario name", () => {
+      expect(gameDataManager.tryGetScenario("__does_not_exist__")).toBe(null);
+    });
+
+    it("resolves a registered scenario by reference and reflects in-place edits", () => {
+      // Clone a real normalized scenario so the fixture is a valid Scenario.
+      const scenario = structuredClone(
+        gameDataManager.getScenario(gameDataManager.getScenarioNames()[0]),
+      );
+      gameDataManager.registerScenario(EDITOR_NAME, scenario);
+
+      // Same object, no re-normalization (the editor edits it live in place).
+      expect(gameDataManager.tryGetScenario(EDITOR_NAME)).toBe(scenario);
+      scenario.bigObjectiveZoneInset = 0.3;
+      expect(
+        gameDataManager.tryGetScenario(EDITOR_NAME)?.bigObjectiveZoneInset,
+      ).toBe(0.3);
+    });
+
+    it("unregisterScenario removes the entry", () => {
+      const scenario = structuredClone(
+        gameDataManager.getScenario(gameDataManager.getScenarioNames()[0]),
+      );
+      gameDataManager.registerScenario(EDITOR_NAME, scenario);
+      gameDataManager.unregisterScenario(EDITOR_NAME);
+      expect(gameDataManager.tryGetScenario(EDITOR_NAME)).toBe(null);
+    });
+  });
 
   describe("getBattleType", () => {
     describe("default armies respect unit caps from battle-types.json", () => {
@@ -109,6 +228,22 @@ describe("GameDataManager", () => {
   });
 
   describe("Damage Type Methods", () => {
+    describe("legacy action ids", () => {
+      it.each([
+        [28, "rocket"],
+        [29, "4lb-cannon-ball"],
+        [30, "12lb-cannon-ball"],
+        [31, "8lb-cannon-ball"],
+        [32, "6lb-cannon-ball"],
+        [34, "ship-cannon"],
+      ])("maps retired id %i to current damage type %s", (id, name) => {
+        expect(gameDataManager.damageTypeIdToName(id)).toBe(name);
+        expect(
+          gameDataManager.getDamageTypes().some((type) => type.id === id),
+        ).toBe(false);
+      });
+    });
+
     describe("damageTypeNameToId mapping", () => {
       it("should map every DamageType to its corresponding id", () => {
         const ids = new Set<number>();
@@ -153,6 +288,18 @@ describe("GameDataManager", () => {
   });
 
   describe("Unit Skins", () => {
+    it("assigns Mexican Batallón Tres Villas to light infantry", () => {
+      expect(gameDataManager.getUnitSkin(255)?.unitType).toBe(7);
+    });
+
+    it("uses blue attacks for the Rebellious AI Guards in column", () => {
+      const skin = gameDataManager
+        .getUnitSkins()
+        .find(({ name }) => name === "the-rebellious-ai-guards");
+
+      expect(skin?.formations.column?.attackColor).toBe("0000ff");
+    });
+
     it("should not have repeated skin ids", () => {
       const ids = new Set<number>();
       const skins = gameDataManager.getUnitSkins();
@@ -320,11 +467,49 @@ describe("GameDataManager", () => {
         // Overridden categories
         expect(path.movementModifier.midCavalry).toBe(0.2);
         expect(path.movementModifier.heavyCavalry).toBe(0.2);
-        
+
         // Inherited categories
         expect(path.movementModifier.infantry).toBe(0.3);
         expect(path.movementModifier.artillery).toBe(0.3);
       }
+    });
+
+    it("getRotationSpeedModifier defaults to 0 for terrain without the modifier", () => {
+      // No preset terrain sets rotationSpeedModifier, so it should read as the 0 default.
+      expect(gameDataManager.getRotationSpeedModifier(TerrainType.Grass)).toBe(0);
+      expect(gameDataManager.getRotationSpeedModifier(TerrainType.Mud)).toBe(0);
+    });
+
+    it("getRunSpeedModifier falls back to the movement modifier when unset", () => {
+      // No preset terrain sets runSpeedModifier, so run speed matches walk speed.
+      expect(
+        gameDataManager.getRunSpeedModifier(TerrainType.Mud, "infantry"),
+      ).toBe(gameDataManager.getMovementModifier(TerrainType.Mud, "infantry"));
+      expect(
+        gameDataManager.getRunSpeedModifier(TerrainType.Forest, "heavyCavalry"),
+      ).toBe(
+        gameDataManager.getMovementModifier(TerrainType.Forest, "heavyCavalry"),
+      );
+    });
+
+    it("getRunSpeedModifier uses runSpeedModifier per category when set", () => {
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customTerrainCategories: [
+          {
+            id: "mud",
+            config: {
+              movementModifier: { infantry: -0.2, heavyCavalry: -0.5 },
+              runSpeedModifier: { heavyCavalry: -0.9 },
+            },
+          },
+        ],
+      });
+      // Explicit run modifier wins.
+      expect(m.getRunSpeedModifier(TerrainType.Mud, "heavyCavalry")).toBe(-0.9);
+      // No run entry for infantry -> falls back to its movement modifier.
+      expect(m.getRunSpeedModifier(TerrainType.Mud, "infantry")).toBe(-0.2);
+      // Neither set -> 0.
+      expect(m.getRunSpeedModifier(TerrainType.Mud, "artillery")).toBe(0);
     });
   });
 
@@ -412,6 +597,122 @@ describe("GameDataManager", () => {
           0
         );
         expect(modifier).toBeCloseTo(0);
+      });
+    });
+  });
+
+  describe("getAmmoReserve / getGoldToAmmoRate", () => {
+    it("returns positive configured ammo values for every napoleonic battle type", () => {
+      const napoleonic = GameDataManager.get("napoleonic");
+      // Avoid pinning balance numbers (they change with tuning); assert each
+      // battle type resolves to a real positive value (vs the 0-fallback cases).
+      for (const battleType of napoleonic.getAllDynamicBattleTypes()) {
+        expect(napoleonic.getAmmoReserve(battleType)).toBeGreaterThan(0);
+        expect(napoleonic.getGoldToAmmoRate(battleType)).toBeGreaterThan(0);
+      }
+    });
+
+    it("returns 0 for an era with no ammo rule (ww2)", () => {
+      const ww2 = GameDataManager.get("ww2");
+      expect(ww2.getAmmoReserve("operational")).toBe(0);
+      expect(ww2.getGoldToAmmoRate("operational")).toBe(0);
+    });
+
+    it("returns 0 (does not throw) when a custom ammo rule omits the per-battle-type maps", () => {
+      // A partial customGameRules.ammo override merged onto an era with no base
+      // ammo rule yields an ammo object without ammoReserve/goldToAmmoRate maps.
+      const manager = GameDataManager.createWithCustomDefs("ww2", {
+        customGameRules: { ammo: { baseReserve: 123 } },
+      });
+      expect(() => manager.getAmmoReserve("operational")).not.toThrow();
+      expect(manager.getAmmoReserve("operational")).toBe(0);
+      expect(manager.getGoldToAmmoRate("operational")).toBe(0);
+    });
+  });
+
+  describe("getUnitDimensions", () => {
+    const utm = gameDataManager.getUnitTemplateManager();
+    const unitType = utm.getTemplates()[0]!.type;
+    const builtInFormation = utm.getTemplates()[0]!.formations[0]!;
+
+    const cloneFormation = (
+      overrides: Partial<FormationTemplate>,
+    ): FormationTemplate => ({
+      ...(JSON.parse(JSON.stringify(builtInFormation)) as FormationTemplate),
+      id: "obb-dims-test",
+      ...overrides,
+    });
+
+    it("uses an Obb footprint's frontage/depth (width=depth, height=frontage)", () => {
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customUnitFormations: [
+          cloneFormation({
+            collisionShape: {
+              type: CollisionShapeType.Obb,
+              frontage: 120,
+              depth: 18,
+            },
+          }),
+        ],
+      });
+      expect(m.getUnitDimensions(unitType, "obb-dims-test")).toEqual({
+        width: 18,
+        height: 120,
+      });
+    });
+
+    it("upgrades a legacy circle footprint to equal square dimensions", () => {
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customUnitFormations: [
+          cloneFormation({
+            collisionShape: { type: 0, radius: 20 } as never,
+          }),
+        ],
+      });
+      expect(m.getUnitDimensions(unitType, "obb-dims-test")).toEqual({
+        width: 40,
+        height: 40,
+      });
+    });
+
+    it("uses the same 16px square fallback as BaseUnit for a missing formation", () => {
+      expect(
+        gameDataManager.getUnitDimensions(unitType, "missing-formation"),
+      ).toEqual({ width: 16, height: 16 });
+    });
+  });
+
+  describe("collision shape configuration", () => {
+    const shapeOf = (era: GameEra, id: string) => {
+      const formation = GameDataManager.get(era)
+        .getFormationManager()
+        .getTemplate(id)!;
+      return getCollisionConfig(formation).type;
+    };
+
+    const napoleonicFormations = [
+      "line",
+      "column",
+      "square",
+      "skirmish",
+      "dispersed",
+      "cavalry",
+      "artillery",
+      "ship",
+    ];
+    napoleonicFormations.forEach((id) => {
+      it(`napoleonic ${id} collides as an Obb`, () => {
+        expect(shapeOf("napoleonic", id)).toBe(CollisionShapeType.Obb);
+      });
+    });
+
+    it("napoleonic unknown fallback collides as an Obb", () => {
+      expect(shapeOf("napoleonic", "unknown")).toBe(CollisionShapeType.Obb);
+    });
+
+    ["default", "dispersed"].forEach((id) => {
+      it(`ww2 ${id} collides as an Obb`, () => {
+        expect(shapeOf("ww2", id)).toBe(CollisionShapeType.Obb);
       });
     });
   });

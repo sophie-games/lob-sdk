@@ -30,7 +30,8 @@
   {
     "id": 3,
     "name": "shoot",
-    "canFocusLocation": true
+    "canFocusLocation": true,
+    "allowFireWhenMoving": true
   },
   {
     "id": 1,
@@ -58,7 +59,7 @@
       "artillery": -0.55,
       "militiaInfantry": -0.35,
       "skirmishInfantry": -0.35,
-      "ship": -0.75
+      "ship": -0.5
     },
     "speedModifier": -0.3,
     "chargeResistance": -0.2,

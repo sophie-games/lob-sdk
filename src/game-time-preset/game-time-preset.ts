@@ -116,16 +116,16 @@ export class GameTimePresetManager {
     const presets: GameTimePreset[] = [
       {
         id: "bullet",
-        bankTimeSeconds: 600, // 10 minutes
-        incrementSeconds: 30,
+        bankTimeSeconds: 300, // 5 minutes
+        incrementSeconds: 45,
         turnCapSeconds: 60,
         deploymentTimeSeconds: 90,
         kFactor: 20,
       },
       {
         id: "standard",
-        bankTimeSeconds: 1200, // 20 minutes
-        incrementSeconds: 60, // 1 minute
+        bankTimeSeconds: 600, // 10 minutes
+        incrementSeconds: 90, // 1.5 minutes
         turnCapSeconds: 120,
         deploymentTimeSeconds: 180,
         kFactor: 26,

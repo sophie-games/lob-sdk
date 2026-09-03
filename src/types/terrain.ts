@@ -55,10 +55,16 @@ export interface TerrainCategoryConfig {
   color?: string;
   canPlaceObjectives?: boolean;
   staminaCostModifier?: number;
+  /** Scales how fast units turn on this terrain, blended like `staminaCostModifier`
+   * (e.g. -0.5 halves rotation speed, +0.2 speeds it up). Defaults to 0 (no effect). */
+  rotationSpeedModifier?: number;
   hitboxHeight?: number;
   heightOffset?: number;
   visionAbsorption?: number;
   movementModifier?: Partial<Record<UnitCategoryId, number>>;
+  /** Per-category speed modifier applied while running. Falls back to
+   * `movementModifier` for any category it doesn't set (so unset = same as walking). */
+  runSpeedModifier?: Partial<Record<UnitCategoryId, number>>;
   /** A `true` entry (or `*`) makes the terrain impassable for that unit category. */
   impassable?: Partial<Record<UnitCategoryId, boolean>>;
   attackModifier?: Partial<Record<UnitCategoryId, number>>;

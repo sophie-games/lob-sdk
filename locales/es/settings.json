@@ -20,6 +20,10 @@
     "title": "Permitir Caja de Selección Táctil",
     "description": "Habilitar cajas de selección en dispositivos táctiles para seleccionar múltiples unidades a la vez."
   },
+  "showControlGroupsBar": {
+    "title": "Barra de grupos de control",
+    "description": "Muestra la barra de grupos de control. Desactívala para evitar que toques accidentales cambien tu selección en dispositivos táctiles."
+  },
   "smartCurvedMovements": {
     "title": "Movimientos Curvos Inteligentes",
     "description": "Habilita esta opción para optimizar las rutas de movimiento con curvas suaves, minimizando la pérdida de velocidad durante las rotaciones."
@@ -91,6 +95,10 @@
   "gridOpacity": {
     "title": "Opacidad de la cuadrícula"
   },
+  "tracerOpacity": {
+    "title": "Opacidad de las líneas trazadoras",
+    "description": "Controla la opacidad de las líneas trazadoras durante los ataques a distancia. Al 0%, se ocultan."
+  },
   "showDebugShapes": {
     "title": "Mostrar formas de depuración",
     "description": "Muestra formas de depuración en las unidades incluyendo formas de colisión y puntos de verificación de terreno."
@@ -124,12 +132,16 @@
     "title": "La selección de inactivos incluye órdenes sin cambios",
     "description": "Desactivado: solo unidades sin órdenes. Activado: también unidades que aún tienen la orden del turno anterior si no la cambiaste en este turno."
   },
+  "applyOrderTypeToSelection": {
+    "title": "El tipo de orden se aplica a la selección",
+    "description": "Activado: cambiar el tipo de movimiento reasigna las órdenes actuales de las unidades seleccionadas y el botón de orden refleja tu selección. Desactivado: solo define el tipo de la próxima orden que dibujes (clásico)."
+  },
   "showChat": {
     "title": "Mostrar chat"
   },
   "keybindings": {
-    "rotateCameraContinuous": "Rotar cámara (mantener)",
-    "rotateCameraSnap": "Rotar cámara 90°",
+    "rotateCameraLeft": "Rotar cámara a la izquierda",
+    "rotateCameraRight": "Rotar cámara a la derecha",
     "title": "Atajos de teclado",
     "pressAKey": "Presiona una tecla...",
     "moveUp": "Mover hacia arriba",
@@ -148,8 +160,9 @@
     "togglePathFinding": "Alternar búsqueda de ruta",
     "toggleFowPerspective": "Alternar perspectiva de niebla de guerra",
     "toggleMultiTurnPathOrders": "Alternar órdenes de camino multi-turnos",
+    "toggleApplyOrderTypeToSelection": "Alternar aplicar el tipo de orden a la selección",
     "openChat": "Abrir chat",
-    "openFormationModal": "Abrir ventana de formación",
+    "openTacticsModal": "Abrir panel de tácticas",
     "showBattleOverview": "Mantener para resumen de batalla",
     "formation1": "Formación 1",
     "formation2": "Formación 2",
@@ -161,7 +174,8 @@
     "toggleStraightLine": "Alternar línea recta",
     "toggleDrawLine": "Alternar desactivar líneas de dibujo",
     "splitInHalf": "Dividir por la mitad",
-    "openPingWheel": "Abrir rueda de pings"
+    "openPingWheel": "Abrir rueda de pings",
+    "controlGroupsHelp": "El dígito solo lanza una orden. Recupera un grupo con {{modifier}} + su dígito."
   },
   "routingTransparency": {
     "title": "Transparencia de Unidades en Retirada"
@@ -191,5 +205,77 @@
   "era": {
     "title": "Era",
     "description": "Selecciona la era para el juego. Cambiar esto afectará las unidades disponibles, escenarios y mecánicas del juego."
+  },
+  "appearance": "Apariencia",
+  "notifications": {
+    "title": "Notificaciones",
+    "turnActivity": {
+      "title": "Turnos",
+      "description": "Avísame cuando se resuelva un turno y cuando mi tiempo de banco esté por acabarse."
+    },
+    "chat": {
+      "title": "Mensajes",
+      "description": "Avísame cuando un amigo me envíe un mensaje."
+    },
+    "matchmaking": {
+      "title": "Emparejamiento",
+      "description": "Avísame cuando alguien entre a una cola que estoy vigilando y cuando una partida lenta encuentre jugadores."
+    },
+    "reminders": {
+      "title": "Recordatorios",
+      "description": "Avísame cuando mi racha diaria esté por terminar."
+    }
+  },
+  "theme": {
+    "presetTitle": "Tema predefinido",
+    "presetDescription": "Cambia el color de toda la app. Los colores personalizados requieren un nivel de pago.",
+    "presets": {
+      "default": "Predeterminado",
+      "warm": "Cálido",
+      "navy": "Azul marino",
+      "modern": "Moderno"
+    },
+    "customTitle": "Colores personalizados",
+    "unlock": "Colores de tema personalizados",
+    "groups": {
+      "surfaces": "Superficies",
+      "accent": "Acento",
+      "borders": "Bordes",
+      "text": "Texto"
+    },
+    "tokens": {
+      "surface": "Fondo del panel",
+      "surfaceDeep": "Fondo hundido",
+      "surfaceData": "Fondo de datos",
+      "surfaceDataRaised": "Fondo de datos (elevado)",
+      "surfaceHover": "Fondo al pasar el cursor",
+      "surfaceDisabled": "Fondo deshabilitado",
+      "accent": "Acento",
+      "accentSoft": "Acento (suave)",
+      "accentDeep": "Acento (intenso)",
+      "line": "Borde",
+      "brass": "Relleno / borde de botón",
+      "brassHover": "Botón (cursor encima)",
+      "brassDisabled": "Botón (deshabilitado)",
+      "fg": "Texto",
+      "fgStrong": "Texto (fuerte)",
+      "fgMuted": "Texto (atenuado)",
+      "fgDisabled": "Texto (deshabilitado)",
+      "onAccent": "Texto sobre acento"
+    },
+    "resetTitle": "Restablecer tema",
+    "resetDescription": "Volver a la paleta predeterminada."
+  },
+  "controlGroups": {
+    "recall": "Llamar grupo {{group}}",
+    "set": "Fijar grupo {{group}}",
+    "add": "Agregar al grupo {{group}}",
+    "setExclusive": "Asignar solo al grupo {{group}}"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

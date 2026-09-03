@@ -1,7 +1,8 @@
 ﻿{
   "currencyShop": {
     "title": "购买<0/>",
-    "subtitle": "解锁独特的装饰皮肤，于众生中脱颖而出！"
+    "subtitle": "解锁独特的装饰皮肤，于众生中脱颖而出！",
+    "unavailable": "商店目前无法使用，请稍后再试。"
   },
   "aboutCurrencies": "货币介绍",
   "currency": {
@@ -10,9 +11,17 @@
     "basicDescription": "<currency/>：通过游玩匹配游戏赚取。可以用它来解锁新单位，让你的军队配置有更多选择。",
     "premiumDescription": "<currency/>：用于购买装饰，让你的外观更加华丽。一般需要通过充值获得，毕竟游戏本身已经免费了嘛。",
     "rate": "{{rate}} {{currency}}每1美元",
-    "purchase": "购买 {{amount}} {{currency}}",
-    "totalSold": "目前总共售出的<currency/>：{{amount}}",
-    "nextGoal": "下一个目标：{{goal}} <currency/> "
+    "purchase": "购买 {{amount}} {{currency}}"
+  },
+  "sale": {
+    "title": "每周特惠",
+    "description": "{{items}} 件物品 -{{discount}}%，仅限本周。",
+    "endsIn": "剩余 {{days}} 天 {{hours}} 小时",
+    "endsInHours": "剩余 {{hours}} 小时"
+  },
+  "firstPurchase": {
+    "banner": "首次购买翻倍：每个礼包发放 {{multiplier}} 倍的 {{currency}}。",
+    "badge": "首充 {{multiplier}} 倍"
   },
   "purchaseConfirmation": "你确定想要购买{{item}}吗？",
   "showPurchased": "显示已购买",

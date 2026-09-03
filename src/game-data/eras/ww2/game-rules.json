@@ -1,6 +1,5 @@
 {
   "supplyLines": {
-    "roadTerrainTypes": [3, 7, 15],
     "influenceRadius": 4,
     "supplyHubRadius": 12,
     "supplyHubRadiusWithInfluence": 18,
@@ -25,22 +24,35 @@
     ],
     "meleeAttackBonusPerLevel": 4,
     "meleeDefenseBonusPerLevel": 12,
-    "pushStrengthModifierPerLevel": 10
+    "pushStrengthModifierPerLevel": 0.15
   },
   "allyCollision": {
     "collisionBounceScale": 0.02,
     "overlapStopCharge": 0.0,
-    "maxSpeedPenalty": 0.0,
-    "maxOrgDamageReceived": 0.0,
-    "maxMeleeAttackPenalty": 0.0,
+    "chargeInterruptionDuration": 5,
+    "maxSpeedPenalty": -0.3,
+    "maxOrgDamageReceived": 0.3,
+    "maxMeleeAttackPenalty": -0.4,
     "maxRangedAttackPenalty": 0.0,
-    "upperModifierLimit": 1.0,
-    "lowerModifierLimit": 0.0,
-    "maxOrgRadiusModifier": 0.0
+    "upperModifierLimit": 0.6,
+    "lowerModifierLimit": 0.1,
+    "maxOrgRadiusModifier": -0.5
   },
   "objectives": {
     "radius": 24,
-    "pressureThreshold": 0.4
+    "vpPressureThreshold": 0.4,
+    "vpTicksUnderPressureBase": 2.0,
+    "vpBasePoints": 25,
+    "vpLossRatioPoints": 300,
+    "vpPointsToTieBreak": 10,
+    "vpBigDefaultPoints": 75,
+    "vpSmallDefaultPoints": 15,
+    "smallObjectiveZoneHorizontalInset": 0.2,
+    "bigObjectiveZoneInset": 0.2,
+    "objectiveSpacing": 0,
+    "smallObjectivesPerSide": 0,
+    "centralNeutralObjectives": 1,
+    "neutralObjectiveSpacing": 0
   },
   "organization": {
     "speedModifier": -0.15,
@@ -61,6 +73,7 @@
     "nearbyUnitsOrgDamageModifierCap": 0.4,
     "nearbyUnitsOrgDamageModifierPenaltyCap": -0.4,
     "routingUnitNearbyUnitsOrgBonus": 400,
+    "startedRoutingDuration": 12,
     "startedRoutingOrgRadiusModifier": -4,
     "startedRoutingOrgRadiusDistance": 0,
     "startedRoutingOrgRadiusDistanceRunSpeedBonus": 1,

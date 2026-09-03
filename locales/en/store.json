@@ -1,7 +1,8 @@
 {
   "currencyShop": {
     "title": "Get <0/>",
-    "subtitle": "Unlock amazing cosmetics and stand out from the crowd!"
+    "subtitle": "Spend Prestige on units, armies, Arenas, Coalitions, cosmetics, and more.",
+    "unavailable": "The store is unavailable right now. Please try again later."
   },
 
   "aboutCurrencies": "About Currencies",
@@ -10,11 +11,23 @@
     "basic": "Florins",
     "premium": "Prestige",
     "basicDescription": "<currency/>: Earn this by playing matches in the queue. Use it to recruit units and build your army.",
-    "premiumDescription": "<currency/>: This one's for buying cosmetics to flex your style. Mostly comes from spending real money since the game is free to play.",
+    "premiumDescription": "<currency/>: Spend it across the game on units, armies, Arenas, Coalitions, cosmetics, and more. Buy it or earn it by playing.",
     "rate": "{{rate}} {{currency}} per USD",
-    "purchase": "Purchase {{amount}} {{currency}}",
-    "totalSold": "Total <currency/> sold so far: {{amount}}",
-    "nextGoal": "Next Goal: {{goal}} <currency/> "
+    "packageExtra": "{{amount}} bonus included in total",
+    "purchase": "Purchase {{amount}} {{currency}}"
+  },
+
+  "sale": {
+    "title": "Weekly sale",
+    "description": "{{items}} items at -{{discount}}% off, this week only.",
+    "endsIn": "Ends in {{days}}d {{hours}}h",
+    "endsInHours": "Ends in {{hours}}h"
+  },
+
+  "firstPurchase": {
+    "banner": "Your first purchase is doubled: every package credits {{multiplier}}x the {{currency}}.",
+    "badge": "First purchase · {{multiplier}}x value",
+    "packageExtra": "{{base}} base + {{bonus}} first-purchase bonus"
   },
 
   "purchaseConfirmation": "Are you sure you want to purchase {{item}}?",

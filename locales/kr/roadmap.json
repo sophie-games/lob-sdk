@@ -1,0 +1,105 @@
+{
+  "home": "홈",
+  "title": "개발 로드맵",
+  "subtitle": "현재 작업 중인 내용과 앞으로의 계획",
+  "vision": {
+    "sharedBase": "Lines of Battle은 동시 턴 방식의 전술 전략 게임입니다. 각 플레이어가 행동을 계획하면 모든 행동이 한꺼번에 처리됩니다. 현재 같은 기반을 공유하는 두 버전을 개발하고 있습니다. 온라인 랭크전에 집중한 무료 게임 Lines of Battle <twoD>2D</twoD>(웹 및 모바일)와 역사 캠페인과 더 긴 전투를 제공하는 별도의 유료 데스크톱 게임 Lines of Battle <threeD>3D</threeD>(Steam)입니다.",
+    "separateGames": "배운 전술은 두 버전 모두에 활용할 수 있지만 <twoD>2D</twoD>와 <threeD>3D</threeD>는 서로 다른 엔진과 멀티플레이 시스템을 사용하는 별개의 게임입니다. 2D에서는 웹과 모바일 플레이어가 함께 매칭되며, 3D 멀티플레이는 Steam에서만 제공됩니다."
+  },
+  "twoD": {
+    "platform": "웹 및 모바일",
+    "title": "Lines of Battle 2D",
+    "focus": "웹, Android, iOS에서 무료.",
+    "badges": { "web": "웹", "android": "Android", "ios": "iOS" },
+    "intro": "지금 플레이할 수 있는 게임입니다. 무료로 제공되며, 경기 결과에 영향을 주지 않는 꾸미기 요소와 편의 기능으로 개발 비용을 충당합니다. 일부 작업은 이미 진행 중이고 나머지는 계획되어 있습니다. <projectLink>공개 GitHub 프로젝트</projectLink>에서 진행 상황을 확인할 수 있습니다.",
+    "items": [
+      {
+        "name": "품질과 안정성",
+        "description": "버그 수정, 성능 개선, 백엔드 변경, 테스트, 밸런스 업데이트."
+      },
+      {
+        "name": "조작",
+        "description": "모바일과 PC 모두에서 조작감을 개선합니다."
+      },
+      {
+        "name": "새로운 팀 모드",
+        "description": "더 다양한 멀티플레이 선택지와 팀 기반 형식을 추가합니다."
+      },
+      {
+        "name": "경쟁과 공정한 플레이",
+        "description": "매치메이킹, 순위, 스머핑, 다중 계정 문제를 계속 개선합니다."
+      },
+      {
+        "name": "플레이어 성장",
+        "description": "장기 목표, 이정표, 성장 과정을 보여 주는 방법을 추가합니다."
+      },
+      {
+        "name": "소셜 기능",
+        "description": "연합 개선을 포함해 다른 사람과 함께 플레이할 수 있는 도구를 늘립니다."
+      },
+      {
+        "name": "개발 지원",
+        "description": "꾸미기 요소, 편의 기능, 개발 자금을 지원한 분들을 위한 크레딧."
+      },
+      {
+        "name": "새로운 시대",
+        "description": "시간이 지나며 더 많은 역사 콘텐츠를 추가합니다. 각 시대는 별도의 선택 콘텐츠입니다."
+      }
+    ]
+  },
+  "threeD": {
+    "platform": "Steam · 데스크톱",
+    "title": "Lines of Battle 3D",
+    "focus": "Steam용 별도 유료 게임.",
+    "badges": {
+      "steam": "Steam",
+      "paidGame": "유료 게임",
+      "desktop": "데스크톱"
+    },
+    "intro": "Lines of Battle 3D는 역사적인 싱글 플레이 캠페인과 더 긴 전투를 제공하는 별도의 데스크톱 게임입니다.",
+    "items": [
+      {
+        "name": "같은 전투 시스템",
+        "description": "2D 전투 시스템을 3D로 옮깁니다. 표현 방식은 바뀌지만 전술적 기반은 그대로 유지됩니다."
+      },
+      {
+        "name": "3D 엔진",
+        "description": "오픈 소스 Godot 엔진으로 개발합니다."
+      },
+      {
+        "name": "캠페인",
+        "description": "역사적인 싱글 플레이 임무, 전략적 선택, 성장, Steam 도전 과제."
+      },
+      {
+        "name": "Steam 멀티플레이",
+        "description": "친구 및 초대 기능을 이용한 Steam 온라인 경기."
+      },
+      {
+        "name": "전술 AI",
+        "description": "2D에서 이미 사용하는 AI를 기반으로 캠페인과 전투의 컴퓨터 상대를 개선합니다."
+      },
+      {
+        "name": "모딩",
+        "description": "지도, 시나리오, 유닛, 시대를 공유하기 위한 도구와 Steam 창작마당 지원을 계획하고 있습니다."
+      },
+      {
+        "name": "더 많은 시대와 캠페인",
+        "description": "시간이 지나며 추가 시대와 캠페인 콘텐츠를 선보입니다."
+      }
+    ],
+    "timeline": {
+      "label": "현재 목표 · 변경될 수 있음",
+      "late2026": "2026년 하반기",
+      "earlyAccess": "Steam 앞서 해보기",
+      "year2027": "2027년",
+      "fullRelease": "정식 출시"
+    }
+  },
+  "closing": {
+    "title": "이 로드맵에 관하여",
+    "parallel": "현재 작업 중인 내용과 다음에 만들고 싶은 내용을 담았습니다. 두 버전은 동시에 개발됩니다.",
+    "studio": "저희는 소규모 인디 스튜디오 Sophie Games입니다. 개발 과정에서 계획이 바뀔 수 있습니다.",
+    "thanks": "게임을 플레이하고 프로젝트를 지켜봐 주셔서 감사합니다."
+  },
+  "lastUpdated": "최종 업데이트 · 2026년 8월"
+}

@@ -1,5 +1,6 @@
 import { Point2, Vector2 } from "@lob-sdk/vector";
 import { EntityId } from "@lob-sdk/types";
+import type { EngagementRange } from "@lob-sdk/game-data-manager";
 
 /**
  * Effects must have the effect id as the first element,
@@ -48,6 +49,12 @@ export interface UnitDto {
   eff?: UnitEffectDto[];
 
   /**
+   * Remaining charge-interruption ticks. Kept outside `eff` so older clients
+   * and servers can safely ignore this newer temporary state.
+   */
+  ci?: number;
+
+  /**
    * Accumulated movement ticks.
    */
   ac?: number;
@@ -68,14 +75,24 @@ export interface UnitDto {
   pht?: number;
 
   /**
-   * Hold fire damage types (disabled for autofire)
+   * Autofire engagement-range tier (EngagementRange). Omitted when `Max` (the default).
    */
-  hfdt?: number[];
+  afr?: EngagementRange;
 
   /**
    * Current formation
    */
   f?: string;
+
+  /**
+   * Pending formation id, set while a formation change is in progress.
+   */
+  pf?: string;
+
+  /**
+   * Remaining ticks until the pending formation change completes.
+   */
+  pft?: number;
 
   /**
    * Entrenchment level.
@@ -91,6 +108,12 @@ export interface UnitDto {
    * Bars Hidden
    */
   bh?: boolean;
+
+  /**
+   * Routing at a safe distance: no enemy within `safeDistance` and no recent fire.
+   * Such a router walks instead of running. Omitted when false.
+   */
+  rs?: boolean;
 }
 
 export interface UnitDtoPartialId extends Omit<UnitDto, "id"> {
@@ -197,6 +220,9 @@ interface BaseUnitTemplate {
   orgRadius: number;
   orgRadiusBonus: number;
   movementSound: string;
+  /** Looping movement sound used at run pace. Falls back to movementSound. */
+  runMovementSound?: string;
+  chargeSound?: string;
   manpower: number;
   gold: number;
   chargeResistance?: number;
@@ -284,58 +310,67 @@ export interface RangeUnitTemplate extends BaseUnitTemplate {
 export type UnitTemplate = Readonly<BaseUnitTemplate | RangeUnitTemplate>;
 export type UnitTemplates = Record<UnitType, UnitTemplate>;
 
-/**
- * Points used to check what terrain the unit is on.
- * Each point has an offset relative to the formation center and a weight
- * that determines how much that point influences the terrain check.
- * If not specified, defaults to checking only at the unit's center position.
- */
-export interface FormationCheckPoint {
-  /** Offset in pixels relative to formation center */
-  x: number;
-  /** Offset in pixels relative to formation center */
-  y: number;
-  /** Integer weight (higher = more influence) */
-  weight: number;
+/** Discriminates a collision footprint. Value 0 remains reserved for legacy circles. */
+export enum CollisionShapeType {
+  Obb = 1,
 }
 
-export interface FormationCheckPointWithProportion extends FormationCheckPoint {
-  proportion: number;
+/**
+ * A formation's rotated-rectangle collision footprint. Resolve it through
+ * `getCollisionConfig`, which upgrades legacy radius-based inputs to square OBBs.
+ */
+export interface CollisionShapeConfig {
+  type: CollisionShapeType.Obb;
+  frontage: number;
+  depth: number;
+}
+
+/**
+ * A ranged-fire emitter mounted on one edge of the unit's OBB (edge-fire model).
+ * Edge index follows the OBB corner order: 0 = -Y side, 1 = +X front,
+ * 2 = +Y side, 3 = -X back.
+ */
+export interface FireEdge {
+  edge: number;
+  /** Fire arc in degrees (full angle), centred on the edge's outward normal. Default 90. */
+  arc?: number;
+  /**
+   * Number of fire emitters along this edge (also the per-edge target cap). Required
+   * and explicit: it is the firepower and the simultaneous-target capacity, so it is
+   * always pinned per formation rather than derived from the edge length.
+   */
+  emitters: number;
+}
+
+/**
+ * How a formation's firepower is split across its fire edges. `Shared` (default): one
+ * pool for the whole unit, divided among all emitters (an infantry square's four faces
+ * each fire a fraction). `PerEdge`: each edge is its own full pool (a ship's port and
+ * starboard broadsides each fire a complete volley).
+ */
+export enum FirepowerPooling {
+  Shared,
+  PerEdge,
 }
 
 export interface FormationTemplate {
   id: string;
-  frontBackArc: number;
-  /* in degrees */
-  minFlankAngle: number;
-  /* in degrees */
-  maxFlankAngle: number;
 
   /**
-   * Number of collision circles for this formation.
+   * The rotated-rectangle collision footprint. Read it through `getCollisionConfig`,
+   * which also upgrades older custom-scenario formations that used a radius or the
+   * deprecated flat frontage/depth and collision-circle fields.
    */
-  collisionCircles: number;
+  collisionShape?: CollisionShapeConfig;
+
   /**
-   * Size of each collision circle in pixels.
+   * Collision strength vs allies / enemies, compared pairwise via `checkCollision`:
+   * `-1` (NO_COLLISION_LEVEL) is soft overlap / pass-through (skirmishers, artillery),
+   * `0`+ are solid tiers that block an equal-or-lower level. Unset defaults to solid.
+   * Read through the unit's `allyCollisionLevel` / `enemyCollisionLevel` getters.
    */
-  collisionCircleSize: number;
-  /**
-   * Distance between collision circles. Defaults to collisionCircleSize if not specified.
-   */
-  collisionCircleDistance?: number;
-  /**
-   * If true, collision circles are arranged vertically (along X axis).
-   * If false or undefined, collision circles are arranged horizontally (along Y axis).
-   * Defaults to false (horizontal).
-   */
-  collisionCirclesVertical?: boolean;
-  /**
-   * Points used to check what terrain the unit is on.
-   * Each point has an offset relative to the formation center and a weight
-   * that determines how much that point influences the terrain check.
-   * If not specified, defaults to checking only at the unit's center position.
-   */
-  checkPoints?: Array<FormationCheckPoint>;
+  allyCollisionLevel?: number;
+  enemyCollisionLevel?: number;
 
   movementModifier?: number;
   runMovementModifier?: number;
@@ -361,29 +396,17 @@ export interface FormationTemplate {
   rangedOrgResistance?: number;
 
   /**
-   * The shooting angle is the angle in degrees that the unit can shoot at.
-   * Default is 90.
+   * OBB edges that emit ranged fire (edge-fire model). A formation with no fire edges
+   * fires a default single front edge.
    */
-  shootingAngle?: number;
+  fireEdges?: FireEdge[];
 
   /**
-   * The maximum number of targets that the unit can shoot at.
-   * Default is 1.
+   * How firepower is split across the fire edges. Default `Shared` (one pool for the
+   * whole unit, an infantry square's faces each at a fraction); `PerEdge` gives each
+   * edge its own full pool (a ship's port/starboard broadsides each a complete volley).
    */
-  shootingMaxTargets?: number;
-
-  /**
-   * The angle margin is the minimum angle difference there must be
-   * between the current target and the rest of the targets to be shot.
-   * Default is 0.
-   */
-  shootingAngleMargin?: number;
-
-  /**
-   * The damage will be split by the number of sides or the number of shots,
-   * whichever is greater. Default is 1.
-   */
-  shootingSides?: number;
+  firepowerPooling?: FirepowerPooling;
 
   /**
    * Time in ticks to form this formation.
@@ -422,6 +445,16 @@ export interface FormationTemplate {
    * Higher values mean projectiles pass through with less damage reduction.
    */
   projectilePassThrough?: number;
+
+  /**
+   * Rank of this formation when the draw-line control arranges a mixed selection
+   * into role-based ranks (lower = closer to the front of the drawn line). Units
+   * are grouped by this value and stacked front-to-back; empty ranks collapse, so a
+   * uniform selection lays out like a plain line. Unset sorts to the back. Because
+   * formation ids do not overlap across unit classes, this doubles as a per-class
+   * layer (e.g. `skirmish` ahead of `line`).
+   */
+  drawLineRank?: number;
 
   /**
    * Effects applied when a unit switches to this formation.

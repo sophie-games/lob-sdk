@@ -32,6 +32,7 @@ function basePlayer(overrides: Partial<PlayerInfo> = {}): PlayerInfo {
     submittedAt: null,
     lostAt: null,
     lostReason: null,
+    armyReady: true,
     ...overrides,
   };
 }

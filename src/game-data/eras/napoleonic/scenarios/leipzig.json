@@ -1,11 +1,5 @@
 {
   "version": 1,
-  "name": "Battle of Leipzig",
-  "description": "The first day of the Battle of Leipzig in 1813. Map is created by user: Arethanism. (Discord username is: maggiesmith69) ",
-  "players": [
-    { "player": 1, "team": 1, "ammoReserve": 350000, "baseAmmoReserve": 350000 },
-    { "player": 2, "team": 2, "ammoReserve": 350000, "baseAmmoReserve": 350000 }
-  ],
   "map": {
     "width": 4096,
     "height": 2400,
@@ -6838,7 +6832,27 @@
       "type": 11
     }
   ],
-  "objectives": [],
+  "objectives": [
+    {
+      "player": 1,
+      "pos": { "x": 1703.83, "y": 1077.58 },
+      "type": 2,
+      "vp": 200
+    },
+    { "player": 2, "pos": { "x": 2777.37, "y": 2376.4 }, "type": 2, "vp": 200 }
+  ],
+  "players": [
+    {
+      "player": 1,
+      "team": 1,
+      "ammoReserve": 350000,
+      "baseAmmoReserve": 350000
+    },
+    { "player": 2, "team": 2, "ammoReserve": 350000, "baseAmmoReserve": 350000 }
+  ],
+  "name": "Battle of Leipzig",
+  "description": "The first day of the Battle of Leipzig in 1813. Map is created by user: Arethanism. (Discord username is: maggiesmith69) ",
   "triggers": [],
-  "allowDynamicArmy": false
+  "allowDynamicArmy": false,
+  "allowDeploymentPhase": false
 }

@@ -20,6 +20,10 @@
     "title": "Érintésalapú kijelölés",
     "description": "Engedélyezi, hogy érintőképernyős készülékeken 'dobozokat' húzhass az érintéseddel, hogy egyszerre több egységet is kitudj jelölni."
   },
+  "showControlGroupsBar": {
+    "title": "Vezérlőcsoportok sávja",
+    "description": "Megjeleníti a vezérlőcsoportok sávját. Kapcsold ki, hogy a véletlen érintések ne változtassák meg a kijelölést érintőképernyős eszközökön."
+  },
   "smartCurvedMovements": {
     "title": "Okos hajlítottságú mozgás",
     "description": "Ennek a funkciónak az engedélyezése arra van, hogy minimalizálja a forgás közbeni mozgási sebesség-veszteségét."
@@ -91,6 +95,10 @@
   "gridOpacity": {
     "title": "Rács fedettsége"
   },
+  "tracerOpacity": {
+    "title": "Nyomjelző vonalak fedettsége",
+    "description": "A távolsági támadások nyomjelző vonalainak fedettségét szabályozza. 0%-on teljesen elrejti őket."
+  },
   "showDebugShapes": {
     "title": "Hibakeresési alakzatok megjelenítése",
     "description": "Hibakeresési alakzatokat jelenít meg az egységeken, beleértve az ütközési alakzatokat és a terepellenőrzési pontokat."
@@ -124,9 +132,13 @@
     "title": "A tétlen kiválasztás a változatlan parancsokat is tartalmazza",
     "description": "Ki: csak parancs nélküli egységek. Be: azok az egységek is, amelyeknek még megvan az előző kör parancsa, ha ebben a körben nem módosítottad."
   },
+  "applyOrderTypeToSelection": {
+    "title": "A parancstípus a kijelölésre vonatkozik",
+    "description": "Be: a mozgástípus módosítása átállítja a kijelölt egységek jelenlegi parancsait, és a parancsgomb a kijelölést tükrözi. Ki: csak a következő megrajzolt parancs típusát állítja be (klasszikus)."
+  },
   "keybindings": {
-    "rotateCameraContinuous": "Kamera forgatása (tartsd lenyomva)",
-    "rotateCameraSnap": "Kamera forgatása 90°-kal",
+    "rotateCameraLeft": "Kamera forgatása balra",
+    "rotateCameraRight": "Kamera forgatása jobbra",
     "title": "Billentyűparancsok",
     "pressAKey": "Nyomj meg egy billentyűt...",
     "moveUp": "Mozgás felfelé",
@@ -145,8 +157,9 @@
     "togglePathFinding": "Útvonalkeresés váltása",
     "toggleFowPerspective": "Háborús köd perspektíva váltása",
     "toggleMultiTurnPathOrders": "Többszörös fordulási út parancsok váltása",
+    "toggleApplyOrderTypeToSelection": "A parancstípus kijelölésre alkalmazásának váltása",
     "openChat": "Chat megnyitása",
-    "openFormationModal": "Formáció ablak megnyitása",
+    "openTacticsModal": "Taktika menü megnyitása",
     "showBattleOverview": "Nyomva tartás a csata áttekintéshez",
     "formation1": "Formáció 1",
     "formation2": "Formáció 2",
@@ -168,7 +181,8 @@
     "controlGroup8": "Vezérlőcsoport 8",
     "controlGroup9": "Vezérlőcsoport 9",
     "controlGroup0": "Vezérlőcsoport 0",
-    "openPingWheel": "Jelölőkerék megnyitása"
+    "openPingWheel": "Jelölőkerék megnyitása",
+    "controlGroupsHelp": "A puszta számjegy parancsot ad ki. Csoport előhívása: {{modifier}} + a számjegye."
   },
   "routingTransparency": {
     "title": "Menekülő egységek átlátszósága"
@@ -194,5 +208,81 @@
   "groundQuality": {
     "title": "Terep minősége",
     "description": "Szabályozza a terep textúrák minőségét. A magasabb minőség jobb vizuális részleteket biztosít, de befolyásolhatja a teljesítményt. Megköveteli a térkép frissítését."
+  },
+  "appearance": "Megjelenés",
+  "era": {
+    "title": "Korszak",
+    "description": "Válaszd ki a játék korszakát. A módosítás hatással van az elérhető egységekre, pályákra és játékmechanikákra."
+  },
+  "notifications": {
+    "title": "Értesítések",
+    "turnActivity": {
+      "title": "Körök",
+      "description": "Értesíts, ha egy kör lezárul, és ha a bankidőm mindjárt lejár."
+    },
+    "chat": {
+      "title": "Üzenetek",
+      "description": "Értesíts, ha egy barátom üzenetet küld."
+    },
+    "matchmaking": {
+      "title": "Meccskeresés",
+      "description": "Értesíts, ha valaki csatlakozik egy figyelt várólistához, és ha egy lassú játék megtalálja a játékosait."
+    },
+    "reminders": {
+      "title": "Emlékeztetők",
+      "description": "Értesíts, ha a napi sorozatom mindjárt megszakad."
+    }
+  },
+  "theme": {
+    "presetTitle": "Témabeállítás",
+    "presetDescription": "Színezd át az egész alkalmazást. Az egyéni színek fizetős szintet igényelnek.",
+    "presets": {
+      "default": "Alapértelmezett",
+      "warm": "Meleg",
+      "navy": "Tengerészkék",
+      "modern": "Modern"
+    },
+    "customTitle": "Egyéni színek",
+    "unlock": "Egyéni témaszínek",
+    "groups": {
+      "surfaces": "Felületek",
+      "accent": "Kiemelés",
+      "borders": "Keretek",
+      "text": "Szöveg"
+    },
+    "tokens": {
+      "surface": "Panel háttere",
+      "surfaceDeep": "Mélyített háttér",
+      "surfaceData": "Adatháttér",
+      "surfaceDataRaised": "Adatháttér (kiemelt)",
+      "surfaceHover": "Háttér rámutatáskor",
+      "surfaceDisabled": "Letiltott háttér",
+      "accent": "Kiemelés",
+      "accentSoft": "Kiemelés (lágy)",
+      "accentDeep": "Kiemelés (mély)",
+      "line": "Keret",
+      "brass": "Gomb kitöltése / kerete",
+      "brassHover": "Gomb (rámutatás)",
+      "brassDisabled": "Gomb (letiltva)",
+      "fg": "Szöveg",
+      "fgStrong": "Szöveg (erős)",
+      "fgMuted": "Szöveg (halvány)",
+      "fgDisabled": "Szöveg (letiltva)",
+      "onAccent": "Szöveg a kiemelésen"
+    },
+    "resetTitle": "Téma visszaállítása",
+    "resetDescription": "Vissza az alapértelmezett palettához."
+  },
+  "controlGroups": {
+    "recall": "{{group}}. csoport előhívása",
+    "set": "{{group}}. csoport beállítása",
+    "add": "Hozzáadás a(z) {{group}}. csoporthoz",
+    "setExclusive": "Csak a(z) {{group}}. csoportba"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

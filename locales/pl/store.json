@@ -1,7 +1,8 @@
 {
   "currencyShop": {
     "title": "Kup <0/>",
-    "subtitle": "Odblokuj unikalne dodatki i odróżniaj się od innych!"
+    "subtitle": "Odblokuj unikalne dodatki i odróżniaj się od innych!",
+    "unavailable": "Sklep jest obecnie niedostępny. Spróbuj ponownie później."
   },
 
   "aboutCurrencies": "O walutach",
@@ -12,9 +13,19 @@
     "basicDescription": "<currency/>: Zdobywaj je grając losowe partie. Używane do rekrutowania jednostek i budowania armii.",
     "premiumDescription": "<currency/>: Służy do kupowania dodatków kosmetycznych i chwalenia się stylem. Zdobywane głównie poprzez płacenie prawdziwymi pieniędzmi, bo gra jest darmowa.",
     "rate": "{{rate}} {{currency}} za USD",
-    "purchase": "Zakup {{amount}} {{currency}}",
-    "totalSold": "Łączna ilość sprzedanego <currency/>: {{amount}}",
-    "nextGoal": "Następny cel: {{goal}} <currency/> "
+    "purchase": "Zakup {{amount}} {{currency}}"
+  },
+
+  "sale": {
+    "title": "Cotygodniowa wyprzedaż",
+    "description": "{{items}} przedmiotów -{{discount}}% taniej, tylko w tym tygodniu.",
+    "endsIn": "Kończy się za {{days}}d {{hours}}h",
+    "endsInHours": "Kończy się za {{hours}}h"
+  },
+
+  "firstPurchase": {
+    "banner": "Twój pierwszy zakup jest podwojony: każdy pakiet daje {{multiplier}}x {{currency}}.",
+    "badge": "{{multiplier}}x pierwszy zakup"
   },
 
   "purchaseConfirmation": "Na pewno chcesz kupić {{item}}?",

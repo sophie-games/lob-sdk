@@ -1,4 +1,3 @@
-import { Polygon } from "../polygon";
 import { BoundingBox, ShapeType } from "../types";
 import { Point2, Vector2 } from "@lob-sdk/vector";
 
@@ -59,45 +58,6 @@ export class Circle {
     const distanceSquared = dx * dx + dy * dy;
 
     return distanceSquared <= this.radius * this.radius;
-  }
-
-  /**
-   * Check if this circle intersects with a polygon
-   */
-  intersectsWithPolygon(polygon: Polygon): boolean {
-    // Quick check using bounding boxes
-    const polyBox = polygon.getBoundingBox();
-    if (
-      this.boundingBox.minX > polyBox.maxX ||
-      this.boundingBox.maxX < polyBox.minX ||
-      this.boundingBox.minY > polyBox.maxY ||
-      this.boundingBox.maxY < polyBox.minY
-    ) {
-      return false;
-    }
-
-    // Check if the circle's center is inside the polygon
-    if (polygon.isPointInside(this.position)) {
-      return true;
-    }
-
-    // Check if any vertex of the polygon is inside the circle
-    const vertices = polygon.getVertices();
-    for (const vertex of vertices) {
-      if (this.isPointInside(vertex)) {
-        return true;
-      }
-    }
-
-    // Check if circle intersects with any edge of the polygon
-    for (let i = 0; i < vertices.length; i++) {
-      const j = (i + 1) % vertices.length;
-      if (this.intersectsWithLine(vertices[i], vertices[j])) {
-        return true;
-      }
-    }
-
-    return false;
   }
 
   /**

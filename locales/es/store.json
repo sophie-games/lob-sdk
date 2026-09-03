@@ -1,7 +1,8 @@
 {
   "currencyShop": {
     "title": "Obtené <0/>",
-    "subtitle": "Desbloqueá cosméticos increíbles y destacate entre la multitud!"
+    "subtitle": "Usá Prestigio para conseguir cosméticos.",
+    "unavailable": "La tienda no está disponible en este momento. Volvé a intentarlo más tarde."
   },
 
   "aboutCurrencies": "Acerca de las Monedas",
@@ -9,12 +10,24 @@
   "currency": {
     "basic": "Florines",
     "premium": "Prestigio",
-    "basicDescription": "<currency/>: Gana esta moneda jugando partidas de emparejamiento. Usala para reclutar unidades y construir tu ejército.",
-    "premiumDescription": "<currency/>: Esta moneda sirve para comprar cosméticos y mostrar tu estilo. Principalmente se obtiene gastando dinero real, ya que el juego es gratuito.",
+    "basicDescription": "<currency/>: Ganalos jugando partidas de emparejamiento. Usalos para reclutar unidades y armar tu ejército.",
+    "premiumDescription": "<currency/>: Usalo para conseguir cosméticos. Podés comprarlo o ganar una pequeña cantidad mientras jugás.",
     "rate": "{{rate}} {{currency}} por USD",
-    "purchase": "Comprar {{amount}} {{currency}}",
-    "totalSold": "Total de <currency/> vendidos hasta ahora: {{amount}}",
-    "nextGoal": "Próximo objetivo: {{goal}} <currency/>"
+    "packageExtra": "Bonificación de {{amount}} incluida en el total",
+    "purchase": "Comprar {{amount}} {{currency}}"
+  },
+
+  "sale": {
+    "title": "Oferta semanal",
+    "description": "{{items}} artículos con -{{discount}}% de descuento, solo esta semana.",
+    "endsIn": "Termina en {{days}}d {{hours}}h",
+    "endsInHours": "Termina en {{hours}}h"
+  },
+
+  "firstPurchase": {
+    "banner": "Tu primera compra se duplica: cada paquete acredita {{multiplier}}x de {{currency}}.",
+    "badge": "Primera compra · valor x{{multiplier}}",
+    "packageExtra": "{{base}} base + {{bonus}} de bonificación por primera compra"
   },
 
   "purchaseConfirmation": "Estás seguro de que querés comprar {{item}}?",

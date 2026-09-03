@@ -1,7 +1,8 @@
 {
   "currencyShop": {
     "title": "Ottieni <0/>",
-    "subtitle": "Sblocca fantastici cosmetici e distinguiti dalla massa!"
+    "subtitle": "Sblocca fantastici cosmetici e distinguiti dalla massa!",
+    "unavailable": "Il negozio non è al momento disponibile. Riprova più tardi."
   },
 
   "aboutCurrencies": "Informazioni sulle valute",
@@ -12,9 +13,19 @@
     "basicDescription": "<currency/>: Guadagna questa giocando partite in coda. Usala per reclutare unità e costruire il tuo esercito.",
     "premiumDescription": "<currency/>: Questa serve per acquistare cosmetici per sfoggiare il tuo stile. Si ottiene principalmente spendendo soldi veri, dato che il gioco è gratuito.",
     "rate": "{{rate}} {{currency}} per USD",
-    "purchase": "Acquista {{amount}} {{currency}}",
-    "totalSold": "Totale <currency/> venduti finora: {{amount}}",
-    "nextGoal": "Prossimo obiettivo: {{goal}} <currency/>"
+    "purchase": "Acquista {{amount}} {{currency}}"
+  },
+
+  "sale": {
+    "title": "Offerta settimanale",
+    "description": "{{items}} oggetti al -{{discount}}%, solo questa settimana.",
+    "endsIn": "Termina tra {{days}}g {{hours}}h",
+    "endsInHours": "Termina tra {{hours}}h"
+  },
+
+  "firstPurchase": {
+    "banner": "Il tuo primo acquisto è raddoppiato: ogni pacchetto accredita {{multiplier}}x {{currency}}.",
+    "badge": "{{multiplier}}x primo acquisto"
   },
 
   "purchaseConfirmation": "Sei sicuro di voler acquistare {{item}}?",

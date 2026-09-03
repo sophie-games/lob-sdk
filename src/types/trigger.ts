@@ -4,7 +4,6 @@ import {
   OrderType,
   OrderPathPoint,
   GameEndReason,
-  DynamicBattleType,
   GameId,
 } from "@lob-sdk/types";
 
@@ -194,8 +193,6 @@ export enum GameTriggerActionType {
   DefeatPlayer = "defeatPlayer",
   /** Action to move the camera. */
   MoveCamera = "moveCamera",
-  /** Action to spawn neutral objectives. */
-  SpawnNeutralObjectives = "spawnNeutralObjectives",
   /** Action to set a game variable. */
   SetVar = "setVar",
   /** Action to end the game. */
@@ -307,35 +304,6 @@ interface ActionEndGame {
 }
 
 /**
- * Action to spawn neutral objectives on the map.
- */
-export interface ActionSpawnNeutralObjectives {
-  /** Action type is SpawnNeutralObjectives. */
-  type: GameTriggerActionType.SpawnNeutralObjectives;
-  /** Spawn configuration. */
-  value: {
-    /** Optional spacing between objectives. Optional since we now use bounding box. */
-    spacing?: number;
-    /** Number of objectives to spawn per battle type. */
-    amount?: Partial<Record<DynamicBattleType, number>>;
-    /** Minimum X position as percentage of map width (0-1). */
-    minX?: number;
-    /** Maximum X position as percentage of map width (0-1). */
-    maxX?: number;
-    /** Minimum Y position as percentage of map height (0-1). */
-    minY?: number;
-    /** Maximum Y position as percentage of map height (0-1). */
-    maxY?: number;
-    /** Orientation relative to the line between team objectives:
-     * - "perpendicular": spawn objectives perpendicular to the line between team objectives
-     * - "parallel": spawn objectives parallel to the line between team objectives
-     * - "circle": spawn objectives in a circle around the line between team objectives
-     */
-    orientation?: "perpendicular" | "parallel" | "circle";
-  };
-}
-
-/**
  * Order specification for triggers. Uses unit names instead of IDs
  * to avoid conflicts with dynamically created units.
  */
@@ -379,7 +347,6 @@ export type GameTriggerAction =
   | ActionShowMessage
   | ActionDefeatPlayer
   | ActionMoveCamera
-  | ActionSpawnNeutralObjectives
   | ActionSetVar
   | ActionEndGame
   | ActionOrderUnit;

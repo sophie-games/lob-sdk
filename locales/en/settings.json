@@ -20,6 +20,10 @@
     "title": "Allow Touch Selection Box",
     "description": "Enable selection boxes on touch devices to select multiple units at once."
   },
+  "showControlGroupsBar": {
+    "title": "Control groups bar",
+    "description": "Show the control-groups bar. Turn it off to stop accidental taps from changing your selection on touch devices."
+  },
   "smartCurvedMovements": {
     "title": "Smart Curved Movements",
     "description": "Enable this option to optimize movement paths with smooth curves, minimizing speed loss during rotations."
@@ -31,10 +35,6 @@
   "openSelectOrderModal": {
     "title": "Open Select Order Modal",
     "description": "Enable this option to show a modal for selecting orders during gameplay."
-  },
-  "openSelectFormationModal": {
-    "title": "Open Select Formation Modal",
-    "description": "Enable this option to show a modal for selecting formations during gameplay."
   },
   "showPlayableGamesAvailableModal": {
     "title": "Show Playable Games Available Modal"
@@ -102,6 +102,10 @@
   "gridOpacity": {
     "title": "Grid Opacity"
   },
+  "tracerOpacity": {
+    "title": "Tracer Laser Opacity",
+    "description": "Controls the opacity of tracer lines during ranged attacks. Set to 0% to hide them."
+  },
   "showDebugShapes": {
     "title": "Show debug shapes",
     "description": "Shows debug shapes on units including collision shapes and terrain check points."
@@ -152,12 +156,16 @@
     "title": "Idle selection includes unchanged orders",
     "description": "Off: only units with no orders. On: also units that still have last turn's order if you did not change it this turn."
   },
+  "applyOrderTypeToSelection": {
+    "title": "Order type applies to selection",
+    "description": "On: changing the movement type retypes the selected units' current orders and the order button follows your selection. Off: it only sets the type for the next order you draw (classic)."
+  },
   "showChat": {
     "title": "Show chat"
   },
   "keybindings": {
-    "rotateCameraContinuous": "Rotate camera (hold)",
-    "rotateCameraSnap": "Rotate camera 90°",
+    "rotateCameraLeft": "Rotate camera left",
+    "rotateCameraRight": "Rotate camera right",
     "title": "Keybindings",
     "pressAKey": "Press a key...",
     "moveUp": "Move up",
@@ -176,8 +184,9 @@
     "togglePathFinding": "Toggle Path finding",
     "toggleFowPerspective": "Toggle Fog of War Perspective",
     "toggleMultiTurnPathOrders": "Toggle Multi-turn Path Orders",
+    "toggleApplyOrderTypeToSelection": "Toggle Order Type Applies to Selection",
     "openChat": "Open chat",
-    "openFormationModal": "Open formation modal",
+    "openTacticsModal": "Open tactics menu",
     "showBattleOverview": "Hold for Battle Overview",
     "formation1": "Formation 1",
     "formation2": "Formation 2",
@@ -199,7 +208,8 @@
     "controlGroup8": "Control Group 8",
     "controlGroup9": "Control Group 9",
     "controlGroup0": "Control Group 0",
-    "openPingWheel": "Open ping wheel"
+    "openPingWheel": "Open ping wheel",
+    "controlGroupsHelp": "The bare digit issues an order. Recall a group with {{modifier}} + its digit."
   },
   "routingTransparency": {
     "title": "Routing Unit Transparency"
@@ -229,5 +239,75 @@
   "era": {
     "title": "Era",
     "description": "Select the era for gameplay. Changing this will affect available units, scenarios, and game mechanics."
+  },
+  "appearance": "Appearance",
+  "notifications": {
+    "title": "Notifications",
+    "turnActivity": {
+      "title": "Turns",
+      "description": "Notify me when a turn resolves and when my time bank is about to run out."
+    },
+    "chat": {
+      "title": "Messages",
+      "description": "Notify me when a friend sends me a message."
+    },
+    "matchmaking": {
+      "title": "Matchmaking",
+      "description": "Notify me when someone joins a queue I am watching, and when a slow game finds its players."
+    },
+    "reminders": {
+      "title": "Reminders",
+      "description": "Notify me when my day streak is about to end."
+    },
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
+  },
+  "theme": {
+    "presetTitle": "Theme preset",
+    "presetDescription": "Recolor the whole app. Custom colors need a paid tier.",
+    "presets": {
+      "default": "Default",
+      "warm": "Warm",
+      "navy": "Navy",
+      "modern": "Modern"
+    },
+    "customTitle": "Custom colors",
+    "unlock": "Custom theme colors",
+    "groups": {
+      "surfaces": "Surfaces",
+      "accent": "Accent",
+      "borders": "Borders",
+      "text": "Text"
+    },
+    "tokens": {
+      "surface": "Panel background",
+      "surfaceDeep": "Recessed background",
+      "surfaceData": "Data background",
+      "surfaceDataRaised": "Data background (raised)",
+      "surfaceHover": "Hover background",
+      "surfaceDisabled": "Disabled background",
+      "accent": "Accent",
+      "accentSoft": "Accent (soft)",
+      "accentDeep": "Accent (deep)",
+      "line": "Border",
+      "brass": "Button fill / border",
+      "brassHover": "Button (hover)",
+      "brassDisabled": "Button (disabled)",
+      "fg": "Text",
+      "fgStrong": "Text (strong)",
+      "fgMuted": "Text (muted)",
+      "fgDisabled": "Text (disabled)",
+      "onAccent": "Text on accent"
+    },
+    "resetTitle": "Reset theme",
+    "resetDescription": "Back to the default palette."
+  },
+  "controlGroups": {
+    "recall": "Recall Group {{group}}",
+    "set": "Set Group {{group}}",
+    "add": "Add to Group {{group}}",
+    "setExclusive": "Set Group {{group}} only"
   }
 }

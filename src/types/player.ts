@@ -29,9 +29,9 @@ export interface PlayerBattleMetadata {
   damageHealed?: UnitCounts;
   /**
    * HP this player inflicted on enemies, keyed by the enemy (victim) unit type.
-   * Symmetric to opposing players' damageTaken: the sum of all players'
-   * damageDealt for a given unit type equals the sum of their opponents'
-   * damageTaken (minus environmental damage with no attributed attacker).
+   * Broadly symmetric to opposing players' damageTaken, but strictly smaller:
+   * damage with no attributed attacker (environmental, shatter) and friendly
+   * fire both count as the victim's damageTaken while being credited to nobody.
    */
   damageDealt?: UnitCounts;
   /**
@@ -95,6 +95,8 @@ export interface Player {
 export interface PlayerInfo {
   userId: number;
   username: string;
+  /** Short tag of the player's coalition, if any. Public information. */
+  clanTag?: string | null;
   playerNumber: number;
   team: number;
   elo: number;
@@ -147,6 +149,14 @@ export interface PlayerInfo {
    * Reason this player exited the game. Null while the player is still in.
    */
   lostReason: LostReason | null;
+  /**
+   * Lobby-picker games only: whether this player has locked in a valid army
+   * (their prerequisite for the host to start). Server-computed so a redacted
+   * army composition doesn't leak. Always `true` for games without the picker
+   * and for started games, where readiness is meaningless — non-optional so no
+   * reader has to guess a default for the absent case.
+   */
+  armyReady: boolean;
 }
 
 /**

@@ -59,7 +59,7 @@ export class ConnectClustersExecutor {
       terrains,
       heightMap,
       terrain ?? pathTerrain,
-      height ?? 1,
+      height,
       width,
       terrainReplacements,
       terrainCosts,

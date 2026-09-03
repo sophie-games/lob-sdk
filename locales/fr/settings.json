@@ -20,6 +20,10 @@
     "title": "Permettre la boîte de sélection tactile",
     "description": "Active les boîtes de sélection sur les appareils tactiles pour sélectionner plusieurs unités à la fois."
   },
+  "showControlGroupsBar": {
+    "title": "Barre des groupes de contrôle",
+    "description": "Affiche la barre des groupes de contrôle. Désactivez-la pour éviter que des appuis accidentels ne modifient votre sélection sur les appareils tactiles."
+  },
   "smartCurvedMovements": {
     "title": "Mouvements courbés intelligents",
     "description": "Active cette option pour optimiser les trajets de mouvement avec des courbes fluides, réduisant la perte de vitesse lors des rotations."
@@ -88,6 +92,10 @@
   "gridOpacity": {
     "title": "Opacité de la grille"
   },
+  "tracerOpacity": {
+    "title": "Opacité des traceurs",
+    "description": "Contrôle l’opacité des lignes traçantes lors des attaques à distance. À 0 %, elles sont masquées."
+  },
   "showDebugShapes": {
     "title": "Afficher les formes de débogage",
     "description": "Affiche les formes de débogage sur les unités, y compris les formes de collision et les points de vérification du terrain."
@@ -121,12 +129,16 @@
     "title": "La sélection des unités au repos inclut les ordres inchangés",
     "description": "Désactivé : uniquement les unités sans ordre. Activé : aussi les unités qui ont encore l'ordre du tour précédent si vous ne l'avez pas modifié pendant ce tour."
   },
+  "applyOrderTypeToSelection": {
+    "title": "Le type d'ordre s'applique à la sélection",
+    "description": "Activé : changer le type de mouvement le réapplique aux ordres actuels des unités sélectionnées, et le bouton d'ordre suit votre sélection. Désactivé : il définit seulement le type du prochain ordre que vous tracez (classique)."
+  },
   "showChat": {
     "title": "Afficher le chat"
   },
   "keybindings": {
-    "rotateCameraContinuous": "Pivoter la caméra (maintenir)",
-    "rotateCameraSnap": "Pivoter la caméra de 90°",
+    "rotateCameraLeft": "Pivoter la caméra à gauche",
+    "rotateCameraRight": "Pivoter la caméra à droite",
     "title": "Raccourcis clavier",
     "pressAKey": "Appuie sur une touche...",
     "moveUp": "Monter",
@@ -145,8 +157,9 @@
     "togglePathFinding": "Basculer la recherche de chemin",
     "toggleFowPerspective": "Basculer la perspective de brouillard de guerre",
     "toggleMultiTurnPathOrders": "Basculer les ordres de chemin multi-tours",
+    "toggleApplyOrderTypeToSelection": "Basculer l'application du type d'ordre à la sélection",
     "openChat": "Ouvrir le chat",
-    "openFormationModal": "Ouvrir la fenêtre de formation",
+    "openTacticsModal": "Ouvrir le menu tactique",
     "showBattleOverview": "Maintenir pour le résumé de bataille",
     "formation1": "Formation 1",
     "formation2": "Formation 2",
@@ -158,7 +171,8 @@
     "toggleStraightLine": "Basculer la ligne droite",
     "toggleDrawLine": "Basculer désactiver les lignes de dessin",
     "splitInHalf": "Diviser en deux",
-    "openPingWheel": "Ouvrir la roue de pings"
+    "openPingWheel": "Ouvrir la roue de pings",
+    "controlGroupsHelp": "Le chiffre seul donne un ordre. Rappelez un groupe avec {{modifier}} + son chiffre."
   },
   "routingTransparency": {
     "title": "Transparence des unités en déroute"
@@ -184,5 +198,81 @@
   "groundQuality": {
     "title": "Qualité du terrain",
     "description": "Contrôle la qualité des textures du terrain. Une qualité plus élevée fournit de meilleurs détails visuels mais peut affecter les performances. Nécessite de rafraîchir la carte."
+  },
+  "appearance": "Apparence",
+  "era": {
+    "title": "Époque",
+    "description": "Sélectionnez l’époque de jeu. Ce choix modifie les unités, les scénarios et les mécaniques de jeu disponibles."
+  },
+  "notifications": {
+    "title": "Notifications",
+    "turnActivity": {
+      "title": "Tours",
+      "description": "Me prévenir quand un tour est résolu et quand mon temps de banque est presque épuisé."
+    },
+    "chat": {
+      "title": "Messages",
+      "description": "Me prévenir quand un ami m'envoie un message."
+    },
+    "matchmaking": {
+      "title": "Partie classée",
+      "description": "Me prévenir quand quelqu'un rejoint une file que je surveille et quand une partie longue trouve ses joueurs."
+    },
+    "reminders": {
+      "title": "Rappels",
+      "description": "Me prévenir quand ma série de jours est sur le point de s'arrêter."
+    }
+  },
+  "theme": {
+    "presetTitle": "Thème prédéfini",
+    "presetDescription": "Recolorez toute l'application. Les couleurs personnalisées nécessitent un palier payant.",
+    "presets": {
+      "default": "Par défaut",
+      "warm": "Chaud",
+      "navy": "Bleu marine",
+      "modern": "Moderne"
+    },
+    "customTitle": "Couleurs personnalisées",
+    "unlock": "Couleurs de thème personnalisées",
+    "groups": {
+      "surfaces": "Surfaces",
+      "accent": "Accent",
+      "borders": "Bordures",
+      "text": "Texte"
+    },
+    "tokens": {
+      "surface": "Fond du panneau",
+      "surfaceDeep": "Fond en retrait",
+      "surfaceData": "Fond des données",
+      "surfaceDataRaised": "Fond des données (surélevé)",
+      "surfaceHover": "Fond au survol",
+      "surfaceDisabled": "Fond désactivé",
+      "accent": "Accent",
+      "accentSoft": "Accent (doux)",
+      "accentDeep": "Accent (foncé)",
+      "line": "Bordure",
+      "brass": "Remplissage / bordure de bouton",
+      "brassHover": "Bouton (survol)",
+      "brassDisabled": "Bouton (désactivé)",
+      "fg": "Texte",
+      "fgStrong": "Texte (fort)",
+      "fgMuted": "Texte (atténué)",
+      "fgDisabled": "Texte (désactivé)",
+      "onAccent": "Texte sur accent"
+    },
+    "resetTitle": "Réinitialiser le thème",
+    "resetDescription": "Revenir à la palette par défaut."
+  },
+  "controlGroups": {
+    "recall": "Rappeler le groupe {{group}}",
+    "set": "Définir le groupe {{group}}",
+    "add": "Ajouter au groupe {{group}}",
+    "setExclusive": "Affecter au seul groupe {{group}}"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

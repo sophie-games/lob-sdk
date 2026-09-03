@@ -6,11 +6,13 @@
     "OAUTH_ACCOUNT": "该账号已使用谷歌账号注册过。请使用谷歌账号登录。"
   },
   "USER_IS_BANNED": "用户被封禁",
+  "PARTY_REQUIRES_TEAM_MODE": "你的队伍只能在团队模式中排队。请选择一个支持团队游戏的模式。",
   "NOT_CUSTOM_GAME": "只有自定义对局可以在大厅未满时开始。",
   "GAME_ALREADY_STARTED": "本场对局已开始。",
   "GAME_ALREADY_FINISHED": "本场对局已结束。",
   "NOT_GAME_CREATOR": "只有创建对局的玩家可以提前开始。",
   "MISSING_TEAM_PLAYERS": "开始前，每支队伍至少需要有一名玩家加入。",
+  "PLAYERS_CHOOSING_ARMIES": "开始前，所有玩家都必须选好自己的军队。",
   "GAME_DOES_NOT_EXIST": "本场对局已不存在。",
   "ERROR_STARTING_GAME": "开始对局时出现问题，请重试。",
   "ORDERS_ALREADY_SUBMITTED": "本回合的命令已经收到。",
@@ -22,6 +24,8 @@
   "LIMITED_MODE_NOT_AVAILABLE": "此模式当前不可用。",
   "LIMITED_MODE_BUSY": "另一位玩家正在创建游戏。请稍后再试。",
   "INSUFFICIENT_CURRENCY": "货币不足。",
+  "MAX_SLOW_QUEUE_LIMIT_REACHED": "你在队列中等待的对局已达上限。请先撤回一局再重新排队。",
+  "USER_NOT_ADDED_TO_THE_QUEUE": "无法将你加入队列，请重试。",
   "INVALID_CURRENCY_TYPE": "货币选择无效。",
   "INTERNAL_ERROR": "出错了，请重试。"
 }

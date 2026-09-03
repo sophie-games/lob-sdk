@@ -7,9 +7,6 @@
     "unitType": 1,
     "attackColor": "ff90ff",
     "formations": {
-      "mass": {
-        "overlay": "valentines-line"
-      },
       "column": {
         "overlay": "valentines-line-column"
       },
@@ -21,7 +18,7 @@
       }
     },
     "locked": true,
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 33,
@@ -31,18 +28,18 @@
     "unitType": 4,
     "attackColor": "ff90ff",
     "formations": {
-      "mass": {
-        "overlay": "valentines-guards"
-      },
       "column": {
         "overlay": "valentines-guards-column"
       },
       "line": {
         "overlay": "valentines-guards-line"
+      },
+      "square": {
+        "overlay": "valentines-guards-square"
       }
     },
     "locked": true,
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 34,
@@ -52,18 +49,18 @@
     "unitType": 7,
     "attackColor": "ff90ff",
     "formations": {
-      "mass": {
-        "overlay": "valentines-chasseurs"
-      },
       "column": {
         "overlay": "valentines-chasseurs-column"
       },
       "line": {
         "overlay": "valentines-chasseurs-line"
+      },
+      "square": {
+        "overlay": "valentines-chasseurs-square"
       }
     },
     "locked": true,
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 36,
@@ -78,7 +75,7 @@
         "overlay": "valentines-hussars"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 37,
@@ -93,7 +90,7 @@
         "overlay": "valentines-lancers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 38,
@@ -108,7 +105,7 @@
         "overlay": "valentines-cuirassiers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 46,
@@ -123,7 +120,7 @@
         "overlay": "valentines-12lb-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 47,
@@ -138,7 +135,7 @@
         "overlay": "valentines-horse-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 48,
@@ -153,7 +150,7 @@
         "overlay": "valentines-howitzers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 39,
@@ -166,7 +163,7 @@
         "overlay": "austrian-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 40,
@@ -175,17 +172,17 @@
     "premiumPrice": 150,
     "unitType": 7,
     "formations": {
-      "mass": {
-        "overlay": "austrian-chasseurs"
-      },
       "column": {
         "overlay": "austrian-chasseurs-column"
       },
       "line": {
         "overlay": "austrian-chasseurs-line"
+      },
+      "square": {
+        "overlay": "austrian-chasseurs-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 41,
@@ -198,7 +195,7 @@
         "overlay": "austrian-cuirassiers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 42,
@@ -211,7 +208,7 @@
         "overlay": "austrian-horse-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 43,
@@ -224,7 +221,7 @@
         "overlay": "austrian-howitzers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 44,
@@ -237,7 +234,7 @@
         "overlay": "austrian-galician-uhlans"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 45,
@@ -250,7 +247,7 @@
         "overlay": "french-horse-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 14,
@@ -259,17 +256,17 @@
     "premiumPrice": 150,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "french-old-guard"
-      },
       "column": {
         "overlay": "french-old-guard-column"
       },
       "line": {
         "overlay": "french-old-guard-line"
+      },
+      "square": {
+        "overlay": "french-old-guard-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 15,
@@ -282,7 +279,7 @@
         "overlay": "french-la-brigade-infernale"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 16,
@@ -295,7 +292,7 @@
         "overlay": "french-1st-cuirassier"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 17,
@@ -304,17 +301,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "french-italian-legion"
-      },
       "column": {
         "overlay": "french-italian-legion-column"
       },
       "line": {
         "overlay": "french-italian-legion-line"
+      },
+      "square": {
+        "overlay": "french-italian-legion-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 18,
@@ -323,17 +320,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "french-irish-legion"
-      },
       "column": {
         "overlay": "french-irish-legion-column"
       },
       "line": {
         "overlay": "french-irish-legion-line"
+      },
+      "square": {
+        "overlay": "french-irish-legion-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 19,
@@ -342,17 +339,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "french-swiss-legion"
-      },
       "column": {
         "overlay": "french-swiss-legion-column"
       },
       "line": {
         "overlay": "french-swiss-legion-line"
+      },
+      "square": {
+        "overlay": "french-swiss-legion-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 26,
@@ -361,17 +358,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "french-polish-legion"
-      },
       "column": {
         "overlay": "french-polish-legion-column"
       },
       "line": {
         "overlay": "french-polish-legion-line"
+      },
+      "square": {
+        "overlay": "french-polish-legion-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 27,
@@ -380,17 +377,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "austrian-czech-infanterie"
-      },
       "column": {
         "overlay": "austrian-czech-infanterie-column"
       },
       "line": {
         "overlay": "austrian-czech-infanterie-line"
+      },
+      "square": {
+        "overlay": "austrian-czech-infanterie-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 28,
@@ -399,17 +396,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "austrian-hungarian-infanterie"
-      },
       "column": {
         "overlay": "austrian-hungarian-infanterie-column"
       },
       "line": {
         "overlay": "austrian-hungarian-infanterie-line"
+      },
+      "square": {
+        "overlay": "austrian-hungarian-infanterie-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 29,
@@ -418,17 +415,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "austrian-italian-infanterie"
-      },
       "column": {
         "overlay": "austrian-italian-infanterie-column"
       },
       "line": {
         "overlay": "austrian-italian-infanterie-line"
+      },
+      "square": {
+        "overlay": "austrian-italian-infanterie-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 30,
@@ -437,17 +434,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "austrian-galician-infanterie"
-      },
       "column": {
         "overlay": "austrian-galician-infanterie-column"
       },
       "line": {
         "overlay": "austrian-galician-infanterie-line"
+      },
+      "square": {
+        "overlay": "austrian-galician-infanterie-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 31,
@@ -456,17 +453,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "austrian-moravian-infanterie"
-      },
       "column": {
         "overlay": "austrian-moravian-infanterie-column"
       },
       "line": {
         "overlay": "austrian-moravian-infanterie-line"
+      },
+      "square": {
+        "overlay": "austrian-moravian-infanterie-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 22,
@@ -479,7 +476,7 @@
         "overlay": "british-cuirassier"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 24,
@@ -488,17 +485,17 @@
     "premiumPrice": 200,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "british-69th-foot"
-      },
       "column": {
         "overlay": "british-69th-foot-column"
       },
       "line": {
         "overlay": "british-69th-foot-line"
+      },
+      "square": {
+        "overlay": "british-69th-foot-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 25,
@@ -507,9 +504,6 @@
     "premiumPrice": 150,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "austrian-hungarian-grenadiers"
-      },
       "column": {
         "overlay": "austrian-hungarian-grenadiers-column"
       },
@@ -520,7 +514,7 @@
         "overlay": "austrian-hungarian-grenadiers-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 23,
@@ -529,9 +523,6 @@
     "premiumPrice": 250,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "british-coldstream-guards"
-      },
       "column": {
         "overlay": "british-coldstream-guards-column"
       },
@@ -542,7 +533,7 @@
         "overlay": "british-coldstream-guards-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 1,
@@ -551,9 +542,6 @@
     "premiumPrice": 150,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "highland-guard"
-      },
       "column": {
         "overlay": "highland-guard-column"
       },
@@ -564,7 +552,7 @@
         "overlay": "highland-guard-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 35,
@@ -573,17 +561,17 @@
     "premiumPrice": 250,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "the-blackwatch"
-      },
       "column": {
         "overlay": "the-blackwatch-column"
       },
       "line": {
         "overlay": "the-blackwatch-line"
+      },
+      "square": {
+        "overlay": "the-blackwatch-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 11,
@@ -596,7 +584,7 @@
         "overlay": "french-polish-lancers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 12,
@@ -609,7 +597,7 @@
         "overlay": "british-royal-lancer"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 13,
@@ -622,7 +610,7 @@
         "overlay": "austrian-hungarian-hussar"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 2,
@@ -631,9 +619,6 @@
     "premiumPrice": 25,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "bronze-line-infantry"
-      },
       "column": {
         "overlay": "bronze-line-infantry-column"
       },
@@ -644,7 +629,7 @@
         "overlay": "bronze-line-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 3,
@@ -653,9 +638,6 @@
     "premiumPrice": 50,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "silver-line-infantry"
-      },
       "column": {
         "overlay": "silver-line-infantry-column"
       },
@@ -666,7 +648,7 @@
         "overlay": "silver-line-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 4,
@@ -676,9 +658,6 @@
     "unitType": 1,
     "attackColor": "FFD700",
     "formations": {
-      "mass": {
-        "overlay": "gold-line-infantry"
-      },
       "column": {
         "overlay": "gold-line-infantry-column"
       },
@@ -689,7 +668,7 @@
         "overlay": "gold-line-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 5,
@@ -702,7 +681,7 @@
         "overlay": "bronze-hussar"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 6,
@@ -715,7 +694,7 @@
         "overlay": "silver-hussar"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 7,
@@ -729,7 +708,7 @@
         "overlay": "gold-hussar"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 8,
@@ -742,7 +721,7 @@
         "overlay": "bronze-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 9,
@@ -755,7 +734,7 @@
         "overlay": "silver-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 10,
@@ -769,7 +748,7 @@
         "overlay": "gold-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 49,
@@ -782,7 +761,7 @@
         "overlay": "british-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 50,
@@ -795,7 +774,7 @@
         "overlay": "british-horse-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 51,
@@ -808,7 +787,7 @@
         "overlay": "british-howitzers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 52,
@@ -817,9 +796,6 @@
     "premiumPrice": 150,
     "unitType": 7,
     "formations": {
-      "mass": {
-        "overlay": "british-rifle-brigade"
-      },
       "column": {
         "overlay": "british-rifle-brigade-column"
       },
@@ -830,7 +806,7 @@
         "overlay": "british-rifle-brigade-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 54,
@@ -843,7 +819,7 @@
         "overlay": "french-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 55,
@@ -856,7 +832,7 @@
         "overlay": "french-howitzers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 56,
@@ -865,17 +841,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "british-kings-dutch-brigade"
-      },
       "column": {
         "overlay": "british-kings-dutch-brigade-column"
       },
       "line": {
         "overlay": "british-kings-dutch-brigade-line"
+      },
+      "square": {
+        "overlay": "british-kings-dutch-brigade-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 57,
@@ -884,17 +860,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "british-kings-german-legion"
-      },
       "column": {
         "overlay": "british-kings-german-legion-column"
       },
       "line": {
         "overlay": "british-kings-german-legion-line"
+      },
+      "square": {
+        "overlay": "british-kings-german-legion-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 58,
@@ -903,17 +879,17 @@
     "premiumPrice": 150,
     "unitType": 7,
     "formations": {
-      "mass": {
-        "overlay": "french-chasseurs"
-      },
       "column": {
         "overlay": "french-chasseurs-column"
       },
       "line": {
         "overlay": "french-chasseurs-line"
+      },
+      "square": {
+        "overlay": "french-chasseurs-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 59,
@@ -926,7 +902,7 @@
         "overlay": "russian-uhlans"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 60,
@@ -935,36 +911,36 @@
     "premiumPrice": 150,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "russian-preobrazhenskiy"
-      },
       "column": {
         "overlay": "russian-preobrazhenskiy-column"
       },
       "line": {
         "overlay": "russian-preobrazhenskiy-line"
+      },
+      "square": {
+        "overlay": "russian-preobrazhenskiy-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 61,
-    "name": "russian-lifeguards",
+    "name": "russian-lifeguard-grenadiers",
     "tier": 1,
     "premiumPrice": 150,
-    "unitType": 4,
+    "unitType": 14,
     "formations": {
-      "mass": {
-        "overlay": "russian-lifeguards"
-      },
       "column": {
-        "overlay": "russian-lifeguards-column"
+        "overlay": "russian-lifeguard-grenadiers-column"
       },
       "line": {
-        "overlay": "russian-lifeguards-line"
+        "overlay": "russian-lifeguard-grenadiers-line"
+      },
+      "square": {
+        "overlay": "russian-grenadiers-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 62,
@@ -977,7 +953,7 @@
         "overlay": "russian-chevalier-guards"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 63,
@@ -990,7 +966,7 @@
         "overlay": "russian-pavlogradskiy-hussars"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 64,
@@ -999,17 +975,17 @@
     "premiumPrice": 150,
     "unitType": 7,
     "formations": {
-      "mass": {
-        "overlay": "russian-35th-jagers"
-      },
       "column": {
         "overlay": "russian-35th-jagers-column"
       },
       "line": {
         "overlay": "russian-35th-jagers-line"
+      },
+      "square": {
+        "overlay": "russian-35th-jagers-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 65,
@@ -1018,17 +994,17 @@
     "premiumPrice": 150,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "russian-finland-lifeguards"
-      },
       "column": {
         "overlay": "russian-finland-lifeguards-column"
       },
       "line": {
         "overlay": "russian-finland-lifeguards-line"
+      },
+      "square": {
+        "overlay": "russian-finland-lifeguards-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 66,
@@ -1037,17 +1013,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "russian-nevskiy-musketeers"
-      },
       "column": {
         "overlay": "russian-nevskiy-musketeers-column"
       },
       "line": {
         "overlay": "russian-nevskiy-musketeers-line"
+      },
+      "square": {
+        "overlay": "russian-nevskiy-musketeers-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 67,
@@ -1056,17 +1032,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "russian-novgorod-musketeers"
-      },
       "column": {
         "overlay": "russian-novgorod-musketeers-column"
       },
       "line": {
         "overlay": "russian-novgorod-musketeers-line"
+      },
+      "square": {
+        "overlay": "russian-novgorod-musketeers-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 68,
@@ -1075,17 +1051,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "russian-siberian-infantry"
-      },
       "column": {
         "overlay": "russian-siberian-infantry-column"
       },
       "line": {
         "overlay": "russian-siberian-infantry-line"
+      },
+      "square": {
+        "overlay": "russian-siberian-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 69,
@@ -1098,7 +1074,7 @@
         "overlay": "russian-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 70,
@@ -1111,7 +1087,7 @@
         "overlay": "russian-horse-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 71,
@@ -1124,7 +1100,7 @@
         "overlay": "russian-howitzers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 72,
@@ -1137,7 +1113,7 @@
         "overlay": "prussian-brunswick-cavalry"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 73,
@@ -1146,17 +1122,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "prussian-pomeranian-infantry"
-      },
       "column": {
         "overlay": "prussian-pomeranian-infantry-column"
       },
       "line": {
         "overlay": "prussian-pomeranian-infantry-line"
+      },
+      "square": {
+        "overlay": "prussian-pomeranian-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 74,
@@ -1165,17 +1141,17 @@
     "premiumPrice": 250,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "prussian-lifeguards"
-      },
       "column": {
         "overlay": "prussian-lifeguards-column"
       },
       "line": {
         "overlay": "prussian-lifeguards-line"
+      },
+      "square": {
+        "overlay": "prussian-lifeguards-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 75,
@@ -1188,7 +1164,7 @@
         "overlay": "prussian-cuirassiers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 76,
@@ -1201,7 +1177,7 @@
         "overlay": "prussian-12lb-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 77,
@@ -1214,7 +1190,7 @@
         "overlay": "prussian-brandenburg-uhlans"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 78,
@@ -1227,7 +1203,7 @@
         "overlay": "prussian-horse-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 79,
@@ -1240,7 +1216,7 @@
         "overlay": "prussian-howitzers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 80,
@@ -1249,17 +1225,17 @@
     "premiumPrice": 150,
     "unitType": 7,
     "formations": {
-      "mass": {
-        "overlay": "prussian-fusiliers"
-      },
       "column": {
         "overlay": "prussian-fusiliers-column"
       },
       "line": {
         "overlay": "prussian-fusiliers-line"
+      },
+      "square": {
+        "overlay": "prussian-fusiliers-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 81,
@@ -1268,17 +1244,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "austrian-imperial-infanterie"
-      },
       "column": {
         "overlay": "austrian-imperial-infanterie-column"
       },
       "line": {
         "overlay": "austrian-imperial-infanterie-line"
+      },
+      "square": {
+        "overlay": "austrian-imperial-infanterie-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 82,
@@ -1287,17 +1263,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "prussian-1st-east-infantry"
-      },
       "column": {
         "overlay": "prussian-1st-east-infantry-column"
       },
       "line": {
         "overlay": "prussian-1st-east-infantry-line"
+      },
+      "square": {
+        "overlay": "prussian-1st-east-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 83,
@@ -1306,17 +1282,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "prussian-1st-west-infantry"
-      },
       "column": {
         "overlay": "prussian-1st-west-infantry-column"
       },
       "line": {
         "overlay": "prussian-1st-west-infantry-line"
+      },
+      "square": {
+        "overlay": "prussian-1st-west-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 84,
@@ -1325,17 +1301,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "prussian-2nd-east-infantry"
-      },
       "column": {
         "overlay": "prussian-2nd-east-infantry-column"
       },
       "line": {
         "overlay": "prussian-2nd-east-infantry-line"
+      },
+      "square": {
+        "overlay": "prussian-2nd-east-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 85,
@@ -1348,7 +1324,7 @@
         "overlay": "bashkirs"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 86,
@@ -1362,7 +1338,7 @@
         "overlay": null
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 87,
@@ -1375,7 +1351,7 @@
         "overlay": "argentinian-mounted-grenadiers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 88,
@@ -1384,9 +1360,6 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "argentinian-patricians"
-      },
       "column": {
         "overlay": "argentinian-patricians-column"
       },
@@ -1397,7 +1370,7 @@
         "overlay": "argentinian-patricians-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 89,
@@ -1407,11 +1380,14 @@
     "unitType": 10,
     "locked": true,
     "formations": {
-      "militia_mass": {
-        "overlay": "argentinian-pardos-y-morenos"
+      "column": {
+        "overlay": "argentinian-pardos-y-morenos-column"
+      },
+      "line": {
+        "overlay": "argentinian-pardos-y-morenos-line"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 20,
@@ -1420,9 +1396,6 @@
     "premiumPrice": 150,
     "unitType": 7,
     "formations": {
-      "mass": {
-        "overlay": "italian-light-infantry"
-      },
       "column": {
         "overlay": "italian-light-infantry-column"
       },
@@ -1433,7 +1406,7 @@
         "overlay": "italian-light-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 90,
@@ -1442,17 +1415,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "italian-bersaglieri-infantry"
-      },
       "column": {
         "overlay": "italian-bersaglieri-infantry-column"
       },
       "line": {
         "overlay": "italian-bersaglieri-infantry-line"
+      },
+      "square": {
+        "overlay": "italian-bersaglieri-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 91,
@@ -1461,17 +1434,17 @@
     "premiumPrice": 150,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "italian-guards"
-      },
       "column": {
         "overlay": "italian-guards-column"
       },
       "line": {
         "overlay": "italian-guards-line"
+      },
+      "square": {
+        "overlay": "italian-guards-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 21,
@@ -1480,17 +1453,17 @@
     "premiumPrice": 150,
     "unitType": 7,
     "formations": {
-      "mass": {
-        "overlay": "italian-alpine-infantry"
-      },
       "column": {
         "overlay": "italian-alpine-infantry-column"
       },
       "line": {
         "overlay": "italian-alpine-infantry-line"
+      },
+      "square": {
+        "overlay": "italian-alpine-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 92,
@@ -1503,7 +1476,7 @@
         "overlay": "silladar-horse-archers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 93,
@@ -1512,14 +1485,14 @@
     "premiumPrice": 150,
     "unitType": 10,
     "formations": {
-      "militia_mass": {
-        "overlay": "french-marie-louise"
+      "column": {
+        "overlay": "french-marie-louise-column"
       },
-      "militia_line": {
+      "line": {
         "overlay": "french-marie-louise-line"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 94,
@@ -1528,14 +1501,14 @@
     "premiumPrice": 150,
     "unitType": 10,
     "formations": {
-      "militia_mass": {
-        "overlay": "french-national-guard"
+      "column": {
+        "overlay": "french-national-guard-column"
       },
-      "militia_line": {
+      "line": {
         "overlay": "french-national-guard-line"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 95,
@@ -1544,9 +1517,6 @@
     "premiumPrice": 150,
     "unitType": 7,
     "formations": {
-      "mass": {
-        "overlay": "brazilian-cazadores"
-      },
       "column": {
         "overlay": "brazilian-cazadores-column"
       },
@@ -1557,7 +1527,7 @@
         "overlay": "brazilian-cazadores-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 96,
@@ -1570,7 +1540,7 @@
         "overlay": "brazilian-dragoes-da-idependencia"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 97,
@@ -1579,9 +1549,6 @@
     "premiumPrice": 150,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "brazilian-emperors-guards"
-      },
       "column": {
         "overlay": "brazilian-emperors-guards-column"
       },
@@ -1592,7 +1559,7 @@
         "overlay": "brazilian-emperors-guards-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 98,
@@ -1601,9 +1568,6 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "brazilian-infantaria-de-linha"
-      },
       "column": {
         "overlay": "brazilian-infantaria-de-linha-column"
       },
@@ -1614,7 +1578,7 @@
         "overlay": "brazilian-infantaria-de-linha-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 99,
@@ -1627,7 +1591,7 @@
         "overlay": "brazilian-lanceiros-gauchos"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 100,
@@ -1640,7 +1604,7 @@
         "overlay": "french-dragoons"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 101,
@@ -1653,7 +1617,7 @@
         "overlay": "east-india-12lb-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 102,
@@ -1666,7 +1630,7 @@
         "overlay": "east-india-8lb-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 103,
@@ -1675,17 +1639,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "east-india-bengali-sepoys"
-      },
       "column": {
         "overlay": "east-india-bengali-sepoys-column"
       },
       "line": {
         "overlay": "east-india-bengali-sepoys-line"
+      },
+      "square": {
+        "overlay": "east-india-bengali-sepoys-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 104,
@@ -1698,7 +1662,7 @@
         "overlay": "east-india-gardners-lancers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 105,
@@ -1711,7 +1675,7 @@
         "overlay": "east-india-hindustani-sowars"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 106,
@@ -1724,7 +1688,7 @@
         "overlay": "east-india-horse-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 107,
@@ -1737,7 +1701,7 @@
         "overlay": "east-india-howitzers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 108,
@@ -1746,17 +1710,17 @@
     "premiumPrice": 150,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "east-india-madras-pioneers"
-      },
       "column": {
         "overlay": "east-india-madras-pioneers-column"
       },
       "line": {
         "overlay": "east-india-madras-pioneers-line"
+      },
+      "square": {
+        "overlay": "east-india-madras-pioneers-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 109,
@@ -1769,7 +1733,7 @@
         "overlay": "east-india-mogul-mercenary-horse"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 110,
@@ -1778,11 +1742,14 @@
     "premiumPrice": 150,
     "unitType": 10,
     "formations": {
-      "militia_mass": {
-        "overlay": "east-india-native-volunteers"
+      "column": {
+        "overlay": "east-india-native-volunteers-column"
+      },
+      "line": {
+        "overlay": "east-india-native-volunteers-line"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 111,
@@ -1791,17 +1758,17 @@
     "premiumPrice": 150,
     "unitType": 7,
     "formations": {
-      "mass": {
-        "overlay": "east-india-nusseree-gurkhas"
-      },
       "column": {
         "overlay": "east-india-nusseree-gurkhas-column"
       },
       "line": {
         "overlay": "east-india-nusseree-gurkhas-line"
+      },
+      "square": {
+        "overlay": "east-india-nusseree-gurkhas-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 112,
@@ -1814,7 +1781,7 @@
         "overlay": "east-india-skinners-horse"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 113,
@@ -1823,9 +1790,6 @@
     "premiumPrice": 250,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "swedish-caroleans"
-      },
       "column": {
         "overlay": "swedish-caroleans-column"
       },
@@ -1836,7 +1800,7 @@
         "overlay": "swedish-caroleans-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 114,
@@ -1849,7 +1813,7 @@
         "overlay": "east-india-4lb-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 115,
@@ -1862,7 +1826,7 @@
         "overlay": "british-scots-greys"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 116,
@@ -1876,7 +1840,7 @@
         "overlay": "xiangqi-horse-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 117,
@@ -1889,7 +1853,7 @@
         "overlay": "xiangqi-hussars"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 118,
@@ -1902,7 +1866,7 @@
         "overlay": "xiangqi-cuirassiers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 119,
@@ -1915,7 +1879,7 @@
         "overlay": "xiangqi-dragoons"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 120,
@@ -1924,9 +1888,6 @@
     "premiumPrice": 250,
     "unitType": 14,
     "formations": {
-      "mass": {
-        "overlay": "xiangqi-grenadiers"
-      },
       "column": {
         "overlay": "xiangqi-grenadiers-column"
       },
@@ -1937,7 +1898,7 @@
         "overlay": "xiangqi-grenadiers-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 121,
@@ -1946,17 +1907,17 @@
     "premiumPrice": 250,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "xiangqi-guards"
-      },
       "column": {
         "overlay": "xiangqi-guards-column"
       },
       "line": {
         "overlay": "xiangqi-guards-line"
+      },
+      "square": {
+        "overlay": "xiangqi-guards-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 122,
@@ -1969,7 +1930,7 @@
         "overlay": "xiangqi-lancers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 123,
@@ -1978,9 +1939,6 @@
     "premiumPrice": 250,
     "unitType": 7,
     "formations": {
-      "mass": {
-        "overlay": "xiangqi-light-infantry"
-      },
       "column": {
         "overlay": "xiangqi-light-infantry-column"
       },
@@ -1991,7 +1949,7 @@
         "overlay": "xiangqi-light-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 124,
@@ -2000,17 +1958,17 @@
     "premiumPrice": 250,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "xiangqi-line-infantry"
-      },
       "column": {
         "overlay": "xiangqi-line-infantry-column"
       },
       "line": {
         "overlay": "xiangqi-line-infantry-line"
+      },
+      "square": {
+        "overlay": "xiangqi-line-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 125,
@@ -2019,11 +1977,14 @@
     "premiumPrice": 250,
     "unitType": 10,
     "formations": {
-      "militia_mass": {
-        "overlay": "xiangqi-militia"
+      "column": {
+        "overlay": "xiangqi-militia-column"
+      },
+      "line": {
+        "overlay": "xiangqi-militia-line"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 126,
@@ -2036,7 +1997,7 @@
         "overlay": "french-lancers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 127,
@@ -2045,17 +2006,17 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "hellenic-line-infantry"
-      },
       "column": {
         "overlay": "hellenic-line-infantry-column"
       },
       "line": {
         "overlay": "hellenic-line-infantry-line"
+      },
+      "square": {
+        "overlay": "hellenic-line-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 128,
@@ -2064,17 +2025,17 @@
     "premiumPrice": 150,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "hellenic-sacred-band"
-      },
       "column": {
         "overlay": "hellenic-sacred-band-column"
       },
       "line": {
         "overlay": "hellenic-sacred-band-line"
+      },
+      "square": {
+        "overlay": "hellenic-sacred-band-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 129,
@@ -2087,7 +2048,7 @@
         "overlay": "hellenic-klefts"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 130,
@@ -2096,10 +2057,6 @@
     "premiumPrice": 1250,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "base": "ornate-base",
-        "overlay": "ornate-old-guard"
-      },
       "column": {
         "overlay": "ornate-old-guard-column"
       },
@@ -2110,7 +2067,7 @@
         "overlay": "ornate-old-guard-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 131,
@@ -2119,10 +2076,6 @@
     "premiumPrice": 1250,
     "unitType": 14,
     "formations": {
-      "mass": {
-        "base": "ornate-base2",
-        "overlay": "ornate-middle-guard"
-      },
       "column": {
         "overlay": "ornate-middle-guard-column"
       },
@@ -2133,7 +2086,7 @@
         "overlay": "ornate-middle-guard-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 132,
@@ -2142,10 +2095,6 @@
     "premiumPrice": 1250,
     "unitType": 7,
     "formations": {
-      "mass": {
-        "base": "ornate-base3",
-        "overlay": "ornate-young-guard"
-      },
       "column": {
         "overlay": "ornate-young-guard-column"
       },
@@ -2156,7 +2105,7 @@
         "overlay": "ornate-young-guard-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 133,
@@ -2165,17 +2114,17 @@
     "premiumPrice": 200,
     "unitType": 14,
     "formations": {
-      "mass": {
-        "overlay": "french-middle-guard"
-      },
       "column": {
         "overlay": "french-middle-guard-column"
       },
       "line": {
         "overlay": "french-middle-guard-line"
+      },
+      "square": {
+        "overlay": "french-middle-guard-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 134,
@@ -2184,17 +2133,17 @@
     "premiumPrice": 200,
     "unitType": 7,
     "formations": {
-      "mass": {
-        "overlay": "french-young-guard"
-      },
       "column": {
         "overlay": "french-young-guard-column"
       },
       "line": {
         "overlay": "french-young-guard-line"
+      },
+      "square": {
+        "overlay": "french-young-guard-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 135,
@@ -2203,17 +2152,17 @@
     "premiumPrice": 150,
     "unitType": 7,
     "formations": {
-      "mass": {
-        "overlay": "hellenic-evzones"
-      },
       "column": {
         "overlay": "hellenic-evzones-column"
       },
       "line": {
         "overlay": "hellenic-evzones-line"
+      },
+      "square": {
+        "overlay": "hellenic-evzones-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 136,
@@ -2226,7 +2175,7 @@
         "overlay": "hussardous"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 137,
@@ -2239,7 +2188,7 @@
         "overlay": "hydragoon-bomb"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 138,
@@ -2252,7 +2201,7 @@
         "overlay": "hellenic-hussars"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 139,
@@ -2265,7 +2214,7 @@
         "overlay": "hellenic-lancers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 140,
@@ -2278,7 +2227,7 @@
         "overlay": "silver-cuirassier"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 141,
@@ -2291,7 +2240,7 @@
         "overlay": "silver-dragoon"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 142,
@@ -2300,9 +2249,6 @@
     "premiumPrice": 50,
     "unitType": 14,
     "formations": {
-      "mass": {
-        "overlay": "silver-grenadier"
-      },
       "column": {
         "overlay": "silver-grenadier-column"
       },
@@ -2313,7 +2259,7 @@
         "overlay": "silver-grenadier-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 143,
@@ -2322,9 +2268,6 @@
     "premiumPrice": 50,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "silver-guard"
-      },
       "column": {
         "overlay": "silver-guard-column"
       },
@@ -2335,7 +2278,7 @@
         "overlay": "silver-guard-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 144,
@@ -2348,7 +2291,7 @@
         "overlay": "silver-lancer"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 145,
@@ -2357,9 +2300,6 @@
     "premiumPrice": 50,
     "unitType": 7,
     "formations": {
-      "mass": {
-        "overlay": "silver-light-infantry"
-      },
       "column": {
         "overlay": "silver-light-infantry-column"
       },
@@ -2370,7 +2310,7 @@
         "overlay": "silver-light-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 146,
@@ -2379,14 +2319,14 @@
     "premiumPrice": 50,
     "unitType": 10,
     "formations": {
-      "militia_mass": {
-        "overlay": "silver-militia"
+      "column": {
+        "overlay": "silver-militia-column"
       },
-      "militia_line": {
+      "line": {
         "overlay": "silver-militia-line"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 147,
@@ -2399,7 +2339,7 @@
         "overlay": "silver-skirmisher"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 148,
@@ -2413,7 +2353,7 @@
         "overlay": "gold-cuirassier"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 149,
@@ -2427,7 +2367,7 @@
         "overlay": "gold-dragoon"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 150,
@@ -2437,9 +2377,6 @@
     "unitType": 14,
     "attackColor": "FFD700",
     "formations": {
-      "mass": {
-        "overlay": "gold-grenadier"
-      },
       "column": {
         "overlay": "gold-grenadier-column"
       },
@@ -2450,7 +2387,7 @@
         "overlay": "gold-grenadier-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 151,
@@ -2460,9 +2397,6 @@
     "unitType": 4,
     "attackColor": "FFD700",
     "formations": {
-      "mass": {
-        "overlay": "gold-guard"
-      },
       "column": {
         "overlay": "gold-guard-column"
       },
@@ -2473,7 +2407,7 @@
         "overlay": "gold-guard-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 152,
@@ -2487,7 +2421,7 @@
         "overlay": "gold-lancer"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 153,
@@ -2497,9 +2431,6 @@
     "unitType": 7,
     "attackColor": "FFD700",
     "formations": {
-      "mass": {
-        "overlay": "gold-light-infantry"
-      },
       "column": {
         "overlay": "gold-light-infantry-column"
       },
@@ -2510,7 +2441,7 @@
         "overlay": "gold-light-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 154,
@@ -2520,14 +2451,14 @@
     "unitType": 10,
     "attackColor": "FFD700",
     "formations": {
-      "militia_mass": {
-        "overlay": "gold-militia"
+      "column": {
+        "overlay": "gold-militia-column"
       },
-      "militia_line": {
+      "line": {
         "overlay": "gold-militia-line"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 155,
@@ -2541,7 +2472,7 @@
         "overlay": "gold-skirmisher"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 156,
@@ -2554,7 +2485,7 @@
         "overlay": "austrian-dragoons"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 157,
@@ -2563,9 +2494,6 @@
     "premiumPrice": 150,
     "unitType": 14,
     "formations": {
-      "mass": {
-        "overlay": "austrian-grenadiers"
-      },
       "column": {
         "overlay": "austrian-grenadiers-column"
       },
@@ -2576,7 +2504,7 @@
         "overlay": "austrian-grenadiers-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 158,
@@ -2589,7 +2517,7 @@
         "overlay": "austrian-skirmishers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 159,
@@ -2598,9 +2526,6 @@
     "premiumPrice": 150,
     "unitType": 14,
     "formations": {
-      "mass": {
-        "overlay": "british-grenadiers"
-      },
       "column": {
         "overlay": "british-grenadiers-column"
       },
@@ -2611,7 +2536,7 @@
         "overlay": "british-grenadiers-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 160,
@@ -2624,7 +2549,7 @@
         "overlay": "british-skirmishers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 161,
@@ -2637,7 +2562,7 @@
         "overlay": "british-king-german-hussars"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 162,
@@ -2650,7 +2575,7 @@
         "overlay": "prussian-dragoons"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 163,
@@ -2659,9 +2584,6 @@
     "premiumPrice": 150,
     "unitType": 14,
     "formations": {
-      "mass": {
-        "overlay": "prussian-grenadiers"
-      },
       "column": {
         "overlay": "prussian-grenadiers-column"
       },
@@ -2672,7 +2594,7 @@
         "overlay": "prussian-grenadiers-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 164,
@@ -2685,7 +2607,7 @@
         "overlay": "prussian-skirmishers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 165,
@@ -2698,7 +2620,7 @@
         "overlay": "french-skirmishers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 166,
@@ -2711,7 +2633,7 @@
         "overlay": "russian-dragoons"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 167,
@@ -2720,9 +2642,6 @@
     "premiumPrice": 150,
     "unitType": 14,
     "formations": {
-      "mass": {
-        "overlay": "russian-grenadiers"
-      },
       "column": {
         "overlay": "russian-grenadiers-column"
       },
@@ -2733,7 +2652,7 @@
         "overlay": "russian-grenadiers-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 168,
@@ -2746,7 +2665,7 @@
         "overlay": "russian-skirmishers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 169,
@@ -2759,7 +2678,7 @@
         "overlay": "bronze-cuirassier"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 170,
@@ -2772,7 +2691,7 @@
         "overlay": "bronze-dragoon"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 171,
@@ -2781,9 +2700,6 @@
     "premiumPrice": 25,
     "unitType": 14,
     "formations": {
-      "mass": {
-        "overlay": "bronze-grenadier"
-      },
       "column": {
         "overlay": "bronze-grenadier-column"
       },
@@ -2794,7 +2710,7 @@
         "overlay": "bronze-grenadier-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 172,
@@ -2803,9 +2719,6 @@
     "premiumPrice": 25,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "bronze-guard"
-      },
       "column": {
         "overlay": "bronze-guard-column"
       },
@@ -2816,7 +2729,7 @@
         "overlay": "bronze-guard-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 173,
@@ -2829,7 +2742,7 @@
         "overlay": "bronze-lancer"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 174,
@@ -2838,9 +2751,6 @@
     "premiumPrice": 25,
     "unitType": 7,
     "formations": {
-      "mass": {
-        "overlay": "bronze-light-infantry"
-      },
       "column": {
         "overlay": "bronze-light-infantry-column"
       },
@@ -2851,7 +2761,7 @@
         "overlay": "bronze-light-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 175,
@@ -2860,14 +2770,14 @@
     "premiumPrice": 25,
     "unitType": 10,
     "formations": {
-      "militia_mass": {
-        "overlay": "bronze-militia"
+      "column": {
+        "overlay": "bronze-militia-column"
       },
-      "militia_line": {
+      "line": {
         "overlay": "bronze-militia-line"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 176,
@@ -2880,7 +2790,7 @@
         "overlay": "bronze-skirmishers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 177,
@@ -2889,14 +2799,14 @@
     "premiumPrice": 150,
     "unitType": 10,
     "formations": {
-      "militia_mass": {
-        "overlay": "serbian-revolutionary-militia"
+      "column": {
+        "overlay": "serbian-revolutionary-militia-column"
       },
-      "militia_line": {
+      "line": {
         "overlay": "serbian-revolutionary-militia-line"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 178,
@@ -2905,9 +2815,6 @@
     "premiumPrice": 150,
     "unitType": 7,
     "formations": {
-      "mass": {
-        "overlay": "bavarian-chasseurs"
-      },
       "column": {
         "overlay": "bavarian-chasseurs-column"
       },
@@ -2918,7 +2825,7 @@
         "overlay": "bavarian-chasseurs-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 179,
@@ -2931,7 +2838,7 @@
         "overlay": "bavarian-cuirassiers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 180,
@@ -2944,7 +2851,7 @@
         "overlay": "bavarian-dragoons"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 181,
@@ -2953,9 +2860,6 @@
     "premiumPrice": 150,
     "unitType": 14,
     "formations": {
-      "mass": {
-        "overlay": "bavarian-grenadiers"
-      },
       "column": {
         "overlay": "bavarian-grenadiers-column"
       },
@@ -2966,7 +2870,7 @@
         "overlay": "bavarian-grenadiers-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 182,
@@ -2975,9 +2879,6 @@
     "premiumPrice": 150,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "overlay": "bavarian-guards"
-      },
       "column": {
         "overlay": "bavarian-guards-column"
       },
@@ -2988,7 +2889,7 @@
         "overlay": "bavarian-guards-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 183,
@@ -3001,7 +2902,7 @@
         "overlay": "bavarian-hussars"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 184,
@@ -3014,7 +2915,7 @@
         "overlay": "bavarian-lancers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 185,
@@ -3023,9 +2924,6 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "bavarian-line-infantry"
-      },
       "column": {
         "overlay": "bavarian-line-infantry-column"
       },
@@ -3036,7 +2934,7 @@
         "overlay": "bavarian-line-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 186,
@@ -3049,7 +2947,7 @@
         "overlay": "bavarian-skirmishers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 187,
@@ -3062,7 +2960,7 @@
         "overlay": "french-chasseurs-e-cheval"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 188,
@@ -3075,7 +2973,7 @@
         "overlay": "french-empress-dragoons"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 189,
@@ -3088,7 +2986,7 @@
         "overlay": "french-grenadiers-a-cheval"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 190,
@@ -3102,7 +3000,7 @@
         "overlay": "ornate-chasseurs-e-cheval"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 191,
@@ -3116,7 +3014,7 @@
         "overlay": "ornate-empress-dragoons"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 192,
@@ -3130,7 +3028,7 @@
         "overlay": "ornate-grenadiers-a-cheval"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 193,
@@ -3144,7 +3042,7 @@
         "overlay": "ornate-polish-lancers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 194,
@@ -3158,7 +3056,7 @@
         "overlay": "lobster-dragoons"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 195,
@@ -3173,7 +3071,7 @@
         "overlay": "ornate-russian-lifeguard-jagers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 196,
@@ -3187,7 +3085,7 @@
         "overlay": "lobster-cuirassiers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 197,
@@ -3201,7 +3099,7 @@
         "overlay": "farg-forg-ferg"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 198,
@@ -3210,10 +3108,6 @@
     "premiumPrice": 1250,
     "unitType": 14,
     "formations": {
-      "mass": {
-        "base": "lobster-grenadiers",
-        "overlay": "lobster-grenadiers"
-      },
       "column": {
         "overlay": "lobster-grenadiers-column"
       },
@@ -3224,7 +3118,7 @@
         "overlay": "lobster-grenadiers-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 199,
@@ -3233,10 +3127,6 @@
     "premiumPrice": 1250,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "base": "lobster-guards",
-        "overlay": "lobster-guards"
-      },
       "column": {
         "overlay": "lobster-guards-column"
       },
@@ -3247,7 +3137,7 @@
         "overlay": "lobster-guards-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 200,
@@ -3261,7 +3151,7 @@
         "overlay": "lobster-lancers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 201,
@@ -3275,7 +3165,7 @@
         "overlay": "lobster-hussars"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 202,
@@ -3289,7 +3179,7 @@
         "overlay": "ornate-russian-cuirassiers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 203,
@@ -3303,7 +3193,7 @@
         "overlay": "ornate-russian-dragoons"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 204,
@@ -3312,10 +3202,6 @@
     "premiumPrice": 1250,
     "unitType": 14,
     "formations": {
-      "mass": {
-        "base": "ornate-russian-grenadiers",
-        "overlay": "ornate-russian-grenadiers"
-      },
       "column": {
         "overlay": "ornate-russian-grenadiers-column"
       },
@@ -3326,7 +3212,7 @@
         "overlay": "ornate-russian-grenadiers-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 205,
@@ -3335,10 +3221,6 @@
     "premiumPrice": 1250,
     "unitType": 4,
     "formations": {
-      "mass": {
-        "base": "ornate-russian-guards",
-        "overlay": "ornate-russian-guards"
-      },
       "column": {
         "overlay": "ornate-russian-guards-column"
       },
@@ -3349,7 +3231,7 @@
         "overlay": "ornate-russian-guards-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 206,
@@ -3363,7 +3245,7 @@
         "overlay": "ornate-russian-lancers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 207,
@@ -3377,7 +3259,7 @@
         "overlay": "ornate-russian-hussars"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 208,
@@ -3390,7 +3272,7 @@
         "overlay": "swedish-cuirassiers"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 209,
@@ -3399,9 +3281,6 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "chilean-viejos-estandartes"
-      },
       "column": {
         "overlay": "chilean-viejos-estandartes-column"
       },
@@ -3412,7 +3291,7 @@
         "overlay": "chilean-viejos-estandartes-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 210,
@@ -3425,29 +3304,7 @@
         "overlay": "chilean-husares-de-la-muerte"
       }
     },
-    "discount": 0.2
-  },
-  {
-    "id": 211,
-    "name": "chilean-grenadiers",
-    "tier": 1,
-    "premiumPrice": 150,
-    "unitType": 14,
-    "formations": {
-      "mass": {
-        "overlay": "chilean-grenadiers"
-      },
-      "column": {
-        "overlay": "chilean-grenadiers-column"
-      },
-      "line": {
-        "overlay": "chilean-grenadiers-line"
-      },
-      "square": {
-        "overlay": "chilean-grenadiers-square"
-      }
-    },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 212,
@@ -3456,14 +3313,14 @@
     "premiumPrice": 150,
     "unitType": 10,
     "formations": {
-      "militia_mass": {
-        "overlay": "chilean-huasos-y-gauchos"
+      "column": {
+        "overlay": "chilean-huasos-y-gauchos-column"
       },
-      "militia_line": {
+      "line": {
         "overlay": "chilean-huasos-y-gauchos-line"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 213,
@@ -3477,7 +3334,7 @@
         "overlay": "headless-hussarman"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 214,
@@ -3490,7 +3347,7 @@
         "overlay": "chilean-haras-nacionales"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 215,
@@ -3499,10 +3356,6 @@
     "premiumPrice": 1250,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "base": "roman-legion",
-        "overlay": "roman-legion"
-      },
       "column": {
         "overlay": "roman-legion-column"
       },
@@ -3513,7 +3366,7 @@
         "overlay": "roman-legion-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 216,
@@ -3523,10 +3376,6 @@
     "unitType": 14,
     "attackColor": "ff0000",
     "formations": {
-      "mass": {
-        "overlay": "the-rebellious-ai-grenadiers",
-        "attackColor": "00ff00"
-      },
       "column": {
         "overlay": "the-rebellious-ai-grenadiers-column",
         "attackColor": "ff0000"
@@ -3540,7 +3389,7 @@
         "attackColor": "ff8800"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 217,
@@ -3550,13 +3399,9 @@
     "unitType": 4,
     "attackColor": "ff0000",
     "formations": {
-      "mass": {
-        "overlay": "the-rebellious-ai-guards",
-        "attackColor": "0000ff"
-      },
       "column": {
         "overlay": "the-rebellious-ai-guards-column",
-        "attackColor": "ff0000"
+        "attackColor": "0000ff"
       },
       "line": {
         "overlay": "the-rebellious-ai-guards-line",
@@ -3567,7 +3412,7 @@
         "attackColor": "ff8800"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 218,
@@ -3577,10 +3422,6 @@
     "unitType": 7,
     "attackColor": "ff0000",
     "formations": {
-      "mass": {
-        "overlay": "the-rebellious-ai-light-infantry",
-        "attackColor": "00ff00"
-      },
       "column": {
         "overlay": "the-rebellious-ai-light-infantry-column",
         "attackColor": "ff0000"
@@ -3594,7 +3435,7 @@
         "attackColor": "ff8800"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 219,
@@ -3603,9 +3444,6 @@
     "premiumPrice": 150,
     "unitType": 1,
     "formations": {
-      "mass": {
-        "overlay": "austrian-infantry"
-      },
       "column": {
         "overlay": "austrian-infantry-column"
       },
@@ -3616,7 +3454,7 @@
         "overlay": "austrian-infantry-square"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 220,
@@ -3630,7 +3468,7 @@
         "overlay": "gold-rifles"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 221,
@@ -3644,7 +3482,7 @@
         "overlay": "gold-4lb-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
   },
   {
     "id": 222,
@@ -3658,6 +3496,946 @@
         "overlay": "gold-6lb-artillery"
       }
     },
-    "discount": 0.2
+    "discount": 0
+  },
+  {
+    "id": 223,
+    "name": "austrian-silesian-infanterie",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 1,
+    "formations": {
+      "column": {
+        "overlay": "austrian-silesian-infanterie-column"
+      },
+      "line": {
+        "overlay": "austrian-silesian-infanterie-line"
+      },
+      "square": {
+        "overlay": "austrian-silesian-infanterie-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 224,
+    "name": "austrian-militia",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 10,
+    "formations": {
+      "column": {
+        "overlay": "austrian-militia-column"
+      },
+      "line": {
+        "overlay": "austrian-militia-line"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 225,
+    "name": "argentinian-cazadores",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 7,
+    "formations": {
+      "column": {
+        "overlay": "argentinian-cazadores-column"
+      },
+      "line": {
+        "overlay": "argentinian-cazadores-line"
+      },
+      "square": {
+        "overlay": "argentinian-cazadores-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 226,
+    "name": "argentinian-dragones",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 2,
+    "formations": {
+      "cavalry": {
+        "overlay": "argentinian-dragones"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 227,
+    "name": "argentinian-gauchos-de-guemes",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 5,
+    "formations": {
+      "cavalry": {
+        "overlay": "argentinian-gauchos-de-guemes"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 228,
+    "name": "argentinian-grenadiers",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 14,
+    "formations": {
+      "column": {
+        "overlay": "argentinian-grenadiers-column"
+      },
+      "line": {
+        "overlay": "argentinian-grenadiers-line"
+      },
+      "square": {
+        "overlay": "argentinian-grenadiers-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 229,
+    "name": "argentinian-husares-de-puyrredon",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 11,
+    "formations": {
+      "cavalry": {
+        "overlay": "argentinian-husares-de-puyrredon"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 230,
+    "name": "bolivian-cochabamba-grenadiers",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 14,
+    "formations": {
+      "column": {
+        "overlay": "bolivian-cochabamba-grenadiers-column"
+      },
+      "line": {
+        "overlay": "bolivian-cochabamba-grenadiers-line"
+      },
+      "square": {
+        "overlay": "bolivian-cochabamba-grenadiers-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 231,
+    "name": "bolivian-cochabamba-infantry",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 1,
+    "formations": {
+      "column": {
+        "overlay": "bolivian-cochabamba-infantry-column"
+      },
+      "line": {
+        "overlay": "bolivian-cochabamba-infantry-line"
+      },
+      "square": {
+        "overlay": "bolivian-cochabamba-infantry-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 232,
+    "name": "bolivian-colorados",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 4,
+    "formations": {
+      "column": {
+        "overlay": "bolivian-colorados-column"
+      },
+      "line": {
+        "overlay": "bolivian-colorados-line"
+      },
+      "square": {
+        "overlay": "bolivian-colorados-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 233,
+    "name": "bolivian-coraceros",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 8,
+    "formations": {
+      "cavalry": {
+        "overlay": "bolivian-coraceros"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 234,
+    "name": "bolivian-lanceros-de-los-andes",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 5,
+    "formations": {
+      "cavalry": {
+        "overlay": "bolivian-lanceros-de-los-andes"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 235,
+    "name": "bolivian-skirmishers",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 16,
+    "formations": {
+      "skirmish": {
+        "overlay": "bolivian-skirmishers"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 236,
+    "name": "chilean-cazadores",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 7,
+    "formations": {
+      "column": {
+        "overlay": "chilean-cazadores-column"
+      },
+      "line": {
+        "overlay": "chilean-cazadores-line"
+      },
+      "square": {
+        "overlay": "chilean-cazadores-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 237,
+    "name": "chilean-coraceros",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 8,
+    "formations": {
+      "cavalry": {
+        "overlay": "chilean-coraceros"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 238,
+    "name": "chilean-dragones",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 2,
+    "formations": {
+      "cavalry": {
+        "overlay": "chilean-dragones"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 239,
+    "name": "chilean-expedicion-libertadora",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 1,
+    "formations": {
+      "column": {
+        "overlay": "chilean-expedicion-libertadora-column"
+      },
+      "line": {
+        "overlay": "chilean-expedicion-libertadora-line"
+      },
+      "square": {
+        "overlay": "chilean-expedicion-libertadora-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 240,
+    "name": "chilean-granaderos-de-infanteria",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 14,
+    "formations": {
+      "column": {
+        "overlay": "chilean-granaderos-de-infanteria-column"
+      },
+      "line": {
+        "overlay": "chilean-granaderos-de-infanteria-line"
+      },
+      "square": {
+        "overlay": "chilean-granaderos-de-infanteria-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 241,
+    "name": "chilean-guard",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 4,
+    "formations": {
+      "column": {
+        "overlay": "chilean-guard-column"
+      },
+      "line": {
+        "overlay": "chilean-guard-line"
+      },
+      "square": {
+        "overlay": "chilean-guard-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 242,
+    "name": "chilean-husares-de-la-gran-guardia",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 11,
+    "formations": {
+      "cavalry": {
+        "overlay": "chilean-husares-de-la-gran-guardia"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 243,
+    "name": "chilean-rotos",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 1,
+    "formations": {
+      "column": {
+        "overlay": "chilean-rotos-column"
+      },
+      "line": {
+        "overlay": "chilean-rotos-line"
+      },
+      "square": {
+        "overlay": "chilean-rotos-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 244,
+    "name": "colombian-british-irish-legion",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 1,
+    "formations": {
+      "column": {
+        "overlay": "colombian-british-irish-legion-column"
+      },
+      "line": {
+        "overlay": "colombian-british-irish-legion-line"
+      },
+      "square": {
+        "overlay": "colombian-british-irish-legion-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 245,
+    "name": "colombian-dragones",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 2,
+    "formations": {
+      "cavalry": {
+        "overlay": "colombian-dragones"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 246,
+    "name": "colombian-granaderos",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 14,
+    "formations": {
+      "column": {
+        "overlay": "colombian-granaderos-column"
+      },
+      "line": {
+        "overlay": "colombian-granaderos-line"
+      },
+      "square": {
+        "overlay": "colombian-granaderos-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 247,
+    "name": "colombian-guardia-del-libertador",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 4,
+    "formations": {
+      "column": {
+        "overlay": "colombian-guardia-del-libertador-column"
+      },
+      "line": {
+        "overlay": "colombian-guardia-del-libertador-line"
+      },
+      "square": {
+        "overlay": "colombian-guardia-del-libertador-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 248,
+    "name": "colombian-guerrilleros",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 10,
+    "formations": {
+      "column": {
+        "overlay": "colombian-guerrilleros-column"
+      },
+      "line": {
+        "overlay": "colombian-guerrilleros-line"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 249,
+    "name": "colombian-husares",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 11,
+    "formations": {
+      "cavalry": {
+        "overlay": "colombian-husares"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 250,
+    "name": "colombian-infantry",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 1,
+    "formations": {
+      "column": {
+        "overlay": "colombian-infantry-column"
+      },
+      "line": {
+        "overlay": "colombian-infantry-line"
+      },
+      "square": {
+        "overlay": "colombian-infantry-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 251,
+    "name": "colombian-llaneros",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 5,
+    "formations": {
+      "cavalry": {
+        "overlay": "colombian-llaneros"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 252,
+    "name": "colombian-rifles",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 17,
+    "formations": {
+      "skirmish": {
+        "overlay": "colombian-rifles"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 253,
+    "name": "colombian-voltigueros",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 7,
+    "formations": {
+      "column": {
+        "overlay": "colombian-voltigueros-column"
+      },
+      "line": {
+        "overlay": "colombian-voltigueros-line"
+      },
+      "square": {
+        "overlay": "colombian-voltigueros-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 254,
+    "name": "ejercito-de-los-andes",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 1,
+    "formations": {
+      "column": {
+        "overlay": "ejercito-de-los-andes-column"
+      },
+      "line": {
+        "overlay": "ejercito-de-los-andes-line"
+      },
+      "square": {
+        "overlay": "ejercito-de-los-andes-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 255,
+    "name": "mexican-batallon-tres-villas",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 7,
+    "formations": {
+      "column": {
+        "overlay": "mexican-batallon-tres-villas-column"
+      },
+      "line": {
+        "overlay": "mexican-batallon-tres-villas-line"
+      },
+      "square": {
+        "overlay": "mexican-batallon-tres-villas-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 256,
+    "name": "mexican-chinacos",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 5,
+    "formations": {
+      "cavalry": {
+        "overlay": "mexican-chinacos"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 257,
+    "name": "mexican-coraceros-de-tulancingo",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 8,
+    "formations": {
+      "cavalry": {
+        "overlay": "mexican-coraceros-de-tulancingo"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 258,
+    "name": "mexican-dragoons",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 2,
+    "formations": {
+      "cavalry": {
+        "overlay": "mexican-dragoons"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 259,
+    "name": "mexican-ejercito-trigarante",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 1,
+    "formations": {
+      "column": {
+        "overlay": "mexican-ejercito-trigarante-column"
+      },
+      "line": {
+        "overlay": "mexican-ejercito-trigarante-line"
+      },
+      "square": {
+        "overlay": "mexican-ejercito-trigarante-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 260,
+    "name": "mexican-granaderos-de-santa-ana",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 14,
+    "formations": {
+      "column": {
+        "overlay": "mexican-granaderos-de-santa-ana-column"
+      },
+      "line": {
+        "overlay": "mexican-granaderos-de-santa-ana-line"
+      },
+      "square": {
+        "overlay": "mexican-granaderos-de-santa-ana-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 261,
+    "name": "mexican-guardia-de-maximiliano",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 4,
+    "formations": {
+      "column": {
+        "overlay": "mexican-guardia-de-maximiliano-column"
+      },
+      "line": {
+        "overlay": "mexican-guardia-de-maximiliano-line"
+      },
+      "square": {
+        "overlay": "mexican-guardia-de-maximiliano-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 262,
+    "name": "mexican-guardia-de-santa-ana",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 4,
+    "formations": {
+      "column": {
+        "overlay": "mexican-guardia-de-santa-ana-column"
+      },
+      "line": {
+        "overlay": "mexican-guardia-de-santa-ana-line"
+      },
+      "square": {
+        "overlay": "mexican-guardia-de-santa-ana-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 263,
+    "name": "mexican-guardia-nacional",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 10,
+    "formations": {
+      "column": {
+        "overlay": "mexican-guardia-nacional-column"
+      },
+      "line": {
+        "overlay": "mexican-guardia-nacional-line"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 264,
+    "name": "mexican-guerrilleros",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 10,
+    "formations": {
+      "column": {
+        "overlay": "mexican-guerrilleros-column"
+      },
+      "line": {
+        "overlay": "mexican-guerrilleros-line"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 265,
+    "name": "mexican-husares",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 11,
+    "formations": {
+      "cavalry": {
+        "overlay": "mexican-husares"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 266,
+    "name": "mexican-infanteria-de-linea",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 1,
+    "formations": {
+      "column": {
+        "overlay": "mexican-infanteria-de-linea-column"
+      },
+      "line": {
+        "overlay": "mexican-infanteria-de-linea-line"
+      },
+      "square": {
+        "overlay": "mexican-infanteria-de-linea-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 267,
+    "name": "mexican-irish-st-patricians",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 6,
+    "formations": {
+      "artillery": {
+        "overlay": "mexican-irish-st-patricians"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 268,
+    "name": "mexican-lanceros-de-jalisco",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 5,
+    "formations": {
+      "cavalry": {
+        "overlay": "mexican-lanceros-de-jalisco"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 269,
+    "name": "milicias-de-iquicha",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 10,
+    "formations": {
+      "column": {
+        "overlay": "milicias-de-iquicha-column"
+      },
+      "line": {
+        "overlay": "milicias-de-iquicha-line"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 270,
+    "name": "peru-bolivian-infantry",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 1,
+    "formations": {
+      "column": {
+        "overlay": "peru-bolivian-infantry-column"
+      },
+      "line": {
+        "overlay": "peru-bolivian-infantry-line"
+      },
+      "square": {
+        "overlay": "peru-bolivian-infantry-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 271,
+    "name": "peruvian-dragones",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 2,
+    "formations": {
+      "cavalry": {
+        "overlay": "peruvian-dragones"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 272,
+    "name": "peruvian-grenadiers",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 14,
+    "formations": {
+      "column": {
+        "overlay": "peruvian-grenadiers-column"
+      },
+      "line": {
+        "overlay": "peruvian-grenadiers-line"
+      },
+      "square": {
+        "overlay": "peruvian-grenadiers-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 273,
+    "name": "peruvian-guard-legion",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 4,
+    "formations": {
+      "column": {
+        "overlay": "peruvian-guard-legion-column"
+      },
+      "line": {
+        "overlay": "peruvian-guard-legion-line"
+      },
+      "square": {
+        "overlay": "peruvian-guard-legion-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 274,
+    "name": "peruvian-husares-de-junin",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 11,
+    "formations": {
+      "cavalry": {
+        "overlay": "peruvian-husares-de-junin"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 275,
+    "name": "peruvian-infantry",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 1,
+    "formations": {
+      "column": {
+        "overlay": "peruvian-infantry-column"
+      },
+      "line": {
+        "overlay": "peruvian-infantry-line"
+      },
+      "square": {
+        "overlay": "peruvian-infantry-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 276,
+    "name": "peruvian-lanceros",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 5,
+    "formations": {
+      "cavalry": {
+        "overlay": "peruvian-lanceros"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 277,
+    "name": "peruvian-montoneros",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 10,
+    "formations": {
+      "column": {
+        "overlay": "peruvian-montoneros-column"
+      },
+      "line": {
+        "overlay": "peruvian-montoneros-line"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 278,
+    "name": "russian-semyonovskiy",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 4,
+    "formations": {
+      "column": {
+        "overlay": "russian-semyonovskiy-column"
+      },
+      "line": {
+        "overlay": "russian-semyonovskiy-line"
+      },
+      "square": {
+        "overlay": "russian-semyonovskiy-square"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 279,
+    "name": "austrian-jagers",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 17,
+    "formations": {
+      "skirmish": {
+        "overlay": "austrian-jagers"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 280,
+    "name": "austrian-czech-skirmishers",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 16,
+    "formations": {
+      "skirmish": {
+        "overlay": "austrian-czech-skirmishers"
+      }
+    },
+    "discount": 0
   }
 ]

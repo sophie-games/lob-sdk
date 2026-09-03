@@ -20,6 +20,10 @@
     "title": "Izinkan Layar Sentuh Untuk Memilih Kotak Area",
     "description": "Aktifkan kotak pilihan pada perangkat sentuh untuk memilih beberapa unit sekaligus."
   },
+  "showControlGroupsBar": {
+    "title": "Bilah Grup Kontrol",
+    "description": "Menampilkan bilah grup kontrol. Matikan agar ketukan yang tidak disengaja tidak mengubah pilihan Anda di perangkat sentuh."
+  },
   "smartCurvedMovements": {
     "title": "Smart Curved Movement",
     "description": "Aktifkan opsi ini untuk mengoptimalkan jalur pergerakan dengan kurva halus, meminimalkan kehilangan kecepatan selama rotasi."
@@ -91,6 +95,10 @@
   "gridOpacity": {
     "title": "Opasitas Grid"
   },
+  "tracerOpacity": {
+    "title": "Opasitas Garis Pelacak",
+    "description": "Mengatur opasitas garis pelacak selama serangan jarak jauh. Atur ke 0% untuk menyembunyikannya."
+  },
   "showDebugShapes": {
     "title": "Tampilkan bentuk debug",
     "description": "Menampilkan bentuk debug pada unit termasuk bentuk tabrakan dan titik pemeriksaan medan."
@@ -124,9 +132,13 @@
     "title": "Pilihan menganggur menyertakan perintah yang tidak diubah",
     "description": "Mati: hanya unit tanpa perintah. Nyala: juga unit yang masih memiliki perintah giliran lalu jika Anda tidak mengubahnya di giliran ini."
   },
+  "applyOrderTypeToSelection": {
+    "title": "Tipe perintah berlaku untuk pilihan",
+    "description": "Aktif: mengubah tipe gerakan akan mengubah perintah unit yang dipilih saat ini, dan tombol perintah mengikuti pilihan Anda. Nonaktif: hanya menetapkan tipe untuk perintah berikutnya yang Anda gambar (klasik)."
+  },
   "keybindings": {
-    "rotateCameraContinuous": "Putar kamera (tahan)",
-    "rotateCameraSnap": "Putar kamera 90°",
+    "rotateCameraLeft": "Putar kamera ke kiri",
+    "rotateCameraRight": "Putar kamera ke kanan",
     "title": "Tombol Pintasan",
     "pressAKey": "Tekan Tombol...",
     "moveUp": "Gerak Ke Atas",
@@ -145,8 +157,9 @@
     "togglePathFinding": "Alihkan pencarian rute",
     "toggleFowPerspective": "Ubah Perspektif Kabut Perang",
     "toggleMultiTurnPathOrders": "Alihkan perintah jalur multi-giliran",
+    "toggleApplyOrderTypeToSelection": "Alihkan penerapan tipe perintah ke pilihan",
     "openChat": "Buka Chat",
-    "openFormationModal": "Buka Jendela Formasi",
+    "openTacticsModal": "Buka menu taktik",
     "showBattleOverview": "Tahan untuk Ringkasan Pertempuran",
     "formation1": "Formasi 1",
     "formation2": "Formasi 2",
@@ -168,7 +181,8 @@
     "controlGroup8": "Grup Kontrol 8",
     "controlGroup9": "Grup Kontrol 9",
     "controlGroup0": "Grup Kontrol 0",
-    "openPingWheel": "Buka roda ping"
+    "openPingWheel": "Buka roda ping",
+    "controlGroupsHelp": "Angka polos mengeluarkan perintah. Panggil grup dengan {{modifier}} + angkanya."
   },
   "routingTransparency": {
     "title": "Transparansi Unit Mundur"
@@ -194,5 +208,81 @@
   "groundQuality": {
     "title": "Kualitas tanah",
     "description": "Mengontrol kualitas tekstur tanah. Kualitas yang lebih tinggi memberikan detail visual yang lebih baik tetapi dapat mempengaruhi kinerja. Memerlukan penyegaran peta."
+  },
+  "appearance": "Tampilan",
+  "era": {
+    "title": "Era",
+    "description": "Pilih era permainan. Mengubahnya akan memengaruhi unit, skenario, dan mekanisme permainan yang tersedia."
+  },
+  "notifications": {
+    "title": "Notifikasi",
+    "turnActivity": {
+      "title": "Giliran",
+      "description": "Beri tahu saya saat giliran selesai dan saat waktu bank saya hampir habis."
+    },
+    "chat": {
+      "title": "Pesan",
+      "description": "Beri tahu saya saat teman mengirim pesan."
+    },
+    "matchmaking": {
+      "title": "Pencarian Permainan",
+      "description": "Beri tahu saya saat ada yang masuk antrean yang saya pantau, dan saat permainan lambat menemukan pemainnya."
+    },
+    "reminders": {
+      "title": "Pengingat",
+      "description": "Beri tahu saya saat rentetan harian saya hampir berakhir."
+    }
+  },
+  "theme": {
+    "presetTitle": "Tema bawaan",
+    "presetDescription": "Warnai ulang seluruh aplikasi. Warna kustom memerlukan tingkat berbayar.",
+    "presets": {
+      "default": "Bawaan",
+      "warm": "Hangat",
+      "navy": "Biru navy",
+      "modern": "Modern"
+    },
+    "customTitle": "Warna kustom",
+    "unlock": "Warna tema kustom",
+    "groups": {
+      "surfaces": "Permukaan",
+      "accent": "Aksen",
+      "borders": "Garis tepi",
+      "text": "Teks"
+    },
+    "tokens": {
+      "surface": "Latar panel",
+      "surfaceDeep": "Latar cekung",
+      "surfaceData": "Latar data",
+      "surfaceDataRaised": "Latar data (terangkat)",
+      "surfaceHover": "Latar saat disorot",
+      "surfaceDisabled": "Latar nonaktif",
+      "accent": "Aksen",
+      "accentSoft": "Aksen (lembut)",
+      "accentDeep": "Aksen (pekat)",
+      "line": "Garis tepi",
+      "brass": "Isi / garis tepi tombol",
+      "brassHover": "Tombol (disorot)",
+      "brassDisabled": "Tombol (nonaktif)",
+      "fg": "Teks",
+      "fgStrong": "Teks (tegas)",
+      "fgMuted": "Teks (redup)",
+      "fgDisabled": "Teks (nonaktif)",
+      "onAccent": "Teks di atas aksen"
+    },
+    "resetTitle": "Setel ulang tema",
+    "resetDescription": "Kembali ke palet bawaan."
+  },
+  "controlGroups": {
+    "recall": "Panggil grup {{group}}",
+    "set": "Atur grup {{group}}",
+    "add": "Tambahkan ke grup {{group}}",
+    "setExclusive": "Tetapkan hanya ke grup {{group}}"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

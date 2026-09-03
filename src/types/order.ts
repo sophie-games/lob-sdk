@@ -1,4 +1,5 @@
 import { EntityId, UnitCategoryId } from "@lob-sdk/types";
+import type { EngagementRange } from "@lob-sdk/game-data-manager";
 
 /**
  * Type of order that can be given to a unit.
@@ -257,8 +258,8 @@ export interface OrderTemplate {
   speedModifierWhenShootingByCategory?: Partial<Record<UnitCategoryId, number>>;
   /** Modifier for damage received while executing this order. */
   receivedDamageModifier?: number;
-  /** Whether the unit can fire while moving (0 = false, 1 = true). */
-  allowFireWhenMoving?: number;
+  /** Whether the unit can fire while moving. */
+  allowFireWhenMoving?: boolean;
   /** Charge resistance bonus while executing this order. */
   chargeResistance?: number;
   /** Whether this order keeps enemy units running. */
@@ -295,12 +296,8 @@ export interface TurnSubmission {
 export interface UnitAutofireConfigChange {
   /** Entity ID of the unit. */
   unitId: EntityId;
-  /**
-   * These are the damage types that are disabled for autofire.
-   * By default, all damage types are enabled for autofire. We made it this way to avoid
-   * sending a lot of data over the network.
-   */
-  holdFireDamageTypes: number[];
+  /** Autofire engagement-range tier to apply to the unit. */
+  autofireRange: EngagementRange;
 }
 
 /**

@@ -20,6 +20,10 @@
     "title": "Consenti riquadro di selezione touch",
     "description": "Abilita i riquadri di selezione sui dispositivi touch per selezionare più unità contemporaneamente."
   },
+  "showControlGroupsBar": {
+    "title": "Barra dei gruppi di controllo",
+    "description": "Mostra la barra dei gruppi di controllo. Disattivala per evitare che tocchi accidentali cambino la selezione sui dispositivi touch."
+  },
   "smartCurvedMovements": {
     "title": "Movimenti curvi intelligenti",
     "description": "Abilita questa opzione per ottimizzare i percorsi di movimento con curve fluide, riducendo la perdita di velocità durante le rotazioni."
@@ -91,6 +95,10 @@
   "gridOpacity": {
     "title": "Opacità della griglia"
   },
+  "tracerOpacity": {
+    "title": "Opacità delle scie traccianti",
+    "description": "Controlla l’opacità delle linee traccianti durante gli attacchi a distanza. Impostala su 0% per nasconderle."
+  },
   "showDebugShapes": {
     "title": "Mostra forme di debug",
     "description": "Mostra forme di debug sulle unità inclusi forme di collisione e punti di controllo del terreno."
@@ -124,9 +132,13 @@
     "title": "La selezione delle unità inattive include ordini invariati",
     "description": "Spento: solo unità senza ordini. Acceso: anche unità che hanno ancora l'ordine del turno precedente se non lo hai modificato in questo turno."
   },
+  "applyOrderTypeToSelection": {
+    "title": "Il tipo di ordine si applica alla selezione",
+    "description": "Attivo: cambiare il tipo di movimento lo riapplica agli ordini attuali delle unità selezionate e il pulsante degli ordini segue la selezione. Disattivo: imposta solo il tipo del prossimo ordine che disegni (classico)."
+  },
   "keybindings": {
-    "rotateCameraContinuous": "Ruota camera (tieni premuto)",
-    "rotateCameraSnap": "Ruota camera di 90°",
+    "rotateCameraLeft": "Ruota camera a sinistra",
+    "rotateCameraRight": "Ruota camera a destra",
     "title": "Scorciatoie da tastiera",
     "pressAKey": "Premi un tasto...",
     "moveUp": "Muovi verso l'alto",
@@ -145,8 +157,9 @@
     "togglePathFinding": "Attiva/disattiva ricerca percorso",
     "toggleFowPerspective": "Cambia prospettiva nebbia di guerra",
     "toggleMultiTurnPathOrders": "Attiva/disattiva ordini percorso multi-giro",
+    "toggleApplyOrderTypeToSelection": "Attiva/disattiva applica tipo di ordine alla selezione",
     "openChat": "Apri chat",
-    "openFormationModal": "Apri finestra formazione",
+    "openTacticsModal": "Apri il menu tattica",
     "showBattleOverview": "Tieni premuto per il riepilogo battaglia",
     "formation1": "Formazione 1",
     "formation2": "Formazione 2",
@@ -168,7 +181,8 @@
     "controlGroup8": "Gruppo di controllo 8",
     "controlGroup9": "Gruppo di controllo 9",
     "controlGroup0": "Gruppo di controllo 0",
-    "openPingWheel": "Apri ruota dei ping"
+    "openPingWheel": "Apri ruota dei ping",
+    "controlGroupsHelp": "La cifra da sola impartisce un ordine. Richiama un gruppo con {{modifier}} + la sua cifra."
   },
   "routingTransparency": {
     "title": "Trasparenza delle unità in rotta"
@@ -194,5 +208,81 @@
   "groundQuality": {
     "title": "Qualità del terreno",
     "description": "Controlla la qualità delle texture del terreno. Una qualità più alta fornisce migliori dettagli visivi ma può influire sulle prestazioni. Richiede di aggiornare la mappa."
+  },
+  "appearance": "Aspetto",
+  "era": {
+    "title": "Epoca",
+    "description": "Seleziona l’epoca di gioco. La modifica influirà su unità, scenari e meccaniche di gioco disponibili."
+  },
+  "notifications": {
+    "title": "Notifiche",
+    "turnActivity": {
+      "title": "Turni",
+      "description": "Avvisami quando un turno si risolve e quando il mio tempo di bank sta per esaurirsi."
+    },
+    "chat": {
+      "title": "Messaggi",
+      "description": "Avvisami quando un amico mi manda un messaggio."
+    },
+    "matchmaking": {
+      "title": "Matchmaking",
+      "description": "Avvisami quando qualcuno entra in una coda che sto osservando e quando una partita lenta trova i suoi giocatori."
+    },
+    "reminders": {
+      "title": "Promemoria",
+      "description": "Avvisami quando la mia serie di giorni sta per finire."
+    }
+  },
+  "theme": {
+    "presetTitle": "Tema predefinito",
+    "presetDescription": "Ricolora tutta l'app. I colori personalizzati richiedono un livello a pagamento.",
+    "presets": {
+      "default": "Predefinito",
+      "warm": "Caldo",
+      "navy": "Blu navy",
+      "modern": "Moderno"
+    },
+    "customTitle": "Colori personalizzati",
+    "unlock": "Colori del tema personalizzati",
+    "groups": {
+      "surfaces": "Superfici",
+      "accent": "Accento",
+      "borders": "Bordi",
+      "text": "Testo"
+    },
+    "tokens": {
+      "surface": "Sfondo del pannello",
+      "surfaceDeep": "Sfondo incassato",
+      "surfaceData": "Sfondo dei dati",
+      "surfaceDataRaised": "Sfondo dei dati (rialzato)",
+      "surfaceHover": "Sfondo al passaggio",
+      "surfaceDisabled": "Sfondo disabilitato",
+      "accent": "Accento",
+      "accentSoft": "Accento (tenue)",
+      "accentDeep": "Accento (intenso)",
+      "line": "Bordo",
+      "brass": "Riempimento / bordo del pulsante",
+      "brassHover": "Pulsante (al passaggio)",
+      "brassDisabled": "Pulsante (disabilitato)",
+      "fg": "Testo",
+      "fgStrong": "Testo (forte)",
+      "fgMuted": "Testo (attenuato)",
+      "fgDisabled": "Testo (disabilitato)",
+      "onAccent": "Testo su accento"
+    },
+    "resetTitle": "Reimposta tema",
+    "resetDescription": "Torna alla palette predefinita."
+  },
+  "controlGroups": {
+    "recall": "Richiama gruppo {{group}}",
+    "set": "Imposta gruppo {{group}}",
+    "add": "Aggiungi al gruppo {{group}}",
+    "setExclusive": "Assegna solo al gruppo {{group}}"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

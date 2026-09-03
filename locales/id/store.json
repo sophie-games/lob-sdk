@@ -1,7 +1,8 @@
 {
   "currencyShop": {
     "title": "Dapatkan <0/>",
-    "subtitle": "Buka kosmetik yang menakjubkan dan tampil beda dari yang lain!"
+    "subtitle": "Buka kosmetik yang menakjubkan dan tampil beda dari yang lain!",
+    "unavailable": "Toko sedang tidak tersedia saat ini. Silakan coba lagi nanti."
   },
 
   "aboutCurrencies": "Tentang Mata Uang",
@@ -12,9 +13,19 @@
     "basicDescription": "<currency/>: Dapatkan mata uang ini dengan memainkan pertandingan dengan pemain lain. Gunakan untuk merekrut unit dan membangun pasukan Anda.",
     "premiumDescription": "<currency/>: Mata uang yang ini untuk membeli kosmetik untuk memamerkan gaya Anda. Sebagian besar berasal dari pengeluaran uang sungguhan karena permainan ini gratis untuk dimainkan.",
     "rate": "{{rate}} {{currency}} per USD",
-    "purchase": "Beli {{amount}} {{currency}}",
-    "totalSold": "Total <currency/> yang terjual sejauh ini: {{amount}}",
-    "nextGoal": "Target Berikutnya: {{goal}} <currency/> "
+    "purchase": "Beli {{amount}} {{currency}}"
+  },
+
+  "sale": {
+    "title": "Diskon mingguan",
+    "description": "{{items}} item diskon -{{discount}}%, minggu ini saja.",
+    "endsIn": "Berakhir dalam {{days}}hr {{hours}}jm",
+    "endsInHours": "Berakhir dalam {{hours}}jm"
+  },
+
+  "firstPurchase": {
+    "banner": "Pembelian pertamamu digandakan: setiap paket memberi {{multiplier}}x {{currency}}.",
+    "badge": "{{multiplier}}x pembelian pertama"
   },
 
   "purchaseConfirmation": "Anda yakin ingin membeli {{item}}?",

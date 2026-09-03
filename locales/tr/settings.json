@@ -20,6 +20,10 @@
     "title": "Dokunmatik Seçim Kutusuna İzin Ver",
     "description": "Dokunmatik cihazlarda birden fazla birimi aynı anda seçmek için seçim kutularını etkinleştir."
   },
+  "showControlGroupsBar": {
+    "title": "Kontrol grupları çubuğu",
+    "description": "Kontrol grupları çubuğunu gösterir. Dokunmatik cihazlarda yanlışlıkla yapılan dokunuşların seçiminizi değiştirmesini önlemek için kapatın."
+  },
   "smartCurvedMovements": {
     "title": "Akıllı Kavisli Hareketler",
     "description": "Bu seçeneği etkinleştirerek, dönüşler sırasında hız kaybını en aza indiren pürüzsüz kavisli hareket yollarını optimize edebilirsiniz."
@@ -91,6 +95,10 @@
   "gridOpacity": {
     "title": "Izgara opaklığı"
   },
+  "tracerOpacity": {
+    "title": "İz mermisi çizgisi opaklığı",
+    "description": "Menzilli saldırılardaki iz mermisi çizgilerinin opaklığını ayarlar. Gizlemek için 0% olarak ayarlayın."
+  },
   "showDebugShapes": {
     "title": "Hata ayıklama şekillerini göster",
     "description": "Birimlerde çarpışma şekilleri ve arazi kontrol noktaları dahil hata ayıklama şekillerini gösterir."
@@ -124,9 +132,13 @@
     "title": "Boştaki seçim değişmeyen emirleri kapsar",
     "description": "Kapalı: yalnızca emri olmayan birimler. Açık: bu turda değiştirmediysen önceki turun emrini hâlâ taşıyan birimler de dahil."
   },
+  "applyOrderTypeToSelection": {
+    "title": "Emir türü seçime uygulanır",
+    "description": "Açık: hareket türünü değiştirmek, seçili birimlerin mevcut emirlerini yeniden atar ve emir düğmesi seçiminizi yansıtır. Kapalı: yalnızca çizeceğiniz sonraki emrin türünü belirler (klasik)."
+  },
   "keybindings": {
-    "rotateCameraContinuous": "Kamerayı döndür (basılı tut)",
-    "rotateCameraSnap": "Kamerayı 90° döndür",
+    "rotateCameraLeft": "Kamerayı sola döndür",
+    "rotateCameraRight": "Kamerayı sağa döndür",
     "title": "Tuş Atamaları",
     "pressAKey": "Bir tuşa basın...",
     "moveUp": "Yukarı hareket et",
@@ -145,8 +157,9 @@
     "togglePathFinding": "Yol bulmayı değiştir",
     "toggleFowPerspective": "Savaş sisi perspektifini değiştir",
     "toggleMultiTurnPathOrders": "Çok turlu yol emirlerini değiştir",
+    "toggleApplyOrderTypeToSelection": "Emir türünü seçime uygulamayı değiştir",
     "openChat": "Sohbeti aç",
-    "openFormationModal": "Formasyon penceresini aç",
+    "openTacticsModal": "Taktik menüsünü aç",
     "showBattleOverview": "Savaş özeti için basılı tut",
     "formation1": "Formasyon 1",
     "formation2": "Formasyon 2",
@@ -168,7 +181,8 @@
     "controlGroup8": "Kontrol Grubu 8",
     "controlGroup9": "Kontrol Grubu 9",
     "controlGroup0": "Kontrol Grubu 0",
-    "openPingWheel": "Ping çarkını aç"
+    "openPingWheel": "Ping çarkını aç",
+    "controlGroupsHelp": "Tek başına rakam emir verir. Bir grubu {{modifier}} + rakamı ile çağırın."
   },
   "routingTransparency": {
     "title": "Kaçan Birim Şeffaflığı"
@@ -194,5 +208,81 @@
   "groundQuality": {
     "title": "Arazi kalitesi",
     "description": "Arazi dokularının kalitesini kontrol eder. Daha yüksek kalite daha iyi görsel detaylar sağlar ancak performansı etkileyebilir. Haritanın yenilenmesini gerektirir."
+  },
+  "appearance": "Görünüm",
+  "era": {
+    "title": "Dönem",
+    "description": "Oyun dönemini seçin. Değiştirmek mevcut birlikleri, senaryoları ve oyun mekaniklerini etkiler."
+  },
+  "notifications": {
+    "title": "Bildirimler",
+    "turnActivity": {
+      "title": "Turlar",
+      "description": "Bir tur sonuçlandığında ve banka sürem bitmek üzereyken bana bildir."
+    },
+    "chat": {
+      "title": "Mesajlar",
+      "description": "Bir arkadaşım mesaj gönderdiğinde bana bildir."
+    },
+    "matchmaking": {
+      "title": "Eşleştirme",
+      "description": "İzlediğim bir kuyruğa biri girdiğinde ve yavaş bir oyun oyuncularını bulduğunda bana bildir."
+    },
+    "reminders": {
+      "title": "Hatırlatıcılar",
+      "description": "Gün serim sona ermek üzereyken bana bildir."
+    }
+  },
+  "theme": {
+    "presetTitle": "Hazır tema",
+    "presetDescription": "Tüm uygulamayı yeniden renklendirin. Özel renkler ücretli bir seviye gerektirir.",
+    "presets": {
+      "default": "Varsayılan",
+      "warm": "Sıcak",
+      "navy": "Lacivert",
+      "modern": "Modern"
+    },
+    "customTitle": "Özel renkler",
+    "unlock": "Özel tema renkleri",
+    "groups": {
+      "surfaces": "Yüzeyler",
+      "accent": "Vurgu",
+      "borders": "Kenarlıklar",
+      "text": "Metin"
+    },
+    "tokens": {
+      "surface": "Panel arka planı",
+      "surfaceDeep": "Çukur arka plan",
+      "surfaceData": "Veri arka planı",
+      "surfaceDataRaised": "Veri arka planı (yükseltilmiş)",
+      "surfaceHover": "Üzerine gelince arka plan",
+      "surfaceDisabled": "Devre dışı arka plan",
+      "accent": "Vurgu",
+      "accentSoft": "Vurgu (yumuşak)",
+      "accentDeep": "Vurgu (koyu)",
+      "line": "Kenarlık",
+      "brass": "Düğme dolgusu / kenarlığı",
+      "brassHover": "Düğme (üzerine gelince)",
+      "brassDisabled": "Düğme (devre dışı)",
+      "fg": "Metin",
+      "fgStrong": "Metin (güçlü)",
+      "fgMuted": "Metin (soluk)",
+      "fgDisabled": "Metin (devre dışı)",
+      "onAccent": "Vurgu üzerindeki metin"
+    },
+    "resetTitle": "Temayı sıfırla",
+    "resetDescription": "Varsayılan palete dön."
+  },
+  "controlGroups": {
+    "recall": "{{group}}. grubu çağır",
+    "set": "{{group}}. grubu ayarla",
+    "add": "{{group}}. gruba ekle",
+    "setExclusive": "Yalnızca {{group}}. gruba ata"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

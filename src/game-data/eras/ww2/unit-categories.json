@@ -1,10 +1,9 @@
 [
   {
     "id": "infantry",
+    "chargeBacklashMultiplier": 0.75,
     "firingAltitude": 0.9,
     "captureSpeed": 1.0,
-    "allyCollisionLevel": 2,
-    "enemyCollisionLevel": 2,
     "routingBehavior": {
       "baseSpeed": "walk"
     },
@@ -18,9 +17,8 @@
   },
   {
     "id": "motorized",
+    "chargeBacklashMultiplier": 0.75,
     "captureSpeed": 1.0,
-    "allyCollisionLevel": 2,
-    "enemyCollisionLevel": 2,
     "routingBehavior": {
       "baseSpeed": "walk"
     },
@@ -32,9 +30,8 @@
   },
   {
     "id": "armored",
+    "chargeBacklashMultiplier": 0.75,
     "captureSpeed": 1.0,
-    "allyCollisionLevel": 2,
-    "enemyCollisionLevel": 2,
     "routingBehavior": {
       "baseSpeed": "walk"
     },

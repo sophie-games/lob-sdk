@@ -20,6 +20,10 @@
     "title": "タッチ選択ボックスを許可",
     "description": "タッチデバイスで複数のユニットを一度に選択できるように選択ボックスを有効にします。"
   },
+  "showControlGroupsBar": {
+    "title": "コントロールグループバー",
+    "description": "コントロールグループバーを表示します。タッチデバイスで誤ったタップによって選択が変わるのを防ぐにはオフにします。"
+  },
   "smartCurvedMovements": {
     "title": "スマートカーブ移動",
     "description": "このオプションを有効にすると、移動経路がスムーズな曲線で最適化され、回転中の速度損失を最小限に抑えます。"
@@ -91,6 +95,10 @@
   "gridOpacity": {
     "title": "グリッドの不透明度"
   },
+  "tracerOpacity": {
+    "title": "曳光線の不透明度",
+    "description": "遠距離攻撃時の曳光線の不透明度を調整します。0%にすると非表示になります。"
+  },
   "showDebugShapes": {
     "title": "デバッグ形状を表示",
     "description": "ユニットに衝突形状や地形チェックポイントを含むデバッグ形状を表示します。"
@@ -124,9 +132,13 @@
     "title": "待機選択に変更していない命令を含める",
     "description": "オフ：命令のないユニットのみ。オン：今ターンで変更していない場合、前ターンの命令が残っているユニットも含めます。"
   },
+  "applyOrderTypeToSelection": {
+    "title": "命令タイプを選択したユニットに適用",
+    "description": "オン: 移動タイプを変更すると、選択中のユニットの現在の命令が変更され、命令ボタンが選択状態を反映します。オフ: 次に描く命令のタイプを設定するだけです（クラシック）。"
+  },
   "keybindings": {
-    "rotateCameraContinuous": "カメラ回転（長押し）",
-    "rotateCameraSnap": "カメラを90°回転",
+    "rotateCameraLeft": "カメラを左に回転",
+    "rotateCameraRight": "カメラを右に回転",
     "title": "キーバインド",
     "pressAKey": "キーを押してください...",
     "moveUp": "上に移動",
@@ -145,8 +157,9 @@
     "togglePathFinding": "経路探索の切り替え",
     "toggleFowPerspective": "戦争の霧の視点切り替え",
     "toggleMultiTurnPathOrders": "複数ターン経路の指令の切り替え",
+    "toggleApplyOrderTypeToSelection": "命令タイプを選択したユニットに適用の切り替え",
     "openChat": "チャットを開く",
-    "openFormationModal": "陣形ウィンドウを開く",
+    "openTacticsModal": "戦術メニューを開く",
     "showBattleOverview": "押している間は戦闘概要を表示",
     "formation1": "陣形 1",
     "formation2": "陣形 2",
@@ -168,7 +181,8 @@
     "controlGroup8": "コントロールグループ8",
     "controlGroup9": "コントロールグループ9",
     "controlGroup0": "コントロールグループ0",
-    "openPingWheel": "pingホイールを開く"
+    "openPingWheel": "pingホイールを開く",
+    "controlGroupsHelp": "数字だけだと命令になります。グループの呼び出しは {{modifier}} + 数字。"
   },
   "routingTransparency": {
     "title": "敗走ユニットの透明度"
@@ -194,5 +208,81 @@
   "groundQuality": {
     "title": "地形品質",
     "description": "地形テクスチャの品質を制御します。より高い品質はより良い視覚的詳細を提供しますが、パフォーマンスに影響を与える可能性があります。マップの更新が必要です。"
+  },
+  "appearance": "外観",
+  "era": {
+    "title": "時代",
+    "description": "プレイする時代を選択します。変更すると、利用できるユニット、シナリオ、ゲームシステムに影響します。"
+  },
+  "notifications": {
+    "title": "通知",
+    "turnActivity": {
+      "title": "ターン",
+      "description": "ターンが処理されたとき、バンク時間が残り少ないときに通知します。"
+    },
+    "chat": {
+      "title": "メッセージ",
+      "description": "フレンドからメッセージが届いたときに通知します。"
+    },
+    "matchmaking": {
+      "title": "マッチメイキング",
+      "description": "監視中のキューに誰かが入ったとき、低速モードの対戦相手が揃ったときに通知します。"
+    },
+    "reminders": {
+      "title": "リマインダー",
+      "description": "連続日数が途切れそうなときに通知します。"
+    }
+  },
+  "theme": {
+    "presetTitle": "テーマプリセット",
+    "presetDescription": "アプリ全体の配色を変更します。カスタムカラーには有料プランが必要です。",
+    "presets": {
+      "default": "デフォルト",
+      "warm": "ウォーム",
+      "navy": "ネイビー",
+      "modern": "モダン"
+    },
+    "customTitle": "カスタムカラー",
+    "unlock": "カスタムテーマカラー",
+    "groups": {
+      "surfaces": "サーフェス",
+      "accent": "アクセント",
+      "borders": "枠線",
+      "text": "テキスト"
+    },
+    "tokens": {
+      "surface": "パネルの背景",
+      "surfaceDeep": "くぼんだ背景",
+      "surfaceData": "データの背景",
+      "surfaceDataRaised": "データの背景（浮き上がり）",
+      "surfaceHover": "ホバー時の背景",
+      "surfaceDisabled": "無効時の背景",
+      "accent": "アクセント",
+      "accentSoft": "アクセント（淡い）",
+      "accentDeep": "アクセント（濃い）",
+      "line": "枠線",
+      "brass": "ボタンの塗り / 枠線",
+      "brassHover": "ボタン（ホバー）",
+      "brassDisabled": "ボタン（無効）",
+      "fg": "テキスト",
+      "fgStrong": "テキスト（強）",
+      "fgMuted": "テキスト（控えめ）",
+      "fgDisabled": "テキスト（無効）",
+      "onAccent": "アクセント上のテキスト"
+    },
+    "resetTitle": "テーマをリセット",
+    "resetDescription": "デフォルトのパレットに戻します。"
+  },
+  "controlGroups": {
+    "recall": "グループ{{group}}を呼び出す",
+    "set": "グループ{{group}}を設定",
+    "add": "グループ{{group}}に追加",
+    "setExclusive": "グループ {{group}} のみに設定"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

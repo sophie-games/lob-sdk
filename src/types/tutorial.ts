@@ -26,7 +26,7 @@ export type TutorialBeatAdvance =
   | "orderRemoved" // the bound unit's (or any matching unit's) order was cleared; auto-skipped if no matching order exists
   | "orderTypeModalOpened" // SelectOrderModal opens; auto-skipped if hud.orderType already matches
   | "orderTypeSelected" // hud.orderType changed to one that matches; auto-skipped if already matching on activation
-  | "formationModalOpened" // FormationModal opens; auto-skipped if all selected units already have the matching formation
+  | "tacticsModalOpened" // tactics modal opens; auto-skipped if all selected units already have the matching formation
   | "formationSelected" // a formation was applied that matches; auto-skipped if already matching on activation
   | "ordersSubmitted" // submit-orders press on a battle turn (turn > 0)
   | "battleReportClosed" // BattleReportModal close (X) was pressed
@@ -695,7 +695,7 @@ export interface TutorialBeat {
   orderType?: OrderType | OrderType[];
   /**
    * Filters formation-related advance modes:
-   *  - `formationModalOpened`: auto-skip on activation if every currently
+   *  - `tacticsModalOpened`: auto-skip on activation if every currently
    *    selected unit (filtered by `unitCategory` when set) already has a
    *    matching formation.
    *  - `formationSelected`: advance only when the formation chosen in the
@@ -767,7 +767,7 @@ export interface TutorialBeat {
    * line" beat redirect attention to the right modal control without ending
    * the wait.
    */
-  formationModalOverride?: {
+  tacticsModalOverride?: {
     situation: TutorialSituationKey;
     ifMatchSelected: { targetId: string };
     otherwise: { targetId: string };

@@ -20,6 +20,10 @@
     "title": "Włącz dotykowe pole wyboru",
     "description": "Włącza pola wyboru podczas sterowania dotykowego, by dało się zaznaczyć wiele jednostek naraz."
   },
+  "showControlGroupsBar": {
+    "title": "Pasek grup kontrolnych",
+    "description": "Pokazuje pasek grup kontrolnych. Wyłącz go, aby przypadkowe dotknięcia nie zmieniały zaznaczenia na urządzeniach dotykowych."
+  },
   "smartCurvedMovements": {
     "title": "Lepszy ruch po krzywej.",
     "description": "Włącz tą opcje, aby polepszyć trasy ruchu gładkimi liniami krzywymi, pomniejszając utratę prędkości podczas obrotu."
@@ -91,6 +95,10 @@
   "gridOpacity": {
     "title": "Nieprzezroczystość siatki"
   },
+  "tracerOpacity": {
+    "title": "Krycie smug pocisków",
+    "description": "Steruje kryciem smug pocisków podczas ataków dystansowych. Ustaw 0%, aby je ukryć."
+  },
   "showDebugShapes": {
     "title": "Pokaż kształty debugowania",
     "description": "Pokazuje kształty debugowania na jednostkach, w tym kształty kolizji i punkty sprawdzania terenu."
@@ -124,9 +132,13 @@
     "title": "Wybór bezczynnych obejmuje niezmienione rozkazy",
     "description": "Wył.: tylko jednostki bez rozkazów. Wł.: także jednostki, które nadal mają rozkaz z poprzedniej tury, jeśli nie zmieniłeś go w tej turze."
   },
+  "applyOrderTypeToSelection": {
+    "title": "Typ rozkazu dotyczy zaznaczenia",
+    "description": "Wł.: zmiana typu ruchu zmienia bieżące rozkazy zaznaczonych jednostek, a przycisk rozkazu odzwierciedla zaznaczenie. Wył.: ustawia tylko typ następnego rysowanego rozkazu (klasycznie)."
+  },
   "keybindings": {
-    "rotateCameraContinuous": "Obróć kamerę (przytrzymaj)",
-    "rotateCameraSnap": "Obróć kamerę o 90°",
+    "rotateCameraLeft": "Obróć kamerę w lewo",
+    "rotateCameraRight": "Obróć kamerę w prawo",
     "title": "Skróty klawiszowe",
     "pressAKey": "Wciśnij przycisk...",
     "moveUp": "Ruch w górę",
@@ -145,8 +157,9 @@
     "togglePathFinding": "Przełącz wyszukiwanie ścieżki",
     "toggleFowPerspective": "Przełącz perspektywę mgły wojny",
     "toggleMultiTurnPathOrders": "Przełącz rozkazy ścieżki wieloturowej",
+    "toggleApplyOrderTypeToSelection": "Przełącz stosowanie typu rozkazu do zaznaczenia",
     "openChat": "Otwórz czat",
-    "openFormationModal": "Otwórz okno formacji",
+    "openTacticsModal": "Otwórz menu taktyki",
     "showBattleOverview": "Przytrzymaj dla podsumowania bitwy",
     "formation1": "Formacja 1",
     "formation2": "Formacja 2",
@@ -168,7 +181,8 @@
     "controlGroup8": "Grupa kontrolna 8",
     "controlGroup9": "Grupa kontrolna 9",
     "controlGroup0": "Grupa kontrolna 0",
-    "openPingWheel": "Otwórz koło pingów"
+    "openPingWheel": "Otwórz koło pingów",
+    "controlGroupsHelp": "Sama cyfra wydaje rozkaz. Przywołaj grupę przez {{modifier}} + jej cyfrę."
   },
   "routingTransparency": {
     "title": "Przezroczystość jednostek uciekających"
@@ -194,5 +208,81 @@
   "groundQuality": {
     "title": "Jakość terenu",
     "description": "Kontroluje jakość tekstur terenu. Wyższa jakość zapewnia lepsze szczegóły wizualne, ale może wpływać na wydajność. Wymaga odświeżenia mapy."
+  },
+  "appearance": "Wygląd",
+  "era": {
+    "title": "Era",
+    "description": "Wybierz erę rozgrywki. Zmiana wpłynie na dostępne jednostki, scenariusze i mechaniki gry."
+  },
+  "notifications": {
+    "title": "Powiadomienia",
+    "turnActivity": {
+      "title": "Tury",
+      "description": "Powiadom mnie, gdy tura zostanie rozliczona i gdy mój czas banku będzie się kończył."
+    },
+    "chat": {
+      "title": "Wiadomości",
+      "description": "Powiadom mnie, gdy znajomy wyśle mi wiadomość."
+    },
+    "matchmaking": {
+      "title": "Losowa Partia",
+      "description": "Powiadom mnie, gdy ktoś dołączy do obserwowanej kolejki i gdy wolna partia znajdzie graczy."
+    },
+    "reminders": {
+      "title": "Przypomnienia",
+      "description": "Powiadom mnie, gdy moja seria dni ma się skończyć."
+    }
+  },
+  "theme": {
+    "presetTitle": "Gotowy motyw",
+    "presetDescription": "Zmień kolory całej aplikacji. Własne kolory wymagają płatnego poziomu.",
+    "presets": {
+      "default": "Domyślny",
+      "warm": "Ciepły",
+      "navy": "Granatowy",
+      "modern": "Nowoczesny"
+    },
+    "customTitle": "Własne kolory",
+    "unlock": "Własne kolory motywu",
+    "groups": {
+      "surfaces": "Powierzchnie",
+      "accent": "Akcent",
+      "borders": "Obramowania",
+      "text": "Tekst"
+    },
+    "tokens": {
+      "surface": "Tło panelu",
+      "surfaceDeep": "Tło wgłębione",
+      "surfaceData": "Tło danych",
+      "surfaceDataRaised": "Tło danych (uniesione)",
+      "surfaceHover": "Tło po najechaniu",
+      "surfaceDisabled": "Tło wyłączone",
+      "accent": "Akcent",
+      "accentSoft": "Akcent (miękki)",
+      "accentDeep": "Akcent (głęboki)",
+      "line": "Obramowanie",
+      "brass": "Wypełnienie / obramowanie przycisku",
+      "brassHover": "Przycisk (najechanie)",
+      "brassDisabled": "Przycisk (wyłączony)",
+      "fg": "Tekst",
+      "fgStrong": "Tekst (mocny)",
+      "fgMuted": "Tekst (przygaszony)",
+      "fgDisabled": "Tekst (wyłączony)",
+      "onAccent": "Tekst na akcencie"
+    },
+    "resetTitle": "Resetuj motyw",
+    "resetDescription": "Powrót do domyślnej palety."
+  },
+  "controlGroups": {
+    "recall": "Przywołaj grupę {{group}}",
+    "set": "Ustaw grupę {{group}}",
+    "add": "Dodaj do grupy {{group}}",
+    "setExclusive": "Przypisz tylko do grupy {{group}}"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

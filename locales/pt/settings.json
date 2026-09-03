@@ -20,6 +20,10 @@
     "title": "Permitir Caixa de Seleção por Toque",
     "description": "Ativar caixas de seleção em dispositivos de toque para selecionar várias unidades ao mesmo tempo."
   },
+  "showControlGroupsBar": {
+    "title": "Barra de grupos de controle",
+    "description": "Mostra a barra de grupos de controle. Desative-a para evitar que toques acidentais alterem sua seleção em dispositivos sensíveis ao toque."
+  },
   "smartCurvedMovements": {
     "title": "Movimentos Curvos Inteligentes",
     "description": "Ative esta opção para otimizar os caminhos de movimento com curvas suaves, minimizando a perda de velocidade durante rotações."
@@ -91,6 +95,10 @@
   "gridOpacity": {
     "title": "Opacidade da grade"
   },
+  "tracerOpacity": {
+    "title": "Opacidade dos traçadores",
+    "description": "Controla a opacidade das linhas traçadoras durante ataques à distância. Defina como 0% para ocultá-las."
+  },
   "showDebugShapes": {
     "title": "Mostrar formas de depuração",
     "description": "Mostra formas de depuração nas unidades incluindo formas de colisão e pontos de verificação de terreno."
@@ -124,9 +132,13 @@
     "title": "A seleção de ociosas inclui ordens inalteradas",
     "description": "Desligado: apenas unidades sem ordens. Ligado: também unidades que ainda têm a ordem do turno anterior se você não a alterou neste turno."
   },
+  "applyOrderTypeToSelection": {
+    "title": "O tipo de ordem aplica-se à seleção",
+    "description": "Ligado: mudar o tipo de movimento reaplica-o às ordens atuais das unidades selecionadas, e o botão de ordem segue a sua seleção. Desligado: apenas define o tipo da próxima ordem que desenhar (clássico)."
+  },
   "keybindings": {
-    "rotateCameraContinuous": "Girar câmera (segurar)",
-    "rotateCameraSnap": "Girar câmera 90°",
+    "rotateCameraLeft": "Girar câmera para a esquerda",
+    "rotateCameraRight": "Girar câmera para a direita",
     "title": "Atalhos de teclado",
     "pressAKey": "Pressione uma tecla...",
     "moveUp": "Mover para cima",
@@ -145,8 +157,9 @@
     "togglePathFinding": "Alternar busca de caminho",
     "toggleFowPerspective": "Alternar perspectiva de névoa de guerra",
     "toggleMultiTurnPathOrders": "Alternar ordens de caminho multi-turnos",
+    "toggleApplyOrderTypeToSelection": "Alternar aplicar o tipo de ordem à seleção",
     "openChat": "Abrir chat",
-    "openFormationModal": "Abrir modal de formação",
+    "openTacticsModal": "Abrir painel de táticas",
     "showBattleOverview": "Manter pressionado para resumo da batalha",
     "formation1": "Formação 1",
     "formation2": "Formação 2",
@@ -168,7 +181,8 @@
     "controlGroup8": "Grupo de controle 8",
     "controlGroup9": "Grupo de controle 9",
     "controlGroup0": "Grupo de controle 0",
-    "openPingWheel": "Abrir roda de pings"
+    "openPingWheel": "Abrir roda de pings",
+    "controlGroupsHelp": "O dígito sozinho emite uma ordem. Chame um grupo com {{modifier}} + o dígito dele."
   },
   "routingTransparency": {
     "title": "Transparência de Unidades em Fuga"
@@ -194,5 +208,81 @@
   "groundQuality": {
     "title": "Qualidade do terreno",
     "description": "Controla a qualidade das texturas do terreno. Qualidade mais alta fornece melhores detalhes visuais, mas pode afetar o desempenho. Requer atualizar o mapa."
+  },
+  "appearance": "Aparência",
+  "era": {
+    "title": "Era",
+    "description": "Selecione a era do jogo. A alteração afetará as unidades, os cenários e as mecânicas disponíveis."
+  },
+  "notifications": {
+    "title": "Notificações",
+    "turnActivity": {
+      "title": "Turnos",
+      "description": "Avise-me quando um turno for resolvido e quando meu tempo de banco estiver acabando."
+    },
+    "chat": {
+      "title": "Mensagens",
+      "description": "Avise-me quando um amigo me enviar uma mensagem."
+    },
+    "matchmaking": {
+      "title": "Matchmaking",
+      "description": "Avise-me quando alguém entrar em uma fila que estou acompanhando e quando um jogo lento encontrar seus jogadores."
+    },
+    "reminders": {
+      "title": "Lembretes",
+      "description": "Avise-me quando minha sequência diária estiver prestes a acabar."
+    }
+  },
+  "theme": {
+    "presetTitle": "Tema predefinido",
+    "presetDescription": "Recolore o app inteiro. Cores personalizadas exigem um nível pago.",
+    "presets": {
+      "default": "Padrão",
+      "warm": "Quente",
+      "navy": "Azul-marinho",
+      "modern": "Moderno"
+    },
+    "customTitle": "Cores personalizadas",
+    "unlock": "Cores de tema personalizadas",
+    "groups": {
+      "surfaces": "Superfícies",
+      "accent": "Destaque",
+      "borders": "Bordas",
+      "text": "Texto"
+    },
+    "tokens": {
+      "surface": "Fundo do painel",
+      "surfaceDeep": "Fundo rebaixado",
+      "surfaceData": "Fundo de dados",
+      "surfaceDataRaised": "Fundo de dados (elevado)",
+      "surfaceHover": "Fundo ao passar o cursor",
+      "surfaceDisabled": "Fundo desativado",
+      "accent": "Destaque",
+      "accentSoft": "Destaque (suave)",
+      "accentDeep": "Destaque (intenso)",
+      "line": "Borda",
+      "brass": "Preenchimento / borda do botão",
+      "brassHover": "Botão (cursor sobre)",
+      "brassDisabled": "Botão (desativado)",
+      "fg": "Texto",
+      "fgStrong": "Texto (forte)",
+      "fgMuted": "Texto (atenuado)",
+      "fgDisabled": "Texto (desativado)",
+      "onAccent": "Texto sobre o destaque"
+    },
+    "resetTitle": "Redefinir tema",
+    "resetDescription": "Voltar à paleta padrão."
+  },
+  "controlGroups": {
+    "recall": "Chamar grupo {{group}}",
+    "set": "Definir grupo {{group}}",
+    "add": "Adicionar ao grupo {{group}}",
+    "setExclusive": "Atribuir só ao grupo {{group}}"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

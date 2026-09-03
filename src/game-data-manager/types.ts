@@ -79,15 +79,31 @@ export interface UnitCategoryTemplate {
    * Default value: "center"
    */
   deploymentSection?: DeploymentSection;
-  allyCollisionLevel?: number;
-  enemyCollisionLevel?: number;
   damageTypeResistances?: Partial<Record<string, number>>;
   firingAltitude: number;
   captureSpeed?: number;
   autofirePriority?: Partial<Record<UnitCategoryId, number>>;
+  /**
+   * Default autofire engagement tier (EngagementRange) for units of this category.
+   * Falls back to `Max` when unset. Artillery uses `Medium` so it opens fire at its
+   * effective range instead of wasting shots at the near-useless long range.
+   */
+  defaultAutofireRange?: EngagementRange;
+  /**
+   * When true, the autofire selector warns that the `Max` tier spends ammo for
+   * minimal damage (e.g. artillery). Independent of `defaultAutofireRange`.
+   */
+  warnOnMaxAutofire?: boolean;
   routingBehavior?: RoutingBehavior;
   enfiladeFire?: EnfiladeFireConfig;
   rearFire?: RearFireConfig;
+
+  /** Charge backlash multiplier (counter-hit dealt back to a charger); ranged categories brace harder, cavalry/melee less. Defaults to 1. */
+  chargeBacklashMultiplier?: number;
+  /** Backlash multiplier when the defender has run (HasRan) and can't brace; falls back to chargeBacklashMultiplier. */
+  runChargeBacklashMultiplier?: number;
+  /** Max stamina a charge drains from this category (scaled by STAT_PRECISION_SCALE), floored at 25%: the charger pays it head-on, a defender when flanked. Defaults to 0 (no cost) when unset. */
+  chargeStaminaCost?: number;
 
   /**
    * List of allowed order names for this category.
@@ -137,8 +153,6 @@ export interface GameConstants {
    */
   COLLISION_PUSH_MAX_ANGLE_RANGE_DEGREES: number;
 
-  UNIT_RANGE_MARGIN: number;
-
   TILE_SIZE: number;
 
   DEFAULT_MAX_TURN: number;
@@ -163,9 +177,8 @@ export interface GameConstants {
   DEFAULT_DEPLOYMENT_ZONE_SEPARATION: number;
 
   MAX_PLAYERS: number;
-  /** 16 ** 2 */
-  MIN_FOLLOW_ALLY_DISTANCE_SQUARED: number;
-  ALLY_HARD_COLLISION_THRESHOLD: number;
+  /** Edge-to-edge gap in px a unit keeps when following or advancing to an ally; 0 = touching. */
+  MIN_FOLLOW_ALLY_DISTANCE: number;
 
   /** Movement path proximity thresholds */
   /** 4 ** 2 */
@@ -204,18 +217,27 @@ export interface GameConstants {
   MIN_EFFECTIVE_VPS: number;
 
   SHOT_TRAJECTORY_TARGET_ALTITUDE: number;
+  /**
+   * How much of a gun point's slice of the frontage a body must cover for it to hold
+   * fire. Each gun point owns 1/n of its face, so this is a hitbox rather than a point.
+   * A silenced gun point drops its whole share, never a fraction of it.
+   */
+  FIRE_EMITTER_BLOCKED_COVERAGE: number;
 
   OFFER_DRAW_COOLDOWN: number;
   MAX_ENTITY_NAME_LENGTH: number;
-  CHARGE_BACKLASH_RESIST_MOD: number; // The % of charge resist that can be used to mitigate backlash damage
-  CHARGE_BACKLASH_MAX_REDUCTION: number; // The % of backlash that can be mitigated from a front-charge
-  CHARGE_BACKLASH_DEFENDER_CHARGE_BONUS_MULTIPLIER: number;
-  CHARGE_BACKLASH_DEFENDER_RESISTANCE_MULTIPLIER: number;
+  // Charge backlash magnitude scales off the defender's chargeBonus and
+  // meleeDefense, weighted by these factors (a counter-charger hits back via
+  // chargeBonus, a hard target via meleeDefense).
+  CHARGE_BONUS_SCALING_FACTOR: number;
+  MELEE_DEFENSE_SCALING_FACTOR: number;
+  // Backlash divisor floor: backlash /= max(this, defender charge resistance),
+  // so high-resistance targets hit back less and low-resistance ones are capped.
+  CHARGE_BACKLASH_RESIST_FLOOR: number;
 
   HAS_TAKEN_FIRE_SPEED_MODIFIER: number;
 
   EFFECT_HAS_RAN_TICKS: number;
-  EFFECT_STARTED_ROUTING_TICKS: number;
 
   /**
    * Maximum angle (in degrees) between a unit's movement direction and the direction
@@ -278,56 +300,18 @@ export interface GameConstants {
    */
 
   /**
-   * Starting victory points for each team at the beginning of the game.
-   * Both teams start with this base amount, and then additional points are added or subtracted
-   * based on objectives captured, loss ratios, and other factors.
+   * VP value of the auto-spawned neutral objective, as a multiple of a small
+   * objective's VP. 0 disables the feature (no neutral objective is spawned).
+   * The neutral spawns once, when deployment ends, on placeable-objective maps.
    */
-  VP_BASE_POINTS: number;
+  NEUTRAL_OBJECTIVE_VP_MULTIPLIER: number;
 
   /**
-   * Maximum victory points that can be awarded based on loss ratio comparison.
-   * The proportion of casualties (power lost) between teams is compared.
-   * The team with fewer casualties receives positive points, while the team with more casualties receives negative points.
-   * Points are distributed proportionally based on the difference in loss ratios, up to this maximum value.
-   *
-   * Example: If this is 10, and Team 1 lost 20% while Team 2 lost 40%, the difference is 20% (0.2),
-   * so Team 1 gets +2 points and Team 2 gets -2 points. The maximum of 10 would only be reached if
-   * one team lost 0% and the other lost 100% (difference of 1.0).
+   * How strongly the neutral objective drifts toward the lateral gap the teams'
+   * placed objectives leave (0..1). 0 keeps it at the no-man's-land centre; 1
+   * mirrors the placement bias fully. Discourages clustering objectives on a flank.
    */
-  VP_LOSS_RATIO_POINTS: number;
-
-  /**
-   * Margin of victory points used to determine the winner when the max turn limit is reached.
-   * A team is defeated if their VP difference (their points minus opponent's points) plus this value <= 0.
-   * A team can be behind by up to this many points and still avoid defeat; otherwise they lose and the game ends.
-   *
-   * Example: If this is 10, Team 1 with 45 points vs Team 2 with 50 points: -5 + 10 = 5 > 0, so it's a tie.
-   * But if Team 1 had 40 points: -10 + 10 = 0 <= 0, so Team 1 is defeated.
-   */
-  VP_POINTS_TO_TIE_BREAK: number;
-
-  /**
-   * Default victory points awarded for capturing a big objective.
-   * Used when an objective doesn't have custom victory points explicitly set.
-   * Big objectives are typically more strategically important than small objectives.
-   */
-  VP_BIG_DEFAULT_POINTS: number;
-
-  /**
-   * Default victory points awarded for capturing a small objective.
-   * Used when an objective doesn't have custom victory points explicitly set.
-   * Small objectives typically award fewer points than big objectives.
-   */
-  VP_SMALL_DEFAULT_POINTS: number;
-
-  /**
-   * Base value for calculating victory points penalty from ticks under pressure.
-   * The penalty is calculated as: -(ticksUnderPressure * (VP_TICKS_UNDER_PRESSURE_BASE / TICKS_PER_TURN))
-   * This represents the base VP penalty per tick. When divided by TICKS_PER_TURN, it gives the VP penalty per turn.
-   *
-   * Example: If this is 0.5 and TICKS_PER_TURN is 16, the penalty is 0.5/16 = 0.03125 VP per tick, or 0.5 VP per turn.
-   */
-  VP_TICKS_UNDER_PRESSURE_BASE: number;
+  NEUTRAL_OBJECTIVE_DRIFT_FACTOR: number;
 
   /** Experience required to reach level 2 */
   PLAYER_EXPERIENCE_BASE: number;
@@ -413,12 +397,58 @@ export interface MeleeDamageTypeTemplate {
   imageAlias?: string;
 }
 
+/**
+ * Autofire engagement tier a range band belongs to. A unit only autofires a band when its
+ * `autofireRange` tier is at least the band's tier; untagged bands default to `Max` (they fire
+ * only when the unit is set to the maximum tier). Used to throttle how far a unit opens fire.
+ */
+export enum EngagementRange {
+  Low = 0,
+  Medium = 1,
+  Max = 2,
+}
+
+/**
+ * Linear modifier keyed on the target's own stat proportion (HP or org). `from`/`to` are the
+ * stat proportions (0..1) between which the effect ramps (typically `from > to`, so it grows as
+ * the stat drops); `value` is the full effect. Independent of `maxRange`. Applied via
+ * `getNegativeLinearModifier`.
+ */
+export interface TargetStatModifier {
+  from: number;
+  to: number;
+  value: number;
+}
+
+/**
+ * A ranged damage range band. `from`/`to` are fractions (0..1) of the weapon's
+ * `maxRange`; `damageModifier` interpolates the HP-damage modifier across the band
+ * (near edge -> far edge) and `orgDamageModifier` interpolates the relative org-damage
+ * modifier (default 0 = no change). A flat band sets near == far.
+ */
 export interface DamageTypeRange {
-  start: number;
-  end: number;
-  startMod: number;
-  endMod: number;
+  from: number;
+  to: number;
+  damageModifier: { near: number; far: number };
+  orgDamageModifier?: { near: number; far: number };
   name?: string;
+  /** Autofire engagement tier this band belongs to. Untagged = `Max`. */
+  engagementTier?: EngagementRange;
+  /** Per-band override of the damage type's `orgDamageModifierByTargetOrg`. */
+  orgDamageModifierByTargetOrg?: TargetStatModifier;
+}
+
+/**
+ * Which point on the target a ranged shot aims at — and measures range/falloff from.
+ * `TargetCenter` (default) aims at the target's centre, which keeps a circular blast
+ * centred on it. `NearestBody` aims at the nearest point of the target's body, so direct
+ * fire and forward-spreading (trapezoidal) blasts strike the near face and a deep
+ * formation gets no range protection from its depth. Applied consistently to aim, AoE,
+ * range-gating and damage falloff.
+ */
+export enum ShotAimMode {
+  TargetCenter,
+  NearestBody,
 }
 
 export interface RangedDamageTypeTemplate {
@@ -429,31 +459,18 @@ export interface RangedDamageTypeTemplate {
   damageModifier?: number;
   orgDamageRatio: number;
   /**
-   * Modifies org bonus based on target's organization proportion.
-   * Uses getNegativeLinearModifier to calculate the modifier:
-   * - start: Organization proportion where modifier starts applying (typically 1.0 = 100%)
-   * - end: Organization proportion where modifier reaches full effect (typically 0.0 = 0%)
-   * - modifier: The maximum modifier value to apply to orgBonus
-   * The modifier is applied linearly between start and end based on target's current org proportion.
+   * Modifies the org bonus based on the target's organization proportion.
+   * See {@link TargetStatModifier}: ramps from `from` (proportion where it starts,
+   * typically 1.0) to `to` (proportion of full effect, typically 0.0), full effect `value`.
    */
-  orgModifierByTargetOrg?: {
-    start: number;
-    end: number;
-    modifier: number;
-  };
+  orgDamageModifierByTargetOrg?: TargetStatModifier;
   /**
-   * Modifies damage modifier based on target's HP proportion.
-   * Uses getNegativeLinearModifier to calculate the modifier:
-   * - start: HP proportion where modifier starts applying (typically 1.0 = 100%)
-   * - end: HP proportion where modifier reaches full effect (typically 0.0 = 0%)
-   * - modifier: The maximum modifier value to apply to damageModifier
-   * The modifier is applied linearly between start and end based on target's current HP proportion.
+   * Modifies the damage modifier based on the target's HP proportion.
+   * See {@link TargetStatModifier}.
    */
-  damageModifierByTargetHp?: {
-    start: number;
-    end: number;
-    modifier: number;
-  };
+  damageModifierByTargetHp?: TargetStatModifier;
+  /** Weapon's max range (absolute); each band's `from`/`to` is a fraction of this. */
+  maxRange: number;
   ranges: DamageTypeRange[];
   arcHeight?: number;
   /**
@@ -462,8 +479,19 @@ export interface RangedDamageTypeTemplate {
    * guard with `if (areaOfEffect)`.
    */
   areaOfEffect?: AoeConfig;
+  /**
+   * Which point on the target the shot aims at and measures range/falloff from.
+   * Defaults to `TargetCenter`. See `ShotAimMode`.
+   */
+  aimMode?: ShotAimMode;
   enfiladeFire?: boolean;
   cannotUseAfterRun?: boolean;
+  /**
+   * Whether this weapon can be ordered to fire at a ground location rather than at a
+   * unit (a bombardment). Defaults to false: a unit may only take a shoot-at-location
+   * order when it carries at least one ranged damage type with this set.
+   */
+  canShootLocation?: boolean;
   projectilePenetration?: number;
   shotSound: string;
   shotAnim: string;
@@ -472,22 +500,8 @@ export interface RangedDamageTypeTemplate {
   reorgDebuff?: number;
   attackEffectDuration?: number;
   extendRange?: boolean;
-  /**
-   * Mounting angle of this battery in degrees, relative to the unit's front
-   * (same unit and convention as the formation `shootingAngle`). 0 (default) =
-   * faces front. A ship's broadsides would use +90 / -90 so each side fires at
-   * targets on that flank. The arc width still comes from the formation; this
-   * only re-centers the arc.
-   */
-  angleOffset?: number;
   /** Use this in case you want to use the image of another damage type */
   imageAlias?: string;
-  /**
-   * Overrides the color of this battery's range arc (CSS hex, e.g. "#ffc55c").
-   * A ship's two broadsides set the same color so both cones match; without it
-   * the arc falls back to the per-damage-type palette by index.
-   */
-  rangeColor?: string;
 }
 
 export type DamageTypeTemplate =
@@ -527,6 +541,10 @@ export interface AmmoRule {
   baseReserve: number;
   regenerationBaseRate: number;
   regenerationBonusRate: number;
+  /** Starting ammo reserve per dynamic battle type. */
+  ammoReserve: Record<DynamicBattleType, number>;
+  /** Gold-to-ammo conversion rate per dynamic battle type. */
+  goldToAmmoRate: Record<DynamicBattleType, number>;
 }
 
 export interface SkirmishersRule {
@@ -535,8 +553,6 @@ export interface SkirmishersRule {
 }
 
 export interface SupplyLinesRule {
-  /** Terrain type IDs that are considered roads (e.g., [3, 7, 15] for Road, Bridge, RoadWinter) */
-  roadTerrainTypes?: number[];
   /** Radius of influence around units for supply line calculations (in tiles) */
   influenceRadius: number;
   /** Radius around supply hubs (small objectives) where units can receive supply (in tiles) */
@@ -588,12 +604,102 @@ export interface ObjectivesRule {
    * proportion of the non-neutral objective victory points, the team
    * will start being under pressure.
    */
-  pressureThreshold: number;
+  vpPressureThreshold: number;
+  /**
+   * Era-default base value for the under-pressure VP penalty, applied as
+   * -(ticksUnderPressure * (vpTicksUnderPressureBase / TICKS_PER_TURN)). 0 disables it.
+   * Battle types and scenarios may override it; resolved via the
+   * BaseGame.vpTicksUnderPressureBase getter (scenario > battle type > this).
+   */
+  vpTicksUnderPressureBase: number;
+  /**
+   * Era-default starting victory points each team begins the game with, before
+   * objectives, loss ratios, or pressure adjust the score.
+   * Battle types and scenarios may override it; resolved via the
+   * BaseGame.vpBasePoints getter (scenario > battle type > this).
+   */
+  vpBasePoints: number;
+  /**
+   * Era-default maximum victory points awarded from the loss-ratio comparison.
+   * The team with proportionally fewer casualties gains up to this many points
+   * and the other loses the same, scaled by the difference in loss ratios.
+   * Battle types and scenarios may override it; resolved via the
+   * BaseGame.vpLossRatioPoints getter (scenario > battle type > this).
+   */
+  vpLossRatioPoints: number;
+  /**
+   * Era-default margin-of-victory points used to decide the winner at the max
+   * turn limit. A team is defeated if its VP difference plus this value <= 0, so
+   * it may trail by up to this many points and still avoid defeat.
+   * Battle types and scenarios may override it; resolved via the
+   * BaseGame.vpPointsToTieBreak getter (scenario > battle type > this).
+   */
+  vpPointsToTieBreak: number;
+  /**
+   * Era-default victory points for capturing a big objective, used when an
+   * objective has no explicit VP set.
+   * Battle types and scenarios may override it; resolved via the
+   * BaseGame.vpBigDefaultPoints getter (scenario > battle type > this).
+   */
+  vpBigDefaultPoints: number;
+  /**
+   * Era-default victory points for capturing a small objective, used when an
+   * objective has no explicit VP set.
+   * Battle types and scenarios may override it; resolved via the
+   * BaseGame.vpSmallDefaultPoints getter (scenario > battle type > this).
+   */
+  vpSmallDefaultPoints: number;
+  /**
+   * Era-default horizontal inset (fraction trimmed per side, 0-0.5) of the
+   * small-objective placement zone: trims only its width so the dashed box is
+   * narrower, keeping its vertical reach.
+   * Battle types and scenarios may override it; resolved via the
+   * BaseGame.smallObjectiveZoneHorizontalInset getter (scenario > battle type > this).
+   */
+  smallObjectiveZoneHorizontalInset: number;
+  /**
+   * Era-default inset (fraction trimmed per side, 0-0.5, centered) of the
+   * big-objective placement box inside the deployment zone, so it reads as its
+   * own smaller area. The big objective spawns at the center, which the inset preserves.
+   * Battle types and scenarios may override it; resolved via the
+   * BaseGame.bigObjectiveZoneInset getter (scenario > battle type > this).
+   */
+  bigObjectiveZoneInset: number;
+  /**
+   * Era-default minimum distance, in world pixels, kept between a team's
+   * objectives when repositioned during deployment (0 disables spacing, e.g.
+   * preset scenarios). Battle types may override it; resolved via
+   * GameDataManager.getObjectiveSpacing (battle type > this).
+   */
+  objectiveSpacing: number;
+  /**
+   * Era-default distance, in world pixels, between adjacent objectives in the
+   * central neutral row (0 falls back to a small default). Independent of
+   * objectiveSpacing, which governs a team's own objectives. Battle types may
+   * override it; resolved via GameDataManager.getNeutralObjectiveSpacing
+   * (battle type > this).
+   */
+  neutralObjectiveSpacing: number;
+  /**
+   * Era-default number of small objectives each side owns and may reposition
+   * during the deployment phase (0 = none). Battle types may override it;
+   * resolved via GameDataManager.getSmallObjectivesPerSide (battle type > this).
+   */
+  smallObjectivesPerSide: number;
+  /**
+   * Era-default number of neutral objectives spawned on the no-man's-land line
+   * at the end of deployment (1 = the single drifting neutral). Battle types may
+   * override it; resolved via GameDataManager.getCentralNeutralObjectives
+   * (battle type > this).
+   */
+  centralNeutralObjectives: number;
 }
 
 export interface AllyCollisionRule {
   collisionBounceScale: number;
   overlapStopCharge: number;
+  /** How long (in ticks) an allied hard collision prevents charging. */
+  chargeInterruptionDuration: number;
   maxSpeedPenalty: number;
   maxOrgDamageReceived: number;
   maxMeleeAttackPenalty: number;
@@ -605,8 +711,7 @@ export interface AllyCollisionRule {
 
 export interface TutorialRule {
   /**
-   * Single tutorial scenario for the era. `null` means the era has no tutorial
-   * and matchmaking/arenas for that era are not gated by tutorial completion.
+   * Single tutorial scenario for the era. `null` means the era has no tutorial.
    */
   scenario: ScenarioName | null;
 }
@@ -648,6 +753,12 @@ export interface OrganizationRule {
   nearbyUnitsOrgDamageModifierPenaltyCap: number;
   /** Organization bonus multiplier for routing units within organization radius */
   routingUnitNearbyUnitsOrgBonus: number;
+  /**
+   * How long (in ticks) the StartedRouting effect lasts. While it is active the
+   * org radius is widened by the two fields below, the unit pays
+   * `startedRoutingRunCostModifier`, and it cannot recover or rally.
+   */
+  startedRoutingDuration: number;
   /** Organization radius modifier applied when unit has StartedRouting effect */
   startedRoutingOrgRadiusModifier: number;
   /** Minimum organization radius distance that is applied when unit has StartedRouting effect: 0 turns off the function */
@@ -726,6 +837,8 @@ export interface MapSizeTemplate {
 
 // TODO: rename to MatchmakingConfig
 export interface MatchmakingPresetsData {
+  /** Battle types selected in a new matchmaking configuration. Falls back to the era default when omitted. */
+  defaultBattleTypes?: DynamicBattleType[];
   /** Scenario IDs that must always be included in ranked matchmaking for this era. Optional; empty if omitted. */
   rankedRequiredScenarios?: ScenarioName[];
   /** Minimum number of scenarios a player must have selected for ranked matchmaking. Optional. */

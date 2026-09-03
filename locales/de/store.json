@@ -1,7 +1,8 @@
 {
   "currencyShop": {
     "title": "<0/> Münzen bekommen",
-    "subtitle": "Schalte unglaubliche Kosmetikartikel frei und stich aus der Menge hervor!"
+    "subtitle": "Schalte unglaubliche Kosmetikartikel frei und stich aus der Menge hervor!",
+    "unavailable": "Der Shop ist derzeit nicht verfügbar. Bitte versuche es später erneut."
   },
 
   "aboutCurrencies": "Über Währungen",
@@ -12,9 +13,19 @@
     "basicDescription": "<currency/>: Verdiene diese, in dem Sie Partien spielen. Benutzen Sie es, um Einheiten auszubilden und eine Armee aufzubauen.",
     "premiumDescription": "<currency/>: Für den Kauf von Kosmetikartikeln, um mit Ihrem Style anzugeben. Wird hauptsächlich durch das Ausgeben von Echtgeld erstanden, da dies ein kostenloses Spiel ist.",
     "rate": "{{rate}} {{currency}} pro USD",
-    "purchase": "Kaufe {{amount}} {{currency}}",
-    "totalSold": "Gesamtes <currency/> bisher verkauft: {{amount}}",
-    "nextGoal": "Nächstes Ziel: {{goal}} <currency/> "
+    "purchase": "Kaufe {{amount}} {{currency}}"
+  },
+
+  "sale": {
+    "title": "Wochenangebot",
+    "description": "{{items}} Artikel mit -{{discount}}% Rabatt, nur diese Woche.",
+    "endsIn": "Endet in {{days}}d {{hours}}h",
+    "endsInHours": "Endet in {{hours}}h"
+  },
+
+  "firstPurchase": {
+    "banner": "Dein erster Kauf zählt doppelt: Jedes Paket schreibt {{multiplier}}x {{currency}} gut.",
+    "badge": "{{multiplier}}x Erstkauf"
   },
 
   "purchaseConfirmation": "Sind Sie sicher, dass Sie {{item}} kaufen wollen?",

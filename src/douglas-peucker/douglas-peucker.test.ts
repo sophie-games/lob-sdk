@@ -238,6 +238,57 @@ describe("Douglas-Peucker Algorithm", () => {
       const result = douglasPeucker(path, 0);
       expect(result.length).toBeGreaterThan(2);
     });
+
+    it("throws a RangeError for a negative, NaN, or infinite epsilon", () => {
+      const path: Point2[] = [
+        { x: 0, y: 0 },
+        { x: 1, y: 5 },
+        { x: 2, y: 0 },
+      ];
+      expect(() => douglasPeucker(path, -1)).toThrow(RangeError);
+      expect(() => douglasPeucker(path, NaN)).toThrow(RangeError);
+      expect(() => douglasPeucker(path, Infinity)).toThrow(RangeError);
+    });
+
+    it("keeps a far midpoint on a closed loop (start === end) without NaN-collapsing", () => {
+      // The [start, end] segment is zero-length; the old infinite-line metric divided by zero.
+      const path: Point2[] = [
+        { x: 0, y: 0 },
+        { x: 5, y: 5 },
+        { x: 0, y: 0 },
+      ];
+      expect(douglasPeucker(path, 0.5)).toEqual([
+        { x: 0, y: 0 },
+        { x: 5, y: 5 },
+        { x: 0, y: 0 },
+      ]);
+    });
+
+    it("handles duplicate / coincident points without crashing or NaN", () => {
+      const path: Point2[] = [
+        { x: 0, y: 0 },
+        { x: 0, y: 0 },
+        { x: 2, y: 3 },
+        { x: 4, y: 0 },
+        { x: 4, y: 0 },
+      ];
+      const result = douglasPeucker(path, 0.5);
+      expect(result).toContainEqual({ x: 2, y: 3 });
+      expect(
+        result.every((p) => Number.isFinite(p.x) && Number.isFinite(p.y)),
+      ).toBe(true);
+    });
+
+    it("does not mutate the input array", () => {
+      const path: Point2[] = [
+        { x: 0, y: 0 },
+        { x: 1, y: 5 },
+        { x: 2, y: 0 },
+      ];
+      const copy = path.map((p) => ({ ...p }));
+      douglasPeucker(path, 0.5);
+      expect(path).toEqual(copy);
+    });
   });
 
   describe("Mathematical accuracy", () => {

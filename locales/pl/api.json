@@ -3,6 +3,7 @@
   "INCORRECT_PASSWORD": "Hasło niepoprawne",
   "START_TIME_MUST_BE_IN_THE_FUTURE": "Czas rozpoczęcia musi być w przyszłości",
   "USER_IS_BANNED": "Użytkownik zablokowany",
+  "PARTY_REQUIRES_TEAM_MODE": "Twoja drużyna może dołączyć do kolejki tylko w trybach drużynowych. Wybierz tryb obsługujący grę zespołową.",
   "auth": {
     "OAUTH_ACCOUNT": "To konto zostało zarejestrowane przez Google. Proszę użyć logowania przez Google"
   },
@@ -11,6 +12,7 @@
   "GAME_ALREADY_FINISHED": "Ta gra już się zakończyła.",
   "NOT_GAME_CREATOR": "Tylko twórca gry może rozpocząć ją wcześniej.",
   "MISSING_TEAM_PLAYERS": "Przed rozpoczęciem co najmniej jeden gracz musi dołączyć do każdej drużyny.",
+  "PLAYERS_CHOOSING_ARMIES": "Zanim rozpoczniesz, wszyscy gracze muszą wybrać swoje armie.",
   "GAME_DOES_NOT_EXIST": "Ta gra już nie istnieje.",
   "ERROR_STARTING_GAME": "Coś poszło nie tak podczas uruchamiania gry. Spróbuj ponownie.",
   "ORDERS_ALREADY_SUBMITTED": "Rozkazy na tę turę zostały już odebrane.",
@@ -22,6 +24,8 @@
   "LIMITED_MODE_NOT_AVAILABLE": "Ten tryb jest obecnie niedostępny.",
   "LIMITED_MODE_BUSY": "Inny gracz właśnie tworzy grę. Spróbuj za chwilę.",
   "INSUFFICIENT_CURRENCY": "Niewystarczająca waluta.",
+  "MAX_SLOW_QUEUE_LIMIT_REACHED": "Masz już maksymalną liczbę gier czekających w kolejce. Wycofaj jedną, zanim ponownie dołączysz do kolejki.",
+  "USER_NOT_ADDED_TO_THE_QUEUE": "Nie udało się dodać cię do kolejki. Spróbuj ponownie.",
   "INVALID_CURRENCY_TYPE": "Nieprawidłowy wybór waluty.",
   "INTERNAL_ERROR": "Coś poszło nie tak. Spróbuj ponownie."
 }

@@ -1,0 +1,34 @@
+{
+  "dialog": {
+    "close": "Fechar",
+    "label": "Caixa de diálogo"
+  },
+  "passwordReset": {
+    "linkSent": "O link para redefinir a senha foi enviado. Verifique seu e-mail.",
+    "unexpectedError": "Ocorreu um erro inesperado.",
+    "userNotFound": "Nenhuma conta correspondente foi encontrada.",
+    "invalidOrExpiredToken": "Este link para redefinir a senha é inválido ou expirou.",
+    "error": "Erro ao redefinir a senha: {{message}}",
+    "invalidLink": "Este link para redefinir a senha é inválido ou está incompleto.",
+    "passwordsDoNotMatch": "As senhas não coincidem."
+  },
+  "pushDiagnostics": {
+    "sectionTitle": "Diagnóstico de notificações push",
+    "title": "Teste push de ponta a ponta",
+    "description": "Envia uma notificação real de turno aos seus dispositivos registrados e verifica cada etapa da entrega.",
+    "fcmCredentials": "Credenciais do FCM",
+    "registeredDevices": "Dispositivos registrados",
+    "delivered": "Entregues",
+    "ready": "Prontas",
+    "missing": "Ausentes",
+    "dropped": "({{count}} descartadas)",
+    "sendTest": "Enviar notificação de teste",
+    "sendingTest": "Enviando teste…",
+    "results": {
+      "fcmNotConfigured": "O FCM não está configurado. Defina FCM_SERVICE_ACCOUNT_JSON.",
+      "noDevices": "Não há dispositivos registrados para esta conta. Entre primeiro pelo aplicativo.",
+      "accepted": "O FCM aceitou {{sent}} de {{devices}} solicitações de envio. Confirme a entrega no telefone.",
+      "testFailed": "O teste de notificações push falhou."
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "dialog": {
+    "close": "Fermer",
+    "label": "Boîte de dialogue"
+  },
+  "passwordReset": {
+    "linkSent": "Le lien de réinitialisation du mot de passe a été envoyé. Consultez vos e-mails.",
+    "unexpectedError": "Une erreur inattendue s'est produite.",
+    "userNotFound": "Aucun compte correspondant n'a été trouvé.",
+    "invalidOrExpiredToken": "Ce lien de réinitialisation du mot de passe est invalide ou a expiré.",
+    "error": "Erreur lors de la réinitialisation du mot de passe : {{message}}",
+    "invalidLink": "Ce lien de réinitialisation du mot de passe est invalide ou incomplet.",
+    "passwordsDoNotMatch": "Les mots de passe ne correspondent pas."
+  },
+  "pushDiagnostics": {
+    "sectionTitle": "Diagnostic des notifications push",
+    "title": "Test push de bout en bout",
+    "description": "Envoie une véritable notification de tour à vos appareils enregistrés et vérifie chaque étape de la livraison.",
+    "fcmCredentials": "Identifiants FCM",
+    "registeredDevices": "Appareils enregistrés",
+    "delivered": "Livré",
+    "ready": "Prêt",
+    "missing": "Manquant",
+    "dropped": "({{count}} rejeté(s))",
+    "sendTest": "Envoyer une notification de test",
+    "sendingTest": "Envoi du test…",
+    "results": {
+      "fcmNotConfigured": "FCM n'est pas configuré. Définissez FCM_SERVICE_ACCOUNT_JSON.",
+      "noDevices": "Aucun appareil n'est enregistré pour ce compte. Connectez-vous d'abord dans l'application.",
+      "accepted": "FCM a accepté {{sent}} demandes d'envoi sur {{devices}}. Confirmez la réception sur le téléphone.",
+      "testFailed": "Le test push a échoué."
+    }
+  }
+}

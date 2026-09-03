@@ -1,20 +1,16 @@
 [
   {
     "id": "default",
-    "frontBackArc": 90,
-    "minFlankAngle": 180,
-    "maxFlankAngle": 180,
-    "collisionCircles": 1,
-    "collisionCircleSize": 32,
+    "collisionShape": { "type": 1, "frontage": 32, "depth": 32 },
+    "allyCollisionLevel": 2,
+    "enemyCollisionLevel": 2,
     "minMovementModifier": -0.8
   },
   {
     "id": "dispersed",
-    "frontBackArc": 90,
-    "minFlankAngle": 180,
-    "maxFlankAngle": 180,
-    "collisionCircles": 1,
-    "collisionCircleSize": 32,
+    "collisionShape": { "type": 1, "frontage": 32, "depth": 32 },
+    "allyCollisionLevel": 2,
+    "enemyCollisionLevel": 2,
     "minMovementModifier": -0.8
   }
 ]

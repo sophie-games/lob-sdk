@@ -1,7 +1,8 @@
 {
   "currencyShop": {
     "title": "Szerezz <0/>-et!",
-    "subtitle": "Szerezz elképesztő kozmetikumokat, és tűnj ki a sorból!"
+    "subtitle": "Szerezz elképesztő kozmetikumokat, és tűnj ki a sorból!",
+    "unavailable": "Az áruház jelenleg nem érhető el. Kérjük, próbáld újra később."
   },
 
   "aboutCurrencies": "A fizetőeszközökről",
@@ -12,9 +13,19 @@
     "basicDescription": "<currency/>: Ezt nyílt meccsek játszásával szerezheted meg. Új egység-típusok feloldására használható.",
     "premiumDescription": "<currency/>: Ez kozmetikumok vásárlására van. Főként valós pénz elköltésével juthatsz hozzá, hiszen így tudjuk fenntartani ezt az ingyen játszható játékot.",
     "rate": "{{rate}} {{currency}} Amerikai Dolláronként",
-    "purchase": "{{amount}} {{currency}} vásárlása",
-    "totalSold": "Eddig {{amount}} darab <currency/>-et adtunk el",
-    "nextGoal": "Következő cél: {{goal}} <currency/> "
+    "purchase": "{{amount}} {{currency}} vásárlása"
+  },
+
+  "sale": {
+    "title": "Heti akció",
+    "description": "{{items}} tárgy -{{discount}}% kedvezménnyel, csak ezen a héten.",
+    "endsIn": "Vége {{days}}n {{hours}}ó múlva",
+    "endsInHours": "Vége {{hours}}ó múlva"
+  },
+
+  "firstPurchase": {
+    "banner": "Az első vásárlásod dupla: minden csomag {{multiplier}}x {{currency}} jóváír.",
+    "badge": "{{multiplier}}x első vásárlás"
   },
 
   "purchaseConfirmation": "Biztos, hogy megakarod vásárolni ezt: {{item}}?",

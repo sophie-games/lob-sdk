@@ -20,6 +20,10 @@
     "title": "允许触控框选",
     "description": "允许在触控设备上使用框选来选择多个单位。"
   },
+  "showControlGroupsBar": {
+    "title": "控制编组栏",
+    "description": "显示控制编组栏。在触摸设备上将其关闭，可避免误触更改你的选择。"
+  },
   "smartCurvedMovements": {
     "title": "智能曲线移动",
     "description": "启用后会自动优化行动路线，让曲线更加平滑来减少单位转向时浪费的速度。"
@@ -31,10 +35,6 @@
   "openSelectOrderModal": {
     "title": "启用指令菜单",
     "description": "如果启用，会在选择单位指令时打开一个菜单而不是点击切换。"
-  },
-  "openSelectFormationModal": {
-    "title": "启用阵型菜单",
-    "description": "如果启用，会在选择阵型时打开一个菜单而不是点击切换。"
   },
   "showPlayableGamesAvailableModal": {
     "title": "显示可进行游戏菜单"
@@ -102,6 +102,10 @@
   "gridOpacity": {
     "title": "网格不透明度"
   },
+  "tracerOpacity": {
+    "title": "曳光线不透明度",
+    "description": "调整远程攻击时曳光线的不透明度。设为 0% 时将完全隐藏。"
+  },
   "showDebugShapes": {
     "title": "显示调试图形",
     "description": "显示调试所需的图形，例如碰撞体积和地形判定点。"
@@ -152,12 +156,16 @@
     "title": "待选空闲单位包含未更改的命令",
     "description": "关：仅无命令的单位。开：若本回合未修改，仍保留上回合命令的单位也会被选中。"
   },
+  "applyOrderTypeToSelection": {
+    "title": "命令类型应用于所选单位",
+    "description": "开启：更改移动类型会重设所选单位的当前命令，命令按钮会反映你的选择。关闭：仅设置下一次绘制命令的类型（经典）。"
+  },
   "showChat": {
     "title": "显示聊天栏"
   },
   "keybindings": {
-    "rotateCameraContinuous": "旋转镜头（按住）",
-    "rotateCameraSnap": "旋转镜头 90°",
+    "rotateCameraLeft": "向左旋转镜头",
+    "rotateCameraRight": "向右旋转镜头",
     "title": "键位绑定",
     "pressAKey": "按下一个按键……",
     "moveUp": "向上移动",
@@ -176,8 +184,9 @@
     "togglePathFinding": "切换路径寻找",
     "toggleFowPerspective": "切换战争迷雾视角",
     "toggleMultiTurnPathOrders": "切换多回合路径指令",
+    "toggleApplyOrderTypeToSelection": "切换命令类型应用于所选单位",
     "openChat": "打开聊天栏",
-    "openFormationModal": "打开阵型菜单",
+    "openTacticsModal": "打开战术菜单",
     "showBattleOverview": "按住显示战斗概览",
     "formation1": "阵型 1",
     "formation2": "阵型 2",
@@ -199,7 +208,8 @@
     "controlGroup8": "控制编组8",
     "controlGroup9": "控制编组9",
     "controlGroup0": "控制编组0",
-    "openPingWheel": "打开标记轮盘"
+    "openPingWheel": "打开标记轮盘",
+    "controlGroupsHelp": "单独按数字会下达命令。呼叫编组请按 {{modifier}} + 数字。"
   },
   "routingTransparency": {
     "title": "溃退单位透明度"
@@ -229,5 +239,77 @@
   "era": {
     "title": "时代",
     "description": "选择你想游玩的年代。该设置会改变可玩的单位，战役和游戏机制，"
+  },
+  "appearance": "外观",
+  "notifications": {
+    "title": "通知",
+    "turnActivity": {
+      "title": "回合",
+      "description": "回合结算时以及我的银行时间即将耗尽时通知我。"
+    },
+    "chat": {
+      "title": "消息",
+      "description": "好友给我发消息时通知我。"
+    },
+    "matchmaking": {
+      "title": "匹配",
+      "description": "有人加入我关注的队列时，以及慢速对局凑齐玩家时通知我。"
+    },
+    "reminders": {
+      "title": "提醒",
+      "description": "我的连续天数即将中断时通知我。"
+    }
+  },
+  "theme": {
+    "presetTitle": "主题预设",
+    "presetDescription": "为整个应用重新配色。自定义颜色需要付费等级。",
+    "presets": {
+      "default": "默认",
+      "warm": "暖色",
+      "navy": "藏青",
+      "modern": "现代"
+    },
+    "customTitle": "自定义颜色",
+    "unlock": "自定义主题颜色",
+    "groups": {
+      "surfaces": "表面",
+      "accent": "强调色",
+      "borders": "边框",
+      "text": "文本"
+    },
+    "tokens": {
+      "surface": "面板背景",
+      "surfaceDeep": "凹陷背景",
+      "surfaceData": "数据背景",
+      "surfaceDataRaised": "数据背景（凸起）",
+      "surfaceHover": "悬停背景",
+      "surfaceDisabled": "禁用背景",
+      "accent": "强调色",
+      "accentSoft": "强调色（柔和）",
+      "accentDeep": "强调色（深）",
+      "line": "边框",
+      "brass": "按钮填充 / 边框",
+      "brassHover": "按钮（悬停）",
+      "brassDisabled": "按钮（禁用）",
+      "fg": "文本",
+      "fgStrong": "文本（强）",
+      "fgMuted": "文本（弱化）",
+      "fgDisabled": "文本（禁用）",
+      "onAccent": "强调色上的文本"
+    },
+    "resetTitle": "重置主题",
+    "resetDescription": "恢复默认调色板。"
+  },
+  "controlGroups": {
+    "recall": "呼叫编组 {{group}}",
+    "set": "设置编组 {{group}}",
+    "add": "加入编组 {{group}}",
+    "setExclusive": "仅编入编组 {{group}}"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

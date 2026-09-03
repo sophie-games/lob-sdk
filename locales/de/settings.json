@@ -20,6 +20,10 @@
     "title": "Erlaube Berührungsauswahlboxen",
     "description": "Aktiviert Auswahlboxen auf Touch-Geräten, um mehrere Einheiten gleichzeitig auszuwählen."
   },
+  "showControlGroupsBar": {
+    "title": "Leiste für Kontrollgruppen",
+    "description": "Zeigt die Leiste für Kontrollgruppen an. Deaktiviere sie, damit versehentliche Berührungen deine Auswahl auf Touchgeräten nicht verändern."
+  },
   "smartCurvedMovements": {
     "title": "Kluge Kurvenbewegungen",
     "description": "Aktiviere diese Option, um die Bewegungspfade mit weicheren Kurven zu optimieren, was Geschwindigkeitsverluste beim Drehen verringert."
@@ -91,6 +95,10 @@
   "gridOpacity": {
     "title": "Rasterdeckkraft"
   },
+  "tracerOpacity": {
+    "title": "Leuchtspur-Deckkraft",
+    "description": "Steuert die Deckkraft der Leuchtspuren bei Fernangriffen. Bei 0 % werden sie ausgeblendet."
+  },
   "showDebugShapes": {
     "title": "Debug-Formen anzeigen",
     "description": "Zeigt Debug-Formen auf Einheiten an, einschließlich Kollisionsformen und Geländeprüfpunkten."
@@ -124,12 +132,16 @@
     "title": "Leerlaufauswahl schließt unveränderte Befehle ein",
     "description": "Aus: nur Einheiten ohne Befehle. Ein: auch Einheiten, die noch den Befehl der letzten Runde haben, wenn Sie ihn in dieser Runde nicht geändert haben."
   },
+  "applyOrderTypeToSelection": {
+    "title": "Befehlstyp gilt für die Auswahl",
+    "description": "An: Das Ändern des Bewegungstyps wendet ihn auf die aktuellen Befehle der ausgewählten Einheiten an, und die Befehlsschaltfläche folgt deiner Auswahl. Aus: Legt nur den Typ für den nächsten gezeichneten Befehl fest (klassisch)."
+  },
   "showChat": {
     "title": "Chat anzeigen"
   },
   "keybindings": {
-    "rotateCameraContinuous": "Kamera drehen (halten)",
-    "rotateCameraSnap": "Kamera um 90° drehen",
+    "rotateCameraLeft": "Kamera nach links drehen",
+    "rotateCameraRight": "Kamera nach rechts drehen",
     "title": "Tastenkombinationen",
     "pressAKey": "Drücke eine Taste...",
     "moveUp": "Nach oben bewegen",
@@ -148,8 +160,9 @@
     "togglePathFinding": "Pfadsuche umschalten",
     "toggleFowPerspective": "Nebel des Krieges Perspektive umschalten",
     "toggleMultiTurnPathOrders": "Mehrzügige Weg-Befehle umschalten",
+    "toggleApplyOrderTypeToSelection": "Anwenden des Befehlstyps auf die Auswahl umschalten",
     "openChat": "Chat öffnen",
-    "openFormationModal": "Formationsfenster öffnen",
+    "openTacticsModal": "Taktikmenü öffnen",
     "showBattleOverview": "Gedrückt halten für Schlachtübersicht",
     "formation1": "Formation 1",
     "formation2": "Formation 2",
@@ -161,7 +174,8 @@
     "toggleStraightLine": "Gerade Linie umschalten",
     "toggleDrawLine": "Zeichnungslinien deaktivieren umschalten",
     "splitInHalf": "In Hälfte teilen",
-    "openPingWheel": "Ping-Rad öffnen"
+    "openPingWheel": "Ping-Rad öffnen",
+    "controlGroupsHelp": "Die reine Ziffer gibt einen Befehl. Gruppe mit {{modifier}} + Ziffer aufrufen."
   },
   "routingTransparency": {
     "title": "Transparenz von fliehenden Einheiten"
@@ -187,5 +201,81 @@
   "groundQuality": {
     "title": "Bodenqualität",
     "description": "Steuert die Qualität der Bodenstrukturen. Höhere Qualität bietet bessere visuelle Details, kann aber die Leistung beeinträchtigen. Erfordert das Aktualisieren der Karte."
+  },
+  "appearance": "Darstellung",
+  "era": {
+    "title": "Epoche",
+    "description": "Wähle die Epoche für das Spiel. Eine Änderung wirkt sich auf verfügbare Einheiten, Szenarien und Spielmechaniken aus."
+  },
+  "notifications": {
+    "title": "Benachrichtigungen",
+    "turnActivity": {
+      "title": "Runden",
+      "description": "Benachrichtige mich, wenn eine Runde ausgewertet wird und wenn meine Bankzeit fast aufgebraucht ist."
+    },
+    "chat": {
+      "title": "Nachrichten",
+      "description": "Benachrichtige mich, wenn ein Freund mir eine Nachricht schickt."
+    },
+    "matchmaking": {
+      "title": "Spielsuche",
+      "description": "Benachrichtige mich, wenn jemand einer beobachteten Warteschlange beitritt und wenn ein langsames Spiel seine Spieler findet."
+    },
+    "reminders": {
+      "title": "Erinnerungen",
+      "description": "Benachrichtige mich, wenn meine Tagesserie zu enden droht."
+    }
+  },
+  "theme": {
+    "presetTitle": "Design-Voreinstellung",
+    "presetDescription": "Färbe die ganze App neu. Eigene Farben erfordern eine kostenpflichtige Stufe.",
+    "presets": {
+      "default": "Standard",
+      "warm": "Warm",
+      "navy": "Marineblau",
+      "modern": "Modern"
+    },
+    "customTitle": "Eigene Farben",
+    "unlock": "Eigene Design-Farben",
+    "groups": {
+      "surfaces": "Flächen",
+      "accent": "Akzent",
+      "borders": "Rahmen",
+      "text": "Text"
+    },
+    "tokens": {
+      "surface": "Panel-Hintergrund",
+      "surfaceDeep": "Vertiefter Hintergrund",
+      "surfaceData": "Daten-Hintergrund",
+      "surfaceDataRaised": "Daten-Hintergrund (erhöht)",
+      "surfaceHover": "Hover-Hintergrund",
+      "surfaceDisabled": "Deaktivierter Hintergrund",
+      "accent": "Akzent",
+      "accentSoft": "Akzent (weich)",
+      "accentDeep": "Akzent (dunkel)",
+      "line": "Rahmen",
+      "brass": "Schaltflächenfüllung / -rahmen",
+      "brassHover": "Schaltfläche (Hover)",
+      "brassDisabled": "Schaltfläche (deaktiviert)",
+      "fg": "Text",
+      "fgStrong": "Text (kräftig)",
+      "fgMuted": "Text (gedämpft)",
+      "fgDisabled": "Text (deaktiviert)",
+      "onAccent": "Text auf Akzent"
+    },
+    "resetTitle": "Design zurücksetzen",
+    "resetDescription": "Zurück zur Standardpalette."
+  },
+  "controlGroups": {
+    "recall": "Gruppe {{group}} aufrufen",
+    "set": "Gruppe {{group}} festlegen",
+    "add": "Zu Gruppe {{group}} hinzufügen",
+    "setExclusive": "Nur Gruppe {{group}} zuweisen"
+  },
+  "notifications": {
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
+    }
   }
 }

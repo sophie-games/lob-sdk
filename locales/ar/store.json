@@ -1,7 +1,8 @@
 {
   "currencyShop": {
     "title": "احصل على <0/>",
-    "subtitle": "افتح الإكسسوارات المذهلة وتميز عن الحشد!"
+    "subtitle": "افتح الإكسسوارات المذهلة وتميز عن الحشد!",
+    "unavailable": "المتجر غير متوفر حاليًا. يُرجى المحاولة مرة أخرى لاحقًا."
   },
 
   "aboutCurrencies": "حول العملات",
@@ -12,9 +13,19 @@
     "basicDescription": "<currency/>: اكسب هذا من خلال لعب المباريات في الطابور. استخدمه لتجنيد الوحدات وبناء جيشك.",
     "premiumDescription": "<currency/>: هذا لشراء الإكسسوارات لإظهار أسلوبك. يأتي معظمه من إنفاق المال الحقيقي لأن اللعبة مجانية.",
     "rate": "{{rate}} {{currency}} لكل دولار أمريكي",
-    "purchase": "شراء {{amount}} {{currency}}",
-    "totalSold": "إجمالي <currency/> المباع حتى الآن: {{amount}}",
-    "nextGoal": "الهدف التالي: {{goal}} <currency/> "
+    "purchase": "شراء {{amount}} {{currency}}"
+  },
+
+  "sale": {
+    "title": "عرض الأسبوع",
+    "description": "{{items}} عنصراً بخصم -{{discount}}%، هذا الأسبوع فقط.",
+    "endsIn": "ينتهي خلال {{days}}ي {{hours}}س",
+    "endsInHours": "ينتهي خلال {{hours}}س"
+  },
+
+  "firstPurchase": {
+    "banner": "أول عملية شراء لك مضاعفة: كل حزمة تمنحك {{multiplier}}x من {{currency}}.",
+    "badge": "{{multiplier}}x لأول شراء"
   },
 
   "purchaseConfirmation": "هل أنت متأكد من أنك تريد شراء {{item}}؟",

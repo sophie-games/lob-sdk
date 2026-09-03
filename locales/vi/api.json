@@ -3,6 +3,7 @@
   "INCORRECT_PASSWORD": "Mật khẩu không đúng",
   "START_TIME_MUST_BE_IN_THE_FUTURE": "Thời gian bắt đầu phải ở tương lai",
   "USER_IS_BANNED": "Người dùng bị cấm",
+  "PARTY_REQUIRES_TEAM_MODE": "Nhóm của bạn chỉ có thể vào hàng chờ ở các chế độ theo đội. Hãy chọn một chế độ hỗ trợ chơi theo đội.",
   "auth": {
     "OAUTH_ACCOUNT": "Tài khoản này đã được đăng ký với Google. Vui lòng sử dụng phương thức đăng nhập Google."
   },
@@ -11,6 +12,7 @@
   "GAME_ALREADY_FINISHED": "Trò chơi này đã kết thúc.",
   "NOT_GAME_CREATOR": "Chỉ người tạo trò chơi mới có thể bắt đầu sớm.",
   "MISSING_TEAM_PLAYERS": "Trước khi bắt đầu, mỗi đội phải có ít nhất một người chơi tham gia.",
+  "PLAYERS_CHOOSING_ARMIES": "Tất cả người chơi phải chọn quân đội của mình trước khi bạn có thể bắt đầu.",
   "GAME_DOES_NOT_EXIST": "Trò chơi này không còn tồn tại.",
   "ERROR_STARTING_GAME": "Đã xảy ra lỗi khi bắt đầu trò chơi. Vui lòng thử lại.",
   "ORDERS_ALREADY_SUBMITTED": "Lệnh cho lượt này đã được nhận.",
@@ -22,6 +24,8 @@
   "LIMITED_MODE_NOT_AVAILABLE": "Chế độ này hiện không khả dụng.",
   "LIMITED_MODE_BUSY": "Một người chơi khác đang tạo trận đấu. Thử lại sau giây lát.",
   "INSUFFICIENT_CURRENCY": "Không đủ tiền tệ.",
+  "MAX_SLOW_QUEUE_LIMIT_REACHED": "Bạn đã có số trận tối đa đang chờ trong hàng đợi. Hãy rút một trận trước khi vào hàng đợi lại.",
+  "USER_NOT_ADDED_TO_THE_QUEUE": "Không thể thêm bạn vào hàng đợi. Vui lòng thử lại.",
   "INVALID_CURRENCY_TYPE": "Lựa chọn tiền tệ không hợp lệ.",
   "INTERNAL_ERROR": "Đã xảy ra lỗi. Vui lòng thử lại."
 }

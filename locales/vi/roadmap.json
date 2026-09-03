@@ -1,0 +1,105 @@
+{
+  "home": "Trang chủ",
+  "title": "Lộ trình phát triển",
+  "subtitle": "Những gì chúng tôi đang thực hiện và kế hoạch tiếp theo",
+  "vision": {
+    "sharedBase": "Lines of Battle là trò chơi chiến thuật với các lượt diễn ra đồng thời: mỗi người chơi lên kế hoạch cho một nước đi, sau đó tất cả nước đi được giải quyết cùng lúc. Chúng tôi đang phát triển hai phiên bản dùng chung nền tảng đó: Lines of Battle <twoD>2D</twoD> (Web và Di động), miễn phí và tập trung vào các trận xếp hạng trực tuyến, cùng Lines of Battle <threeD>3D</threeD> (Steam), một trò chơi máy tính trả phí riêng biệt với các chiến dịch lịch sử và trận đánh dài hơn.",
+    "separateGames": "Kỹ năng bạn học được có thể áp dụng cho cả hai, nhưng <twoD>2D</twoD> và <threeD>3D</threeD> là hai trò chơi riêng với engine và hệ thống nhiều người chơi khác nhau. Người chơi Web và Di động có thể đấu cùng nhau trong 2D; phần nhiều người chơi của 3D chỉ ở trên Steam."
+  },
+  "twoD": {
+    "platform": "Web và Di động",
+    "title": "Lines of Battle 2D",
+    "focus": "Miễn phí trên Web, Android và iOS.",
+    "badges": { "web": "Web", "android": "Android", "ios": "iOS" },
+    "intro": "Đây là trò chơi bạn có thể chơi ngay bây giờ. Trò chơi miễn phí và được duy trì bằng vật phẩm trang trí cùng các tính năng tiện ích không ảnh hưởng đến kết quả trận đấu. Một phần công việc đang được thực hiện và phần còn lại đã có kế hoạch. Bạn có thể theo dõi tại <projectLink>dự án GitHub công khai của chúng tôi</projectLink>.",
+    "items": [
+      {
+        "name": "Chất lượng và ổn định",
+        "description": "Sửa lỗi, cải thiện hiệu năng, thay đổi backend, kiểm thử và cập nhật cân bằng."
+      },
+      {
+        "name": "Điều khiển",
+        "description": "Cải thiện cách điều khiển trên thiết bị di động và PC."
+      },
+      {
+        "name": "Chế độ đội mới",
+        "description": "Thêm lựa chọn nhiều người chơi và các thể thức theo đội."
+      },
+      {
+        "name": "Cạnh tranh và công bằng",
+        "description": "Tiếp tục cải thiện ghép trận, xếp hạng, tài khoản smurf và việc dùng nhiều tài khoản."
+      },
+      {
+        "name": "Tiến trình người chơi",
+        "description": "Mục tiêu dài hạn, cột mốc và cách thể hiện tiến trình."
+      },
+      {
+        "name": "Tính năng xã hội",
+        "description": "Thêm công cụ để chơi cùng người khác, bao gồm phát triển thêm các liên minh."
+      },
+      {
+        "name": "Hỗ trợ phát triển",
+        "description": "Vật phẩm trang trí, tính năng tiện ích và ghi nhận những người hỗ trợ kinh phí phát triển."
+      },
+      {
+        "name": "Thời đại mới",
+        "description": "Thêm nội dung lịch sử theo thời gian. Mỗi thời đại mới sẽ độc lập và không bắt buộc."
+      }
+    ]
+  },
+  "threeD": {
+    "platform": "Steam · Máy tính",
+    "title": "Lines of Battle 3D",
+    "focus": "Một trò chơi trả phí riêng cho Steam.",
+    "badges": {
+      "steam": "Steam",
+      "paidGame": "Trò chơi trả phí",
+      "desktop": "Máy tính"
+    },
+    "intro": "Lines of Battle 3D là một trò chơi máy tính riêng biệt với các chiến dịch lịch sử chơi đơn và những trận đánh dài hơn.",
+    "items": [
+      {
+        "name": "Cùng một hệ thống chiến đấu",
+        "description": "Hệ thống chiến đấu 2D được chuyển sang 3D. Cách thể hiện thay đổi nhưng nền tảng chiến thuật vẫn giữ nguyên."
+      },
+      {
+        "name": "Engine 3D",
+        "description": "Được xây dựng bằng engine mã nguồn mở Godot."
+      },
+      {
+        "name": "Chiến dịch",
+        "description": "Nhiệm vụ lịch sử chơi đơn, lựa chọn chiến lược, tiến trình và thành tựu Steam."
+      },
+      {
+        "name": "Nhiều người chơi trên Steam",
+        "description": "Các trận trực tuyến trên Steam với bạn bè và lời mời."
+      },
+      {
+        "name": "AI chiến thuật",
+        "description": "Phát triển thêm đối thủ máy tính cho chiến dịch và trận đánh dựa trên AI đã dùng trong 2D."
+      },
+      {
+        "name": "Modding",
+        "description": "Các công cụ dự kiến và hỗ trợ Steam Workshop để chia sẻ bản đồ, kịch bản, đơn vị và thời đại."
+      },
+      {
+        "name": "Thêm thời đại và chiến dịch",
+        "description": "Bổ sung thời đại và nội dung chiến dịch theo thời gian."
+      }
+    ],
+    "timeline": {
+      "label": "Mục tiêu hiện tại · có thể thay đổi",
+      "late2026": "Cuối năm 2026",
+      "earlyAccess": "Truy cập sớm trên Steam",
+      "year2027": "2027",
+      "fullRelease": "Phát hành đầy đủ"
+    }
+  },
+  "closing": {
+    "title": "Về lộ trình này",
+    "parallel": "Đây là những gì chúng tôi đang làm và muốn thực hiện tiếp theo. Cả hai phiên bản được phát triển song song.",
+    "studio": "Chúng tôi là Sophie Games, một studio độc lập nhỏ. Kế hoạch có thể thay đổi trong quá trình phát triển.",
+    "thanks": "Cảm ơn bạn đã chơi và theo dõi dự án."
+  },
+  "lastUpdated": "Cập nhật lần cuối · Tháng 8 năm 2026"
+}

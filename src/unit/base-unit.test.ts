@@ -1,6 +1,7 @@
 import { BaseUnit } from "./base-unit";
 import { Vector2 } from "@lob-sdk/vector";
 import {
+  CollisionShapeType,
   OrderType,
   UnitCategoryId,
   UnitStatus,
@@ -8,7 +9,7 @@ import {
   UnitType,
 } from "@lob-sdk/types";
 import { Polygon } from "@lob-sdk/shapes";
-import { GameDataManager } from "@lob-sdk/game-data-manager";
+import { EngagementRange, GameDataManager } from "@lob-sdk/game-data-manager";
 import { BeenInMelee, Rotated180 } from "@lob-sdk/unit-effects";
 import { Direction } from "@lob-sdk/types";
 
@@ -41,7 +42,7 @@ describe("BaseUnit", () => {
     rotation: number = 0;
     hardAllyOverlap: number = 0;
     softAllyOverlap: number = 0;
-    holdFireDamageTypes: number[] = [];
+    autofireRange: EngagementRange = EngagementRange.Max;
     entrenchment: number = 0;
     status = UnitStatus.Standing;
     currentFormation: string = "column";
@@ -50,6 +51,7 @@ describe("BaseUnit", () => {
     cannotChangeFormation = false;
     cannotCharge = false;
     reorgDebuff = 0;
+    routingAtSafeDistance = false;
 
     getPolygon() {
       return 0 as unknown as Polygon;
@@ -69,6 +71,23 @@ describe("BaseUnit", () => {
   beforeEach(() => {
     const id = 10;
     unit = new TestUnit(id, gameDataManager);
+  });
+
+  it("exposes its unit template charge sound", () => {
+    expect(unit.chargeSound).toBe("infantry-charge");
+  });
+
+  it("falls back to the movement sound when no run movement sound is configured", () => {
+    expect(unit.runMovementSound).toBe(unit.movementSound);
+  });
+
+  it("exposes a configured run movement sound", () => {
+    unit.template = {
+      ...template,
+      runMovementSound: "infantry-running",
+    };
+
+    expect(unit.runMovementSound).toBe("infantry-running");
   });
 
   describe("hasEffect()", () => {
@@ -231,6 +250,28 @@ describe("BaseUnit", () => {
         Direction.Left
       );
     });
+
+    it("treats a legacy circle formation as a facing square", () => {
+      const customManager = GameDataManager.createWithCustomDefs("napoleonic", {
+        customUnitFormations: [
+          {
+            id: "test-circle",
+            baseSprite: "infantry/line",
+            collisionShape: { type: 0, radius: 8 },
+          } as never,
+        ],
+      });
+      const unit = new TestUnit(22, customManager);
+      unit.currentFormation = "test-circle";
+      unit.position = new Vector2(0, 0);
+      unit.rotation = 0;
+      expect(unit.getDirectionToPoint(new Vector2(-10, 0))).toBe(
+        Direction.Back,
+      );
+      expect(unit.getDirectionToPoint(new Vector2(10, 0))).toBe(
+        Direction.Front,
+      );
+    });
   });
 
   describe("calculateCollisionShapes()", () => {
@@ -272,24 +313,89 @@ describe("BaseUnit", () => {
     });
   });
 
-  describe("getFlankMod()", () => {
-    // A malformed custom formation (e.g. legacy flankMin/flankMax keys that
-    // never got migrated to minFlankAngle/maxFlankAngle) leaves the canonical
-    // angles undefined. getFlankMod must not leak a NaN into combat math.
-    const makeUnitWithFlankAngles = (
-      minFlankAngle: number | undefined,
-      maxFlankAngle: number | undefined,
-    ): TestUnit => {
-      const customManager = GameDataManager.createWithCustomDefs("napoleonic", {
+  describe("calculateObbCorners()", () => {
+    // A fixed mock OBB (frontage 32, depth 8 -> getUnitDimensions { width:8,
+    // height:32 }) so these geometry assertions don't read the live `line`
+    // formation: change the real formation sizes and this test stays green.
+    const makeObbUnit = () => {
+      const manager = GameDataManager.createWithCustomDefs("napoleonic", {
         customUnitFormations: [
           {
-            id: "test-flank",
+            id: "test-obb",
             baseSprite: "infantry/line",
-            collisionCircles: 1,
-            collisionCircleSize: 8,
-            minFlankAngle,
-            maxFlankAngle,
+            collisionShape: {
+              type: CollisionShapeType.Obb,
+              frontage: 32,
+              depth: 8,
+            },
           } as never,
+        ],
+      });
+      const u = new TestUnit(20, manager);
+      u.currentFormation = "test-obb";
+      return u;
+    };
+
+    it("uses the same 16px fallback square for every collision calculation", () => {
+      unit.currentFormation = "missing-formation";
+      unit.position = new Vector2(10, 20);
+      unit.rotation = 0;
+
+      const corners = [
+        { x: 2, y: 12 },
+        { x: 18, y: 12 },
+        { x: 18, y: 28 },
+        { x: 2, y: 28 },
+      ];
+      expect(unit.calculateObbCorners()).toEqual(corners);
+      expect(unit.getCollisionShape().corners).toEqual(corners);
+      expect(unit.getCollisionBoundingRadius()).toBeCloseTo(Math.hypot(8, 8));
+      expect(unit.calculateCollisionShapes()).toEqual([
+        expect.objectContaining({
+          position: expect.objectContaining({ x: 10, y: 20 }),
+          radius: 8,
+        }),
+      ]);
+    });
+
+    it("puts the front on +X (depth) and the frontage on Y at rotation 0", () => {
+      const u = makeObbUnit();
+      u.rotation = 0;
+      expect(u.calculateObbCorners()).toEqual([
+        { x: -4, y: -16 },
+        { x: 4, y: -16 },
+        { x: 4, y: 16 },
+        { x: -4, y: 16 },
+      ]);
+    });
+
+    it("rotates the corners by the unit's rotation (90deg maps local (x,y) -> (-y,x))", () => {
+      const u = makeObbUnit();
+      u.rotation = Math.PI / 2;
+      const [c0, , c2] = u.calculateObbCorners();
+      expect(c0.x).toBeCloseTo(16);
+      expect(c0.y).toBeCloseTo(-4);
+      expect(c2.x).toBeCloseTo(-16);
+      expect(c2.y).toBeCloseTo(4);
+    });
+
+    it("honours an explicit rotation override, ignoring the unit's own", () => {
+      const u = makeObbUnit();
+      u.rotation = 0;
+      const [c0] = u.calculateObbCorners({ x: 0, y: 0 }, Math.PI / 2);
+      expect(c0.x).toBeCloseTo(16);
+      expect(c0.y).toBeCloseTo(-4);
+    });
+  });
+
+  describe("getFlankMod()", () => {
+    // getFlankMod derives the flank ramp from the formation's OBB footprint (getFlankAngles):
+    // no flank within the front face, full once the rear face begins. Formations flagged
+    // disablesFlankMelee take no flank from any angle.
+    const makeFlankUnit = (formation: object): TestUnit => {
+      const customManager = GameDataManager.createWithCustomDefs("napoleonic", {
+        customUnitFormations: [
+          { id: "test-flank", baseSprite: "infantry/line", ...formation } as never,
         ],
       });
       const u = new TestUnit(21, customManager);
@@ -299,19 +405,35 @@ describe("BaseUnit", () => {
       return u;
     };
 
-    it("returns 0 (not NaN) when the flank angles are undefined", () => {
-      const u = makeUnitWithFlankAngles(undefined, undefined);
-      const mod = u.getFlankMod(new Vector2(10, 10));
-      expect(Number.isNaN(mod)).toBe(false);
-      expect(mod).toBe(0);
+    // A 16x16 OBB -> front arc 90deg -> flank ramp [45deg, 135deg].
+    const obb16 = {
+      collisionShape: { type: CollisionShapeType.Obb, frontage: 16, depth: 16 },
+    };
+
+    it("gives no flank from dead ahead", () => {
+      expect(makeFlankUnit(obb16).getFlankMod(new Vector2(10, 0))).toBe(0);
     });
 
-    it("returns a real flanking percentage when the angles are valid", () => {
-      const u = makeUnitWithFlankAngles(60, 120);
-      // Attacker directly behind a unit facing +x is a full flank.
-      const mod = u.getFlankMod(new Vector2(-10, 0));
+    it("gives half flank from the side (90deg, midway up the ramp)", () => {
+      expect(makeFlankUnit(obb16).getFlankMod(new Vector2(0, 10))).toBeCloseTo(0.5);
+    });
+
+    it("gives full flank from directly behind", () => {
+      const mod = makeFlankUnit(obb16).getFlankMod(new Vector2(-10, 0));
       expect(Number.isNaN(mod)).toBe(false);
       expect(mod).toBe(1);
+    });
+
+    it("upgrades a legacy circle formation to a flankable square", () => {
+      const u = makeFlankUnit({
+        collisionShape: { type: 0, radius: 4 },
+      });
+      expect(u.getFlankMod(new Vector2(-10, 0))).toBe(1);
+    });
+
+    it("returns 0 for an unflankable formation (disablesFlankMelee)", () => {
+      const u = makeFlankUnit({ ...obb16, disablesFlankMelee: true });
+      expect(u.getFlankMod(new Vector2(-10, 0))).toBe(0);
     });
   });
 });

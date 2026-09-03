@@ -31,6 +31,46 @@ describe("RandomMapGenerator", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
   const { TILE_SIZE, DEFAULT_BATTLE_TYPE } = gameDataManager.getGameConstants();
 
+  it("preserves partial edge tiles on fixed maps", () => {
+    const terrains = [
+      [TerrainType.Grass, TerrainType.Grass],
+      [TerrainType.Grass, TerrainType.ShallowWater],
+    ];
+    const heightMap = [
+      [0, 0],
+      [0, 1],
+    ];
+    const scenario: Scenario = {
+      version: SCENARIO_SCHEMA_VERSION,
+      name: "partial-edge-tiles" as ScenarioName,
+      description: "Fixed map whose dimensions include partial edge tiles",
+      map: {
+        width: TILE_SIZE + 1,
+        height: TILE_SIZE + 1,
+        terrains,
+        heightMap,
+        seed: 12345,
+      },
+    };
+
+    const result = new RandomMapGenerator().generate({
+      scenario,
+      dynamicBattleType: DEFAULT_BATTLE_TYPE,
+      maxPlayers: 2,
+      tileSize: TILE_SIZE,
+      era: "napoleonic",
+    });
+
+    expect(result.map.terrains).toEqual(terrains);
+    expect(result.map.heightMap).toEqual(heightMap);
+    expect(result.map.terrains).toHaveLength(
+      Math.ceil(result.map.width / TILE_SIZE),
+    );
+    expect(result.map.terrains[0]).toHaveLength(
+      Math.ceil(result.map.height / TILE_SIZE),
+    );
+  });
+
   describe("generate all random ranked scenarios", () => {
     // Get all scenario names dynamically from the GameDataManager
     const allScenarioNames = gameDataManager.getScenarioNames();
@@ -539,6 +579,47 @@ describe("RandomMapGenerator", () => {
       expect(result.map.terrains[3][4]).toBe(TerrainType.ShallowWater);
     });
 
+    it("pads a heightMap shorter than terrains to the declared dimensions", () => {
+      // Regression: a real user scenario shipped with heightMap a few columns
+      // shorter than terrains (an editor resize desync). Left as-is it crashed
+      // the turn simulation on units standing in the missing columns.
+      const generator = new RandomMapGenerator();
+      const terrains = buildBakedTerrains();
+      const shortHeightMap = buildBakedHeightMap();
+      shortHeightMap.length = TILES_X - 3; // drop the last 3 columns
+
+      const scenario: Scenario = {
+        version: SCENARIO_SCHEMA_VERSION,
+        name: "short-heightmap",
+        description: "test",
+        map: {
+          width: TILES_X * TILE_SIZE,
+          height: TILES_Y * TILE_SIZE,
+          terrains,
+          heightMap: shortHeightMap,
+          seed: 7,
+        },
+      };
+
+      const result = generator.generate({
+        scenario,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
+        maxPlayers: 2,
+        tileSize: TILE_SIZE,
+        era: "napoleonic",
+      });
+
+      // Both grids are rebuilt rectangular to the declared tile dimensions.
+      expect(result.map.terrains.length).toBe(TILES_X);
+      expect(result.map.heightMap.length).toBe(TILES_X);
+      expect(result.map.terrains.every((c) => c.length === TILES_Y)).toBe(true);
+      expect(result.map.heightMap.every((c) => c.length === TILES_Y)).toBe(true);
+      // Present heights preserved; padded columns default to 0; terrain intact.
+      expect(result.map.heightMap[0][0]).toBe(7);
+      expect(result.map.heightMap[TILES_X - 1][0]).toBe(0);
+      expect(result.map.terrains[3][4]).toBe(TerrainType.ShallowWater);
+    });
+
     it("does not mutate the prebaked arrays when overlays run", () => {
       const generator = new RandomMapGenerator();
       const terrains = buildBakedTerrains();
@@ -743,6 +824,85 @@ describe("RandomMapGenerator", () => {
       expect(result.map.width).toBe(64 * TILE_SIZE);
       expect(result.map.height).toBe(64 * TILE_SIZE);
       expect(result.map.deploymentZones).toEqual(tutorial.deploymentZones);
+    });
+  });
+
+  describe("deployment zone symmetry (regression)", () => {
+    it("preserves player assignments and mirrors rotation for percentage zones", () => {
+      const scenario: Scenario = {
+        version: SCENARIO_SCHEMA_VERSION,
+        name: "assigned-rotated-zones",
+        description: "test",
+        baseTerrain: TerrainType.Grass,
+        fixedSize: { tilesX: 20, tilesY: 20 },
+        players: [
+          { player: 1, team: 1 },
+          { player: 2, team: 2 },
+        ],
+        randomDeploymentZones: {
+          top: [
+            {
+              role: "main",
+              player: 2,
+              rotation: Math.PI / 4,
+              rect: {
+                x: { min: 10, max: 10 },
+                y: { min: 5, max: 5 },
+                width: 80,
+                height: 10,
+              },
+            },
+          ],
+        },
+      };
+
+      const result = new RandomMapGenerator().generate({
+        scenario,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
+        maxPlayers: 2,
+        tileSize: TILE_SIZE,
+        era: "napoleonic",
+      });
+
+      const [bottom, top] = result.map.deploymentZones ?? [];
+      expect(top.zones[0]).toEqual(
+        expect.objectContaining({ player: 2, rotation: Math.PI / 4 }),
+      );
+      expect(bottom.zones[0]).toEqual(
+        expect.objectContaining({ player: 1, rotation: -Math.PI / 4 }),
+      );
+    });
+
+    it("generates vertically mirror-symmetric team deployment zones", () => {
+      const scenario = gameDataManager.getScenario("plains");
+      const result = new RandomMapGenerator().generate({
+        scenario,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
+        maxPlayers: 2,
+        tileSize: TILE_SIZE,
+        era: "napoleonic",
+      });
+
+      const zones = result.map.deploymentZones ?? [];
+      expect(zones.length).toBe(2);
+
+      const team1 = zones[0];
+      const team2 = zones[1];
+      expect(team1.team).toBe(1);
+      expect(team2.team).toBe(2);
+      expect(team1.zones.length).toBe(team2.zones.length);
+
+      const mapHeight = result.map.height;
+      for (let i = 0; i < team1.zones.length; i++) {
+        const z1 = team1.zones[i];
+        const z2 = team2.zones[i];
+        expect(z1.type).toBe(z2.type);
+        expect(z1.x).toBe(z2.x);
+        expect(z1.width).toBe(z2.width);
+        expect(z1.height).toBe(z2.height);
+        // team 1 (bottom) must be the exact vertical mirror of team 2 (top).
+        expect(z1.y).toBe(mapHeight - z2.y - z2.height);
+      }
     });
   });
 });

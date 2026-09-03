@@ -12,6 +12,11 @@ import {
   FormationTemplate,
   OrderTemplate,
   OrderType,
+  UnitCategoryId,
+  UnitType,
+  DynamicBattleType,
+  ScenarioBattleTypeOverride,
+  PlayerBudgetOverride,
 } from "@lob-sdk/types";
 import type {
   DamageTypeTemplate,
@@ -31,6 +36,28 @@ import { Tutorial } from "./tutorial";
 export interface CustomTerrainCategoryOverride {
   id: string;
   config: TerrainCategoryConfig;
+}
+
+/**
+ * One heading in the army panel's card grid. Members are named individually by
+ * {@link unitTypes}. A scenario layout is authoritative: any unit no group
+ * names is omitted from the panel — there is no trailing "Custom" fallback
+ * (that sweep applies only to the era-default layout, when no scenario layout
+ * is set).
+ */
+export interface ArmyPanelGroup {
+  /** Stable key, unique within the scenario. */
+  id: string;
+  /**
+   * Reuses a built-in localized heading (e.g. `"infantry"`, `"cavalry"`), so
+   * an author can rearrange the stock groups without hardcoding English.
+   * Takes precedence over {@link name}.
+   */
+  titleKey?: string;
+  /** Heading for an author-created group. Used when {@link titleKey} is unset. */
+  name?: string;
+  /** The units placed in this group. */
+  unitTypes?: UnitType[];
 }
 
 /**
@@ -66,6 +93,11 @@ export type DeploymentZoneType = "main" | "forward";
 export interface TeamDeploymentZone {
   /** The team number this zone belongs to. */
   team: number;
+  /**
+   * Player number this zone is reserved for. Omit for a team-wide zone, which
+   * keeps the legacy behavior of being divided between that team's players.
+   */
+  player?: number;
   /** Whether the zone is a main or a forward (skirmisher-allowed) zone. */
   type: DeploymentZoneType;
   /** X coordinate of the zone's top-left corner. */
@@ -76,6 +108,8 @@ export interface TeamDeploymentZone {
   width: number;
   /** Height of the deployment zone. */
   height: number;
+  /** Clockwise rotation in radians around the zone's center. Defaults to 0. */
+  rotation?: number;
 }
 
 /**
@@ -211,43 +245,48 @@ export interface LegacyHybridScenario extends BaseScenario {
   fixedArmy?: boolean;
 }
 
-export interface RandomTeamDeploymentZones {
-  /** Specify deployment zones in tile coordinates. If you want fixed deployment zones, use the same min/max values.*/
-  topMainDeploymentZone: {
-    /* X/Y Coordinates are the top/left corner of the deployment zone in map % */
-    minX: number;
-    maxX: number;
-    minY: number;
-    maxY: number;
-    /* Width in map percent */
-    width: number;
-    /* Height in map percent */
-    height: number;
-  };
-  topForwardDeploymentZone: {
-    minX: number;
-    maxX: number;
-    minY: number;
-    maxY: number;
-    width: number;
-    height: number;
-  };
-  bottomMainDeploymentZone: {
-    minX: number;
-    maxX: number;
-    minY: number;
-    maxY: number;
-    width: number;
-    height: number;
-  };
-  bottomForwardDeploymentZone: {
-    minX: number;
-    maxX: number;
-    minY: number;
-    maxY: number;
-    width: number;
-    height: number;
-  };
+/** An inclusive placement range, in map percent (0-100). */
+export interface PercentRange {
+  min: number;
+  max: number;
+}
+
+/**
+ * A percentage-based deployment sub-zone. The top-left origin is placed randomly
+ * within the {@link PercentRange} x/y ranges (use `min === max` for a fixed
+ * origin); the zone spans `width` x `height`. All values are map percentages.
+ */
+export interface DeploymentZoneRect {
+  x: PercentRange;
+  y: PercentRange;
+  width: number;
+  height: number;
+}
+
+/** A percentage-based deployment zone tagged with the role that fills it. */
+export interface RandomDeploymentZone {
+  /** Which units deploy here — see {@link DeploymentZoneType}. */
+  role: DeploymentZoneType;
+  /** Player number this zone is reserved for. Omit for a team-wide zone. */
+  player?: number;
+  /** Clockwise rotation in radians around the generated rectangle's center. */
+  rotation?: number;
+  rect: DeploymentZoneRect;
+}
+
+/**
+ * Percentage-based deployment zones for a procedural map.
+ *
+ * Only the {@link top} side is authored. Omit {@link bottom} for a fair map: the
+ * bottom team is generated as the exact vertical mirror of {@link top}, so the
+ * two sides stay symmetric regardless of tile rounding. Provide {@link bottom}
+ * only for intentionally asymmetric scenarios.
+ */
+export interface RandomDeploymentZones {
+  /** Zones for the top side of the map (team 2). */
+  top: RandomDeploymentZone[];
+  /** Zones for the bottom side (team 1). Omit to mirror {@link top}. */
+  bottom?: RandomDeploymentZone[];
 }
 
 /**
@@ -261,15 +300,11 @@ export interface LegacyRandomScenario extends BaseScenario {
   version?: never;
   /** Base terrain type to use for generation. */
   baseTerrain?: TerrainType;
-  /** Default deployment zone if a scaled deployment zone is not provided. Follows default map size deployment zones if not provided even if scaled deployment zones are provided. */
-  defaultDeploymentZones?: RandomTeamDeploymentZones;
-  /** Scaled deployment zones for each battle type (first is micro, second clash, and so on) */
-  scaledDeploymentZones?: Record<Size, RandomTeamDeploymentZones>;
   /** Instructions for procedural generation of the scenario. */
   instructions: AnyInstruction[];
   /** Discriminator: random scenarios never carry pixel deployment zones. */
   deploymentZones?: never;
-  /** Discriminator: random scenarios use {@link defaultDeploymentZones} instead. */
+  /** Discriminator: legacy random scenarios never carry deployment zones. */
   randomDeploymentZones?: never;
   /** Discriminator: random scenarios always generate the map procedurally. */
   map?: never;
@@ -285,9 +320,10 @@ export type ScenarioName = string;
 /**
  * A sprite uploaded by a scenario creator, embedded inline as a base64
  * data-URL. Referenced by custom unit formations via `baseSprite`/`overlaySprite`
- * names carrying the `cs_` prefix. Kept small by the editor (re-encoded to webp
- * and size-capped); aggregate weight is bounded by the per-collection count
- * caps in validate-custom.ts and the server's decompressed-payload cap.
+ * or by custom damage types via `imageAlias`, using names carrying the `cs_`
+ * prefix. Kept small by the editor (re-encoded to webp and size-capped);
+ * aggregate weight is bounded by the per-collection count caps in
+ * validate-custom.ts and the server's decompressed-payload cap.
  */
 export interface CustomSprite {
   /** `data:image/webp;base64,...` (or png). */
@@ -297,6 +333,25 @@ export interface CustomSprite {
   /** Intrinsic height in px. */
   height: number;
 }
+
+/**
+ * Scenario-tier overrides for the objectives game rule (VP scoring + objective-zone
+ * insets). Carried on GameMetadata so imported/custom scenarios - which never enter
+ * the era scenario registry - still apply them at play time; layered by BaseGame's
+ * objectives-rule getters above the battle-type and era defaults.
+ */
+export type ObjectivesRuleOverride = Pick<
+  Scenario,
+  | "vpLossRatioPoints"
+  | "vpTicksUnderPressureBase"
+  | "vpPressureThreshold"
+  | "vpBasePoints"
+  | "vpPointsToTieBreak"
+  | "vpBigDefaultPoints"
+  | "vpSmallDefaultPoints"
+  | "smallObjectiveZoneHorizontalInset"
+  | "bigObjectiveZoneInset"
+>;
 
 /**
  * Feature-based scenario schema (replaces the legacy preset/hybrid/random union).
@@ -354,9 +409,9 @@ export interface Scenario {
    */
   deploymentZones?: TeamDeploymentZones[];
   /** Default percentage-based zones used by procedural scenarios. */
-  randomDeploymentZones?: RandomTeamDeploymentZones;
+  randomDeploymentZones?: RandomDeploymentZones;
   /** Per-battle-size scaled percentage-based zones. */
-  scaledDeploymentZones?: Record<Size, RandomTeamDeploymentZones>;
+  scaledDeploymentZones?: Record<Size, RandomDeploymentZones>;
 
   /** Player setups. Required for fixed-roster scenarios; optional otherwise. */
   players?: PlayerSetup[];
@@ -382,6 +437,91 @@ export interface Scenario {
    * already run a deployment phase on top of the auto-deployer's output.
    */
   allowDeploymentPhase?: boolean;
+
+  /**
+   * When true, units with an ammo system spawn with no inherent ammo (0 instead
+   * of their template's `ammo`) and draw their whole load from the player's
+   * global reserve, so they cannot fire on the first turn. Highest-priority
+   * override; omit to inherit the battle-type override or the default (false).
+   * Resolved (layered) via the BaseGame.noInherentAmmo getter.
+   */
+  noInherentAmmo?: boolean;
+
+  /**
+   * When true, players position their own objectives during the deployment
+   * phase: the big objective starts centered in the deployment box, the small
+   * objectives start advanced and spaced. Auto-enabled for random
+   * (instruction-driven) maps in {@link normalizeScenario}.
+   */
+  placeableObjectives?: boolean;
+
+  /**
+   * Per-scenario override for the casualties VP weight (the objectives rule's
+   * vpLossRatioPoints). Highest-priority override. Omit to inherit the
+   * battle-type override or the era default. Resolved (layered) via the
+   * BaseGame.vpLossRatioPoints / vpTicksUnderPressureBase getters.
+   */
+  vpLossRatioPoints?: number;
+
+  /**
+   * Per-scenario override for the under-pressure VP rate (the objectives rule's
+   * vpTicksUnderPressureBase). Highest-priority override. Omit to inherit the
+   * battle-type override or the era default. Resolved (layered) via the
+   * BaseGame.vpLossRatioPoints / vpTicksUnderPressureBase getters.
+   */
+  vpTicksUnderPressureBase?: number;
+
+  /**
+   * Per-scenario override for the under-pressure objective-share threshold (the
+   * objectives rule's vpPressureThreshold). Highest-priority override. Omit to
+   * inherit the battle-type override or the era default. Resolved (layered) via
+   * the BaseGame.vpPressureThreshold getter.
+   */
+  vpPressureThreshold?: number;
+
+  /**
+   * Per-scenario override for the starting/base VP (the objectives rule's
+   * vpBasePoints). Highest-priority override. Omit to inherit the battle-type
+   * override or the era default. Resolved (layered) via the BaseGame.vpBasePoints getter.
+   */
+  vpBasePoints?: number;
+
+  /**
+   * Per-scenario override for the tie-break margin VP (the objectives rule's
+   * vpPointsToTieBreak). Highest-priority override. Omit to inherit the battle-type
+   * override or the era default. Resolved (layered) via the BaseGame.vpPointsToTieBreak getter.
+   */
+  vpPointsToTieBreak?: number;
+
+  /**
+   * Per-scenario override for the default big objective VP (the objectives rule's
+   * vpBigDefaultPoints). Highest-priority override. Omit to inherit the battle-type
+   * override or the era default. Resolved (layered) via the BaseGame.vpBigDefaultPoints getter.
+   */
+  vpBigDefaultPoints?: number;
+
+  /**
+   * Per-scenario override for the default small objective VP (the objectives rule's
+   * vpSmallDefaultPoints). Highest-priority override. Omit to inherit the battle-type
+   * override or the era default. Resolved (layered) via the BaseGame.vpSmallDefaultPoints getter.
+   */
+  vpSmallDefaultPoints?: number;
+
+  /**
+   * Per-scenario override for the small-objective zone horizontal inset (the
+   * objectives rule's smallObjectiveZoneHorizontalInset). Highest-priority override.
+   * Omit to inherit the battle-type override or the era default. Resolved (layered)
+   * via the BaseGame.smallObjectiveZoneHorizontalInset getter.
+   */
+  smallObjectiveZoneHorizontalInset?: number;
+
+  /**
+   * Per-scenario override for the big-objective zone inset (the objectives rule's
+   * bigObjectiveZoneInset). Highest-priority override. Omit to inherit the
+   * battle-type override or the era default. Resolved (layered) via the
+   * BaseGame.bigObjectiveZoneInset getter.
+   */
+  bigObjectiveZoneInset?: number;
 
   /**
    * Data-driven tutorial overlays. Evaluated client-side by the TutorialRunner
@@ -431,9 +571,10 @@ export interface Scenario {
 
   /**
    * Uploaded sprites embedded inline (base64), keyed by a
-   * `cs_<type>_<formationId>_<base|overlay>` name that custom unit formations
-   * reference via `baseSprite`/`overlaySprite`. Registered client-side into the
-   * sprite data service so they render like built-in sprites.
+   * `cs_`-prefixed name that custom unit formations reference via
+   * `baseSprite`/`overlaySprite`, or custom damage types via `imageAlias`.
+   * Registered client-side into the sprite data service so they render like
+   * built-in sprites.
    */
   customSprites?: Record<string, CustomSprite>;
 
@@ -461,4 +602,38 @@ export interface Scenario {
    * `id`/`name` identity fields must not be changed.
    */
   customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
+
+  /**
+   * Author-defined layout for the army panel's card grid. Replaces the era's
+   * `army-panel-groups.json` when present; array order is the order players
+   * see. The layout is authoritative: any unit no group names is omitted, and a
+   * unit added to the scenario later stays hidden until placed in a group.
+   */
+  customArmyPanelGroups?: ArmyPanelGroup[];
+
+  /**
+   * Sparse per-scenario overrides for the era's dynamic battle types, keyed by
+   * {@link DynamicBattleType}. Each entry overrides only the authorable
+   * budget/cap fields (manpower, gold, per-unit caps); merged onto a clone of
+   * the era battle type by the per-game GameDataManager so both the army panel
+   * and validateArmy see the scenario's values.
+   */
+  customBattleTypes?: Partial<Record<DynamicBattleType, ScenarioBattleTypeOverride>>;
+
+  /**
+   * Absolute per-player budget overrides, keyed by player number. Each entry
+   * replaces the battle type's starting manpower and/or gold for that one
+   * player slot, regardless of battle type. Player-specific, so resolved per
+   * player at army validation / display time (not merged into the shared battle
+   * type). In the lobby, each slot's player number selects its override.
+   */
+  playerBudgetOverrides?: Record<number, PlayerBudgetOverride>;
+
+  /**
+   * When true, this scenario fields only its own custom units: the era's
+   * default units (type < CUSTOM_UNIT_TYPE_MIN) are hidden from the army panel
+   * and rejected by validateArmy. Requires at least one custom unit template to
+   * be playable. Carried on the per-game GameDataManager.
+   */
+  disableEraDefaultUnits?: boolean;
 }

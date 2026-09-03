@@ -2,6 +2,11 @@ import { Entity, EntityType } from "@lob-sdk/entity";
 import { Point2, Vector2 } from "@lob-sdk/vector";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import {
+  getCollisionConfig,
+  getFrontBackArc,
+  getFlankAngles,
+  CollisionShapeConfig,
+  CollisionShapeType,
   EntityId,
   OrderType,
   UnitCategoryId,
@@ -13,6 +18,7 @@ import {
   UnitType,
 } from "@lob-sdk/types";
 import {
+  EngagementRange,
   GameEra,
   MeleeDamageTypeTemplate,
   RangedDamageTypeTemplate,
@@ -27,6 +33,10 @@ import {
   getMaxOrgProportionDebuff,
 } from "@lob-sdk/utils";
 import { Circle } from "@lob-sdk/shapes/circle";
+import {
+  ObbShape,
+  localObbCorners,
+} from "@lob-sdk/shapes/collision-shape";
 import {
   BaseUnitEffect,
   BeenInMelee,
@@ -69,11 +79,11 @@ export abstract class BaseUnit extends Entity {
   get effectiveFormation(): string { return this.pendingFormationId ?? this.currentFormation; }
   abstract formationChangeTicksRemaining: number;
   /**
-   * These are the damage types that are disabled for autofire.
-   * By default, all damage types are enabled for autofire. We made it this way to avoid
-   * sending a lot of data over the network.
+   * Autofire engagement-range throttle. The unit only autofires a damage type's range band when
+   * this tier is at least the band's `engagementTier` (untagged bands count as `Max`). Defaults
+   * to `Max` (open fire at full range). Applies to autofire only, not ordered or panic fire.
    */
-  abstract holdFireDamageTypes: number[];
+  abstract autofireRange: EngagementRange;
   /**
    * If true, the unit cannot change formation in the current tick.
    */
@@ -86,6 +96,12 @@ export abstract class BaseUnit extends Entity {
    * The reorg debuff the unit will suffer in the current tick.
    */
   abstract reorgDebuff: number;
+  /**
+   * Set while the unit routs with no enemy inside `safeDistance` and no recent fire.
+   * A router that has made it this far walks instead of running. Server-authoritative:
+   * enemy proximity is not knowable client-side under fog of war.
+   */
+  abstract routingAtSafeDistance: boolean;
 
   // --- Template Statistics (Immutable) ---
   get unitName(): string { return this.template.name; }
@@ -116,7 +132,7 @@ export abstract class BaseUnit extends Entity {
     const types = (this.template as RangeUnitTemplate).rangedDamageTypes;
     return types?.length ? types : null;
   }
-  
+
   get orgRadius(): number { return this.template.orgRadius; }
   get orgRadiusBonus(): number { return this.template.orgRadiusBonus; }
   get pushStrength(): number { return this.template.pushStrength ?? 0; }
@@ -138,6 +154,10 @@ export abstract class BaseUnit extends Entity {
   get canDeployForward(): boolean { return this.template.canDeployForward ?? false; }
   get maxEntrenchment(): number { return this.template.maxEntrenchment ?? 0; }
   get movementSound(): string { return this.template.movementSound; }
+  get runMovementSound(): string {
+    return this.template.runMovementSound ?? this.template.movementSound;
+  }
+  get chargeSound(): string | undefined { return this.template.chargeSound; }
   get skirmisherRatio(): number { return this.template.skirmisherRatio ?? 0; }
   get supplyConsumptionIdle(): number | undefined { return this.template.supplyConsumptionIdle; }
   get supplyConsumptionMoving(): number | undefined { return this.template.supplyConsumptionMoving; }
@@ -154,8 +174,12 @@ export abstract class BaseUnit extends Entity {
 
   // --- Category Statistics ---
   get captureSpeed(): number { return this.categoryTemplate.captureSpeed ?? 0; }
-  get allyCollisionLevel(): number { return this.categoryTemplate.allyCollisionLevel ?? MIN_COLLISION_LEVEL; }
-  get enemyCollisionLevel(): number { return this.categoryTemplate.enemyCollisionLevel ?? MIN_COLLISION_LEVEL; }
+  // Collision levels are formation-derived (see FormationTemplate); default solid.
+  get allyCollisionLevel(): number { return this.effectiveFormationTemplate?.allyCollisionLevel ?? MIN_COLLISION_LEVEL; }
+  get enemyCollisionLevel(): number { return this.effectiveFormationTemplate?.enemyCollisionLevel ?? MIN_COLLISION_LEVEL; }
+  private get effectiveFormationTemplate() {
+    return this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
+  }
   get firingAltitude(): number { return this.categoryTemplate.firingAltitude ?? 0; }
   /**
    * Naval-style steering: the unit moves only along its heading (forward, or
@@ -164,7 +188,11 @@ export abstract class BaseUnit extends Entity {
    */
   get forwardOnlyMovement(): boolean { return this.categoryTemplate.forwardOnlyMovement === true; }
   get autofirePriority(): Partial<Record<UnitCategoryId, number>> | null { return this.categoryTemplate.autofirePriority ?? null; }
-  
+  /** Default autofire engagement tier for this category (see `autofireRange`); `Max` when unset. */
+  get defaultAutofireRange(): EngagementRange { return this.categoryTemplate.defaultAutofireRange ?? EngagementRange.Max; }
+  /** Whether the autofire selector should warn that the `Max` tier wastes ammo for this category. */
+  get warnsOnMaxAutofire(): boolean { return this.categoryTemplate.warnOnMaxAutofire === true; }
+
   get enfiladeFireDamageModifier(): number { return this.categoryTemplate.enfiladeFire?.damageModifier ?? 0; }
   get enfiladeFireOrgModifier(): number { return this.categoryTemplate.enfiladeFire?.orgModifier ?? 0; }
   get rearFireOrgModifier(): number { return this.categoryTemplate.rearFire?.orgModifier ?? 0; }
@@ -243,11 +271,9 @@ export abstract class BaseUnit extends Entity {
       return 0;
     }
 
-    const { ranges } = this.gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(
+    return this.gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(
       this.rangedDamageTypes[this.rangedDamageTypes.length - 1],
-    );
-    const { UNIT_RANGE_MARGIN } = this.gameDataManager.getGameConstants();
-    return ranges[ranges.length - 1].end + UNIT_RANGE_MARGIN;
+    ).maxRange;
   }
 
   /**
@@ -281,31 +307,53 @@ export abstract class BaseUnit extends Entity {
     return this.gameDataManager.getDamageTypeByName<MeleeDamageTypeTemplate>(this.meleeDamageType);
   }
 
+  /**
+   * World-space corners of the unit's oriented bounding box (rotated rectangle)
+   * at the given position and rotation. Front is the +X edge; height spans the frontage.
+   */
+  calculateObbCorners(
+    position: Point2 = this.position,
+    rotation: number = this.rotation,
+  ): Point2[] {
+    const config = this.resolveCollisionConfig();
+    const sinAngle = Math.sin(rotation);
+    const cosAngle = Math.cos(rotation);
+
+    return localObbCorners(config.depth, config.frontage).map((corner) => ({
+      x: corner.x * cosAngle - corner.y * sinAngle + position.x,
+      y: corner.x * sinAngle + corner.y * cosAngle + position.y,
+    }));
+  }
+
   private getCorners(): Point2[] {
-    // Get unit dimensions from formation template
-    const dimensions = this.gameDataManager.getUnitDimensions(this.type, this.currentFormation);
-    
-    // Calculate the half-width and half-height
-    const halfWidth = dimensions.width / 2;
-    const halfHeight = dimensions.height / 2;
-    // Calculate the sin and cos of the rotation angle
-    const sinAngle = Math.sin(this.rotation);
-    const cosAngle = Math.cos(this.rotation);
+    return this.calculateObbCorners();
+  }
 
-    // Define the original corner points relative to the center
-    const corners: Point2[] = [
-      { x: -halfWidth, y: -halfHeight },
-      { x: halfWidth, y: -halfHeight },
-      { x: halfWidth, y: halfHeight },
-      { x: -halfWidth, y: halfHeight },
-    ];
+  /**
+   * The unit formation's collision config, or a small default square when the unit
+   * has no formation template. The single source of the null-formation fallback.
+   */
+  private resolveCollisionConfig(): CollisionShapeConfig {
+    const formation = this.gameDataManager
+      .getFormationManager()
+      .getTemplate(this.effectiveFormation);
+    return formation
+      ? getCollisionConfig(formation)
+      : { type: CollisionShapeType.Obb, frontage: 16, depth: 16 };
+  }
 
-    // Rotate and translate each corner point
-    return corners.map((corner) => {
-      const rotatedX = corner.x * cosAngle - corner.y * sinAngle;
-      const rotatedY = corner.x * sinAngle + corner.y * cosAngle;
-      return { x: rotatedX + this.position.x, y: rotatedY + this.position.y };
-    });
+  /** The unit's rotated-rectangle collision footprint. */
+  getCollisionShape(position: Point2 = this.position): ObbShape {
+    return new ObbShape(this.calculateObbCorners(position));
+  }
+
+  /**
+   * Bounding-circle radius of the OBB footprint (no allocation), used for a cheap
+   * broad-phase reject before the exact overlap test.
+   */
+  getCollisionBoundingRadius(): number {
+    const config = this.resolveCollisionConfig();
+    return Math.hypot(config.frontage, config.depth) / 2;
   }
 
   getClosestCorner(unit: BaseUnit) {
@@ -386,69 +434,36 @@ export abstract class BaseUnit extends Entity {
     return this.team === unit.team;
   }
 
+  /**
+   * Circles approximating the rectangular footprint, turned with the unit. Used by
+   * soft tests (shot line-of-sight, AoE, edge contact), with circles spaced along the
+   * longer side (radius = half the shorter side).
+   */
   calculateCollisionShapes(position = this.position): Circle[] {
-    const formationTemplate = this.gameDataManager.getFormationManager().getTemplate(this.currentFormation);
+    const config = this.resolveCollisionConfig();
+    const { frontage, depth } = config;
+    if (frontage <= 0 || depth <= 0) return [];
+    const longer = Math.max(frontage, depth);
+    const shorter = Math.min(frontage, depth);
+    const radius = shorter / 2;
+    const count = Math.max(1, Math.round(longer / shorter));
+    const alongDepth = depth > frontage; // local X for a deep formation, else local Y
+    const span = (count - 1) * shorter;
 
-    let collisionCircles: number;
-    let collisionCircleSize: number;
-    let collisionCircleDistance: number;
-    let collisionCirclesVertical: boolean;
-
-    if (formationTemplate) {
-      // Use formation-specific collision data
-      collisionCircles = formationTemplate.collisionCircles;
-      collisionCircleSize = formationTemplate.collisionCircleSize;
-      collisionCircleDistance = formationTemplate.collisionCircleDistance ?? formationTemplate.collisionCircleSize;
-      collisionCirclesVertical = formationTemplate.collisionCirclesVertical ?? false;
-    } else {
-      // Fallback
-      collisionCircles = 1;
-      collisionCircleSize = 16;
-      collisionCircleDistance = 16;
-      collisionCirclesVertical = false;
-    }
-
-    // Either knob at 0 means "no collision" (flying/ghost units). Bail out
-    // before generating zero-radius circles, which downstream collision
-    // checks can still touch and would skew totalOverlap calcs.
-    if (collisionCircles <= 0 || collisionCircleSize <= 0) {
-      return [];
-    }
-
-    const { x: dx, y: dy } = position;
-    const radius = collisionCircleSize / 2;
+    const cos = Math.cos(this.rotation);
+    const sin = Math.sin(this.rotation);
     const circles: Circle[] = [];
-
-    // Generate circles based on configuration
-    for (let i = 0; i < collisionCircles; i++) {
-      // Calculate center position for this circle
-      // Space circles based on their size to create proper overlap
-      let centerX = 0;
-      let centerY = 0;
-      if (collisionCircles > 1) {
-        // Use the circle distance to determine spacing
-        // For overlapping circles, space them at the specified distance
-        const totalSpan = (collisionCircles - 1) * collisionCircleDistance;
-        const offset = -totalSpan / 2 + i * collisionCircleDistance;
-        if (collisionCirclesVertical) {
-          // Arrange circles vertically (along X axis)
-          centerX = offset;
-        } else {
-          // Arrange circles horizontally (along Y axis) - default behavior
-          centerY = offset;
-        }
-      }
-
-      const center = { x: centerX, y: centerY };
-
-      // Use -this.rotation to reverse the rotation direction
-      const cosTheta = Math.cos(-this.rotation);
-      const sinTheta = Math.sin(-this.rotation);
-
-      // Rotate center around (0, 0)
-      const rotatedX = dx + center.x * cosTheta + center.y * sinTheta;
-      const rotatedY = dy + -center.x * sinTheta + center.y * cosTheta;
-      circles.push(new Circle(rotatedX, rotatedY, radius));
+    for (let i = 0; i < count; i++) {
+      const offset = count > 1 ? -span / 2 + i * shorter : 0;
+      const localX = alongDepth ? offset : 0;
+      const localY = alongDepth ? 0 : offset;
+      circles.push(
+        new Circle(
+          position.x + localX * cos - localY * sin,
+          position.y + localX * sin + localY * cos,
+          radius,
+        ),
+      );
     }
     return circles;
   }
@@ -464,19 +479,27 @@ export abstract class BaseUnit extends Entity {
 
   getDirectionToPoint(point: Vector2, frontBackArc?: number) {
     if (frontBackArc === undefined) {
-      const formation = this.gameDataManager.getFormationManager().getTemplate(this.currentFormation);
-      frontBackArc = formation?.frontBackArc ? degreesToRadians(formation.frontBackArc) : degreesToRadians(90);
+      // effectiveFormation (pending ?? current), like the collision OBB and fire
+      // emitters, so direction/flank/FF track the formation the unit is forming into.
+      const formation = this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
+      // frontBackArc is derived from the OBB footprint.
+      frontBackArc = degreesToRadians(formation ? getFrontBackArc(formation) : 90);
     }
     return getDirectionToPoint(this.position, point, this.rotation, frontBackArc);
   }
 
   getFlankMod(attackerPoint: Vector2) {
-    const formation = this.gameDataManager.getFormationManager().getTemplate(this.currentFormation);
+    const formation = this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
     if (!formation) return 0;
-    const minFlank = degreesToRadians(formation.minFlankAngle);
-    const maxFlank = degreesToRadians(formation.maxFlankAngle);
-    // Undefined angles (malformed custom formation) would make getFlankingPercent
-    // return NaN, which propagates into charge stamina cost and freezes it forever.
+    // Unflankable formations (square, artillery, skirmishers, dispersed, ship) take no
+    // flank from any angle. Otherwise the flank ramp is derived from the OBB footprint:
+    // wide fronts protect a wide cone, deep ones almost none.
+    if (formation.disablesFlankMelee) return 0;
+    const { min, max } = getFlankAngles(formation);
+    const minFlank = degreesToRadians(min);
+    const maxFlank = degreesToRadians(max);
+    // Defensive: a degenerate footprint would make getFlankingPercent return NaN, which
+    // propagates into charge stamina cost and freezes it forever.
     if (!Number.isFinite(minFlank) || !Number.isFinite(maxFlank)) return 0;
     return getFlankingPercent(attackerPoint, this.position, this.rotation, minFlank, maxFlank);
   }
@@ -490,7 +513,7 @@ export abstract class BaseUnit extends Entity {
   }
 
   isFriendlyFireImmune(damageType: string): boolean {
-    const formationTemplate = this.gameDataManager.getFormationManager().getTemplate(this.currentFormation);
+    const formationTemplate = this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
     return formationTemplate?.friendlyFireImmuneDamageTypes?.includes(damageType) ?? false;
   }
 
@@ -525,7 +548,7 @@ export abstract class BaseUnit extends Entity {
   }
 
   isRunRouting() {
-    if (!this.isRouting()) {
+    if (!this.isRouting() || this.routingAtSafeDistance) {
       return false;
     }
     const categoryTemplate = this.gameDataManager.getUnitCategoryTemplate(this.category);
@@ -535,4 +558,3 @@ export abstract class BaseUnit extends Entity {
   abstract isMoving(): boolean;
   abstract inMelee(): boolean;
 }
-

@@ -1,10 +1,12 @@
 {
   "USER_REGISTERED": "Kaydınız tamamlandı! Onay bağlantısı için e-postanızı kontrol edin. Eğer hemen bulamazsanız, spam klasörünüze bakın.",
+  "PARTY_REQUIRES_TEAM_MODE": "Grubun yalnızca takım modlarında sıraya girebilir. Takım oyununu destekleyen bir mod seç.",
   "NOT_CUSTOM_GAME": "Lobisi dolmadan önce yalnızca özel oyunlar başlatılabilir.",
   "GAME_ALREADY_STARTED": "Bu oyun zaten başladı.",
   "GAME_ALREADY_FINISHED": "Bu oyun zaten bitti.",
   "NOT_GAME_CREATOR": "Oyunu yalnızca oluşturan oyuncu erken başlatabilir.",
   "MISSING_TEAM_PLAYERS": "Başlamadan önce her takımda en az bir oyuncu bulunmalıdır.",
+  "PLAYERS_CHOOSING_ARMIES": "Başlamadan önce tüm oyuncular ordularını seçmelidir.",
   "GAME_DOES_NOT_EXIST": "Bu oyun artık mevcut değil.",
   "ERROR_STARTING_GAME": "Oyun başlatılırken bir sorun oluştu. Lütfen tekrar deneyin.",
   "ORDERS_ALREADY_SUBMITTED": "Bu tur için emirler zaten alındı.",
@@ -16,6 +18,8 @@
   "LIMITED_MODE_NOT_AVAILABLE": "Bu mod şu anda kullanılamıyor.",
   "LIMITED_MODE_BUSY": "Başka bir oyuncu şu an oyun oluşturuyor. Birazdan tekrar dene.",
   "INSUFFICIENT_CURRENCY": "Yetersiz para birimi.",
+  "MAX_SLOW_QUEUE_LIMIT_REACHED": "Kuyrukta bekleyen oyun sayınız zaten üst sınırda. Tekrar sıraya girmeden önce birini geri çekin.",
+  "USER_NOT_ADDED_TO_THE_QUEUE": "Sıraya eklenemediniz. Lütfen tekrar deneyin.",
   "INVALID_CURRENCY_TYPE": "Geçersiz para birimi seçimi.",
   "INTERNAL_ERROR": "Bir şeyler ters gitti. Tekrar dene."
 }

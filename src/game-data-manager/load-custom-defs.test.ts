@@ -4,11 +4,14 @@ import {
   FormationTemplate,
   OrderType,
   RangeUnitTemplate,
+  TerrainCategoryConfig,
   TerrainType,
+  UnitCategoryId,
   UnitTemplate,
 } from "@lob-sdk/types";
 import {
   DamageTypeTemplate,
+  RangedDamageTypeTemplate,
   UnitCategoryTemplate,
 } from "@lob-sdk/game-data-manager";
 
@@ -48,7 +51,7 @@ describe("GameDataManager custom defs", () => {
     it("makes the new category resolvable via getUnitCategoryTemplate", () => {
       const m = GameDataManager.createWithCustomDefs("napoleonic", {
         customUnitCategories: [
-          { id: "drone", firingAltitude: 12, allyCollisionLevel: 0 },
+          { id: "drone", firingAltitude: 12 },
         ],
       });
       const t = m.getUnitCategoryTemplate("drone");
@@ -118,6 +121,117 @@ describe("GameDataManager custom defs", () => {
       });
       const singleton = GameDataManager.get("napoleonic");
       expect(() => singleton.getDamageTypeByName(dt.name)).toThrow();
+    });
+
+    it("loads a pre-1.7 ranged type whose stale fractional fields are incomplete", () => {
+      // Production games can contain this hybrid shape: the authoritative
+      // pre-1.7 absolute bands remain, while a newer editor added maxRange and
+      // from/to without adding damageModifier. The legacy bands must win.
+      const legacyArrow = {
+        id: 99002,
+        name: "legacy-arrow",
+        ranged: true,
+        projectileWidth: 4,
+        orgDamageRatio: 32000,
+        maxRange: 30,
+        damageModifierByTargetHp: {
+          start: 0.8,
+          end: 0.5,
+          modifier: -0.15,
+        },
+        orgModifierByTargetOrg: {
+          start: 0.9,
+          end: 0.5,
+          modifier: -0.25,
+        },
+        ranges: [
+          {
+            start: 0,
+            end: 85,
+            startMod: 2,
+            endMod: 1.5,
+            from: 0,
+            to: 0,
+          },
+          {
+            start: 85,
+            end: 145,
+            startMod: 1.5,
+            endMod: 1.2,
+            from: 0,
+            to: 1,
+            orgDamageRatio: 27500,
+            orgModifierByTargetOrg: {
+              start: 0.8,
+              end: 0.4,
+              modifier: -0.35,
+            },
+          },
+        ],
+        shotSound: "arrow",
+        shotAnim: "arrow",
+      } as unknown as DamageTypeTemplate;
+      const original = structuredClone(legacyArrow);
+
+      const manager = GameDataManager.createWithCustomDefs("napoleonic", {
+        customDamageTypes: [legacyArrow],
+      });
+      const loaded = manager.getDamageTypeByName<RangedDamageTypeTemplate>(
+        legacyArrow.name,
+      );
+
+      expect(loaded.maxRange).toBe(145);
+      expect(loaded.ranges[0]).toEqual(
+        expect.objectContaining({
+          from: 0,
+          damageModifier: { near: 2, far: 1.5 },
+        }),
+      );
+      expect(loaded.ranges[0].to).toBeCloseTo(85 / 145, 15);
+      expect(loaded.ranges[1]).toEqual(
+        expect.objectContaining({
+          to: 1,
+          damageModifier: { near: 1.5, far: 1.2 },
+          orgDamageModifierByTargetOrg: {
+            from: 0.8,
+            to: 0.4,
+            value: -0.35,
+          },
+        }),
+      );
+      expect(loaded.ranges[1].from).toBeCloseTo(85 / 145, 15);
+      expect(loaded.ranges[1].orgDamageModifier).toEqual({
+        near: 27500 / 32000 - 1,
+        far: 27500 / 32000 - 1,
+      });
+      expect(loaded.damageModifierByTargetHp).toEqual({
+        from: 0.8,
+        to: 0.5,
+        value: -0.15,
+      });
+      expect(loaded.orgDamageModifierByTargetOrg).toEqual({
+        from: 0.9,
+        to: 0.5,
+        value: -0.25,
+      });
+      expect(legacyArrow).toEqual(original);
+
+      const reloadedManager = GameDataManager.createWithCustomDefs(
+        "napoleonic",
+        { customDamageTypes: [loaded] },
+      );
+      expect(reloadedManager.getDamageTypeByName(loaded.name)).toBe(loaded);
+    });
+
+    it("keeps a current ranged custom type as the same object", () => {
+      const current = structuredClone(
+        GameDataManager.get("napoleonic").getDamageTypeByName("musket"),
+      );
+      const manager = GameDataManager.createWithCustomDefs("napoleonic", {
+        customDamageTypes: [current],
+      });
+
+      expect(manager.getDamageTypeByName("musket")).toBe(current);
     });
   });
 
@@ -218,7 +332,8 @@ describe("GameDataManager custom defs", () => {
       const eraSingleton = GameDataManager.get("napoleonic");
       const builtIn = eraSingleton.getDamageTypes()[0]!;
       const override: DamageTypeTemplate = {
-        ...builtIn,
+        id: builtIn.id,
+        name: builtIn.name,
         orgDamageRatio: (builtIn.orgDamageRatio ?? 0) + 0.5,
       };
 
@@ -313,7 +428,8 @@ describe("GameDataManager custom defs", () => {
         builtInUnit.meleeDamageType,
       );
       const dtOverride: DamageTypeTemplate = {
-        ...builtInDt,
+        id: builtInDt.id,
+        name: builtInDt.name,
         // Full override: id and name match the built-in, only stats change.
         orgDamageRatio: (builtInDt.orgDamageRatio ?? 0) + 0.7,
       };
@@ -427,6 +543,52 @@ describe("GameDataManager custom defs", () => {
       // deepWater is impassable via `*`; the new category must inherit it
       // instead of falling through to the passable default.
       expect(m.isPassable(TerrainType.DeepWater, "drone")).toBe(false);
+    });
+
+    it("expands the wildcard on its own copy, not on the caller's config", () => {
+      const config: TerrainCategoryConfig = { impassable: { "*": true } };
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customTerrainCategories: [{ id: "deepWater", config }],
+      });
+      // The manager still expands the wildcard...
+      expect(m.isPassable(TerrainType.DeepWater, "infantry")).toBe(false);
+      // ...but the caller's object keeps only the row it was given.
+      expect(config).toEqual({ impassable: { "*": true } });
+    });
+
+    it("lets the caller drop the `*` row and have it stick on the next load", () => {
+      const impassable: Partial<Record<UnitCategoryId, boolean>> = {
+        "*": true,
+        ship: false,
+      };
+      const defs = {
+        customTerrainCategories: [{ id: "deepWater", config: { impassable } }],
+      };
+      GameDataManager.createWithCustomDefs("napoleonic", defs);
+
+      // What the scenario editor does when the user removes the wildcard row:
+      // it edits its own draft and rebuilds the manager from it.
+      delete impassable["*"];
+      const reloaded = GameDataManager.createWithCustomDefs("napoleonic", defs);
+
+      expect(reloaded.isPassable(TerrainType.DeepWater, "infantry")).toBe(true);
+    });
+
+    it("keeps an explicit `false` row winning over the `*` wildcard", () => {
+      // The editor can only exempt a category by writing `false`: dropping the
+      // row just lets the next expansion refill it from `*`.
+      const impassable: Partial<Record<UnitCategoryId, boolean>> = {
+        "*": true,
+        ship: false,
+        infantry: false,
+      };
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customTerrainCategories: [{ id: "deepWater", config: { impassable } }],
+      });
+
+      expect(m.isPassable(TerrainType.DeepWater, "infantry")).toBe(true);
+      expect(m.isPassable(TerrainType.DeepWater, "ship")).toBe(true);
+      expect(m.isPassable(TerrainType.DeepWater, "artillery")).toBe(false);
     });
   });
 
@@ -558,6 +720,39 @@ describe("GameDataManager custom defs", () => {
         customOrders: {},
       });
       expect(a).toBe(GameDataManager.get("napoleonic"));
+    });
+  });
+
+  describe("loadCustomDefs: custom battle types", () => {
+    it("overrides manpower/gold and merges unitCaps without mutating the era singleton", () => {
+      const era = GameDataManager.get("napoleonic");
+      const eraMicro = era.getBattleType("micro");
+      const eraManpower = eraMicro.manpower;
+      const eraGold = eraMicro.gold;
+      const eraCap17 = eraMicro.unitCaps["17"];
+
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customBattleTypes: {
+          micro: { manpower: 9999, unitCaps: { "1": 3 } },
+        },
+      });
+
+      const micro = m.getBattleType("micro");
+      expect(micro.manpower).toBe(9999); // overridden
+      expect(micro.gold).toBe(eraGold); // untouched field kept
+      expect(micro.unitCaps["1"]).toBe(3); // new cap merged in
+      expect(micro.unitCaps["17"]).toBe(eraCap17); // era cap preserved
+
+      // The shared era battle type is never mutated.
+      expect(era.getBattleType("micro").manpower).toBe(eraManpower);
+      expect(era.getBattleType("micro").unitCaps["1"]).toBeUndefined();
+    });
+
+    it("returns a fresh non-singleton when only battle types are customized", () => {
+      const custom = GameDataManager.createWithCustomDefs("napoleonic", {
+        customBattleTypes: { micro: { gold: 1 } },
+      });
+      expect(custom).not.toBe(GameDataManager.get("napoleonic"));
     });
   });
 });

@@ -1,0 +1,34 @@
+{
+  "dialog": {
+    "close": "关闭",
+    "label": "对话框"
+  },
+  "passwordReset": {
+    "linkSent": "密码重置链接已发送。请检查你的电子邮件。",
+    "unexpectedError": "发生了意外错误。",
+    "userNotFound": "未找到匹配的账户。",
+    "invalidOrExpiredToken": "此密码重置链接无效或已过期。",
+    "error": "重置密码时出错：{{message}}",
+    "invalidLink": "此密码重置链接无效或不完整。",
+    "passwordsDoNotMatch": "两次输入的密码不一致。"
+  },
+  "pushDiagnostics": {
+    "sectionTitle": "推送通知诊断",
+    "title": "端到端推送测试",
+    "description": "向已注册设备发送真实的回合通知，并检查投递链路中的每个环节。",
+    "fcmCredentials": "FCM 凭据",
+    "registeredDevices": "已注册设备",
+    "delivered": "已投递",
+    "ready": "就绪",
+    "missing": "缺失",
+    "dropped": "（丢弃 {{count}} 条）",
+    "sendTest": "发送测试通知",
+    "sendingTest": "正在发送测试…",
+    "results": {
+      "fcmNotConfigured": "FCM 尚未配置。请设置 FCM_SERVICE_ACCOUNT_JSON。",
+      "noDevices": "此账号没有已注册设备。请先在应用中登录。",
+      "accepted": "FCM 接受了 {{devices}} 个发送请求中的 {{sent}} 个。请在手机上确认是否收到。",
+      "testFailed": "推送测试失败。"
+    }
+  }
+}

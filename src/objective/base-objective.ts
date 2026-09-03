@@ -21,21 +21,22 @@ export abstract class BaseObjective extends Entity {
   /**
    * Gets the effective victory points for this objective.
    * If victoryPoints undefined, returns the default value based on objective type.
-   * @param gameDataManager - The game data manager to access game constants
+   * @param gameDataManager - The game data manager to access the objectives game rule
+   * @param vpBigDefaultPoints - Optional layered override for the big-objective default
+   * @param vpSmallDefaultPoints - Optional layered override for the small-objective default
    * @returns The effective victory points value
    */
-  getVictoryPoints(gameDataManager: GameDataManager): number {
-    // If victory points are explicitly set and not 0, use them
+  getVictoryPoints(
+    gameDataManager: GameDataManager,
+    vpBigDefaultPoints?: number,
+    vpSmallDefaultPoints?: number,
+  ): number {
     if (this._victoryPoints !== undefined) {
       return this._victoryPoints;
     }
-
-    // Otherwise, use default based on objective type
-    const { VP_BIG_DEFAULT_POINTS, VP_SMALL_DEFAULT_POINTS } =
-      gameDataManager.getGameConstants();
-
+    const objectives = gameDataManager.getGameRules().objectives;
     return this.type === ObjectiveType.Big
-      ? VP_BIG_DEFAULT_POINTS
-      : VP_SMALL_DEFAULT_POINTS;
+      ? vpBigDefaultPoints ?? objectives.vpBigDefaultPoints
+      : vpSmallDefaultPoints ?? objectives.vpSmallDefaultPoints;
   }
 }

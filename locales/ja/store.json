@@ -1,7 +1,8 @@
 {
   "currencyShop": {
     "title": "<0/> を入手",
-    "subtitle": "素晴らしいコスメティクスをアンロックして、群衆の中で目立とう！"
+    "subtitle": "素晴らしいコスメティクスをアンロックして、群衆の中で目立とう！",
+    "unavailable": "ストアは現在ご利用いただけません。しばらくしてからもう一度お試しください。"
   },
 
   "aboutCurrencies": "通貨について",
@@ -12,9 +13,19 @@
     "basicDescription": "<currency/>: この通貨はマッチをプレイして得られます。ユニットを募集し、軍隊を編成するために使用します。",
     "premiumDescription": "<currency/>: これはコスメティクスを購入してスタイルを自慢するためのものです。ゲームは無料でプレイできるため、ほとんどは実際のお金を使って入手します。",
     "rate": "{{rate}} {{currency}} / USD",
-    "purchase": "{{amount}} {{currency}} を購入",
-    "totalSold": "これまでに販売された総 <currency/>: {{amount}}",
-    "nextGoal": "次の目標: {{goal}} <currency/>"
+    "purchase": "{{amount}} {{currency}} を購入"
+  },
+
+  "sale": {
+    "title": "週替わりセール",
+    "description": "{{items}}点が-{{discount}}%オフ、今週限り。",
+    "endsIn": "残り{{days}}日{{hours}}時間",
+    "endsInHours": "残り{{hours}}時間"
+  },
+
+  "firstPurchase": {
+    "banner": "初回購入は2倍: どのパックでも{{currency}}が{{multiplier}}倍もらえます。",
+    "badge": "初回購入{{multiplier}}倍"
   },
 
   "purchaseConfirmation": "{{item}} を購入してもよろしいですか？",

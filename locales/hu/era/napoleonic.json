@@ -91,13 +91,15 @@
     "18lb-cannon-ball": "18 fontos ágyúgolyó",
     "18lb-explosive-shell": "18 fontos repeszgránát"
   },
+  "formationRole": {
+    "column": "Menet és roham",
+    "line": "Tűzerő",
+    "square": "Oldalvédelem"
+  },
   "formation": {
-    "mass": "Tömeg",
     "line": "Sor",
     "column": "Oszlop",
     "square": "Négyzet",
-    "militia_mass": "Tömeg",
-    "militia_line": "Sor",
     "dispersed": "Szétszórt"
   },
   "reportStats": {

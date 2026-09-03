@@ -123,13 +123,15 @@
     "18lb-cannon-ball": "18파운드 포환",
     "18lb-explosive-shell": "18파운드 포탄"
   },
+  "formationRole": {
+    "column": "행군과 돌격",
+    "line": "화력",
+    "square": "측면 방어"
+  },
   "formation": {
-    "mass": "밀집",
     "line": "횡대",
     "column": "종대",
     "square": "방진",
-    "militia_mass": "밀집",
-    "militia_line": "횡대",
     "dispersed": "산개"
   },
   "reportStats": {

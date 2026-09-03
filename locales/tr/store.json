@@ -1,7 +1,8 @@
 {
   "currencyShop": {
     "title": "<0/> Al",
-    "subtitle": "Harika kozmetiklerin kilidini aç ve kalabalığın arasından sıyrıl!"
+    "subtitle": "Harika kozmetiklerin kilidini aç ve kalabalığın arasından sıyrıl!",
+    "unavailable": "Mağaza şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin."
   },
 
   "aboutCurrencies": "Para Birimleri Hakkında",
@@ -12,9 +13,19 @@
     "basicDescription": "<currency/>: Bunu kuyrukta maç oynayarak kazan. Birimleri işe almak ve ordunu kurmak için kullan.",
     "premiumDescription": "<currency/>: Bu, tarzını göstermek için kozmetik satın almak içindir. Oyun ücretsiz olduğu için genellikle gerçek para harcanarak elde edilir.",
     "rate": "USD başına {{rate}} {{currency}}",
-    "purchase": "{{amount}} {{currency}} Satın Al",
-    "totalSold": "Şimdiye kadar satılan toplam <currency/>: {{amount}}",
-    "nextGoal": "Sonraki Hedef: {{goal}} <currency/>"
+    "purchase": "{{amount}} {{currency}} Satın Al"
+  },
+
+  "sale": {
+    "title": "Haftalık indirim",
+    "description": "{{items}} ürün -{{discount}}% indirimli, sadece bu hafta.",
+    "endsIn": "Bitişe {{days}}g {{hours}}s",
+    "endsInHours": "Bitişe {{hours}}s"
+  },
+
+  "firstPurchase": {
+    "banner": "İlk satın alımınız iki katı: her paket {{multiplier}}x {{currency}} verir.",
+    "badge": "{{multiplier}}x ilk alım"
   },
 
   "purchaseConfirmation": "{{item}} satın almak istediğinizden emin misiniz?",

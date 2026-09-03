@@ -140,6 +140,8 @@ export interface InstructionTerrainNoise extends BaseInstruction {
     /** Maximum height value. */
     max: number;
   };
+  /** Optional list of existing terrains this noise must not overwrite (e.g. water). */
+  excludeTerrains?: TerrainType[];
   /** Optional smoothing configuration. */
   smoothing?: {
     /** Minimum number of surrounding tiles with same terrain for smoothing. */

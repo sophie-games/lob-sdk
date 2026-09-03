@@ -1,0 +1,34 @@
+{
+  "dialog": {
+    "close": "Close",
+    "label": "Dialog"
+  },
+  "passwordReset": {
+    "linkSent": "Password reset link sent. Check your email.",
+    "unexpectedError": "An unexpected error occurred.",
+    "userNotFound": "No matching account was found.",
+    "invalidOrExpiredToken": "This password reset link is invalid or has expired.",
+    "error": "Error resetting password: {{message}}",
+    "invalidLink": "This password reset link is invalid or incomplete.",
+    "passwordsDoNotMatch": "Passwords do not match."
+  },
+  "pushDiagnostics": {
+    "sectionTitle": "Push Diagnostics",
+    "title": "End-to-end push test",
+    "description": "Sends a real turn notification to your registered devices and verifies each link in the delivery chain.",
+    "fcmCredentials": "FCM credentials",
+    "registeredDevices": "Registered devices",
+    "delivered": "Delivered",
+    "ready": "Ready",
+    "missing": "Missing",
+    "dropped": "({{count}} dropped)",
+    "sendTest": "Send test notification",
+    "sendingTest": "Sending test…",
+    "results": {
+      "fcmNotConfigured": "FCM is not configured. Set FCM_SERVICE_ACCOUNT_JSON.",
+      "noDevices": "No devices are registered for this account. Sign in on the app first.",
+      "accepted": "FCM accepted {{sent}} of {{devices}} send requests. Confirm delivery on the phone.",
+      "testFailed": "The push test failed."
+    }
+  }
+}

@@ -86,6 +86,8 @@ export interface MoveAction extends BaseAction {
   unitId: EntityId;
   /** Path the unit moved along, as array of [x, y] coordinates. */
   path: [number, number][];
+  /** Present and true when this movement is at sustained-run pace. */
+  r?: true;
 }
 
 /**
@@ -137,9 +139,19 @@ export interface RangedAttackAction extends BaseAction {
   dt: number;
 
   /**
-   * Final Shot Segment - the final segment of the shot trajectory as [[x1, y1], [x2, y2]].
+   * Shot segments, flat as `[startX, startY, endX, endY, ...]` (ints) — one
+   * 4-tuple per firing emitter, drawn as one tracer each (the edge-fire volley):
+   * each emitter's start and its end at the target point nearest it. Legacy and
+   * ground-location fire carry a single segment. Flat + abbreviated since actions
+   * dominate the network/replay payload (cf. `dt`, the old `fss`).
    */
-  fss: [[number, number], [number, number]];
+  s?: number[];
+
+  /**
+   * @deprecated Pre-`s` single final-shot-segment `[[x1,y1],[x2,y2]]`. Kept so
+   * old stored replays (recorded before `s`) still render; new actions set `s`.
+   */
+  fss?: [[number, number], [number, number]];
 }
 
 /**
@@ -184,6 +196,10 @@ export interface UpdateUnitStateAction extends BaseAction {
    * Entrenchment change.
    */
   en?: number;
+  /**
+   * Routing at a safe distance change.
+   */
+  rs?: boolean;
 }
 
 /**

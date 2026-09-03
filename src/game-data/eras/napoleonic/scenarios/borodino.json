@@ -5998,26 +5998,38 @@
       "player": 1,
       "pos": { "x": 454.2, "y": 1462.08 },
       "type": 2,
-      "vp": 55
+      "vp": 200
     },
-    { "name": "Borodino", "player": 2, "pos": { "x": 902.32, "y": 838.82 } },
-    { "name": "Fleches", "player": 2, "pos": { "x": 996.1, "y": 1423.52 } },
+    {
+      "name": "Borodino",
+      "player": 2,
+      "pos": { "x": 902.32, "y": 838.82 },
+      "vp": 40
+    },
+    {
+      "name": "Fleches",
+      "player": 2,
+      "pos": { "x": 996.1, "y": 1423.52 },
+      "vp": 40
+    },
     {
       "name": "Kolocha Forest",
       "player": 1,
       "pos": { "x": 285.67, "y": 792.93 },
-      "vp": 25
+      "vp": 40
     },
     {
       "name": "Kniazkovo",
       "player": 2,
       "pos": { "x": 1404.38, "y": 1125.58 },
-      "type": 2
+      "type": 2,
+      "vp": 200
     },
     {
       "name": "Gorki Crossroads",
       "player": 2,
-      "pos": { "x": 1433.44, "y": 636.08 }
+      "pos": { "x": 1433.44, "y": 636.08 },
+      "vp": 40
     }
   ],
   "players": [

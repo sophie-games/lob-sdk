@@ -1,77 +1,82 @@
 import { Point2 } from "@lob-sdk/vector";
 
 /**
- * Simplifies a path using the Douglas-Peucker algorithm.
- * Removes points that are within epsilon distance of the line segment between their neighbors.
- * @param path - The path to simplify.
- * @param epsilon - The maximum distance a point can be from the line segment before it's kept (default: 0.5).
- * @returns A simplified path with fewer points.
- * @template T - The type of point, must extend Point2.
+ * Simplifies a path with the Douglas-Peucker algorithm: drops points within `epsilon` (coordinate
+ * units) of the kept segment, measured point-to-segment (clamped at the endpoints), not to the
+ * classic infinite line. Iterative (no recursion), never mutates the input, and handles zero-length
+ * segments (duplicate points / closed loops) without dividing by zero.
+ *
+ * @param path - Points to simplify. Not mutated.
+ * @param epsilon - Max allowed deviation; must be finite and >= 0.
+ * @returns New simplified array, points in original order.
+ * @throws RangeError if epsilon is negative, NaN, or infinite.
  */
 export function douglasPeucker<T extends Point2>(
-  path: T[],
-  epsilon: number = 0.5
+  path: readonly T[],
+  epsilon: number = 0.5,
 ): T[] {
+  if (!Number.isFinite(epsilon) || epsilon < 0) {
+    throw new RangeError(`epsilon must be finite and >= 0, got ${epsilon}`);
+  }
   if (path.length < 3) {
-    return path;
+    return path.slice();
   }
 
-  const index = findFurthestPoint(path, epsilon);
-  if (index === -1) {
-    return [path[0], path[path.length - 1]];
-  }
+  const keep = new Uint8Array(path.length);
+  keep[0] = 1;
+  keep[path.length - 1] = 1;
 
-  const left = douglasPeucker(path.slice(0, index + 1), epsilon);
-  const right = douglasPeucker(path.slice(index), epsilon);
+  // Pending segments as [startIndex, endIndex] into `path`.
+  // Replaces recursion: no call-stack risk, no intermediate slices.
+  const stack: Array<[number, number]> = [[0, path.length - 1]];
 
-  return left.slice(0, -1).concat(right);
-}
+  while (stack.length > 0) {
+    const [start, end] = stack.pop()!;
 
-/**
- * Finds the index of the point furthest from the line segment between the first and last points.
- * @param path - The path to search.
- * @param epsilon - The epsilon threshold for the Douglas-Peucker algorithm.
- * @returns The index of the furthest point, or -1 if no point exceeds epsilon.
- */
-function findFurthestPoint(path: Point2[], epsilon: number): number {
-  let maxDist = -1;
-  let index = -1;
+    let maxDist = -1;
+    let index = -1;
+    for (let i = start + 1; i < end; i++) {
+      const dist = pointToSegmentDistance(path[i], path[start], path[end]);
+      if (dist > maxDist) {
+        maxDist = dist;
+        index = i;
+      }
+    }
 
-  const start = path[0];
-  const end = path[path.length - 1];
-
-  for (let i = 1; i < path.length - 1; i++) {
-    const dist = perpendicularDistance(path[i], start, end);
-    if (dist > maxDist) {
-      maxDist = dist;
-      index = i;
+    if (index !== -1 && maxDist > epsilon) {
+      keep[index] = 1;
+      if (index - start > 1) stack.push([start, index]);
+      if (end - index > 1) stack.push([index, end]);
     }
   }
 
-  return maxDist > epsilon ? index : -1;
+  return path.filter((_, i) => keep[i] === 1);
 }
 
 /**
- * Calculates the perpendicular distance from a point to a line segment.
- * @param point - The point to measure distance from.
- * @param lineStart - The start point of the line segment.
- * @param lineEnd - The end point of the line segment.
- * @returns The perpendicular distance from the point to the line segment.
+ * Distance from `point` to the segment [segStart, segEnd].
+ * Uses the clamped projection, so it measures against the actual segment
+ * (not the infinite line) and falls back to point-to-point distance when
+ * the segment has zero length (segStart === segEnd).
  */
-function perpendicularDistance(
+function pointToSegmentDistance(
   point: Point2,
-  lineStart: Point2,
-  lineEnd: Point2
+  segStart: Point2,
+  segEnd: Point2,
 ): number {
-  const x0 = point.x;
-  const y0 = point.y;
-  const x1 = lineStart.x;
-  const y1 = lineStart.y;
-  const x2 = lineEnd.x;
-  const y2 = lineEnd.y;
+  const dx = segEnd.x - segStart.x;
+  const dy = segEnd.y - segStart.y;
+  const lengthSq = dx * dx + dy * dy;
 
-  const num = Math.abs((y2 - y1) * x0 - (x2 - x1) * y0 + x2 * y1 - y2 * x1);
-  const den = Math.sqrt((y2 - y1) ** 2 + (x2 - x1) ** 2);
+  if (lengthSq === 0) {
+    return Math.hypot(point.x - segStart.x, point.y - segStart.y);
+  }
 
-  return num / den;
+  let t =
+    ((point.x - segStart.x) * dx + (point.y - segStart.y) * dy) / lengthSq;
+  t = t < 0 ? 0 : t > 1 ? 1 : t;
+
+  const projX = segStart.x + t * dx;
+  const projY = segStart.y + t * dy;
+  return Math.hypot(point.x - projX, point.y - projY);
 }

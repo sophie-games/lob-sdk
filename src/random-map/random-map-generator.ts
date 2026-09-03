@@ -1,7 +1,8 @@
 import { getDeploymentZonesByMapSize, getMapSizeIndex } from "./map-size";
 import {
   GameMap,
-  RandomTeamDeploymentZones,
+  RandomDeploymentZone,
+  RandomDeploymentZones,
   Size,
   TeamDeploymentZones,
 } from "@lob-sdk/types";
@@ -25,6 +26,7 @@ import { ConnectClustersExecutor } from "./executors/connect-clusters";
 import { ObjectiveExecutor } from "./executors/objective";
 import { ObjectiveLayerExecutor } from "./executors/objective-layer";
 import { LakeExecutor } from "./executors/lake";
+import { normalizeMapGrids } from "./normalize-map-grids";
 import { deriveSeed, generateRandomSeed, randomSeeded } from "@lob-sdk/seed";
 import { GameDataManager, GameEra } from "@lob-sdk/game-data-manager";
 import { getRandomInt } from "@lob-sdk/utils";
@@ -73,11 +75,32 @@ export class RandomMapGenerator {
     let heightPx: number;
 
     if (fixedMap) {
-      // Deep-copy to avoid mutating frozen JSON imports when overlays run.
-      terrains = fixedMap.terrains.map((row) => [...row]);
-      heightMap = fixedMap.heightMap.map((row) => [...row]);
       widthPx = fixedMap.width;
       heightPx = fixedMap.height;
+      const tilesX = Math.ceil(widthPx / tileSize);
+      const tilesY = Math.ceil(heightPx / tileSize);
+      // Deep-copy AND repair: force both grids rectangular to the declared size.
+      // A malformed import (e.g. an editor resize that left heightMap a few
+      // columns shorter than terrains) would otherwise be indexed raw downstream
+      // and crash the turn simulation (fog-of-war LOS), bots, and rendering.
+      // Runs before instruction executors, which also index the grids raw.
+      const repair = normalizeMapGrids(
+        fixedMap.terrains,
+        fixedMap.heightMap,
+        tilesX,
+        tilesY,
+        scenario.baseTerrain ?? TerrainType.Grass,
+      );
+      terrains = repair.terrains;
+      heightMap = repair.heightMap;
+      if (repair.repaired) {
+        console.warn(
+          `[RandomMapGenerator] Repaired malformed fixedMap grids for scenario "${scenario.name}": ` +
+            `terrains ${fixedMap.terrains.length}x${fixedMap.terrains[0]?.length ?? 0}, ` +
+            `heightMap ${fixedMap.heightMap.length}x${fixedMap.heightMap[0]?.length ?? 0} ` +
+            `-> ${tilesX}x${tilesY}.`,
+        );
+      }
     } else {
       // Precedence: caller-supplied tilesX/tilesY (scenario editor) >
       // scenario.fixedSize (pinned dimensions) > battle-size defaults.
@@ -150,16 +173,16 @@ export class RandomMapGenerator {
     return scenario.deploymentZones;
   }
 
-  /** Reads percentage-based zones. */
+  /** Reads percentage-based zones (already normalized to the current shape). */
   private _getRandomZones(
     scenario: Scenario,
-  ): RandomTeamDeploymentZones | undefined {
+  ): RandomDeploymentZones | undefined {
     return scenario.randomDeploymentZones;
   }
 
   private _getScaledZones(
     scenario: Scenario,
-  ): Record<Size, RandomTeamDeploymentZones> | undefined {
+  ): Record<Size, RandomDeploymentZones> | undefined {
     return scenario.scaledDeploymentZones;
   }
 
@@ -199,12 +222,17 @@ export class RandomMapGenerator {
       this._getScaledZones(scenario)?.[battleSize] ??
       this._getRandomZones(scenario);
 
-    if (randomZones) {
+    // A persisted scenario from before the randomDeploymentZones restructure
+    // carries the legacy four-field shape, which has no `top` array. Treat any
+    // such (or otherwise malformed) value as "no random zones" and fall back to
+    // defaults rather than crashing in _computePercentZones.
+    if (randomZones && Array.isArray(randomZones.top)) {
       return this._computePercentZones(
         randomZones,
         terrains,
         tileSize,
         mapSeed,
+        scenario.players,
       );
     }
 
@@ -234,10 +262,11 @@ export class RandomMapGenerator {
   }
 
   private _computePercentZones(
-    deploymentZones: RandomTeamDeploymentZones,
+    deploymentZones: RandomDeploymentZones,
     terrains: TerrainType[][],
     tileSize: number,
     seed: number,
+    playerSetups: Scenario["players"],
   ): [TeamDeploymentZones, TeamDeploymentZones] {
     const random = randomSeeded(deriveSeed(seed, 0));
     const tilesX = terrains.length;
@@ -245,42 +274,67 @@ export class RandomMapGenerator {
 
     const build = (
       team: number,
-      type: "main" | "forward",
-      zone: RandomTeamDeploymentZones[keyof RandomTeamDeploymentZones],
+      zone: RandomDeploymentZone,
     ): TeamDeploymentZone => ({
       team,
-      type,
+      type: zone.role,
       x:
         getRandomInt(
-          this.percentToTiles(zone.minX, tilesX),
-          this.percentToTiles(zone.maxX, tilesX),
+          this.percentToTiles(zone.rect.x.min, tilesX),
+          this.percentToTiles(zone.rect.x.max, tilesX),
           random,
         ) * tileSize,
       y:
         getRandomInt(
-          this.percentToTiles(zone.minY, tilesY),
-          this.percentToTiles(zone.maxY, tilesY),
+          this.percentToTiles(zone.rect.y.min, tilesY),
+          this.percentToTiles(zone.rect.y.max, tilesY),
           random,
         ) * tileSize,
-      width: this.percentToTiles(zone.width, tilesX) * tileSize,
-      height: this.percentToTiles(zone.height, tilesY) * tileSize,
+      width: this.percentToTiles(zone.rect.width, tilesX) * tileSize,
+      height: this.percentToTiles(zone.rect.height, tilesY) * tileSize,
+      ...(zone.player !== undefined ? { player: zone.player } : {}),
+      ...(zone.rotation !== undefined ? { rotation: zone.rotation } : {}),
     });
 
-    return [
-      {
+    // The top side is authored; the bottom side is its exact vertical mirror
+    // unless the scenario overrides it. Mirroring in pixels (rather than
+    // converting a separate bottom config) keeps the sides symmetric despite
+    // percentToTiles flooring every edge toward the top, which would otherwise
+    // hand the bottom team a consistent first-side advantage.
+    const mapHeightPx = tilesY * tileSize;
+    const setups =
+      playerSetups ??
+      [
+        { player: 1, team: 1 },
+        { player: 2, team: 2 },
+      ];
+    const topPlayers = setups.filter((setup) => setup.team === 2);
+    const bottomPlayers = setups.filter((setup) => setup.team === 1);
+    const mirrorPlayer = (player: number | undefined): number | undefined => {
+      if (player === undefined) return undefined;
+      const teamOrder = topPlayers.findIndex((setup) => setup.player === player);
+      return teamOrder < 0 ? undefined : bottomPlayers[teamOrder]?.player;
+    };
+    const mirrorToBottom = (zone: TeamDeploymentZone): TeamDeploymentZone => {
+      const mirroredPlayer = mirrorPlayer(zone.player);
+      const { player: _player, rotation: _rotation, ...rect } = zone;
+      return {
+        ...rect,
         team: 1,
-        zones: [
-          build(1, "main", deploymentZones.bottomMainDeploymentZone),
-          build(1, "forward", deploymentZones.bottomForwardDeploymentZone),
-        ],
-      },
-      {
-        team: 2,
-        zones: [
-          build(2, "main", deploymentZones.topMainDeploymentZone),
-          build(2, "forward", deploymentZones.topForwardDeploymentZone),
-        ],
-      },
+        y: mapHeightPx - zone.y - zone.height,
+        ...(mirroredPlayer !== undefined ? { player: mirroredPlayer } : {}),
+        ...(zone.rotation !== undefined ? { rotation: -zone.rotation } : {}),
+      };
+    };
+
+    const topZones = deploymentZones.top.map((zone) => build(2, zone));
+    const bottomZones = deploymentZones.bottom
+      ? deploymentZones.bottom.map((zone) => build(1, zone))
+      : topZones.map(mirrorToBottom);
+
+    return [
+      { team: 1, zones: bottomZones },
+      { team: 2, zones: topZones },
     ];
   }
 

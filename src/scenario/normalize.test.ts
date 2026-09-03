@@ -5,7 +5,6 @@ import {
   InstructionType,
   LegacyPresetScenario,
   LegacyRandomScenario,
-  RandomTeamDeploymentZones,
   Scenario,
   TerrainType,
 } from "@lob-sdk/types";
@@ -73,13 +72,6 @@ const buildHybrid = (
   ...overrides,
 });
 
-const sampleZones: RandomTeamDeploymentZones = {
-  topMainDeploymentZone: { minX: 0, maxX: 50, minY: 0, maxY: 25, width: 30, height: 20 },
-  topForwardDeploymentZone: { minX: 0, maxX: 50, minY: 25, maxY: 50, width: 30, height: 20 },
-  bottomMainDeploymentZone: { minX: 50, maxX: 100, minY: 75, maxY: 100, width: 30, height: 20 },
-  bottomForwardDeploymentZone: { minX: 50, maxX: 100, minY: 50, maxY: 75, width: 30, height: 20 },
-};
-
 const buildRandom = (
   overrides: Partial<LegacyRandomScenario> = {},
 ): LegacyRandomScenario => ({
@@ -100,7 +92,7 @@ const buildRandom = (
 });
 
 describe("normalizeScenario", () => {
-  it("returns current-schema scenarios unchanged when allowDeploymentPhase is already set", () => {
+  it("returns current-schema scenarios unchanged when the feature flags are already set", () => {
     const scenario: Scenario = {
       version: SCENARIO_SCHEMA_VERSION,
       name: "already-current",
@@ -108,6 +100,7 @@ describe("normalizeScenario", () => {
       instructions: [],
       allowDynamicArmy: true,
       allowDeploymentPhase: true,
+      placeableObjectives: false,
     };
     expect(normalizeScenario(scenario)).toBe(scenario);
   });
@@ -128,6 +121,42 @@ describe("normalizeScenario", () => {
     };
     expect(normalizeScenario(dynamic).allowDeploymentPhase).toBe(true);
     expect(normalizeScenario(preset).allowDeploymentPhase).toBe(false);
+  });
+
+  it("backfills placeableObjectives only for dynamic-army instruction maps", () => {
+    const instruction = buildRandom().instructions[0];
+    const dynamicWithInstructions: Scenario = {
+      version: SCENARIO_SCHEMA_VERSION,
+      name: "dynamic-instr",
+      description: "",
+      instructions: [instruction],
+      allowDynamicArmy: true,
+    };
+    const dynamicNoInstructions: Scenario = {
+      version: SCENARIO_SCHEMA_VERSION,
+      name: "dynamic-empty",
+      description: "",
+      instructions: [],
+      allowDynamicArmy: true,
+    };
+    // Fixed-roster instruction map (e.g. the tutorial): must NOT auto-enable.
+    const fixedRosterWithInstructions: Scenario = {
+      version: SCENARIO_SCHEMA_VERSION,
+      name: "tutorial-like",
+      description: "",
+      instructions: [instruction],
+      allowDynamicArmy: false,
+      allowDeploymentPhase: true,
+    };
+    expect(
+      normalizeScenario(dynamicWithInstructions).placeableObjectives,
+    ).toBe(true);
+    expect(normalizeScenario(dynamicNoInstructions).placeableObjectives).toBe(
+      false,
+    );
+    expect(
+      normalizeScenario(fixedRosterWithInstructions).placeableObjectives,
+    ).toBe(false);
   });
 
   it("throws on an unknown scenario shape", () => {
@@ -196,30 +225,11 @@ describe("normalizeScenario", () => {
       const result = normalizeScenario(buildRandom());
       expect(result.allowDynamicArmy).toBe(true);
       expect(result.allowDeploymentPhase).toBe(true);
+      expect(result.placeableObjectives).toBe(true);
       expect(result.baseTerrain).toBe(TerrainType.Grass);
       expect(result.instructions).toHaveLength(1);
       expect(result.instructions?.[0].type).toBe(InstructionType.HeightNoise);
       expect(result.map).toBeUndefined();
-    });
-
-    it("maps defaultDeploymentZones => randomDeploymentZones", () => {
-      const result = normalizeScenario(
-        buildRandom({ defaultDeploymentZones: sampleZones }),
-      );
-      expect(result.randomDeploymentZones).toEqual(sampleZones);
-    });
-
-    it("preserves scaledDeploymentZones", () => {
-      const scaled = {
-        0: sampleZones,
-        1: sampleZones,
-        2: sampleZones,
-        3: sampleZones,
-      };
-      const result = normalizeScenario(
-        buildRandom({ scaledDeploymentZones: scaled as any }),
-      );
-      expect(result.scaledDeploymentZones).toEqual(scaled);
     });
   });
 
@@ -281,6 +291,7 @@ describe("normalizeScenario", () => {
         instructions: [],
         allowDynamicArmy: true,
         allowDeploymentPhase: true,
+        placeableObjectives: false,
         ranked: true,
         hidden: true,
         triggers: sampleTriggers,

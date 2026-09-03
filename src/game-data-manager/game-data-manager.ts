@@ -6,11 +6,13 @@ import {
   ScenarioName,
   BattleTypeTemplate,
   DynamicBattleType,
+  ScenarioBattleTypeOverride,
   TerrainCategoryType,
   TerrainCategoryConfig,
   TerrainType,
   TerrainConfig,
   Size,
+  TeamSize,
   CustomTerrainCategoryOverride,
 } from "@lob-sdk/types";
 import { RawScenarioInput, normalizeScenario } from "@lob-sdk/scenario";
@@ -48,40 +50,6 @@ import napoleonicFormations from "@lob-sdk/game-data/eras/napoleonic/formations.
 import napoleonicMapSizes from "@lob-sdk/game-data/eras/napoleonic/map-sizes.json";
 import napoleonicMatchmakingPresets from "@lob-sdk/game-data/eras/napoleonic/matchmaking-presets.json";
 
-// Import napoleonic scenarios
-import napoleonicWaterloo from "@lob-sdk/game-data/eras/napoleonic/scenarios/waterloo.json";
-import napoleonicHills from "@lob-sdk/game-data/eras/napoleonic/scenarios/hills.json";
-import napoleonicPlains from "@lob-sdk/game-data/eras/napoleonic/scenarios/plains.json";
-import napoleonicIberia from "@lob-sdk/game-data/eras/napoleonic/scenarios/iberia.json";
-import napoleonicCity from "@lob-sdk/game-data/eras/napoleonic/scenarios/city.json";
-import napoleonicFauconRiverValley from "@lob-sdk/game-data/eras/napoleonic/scenarios/faucon-river-valley.json";
-import napoleonicSaandLakes from "@lob-sdk/game-data/eras/napoleonic/scenarios/saand-lakes.json";
-import napoleonicAmnisNucum from "@lob-sdk/game-data/eras/napoleonic/scenarios/amnis-nucum.json";
-import napoleonicCittaDeiFalchi from "@lob-sdk/game-data/eras/napoleonic/scenarios/citta-dei-falchi.json";
-import napoleonicRoadToAmnisNucum from "@lob-sdk/game-data/eras/napoleonic/scenarios/road-to-amnis-nucum.json";
-import napoleonicRuralAlpine from "@lob-sdk/game-data/eras/napoleonic/scenarios/rural-alpine.json";
-import napoleonicFalkenhugel from "@lob-sdk/game-data/eras/napoleonic/scenarios/falkenhugel.json";
-import napoleonicGrobesSchlachtfeld from "@lob-sdk/game-data/eras/napoleonic/scenarios/grobes-schlachtfeld.json";
-import napoleonicMediterraneaNucum from "@lob-sdk/game-data/eras/napoleonic/scenarios/mediterranea-nucum.json";
-import napoleonicRiverValley from "@lob-sdk/game-data/eras/napoleonic/scenarios/river-valley.json";
-import napoleonicLinesOfLegends from "@lob-sdk/game-data/eras/napoleonic/scenarios/lines-of-legends.json";
-import napoleonicAestateVillas from "@lob-sdk/game-data/eras/napoleonic/scenarios/aestate-villas.json";
-import napoleonicBorodino from "@lob-sdk/game-data/eras/napoleonic/scenarios/borodino.json";
-import napoleonicCombatAtMollwitz from "@lob-sdk/game-data/eras/napoleonic/scenarios/combat-at-mollwitz.json";
-import napoleonicClashAtChelmnitz from "@lob-sdk/game-data/eras/napoleonic/scenarios/clash-at-chelmnitz.json";
-import napoleonicTundra from "@lob-sdk/game-data/eras/napoleonic/scenarios/tundra.json";
-import napoleonicDresden from "@lob-sdk/game-data/eras/napoleonic/scenarios/dresden.json";
-import napoleonicBlackForest from "@lob-sdk/game-data/eras/napoleonic/scenarios/black-forest.json";
-import napoleonicLake from "@lob-sdk/game-data/eras/napoleonic/scenarios/lake.json";
-import napoleonicAntioch from "@lob-sdk/game-data/eras/napoleonic/scenarios/antioch.json";
-import napoleonicSilvaSanctorum from "@lob-sdk/game-data/eras/napoleonic/scenarios/silva-sanctorum.json";
-import napoleonicAndesAndValley from "@lob-sdk/game-data/eras/napoleonic/scenarios/andes-and-valley.json";
-import napoleonicLowCountries from "@lob-sdk/game-data/eras/napoleonic/scenarios/low-countries.json";
-import napoleonicHedgerows from "@lob-sdk/game-data/eras/napoleonic/scenarios/hedgerows.json";
-import napoleonicLeipzig from "@lob-sdk/game-data/eras/napoleonic/scenarios/leipzig.json";
-import napoleonicTutorial from "@lob-sdk/game-data/eras/napoleonic/scenarios/tutorial.json";
-import napoleonicLineOfBattle from "@lob-sdk/game-data/eras/napoleonic/scenarios/line-of-battle.json";
-
 import ww2BattleTypes from "@lob-sdk/game-data/eras/ww2/battle-types.json";
 import ww2Orders from "@lob-sdk/game-data/eras/ww2/orders.json";
 import ww2UnitTemplates from "@lob-sdk/game-data/eras/ww2/unit-templates.json";
@@ -99,26 +67,99 @@ import ww2Formations from "@lob-sdk/game-data/eras/ww2/formations.json";
 import ww2MapSizes from "@lob-sdk/game-data/eras/ww2/map-sizes.json";
 import ww2MatchmakingPresets from "@lob-sdk/game-data/eras/ww2/matchmaking-presets.json";
 
-// Import ww2 scenarios
-import ww2BattleOfMoscow from "@lob-sdk/game-data/eras/ww2/scenarios/battle-of-moscow.json";
-import ww2Fields from "@lob-sdk/game-data/eras/ww2/scenarios/fields.json";
-import ww2France from "@lob-sdk/game-data/eras/ww2/scenarios/battle-of-france.json";
-
 // Shared
 import gameConstantCategories from "@lob-sdk/game-data/shared/game-constant-categories.json";
-import { FormationTemplate, OrderTemplate, OrderType } from "@lob-sdk/types";
+import {
+  FormationTemplate,
+  OrderTemplate,
+  OrderType,
+  getCollisionConfig,
+} from "@lob-sdk/types";
 import { FormationManager } from "./formation-manager";
 import { UnitTemplateManager } from "./unit-template-manager";
 import { degreesToRadians, deepMerge, type DeepPartial } from "@lob-sdk/utils";
+import type { ScenarioCatalog } from "./scenario-catalog";
+import type { ScenarioIndex, ScenarioMeta } from "./scenario-index";
+import { napoleonicScenarioIndex } from "@lob-sdk/game-data/eras/napoleonic/scenario-index";
+import { ww2ScenarioIndex } from "@lob-sdk/game-data/eras/ww2/scenario-index";
+import { normalizeDamageType } from "./normalize-damage-type";
+
+const SCENARIO_INDEXES: Record<GameEra, ScenarioIndex> = {
+  napoleonic: napoleonicScenarioIndex,
+  ww2: ww2ScenarioIndex,
+};
 
 /**
- * Centralized lazy-loading game data manager.
+ * Damage-type ids persisted in pre-1.7 action streams whose templates were
+ * later merged. These are lookup-only aliases: retired templates stay out of
+ * the catalog, so new games and custom-scenario tooling cannot select them.
+ */
+const LEGACY_DAMAGE_TYPE_NAMES: Partial<
+  Record<GameEra, Readonly<Record<number, string>>>
+> = {
+  napoleonic: {
+    28: "rocket",
+    29: "4lb-cannon-ball",
+    30: "12lb-cannon-ball",
+    31: "8lb-cannon-ball",
+    32: "6lb-cannon-ball",
+    34: "ship-cannon",
+  },
+};
+
+/**
+ * Scenario-scoped custom definitions layered onto an era registry by
+ * {@link GameDataManager.createWithCustomDefs} / {@link GameDataManager.loadCustomDefs}.
+ * Spelled once here so the two methods and the {@link CUSTOM_DEF_PRESENCE}
+ * presence guard can't drift apart.
+ */
+export type CustomDefs = {
+  customUnitTemplates?: UnitTemplate[];
+  customDamageTypes?: DamageTypeTemplate[];
+  customUnitFormations?: FormationTemplate[];
+  customUnitCategories?: UnitCategoryTemplate[];
+  customTerrainCategories?: CustomTerrainCategoryOverride[];
+  customGameConstants?: Partial<GameConstants>;
+  customGameRules?: DeepPartial<GameRules>;
+  customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
+  customBattleTypes?: Partial<
+    Record<DynamicBattleType, ScenarioBattleTypeOverride>
+  >;
+  disableEraDefaultUnits?: boolean;
+};
+
+/**
+ * "Does this custom-def carry an override for key K?" — one predicate per
+ * {@link CustomDefs} key. The `Required<Record<keyof CustomDefs, …>>` wrapper is
+ * an exhaustiveness guard: add a field to `CustomDefs` without a predicate here
+ * and the build fails ("Property 'x' is missing"), so a new custom-def kind can
+ * never be silently dropped by {@link GameDataManager.createWithCustomDefs}.
+ */
+const CUSTOM_DEF_PRESENCE: Required<{
+  [K in keyof CustomDefs]: (defs: CustomDefs) => boolean;
+}> = {
+  customUnitTemplates: (d) => !!d.customUnitTemplates?.length,
+  customDamageTypes: (d) => !!d.customDamageTypes?.length,
+  customUnitFormations: (d) => !!d.customUnitFormations?.length,
+  customUnitCategories: (d) => !!d.customUnitCategories?.length,
+  customTerrainCategories: (d) => !!d.customTerrainCategories?.length,
+  customGameConstants: (d) =>
+    Object.keys(d.customGameConstants ?? {}).length > 0,
+  customGameRules: (d) => Object.keys(d.customGameRules ?? {}).length > 0,
+  customOrders: (d) => Object.keys(d.customOrders ?? {}).length > 0,
+  customBattleTypes: (d) => Object.keys(d.customBattleTypes ?? {}).length > 0,
+  disableEraDefaultUnits: (d) => !!d.disableEraDefaultUnits,
+};
+
+/**
+ * Centralized game data manager.
  * Provides access to all game data including units, formations, terrains, battle types, and more.
  * Uses a singleton pattern per era to ensure efficient memory usage.
  */
 export class GameDataManager {
   readonly era: GameEra;
   private static instances: Map<GameEra, GameDataManager> = new Map();
+  private static scenarioCatalogs: Map<GameEra, ScenarioCatalog> = new Map();
 
   // Centralized data cache
   private battleTypes: Record<DynamicBattleType, BattleTypeTemplate> =
@@ -177,12 +218,27 @@ export class GameDataManager {
   // Formations
   private _formationManager = new FormationManager();
 
-  // Scenarios — raw imports (may be legacy or current schema). Reads go
+  // Scenarios — raw imports (may be legacy or current schema). The application
+  // registers the catalog for an era before entering scenario-dependent views,
+  // keeping the large JSON payload out of public/onboarding bundles. Reads go
   // through {@link getScenario}, which normalizes to the current shape and
   // caches the result in {@link normalizedScenarios}. Editor flows that still
   // depend on the legacy `type` discriminator use {@link getRawScenario}.
-  private scenarios: Record<ScenarioName, RawScenarioInput> = {};
   private normalizedScenarios: Map<ScenarioName, Scenario> = new Map();
+
+  private get scenarios(): ScenarioCatalog {
+    const catalog = GameDataManager.scenarioCatalogs.get(this.era);
+    if (!catalog) {
+      throw new Error(
+        `Scenario catalog for era ${this.era} has not been registered`,
+      );
+    }
+    return catalog;
+  }
+
+  private get scenarioIndex(): ScenarioIndex {
+    return SCENARIO_INDEXES[this.era];
+  }
 
   // Map sizes
   private mapSizes: Record<Size, MapSizeTemplate> | null = null;
@@ -198,6 +254,22 @@ export class GameDataManager {
   private _orderNameMap: Map<string, OrderType> = new Map();
 
   private _headOnCollisionCosineThresholdSquared: number = -1;
+
+  /**
+   * When true, this scenario disables the era's default units: only custom unit
+   * templates (type >= CUSTOM_UNIT_TYPE_MIN) are fieldable, so the army panel
+   * hides era units and validateArmy rejects them. Set per-game from the
+   * scenario's `disableEraDefaultUnits` flag; false on the era singleton.
+   *
+   * Read-only from outside: the only writer is {@link loadCustomDefs} on a
+   * per-game instance, so a stray external assignment can't leak this flag onto
+   * the shared era singleton (or across games).
+   */
+  private _disableEraDefaultUnits = false;
+
+  public get disableEraDefaultUnits(): boolean {
+    return this._disableEraDefaultUnits;
+  }
 
   /**
    * Gets or creates a GameDataManager instance for the specified era.
@@ -228,6 +300,22 @@ export class GameDataManager {
   }
 
   /**
+   * Registers the scenario catalog for one era. Browsers call this after the
+   * selected era's catalog chunk loads; server and test bootstraps register all
+   * catalogs synchronously.
+   */
+  public static registerScenarioCatalog(
+    era: GameEra,
+    catalog: ScenarioCatalog,
+  ): void {
+    GameDataManager.scenarioCatalogs.set(era, catalog);
+  }
+
+  public static hasScenarioCatalog(era: GameEra): boolean {
+    return GameDataManager.scenarioCatalogs.has(era);
+  }
+
+  /**
    * Builds a fresh non-singleton GameDataManager for the given era and layers
    * scenario-scoped custom unit templates, damage types, and formations on
    * top of the era registry. Returns the cached era singleton unchanged when
@@ -235,26 +323,10 @@ export class GameDataManager {
    */
   public static createWithCustomDefs(
     era: GameEra,
-    customDefs: {
-      customUnitTemplates?: UnitTemplate[];
-      customDamageTypes?: DamageTypeTemplate[];
-      customUnitFormations?: FormationTemplate[];
-      customUnitCategories?: UnitCategoryTemplate[];
-      customTerrainCategories?: CustomTerrainCategoryOverride[];
-      customGameConstants?: Partial<GameConstants>;
-      customGameRules?: DeepPartial<GameRules>;
-      customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
-    },
+    customDefs: CustomDefs,
   ): GameDataManager {
-    const hasCustom = !!(
-      customDefs.customUnitTemplates?.length ||
-      customDefs.customDamageTypes?.length ||
-      customDefs.customUnitFormations?.length ||
-      customDefs.customUnitCategories?.length ||
-      customDefs.customTerrainCategories?.length ||
-      Object.keys(customDefs.customGameConstants ?? {}).length ||
-      Object.keys(customDefs.customGameRules ?? {}).length ||
-      Object.keys(customDefs.customOrders ?? {}).length
+    const hasCustom = Object.values(CUSTOM_DEF_PRESENCE).some((present) =>
+      present(customDefs),
     );
 
     if (!hasCustom) {
@@ -272,16 +344,9 @@ export class GameDataManager {
    * Call only on per-game instances from {@link createWithCustomDefs};
    * mutating an era singleton leaks state across games.
    */
-  public loadCustomDefs(customDefs: {
-    customUnitTemplates?: UnitTemplate[];
-    customDamageTypes?: DamageTypeTemplate[];
-    customUnitFormations?: FormationTemplate[];
-    customUnitCategories?: UnitCategoryTemplate[];
-    customTerrainCategories?: CustomTerrainCategoryOverride[];
-    customGameConstants?: Partial<GameConstants>;
-    customGameRules?: DeepPartial<GameRules>;
-    customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
-  }): void {
+  public loadCustomDefs(customDefs: CustomDefs): void {
+    this._disableEraDefaultUnits = customDefs.disableEraDefaultUnits ?? false;
+
     // Order matters: orders → categories → terrain categories → damage types →
     // formations → templates. Terrain categories slot in after unit
     // categories so the wildcard expansion has the full set of unit
@@ -360,7 +425,12 @@ export class GameDataManager {
         // Replace wholesale, not merge: the editor produces a complete
         // config seeded from the cloned built-in, so a partial merge would
         // double-up wildcards from the previous load.
-        this.terrainCategories[override.id as TerrainCategoryType] = override.config;
+        // Clone: the expansion below writes into whatever we install here, and
+        // the caller's config is live state elsewhere (the scenario editor
+        // holds its overrides in React state), so expanding it in place would
+        // write one explicit entry per unit category into the user's draft.
+        this.terrainCategories[override.id as TerrainCategoryType] =
+          structuredClone(override.config);
       }
       // Re-expand wildcards on the (possibly overridden) maps so any newly
       // introduced category id has the right wildcard fallbacks applied.
@@ -370,7 +440,8 @@ export class GameDataManager {
     if (customDefs.customDamageTypes?.length) {
       // Replace-by-id (and re-key by name) so override doesn't duplicate.
       this.damageTypes = [...this.damageTypes];
-      for (const dt of customDefs.customDamageTypes) {
+      for (const customDamageType of customDefs.customDamageTypes) {
+        const dt = normalizeDamageType(customDamageType);
         const existingIdx = this.damageTypes.findIndex((d) => d.id === dt.id);
         const previousName =
           existingIdx >= 0 ? this.damageTypes[existingIdx].name : null;
@@ -432,6 +503,33 @@ export class GameDataManager {
         customDefs.customGameRules,
       );
     }
+
+    if (
+      customDefs.customBattleTypes &&
+      Object.keys(customDefs.customBattleTypes).length > 0
+    ) {
+      // Shallow-clone the shared era map, then replace only the overridden
+      // battle types with fresh objects (never mutating the era originals):
+      // manpower/gold replace, unitCaps merge over the base by unit type.
+      this.battleTypes = { ...this.battleTypes };
+      for (const [battleType, override] of Object.entries(
+        customDefs.customBattleTypes,
+      )) {
+        const base = this.battleTypes[battleType as DynamicBattleType];
+        if (!override || !base) {
+          continue;
+        }
+        const { manpower, gold, unitCaps } = override;
+        this.battleTypes[battleType as DynamicBattleType] = {
+          ...base,
+          manpower: manpower ?? base.manpower,
+          gold: gold ?? base.gold,
+          unitCaps: unitCaps
+            ? { ...base.unitCaps, ...unitCaps }
+            : base.unitCaps,
+        };
+      }
+    }
   }
 
   /**
@@ -463,9 +561,7 @@ export class GameDataManager {
     this.gameConstantCategories = gameConstantCategories;
   }
 
-  /**
-   * Load all era-specific data synchronously
-   */
+  /** Load the compact era definitions synchronously. Scenario JSON is separate. */
   private loadEraData(era: GameEra): void {
     // Load data based on era
     switch (era) {
@@ -498,41 +594,6 @@ export class GameDataManager {
         this.mapSizes = napoleonicMapSizes as Record<Size, MapSizeTemplate>;
         this.matchmakingPresets =
           napoleonicMatchmakingPresets as MatchmakingPresetsData;
-        this.scenarios = {
-          plains: napoleonicPlains as RawScenarioInput,
-          hills: napoleonicHills as RawScenarioInput,
-          iberia: napoleonicIberia as RawScenarioInput,
-          tundra: napoleonicTundra as RawScenarioInput,
-          city: napoleonicCity as RawScenarioInput,
-          hedgerows: napoleonicHedgerows as RawScenarioInput,
-          "low-countries": napoleonicLowCountries as RawScenarioInput,
-          lake: napoleonicLake as RawScenarioInput,
-          "black-forest": napoleonicBlackForest as RawScenarioInput,
-          "silva-sanctorum": napoleonicSilvaSanctorum as RawScenarioInput,
-          "andes-and-valley": napoleonicAndesAndValley as RawScenarioInput,
-          "lines-of-legends": napoleonicLinesOfLegends as RawScenarioInput,
-          "river-valley": napoleonicRiverValley as RawScenarioInput,
-          "saand-lakes": napoleonicSaandLakes as RawScenarioInput,
-          "faucon-river-valley": napoleonicFauconRiverValley as RawScenarioInput,
-          "amnis-nucum": napoleonicAmnisNucum as RawScenarioInput,
-          "road-to-amnis-nucum": napoleonicRoadToAmnisNucum as RawScenarioInput,
-          "aestate-villas": napoleonicAestateVillas as RawScenarioInput,
-          "citta-dei-falchi": napoleonicCittaDeiFalchi as RawScenarioInput,
-          "rural-alpine": napoleonicRuralAlpine as RawScenarioInput,
-          "mediterranea-nucum": napoleonicMediterraneaNucum as RawScenarioInput,
-          falkenhugel: napoleonicFalkenhugel as RawScenarioInput,
-          "grobes-schlachtfeld": napoleonicGrobesSchlachtfeld as RawScenarioInput,
-          antioch: napoleonicAntioch as RawScenarioInput,
-          waterloo: napoleonicWaterloo as RawScenarioInput,
-          leipzig: napoleonicLeipzig as RawScenarioInput,
-          borodino: napoleonicBorodino as RawScenarioInput,
-          "combat-at-mollwitz": napoleonicCombatAtMollwitz as RawScenarioInput,
-          "clash-at-chelmnitz": napoleonicClashAtChelmnitz as RawScenarioInput,
-          dresden: napoleonicDresden as RawScenarioInput,
-          tutorial: napoleonicTutorial as RawScenarioInput,
-          "line-of-battle": napoleonicLineOfBattle as RawScenarioInput,
-        };
-
         break;
       case "ww2":
         this._orders = ww2Orders as OrderTemplate[];
@@ -558,12 +619,6 @@ export class GameDataManager {
         this.mapSizes = ww2MapSizes as Record<Size, MapSizeTemplate>;
         this.matchmakingPresets =
           ww2MatchmakingPresets as MatchmakingPresetsData;
-        this.scenarios = {
-          fields: ww2Fields as RawScenarioInput,
-          "battle-of-france": ww2France as RawScenarioInput,
-          "battle-of-moscow": ww2BattleOfMoscow as RawScenarioInput,
-        };
-
         break;
       default:
         throw new Error(`Unsupported era: ${era}`);
@@ -630,6 +685,7 @@ export class GameDataManager {
     // 'as const' allows TS to know exactly which strings are in the array.
     const modifierFields = [
       "movementModifier",
+      "runSpeedModifier",
       "attackModifier",
       "defenseModifier",
       "rangedAttackModifier",
@@ -703,6 +759,24 @@ export class GameDataManager {
   }
 
   /**
+   * Gets the starting ammo reserve for a dynamic battle type from the game rules.
+   * @param battleType - The dynamic battle type.
+   * @returns The ammo reserve, or 0 if not configured for this battle type.
+   */
+  public getAmmoReserve(battleType: DynamicBattleType): number {
+    return this.getGameRules().ammo?.ammoReserve?.[battleType] ?? 0;
+  }
+
+  /**
+   * Gets the gold-to-ammo conversion rate for a dynamic battle type from the game rules.
+   * @param battleType - The dynamic battle type.
+   * @returns The conversion rate, or 0 if not configured for this battle type.
+   */
+  public getGoldToAmmoRate(battleType: DynamicBattleType): number {
+    return this.getGameRules().ammo?.goldToAmmoRate?.[battleType] ?? 0;
+  }
+
+  /**
    * Gets the maximum number of turns for a battle type, falling back to the
    * era's DEFAULT_MAX_TURN when the battle type is null or has no maxTurn.
    * @param battleType - The dynamic battle type, or null for preset scenarios.
@@ -713,6 +787,86 @@ export class GameDataManager {
       ? this.tryGetBattleType(battleType)?.maxTurn
       : undefined;
     return fromBattleType ?? this.getGameConstants().DEFAULT_MAX_TURN;
+  }
+
+  /**
+   * Gets the fixed team size (players per side) for a battle type, defaulting
+   * to 1v1 when the battle type has no explicit teamSize. Team size in
+   * matchmaking is a property of the battle type, not a separate user choice.
+   * @param battleType - The dynamic battle type.
+   * @returns The team size for this battle type.
+   */
+  public getBattleTypeTeamSize(battleType: DynamicBattleType): TeamSize {
+    return this.tryGetBattleType(battleType)?.teamSize ?? TeamSize.OneVsOne;
+  }
+
+  /**
+   * Gets the minimum spacing, in world pixels, kept between a team's objectives
+   * during deployment placement. Falls back to the objectives rule's era default
+   * when the battle type is null or omits objectiveSpacing.
+   * @param battleType - The dynamic battle type, or null for preset scenarios.
+   * @returns The minimum objective spacing in world pixels.
+   */
+  public getObjectiveSpacing(battleType: DynamicBattleType | null): number {
+    const fromBattleType = battleType
+      ? this.tryGetBattleType(battleType)?.objectiveSpacing
+      : undefined;
+    return fromBattleType ?? this.getGameRules().objectives.objectiveSpacing;
+  }
+
+  /**
+   * Gets the distance, in world pixels, between adjacent objectives in the
+   * central neutral row. Falls back to the objectives rule's era default when
+   * the battle type is null or omits neutralObjectiveSpacing.
+   * @param battleType - The dynamic battle type, or null for preset scenarios.
+   * @returns The neutral objective spacing in world pixels.
+   */
+  public getNeutralObjectiveSpacing(
+    battleType: DynamicBattleType | null,
+  ): number {
+    const fromBattleType = battleType
+      ? this.tryGetBattleType(battleType)?.neutralObjectiveSpacing
+      : undefined;
+    return (
+      fromBattleType ?? this.getGameRules().objectives.neutralObjectiveSpacing
+    );
+  }
+
+  /**
+   * Gets how many small objectives each side owns and may place during the
+   * deployment phase, falling back to the objectives rule's era default when the
+   * battle type is null or omits smallObjectivesPerSide.
+   * @param battleType - The dynamic battle type, or null for preset scenarios.
+   * @returns The number of small objectives per side.
+   */
+  public getSmallObjectivesPerSide(
+    battleType: DynamicBattleType | null,
+  ): number {
+    const fromBattleType = battleType
+      ? this.tryGetBattleType(battleType)?.smallObjectivesPerSide
+      : undefined;
+    return (
+      fromBattleType ?? this.getGameRules().objectives.smallObjectivesPerSide
+    );
+  }
+
+  /**
+   * Gets how many neutral central objectives spawn on the no-man's-land line at
+   * the end of deployment, falling back to the objectives rule's era default
+   * (1, the historical single drifting objective) when the battle type is null
+   * or omits centralNeutralObjectives.
+   * @param battleType - The dynamic battle type, or null for preset scenarios.
+   * @returns The number of central neutral objectives.
+   */
+  public getCentralNeutralObjectives(
+    battleType: DynamicBattleType | null,
+  ): number {
+    const fromBattleType = battleType
+      ? this.tryGetBattleType(battleType)?.centralNeutralObjectives
+      : undefined;
+    return (
+      fromBattleType ?? this.getGameRules().objectives.centralNeutralObjectives
+    );
   }
 
   /**
@@ -784,7 +938,9 @@ export class GameDataManager {
     return this.achievements;
   }
 
-  public getAchievement(achievementId?: number | null): Achievement | undefined {
+  public getAchievement(
+    achievementId?: number | null,
+  ): Achievement | undefined {
     return this.achievementMap.get(achievementId as number);
   }
 
@@ -950,41 +1106,18 @@ export class GameDataManager {
     // Get dimensions from formation template
     const formationTemplate = this._formationManager.getTemplate(formationId);
     if (formationTemplate) {
-      const collisionCircles = formationTemplate.collisionCircles;
-      const collisionCircleSize = formationTemplate.collisionCircleSize;
-      const collisionCircleDistance =
-        formationTemplate.collisionCircleDistance ?? collisionCircleSize;
-      const collisionCirclesVertical =
-        formationTemplate.collisionCirclesVertical ?? false;
-
-      // Calculate the span of all collision circles
-      const span =
-        collisionCircles > 1
-          ? (collisionCircles - 1) * collisionCircleDistance +
-            collisionCircleSize
-          : collisionCircleSize;
-
-      if (collisionCirclesVertical) {
-        return {
-          width: span,
-          height: collisionCircleSize,
-        };
-      }
-      return {
-        width: collisionCircleSize,
-        height: span,
-      };
+      const config = getCollisionConfig(formationTemplate);
+      // width = depth (local X), height = frontage (local Y).
+      return { width: config.depth, height: config.frontage };
     }
     // Fallback
-    return { width: 32, height: 32 };
+    return { width: 16, height: 16 };
   }
 
   public getUnitBaseTexture(unitType: UnitType, formationId?: string): string {
     const template = this._unitTemplateManager.getTemplate(unitType);
     const formationName = formationId ?? template.defaultFormation;
-    const formation = template.formations.find(
-      (f) => f.id === formationName,
-    );
+    const formation = template.formations.find((f) => f.id === formationName);
 
     if (formation) {
       return formation.baseSprite;
@@ -1012,16 +1145,6 @@ export class GameDataManager {
    */
   static getAvailableEras(): GameEra[] {
     return ["napoleonic", "ww2"];
-  }
-
-  /**
-   * Eras whose game rules define a tutorial scenario. Matchmaking and arenas
-   * for these eras are gated on per-era tutorial completion.
-   */
-  static getErasRequiringTutorial(): GameEra[] {
-    return GameDataManager.getAvailableEras().filter(
-      (era) => GameDataManager.get(era).getGameRules().tutorial?.scenario != null,
-    );
   }
 
   // Damage type methods (moved from DamageTypeService)
@@ -1160,10 +1283,16 @@ export class GameDataManager {
    */
   public damageTypeIdToName(id: number): string {
     const template = this._damageTypeMap.get(id);
-    if (!template) {
-      throw new Error(`Damage type with id ${id} not found`);
+    if (template) {
+      return template.name;
     }
-    return template.name;
+
+    const legacyName = LEGACY_DAMAGE_TYPE_NAMES[this.era]?.[id];
+    if (legacyName && this._damageTypeNameMap.has(legacyName)) {
+      return legacyName;
+    }
+
+    throw new Error(`Damage type with id ${id} not found`);
   }
 
   /**
@@ -1225,6 +1354,23 @@ export class GameDataManager {
     const category = this.getCategoryByTerrain(terrainType);
     const terrainCategory = this.terrainCategories![category]; // This indirection on lookup is painful, becuase its done many times. Replace with direct lookup
     return terrainCategory?.movementModifier?.[unitCategory] ?? 0; // these conditionals cause big-suck on performance, set defaults at initialization
+  }
+
+  /**
+   * Get run speed modifier for terrain and unit category. Falls back to the
+   * movement (walk) modifier for any category `runSpeedModifier` doesn't set.
+   */
+  public getRunSpeedModifier(
+    terrainType: TerrainType,
+    unitCategory: UnitCategoryId,
+  ): number {
+    const category = this.getCategoryByTerrain(terrainType);
+    const terrainCategory = this.terrainCategories![category]; // This indirection on lookup is painful, becuase its done many times. Replace with direct lookup
+    return (
+      terrainCategory?.runSpeedModifier?.[unitCategory] ??
+      terrainCategory?.movementModifier?.[unitCategory] ??
+      0
+    ); // these conditionals cause big-suck on performance, set defaults at initialization
   }
 
   /**
@@ -1299,6 +1445,15 @@ export class GameDataManager {
     const category = this.getCategoryByTerrain(terrainType);
     const terrainCategory = this.terrainCategories![category]; // This indirection on lookup is painful, becuase its done many times. Replace with direct lookup
     return terrainCategory?.staminaCostModifier ?? 0; // these conditionals cause big-suck on performance, set defaults at initialization
+  }
+
+  /**
+   * Get rotation speed modifier for terrain
+   */
+  public getRotationSpeedModifier(terrainType: TerrainType): number {
+    const category = this.getCategoryByTerrain(terrainType);
+    const terrainCategory = this.terrainCategories![category]; // This indirection on lookup is painful, becuase its done many times. Replace with direct lookup
+    return terrainCategory?.rotationSpeedModifier ?? 0; // these conditionals cause big-suck on performance, set defaults at initialization
   }
 
   /**
@@ -1409,12 +1564,50 @@ export class GameDataManager {
     return normalized;
   }
 
+  /** Get lightweight scenario fields without loading the full catalog. */
+  public getScenarioMeta(scenarioName: ScenarioName): ScenarioMeta {
+    const meta = this.scenarioIndex[scenarioName];
+    if (!meta) {
+      throw new Error(`Scenario ${scenarioName} not found for era ${this.era}`);
+    }
+    return meta;
+  }
+
+  /** Try to get lightweight scenario fields without loading the full catalog. */
+  public tryGetScenarioMeta(scenarioName: ScenarioName): ScenarioMeta | null {
+    return this.scenarioIndex[scenarioName] ?? null;
+  }
+
   /**
    * Try to get a normalized scenario by name. Returns `null` if missing.
+   * A scenario registered via {@link registerScenario} (e.g. the editor's live
+   * scenario) lives only in the normalized cache with no raw entry, so it is
+   * checked first.
    */
   public tryGetScenario(scenarioName: ScenarioName): Scenario | null {
+    const registered = this.normalizedScenarios.get(scenarioName);
+    if (registered) return registered;
     if (!this.scenarios[scenarioName]) return null;
     return this.getScenario(scenarioName);
+  }
+
+  /**
+   * Registers a normalized scenario under a name so getScenario/tryGetScenario
+   * resolve it. Stored by reference (no raw entry, no re-normalization), so a
+   * caller that edits the object in place - the map editor - sees updates live.
+   * Intended for editor/runtime-authored scenarios, not the era-loaded catalog.
+   *
+   * Like loadCustomDefs, this mutates the manager: on an era singleton the entry
+   * leaks across games, so call it on a per-game instance or pair it with
+   * {@link unregisterScenario} on teardown.
+   */
+  public registerScenario(name: ScenarioName, scenario: Scenario): void {
+    this.normalizedScenarios.set(name, scenario);
+  }
+
+  /** Removes a scenario added via {@link registerScenario}. */
+  public unregisterScenario(name: ScenarioName): void {
+    this.normalizedScenarios.delete(name);
   }
 
   /**
@@ -1434,22 +1627,23 @@ export class GameDataManager {
   /**
    * Try to get the raw scenario import. Returns `null` if missing.
    */
-  public tryGetRawScenario(scenarioName: ScenarioName): RawScenarioInput | null {
+  public tryGetRawScenario(
+    scenarioName: ScenarioName,
+  ): RawScenarioInput | null {
     return this.scenarios[scenarioName] ?? null;
   }
 
   public getScenarios(): Array<ScenarioName> {
-    return Object.keys(this.scenarios).filter((scenarioName) => {
-      const scenario = this.scenarios[scenarioName];
-      return !scenario.hidden;
-    });
+    return Object.keys(this.scenarioIndex).filter(
+      (scenarioName) => !this.scenarioIndex[scenarioName].hidden,
+    );
   }
 
   /**
    * Get all scenario names for this era
    */
   public getScenarioNames(): ScenarioName[] {
-    return Object.keys(this.scenarios);
+    return Object.keys(this.scenarioIndex);
   }
 
   /**
