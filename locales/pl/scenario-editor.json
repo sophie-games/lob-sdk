@@ -286,6 +286,8 @@
     "orgRadiusBonus": "Bonus promienia org.",
     "reportStats": "Statystyki raportu",
     "reportStatsHelp": "Liczniki, którymi każda jednostka zasila raporty z bitwy (np. ludzie, konie, działa). Klucze pochodzą z wbudowanych jednostek epoki.",
+    "casualtiesAtZeroHp": "Straty przy zerowym PW (%)",
+    "casualtiesAtZeroHpHelp": "Część raportowanej siły tej jednostki liczona jako straty po wyczerpaniu całego paska PW. PW oznacza siłę bojową: przy domyślnej wartości 50% jednostka przestaje być zdolna do walki, gdy połowa jej raportowanej siły staje się stratami. Rozbicie nadal usuwa całą pozostałą siłę bojową.",
     "tallyPerUnit": "Licznik na jednostkę",
     "walkMovement": "Ruch marszem",
     "runMovement": "Ruch biegiem",

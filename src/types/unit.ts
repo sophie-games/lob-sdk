@@ -2,6 +2,9 @@ import { Point2, Vector2 } from "@lob-sdk/vector";
 import { EntityId } from "@lob-sdk/types";
 import type { EngagementRange } from "@lob-sdk/game-data-manager";
 
+/** Default share of nominal report strength lost as casualties at zero HP. */
+export const DEFAULT_CASUALTY_FRACTION_AT_ZERO_HP = 0.5;
+
 /**
  * Effects must have the effect id as the first element,
  * and the duration as the second element. Some effects may require
@@ -282,6 +285,15 @@ interface BaseUnitTemplate {
   reportStats?: { [key: string]: number | undefined };
 
   /**
+   * Fraction of each report stat counted as casualties after losing one full
+   * HP pool. HP measures combat strength, so this can be lower than 1 even
+   * though a unit at zero HP has lost all of its fighting power.
+   *
+   * Defaults to 0.5.
+   */
+  casualtyFractionAtZeroHp?: number;
+
+  /**
    * Formations available for this unit type.
    * All units must have at least one formation.
    */
@@ -314,6 +326,9 @@ export interface RangeUnitTemplate extends BaseUnitTemplate {
 
 export type UnitTemplate = Readonly<BaseUnitTemplate | RangeUnitTemplate>;
 export type UnitTemplates = Record<UnitType, UnitTemplate>;
+
+export const getCasualtyFractionAtZeroHp = (template: UnitTemplate): number =>
+  template.casualtyFractionAtZeroHp ?? DEFAULT_CASUALTY_FRACTION_AT_ZERO_HP;
 
 /** Discriminates a collision footprint: a circle or a rotated rectangle (OBB). */
 export enum CollisionShapeType {

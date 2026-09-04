@@ -282,6 +282,8 @@
     "orgRadiusBonus": "Org yarıçapı bonusu",
     "reportStats": "Rapor istatistikleri",
     "reportStatsHelp": "Her birimin savaş raporlarına kattığı sayım (ör. asker, at, top). Anahtarlar dönemin yerleşik birimlerinden gelir.",
+    "casualtiesAtZeroHp": "Sıfır CP'de kayıp (%)",
+    "casualtiesAtZeroHpHelp": "Tüm CP çubuğu tükendiğinde bu birimin raporlanan gücünün kayıp sayılan oranı. CP savaş gücünü temsil eder: varsayılan %50 değerinde, raporlanan gücün yarısı kayıp olduğunda birim savaş dışı kalır. Dağılma kalan savaş gücünün tamamını yine kaldırır.",
     "tallyPerUnit": "Birim başına sayım",
     "walkMovement": "Yürüme hareketi",
     "runMovement": "Koşma hareketi",

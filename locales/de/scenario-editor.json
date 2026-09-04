@@ -282,6 +282,8 @@
     "orgRadiusBonus": "Org-Radius-Bonus",
     "reportStats": "Berichtswerte",
     "reportStatsHelp": "Zählwerte, die jede Einheit zu den Schlachtberichten beiträgt (z. B. Männer, Pferde, Geschütze). Die Schlüssel stammen aus den integrierten Einheiten der Epoche.",
+    "casualtiesAtZeroHp": "Verluste bei null TP (%)",
+    "casualtiesAtZeroHpHelp": "Der Anteil der gemeldeten Stärke dieser Einheit, der als Verlust zählt, wenn ihre gesamte TP-Leiste aufgebraucht ist. TP stehen für Kampfkraft: Beim Standardwert 50 % wird eine Einheit kampfunfähig, sobald die Hälfte ihrer gemeldeten Stärke als Verlust gilt. Zerschlagung entfernt weiterhin die gesamte verbleibende Kampfkraft.",
     "tallyPerUnit": "Zählung pro Einheit",
     "walkMovement": "Gehbewegung",
     "runMovement": "Laufbewegung",

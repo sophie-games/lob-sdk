@@ -282,6 +282,8 @@
     "orgRadiusBonus": "編成範囲ボーナス",
     "reportStats": "報告ステータス",
     "reportStatsHelp": "各ユニットが戦闘報告に提供する集計（例: 兵、馬、砲）。キーは時代の組み込みユニットに由来します。",
+    "casualtiesAtZeroHp": "HP 0時の損害率（%）",
+    "casualtiesAtZeroHpHelp": "HPバーをすべて失ったとき、このユニットの報告上の兵力のうち損害として数える割合です。HPは戦闘力を表します。既定値の50%では、報告上の兵力の半分を失うと戦闘不能になります。壊走による崩壊では残りの戦闘力もすべて失われます。",
     "tallyPerUnit": "ユニットあたりの集計",
     "walkMovement": "歩行移動",
     "runMovement": "走行移動",

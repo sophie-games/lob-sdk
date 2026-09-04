@@ -280,6 +280,8 @@
     "orgRadiusBonus": "조직력 범위 혜택",
     "reportStats": "보고 통계",
     "reportStatsHelp": "각 부대가 전투 보고에 기여하는 집계(예: 인원, 군마, 화포). 키는 해당 시대의 기본 제공 부대에서 가져옵니다.",
+    "casualtiesAtZeroHp": "HP 0일 때 사상자율 (%)",
+    "casualtiesAtZeroHpHelp": "HP 막대를 모두 잃었을 때 이 부대의 보고 병력 중 사상자로 계산되는 비율입니다. HP는 전투력을 나타냅니다. 기본값 50%에서는 보고 병력의 절반이 사상자가 되면 전투력을 잃습니다. 와해되면 남은 전투력도 모두 제거됩니다.",
     "tallyPerUnit": "부대당 집계",
     "walkMovement": "보행 이동",
     "runMovement": "주행 이동",
