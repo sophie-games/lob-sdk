@@ -23,10 +23,10 @@
   "baseLevelExperience": "ค่าประสบการณ์พื้นฐานของระดับ",
   "experience": "ค่าประสบการณ์",
   "coalitionProgression": {
-    "title": "การขยายพันธมิตร",
-    "capacity": "สมาชิก {{current}} → {{next}} คน",
-    "maxCapacity": "สมาชิก {{count}} คน · ความจุสูงสุด",
-    "upgradeWith": "ขยายด้วย {{currency}}"
+    "title": "ระดับพันธมิตร",
+    "fixedCapacity": "สมาชิก {{count}} คน · ความจุคงที่",
+    "contribute": "บริจาค {{amount}} ฟลอริน",
+    "completeWithPrestige": "ทำให้เสร็จด้วย {{amount}} เพรสทีจ"
   },
   "season": "ฤดูกาล",
   "time": "เวลา",

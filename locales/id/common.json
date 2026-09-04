@@ -33,10 +33,10 @@
   "baseLevelExperience": "Pengalaman dasar level",
   "experience": "Pengalaman",
   "coalitionProgression": {
-    "title": "Perluasan koalisi",
-    "capacity": "{{current}} → {{next}} anggota",
-    "maxCapacity": "{{count}} anggota · kapasitas maksimum",
-    "upgradeWith": "Perluas dengan {{currency}}"
+    "title": "Level koalisi",
+    "fixedCapacity": "{{count}} anggota · kapasitas tetap",
+    "contribute": "Kontribusikan {{amount}} Florin",
+    "completeWithPrestige": "Selesaikan dengan {{amount}} Prestige"
   },
   "nextLevelExperience": "Pengalaman level berikutnya",
   "season": "Musim",

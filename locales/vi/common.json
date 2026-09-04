@@ -31,10 +31,10 @@
   "baseLevelExperience": "Kinh nghiệm cơ bản cấp độ",
   "experience": "Kinh nghiệm",
   "coalitionProgression": {
-    "title": "Mở rộng liên minh",
-    "capacity": "{{current}} → {{next}} thành viên",
-    "maxCapacity": "{{count}} thành viên · sức chứa tối đa",
-    "upgradeWith": "Mở rộng bằng {{currency}}"
+    "title": "Cấp liên minh",
+    "fixedCapacity": "{{count}} thành viên · sức chứa cố định",
+    "contribute": "Đóng góp {{amount}} Florin",
+    "completeWithPrestige": "Hoàn tất với {{amount}} Uy danh"
   },
   "nextLevelExperience": "Kinh nghiệm cấp tiếp theo",
   "season": "Mùa",

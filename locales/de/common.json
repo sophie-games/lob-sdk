@@ -33,10 +33,10 @@
   "baseLevelExperience": "Basis-Level-Erfahrung",
   "experience": "Erfahrung",
   "coalitionProgression": {
-    "title": "Koalitionserweiterung",
-    "capacity": "{{current}} → {{next}} Mitglieder",
-    "maxCapacity": "{{count}} Mitglieder · maximale Kapazität",
-    "upgradeWith": "Mit {{currency}} erweitern"
+    "title": "Koalitionsstufe",
+    "fixedCapacity": "{{count}} Mitglieder · feste Kapazität",
+    "contribute": "{{amount}} Gulden beitragen",
+    "completeWithPrestige": "Für {{amount}} Prestige abschließen"
   },
   "nextLevelExperience": "Erfahrung für nächstes Level",
   "season": "Saison",

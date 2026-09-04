@@ -31,10 +31,10 @@
   "baseLevelExperience": "Базовый опыт уровня",
   "experience": "Опыт",
   "coalitionProgression": {
-    "title": "Расширение коалиции",
-    "capacity": "{{current}} → {{next}} участников",
-    "maxCapacity": "{{count}} участников · максимальная вместимость",
-    "upgradeWith": "Расширить за {{currency}}"
+    "title": "Уровень коалиции",
+    "fixedCapacity": "{{count}} участников · фиксированный лимит",
+    "contribute": "Внести {{amount}} флоринов",
+    "completeWithPrestige": "Завершить за {{amount}} престижа"
   },
   "nextLevelExperience": "Опыт следующего уровня",
   "season": "Сезон",

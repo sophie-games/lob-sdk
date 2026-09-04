@@ -31,10 +31,10 @@
   "baseLevelExperience": "기본 레벨 경험치",
   "experience": "경험치",
   "coalitionProgression": {
-    "title": "연합 확장",
-    "capacity": "{{current}} → {{next}}명",
-    "maxCapacity": "{{count}}명 · 최대 정원",
-    "upgradeWith": "{{currency}}으로 확장"
+    "title": "연합 레벨",
+    "fixedCapacity": "{{count}}명 · 고정 정원",
+    "contribute": "{{amount}} 플로린 기부",
+    "completeWithPrestige": "{{amount}} 프레스티지로 완료"
   },
   "nextLevelExperience": "다음 레벨 경험치",
   "season": "시즌",
