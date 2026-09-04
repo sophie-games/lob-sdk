@@ -395,6 +395,24 @@
     "thanks": "Terimakasih sudah bergabung, {{name}}!",
     "p1": "Baru di <b>Lines of Battle</b>? Mulailah dengan <tutorialLink>tutorial</tutorialLink> untuk mempelajari mekanik dasar sebelum pertempuran pertamamu."
   },
+  "firstMatchBriefing": {
+    "title": "Sebelum pertempuran peringkat pertamamu",
+    "intro": "Tiga aturan menjelaskan sebagian besar keruntuhan mendadak di medan perang.",
+    "running": {
+      "title": "Berlari dengan tujuan",
+      "description": "Bagi sebagian besar pasukan, berlari menghabiskan stamina dan membuat mereka lebih mudah dipatahkan jika menerima serbuan sesudahnya. Berjalanlah sampai butuh kecepatan atau ingin menyerbu."
+    },
+    "overlap": {
+      "title": "Jangan tumpuk unit",
+      "description": "Sekutu yang bertumpuk bergerak dan menembak lebih buruk, saling mendukung lebih sedikit, dan menerima lebih banyak kerusakan organisasi."
+    },
+    "terrain": {
+      "title": "Manfaatkan medan",
+      "description": "Medan mengubah pergerakan dan pertempuran. Skirmisher sangat diuntungkan oleh hutan dan bangunan; buka Info untuk melihat pengubah unit saat ini."
+    },
+    "startTutorial": "Berlatih di tutorial",
+    "playAnyway": "Tetap bermain"
+  },
   "turn": "Giliran",
   "bank": "Cadangan",
   "cap": "Batas",

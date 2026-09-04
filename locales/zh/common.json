@@ -410,6 +410,24 @@
     "thanks": "欢迎您的加入，{{name}}！",
     "p1": "初次接触 <b>Lines of Battle</b>？先从<tutorialLink>教程</tutorialLink>开始，在首场战斗前掌握核心机制。"
   },
+  "firstMatchBriefing": {
+    "title": "首次排位战之前",
+    "intro": "掌握三条规则，就能理解大多数战场上的突然崩溃。",
+    "running": {
+      "title": "有目的地奔跑",
+      "description": "对大多数部队来说，奔跑会消耗耐力，并使其在随后遭受冲锋时更容易崩溃。在需要速度或准备冲锋前请保持行走。"
+    },
+    "overlap": {
+      "title": "不要堆叠部队",
+      "description": "重叠的友军移动和射击更差，相互支援更弱，并会承受更多组织度伤害。"
+    },
+    "terrain": {
+      "title": "利用地形",
+      "description": "地形会改变移动和战斗。散兵尤其适合森林和建筑；打开“信息”可查看部队当前的修正效果。"
+    },
+    "startTutorial": "在教程中练习",
+    "playAnyway": "仍然开始游戏"
+  },
   "turn": "回合",
   "bank": "储备",
   "cap": "上限",

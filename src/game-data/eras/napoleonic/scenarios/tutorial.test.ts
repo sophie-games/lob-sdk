@@ -31,6 +31,30 @@ const obsoleteMassTermsByLocale = {
 } satisfies Record<keyof typeof tutorial.locales, RegExp>;
 
 describe("napoleonic tutorial copy", () => {
+  it("guarantees running-vulnerability and ally-overlap lessons on turn one", () => {
+    const opening = tutorial.tutorial.chapters.find(
+      (chapter) => chapter.id === "move",
+    );
+
+    expect(opening?.fireOn).toEqual({ turn: 1 });
+    expect(opening?.beats).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          copy: "tutorial.move.chooseOrderInfantry",
+        }),
+        expect.objectContaining({
+          copy: "tutorial.move.orderSkirmisherB",
+        }),
+      ]),
+    );
+    expect(
+      tutorial.locales.en["tutorial.move.chooseOrderInfantry"],
+    ).toMatch(/ran.*charge/i);
+    expect(tutorial.locales.en["tutorial.move.orderSkirmisherB"]).toMatch(
+      /overlapping.*organization/i,
+    );
+  });
+
   it("does not teach the removed mass formation in any locale", () => {
     for (const locale of Object.keys(
       tutorial.locales,

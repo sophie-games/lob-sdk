@@ -394,6 +394,24 @@
     "thanks": "Köszönöm, hogy csatlakoztál, {{name}}!",
     "p1": "Új vagy a <b>Lines of Battle</b> világában? Kezdd az <tutorialLink>oktatóanyaggal</tutorialLink>, hogy megismerd az alapvető mechanikákat az első csatád előtt."
   },
+  "firstMatchBriefing": {
+    "title": "Az első rangsorolt csatád előtt",
+    "intro": "Három szabály magyarázza a legtöbb hirtelen összeomlást a csatatéren.",
+    "running": {
+      "title": "Céllal fuss",
+      "description": "A legtöbb csapatnál a futás állóképességet fogyaszt, és könnyebben megtörnek, ha utána rohamot fogadnak. Menetelj, amíg nincs szükséged sebességre vagy rohamra."
+    },
+    "overlap": {
+      "title": "Ne halmozd egymásra az egységeket",
+      "description": "Az egymást átfedő szövetségesek rosszabbul mozognak és lőnek, kevésbé támogatják egymást, és több szervezettségi sebzést szenvednek."
+    },
+    "terrain": {
+      "title": "Használd a terepet",
+      "description": "A terep módosítja a mozgást és a harcot. A csatárok különösen jól használják az erdőket és épületeket; az Infóban láthatod az egység aktuális módosítóit."
+    },
+    "startTutorial": "Gyakorlás az oktatójátékban",
+    "playAnyway": "Játék mindenképp"
+  },
   "turn": "Kör",
   "bank": "Tartalék",
   "cap": "Limit",

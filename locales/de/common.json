@@ -394,6 +394,24 @@
     "thanks": "Schön das Sie dabei sind, {{name}}!",
     "p1": "Neu bei <b>Lines of Battle</b>? Beginne mit dem <tutorialLink>Tutorial</tutorialLink>, um die grundlegenden Mechaniken vor deiner ersten Schlacht zu lernen."
   },
+  "firstMatchBriefing": {
+    "title": "Vor deinem ersten Ranglistengefecht",
+    "intro": "Drei Regeln erklären die meisten plötzlichen Zusammenbrüche auf dem Schlachtfeld.",
+    "running": {
+      "title": "Laufe gezielt",
+      "description": "Bei den meisten Truppen kostet Laufen Ausdauer und macht sie leichter zu brechen, wenn sie danach einen Sturmangriff abfangen. Gehe, bis du Tempo brauchst oder selbst angreifen willst."
+    },
+    "overlap": {
+      "title": "Staple keine Einheiten",
+      "description": "Überlappende Verbündete bewegen sich langsamer, schießen schlechter, unterstützen sich weniger und erleiden mehr Organisationsschaden."
+    },
+    "terrain": {
+      "title": "Nutze das Gelände",
+      "description": "Gelände verändert Bewegung und Kampf. Plänkler profitieren besonders von Wäldern und Gebäuden; unter Info siehst du die aktuellen Modifikatoren einer Einheit."
+    },
+    "startTutorial": "Im Tutorial üben",
+    "playAnyway": "Trotzdem spielen"
+  },
   "turn": "Runde",
   "bank": "Zeitreserve",
   "cap": "Obergrenze",
