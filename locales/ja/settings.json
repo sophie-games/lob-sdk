@@ -95,6 +95,10 @@
   "gridOpacity": {
     "title": "グリッドの不透明度"
   },
+  "showChargeDamageIndicators": {
+    "title": "突撃ダメージ表示",
+    "description": "ユニットが突撃したときに、ダメージ数値をフローティング表示します。"
+  },
   "showDebugShapes": {
     "title": "デバッグ形状を表示",
     "description": "ユニットに衝突形状や地形チェックポイントを含むデバッグ形状を表示します。"
