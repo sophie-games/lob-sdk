@@ -740,7 +740,7 @@
     "newSize": "新大小：{{width}} × {{height}} 格",
     "current": "当前：{{width}} × {{height}} 格",
     "confirmTitle": "确认调整地图大小",
-    "warningCannotUndo": "⚠ <0>警告：</0>此操作无法撤销。",
+    "warningReshapesMap": "⚠ <0>警告：</0>此操作会重塑整张地图。撤销可以恢复。",
     "tabScale": "缩放",
     "tabExpandCut": "扩展 / 裁剪边",
     "scale": {
@@ -823,6 +823,18 @@
     "createDisabledNeedsConditionAndAction": "触发器至少需要一个条件和一个动作。",
     "format": "格式",
     "invalidJsonFormat": "无效的 JSON 格式",
+    "fixBeforeTesting": "测试此场景前，请修复触发器错误。",
+    "validation": {
+      "expectedArray": "{{path}} 必须是数组。",
+      "expectedObject": "{{path}} 必须是对象。",
+      "unitAtTriggerLevel": "{{path}} 看起来像一个单位。请将其放入 addUnit 动作中。",
+      "invalidEvent": "{{path}} 必须是 onTurnStart 或 onTurnEnd。",
+      "invalidConditionLogic": "{{path}} 必须是 AND 或 OR。",
+      "invalidOnce": "{{path}} 必须是布尔值。",
+      "invalidConditionType": "{{path}} 包含未知的条件类型。",
+      "invalidActionType": "{{path}} 包含未知的动作类型。",
+      "invalidValue": "{{path}} 的值对 {{type}} 无效。"
+    },
     "event": "事件",
     "conditionLogic": "条件逻辑",
     "conditionLogicAnd": "所有条件（AND）",

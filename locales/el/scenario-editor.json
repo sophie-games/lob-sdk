@@ -741,7 +741,7 @@
     "newSize": "Νέο μέγεθος: {{width}} × {{height}} πλακίδια",
     "current": "Τρέχον: {{width}} × {{height}} πλακίδια",
     "confirmTitle": "Επιβεβαίωση αλλαγής μεγέθους χάρτη",
-    "warningCannotUndo": "⚠ <0>Προειδοποίηση:</0> Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.",
+    "warningReshapesMap": "⚠ <0>Προειδοποίηση:</0> Αυτό αναδιαμορφώνει ολόκληρο τον χάρτη. Η αναίρεση τον επαναφέρει.",
     "tabScale": "Κλίμακα",
     "tabExpandCut": "Επέκταση / Περικοπή πλευρών",
     "scale": {
@@ -811,6 +811,18 @@
     "createTriggerButton": "Δημιουργία σκανδάλης",
     "format": "Μορφοποίηση",
     "invalidJsonFormat": "Μη έγκυρη μορφή JSON",
+    "fixBeforeTesting": "Διορθώστε τα σφάλματα των ενεργοποιητών πριν δοκιμάσετε αυτό το σενάριο.",
+    "validation": {
+      "expectedArray": "Το {{path}} πρέπει να είναι πίνακας.",
+      "expectedObject": "Το {{path}} πρέπει να είναι αντικείμενο.",
+      "unitAtTriggerLevel": "Το {{path}} μοιάζει με μονάδα. Τοποθετήστε το μέσα σε μια ενέργεια addUnit.",
+      "invalidEvent": "Το {{path}} πρέπει να είναι onTurnStart ή onTurnEnd.",
+      "invalidConditionLogic": "Το {{path}} πρέπει να είναι AND ή OR.",
+      "invalidOnce": "Το {{path}} πρέπει να είναι true ή false.",
+      "invalidConditionType": "Το {{path}} έχει άγνωστο τύπο συνθήκης.",
+      "invalidActionType": "Το {{path}} έχει άγνωστο τύπο ενέργειας.",
+      "invalidValue": "Το {{path}} έχει μη έγκυρη τιμή για {{type}}."
+    },
     "event": "Συμβάν",
     "conditionLogic": "Λογική συνθηκών",
     "conditionLogicAnd": "Όλες οι συνθήκες (AND)",

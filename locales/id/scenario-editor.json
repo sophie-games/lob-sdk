@@ -734,7 +734,7 @@
     "newSize": "Ukuran baru: {{width}} × {{height}} tile",
     "current": "Saat ini: {{width}} × {{height}} tile",
     "confirmTitle": "Konfirmasi Ubah Ukuran Peta",
-    "warningCannotUndo": "⚠ <0>Peringatan:</0> Operasi ini tidak dapat dibatalkan.",
+    "warningReshapesMap": "⚠ <0>Peringatan:</0> Ini mengubah bentuk seluruh peta. Urungkan akan mengembalikannya.",
     "tabScale": "Skala",
     "tabExpandCut": "Perluas / Potong Sisi",
     "scale": {
@@ -804,6 +804,18 @@
     "createTriggerButton": "Buat pemicu",
     "format": "Format",
     "invalidJsonFormat": "Format JSON tidak valid",
+    "fixBeforeTesting": "Perbaiki kesalahan pemicu sebelum menguji skenario ini.",
+    "validation": {
+      "expectedArray": "{{path}} harus berupa larik.",
+      "expectedObject": "{{path}} harus berupa objek.",
+      "unitAtTriggerLevel": "{{path}} tampak seperti unit. Letakkan di dalam aksi addUnit.",
+      "invalidEvent": "{{path}} harus berupa onTurnStart atau onTurnEnd.",
+      "invalidConditionLogic": "{{path}} harus berupa AND atau OR.",
+      "invalidOnce": "{{path}} harus berupa true atau false.",
+      "invalidConditionType": "{{path}} memiliki jenis kondisi yang tidak dikenal.",
+      "invalidActionType": "{{path}} memiliki jenis aksi yang tidak dikenal.",
+      "invalidValue": "{{path}} memiliki nilai yang tidak valid untuk {{type}}."
+    },
     "event": "Peristiwa",
     "conditionLogic": "Logika Kondisi",
     "conditionLogicAnd": "Semua kondisi (AND)",

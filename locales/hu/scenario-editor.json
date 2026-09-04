@@ -741,7 +741,7 @@
     "newSize": "Új méret: {{width}} × {{height}} mező",
     "current": "Jelenlegi: {{width}} × {{height}} mező",
     "confirmTitle": "Pálya átméretezésének megerősítése",
-    "warningCannotUndo": "⚠ <0>Figyelem:</0> Ez a művelet nem vonható vissza.",
+    "warningReshapesMap": "⚠ <0>Figyelem:</0> Ez az egész térképet átalakítja. A visszavonás helyreállítja.",
     "tabScale": "Skálázás",
     "tabExpandCut": "Oldalak bővítése / vágása",
     "scale": {
@@ -811,6 +811,18 @@
     "createTriggerButton": "Trigger létrehozása",
     "format": "Formázás",
     "invalidJsonFormat": "Érvénytelen JSON formátum",
+    "fixBeforeTesting": "Javítsd ki a triggerek hibáit a forgatókönyv tesztelése előtt.",
+    "validation": {
+      "expectedArray": "A(z) {{path}} értéknek tömbnek kell lennie.",
+      "expectedObject": "A(z) {{path}} értéknek objektumnak kell lennie.",
+      "unitAtTriggerLevel": "A(z) {{path}} egységnek tűnik. Tedd egy addUnit műveletbe.",
+      "invalidEvent": "A(z) {{path}} értéke onTurnStart vagy onTurnEnd lehet.",
+      "invalidConditionLogic": "A(z) {{path}} értéke AND vagy OR lehet.",
+      "invalidOnce": "A(z) {{path}} értéke true vagy false lehet.",
+      "invalidConditionType": "A(z) {{path}} ismeretlen feltételtípust tartalmaz.",
+      "invalidActionType": "A(z) {{path}} ismeretlen művelettípust tartalmaz.",
+      "invalidValue": "A(z) {{path}} értéke érvénytelen ehhez: {{type}}."
+    },
     "event": "Esemény",
     "conditionLogic": "Feltétel-logika",
     "conditionLogicAnd": "Minden feltétel (ÉS)",

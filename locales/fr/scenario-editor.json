@@ -741,7 +741,7 @@
     "newSize": "Nouvelle taille : {{width}} × {{height}} tuiles",
     "current": "Actuel : {{width}} × {{height}} tuiles",
     "confirmTitle": "Confirmer le redimensionnement",
-    "warningCannotUndo": "⚠ <0>Avertissement :</0> Cette opération ne peut pas être annulée.",
+    "warningReshapesMap": "⚠ <0>Avertissement :</0> Cela remodèle toute la carte. Annuler la restaure.",
     "tabScale": "Échelle",
     "tabExpandCut": "Étendre / Rogner les côtés",
     "scale": {
@@ -811,6 +811,18 @@
     "createTriggerButton": "Créer un déclencheur",
     "format": "Formater",
     "invalidJsonFormat": "Format JSON invalide",
+    "fixBeforeTesting": "Corrigez les erreurs de déclencheur avant de tester ce scénario.",
+    "validation": {
+      "expectedArray": "{{path}} doit être un tableau.",
+      "expectedObject": "{{path}} doit être un objet.",
+      "unitAtTriggerLevel": "{{path}} ressemble à une unité. Placez-la dans une action addUnit.",
+      "invalidEvent": "{{path}} doit être onTurnStart ou onTurnEnd.",
+      "invalidConditionLogic": "{{path}} doit être AND ou OR.",
+      "invalidOnce": "{{path}} doit être true ou false.",
+      "invalidConditionType": "{{path}} possède un type de condition inconnu.",
+      "invalidActionType": "{{path}} possède un type d’action inconnu.",
+      "invalidValue": "{{path}} possède une valeur invalide pour {{type}}."
+    },
     "event": "Événement",
     "conditionLogic": "Logique des conditions",
     "conditionLogicAnd": "Toutes les conditions (ET)",

@@ -741,7 +741,7 @@
     "newSize": "Novo tamanho: {{width}} × {{height}} tiles",
     "current": "Atual: {{width}} × {{height}} tiles",
     "confirmTitle": "Confirmar Redimensionamento do Mapa",
-    "warningCannotUndo": "⚠ <0>Aviso:</0> Esta operação não pode ser desfeita.",
+    "warningReshapesMap": "⚠ <0>Aviso:</0> Isto remodela todo o mapa. Desfazer restaura-o.",
     "tabScale": "Escala",
     "tabExpandCut": "Expandir / Cortar Lados",
     "scale": {
@@ -811,6 +811,18 @@
     "createTriggerButton": "Criar gatilho",
     "format": "Formatar",
     "invalidJsonFormat": "Formato JSON inválido",
+    "fixBeforeTesting": "Corrija os erros dos gatilhos antes de testar este cenário.",
+    "validation": {
+      "expectedArray": "{{path}} deve ser uma lista.",
+      "expectedObject": "{{path}} deve ser um objeto.",
+      "unitAtTriggerLevel": "{{path}} parece ser uma unidade. Coloque-a dentro de uma ação addUnit.",
+      "invalidEvent": "{{path}} deve ser onTurnStart ou onTurnEnd.",
+      "invalidConditionLogic": "{{path}} deve ser AND ou OR.",
+      "invalidOnce": "{{path}} deve ser true ou false.",
+      "invalidConditionType": "{{path}} tem um tipo de condição desconhecido.",
+      "invalidActionType": "{{path}} tem um tipo de ação desconhecido.",
+      "invalidValue": "{{path}} tem um valor inválido para {{type}}."
+    },
     "event": "Evento",
     "conditionLogic": "Lógica de Condição",
     "conditionLogicAnd": "Todas as condições (E)",

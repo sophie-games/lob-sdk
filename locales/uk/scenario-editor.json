@@ -755,7 +755,7 @@
     "newSize": "Новий розмір: {{width}} × {{height}} тайлів",
     "current": "Поточний: {{width}} × {{height}} тайлів",
     "confirmTitle": "Підтвердити зміну розміру карти",
-    "warningCannotUndo": "⚠ <0>Увага:</0> Цю операцію не можна скасувати.",
+    "warningReshapesMap": "⚠ <0>Увага:</0> Це змінює всю карту. Скасування поверне її.",
     "tabScale": "Масштаб",
     "tabExpandCut": "Розширити / Обрізати краї",
     "scale": {
@@ -825,6 +825,18 @@
     "createTriggerButton": "Створити тригер",
     "format": "Формат",
     "invalidJsonFormat": "Недійсний формат JSON",
+    "fixBeforeTesting": "Виправте помилки тригерів перед перевіркою цього сценарію.",
+    "validation": {
+      "expectedArray": "{{path}} має бути масивом.",
+      "expectedObject": "{{path}} має бути об’єктом.",
+      "unitAtTriggerLevel": "{{path}} схоже на юніта. Помістіть його всередину дії addUnit.",
+      "invalidEvent": "{{path}} має бути onTurnStart або onTurnEnd.",
+      "invalidConditionLogic": "{{path}} має бути AND або OR.",
+      "invalidOnce": "{{path}} має бути true або false.",
+      "invalidConditionType": "{{path}} містить невідомий тип умови.",
+      "invalidActionType": "{{path}} містить невідомий тип дії.",
+      "invalidValue": "{{path}} містить недійсне значення для {{type}}."
+    },
     "event": "Подія",
     "conditionLogic": "Логіка умов",
     "conditionLogicAnd": "Усі умови (AND)",

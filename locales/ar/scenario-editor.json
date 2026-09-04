@@ -769,7 +769,7 @@
     "newSize": "الحجم الجديد: {{width}} × {{height}} بلاطة",
     "current": "الحالي: {{width}} × {{height}} بلاطة",
     "confirmTitle": "تأكيد تغيير حجم الخريطة",
-    "warningCannotUndo": "⚠ <0>تحذير:</0> لا يمكن التراجع عن هذه العملية.",
+    "warningReshapesMap": "⚠ <0>تحذير:</0> يعيد هذا تشكيل الخريطة بأكملها. يمكنك التراجع عن ذلك.",
     "tabScale": "التحجيم",
     "tabExpandCut": "توسيع / قص الجوانب",
     "scale": {
@@ -839,6 +839,18 @@
     "createTriggerButton": "إنشاء مُشغّل",
     "format": "تنسيق",
     "invalidJsonFormat": "تنسيق JSON غير صالح",
+    "fixBeforeTesting": "أصلح أخطاء المُشغّلات قبل اختبار هذا السيناريو.",
+    "validation": {
+      "expectedArray": "يجب أن تكون {{path}} مصفوفة.",
+      "expectedObject": "يجب أن تكون {{path}} كائنًا.",
+      "unitAtTriggerLevel": "تبدو {{path}} كوحدة. ضعها داخل إجراء addUnit.",
+      "invalidEvent": "يجب أن تكون {{path}} إما onTurnStart أو onTurnEnd.",
+      "invalidConditionLogic": "يجب أن تكون {{path}} إما AND أو OR.",
+      "invalidOnce": "يجب أن تكون {{path}} إما true أو false.",
+      "invalidConditionType": "تحتوي {{path}} على نوع شرط غير معروف.",
+      "invalidActionType": "تحتوي {{path}} على نوع إجراء غير معروف.",
+      "invalidValue": "تحتوي {{path}} على قيمة غير صالحة لـ {{type}}."
+    },
     "event": "الحدث",
     "conditionLogic": "منطق الشرط",
     "conditionLogicAnd": "كل الشروط (AND)",

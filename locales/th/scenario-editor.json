@@ -741,7 +741,7 @@
     "newSize": "ขนาดใหม่: {{width}} × {{height}} ช่อง",
     "current": "ปัจจุบัน: {{width}} × {{height}} ช่อง",
     "confirmTitle": "ยืนยันการปรับขนาดแผนที่",
-    "warningCannotUndo": "⚠ <0>คำเตือน:</0> การดำเนินการนี้ไม่สามารถยกเลิกได้",
+    "warningReshapesMap": "⚠ <0>คำเตือน:</0> การกระทำนี้จะเปลี่ยนรูปร่างแผนทั้งหมด เลิกทำจะคืนค่าเดิม",
     "tabScale": "ปรับสเกล",
     "tabExpandCut": "ขยาย / ตัดด้าน",
     "scale": {
@@ -811,6 +811,18 @@
     "createTriggerButton": "สร้างทริกเกอร์",
     "format": "จัดรูปแบบ",
     "invalidJsonFormat": "รูปแบบ JSON ไม่ถูกต้อง",
+    "fixBeforeTesting": "แก้ไขข้อผิดพลาดของทริกเกอร์ก่อนทดสอบสถานการณ์นี้",
+    "validation": {
+      "expectedArray": "{{path}} ต้องเป็นอาร์เรย์",
+      "expectedObject": "{{path}} ต้องเป็นอ็อบเจ็กต์",
+      "unitAtTriggerLevel": "{{path}} ดูเหมือนเป็นยูนิต โปรดวางไว้ภายในการกระทำ addUnit",
+      "invalidEvent": "{{path}} ต้องเป็น onTurnStart หรือ onTurnEnd",
+      "invalidConditionLogic": "{{path}} ต้องเป็น AND หรือ OR",
+      "invalidOnce": "{{path}} ต้องเป็นค่าบูลีน",
+      "invalidConditionType": "{{path}} มีประเภทเงื่อนไขที่ไม่รู้จัก",
+      "invalidActionType": "{{path}} มีประเภทการกระทำที่ไม่รู้จัก",
+      "invalidValue": "ค่าที่ {{path}} ไม่ถูกต้องสำหรับ {{type}}"
+    },
     "event": "เหตุการณ์",
     "conditionLogic": "ตรรกะเงื่อนไข",
     "conditionLogicAnd": "ทุกเงื่อนไข (AND)",

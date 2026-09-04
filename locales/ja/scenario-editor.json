@@ -741,7 +741,7 @@
     "newSize": "新しいサイズ: {{width}} × {{height}} タイル",
     "current": "現在: {{width}} × {{height}} タイル",
     "confirmTitle": "マップのサイズ変更を確認",
-    "warningCannotUndo": "⚠ <0>警告:</0> この操作は元に戻せません。",
+    "warningReshapesMap": "⚠ <0>警告:</0> マップ全体の形が変わります。元に戻すで復元できます。",
     "tabScale": "拡大縮小",
     "tabExpandCut": "辺の拡張／切り取り",
     "scale": {
@@ -811,6 +811,18 @@
     "createTriggerButton": "トリガーを作成",
     "format": "整形",
     "invalidJsonFormat": "無効なJSON形式",
+    "fixBeforeTesting": "このシナリオをテストする前に、トリガーのエラーを修正してください。",
+    "validation": {
+      "expectedArray": "{{path}} は配列である必要があります。",
+      "expectedObject": "{{path}} はオブジェクトである必要があります。",
+      "unitAtTriggerLevel": "{{path}} はユニットのようです。addUnit アクション内に配置してください。",
+      "invalidEvent": "{{path}} は onTurnStart または onTurnEnd である必要があります。",
+      "invalidConditionLogic": "{{path}} は AND または OR である必要があります。",
+      "invalidOnce": "{{path}} はブール値である必要があります。",
+      "invalidConditionType": "{{path}} に不明な条件タイプがあります。",
+      "invalidActionType": "{{path}} に不明なアクションタイプがあります。",
+      "invalidValue": "{{path}} の値は {{type}} に対して無効です。"
+    },
     "event": "イベント",
     "conditionLogic": "条件ロジック",
     "conditionLogicAnd": "すべての条件（AND）",
