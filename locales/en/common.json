@@ -537,6 +537,20 @@
     "thanks": "Thank you for joining, {{name}}!",
     "p1": "New to <b>Lines of Battle</b>? Start with the <tutorialLink>tutorial</tutorialLink> to learn the core mechanics before your first battle."
   },
+  "coreMechanicsMessages": {
+    "running": {
+      "title": "Run deliberately",
+      "description": "For most troops, running spends stamina and makes them easier to break if charged afterward. Walk until you need speed or want to charge."
+    },
+    "overlap": {
+      "title": "Don't stack units",
+      "description": "Overlapping allies move slower, fight less effectively in melee, support each other less, and suffer more organization damage."
+    },
+    "terrain": {
+      "title": "Use the ground",
+      "description": "Terrain changes movement and combat. Open Info to see a unit's current modifiers and choose suitable ground."
+    }
+  },
   "turn": "Turn",
   "bank": "Bank",
   "cap": "Cap",

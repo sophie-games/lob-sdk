@@ -394,6 +394,20 @@
     "thanks": "Obrigado por se juntar, {{name}}!",
     "p1": "Novo no <b>Lines of Battle</b>? Comece pelo <tutorialLink>tutorial</tutorialLink> para aprender as mecânicas básicas antes da sua primeira batalha."
   },
+  "coreMechanicsMessages": {
+    "running": {
+      "title": "Corra com propósito",
+      "description": "Para a maioria das tropas, correr gasta vigor e as torna mais fáceis de quebrar se receberem uma carga depois. Caminhe até precisar de velocidade ou quiser carregar."
+    },
+    "overlap": {
+      "title": "Não empilhe unidades",
+      "description": "Aliados sobrepostos se movem mais devagar, lutam com menos eficácia no corpo a corpo, dão menos apoio entre si e sofrem mais dano de organização."
+    },
+    "terrain": {
+      "title": "Use o terreno",
+      "description": "O terreno altera o movimento e o combate. Abra Informações para ver os modificadores atuais de uma unidade e escolher o terreno adequado."
+    }
+  },
   "turn": "Turno",
   "bank": "Reserva",
   "cap": "Limite",

@@ -394,6 +394,20 @@
     "thanks": "Katıldığınız için teşekkürler, {{name}}!",
     "p1": "<b>Lines of Battle</b>'da yeni misin? İlk savaşından önce temel mekanikleri öğrenmek için <tutorialLink>eğitimle</tutorialLink> başla."
   },
+  "coreMechanicsMessages": {
+    "running": {
+      "title": "Amaca yönelik koş",
+      "description": "Çoğu birlikte koşmak dayanıklılık harcar ve ardından bir hücuma uğrarlarsa daha kolay bozulmalarına yol açar. Hıza ihtiyacın veya hücum niyetin olana kadar yürü."
+    },
+    "overlap": {
+      "title": "Birlikleri üst üste bindirme",
+      "description": "Üst üste binen müttefikler daha yavaş hareket eder, yakın dövüşte daha az etkili savaşır, birbirini daha az destekler ve daha fazla organizasyon hasarı alır."
+    },
+    "terrain": {
+      "title": "Araziyi kullan",
+      "description": "Arazi hareketi ve çatışmayı değiştirir. Birliğin güncel değiştiricilerini görmek ve uygun araziyi seçmek için Bilgi'yi aç."
+    }
+  },
   "turn": "Tur",
   "bank": "Rezerv",
   "cap": "Limit",

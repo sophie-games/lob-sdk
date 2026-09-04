@@ -396,6 +396,20 @@
     "thanks": "Dobrze cię tu widzieć {{name}}!",
     "p1": "Nowy w <b>Lines of Battle</b>? Zacznij od <tutorialLink>samouczka</tutorialLink>, aby poznać podstawowe mechaniki przed pierwszą bitwą."
   },
+  "coreMechanicsMessages": {
+    "running": {
+      "title": "Biegaj z rozmysłem",
+      "description": "Dla większości wojsk bieg zużywa wytrzymałość i ułatwia ich złamanie, jeśli potem przyjmą szarżę. Maszeruj, dopóki nie potrzebujesz szybkości lub nie chcesz szarżować."
+    },
+    "overlap": {
+      "title": "Nie nakładaj jednostek",
+      "description": "Nakładający się sojusznicy poruszają się wolniej, walczą mniej skutecznie w zwarciu, słabiej się wspierają i otrzymują więcej obrażeń organizacji."
+    },
+    "terrain": {
+      "title": "Wykorzystuj teren",
+      "description": "Teren zmienia ruch i walkę. Otwórz Informacje, aby zobaczyć bieżące modyfikatory jednostki i wybrać odpowiedni teren."
+    }
+  },
   "turn": "Tura",
   "bank": "Rezerwa",
   "cap": "Limit",
