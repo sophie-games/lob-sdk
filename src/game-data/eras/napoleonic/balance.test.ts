@@ -8,6 +8,13 @@ import { TerrainType } from "@lob-sdk/types";
 describe("Napoleonic balance", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
 
+  it("uses the requested routing-unit organization-radius multiplier", () => {
+    expect(
+      gameDataManager.getGameRules().organization
+        ?.routingUnitNearbyUnitsOrgBonus,
+    ).toBe(5);
+  });
+
   it("uses the requested cavalry turning and pushing values", () => {
     const expectedByName = {
       hussars: {
@@ -410,7 +417,7 @@ describe("Napoleonic balance", () => {
   it("uses the requested dispersed formation run speed modifier", () => {
     expect(
       gameDataManager.getFormationManager().getTemplate("dispersed"),
-    ).toMatchObject({ runMovementModifier: 3 });
+    ).toMatchObject({ runMovementModifier: 2 });
   });
 
   it("uses the requested infantry, column, and cavalry charge balance", () => {
