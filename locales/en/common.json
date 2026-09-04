@@ -571,8 +571,10 @@
     "3": "Shoot",
     "4": "Fire and Advance",
     "6": "Fallback",
-    "7": "Face"
+    "7": "Face",
+    "automatic": "Automatic"
   },
+  "automaticOrderDescription": "Chooses an order and formation for each unit based on the situation.",
   "selectOrder": "Select Order",
   "orderType": "Order type",
   "autofire": "Autofire",

@@ -376,6 +376,9 @@ export enum FirepowerPooling {
 export interface FormationTemplate {
   id: string;
 
+  /** Client Automatic order transitions, keyed by order template name; absent entries preserve this formation. */
+  automaticOrderFormations?: Record<string, string>;
+
   /**
    * The collision footprint: a rotated rectangle (`{ frontage, depth }`) or a circle
    * (`{ radius }`). Read it through `getCollisionConfig`, which also upgrades older

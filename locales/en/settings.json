@@ -160,6 +160,10 @@
     "title": "Order type applies to selection",
     "description": "On: changing the movement type retypes the selected units' current orders and the order button follows your selection. Off: it only sets the type for the next order you draw (classic)."
   },
+  "showAutomaticOrder": {
+    "title": "Show Automatic order",
+    "description": "Adds the client-side Automatic option to the order selector. Turn it off to use only manual order types."
+  },
   "showChat": {
     "title": "Show chat"
   },
@@ -180,6 +184,7 @@
     "shootOrder": "Shoot order",
     "fireAndAdvanceOrder": "Fire and advance order",
     "fallbackOrder": "Fallback order",
+    "automaticOrder": "Automatic order",
     "toggleSmartCurvedMovements": "Toggle Smart Curved Movements",
     "togglePathFinding": "Toggle Path finding",
     "toggleFowPerspective": "Toggle Fog of War Perspective",

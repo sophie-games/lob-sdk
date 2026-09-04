@@ -1,6 +1,7 @@
 [
   {
     "id": "column",
+    "automaticOrderFormations": { "shoot": "line" },
     "drawLineRank": 3,
     "collisionShape": { "type": 1, "frontage": 14, "depth": 18 },
     "allyCollisionLevel": 2,
@@ -23,6 +24,7 @@
   },
   {
     "id": "line",
+    "automaticOrderFormations": { "walk": "column" },
     "drawLineRank": 2,
     "collisionShape": { "type": 1, "frontage": 42, "depth": 8 },
     "allyCollisionLevel": 2,

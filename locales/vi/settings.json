@@ -156,6 +156,10 @@
     "title": "Loại lệnh áp dụng cho lựa chọn",
     "description": "Bật: thay đổi loại di chuyển sẽ đổi lại lệnh hiện tại của các đơn vị đã chọn, và nút lệnh phản ánh lựa chọn của bạn. Tắt: chỉ đặt loại cho lệnh tiếp theo bạn vẽ (cổ điển)."
   },
+  "showAutomaticOrder": {
+    "title": "Hiện lệnh Tự động",
+    "description": "Thêm tùy chọn Tự động phía máy khách vào bộ chọn lệnh. Tắt để chỉ dùng các loại lệnh thủ công."
+  },
   "showChat": {
     "title": "Hiển thị trò chuyện"
   },
@@ -176,6 +180,7 @@
     "shootOrder": "Lệnh bắn",
     "fireAndAdvanceOrder": "Lệnh bắn và tiến",
     "fallbackOrder": "Lệnh rút lui",
+    "automaticOrder": "Lệnh tự động",
     "toggleSmartCurvedMovements": "Chuyển đổi di chuyển cong thông minh",
     "togglePathFinding": "Chuyển đổi tìm đường",
     "toggleFowPerspective": "Chuyển đổi góc nhìn sương mù chiến tranh",
