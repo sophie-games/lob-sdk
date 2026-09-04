@@ -898,7 +898,7 @@
   "errorWhenSubmittingOrders": "Lỗi khi gửi lệnh",
   "syncGame": "Đồng bộ trò chơi",
   "copyLogs": "Sao chép nhật ký",
-  "copyLogsInstructions": "Muốn báo cáo lỗi? Vui lòng chụp ảnh màn hình, sao chép nhật ký và gửi cho Leo.",
+  "copyLogsInstructions": "Muốn báo cáo lỗi? Vui lòng chụp ảnh màn hình, sao chép nhật ký và gửi cho <leo>Leo</leo>.",
   "errorCheckingTimeout": "Lỗi kiểm tra timeout",
   "removesX": "Loại bỏ {{x}}",
   "send": "Gửi",
@@ -914,7 +914,10 @@
   },
   "selectFormation": "Chọn đội hình",
   "whatsNew": {
-    "title": "Có gì mới"
+    "title": "Có gì mới",
+    "xFollowTitle": "Theo dõi quá trình phát triển",
+    "xFollowDescription": "Xem những nội dung đang được phát triển và những gì sắp ra mắt trong Lines of Battle.",
+    "xFollowAction": "Theo dõi @leofldev"
   },
   "invitedPlayers": "Người chơi được mời",
   "partyInviteFrom": "Lời mời nhóm từ {{username}}",

@@ -1072,7 +1072,7 @@
   "errorWhenSubmittingOrders": "Error when submitting orders",
   "syncGame": "Sync game",
   "copyLogs": "Copy logs",
-  "copyLogsInstructions": "Want to report a bug? Please take a screenshot, copy the logs, and send them to Leo.",
+  "copyLogsInstructions": "Want to report a bug? Please take a screenshot, copy the logs, and send them to <leo>Leo</leo>.",
   "errorCheckingTimeout": "Error checking timeout",
   "removesX": "Removes {{x}}",
   "send": "Send",
@@ -1088,7 +1088,10 @@
   },
   "selectFormation": "Select formation",
   "whatsNew": {
-    "title": "Latest updates"
+    "title": "Latest updates",
+    "xFollowTitle": "Follow the development",
+    "xFollowDescription": "See what’s being worked on and what’s coming next for Lines of Battle.",
+    "xFollowAction": "Follow @leofldev"
   },
   "invitedPlayers": "Invited players",
   "partyInviteFrom": "Party invite from {{username}}",

@@ -894,7 +894,7 @@
   "errorWhenSubmittingOrders": "명령 하달 중 오류",
   "syncGame": "게임 동기화",
   "copyLogs": "로그 복사",
-  "copyLogsInstructions": "버그를 신고하고 싶으신가요? 스크린샷을 찍고 로그를 복사해 레오에게 보내주세요.",
+  "copyLogsInstructions": "버그를 신고하고 싶으신가요? 스크린샷을 찍고 로그를 복사해 <leo>레오</leo>에게 보내주세요.",
   "errorCheckingTimeout": "확인 시간 초과 오류",
   "removesX": "{{x}} 제거",
   "send": "보내기",
@@ -910,7 +910,10 @@
   },
   "selectFormation": "진형 선택",
   "whatsNew": {
-    "title": "새로운 소식"
+    "title": "새로운 소식",
+    "xFollowTitle": "개발 소식 팔로우하기",
+    "xFollowDescription": "현재 개발 중인 내용과 Lines of Battle의 다음 계획을 확인해 보세요.",
+    "xFollowAction": "@leofldev 팔로우하기"
   },
   "invitedPlayers": "초대된 플레이어",
   "partyInviteFrom": "{{username}}의 초대",

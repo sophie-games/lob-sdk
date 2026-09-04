@@ -899,7 +899,7 @@
   "errorWhenSubmittingOrders": "خطأ عند إرسال الأوامر",
   "syncGame": "مزامنة اللعبة",
   "copyLogs": "نسخ السجلات",
-  "copyLogsInstructions": "تريد الإبلاغ عن خطأ؟ يرجى التقاط لقطة شاشة، ونسخ السجلات، وإرسالها إلى ليو.",
+  "copyLogsInstructions": "تريد الإبلاغ عن خطأ؟ يرجى التقاط لقطة شاشة، ونسخ السجلات، وإرسالها إلى <leo>ليو</leo>.",
   "errorCheckingTimeout": "خطأ في فحص المهلة الزمنية",
   "removesX": "يزيل {{x}}",
   "send": "إرسال",
@@ -915,7 +915,10 @@
   },
   "selectFormation": "اختيار التشكيل",
   "whatsNew": {
-    "title": "ما الجديد"
+    "title": "ما الجديد",
+    "xFollowTitle": "تابع عملية التطوير",
+    "xFollowDescription": "اطّلع على ما يجري العمل عليه وما هو قادم بعد ذلك في Lines of Battle.",
+    "xFollowAction": "تابع @leofldev"
   },
   "invitedPlayers": "لاعبون مدعوون",
   "partyInviteFrom": "دعوة مجموعة من {{username}}",

@@ -848,7 +848,7 @@
   "errorWhenSubmittingOrders": "เกิดข้อผิดพลาดขณะส่งคำสั่ง",
   "syncGame": "ซิงค์เกม",
   "copyLogs": "คัดลอก Log",
-  "copyLogsInstructions": "ต้องการรายงานบั๊กหรือไม่? โปรดจับภาพหน้าจอ คัดลอก Log และส่งให้ Leo",
+  "copyLogsInstructions": "ต้องการรายงานบั๊กหรือไม่? โปรดจับภาพหน้าจอ คัดลอก Log และส่งให้ <leo>Leo</leo>",
   "errorCheckingTimeout": "เกิดข้อผิดพลาดขณะตรวจสอบหมดเวลา",
   "removesX": "นำออก {{x}}",
   "send": "ส่ง",
@@ -864,7 +864,10 @@
   },
   "selectFormation": "เลือกรูปขบวน",
   "whatsNew": {
-    "title": "มีอะไรใหม่"
+    "title": "มีอะไรใหม่",
+    "xFollowTitle": "ติดตามการพัฒนา",
+    "xFollowDescription": "ดูว่าตอนนี้กำลังพัฒนาอะไรอยู่ และมีอะไรใหม่ที่กำลังจะมาใน Lines of Battle",
+    "xFollowAction": "ติดตาม @leofldev"
   },
   "invitedPlayers": "ผู้เล่นที่ได้รับเชิญ",
   "partyInviteFrom": "คำเชิญเข้าปาร์ตี้จาก {{username}}",
