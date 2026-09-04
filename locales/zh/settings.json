@@ -1,4 +1,4 @@
-{
+﻿{
   "gameplay": "游戏性",
   "graphics": "画面",
   "camera": "镜头",
@@ -242,22 +242,26 @@
   },
   "appearance": "外观",
   "notifications": {
-    "title": "通知",
+    "title": "提醒",
     "turnActivity": {
       "title": "回合",
-      "description": "回合结算时以及我的银行时间即将耗尽时通知我。"
+      "description": "当一个回合结算时，以及我的储备计时快要用完时，提醒我。"
     },
     "chat": {
-      "title": "消息",
-      "description": "好友给我发消息时通知我。"
+      "title": "信息",
+      "description": "当有好友向我发送信息时提醒我。"
     },
     "matchmaking": {
       "title": "匹配",
-      "description": "有人加入我关注的队列时，以及慢速对局凑齐玩家时通知我。"
+      "description": "当有其他玩家加入我正在观望的队列，以及慢速游戏匹配到玩家时，提醒我"
     },
     "reminders": {
-      "title": "提醒",
-      "description": "我的连续天数即将中断时通知我。"
+      "title": "其他提示",
+      "description": "当我的连续上线要被打断时提醒我。"
+    },
+    "clanLeague": {
+      "title": "联盟联赛",
+      "description": "当我的联盟还有希望获得奖励名次时提醒我。"
     }
   },
   "theme": {
@@ -305,11 +309,5 @@
     "set": "设置编组 {{group}}",
     "add": "加入编组 {{group}}",
     "setExclusive": "仅编入编组 {{group}}"
-  },
-  "notifications": {
-    "clanLeague": {
-      "title": "Coalition league",
-      "description": "Notify me when my coalition can still reach the weekly prize positions."
-    }
   }
 }

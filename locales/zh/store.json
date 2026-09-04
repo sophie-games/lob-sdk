@@ -11,6 +11,7 @@
     "basicDescription": "<currency/>：通过游玩匹配游戏赚取。可以用它来解锁新单位，让你的军队配置有更多选择。",
     "premiumDescription": "<currency/>：用于购买装饰，让你的外观更加华丽。一般需要通过充值获得，毕竟游戏本身已经免费了嘛。",
     "rate": "{{rate}} {{currency}}每1美元",
+    "packageExtra": "包含额外的{{amount}}",
     "purchase": "购买 {{amount}} {{currency}}"
   },
   "sale": {
@@ -21,7 +22,8 @@
   },
   "firstPurchase": {
     "banner": "首次购买翻倍：每个礼包发放 {{multiplier}} 倍的 {{currency}}。",
-    "badge": "首充 {{multiplier}} 倍"
+    "badge": "首充 {{multiplier}} 倍",
+    "packageExtra": "基础 {{base}} + 额外 {{bonus}} 首购奖励"
   },
   "purchaseConfirmation": "你确定想要购买{{item}}吗？",
   "showPurchased": "显示已购买",
