@@ -1332,6 +1332,7 @@
   "postMatch": {
     "title": "What next?",
     "playAnother": "Play Another Match",
+    "playAnotherError": "The next match could not be created. Try again.",
     "addTeammate": "Add Teammate",
     "messageTeammate": "Message Teammate",
     "friendRequestSent": "Friend Request Sent",
@@ -1409,9 +1410,14 @@
       "invitationCreated": "Invitation created",
       "invitationOpened": "Invitation opened",
       "invitationAccepted": "Invitation accepted",
+      "invitationExpired": "Invitation expired",
+      "invitationRevoked": "Invitation revoked",
       "partyFormed": "Party formed",
+      "partyRestored": "Party restored",
       "partyQueued": "Party queued",
       "partyMatched": "Party matched",
+      "partyLeft": "Party left",
+      "partyDissolved": "Party dissolved",
       "sharedMatchCompleted": "Shared match completed",
       "friendshipAfterSharedMatch": "Friendship after match"
     }
