@@ -72,7 +72,7 @@
         "from": 0,
         "to": 0.26,
         "damageModifier": {
-          "near": 6,
+          "near": 9,
           "far": 4
         },
         "name": "pointBlank",
@@ -239,8 +239,8 @@
         "from": 0.44,
         "to": 1,
         "damageModifier": {
-          "near": 0.9,
-          "far": 0.4
+          "near": 1,
+          "far": 0.45
         },
         "engagementTier": 1
       }
@@ -274,7 +274,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 10300,
+    "ammoCost": 10000,
     "extendRange": false
   },
   {
@@ -314,7 +314,7 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 19300,
+    "ammoCost": 20000,
     "extendRange": true
   },
   {
@@ -433,8 +433,8 @@
         "from": 0.43,
         "to": 1,
         "damageModifier": {
-          "near": 0.9,
-          "far": 0.4
+          "near": 1,
+          "far": 0.45
         },
         "engagementTier": 1
       }
@@ -468,7 +468,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 10300,
+    "ammoCost": 10000,
     "extendRange": false
   },
   {
@@ -508,7 +508,7 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 18700,
+    "ammoCost": 20000,
     "extendRange": true
   },
   {
@@ -599,7 +599,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 10300,
+    "ammoCost": 10000,
     "extendRange": false
   },
   {
@@ -639,7 +639,7 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 18000,
+    "ammoCost": 20000,
     "extendRange": true
   },
   {
@@ -770,7 +770,7 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 17500,
+    "ammoCost": 20000,
     "extendRange": true
   },
   {
@@ -861,7 +861,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 10300,
+    "ammoCost": 10000,
     "extendRange": false
   },
   {
@@ -889,8 +889,8 @@
         "from": 0.45,
         "to": 1,
         "damageModifier": {
-          "near": -0.05,
-          "far": -0.45
+          "near": 0,
+          "far": -0.38
         },
         "name": "long"
       }
@@ -914,7 +914,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 10300,
+    "ammoCost": 11000,
     "extendRange": false
   },
   {
@@ -942,8 +942,8 @@
         "from": 0.49,
         "to": 1,
         "damageModifier": {
-          "near": -0.05,
-          "far": -0.35
+          "near": 0,
+          "far": -0.38
         },
         "name": "long"
       }
@@ -967,46 +967,37 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 10300,
+    "ammoCost": 11000,
     "extendRange": false
   },
   {
     "id": 18,
     "name": "explosive-shell",
     "ranged": true,
-    "orgDamageRatio": 28000,
+    "orgDamageRatio": 22500,
     "reorgDebuff": 0.85,
     "attackEffectDuration": 10,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
       "from": 0.9,
       "to": 0.5,
-      "value": -0.1
+      "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
-      "to": 0.6,
-      "value": -0.15
+      "to": 0.65,
+      "value": -0.35
     },
     "maxRange": 340,
     "ranges": [
       {
-        "from": 0.2,
-        "to": 0.5882,
-        "damageModifier": {
-          "near": 0.2,
-          "far": 0.1
-        },
-        "engagementTier": 1
-      },
-      {
-        "from": 0.5882,
+        "from": 0.2647,
         "to": 1,
         "damageModifier": {
-          "near": 0.1,
-          "far": 0
+          "near": 0,
+          "far": -0.25
         },
-        "name": "long"
+        "engagementTier": 1
       }
     ],
     "arcHeight": 4.5,
@@ -1016,7 +1007,7 @@
       "type": "circular",
       "ranges": [
         {
-          "start": 69,
+          "start": 90,
           "end": 200,
           "startRadius": 30,
           "endRadius": 32
@@ -1034,7 +1025,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 12000,
+    "ammoCost": 11000,
     "extendRange": false
   },
   {
@@ -1052,8 +1043,8 @@
         "from": 0,
         "to": 0.63,
         "damageModifier": {
-          "near": 3.5,
-          "far": 2.8
+          "near": 4.2,
+          "far": 2.9
         },
         "name": "close",
         "engagementTier": 0
@@ -1062,8 +1053,8 @@
         "from": 0.63,
         "to": 1,
         "damageModifier": {
-          "near": 2.2,
-          "far": 1.8
+          "near": 2.35,
+          "far": 1.95
         },
         "name": "long",
         "engagementTier": 0
@@ -1074,7 +1065,7 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 19300,
+    "ammoCost": 20000,
     "extendRange": true
   },
   {
@@ -1092,8 +1083,8 @@
         "from": 0,
         "to": 0.76,
         "damageModifier": {
-          "near": 3.5,
-          "far": 2.8
+          "near": 4.2,
+          "far": 2.9
         },
         "name": "close",
         "engagementTier": 0
@@ -1102,8 +1093,8 @@
         "from": 0.76,
         "to": 1,
         "damageModifier": {
-          "near": 2.2,
-          "far": 1.8
+          "near": 2.35,
+          "far": 1.95
         },
         "name": "long",
         "engagementTier": 0
@@ -1114,7 +1105,7 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 18700,
+    "ammoCost": 20000,
     "extendRange": true
   },
   {
@@ -1126,14 +1117,14 @@
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
-    "maxRange": 69,
+    "maxRange": 90,
     "ranges": [
       {
         "from": 0,
         "to": 1,
         "damageModifier": {
           "near": 8,
-          "far": 6.65
+          "far": 1
         },
         "name": "close",
         "engagementTier": 0
@@ -1144,7 +1135,7 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 19700,
+    "ammoCost": 20000,
     "extendRange": true
   },
   {
@@ -1250,7 +1241,7 @@
     ],
     "arcHeight": 4.5,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.4,
+    "projectilePenetration": 0.8,
     "areaOfEffect": {
       "type": "circular",
       "ranges": [
@@ -1267,8 +1258,8 @@
           "endRadius": 50
         }
       ],
-      "edgeDamageModifier": 0.8,
-      "absorptionModifier": 1.25
+      "edgeDamageModifier": -0.4,
+      "absorptionModifier": 0
     },
     "shotSound": "rocket-volley",
     "shotAnim": "rocketVolley",
