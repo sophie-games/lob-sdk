@@ -33,10 +33,10 @@
   "baseLevelExperience": "Alapszint tapasztalat",
   "experience": "Tapasztalat",
   "coalitionProgression": {
-    "title": "Koalíció bővítése",
-    "capacity": "{{current}} → {{next}} tag",
-    "maxCapacity": "{{count}} tag · maximális kapacitás",
-    "upgradeWith": "Bővítés ezzel: {{currency}}"
+    "title": "Koalíció szintje",
+    "fixedCapacity": "{{count}} tag · rögzített kapacitás",
+    "contribute": "{{amount}} florin hozzájárulás",
+    "completeWithPrestige": "Befejezés {{amount}} presztízsért"
   },
   "nextLevelExperience": "Következő szint tapasztalata",
   "season": "Szezon",
