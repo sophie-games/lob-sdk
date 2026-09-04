@@ -27,5 +27,8 @@
   "MAX_SLOW_QUEUE_LIMIT_REACHED": "You already have the maximum number of games waiting in the queue. Withdraw one before queueing again.",
   "USER_NOT_ADDED_TO_THE_QUEUE": "Could not add you to the queue. Please try again.",
   "INVALID_CURRENCY_TYPE": "Invalid currency selection.",
-  "INTERNAL_ERROR": "Something went wrong. Try again."
+  "INTERNAL_ERROR": "Something went wrong. Try again.",
+  "INVITE_FAILED": "The invite could not be processed. Please try again.",
+  "LEAVE_PARTY_FAILED": "Could not leave the party. Please try again.",
+  "SEND_REQUEST_FAILED": "The request could not be processed. Please try again."
 }

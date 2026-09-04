@@ -95,9 +95,9 @@
   "gridOpacity": {
     "title": "Rasterdeckkraft"
   },
-  "tracerOpacity": {
-    "title": "Leuchtspur-Deckkraft",
-    "description": "Steuert die Deckkraft der Leuchtspuren bei Fernangriffen. Bei 0 % werden sie ausgeblendet."
+  "showChargeDamageIndicators": {
+    "title": "Schadensanzeigen bei Sturmangriffen",
+    "description": "Zeigt schwebende Schadenszahlen an, wenn Einheiten einen Sturmangriff ausführen."
   },
   "showDebugShapes": {
     "title": "Debug-Formen anzeigen",

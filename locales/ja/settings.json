@@ -95,9 +95,9 @@
   "gridOpacity": {
     "title": "グリッドの不透明度"
   },
-  "tracerOpacity": {
-    "title": "曳光線の不透明度",
-    "description": "遠距離攻撃時の曳光線の不透明度を調整します。0%にすると非表示になります。"
+  "showChargeDamageIndicators": {
+    "title": "突撃ダメージ表示",
+    "description": "ユニットが突撃したときに、ダメージ数値をフローティング表示します。"
   },
   "showDebugShapes": {
     "title": "デバッグ形状を表示",

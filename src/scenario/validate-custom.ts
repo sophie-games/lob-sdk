@@ -13,6 +13,7 @@ import {
   PlayerBudgetOverride,
   ArmyPanelGroup,
   UnitType,
+  isCircleCollision,
   getCollisionConfig,
 } from "@lob-sdk/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
@@ -711,50 +712,40 @@ function validateCustomUnitFormations(
     const pushErr = (message: string) =>
       errors.push({ scope: "unitFormation", field: formation.id, message });
 
-    // collisionShape must resolve to a rectangle { type: Obb, frontage>0, depth>0 }.
-    // Legacy type-0 radius inputs remain readable and normalize to a square before
-    // validation. A half-specified shape would produce NaN corners that silently
-    // break collision and rendering for the whole match.
+    // collisionShape must be a circle { type: Circle, radius>=0 } or a rectangle
+    // { type: Obb, frontage>0, depth>0 }. A half-specified shape (e.g. frontage
+    // without depth) would produce NaN corners that silently break collision and
+    // rendering for the whole match.
     const shape = formation.collisionShape;
     if (shape !== undefined) {
       if (!isObject(shape)) {
-        pushErr("collisionShape must be an object { type, frontage, depth }");
-      } else {
-        const rawShape = shape as unknown as Record<string, unknown>;
-        if (rawShape.type !== CollisionShapeType.Obb && rawShape.type !== 0) {
-          pushErr("collisionShape.type must be 1 (obb)");
-        } else if (
-          rawShape.type === 0 &&
-          (typeof rawShape.radius !== "number" ||
-            !Number.isFinite(rawShape.radius) ||
-            rawShape.radius < 0)
-        ) {
+        pushErr(
+          "collisionShape must be an object { type, radius } or { type, frontage, depth }",
+        );
+      } else if (shape.type === CollisionShapeType.Circle) {
+        if (!Number.isFinite(shape.radius) || shape.radius < 0) {
           pushErr("collisionShape.radius must be a finite number >= 0");
-        } else {
-          const resolvedShape = getCollisionConfig(
-            formation as unknown as Parameters<typeof getCollisionConfig>[0],
-          );
-          const isNoCollisionShape =
-            resolvedShape.frontage === 0 && resolvedShape.depth === 0;
-          if (
-            !isNoCollisionShape &&
-            (!Number.isFinite(resolvedShape.frontage) ||
-              resolvedShape.frontage <= 0 ||
-              !Number.isFinite(resolvedShape.depth) ||
-              resolvedShape.depth <= 0)
-          ) {
-            pushErr(
-              "collisionShape must have a finite frontage and depth greater than 0",
-            );
-          } else if (
-            resolvedShape.frontage > MAX_FORMATION_DIMENSION ||
-            resolvedShape.depth > MAX_FORMATION_DIMENSION
-          ) {
-            pushErr(
-              `collisionShape frontage and depth must each be <= ${MAX_FORMATION_DIMENSION}`,
-            );
-          }
         }
+      } else if (shape.type === CollisionShapeType.Obb) {
+        if (
+          !Number.isFinite(shape.frontage) ||
+          shape.frontage <= 0 ||
+          !Number.isFinite(shape.depth) ||
+          shape.depth <= 0
+        ) {
+          pushErr(
+            "collisionShape must have a finite frontage and depth greater than 0",
+          );
+        } else if (
+          shape.frontage > MAX_FORMATION_DIMENSION ||
+          shape.depth > MAX_FORMATION_DIMENSION
+        ) {
+          pushErr(
+            `collisionShape frontage and depth must each be <= ${MAX_FORMATION_DIMENSION}`,
+          );
+        }
+      } else {
+        pushErr("collisionShape.type must be 0 (circle) or 1 (obb)");
       }
     }
 
@@ -798,6 +789,18 @@ function validateCustomUnitFormations(
             pushErr(`fireEdges[${i}].emitters must be a positive integer`);
           }
         });
+      }
+
+      // Edge-fire is gated on an OBB collision shape: a circle never fires. fireEdges on a
+      // circle formation would silently produce no ranged fire, so reject the combination.
+      if (
+        Array.isArray(formation.fireEdges) &&
+        formation.fireEdges.length > 0 &&
+        isCircleCollision(getCollisionConfig(formation))
+      ) {
+        pushErr(
+          "fireEdges require a rectangular (obb) collisionShape; a circle formation never fires",
+        );
       }
     }
   }
@@ -1010,6 +1013,20 @@ function validateCustomUnitTemplates(
           });
         }
       }
+    }
+
+    const casualtyFraction = template.casualtyFractionAtZeroHp;
+    if (
+      casualtyFraction !== undefined &&
+      (!Number.isFinite(casualtyFraction) ||
+        casualtyFraction < 0 ||
+        casualtyFraction > 1)
+    ) {
+      errors.push({
+        scope: "unitTemplate",
+        field: template.name,
+        message: "casualtyFractionAtZeroHp must be between 0 and 1",
+      });
     }
 
     for (const message of findOutOfRangeNumbers(template, "")) {

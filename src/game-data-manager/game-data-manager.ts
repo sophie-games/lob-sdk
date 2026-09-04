@@ -74,6 +74,7 @@ import {
   OrderTemplate,
   OrderType,
   getCollisionConfig,
+  isCircleCollision,
 } from "@lob-sdk/types";
 import { FormationManager } from "./formation-manager";
 import { UnitTemplateManager } from "./unit-template-manager";
@@ -1107,11 +1108,15 @@ export class GameDataManager {
     const formationTemplate = this._formationManager.getTemplate(formationId);
     if (formationTemplate) {
       const config = getCollisionConfig(formationTemplate);
+      if (isCircleCollision(config)) {
+        const diameter = config.radius * 2;
+        return { width: diameter, height: diameter };
+      }
       // width = depth (local X), height = frontage (local Y).
       return { width: config.depth, height: config.frontage };
     }
     // Fallback
-    return { width: 16, height: 16 };
+    return { width: 32, height: 32 };
   }
 
   public getUnitBaseTexture(unitType: UnitType, formationId?: string): string {

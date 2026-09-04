@@ -7,6 +7,15 @@ export enum UserTier {
   Gold = "gold",
 }
 
+/** Stable subscription plan identifier, independent from display names and gameplay access. */
+export enum SubscriptionPlanId {
+  None = "none",
+  Plan001 = "plan_001",
+  Plan002 = "plan_002",
+  Plan003 = "plan_003",
+  Plan004 = "plan_004",
+}
+
 export enum LostReason {
   Withdrew = 1,
   TimedOut = 2,
@@ -48,6 +57,8 @@ export interface Player {
   playerNumber: number;
   username: string;
   elo: number;
+  /** Ranked games settled for this era's rating in the current season. */
+  eloGames?: number;
   team: number;
   passed: boolean;
   defeated: boolean;
@@ -99,7 +110,8 @@ export interface PlayerInfo {
   clanTag?: string | null;
   playerNumber: number;
   team: number;
-  elo: number;
+  /** Current ELO; null while current-season placements are incomplete. */
+  elo: number | null;
   eloBefore: number | null;
   eloChange: number;
   basicCurrencyEarned: number | null;
@@ -135,6 +147,8 @@ export interface PlayerInfo {
   countryCode?: string;
   /** Whether this account carries the verified badge. */
   isVerified?: boolean;
+  /** Stable subscription plan used to select the player's public badge. */
+  subscriptionPlanId?: SubscriptionPlanId;
   /**
    * Timestamp when this player submitted their turn (seconds since epoch).
    * Used for Fischer timing. Null if player hasn't submitted.

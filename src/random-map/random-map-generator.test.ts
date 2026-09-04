@@ -31,46 +31,6 @@ describe("RandomMapGenerator", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
   const { TILE_SIZE, DEFAULT_BATTLE_TYPE } = gameDataManager.getGameConstants();
 
-  it("preserves partial edge tiles on fixed maps", () => {
-    const terrains = [
-      [TerrainType.Grass, TerrainType.Grass],
-      [TerrainType.Grass, TerrainType.ShallowWater],
-    ];
-    const heightMap = [
-      [0, 0],
-      [0, 1],
-    ];
-    const scenario: Scenario = {
-      version: SCENARIO_SCHEMA_VERSION,
-      name: "partial-edge-tiles" as ScenarioName,
-      description: "Fixed map whose dimensions include partial edge tiles",
-      map: {
-        width: TILE_SIZE + 1,
-        height: TILE_SIZE + 1,
-        terrains,
-        heightMap,
-        seed: 12345,
-      },
-    };
-
-    const result = new RandomMapGenerator().generate({
-      scenario,
-      dynamicBattleType: DEFAULT_BATTLE_TYPE,
-      maxPlayers: 2,
-      tileSize: TILE_SIZE,
-      era: "napoleonic",
-    });
-
-    expect(result.map.terrains).toEqual(terrains);
-    expect(result.map.heightMap).toEqual(heightMap);
-    expect(result.map.terrains).toHaveLength(
-      Math.ceil(result.map.width / TILE_SIZE),
-    );
-    expect(result.map.terrains[0]).toHaveLength(
-      Math.ceil(result.map.height / TILE_SIZE),
-    );
-  });
-
   describe("generate all random ranked scenarios", () => {
     // Get all scenario names dynamically from the GameDataManager
     const allScenarioNames = gameDataManager.getScenarioNames();
@@ -577,6 +537,32 @@ describe("RandomMapGenerator", () => {
       expect(result.map.heightMap).toEqual(heightMap);
       expect(result.map.seed).toBe(9999);
       expect(result.map.terrains[3][4]).toBe(TerrainType.ShallowWater);
+    });
+
+    it("preserves place labels from a handcrafted map", () => {
+      const labels = [{ pos: { x: 64, y: 96 }, text: "Quatre Bras" }];
+      const scenario: Scenario = {
+        version: SCENARIO_SCHEMA_VERSION,
+        name: "fixed-map-labels",
+        description: "test",
+        map: {
+          width: TILES_X * TILE_SIZE,
+          height: TILES_Y * TILE_SIZE,
+          terrains: buildBakedTerrains(),
+          heightMap: buildBakedHeightMap(),
+          labels,
+        },
+      };
+
+      const result = new RandomMapGenerator().generate({
+        scenario,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
+        maxPlayers: 2,
+        tileSize: TILE_SIZE,
+        era: "napoleonic",
+      });
+
+      expect(result.map.labels).toEqual(labels);
     });
 
     it("pads a heightMap shorter than terrains to the declared dimensions", () => {

@@ -47,6 +47,30 @@ export interface LeagueProgress {
   readonly total: number;
 }
 
+/** Settled ranked games required before the current rating is revealed. */
+export const ELO_PLACEMENT_GAMES = 10;
+
+export interface EloKFactorFloor {
+  /** This floor applies while the settled ranked-game count is below this value. */
+  readonly maxSettledRankedGamesExclusive: number;
+  readonly minimumKFactor: number;
+}
+
+/** Ordered rating-mobility policy for new and developing players. */
+export const ELO_K_FACTOR_FLOORS: readonly EloKFactorFloor[] = [
+  {
+    maxSettledRankedGamesExclusive: ELO_PLACEMENT_GAMES,
+    minimumKFactor: 48,
+  },
+  { maxSettledRankedGamesExclusive: 30, minimumKFactor: 40 },
+  { maxSettledRankedGamesExclusive: 100, minimumKFactor: 32 },
+];
+
+/** True once the player's current-season Elo and league can be revealed. */
+export function hasCompletedEloPlacements(settledRankedGames: number): boolean {
+  return settledRankedGames >= ELO_PLACEMENT_GAMES;
+}
+
 /**
  * All leagues, ordered low → high. Bands are contiguous and disjoint.
  * Within each tier, sub-tier `III` is the top and `I` is the bottom.

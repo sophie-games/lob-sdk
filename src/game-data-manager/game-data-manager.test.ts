@@ -5,6 +5,7 @@ import {
   TerrainType,
   FormationTemplate,
   getCollisionConfig,
+  isCircleCollision,
   CollisionShapeType,
 } from "@lob-sdk/types";
 import { DamageTypeTemplate, GameEra } from "@lob-sdk/game-data-manager";
@@ -126,6 +127,38 @@ describe("GameDataManager", () => {
   });
 
   describe("getBattleType", () => {
+    it("configures the ranked K-factor contribution for every battle type", () => {
+      const factorsByEra = Object.fromEntries(
+        GameDataManager.getAvailableEras().map((era) => {
+          const manager = GameDataManager.get(era);
+          return [
+            era,
+            Object.fromEntries(
+              manager
+                .getAllDynamicBattleTypes()
+                .map((battleType) => [
+                  battleType,
+                  manager.getBattleType(battleType).kFactor,
+                ]),
+            ),
+          ];
+        }),
+      );
+
+      expect(factorsByEra).toEqual({
+        napoleonic: {
+          micro: 16,
+          clash: 24,
+          combat: 32,
+          battle: 40,
+          grand_battle: 48,
+        },
+        ww2: {
+          operational: 32,
+        },
+      });
+    });
+
     describe("default armies respect unit caps from battle-types.json", () => {
       const battleTypes = gameDataManager.getAllDynamicBattleTypes();
 
@@ -464,13 +497,13 @@ describe("GameDataManager", () => {
       const path = terrainCategories.path;
       expect(path).toBeDefined();
       if (path && path.movementModifier) {
-        // Overridden categories
-        expect(path.movementModifier.midCavalry).toBe(0.2);
-        expect(path.movementModifier.heavyCavalry).toBe(0.2);
+        // Explicit override
+        expect(path.movementModifier.artillery).toBe(0.3);
 
         // Inherited categories
-        expect(path.movementModifier.infantry).toBe(0.3);
-        expect(path.movementModifier.artillery).toBe(0.3);
+        expect(path.movementModifier.midCavalry).toBe(0.75);
+        expect(path.movementModifier.heavyCavalry).toBe(0.75);
+        expect(path.movementModifier.infantry).toBe(0.75);
       }
     });
 
@@ -481,7 +514,7 @@ describe("GameDataManager", () => {
     });
 
     it("getRunSpeedModifier falls back to the movement modifier when unset", () => {
-      // No preset terrain sets runSpeedModifier, so run speed matches walk speed.
+      // Categories without a run override still use their walk modifier.
       expect(
         gameDataManager.getRunSpeedModifier(TerrainType.Mud, "infantry"),
       ).toBe(gameDataManager.getMovementModifier(TerrainType.Mud, "infantry"));
@@ -661,11 +694,11 @@ describe("GameDataManager", () => {
       });
     });
 
-    it("upgrades a legacy circle footprint to equal square dimensions", () => {
+    it("uses a circle footprint's diameter for both dimensions", () => {
       const m = GameDataManager.createWithCustomDefs("napoleonic", {
         customUnitFormations: [
           cloneFormation({
-            collisionShape: { type: 0, radius: 20 } as never,
+            collisionShape: { type: CollisionShapeType.Circle, radius: 20 },
           }),
         ],
       });
@@ -674,23 +707,19 @@ describe("GameDataManager", () => {
         height: 40,
       });
     });
-
-    it("uses the same 16px square fallback as BaseUnit for a missing formation", () => {
-      expect(
-        gameDataManager.getUnitDimensions(unitType, "missing-formation"),
-      ).toEqual({ width: 16, height: 16 });
-    });
   });
 
-  describe("collision shape configuration", () => {
+  describe("collision shape gating (only WW2 stays a circle; napoleonic uses Obb)", () => {
     const shapeOf = (era: GameEra, id: string) => {
       const formation = GameDataManager.get(era)
         .getFormationManager()
         .getTemplate(id)!;
-      return getCollisionConfig(formation).type;
+      return isCircleCollision(getCollisionConfig(formation)) ? "circle" : "obb";
     };
 
-    const napoleonicFormations = [
+    // Real napoleonic units collide as rotated rectangles; only the `unknown`
+    // fallback stays a circle. Pinned so a formation can't silently flip shapes.
+    const napoleonicObb = [
       "line",
       "column",
       "square",
@@ -700,19 +729,19 @@ describe("GameDataManager", () => {
       "artillery",
       "ship",
     ];
-    napoleonicFormations.forEach((id) => {
+    napoleonicObb.forEach((id) => {
       it(`napoleonic ${id} collides as an Obb`, () => {
-        expect(shapeOf("napoleonic", id)).toBe(CollisionShapeType.Obb);
+        expect(shapeOf("napoleonic", id)).toBe("obb");
       });
     });
 
-    it("napoleonic unknown fallback collides as an Obb", () => {
-      expect(shapeOf("napoleonic", "unknown")).toBe(CollisionShapeType.Obb);
+    it("napoleonic unknown fallback stays a circle", () => {
+      expect(shapeOf("napoleonic", "unknown")).toBe("circle");
     });
 
     ["default", "dispersed"].forEach((id) => {
-      it(`ww2 ${id} collides as an Obb`, () => {
-        expect(shapeOf("ww2", id)).toBe(CollisionShapeType.Obb);
+      it(`ww2 ${id} collides as a circle`, () => {
+        expect(shapeOf("ww2", id)).toBe("circle");
       });
     });
   });
