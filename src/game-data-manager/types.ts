@@ -94,6 +94,8 @@ export interface UnitCategoryTemplate {
    * minimal damage (e.g. artillery). Independent of `defaultAutofireRange`.
    */
   warnOnMaxAutofire?: boolean;
+  /** Client Automatic prefers Run for ordinary routes longer than one turn's walking distance. */
+  automaticRunOnLongPaths?: boolean;
   routingBehavior?: RoutingBehavior;
   enfiladeFire?: EnfiladeFireConfig;
   rearFire?: RearFireConfig;

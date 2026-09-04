@@ -136,6 +136,10 @@
     "title": "Il tipo di ordine si applica alla selezione",
     "description": "Attivo: cambiare il tipo di movimento lo riapplica agli ordini attuali delle unità selezionate e il pulsante degli ordini segue la selezione. Disattivo: imposta solo il tipo del prossimo ordine che disegni (classico)."
   },
+  "showAutomaticOrder": {
+    "title": "Mostra ordine Automatico",
+    "description": "Aggiunge l’opzione Automatico lato client al selettore degli ordini. Disattivala per usare solo ordini manuali."
+  },
   "keybindings": {
     "rotateCameraLeft": "Ruota camera a sinistra",
     "rotateCameraRight": "Ruota camera a destra",
@@ -153,6 +157,7 @@
     "shootOrder": "Ordine di sparo",
     "fireAndAdvanceOrder": "Ordine di sparare e avanzare",
     "fallbackOrder": "Ordine di ritirata",
+    "automaticOrder": "Ordine automatico",
     "toggleSmartCurvedMovements": "Attiva/disattiva movimenti curvi intelligenti",
     "togglePathFinding": "Attiva/disattiva ricerca percorso",
     "toggleFowPerspective": "Cambia prospettiva nebbia di guerra",

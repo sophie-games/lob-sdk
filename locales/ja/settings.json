@@ -136,6 +136,10 @@
     "title": "命令タイプを選択したユニットに適用",
     "description": "オン: 移動タイプを変更すると、選択中のユニットの現在の命令が変更され、命令ボタンが選択状態を反映します。オフ: 次に描く命令のタイプを設定するだけです（クラシック）。"
   },
+  "showAutomaticOrder": {
+    "title": "自動命令を表示",
+    "description": "クライアント側の自動オプションを命令選択に追加します。手動命令だけを使う場合はオフにしてください。"
+  },
   "keybindings": {
     "rotateCameraLeft": "カメラを左に回転",
     "rotateCameraRight": "カメラを右に回転",
@@ -153,6 +157,7 @@
     "shootOrder": "射撃命令",
     "fireAndAdvanceOrder": "発砲して前進する命令",
     "fallbackOrder": "後退命令",
+    "automaticOrder": "自動命令",
     "toggleSmartCurvedMovements": "スマートカーブ移動切り替え",
     "togglePathFinding": "経路探索の切り替え",
     "toggleFowPerspective": "戦争の霧の視点切り替え",

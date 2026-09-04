@@ -136,6 +136,10 @@
     "title": "Tipe perintah berlaku untuk pilihan",
     "description": "Aktif: mengubah tipe gerakan akan mengubah perintah unit yang dipilih saat ini, dan tombol perintah mengikuti pilihan Anda. Nonaktif: hanya menetapkan tipe untuk perintah berikutnya yang Anda gambar (klasik)."
   },
+  "showAutomaticOrder": {
+    "title": "Tampilkan perintah Otomatis",
+    "description": "Menambahkan opsi Otomatis sisi klien ke pemilih perintah. Nonaktifkan untuk hanya memakai jenis perintah manual."
+  },
   "keybindings": {
     "rotateCameraLeft": "Putar kamera ke kiri",
     "rotateCameraRight": "Putar kamera ke kanan",
@@ -153,6 +157,7 @@
     "shootOrder": "Perinntah Menembak",
     "fireAndAdvanceOrder": "Perintah Menembak Dengan Bergerak",
     "fallbackOrder": "Perintah Mundur",
+    "automaticOrder": "Perintah otomatis",
     "toggleSmartCurvedMovements": "Ubah Gerakan Melengkung Cerdas",
     "togglePathFinding": "Alihkan pencarian rute",
     "toggleFowPerspective": "Ubah Perspektif Kabut Perang",

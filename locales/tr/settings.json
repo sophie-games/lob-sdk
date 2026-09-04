@@ -136,6 +136,10 @@
     "title": "Emir türü seçime uygulanır",
     "description": "Açık: hareket türünü değiştirmek, seçili birimlerin mevcut emirlerini yeniden atar ve emir düğmesi seçiminizi yansıtır. Kapalı: yalnızca çizeceğiniz sonraki emrin türünü belirler (klasik)."
   },
+  "showAutomaticOrder": {
+    "title": "Otomatik emri göster",
+    "description": "Emir seçiciye istemci taraflı Otomatik seçeneğini ekler. Yalnızca manuel emirleri kullanmak için kapatın."
+  },
   "keybindings": {
     "rotateCameraLeft": "Kamerayı sola döndür",
     "rotateCameraRight": "Kamerayı sağa döndür",
@@ -153,6 +157,7 @@
     "shootOrder": "Ateş emri",
     "fireAndAdvanceOrder": "Ateş ve ilerle emri",
     "fallbackOrder": "Geri çekil emri",
+    "automaticOrder": "Otomatik emir",
     "toggleSmartCurvedMovements": "Akıllı eğri hareketleri değiştir",
     "togglePathFinding": "Yol bulmayı değiştir",
     "toggleFowPerspective": "Savaş sisi perspektifini değiştir",

@@ -156,6 +156,10 @@
     "title": "명령 유형을 선택한 유닛에 적용",
     "description": "켜짐: 이동 유형을 바꾸면 선택한 유닛의 현재 명령이 변경되고, 명령 버튼이 선택 상태를 반영합니다. 꺼짐: 다음에 그릴 명령의 유형만 설정합니다(클래식)."
   },
+  "showAutomaticOrder": {
+    "title": "자동 명령 표시",
+    "description": "명령 선택기에 클라이언트 측 자동 옵션을 추가합니다. 수동 명령만 사용하려면 끄세요."
+  },
   "showChat": {
     "title": "채팅 보기"
   },
@@ -176,6 +180,7 @@
     "shootOrder": "사격 명령",
     "fireAndAdvanceOrder": "사격 및 전진 명령",
     "fallbackOrder": "후퇴 명령",
+    "automaticOrder": "자동 명령",
     "toggleSmartCurvedMovements": "지능적 곡선 이동 전환",
     "togglePathFinding": "경로 찾기 전환",
     "toggleFowPerspective": "전장의 안개 시점 전환",
