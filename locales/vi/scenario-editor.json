@@ -280,6 +280,8 @@
     "orgRadiusBonus": "Thưởng bán kính tổ chức",
     "reportStats": "Thống kê báo cáo",
     "reportStatsHelp": "Số đếm mỗi đơn vị đóng góp vào báo cáo trận chiến (ví dụ: người, ngựa, súng). Các khóa lấy từ đơn vị tích hợp của thời đại.",
+    "casualtiesAtZeroHp": "Thương vong khi HP bằng 0 (%)",
+    "casualtiesAtZeroHpHelp": "Tỷ lệ quân số báo cáo của đơn vị được tính là thương vong khi toàn bộ thanh HP bị mất. HP đại diện cho sức chiến đấu: với mức mặc định 50%, đơn vị mất khả năng chiến đấu khi một nửa quân số báo cáo trở thành thương vong. Tan vỡ vẫn loại bỏ toàn bộ sức chiến đấu còn lại.",
     "tallyPerUnit": "Số đếm mỗi đơn vị",
     "walkMovement": "Di chuyển đi bộ",
     "runMovement": "Di chuyển chạy",

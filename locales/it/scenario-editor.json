@@ -282,6 +282,8 @@
     "orgRadiusBonus": "Bonus raggio org.",
     "reportStats": "Statistiche rapporto",
     "reportStatsHelp": "Conteggio che ogni unità contribuisce ai rapporti di battaglia (es. uomini, cavalli, cannoni). Le chiavi provengono dalle unità integrate dell'epoca.",
+    "casualtiesAtZeroHp": "Perdite a zero PS (%)",
+    "casualtiesAtZeroHpHelp": "Quota della forza dichiarata di questa unità conteggiata come perdite quando l'intera barra dei PS è esaurita. I PS rappresentano la forza combattente: con il valore predefinito del 50%, l'unità cessa di essere efficace quando metà della forza dichiarata diventa una perdita. La dispersione continua a rimuovere tutta la forza combattente residua.",
     "tallyPerUnit": "Conteggio per unità",
     "walkMovement": "Movimento a passo",
     "runMovement": "Movimento in corsa",

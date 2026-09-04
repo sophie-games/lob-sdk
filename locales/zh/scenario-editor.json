@@ -280,6 +280,8 @@
     "orgRadiusBonus": "组织度范围加成",
     "reportStats": "简报数据",
     "reportStatsHelp": "每个单位计入战斗简报的计数（例如兵员、马匹、火炮）。键名取自该时代的内置单位。",
+    "casualtiesAtZeroHp": "生命值归零时的伤亡率（%）",
+    "casualtiesAtZeroHpHelp": "生命值条完全耗尽时，该单位报告兵力中计为伤亡的比例。生命值代表战斗力：默认值为50%，即报告兵力的一半成为伤亡后，单位将失去作战能力。溃散仍会移除全部剩余战斗力。",
     "tallyPerUnit": "每单位计数",
     "walkMovement": "行进移动力",
     "runMovement": "疾跑移动力",

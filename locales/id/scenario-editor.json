@@ -280,6 +280,8 @@
     "orgRadiusBonus": "Bonus radius org",
     "reportStats": "Statistik laporan",
     "reportStatsHelp": "Hitungan yang dikontribusikan setiap unit ke laporan pertempuran (mis. orang, kuda, meriam). Kunci berasal dari unit bawaan era.",
+    "casualtiesAtZeroHp": "Korban saat HP nol (%)",
+    "casualtiesAtZeroHpHelp": "Bagian kekuatan tercatat unit ini yang dihitung sebagai korban setelah seluruh bilah HP habis. HP mewakili kekuatan tempur: pada nilai bawaan 50%, unit berhenti efektif bertempur setelah separuh kekuatan tercatatnya menjadi korban. Hancur tetap menghapus seluruh kekuatan tempur yang tersisa.",
     "tallyPerUnit": "Hitungan per unit",
     "walkMovement": "Pergerakan jalan",
     "runMovement": "Pergerakan lari",
