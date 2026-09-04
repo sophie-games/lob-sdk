@@ -59,8 +59,6 @@ export interface WalkOrder
   path: OrderPathPoint[];
   /** Final rotation in radians after completing the path. */
   rotation?: number;
-  /** Keep clear of hard allied formations while executing this path. */
-  maintainAllySpacing?: boolean;
 }
 
 /**
@@ -108,8 +106,6 @@ export interface RunOrder extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
   path: OrderPathPoint[];
   /** Final rotation in radians after completing the path. */
   rotation?: number;
-  /** Keep clear of hard allied formations while executing this path. */
-  maintainAllySpacing?: boolean;
 }
 
 /**
