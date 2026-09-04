@@ -394,9 +394,7 @@
     "thanks": "Katıldığınız için teşekkürler, {{name}}!",
     "p1": "<b>Lines of Battle</b>'da yeni misin? İlk savaşından önce temel mekanikleri öğrenmek için <tutorialLink>eğitimle</tutorialLink> başla."
   },
-  "firstMatchBriefing": {
-    "title": "İlk dereceli savaşından önce",
-    "intro": "Üç kural, savaş alanındaki ani çöküşlerin çoğunu açıklar.",
+  "coreMechanicsMessages": {
     "running": {
       "title": "Amaca yönelik koş",
       "description": "Çoğu birlikte koşmak dayanıklılık harcar ve ardından bir hücuma uğrarlarsa daha kolay bozulmalarına yol açar. Hıza ihtiyacın veya hücum niyetin olana kadar yürü."
@@ -408,9 +406,7 @@
     "terrain": {
       "title": "Araziyi kullan",
       "description": "Arazi hareketi ve çatışmayı değiştirir. Avcı birlikleri özellikle orman ve binalardan yararlanır; birliğin güncel değiştiricilerini görmek için Bilgi'yi aç."
-    },
-    "startTutorial": "Eğitimde pratik yap",
-    "playAnyway": "Yine de oyna"
+    }
   },
   "turn": "Tur",
   "bank": "Rezerv",

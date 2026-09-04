@@ -537,9 +537,7 @@
     "thanks": "Thank you for joining, {{name}}!",
     "p1": "New to <b>Lines of Battle</b>? Start with the <tutorialLink>tutorial</tutorialLink> to learn the core mechanics before your first battle."
   },
-  "firstMatchBriefing": {
-    "title": "Before your first ranked battle",
-    "intro": "Three rules explain most sudden battlefield collapses.",
+  "coreMechanicsMessages": {
     "running": {
       "title": "Run deliberately",
       "description": "For most troops, running spends stamina and makes them easier to break if charged afterward. Walk until you need speed or want to charge."
@@ -551,9 +549,7 @@
     "terrain": {
       "title": "Use the ground",
       "description": "Terrain changes movement and combat. Skirmishers especially benefit from forests and buildings; open Info to see a unit's current modifiers."
-    },
-    "startTutorial": "Practice in the tutorial",
-    "playAnyway": "Play anyway"
+    }
   },
   "turn": "Turn",
   "bank": "Bank",

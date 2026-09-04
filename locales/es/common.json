@@ -391,9 +391,7 @@
     "thanks": "Gracias por sumarte, {{name}}!",
     "p1": "¿Nuevo en <b>Lines of Battle</b>? Empieza con el <tutorialLink>tutorial</tutorialLink> para aprender las mecánicas básicas antes de tu primera batalla."
   },
-  "firstMatchBriefing": {
-    "title": "Antes de tu primera batalla clasificatoria",
-    "intro": "Tres reglas explican la mayoría de los colapsos repentinos en el campo de batalla.",
+  "coreMechanicsMessages": {
     "running": {
       "title": "Corre con intención",
       "description": "Para la mayoría de las tropas, correr consume resistencia y las vuelve más fáciles de quebrar si reciben una carga después. Camina hasta que necesites velocidad o quieras cargar."
@@ -405,9 +403,7 @@
     "terrain": {
       "title": "Aprovecha el terreno",
       "description": "El terreno modifica el movimiento y el combate. Los hostigadores se benefician especialmente de bosques y edificios; abre Información para ver los modificadores actuales de una unidad."
-    },
-    "startTutorial": "Practicar en el tutorial",
-    "playAnyway": "Jugar de todos modos"
+    }
   },
   "turn": "Turno",
   "bank": "Reserva",

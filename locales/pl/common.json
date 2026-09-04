@@ -396,9 +396,7 @@
     "thanks": "Dobrze cię tu widzieć {{name}}!",
     "p1": "Nowy w <b>Lines of Battle</b>? Zacznij od <tutorialLink>samouczka</tutorialLink>, aby poznać podstawowe mechaniki przed pierwszą bitwą."
   },
-  "firstMatchBriefing": {
-    "title": "Przed pierwszą bitwą rankingową",
-    "intro": "Trzy zasady wyjaśniają większość nagłych załamań na polu bitwy.",
+  "coreMechanicsMessages": {
     "running": {
       "title": "Biegaj z rozmysłem",
       "description": "Dla większości wojsk bieg zużywa wytrzymałość i ułatwia ich złamanie, jeśli potem przyjmą szarżę. Maszeruj, dopóki nie potrzebujesz szybkości lub nie chcesz szarżować."
@@ -410,9 +408,7 @@
     "terrain": {
       "title": "Wykorzystuj teren",
       "description": "Teren zmienia ruch i walkę. Harcownicy szczególnie korzystają z lasów i budynków; otwórz Informacje, aby zobaczyć bieżące modyfikatory jednostki."
-    },
-    "startTutorial": "Ćwicz w samouczku",
-    "playAnyway": "Zagraj mimo to"
+    }
   },
   "turn": "Tura",
   "bank": "Rezerwa",
