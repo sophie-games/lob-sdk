@@ -33,10 +33,10 @@
   "baseLevelExperience": "Experiência base do nível",
   "experience": "Experiência",
   "coalitionProgression": {
-    "title": "Expansão da coalizão",
-    "capacity": "{{current}} → {{next}} membros",
-    "maxCapacity": "{{count}} membros · capacidade máxima",
-    "upgradeWith": "Expandir com {{currency}}"
+    "title": "Nível da coalizão",
+    "fixedCapacity": "{{count}} membros · capacidade fixa",
+    "contribute": "Contribuir com {{amount}} florins",
+    "completeWithPrestige": "Concluir por {{amount}} de Prestígio"
   },
   "nextLevelExperience": "Experiência do próximo nível",
   "season": "Temporada",
@@ -394,6 +394,20 @@
     "thanks": "Obrigado por se juntar, {{name}}!",
     "p1": "Novo no <b>Lines of Battle</b>? Comece pelo <tutorialLink>tutorial</tutorialLink> para aprender as mecânicas básicas antes da sua primeira batalha."
   },
+  "gameTips": {
+    "running": {
+      "title": "Corra com propósito",
+      "description": "Para a maioria das tropas, correr gasta vigor e as torna mais fáceis de quebrar se receberem uma carga depois. Caminhe até precisar de velocidade ou quiser carregar."
+    },
+    "overlap": {
+      "title": "Não empilhe unidades",
+      "description": "Aliados sobrepostos se movem mais devagar, lutam com menos eficácia no corpo a corpo, dão menos apoio entre si e sofrem mais dano de organização."
+    },
+    "terrain": {
+      "title": "Use o terreno",
+      "description": "O terreno altera o movimento e o combate. Abra Informações para ver os modificadores atuais de uma unidade e escolher o terreno adequado."
+    }
+  },
   "turn": "Turno",
   "bank": "Reserva",
   "cap": "Limite",
@@ -594,7 +608,10 @@
     "message": "O servidor está sendo atualizado. Por favor, tente novamente em alguns minutos."
   },
   "whatsNew": {
-    "title": "O que há de novo"
+    "title": "O que há de novo",
+    "xFollowTitle": "Acompanhe o desenvolvimento",
+    "xFollowDescription": "Veja no que estamos trabalhando e o que vem a seguir em Lines of Battle.",
+    "xFollowAction": "Seguir @leofldev"
   },
   "allVisible": "Tudo Visível",
   "teamN": "Equipe {{number}}",
@@ -664,7 +681,7 @@
     "largeScale": "Grande escala",
     "quickBattle": "Batalha rápida",
     "playerScale": "Até {{playersPerTeam}} por lado · Começa com {{minPlayers}} jogadores no total",
-    "rules": "{{maxTurn}} turnos · {{timePresetName}}",
+    "rules": "{{maxTurn}} turnos",
     "availableStatus": "Disponível para criar",
     "creationCost": "Custo de criação",
     "cooldownLabel": "Tempo de espera: {{cooldown}}",

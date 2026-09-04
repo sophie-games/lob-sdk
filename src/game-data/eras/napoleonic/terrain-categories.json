@@ -52,19 +52,25 @@
       "ship": true
     },
     "color": "#344c1c",
-    "staminaCostModifier": 0.75,
+    "staminaCostModifier": -0.5,
     "hitboxHeight": 1.99,
     "visionAbsorption": 10,
     "movementModifier": {
-      "infantry": -0.4,
-      "guardsInfantry": -0.4,
-      "skirmishInfantry": -0.1,
-      "militiaInfantry": -0.4,
-      "midCavalry": -0.6,
-      "lightCavalry": -0.6,
-      "scoutCavalry": -0.6,
-      "heavyCavalry": -0.6,
+      "infantry": -0.5,
+      "guardsInfantry": -0.5,
+      "skirmishInfantry": -0.4,
+      "militiaInfantry": -0.5,
+      "midCavalry": -0.75,
+      "lightCavalry": -0.75,
+      "scoutCavalry": -0.75,
+      "heavyCavalry": -0.75,
       "artillery": -0.5
+    },
+    "runSpeedModifier": {
+      "infantry": -0.25,
+      "guardsInfantry": -0.25,
+      "skirmishInfantry": -0.25,
+      "militiaInfantry": -0.25
     },
     "attackModifier": {
       "infantry": 0.3,
@@ -88,33 +94,33 @@
       "artillery": -0.75
     },
     "rangedAttackModifier": {
-      "artillery": -0.3,
+      "artillery": -0.5,
       "skirmishInfantry": 0,
       "infantry": -0.25,
       "guardsInfantry": -0.25,
       "militiaInfantry": -0.2
     },
     "projectileAbsorption": {
-      "musket": 0.2,
-      "marksman-musket": 0.12,
-      "horse-archer-bow": 1,
-      "rifle": 0.08,
-      "4lb-cannon-ball": 0.2,
-      "4lb-canister-fire": 0.15,
-      "6lb-cannon-ball": 0.2,
-      "6lb-canister-fire": 0.15,
-      "8lb-cannon-ball": 0.15,
-      "8lb-canister-fire": 0.15,
+      "musket": 0.25,
+      "marksman-musket": 0.15,
+      "horse-archer-bow": 0.4,
+      "rifle": 0.15,
+      "4lb-cannon-ball": 0.3,
+      "4lb-canister-fire": 0.3,
+      "6lb-cannon-ball": 0.25,
+      "6lb-canister-fire": 0.3,
+      "8lb-cannon-ball": 0.25,
+      "8lb-canister-fire": 0.3,
       "10lb-explosive-shell": 0.1,
-      "10lb-cannon-ball": 0.15,
-      "10lb-canister-fire": 0.15,
-      "12lb-cannon-ball": 0.12,
-      "12lb-canister-fire": 0.15,
+      "10lb-cannon-ball": 0.25,
+      "10lb-canister-fire": 0.3,
+      "12lb-cannon-ball": 0.2,
+      "12lb-canister-fire": 0.3,
       "18lb-explosive-shell": 0.1,
-      "18lb-cannon-ball": 0.12,
-      "18lb-canister-fire": 0.15,
-      "explosive-shell": 0.12,
-      "howitzer-canister": 0.15
+      "18lb-cannon-ball": 0.2,
+      "18lb-canister-fire": 0.3,
+      "explosive-shell": 0.1,
+      "howitzer-canister": 0.3
     },
     "chargeResistanceModifier": {
       "infantry": 0.5,
@@ -137,8 +143,8 @@
       "heavyCavalry": -0.8
     },
     "fixedEnemyCollisionLevel": 2,
-    "pushStrengthModifier": -0.1,
-    "pushDistanceModifier": -0.1
+    "pushStrengthModifier": 0.2,
+    "pushDistanceModifier": 2
   },
 
   "building": {
@@ -152,13 +158,13 @@
     "movementModifier": {
       "infantry": -0.35,
       "guardsInfantry": -0.35,
-      "skirmishInfantry": -0.1,
+      "skirmishInfantry": -0.25,
       "militiaInfantry": -0.35,
       "midCavalry": -0.6,
       "lightCavalry": -0.6,
       "scoutCavalry": -0.6,
       "heavyCavalry": -0.6,
-      "artillery": -0.3
+      "artillery": -0.35
     },
     "attackModifier": {
       "infantry": 0.4,
@@ -183,32 +189,32 @@
     },
     "rangedAttackModifier": {
       "artillery": -0.3,
-      "skirmishInfantry": 0,
-      "infantry": -0.5,
-      "guardsInfantry": -0.5,
+      "skirmishInfantry": -0.15,
+      "infantry": -0.4,
+      "guardsInfantry": -0.4,
       "militiaInfantry": -0.4
     },
     "projectileAbsorption": {
       "musket": 0.5,
       "marksman-musket": 0.35,
-      "horse-archer-bow": 1,
+      "horse-archer-bow": 0.7,
       "rifle": 0.3,
-      "18lb-explosive-shell": 0.25,
-      "18lb-cannon-ball": 0.45,
+      "18lb-explosive-shell": 0.12,
+      "18lb-cannon-ball": 0.15,
       "18lb-canister-fire": 0.4,
-      "10lb-explosive-shell": 0.25,
-      "10lb-cannon-ball": 0.5,
+      "10lb-explosive-shell": 0.12,
+      "10lb-cannon-ball": 0.2,
       "10lb-canister-fire": 0.4,
-      "12lb-cannon-ball": 0.45,
+      "12lb-cannon-ball": 0.15,
       "12lb-canister-fire": 0.4,
-      "8lb-cannon-ball": 0.5,
+      "8lb-cannon-ball": 0.2,
       "8lb-canister-fire": 0.4,
-      "6lb-cannon-ball": 0.6,
+      "6lb-cannon-ball": 0.2,
       "6lb-canister-fire": 0.4,
-      "4lb-cannon-ball": 0.6,
+      "4lb-cannon-ball": 0.3,
       "4lb-canister-fire": 0.4,
-      "explosive-shell": 0.25,
-      "howitzer-canister": 0.04
+      "explosive-shell": 0.12,
+      "howitzer-canister": 0.4
     },
     "chargeResistanceModifier": {
       "infantry": 0.65,
@@ -232,7 +238,7 @@
     },
     "fixedEnemyCollisionLevel": 2,
     "pushStrengthModifier": 0.2,
-    "pushDistanceModifier": -0.2
+    "pushDistanceModifier": 2
   },
 
   "path": {
@@ -240,15 +246,16 @@
       "ship": true
     },
     "color": "#c9be98",
-    "staminaCostModifier": -0.75,
+    "staminaCostModifier": -0.5,
     "prioritizeMovement": true,
     "canPlaceObjectives": true,
     "movementModifier": {
-      "*": 0.3,
-      "midCavalry": 0.2,
-      "lightCavalry": 0.2,
-      "scoutCavalry": 0.2,
-      "heavyCavalry": 0.2
+      "*": 0.75,
+      "artillery": 0.3
+    },
+    "runSpeedModifier": {
+      "*": -0.25,
+      "artillery": 0.2
     },
     "pushStrengthModifier": 0.2,
     "pushDistanceModifier": 0.2

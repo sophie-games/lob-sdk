@@ -33,10 +33,10 @@
   "baseLevelExperience": "Alapszint tapasztalat",
   "experience": "Tapasztalat",
   "coalitionProgression": {
-    "title": "Koalíció bővítése",
-    "capacity": "{{current}} → {{next}} tag",
-    "maxCapacity": "{{count}} tag · maximális kapacitás",
-    "upgradeWith": "Bővítés ezzel: {{currency}}"
+    "title": "Koalíció szintje",
+    "fixedCapacity": "{{count}} tag · rögzített kapacitás",
+    "contribute": "{{amount}} florin hozzájárulás",
+    "completeWithPrestige": "Befejezés {{amount}} presztízsért"
   },
   "nextLevelExperience": "Következő szint tapasztalata",
   "season": "Szezon",
@@ -394,6 +394,20 @@
     "thanks": "Köszönöm, hogy csatlakoztál, {{name}}!",
     "p1": "Új vagy a <b>Lines of Battle</b> világában? Kezdd az <tutorialLink>oktatóanyaggal</tutorialLink>, hogy megismerd az alapvető mechanikákat az első csatád előtt."
   },
+  "gameTips": {
+    "running": {
+      "title": "Céllal fuss",
+      "description": "A legtöbb csapatnál a futás állóképességet fogyaszt, és könnyebben megtörnek, ha utána rohamot fogadnak. Menetelj, amíg nincs szükséged sebességre vagy rohamra."
+    },
+    "overlap": {
+      "title": "Ne halmozd egymásra az egységeket",
+      "description": "Az egymást átfedő szövetségesek lassabban mozognak, közelharcban kevésbé hatékonyan harcolnak, kevésbé támogatják egymást, és több szervezettségi sebzést szenvednek."
+    },
+    "terrain": {
+      "title": "Használd a terepet",
+      "description": "A terep módosítja a mozgást és a harcot. Az Infóban láthatod az egység aktuális módosítóit, és kiválaszthatod a megfelelő terepet."
+    }
+  },
   "turn": "Kör",
   "bank": "Tartalék",
   "cap": "Limit",
@@ -541,7 +555,10 @@
     "message": "A szervert jelenleg frissítik. Kérjük, próbálja meg néhány perc múlva újra."
   },
   "whatsNew": {
-    "title": "Mi újság"
+    "title": "Mi újság",
+    "xFollowTitle": "Kövesd a fejlesztést",
+    "xFollowDescription": "Nézd meg, min dolgozunk éppen, és mi várható legközelebb a Lines of Battle-ben.",
+    "xFollowAction": "@leofldev követése"
   },
   "arenas": "Arénák",
   "arena": {
@@ -731,7 +748,7 @@
     "largeScale": "Nagyszabású",
     "quickBattle": "Gyors csata",
     "playerScale": "Legfeljebb {{playersPerTeam}} oldalanként · Összesen {{minPlayers}} játékostól indul",
-    "rules": "{{maxTurn}} kör · {{timePresetName}}",
+    "rules": "{{maxTurn}} kör",
     "availableStatus": "Létrehozható",
     "creationCost": "Létrehozás költsége",
     "cooldownLabel": "Várakozási idő: {{cooldown}}",

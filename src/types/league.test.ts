@@ -13,7 +13,7 @@ import {
 describe("ELO_K_FACTOR_FLOORS", () => {
   it("owns the adaptive rating policy as ordered SDK data", () => {
     expect(ELO_K_FACTOR_FLOORS).toEqual([
-      { maxSettledRankedGamesExclusive: 10, minimumKFactor: 48 },
+      { maxSettledRankedGamesExclusive: 5, minimumKFactor: 64 },
       { maxSettledRankedGamesExclusive: 30, minimumKFactor: 40 },
       { maxSettledRankedGamesExclusive: 100, minimumKFactor: 32 },
     ]);
@@ -21,11 +21,11 @@ describe("ELO_K_FACTOR_FLOORS", () => {
 });
 
 describe("hasCompletedEloPlacements()", () => {
-  it("reveals the rating after ten settled ranked games", () => {
-    expect(ELO_PLACEMENT_GAMES).toBe(10);
-    expect(hasCompletedEloPlacements(9)).toBe(false);
-    expect(hasCompletedEloPlacements(10)).toBe(true);
-    expect(hasCompletedEloPlacements(11)).toBe(true);
+  it("reveals the rating after five settled ranked games", () => {
+    expect(ELO_PLACEMENT_GAMES).toBe(5);
+    expect(hasCompletedEloPlacements(4)).toBe(false);
+    expect(hasCompletedEloPlacements(5)).toBe(true);
+    expect(hasCompletedEloPlacements(6)).toBe(true);
   });
 });
 

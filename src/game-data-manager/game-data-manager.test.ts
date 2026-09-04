@@ -497,13 +497,13 @@ describe("GameDataManager", () => {
       const path = terrainCategories.path;
       expect(path).toBeDefined();
       if (path && path.movementModifier) {
-        // Overridden categories
-        expect(path.movementModifier.midCavalry).toBe(0.2);
-        expect(path.movementModifier.heavyCavalry).toBe(0.2);
-        
-        // Inherited categories
-        expect(path.movementModifier.infantry).toBe(0.3);
+        // Explicit override
         expect(path.movementModifier.artillery).toBe(0.3);
+
+        // Inherited categories
+        expect(path.movementModifier.midCavalry).toBe(0.75);
+        expect(path.movementModifier.heavyCavalry).toBe(0.75);
+        expect(path.movementModifier.infantry).toBe(0.75);
       }
     });
 
@@ -514,7 +514,7 @@ describe("GameDataManager", () => {
     });
 
     it("getRunSpeedModifier falls back to the movement modifier when unset", () => {
-      // No preset terrain sets runSpeedModifier, so run speed matches walk speed.
+      // Categories without a run override still use their walk modifier.
       expect(
         gameDataManager.getRunSpeedModifier(TerrainType.Mud, "infantry"),
       ).toBe(gameDataManager.getMovementModifier(TerrainType.Mud, "infantry"));

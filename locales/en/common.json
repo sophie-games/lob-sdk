@@ -72,10 +72,10 @@
   "baseLevelExperience": "Base level experience",
   "experience": "Experience",
   "coalitionProgression": {
-    "title": "Coalition expansion",
-    "capacity": "{{current}} → {{next}} members",
-    "maxCapacity": "{{count}} members · maximum capacity",
-    "upgradeWith": "Expand with {{currency}}"
+    "title": "Coalition level",
+    "fixedCapacity": "{{count}} members · fixed capacity",
+    "contribute": "Contribute {{amount}} Florins",
+    "completeWithPrestige": "Complete for {{amount}} Prestige"
   },
   "season": "Season",
   "time": "Time",
@@ -541,6 +541,20 @@
     "thanks": "Thank you for joining, {{name}}!",
     "p1": "New to <b>Lines of Battle</b>? Start with the <tutorialLink>tutorial</tutorialLink> to learn the core mechanics before your first battle."
   },
+  "gameTips": {
+    "running": {
+      "title": "Run deliberately",
+      "description": "For most troops, running spends stamina and makes them easier to break if charged afterward. Walk until you need speed or want to charge."
+    },
+    "overlap": {
+      "title": "Don't stack units",
+      "description": "Overlapping allies move slower, fight less effectively in melee, support each other less, and suffer more organization damage."
+    },
+    "terrain": {
+      "title": "Use the ground",
+      "description": "Terrain changes movement and combat. Open Info to see a unit's current modifiers and choose suitable ground."
+    }
+  },
   "turn": "Turn",
   "bank": "Bank",
   "cap": "Cap",
@@ -814,7 +828,7 @@
     "largeScale": "Large-scale",
     "quickBattle": "Quick battle",
     "playerScale": "Up to {{playersPerTeam}} per side · Starts from {{minPlayers}} total",
-    "rules": "{{maxTurn}} turns · {{timePresetName}}",
+    "rules": "{{maxTurn}} turns",
     "availableStatus": "Available to create",
     "creationCost": "Creation cost",
     "cooldownLabel": "Cooldown: {{cooldown}}",
@@ -1076,7 +1090,7 @@
   "errorWhenSubmittingOrders": "Error when submitting orders",
   "syncGame": "Sync game",
   "copyLogs": "Copy logs",
-  "copyLogsInstructions": "Want to report a bug? Please take a screenshot, copy the logs, and send them to Leo.",
+  "copyLogsInstructions": "Want to report a bug? Please take a screenshot, copy the logs, and send them to <leo>Leo</leo>.",
   "errorCheckingTimeout": "Error checking timeout",
   "removesX": "Removes {{x}}",
   "send": "Send",
@@ -1092,7 +1106,10 @@
   },
   "selectFormation": "Select formation",
   "whatsNew": {
-    "title": "Latest updates"
+    "title": "Latest updates",
+    "xFollowTitle": "Follow the development",
+    "xFollowDescription": "See what’s being worked on and what’s coming next for Lines of Battle.",
+    "xFollowAction": "Follow @leofldev"
   },
   "invitedPlayers": "Invited players",
   "partyInviteFrom": "Party invite from {{username}}",

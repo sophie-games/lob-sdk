@@ -31,10 +31,10 @@
   "baseLevelExperience": "Kinh nghiệm cơ bản cấp độ",
   "experience": "Kinh nghiệm",
   "coalitionProgression": {
-    "title": "Mở rộng liên minh",
-    "capacity": "{{current}} → {{next}} thành viên",
-    "maxCapacity": "{{count}} thành viên · sức chứa tối đa",
-    "upgradeWith": "Mở rộng bằng {{currency}}"
+    "title": "Cấp liên minh",
+    "fixedCapacity": "{{count}} thành viên · sức chứa cố định",
+    "contribute": "Đóng góp {{amount}} Florin",
+    "completeWithPrestige": "Hoàn tất với {{amount}} Uy danh"
   },
   "nextLevelExperience": "Kinh nghiệm cấp tiếp theo",
   "season": "Mùa",
@@ -408,6 +408,20 @@
     "thanks": "Cảm ơn bạn đã tham gia, {{name}}!",
     "p1": "Mới chơi <b>Lines of Battle</b>? Hãy bắt đầu với <tutorialLink>hướng dẫn</tutorialLink> để nắm các cơ chế cốt lõi trước trận đầu tiên của bạn."
   },
+  "gameTips": {
+    "running": {
+      "title": "Chỉ chạy khi có mục đích",
+      "description": "Với phần lớn quân, chạy tiêu hao thể lực và khiến họ dễ vỡ đội hình hơn nếu bị xung phong ngay sau đó. Hãy đi bộ cho đến khi cần tốc độ hoặc muốn xung phong."
+    },
+    "overlap": {
+      "title": "Đừng chồng đơn vị",
+      "description": "Đồng minh chồng lên nhau di chuyển chậm hơn, chiến đấu cận chiến kém hiệu quả hơn, hỗ trợ nhau ít hơn và chịu nhiều sát thương tổ chức hơn."
+    },
+    "terrain": {
+      "title": "Tận dụng địa hình",
+      "description": "Địa hình thay đổi di chuyển và chiến đấu. Mở Thông tin để xem các hệ số hiện tại của đơn vị và chọn địa hình phù hợp."
+    }
+  },
   "turn": "Lượt",
   "bank": "Dự trữ",
   "cap": "Giới hạn",
@@ -656,7 +670,7 @@
     "largeScale": "Quy mô lớn",
     "quickBattle": "Trận chiến nhanh",
     "playerScale": "Tối đa {{playersPerTeam}} mỗi bên · Bắt đầu từ tổng cộng {{minPlayers}} người chơi",
-    "rules": "{{maxTurn}} lượt · {{timePresetName}}",
+    "rules": "{{maxTurn}} lượt",
     "availableStatus": "Có thể tạo",
     "creationCost": "Chi phí tạo",
     "cooldownLabel": "Thời gian chờ: {{cooldown}}",
@@ -898,7 +912,7 @@
   "errorWhenSubmittingOrders": "Lỗi khi gửi lệnh",
   "syncGame": "Đồng bộ trò chơi",
   "copyLogs": "Sao chép nhật ký",
-  "copyLogsInstructions": "Muốn báo cáo lỗi? Vui lòng chụp ảnh màn hình, sao chép nhật ký và gửi cho Leo.",
+  "copyLogsInstructions": "Muốn báo cáo lỗi? Vui lòng chụp ảnh màn hình, sao chép nhật ký và gửi cho <leo>Leo</leo>.",
   "errorCheckingTimeout": "Lỗi kiểm tra timeout",
   "removesX": "Loại bỏ {{x}}",
   "send": "Gửi",
@@ -914,7 +928,10 @@
   },
   "selectFormation": "Chọn đội hình",
   "whatsNew": {
-    "title": "Có gì mới"
+    "title": "Có gì mới",
+    "xFollowTitle": "Theo dõi quá trình phát triển",
+    "xFollowDescription": "Xem những nội dung đang được phát triển và những gì sắp ra mắt trong Lines of Battle.",
+    "xFollowAction": "Theo dõi @leofldev"
   },
   "invitedPlayers": "Người chơi được mời",
   "partyInviteFrom": "Lời mời nhóm từ {{username}}",

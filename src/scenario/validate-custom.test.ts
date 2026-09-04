@@ -864,6 +864,30 @@ describe("validateScenarioCustomDefs", () => {
   });
 
   describe("custom unit templates", () => {
+    it.each([-0.01, 1.01, Number.POSITIVE_INFINITY, Number.NaN])(
+      "rejects an out-of-range casualty fraction (%p)",
+      (casualtyFractionAtZeroHp) => {
+        const errors = validateScenarioCustomDefs(
+          makeScenario({
+            customUnitTemplates: [
+              makeUnitTemplate({ casualtyFractionAtZeroHp }),
+            ],
+          }),
+          era
+        );
+
+        expect(
+          errors.some(
+            (error) =>
+              error.scope === "unitTemplate" &&
+              error.message.includes(
+                "casualtyFractionAtZeroHp must be between 0 and 1"
+              )
+          )
+        ).toBe(true);
+      }
+    );
+
     it("accepts a custom template with a type id below CUSTOM_UNIT_TYPE_MIN", () => {
       // Low ids are how scenarios target built-in slots for override (the
       // editor still defaults new templates to >= CUSTOM_UNIT_TYPE_MIN, but

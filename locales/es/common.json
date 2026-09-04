@@ -391,6 +391,20 @@
     "thanks": "Gracias por sumarte, {{name}}!",
     "p1": "¿Nuevo en <b>Lines of Battle</b>? Empieza con el <tutorialLink>tutorial</tutorialLink> para aprender las mecánicas básicas antes de tu primera batalla."
   },
+  "gameTips": {
+    "running": {
+      "title": "Corre con intención",
+      "description": "Para la mayoría de las tropas, correr consume resistencia y las vuelve más fáciles de quebrar si reciben una carga después. Camina hasta que necesites velocidad o quieras cargar."
+    },
+    "overlap": {
+      "title": "No amontones unidades",
+      "description": "Los aliados superpuestos se mueven más despacio, combaten con menos eficacia en cuerpo a cuerpo, se apoyan menos y sufren más daño de organización."
+    },
+    "terrain": {
+      "title": "Aprovecha el terreno",
+      "description": "El terreno modifica el movimiento y el combate. Abre Información para ver los modificadores actuales de una unidad y elegir un terreno adecuado."
+    }
+  },
   "turn": "Turno",
   "bank": "Reserva",
   "cap": "Límite",
@@ -516,10 +530,10 @@
   "baseLevelExperience": "Experiencia base del nivel",
   "experience": "Experiencia",
   "coalitionProgression": {
-    "title": "Expansión de la coalición",
-    "capacity": "{{current}} → {{next}} miembros",
-    "maxCapacity": "{{count}} miembros · capacidad máxima",
-    "upgradeWith": "Expandir con {{currency}}"
+    "title": "Nivel de la coalición",
+    "fixedCapacity": "{{count}} miembros · capacidad fija",
+    "contribute": "Aportar {{amount}} Florines",
+    "completeWithPrestige": "Completar por {{amount}} de Prestige"
   },
   "nextLevelExperience": "Experiencia del siguiente nivel",
   "season": "Temporada",
@@ -762,7 +776,7 @@
     "largeScale": "Gran escala",
     "quickBattle": "Batalla rápida",
     "playerScale": "Hasta {{playersPerTeam}} por bando · Comienza desde {{minPlayers}} en total",
-    "rules": "{{maxTurn}} turnos · {{timePresetName}}",
+    "rules": "{{maxTurn}} turnos",
     "availableStatus": "Disponible para crear",
     "creationCost": "Costo de creación",
     "cooldownLabel": "Cooldown: {{cooldown}}",
@@ -896,7 +910,10 @@
     "message": "El servidor se está actualizando. Por favor, inténtalo de nuevo en unos minutos."
   },
   "whatsNew": {
-    "title": "Últimas novedades"
+    "title": "Últimas novedades",
+    "xFollowTitle": "Sigue el desarrollo",
+    "xFollowDescription": "Descubre en qué se está trabajando y qué viene después para Lines of Battle.",
+    "xFollowAction": "Seguir a @leofldev"
   },
   "allVisible": "Todo Visible",
   "teamN": "Equipo {{number}}",

@@ -31,10 +31,10 @@
   "baseLevelExperience": "기본 레벨 경험치",
   "experience": "경험치",
   "coalitionProgression": {
-    "title": "연합 확장",
-    "capacity": "{{current}} → {{next}}명",
-    "maxCapacity": "{{count}}명 · 최대 정원",
-    "upgradeWith": "{{currency}}으로 확장"
+    "title": "연합 레벨",
+    "fixedCapacity": "{{count}}명 · 고정 정원",
+    "contribute": "{{amount}} 플로린 기부",
+    "completeWithPrestige": "{{amount}} 프레스티지로 완료"
   },
   "nextLevelExperience": "다음 레벨 경험치",
   "season": "시즌",
@@ -404,6 +404,20 @@
     "thanks": "{{name}}님, 가입해주셔서 감사합니다!",
     "p1": "<b>Lines of Battle</b>가 처음이신가요? 첫 전투 전에 <tutorialLink>튜토리얼</tutorialLink>로 핵심 메커니즘을 익혀 보세요."
   },
+  "gameTips": {
+    "running": {
+      "title": "목적을 두고 달리기",
+      "description": "대부분의 부대는 달리면 체력을 소모하고, 직후 돌격을 받으면 더 쉽게 무너집니다. 속도가 필요하거나 돌격할 때까지는 걸으세요."
+    },
+    "overlap": {
+      "title": "부대를 겹치지 않기",
+      "description": "겹친 아군은 이동이 느려지고 근접전에서 덜 효과적으로 싸우며, 서로의 지원이 줄고 더 많은 조직력 피해를 받습니다."
+    },
+    "terrain": {
+      "title": "지형 활용하기",
+      "description": "지형은 이동과 전투를 바꿉니다. 정보를 열어 부대의 현재 보정치를 확인하고 알맞은 지형을 선택하세요."
+    }
+  },
   "turn": "턴",
   "bank": "예비 시간",
   "cap": "상한",
@@ -723,7 +737,7 @@
     "largeScale": "대규모",
     "quickBattle": "빠른 전투",
     "playerScale": "진영당 최대 {{playersPerTeam}}명 · 총 {{minPlayers}}명부터 시작",
-    "rules": "{{maxTurn}}턴 · {{timePresetName}}",
+    "rules": "{{maxTurn}}턴",
     "availableStatus": "생성 가능",
     "creationCost": "생성 비용",
     "cooldownLabel": "재사용 대기시간: {{cooldown}}",
@@ -894,7 +908,7 @@
   "errorWhenSubmittingOrders": "명령 하달 중 오류",
   "syncGame": "게임 동기화",
   "copyLogs": "로그 복사",
-  "copyLogsInstructions": "버그를 신고하고 싶으신가요? 스크린샷을 찍고 로그를 복사해 레오에게 보내주세요.",
+  "copyLogsInstructions": "버그를 신고하고 싶으신가요? 스크린샷을 찍고 로그를 복사해 <leo>레오</leo>에게 보내주세요.",
   "errorCheckingTimeout": "확인 시간 초과 오류",
   "removesX": "{{x}} 제거",
   "send": "보내기",
@@ -910,7 +924,10 @@
   },
   "selectFormation": "진형 선택",
   "whatsNew": {
-    "title": "새로운 소식"
+    "title": "새로운 소식",
+    "xFollowTitle": "개발 소식 팔로우하기",
+    "xFollowDescription": "현재 개발 중인 내용과 Lines of Battle의 다음 계획을 확인해 보세요.",
+    "xFollowAction": "@leofldev 팔로우하기"
   },
   "invitedPlayers": "초대된 플레이어",
   "partyInviteFrom": "{{username}}의 초대",

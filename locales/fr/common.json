@@ -377,6 +377,20 @@
     "thanks": "Merci de nous joindre, {{name}}!",
     "p1": "Nouveau sur <b>Lines of Battle</b> ? Commencez par le <tutorialLink>tutoriel</tutorialLink> pour apprendre les mécaniques de base avant votre première bataille."
   },
+  "gameTips": {
+    "running": {
+      "title": "Courez à bon escient",
+      "description": "Pour la plupart des troupes, courir consomme de l'endurance et les rend plus faciles à briser si elles subissent ensuite une charge. Marchez jusqu'à ce que la vitesse ou une charge soit nécessaire."
+    },
+    "overlap": {
+      "title": "N'empilez pas les unités",
+      "description": "Les alliés qui se chevauchent se déplacent plus lentement, combattent moins efficacement au corps à corps, se soutiennent moins et subissent davantage de dégâts d'organisation."
+    },
+    "terrain": {
+      "title": "Utilisez le terrain",
+      "description": "Le terrain modifie le mouvement et le combat. Ouvrez Infos pour voir les modificateurs actuels d'une unité et choisir un terrain adapté."
+    }
+  },
   "turn": "Tour",
   "bank": "Réserve",
   "cap": "Plafond",
@@ -504,10 +518,10 @@
   "baseLevelExperience": "Expérience de base du niveau",
   "experience": "Expérience",
   "coalitionProgression": {
-    "title": "Expansion de la coalition",
-    "capacity": "{{current}} → {{next}} membres",
-    "maxCapacity": "{{count}} membres · capacité maximale",
-    "upgradeWith": "Agrandir avec {{currency}}"
+    "title": "Niveau de coalition",
+    "fixedCapacity": "{{count}} membres · capacité fixe",
+    "contribute": "Contribuer {{amount}} florins",
+    "completeWithPrestige": "Terminer pour {{amount}} Prestige"
   },
   "nextLevelExperience": "Expérience du niveau suivant",
   "season": "Saison",
@@ -606,7 +620,10 @@
     "message": "Le serveur est en cours de mise à jour. Veuillez réessayer dans quelques minutes."
   },
   "whatsNew": {
-    "title": "Quoi de neuf"
+    "title": "Quoi de neuf",
+    "xFollowTitle": "Suivez le développement",
+    "xFollowDescription": "Découvrez ce qui est en cours de développement et ce qui attend prochainement Lines of Battle.",
+    "xFollowAction": "Suivre @leofldev"
   },
   "arenas": "Arènes",
   "arena": {
@@ -725,7 +742,7 @@
     "largeScale": "Grande échelle",
     "quickBattle": "Bataille rapide",
     "playerScale": "Jusqu’à {{playersPerTeam}} par camp · Démarre à partir de {{minPlayers}} joueurs au total",
-    "rules": "{{maxTurn}} tours · {{timePresetName}}",
+    "rules": "{{maxTurn}} tours",
     "availableStatus": "Disponible à la création",
     "creationCost": "Coût de création",
     "cooldownLabel": "Délai d’attente : {{cooldown}}",

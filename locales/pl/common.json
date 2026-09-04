@@ -33,10 +33,10 @@
   "baseLevelExperience": "Podstawowe doświadczenie poziomu",
   "experience": "Doświadczenie",
   "coalitionProgression": {
-    "title": "Rozbudowa koalicji",
-    "capacity": "{{current}} → {{next}} członków",
-    "maxCapacity": "{{count}} członków · maksymalna pojemność",
-    "upgradeWith": "Rozbuduj za {{currency}}"
+    "title": "Poziom koalicji",
+    "fixedCapacity": "{{count}} członków · stały limit",
+    "contribute": "Wpłać {{amount}} florenów",
+    "completeWithPrestige": "Ukończ za {{amount}} prestiżu"
   },
   "nextLevelExperience": "Doświadczenie następnego poziomu",
   "season": "Sezon",
@@ -396,6 +396,20 @@
     "thanks": "Dobrze cię tu widzieć {{name}}!",
     "p1": "Nowy w <b>Lines of Battle</b>? Zacznij od <tutorialLink>samouczka</tutorialLink>, aby poznać podstawowe mechaniki przed pierwszą bitwą."
   },
+  "gameTips": {
+    "running": {
+      "title": "Biegaj z rozmysłem",
+      "description": "Dla większości wojsk bieg zużywa wytrzymałość i ułatwia ich złamanie, jeśli potem przyjmą szarżę. Maszeruj, dopóki nie potrzebujesz szybkości lub nie chcesz szarżować."
+    },
+    "overlap": {
+      "title": "Nie nakładaj jednostek",
+      "description": "Nakładający się sojusznicy poruszają się wolniej, walczą mniej skutecznie w zwarciu, słabiej się wspierają i otrzymują więcej obrażeń organizacji."
+    },
+    "terrain": {
+      "title": "Wykorzystuj teren",
+      "description": "Teren zmienia ruch i walkę. Otwórz Informacje, aby zobaczyć bieżące modyfikatory jednostki i wybrać odpowiedni teren."
+    }
+  },
   "turn": "Tura",
   "bank": "Rezerwa",
   "cap": "Limit",
@@ -725,7 +739,7 @@
     "largeScale": "Na dużą skalę",
     "quickBattle": "Szybka bitwa",
     "playerScale": "Do {{playersPerTeam}} graczy na stronę · Start od {{minPlayers}} graczy łącznie",
-    "rules": "{{maxTurn}} tur · {{timePresetName}}",
+    "rules": "{{maxTurn}} tur",
     "availableStatus": "Dostępna do utworzenia",
     "creationCost": "Koszt utworzenia",
     "cooldownLabel": "Czas odnowienia: {{cooldown}}",
@@ -882,14 +896,17 @@
   "errorWhenSubmittingOrders": "Błąd przy wysyłaniu rozkazów",
   "syncGame": "Synchronizuj grę",
   "copyLogs": "Skopiuj logi",
-  "copyLogsInstructions": "Chcesz zgłosić błąd? Proszę zrobić zrzut ekranu, skopiować logi i wysłać je do Leo.",
+  "copyLogsInstructions": "Chcesz zgłosić błąd? Proszę zrobić zrzut ekranu, skopiować logi i wysłać je do <leo>Leo</leo>.",
   "errorCheckingTimeout": "Error checking timeout",
   "serverUpdating": {
     "title": "Aktualizacja serwera",
     "message": "Serwer jest obecnie aktualizowany. Spróbuj ponownie za kilka minut."
   },
   "whatsNew": {
-    "title": "Co nowego"
+    "title": "Co nowego",
+    "xFollowTitle": "Śledź rozwój gry",
+    "xFollowDescription": "Zobacz, nad czym obecnie pracujemy i co pojawi się wkrótce w Lines of Battle.",
+    "xFollowAction": "Obserwuj @leofldev"
   },
   "allVisible": "Wszystko Widoczne",
   "teamN": "Drużyna {{number}}",

@@ -33,10 +33,10 @@
   "baseLevelExperience": "Basis-Level-Erfahrung",
   "experience": "Erfahrung",
   "coalitionProgression": {
-    "title": "Koalitionserweiterung",
-    "capacity": "{{current}} → {{next}} Mitglieder",
-    "maxCapacity": "{{count}} Mitglieder · maximale Kapazität",
-    "upgradeWith": "Mit {{currency}} erweitern"
+    "title": "Koalitionsstufe",
+    "fixedCapacity": "{{count}} Mitglieder · feste Kapazität",
+    "contribute": "{{amount}} Gulden beitragen",
+    "completeWithPrestige": "Für {{amount}} Prestige abschließen"
   },
   "nextLevelExperience": "Erfahrung für nächstes Level",
   "season": "Saison",
@@ -394,6 +394,20 @@
     "thanks": "Schön das Sie dabei sind, {{name}}!",
     "p1": "Neu bei <b>Lines of Battle</b>? Beginne mit dem <tutorialLink>Tutorial</tutorialLink>, um die grundlegenden Mechaniken vor deiner ersten Schlacht zu lernen."
   },
+  "gameTips": {
+    "running": {
+      "title": "Laufe gezielt",
+      "description": "Bei den meisten Truppen kostet Laufen Ausdauer und macht sie leichter zu brechen, wenn sie danach einen Sturmangriff abfangen. Gehe, bis du Tempo brauchst oder selbst angreifen willst."
+    },
+    "overlap": {
+      "title": "Staple keine Einheiten",
+      "description": "Überlappende Verbündete bewegen sich langsamer, kämpfen im Nahkampf weniger effektiv, unterstützen sich weniger und erleiden mehr Organisationsschaden."
+    },
+    "terrain": {
+      "title": "Nutze das Gelände",
+      "description": "Gelände verändert Bewegung und Kampf. Unter Info siehst du die aktuellen Modifikatoren einer Einheit und kannst passendes Gelände wählen."
+    }
+  },
   "turn": "Runde",
   "bank": "Zeitreserve",
   "cap": "Obergrenze",
@@ -593,7 +607,10 @@
     "message": "Der Server wird gerade aktualisiert. Bitte versuchen Sie es in ein paar Minuten erneut."
   },
   "whatsNew": {
-    "title": "Was ist neu"
+    "title": "Was ist neu",
+    "xFollowTitle": "Verfolge die Entwicklung",
+    "xFollowDescription": "Sieh dir an, woran gerade gearbeitet wird und was als Nächstes für Lines of Battle geplant ist.",
+    "xFollowAction": "@leofldev folgen"
   },
   "arenas": "Arenen",
   "arena": {
@@ -731,7 +748,7 @@
     "largeScale": "Groß angelegt",
     "quickBattle": "Schnellgefecht",
     "playerScale": "Bis zu {{playersPerTeam}} pro Seite · Start ab insgesamt {{minPlayers}} Spielern",
-    "rules": "{{maxTurn}} Runden · {{timePresetName}}",
+    "rules": "{{maxTurn}} Runden",
     "availableStatus": "Kann erstellt werden",
     "creationCost": "Erstellungskosten",
     "cooldownLabel": "Abklingzeit: {{cooldown}}",

@@ -31,10 +31,10 @@
   "baseLevelExperience": "خبرة المستوى الأساسية",
   "experience": "الخبرة",
   "coalitionProgression": {
-    "title": "توسعة الائتلاف",
-    "capacity": "{{current}} ← {{next}} عضوًا",
-    "maxCapacity": "{{count}} عضوًا · السعة القصوى",
-    "upgradeWith": "التوسعة باستخدام {{currency}}"
+    "title": "مستوى الائتلاف",
+    "fixedCapacity": "{{count}} عضوًا · سعة ثابتة",
+    "contribute": "ساهم بـ {{amount}} فلورين",
+    "completeWithPrestige": "أكمل مقابل {{amount}} بريستيج"
   },
   "nextLevelExperience": "خبرة المستوى التالي",
   "season": "الموسم",
@@ -408,6 +408,20 @@
     "thanks": "شكراً لك على الانضمام، {{name}}!",
     "p1": "جديد في <b>Lines of Battle</b>؟ ابدأ بـ<tutorialLink>البرنامج التعليمي</tutorialLink> لتتعلّم الآليات الأساسية قبل معركتك الأولى."
   },
+  "gameTips": {
+    "running": {
+      "title": "اركض لهدف",
+      "description": "بالنسبة لمعظم القوات، يستهلك الركض القدرة على التحمل ويجعلها أسهل انكسارا إذا تعرضت لهجوم اندفاعي بعده. سر حتى تحتاج إلى السرعة أو تريد الاندفاع."
+    },
+    "overlap": {
+      "title": "لا تكدس الوحدات",
+      "description": "تتحرك الوحدات الحليفة المتداخلة ببطء أكبر، وتقاتل بكفاءة أقل في الاشتباك القريب، وتتساند بدرجة أقل، وتتلقى ضرر تنظيم أكبر."
+    },
+    "terrain": {
+      "title": "استغل الأرض",
+      "description": "تغير التضاريس الحركة والقتال. افتح المعلومات لرؤية معدلات الوحدة الحالية واختيار التضاريس المناسبة."
+    }
+  },
   "turn": "دور",
   "bank": "الرصيد",
   "cap": "الحد",
@@ -657,7 +671,7 @@
     "largeScale": "واسعة النطاق",
     "quickBattle": "معركة سريعة",
     "playerScale": "حتى {{playersPerTeam}} لكل جانب · تبدأ من {{minPlayers}} لاعبًا إجمالًا",
-    "rules": "{{maxTurn}} دورًا · {{timePresetName}}",
+    "rules": "{{maxTurn}} دورًا",
     "availableStatus": "متاحة للإنشاء",
     "creationCost": "تكلفة الإنشاء",
     "cooldownLabel": "فترة الانتظار: {{cooldown}}",
@@ -899,7 +913,7 @@
   "errorWhenSubmittingOrders": "خطأ عند إرسال الأوامر",
   "syncGame": "مزامنة اللعبة",
   "copyLogs": "نسخ السجلات",
-  "copyLogsInstructions": "تريد الإبلاغ عن خطأ؟ يرجى التقاط لقطة شاشة، ونسخ السجلات، وإرسالها إلى ليو.",
+  "copyLogsInstructions": "تريد الإبلاغ عن خطأ؟ يرجى التقاط لقطة شاشة، ونسخ السجلات، وإرسالها إلى <leo>ليو</leo>.",
   "errorCheckingTimeout": "خطأ في فحص المهلة الزمنية",
   "removesX": "يزيل {{x}}",
   "send": "إرسال",
@@ -915,7 +929,10 @@
   },
   "selectFormation": "اختيار التشكيل",
   "whatsNew": {
-    "title": "ما الجديد"
+    "title": "ما الجديد",
+    "xFollowTitle": "تابع عملية التطوير",
+    "xFollowDescription": "اطّلع على ما يجري العمل عليه وما هو قادم بعد ذلك في Lines of Battle.",
+    "xFollowAction": "تابع @leofldev"
   },
   "invitedPlayers": "لاعبون مدعوون",
   "partyInviteFrom": "دعوة مجموعة من {{username}}",

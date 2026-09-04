@@ -32,10 +32,10 @@
   "baseLevelExperience": "基础经验值",
   "experience": "经验值",
   "coalitionProgression": {
-    "title": "联盟扩建",
-    "capacity": "{{current}} → {{next}}名成员",
-    "maxCapacity": "{{count}}名成员 · 最大容量",
-    "upgradeWith": "使用{{currency}}扩建"
+    "title": "联盟等级",
+    "fixedCapacity": "{{count}}名成员 · 固定容量",
+    "contribute": "贡献{{amount}}弗罗林",
+    "completeWithPrestige": "花费{{amount}}声望完成"
   },
   "season": "赛季",
   "time": "时间",
@@ -410,6 +410,20 @@
     "thanks": "欢迎您的加入，{{name}}！",
     "p1": "初次接触 <b>Lines of Battle</b>？先从<tutorialLink>教程</tutorialLink>开始，在首场战斗前掌握核心机制。"
   },
+  "gameTips": {
+    "running": {
+      "title": "有目的地奔跑",
+      "description": "对大多数部队来说，奔跑会消耗耐力，并使其在随后遭受冲锋时更容易崩溃。在需要速度或准备冲锋前请保持行走。"
+    },
+    "overlap": {
+      "title": "不要堆叠部队",
+      "description": "重叠的友军移动更慢，近战效率更低，相互支援更弱，并会承受更多组织度伤害。"
+    },
+    "terrain": {
+      "title": "利用地形",
+      "description": "地形会改变移动和战斗。打开“信息”查看部队当前的修正效果，并选择合适的地形。"
+    }
+  },
   "turn": "回合",
   "bank": "储备",
   "cap": "上限",
@@ -658,7 +672,7 @@
     "largeScale": "大规模",
     "quickBattle": "快速战斗",
     "playerScale": "每方最多 {{playersPerTeam}} 人 · 总计 {{minPlayers}} 人起",
-    "rules": "{{maxTurn}} 回合 · {{timePresetName}}",
+    "rules": "{{maxTurn}} 回合",
     "availableStatus": "可创建",
     "creationCost": "创建费用",
     "cooldownLabel": "冷却时间：{{cooldown}}",
@@ -899,7 +913,7 @@
   "errorWhenSubmittingOrders": "提交指令时出现错误",
   "syncGame": "同步对局",
   "copyLogs": "复制日志",
-  "copyLogsInstructions": "想报告bug吗？请保存截屏，复制日志，然后把它们发给Leo。",
+  "copyLogsInstructions": "想报告bug吗？请保存截屏，复制日志，然后把它们发给<leo>Leo</leo>。",
   "errorCheckingTimeout": "错误检查超时",
   "removesX": "移除{{x}}",
   "send": "发送",
@@ -915,7 +929,10 @@
   },
   "selectFormation": "选择阵型",
   "whatsNew": {
-    "title": "最新动态"
+    "title": "最新动态",
+    "xFollowTitle": "关注开发进展",
+    "xFollowDescription": "了解 Lines of Battle 正在开发的内容以及接下来的计划。",
+    "xFollowAction": "关注 @leofldev"
   },
   "invitedPlayers": "邀请玩家",
   "partyInviteFrom": "来自{{username}}的组队邀请",
