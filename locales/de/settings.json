@@ -136,6 +136,10 @@
     "title": "Befehlstyp gilt für die Auswahl",
     "description": "An: Das Ändern des Bewegungstyps wendet ihn auf die aktuellen Befehle der ausgewählten Einheiten an, und die Befehlsschaltfläche folgt deiner Auswahl. Aus: Legt nur den Typ für den nächsten gezeichneten Befehl fest (klassisch)."
   },
+  "showAutomaticOrder": {
+    "title": "Automatischen Befehl anzeigen",
+    "description": "Fügt dem Befehlswähler die clientseitige Option Automatisch hinzu. Deaktiviere sie, um nur manuelle Befehlstypen zu verwenden."
+  },
   "showChat": {
     "title": "Chat anzeigen"
   },

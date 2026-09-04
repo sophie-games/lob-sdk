@@ -133,6 +133,10 @@
     "title": "Le type d'ordre s'applique à la sélection",
     "description": "Activé : changer le type de mouvement le réapplique aux ordres actuels des unités sélectionnées, et le bouton d'ordre suit votre sélection. Désactivé : il définit seulement le type du prochain ordre que vous tracez (classique)."
   },
+  "showAutomaticOrder": {
+    "title": "Afficher l’ordre Automatique",
+    "description": "Ajoute l’option Automatique côté client au sélecteur d’ordres. Désactivez-la pour n’utiliser que les ordres manuels."
+  },
   "showChat": {
     "title": "Afficher le chat"
   },

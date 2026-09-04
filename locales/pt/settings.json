@@ -136,6 +136,10 @@
     "title": "O tipo de ordem aplica-se à seleção",
     "description": "Ligado: mudar o tipo de movimento reaplica-o às ordens atuais das unidades selecionadas, e o botão de ordem segue a sua seleção. Desligado: apenas define o tipo da próxima ordem que desenhar (clássico)."
   },
+  "showAutomaticOrder": {
+    "title": "Mostrar ordem Automática",
+    "description": "Adiciona a opção Automática do cliente ao seletor de ordens. Desative-a para usar apenas ordens manuais."
+  },
   "keybindings": {
     "rotateCameraLeft": "Girar câmera para a esquerda",
     "rotateCameraRight": "Girar câmera para a direita",

@@ -136,6 +136,10 @@
     "title": "El tipo de orden se aplica a la selección",
     "description": "Activado: cambiar el tipo de movimiento reasigna las órdenes actuales de las unidades seleccionadas y el botón de orden refleja tu selección. Desactivado: solo define el tipo de la próxima orden que dibujes (clásico)."
   },
+  "showAutomaticOrder": {
+    "title": "Mostrar la orden Automática",
+    "description": "Agrega la opción Automática del cliente al selector de órdenes. Desactívala para usar solamente tipos de orden manuales."
+  },
   "showChat": {
     "title": "Mostrar chat"
   },

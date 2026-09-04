@@ -413,8 +413,10 @@
     "3": "Schießen",
     "4": "Feuern und Vorrücken",
     "6": "Zurückfallen",
-    "7": "Ausrichten"
+    "7": "Ausrichten",
+    "automatic": "Automatisch"
   },
+  "automaticOrderDescription": "Wählt für jede Einheit anhand von Ziel, Weg, sichtbaren Feinden und aktuellem Zustand Gehen, Laufen, Schießen, Feuern und Vorrücken oder Zurückfallen.",
   "selectOrder": "Befehl auswählen",
   "orderType": "Befehlstyp",
   "autofire": "Automatisches Feuern",

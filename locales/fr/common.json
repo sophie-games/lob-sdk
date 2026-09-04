@@ -396,8 +396,10 @@
     "3": "Tirer",
     "4": "Tirer en avançant",
     "6": "Reculer",
-    "7": "Se tourner"
+    "7": "Se tourner",
+    "automatic": "Automatique"
   },
+  "automaticOrderDescription": "Choisit Marcher, Courir, Tirer, Tirer en avançant ou Reculer pour chaque unité selon la cible, le chemin, les ennemis visibles et son état actuel.",
   "selectOrder": "Sélectionner un ordre",
   "orderType": "Type d'ordre",
   "autofire": "Tir automatique",

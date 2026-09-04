@@ -136,6 +136,10 @@
     "title": "Typ rozkazu dotyczy zaznaczenia",
     "description": "Wł.: zmiana typu ruchu zmienia bieżące rozkazy zaznaczonych jednostek, a przycisk rozkazu odzwierciedla zaznaczenie. Wył.: ustawia tylko typ następnego rysowanego rozkazu (klasycznie)."
   },
+  "showAutomaticOrder": {
+    "title": "Pokaż rozkaz automatyczny",
+    "description": "Dodaje kliencką opcję Automatycznie do wyboru rozkazów. Wyłącz ją, aby używać tylko rozkazów ręcznych."
+  },
   "keybindings": {
     "rotateCameraLeft": "Obróć kamerę w lewo",
     "rotateCameraRight": "Obróć kamerę w prawo",

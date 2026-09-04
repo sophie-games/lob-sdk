@@ -413,8 +413,10 @@
     "3": "Célpont megadása",
     "4": "Mozgás közben lő",
     "6": "Visszahúzódás",
-    "7": "Szembenéz"
+    "7": "Szembenéz",
+    "automatic": "Automatikus"
   },
+  "automaticOrderDescription": "Minden egységhez a célpont, az útvonal, a látható ellenségek és az egység állapota alapján választ Séta, Futás, Lövés, Mozgás közbeni lövés vagy Visszahúzódás parancsot.",
   "selectOrder": "Utasítás Kiválasztása",
   "orderType": "Parancs típusa",
   "autofire": "Automatikus tüzelés",
