@@ -48,7 +48,7 @@ export interface LeagueProgress {
 }
 
 /** Settled ranked games required before the current rating is revealed. */
-export const ELO_PLACEMENT_GAMES = 10;
+export const ELO_PLACEMENT_GAMES = 5;
 
 export interface EloKFactorFloor {
   /** This floor applies while the settled ranked-game count is below this value. */
@@ -60,7 +60,7 @@ export interface EloKFactorFloor {
 export const ELO_K_FACTOR_FLOORS: readonly EloKFactorFloor[] = [
   {
     maxSettledRankedGamesExclusive: ELO_PLACEMENT_GAMES,
-    minimumKFactor: 48,
+    minimumKFactor: 64,
   },
   { maxSettledRankedGamesExclusive: 30, minimumKFactor: 40 },
   { maxSettledRankedGamesExclusive: 100, minimumKFactor: 32 },
