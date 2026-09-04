@@ -68,10 +68,10 @@
   "baseLevelExperience": "Base level experience",
   "experience": "Experience",
   "coalitionProgression": {
-    "title": "Coalition expansion",
-    "capacity": "{{current}} → {{next}} members",
-    "maxCapacity": "{{count}} members · maximum capacity",
-    "upgradeWith": "Expand with {{currency}}"
+    "title": "Coalition level",
+    "fixedCapacity": "{{count}} members · fixed capacity",
+    "contribute": "Contribute {{amount}} Florins",
+    "completeWithPrestige": "Complete for {{amount}} Prestige"
   },
   "season": "Season",
   "time": "Time",

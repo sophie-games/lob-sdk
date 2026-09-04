@@ -33,10 +33,10 @@
   "baseLevelExperience": "Temel seviye deneyimi",
   "experience": "Deneyim",
   "coalitionProgression": {
-    "title": "Koalisyon genişletme",
-    "capacity": "{{current}} → {{next}} üye",
-    "maxCapacity": "{{count}} üye · azami kapasite",
-    "upgradeWith": "{{currency}} ile genişlet"
+    "title": "Koalisyon seviyesi",
+    "fixedCapacity": "{{count}} üye · sabit kapasite",
+    "contribute": "{{amount}} Florin katkıda bulun",
+    "completeWithPrestige": "{{amount}} Prestij ile tamamla"
   },
   "nextLevelExperience": "Sonraki seviye deneyimi",
   "season": "Sezon",

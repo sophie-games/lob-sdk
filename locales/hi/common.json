@@ -31,10 +31,10 @@
   "baseLevelExperience": "आधार स्तर अनुभव",
   "experience": "अनुभव",
   "coalitionProgression": {
-    "title": "गठबंधन विस्तार",
-    "capacity": "{{current}} → {{next}} सदस्य",
-    "maxCapacity": "{{count}} सदस्य · अधिकतम क्षमता",
-    "upgradeWith": "{{currency}} से विस्तार करें"
+    "title": "गठबंधन स्तर",
+    "fixedCapacity": "{{count}} सदस्य · निश्चित क्षमता",
+    "contribute": "{{amount}} फ़्लोरिन का योगदान दें",
+    "completeWithPrestige": "{{amount}} प्रेस्टीज में पूरा करें"
   },
   "nextLevelExperience": "अगले स्तर का अनुभव",
   "season": "सीज़न",

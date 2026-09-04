@@ -522,10 +522,10 @@
   "baseLevelExperience": "Expérience de base du niveau",
   "experience": "Expérience",
   "coalitionProgression": {
-    "title": "Expansion de la coalition",
-    "capacity": "{{current}} → {{next}} membres",
-    "maxCapacity": "{{count}} membres · capacité maximale",
-    "upgradeWith": "Agrandir avec {{currency}}"
+    "title": "Niveau de coalition",
+    "fixedCapacity": "{{count}} membres · capacité fixe",
+    "contribute": "Contribuer {{amount}} florins",
+    "completeWithPrestige": "Terminer pour {{amount}} Prestige"
   },
   "nextLevelExperience": "Expérience du niveau suivant",
   "season": "Saison",

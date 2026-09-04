@@ -33,10 +33,10 @@
   "baseLevelExperience": "Βασική εμπειρία επιπέδου",
   "experience": "Εμπειρία",
   "coalitionProgression": {
-    "title": "Επέκταση συνασπισμού",
-    "capacity": "{{current}} → {{next}} μέλη",
-    "maxCapacity": "{{count}} μέλη · μέγιστη χωρητικότητα",
-    "upgradeWith": "Επέκταση με {{currency}}"
+    "title": "Επίπεδο συνασπισμού",
+    "fixedCapacity": "{{count}} μέλη · σταθερή χωρητικότητα",
+    "contribute": "Συνεισφορά {{amount}} Florins",
+    "completeWithPrestige": "Ολοκλήρωση για {{amount}} Prestige"
   },
   "nextLevelExperience": "Εμπειρία επόμενου επιπέδου",
   "season": "Σεζόν",

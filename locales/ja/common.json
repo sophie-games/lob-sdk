@@ -30,10 +30,10 @@
   "baseLevelExperience": "基本レベル経験値",
   "experience": "経験値",
   "coalitionProgression": {
-    "title": "連合拡張",
-    "capacity": "{{current}} → {{next}}人",
-    "maxCapacity": "{{count}}人 · 最大人数",
-    "upgradeWith": "{{currency}}で拡張"
+    "title": "連合レベル",
+    "fixedCapacity": "{{count}}人 · 定員固定",
+    "contribute": "{{amount}}フローリンを寄付",
+    "completeWithPrestige": "{{amount}}プレステージで完了"
   },
   "season": "シーズン",
   "time": "時間",

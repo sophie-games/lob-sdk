@@ -31,10 +31,10 @@
   "baseLevelExperience": "خبرة المستوى الأساسية",
   "experience": "الخبرة",
   "coalitionProgression": {
-    "title": "توسعة الائتلاف",
-    "capacity": "{{current}} ← {{next}} عضوًا",
-    "maxCapacity": "{{count}} عضوًا · السعة القصوى",
-    "upgradeWith": "التوسعة باستخدام {{currency}}"
+    "title": "مستوى الائتلاف",
+    "fixedCapacity": "{{count}} عضوًا · سعة ثابتة",
+    "contribute": "ساهم بـ {{amount}} فلورين",
+    "completeWithPrestige": "أكمل مقابل {{amount}} بريستيج"
   },
   "nextLevelExperience": "خبرة المستوى التالي",
   "season": "الموسم",

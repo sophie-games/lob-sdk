@@ -33,10 +33,10 @@
   "baseLevelExperience": "Podstawowe doświadczenie poziomu",
   "experience": "Doświadczenie",
   "coalitionProgression": {
-    "title": "Rozbudowa koalicji",
-    "capacity": "{{current}} → {{next}} członków",
-    "maxCapacity": "{{count}} członków · maksymalna pojemność",
-    "upgradeWith": "Rozbuduj za {{currency}}"
+    "title": "Poziom koalicji",
+    "fixedCapacity": "{{count}} członków · stały limit",
+    "contribute": "Wpłać {{amount}} florenów",
+    "completeWithPrestige": "Ukończ za {{amount}} prestiżu"
   },
   "nextLevelExperience": "Doświadczenie następnego poziomu",
   "season": "Sezon",
