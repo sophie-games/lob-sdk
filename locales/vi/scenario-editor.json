@@ -523,7 +523,9 @@
       "importFromScenario": "Nhập từ kịch bản",
       "duplicate": "Nhân bản",
       "inThisScenario": "Trong kịch bản này",
-      "builtIntoThisEra": "Tích hợp trong thời đại này"
+      "builtIntoThisEra": "Tích hợp trong thời đại này",
+      "resetToEra": "Đặt lại về thời đại",
+      "resetAllToEra": "Đặt lại tất cả về thời đại"
     },
     "spritesPanel": {
       "title": "Sprite đơn vị",
@@ -589,7 +591,6 @@
       "clonePickerTitle": "Nhân bản một danh mục địa hình tích hợp"
     },
     "overrideEditor": {
-      "reset": "Đặt lại",
       "eraDefault": "mặc định thời đại: {{value}}",
       "structuralTooltip": "Hằng số cấu trúc / tất định. Thay đổi nó có thể làm hỏng hiển thị, bản ghi hoặc ghép trận."
     },
@@ -637,7 +638,7 @@
     },
     "gameConstants": {
       "title": "Hằng số trò chơi",
-      "description": "Ghi đè các hằng số dạng số của thời đại này cho kịch bản này. Chỉ lưu các giá trị đã thay đổi; Đặt lại đưa một trường về mặc định thời đại. Các khóa đánh dấu ⚠ là cấu trúc - thay đổi chúng có thể làm hỏng hiển thị, bản ghi hoặc ghép trận. Các giá trị là đơn vị nội bộ thô.",
+      "description": "Đây là những con số nền tảng của thời đại: một lượt kéo dài bao lâu, một ô rộng bao nhiêu, một trận đánh diễn ra bao nhiêu lượt. Những gì bạn thay đổi chỉ áp dụng cho kịch bản này, và mọi giá trị đều có thể đưa về giá trị gốc của trò chơi.",
       "category": {
         "mapDimensions": "Kích thước bản đồ",
         "deployment": "Triển khai",
@@ -661,11 +662,11 @@
     },
     "gameRules": {
       "title": "Quy tắc trò chơi",
-      "description": "Ghi đè quy tắc lối chơi của thời đại này cho kịch bản này. Chỉ lưu các giá trị đã thay đổi; dùng Đặt lại để đưa một trường về mặc định thời đại. Các giá trị là đơn vị nội bộ thô (một số thống kê được lưu đã quy đổi sẵn)."
+      "description": "Đây là các hệ thống vận hành thời đại của bạn, từ cách các đơn vị giữ vững tinh thần đến cách thắng một trận đánh. Những gì bạn thay đổi chỉ áp dụng cho kịch bản này, và mọi giá trị đều có thể đưa về giá trị gốc của trò chơi. Các con số dùng đơn vị riêng của trò chơi, nên có thể không phải mét hay phút."
     },
     "ordersPanel": {
       "title": "Lệnh",
-      "description": "Ghi đè giá trị của các lệnh tích hợp của thời đại này cho kịch bản này. Chỉ lưu các giá trị đã thay đổi; dùng Đặt lại để đưa một trường về mặc định thời đại. Bạn có thể sửa các lệnh hiện có nhưng không thể thêm lệnh mới."
+      "description": "Mệnh lệnh là những chỉ thị người chơi có thể ra cho một đơn vị trong trận đánh. Tại đây bạn có thể tinh chỉnh mệnh lệnh của thời đại cho kịch bản này, nhưng không thể tạo mệnh lệnh mới. Mọi giá trị đều có thể đưa về giá trị gốc của trò chơi."
     },
     "clonePicker": {
       "alreadyOverridden": "(đã ghi đè)",

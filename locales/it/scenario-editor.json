@@ -525,7 +525,9 @@
       "importFromScenario": "Importa da scenario",
       "duplicate": "Duplica",
       "inThisScenario": "In questo scenario",
-      "builtIntoThisEra": "Integrato in questa epoca"
+      "builtIntoThisEra": "Integrato in questa epoca",
+      "resetToEra": "Reimposta all'epoca",
+      "resetAllToEra": "Reimposta tutto all'epoca"
     },
     "spritesPanel": {
       "title": "Sprite di unità",
@@ -591,7 +593,6 @@
       "clonePickerTitle": "Clona una categoria di terreno integrata"
     },
     "overrideEditor": {
-      "reset": "Reimposta",
       "eraDefault": "predefinito epoca: {{value}}",
       "structuralTooltip": "Costante strutturale / di determinismo. Modificarla può compromettere rendering, replay o matchmaking."
     },
@@ -640,7 +641,7 @@
     },
     "gameConstants": {
       "title": "Costanti di gioco",
-      "description": "Sovrascrivi le costanti numeriche di questa epoca per questo scenario. Vengono salvati solo i valori modificati; Reimposta riporta un campo al predefinito dell'epoca. Le chiavi contrassegnate con ⚠ sono strutturali - modificarle può compromettere rendering, replay o matchmaking. I valori sono in unità interne grezze.",
+      "description": "Questi sono i numeri di base dell'epoca: quanto dura un turno, quanto è grande una casella, quanti turni dura una battaglia. Ciò che modifichi vale solo per questo scenario, e qualsiasi valore può essere riportato a quello del gioco.",
       "category": {
         "mapDimensions": "Dimensioni mappa",
         "deployment": "Schieramento",
@@ -664,11 +665,11 @@
     },
     "gameRules": {
       "title": "Regole di gioco",
-      "description": "Sovrascrivi le regole di gioco di questa epoca per questo scenario. Vengono salvati solo i valori modificati; usa Reimposta per riportare un campo al predefinito dell'epoca. I valori sono in unità interne grezze (alcune statistiche sono memorizzate pre-scalate)."
+      "description": "Questi sono i sistemi su cui si regge la tua epoca, da come le unità tengono il morale a come si vince una battaglia. Ciò che modifichi vale solo per questo scenario, e qualsiasi valore può essere riportato a quello del gioco. I numeri sono nelle unità di misura del gioco, quindi una cifra potrebbe non corrispondere a metri o minuti."
     },
     "ordersPanel": {
       "title": "Ordini",
-      "description": "Sovrascrivi i valori degli ordini integrati di questa epoca per questo scenario. Vengono salvati solo i valori modificati; usa Reimposta per riportare un campo al predefinito dell'epoca. Puoi modificare gli ordini esistenti ma non aggiungerne di nuovi."
+      "description": "Gli ordini sono le istruzioni che un giocatore può dare a un'unità durante la battaglia. Qui puoi ritarare gli ordini dell'epoca per questo scenario, ma non puoi inventarne di nuovi. Qualsiasi valore può essere riportato a quello del gioco."
     },
     "clonePicker": {
       "alreadyOverridden": "(già sovrascritto)",

@@ -525,7 +525,9 @@
       "importFromScenario": "Importer depuis un scénario",
       "duplicate": "Dupliquer",
       "inThisScenario": "Dans ce scénario",
-      "builtIntoThisEra": "Intégré à cette ère"
+      "builtIntoThisEra": "Intégré à cette ère",
+      "resetToEra": "Réinitialiser à l'époque",
+      "resetAllToEra": "Tout réinitialiser à l'époque"
     },
     "spritesPanel": {
       "title": "Sprites d'unités",
@@ -591,7 +593,6 @@
       "clonePickerTitle": "Cloner une catégorie de terrain intégrée"
     },
     "overrideEditor": {
-      "reset": "Réinitialiser",
       "eraDefault": "défaut de l'époque : {{value}}",
       "structuralTooltip": "Constante structurelle / de déterminisme. La modifier peut casser le rendu, les replays ou l'appariement."
     },
@@ -640,7 +641,7 @@
     },
     "gameConstants": {
       "title": "Constantes du jeu",
-      "description": "Remplacez les constantes numériques de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; Réinitialiser ramène un champ au défaut de l'époque. Les clés marquées ⚠ sont structurelles - les modifier peut casser le rendu, les replays ou l'appariement. Les valeurs sont en unités internes brutes.",
+      "description": "Voici les nombres fondamentaux de l'époque : la durée d'un tour, la taille d'une case, le nombre de tours d'une bataille. Vos modifications ne valent que pour ce scénario, et toute valeur peut être ramenée à celle du jeu.",
       "category": {
         "mapDimensions": "Dimensions de la carte",
         "deployment": "Déploiement",
@@ -664,11 +665,11 @@
     },
     "gameRules": {
       "title": "Règles du jeu",
-      "description": "Remplacez les règles de jeu de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; utilisez Réinitialiser pour ramener un champ au défaut de l'époque. Les valeurs sont en unités internes brutes (certaines statistiques sont stockées pré-échelonnées)."
+      "description": "Voici les systèmes sur lesquels repose votre époque, de la tenue des unités à la manière dont une bataille se gagne. Vos modifications ne valent que pour ce scénario, et toute valeur peut être ramenée à celle du jeu. Les nombres sont exprimés dans les unités du jeu : un chiffre ne correspond donc pas forcément à des mètres ou des minutes."
     },
     "ordersPanel": {
       "title": "Ordres",
-      "description": "Remplacez les valeurs des ordres intégrés de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; utilisez Réinitialiser pour ramener un champ au défaut de l'époque. Vous pouvez modifier les ordres existants mais pas en ajouter de nouveaux."
+      "description": "Les ordres sont les instructions qu'un joueur peut donner à une unité pendant la bataille. Vous pouvez ici réajuster les ordres de l'époque pour ce scénario, mais pas en inventer de nouveaux. Toute valeur peut être ramenée à celle du jeu."
     },
     "clonePicker": {
       "alreadyOverridden": "(déjà remplacé)",
