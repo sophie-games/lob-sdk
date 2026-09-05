@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Opasitas perintah terpilih",
+    "description": "Opasitas panah dan pratinjau tujuan unit terpilih, atau semua unit jika tidak ada yang dipilih. 0% menyembunyikannya."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Opasitas perintah tidak terpilih",
+    "description": "Opasitas panah dan pratinjau tujuan unit lain saat ada unit yang dipilih. 0% menyembunyikannya."
+  },
   "gameplay": "Gameplay",
   "graphics": "Grafik",
   "camera": "Kamera",

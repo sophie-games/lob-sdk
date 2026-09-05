@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Opacité des ordres sélectionnés",
+    "description": "Opacité des flèches et des aperçus de destination des unités sélectionnées, ou de toutes les unités si aucune n’est sélectionnée. 0% les masque."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Opacité des ordres non sélectionnés",
+    "description": "Opacité des flèches et des aperçus de destination des autres unités lorsque des unités sont sélectionnées. 0% les masque."
+  },
   "gameplay": "Jouabilité",
   "graphics": "Graphismes",
   "camera": "Caméra",

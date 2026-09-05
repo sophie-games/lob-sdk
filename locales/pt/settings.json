@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Opacidade das ordens selecionadas",
+    "description": "Opacidade das setas e prévias de destino das unidades selecionadas, ou de todas quando nenhuma está selecionada. 0% as oculta."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Opacidade das ordens não selecionadas",
+    "description": "Opacidade das setas e prévias de destino das outras unidades enquanto há unidades selecionadas. 0% as oculta."
+  },
   "gameplay": "Jogabilidade",
   "graphics": "Gráficos",
   "camera": "Câmera",

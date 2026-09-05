@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Opacità degli ordini selezionati",
+    "description": "Opacità delle frecce e delle anteprime di destinazione delle unità selezionate, o di tutte le unità se nessuna è selezionata. Lo 0% le nasconde."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Opacità degli ordini non selezionati",
+    "description": "Opacità delle frecce e delle anteprime di destinazione delle altre unità quando ci sono unità selezionate. Lo 0% le nasconde."
+  },
   "gameplay": "Giocabilità",
   "graphics": "Grafica",
   "camera": "Fotocamera",

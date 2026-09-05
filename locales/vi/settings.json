@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Độ mờ đục của lệnh đã chọn",
+    "description": "Độ mờ đục của mũi tên và hình xem trước vị trí đích của đơn vị đã chọn, hoặc tất cả đơn vị khi không chọn đơn vị nào. 0% sẽ ẩn chúng."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Độ mờ đục của lệnh chưa chọn",
+    "description": "Độ mờ đục của mũi tên và hình xem trước vị trí đích của các đơn vị khác khi có đơn vị được chọn. 0% sẽ ẩn chúng."
+  },
   "gameplay": "Lối chơi",
   "graphics": "Đồ họa",
   "camera": "Camera",

@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Kijelölt parancsok átlátszatlansága",
+    "description": "A kijelölt egységek nyilainak és célpozíció-előnézeteinek átlátszatlansága. Ha nincs kijelölés, minden egységre vonatkozik. A 0% elrejti őket."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Nem kijelölt parancsok átlátszatlansága",
+    "description": "A többi egység nyilainak és célpozíció-előnézeteinek átlátszatlansága, amikor vannak kijelölt egységek. A 0% elrejti őket."
+  },
   "gameplay": "Gameplay",
   "graphics": "Grafika",
   "camera": "Kamera",

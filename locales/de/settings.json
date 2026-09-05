@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Deckkraft ausgewählter Befehle",
+    "description": "Deckkraft der Pfeile und Zielvorschauen ausgewählter Einheiten oder aller Einheiten, wenn keine ausgewählt ist. 0% blendet sie aus."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Deckkraft nicht ausgewählter Befehle",
+    "description": "Deckkraft der Pfeile und Zielvorschauen anderer Einheiten, solange Einheiten ausgewählt sind. 0% blendet sie aus."
+  },
   "gameplay": "Gameplay",
   "graphics": "Grafik",
   "camera": "Kamera",

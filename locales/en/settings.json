@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Selected order opacity",
+    "description": "Opacity of arrows and destination previews for selected units, or all units when nothing is selected. 0% hides them."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Unselected order opacity",
+    "description": "Opacity of other units’ arrows and destination previews while units are selected. 0% hides them."
+  },
   "gameplay": "Gameplay",
   "graphics": "Graphics",
   "camera": "Camera",

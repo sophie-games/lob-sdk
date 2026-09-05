@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Seçili emirlerin opaklığı",
+    "description": "Seçili birliklerin oklarının ve hedef konumu önizlemelerinin opaklığı. Hiçbir birlik seçili değilse tümüne uygulanır. %0 bunları gizler."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Seçili olmayan emirlerin opaklığı",
+    "description": "Birlikler seçiliyken diğer birliklerin oklarının ve hedef konumu önizlemelerinin opaklığı. %0 bunları gizler."
+  },
   "gameplay": "Oynanış",
   "graphics": "Grafikler",
   "camera": "Kamera",

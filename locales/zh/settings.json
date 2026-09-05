@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "已选命令不透明度",
+    "description": "所选单位的箭头和目的地预览的不透明度。未选择任何单位时应用于所有单位。设为0%时隐藏。"
+  },
+  "unselectedOrderOpacity": {
+    "title": "未选命令不透明度",
+    "description": "选择单位时，其他单位的箭头和目的地预览的不透明度。设为0%时隐藏。"
+  },
   "gameplay": "游戏性",
   "graphics": "画面",
   "camera": "镜头",

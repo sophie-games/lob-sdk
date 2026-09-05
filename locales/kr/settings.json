@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "선택한 명령 불투명도",
+    "description": "선택한 유닛의 화살표와 목적지 미리보기의 불투명도입니다. 선택한 유닛이 없으면 모든 유닛에 적용됩니다. 0%로 설정하면 숨깁니다."
+  },
+  "unselectedOrderOpacity": {
+    "title": "선택하지 않은 명령 불투명도",
+    "description": "유닛을 선택한 동안 다른 유닛의 화살표와 목적지 미리보기의 불투명도입니다. 0%로 설정하면 숨깁니다."
+  },
   "gameplay": "게임 플레이",
   "graphics": "그래픽",
   "camera": "카메라",

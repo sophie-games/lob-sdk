@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Nieprzezroczystość wybranych rozkazów",
+    "description": "Nieprzezroczystość strzałek i podglądów pozycji docelowych wybranych jednostek lub wszystkich, gdy żadna nie jest wybrana. 0% je ukrywa."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Nieprzezroczystość pozostałych rozkazów",
+    "description": "Nieprzezroczystość strzałek i podglądów pozycji docelowych pozostałych jednostek, gdy jakieś jednostki są wybrane. 0% je ukrywa."
+  },
   "gameplay": "Rozgrywka",
   "graphics": "Grafika",
   "camera": "Kamera",
