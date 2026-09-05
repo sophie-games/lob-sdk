@@ -326,6 +326,11 @@
     "changeAnimationsHelp": "Hoạt ảnh được phát trong khi một đơn vị rời đội hình này để sang một đội hình khác. Chọn đội hình nó đang chuyển sang, rồi chọn hoạt ảnh phát trên đường đi. Một chuyển đổi không có dòng nào ở đây thì không phải là hỏng: đơn vị chỉ đơn giản nhảy từ sprite này sang sprite kia mà không có gì ở giữa, và đó là điều xảy ra hôm nay với mọi đội hình không có mục nào. Danh sách chứa các hoạt ảnh mà thời đại này cung cấp, và bộ binh tuyến của thời đại này dùng sáu trong số đó."
   },
   "unitCategoryModal": {
+    "advance": {
+      "ignoredCategories": "Loại quân địch được bỏ qua",
+      "description": "Tiến lên tiếp tục áp sát các loại quân địch này trong khi vẫn bắn vào chúng. Quy tắc va chạm và cận chiến không thay đổi.",
+      "orphanedCategories": "Loại quân địch không xác định: {{categories}}."
+    },
     "meleeFire": {
       "ratio": "Hỏa lực khi cận chiến (0–1)",
       "hint": "0 tắt toàn bộ việc bắn khi cận chiến (mặc định). Trên 0, các điểm bắn bị địch chặn khai hỏa với tỷ lệ này so với hỏa lực bình thường; điểm bắn tự do giữ toàn bộ hỏa lực. Đồng minh vẫn chặn hỏa lực."

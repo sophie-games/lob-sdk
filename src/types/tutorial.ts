@@ -689,7 +689,7 @@ export interface TutorialBeat {
    *    already matches, otherwise advance when the order type changes to a
    *    matching value.
    * Ignored for other advance modes. Numeric values come from {@link OrderType}:
-   * Walk=1, Run=2, Shoot=3, FireAndAdvance=4, PlaceEntity=5, Fallback=6,
+   * Advance=1, Run=2, Shoot=3, PlaceEntity=5, Fallback=6,
    * Rotate=7.
    */
   orderType?: OrderType | OrderType[];

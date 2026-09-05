@@ -1,5 +1,6 @@
 import {
   UnitTemplate,
+  normalizeOrderType,
   UnitType,
   UnitCategoryId,
   RangeUnitTemplate,
@@ -1542,11 +1543,11 @@ export class GameDataManager {
   }
 
   public tryGetOrderTemplate(orderId: OrderType | null): OrderTemplate | null {
-    return this._orderMap.get(orderId!) ?? null;
+    return orderId === null ? null : this._orderMap.get(normalizeOrderType(orderId)) ?? null;
   }
 
   public getOrderTemplate(orderId: OrderType): OrderTemplate {
-    return this._orderMap.get(orderId)!;
+    return this._orderMap.get(normalizeOrderType(orderId))!;
   }
 
   /**

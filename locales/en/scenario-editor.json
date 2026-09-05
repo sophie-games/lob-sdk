@@ -329,6 +329,11 @@
     "changeAnimationsHelp": "The animation played while a unit leaves this formation for another one. Pick the formation it is changing into, then the animation to play on the way. A transition with no row here is not broken: the unit simply snaps from one sprite to the other with nothing in between, which is what every formation without entries does today. The list holds the animations this era ships, and the era's line infantry uses six of them."
   },
   "unitCategoryModal": {
+    "advance": {
+      "ignoredCategories": "Ignored enemy categories",
+      "description": "Advance keeps moving toward these enemy categories while still firing at them. Contact and melee rules are unchanged.",
+      "orphanedCategories": "Unknown enemy categories: {{categories}}."
+    },
     "meleeFire": {
       "ratio": "Melee firepower (0–1)",
       "hint": "0 disables all firing in melee (default). Above 0, enemy-blocked emitters fire at this fraction of normal power; free emitters keep full power. Allies still block fire."

@@ -328,6 +328,11 @@
     "changeAnimationsHelp": "L'animation jouée pendant qu'une unité quitte cette formation pour une autre. Choisissez la formation vers laquelle elle change, puis l'animation à jouer en chemin. Une transition sans ligne ici n'est pas cassée : l'unité passe simplement d'un sprite à l'autre sans rien entre les deux, ce que fait aujourd'hui toute formation sans entrées. La liste contient les animations livrées avec cette ère, et l'infanterie de ligne de l'ère en utilise six."
   },
   "unitCategoryModal": {
+    "advance": {
+      "ignoredCategories": "Catégories ennemies ignorées",
+      "description": "Avancer continue vers ces catégories ennemies tout en leur tirant dessus. Les règles de contact et de mêlée restent inchangées.",
+      "orphanedCategories": "Catégories ennemies inconnues : {{categories}}."
+    },
     "meleeFire": {
       "ratio": "Puissance de feu au corps à corps (0–1)",
       "hint": "0 désactive tout tir au corps à corps (par défaut). Au-dessus de 0, les points de tir bloqués par des ennemis tirent à cette fraction de leur puissance normale ; les points dégagés gardent leur pleine puissance. Les alliés bloquent toujours le tir."

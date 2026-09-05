@@ -814,6 +814,10 @@ function validateCustomUnitCategories(
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
   const seenIds = new Set<string>();
+  const knownCategoryIds = new Set([
+    ...eraGameDataManager.getUnitCategories().map((category) => category.id),
+    ...customUnitCategories.map((category) => category.id),
+  ]);
   const knownOrderNames = new Set(
     eraGameDataManager
       .getOrderTypes()
@@ -838,6 +842,19 @@ function validateCustomUnitCategories(
       });
     }
     seenIds.add(category.id);
+
+    const ignoredCategories = category.advanceIgnoreCategories;
+    if (
+      ignoredCategories !== undefined &&
+      (!Array.isArray(ignoredCategories) ||
+        ignoredCategories.some((id) => !knownCategoryIds.has(id)))
+    ) {
+      errors.push({
+        scope: "unitCategory",
+        field: category.id,
+        message: "advanceIgnoreCategories must be a list of known unit category ids",
+      });
+    }
 
     // Catch unknown allowedOrders here so loadCustomDefs doesn't throw at
     // game-start time when it tries to map names to OrderType ids.

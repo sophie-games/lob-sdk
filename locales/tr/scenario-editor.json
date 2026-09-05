@@ -328,6 +328,11 @@
     "changeAnimationsHelp": "Bir birim bu formasyondan bir başkasına geçerken oynatılan animasyon. Önce geçtiği formasyonu, sonra bu sırada oynatılacak animasyonu seçin. Burada satırı olmayan bir geçiş bozuk değildir: birim aradaki hiçbir şey olmadan bir sprite'tan diğerine geçer; bugün girdisi olmayan her formasyonda olan budur. Liste bu dönemin sunduğu animasyonları içerir ve dönemin hat piyadesi bunlardan altısını kullanır."
   },
   "unitCategoryModal": {
+    "advance": {
+      "ignoredCategories": "Yok sayılan düşman kategorileri",
+      "description": "İlerle, bu düşman kategorilerine ateş ederken yaklaşmayı sürdürür. Temas ve yakın dövüş kuralları değişmez.",
+      "orphanedCategories": "Bilinmeyen düşman kategorileri: {{categories}}."
+    },
     "meleeFire": {
       "ratio": "Yakın dövüşte ateş gücü (0–1)",
       "hint": "0, yakın dövüşte tüm ateşi devre dışı bırakır (varsayılan). 0 üzerinde, düşmanların engellediği ateş noktaları normal gücün bu oranıyla ateş eder; serbest noktalar tam gücü korur. Dostlar ateşi engellemeye devam eder."

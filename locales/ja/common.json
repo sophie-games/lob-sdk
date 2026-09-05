@@ -440,10 +440,9 @@
   "fetchingBattleActions": "戦闘アクションを取得中...",
   "order": {
     "0": "命令なし",
-    "1": "歩く",
+    "1": "前進",
     "2": "走る",
     "3": "射撃",
-    "4": "前進射撃",
     "6": "後退",
     "7": "向く",
     "automatic": "自動"
@@ -983,7 +982,7 @@
   "noPublicGames": "現在、公開ゲームはありません。",
   "kFactorTooltip": "ELO K係数（ランクマッチ1試合あたりの最大レート変動）",
   "max": "最大",
-  "minDistanceToFAA": "前進射撃を停止する敵との距離",
+  "minDistanceToFAA": "前進時の停止距離",
   "captureProgress": "占領の進行度",
   "captureThreshold": "占領のしきい値",
   "logistics": "兵站",

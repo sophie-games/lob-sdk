@@ -424,10 +424,9 @@
   "fetchingBattleActions": "Memuat data aksi pertempuran...",
   "order": {
     "0": "Tidak ada perintah",
-    "1": "Berjalan",
+    "1": "Maju",
     "2": "Berlari",
     "3": "Tembak",
-    "4": "Tembak dan Maju",
     "6": "Mundur",
     "7": "Menghadap",
     "automatic": "Otomatis"
@@ -951,7 +950,7 @@
   "back": "Kembali",
   "autofirePriority": "Prioritas tembak otomatis",
   "heightOffset": "Offset tinggi",
-  "minDistanceToFAA": "Jarak min untuk Tembak dan Maju",
+  "minDistanceToFAA": "Jarak berhenti saat maju",
   "big": "Besar",
   "small": "Kecil",
   "rotationSpeed": "Kecepatan rotasi",

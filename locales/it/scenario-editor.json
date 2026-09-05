@@ -328,6 +328,11 @@
     "changeAnimationsHelp": "L'animazione riprodotta mentre un'unità lascia questa formazione per un'altra. Scegli la formazione verso cui sta cambiando, poi l'animazione da riprodurre durante il passaggio. Una transizione senza una riga qui non è guasta: l'unità passa semplicemente da uno sprite all'altro senza nulla in mezzo, ed è ciò che fa oggi ogni formazione senza voci. L'elenco contiene le animazioni distribuite con questa epoca, e la fanteria di linea dell'epoca ne usa sei."
   },
   "unitCategoryModal": {
+    "advance": {
+      "ignoredCategories": "Categorie nemiche ignorate",
+      "description": "Avanza continua verso queste categorie nemiche mentre spara contro di esse. Le regole di contatto e mischia non cambiano.",
+      "orphanedCategories": "Categorie nemiche sconosciute: {{categories}}."
+    },
     "meleeFire": {
       "ratio": "Potenza di fuoco in mischia (0–1)",
       "hint": "0 disattiva tutti i colpi in mischia (predefinito). Sopra 0, i punti di fuoco bloccati dai nemici sparano a questa frazione della potenza normale; quelli liberi mantengono piena potenza. Gli alleati continuano a bloccare il fuoco."

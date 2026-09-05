@@ -422,10 +422,9 @@
   },
   "fetchingBattleActions": "Ellenséges mozgások lekérése...",
   "order": {
-    "1": "Séta",
+    "1": "Előrenyomulás",
     "2": "Futás",
     "3": "Célpont megadása",
-    "4": "Mozgás közben lő",
     "6": "Visszahúzódás",
     "7": "Szembenéz",
     "automatic": "Automatikus"
@@ -908,7 +907,7 @@
   "back": "Vissza",
   "autofirePriority": "Automatikus tüzelés prioritása",
   "heightOffset": "Magassági eltolás",
-  "minDistanceToFAA": "Min. távolság a Mozgás közben lő parancshoz",
+  "minDistanceToFAA": "Megállási távolság előrenyomuláskor",
   "big": "Nagy",
   "small": "Kicsi",
   "rotationSpeed": "Forgási sebesség",

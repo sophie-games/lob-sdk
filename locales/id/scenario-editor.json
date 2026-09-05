@@ -326,6 +326,11 @@
     "changeAnimationsHelp": "Animasi yang diputar saat sebuah unit meninggalkan formasi ini menuju formasi lain. Pilih formasi tujuannya, lalu animasi yang diputar selama perpindahan itu. Transisi tanpa baris di sini bukan berarti rusak: unit hanya berpindah langsung dari satu sprite ke sprite lain tanpa apa pun di antaranya, dan begitulah semua formasi tanpa entri bekerja saat ini. Daftar ini berisi animasi yang disertakan era ini, dan infanteri baris era ini memakai enam di antaranya."
   },
   "unitCategoryModal": {
+    "advance": {
+      "ignoredCategories": "Kategori musuh yang diabaikan",
+      "description": "Maju terus mendekati kategori musuh ini sambil menembaki mereka. Aturan kontak dan pertempuran jarak dekat tidak berubah.",
+      "orphanedCategories": "Kategori musuh tidak dikenal: {{categories}}."
+    },
     "meleeFire": {
       "ratio": "Daya tembak jarak dekat (0–1)",
       "hint": "0 menonaktifkan semua tembakan dalam pertempuran jarak dekat (bawaan). Di atas 0, titik tembak yang terhalang musuh menembak dengan fraksi daya normal ini; titik bebas mempertahankan daya penuh. Kawan tetap menghalangi tembakan."

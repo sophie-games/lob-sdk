@@ -161,7 +161,7 @@ describe("BaseUnit", () => {
 
     it("should return false when order is not Run, even if stamina is above limit and accumulatedRun >= timeToRun", () => {
       unit.stamina = unit.maxStamina * (stamina.lowerModifierLimit + 0.1);
-      const activeOrder = OrderType.Walk;
+      const activeOrder = OrderType.Advance;
       unit.accumulatedRun = unit.timeToRun;
       expect(unit.isRunning(activeOrder)).toBe(false);
     });

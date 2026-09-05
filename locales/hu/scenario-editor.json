@@ -328,6 +328,11 @@
     "changeAnimationsHelp": "Az az animáció, amely akkor játszódik le, amikor egy egység ebből a formációból egy másikba vált. Válaszd ki a formációt, amelybe vált, majd a közben lejátszandó animációt. Az a váltás, amelyhez nincs itt sor, nem hibás: az egység egyszerűen átugrik az egyik sprite-ról a másikra, közben nincs semmi, és ma minden bejegyzés nélküli formáció így működik. A lista a korszakkal szállított animációkat tartalmazza, és a korszak sorgyalogsága hatot használ közülük."
   },
   "unitCategoryModal": {
+    "advance": {
+      "ignoredCategories": "Figyelmen kívül hagyott ellenséges kategóriák",
+      "description": "Az egység előrenyomuláskor tovább közelít ezekhez az ellenséges kategóriákhoz, miközben tüzel rájuk. Az ütközés és a közelharc szabályai változatlanok.",
+      "orphanedCategories": "Ismeretlen ellenséges kategóriák: {{categories}}."
+    },
     "meleeFire": {
       "ratio": "Tűzerő közelharcban (0–1)",
       "hint": "A 0 letilt minden lövést közelharcban (alapértelmezés). 0 felett az ellenség által blokkolt tüzelési pontok a normál tűzerő ekkora hányadával lőnek; a szabad pontok megtartják teljes tűzerejüket. A szövetségesek továbbra is blokkolják a tüzet."

@@ -24,7 +24,7 @@
   },
   {
     "id": "line",
-    "automaticOrderFormations": { "walk": "column" },
+    "automaticOrderFormations": { "advance": "column" },
     "drawLineRank": 2,
     "collisionShape": { "type": 1, "frontage": 42, "depth": 8 },
     "allyCollisionLevel": 2,

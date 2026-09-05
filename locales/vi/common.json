@@ -437,10 +437,9 @@
   "fetchingBattleActions": "Đang lấy hành động chiến đấu...",
   "order": {
     "0": "Không có lệnh",
-    "1": "Đi bộ",
+    "1": "Tiến lên",
     "2": "Chạy",
     "3": "Bắn",
-    "4": "Bắn và tiến",
     "6": "Rút lui",
     "7": "Đối mặt",
     "automatic": "Tự động"
@@ -979,7 +978,7 @@
   "noPublicGames": "Hiện không có trò chơi công khai nào.",
   "kFactorTooltip": "Hệ số K ELO (thay đổi xếp hạng tối đa mỗi trận xếp hạng)",
   "max": "Tối đa",
-  "minDistanceToFAA": "Khoảng cách tối thiểu đến FAA",
+  "minDistanceToFAA": "Khoảng cách dừng khi tiến lên",
   "captureProgress": "Tiến độ chiếm",
   "captureThreshold": "Ngưỡng chiếm",
   "logistics": "Hậu cần",

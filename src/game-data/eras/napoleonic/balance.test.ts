@@ -25,7 +25,7 @@ describe("Napoleonic balance", () => {
     });
 
     const fireAndAdvance = gameDataManager.getOrderTemplate(
-      OrderType.FireAndAdvance,
+      OrderType.Advance,
     );
     expect(fireAndAdvance).toMatchObject({
       speedModifierWhenShooting: -0.25,

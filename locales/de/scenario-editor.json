@@ -328,6 +328,11 @@
     "changeAnimationsHelp": "Die Animation, die abgespielt wird, während eine Einheit diese Formation für eine andere verlässt. Wähle die Formation, in die sie wechselt, und dann die Animation, die dabei laufen soll. Ein Übergang ohne Zeile hier ist nicht kaputt: Die Einheit springt einfach von einem Sprite zum anderen, ohne etwas dazwischen, und genau das tut heute jede Formation ohne Einträge. Die Liste enthält die Animationen, die diese Ära mitbringt, und die Linieninfanterie der Ära nutzt sechs davon."
   },
   "unitCategoryModal": {
+    "advance": {
+      "ignoredCategories": "Ignorierte Feindkategorien",
+      "description": "Beim Vorrücken bewegt sich die Einheit weiter auf diese Feindkategorien zu und beschießt sie. Kontakt- und Nahkampfregeln bleiben unverändert.",
+      "orphanedCategories": "Unbekannte Feindkategorien: {{categories}}."
+    },
     "meleeFire": {
       "ratio": "Feuerkraft im Nahkampf (0–1)",
       "hint": "0 deaktiviert sämtliches Feuern im Nahkampf (Standard). Über 0 feuern durch Feinde blockierte Schusspunkte mit diesem Anteil ihrer normalen Feuerkraft; freie Schusspunkte behalten volle Feuerkraft. Verbündete blockieren das Feuer weiterhin."

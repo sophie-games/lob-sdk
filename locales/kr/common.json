@@ -433,10 +433,9 @@
   "fetchingBattleActions": "전투 상황 가져오는 중...",
   "order": {
     "0": "명령 없음",
-    "1": "보행",
+    "1": "전진",
     "2": "주행",
     "3": "사격",
-    "4": "사격 및 전진",
     "6": "후퇴",
     "7": "향하다",
     "automatic": "자동"
@@ -975,7 +974,7 @@
   "noPublicGames": "현재 공개 게임이 없습니다.",
   "kFactorTooltip": "ELO K 계수 (랭크 매치당 최대 레이팅 변동)",
   "max": "최대",
-  "minDistanceToFAA": "FAA까지 최소 거리",
+  "minDistanceToFAA": "전진 정지 거리",
   "captureProgress": "함락 진행도",
   "captureThreshold": "함락 최대치",
   "logistics": "병참",

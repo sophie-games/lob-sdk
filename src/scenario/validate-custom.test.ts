@@ -1323,7 +1323,7 @@ describe("validateCustomSprites", () => {
     it("rejects a non-finite numeric leaf", () => {
       const errors = validateScenarioCustomDefs(
         makeScenario({
-          customOrders: { [OrderType.Walk]: { orgRegainModifier: NaN } },
+          customOrders: { [OrderType.Advance]: { orgRegainModifier: NaN } },
         }),
         era,
       );
@@ -1333,7 +1333,7 @@ describe("validateCustomSprites", () => {
     it("rejects changing the order's identity name", () => {
       const errors = validateScenarioCustomDefs(
         makeScenario({
-          customOrders: { [OrderType.Walk]: { name: "sprint" } },
+          customOrders: { [OrderType.Advance]: { name: "sprint" } },
         }),
         era,
       );
@@ -1892,4 +1892,21 @@ describe("built-in unit templates satisfy the runnable-unit requirement", () => 
       });
     }
   }
+});
+
+describe("Advance ignore category validation", () => {
+  it("accepts built-in and custom enemy categories", () => {
+    const scenario = makeScenario({ customUnitCategories: [
+      makeCategory({ advanceIgnoreCategories: ["infantry", "scouts"] }),
+      makeCategory({ id: "scouts" }),
+    ] });
+    expect(validateScenarioCustomDefs(scenario, era)).toEqual([]);
+  });
+
+  it("rejects missing enemy categories", () => {
+    const scenario = makeScenario({ customUnitCategories: [makeCategory({ advanceIgnoreCategories: ["missing"] })] });
+    expect(validateScenarioCustomDefs(scenario, era)).toEqual(expect.arrayContaining([
+      expect.objectContaining({ scope: "unitCategory", field: "drone", message: expect.stringContaining("advanceIgnoreCategories") }),
+    ]));
+  });
 });

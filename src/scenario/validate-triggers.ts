@@ -4,6 +4,7 @@ import {
   GameTriggerConditionType,
   GameTriggerEventType,
   OrderType,
+  normalizeOrderType,
 } from "@lob-sdk/types";
 
 export type ScenarioTriggerValidationIssueCode =
@@ -57,10 +58,10 @@ const isUnitSpec = (value: unknown): boolean =>
 
 const gameEndReasons = new Set<string>(Object.values(GameEndReason));
 const orderTypes = new Set<number>([
-  OrderType.Walk,
+  OrderType.Advance,
   OrderType.Run,
   OrderType.Shoot,
-  OrderType.FireAndAdvance,
+  OrderType.Advance,
   OrderType.PlaceEntity,
   OrderType.Fallback,
   OrderType.Rotate,
@@ -241,7 +242,7 @@ const isValidActionValue = (
       return (
         isRecord(value) &&
         isNumber(value.type) &&
-        orderTypes.has(value.type) &&
+        orderTypes.has(normalizeOrderType(value.type as OrderType)) &&
         typeof value.unitName === "string" &&
         (value.targetName === undefined ||
           typeof value.targetName === "string") &&

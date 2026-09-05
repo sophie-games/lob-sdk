@@ -85,6 +85,8 @@ export interface UnitCategoryTemplate {
   meleeFireRatio?: number;
   captureSpeed?: number;
   autofirePriority?: Partial<Record<UnitCategoryId, number>>;
+  /** Enemy categories that do not stop Advance; units still fire at them and use normal contact rules. */
+  advanceIgnoreCategories?: UnitCategoryId[];
   /**
    * Default autofire engagement tier (EngagementRange) for units of this category.
    * Falls back to `Max` when unset. Artillery uses `Medium` so it opens fire at its

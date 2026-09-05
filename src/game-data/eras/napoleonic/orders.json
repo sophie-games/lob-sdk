@@ -1,7 +1,7 @@
 [
   {
-    "id": 4,
-    "name": "fireAndAdvance",
+    "id": 1,
+    "name": "advance",
     "isDefault": true,
     "speedModifierWhenShooting": -0.25,
     "speedModifierWhenShootingByCategory": {
@@ -33,11 +33,6 @@
     "name": "shoot",
     "canFocusLocation": true,
     "allowFireWhenMoving": true
-  },
-  {
-    "id": 1,
-    "name": "walk",
-    "orgRegainModifier": -0.15
   },
   {
     "id": 5,
