@@ -332,6 +332,10 @@
     "changeAnimationsHelp": "Animacja odtwarzana, gdy jednostka opuszcza tę formację na rzecz innej. Wybierz formację, w którą się zmienia, a potem animację do odtworzenia po drodze. Przejście bez wiersza tutaj nie jest zepsute: jednostka po prostu przeskakuje z jednego sprite'a na drugi bez niczego pomiędzy, i tak dziś działa każda formacja bez wpisów. Lista zawiera animacje, które dostarcza ta epoka, a piechota liniowa tej epoki używa sześciu z nich."
   },
   "unitCategoryModal": {
+    "meleeFire": {
+      "ratio": "Siła ognia w walce wręcz (0–1)",
+      "hint": "0 wyłącza cały ostrzał w walce wręcz (domyślnie). Powyżej 0 punkty ostrzału zasłonięte przez wrogów strzelają z taką częścią normalnej siły; niezasłonięte punkty zachowują pełną siłę. Sojusznicy nadal blokują ogień."
+    },
     "title": "Edytuj niestandardową kategorię jednostki",
     "optionBuiltIn": "{{name}} (wbudowana)",
     "optionCustom": "{{name}} (niestandardowa)",
