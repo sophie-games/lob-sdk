@@ -185,6 +185,7 @@ export abstract class BaseUnit extends Entity {
     return this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
   }
   get firingAltitude(): number { return this.categoryTemplate.firingAltitude ?? 0; }
+  get meleeFireRatio(): number { return Math.max(0, Math.min(1, this.categoryTemplate.meleeFireRatio ?? 0)); }
   /**
    * Naval-style steering: the unit moves only along its heading (forward, or
    * astern on fallback) and only turns while making way, so it can't strafe or

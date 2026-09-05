@@ -81,6 +81,8 @@ export interface UnitCategoryTemplate {
   deploymentSection?: DeploymentSection;
   damageTypeResistances?: Partial<Record<string, number>>;
   firingAltitude: number;
+  /** 0 (default) disables all firing in melee. Above 0, enables melee fire and sets the firepower share (0..1) of enemy-blocked emitters; free emitters keep full power and allies still block. */
+  meleeFireRatio?: number;
   captureSpeed?: number;
   autofirePriority?: Partial<Record<UnitCategoryId, number>>;
   /**

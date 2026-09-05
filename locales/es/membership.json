@@ -61,7 +61,7 @@
     "managedGame": {
       "title": "Salón de Guerra",
       "enable": "Crear como Salón de Guerra privado",
-      "description": "Elegí un mapa preset, seleccioná sus unidades preposicionadas y asigná cada una a un jugador. Tu membresía incluye un evento privado activo para hasta {{count}} jugadores, con controles de Game Master, reservas, roles de mando y grabación con Full Vision.",
+      "description": "Elegí un escenario incluido o importá uno personalizado con jugadores y unidades iniciales predefinidos, y asigná sus fuerzas a los jugadores. Tu membresía incluye un evento privado activo para hasta {{count}} jugadores, con controles de Game Master, reservas, roles de mando y grabación con Full Vision.",
       "name": "Nombre del evento",
       "namePlaceholder": "Invitacional de Waterloo",
       "seats": "Jugadores",
@@ -94,7 +94,7 @@
       "spectator": "Spectator con Full Vision",
       "spectatorPlaceholder": "Usuario del recorder (opcional)",
       "invalid": "Agregá el nombre del evento y asigná al menos un jugador.",
-      "presetRequired": "Elegí uno de los mapas preset con roster fijo para este Salón de Guerra.",
+      "presetRequired": "Elegí un escenario con jugadores y unidades iniciales predefinidos, con un máximo de {{count}} jugadores.",
       "forceInvalid": "Esa fuerza no está disponible para esta plaza en el mapa elegido."
     },
     "manageStripe": "Administrar con Stripe",

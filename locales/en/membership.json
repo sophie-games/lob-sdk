@@ -61,7 +61,7 @@
     "managedGame": {
       "title": "War Room",
       "enable": "Create as a private War Room",
-      "description": "Choose a preset map, then select its pre-positioned units and assign each one to a player. Your membership includes one active private event for up to {{count}} players, with Game Master controls, reserves, command roles, and Full Vision recording.",
+      "description": "Choose a built-in scenario or import a custom one with predefined players and starting units, then assign its forces to players. Your membership includes one active private event for up to {{count}} players, with Game Master controls, reserves, command roles, and Full Vision recording.",
       "name": "Event name",
       "namePlaceholder": "Waterloo Invitational",
       "seats": "Players",
@@ -94,7 +94,7 @@
       "spectator": "Full Vision Spectator",
       "spectatorPlaceholder": "Recorder username (optional)",
       "invalid": "Add an event name and assign at least one player.",
-      "presetRequired": "Choose one of the fixed-roster preset maps for this War Room.",
+      "presetRequired": "Choose a scenario with predefined players and starting units, with no more than {{count}} players.",
       "forceInvalid": "That force is not available for this seat on the selected map."
     },
     "manageStripe": "Manage with Stripe",

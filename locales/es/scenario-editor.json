@@ -328,6 +328,10 @@
     "changeAnimationsHelp": "La animación que se reproduce mientras una unidad abandona esta formación por otra. Elige la formación a la que cambia y luego la animación que debe reproducirse por el camino. Una transición sin fila aquí no está rota: la unidad simplemente salta de un sprite a otro sin nada en medio, que es lo que hace hoy toda formación sin entradas. La lista contiene las animaciones que trae esta era, y la infantería de línea de la era usa seis de ellas."
   },
   "unitCategoryModal": {
+    "meleeFire": {
+      "ratio": "Potencia de fuego en melee (0–1)",
+      "hint": "0 desactiva todo el disparo en melee (predeterminado). Con un valor mayor que 0, los emisores bloqueados por enemigos disparan a esta fracción de su potencia normal; los libres mantienen toda su potencia. Los aliados siguen bloqueando el fuego."
+    },
     "title": "Editar categoría de unidad personalizada",
     "optionBuiltIn": "{{name}} (integrada)",
     "optionCustom": "{{name}} (personalizada)",
