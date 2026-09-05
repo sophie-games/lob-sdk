@@ -7,6 +7,7 @@ import {
   GameLocales,
   GameClientEventDto,
   GameTrigger,
+  TriggerOrderSpec,
   UnitDtoPartialId,
   UnitType,
   UnitCounts,
@@ -531,6 +532,12 @@ export interface GameState<UsePartialIds extends boolean = false> {
   objectives?: ObjectiveDto<UsePartialIds extends true ? false : true>[];
   /** Game triggers that can modify game state. */
   triggers: GameTrigger[];
+  /** Last turn whose start triggers ran, including across save/load. Absent on older saves. */
+  turnStartProcessed?: number;
+  /** Scripted orders waiting for the prepared turn to resolve; authoritative state only. */
+  pendingTriggerOrders?: TriggerOrderSpec[];
+  /** Trigger variables carried from planning into resolution; authoritative state only. */
+  triggerVars?: Record<string, number>;
 }
 
 /**
