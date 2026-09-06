@@ -114,6 +114,29 @@ describe("ArmyDeployer", () => {
       );
     });
 
+    it("centres the battery on its division rather than beside the screen", () => {
+      // 24 line infantry, 6 skirmishers (which deploy forward) and 4 foot guns.
+      const deployed = new ArmyDeployer(
+        gameDataManager,
+        { "1": 24, "16": 6, "12": 4 },
+        wideZone,
+        forwardZone,
+        1,
+        1,
+      ).deploy();
+
+      const midpoint = (types: number[]) => {
+        const xs = deployed
+          .filter((unit) => types.includes(unit.type))
+          .map((unit) => unit.pos.x);
+        return (Math.min(...xs) + Math.max(...xs)) / 2;
+      };
+
+      // Guns, screen and line all share the same centre: each has its own row.
+      expect(midpoint([12])).toBeCloseTo(midpoint([1]), 0);
+      expect(midpoint([16])).toBeCloseTo(midpoint([1]), 0);
+    });
+
     it("puts the cavalry on the wings, outside the infantry", () => {
       const deployed = deploy({ "1": 20, "8": 12 });
       const horse = deployed

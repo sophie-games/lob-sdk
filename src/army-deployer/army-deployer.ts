@@ -169,7 +169,8 @@ export class ArmyDeployer {
     const frontages = divisions.map((division) =>
       Math.max(
         1,
-        division.screen.length + division.guns.length,
+        division.screen.length,
+        division.guns.length,
         ...division.brigades.map((brigade) => brigade.length),
       ),
     );
@@ -204,8 +205,10 @@ export class ArmyDeployer {
     width: number,
     spacing: number,
   ) {
-    const screen = [...division.screen, ...division.guns];
-    if (screen.length > 0) this.deployRow(screen, -1, startX, width, spacing);
+    // A row each, so both sit centred on the division rather than sharing one
+    // and leaving the other pushed off to a side.
+    this.deployRow(division.screen, -2, startX, width, spacing);
+    this.deployRow(division.guns, -1, startX, width, spacing);
     division.brigades.forEach((brigade, index) =>
       this.deployRow(brigade, index, startX, width, spacing),
     );
@@ -213,8 +216,10 @@ export class ArmyDeployer {
 
   /**
    * One row of a division, centred on the stretch of front the division holds.
-   * Row -1 is the screen ahead of the brigades. A unit that deploys forward takes
-   * the same row in its own zone, so it stands ahead of its own division.
+   * Rows count back from the first brigade line at 0; the negative ones stand
+   * ahead of it, the battery at -1 and the skirmish screen at -2. A unit that
+   * deploys forward takes the same row in its own zone, so it stands ahead of
+   * its own division rather than of the army.
    */
   private deployRow(
     recruits: Recruit[],
@@ -223,6 +228,8 @@ export class ArmyDeployer {
     width: number,
     spacing: number,
   ) {
+    if (recruits.length === 0) return;
+
     const pitch = this.DEFAULT_UNIT_HEIGHT + spacing;
     const lineStartX =
       startX + (width - (recruits.length * pitch - spacing)) / 2;
@@ -237,7 +244,9 @@ export class ArmyDeployer {
         canDeployForward ? this.forwardDeploymentZone : this.mainDeploymentZone,
       );
       const y =
-        rowIndex < 0 ? metrics.frontY : metrics.centerY + rowIndex * step;
+        rowIndex < 0
+          ? metrics.frontY + (rowIndex + 1) * step
+          : metrics.centerY + rowIndex * step;
       this.addUnit(recruit.type, lineStartX + index * pitch, y);
     });
   }
