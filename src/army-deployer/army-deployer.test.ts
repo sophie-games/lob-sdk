@@ -137,17 +137,60 @@ describe("ArmyDeployer", () => {
       expect(midpoint([16])).toBeCloseTo(midpoint([1]), 0);
     });
 
-    it("puts the cavalry on the wings, outside the infantry", () => {
-      const deployed = deploy({ "1": 20, "8": 12 });
-      const horse = deployed
-        .filter((unit) => unit.type === 8)
-        .map((unit) => unit.pos.x);
-      const foot = deployed
-        .filter((unit) => unit.type === 1)
-        .map((unit) => unit.pos.x);
+    it("keeps the light cavalry on the wings, ahead of the line", () => {
+      // 11 = hussars, which deploy forward; the forward zone is the one at y 2000.
+      const deployed = new ArmyDeployer(
+        gameDataManager,
+        { "1": 24, "11": 12 },
+        wideZone,
+        forwardZone,
+        1,
+        1,
+      ).deploy();
+
+      const xOf = (type: number) =>
+        deployed.filter((unit) => unit.type === type).map((unit) => unit.pos.x);
+      const horse = xOf(11);
+      const foot = xOf(1);
 
       expect(Math.min(...horse)).toBeLessThan(Math.min(...foot));
       expect(Math.max(...horse)).toBeGreaterThan(Math.max(...foot));
+    });
+
+    it("puts the dragoons on the wings but behind the infantry line", () => {
+      // 2 = dragoons, which stand in the main zone with the infantry.
+      const deployed = deploy({ "1": 24, "2": 12 });
+      const horse = deployed.filter((unit) => unit.type === 2);
+      const foot = deployed.filter((unit) => unit.type === 1);
+      const lastLine = Math.max(...foot.map((unit) => unit.pos.y));
+
+      expect(Math.min(...horse.map((unit) => unit.pos.x))).toBeLessThan(
+        Math.min(...foot.map((unit) => unit.pos.x)),
+      );
+      expect(Math.max(...horse.map((unit) => unit.pos.x))).toBeGreaterThan(
+        Math.max(...foot.map((unit) => unit.pos.x)),
+      );
+      for (const unit of horse) expect(unit.pos.y).toBeGreaterThan(lastLine);
+    });
+
+    it("masses the cuirassiers behind the centre, between the dragoon wings", () => {
+      // 8 = cuirassiers. Splitting them between the wings is Wagram, which left
+      // nothing in hand to exploit the breakthrough.
+      const deployed = deploy({ "1": 24, "2": 12, "8": 10 });
+      const xOf = (type: number) =>
+        deployed.filter((unit) => unit.type === type).map((unit) => unit.pos.x);
+      const heavy = xOf(8);
+      const dragoons = xOf(2);
+      const lastLine = Math.max(
+        ...deployed.filter((unit) => unit.type === 1).map((unit) => unit.pos.y),
+      );
+
+      for (const unit of deployed.filter((unit) => unit.type === 8)) {
+        expect(unit.pos.y).toBeGreaterThan(lastLine);
+      }
+      // One body in the centre, with a dragoon wing on either side of it.
+      expect(Math.min(...heavy)).toBeGreaterThan(Math.min(...dragoons));
+      expect(Math.max(...heavy)).toBeLessThan(Math.max(...dragoons));
     });
 
     it("stands a division's battery in front of that division", () => {

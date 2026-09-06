@@ -21,6 +21,7 @@ import {
   MAX_TROOPS_PER_DIVISION,
   MAX_UNITS_PER_BRIGADE,
   MAX_UNITS_PER_CAVALRY_BRIGADE,
+  HorseClass,
   armOf,
   brigadesNeeded,
   cutIntoGroups,
@@ -32,6 +33,13 @@ import {
 interface Recruit {
   type: UnitType;
   category: UnitCategoryId;
+}
+
+/** One line of the deployment: what stands on each wing, and what in the centre. */
+interface DeployedLine {
+  left: DeployedDivision[];
+  centre: DeployedDivision[];
+  right: DeployedDivision[];
 }
 
 /**
@@ -161,20 +169,42 @@ export class ArmyDeployer {
    * division read as a division on the field.
    */
   private deployAsOrderOfBattle(recruits: Recruit[]) {
-    const divisions = this.planOrderOfBattle(recruits);
+    const { front, rear } = this.planOrderOfBattle(recruits);
+    const all = (line: DeployedLine) => [
+      ...line.left,
+      ...line.centre,
+      ...line.right,
+    ];
+    if (all(front).length === 0 && all(rear).length === 0) return;
+
+    const depth = Math.max(
+      1,
+      ...all(front).map((division) => division.brigades.length),
+    );
+    this.deployLine(front, 0);
+    // One line interval behind the last infantry line, which is what the period
+    // put between an infantry line and the cavalry standing behind it.
+    this.deployLine(rear, depth);
+  }
+
+  /**
+   * Lays one line of divisions across the zone: the wings anchored to its two
+   * edges and the centre body between them, so a wing is a wing however few
+   * divisions the line holds.
+   */
+  private deployLine(line: DeployedLine, baseRow: number) {
+    const divisions = [...line.left, ...line.centre, ...line.right];
     if (divisions.length === 0) return;
 
     const metrics = this.calculateSectionMetrics(this.mainDeploymentZone);
-
-    const frontages = divisions.map((division) =>
+    const frontage = (division: DeployedDivision) =>
       Math.max(
         1,
         division.screen.length,
         division.guns.length,
         ...division.brigades.map((brigade) => brigade.length),
-      ),
-    );
-    const total = frontages.reduce((sum, n) => sum + n, 0);
+      );
+    const total = divisions.reduce((sum, d) => sum + frontage(d), 0);
 
     const usable =
       metrics.leftFlankWidth +
@@ -190,12 +220,24 @@ export class ArmyDeployer {
     // Whatever frontage the army does not need becomes the gaps between divisions.
     const gap = Math.max(0, (usable - pitch * total) / (divisions.length + 1));
 
-    let startX = metrics.leftFlankStartX + this.MARGIN + gap;
-    divisions.forEach((division, index) => {
-      const width = frontages[index] * pitch;
-      this.deployDivision(division, startX, width, spacing);
-      startX += width + gap;
-    });
+    const widthOf = (group: DeployedDivision[]) =>
+      group.reduce((sum, d) => sum + frontage(d) * pitch + gap, 0);
+
+    const place = (group: DeployedDivision[], from: number) => {
+      let startX = from;
+      for (const division of group) {
+        const width = frontage(division) * pitch;
+        this.deployDivision(division, startX, width, spacing, baseRow);
+        startX += width + gap;
+      }
+    };
+
+    // The wings sit against the edges of the zone; the centre body is centred on
+    // it, and the slack the army does not need falls between the three.
+    const left = metrics.leftFlankStartX + this.MARGIN;
+    place(line.left, left);
+    place(line.right, left + usable - widthOf(line.right) + gap);
+    place(line.centre, left + (usable - widthOf(line.centre) + gap) / 2);
   }
 
   /** Places one division's rows over its own stretch of the front. */
@@ -204,13 +246,22 @@ export class ArmyDeployer {
     startX: number,
     width: number,
     spacing: number,
+    baseRow: number,
   ) {
     // A row each, so both sit centred on the division rather than sharing one
-    // and leaving the other pushed off to a side.
-    this.deployRow(division.screen, -2, startX, width, spacing);
-    this.deployRow(division.guns, -1, startX, width, spacing);
+    // and leaving the other pushed off to a side. A division standing behind the
+    // line keeps its guns behind it too, where the rows ahead are already taken.
+    const behind = baseRow > 0;
+    this.deployRow(division.screen, baseRow - 2, startX, width, spacing);
+    this.deployRow(
+      division.guns,
+      behind ? baseRow + division.brigades.length : baseRow - 1,
+      startX,
+      width,
+      spacing,
+    );
     division.brigades.forEach((brigade, index) =>
-      this.deployRow(brigade, index, startX, width, spacing),
+      this.deployRow(brigade, baseRow + index, startX, width, spacing),
     );
   }
 
@@ -258,8 +309,12 @@ export class ArmyDeployer {
    * reserve. It follows the same doctrine the client reads back off the field, so
    * the blocks on the ground are the divisions the order of battle panel shows.
    */
-  private planOrderOfBattle(recruits: Recruit[]): DeployedDivision[] {
-    if (recruits.length === 0) return [];
+  private planOrderOfBattle(recruits: Recruit[]): {
+    front: DeployedLine;
+    rear: DeployedLine;
+  } {
+    const nothing = { left: [], centre: [], right: [] };
+    if (recruits.length === 0) return { front: nothing, rear: nothing };
 
     const era = this.gameDataManager.era;
     const byArm = (arm: Arm) =>
@@ -284,19 +339,30 @@ export class ArmyDeployer {
       });
     }
 
-    const cavalry = this.cutCavalryByType(horse);
-    const reserve = this.attachBatteries(guns, infantry, cavalry);
+    const scouts = this.cutCavalryOf(horse, HorseClass.Light);
+    const dragoons = this.cutCavalryOf(horse, HorseClass.Dragoon);
+    const cuirassiers = this.cutCavalryOf(horse, HorseClass.Cuirassier);
+    const reserve = this.attachBatteries(guns, infantry, [
+      ...scouts,
+      ...dragoons,
+      ...cuirassiers,
+    ]);
 
-    const [leftWing, rightWing] = divideArrayInHalf(cavalry);
-    const columns = [...leftWing, ...infantry, ...rightWing];
+    // The 30th Bulletin's order, front to back: the light cavalry screening the
+    // wings, the infantry, then the dragoons, then the cuirassiers massed behind
+    // the centre. Splitting the heavy cavalry between the wings is Wagram, which
+    // left nothing in hand to exploit the breakthrough.
+    const [leftScouts, rightScouts] = divideArrayInHalf(scouts);
+    const [leftDragoons, rightDragoons] = divideArrayInHalf(dragoons);
+
+    const centre = [...cuirassiers];
     if (reserve.length > 0) {
-      columns.splice(leftWing.length + infantry.length, 0, {
-        brigades: [reserve],
-        screen: [],
-        guns: [],
-      });
+      centre.push({ brigades: [reserve], screen: [], guns: [] });
     }
-    return columns;
+    return {
+      front: { left: leftScouts, centre: infantry, right: rightScouts },
+      rear: { left: leftDragoons, centre, right: rightDragoons },
+    };
   }
 
   /** Cuts a body of troops into `divisions`, none of them over the ceiling. */
@@ -321,24 +387,21 @@ export class ArmyDeployer {
   }
 
   /**
-   * Cuts the horse into divisions of one type each. The reserve cavalry was
-   * cuirassier, dragoon and light divisions; it never fielded one of each.
+   * Cuts the horse of one class into divisions. The reserve cavalry was
+   * cuirassier, dragoon and light divisions; it never fielded one of each, and
+   * each class stood in a different place on the field.
    */
-  private cutCavalryByType(horse: Recruit[]): DeployedDivision[] {
-    const byType = new Map<number, Recruit[]>();
-    for (const recruit of horse) {
-      const type = horseClassOf(recruit.category);
-      const group = byType.get(type);
-      if (group) group.push(recruit);
-      else byType.set(type, [recruit]);
-    }
-
-    return [...byType.values()].flatMap((type) =>
-      this.cutIntoDivisions(
-        type,
-        divisionsNeeded(type.length, MAX_TROOPS_PER_CAVALRY_DIVISION),
-        MAX_UNITS_PER_CAVALRY_BRIGADE,
-      ),
+  private cutCavalryOf(
+    horse: Recruit[],
+    horseClass: HorseClass,
+  ): DeployedDivision[] {
+    const of = horse.filter(
+      (recruit) => horseClassOf(recruit.category) === horseClass,
+    );
+    return this.cutIntoDivisions(
+      of,
+      divisionsNeeded(of.length, MAX_TROOPS_PER_CAVALRY_DIVISION),
+      MAX_UNITS_PER_CAVALRY_BRIGADE,
     );
   }
 
