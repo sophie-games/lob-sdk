@@ -14,17 +14,18 @@ import {
 } from "@lob-sdk/utils";
 import {
   Arm,
+  CAVALRY_DIVISION_BATTERIES,
   DIVISION_BATTERIES,
   LIGHT_INFANTRY,
-  MAX_DIVISIONS,
-  UNITS_PER_CAVALRY_DIVISION,
-  UNITS_PER_DIVISION,
+  MAX_TROOPS_PER_CAVALRY_DIVISION,
+  MAX_TROOPS_PER_DIVISION,
+  MAX_UNITS_PER_BRIGADE,
+  MAX_UNITS_PER_CAVALRY_BRIGADE,
   armOf,
-  brigadesPerDivision,
+  brigadesNeeded,
   cutIntoGroups,
-  divisionsWanted,
+  divisionsNeeded,
   horseClassOf,
-  shareDivisions,
 } from "@lob-sdk/order-of-battle";
 
 /** A unit still to be placed, with the category that decides where it belongs. */
@@ -137,26 +138,17 @@ export class ArmyDeployer {
       this.units,
     );
 
-    const main: Recruit[] = [];
-    const forward: Recruit[] = [];
+    const recruits: Recruit[] = [];
     for (const categoryId in unitsByCategory) {
       for (const type of unitsByCategory[categoryId as UnitCategoryId] ?? []) {
-        const recruit = { type, category: categoryId as UnitCategoryId };
-        const { canDeployForward } = this.gameDataManager
-          .getUnitTemplateManager()
-          .getTemplate(type);
-        (canDeployForward ? forward : main).push(recruit);
+        recruits.push({ type, category: categoryId as UnitCategoryId });
       }
     }
 
-    this.deployAsOrderOfBattle(
-      main,
-      this.calculateSectionMetrics(this.mainDeploymentZone),
-    );
-    this.deployAsOrderOfBattle(
-      forward,
-      this.calculateSectionMetrics(this.forwardDeploymentZone),
-    );
+    // One order of battle for the whole army, not one per zone: a division holds
+    // a single stretch of the front, and the units of it that deploy forward
+    // stand ahead of that same stretch rather than across the whole army.
+    this.deployAsOrderOfBattle(recruits);
 
     return this.unitDtos;
   }
@@ -168,9 +160,11 @@ export class ArmyDeployer {
    * its battery beside them. The gaps between the blocks are what makes a
    * division read as a division on the field.
    */
-  private deployAsOrderOfBattle(recruits: Recruit[], metrics: SectionMetrics) {
+  private deployAsOrderOfBattle(recruits: Recruit[]) {
     const divisions = this.planOrderOfBattle(recruits);
     if (divisions.length === 0) return;
+
+    const metrics = this.calculateSectionMetrics(this.mainDeploymentZone);
 
     const frontages = divisions.map((division) =>
       Math.max(
@@ -198,54 +192,54 @@ export class ArmyDeployer {
     let startX = metrics.leftFlankStartX + this.MARGIN + gap;
     divisions.forEach((division, index) => {
       const width = frontages[index] * pitch;
-      this.deployDivision(division, startX, width, spacing, metrics);
+      this.deployDivision(division, startX, width, spacing);
       startX += width + gap;
     });
   }
 
-  /** Places one division's rows over its own stretch of the zone. */
+  /** Places one division's rows over its own stretch of the front. */
   private deployDivision(
     division: DeployedDivision,
     startX: number,
     width: number,
     spacing: number,
-    metrics: SectionMetrics,
   ) {
     const screen = [...division.screen, ...division.guns];
-    if (screen.length > 0) {
-      this.deployRow(screen, metrics.frontY, startX, width, spacing);
-    }
-
-    // Rows run away from the enemy, which is downwards for team 1.
-    const step = (this.DEFAULT_UNIT_HEIGHT + this.MARGIN) * (this.team === 1 ? 1 : -1);
-    division.brigades.forEach((brigade, index) => {
-      this.deployRow(
-        brigade,
-        metrics.centerY + index * step,
-        startX,
-        width,
-        spacing,
-      );
-    });
+    if (screen.length > 0) this.deployRow(screen, -1, startX, width, spacing);
+    division.brigades.forEach((brigade, index) =>
+      this.deployRow(brigade, index, startX, width, spacing),
+    );
   }
 
-  /** One row of a division, centred on the stretch of zone the division holds. */
+  /**
+   * One row of a division, centred on the stretch of front the division holds.
+   * Row -1 is the screen ahead of the brigades. A unit that deploys forward takes
+   * the same row in its own zone, so it stands ahead of its own division.
+   */
   private deployRow(
     recruits: Recruit[],
-    baseY: number,
+    rowIndex: number,
     startX: number,
     width: number,
     spacing: number,
   ) {
-    this.deployUnitsInLines(
-      recruits.map((recruit) => recruit.type),
-      baseY,
-      startX,
-      width,
-      recruits.length,
-      spacing,
-      false,
-    );
+    const pitch = this.DEFAULT_UNIT_HEIGHT + spacing;
+    const lineStartX =
+      startX + (width - (recruits.length * pitch - spacing)) / 2;
+    // Rows run away from the enemy, which is downwards for team 1.
+    const step = (this.DEFAULT_UNIT_HEIGHT + this.MARGIN) * (this.team === 1 ? 1 : -1);
+
+    recruits.forEach((recruit, index) => {
+      const { canDeployForward } = this.gameDataManager
+        .getUnitTemplateManager()
+        .getTemplate(recruit.type);
+      const metrics = this.calculateSectionMetrics(
+        canDeployForward ? this.forwardDeploymentZone : this.mainDeploymentZone,
+      );
+      const y =
+        rowIndex < 0 ? metrics.frontY : metrics.centerY + rowIndex * step;
+      this.addUnit(recruit.type, lineStartX + index * pitch, y);
+    });
   }
 
   /**
@@ -265,24 +259,14 @@ export class ArmyDeployer {
     const horse = byArm(Arm.Horse);
     const guns = byArm(Arm.Guns);
 
-    // Every division answers to a control-group key, so the two arms share them in
-    // proportion to their strength once the reserve has taken one.
-    const budget = MAX_DIVISIONS - (guns.length > 0 ? 1 : 0);
-    const [footDivisions, horseDivisions] = shareDivisions(
-      [
-        divisionsWanted(foot.length, UNITS_PER_DIVISION),
-        divisionsWanted(horse.length, UNITS_PER_CAVALRY_DIVISION),
-      ],
-      budget,
-    );
-
     const line = foot.filter(
       (recruit) => recruit.category !== LIGHT_INFANTRY,
     );
     const light = foot.filter((recruit) => recruit.category === LIGHT_INFANTRY);
     const infantry = this.cutIntoDivisions(
       line.length > 0 ? line : light,
-      footDivisions,
+      divisionsNeeded(foot.length, MAX_TROOPS_PER_DIVISION),
+      MAX_UNITS_PER_BRIGADE,
     );
     if (line.length > 0) {
       // A share each, the way a French division carried one legere regiment.
@@ -291,7 +275,7 @@ export class ArmyDeployer {
       });
     }
 
-    const cavalry = this.cutCavalryByType(horse, horseDivisions);
+    const cavalry = this.cutCavalryByType(horse);
     const reserve = this.attachBatteries(guns, infantry, cavalry);
 
     const [leftWing, rightWing] = divideArrayInHalf(cavalry);
@@ -306,13 +290,17 @@ export class ArmyDeployer {
     return columns;
   }
 
-  /** Cuts a body of troops into divisions of two brigades each when it is big enough. */
+  /** Cuts a body of troops into `divisions`, none of them over the ceiling. */
   private cutIntoDivisions(
     recruits: Recruit[],
     divisions: number,
+    maxPerBrigade: number,
   ): DeployedDivision[] {
     if (divisions <= 0 || recruits.length === 0) return [];
-    const perDivision = brigadesPerDivision(recruits.length, divisions);
+    const perDivision = brigadesNeeded(
+      Math.ceil(recruits.length / divisions),
+      maxPerBrigade,
+    );
     const brigades = cutIntoGroups(recruits, divisions * perDivision, () => 1);
 
     const cut: DeployedDivision[] = [];
@@ -327,10 +315,7 @@ export class ArmyDeployer {
    * Cuts the horse into divisions of one type each. The reserve cavalry was
    * cuirassier, dragoon and light divisions; it never fielded one of each.
    */
-  private cutCavalryByType(
-    horse: Recruit[],
-    divisions: number,
-  ): DeployedDivision[] {
+  private cutCavalryByType(horse: Recruit[]): DeployedDivision[] {
     const byType = new Map<number, Recruit[]>();
     for (const recruit of horse) {
       const type = horseClassOf(recruit.category);
@@ -339,15 +324,12 @@ export class ArmyDeployer {
       else byType.set(type, [recruit]);
     }
 
-    const types = [...byType.values()];
-    const perType = shareDivisions(
-      types.map((type) =>
-        divisionsWanted(type.length, UNITS_PER_CAVALRY_DIVISION),
+    return [...byType.values()].flatMap((type) =>
+      this.cutIntoDivisions(
+        type,
+        divisionsNeeded(type.length, MAX_TROOPS_PER_CAVALRY_DIVISION),
+        MAX_UNITS_PER_CAVALRY_BRIGADE,
       ),
-      divisions,
-    );
-    return types.flatMap((type, index) =>
-      this.cutIntoDivisions(type, perType[index]),
     );
   }
 
@@ -374,8 +356,12 @@ export class ArmyDeployer {
     const spare = [...guns];
     // A battery each before any division gets a second, so the guns spread along
     // the line instead of massing on the first division.
-    const serve = (divisions: DeployedDivision[], onlyHorse: boolean) => {
-      for (let round = 0; round < DIVISION_BATTERIES; round++) {
+    const serve = (
+      divisions: DeployedDivision[],
+      onlyHorse: boolean,
+      batteries: number,
+    ) => {
+      for (let round = 0; round < batteries; round++) {
         for (const division of divisions) {
           const at = spare.findIndex(
             (battery) => !onlyHorse || pace(battery) > footPace,
@@ -386,8 +372,8 @@ export class ArmyDeployer {
       }
     };
 
-    serve(cavalry, true);
-    serve(infantry, false);
+    serve(cavalry, true, CAVALRY_DIVISION_BATTERIES);
+    serve(infantry, false, DIVISION_BATTERIES);
     return spare;
   }
 
@@ -412,50 +398,6 @@ export class ArmyDeployer {
       rotation: this.rotation,
       type,
     });
-  }
-
-  /**
-   * Deploys units in multiple lines within a section.
-   * @param units - The units to deploy.
-   * @param baseY - The base Y coordinate for deployment.
-   * @param startX - The starting X coordinate.
-   * @param sectionWidth - The width of the section.
-   * @param maxUnitsPerRow - The maximum number of units per row.
-   * @param spacing - The spacing between units.
-   * @param reverseY - Whether to reverse the Y direction for deployment.
-   */
-  private deployUnitsInLines(
-    units: UnitType[],
-    baseY: number,
-    startX: number,
-    sectionWidth: number,
-    maxUnitsPerRow: number,
-    spacing: number,
-    reverseY: boolean,
-  ) {
-    const unitCount = units.length;
-    const lines = Math.ceil(unitCount / maxUnitsPerRow);
-
-    for (let lineIndex = 0; lineIndex < lines; lineIndex++) {
-      const unitsInLine = Math.min(
-        maxUnitsPerRow,
-        unitCount - lineIndex * maxUnitsPerRow,
-      );
-      const totalLineWidth =
-        unitsInLine * (this.DEFAULT_UNIT_HEIGHT + spacing) - spacing;
-      const lineStartX = startX + (sectionWidth - totalLineWidth) / 2;
-
-      for (let i = 0; i < unitsInLine; i++) {
-        const unitIndex = lineIndex * maxUnitsPerRow + i;
-        const unitType = units[unitIndex];
-        const posX = lineStartX + i * (this.DEFAULT_UNIT_HEIGHT + spacing);
-        const posY = reverseY
-          ? baseY - lineIndex * (this.DEFAULT_UNIT_HEIGHT + this.MARGIN)
-          : baseY + lineIndex * (this.DEFAULT_UNIT_HEIGHT + this.MARGIN);
-
-        this.addUnit(unitType, posX, posY);
-      }
-    }
   }
 
   /**

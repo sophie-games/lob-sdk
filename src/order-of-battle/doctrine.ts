@@ -10,83 +10,59 @@ import { UnitCategoryId } from "@lob-sdk/types";
  */
 
 /**
- * Battalions a division is aimed at. A French division of 1809 was two brigades
- * of two regiments, and a regiment usually two war battalions, so eight was
- * typical and the large ones reached twelve.
+ * The most units a division may hold, guns included. A hard ceiling, not a
+ * target: a French division of 1809 was two brigades of two regiments of two war
+ * battalions, so eight was typical and the large ones reached twelve. An army
+ * with more foot than that simply raises more divisions.
  */
-export const UNITS_PER_DIVISION = 10;
+export const MAX_UNITS_PER_DIVISION = 12;
 
 /**
- * Regiments a cavalry division is aimed at. The reserve cavalry was a corps of
- * divisions, each two brigades of two regiments, not one mass of horse.
+ * The most units a cavalry division may hold, its horse battery included. A
+ * cavalry division was two brigades of two or three regiments, so four to six.
  */
-export const UNITS_PER_CAVALRY_DIVISION = 6;
+export const MAX_UNITS_PER_CAVALRY_DIVISION = 6;
 
 /** A division is two brigades, the way a Napoleonic one was. */
 export const BRIGADES_PER_DIVISION = 2;
 
 /**
- * Units a brigade needs before a second one is raised. A brigade was two
- * regiments, so a body too small to give each of them that stays undivided
- * rather than becoming brigades of one.
- */
-export const UNITS_PER_BRIGADE = 2;
-
-/**
  * Batteries a division carries as its own artillery. Napoleon wanted two per
  * division; the corps reserve held only the heavy pieces, which is what the
- * leftovers become.
+ * leftovers become. A cavalry division took one horse battery.
  */
 export const DIVISION_BATTERIES = 2;
+export const CAVALRY_DIVISION_BATTERIES = 1;
 
-/** Divisions an army can hold, one per control-group key. */
-export const MAX_DIVISIONS = 10;
+/** Battalions a division holds once its own guns have taken their places. */
+export const MAX_TROOPS_PER_DIVISION =
+  MAX_UNITS_PER_DIVISION - DIVISION_BATTERIES;
+export const MAX_TROOPS_PER_CAVALRY_DIVISION =
+  MAX_UNITS_PER_CAVALRY_DIVISION - CAVALRY_DIVISION_BATTERIES;
 
-/**
- * Divisions a body of the given strength wants. Rounded, not rounded up: a body
- * a little over the target is one full division rather than two under-strength
- * ones.
- */
-export function divisionsWanted(strength: number, per: number): number {
-  return strength === 0 ? 0 : Math.max(1, Math.round(strength / per));
-}
+/** The most a brigade may hold: its share of a full division's troops. */
+export const MAX_UNITS_PER_BRIGADE = Math.ceil(
+  MAX_TROOPS_PER_DIVISION / BRIGADES_PER_DIVISION,
+);
+export const MAX_UNITS_PER_CAVALRY_BRIGADE = Math.ceil(
+  MAX_TROOPS_PER_CAVALRY_DIVISION / BRIGADES_PER_DIVISION,
+);
 
-/** Brigades each of `divisions` gets, given the strength there is to fill them. */
-export function brigadesPerDivision(
-  strength: number,
-  divisions: number,
-): number {
-  if (divisions <= 0) return 0;
-  return Math.max(
-    1,
-    Math.min(
-      BRIGADES_PER_DIVISION,
-      Math.floor(strength / (divisions * UNITS_PER_BRIGADE)),
-    ),
-  );
-}
+/** Control-group keys, so the divisions past the tenth carry no digit. */
+export const KEYED_DIVISIONS = 10;
 
 /**
- * Share `budget` out between the arms, giving each what it wants when they fit
- * and otherwise squeezing them all by the same factor, so neither arm is left as
- * one mass while the other is finely divided. An arm with troops keeps a
- * division of its own.
+ * Divisions a body of the given strength needs to stay under the ceiling. It is
+ * the ceiling that is fixed, so a bigger army is more divisions rather than
+ * bigger ones.
  */
-export function shareDivisions(wanted: number[], budget: number): number[] {
-  const total = wanted.reduce((sum, n) => sum + n, 0);
-  if (total <= budget) return wanted;
+export function divisionsNeeded(strength: number, max: number): number {
+  return strength === 0 ? 0 : Math.ceil(strength / max);
+}
 
-  const shares = wanted.map((want) =>
-    want === 0 ? 0 : Math.max(1, Math.floor((want / total) * budget)),
-  );
-  // Rounding down can leave a slot free; give it to whichever arm wants most.
-  let spare = budget - shares.reduce((sum, n) => sum + n, 0);
-  while (spare > 0) {
-    const at = shares.indexOf(Math.max(...shares));
-    shares[at] += 1;
-    spare -= 1;
-  }
-  return shares.map((share, i) => Math.min(share, wanted[i]));
+/** Brigades a division of `strength` units needs to stay under the ceiling. */
+export function brigadesNeeded(strength: number, max: number): number {
+  return Math.max(1, Math.min(BRIGADES_PER_DIVISION, Math.ceil(strength / max)));
 }
 
 /**

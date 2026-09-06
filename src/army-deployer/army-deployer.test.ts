@@ -53,16 +53,20 @@ describe("ArmyDeployer", () => {
         1,
       ).deploy().filter((unit) => unit.pos.y < 1000);
 
-    /** Distinct x clusters in a row, split wherever the gap more than doubles. */
+    /** Groups of x that stand together, split wherever the gap more than doubles. */
     const clusters = (xs: number[]) => {
       const sorted = [...xs].sort((a, b) => a - b);
       const gaps = sorted.slice(1).map((x, i) => x - sorted[i]);
       const tight = Math.min(...gaps);
-      return gaps.filter((gap) => gap > tight * 2).length + 1;
+      const groups: number[][] = [[sorted[0]]];
+      gaps.forEach((gap, i) => {
+        if (gap > tight * 2) groups.push([]);
+        groups[groups.length - 1].push(sorted[i + 1]);
+      });
+      return groups;
     };
 
     it("stands each division apart as its own block of brigades", () => {
-      // Twenty battalions are two divisions of two brigades of five.
       const rows = new Map<number, number[]>();
       for (const unit of deploy({ "1": 20 })) {
         const row = rows.get(unit.pos.y) ?? [];
@@ -70,11 +74,44 @@ describe("ArmyDeployer", () => {
         rows.set(unit.pos.y, row);
       }
 
+      // Two brigade rows, each cut into one block per division, no block over the
+      // brigade ceiling.
       expect(rows.size).toBe(2);
-      for (const row of rows.values()) {
-        expect(row).toHaveLength(10);
-        expect(clusters(row)).toBe(2);
+      const blocks = [...rows.values()].map(clusters);
+      expect(blocks[0]).toHaveLength(blocks[1].length);
+      expect(blocks[0].length).toBeGreaterThan(1);
+      for (const row of blocks) {
+        for (const block of row) expect(block.length).toBeLessThanOrEqual(5);
       }
+    });
+
+    it("keeps a division together instead of spreading it over the army", () => {
+      // Skirmishers deploy forward, so they land in the other zone; each division's
+      // screen must still stand over that division's own stretch of the front.
+      const deployed = new ArmyDeployer(
+        gameDataManager,
+        { "1": 24, "16": 6 },
+        wideZone,
+        forwardZone,
+        1,
+        1,
+      ).deploy();
+
+      const screens = deployed
+        .filter((unit) => unit.pos.y > 1000)
+        .map((unit) => unit.pos.x)
+        .sort((a, b) => a - b);
+      const line = deployed
+        .filter((unit) => unit.pos.y < 1000)
+        .map((unit) => unit.pos.x);
+
+      // The screen spans the infantry, rather than being spread over the whole zone.
+      expect(Math.min(...screens)).toBeGreaterThanOrEqual(Math.min(...line));
+      expect(Math.max(...screens)).toBeLessThanOrEqual(Math.max(...line));
+      // One group of skirmishers per division, standing over its own division.
+      expect(clusters(screens).length).toBe(
+        clusters(line.filter((x, i, all) => all.indexOf(x) === i)).length,
+      );
     });
 
     it("puts the cavalry on the wings, outside the infantry", () => {
