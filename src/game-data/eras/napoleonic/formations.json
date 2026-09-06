@@ -31,7 +31,7 @@
     "enemyCollisionLevel": 2,
     "fireEdges": [{ "edge": 1, "arc": 40, "emitters": 4 }],
     "movementModifier": -0.1,
-    "runMovementModifier": -0.5,
+    "runMovementModifier": -0.25,
     "rotationSpeedModifier": -0.65,
     "rangedDamageResistance": 0.3,
     "disablesEnfiladeFire": true,
