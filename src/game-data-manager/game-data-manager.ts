@@ -404,7 +404,13 @@ export class GameDataManager {
             category.id,
             new Set(
               category.allowedOrders.map((order) => {
-                const orderType = this._orderNameMap.get(order);
+                // Saved replays can still reference names from before Advance
+                // unified Walk and Fire and Advance.
+                const orderType =
+                  this._orderNameMap.get(order) ??
+                  (order === "walk" || order === "fireAndAdvance"
+                    ? OrderType.Advance
+                    : undefined);
                 if (orderType !== undefined) return orderType;
                 throw new Error(`Order ${order} not found`);
               }),
