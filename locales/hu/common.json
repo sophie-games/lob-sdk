@@ -967,5 +967,28 @@
   "gameSearchAnyPlayerCount": "Tetszőleges szám",
   "gameSearchFinishedFrom": "Befejezve ettől",
   "gameSearchFinishedTo": "Befejezve eddig",
-  "gameSearchEmptyDescription": "Bővítsd a szűrési feltételeket további visszajátszások kereséséhez."
+  "gameSearchEmptyDescription": "Bővítsd a szűrési feltételeket további visszajátszások kereséséhez.",
+  "firstSession": {
+    "title": "Hogyan szeretnél kezdeni?",
+    "description": "Tanuld meg az alapokat, vagy lépj a Játék menübe a csata beállításainak kiválasztásához.",
+    "learn": {
+      "title": "Tanulás",
+      "description": "Vezetett gyakorlócsata, körülbelül 10 perc. Bármikor kiléphetsz; visszatéréskor új oktatócsata indul."
+    },
+    "play": {
+      "title": "Játék",
+      "description": "Válaszd ki a tempót és a csata beállításait, majd keress egy meccset."
+    }
+  },
+  "replaceOfflineGameWarning": "Az új csata felülírja a mentett offline játékot és annak előrehaladását.",
+  "returnToMenu": "Vissza a menübe",
+  "exitGameHint": "A menübe visszatérés nem szünetelteti a csatát.",
+  "openReplayFile": "Visszajátszás fájljának megnyitása",
+  "failedToLoadClans": "Nem sikerült betölteni a koalíciókat. Próbáld újra.",
+  "emailConfirmation": {
+    "title": "E-mail-cím megerősítése",
+    "confirmed": "Az e-mail-cím megerősítve. Most már bejelentkezhetsz.",
+    "error": "Nem sikerült megerősíteni az e-mail-címet. A hivatkozás érvénytelen vagy lejárt lehet."
+  },
+  "watchBattles": "Csaták megtekintése"
 }

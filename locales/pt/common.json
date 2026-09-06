@@ -1006,5 +1006,28 @@
   "gameSearchAnyPlayerCount": "Qualquer quantidade",
   "gameSearchFinishedFrom": "Finalizadas desde",
   "gameSearchFinishedTo": "Finalizadas até",
-  "gameSearchEmptyDescription": "Amplie os filtros para encontrar mais replays."
+  "gameSearchEmptyDescription": "Amplie os filtros para encontrar mais replays.",
+  "firstSession": {
+    "title": "Como você quer começar?",
+    "description": "Aprenda o básico ou vá para Jogar para escolher as configurações da sua batalha.",
+    "learn": {
+      "title": "Aprender",
+      "description": "Uma batalha de treino guiada de cerca de 10 minutos. Você pode sair a qualquer momento; ao voltar, um novo tutorial será iniciado."
+    },
+    "play": {
+      "title": "Jogar",
+      "description": "Escolha o ritmo e as configurações da sua batalha e depois busque uma partida."
+    }
+  },
+  "replaceOfflineGameWarning": "Iniciar uma nova batalha substituirá sua partida offline salva e seu progresso.",
+  "returnToMenu": "Voltar ao menu",
+  "exitGameHint": "Voltar ao menu não pausa a batalha.",
+  "openReplayFile": "Abrir arquivo de replay",
+  "failedToLoadClans": "Não foi possível carregar as coalizões. Tente novamente.",
+  "emailConfirmation": {
+    "title": "Confirme seu e-mail",
+    "confirmed": "E-mail confirmado. Você já pode entrar.",
+    "error": "Não foi possível confirmar seu e-mail. O link pode ser inválido ou ter expirado."
+  },
+  "watchBattles": "Assistir a batalhas"
 }

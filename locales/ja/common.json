@@ -1153,5 +1153,28 @@
   "gameSearchAnyPlayerCount": "人数指定なし",
   "gameSearchFinishedFrom": "終了日の下限",
   "gameSearchFinishedTo": "終了日の上限",
-  "gameSearchEmptyDescription": "フィルターの条件を広げると、より多くのリプレイが見つかります。"
+  "gameSearchEmptyDescription": "フィルターの条件を広げると、より多くのリプレイが見つかります。",
+  "firstSession": {
+    "title": "どのように始めますか？",
+    "description": "基本を学ぶか、「プレイ」で戦闘設定を選びましょう。",
+    "learn": {
+      "title": "学ぶ",
+      "description": "ガイド付きの練習戦闘です。所要時間は約10分。いつでも退出できますが、戻ると新しいチュートリアルが始まります。"
+    },
+    "play": {
+      "title": "プレイ",
+      "description": "プレイのペースと戦闘設定を選んで、対戦を探しましょう。"
+    }
+  },
+  "replaceOfflineGameWarning": "新しい戦闘を始めると、保存済みのオフライン対戦と進行状況が置き換えられます。",
+  "returnToMenu": "メニューに戻る",
+  "exitGameHint": "メニューに戻っても戦闘は一時停止しません。",
+  "openReplayFile": "リプレイファイルを開く",
+  "failedToLoadClans": "連合を読み込めませんでした。もう一度お試しください。",
+  "emailConfirmation": {
+    "title": "メールアドレスを確認",
+    "confirmed": "メールアドレスを確認しました。ログインできます。",
+    "error": "メールアドレスを確認できませんでした。リンクが無効か期限切れの可能性があります。"
+  },
+  "watchBattles": "対戦を観戦"
 }

@@ -1311,23 +1311,15 @@
     "unknownUnit": "Unit {{id}}"
   },
   "firstSession": {
-    "eyebrow": "Choose your first commitment",
     "title": "How would you like to begin?",
-    "description": "Pick the pace that fits your day. You can change every matchmaking option later.",
+    "description": "Learn the basics or head to Play to choose your battle settings.",
     "learn": {
       "title": "Learn",
-      "commitment": "About 10 minutes. Play at your own pace and leave whenever you need to.",
-      "nextAction": "Next: a guided battle that teaches deployment, orders, and objectives. Unrated."
+      "description": "A guided practice battle, about 10 minutes. You can leave at any time; returning starts a new tutorial."
     },
-    "live": {
-      "title": "Play Now",
-      "commitment": "Usually 20-40 minutes. Stay present; each live turn can take up to 1 minute.",
-      "nextAction": "Next: the recommended rated live matchmaking setup."
-    },
-    "overDays": {
-      "title": "Play Over Days",
-      "commitment": "A few minutes per turn across several days. You do not need to stay online.",
-      "nextAction": "Next: the recommended rated correspondence setup."
+    "play": {
+      "title": "Play",
+      "description": "Choose your pace and battle settings, then find a match."
     }
   },
   "playTogether": {
@@ -1452,5 +1444,15 @@
   },
   "hideReplayInterface": "Hide interface",
   "replayInterfaceKeyboardHint": "H: hide/show · Esc: show",
-  "replayInterfaceTouchHint": "Double-tap the map to show the interface."
+  "replayInterfaceTouchHint": "Double-tap the map to show the interface.",
+  "replaceOfflineGameWarning": "Starting a new battle will replace your saved offline battle and its progress.",
+  "returnToMenu": "Return to menu",
+  "exitGameHint": "Returning to the menu does not pause the battle.",
+  "openReplayFile": "Open replay file",
+  "failedToLoadClans": "Could not load coalitions. Please try again.",
+  "emailConfirmation": {
+    "title": "Confirm your email",
+    "confirmed": "Email confirmed. You can now log in.",
+    "error": "Could not confirm your email. The link may be invalid or expired."
+  }
 }

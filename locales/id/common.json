@@ -1008,5 +1008,28 @@
   "gameSearchAnyPlayerCount": "Jumlah berapa pun",
   "gameSearchFinishedFrom": "Selesai sejak",
   "gameSearchFinishedTo": "Selesai hingga",
-  "gameSearchEmptyDescription": "Perluas filter untuk menemukan lebih banyak tayangan ulang."
+  "gameSearchEmptyDescription": "Perluas filter untuk menemukan lebih banyak tayangan ulang.",
+  "firstSession": {
+    "title": "Bagaimana kamu ingin memulai?",
+    "description": "Pelajari dasar-dasarnya atau buka Main untuk memilih pengaturan pertempuranmu.",
+    "learn": {
+      "title": "Belajar",
+      "description": "Pertempuran latihan terpandu, sekitar 10 menit. Kamu bisa keluar kapan saja; saat kembali, panduan akan dimulai dari awal."
+    },
+    "play": {
+      "title": "Main",
+      "description": "Pilih tempo dan pengaturan pertempuranmu, lalu cari pertandingan."
+    }
+  },
+  "replaceOfflineGameWarning": "Pertempuran baru akan menggantikan permainan offline tersimpan dan progresnya.",
+  "returnToMenu": "Kembali ke menu",
+  "exitGameHint": "Kembali ke menu tidak menjeda pertempuran.",
+  "openReplayFile": "Buka berkas replay",
+  "failedToLoadClans": "Koalisi tidak dapat dimuat. Coba lagi.",
+  "emailConfirmation": {
+    "title": "Konfirmasi email Anda",
+    "confirmed": "Email dikonfirmasi. Anda sekarang dapat masuk.",
+    "error": "Email tidak dapat dikonfirmasi. Tautan mungkin tidak valid atau kedaluwarsa."
+  },
+  "watchBattles": "Tonton pertempuran"
 }

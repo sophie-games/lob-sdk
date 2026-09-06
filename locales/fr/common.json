@@ -1016,5 +1016,28 @@
   "gameSearchAnyPlayerCount": "Nombre quelconque",
   "gameSearchFinishedFrom": "Terminées à partir du",
   "gameSearchFinishedTo": "Terminées jusqu’au",
-  "gameSearchEmptyDescription": "Élargissez les filtres pour trouver plus de rediffusions."
+  "gameSearchEmptyDescription": "Élargissez les filtres pour trouver plus de rediffusions.",
+  "firstSession": {
+    "title": "Comment souhaitez-vous commencer ?",
+    "description": "Apprenez les bases ou allez dans Jouer pour choisir les paramètres de votre bataille.",
+    "learn": {
+      "title": "Apprendre",
+      "description": "Une bataille d’entraînement guidée d’environ 10 minutes. Vous pouvez quitter à tout moment ; à votre retour, un nouveau tutoriel commencera."
+    },
+    "play": {
+      "title": "Jouer",
+      "description": "Choisissez votre rythme et les paramètres de votre bataille, puis recherchez une partie."
+    }
+  },
+  "replaceOfflineGameWarning": "Commencer une nouvelle bataille remplacera votre partie hors ligne sauvegardée et sa progression.",
+  "returnToMenu": "Retour au menu",
+  "exitGameHint": "Revenir au menu ne met pas la bataille en pause.",
+  "openReplayFile": "Ouvrir un fichier de rediffusion",
+  "failedToLoadClans": "Impossible de charger les coalitions. Réessayez.",
+  "emailConfirmation": {
+    "title": "Confirmez votre e-mail",
+    "confirmed": "E-mail confirmé. Vous pouvez vous connecter.",
+    "error": "Impossible de confirmer votre e-mail. Le lien est peut-être invalide ou expiré."
+  },
+  "watchBattles": "Regarder des batailles"
 }

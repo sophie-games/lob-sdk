@@ -1143,5 +1143,28 @@
   "gameSearchAnyPlayerCount": "Số lượng bất kỳ",
   "gameSearchFinishedFrom": "Kết thúc từ ngày",
   "gameSearchFinishedTo": "Kết thúc đến ngày",
-  "gameSearchEmptyDescription": "Mở rộng bộ lọc để tìm thêm bản phát lại."
+  "gameSearchEmptyDescription": "Mở rộng bộ lọc để tìm thêm bản phát lại.",
+  "firstSession": {
+    "title": "Bạn muốn bắt đầu như thế nào?",
+    "description": "Học những điều cơ bản hoặc vào mục Chơi để chọn thiết lập trận chiến.",
+    "learn": {
+      "title": "Học cách chơi",
+      "description": "Một trận chiến luyện tập có hướng dẫn, khoảng 10 phút. Bạn có thể thoát bất cứ lúc nào; khi quay lại, phần hướng dẫn sẽ bắt đầu lại từ đầu."
+    },
+    "play": {
+      "title": "Chơi",
+      "description": "Chọn nhịp độ và thiết lập trận chiến, rồi tìm trận đấu."
+    }
+  },
+  "replaceOfflineGameWarning": "Bắt đầu trận mới sẽ thay thế trận ngoại tuyến đã lưu và tiến trình của bạn.",
+  "returnToMenu": "Trở về menu",
+  "exitGameHint": "Trở về menu không tạm dừng trận đấu.",
+  "openReplayFile": "Mở tệp phát lại",
+  "failedToLoadClans": "Không thể tải liên minh. Vui lòng thử lại.",
+  "emailConfirmation": {
+    "title": "Xác nhận email",
+    "confirmed": "Email đã được xác nhận. Bạn có thể đăng nhập.",
+    "error": "Không thể xác nhận email. Liên kết có thể không hợp lệ hoặc đã hết hạn."
+  },
+  "watchBattles": "Xem trận đấu"
 }

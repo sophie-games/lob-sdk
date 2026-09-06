@@ -1139,5 +1139,28 @@
   "gameSearchAnyPlayerCount": "인원 제한 없음",
   "gameSearchFinishedFrom": "종료일 시작",
   "gameSearchFinishedTo": "종료일 끝",
-  "gameSearchEmptyDescription": "더 많은 리플레이를 찾으려면 필터 조건을 넓혀 보세요."
+  "gameSearchEmptyDescription": "더 많은 리플레이를 찾으려면 필터 조건을 넓혀 보세요.",
+  "firstSession": {
+    "title": "어떻게 시작하시겠어요?",
+    "description": "기본을 배우거나 플레이로 이동해 전투 설정을 선택하세요.",
+    "learn": {
+      "title": "배우기",
+      "description": "안내에 따라 진행하는 연습 전투로, 약 10분이 걸립니다. 언제든 나갈 수 있으며, 돌아오면 새로운 튜토리얼이 시작됩니다."
+    },
+    "play": {
+      "title": "플레이",
+      "description": "진행 속도와 전투 설정을 선택한 후 대전을 찾으세요."
+    }
+  },
+  "replaceOfflineGameWarning": "새 전투를 시작하면 저장된 오프라인 게임과 진행 상황이 대체됩니다.",
+  "returnToMenu": "메뉴로 돌아가기",
+  "exitGameHint": "메뉴로 돌아가도 전투는 일시 정지되지 않습니다.",
+  "openReplayFile": "리플레이 파일 열기",
+  "failedToLoadClans": "연합을 불러오지 못했습니다. 다시 시도하세요.",
+  "emailConfirmation": {
+    "title": "이메일 확인",
+    "confirmed": "이메일이 확인되었습니다. 이제 로그인할 수 있습니다.",
+    "error": "이메일을 확인하지 못했습니다. 링크가 유효하지 않거나 만료되었을 수 있습니다."
+  },
+  "watchBattles": "전투 관전"
 }

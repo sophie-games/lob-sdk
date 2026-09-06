@@ -1006,5 +1006,28 @@
   "gameSearchAnyPlayerCount": "Beliebige Anzahl",
   "gameSearchFinishedFrom": "Beendet ab",
   "gameSearchFinishedTo": "Beendet bis",
-  "gameSearchEmptyDescription": "Erweitere die Filter, um mehr Wiederholungen zu finden."
+  "gameSearchEmptyDescription": "Erweitere die Filter, um mehr Wiederholungen zu finden.",
+  "firstSession": {
+    "title": "Wie möchtest du beginnen?",
+    "description": "Lerne die Grundlagen oder gehe zu Spielen, um deine Schlachteinstellungen zu wählen.",
+    "learn": {
+      "title": "Lernen",
+      "description": "Eine angeleitete Übungsschlacht von etwa 10 Minuten. Du kannst jederzeit aufhören; bei deiner Rückkehr beginnt ein neues Tutorial."
+    },
+    "play": {
+      "title": "Spielen",
+      "description": "Wähle dein Tempo und deine Schlachteinstellungen und suche dann eine Partie."
+    }
+  },
+  "replaceOfflineGameWarning": "Eine neue Schlacht ersetzt deine gespeicherte Offline-Partie und ihren Fortschritt.",
+  "returnToMenu": "Zurück zum Menü",
+  "exitGameHint": "Die Rückkehr zum Menü pausiert die Schlacht nicht.",
+  "openReplayFile": "Replay-Datei öffnen",
+  "failedToLoadClans": "Koalitionen konnten nicht geladen werden. Versuche es erneut.",
+  "emailConfirmation": {
+    "title": "E-Mail bestätigen",
+    "confirmed": "E-Mail bestätigt. Du kannst dich jetzt anmelden.",
+    "error": "E-Mail konnte nicht bestätigt werden. Der Link ist möglicherweise ungültig oder abgelaufen."
+  },
+  "watchBattles": "Schlachten ansehen"
 }

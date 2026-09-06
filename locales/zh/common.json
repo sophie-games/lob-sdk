@@ -1151,5 +1151,28 @@
   "gameSearchAnyPlayerCount": "不限人数",
   "gameSearchFinishedFrom": "结束日期起始",
   "gameSearchFinishedTo": "结束日期截止",
-  "gameSearchEmptyDescription": "放宽筛选条件以查找更多回放。"
+  "gameSearchEmptyDescription": "放宽筛选条件以查找更多回放。",
+  "firstSession": {
+    "title": "你想如何开始？",
+    "description": "学习基础知识，或前往“游玩”选择战斗设置。",
+    "learn": {
+      "title": "学习",
+      "description": "一场有引导的练习战斗，约需10分钟。你可以随时退出；返回时将开始新的教程。"
+    },
+    "play": {
+      "title": "游玩",
+      "description": "选择游玩节奏和战斗设置，然后寻找对局。"
+    }
+  },
+  "replaceOfflineGameWarning": "开始新战斗将替换已保存的离线对局及其进度。",
+  "returnToMenu": "返回菜单",
+  "exitGameHint": "返回菜单不会暂停战斗。",
+  "openReplayFile": "打开回放文件",
+  "failedToLoadClans": "无法加载联盟，请重试。",
+  "emailConfirmation": {
+    "title": "确认电子邮箱",
+    "confirmed": "邮箱已确认，现在可以登录。",
+    "error": "无法确认邮箱，链接可能无效或已过期。"
+  },
+  "watchBattles": "观看战斗"
 }

@@ -1180,5 +1180,28 @@
   "gameSearchAnyPlayerCount": "Cualquier cantidad",
   "gameSearchFinishedFrom": "Finalizadas desde",
   "gameSearchFinishedTo": "Finalizadas hasta",
-  "gameSearchEmptyDescription": "Prueba ampliar los filtros para encontrar más repeticiones."
+  "gameSearchEmptyDescription": "Prueba ampliar los filtros para encontrar más repeticiones.",
+  "firstSession": {
+    "title": "¿Cómo quieres empezar?",
+    "description": "Aprende lo básico o ve a Jugar para elegir la configuración de tu batalla.",
+    "learn": {
+      "title": "Aprender",
+      "description": "Una batalla de práctica guiada de unos 10 minutos. Puedes salir cuando quieras; al volver, empezarás un nuevo tutorial."
+    },
+    "play": {
+      "title": "Jugar",
+      "description": "Elige el ritmo y la configuración de tu batalla y luego busca una partida."
+    }
+  },
+  "replaceOfflineGameWarning": "Empezar una nueva batalla reemplazará tu partida offline guardada y su progreso.",
+  "returnToMenu": "Volver al menú",
+  "exitGameHint": "Volver al menú no pausa la batalla.",
+  "openReplayFile": "Abrir archivo de repetición",
+  "failedToLoadClans": "No se pudieron cargar las coaliciones. Inténtalo de nuevo.",
+  "emailConfirmation": {
+    "title": "Confirma tu correo",
+    "confirmed": "Correo confirmado. Ya puedes iniciar sesión.",
+    "error": "No se pudo confirmar tu correo. El enlace puede ser inválido o haber caducado."
+  },
+  "watchBattles": "Ver batallas"
 }

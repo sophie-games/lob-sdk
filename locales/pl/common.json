@@ -1096,5 +1096,28 @@
   "gameSearchAnyPlayerCount": "Dowolna liczba",
   "gameSearchFinishedFrom": "Zakończone od",
   "gameSearchFinishedTo": "Zakończone do",
-  "gameSearchEmptyDescription": "Rozszerz filtry, aby znaleźć więcej powtórek."
+  "gameSearchEmptyDescription": "Rozszerz filtry, aby znaleźć więcej powtórek.",
+  "firstSession": {
+    "title": "Jak chcesz zacząć?",
+    "description": "Poznaj podstawy lub przejdź do sekcji Graj, aby wybrać ustawienia bitwy.",
+    "learn": {
+      "title": "Nauka",
+      "description": "Bitwa treningowa ze wskazówkami, trwająca około 10 minut. Możesz wyjść w dowolnym momencie; po powrocie rozpocznie się nowy samouczek."
+    },
+    "play": {
+      "title": "Graj",
+      "description": "Wybierz tempo i ustawienia bitwy, a następnie wyszukaj rozgrywkę."
+    }
+  },
+  "replaceOfflineGameWarning": "Nowa bitwa zastąpi zapisaną grę offline i jej postęp.",
+  "returnToMenu": "Wróć do menu",
+  "exitGameHint": "Powrót do menu nie wstrzymuje bitwy.",
+  "openReplayFile": "Otwórz plik powtórki",
+  "failedToLoadClans": "Nie udało się wczytać koalicji. Spróbuj ponownie.",
+  "emailConfirmation": {
+    "title": "Potwierdź adres e-mail",
+    "confirmed": "Adres e-mail potwierdzony. Możesz się zalogować.",
+    "error": "Nie udało się potwierdzić adresu e-mail. Link może być nieprawidłowy lub wygasł."
+  },
+  "watchBattles": "Oglądaj bitwy"
 }

@@ -1005,5 +1005,28 @@
   "gameSearchAnyPlayerCount": "Herhangi bir sayı",
   "gameSearchFinishedFrom": "Bitiş tarihi başlangıcı",
   "gameSearchFinishedTo": "Bitiş tarihi sonu",
-  "gameSearchEmptyDescription": "Daha fazla tekrar bulmak için filtreleri genişletin."
+  "gameSearchEmptyDescription": "Daha fazla tekrar bulmak için filtreleri genişletin.",
+  "firstSession": {
+    "title": "Nasıl başlamak istersin?",
+    "description": "Temel bilgileri öğren veya savaş ayarlarını seçmek için Oyna bölümüne git.",
+    "learn": {
+      "title": "Öğren",
+      "description": "Yaklaşık 10 dakikalık, yönlendirmeli bir alıştırma savaşı. İstediğin zaman ayrılabilirsin; geri döndüğünde yeni bir eğitim başlar."
+    },
+    "play": {
+      "title": "Oyna",
+      "description": "Temponu ve savaş ayarlarını seç, ardından bir maç bul."
+    }
+  },
+  "replaceOfflineGameWarning": "Yeni bir savaş, kayıtlı çevrimdışı oyununuzun ve ilerlemenizin yerini alır.",
+  "returnToMenu": "Menüye dön",
+  "exitGameHint": "Menüye dönmek savaşı duraklatmaz.",
+  "openReplayFile": "Tekrar dosyası aç",
+  "failedToLoadClans": "Koalisyonlar yüklenemedi. Tekrar deneyin.",
+  "emailConfirmation": {
+    "title": "E-postanızı doğrulayın",
+    "confirmed": "E-posta doğrulandı. Artık giriş yapabilirsiniz.",
+    "error": "E-posta doğrulanamadı. Bağlantı geçersiz veya süresi dolmuş olabilir."
+  },
+  "watchBattles": "Savaşları izle"
 }
