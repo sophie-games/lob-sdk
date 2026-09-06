@@ -1288,26 +1288,17 @@
     "scheduled": "Your account is scheduled for deletion in {{graceDays}} days. Log in again before then to cancel it.",
     "error": "Could not schedule account deletion. Please try again."
   },
-  "brigadeOrganization": {
-    "firstDivision": "1st Division",
+  "orderOfBattle": {
+    "title": "Order of Battle",
     "brigade": "{{numeral}} Brigade",
-    "region": "Division organization",
-    "groupingHint": "Select a division, brigade, or battalion, then use the usual unit controls to issue orders.",
+    "division": "1st Division",
+    "unattached": "Unattached",
+    "dragToReassign": "Drag onto another brigade to reassign it",
     "select": "Select {{target}}",
-    "edit": "Edit organization",
-    "finishEditing": "Finish editing",
-    "done": "Done",
-    "close": "Close organization",
+    "showSelection": "Show the selected units",
+    "showTree": "Show the order of battle",
     "collapse": "Collapse {{target}}",
-    "expand": "Expand {{target}}",
-    "unitCount_one": "{{count}} unit",
-    "unitCount_other": "{{count}} units",
-    "unitBrigade": "Brigade for {{unit}}",
-    "open": "Open organization",
-    "brigadeCount_one": "{{count}} brigade",
-    "brigadeCount_other": "{{count}} brigades",
-    "noControllableUnits": "There are no controllable units.",
-    "unknownUnit": "Unit {{id}}"
+    "expand": "Expand {{target}}"
   },
   "firstSession": {
     "title": "How would you like to begin?",
