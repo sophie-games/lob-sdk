@@ -240,7 +240,7 @@ describe("Napoleonic balance", () => {
       expect(
         gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(name)
           .ammoCost! / STAT_PRECISION_SCALE,
-      ).toBe(110);
+      ).toBe(100);
     }
   });
 
@@ -301,7 +301,7 @@ describe("Napoleonic balance", () => {
 
   it("uses the requested 1.8 artillery unit balance", () => {
     const expectedByName = {
-      "8lb_artillery": { runMovement: 80, guns: 8 },
+      "8lb_artillery": { runMovement: 81, rotationSpeed: 0.26, guns: 8 },
       "6lb_artillery_horse": {
         manpower: 75,
         rangedAttack: 2800,
@@ -310,24 +310,24 @@ describe("Napoleonic balance", () => {
         guns: 6,
       },
       "6in_howitzer": {
-        rangedAttack: 3000,
-        rotationSpeed: 0.4,
+        rangedAttack: 2900,
+        rotationSpeed: 0.31,
         panicFireDistance: 90,
         guns: 6,
       },
-      "12lb_artillery": { runMovement: 70, guns: 8 },
+      "12lb_artillery": { runMovement: 81, guns: 8 },
       "4lb_artillery": { manpower: 50, rangedAttack: 2500, guns: 6 },
-      "6lb_artillery": { runMovement: 80, hp: 80000, guns: 8 },
+      "6lb_artillery": { runMovement: 86, hp: 80000, guns: 8 },
       rockets: { runMovement: 160, guns: 6 },
       "10lb_licorne": {
         rangedAttack: 3200,
-        runMovement: 80,
+        runMovement: 86,
         hp: 60000,
         guns: 6,
       },
       "18lb_licorne": {
         rangedAttack: 3700,
-        runMovement: 70,
+        runMovement: 81,
         hp: 60000,
         guns: 6,
       },
@@ -344,6 +344,26 @@ describe("Napoleonic balance", () => {
       expect(unit).toMatchObject(expected);
       expect(unit.pushStrength).toBe(100);
       expect(unit.reportStats!.guns).toBe(guns);
+    }
+  });
+
+  it("uses the requested artillery rotation speeds in degrees", () => {
+    const expectedDegrees = {
+      "18lb_licorne": 12,
+      "12lb_artillery": 12,
+      "8lb_artillery": 15,
+      "10lb_licorne": 15,
+      "6lb_artillery": 18,
+      "4lb_artillery": 18,
+      "6in_howitzer": 18,
+      "6lb_artillery_horse": 18,
+    };
+    const templates = gameDataManager.getUnitTemplateManager().getTemplates();
+
+    for (const [name, degrees] of Object.entries(expectedDegrees)) {
+      const unit = templates.find((template) => template.name === name)!;
+
+      expect(Math.round((unit.rotationSpeed * 180) / Math.PI)).toBe(degrees);
     }
   });
 
@@ -374,7 +394,7 @@ describe("Napoleonic balance", () => {
         );
 
       expect(shell.ranges).toMatchObject([
-        { damageModifier: { near: 0, far: -0.38 } },
+        { damageModifier: { near: 0, far: -0.3 } },
       ]);
       expect(cannonBall.ranges).toMatchObject([
         { damageModifier: { near: 1, far: 0.45 } },
@@ -531,7 +551,7 @@ describe("Napoleonic balance", () => {
     expect(
       gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>("musket")
         .ranges[0].damageModifier.near,
-    ).toBe(9);
+    ).toBe(6);
   });
 
   it("uses the requested cavalry charge and organization balance", () => {
@@ -681,7 +701,7 @@ describe("Napoleonic balance", () => {
 
     expect(
       gameDataManager.getRangedAttackModifier(TerrainType.Forest, "artillery"),
-    ).toBe(-0.5);
+    ).toBe(-0.75);
 
     const expectedAbsorption = {
       musket: 0.25,
@@ -800,7 +820,7 @@ describe("Napoleonic balance", () => {
     expect(
       unitTemplates.find((template) => template.name === "grenadiers")
         ?.chargePenetration,
-    ).toBe(0.85);
+    ).toBe(0.9);
 
     expect(
       gameDataManager.getFormationManager().getTemplate("column"),
