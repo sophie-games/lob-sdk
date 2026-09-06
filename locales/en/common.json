@@ -1291,10 +1291,10 @@
   "orderOfBattle": {
     "title": "Order of Battle",
     "brigade": "{{numeral}} Brigade",
-    "corps": "I Corps",
     "infantryDivision": "{{n}} Division",
-    "cavalryReserve": "Cavalry Reserve",
+    "cavalryDivision": "{{n}} Cavalry Division",
     "artilleryReserve": "Artillery Reserve",
+    "divisionalArtillery": "Divisional Artillery",
     "unattached": "Unattached",
     "dragToReassign": "Drag onto another brigade to reassign it",
     "select": "Select {{target}}",
