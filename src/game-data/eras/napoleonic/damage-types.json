@@ -974,7 +974,7 @@
     "id": 18,
     "name": "explosive-shell",
     "ranged": true,
-    "orgDamageRatio": 28000,
+    "orgDamageRatio": 22500,
     "reorgDebuff": 0.85,
     "attackEffectDuration": 10,
     "projectileWidth": 22,
@@ -994,8 +994,8 @@
         "from": 0.2,
         "to": 0.5882,
         "damageModifier": {
-          "near": 0.2,
-          "far": 0.1
+          "near": 0.15,
+          "far": 0
         },
         "engagementTier": 1
       },
@@ -1003,8 +1003,8 @@
         "from": 0.5882,
         "to": 1,
         "damageModifier": {
-          "near": 0.1,
-          "far": 0
+          "near": 0,
+          "far": -0.3
         },
         "name": "long"
       }
