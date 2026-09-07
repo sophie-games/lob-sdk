@@ -163,9 +163,10 @@
     "info": "Información",
     "submitOrders": "Enviar órdenes",
     "deselect": "Deseleccionar",
+    "moveOrder": "Orden de movimiento",
     "runOrder": "Orden de correr",
     "shootOrder": "Orden de disparo",
-    "fireAndAdvanceOrder": "Orden de avanzar",
+    "fireAndAdvanceOrder": "Orden de disparar y avanzar",
     "fallbackOrder": "Orden de retirada",
     "automaticOrder": "Orden automática",
     "toggleSmartCurvedMovements": "Alternar movimientos curvos inteligentes",
@@ -184,7 +185,7 @@
     "simulateMultiTouch": "Simular Multi-toque",
     "toggleSupplyLines": "Alternar líneas de suministro",
     "toggleStraightLine": "Alternar línea recta",
-    "toggleDrawLine": "Alternar desactivar líneas de dibujo",
+    "toggleDrawLine": "Cambiar Recorrido / Desplegar",
     "splitInHalf": "Dividir por la mitad",
     "openPingWheel": "Abrir rueda de pings",
     "controlGroupsHelp": "El dígito solo lanza una orden. Recupera un grupo con {{modifier}} + su dígito."
@@ -281,13 +282,21 @@
   "controlGroups": {
     "recall": "Llamar grupo {{group}}",
     "set": "Fijar grupo {{group}}",
-    "add": "Agregar al grupo {{group}}",
-    "setExclusive": "Asignar solo al grupo {{group}}"
+    "add": "Agregar al grupo {{group}}"
   },
   "notifications": {
     "clanLeague": {
       "title": "Coalition league",
       "description": "Notify me when my coalition can still reach the weekly prize positions."
     }
+  },
+  "drawingMode": {
+    "options": "Opciones de movimiento",
+    "smoothCurves": "Suavizar curvas",
+    "title": "Modo de dibujo",
+    "route": "Recorrido",
+    "deploy": "Desplegar",
+    "routeDescription": "Dibujá el recorrido a seguir, conservando la disposición del grupo al llegar.",
+    "deployDescription": "Dibujá el frente donde desplegar las unidades seleccionadas."
   }
 }

@@ -160,9 +160,10 @@
     "info": "Bilgi",
     "submitOrders": "Emirleri gönder",
     "deselect": "Seçimi kaldır",
+    "moveOrder": "Hareket emri",
     "runOrder": "Ara emri",
     "shootOrder": "Ateş emri",
-    "fireAndAdvanceOrder": "İlerle emri",
+    "fireAndAdvanceOrder": "Ateş ve ilerle emri",
     "fallbackOrder": "Geri çekil emri",
     "automaticOrder": "Otomatik emir",
     "toggleSmartCurvedMovements": "Akıllı eğri hareketleri değiştir",
@@ -288,8 +289,7 @@
   "controlGroups": {
     "recall": "{{group}}. grubu çağır",
     "set": "{{group}}. grubu ayarla",
-    "add": "{{group}}. gruba ekle",
-    "setExclusive": "Yalnızca {{group}}. gruba ata"
+    "add": "{{group}}. gruba ekle"
   },
   "notifications": {
     "clanLeague": {

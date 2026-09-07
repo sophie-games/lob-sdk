@@ -1,7 +1,6 @@
 [
   {
     "id": "infantry",
-    "advanceIgnoreCategories": ["skirmishInfantry"],
     "chargeStaminaCost": 10000,
     "chargeBacklashMultiplier": 1.5,
     "runChargeBacklashMultiplier": 0.75,
@@ -21,9 +20,10 @@
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
     "allowedOrders": [
-      "advance",
+      "walk",
       "run",
       "shoot",
+      "fireAndAdvance",
       "placeEntity",
       "fallback",
       "rotate"
@@ -31,7 +31,6 @@
   },
   {
     "id": "guardsInfantry",
-    "advanceIgnoreCategories": ["skirmishInfantry"],
     "chargeStaminaCost": 10000,
     "chargeBacklashMultiplier": 1.5,
     "runChargeBacklashMultiplier": 0.75,
@@ -51,9 +50,10 @@
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
     "allowedOrders": [
-      "advance",
+      "walk",
       "run",
       "shoot",
+      "fireAndAdvance",
       "placeEntity",
       "fallback",
       "rotate"
@@ -97,9 +97,10 @@
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
     "allowedOrders": [
-      "advance",
+      "walk",
       "run",
       "shoot",
+      "fireAndAdvance",
       "placeEntity",
       "fallback",
       "rotate"
@@ -152,9 +153,10 @@
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
     "allowedOrders": [
-      "advance",
+      "walk",
       "run",
       "shoot",
+      "fireAndAdvance",
       "placeEntity",
       "fallback",
       "rotate"
@@ -197,9 +199,10 @@
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
     "allowedOrders": [
-      "advance",
+      "walk",
       "run",
       "shoot",
+      "fireAndAdvance",
       "placeEntity",
       "fallback",
       "rotate"
@@ -242,9 +245,10 @@
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
     "allowedOrders": [
-      "advance",
+      "walk",
       "run",
       "shoot",
+      "fireAndAdvance",
       "placeEntity",
       "fallback",
       "rotate"
@@ -287,9 +291,10 @@
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
     "allowedOrders": [
-      "advance",
+      "walk",
       "run",
       "shoot",
+      "fireAndAdvance",
       "placeEntity",
       "fallback",
       "rotate"
@@ -297,7 +302,6 @@
   },
   {
     "id": "militiaInfantry",
-    "advanceIgnoreCategories": ["skirmishInfantry"],
     "chargeStaminaCost": 10000,
     "chargeBacklashMultiplier": 0.75,
     "runChargeBacklashMultiplier": 0.75,
@@ -328,9 +332,10 @@
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
     "allowedOrders": [
-      "advance",
+      "walk",
       "run",
       "shoot",
+      "fireAndAdvance",
       "placeEntity",
       "fallback",
       "rotate"
@@ -380,9 +385,10 @@
     "impactAltitude": 0.99,
     "grazingAltitude": 1.99,
     "allowedOrders": [
-      "advance",
+      "walk",
       "run",
       "shoot",
+      "fireAndAdvance",
       "placeEntity",
       "fallback",
       "rotate"
@@ -409,8 +415,9 @@
     "forwardOnlyMovement": true,
     "portraitRotation": 0,
     "allowedOrders": [
-      "advance",
+      "walk",
       "shoot",
+      "fireAndAdvance",
       "fallback"
     ]
   }

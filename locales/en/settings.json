@@ -187,9 +187,10 @@
     "info": "Info",
     "submitOrders": "Submit orders",
     "deselect": "Deselect",
+    "moveOrder": "Move order",
     "runOrder": "Run order",
     "shootOrder": "Shoot order",
-    "fireAndAdvanceOrder": "Advance order",
+    "fireAndAdvanceOrder": "Fire and advance order",
     "fallbackOrder": "Fallback order",
     "automaticOrder": "Automatic order",
     "toggleSmartCurvedMovements": "Toggle Smart Curved Movements",
@@ -208,7 +209,7 @@
     "simulateMultiTouch": "Simulate Multi-touch",
     "toggleSupplyLines": "Toggle Supply Lines",
     "toggleStraightLine": "Toggle Straight Line",
-    "toggleDrawLine": "Toggle Draw Line",
+    "toggleDrawLine": "Switch Route / Deploy",
     "splitInHalf": "Split in Half",
     "controlGroup1": "Control Group 1",
     "controlGroup2": "Control Group 2",
@@ -319,7 +320,15 @@
   "controlGroups": {
     "recall": "Recall Group {{group}}",
     "set": "Set Group {{group}}",
-    "add": "Add to Group {{group}}",
-    "setExclusive": "Set Group {{group}} only"
+    "add": "Add to Group {{group}}"
+  },
+  "drawingMode": {
+    "options": "Movement options",
+    "smoothCurves": "Smooth curves",
+    "title": "Drawing mode",
+    "route": "Route",
+    "deploy": "Deploy",
+    "routeDescription": "Draw the route to follow, keeping the group’s layout at arrival.",
+    "deployDescription": "Draw the front where the selected units should deploy."
   }
 }

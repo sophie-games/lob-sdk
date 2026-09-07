@@ -160,9 +160,10 @@
     "info": "Informação",
     "submitOrders": "Enviar ordens",
     "deselect": "Desselecionar",
+    "moveOrder": "Ordem de movimento",
     "runOrder": "Ordem de busca",
     "shootOrder": "Ordem de disparo",
-    "fireAndAdvanceOrder": "Ordem de avançar",
+    "fireAndAdvanceOrder": "Ordem de disparar e avançar",
     "fallbackOrder": "Ordem de recuo",
     "automaticOrder": "Ordem automática",
     "toggleSmartCurvedMovements": "Alternar movimentos curvos inteligentes",
@@ -288,8 +289,7 @@
   "controlGroups": {
     "recall": "Chamar grupo {{group}}",
     "set": "Definir grupo {{group}}",
-    "add": "Adicionar ao grupo {{group}}",
-    "setExclusive": "Atribuir só ao grupo {{group}}"
+    "add": "Adicionar ao grupo {{group}}"
   },
   "notifications": {
     "clanLeague": {

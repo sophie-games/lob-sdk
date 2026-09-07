@@ -1,3 +1,4 @@
+import type { OrganizationDoctrine, ScenarioOrganization } from "@lob-sdk/order-of-battle";
 import {
   AnyAction,
   RangedAttackAction,
@@ -329,6 +330,8 @@ export interface GameMetadata {
   /** Sparse game-constant overrides layered on the era registry for this game. */
   customGameConstants?: Partial<GameConstants>;
   /** Sparse (deep-partial) game-rule overrides layered on the era registry for this game. */
+  organizationDoctrine?: OrganizationDoctrine;
+  organizations?: ScenarioOrganization[];
   customGameRules?: DeepPartial<GameRules>;
   /** Sparse per-order overrides (keyed by OrderType id) deep-merged onto the era orders for this game. */
   customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;

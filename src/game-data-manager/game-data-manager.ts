@@ -1,6 +1,8 @@
+import type { OrganizationDoctrine } from "@lob-sdk/order-of-battle";
+import napoleonicOrganization from "@lob-sdk/game-data/eras/napoleonic/organization.json";
+import ww2Organization from "@lob-sdk/game-data/eras/ww2/organization.json";
 import {
   UnitTemplate,
-  normalizeOrderType,
   UnitType,
   UnitCategoryId,
   RangeUnitTemplate,
@@ -116,6 +118,7 @@ const LEGACY_DAMAGE_TYPE_NAMES: Partial<
  * presence guard can't drift apart.
  */
 export type CustomDefs = {
+  organizationDoctrine?: OrganizationDoctrine;
   customUnitTemplates?: UnitTemplate[];
   customDamageTypes?: DamageTypeTemplate[];
   customUnitFormations?: FormationTemplate[];
@@ -140,6 +143,7 @@ export type CustomDefs = {
 const CUSTOM_DEF_PRESENCE: Required<{
   [K in keyof CustomDefs]: (defs: CustomDefs) => boolean;
 }> = {
+  organizationDoctrine: (d) => d.organizationDoctrine !== undefined,
   customUnitTemplates: (d) => !!d.customUnitTemplates?.length,
   customDamageTypes: (d) => !!d.customDamageTypes?.length,
   customUnitFormations: (d) => !!d.customUnitFormations?.length,
@@ -169,6 +173,13 @@ export class GameDataManager {
 
   // Unit templates
   private _unitTemplateManager = new UnitTemplateManager();
+
+  private organizationDoctrine?: OrganizationDoctrine;
+
+  getOrganizationDoctrine(): OrganizationDoctrine {
+    const defaults = this.era === "ww2" ? ww2Organization : napoleonicOrganization;
+    return this.organizationDoctrine ?? (defaults as OrganizationDoctrine);
+  }
 
   // Unit categories
   private unitCategories: UnitCategoryTemplate[] = [];
@@ -347,6 +358,7 @@ export class GameDataManager {
    * mutating an era singleton leaks state across games.
    */
   public loadCustomDefs(customDefs: CustomDefs): void {
+    this.organizationDoctrine = customDefs.organizationDoctrine;
     this._disableEraDefaultUnits = customDefs.disableEraDefaultUnits ?? false;
 
     // Order matters: orders → categories → terrain categories → damage types →
@@ -404,12 +416,12 @@ export class GameDataManager {
             category.id,
             new Set(
               category.allowedOrders.map((order) => {
-                // Saved replays can still reference names from before Advance
-                // unified Walk and Fire and Advance.
+                // Replays from the unified-order version called Walk "advance".
+                // Older WW2 replays can also name FAA, which that era lacks.
                 const orderType =
                   this._orderNameMap.get(order) ??
-                  (order === "walk" || order === "fireAndAdvance"
-                    ? OrderType.Advance
+                  (order === "advance" || order === "fireAndAdvance"
+                    ? OrderType.Walk
                     : undefined);
                 if (orderType !== undefined) return orderType;
                 throw new Error(`Order ${order} not found`);
@@ -1549,11 +1561,11 @@ export class GameDataManager {
   }
 
   public tryGetOrderTemplate(orderId: OrderType | null): OrderTemplate | null {
-    return orderId === null ? null : this._orderMap.get(normalizeOrderType(orderId)) ?? null;
+    return this._orderMap.get(orderId!) ?? null;
   }
 
   public getOrderTemplate(orderId: OrderType): OrderTemplate {
-    return this._orderMap.get(normalizeOrderType(orderId))!;
+    return this._orderMap.get(orderId)!;
   }
 
   /**

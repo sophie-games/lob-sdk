@@ -183,9 +183,10 @@
     "info": "معلومات",
     "submitOrders": "إرسال الأوامر",
     "deselect": "إلغاء الاختيار",
+    "moveOrder": "أمر التحرك",
     "runOrder": "أمر الجري",
     "shootOrder": "أمر إطلاق النار",
-    "fireAndAdvanceOrder": "أمر التقدم",
+    "fireAndAdvanceOrder": "أمر إطلاق النار والتقدم",
     "fallbackOrder": "أمر التراجع",
     "automaticOrder": "أمر تلقائي",
     "toggleSmartCurvedMovements": "تبديل الحركات المنحنية الذكية",
@@ -311,8 +312,7 @@
   "controlGroups": {
     "recall": "استدعاء المجموعة {{group}}",
     "set": "تعيين المجموعة {{group}}",
-    "add": "إضافة إلى المجموعة {{group}}",
-    "setExclusive": "تعيين للمجموعة {{group}} فقط"
+    "add": "إضافة إلى المجموعة {{group}}"
   },
   "notifications": {
     "clanLeague": {

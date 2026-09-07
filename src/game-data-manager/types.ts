@@ -85,8 +85,6 @@ export interface UnitCategoryTemplate {
   meleeFireRatio?: number;
   captureSpeed?: number;
   autofirePriority?: Partial<Record<UnitCategoryId, number>>;
-  /** Enemy categories that do not stop Advance; units still fire at them and use normal contact rules. */
-  advanceIgnoreCategories?: UnitCategoryId[];
   /**
    * Default autofire engagement tier (EngagementRange) for units of this category.
    * Falls back to `Max` when unset. Artillery uses `Medium` so it opens fire at its
@@ -769,8 +767,6 @@ export interface OrganizationRule {
   startedRoutingOrgRadiusModifier: number;
   /** Minimum organization radius distance that is applied when unit has StartedRouting effect: 0 turns off the function */
   startedRoutingOrgRadiusDistance: number;
-  /** Run speed bonus when a unit starts routing, to help them get away: 1 turns off the function */
-  startedRoutingOrgRadiusDistanceRunSpeedBonus: number;
   /** Run cost modifier when a unit is routing after they finish the initial route: 1 turns off the function */
   routingRunCostModifier: number;
   /** Run cost modifier when a unit starts routing: 1 turns off the function */

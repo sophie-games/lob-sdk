@@ -163,9 +163,10 @@
     "info": "Info",
     "submitOrders": "Befehle absenden",
     "deselect": "Abwählen",
+    "moveOrder": "Bewegungsauftrag",
     "runOrder": "Suchauftrag",
     "shootOrder": "Schießauftrag",
-    "fireAndAdvanceOrder": "Vorrückbefehl",
+    "fireAndAdvanceOrder": "Feuer-und-Vorrück-Auftrag",
     "fallbackOrder": "Rückzugsauftrag",
     "automaticOrder": "Automatischer Auftrag",
     "toggleSmartCurvedMovements": "Kluge Kurvenbewegungen umschalten",
@@ -281,8 +282,7 @@
   "controlGroups": {
     "recall": "Gruppe {{group}} aufrufen",
     "set": "Gruppe {{group}} festlegen",
-    "add": "Zu Gruppe {{group}} hinzufügen",
-    "setExclusive": "Nur Gruppe {{group}} zuweisen"
+    "add": "Zu Gruppe {{group}} hinzufügen"
   },
   "notifications": {
     "clanLeague": {

@@ -5,23 +5,20 @@ import type { EngagementRange } from "@lob-sdk/game-data-manager";
  * Type of order that can be given to a unit.
  */
 export enum OrderType {
-  /** Order to advance along a path or toward a unit, firing when supported. */
-  Advance = 1,
+  /** Order to walk along a path. */
+  Walk = 1,
   /** Order to run along a path. */
   Run = 2,
   /** Order to shoot at a target or location. */
   Shoot = 3,
+  /** Order to fire while advancing. */
+  FireAndAdvance = 4,
   /** Order to place an entity at a location. */
   PlaceEntity = 5,
   /** Order to fall back along a path. */
   Fallback = 6,
   /** Order to rotate toward a target or location. */
   Rotate = 7,
-}
-
-// Temporarily accept the old FAA ID (4) as Advance (1) from older clients.
-export function normalizeOrderType<T extends number>(type: T): T | OrderType.Advance {
-  return type === 4 ? OrderType.Advance : type;
 }
 
 /**
@@ -52,6 +49,34 @@ interface ExclusiveOrderProps {
 export type OrderPathPoint = [number, number]; // [x, y]
 
 /**
+ * Order to walk along a specified path.
+ */
+export interface WalkOrder
+  extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
+  /** Order type is Walk. */
+  type: OrderType.Walk;
+  /** Path points to follow, in order. */
+  path: OrderPathPoint[];
+  /** Final rotation in radians after completing the path. */
+  rotation?: number;
+  /** Keep clear of hard allied formations while executing this path. */
+  maintainAllySpacing?: boolean;
+  /** Speed ceiling for units moving together as a formation. */
+  pace?: number;
+}
+
+/**
+ * Order to walk while following a target unit.
+ */
+export interface WalkFollowOrder
+  extends BaseOrder, Omit<ExclusiveOrderProps, "targetId"> {
+  /** Order type is Walk. */
+  type: OrderType.Walk;
+  /** Entity ID of the target unit to follow. */
+  targetId: EntityId;
+}
+
+/**
  * Order to fall back along a specified path.
  */
 export interface FallbackOrder
@@ -62,6 +87,12 @@ export interface FallbackOrder
   path: OrderPathPoint[];
   /** Final rotation in radians after completing the path. */
   rotation?: number;
+  /**
+   * Speed ceiling in movement units per turn, so a body ordered as one keeps
+   * together instead of stretching out at each unit's own pace. Set to the
+   * slowest member's pace when the order was given to more than one unit.
+   */
+  pace?: number;
 }
 
 /**
@@ -87,6 +118,12 @@ export interface RunOrder extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
   rotation?: number;
   /** Keep clear of hard allied formations while executing this path. */
   maintainAllySpacing?: boolean;
+  /**
+   * Speed ceiling in movement units per turn, so a body ordered as one keeps
+   * together instead of stretching out at each unit's own pace. Set to the
+   * slowest member's pace when the order was given to more than one unit.
+   */
+  pace?: number;
 }
 
 /**
@@ -145,29 +182,33 @@ export interface RotateLocationOrder
 }
 
 /**
- * Order to advance toward an enemy or follow an allied unit.
+ * Order to fire and advance toward a target unit.
  */
-export interface AdvanceToTargetOrder
+export interface FireAndAdvanceToTargetOrder
   extends BaseOrder, Omit<ExclusiveOrderProps, "targetId"> {
-  /** Order type is Advance. */
-  type: OrderType.Advance;
+  /** Order type is FireAndAdvance. */
+  type: OrderType.FireAndAdvance;
   /** Entity ID of the target unit to advance toward. */
   targetId: EntityId;
 }
 
 /**
- * Order to advance along a path, firing when supported.
+ * Order to fire and advance along a specified path.
  */
-export interface AdvanceOnPathOrder
+export interface FireAndAdvanceOnPathOrder
   extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
-  /** Order type is Advance. */
-  type: OrderType.Advance;
-  /** Keep clear of hard allied formations while executing this path. */
-  maintainAllySpacing?: boolean;
-  /** Path points to advance along, in order. */
+  /** Order type is FireAndAdvance. */
+  type: OrderType.FireAndAdvance;
+  /** Path points to advance along while firing, in order. */
   path: OrderPathPoint[];
   /** Final rotation in radians after completing the path. */
   rotation?: number;
+  /**
+   * Speed ceiling in movement units per turn, so a body ordered as one keeps
+   * together instead of stretching out at each unit's own pace. Set to the
+   * slowest member's pace when the order was given to more than one unit.
+   */
+  pace?: number;
 }
 
 /**
@@ -187,14 +228,16 @@ export interface PlaceEntityOrder
  * Union type representing any valid order.
  */
 export type AnyOrder =
-  | AdvanceOnPathOrder
-  | AdvanceToTargetOrder
+  | WalkOrder
+  | WalkFollowOrder
   | RunOrder
   | RunFollowOrder
   | ShootTargetOrder
   | ShootLocationOrder
   | RotateTargetOrder
   | RotateLocationOrder
+  | FireAndAdvanceToTargetOrder
+  | FireAndAdvanceOnPathOrder
   | PlaceEntityOrder
   | FallbackOrder
   | FallbackFollowOrder;
@@ -203,16 +246,18 @@ export type AnyOrder =
  * Order types that use paths for movement.
  */
 export type PathOrderType =
-  | OrderType.Advance
+  | OrderType.Walk
+  | OrderType.FireAndAdvance
   | OrderType.Fallback;
 
 /**
  * Union type representing orders that use paths.
  */
 export type PathOrder =
-  | AdvanceOnPathOrder
+  | WalkOrder
   | RunOrder
-  | FallbackOrder;
+  | FallbackOrder
+  | FireAndAdvanceOnPathOrder;
 
 /**
  * Template configuration for an order type.

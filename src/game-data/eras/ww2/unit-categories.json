@@ -13,7 +13,7 @@
     },
     "impactAltitude": 1.0,
     "grazingAltitude": 2.5,
-    "allowedOrders": ["advance", "placeEntity"]
+    "allowedOrders": ["walk", "placeEntity"]
   },
   {
     "id": "motorized",
@@ -26,7 +26,7 @@
       "soft_attack": 0,
       "hard_attack": 0
     },
-    "allowedOrders": ["advance", "placeEntity"]
+    "allowedOrders": ["walk", "placeEntity"]
   },
   {
     "id": "armored",
@@ -41,6 +41,6 @@
     },
     "impactAltitude": 1.0,
     "grazingAltitude": 2.5,
-    "allowedOrders": ["advance", "placeEntity"]
+    "allowedOrders": ["walk", "placeEntity"]
   }
 ]

@@ -406,9 +406,10 @@
   },
   "fetchingBattleActions": "Récupération des actions de la bataille...",
   "order": {
-    "1": "Avancer",
+    "1": "Marcher",
     "2": "Courir",
     "3": "Tirer",
+    "4": "Tirer en avançant",
     "6": "Reculer",
     "7": "Se tourner",
     "automatic": "Automatique"
@@ -959,7 +960,7 @@
   "back": "Retour",
   "autofirePriority": "Priorité de tir automatique",
   "heightOffset": "Décalage de hauteur",
-  "minDistanceToFAA": "Distance d’arrêt de l’avance",
+  "minDistanceToFAA": "Distance min pour Tirer en avançant",
   "big": "Grand",
   "small": "Petit",
   "rotationSpeed": "Vitesse de rotation",

@@ -160,9 +160,10 @@
     "info": "Információ",
     "submitOrders": "Parancsok elküldése",
     "deselect": "Kijelölés megszüntetése",
+    "moveOrder": "Mozgási parancs",
     "runOrder": "Keresési parancs",
     "shootOrder": "Lövési parancs",
-    "fireAndAdvanceOrder": "Előrenyomulás parancs",
+    "fireAndAdvanceOrder": "Tüzelés és előrehaladás parancs",
     "fallbackOrder": "Visszavonulási parancs",
     "automaticOrder": "Automatikus parancs",
     "toggleSmartCurvedMovements": "Okos görbült mozgások váltása",
@@ -288,8 +289,7 @@
   "controlGroups": {
     "recall": "{{group}}. csoport előhívása",
     "set": "{{group}}. csoport beállítása",
-    "add": "Hozzáadás a(z) {{group}}. csoporthoz",
-    "setExclusive": "Csak a(z) {{group}}. csoportba"
+    "add": "Hozzáadás a(z) {{group}}. csoporthoz"
   },
   "notifications": {
     "clanLeague": {

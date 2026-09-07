@@ -160,9 +160,10 @@
     "info": "Info",
     "submitOrders": "Zatwierdź rozkazy",
     "deselect": "Odznacz",
+    "moveOrder": "Rozkaz Ruchu",
     "runOrder": "Rozkaz Pogoni",
     "shootOrder": "Rozkaz Ostrzału",
-    "fireAndAdvanceOrder": "Rozkaz natarcia",
+    "fireAndAdvanceOrder": "Rozkaz natarcia z ostrzałem",
     "fallbackOrder": "Rozkaz Odwrotu",
     "automaticOrder": "Rozkaz automatyczny",
     "toggleSmartCurvedMovements": "Przełącz inteligentne zakrzywione ruchy",
@@ -288,8 +289,7 @@
   "controlGroups": {
     "recall": "Przywołaj grupę {{group}}",
     "set": "Ustaw grupę {{group}}",
-    "add": "Dodaj do grupy {{group}}",
-    "setExclusive": "Przypisz tylko do grupy {{group}}"
+    "add": "Dodaj do grupy {{group}}"
   },
   "notifications": {
     "clanLeague": {

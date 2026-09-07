@@ -423,9 +423,10 @@
   },
   "fetchingBattleActions": "Recupero azioni di battaglia...",
   "order": {
-    "1": "Avanza",
+    "1": "Camminare",
     "2": "Correre",
     "3": "Spara",
+    "4": "Fuoco e Avanza",
     "6": "Ripiega",
     "7": "Affrontare",
     "automatic": "Automatico"
@@ -949,7 +950,7 @@
   "back": "Indietro",
   "autofirePriority": "Priorità fuoco automatico",
   "heightOffset": "Scostamento altezza",
-  "minDistanceToFAA": "Distanza di arresto dell’avanzata",
+  "minDistanceToFAA": "Distanza minima per Fuoco e Avanza",
   "big": "Grande",
   "small": "Piccola",
   "rotationSpeed": "Velocità di rotazione",
