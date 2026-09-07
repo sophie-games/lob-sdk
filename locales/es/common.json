@@ -1184,13 +1184,24 @@
   "watchBattles": "Ver batallas",
   "orderOfBattle": {
     "title": "Ejército",
-    "brigade": "Brigada {{numeral}}",
-    "division": "1.ª División",
+    "brigade": "{{n}} Brigada",
+    "infantryDivision": "{{n}} División de infantería",
+    "cavalryDivision": "{{n}} División de caballería",
+    "artilleryReserve": "Reserva de artillería",
+    "divisionalArtillery": "Artillería divisionaria",
+    "focus": "Centrar el mapa en {{target}}",
+    "rename": "Renombrar {{target}}",
+    "disband": "Disolver {{target}}",
+    "addDivision": "Crear división",
+    "addBrigade": "Crear brigada",
     "unattached": "Sin asignar",
     "dragToReassign": "Arrastra a otra brigada para reasignar",
     "select": "Seleccionar {{target}}",
+    "showSelection": "Show the selected units",
+    "showTree": "Show the order of battle",
     "collapse": "Plegar {{target}}",
     "expand": "Desplegar {{target}}",
+    "division": "1.ª División",
     "noSelection": "Ninguna unidad seleccionada",
     "selectionSummary_one": "{{count}} unidad · {{brigades}} brigadas",
     "selectionSummary_other": "{{count}} unidades · {{brigades}} brigadas",
@@ -1206,6 +1217,7 @@
     "confirmMove": "Mover",
     "clearSelection": "Limpiar",
     "selectedCount": "{{selected}}/{{total}} seleccionadas",
-    "dragUnit": "Arrastrar {{unit}} para reordenar o mover a otra brigada"
+    "dragUnit": "Arrastrar {{unit}} para reordenar o mover a otra brigada",
+    "quickDivisions": "Selección rápida de divisiones"
   }
 }

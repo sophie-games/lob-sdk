@@ -62,6 +62,12 @@ export interface FallbackOrder
   path: OrderPathPoint[];
   /** Final rotation in radians after completing the path. */
   rotation?: number;
+  /**
+   * Speed ceiling in movement units per turn, so a body ordered as one keeps
+   * together instead of stretching out at each unit's own pace. Set to the
+   * slowest member's pace when the order was given to more than one unit.
+   */
+  pace?: number;
 }
 
 /**
@@ -87,6 +93,12 @@ export interface RunOrder extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
   rotation?: number;
   /** Keep clear of hard allied formations while executing this path. */
   maintainAllySpacing?: boolean;
+  /**
+   * Speed ceiling in movement units per turn, so a body ordered as one keeps
+   * together instead of stretching out at each unit's own pace. Set to the
+   * slowest member's pace when the order was given to more than one unit.
+   */
+  pace?: number;
 }
 
 /**
@@ -168,6 +180,12 @@ export interface AdvanceOnPathOrder
   path: OrderPathPoint[];
   /** Final rotation in radians after completing the path. */
   rotation?: number;
+  /**
+   * Speed ceiling in movement units per turn, so a body ordered as one keeps
+   * together instead of stretching out at each unit's own pace. Set to the
+   * slowest member's pace when the order was given to more than one unit.
+   */
+  pace?: number;
 }
 
 /**
