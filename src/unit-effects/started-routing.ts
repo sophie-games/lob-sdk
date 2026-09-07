@@ -42,12 +42,6 @@ export class StartedRouting extends BaseUnitEffect {
         color: "red",
       },
       {
-        label: "unitStat.movement",
-        type: "percentage",
-        value: organization.startedRoutingOrgRadiusDistanceRunSpeedBonus,
-        color: "green",
-      },
-      {
         label: "unitStat.runCost",
         type: "percentage",
         value: organization.startedRoutingRunCostModifier,

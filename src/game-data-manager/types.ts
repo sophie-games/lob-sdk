@@ -769,8 +769,6 @@ export interface OrganizationRule {
   startedRoutingOrgRadiusModifier: number;
   /** Minimum organization radius distance that is applied when unit has StartedRouting effect: 0 turns off the function */
   startedRoutingOrgRadiusDistance: number;
-  /** Run speed bonus when a unit starts routing, to help them get away: 1 turns off the function */
-  startedRoutingOrgRadiusDistanceRunSpeedBonus: number;
   /** Run cost modifier when a unit is routing after they finish the initial route: 1 turns off the function */
   routingRunCostModifier: number;
   /** Run cost modifier when a unit starts routing: 1 turns off the function */
