@@ -460,6 +460,7 @@ describe("Napoleonic balance", () => {
     const square = gameDataManager.getFormationManager().getTemplate("square");
 
     expect(line).toMatchObject({
+      runMovementModifier: -0.25,
       flankChargeResistance: -0.6,
     });
     expect(line?.rangedAttackModifier).toBeUndefined();
