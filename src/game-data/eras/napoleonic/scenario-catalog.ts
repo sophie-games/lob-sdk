@@ -31,6 +31,8 @@ import hedgerows from "./scenarios/hedgerows.json";
 import leipzig from "./scenarios/leipzig.json";
 import tutorial from "./scenarios/tutorial.json";
 import lineOfBattle from "./scenarios/line-of-battle.json";
+import roadToPressburg from "./scenarios/road-to-pressburg.json";
+import laMeuse from "./scenarios/la-meuse.json";
 import twinRiverValley from "./scenarios/twin-river-valley.json";
 
 export const napoleonicScenarioCatalog = {
@@ -67,4 +69,6 @@ export const napoleonicScenarioCatalog = {
   tutorial,
   "line-of-battle": lineOfBattle,
   "twin-river-valley": twinRiverValley,
+  "la-meuse": laMeuse,
+  "road-to-pressburg": roadToPressburg,
 } as unknown as ScenarioCatalog;
