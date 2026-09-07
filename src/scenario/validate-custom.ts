@@ -1,3 +1,4 @@
+import { validateOrganization } from "@lob-sdk/order-of-battle/validate";
 import {
   Scenario,
   UnitTemplate,
@@ -80,7 +81,8 @@ export interface CustomDefValidationError {
     | "order"
     | "battleType"
     | "playerBudget"
-    | "armyPanelGroup";
+    | "armyPanelGroup"
+    | "organization";
   field?: string;
   message: string;
 }
@@ -105,6 +107,18 @@ export function validateScenarioCustomDefs(
   const customDamageTypes = asArray(scenario.customDamageTypes);
   const customUnitFormations = asArray(scenario.customUnitFormations);
   const customUnitCategories = asArray(scenario.customUnitCategories);
+  errors.push(
+    ...validateOrganization(
+      scenario,
+      eraGameDataManager.getOrganizationDoctrine(),
+      new Set(
+        [
+          ...eraGameDataManager.getUnitCategories(),
+          ...customUnitCategories,
+        ].flatMap((c) => (typeof c?.id === "string" ? [c.id] : [])),
+      ),
+    ).map((message) => ({ scope: "organization" as const, message })),
+  );
   const customTerrainCategories = asArray(scenario.customTerrainCategories);
   const customSprites = scenario.customSprites ?? {};
   const customGameConstants = scenario.customGameConstants ?? {};

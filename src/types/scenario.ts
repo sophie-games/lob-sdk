@@ -1,3 +1,4 @@
+import type { OrganizationDoctrine, ScenarioOrganization } from "@lob-sdk/order-of-battle";
 import { Point2 } from "@lob-sdk/vector";
 import {
   GameTrigger,
@@ -644,6 +645,8 @@ export interface Scenario {
    * changed leaves are stored. Deep-merged onto a clone of the era rules by the
    * per-game GameDataManager.
    */
+  organizationDoctrine?: OrganizationDoctrine;
+  organizations?: ScenarioOrganization[];
   customGameRules?: DeepPartial<GameRules>;
 
   /**

@@ -13,20 +13,10 @@ import {
   rotatePointAroundZoneCenter,
 } from "@lob-sdk/utils";
 import {
-  Arm,
-  CAVALRY_DIVISION_BATTERIES,
-  DIVISION_BATTERIES,
-  LIGHT_INFANTRY,
-  MAX_TROOPS_PER_CAVALRY_DIVISION,
-  MAX_TROOPS_PER_DIVISION,
-  MAX_UNITS_PER_BRIGADE,
-  MAX_UNITS_PER_CAVALRY_BRIGADE,
-  HorseClass,
-  armOf,
+  DivisionDoctrine,
   brigadesNeeded,
   cutIntoGroups,
   divisionsNeeded,
-  horseClassOf,
 } from "@lob-sdk/order-of-battle";
 
 /** A unit still to be placed, with the category that decides where it belongs. */
@@ -186,10 +176,7 @@ export class ArmyDeployer {
     );
     // One pitch for both lines, so the blocks of the second sit on the same grid
     // as the first rather than on a scale of their own.
-    const pitch = Math.min(
-      this.pitchFor(all(front)),
-      this.pitchFor(all(rear)),
-    );
+    const pitch = Math.min(this.pitchFor(all(front)), this.pitchFor(all(rear)));
 
     // The light cavalry rides one row ahead of the line it covers: it screened,
     // and standing it level with the infantry makes it read as part of it.
@@ -203,7 +190,8 @@ export class ArmyDeployer {
 
   /** Width one unit gets, capped so the whole line fits the zone. */
   private pitchFor(divisions: DeployedDivision[]): number {
-    if (divisions.length === 0) return this.DEFAULT_UNIT_HEIGHT + this.MIN_SPACING;
+    if (divisions.length === 0)
+      return this.DEFAULT_UNIT_HEIGHT + this.MIN_SPACING;
     const slots =
       divisions.reduce((sum, d) => sum + this.frontageOf(d), 0) +
       DIVISION_GAP * (divisions.length - 1);
@@ -288,7 +276,6 @@ export class ArmyDeployer {
     return { start, end };
   }
 
-
   /** Places one division's rows over its own stretch of the front. */
   private deployDivision(
     division: DeployedDivision,
@@ -334,7 +321,8 @@ export class ArmyDeployer {
     const lineStartX =
       startX + (width - (recruits.length * pitch - spacing)) / 2;
     // Rows run away from the enemy, which is downwards for team 1.
-    const step = (this.DEFAULT_UNIT_HEIGHT + this.MARGIN) * (this.team === 1 ? 1 : -1);
+    const step =
+      (this.DEFAULT_UNIT_HEIGHT + this.MARGIN) * (this.team === 1 ? 1 : -1);
 
     recruits.forEach((recruit, index) => {
       const { canDeployForward } = this.gameDataManager
@@ -365,53 +353,117 @@ export class ArmyDeployer {
     const nothing = { left: [], centre: [], right: [] };
     if (recruits.length === 0) return { front: nothing, rear: nothing };
 
-    const era = this.gameDataManager.era;
-    const byArm = (arm: Arm) =>
-      recruits.filter((recruit) => armOf(era, recruit.category) === arm);
-    const foot = byArm(Arm.Foot);
-    const horse = byArm(Arm.Horse);
-    const guns = byArm(Arm.Guns);
-
-    const line = foot.filter(
-      (recruit) => recruit.category !== LIGHT_INFANTRY,
+    const doctrine = this.gameDataManager.getOrganizationDoctrine();
+    const byKind = new Map<string, Recruit[]>();
+    for (const recruit of recruits) {
+      const kind =
+        doctrine.divisions.find((d) => d.categories.includes(recruit.category))
+          ?.id ?? doctrine.defaultDivisionKind;
+      const group = byKind.get(kind) ?? [];
+      group.push(recruit);
+      byKind.set(kind, group);
+    }
+    const supportKinds = new Set(
+      doctrine.divisions.flatMap((d) => d.support?.map((s) => s.kind) ?? []),
     );
-    const light = foot.filter((recruit) => recruit.category === LIGHT_INFANTRY);
-    const infantry = this.cutIntoDivisions(
-      line.length > 0 ? line : light,
-      divisionsNeeded(foot.length, MAX_TROOPS_PER_DIVISION),
-      MAX_UNITS_PER_BRIGADE,
-    );
-    if (line.length > 0) {
-      // A share each, the way a French division carried one legere regiment.
-      light.forEach((recruit, index) => {
-        infantry[index % infantry.length].screen.push(recruit);
+    const planned: {
+      definition: DivisionDoctrine;
+      row: "front" | "rear";
+      position: "centre" | "flanks";
+      divisions: DeployedDivision[];
+    }[] = [];
+    const plan = (definition: DivisionDoctrine, body: Recruit[]) => {
+      const classes = definition.classes ?? [
+        {
+          categories: definition.categories,
+          row: definition.row,
+          position: definition.position,
+        },
+      ];
+      const grouped = classes.map(() => [] as Recruit[]);
+      for (const recruit of body) {
+        const index = classes.findIndex((c) =>
+          c.categories.includes(recruit.category),
+        );
+        grouped[Math.max(0, index)].push(recruit);
+      }
+      grouped.forEach((group, index) => {
+        const light = group.filter((r) =>
+          definition.distributedCategories?.includes(r.category),
+        );
+        const line = group.filter(
+          (r) => !definition.distributedCategories?.includes(r.category),
+        );
+        const divisions = this.cutIntoDivisions(
+          line.length ? line : light,
+          divisionsNeeded(group.length, definition.maxTroops),
+          definition.maxPerBrigade,
+          definition.maxBrigades,
+        );
+        if (line.length)
+          light.forEach((r, i) =>
+            divisions[i % divisions.length].screen.push(r),
+          );
+        planned.push({
+          definition,
+          row: classes[index].row,
+          position: classes[index].position,
+          divisions,
+        });
       });
-    }
-
-    const scouts = this.cutCavalryOf(horse, HorseClass.Light);
-    const dragoons = this.cutCavalryOf(horse, HorseClass.Dragoon);
-    const cuirassiers = this.cutCavalryOf(horse, HorseClass.Cuirassier);
-    const reserve = this.attachBatteries(guns, infantry, [
-      ...scouts,
-      ...dragoons,
-      ...cuirassiers,
-    ]);
-
-    // The 30th Bulletin's order, front to back: the light cavalry screening the
-    // wings, the infantry, then the dragoons, then the cuirassiers massed behind
-    // the centre. Splitting the heavy cavalry between the wings is Wagram, which
-    // left nothing in hand to exploit the breakthrough.
-    const [leftScouts, rightScouts] = divideArrayInHalf(scouts);
-    const [leftDragoons, rightDragoons] = divideArrayInHalf(dragoons);
-
-    const centre = [...cuirassiers];
-    if (reserve.length > 0) {
-      centre.push({ brigades: [reserve], screen: [], guns: [] });
-    }
-    return {
-      front: { left: leftScouts, centre: infantry, right: rightScouts },
-      rear: { left: leftDragoons, centre, right: rightDragoons },
     };
+    for (const definition of doctrine.divisions) {
+      if (!supportKinds.has(definition.id))
+        plan(definition, byKind.get(definition.id) ?? []);
+    }
+    const pace = (r: Recruit) =>
+      this.gameDataManager.getUnitTemplateManager().getTemplate(r.type)
+        .runMovement;
+    for (const kind of supportKinds) {
+      const spare = [...(byKind.get(kind) ?? [])];
+      // Serve restricted support first, then distribute the rest one block per division per round.
+      const recipients = planned
+        .filter((p) => p.definition.support?.some((r) => r.kind === kind))
+        .sort(
+          (a, b) =>
+            Number(
+              !!b.definition.support?.find((r) => r.kind === kind)?.fasterThan,
+            ) -
+            Number(
+              !!a.definition.support?.find((r) => r.kind === kind)?.fasterThan,
+            ),
+        );
+      for (const body of recipients) {
+        const rule = body.definition.support!.find((r) => r.kind === kind)!;
+        const threshold = Math.max(
+          0,
+          ...(byKind.get(rule.fasterThan ?? "") ?? []).map(pace),
+        );
+        for (let round = 0; round < rule.maxBlocks; round++) {
+          for (const division of body.divisions) {
+            const at = spare.findIndex(
+              (r) => !rule.fasterThan || pace(r) > threshold,
+            );
+            if (at >= 0) division.guns.push(...spare.splice(at, 1));
+          }
+        }
+      }
+      plan(doctrine.divisions.find((d) => d.id === kind)!, spare);
+    }
+    const result: { front: DeployedLine; rear: DeployedLine } = {
+      front: { left: [], centre: [], right: [] },
+      rear: { left: [], centre: [], right: [] },
+    };
+    for (const body of planned) {
+      const row = result[body.row];
+      if (body.position === "centre") row.centre.push(...body.divisions);
+      else {
+        const [left, right] = divideArrayInHalf(body.divisions);
+        row.left.push(...left);
+        row.right.push(...right);
+      }
+    }
+    return result;
   }
 
   /** Cuts a body of troops into `divisions`, none of them over the ceiling. */
@@ -419,11 +471,13 @@ export class ArmyDeployer {
     recruits: Recruit[],
     divisions: number,
     maxPerBrigade: number,
+    maxBrigades: number,
   ): DeployedDivision[] {
     if (divisions <= 0 || recruits.length === 0) return [];
     const perDivision = brigadesNeeded(
       Math.ceil(recruits.length / divisions),
       maxPerBrigade,
+      maxBrigades,
     );
     const brigades = cutIntoGroups(recruits, divisions * perDivision, () => 1);
 
@@ -433,69 +487,6 @@ export class ArmyDeployer {
       if (slice.length > 0) cut.push({ brigades: slice, screen: [], guns: [] });
     }
     return cut;
-  }
-
-  /**
-   * Cuts the horse of one class into divisions. The reserve cavalry was
-   * cuirassier, dragoon and light divisions; it never fielded one of each, and
-   * each class stood in a different place on the field.
-   */
-  private cutCavalryOf(
-    horse: Recruit[],
-    horseClass: HorseClass,
-  ): DeployedDivision[] {
-    const of = horse.filter(
-      (recruit) => horseClassOf(recruit.category) === horseClass,
-    );
-    return this.cutIntoDivisions(
-      of,
-      divisionsNeeded(of.length, MAX_TROOPS_PER_CAVALRY_DIVISION),
-      MAX_UNITS_PER_CAVALRY_BRIGADE,
-    );
-  }
-
-  /**
-   * Gives each division its own batteries and returns the guns none could take.
-   * A cavalry division is served first and only by horse artillery: a foot battery
-   * could never keep up with it, which is why the horse batteries were raised.
-   */
-  private attachBatteries(
-    guns: Recruit[],
-    infantry: DeployedDivision[],
-    cavalry: DeployedDivision[],
-  ): Recruit[] {
-    const pace = (recruit: Recruit) =>
-      this.gameDataManager.getUnitTemplateManager().getTemplate(recruit.type)
-        .runMovement;
-    const footPace = Math.max(
-      0,
-      ...infantry.flatMap((division) =>
-        division.brigades.flat().map((recruit) => pace(recruit)),
-      ),
-    );
-
-    const spare = [...guns];
-    // A battery each before any division gets a second, so the guns spread along
-    // the line instead of massing on the first division.
-    const serve = (
-      divisions: DeployedDivision[],
-      onlyHorse: boolean,
-      batteries: number,
-    ) => {
-      for (let round = 0; round < batteries; round++) {
-        for (const division of divisions) {
-          const at = spare.findIndex(
-            (battery) => !onlyHorse || pace(battery) > footPace,
-          );
-          if (at < 0) return;
-          division.guns.push(...spare.splice(at, 1));
-        }
-      }
-    };
-
-    serve(cavalry, true, CAVALRY_DIVISION_BATTERIES);
-    serve(infantry, false, DIVISION_BATTERIES);
-    return spare;
   }
 
   /**

@@ -252,3 +252,17 @@ describe("ArmyDeployer", () => {
     });
   });
 });
+
+
+it("uses scenario doctrine sizes and brigade counts for deployment", () => {
+  const base = GameDataManager.get("ww2").getOrganizationDoctrine();
+  const game = GameDataManager.createWithCustomDefs("ww2", {
+    organizationDoctrine: { ...base, divisions: base.divisions.map((d) => d.id === "infantry"
+      ? { ...d, maxTroops: 12, maxPerBrigade: 4, maxBrigades: 3 } : d) },
+  });
+  const zone: Zone = { x: 0, y: 0, width: 1200, height: 300 };
+  const deployed = new ArmyDeployer(game, { "1": 12 }, zone, { ...zone, y: 2000 }, 1, 1).deploy();
+  const line = deployed.filter((unit) => unit.type === 1);
+  expect(line).toHaveLength(12);
+  expect(new Set(line.map((unit) => unit.pos.y)).size).toBe(3);
+});
