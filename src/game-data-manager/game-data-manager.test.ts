@@ -519,9 +519,9 @@ describe("GameDataManager", () => {
         gameDataManager.getRunSpeedModifier(TerrainType.Mud, "infantry"),
       ).toBe(gameDataManager.getMovementModifier(TerrainType.Mud, "infantry"));
       expect(
-        gameDataManager.getRunSpeedModifier(TerrainType.Forest, "heavyCavalry"),
+        gameDataManager.getRunSpeedModifier(TerrainType.Forest, "artillery"),
       ).toBe(
-        gameDataManager.getMovementModifier(TerrainType.Forest, "heavyCavalry"),
+        gameDataManager.getMovementModifier(TerrainType.Forest, "artillery"),
       );
     });
 

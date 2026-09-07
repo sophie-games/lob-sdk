@@ -52,7 +52,7 @@
       "ship": true
     },
     "color": "#344c1c",
-    "staminaCostModifier": -0.5,
+    "staminaCostModifier": 0.5,
     "hitboxHeight": 1.99,
     "visionAbsorption": 10,
     "movementModifier": {
@@ -70,7 +70,11 @@
       "infantry": -0.25,
       "guardsInfantry": -0.25,
       "skirmishInfantry": -0.25,
-      "militiaInfantry": -0.25
+      "militiaInfantry": -0.25,
+      "midCavalry": -0.5,
+      "lightCavalry": -0.5,
+      "scoutCavalry": -0.5,
+      "heavyCavalry": -0.5
     },
     "attackModifier": {
       "infantry": 0.3,
@@ -242,6 +246,7 @@
   },
 
   "path": {
+    "rotationSpeedModifier": 0.75,
     "impassable": {
       "ship": true
     },

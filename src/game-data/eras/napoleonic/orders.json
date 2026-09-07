@@ -5,11 +5,11 @@
     "isDefault": true,
     "speedModifierWhenShooting": -0.25,
     "speedModifierWhenShootingByCategory": {
-      "infantry": -0.25,
-      "guardsInfantry": -0.25,
+      "infantry": -0.2,
+      "guardsInfantry": -0.2,
       "artillery": -0.35,
-      "militiaInfantry": -0.35,
-      "skirmishInfantry": -0.25
+      "militiaInfantry": -0.2,
+      "skirmishInfantry": -0.2
     },
     "allowFireWhenMoving": true,
     "orgRegainModifier": -0.15,

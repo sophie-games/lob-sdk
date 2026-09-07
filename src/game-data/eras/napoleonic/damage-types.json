@@ -72,7 +72,7 @@
         "from": 0,
         "to": 0.26,
         "damageModifier": {
-          "near": 6,
+          "near": 7,
           "far": 4
         },
         "name": "pointBlank",
@@ -93,14 +93,14 @@
         "to": 0.71,
         "damageModifier": {
           "near": 1.5,
-          "far": -0.5
+          "far": 0
         }
       },
       {
         "from": 0.71,
         "to": 1,
         "damageModifier": {
-          "near": -0.5,
+          "near": 0,
           "far": -0.8
         },
         "name": "long"
@@ -1164,7 +1164,7 @@
         "to": 0.39,
         "damageModifier": {
           "near": 2.5,
-          "far": 1.5
+          "far": 1.25
         },
         "name": "close",
         "engagementTier": 0
@@ -1173,8 +1173,8 @@
         "from": 0.39,
         "to": 0.72,
         "damageModifier": {
-          "near": 1.5,
-          "far": 1
+          "near": 1.25,
+          "far": 0.5
         },
         "engagementTier": 1
       },
@@ -1182,8 +1182,8 @@
         "from": 0.72,
         "to": 1,
         "damageModifier": {
-          "near": 1,
-          "far": 0.5
+          "near": 0.5,
+          "far": 0
         },
         "name": "long"
       }

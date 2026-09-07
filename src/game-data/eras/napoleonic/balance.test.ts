@@ -8,6 +8,24 @@ import { OrderType, TerrainType } from "@lob-sdk/types";
 describe("Napoleonic balance", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
 
+  it("uses the latest range curves and movement penalties", () => {
+    for (const [name, points] of [
+      ["musket", [7, 4, 1.5, 0, -0.8]],
+      ["horse-archer-bow", [2.5, 1.25, 0.5, 0]],
+    ] as const) {
+      const { ranges } = gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(name);
+      expect(ranges.map(range => range.damageModifier)).toEqual(
+        points.slice(0, -1).map((near, index) => ({ near, far: points[index + 1] })),
+      );
+    }
+    expect(gameDataManager.getRotationSpeedModifier(TerrainType.Road)).toBe(0.75);
+    expect(gameDataManager.getGameConstants().HAS_TAKEN_FIRE_SPEED_MODIFIER).toBe(-0.15);
+    expect(gameDataManager.getGameRules().organization?.routingOrgRecoveryModifier).toBe(-0.4);
+    for (const category of ["midCavalry", "lightCavalry", "scoutCavalry", "heavyCavalry"] as const) {
+      expect(gameDataManager.getRunSpeedModifier(TerrainType.Forest, category)).toBe(-0.5);
+    }
+  });
+
   it("uses the requested routing-unit organization-radius multiplier", () => {
     expect(
       gameDataManager.getGameRules().organization
@@ -30,10 +48,10 @@ describe("Napoleonic balance", () => {
     expect(fireAndAdvance).toMatchObject({
       speedModifierWhenShooting: -0.25,
       speedModifierWhenShootingByCategory: {
-        infantry: -0.25,
-        guardsInfantry: -0.25,
-        skirmishInfantry: -0.25,
-        militiaInfantry: -0.35,
+        infantry: -0.2,
+        guardsInfantry: -0.2,
+        skirmishInfantry: -0.2,
+        militiaInfantry: -0.2,
         artillery: -0.35,
       },
       rangedDamageModifier: -0.25,
@@ -305,7 +323,7 @@ describe("Napoleonic balance", () => {
       "6lb_artillery_horse": {
         manpower: 75,
         rangedAttack: 2800,
-        runMovement: 160,
+        runMovement: 81,
         timeToRun: 6,
         guns: 6,
       },
@@ -317,11 +335,11 @@ describe("Napoleonic balance", () => {
       },
       "12lb_artillery": { runMovement: 81, guns: 8 },
       "4lb_artillery": { manpower: 50, rangedAttack: 2500, guns: 6 },
-      "6lb_artillery": { runMovement: 86, hp: 80000, guns: 8 },
+      "6lb_artillery": { runMovement: 81, hp: 80000, guns: 8 },
       rockets: { runMovement: 160, guns: 6 },
       "10lb_licorne": {
-        rangedAttack: 3200,
-        runMovement: 86,
+        rangedAttack: 3300,
+        runMovement: 81,
         hp: 60000,
         guns: 6,
       },
@@ -552,7 +570,7 @@ describe("Napoleonic balance", () => {
     expect(
       gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>("musket")
         .ranges[0].damageModifier.near,
-    ).toBe(6);
+    ).toBe(7);
   });
 
   it("uses the requested cavalry charge and organization balance", () => {
@@ -662,7 +680,7 @@ describe("Napoleonic balance", () => {
       0.2,
     );
     expect(gameDataManager.getPushDistanceModifier(TerrainType.Forest)).toBe(2);
-    expect(gameDataManager.getStaminaCost(TerrainType.Forest)).toBe(-0.5);
+    expect(gameDataManager.getStaminaCost(TerrainType.Forest)).toBe(0.5);
     expect(
       gameDataManager.getMovementModifier(
         TerrainType.Forest,
@@ -795,7 +813,7 @@ describe("Napoleonic balance", () => {
   it("uses the requested dispersed formation run speed modifier", () => {
     expect(
       gameDataManager.getFormationManager().getTemplate("dispersed"),
-    ).toMatchObject({ runMovementModifier: 2 });
+    ).toMatchObject({ runMovementModifier: 1.5 });
   });
 
   it("uses the requested infantry, column, and cavalry charge balance", () => {
