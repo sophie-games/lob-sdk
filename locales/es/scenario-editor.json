@@ -1,4 +1,12 @@
 {
+  "mapImage": {
+    "title": "Exportar imagen del mapa",
+    "description": "Exporta todo el terreno sin unidades, cuadrícula ni elementos del editor. Se conservan las proporciones del mapa.",
+    "resolution": "Lado más largo",
+    "progress": "Generando… {{percent}}%",
+    "error": "No se pudo exportar la imagen. Prueba con 4K o un mapa más pequeño.",
+    "download": "Descargar PNG"
+  },
   "inspectorBands": {
     "identity": "Identidad",
     "placement": "Colocación",
