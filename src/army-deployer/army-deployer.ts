@@ -35,6 +35,9 @@ interface Recruit {
   category: UnitCategoryId;
 }
 
+/** Units of frontage left between one division and the next, so the blocks read apart. */
+const DIVISION_GAP = 2;
+
 /** One line of the deployment: what stands on each wing, and what in the centre. */
 interface DeployedLine {
   left: DeployedDivision[];
@@ -181,64 +184,110 @@ export class ArmyDeployer {
       1,
       ...all(front).map((division) => division.brigades.length),
     );
-    this.deployLine(front, 0);
+    // One pitch for both lines, so the blocks of the second sit on the same grid
+    // as the first rather than on a scale of their own.
+    const pitch = Math.min(
+      this.pitchFor(all(front)),
+      this.pitchFor(all(rear)),
+    );
+
+    // The light cavalry rides one row ahead of the line it covers: it screened,
+    // and standing it level with the infantry makes it read as part of it.
+    const line = this.deployLine(front, { centre: 0, wings: -1 }, pitch);
     // One line interval behind the last infantry line, which is what the period
-    // put between an infantry line and the cavalry standing behind it.
-    this.deployLine(rear, depth);
+    // put between an infantry line and the cavalry standing behind it. The wings
+    // hang off the infantry's flanks, not the zone's, so in a small battle the
+    // cavalry stands beside the army instead of out at the edge of the map.
+    this.deployLine(rear, { centre: depth, wings: depth }, pitch, line);
   }
 
-  /**
-   * Lays one line of divisions across the zone: the wings anchored to its two
-   * edges and the centre body between them, so a wing is a wing however few
-   * divisions the line holds.
-   */
-  private deployLine(line: DeployedLine, baseRow: number) {
-    const divisions = [...line.left, ...line.centre, ...line.right];
-    if (divisions.length === 0) return;
+  /** Width one unit gets, capped so the whole line fits the zone. */
+  private pitchFor(divisions: DeployedDivision[]): number {
+    if (divisions.length === 0) return this.DEFAULT_UNIT_HEIGHT + this.MIN_SPACING;
+    const slots =
+      divisions.reduce((sum, d) => sum + this.frontageOf(d), 0) +
+      DIVISION_GAP * (divisions.length - 1);
+    return Math.min(
+      this.DEFAULT_UNIT_HEIGHT + this.MIN_SPACING,
+      this.usableWidth() / slots,
+    );
+  }
 
+  /** Units the widest row of a division holds, which is the frontage it needs. */
+  private frontageOf(division: DeployedDivision): number {
+    return Math.max(
+      1,
+      division.screen.length,
+      division.guns.length,
+      ...division.brigades.map((brigade) => brigade.length),
+    );
+  }
+
+  private usableWidth(): number {
     const metrics = this.calculateSectionMetrics(this.mainDeploymentZone);
-    const frontage = (division: DeployedDivision) =>
-      Math.max(
-        1,
-        division.screen.length,
-        division.guns.length,
-        ...division.brigades.map((brigade) => brigade.length),
-      );
-    const total = divisions.reduce((sum, d) => sum + frontage(d), 0);
-
-    const usable =
+    return (
       metrics.leftFlankWidth +
       metrics.centerWidth +
       metrics.rightFlankWidth -
-      2 * this.MARGIN;
-    // Each unit gets its natural pitch unless the zone is too narrow for the army.
-    const pitch = Math.min(
-      this.DEFAULT_UNIT_HEIGHT + this.MIN_SPACING,
-      usable / total,
+      2 * this.MARGIN
     );
+  }
+
+  /**
+   * Lays one line of divisions out: the centre body in the middle and a wing on
+   * either side of it. `anchor` is the span the wings hang off, so a second line
+   * puts its cavalry beside the infantry rather than at the edge of the zone.
+   * Returns the span the centre body took, for the line behind it to anchor on.
+   */
+  private deployLine(
+    line: DeployedLine,
+    rows: { centre: number; wings: number },
+    pitch: number,
+    anchor?: { start: number; end: number },
+  ): { start: number; end: number } {
+    const metrics = this.calculateSectionMetrics(this.mainDeploymentZone);
+    const zoneStart = metrics.leftFlankStartX + this.MARGIN;
     const spacing = Math.max(0, pitch - this.DEFAULT_UNIT_HEIGHT);
-    // Whatever frontage the army does not need becomes the gaps between divisions.
-    const gap = Math.max(0, (usable - pitch * total) / (divisions.length + 1));
+    // A fixed gap between divisions, so the blocks read apart without the army
+    // being stretched to fill whatever zone it was given.
+    const gap = DIVISION_GAP * pitch;
 
     const widthOf = (group: DeployedDivision[]) =>
-      group.reduce((sum, d) => sum + frontage(d) * pitch + gap, 0);
+      group.reduce((sum, d) => sum + this.frontageOf(d) * pitch + gap, 0);
 
-    const place = (group: DeployedDivision[], from: number) => {
+    const place = (
+      group: DeployedDivision[],
+      from: number,
+      baseRow: number,
+    ) => {
       let startX = from;
       for (const division of group) {
-        const width = frontage(division) * pitch;
+        const width = this.frontageOf(division) * pitch;
         this.deployDivision(division, startX, width, spacing, baseRow);
         startX += width + gap;
       }
     };
 
-    // The wings sit against the edges of the zone; the centre body is centred on
-    // it, and the slack the army does not need falls between the three.
-    const left = metrics.leftFlankStartX + this.MARGIN;
-    place(line.left, left);
-    place(line.right, left + usable - widthOf(line.right) + gap);
-    place(line.centre, left + (usable - widthOf(line.centre) + gap) / 2);
+    const middle =
+      anchor === undefined
+        ? zoneStart + this.usableWidth() / 2
+        : (anchor.start + anchor.end) / 2;
+    const centreWidth = Math.max(0, widthOf(line.centre) - gap);
+    const start = middle - centreWidth / 2;
+    const end = start + centreWidth;
+
+    // The wings hang off the anchor when there is one, so a line with nothing in
+    // its centre still puts them beside the army rather than in the middle of it.
+    const leftEdge = anchor?.start ?? start;
+    const rightEdge = anchor?.end ?? end;
+
+    place(line.centre, start, rows.centre);
+    place(line.left, leftEdge - widthOf(line.left), rows.wings);
+    place(line.right, rightEdge + gap, rows.wings);
+
+    return { start, end };
   }
+
 
   /** Places one division's rows over its own stretch of the front. */
   private deployDivision(
