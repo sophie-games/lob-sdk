@@ -75,7 +75,7 @@ describe("GameDataManager custom defs", () => {
     });
 
     it("wires allowedOrders correctly", () => {
-      const orderName = "advance"; // a known napoleonic order
+      const orderName = "walk"; // a known napoleonic order
       const m = GameDataManager.createWithCustomDefs("napoleonic", {
         customUnitCategories: [
           { id: "drone", firingAltitude: 0, allowedOrders: [orderName] },
@@ -97,11 +97,14 @@ describe("GameDataManager custom defs", () => {
           customUnitCategories: [category],
         });
         expect(manager.getUnitCategoryAllowedOrders(category.id)).toEqual([
-          OrderType.Advance,
+          OrderType.Walk,
+          ...(era === "napoleonic" ? [OrderType.FireAndAdvance] : []),
         ]);
         expect(category.allowedOrders).toEqual(["walk", "fireAndAdvance", "advance"]);
-        expect(manager.getOrderTemplate(OrderType.Advance).name).toBe("advance");
-        expect(manager.getOrderTypes()).not.toContain(4);
+        expect(manager.getOrderTemplate(OrderType.Walk).name).toBe("walk");
+        if (era === "napoleonic") {
+          expect(manager.getOrderTemplate(OrderType.FireAndAdvance).name).toBe("fireAndAdvance");
+        }
       },
     );
 
@@ -680,16 +683,16 @@ describe("GameDataManager custom defs", () => {
 
     it("deep-merges one category in a by-category map, keeping the others", () => {
       const eraSingleton = GameDataManager.get("napoleonic");
-      const base = eraSingleton.getOrderTemplate(OrderType.Advance)
+      const base = eraSingleton.getOrderTemplate(OrderType.FireAndAdvance)
         .speedModifierWhenShootingByCategory;
       const m = GameDataManager.createWithCustomDefs("napoleonic", {
         customOrders: {
-          [OrderType.Advance]: {
+          [OrderType.FireAndAdvance]: {
             speedModifierWhenShootingByCategory: { infantry: -0.25 },
           },
         },
       });
-      const merged = m.getOrderTemplate(OrderType.Advance)
+      const merged = m.getOrderTemplate(OrderType.FireAndAdvance)
         .speedModifierWhenShootingByCategory;
       expect(merged?.infantry).toBe(-0.25);
       // Other categories survive the partial merge.
@@ -713,14 +716,14 @@ describe("GameDataManager custom defs", () => {
 
     it("overriding isDefault changes the default order", () => {
       const eraSingleton = GameDataManager.get("napoleonic");
-      expect(eraSingleton.getDefaultOrderType()).toBe(OrderType.Advance);
+      expect(eraSingleton.getDefaultOrderType()).toBe(OrderType.FireAndAdvance);
       const m = GameDataManager.createWithCustomDefs("napoleonic", {
         customOrders: {
-          [OrderType.Advance]: { isDefault: false },
-          [OrderType.Run]: { isDefault: true },
+          [OrderType.FireAndAdvance]: { isDefault: false },
+          [OrderType.Walk]: { isDefault: true },
         },
       });
-      expect(m.getDefaultOrderType()).toBe(OrderType.Run);
+      expect(m.getDefaultOrderType()).toBe(OrderType.Walk);
     });
 
     it("skips unknown order ids without throwing", () => {
@@ -774,19 +777,5 @@ describe("GameDataManager custom defs", () => {
       });
       expect(custom).not.toBe(GameDataManager.get("napoleonic"));
     });
-  });
-});
-
-describe("Advance order identity", () => {
-  it.each(["napoleonic", "ww2"] as const)("uses a single Advance order in %s", (eraName) => {
-    const era = GameDataManager.get(eraName);
-    expect(OrderType.Advance).toBe(1);
-    expect(era.getOrderTypes()).not.toContain(4);
-    expect(era.getUserSelectableOrderTypes()).toContain(OrderType.Advance);
-    expect(era.getOrderTemplate(OrderType.Advance).name).toBe("advance");
-    for (const category of era.getUnitCategories()) {
-      expect(category.allowedOrders).not.toContain("walk");
-      expect(category.allowedOrders).not.toContain("fireAndAdvance");
-    }
   });
 });

@@ -571,9 +571,10 @@
   "fetchingBattleActions": "Fetching battle actions...",
   "order": {
     "0": "No orders",
-    "1": "Advance",
+    "1": "Walk",
     "2": "Run",
     "3": "Shoot",
+    "4": "Fire and Advance",
     "6": "Fallback",
     "7": "Face",
     "automatic": "Automatic"
@@ -1157,7 +1158,7 @@
   "noPublicGames": "No public games right now.",
   "kFactorTooltip": "ELO K Factor (max rating change per ranked game)",
   "max": "Max",
-  "minDistanceToFAA": "Advance stopping distance",
+  "minDistanceToFAA": "Min distance to FAA",
   "captureProgress": "Capture progress",
   "captureThreshold": "Capture threshold",
   "logistics": "Logistics",

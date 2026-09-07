@@ -3,7 +3,6 @@ import napoleonicOrganization from "@lob-sdk/game-data/eras/napoleonic/organizat
 import ww2Organization from "@lob-sdk/game-data/eras/ww2/organization.json";
 import {
   UnitTemplate,
-  normalizeOrderType,
   UnitType,
   UnitCategoryId,
   RangeUnitTemplate,
@@ -417,12 +416,12 @@ export class GameDataManager {
             category.id,
             new Set(
               category.allowedOrders.map((order) => {
-                // Saved replays can still reference names from before Advance
-                // unified Walk and Fire and Advance.
+                // Replays from the unified-order version called Walk "advance".
+                // Older WW2 replays can also name FAA, which that era lacks.
                 const orderType =
                   this._orderNameMap.get(order) ??
-                  (order === "walk" || order === "fireAndAdvance"
-                    ? OrderType.Advance
+                  (order === "advance" || order === "fireAndAdvance"
+                    ? OrderType.Walk
                     : undefined);
                 if (orderType !== undefined) return orderType;
                 throw new Error(`Order ${order} not found`);
@@ -1562,11 +1561,11 @@ export class GameDataManager {
   }
 
   public tryGetOrderTemplate(orderId: OrderType | null): OrderTemplate | null {
-    return orderId === null ? null : this._orderMap.get(normalizeOrderType(orderId)) ?? null;
+    return this._orderMap.get(orderId!) ?? null;
   }
 
   public getOrderTemplate(orderId: OrderType): OrderTemplate {
-    return this._orderMap.get(normalizeOrderType(orderId))!;
+    return this._orderMap.get(orderId)!;
   }
 
   /**
