@@ -1181,5 +1181,31 @@
     "confirmed": "Correo confirmado. Ya puedes iniciar sesión.",
     "error": "No se pudo confirmar tu correo. El enlace puede ser inválido o haber caducado."
   },
-  "watchBattles": "Ver batallas"
+  "watchBattles": "Ver batallas",
+  "orderOfBattle": {
+    "title": "Ejército",
+    "brigade": "Brigada {{numeral}}",
+    "division": "1.ª División",
+    "unattached": "Sin asignar",
+    "dragToReassign": "Arrastra a otra brigada para reasignar",
+    "select": "Seleccionar {{target}}",
+    "collapse": "Plegar {{target}}",
+    "expand": "Desplegar {{target}}",
+    "noSelection": "Ninguna unidad seleccionada",
+    "selectionSummary_one": "{{count}} unidad · {{brigades}} brigadas",
+    "selectionSummary_other": "{{count}} unidades · {{brigades}} brigadas",
+    "quickBrigades": "Selección rápida de brigadas",
+    "backToMap": "Volver al mapa",
+    "backToArmy": "Volver al ejército",
+    "details": "Detalles",
+    "editSelection": "Editar selección",
+    "doneSelection": "Listo",
+    "moveTo": "Mover a…",
+    "moveCount_one": "Mover {{count}} unidad a una brigada",
+    "moveCount_other": "Mover {{count}} unidades a una brigada",
+    "confirmMove": "Mover",
+    "clearSelection": "Limpiar",
+    "selectedCount": "{{selected}}/{{total}} seleccionadas",
+    "dragUnit": "Arrastrar {{unit}} para reordenar o mover a otra brigada"
+  }
 }
