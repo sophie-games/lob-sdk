@@ -66,6 +66,7 @@
     "turn": "回合数 {{turnNumber}}/{{maxTurn}}"
   },
   "withdrawMessage": "如果你从对局中撤退，你会自动算作失败并降低Elo，你确定要撤退吗？",
+  "withdrawUnrankedMessage": "如果你从这场对局中撤退，将被算作失败。你确定要撤退吗？",
   "loading": "加载中……",
   "yes": "是",
   "no": "否",
