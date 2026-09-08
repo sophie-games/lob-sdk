@@ -1332,6 +1332,7 @@
     "divisionalArtillery": "Divisional Artillery",
     "focus": "Double click to bring the map to {{target}}",
     "rename": "Rename {{target}}",
+    "renameAction": "Rename",
     "disband": "Disband {{target}}",
     "addDivision": "New division",
     "addBrigade": "New brigade",
@@ -1363,7 +1364,14 @@
     "destinationBrigade": "Brigade",
     "assign": "Assign",
     "assignUnit": "Assign {{unit}} to brigade",
-    "quickDivisions": "Quick division selection"
+    "quickDivisions": "Quick division selection",
+    "savedLayout": "Saved layout",
+    "layoutHelp": "Group orders recover these arrival positions. Moving units individually does not change them. Deploy defines a new layout; use “Save current layout” to keep a manual rearrangement.",
+    "saveLayout": "Save current layout",
+    "groupActions": "Actions for {{target}}",
+    "layoutUpdated": "Layout updated",
+    "undoLayout": "Undo",
+    "dismissLayoutNotice": "Dismiss layout notice"
   },
   "firstSession": {
     "title": "How would you like to begin?",

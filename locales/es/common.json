@@ -1226,6 +1226,7 @@
     "divisionalArtillery": "Artillería divisionaria",
     "focus": "Centrar el mapa en {{target}}",
     "rename": "Renombrar {{target}}",
+    "renameAction": "Renombrar",
     "disband": "Disolver {{target}}",
     "addDivision": "Crear división",
     "addBrigade": "Crear brigada",
@@ -1257,6 +1258,13 @@
     "destinationBrigade": "Brigada",
     "assign": "Asignar",
     "assignUnit": "Asignar {{unit}} a una brigada",
-    "quickDivisions": "Selección rápida de divisiones"
+    "quickDivisions": "Selección rápida de divisiones",
+    "savedLayout": "Disposición guardada",
+    "layoutHelp": "Las órdenes del grupo recuperan estos lugares de llegada. Mover unidades individualmente no los modifica. Desplegar define una nueva disposición; usá «Guardar disposición actual» para conservar una reorganización manual.",
+    "saveLayout": "Guardar disposición actual",
+    "groupActions": "Acciones de {{target}}",
+    "layoutUpdated": "Disposición actualizada",
+    "undoLayout": "Deshacer",
+    "dismissLayoutNotice": "Cerrar aviso de disposición"
   }
 }
