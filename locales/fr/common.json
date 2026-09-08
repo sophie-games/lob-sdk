@@ -379,6 +379,34 @@
     "p1": "Nouveau sur <b>Lines of Battle</b> ? Commencez par le <tutorialLink>tutoriel</tutorialLink> pour apprendre les mécaniques de base avant votre première bataille."
   },
   "gameTips": {
+    "victoryPoints": {
+      "title": "Points de victoire",
+      "description": "Les pertes et les objectifs influencent les points de victoire. Protégez vos troupes et disputez les objectifs pour remonter."
+    },
+    "blockedFire": {
+      "title": "Tir bloqué",
+      "description": "Vos troupes bloquent les tirs de cette batterie. Dégagez sa ligne de tir pour qu’elle puisse tirer."
+    },
+    "organization": {
+      "title": "Organisation",
+      "description": "Les unités désorganisées peuvent fuir. Retirez-les du combat pour les laisser récupérer avant de réattaquer."
+    },
+    "range": {
+      "title": "Portée de tir",
+      "description": "Les tirs lointains infligent moins de dégâts. Rapprochez-vous ou limitez le tir automatique pour mieux tirer."
+    },
+    "flanks": {
+      "title": "Protégez vos flancs",
+      "description": "Les tirs de flanc infligent plus de dégâts. Faites face à la menace et protégez vos côtés avec d’autres unités."
+    },
+    "charge": {
+      "title": "Choisissez vos charges",
+      "description": "Charger de front des troupes organisées est risqué. Affaiblissez-les par le feu ou attaquez un flanc."
+    },
+    "objectives": {
+      "title": "Petits objectifs",
+      "description": "Les petites étoiles aident à reconstituer votre réserve de munitions. Capturez-les pour continuer à tirer."
+    },
     "ammo": {
       "view": "Voir les munitions",
       "title": "Munitions",

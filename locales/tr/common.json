@@ -396,6 +396,34 @@
     "p1": "<b>Lines of Battle</b>'da yeni misin? İlk savaşından önce temel mekanikleri öğrenmek için <tutorialLink>eğitimle</tutorialLink> başla."
   },
   "gameTips": {
+    "victoryPoints": {
+      "title": "Zafer puanları",
+      "description": "Kayıplar ve hedefler zafer puanlarını etkiler. Farkı kapatmak için askerlerini koru ve hedefler için mücadele et."
+    },
+    "blockedFire": {
+      "title": "Atış engellendi",
+      "description": "Askerlerin bu bataryanın atışlarını engelliyor. Ateş edebilmesi için atış hattını aç."
+    },
+    "organization": {
+      "title": "Organizasyon",
+      "description": "Düzensiz birlikler kaçabilir. Yeniden saldırmadan önce toparlanmaları için onları çatışmadan çek."
+    },
+    "range": {
+      "title": "Atış mesafesi",
+      "description": "Uzak atışlar daha az hasar verir. Yaklaş veya daha etkili atışlar için otomatik ateşi sınırla."
+    },
+    "flanks": {
+      "title": "Kanatlarını koru",
+      "description": "Yandan gelen ateş daha çok hasar verir. Tehdide dön ve yanlarını diğer birliklerle koru."
+    },
+    "charge": {
+      "title": "Hücumlarını seç",
+      "description": "Düzenli birliklere önden hücum risklidir. Ateşle zayıflat veya bir kanada saldır."
+    },
+    "objectives": {
+      "title": "Küçük hedefler",
+      "description": "Küçük yıldızlar mühimmat rezervini yenilemeye yardım eder. Ordunun ateşi sürdürmesi için onları ele geçir."
+    },
     "ammo": {
       "view": "Mühimmatı gör",
       "title": "Mühimmat",

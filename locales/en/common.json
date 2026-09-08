@@ -543,6 +543,34 @@
     "p1": "New to <b>Lines of Battle</b>? Start with the <tutorialLink>tutorial</tutorialLink> to learn the core mechanics before your first battle."
   },
   "gameTips": {
+    "victoryPoints": {
+      "title": "Victory points",
+      "description": "Casualties and objectives affect victory points. Protect your troops and contest objectives to catch up."
+    },
+    "blockedFire": {
+      "title": "Blocked fire",
+      "description": "Your troops are blocking this battery’s shots. Clear its line of fire so it can shoot."
+    },
+    "organization": {
+      "title": "Organization",
+      "description": "Disorganized units can rout. Pull them out of combat to recover before attacking again."
+    },
+    "range": {
+      "title": "Firing range",
+      "description": "Long-range shots deal less damage. Move closer or limit autofire to make your shots count."
+    },
+    "flanks": {
+      "title": "Flanks",
+      "description": "Flank fire deals more damage. Face the threat and protect your sides with other units."
+    },
+    "charge": {
+      "title": "Charges",
+      "description": "Frontal charges against organized troops are risky. Weaken them with fire or attack a flank."
+    },
+    "objectives": {
+      "title": "Small stars",
+      "description": "Small stars help replenish your ammo reserve. Capture them to keep your army firing."
+    },
     "ammo": {
       "view": "View ammo",
       "title": "Ammunition",

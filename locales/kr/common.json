@@ -406,6 +406,34 @@
     "p1": "<b>Lines of Battle</b>가 처음이신가요? 첫 전투 전에 <tutorialLink>튜토리얼</tutorialLink>로 핵심 메커니즘을 익혀 보세요."
   },
   "gameTips": {
+    "victoryPoints": {
+      "title": "승리 점수",
+      "description": "손실과 목표는 승리 점수에 영향을 줍니다. 병력을 보호하고 목표를 다투어 열세를 만회하세요."
+    },
+    "blockedFire": {
+      "title": "막힌 사격",
+      "description": "아군이 이 포대의 사격을 막고 있습니다. 사선을 비워 사격할 수 있게 하세요."
+    },
+    "organization": {
+      "title": "조직력",
+      "description": "조직력이 낮은 부대는 패주할 수 있습니다. 전투에서 빼내 회복시킨 뒤 다시 공격하세요."
+    },
+    "range": {
+      "title": "사격 거리",
+      "description": "먼 거리에서 쏘면 피해가 줄어듭니다. 가까이 가거나 자동 사격 거리를 제한하세요."
+    },
+    "flanks": {
+      "title": "측면 보호",
+      "description": "측면 사격은 더 큰 피해를 줍니다. 위협을 향해 돌아서고 다른 부대로 측면을 보호하세요."
+    },
+    "charge": {
+      "title": "돌격 판단",
+      "description": "조직된 적에게 정면 돌격하면 위험합니다. 사격으로 약화시키거나 측면을 공격하세요."
+    },
+    "objectives": {
+      "title": "작은 목표",
+      "description": "작은 별은 예비 탄약 보충을 돕습니다. 점령해 아군의 사격을 유지하세요."
+    },
     "ammo": {
       "view": "탄약 보기",
       "title": "탄약",

@@ -412,6 +412,34 @@
     "p1": "初次接触 <b>Lines of Battle</b>？先从<tutorialLink>教程</tutorialLink>开始，在首场战斗前掌握核心机制。"
   },
   "gameTips": {
+    "victoryPoints": {
+      "title": "胜利点数",
+      "description": "伤亡和目标会影响胜利点数。保护部队并争夺目标，以扭转劣势。"
+    },
+    "blockedFire": {
+      "title": "射击受阻",
+      "description": "你的部队挡住了这支炮兵的射线。清空射线，让它能够开火。"
+    },
+    "organization": {
+      "title": "组织度",
+      "description": "组织混乱的单位可能溃逃。让它们退出战斗，恢复后再进攻。"
+    },
+    "range": {
+      "title": "射击距离",
+      "description": "远距离射击造成的伤害较低。靠近敌人或限制自动射击距离，提高射击效果。"
+    },
+    "flanks": {
+      "title": "保护侧翼",
+      "description": "侧翼火力造成更高伤害。转向威胁，并用其他单位保护两侧。"
+    },
+    "charge": {
+      "title": "选择冲锋时机",
+      "description": "正面冲击组织有序的部队很危险。先用火力削弱敌人，或攻击侧翼。"
+    },
+    "objectives": {
+      "title": "小型目标",
+      "description": "小星星有助于补充弹药储备。占领它们，让军队持续开火。"
+    },
     "ammo": {
       "view": "查看弹药",
       "title": "弹药",

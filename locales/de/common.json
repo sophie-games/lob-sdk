@@ -396,6 +396,34 @@
     "p1": "Neu bei <b>Lines of Battle</b>? Beginne mit dem <tutorialLink>Tutorial</tutorialLink>, um die grundlegenden Mechaniken vor deiner ersten Schlacht zu lernen."
   },
   "gameTips": {
+    "victoryPoints": {
+      "title": "Siegpunkte",
+      "description": "Verluste und Ziele beeinflussen die Siegpunkte. Schütze deine Truppen und kämpfe um Ziele, um aufzuholen."
+    },
+    "blockedFire": {
+      "title": "Feuer blockiert",
+      "description": "Deine Truppen blockieren die Schüsse dieser Batterie. Räume ihre Schusslinie frei, damit sie feuern kann."
+    },
+    "organization": {
+      "title": "Organisation",
+      "description": "Desorganisierte Einheiten können fliehen. Ziehe sie aus dem Kampf zurück, damit sie sich vor dem nächsten Angriff erholen."
+    },
+    "range": {
+      "title": "Schussweite",
+      "description": "Schüsse auf große Entfernung richten weniger Schaden an. Rücke näher oder begrenze das automatische Feuer."
+    },
+    "flanks": {
+      "title": "Flanken schützen",
+      "description": "Flankenfeuer verursacht mehr Schaden. Wende dich der Bedrohung zu und sichere die Seiten mit anderen Einheiten."
+    },
+    "charge": {
+      "title": "Sturmangriffe abwägen",
+      "description": "Frontalangriffe auf geordnete Truppen sind riskant. Schwäche sie durch Beschuss oder greife eine Flanke an."
+    },
+    "objectives": {
+      "title": "Kleine Ziele",
+      "description": "Kleine Sterne helfen, deine Munitionsreserve aufzufüllen. Erobere sie, um weiterfeuern zu können."
+    },
     "ammo": {
       "view": "Munition anzeigen",
       "title": "Munition",
