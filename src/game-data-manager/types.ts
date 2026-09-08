@@ -240,6 +240,7 @@ export interface GameConstants {
   CHARGE_BACKLASH_RESIST_FLOOR: number;
 
   HAS_TAKEN_FIRE_SPEED_MODIFIER: number;
+  HAS_BEEN_IN_MELEE_SPEED_MODIFIER: number;
 
   EFFECT_HAS_RAN_TICKS: number;
 
