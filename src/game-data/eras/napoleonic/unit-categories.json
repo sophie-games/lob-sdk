@@ -69,7 +69,6 @@
       "baseSpeed": "run"
     },
     "damageTypeResistances": {
-      "bayonet": -0.25,
       "cavalry-sabre": 0,
       "musket": -0.35,
       "marksman-musket": -0.35,
@@ -172,7 +171,6 @@
       "baseSpeed": "run"
     },
     "damageTypeResistances": {
-      "bayonet": -0.25,
       "dragoon-sword": 0,
       "cavalry-sword": 0,
       "musket": -0.5,
@@ -218,7 +216,6 @@
       "baseSpeed": "run"
     },
     "damageTypeResistances": {
-      "bayonet": -0.25,
       "cavalry-sword": 0,
       "dragoon-sword": 0,
       "cavalry-sabre": 0,
@@ -264,7 +261,6 @@
       "baseSpeed": "run"
     },
     "damageTypeResistances": {
-      "bayonet": -0.25,
       "cavalry-sabre": 0,
       "dragoon-sword": 0,
       "musket": -0.4,
@@ -310,8 +306,7 @@
       "cavalry-sabre": -1,
       "cavalry-lance": -1,
       "dragoon-sword": -1,
-      "cavalry-sword": -1,
-      "horse-archer-bow": -1
+      "cavalry-sword": -1
     },
     "firingAltitude": 0.98,
     "captureSpeed": 2.0,

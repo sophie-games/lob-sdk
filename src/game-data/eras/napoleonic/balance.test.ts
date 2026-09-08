@@ -164,12 +164,12 @@ describe("Napoleonic balance", () => {
     }
   });
 
-  it("limits skirmishers to a 120-degree firing arc", () => {
+  it("limits skirmishers to a 150-degree firing arc", () => {
     const skirmish = gameDataManager
       .getFormationManager()
       .getTemplate("skirmish");
 
-    expect(skirmish?.fireEdges).toEqual([{ edge: 1, arc: 120, emitters: 2 }]);
+    expect(skirmish?.fireEdges).toEqual([{ edge: 1, arc: 150, emitters: 2 }]);
   });
 
   it("uses a 450 organization damage ratio for skirmisher and rifle fire", () => {
@@ -319,11 +319,12 @@ describe("Napoleonic balance", () => {
 
   it("uses the requested 1.8 artillery unit balance", () => {
     const expectedByName = {
-      "8lb_artillery": { runMovement: 81, rotationSpeed: 0.26, guns: 8 },
+      "8lb_artillery": { runMovement: 80, rotationSpeed: 0.26, guns: 8 },
       "6lb_artillery_horse": {
         manpower: 75,
         rangedAttack: 2800,
-        runMovement: 81,
+        hp: 60000,
+        runMovement: 80,
         timeToRun: 6,
         guns: 6,
       },
@@ -333,19 +334,19 @@ describe("Napoleonic balance", () => {
         panicFireDistance: 90,
         guns: 6,
       },
-      "12lb_artillery": { runMovement: 81, guns: 8 },
+      "12lb_artillery": { runMovement: 80, guns: 8 },
       "4lb_artillery": { manpower: 50, rangedAttack: 2500, guns: 6 },
-      "6lb_artillery": { runMovement: 81, hp: 80000, guns: 8 },
+      "6lb_artillery": { runMovement: 80, hp: 80000, guns: 8 },
       rockets: { runMovement: 160, guns: 6 },
       "10lb_licorne": {
-        rangedAttack: 3300,
-        runMovement: 81,
+        rangedAttack: 3200,
+        runMovement: 80,
         hp: 60000,
         guns: 6,
       },
       "18lb_licorne": {
         rangedAttack: 3700,
-        runMovement: 81,
+        runMovement: 80,
         hp: 60000,
         guns: 6,
       },
@@ -448,14 +449,23 @@ describe("Napoleonic balance", () => {
     expect(shell.ranges).toHaveLength(1);
     expect(shell.ranges[0]).toMatchObject({
       to: 1,
-      damageModifier: { near: 0, far: -0.25 },
+      damageModifier: { near: 0, far: -0.3 },
     });
     expect(shell.ranges[0].from * shell.maxRange).toBeCloseTo(90, 1);
     expect(shell.ranges[0].name).toBeUndefined();
-    expect(shell.areaOfEffect?.ranges[0]).toMatchObject({ start: 90 });
+    expect(shell.areaOfEffect).toMatchObject({
+      absorptionModifier: 1.25,
+      ranges: [
+        { start: 90, end: 200, startRadius: 29, endRadius: 32 },
+        { start: 200, end: 340, startRadius: 32, endRadius: 34 },
+      ],
+    });
+    expect(shell.areaOfEffect?.absorptionModifier).toBe(
+      licorneShell.areaOfEffect?.absorptionModifier,
+    );
     expect(canister).toMatchObject({
       maxRange: 90,
-      ranges: [{ damageModifier: { far: 1 } }],
+      ranges: [{ damageModifier: { near: 9, far: 1 } }],
     });
   });
 
@@ -471,6 +481,9 @@ describe("Napoleonic balance", () => {
     expect(
       gameDataManager.getFormationManager().getTemplate("column"),
     ).toMatchObject({
+      movementModifier: 0,
+      runMovementModifier: 0,
+      fireEdges: [{ edge: 1, arc: 45, emitters: 1 }],
       rangedAttackModifier: -0.85,
       flankChargeResistance: -0.6,
     });
@@ -478,11 +491,15 @@ describe("Napoleonic balance", () => {
     const square = gameDataManager.getFormationManager().getTemplate("square");
 
     expect(line).toMatchObject({
+      movementModifier: -0.25,
+      fireEdges: [{ edge: 1, arc: 45, emitters: 4 }],
       runMovementModifier: -0.25,
       flankChargeResistance: -0.6,
     });
     expect(line?.rangedAttackModifier).toBeUndefined();
     expect(square).toMatchObject({
+      movementModifier: -0.75,
+      runMovementModifier: -0.75,
       pushStrengthModifier: 0.5,
       receivedMeleeDamageModifier: 0,
       chargeResistanceModifier: 0.25,
@@ -501,7 +518,7 @@ describe("Napoleonic balance", () => {
       guards: {
         org: 975,
         chargeResistance: 0.5,
-        meleeAttack: 48,
+        meleeAttack: 50,
         orgRadiusBonus: 13,
       },
       grenadiers: { org: 725, chargeResistance: 0.55 },
@@ -541,19 +558,23 @@ describe("Napoleonic balance", () => {
 
   it("uses the requested 1.8 infantry attack and charge values", () => {
     const expectedByName = {
-      line_infantry: { rangedAttack: 3466, chargeBonus: 6500 },
-      guards: { rangedAttack: 3800, chargeBonus: 7000 },
-      light_infantry: { rangedAttack: 4000, chargeBonus: 6500 },
-      militia: { rangedAttack: 2800, chargeBonus: 6500 },
-      grenadiers: { rangedAttack: 3600, chargeBonus: 7500 },
+      line_infantry: { rangedAttack: 3400, meleeAttack: 4800, chargeBonus: 6000, runMovement: 125 },
+      guards: { rangedAttack: 3800, meleeAttack: 5000, chargeBonus: 6500, runMovement: 130 },
+      light_infantry: { rangedAttack: 4000, meleeAttack: 4800, chargeBonus: 6000, runMovement: 140, skirmisherRatio: 1.2 },
+      militia: { rangedAttack: 2800, meleeAttack: 2800, chargeBonus: 6000, runMovement: 125 },
+      grenadiers: { rangedAttack: 3600, meleeAttack: 5600, chargeBonus: 7000, runMovement: 130 },
       skirmishers: {
         rangedAttack: 2266,
-        chargeBonus: 1000,
+        meleeAttack: 1500,
+        chargeBonus: 500,
+        runMovement: 140,
         chargeResistance: -0.2,
       },
       rifles: {
         rangedAttack: 2400,
-        chargeBonus: 1000,
+        meleeAttack: 1500,
+        chargeBonus: 500,
+        runMovement: 140,
         chargeResistance: -0.2,
       },
     } as const;
@@ -564,7 +585,7 @@ describe("Napoleonic balance", () => {
     for (const [name, expected] of Object.entries(expectedByName)) {
       const unit = unitTemplates.find((template) => template.name === name);
 
-      expect(unit).toMatchObject(expected);
+      expect(unit).toMatchObject({ ...expected, walkMovement: 80 });
     }
 
     expect(
@@ -576,18 +597,21 @@ describe("Napoleonic balance", () => {
   it("uses the requested cavalry charge and organization balance", () => {
     const expectedByName = {
       cuirassiers: {
+        meleeDefense: 2200,
         chargeBonus: 140,
         chargeResistance: 0.3,
         orgRadiusBonus: 9,
         timeToRun: 5,
       },
       lancers: {
+        meleeDefense: 1300,
         chargeBonus: 140,
         chargeResistance: 0.15,
         orgRadiusBonus: 6,
         timeToRun: 5,
       },
       dragoons: {
+        meleeDefense: 2000,
         chargeBonus: 125,
         chargeResistance: 0.25,
         orgRadiusBonus: 6,
@@ -595,12 +619,14 @@ describe("Napoleonic balance", () => {
         timeToRun: 4,
       },
       hussars: {
+        meleeDefense: 1500,
         chargeBonus: 100,
         chargeResistance: 0.15,
         orgRadiusBonus: 4,
         timeToRun: 3,
       },
       horse_archers: {
+        meleeDefense: 1500,
         chargeBonus: 60,
         chargeResistance: 0.15,
         orgRadiusBonus: 4,
@@ -620,6 +646,7 @@ describe("Napoleonic balance", () => {
       expect(unit.orgRadiusBonus! / STAT_PRECISION_SCALE).toBe(
         expected.orgRadiusBonus,
       );
+      expect(unit.meleeDefense).toBe(expected.meleeDefense);
       expect(unit.orgRadius).toBe(64);
       expect(unit.timeToRun).toBe(expected.timeToRun);
       expect(unit.chargeResistance).toBe(expected.chargeResistance);
@@ -632,6 +659,14 @@ describe("Napoleonic balance", () => {
         expect(unit.org / STAT_PRECISION_SCALE).toBe(expected.org);
       }
     }
+  });
+
+  it("removes militia resistance to horse archer bows", () => {
+    expect(
+      gameDataManager.getUnitCategoryTemplate("militiaInfantry")
+        .damageTypeResistances?.["horse-archer-bow"],
+    ).toBeUndefined();
+    expect(gameDataManager.getUnitCategoryResistance("militiaInfantry", "horse-archer-bow")).toBe(0);
   });
 
   it("gives skirmish infantry full charge resistance in forest and city", () => {
@@ -857,7 +892,7 @@ describe("Napoleonic balance", () => {
     ]) {
       const cavalry = gameDataManager.getUnitCategoryTemplate(category);
 
-      expect(cavalry.damageTypeResistances?.bayonet).toBe(-0.25);
+      expect(cavalry.damageTypeResistances?.bayonet).toBeUndefined();
       expect(cavalry.chargeStaminaCost! / STAT_PRECISION_SCALE).toBe(25);
     }
   });
