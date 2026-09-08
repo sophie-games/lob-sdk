@@ -33,8 +33,10 @@
     "description": "コントロールグループバーを表示します。タッチデバイスで誤ったタップによって選択が変わるのを防ぐにはオフにします。"
   },
   "smartCurvedMovements": {
-    "title": "スマートカーブ移動",
-    "description": "このオプションを有効にすると、移動経路がスムーズな曲線で最適化され、回転中の速度損失を最小限に抑えます。"
+    "title": "移動経路",
+    "description": "直線は描いた線分に沿って進み、曲線は曲がり角を滑らかにします。通行できない障害物は自動的に迂回します。",
+    "direct": "直線",
+    "curved": "曲線"
   },
   "pathFinding": {
     "title": "経路探索",
@@ -166,7 +168,7 @@
     "fireAndAdvanceOrder": "発砲して前進する命令",
     "fallbackOrder": "後退命令",
     "automaticOrder": "自動命令",
-    "toggleSmartCurvedMovements": "スマートカーブ移動切り替え",
+    "toggleSmartCurvedMovements": "直線と曲線を切り替え",
     "togglePathFinding": "経路探索の切り替え",
     "toggleFowPerspective": "戦争の霧の視点切り替え",
     "toggleMultiTurnPathOrders": "複数ターン経路の指令の切り替え",

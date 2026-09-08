@@ -33,8 +33,10 @@
     "description": "Affiche la barre des groupes de contrôle. Désactivez-la pour éviter que des appuis accidentels ne modifient votre sélection sur les appareils tactiles."
   },
   "smartCurvedMovements": {
-    "title": "Mouvements courbés intelligents",
-    "description": "Active cette option pour optimiser les trajets de mouvement avec des courbes fluides, réduisant la perte de vitesse lors des rotations."
+    "title": "Trajectoire",
+    "description": "Directe suit les segments tracés ; Courbe arrondit les virages. Les obstacles infranchissables sont contournés automatiquement.",
+    "direct": "Directe",
+    "curved": "Courbe"
   },
   "pathFinding": {
     "title": "Recherche de chemin",
@@ -166,7 +168,7 @@
     "fireAndAdvanceOrder": "Ordre de tirer et avancer",
     "fallbackOrder": "Ordre de repli",
     "automaticOrder": "Ordre automatique",
-    "toggleSmartCurvedMovements": "Basculer les mouvements courbés intelligents",
+    "toggleSmartCurvedMovements": "Alterner entre Directe et Courbe",
     "togglePathFinding": "Basculer la recherche de chemin",
     "toggleFowPerspective": "Basculer la perspective de brouillard de guerre",
     "toggleMultiTurnPathOrders": "Basculer les ordres de chemin multi-tours",

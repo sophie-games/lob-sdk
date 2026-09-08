@@ -33,8 +33,10 @@
     "description": "Pokazuje pasek grup kontrolnych. Wyłącz go, aby przypadkowe dotknięcia nie zmieniały zaznaczenia na urządzeniach dotykowych."
   },
   "smartCurvedMovements": {
-    "title": "Lepszy ruch po krzywej.",
-    "description": "Włącz tą opcje, aby polepszyć trasy ruchu gładkimi liniami krzywymi, pomniejszając utratę prędkości podczas obrotu."
+    "title": "Trasa ruchu",
+    "description": "Prosta biegnie wzdłuż narysowanych odcinków; Zakrzywiona zaokrągla zakręty. Nieprzekraczalne przeszkody są omijane automatycznie.",
+    "direct": "Prosta",
+    "curved": "Zakrzywiona"
   },
   "pathFinding": {
     "title": "Wyszukiwanie ścieżki",
@@ -166,7 +168,7 @@
     "fireAndAdvanceOrder": "Rozkaz natarcia z ostrzałem",
     "fallbackOrder": "Rozkaz Odwrotu",
     "automaticOrder": "Rozkaz automatyczny",
-    "toggleSmartCurvedMovements": "Przełącz inteligentne zakrzywione ruchy",
+    "toggleSmartCurvedMovements": "Przełącz trasę prostą i zakrzywioną",
     "togglePathFinding": "Przełącz wyszukiwanie ścieżki",
     "toggleFowPerspective": "Przełącz perspektywę mgły wojny",
     "toggleMultiTurnPathOrders": "Przełącz rozkazy ścieżki wieloturowej",

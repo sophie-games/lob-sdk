@@ -33,8 +33,10 @@
     "description": "Megjeleníti a vezérlőcsoportok sávját. Kapcsold ki, hogy a véletlen érintések ne változtassák meg a kijelölést érintőképernyős eszközökön."
   },
   "smartCurvedMovements": {
-    "title": "Okos hajlítottságú mozgás",
-    "description": "Ennek a funkciónak az engedélyezése arra van, hogy minimalizálja a forgás közbeni mozgási sebesség-veszteségét."
+    "title": "Mozgási útvonal",
+    "description": "Az Egyenes a rajzolt szakaszokat követi; az Ívelt lekerekíti a kanyarokat. A járhatatlan akadályokat automatikusan megkerüli.",
+    "direct": "Egyenes",
+    "curved": "Ívelt"
   },
   "pathFinding": {
     "title": "Útvonalkeresés",
@@ -166,7 +168,7 @@
     "fireAndAdvanceOrder": "Tüzelés és előrehaladás parancs",
     "fallbackOrder": "Visszavonulási parancs",
     "automaticOrder": "Automatikus parancs",
-    "toggleSmartCurvedMovements": "Okos görbült mozgások váltása",
+    "toggleSmartCurvedMovements": "Váltás az Egyenes és Ívelt között",
     "togglePathFinding": "Útvonalkeresés váltása",
     "toggleFowPerspective": "Háborús köd perspektíva váltása",
     "toggleMultiTurnPathOrders": "Többszörös fordulási út parancsok váltása",

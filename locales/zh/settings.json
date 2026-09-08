@@ -33,8 +33,10 @@
     "description": "显示控制编组栏。在触摸设备上将其关闭，可避免误触更改你的选择。"
   },
   "smartCurvedMovements": {
-    "title": "智能曲线移动",
-    "description": "启用后会自动优化行动路线，让曲线更加平滑来减少单位转向时浪费的速度。"
+    "title": "移动路线",
+    "description": "直线沿绘制的线段移动；曲线平滑转弯。无法通行的障碍物会自动绕过。",
+    "direct": "直线",
+    "curved": "曲线"
   },
   "pathFinding": {
     "title": "寻路",
@@ -193,7 +195,7 @@
     "fireAndAdvanceOrder": "移动射击指令",
     "fallbackOrder": "后退指令",
     "automaticOrder": "自动指令",
-    "toggleSmartCurvedMovements": "切换智能曲线移动",
+    "toggleSmartCurvedMovements": "切换直线与曲线",
     "togglePathFinding": "切换路径寻找",
     "toggleFowPerspective": "切换战争迷雾视角",
     "toggleMultiTurnPathOrders": "切换多回合路径指令",

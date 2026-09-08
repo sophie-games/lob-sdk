@@ -33,8 +33,10 @@
     "description": "Kontrol grupları çubuğunu gösterir. Dokunmatik cihazlarda yanlışlıkla yapılan dokunuşların seçiminizi değiştirmesini önlemek için kapatın."
   },
   "smartCurvedMovements": {
-    "title": "Akıllı Kavisli Hareketler",
-    "description": "Bu seçeneği etkinleştirerek, dönüşler sırasında hız kaybını en aza indiren pürüzsüz kavisli hareket yollarını optimize edebilirsiniz."
+    "title": "Hareket yolu",
+    "description": "Düz, çizilen bölümleri izler; Kavisli, dönüşleri yumuşatır. Geçilemeyen engellerin etrafından otomatik olarak dolaşılır.",
+    "direct": "Düz",
+    "curved": "Kavisli"
   },
   "pathFinding": {
     "title": "Yol bulma",
@@ -166,7 +168,7 @@
     "fireAndAdvanceOrder": "Ateş ve ilerle emri",
     "fallbackOrder": "Geri çekil emri",
     "automaticOrder": "Otomatik emir",
-    "toggleSmartCurvedMovements": "Akıllı eğri hareketleri değiştir",
+    "toggleSmartCurvedMovements": "Düz ve Kavisli arasında geçiş yap",
     "togglePathFinding": "Yol bulmayı değiştir",
     "toggleFowPerspective": "Savaş sisi perspektifini değiştir",
     "toggleMultiTurnPathOrders": "Çok turlu yol emirlerini değiştir",

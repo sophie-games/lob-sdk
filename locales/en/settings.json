@@ -33,8 +33,10 @@
     "description": "Show the control-groups bar. Turn it off to stop accidental taps from changing your selection on touch devices."
   },
   "smartCurvedMovements": {
-    "title": "Smart Curved Movements",
-    "description": "Enable this option to optimize movement paths with smooth curves, minimizing speed loss during rotations."
+    "title": "Movement path",
+    "description": "Direct follows the drawn segments; Curved rounds the turns. Impassable obstacles are avoided automatically.",
+    "direct": "Direct",
+    "curved": "Curved"
   },
   "pathFinding": {
     "title": "Path finding",
@@ -193,7 +195,7 @@
     "fireAndAdvanceOrder": "Fire and advance order",
     "fallbackOrder": "Fallback order",
     "automaticOrder": "Automatic order",
-    "toggleSmartCurvedMovements": "Toggle Smart Curved Movements",
+    "toggleSmartCurvedMovements": "Switch between Direct and Curved",
     "togglePathFinding": "Toggle Path finding",
     "toggleFowPerspective": "Toggle Fog of War Perspective",
     "toggleMultiTurnPathOrders": "Toggle Multi-turn Path Orders",

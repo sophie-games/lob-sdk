@@ -33,8 +33,10 @@
     "description": "Zeigt die Leiste für Kontrollgruppen an. Deaktiviere sie, damit versehentliche Berührungen deine Auswahl auf Touchgeräten nicht verändern."
   },
   "smartCurvedMovements": {
-    "title": "Kluge Kurvenbewegungen",
-    "description": "Aktiviere diese Option, um die Bewegungspfade mit weicheren Kurven zu optimieren, was Geschwindigkeitsverluste beim Drehen verringert."
+    "title": "Bewegungsweg",
+    "description": "Direkt folgt den gezeichneten Abschnitten; Kurvig rundet die Kurven ab. Unpassierbare Hindernisse werden automatisch umgangen.",
+    "direct": "Direkt",
+    "curved": "Kurvig"
   },
   "pathFinding": {
     "title": "Pfadsuche",
@@ -169,7 +171,7 @@
     "fireAndAdvanceOrder": "Feuer-und-Vorrück-Auftrag",
     "fallbackOrder": "Rückzugsauftrag",
     "automaticOrder": "Automatischer Auftrag",
-    "toggleSmartCurvedMovements": "Kluge Kurvenbewegungen umschalten",
+    "toggleSmartCurvedMovements": "Zwischen Direkt und Kurvig wechseln",
     "togglePathFinding": "Pfadsuche umschalten",
     "toggleFowPerspective": "Nebel des Krieges Perspektive umschalten",
     "toggleMultiTurnPathOrders": "Mehrzügige Weg-Befehle umschalten",

@@ -33,8 +33,10 @@
     "description": "Mostra la barra dei gruppi di controllo. Disattivala per evitare che tocchi accidentali cambino la selezione sui dispositivi touch."
   },
   "smartCurvedMovements": {
-    "title": "Movimenti curvi intelligenti",
-    "description": "Abilita questa opzione per ottimizzare i percorsi di movimento con curve fluide, riducendo la perdita di velocità durante le rotazioni."
+    "title": "Traiettoria",
+    "description": "Diretta segue i segmenti disegnati; Curva arrotonda le svolte. Gli ostacoli invalicabili vengono aggirati automaticamente.",
+    "direct": "Diretta",
+    "curved": "Curva"
   },
   "pathFinding": {
     "title": "Ricerca del percorso",
@@ -166,7 +168,7 @@
     "fireAndAdvanceOrder": "Ordine di sparare e avanzare",
     "fallbackOrder": "Ordine di ritirata",
     "automaticOrder": "Ordine automatico",
-    "toggleSmartCurvedMovements": "Attiva/disattiva movimenti curvi intelligenti",
+    "toggleSmartCurvedMovements": "Alterna Diretta e Curva",
     "togglePathFinding": "Attiva/disattiva ricerca percorso",
     "toggleFowPerspective": "Cambia prospettiva nebbia di guerra",
     "toggleMultiTurnPathOrders": "Attiva/disattiva ordini percorso multi-giro",
