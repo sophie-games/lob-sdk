@@ -1059,5 +1059,12 @@
   },
   "objectiveOwnership": {
     "help": "Ziele gehören immer einem Team. Bei einem Szenario mit fester Spielerliste benennt dieses Feld einen Spieler, und das Ziel gehört dem Team dieses Spielers. Bei einem Szenario für dynamische Armeen gibt es vor dem Matchmaking noch keine Spielerplätze, daher benennt das Feld direkt das Team."
+  },
+  "mapLabels": {
+    "title": "Kartenbeschriftungen",
+    "help": "Klicke mit der rechten Maustaste auf die Karte (oder tippe bei Touch-Steuerung), um eine Position zu wählen. Füge dann eine Beschriftung hinzu oder verschiebe sie.",
+    "add": "Beschriftung hinzufügen",
+    "move": "Zur gewählten Position verschieben",
+    "empty": "Noch keine Beschriftungen."
   }
 }

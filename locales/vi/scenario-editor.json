@@ -1052,5 +1052,12 @@
   },
   "objectiveOwnership": {
     "help": "Mục tiêu luôn luôn thuộc về một đội. Trong kịch bản có danh sách người chơi cố định, trường này chỉ định một người chơi, và mục tiêu thuộc về đội của người chơi đó. Trong kịch bản dựng cho quân đội linh hoạt thì không có suất người chơi nào cho đến khi ghép trận điền vào, nên trường này chỉ định thẳng đội."
+  },
+  "mapLabels": {
+    "title": "Nhãn bản đồ",
+    "help": "Nhấp chuột phải vào bản đồ (hoặc chạm khi dùng điều khiển cảm ứng) để chọn vị trí, rồi thêm hoặc di chuyển nhãn.",
+    "add": "Thêm nhãn",
+    "move": "Di chuyển đến vị trí đã chọn",
+    "empty": "Chưa có nhãn."
   }
 }

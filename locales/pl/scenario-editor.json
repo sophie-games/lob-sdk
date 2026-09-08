@@ -1073,5 +1073,12 @@
   },
   "objectiveOwnership": {
     "help": "Cele zawsze należą do drużyny. W scenariuszu ze stałym składem to pole wskazuje gracza, a cel należy do drużyny tego gracza. W scenariuszu przygotowanym pod dynamiczne armie nie ma miejsc graczy, dopóki nie wypełni ich dobieranie graczy, więc pole wskazuje drużynę bezpośrednio."
+  },
+  "mapLabels": {
+    "title": "Etykiety mapy",
+    "help": "Kliknij mapę prawym przyciskiem myszy (lub dotknij przy sterowaniu dotykowym), aby wybrać pozycję, a następnie dodaj lub przesuń etykietę.",
+    "add": "Dodaj etykietę",
+    "move": "Przesuń do wybranej pozycji",
+    "empty": "Brak etykiet."
   }
 }

@@ -1067,5 +1067,12 @@
   },
   "objectiveOwnership": {
     "help": "Los objetivos siempre pertenecen a un equipo. En un escenario con plantilla fija, este campo nombra a un jugador, y el objetivo pertenece al equipo de ese jugador. En un escenario hecho para ejércitos dinámicos no hay puestos de jugador hasta que el emparejamiento los llena, así que el campo nombra directamente al equipo."
+  },
+  "mapLabels": {
+    "title": "Nombres del mapa",
+    "help": "Haz clic derecho en el mapa (o toca con controles táctiles) para elegir una posición y luego añade o mueve un nombre.",
+    "add": "Añadir nombre",
+    "move": "Mover a la posición elegida",
+    "empty": "Aún no hay nombres."
   }
 }

@@ -1059,5 +1059,12 @@
   },
   "objectiveOwnership": {
     "help": "Az objektívákat mindig egy csapat birtokolja. Rögzített névsorú pályán ez a mező egy játékost nevez meg, és az objektíva annak a játékosnak a csapatához tartozik. Dinamikus seregekre épülő pályán nincsenek játékoshelyek, amíg a meccskeresés fel nem tölti őket, így a mező közvetlenül a csapatot nevezi meg."
+  },
+  "mapLabels": {
+    "title": "Térképfeliratok",
+    "help": "Kattints a térképre jobb egérgombbal (érintéses vezérlésnél koppints) egy hely kiválasztásához, majd adj hozzá vagy helyezz át egy feliratot.",
+    "add": "Felirat hozzáadása",
+    "move": "Áthelyezés a kiválasztott helyre",
+    "empty": "Még nincsenek feliratok."
   }
 }

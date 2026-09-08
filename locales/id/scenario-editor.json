@@ -1052,5 +1052,12 @@
   },
   "objectiveOwnership": {
     "help": "Objektif selalu dipegang oleh sebuah tim. Pada skenario dengan daftar pemain tetap, kolom ini menyebut seorang pemain, dan objektif itu milik tim pemain tersebut. Pada skenario yang dibangun untuk pasukan dinamis tidak ada slot pemain sampai pencarian permainan mengisinya, sehingga kolom ini menyebut tim secara langsung."
+  },
+  "mapLabels": {
+    "title": "Label peta",
+    "help": "Klik kanan peta (atau ketuk dengan kontrol sentuh) untuk memilih posisi, lalu tambahkan atau pindahkan label.",
+    "add": "Tambah label",
+    "move": "Pindahkan ke posisi yang dipilih",
+    "empty": "Belum ada label."
   }
 }

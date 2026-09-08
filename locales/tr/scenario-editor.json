@@ -1059,5 +1059,12 @@
   },
   "objectiveOwnership": {
     "help": "Hedefler her zaman bir takıma aittir. Sabit kadrolu bir senaryoda bu alan bir oyuncuyu belirtir ve hedef o oyuncunun takımına ait olur. Dinamik ordular için kurulmuş bir senaryoda ise eşleştirme doldurana kadar oyuncu yuvası yoktur; bu yüzden alan doğrudan takımı belirtir."
+  },
+  "mapLabels": {
+    "title": "Harita etiketleri",
+    "help": "Konum seçmek için haritaya sağ tıklayın (dokunmatik kontrollerde dokunun), ardından bir etiket ekleyin veya taşıyın.",
+    "add": "Etiket ekle",
+    "move": "Seçilen konuma taşı",
+    "empty": "Henüz etiket yok."
   }
 }

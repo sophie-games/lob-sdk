@@ -1059,5 +1059,12 @@
   },
   "objectiveOwnership": {
     "help": "Gli obiettivi sono sempre detenuti da una squadra. In uno scenario con rosa fissa, questo campo indica un giocatore, e l'obiettivo appartiene alla squadra di quel giocatore. In uno scenario costruito per eserciti dinamici non ci sono posti giocatore finché il matchmaking non li riempie, quindi il campo indica direttamente la squadra."
+  },
+  "mapLabels": {
+    "title": "Nomi sulla mappa",
+    "help": "Fai clic destro sulla mappa (o toccala con i comandi touch) per scegliere una posizione, poi aggiungi o sposta un nome.",
+    "add": "Aggiungi nome",
+    "move": "Sposta nella posizione scelta",
+    "empty": "Nessun nome ancora."
   }
 }

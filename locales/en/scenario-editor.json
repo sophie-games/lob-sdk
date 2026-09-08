@@ -1068,5 +1068,12 @@
     "bigInset": "Big-objective zone trim",
     "smallInsetInfo": "How much to narrow the small-objective zone on each side. Trims only its width, keeping its vertical reach. Leave it empty to use the battle type's own figure, or the era's.",
     "bigInsetInfo": "How much to shrink the big-objective box on each side, centered inside the deployment zone. Leave it empty to use the battle type's own figure, or the era's."
+  },
+  "mapLabels": {
+    "title": "Map labels",
+    "help": "Right-click the map (or tap with touch controls) to choose a position, then add or move a label.",
+    "add": "Add label",
+    "move": "Move to clicked position",
+    "empty": "No labels yet."
   }
 }

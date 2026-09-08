@@ -1059,5 +1059,12 @@
   },
   "objectiveOwnership": {
     "help": "Objetivos sempre pertencem a uma equipe. Em um cenário com elenco fixo, este campo nomeia um jogador, e o objetivo pertence à equipe daquele jogador. Em um cenário feito para exércitos dinâmicos não há vagas de jogador até o matchmaking preenchê-las, então o campo nomeia a equipe diretamente."
+  },
+  "mapLabels": {
+    "title": "Nomes no mapa",
+    "help": "Clique com o botão direito no mapa (ou toque com os controles de toque) para escolher uma posição e depois adicione ou mova um nome.",
+    "add": "Adicionar nome",
+    "move": "Mover para a posição escolhida",
+    "empty": "Ainda não há nomes."
   }
 }

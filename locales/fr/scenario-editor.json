@@ -1059,5 +1059,12 @@
   },
   "objectiveOwnership": {
     "help": "Les objectifs appartiennent toujours à une équipe. Sur un scénario à effectifs fixes, ce champ nomme un joueur, et l'objectif appartient à l'équipe de ce joueur. Sur un scénario conçu pour des armées dynamiques, il n'y a pas de places de joueur avant que le matchmaking ne les remplisse, le champ nomme donc directement l'équipe."
+  },
+  "mapLabels": {
+    "title": "Noms sur la carte",
+    "help": "Faites un clic droit sur la carte (ou touchez-la avec les commandes tactiles) pour choisir une position, puis ajoutez ou déplacez un nom.",
+    "add": "Ajouter un nom",
+    "move": "Déplacer à la position choisie",
+    "empty": "Aucun nom pour le moment."
   }
 }
