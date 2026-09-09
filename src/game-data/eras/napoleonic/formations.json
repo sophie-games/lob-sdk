@@ -39,6 +39,7 @@
     "flankChargeResistance": -0.6,
     "timeToForm": 8,
     "timeToUnform": 8,
+    "formingSpeedModifier": -1,
     "minMovementModifier": -0.8,
     "projectilePassThrough": 0.05
   },
@@ -132,7 +133,7 @@
     "disablesEnfiladeFire": true,
     "disablesFlankMelee": false,
     "disablesRearFire": true,
-    "flankChargeResistance": -0.2,
+    "flankChargeResistance": -0.3,
     "minMovementModifier": -0.85,
     "projectilePassThrough": 0.5
   },

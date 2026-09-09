@@ -292,7 +292,7 @@
         "from": 0,
         "to": 0.47,
         "damageModifier": {
-          "near": 3.5,
+          "near": 4,
           "far": 2.7
         },
         "name": "close",
@@ -486,7 +486,7 @@
         "from": 0,
         "to": 0.51,
         "damageModifier": {
-          "near": 3.5,
+          "near": 4,
           "far": 2.7
         },
         "name": "close",
@@ -617,7 +617,7 @@
         "from": 0,
         "to": 0.57,
         "damageModifier": {
-          "near": 3.5,
+          "near": 4,
           "far": 2.7
         },
         "name": "close",
@@ -639,7 +639,7 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 20000,
+    "ammoCost": 18500,
     "extendRange": true
   },
   {
@@ -748,7 +748,7 @@
         "from": 0,
         "to": 0.63,
         "damageModifier": {
-          "near": 3.5,
+          "near": 4,
           "far": 2.7
         },
         "name": "close",
@@ -770,7 +770,7 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 20000,
+    "ammoCost": 18500,
     "extendRange": true
   },
   {
@@ -1019,7 +1019,7 @@
           "endRadius": 34
         }
       ],
-      "edgeDamageModifier": -0.6,
+      "edgeDamageModifier": -0.7,
       "absorptionModifier": 1.25
     },
     "shotSound": "artillery-fire",
@@ -1043,7 +1043,7 @@
         "from": 0,
         "to": 0.63,
         "damageModifier": {
-          "near": 4.2,
+          "near": 6,
           "far": 2.9
         },
         "name": "close",
@@ -1083,7 +1083,7 @@
         "from": 0,
         "to": 0.76,
         "damageModifier": {
-          "near": 4.2,
+          "near": 5,
           "far": 2.9
         },
         "name": "close",

@@ -22,7 +22,7 @@ describe("Napoleonic balance", () => {
     expect(gameDataManager.getGameConstants().HAS_TAKEN_FIRE_SPEED_MODIFIER).toBe(-0.15);
     expect(gameDataManager.getGameRules().organization?.routingOrgRecoveryModifier).toBe(-0.4);
     for (const category of ["midCavalry", "lightCavalry", "scoutCavalry", "heavyCavalry"] as const) {
-      expect(gameDataManager.getRunSpeedModifier(TerrainType.Forest, category)).toBe(-0.5);
+      expect(gameDataManager.getRunSpeedModifier(TerrainType.Forest, category)).toBe(0);
     }
   });
 
@@ -31,6 +31,44 @@ describe("Napoleonic balance", () => {
       gameDataManager.getGameRules().organization
         ?.routingUnitNearbyUnitsOrgBonus,
     ).toBe(5);
+  });
+
+  it("uses the requested organization recovery bands", () => {
+    expect(gameDataManager.getGameRules().organization).toMatchObject({
+      safeOrgRecoveryModifier: 0.25,
+      distantThreatOrgRecoveryModifier: 0,
+      distantThreatDistance: 80,
+    });
+  });
+
+  it("uses the requested cavalry rifle, marksman, and canister resistances", () => {
+    const canisterNames = [
+      "4lb-canister-fire",
+      "6lb-canister-fire",
+      "8lb-canister-fire",
+      "10lb-canister-fire",
+      "12lb-canister-fire",
+      "18lb-canister-fire",
+      "howitzer-canister",
+    ];
+
+    for (const [category, resistance] of Object.entries({
+      midCavalry: -0.2,
+      lightCavalry: -0.15,
+      scoutCavalry: -0.25,
+      heavyCavalry: -0.2,
+    })) {
+      for (const damageType of ["rifle", "marksman-musket"]) {
+        expect(
+          gameDataManager.getUnitCategoryResistance(category, damageType),
+        ).toBe(resistance);
+      }
+      for (const damageType of canisterNames) {
+        expect(
+          gameDataManager.getUnitCategoryResistance(category, damageType),
+        ).toBe(-0.25);
+      }
+    }
   });
 
   it("uses the requested 1.8 stamina recovery and order modifiers", () => {
@@ -46,7 +84,7 @@ describe("Napoleonic balance", () => {
       OrderType.FireAndAdvance,
     );
     expect(fireAndAdvance).toMatchObject({
-      speedModifierWhenShooting: -0.25,
+      speedModifierWhenShooting: -0.2,
       speedModifierWhenShootingByCategory: {
         infantry: -0.2,
         guardsInfantry: -0.2,
@@ -54,11 +92,11 @@ describe("Napoleonic balance", () => {
         militiaInfantry: -0.2,
         artillery: -0.35,
       },
-      rangedDamageModifier: -0.25,
+      rangedDamageModifier: -0.2,
       rangedDamageModifierByCategory: {
-        infantry: -0.25,
-        guardsInfantry: -0.25,
-        skirmishInfantry: -0.25,
+        infantry: -0.2,
+        guardsInfantry: -0.2,
+        skirmishInfantry: -0.2,
         militiaInfantry: -0.35,
         artillery: -0.5,
       },
@@ -251,7 +289,9 @@ describe("Napoleonic balance", () => {
       const canister =
         gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(name);
 
-      expect(canister.ammoCost! / STAT_PRECISION_SCALE).toBe(200);
+      expect(canister.ammoCost! / STAT_PRECISION_SCALE).toBe(
+        ["6lb-canister-fire", "4lb-canister-fire"].includes(name) ? 185 : 200,
+      );
     }
 
     for (const name of explosiveShellNames) {
@@ -289,7 +329,7 @@ describe("Napoleonic balance", () => {
       expect(canister.ranges).toMatchObject([
         {
           name: "close",
-          damageModifier: { near: 3.5, far: 2.7 },
+          damageModifier: { near: 4, far: 2.7 },
         },
         {
           name: "long",
@@ -324,12 +364,12 @@ describe("Napoleonic balance", () => {
         manpower: 75,
         rangedAttack: 2800,
         hp: 60000,
-        runMovement: 80,
+        runMovement: 160,
         timeToRun: 6,
         guns: 6,
       },
       "6in_howitzer": {
-        rangedAttack: 2900,
+        rangedAttack: 2700,
         rotationSpeed: 0.31,
         panicFireDistance: 90,
         guns: 6,
@@ -339,7 +379,7 @@ describe("Napoleonic balance", () => {
       "6lb_artillery": { runMovement: 80, hp: 80000, guns: 8 },
       rockets: { runMovement: 160, guns: 6 },
       "10lb_licorne": {
-        rangedAttack: 3200,
+        rangedAttack: 3300,
         runMovement: 80,
         hp: 60000,
         guns: 6,
@@ -419,7 +459,10 @@ describe("Napoleonic balance", () => {
         { damageModifier: { near: 1, far: 0.45 } },
       ]);
       expect(canister.ranges).toMatchObject([
-        { name: "close", damageModifier: { near: 4.2, far: 2.9 } },
+        {
+          name: "close",
+          damageModifier: { near: weight === "10lb" ? 5 : 6, far: 2.9 },
+        },
         { name: "long", damageModifier: { near: 2.35, far: 1.95 } },
       ]);
     }
@@ -454,6 +497,7 @@ describe("Napoleonic balance", () => {
     expect(shell.ranges[0].from * shell.maxRange).toBeCloseTo(90, 1);
     expect(shell.ranges[0].name).toBeUndefined();
     expect(shell.areaOfEffect).toMatchObject({
+      edgeDamageModifier: -0.7,
       absorptionModifier: 1.25,
       ranges: [
         { start: 90, end: 200, startRadius: 29, endRadius: 32 },
@@ -497,6 +541,8 @@ describe("Napoleonic balance", () => {
       flankChargeResistance: -0.6,
     });
     expect(line?.rangedAttackModifier).toBeUndefined();
+    expect(line?.formingSpeedModifier).toBe(-1);
+    expect(square?.formingSpeedModifier).toBe(-1);
     expect(square).toMatchObject({
       movementModifier: -0.75,
       runMovementModifier: -0.75,
@@ -507,7 +553,10 @@ describe("Napoleonic balance", () => {
     expect(square?.rangedAttackModifier).toBeUndefined();
     expect(
       gameDataManager.getFormationManager().getTemplate("cavalry"),
-    ).toMatchObject({ minMovementModifier: -0.85 });
+    ).toMatchObject({
+      minMovementModifier: -0.85,
+      flankChargeResistance: -0.3,
+    });
     expect(
       gameDataManager.getFormationManager().getTemplate("artillery"),
     ).toMatchObject({ minMovementModifier: -0.5 });
@@ -564,6 +613,8 @@ describe("Napoleonic balance", () => {
       militia: { rangedAttack: 2800, meleeAttack: 2800, chargeBonus: 6000, runMovement: 125 },
       grenadiers: { rangedAttack: 3600, meleeAttack: 5600, chargeBonus: 7000, runMovement: 130 },
       skirmishers: {
+        hp: 20000,
+        org: 52500,
         rangedAttack: 2266,
         meleeAttack: 1500,
         chargeBonus: 500,
@@ -571,6 +622,8 @@ describe("Napoleonic balance", () => {
         chargeResistance: -0.2,
       },
       rifles: {
+        hp: 20000,
+        org: 52500,
         rangedAttack: 2400,
         meleeAttack: 1500,
         chargeBonus: 500,
@@ -597,6 +650,7 @@ describe("Napoleonic balance", () => {
   it("uses the requested cavalry charge and organization balance", () => {
     const expectedByName = {
       cuirassiers: {
+        org: 850,
         meleeDefense: 2200,
         chargeBonus: 140,
         chargeResistance: 0.3,
@@ -604,6 +658,7 @@ describe("Napoleonic balance", () => {
         timeToRun: 5,
       },
       lancers: {
+        org: 800,
         meleeDefense: 1300,
         chargeBonus: 140,
         chargeResistance: 0.15,
@@ -615,10 +670,11 @@ describe("Napoleonic balance", () => {
         chargeBonus: 125,
         chargeResistance: 0.25,
         orgRadiusBonus: 6,
-        org: 850,
+        org: 750,
         timeToRun: 4,
       },
       hussars: {
+        org: 700,
         meleeDefense: 1500,
         chargeBonus: 100,
         chargeResistance: 0.15,
@@ -626,6 +682,7 @@ describe("Napoleonic balance", () => {
         timeToRun: 3,
       },
       horse_archers: {
+        org: 350,
         meleeDefense: 1500,
         chargeBonus: 60,
         chargeResistance: 0.15,
@@ -653,6 +710,7 @@ describe("Napoleonic balance", () => {
 
       if (name === "horse_archers") {
         expect(unit.chargePenetration).toBe(0.3);
+        expect(unit.meleeAttack / STAT_PRECISION_SCALE).toBe(48);
       }
 
       if ("org" in expected) {
@@ -681,7 +739,48 @@ describe("Napoleonic balance", () => {
   });
 
   it("uses the requested 1.8 road movement balance", () => {
-    const nonArtilleryCategories = [
+    const nonCavalryOrArtilleryCategories = [
+      "infantry",
+      "guardsInfantry",
+      "skirmishInfantry",
+      "militiaInfantry",
+      "ship",
+    ] as const;
+
+    for (const category of nonCavalryOrArtilleryCategories) {
+      expect(
+        gameDataManager.getMovementModifier(TerrainType.Road, category),
+      ).toBe(0.5);
+      expect(
+        gameDataManager.getRunSpeedModifier(TerrainType.Road, category),
+      ).toBe(-0.2);
+    }
+
+    expect(
+      gameDataManager.getMovementModifier(TerrainType.Road, "artillery"),
+    ).toBe(0.25);
+    expect(
+      gameDataManager.getRunSpeedModifier(TerrainType.Road, "artillery"),
+    ).toBe(0.2);
+    for (const category of [
+      "midCavalry",
+      "lightCavalry",
+      "scoutCavalry",
+      "heavyCavalry",
+    ] as const) {
+      expect(
+        gameDataManager.getMovementModifier(TerrainType.Road, category),
+      ).toBe(0.28);
+      expect(
+        gameDataManager.getRunSpeedModifier(TerrainType.Road, category),
+      ).toBe(-0.1);
+    }
+    expect(gameDataManager.getStaminaCost(TerrainType.Road)).toBe(-0.5);
+  });
+
+  it("uses the final forest height and neutral run modifiers for every category", () => {
+    expect(gameDataManager.getTerrainHitboxHeight(TerrainType.Forest)).toBe(1.5);
+    for (const category of [
       "infantry",
       "guardsInfantry",
       "skirmishInfantry",
@@ -690,24 +789,32 @@ describe("Napoleonic balance", () => {
       "lightCavalry",
       "scoutCavalry",
       "heavyCavalry",
-    ] as const;
-
-    for (const category of nonArtilleryCategories) {
+      "artillery",
+      "ship",
+    ]) {
       expect(
-        gameDataManager.getMovementModifier(TerrainType.Road, category),
-      ).toBe(0.75);
-      expect(
-        gameDataManager.getRunSpeedModifier(TerrainType.Road, category),
-      ).toBe(-0.25);
+        gameDataManager.getRunSpeedModifier(TerrainType.Forest, category),
+      ).toBe(0);
     }
+  });
 
-    expect(
-      gameDataManager.getMovementModifier(TerrainType.Road, "artillery"),
-    ).toBe(0.3);
-    expect(
-      gameDataManager.getRunSpeedModifier(TerrainType.Road, "artillery"),
-    ).toBe(0.2);
-    expect(gameDataManager.getStaminaCost(TerrainType.Road)).toBe(-0.5);
+  it("uses the final stamina ranged attack penalty", () => {
+    expect(gameDataManager.getGameRules().stamina?.rangedAttackPenalty).toBe(
+      -0.3,
+    );
+  });
+
+  it("reduces every cavalry category's musket resistance by five percentage points", () => {
+    for (const [category, resistance] of Object.entries({
+      midCavalry: -0.4,
+      lightCavalry: -0.35,
+      scoutCavalry: -0.55,
+      heavyCavalry: -0.45,
+    })) {
+      expect(
+        gameDataManager.getUnitCategoryResistance(category, "musket"),
+      ).toBe(resistance);
+    }
   });
 
   it("uses the requested 1.8 forest balance", () => {
@@ -740,7 +847,7 @@ describe("Napoleonic balance", () => {
     ] as const) {
       expect(
         gameDataManager.getRunSpeedModifier(TerrainType.Forest, category),
-      ).toBe(-0.25);
+      ).toBe(0);
     }
     for (const category of [
       "midCavalry",

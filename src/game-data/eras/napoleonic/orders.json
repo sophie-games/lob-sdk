@@ -3,7 +3,7 @@
     "id": 4,
     "name": "fireAndAdvance",
     "isDefault": true,
-    "speedModifierWhenShooting": -0.25,
+    "speedModifierWhenShooting": -0.2,
     "speedModifierWhenShootingByCategory": {
       "infantry": -0.2,
       "guardsInfantry": -0.2,
@@ -13,13 +13,13 @@
     },
     "allowFireWhenMoving": true,
     "orgRegainModifier": -0.15,
-    "rangedDamageModifier": -0.25,
+    "rangedDamageModifier": -0.2,
     "rangedDamageModifierByCategory": {
-      "infantry": -0.25,
-      "guardsInfantry": -0.25,
+      "infantry": -0.2,
+      "guardsInfantry": -0.2,
       "artillery": -0.5,
       "militiaInfantry": -0.35,
-      "skirmishInfantry": -0.25
+      "skirmishInfantry": -0.2
     }
   },
   {

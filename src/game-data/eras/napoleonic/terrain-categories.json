@@ -53,7 +53,7 @@
     },
     "color": "#344c1c",
     "staminaCostModifier": 0.5,
-    "hitboxHeight": 1.99,
+    "hitboxHeight": 1.5,
     "visionAbsorption": 10,
     "movementModifier": {
       "infantry": -0.5,
@@ -67,14 +67,7 @@
       "artillery": -0.5
     },
     "runSpeedModifier": {
-      "infantry": -0.25,
-      "guardsInfantry": -0.25,
-      "skirmishInfantry": -0.25,
-      "militiaInfantry": -0.25,
-      "midCavalry": -0.5,
-      "lightCavalry": -0.5,
-      "scoutCavalry": -0.5,
-      "heavyCavalry": -0.5
+      "*": 0
     },
     "attackModifier": {
       "infantry": 0.3,
@@ -255,11 +248,19 @@
     "prioritizeMovement": true,
     "canPlaceObjectives": true,
     "movementModifier": {
-      "*": 0.75,
-      "artillery": 0.3
+      "*": 0.5,
+      "midCavalry": 0.28,
+      "lightCavalry": 0.28,
+      "scoutCavalry": 0.28,
+      "heavyCavalry": 0.28,
+      "artillery": 0.25
     },
     "runSpeedModifier": {
-      "*": -0.25,
+      "*": -0.2,
+      "midCavalry": -0.1,
+      "lightCavalry": -0.1,
+      "scoutCavalry": -0.1,
+      "heavyCavalry": -0.1,
       "artillery": 0.2
     },
     "pushStrengthModifier": 0.2,

@@ -498,12 +498,13 @@ describe("GameDataManager", () => {
       expect(path).toBeDefined();
       if (path && path.movementModifier) {
         // Explicit override
-        expect(path.movementModifier.artillery).toBe(0.3);
+        expect(path.movementModifier.artillery).toBe(0.25);
 
-        // Inherited categories
-        expect(path.movementModifier.midCavalry).toBe(0.75);
-        expect(path.movementModifier.heavyCavalry).toBe(0.75);
-        expect(path.movementModifier.infantry).toBe(0.75);
+        expect(path.movementModifier.midCavalry).toBe(0.28);
+        expect(path.movementModifier.heavyCavalry).toBe(0.28);
+
+        // Inherited category
+        expect(path.movementModifier.infantry).toBe(0.5);
       }
     });
 
@@ -519,9 +520,9 @@ describe("GameDataManager", () => {
         gameDataManager.getRunSpeedModifier(TerrainType.Mud, "infantry"),
       ).toBe(gameDataManager.getMovementModifier(TerrainType.Mud, "infantry"));
       expect(
-        gameDataManager.getRunSpeedModifier(TerrainType.Forest, "artillery"),
+        gameDataManager.getRunSpeedModifier(TerrainType.Mud, "artillery"),
       ).toBe(
-        gameDataManager.getMovementModifier(TerrainType.Forest, "artillery"),
+        gameDataManager.getMovementModifier(TerrainType.Mud, "artillery"),
       );
     });
 
