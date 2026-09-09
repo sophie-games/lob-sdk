@@ -613,7 +613,7 @@ describe("Napoleonic balance", () => {
     });
   });
 
-  it("uses the requested 1.8 infantry attack and charge values", () => {
+  it("keeps skirmisher and rifle ranged attack undoubled while applying the 1.8 infantry balance", () => {
     const expectedByName = {
       line_infantry: { rangedAttack: 3400, meleeAttack: 4800, chargeBonus: 6000, runMovement: 125 },
       guards: { rangedAttack: 3800, meleeAttack: 5000, chargeBonus: 6500, runMovement: 130 },
@@ -623,7 +623,7 @@ describe("Napoleonic balance", () => {
       skirmishers: {
         hp: 20000,
         org: 52500,
-        rangedAttack: 2266,
+        rangedAttack: 1133,
         meleeAttack: 1500,
         chargeBonus: 500,
         runMovement: 140,
@@ -632,7 +632,7 @@ describe("Napoleonic balance", () => {
       rifles: {
         hp: 20000,
         org: 52500,
-        rangedAttack: 2400,
+        rangedAttack: 1200,
         meleeAttack: 1500,
         chargeBonus: 500,
         runMovement: 140,
