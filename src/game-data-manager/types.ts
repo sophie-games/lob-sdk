@@ -740,6 +740,8 @@ export interface OrganizationRule {
   maxOrgMeleeAttackBonus: number;
   /** Maximum melee attack penalty when organization is low */
   maxOrgMeleeAttackPenalty: number;
+  /** Non-positive melee defense penalty at the lower organization threshold; defaults to zero. */
+  maxOrgMeleeDefensePenalty?: number;
   /** Base organization regain rate per turn (as proportion of max org) */
   regainRate: number;
   /** Upper limit for organization-based modifiers (as proportion, e.g., 0.9 = 90%) */

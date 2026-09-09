@@ -606,33 +606,35 @@ export class ArmyDeployer {
     units: UnitCounts,
     dynamicBattleType: DynamicBattleType,
   ) {
-    const skirmishRatio =
-      gameDataManager.getBattleType(dynamicBattleType).skirmisherRatio;
+    return ArmyDeployer.getSkirmisherAllocation(
+      gameDataManager,
+      units,
+      dynamicBattleType,
+    )?.amount ?? 0;
+  }
 
-    if (!skirmishRatio) {
-      return 0;
-    }
-
-    const [skirmisherRatio, coreUnitsRatio] = skirmishRatio;
-
-    let coreUnits: number = 0;
-    let skirmishers: number = 0;
-
-    for (const type in units) {
-      const unitType: UnitType = Number(type);
+  /** The weighted contribution and next spawn threshold, using the deployment rounding rules. */
+  static getSkirmisherAllocation(
+    gameDataManager: GameDataManager,
+    units: UnitCounts,
+    dynamicBattleType: DynamicBattleType,
+  ) {
+    const ratio = gameDataManager.getBattleType(dynamicBattleType).skirmisherRatio;
+    if (!ratio || !(ratio[0] > 0) || !(ratio[1] > 0)) return null;
+    const [skirmishersPerGroup, coreUnitsPerGroup] = ratio;
+    let weightedTotal = 0;
+    for (const [type, count] of Object.entries(units)) {
       const template = gameDataManager
         .getUnitTemplateManager()
-        .getTemplate(unitType);
-      if (template.skirmisherRatio) {
-        coreUnits += units[unitType] * template.skirmisherRatio;
-      }
+        .getTemplate(Number(type));
+      weightedTotal += count * (template.skirmisherRatio ?? 0);
     }
-
-    // Calculate skirmishers based on the ratio
-    skirmishers =
-      Math.floor(Math.floor(coreUnits) / coreUnitsRatio) * skirmisherRatio;
-
-    return skirmishers;
+    const groups = Math.floor(Math.floor(weightedTotal) / coreUnitsPerGroup);
+    return {
+      amount: groups * skirmishersPerGroup,
+      weightedTotal,
+      nextBreakpoint: Math.ceil((groups + 1) * coreUnitsPerGroup),
+    };
   }
 
   /**
