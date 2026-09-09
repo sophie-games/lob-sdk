@@ -26,9 +26,9 @@
   "edit": "クリップを調整",
   "shareHint": "ファイルをアプリに共有するか、後で使うために保存できます。",
   "saveHint": "ファイルを保存し、SNSの投稿に添付してください。",
-  "preparing": "戦闘を準備中…",
-  "rendering": "動画を作成中 · {{seconds}}秒分を処理済み",
-  "finishing": "ファイルを仕上げています…",
+  "preparing": "動画を準備しています…",
+  "rendering": "動画を作成しています…",
+  "finishing": "動画を共有できるように仕上げています…",
   "progressHint": "プレビューが表示されるまでLoBを開いたままにしてください。いつでもキャンセルできます。",
   "invalidRange": "有効な開始・終了ターンを選択してください。",
   "tooLarge": "ブラウザーで書き出すにはファイルが大きすぎます。ターンを減らすか720pを選択してください。",
@@ -51,6 +51,11 @@
   "defaultDuration": "30秒",
   "presentation": "表示",
   "file": "ファイル",
-  "preparingTiming": "戦闘のタイミングを準備中…",
-  "preparingVideo": "動画を準備中…"
+  "preparingTiming": "戦闘を動画の長さに合わせています…",
+  "preparingVideo": "動画の作成を開始しています…",
+  "renderedSeconds": "作成済みの動画：{{seconds}} 秒",
+  "takingLonger": "この処理には通常より時間がかかっています。そのまま待つか、キャンセルして短いクリップをお試しください。",
+  "preparingStart": "クリップの開始位置を探しています…",
+  "showTurnIndicator": "ターン数を表示",
+  "showVictoryPoints": "勝利ポイントバーを表示"
 }

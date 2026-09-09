@@ -26,9 +26,9 @@
   "edit": "Modifica clip",
   "shareHint": "Condividi il file con un’app o salvalo per dopo.",
   "saveHint": "Salva il file e allegalo al tuo post.",
-  "preparing": "Preparazione della battaglia…",
-  "rendering": "Creazione del video · {{seconds}} secondi elaborati",
-  "finishing": "Completamento del file…",
+  "preparing": "Preparazione del tuo video…",
+  "rendering": "Creazione del tuo video…",
+  "finishing": "Preparazione del tuo video per la condivisione…",
   "progressHint": "Tieni LoB aperto finché l’anteprima non è pronta. Puoi annullare in qualsiasi momento.",
   "invalidRange": "Scegli un turno iniziale e finale validi.",
   "tooLarge": "Il file è troppo grande per l’esportazione nel browser. Prova meno turni o 720p.",
@@ -51,6 +51,11 @@
   "defaultDuration": "30 secondi",
   "presentation": "Presentazione",
   "file": "File",
-  "preparingTiming": "Preparazione dei tempi della battaglia…",
-  "preparingVideo": "Preparazione del video…"
+  "preparingTiming": "Adattamento della battaglia alla durata del video…",
+  "preparingVideo": "Avvio della creazione del tuo video…",
+  "renderedSeconds": "Video creato: {{seconds}} s",
+  "takingLonger": "Questo passaggio richiede più tempo del solito. Puoi aspettare oppure annullare e provare un clip più breve.",
+  "preparingStart": "Ricerca dell’inizio della clip…",
+  "showTurnIndicator": "Mostra il numero del turno",
+  "showVictoryPoints": "Mostra la barra dei punti vittoria"
 }

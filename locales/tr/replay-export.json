@@ -26,9 +26,9 @@
   "edit": "Klibi düzenle",
   "shareHint": "Dosyayı bir uygulamada paylaş veya daha sonra kullanmak için kaydet.",
   "saveHint": "Dosyayı kaydet, ardından sosyal medya gönderine ekle.",
-  "preparing": "Savaş hazırlanıyor…",
-  "rendering": "Video oluşturuluyor · {{seconds}} saniye işlendi",
-  "finishing": "Dosya tamamlanıyor…",
+  "preparing": "Videon hazırlanıyor…",
+  "rendering": "Videon oluşturuluyor…",
+  "finishing": "Videon paylaşmaya hazır hâle getiriliyor…",
   "progressHint": "Önizleme hazır olana kadar LoB açık kalsın. İstediğin zaman iptal edebilirsin.",
   "invalidRange": "Geçerli bir başlangıç ve bitiş turu seç.",
   "tooLarge": "Dosya tarayıcıda dışa aktarmak için çok büyük. Daha az tur veya 720p dene.",
@@ -51,6 +51,11 @@
   "defaultDuration": "30 saniye",
   "presentation": "Görünüm",
   "file": "Dosya",
-  "preparingTiming": "Savaş zamanlaması hazırlanıyor…",
-  "preparingVideo": "Video hazırlanıyor…"
+  "preparingTiming": "Muharebe video süresine sığdırılıyor…",
+  "preparingVideo": "Videon oluşturulmaya başlanıyor…",
+  "renderedSeconds": "Oluşturulan video: {{seconds}} sn",
+  "takingLonger": "Bu adım normalden uzun sürüyor. Bekleyebilir veya iptal edip daha kısa bir klip deneyebilirsin.",
+  "preparingStart": "Klibinin başlangıcı bulunuyor…",
+  "showTurnIndicator": "Tur numarasını göster",
+  "showVictoryPoints": "Zafer puanı çubuğunu göster"
 }

@@ -26,9 +26,9 @@
   "edit": "调整片段",
   "shareHint": "将文件分享到应用，或保存以备后用。",
   "saveHint": "保存文件，然后将其添加到社交帖子中。",
-  "preparing": "正在准备战斗…",
-  "rendering": "正在创建视频 · 已渲染 {{seconds}} 秒",
-  "finishing": "正在完成文件…",
+  "preparing": "正在准备你的视频…",
+  "rendering": "正在制作你的视频…",
+  "finishing": "正在完成视频，以便分享…",
   "progressHint": "请保持 LoB 打开，直到预览就绪。你可以随时取消。",
   "invalidRange": "请选择有效的起始和结束回合。",
   "tooLarge": "文件过大，无法在浏览器中导出。请减少回合数或选择 720p。",
@@ -51,6 +51,11 @@
   "defaultDuration": "30秒",
   "presentation": "呈现",
   "file": "文件",
-  "preparingTiming": "正在准备战斗时间轴…",
-  "preparingVideo": "正在准备视频…"
+  "preparingTiming": "正在将战斗调整为视频时长…",
+  "preparingVideo": "正在开始制作视频…",
+  "renderedSeconds": "已制作视频：{{seconds}} 秒",
+  "takingLonger": "此步骤用时比平常更长。你可以继续等待，或取消后尝试更短的片段。",
+  "preparingStart": "正在查找片段的起点…",
+  "showTurnIndicator": "显示回合数",
+  "showVictoryPoints": "显示胜利点数条"
 }

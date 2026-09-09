@@ -26,9 +26,9 @@
   "edit": "Sesuaikan klip",
   "shareHint": "Bagikan file ke aplikasi atau simpan untuk nanti.",
   "saveHint": "Simpan file, lalu lampirkan ke postinganmu.",
-  "preparing": "Menyiapkan pertempuran…",
-  "rendering": "Membuat video · {{seconds}} detik telah dirender",
-  "finishing": "Menyelesaikan file…",
+  "preparing": "Menyiapkan videomu…",
+  "rendering": "Membuat videomu…",
+  "finishing": "Menyiapkan videomu untuk dibagikan…",
   "progressHint": "Biarkan LoB terbuka hingga pratinjau siap. Kamu bisa membatalkan kapan saja.",
   "invalidRange": "Pilih giliran awal dan akhir yang valid.",
   "tooLarge": "File terlalu besar untuk diekspor di browser. Coba lebih sedikit giliran atau 720p.",
@@ -51,6 +51,11 @@
   "defaultDuration": "30 detik",
   "presentation": "Tampilan",
   "file": "Berkas",
-  "preparingTiming": "Menyiapkan waktu pertempuran…",
-  "preparingVideo": "Menyiapkan video…"
+  "preparingTiming": "Menyesuaikan pertempuran dengan durasi video…",
+  "preparingVideo": "Mulai membuat videomu…",
+  "renderedSeconds": "Video yang sudah dibuat: {{seconds}} dtk",
+  "takingLonger": "Langkah ini memakan waktu lebih lama dari biasanya. Kamu bisa menunggu atau membatalkan dan mencoba klip yang lebih pendek.",
+  "preparingStart": "Mencari awal klipmu…",
+  "showTurnIndicator": "Tampilkan nomor giliran",
+  "showVictoryPoints": "Tampilkan bar poin kemenangan"
 }

@@ -26,9 +26,9 @@
   "edit": "Dostosuj klip",
   "shareHint": "Udostępnij plik w aplikacji lub zapisz go na później.",
   "saveHint": "Zapisz plik i dołącz go do swojego posta.",
-  "preparing": "Przygotowywanie bitwy…",
-  "rendering": "Tworzenie filmu · wyrenderowano {{seconds}} sekund",
-  "finishing": "Kończenie pliku…",
+  "preparing": "Przygotowywanie Twojego filmu…",
+  "rendering": "Tworzenie Twojego filmu…",
+  "finishing": "Przygotowywanie filmu do udostępnienia…",
   "progressHint": "Pozostaw LoB otwarte do wyświetlenia podglądu. Możesz anulować w dowolnej chwili.",
   "invalidRange": "Wybierz prawidłową turę początkową i końcową.",
   "tooLarge": "Plik jest za duży do eksportu w przeglądarce. Wybierz mniej tur lub 720p.",
@@ -51,6 +51,11 @@
   "defaultDuration": "30 sekund",
   "presentation": "Wygląd",
   "file": "Plik",
-  "preparingTiming": "Przygotowywanie czasu bitwy…",
-  "preparingVideo": "Przygotowywanie filmu…"
+  "preparingTiming": "Dopasowywanie bitwy do długości filmu…",
+  "preparingVideo": "Rozpoczynanie tworzenia filmu…",
+  "renderedSeconds": "Utworzony film: {{seconds}} s",
+  "takingLonger": "Ten etap trwa dłużej niż zwykle. Możesz poczekać lub anulować i spróbować z krótszym klipem.",
+  "preparingStart": "Szukanie początku Twojego klipu…",
+  "showTurnIndicator": "Pokaż numer tury",
+  "showVictoryPoints": "Pokaż pasek punktów zwycięstwa"
 }

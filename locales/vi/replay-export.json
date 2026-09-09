@@ -26,9 +26,9 @@
   "edit": "Điều chỉnh clip",
   "shareHint": "Chia sẻ tệp qua ứng dụng hoặc lưu để dùng sau.",
   "saveHint": "Lưu tệp rồi đính kèm vào bài đăng của bạn.",
-  "preparing": "Đang chuẩn bị trận đánh…",
-  "rendering": "Đang tạo video · đã xử lý {{seconds}} giây",
-  "finishing": "Đang hoàn tất tệp…",
+  "preparing": "Đang chuẩn bị video của bạn…",
+  "rendering": "Đang tạo video của bạn…",
+  "finishing": "Đang hoàn tất video để chia sẻ…",
   "progressHint": "Giữ LoB mở cho đến khi bản xem trước sẵn sàng. Bạn có thể hủy bất cứ lúc nào.",
   "invalidRange": "Chọn lượt bắt đầu và kết thúc hợp lệ.",
   "tooLarge": "Tệp quá lớn để xuất trong trình duyệt. Thử ít lượt hơn hoặc 720p.",
@@ -51,6 +51,11 @@
   "defaultDuration": "30 giây",
   "presentation": "Trình bày",
   "file": "Tệp",
-  "preparingTiming": "Đang chuẩn bị thời gian trận đánh…",
-  "preparingVideo": "Đang chuẩn bị video…"
+  "preparingTiming": "Đang điều chỉnh trận chiến cho vừa thời lượng video…",
+  "preparingVideo": "Đang bắt đầu tạo video của bạn…",
+  "renderedSeconds": "Video đã tạo: {{seconds}} giây",
+  "takingLonger": "Bước này đang mất nhiều thời gian hơn bình thường. Bạn có thể đợi tiếp hoặc hủy và thử đoạn video ngắn hơn.",
+  "preparingStart": "Đang tìm điểm bắt đầu đoạn video…",
+  "showTurnIndicator": "Hiện số lượt",
+  "showVictoryPoints": "Hiện thanh điểm chiến thắng"
 }

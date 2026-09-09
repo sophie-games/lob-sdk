@@ -26,9 +26,9 @@
   "edit": "Klip módosítása",
   "shareHint": "Oszd meg a fájlt egy alkalmazásban, vagy mentsd el későbbre.",
   "saveHint": "Mentsd el a fájlt, majd csatold a bejegyzésedhez.",
-  "preparing": "Csata előkészítése…",
-  "rendering": "Videó készítése · {{seconds}} másodperc elkészült",
-  "finishing": "Fájl befejezése…",
+  "preparing": "Videód előkészítése…",
+  "rendering": "Videód készítése…",
+  "finishing": "Videód előkészítése megosztásra…",
   "progressHint": "Tartsd nyitva a LoB-ot az előnézet elkészültéig. Bármikor megszakíthatod.",
   "invalidRange": "Válassz érvényes kezdő és utolsó kört.",
   "tooLarge": "A fájl túl nagy a böngészős exporthoz. Próbálj kevesebb kört vagy 720p-t.",
@@ -51,6 +51,11 @@
   "defaultDuration": "30 másodperc",
   "presentation": "Megjelenítés",
   "file": "Fájl",
-  "preparingTiming": "Csata időzítésének előkészítése…",
-  "preparingVideo": "Videó előkészítése…"
+  "preparingTiming": "A csata igazítása a videó hosszához…",
+  "preparingVideo": "Videód készítésének indítása…",
+  "renderedSeconds": "Elkészült videó: {{seconds}} mp",
+  "takingLonger": "Ez a lépés a szokásosnál tovább tart. Várhatsz tovább, vagy megszakíthatod, és próbálkozhatsz rövidebb klippel.",
+  "preparingStart": "Kliped kezdetének keresése…",
+  "showTurnIndicator": "Körszám megjelenítése",
+  "showVictoryPoints": "Győzelmi pontok sávjának megjelenítése"
 }

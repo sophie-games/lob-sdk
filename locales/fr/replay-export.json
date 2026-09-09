@@ -26,9 +26,9 @@
   "edit": "Ajuster l’extrait",
   "shareHint": "Partagez le fichier avec une application ou enregistrez-le pour plus tard.",
   "saveHint": "Enregistrez le fichier, puis joignez-le à votre publication.",
-  "preparing": "Préparation de la bataille…",
-  "rendering": "Création de la vidéo · {{seconds}} secondes générées",
-  "finishing": "Finalisation du fichier…",
+  "preparing": "Préparation de votre vidéo…",
+  "rendering": "Création de votre vidéo…",
+  "finishing": "Préparation de votre vidéo pour le partage…",
   "progressHint": "Gardez LoB ouvert jusqu’à ce que l’aperçu soit prêt. Vous pouvez annuler à tout moment.",
   "invalidRange": "Choisissez un premier et un dernier tour valides.",
   "tooLarge": "Ce fichier est trop volumineux pour le navigateur. Essayez moins de tours ou 720p.",
@@ -51,6 +51,11 @@
   "defaultDuration": "30 secondes",
   "presentation": "Présentation",
   "file": "Fichier",
-  "preparingTiming": "Préparation du rythme de la bataille…",
-  "preparingVideo": "Préparation de la vidéo…"
+  "preparingTiming": "Adaptation de la bataille à la durée de la vidéo…",
+  "preparingVideo": "Démarrage de la création de votre vidéo…",
+  "renderedSeconds": "Vidéo créée : {{seconds}} s",
+  "takingLonger": "Cette étape prend plus de temps que prévu. Vous pouvez patienter ou annuler et essayer un clip plus court.",
+  "preparingStart": "Recherche du début de votre extrait…",
+  "showTurnIndicator": "Afficher le numéro du tour",
+  "showVictoryPoints": "Afficher la barre des points de victoire"
 }
