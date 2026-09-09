@@ -41,6 +41,14 @@ describe("Napoleonic balance", () => {
     });
   });
 
+  it("uses a 16-tick initial rout with a -300% organization bonus modifier", () => {
+    expect(gameDataManager.getGameRules().organization).toMatchObject({
+      startedRoutingDuration: 16,
+      startedRoutingOrgRadiusModifier: -3,
+      startedRoutingOrgRadiusDistance: 64,
+    });
+  });
+
   it("uses the requested cavalry rifle, marksman, and canister resistances", () => {
     const canisterNames = [
       "4lb-canister-fire",
