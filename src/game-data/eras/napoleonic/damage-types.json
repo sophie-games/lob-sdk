@@ -72,7 +72,7 @@
         "from": 0,
         "to": 0.26,
         "damageModifier": {
-          "near": 7,
+          "near": 6,
           "far": 4
         },
         "name": "pointBlank",
@@ -239,8 +239,8 @@
         "from": 0.44,
         "to": 1,
         "damageModifier": {
-          "near": 1,
-          "far": 0.45
+          "near": 0.9,
+          "far": 0.4
         },
         "engagementTier": 1
       }
@@ -433,8 +433,8 @@
         "from": 0.43,
         "to": 1,
         "damageModifier": {
-          "near": 1,
-          "far": 0.45
+          "near": 0.9,
+          "far": 0.4
         },
         "engagementTier": 1
       }
@@ -890,7 +890,7 @@
         "to": 1,
         "damageModifier": {
           "near": 0,
-          "far": -0.3
+          "far": -0.4
         },
         "name": "long"
       }
@@ -1019,7 +1019,7 @@
           "endRadius": 34
         }
       ],
-      "edgeDamageModifier": -0.7,
+      "edgeDamageModifier": -0.6,
       "absorptionModifier": 1.25
     },
     "shotSound": "artillery-fire",
@@ -1043,7 +1043,7 @@
         "from": 0,
         "to": 0.63,
         "damageModifier": {
-          "near": 6,
+          "near": 4.5,
           "far": 2.9
         },
         "name": "close",
@@ -1053,8 +1053,8 @@
         "from": 0.63,
         "to": 1,
         "damageModifier": {
-          "near": 2.35,
-          "far": 1.95
+          "near": 2.4,
+          "far": 1.9
         },
         "name": "long",
         "engagementTier": 0
@@ -1083,7 +1083,7 @@
         "from": 0,
         "to": 0.76,
         "damageModifier": {
-          "near": 5,
+          "near": 4.5,
           "far": 2.9
         },
         "name": "close",
@@ -1093,8 +1093,8 @@
         "from": 0.76,
         "to": 1,
         "damageModifier": {
-          "near": 2.35,
-          "far": 1.95
+          "near": 2.4,
+          "far": 1.9
         },
         "name": "long",
         "engagementTier": 0
@@ -1123,8 +1123,8 @@
         "from": 0,
         "to": 1,
         "damageModifier": {
-          "near": 9,
-          "far": 1
+          "near": 6,
+          "far": 2
         },
         "name": "close",
         "engagementTier": 0
