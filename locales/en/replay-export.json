@@ -60,19 +60,17 @@
   "endScreen": "Show battle result",
   "endScreenHint": "Adds the winner and stats when the clip reaches the end of a finished battle.",
   "teamColors": "Team colors",
-  "currentColors": "Current colors",
   "teamName": "Team {{team}}",
-  "blueTeam": "{{name}} in blue",
-  "teamColorsHint": "The other team will be red.",
   "cinematicHint": "Hides unit status bars. Camera, sound, turn number and victory points have separate settings.",
   "endVictory": "Victory",
   "endDraw": "Draw",
   "endCancelled": "Battle cancelled",
   "endComplete": "Battle complete",
   "endUnknown": "This replay does not include the winner.",
-  "endCasualties": "Casualties: {{value}}",
-  "endArmy": "Army: {{value}}",
   "endCallToAction": "Play at lob.app",
   "vignette": "Vignette",
-  "vignetteHint": "Gently darkens the edges of the video."
+  "vignetteHint": "Gently darkens the edges of the video.",
+  "watermarkAddress": "lob.app",
+  "showWatermark": "Show lob.app watermark",
+  "endLossRate": "Lost"
 }
