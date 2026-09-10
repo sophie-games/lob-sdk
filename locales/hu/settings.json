@@ -146,10 +146,6 @@
     "title": "A parancstípus a kijelölésre vonatkozik",
     "description": "Be: a mozgástípus módosítása átállítja a kijelölt egységek jelenlegi parancsait, és a parancsgomb a kijelölést tükrözi. Ki: csak a következő megrajzolt parancs típusát állítja be (klasszikus)."
   },
-  "showAutomaticOrder": {
-    "title": "Automatikus parancs megjelenítése",
-    "description": "Hozzáadja a kliensoldali Automatikus lehetőséget a parancsválasztóhoz. Kapcsold ki, ha csak kézi parancsokat szeretnél."
-  },
   "keybindings": {
     "rotateCameraLeft": "Kamera forgatása balra",
     "rotateCameraRight": "Kamera forgatása jobbra",
@@ -167,7 +163,6 @@
     "shootOrder": "Lövési parancs",
     "fireAndAdvanceOrder": "Tüzelés és előrehaladás parancs",
     "fallbackOrder": "Visszavonulási parancs",
-    "automaticOrder": "Automatikus parancs",
     "toggleSmartCurvedMovements": "Váltás az Egyenes és Ívelt között",
     "togglePathFinding": "Útvonalkeresés váltása",
     "toggleFowPerspective": "Háborús köd perspektíva váltása",

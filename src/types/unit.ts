@@ -1,3 +1,4 @@
+import type { OrderType } from "./order";
 import { Point2, Vector2 } from "@lob-sdk/vector";
 import { EntityId } from "@lob-sdk/types";
 import type { EngagementRange } from "@lob-sdk/game-data-manager";
@@ -304,6 +305,9 @@ interface BaseUnitTemplate {
    */
   defaultFormation: string;
 
+  /** Initial client order type when orders apply to the selection. */
+  initialOrder?: OrderType;
+
   /**
    * Max entrenchment level.
    */
@@ -376,8 +380,6 @@ export enum FirepowerPooling {
 export interface FormationTemplate {
   id: string;
 
-  /** Client Automatic order transitions, keyed by order template name; absent entries preserve this formation. */
-  automaticOrderFormations?: Record<string, string>;
 
   /**
    * The collision footprint: a rotated rectangle (`{ frontage, depth }`) or a circle
