@@ -243,7 +243,7 @@
         "baseSprite": "column",
         "overlaySprite": "guards-column",
         "changeAnimations": {
-          "square": "column-square",
+          "elite-square": "column-square",
           "line": "column-line"
         }
       },
@@ -252,12 +252,12 @@
         "baseSprite": "line",
         "overlaySprite": "guards-line",
         "changeAnimations": {
-          "square": "line-square",
+          "elite-square": "line-square",
           "column": "line-column"
         }
       },
       {
-        "id": "square",
+        "id": "elite-square",
         "baseSprite": "square",
         "overlaySprite": "guards-square",
         "changeAnimations": {
@@ -328,7 +328,7 @@
   {
     "name": "6lb_artillery_horse",
     "type": 6,
-    "category": "artillery",
+    "category": "horseArtillery",
     "initialOrder": 2,
     "rangedAttack": 2800,
     "meleeAttack": 1000,
@@ -342,11 +342,11 @@
     "chargeBonus": 500,
     "walkMovement": 50,
     "runStartUpMovement": 16,
-    "runMovement": 160,
+    "runMovement": 150,
     "timeToRun": 9,
     "unlimberTime": 4,
     "runCost": 10000,
-    "hp": 60000,
+    "hp": 70000,
     "org": 20000,
     "shattersAtOrg": -15000,
     "routesAtOrg": 1000,
@@ -401,7 +401,7 @@
     "chargePenetration": 0.65,
     "flankChargePenBonus": 0.25,
     "flankMeleeOrgModifier": 1,
-    "walkMovement": 80,
+    "walkMovement": 85,
     "runMovement": 140,
     "timeToRun": 4,
     "runCost": 10000,
@@ -440,7 +440,7 @@
         "baseSprite": "column",
         "overlaySprite": "chasseurs-column",
         "changeAnimations": {
-          "square": "column-square",
+          "elite-square": "column-square",
           "line": "column-line"
         }
       },
@@ -449,12 +449,12 @@
         "baseSprite": "line",
         "overlaySprite": "chasseurs-line",
         "changeAnimations": {
-          "square": "line-square",
+          "elite-square": "line-square",
           "column": "line-column"
         }
       },
       {
-        "id": "square",
+        "id": "elite-square",
         "baseSprite": "square",
         "overlaySprite": "chasseurs-square",
         "changeAnimations": {
@@ -903,7 +903,7 @@
     "type": 15,
     "category": "artillery",
     "initialOrder": 2,
-    "rangedAttack": 2500,
+    "rangedAttack": 2800,
     "meleeAttack": 1000,
     "meleeDefense": 1000,
     "meleeDamageType": "artillery-sabre",
@@ -929,7 +929,7 @@
     "orgRadius": 40,
     "orgRadiusBonus": 600,
     "movementSound": "artillery-movement",
-    "manpower": 50,
+    "manpower": 75,
     "gold": 100,
     "chargeResistance": 0,
     "runChargeResistanceModifier": -0.75,
@@ -1131,7 +1131,7 @@
   {
     "name": "rockets",
     "type": 19,
-    "category": "artillery",
+    "category": "horseArtillery",
     "initialOrder": 2,
     "rangedAttack": 1700,
     "meleeAttack": 1000,
@@ -1142,7 +1142,7 @@
     "chargeBonus": 500,
     "walkMovement": 55,
     "runStartUpMovement": 16,
-    "runMovement": 160,
+    "runMovement": 150,
     "timeToRun": 9,
     "unlimberTime": 9,
     "runCost": 10000,

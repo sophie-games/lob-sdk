@@ -85,6 +85,7 @@
     "guardsInfantry": "Guards Infantry",
     "midCavalry": "Cavalry",
     "artillery": "Artillery",
+    "horseArtillery": "Horse Artillery",
     "lightInfantry": "Light Infantry",
     "scoutCavalry": "Scout Cavalry",
     "lightCavalry": "Light Cavalry",
@@ -127,12 +128,14 @@
   "formationRole": {
     "column": "March and charge",
     "line": "Firepower",
-    "square": "Anti-flank"
+    "square": "Anti-flank",
+    "elite-square": "Anti-flank"
   },
   "formation": {
     "line": "Line",
     "column": "Column",
     "square": "Square",
+    "elite-square": "Elite Square",
     "dispersed": "Dispersed"
   },
   "reportStats": {

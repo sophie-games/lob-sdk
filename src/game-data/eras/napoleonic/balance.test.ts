@@ -387,8 +387,8 @@ describe("Napoleonic balance", () => {
       "6lb_artillery_horse": {
         manpower: 75,
         rangedAttack: 2800,
-        hp: 60000,
-        runMovement: 160,
+        hp: 70000,
+        runMovement: 150,
         timeToRun: 9,
         guns: 6,
       },
@@ -399,9 +399,9 @@ describe("Napoleonic balance", () => {
         guns: 6,
       },
       "12lb_artillery": { runMovement: 80, guns: 8 },
-      "4lb_artillery": { manpower: 50, rangedAttack: 2500, guns: 6 },
+      "4lb_artillery": { manpower: 75, rangedAttack: 2800, gold: 100, guns: 6 },
       "6lb_artillery": { runMovement: 85, hp: 70000, guns: 8 },
-      rockets: { runMovement: 160, guns: 6 },
+      rockets: { runMovement: 150, guns: 6 },
       "10lb_licorne": {
         rangedAttack: 3400,
         runMovement: 85,
@@ -576,6 +576,27 @@ describe("Napoleonic balance", () => {
     });
     expect(square?.rangedAttackModifier).toBe(1.5);
     expect(square?.rangedDamageResistance).toBe(-0.3);
+    expect(square?.minMovementModifier).toBe(-0.9);
+    expect(square?.rangedOrgResistance).toBe(0.15);
+
+    // Elite Square is the square, only less crippling to move in.
+    expect(
+      gameDataManager.getFormationManager().getTemplate("elite-square"),
+    ).toEqual({
+      ...square,
+      id: "elite-square",
+      movementModifier: -0.6,
+      runMovementModifier: -0.6,
+    });
+    for (const name of ["guards", "light_infantry"]) {
+      const unit = unitTemplates.find((template) => template.name === name)!;
+
+      expect(unit.formations.map((formation) => formation.id)).toEqual([
+        "column",
+        "line",
+        "elite-square",
+      ]);
+    }
     expect(
       gameDataManager.getFormationManager().getTemplate("cavalry"),
     ).toMatchObject({
@@ -634,7 +655,7 @@ describe("Napoleonic balance", () => {
     const expectedByName = {
       line_infantry: { rangedAttack: 1700, meleeAttack: 4800, chargeBonus: 6000, runMovement: 125 },
       guards: { rangedAttack: 1900, meleeAttack: 5000, chargeBonus: 6500, runMovement: 130 },
-      light_infantry: { rangedAttack: 2000, meleeAttack: 4800, chargeBonus: 6000, runMovement: 140, skirmisherRatio: 1.2 },
+      light_infantry: { rangedAttack: 2000, meleeAttack: 4800, chargeBonus: 6000, runMovement: 140, skirmisherRatio: 1.2, walkMovement: 85 },
       militia: { rangedAttack: 1400, meleeAttack: 2800, chargeBonus: 6000, runMovement: 125 },
       grenadiers: { rangedAttack: 1800, meleeAttack: 5600, chargeBonus: 7000, runMovement: 130 },
       skirmishers: {
@@ -663,7 +684,7 @@ describe("Napoleonic balance", () => {
     for (const [name, expected] of Object.entries(expectedByName)) {
       const unit = unitTemplates.find((template) => template.name === name);
 
-      expect(unit).toMatchObject({ ...expected, walkMovement: 80 });
+      expect(unit).toMatchObject({ walkMovement: 80, ...expected });
     }
 
     expect(
@@ -787,6 +808,12 @@ describe("Napoleonic balance", () => {
     expect(
       gameDataManager.getRunSpeedModifier(TerrainType.Road, "artillery"),
     ).toBe(0.2);
+    expect(
+      gameDataManager.getMovementModifier(TerrainType.Road, "horseArtillery"),
+    ).toBe(0.6);
+    expect(
+      gameDataManager.getRunSpeedModifier(TerrainType.Road, "horseArtillery"),
+    ).toBe(0.2);
     for (const category of [
       "midCavalry",
       "lightCavalry",
@@ -846,7 +873,9 @@ describe("Napoleonic balance", () => {
     expect(gameDataManager.getPushStrengthModifier(TerrainType.Forest)).toBe(
       0.2,
     );
-    expect(gameDataManager.getPushDistanceModifier(TerrainType.Forest)).toBe(2);
+    expect(gameDataManager.getPushDistanceModifier(TerrainType.Forest)).toBe(
+      1.5,
+    );
     expect(gameDataManager.getStaminaCost(TerrainType.Forest)).toBe(0.5);
     expect(
       gameDataManager.getMovementModifier(
@@ -925,7 +954,7 @@ describe("Napoleonic balance", () => {
       0.2,
     );
     expect(gameDataManager.getPushDistanceModifier(TerrainType.Building)).toBe(
-      2,
+      1.5,
     );
     expect(
       gameDataManager.getMovementModifier(

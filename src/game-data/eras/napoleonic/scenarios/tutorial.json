@@ -4221,7 +4221,8 @@
               "kind": "weakEnemyTarget",
               "orgGapPp": 100,
               "alwaysWeakCategories": [
-                "artillery"
+                "artillery",
+                "horseArtillery"
               ]
             }
           }
@@ -5324,7 +5325,8 @@
                     "scoutCavalry"
                   ],
                   "enemyCategory": [
-                    "artillery"
+                    "artillery",
+                    "horseArtillery"
                   ]
                 }
               ],
@@ -5401,7 +5403,8 @@
               "withinPx": 192,
               "orgGapPp": 100,
               "alwaysWeakCategories": [
-                "artillery"
+                "artillery",
+                "horseArtillery"
               ]
             }
           }
@@ -6075,7 +6078,8 @@
                     "militiaInfantry"
                   ],
                   "enemyCategory": [
-                    "artillery"
+                    "artillery",
+                    "horseArtillery"
                   ]
                 }
               ],
@@ -6148,7 +6152,8 @@
               "withinPx": 100,
               "orgGapPp": 100,
               "alwaysWeakCategories": [
-                "artillery"
+                "artillery",
+                "horseArtillery"
               ]
             }
           }
