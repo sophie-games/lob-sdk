@@ -670,7 +670,11 @@
     },
     "ordersPanel": {
       "title": "Ordens",
-      "description": "Ordens são as instruções que um jogador pode dar a uma unidade durante a batalha. Aqui você pode reajustar as ordens da era para este cenário, mas não pode criar novas. Qualquer valor pode voltar ao do próprio jogo."
+      "description": "Ordens são as instruções que um jogador pode dar a uma unidade durante a batalha. Aqui você pode reajustar as ordens da era para este cenário, mas não pode criar novas. Qualquer valor pode voltar ao do próprio jogo.",
+      "general": "Modificador geral",
+      "categoryOverrides": "Exceções por categoria",
+      "addCategory": "Adicionar exceção de categoria",
+      "inheritance": "Categorias sem exceção usam o modificador geral: {{value}}%."
     },
     "clonePicker": {
       "alreadyOverridden": "(já sobrescrito)",

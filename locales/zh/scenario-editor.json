@@ -693,7 +693,11 @@
     },
     "ordersPanel": {
       "title": "指令",
-      "description": "命令是玩家在战斗中可以下达给部队的指示。你可以在此为本剧本重新调整该时代的命令，但无法创建新的命令。任何数值都可以还原为游戏原本的数值。"
+      "description": "命令是玩家在战斗中可以下达给部队的指示。你可以在此为本剧本重新调整该时代的命令，但无法创建新的命令。任何数值都可以还原为游戏原本的数值。",
+      "general": "通用修正值",
+      "categoryOverrides": "类别例外",
+      "addCategory": "添加类别例外",
+      "inheritance": "没有例外设置的类别使用通用修正值：{{value}}%。"
     },
     "clonePicker": {
       "alreadyOverridden": "（已覆盖）",

@@ -670,7 +670,11 @@
     },
     "ordersPanel": {
       "title": "Ordini",
-      "description": "Gli ordini sono le istruzioni che un giocatore può dare a un'unità durante la battaglia. Qui puoi ritarare gli ordini dell'epoca per questo scenario, ma non puoi inventarne di nuovi. Qualsiasi valore può essere riportato a quello del gioco."
+      "description": "Gli ordini sono le istruzioni che un giocatore può dare a un'unità durante la battaglia. Qui puoi ritarare gli ordini dell'epoca per questo scenario, ma non puoi inventarne di nuovi. Qualsiasi valore può essere riportato a quello del gioco.",
+      "general": "Modificatore generale",
+      "categoryOverrides": "Eccezioni per categoria",
+      "addCategory": "Aggiungi eccezione di categoria",
+      "inheritance": "Le categorie senza eccezioni usano il modificatore generale: {{value}}%."
     },
     "clonePicker": {
       "alreadyOverridden": "(già sovrascritto)",

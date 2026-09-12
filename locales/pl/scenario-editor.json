@@ -676,7 +676,11 @@
     },
     "ordersPanel": {
       "title": "Rozkazy",
-      "description": "Rozkazy to polecenia, które gracz może wydać oddziałowi podczas bitwy. Możesz tu dostroić rozkazy epoki na potrzeby tego scenariusza, ale nie utworzysz nowych. Każdą wartość można przywrócić do tej z gry."
+      "description": "Rozkazy to polecenia, które gracz może wydać oddziałowi podczas bitwy. Możesz tu dostroić rozkazy epoki na potrzeby tego scenariusza, ale nie utworzysz nowych. Każdą wartość można przywrócić do tej z gry.",
+      "general": "Modyfikator ogólny",
+      "categoryOverrides": "Wyjątki według kategorii",
+      "addCategory": "Dodaj wyjątek dla kategorii",
+      "inheritance": "Kategorie bez wyjątku używają modyfikatora ogólnego: {{value}}%."
     },
     "clonePicker": {
       "alreadyOverridden": "(już nadpisane)",

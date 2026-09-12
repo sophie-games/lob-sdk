@@ -670,7 +670,11 @@
     },
     "ordersPanel": {
       "title": "Ordres",
-      "description": "Les ordres sont les instructions qu'un joueur peut donner à une unité pendant la bataille. Vous pouvez ici réajuster les ordres de l'époque pour ce scénario, mais pas en inventer de nouveaux. Toute valeur peut être ramenée à celle du jeu."
+      "description": "Les ordres sont les instructions qu'un joueur peut donner à une unité pendant la bataille. Vous pouvez ici réajuster les ordres de l'époque pour ce scénario, mais pas en inventer de nouveaux. Toute valeur peut être ramenée à celle du jeu.",
+      "general": "Modificateur général",
+      "categoryOverrides": "Exceptions par catégorie",
+      "addCategory": "Ajouter une exception de catégorie",
+      "inheritance": "Les catégories sans exception utilisent le modificateur général : {{value}} %."
     },
     "clonePicker": {
       "alreadyOverridden": "(déjà remplacé)",
