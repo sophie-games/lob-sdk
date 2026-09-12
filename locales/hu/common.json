@@ -19,11 +19,6 @@
   "admin": "Adminisztráció",
   "analytics": "Elemzések",
   "language": "Nyelv",
-  "tutorial": "Tutorial",
-  "skipTutorialTitle": "Oktatóanyag kihagyása",
-  "skipTutorialMessage": "Kihagyod az oktatóanyag további részét és visszatérsz a menübe? Nem fogjuk újra kérni, hogy fejezd be.",
-  "goToTutorial": "Ugrás a tutorialra",
-  "tutorials": "Oktatóanyagok",
   "play": "Játék",
   "ranking": "Toplista",
   "profile": "Profil",
@@ -390,11 +385,6 @@
   "landing": {
     "message": "<b>Lines of Battle</b> egy napóleoni taktikai játék egyidejű körökkel és valós idejű harcokkal. Győzd le az emberi ellenfeleket pontos csapatokkal és taktikákkal!",
     "privacy": "A kezdéssel beleegyezel az <0>Adatvédelmi Nyilatkozatunkba</0>."
-  },
-  "welcomeModal": {
-    "title": "Üdv a Lines of Battle játékban 👋",
-    "thanks": "Köszönöm, hogy csatlakoztál, {{name}}!",
-    "p1": "Új vagy a <b>Lines of Battle</b> világában? Kezdd az <tutorialLink>oktatóanyaggal</tutorialLink>, hogy megismerd az alapvető mechanikákat az első csatád előtt."
   },
   "gameTips": {
     "victoryPoints": {
@@ -836,7 +826,6 @@
   },
   "academy": "Akadémia",
   "encyclopedia": "Enciklopédia",
-  "tutorialTips": "Oktatóanyag Tippek",
   "loadingScreenTips": "Betöltőképernyő Tippek",
   "battleLessons": "Csataleckék",
   "gameConstants": "Játék Konstansok",
@@ -1018,13 +1007,6 @@
     "iron-1": "Vas I",
     "unranked": "Besorolatlan"
   },
-  "tutorialSummary": {
-    "heading": "Bemutató összefoglaló",
-    "count": "{{seen}} / {{total}} lecke megjelenítve",
-    "description": "Minden lecke egy érdemes megismerni való helyzetet mutat be.",
-    "allSeen": "Láttad a bemutató összes leckéjét.",
-    "viewMissed": "Kihagyott leckék megtekintése"
-  },
   "matchFoundModal": {
     "title": "Mérkőzés található!",
     "message": "A lassú meccsed készen áll a játékra.",
@@ -1126,16 +1108,12 @@
   "gameSearchFinishedTo": "Befejezve eddig",
   "gameSearchEmptyDescription": "Bővítsd a szűrési feltételeket további visszajátszások kereséséhez.",
   "firstSession": {
-    "title": "Hogyan szeretnél kezdeni?",
-    "description": "Gyakorolj a bot ellen, vagy menj a Játék menübe a csata beállításaiért.",
-    "practice": {
-      "title": "Gyakorlás",
-      "description": "Állíts össze egy offline csatát a bot ellen, és játék közben tanulj. Nincs óra, nincs rangsor, bármikor kiléphetsz."
-    },
-    "play": {
-      "title": "Játék",
-      "description": "Válaszd ki a tempót és a csata beállításait, majd keress egy meccset."
-    }
+    "title": "Az első csatád",
+    "description": "Tanulj meg parancsokat adni a bot ellen, a saját tempódban. A térkép és a seregek készen állnak.",
+    "startPractice": "Gyakorlás indítása",
+    "continuePractice": "Gyakorlás folytatása",
+    "customize": "Csata testreszabása",
+    "playOnline": "Online játék"
   },
   "replaceOfflineGameWarning": "Az új csata felülírja a mentett offline játékot és annak előrehaladását.",
   "returnToMenu": "Vissza a menübe",
@@ -1153,5 +1131,19 @@
     "step1": "Válaszd ki, meddig tart a csata, és mennyit látsz az ellenségből.",
     "step2": "Válassz forgatókönyvet és csatatípust, vagy hagyd az alapértelmezést.",
     "step3": "Állítsd össze lent a seregeket, majd hozd létre a csatát. Ezen az eszközön fut, így megszakíthatod és visszatérhetsz."
+  },
+  "unitComparison": {
+    "stop": "Összehasonlítás befejezése",
+    "baseLabel": "Alapértékek",
+    "title": "Egységek összehasonlítása",
+    "choose": "Összehasonlítás ezzel…",
+    "sameCategory": "Azonos kategória",
+    "otherCategories": "Más kategóriák",
+    "gold": "Aranyköltség",
+    "manpower": "Emberköltség",
+    "baseValues": "Alapértékek terep-, alakzat- és állapotmódosítók nélkül; nem jelzik előre a csata kimenetelét.",
+    "relativeTo": "A százalékok ezen egység eltérését mutatják ehhez képest: {{unit}}.",
+    "stat": "Tulajdonság",
+    "unavailable": "—: nem elérhető vagy nem alkalmazható érték."
   }
 }

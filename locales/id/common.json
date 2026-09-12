@@ -19,11 +19,6 @@
   "admin": "Admin",
   "analytics": "Analitik",
   "language": "Bahasa",
-  "tutorial": "Tutorial",
-  "skipTutorialTitle": "Lewati tutorial",
-  "skipTutorialMessage": "Lewati sisa tutorial dan kembali ke menu? Anda tidak akan diminta menyelesaikannya lagi.",
-  "goToTutorial": "Ke tutorial",
-  "tutorials": "Tutorial",
   "play": "Bermain",
   "ranking": "Ranking",
   "profile": "Profil",
@@ -391,11 +386,6 @@
   "landing": {
     "message": "<b>Lines of Battle</b> adalah permainan taktis Napoleon dengan giliran simultan dan pertempuran real-time. Kalahkan lawan manusia dengan pasukan dan taktik yang akurat!",
     "privacy": "Sebelum memulai permainan, Dimohon kamu menyetujui ketentuan kami<0>Privacy Policy</0>."
-  },
-  "welcomeModal": {
-    "title": "Selamat Datang di Lines of Battle 👋",
-    "thanks": "Terimakasih sudah bergabung, {{name}}!",
-    "p1": "Baru di <b>Lines of Battle</b>? Mulailah dengan <tutorialLink>tutorial</tutorialLink> untuk mempelajari mekanik dasar sebelum pertempuran pertamamu."
   },
   "gameTips": {
     "victoryPoints": {
@@ -887,7 +877,6 @@
   },
   "academy": "Akademi",
   "encyclopedia": "Ensiklopedia",
-  "tutorialTips": "Tips Tutorial",
   "loadingScreenTips": "Tips Layar Pemuatan",
   "battleLessons": "Pelajaran pertempuran",
   "gameConstants": "Konstanta Permainan",
@@ -1066,13 +1055,6 @@
     "iron-1": "Besi I",
     "unranked": "Tidak berperingkat"
   },
-  "tutorialSummary": {
-    "heading": "Ringkasan tutorial",
-    "count": "{{seen}} dari {{total}} pelajaran ditampilkan",
-    "description": "Setiap pelajaran membahas situasi yang patut diketahui.",
-    "allSeen": "Kamu telah melihat semua pelajaran tutorial.",
-    "viewMissed": "Lihat pelajaran yang terlewat"
-  },
   "matchFoundModal": {
     "title": "Pertandingan ditemukan!",
     "message": "Pertandingan lambatmu siap dimainkan.",
@@ -1167,16 +1149,12 @@
   "gameSearchFinishedTo": "Selesai hingga",
   "gameSearchEmptyDescription": "Perluas filter untuk menemukan lebih banyak tayangan ulang.",
   "firstSession": {
-    "title": "Bagaimana kamu ingin memulai?",
-    "description": "Berlatihlah melawan bot, atau buka Main untuk memilih pengaturan pertempuran Anda.",
-    "practice": {
-      "title": "Berlatih",
-      "description": "Siapkan pertempuran luring melawan bot dan belajar sambil bermain. Tanpa jam, tanpa peringkat, keluar kapan saja."
-    },
-    "play": {
-      "title": "Main",
-      "description": "Pilih tempo dan pengaturan pertempuranmu, lalu cari pertandingan."
-    }
+    "title": "Pertempuran pertamamu",
+    "description": "Belajar memberi perintah melawan bot sesuai kecepatanmu. Peta dan pasukan sudah siap.",
+    "startPractice": "Mulai latihan",
+    "continuePractice": "Lanjutkan latihan",
+    "customize": "Sesuaikan pertempuran",
+    "playOnline": "Main online"
   },
   "replaceOfflineGameWarning": "Pertempuran baru akan menggantikan permainan offline tersimpan dan progresnya.",
   "returnToMenu": "Kembali ke menu",
@@ -1194,5 +1172,19 @@
     "step1": "Pilih berapa lama pertempuran berlangsung dan seberapa jauh Anda melihat musuh.",
     "step2": "Pilih skenario dan jenis pertempuran, atau biarkan pengaturan bawaan.",
     "step3": "Susun pasukan di bawah, lalu buat pertempurannya. Jalannya di perangkat ini, jadi Anda bisa berhenti dan kembali."
+  },
+  "unitComparison": {
+    "stop": "Hentikan perbandingan",
+    "baseLabel": "Nilai dasar",
+    "title": "Bandingkan unit",
+    "choose": "Bandingkan dengan…",
+    "sameCategory": "Kategori yang sama",
+    "otherCategories": "Kategori lain",
+    "gold": "Biaya emas",
+    "manpower": "Biaya tenaga manusia",
+    "baseValues": "Nilai dasar tanpa pengubah medan, formasi, dan kondisi; bukan prediksi pertempuran.",
+    "relativeTo": "Persentase menunjukkan selisih unit ini terhadap {{unit}}.",
+    "stat": "Atribut",
+    "unavailable": "— berarti nilai tidak tersedia atau tidak berlaku."
   }
 }

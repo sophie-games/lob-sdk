@@ -21,11 +21,6 @@
   "admin": "Administración",
   "analytics": "Analítica",
   "language": "Idioma",
-  "tutorial": "Tutorial",
-  "skipTutorialTitle": "Saltar tutorial",
-  "skipTutorialMessage": "¿Saltar el resto del tutorial y volver al menú? No se te volverá a pedir que lo completes.",
-  "goToTutorial": "Ir al tutorial",
-  "tutorials": "Tutoriales",
   "play": "Jugar",
   "ranking": "Ranking",
   "history": "Historial",
@@ -387,11 +382,6 @@
   "landing": {
     "message": "<b>Lines of Battle</b> es un juego de táctica napoleónica con turnos simultáneos. Planeá tus órdenes, tratá de anticipar al rival y mirá cómo los dos bandos se mueven a la vez.",
     "privacy": "Al jugar, aceptás nuestra <0>Política de Privacidad</0>."
-  },
-  "welcomeModal": {
-    "title": "Bienvenido a Lines of Battle 👋!",
-    "thanks": "Gracias por sumarte, {{name}}!",
-    "p1": "¿Nuevo en <b>Lines of Battle</b>? Empieza con el <tutorialLink>tutorial</tutorialLink> para aprender las mecánicas básicas antes de tu primera batalla."
   },
   "gameTips": {
     "victoryPoints": {
@@ -1107,7 +1097,6 @@
   "special": "Especial",
   "academy": "Academia",
   "encyclopedia": "Enciclopedia",
-  "tutorialTips": "Consejos del Tutorial",
   "loadingScreenTips": "Consejos de Pantalla de Carga",
   "battleLessons": "Lecciones de batalla",
   "gameConstants": "Constantes del Juego",
@@ -1183,13 +1172,6 @@
     "damageDealt": "Infligido",
     "damageReceived": "Recibido",
     "winrate": "Winrate"
-  },
-  "tutorialSummary": {
-    "heading": "Resumen del tutorial",
-    "count": "Se mostraron {{seen}}/{{total}} lecciones",
-    "description": "Cada lección cubre una situación que vale la pena conocer.",
-    "allSeen": "Viste todas las lecciones del tutorial.",
-    "viewMissed": "Ver lecciones que faltan"
   },
   "max": "Máximo",
   "noAmmoRegain": "Sin recuperación de munición",
@@ -1322,16 +1304,12 @@
   "gameSearchFinishedTo": "Finalizadas hasta",
   "gameSearchEmptyDescription": "Prueba ampliar los filtros para encontrar más repeticiones.",
   "firstSession": {
-    "title": "¿Cómo quieres empezar?",
-    "description": "Practica contra el bot o ve a Jugar para elegir la configuración de tu batalla.",
-    "practice": {
-      "title": "Practicar",
-      "description": "Prepara una batalla sin conexión contra el bot y aprende jugando. Sin reloj, sin clasificación, puedes salir cuando quieras."
-    },
-    "play": {
-      "title": "Jugar",
-      "description": "Elige el ritmo y la configuración de tu batalla y luego busca una partida."
-    }
+    "title": "Tu primera batalla",
+    "description": "Aprendé a dar órdenes contra el bot, a tu ritmo. El mapa y los ejércitos ya están listos.",
+    "startPractice": "Empezar práctica",
+    "continuePractice": "Continuar práctica",
+    "customize": "Personalizar batalla",
+    "playOnline": "Jugar online"
   },
   "replaceOfflineGameWarning": "Empezar una nueva batalla reemplazará tu partida offline guardada y su progreso.",
   "returnToMenu": "Volver al menú",
@@ -1481,5 +1459,19 @@
       "touch": "Elegí Caminar y tocá terreno libre para marcar un destino. La flecha anticipa el movimiento; la unidad espera a que envíes las órdenes."
     },
     "submit": "Movimiento preparado. Podés dar más órdenes o pulsar ✓ Enviar órdenes abajo. Los dos ejércitos se moverán al mismo tiempo."
+  },
+  "unitComparison": {
+    "stop": "Dejar de comparar",
+    "baseLabel": "Valores base",
+    "title": "Comparar unidades",
+    "choose": "Comparar con…",
+    "sameCategory": "Misma categoría",
+    "otherCategories": "Otras categorías",
+    "gold": "Coste en oro",
+    "manpower": "Coste en efectivos",
+    "baseValues": "Valores base, sin modificadores de terreno, formación ni estado; no predicen el resultado de un combate.",
+    "relativeTo": "Los porcentajes indican la diferencia de esta unidad respecto a {{unit}}.",
+    "stat": "Atributo",
+    "unavailable": "— indica un valor no disponible o no aplicable."
   }
 }

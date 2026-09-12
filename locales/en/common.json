@@ -61,8 +61,6 @@
   },
   "analytics": "Analytics",
   "language": "Language",
-  "tutorial": "Tutorial",
-  "tutorials": "Tutorials",
   "play": "Play",
   "ranking": "Ranking",
   "profile": "Profile",
@@ -259,9 +257,6 @@
     "slowDescriptionPush": "One turn at a time. We notify you when it's your move.",
     "partyFastOnly": "Parties can only play live games for now."
   },
-  "skipTutorialTitle": "Skip tutorial",
-  "skipTutorialMessage": "Skip the rest of the tutorial and return to the menu? You won't be asked to complete it again.",
-  "goToTutorial": "Go to tutorial",
   "requiredInMatchmakingQueue": "Always in queue",
   "requiredScenarioBadge": "Required",
   "onlyPartyLeaderCanSearch": "Only the party leader can search for a match.",
@@ -538,11 +533,6 @@
   "landing": {
     "message": "<b>Lines of Battle</b> is a Napoleonic tactics game with simultaneous turns. Plan your orders, try to read your opponent, and watch both sides move at once.",
     "privacy": "By starting, you agree to our <0>Privacy Policy</0>."
-  },
-  "welcomeModal": {
-    "title": "Welcome to Lines of Battle 👋",
-    "thanks": "Thank you for joining, {{name}}!",
-    "p1": "New to <b>Lines of Battle</b>? Start with the <tutorialLink>tutorial</tutorialLink> to learn the core mechanics before your first battle."
   },
   "gameTips": {
     "victoryPoints": {
@@ -1369,7 +1359,6 @@
   "special": "Special",
   "academy": "Academy",
   "encyclopedia": "Encyclopedia",
-  "tutorialTips": "Tutorial Tips",
   "loadingScreenTips": "Loading Screen Tips",
   "battleLessons": "Battle Lessons",
   "gameConstants": "Game Constants",
@@ -1452,14 +1441,6 @@
     "damageReceived": "Taken",
     "winrate": "Winrate"
   },
-  "tutorialSkipLesson": "Skip this lesson",
-  "tutorialSummary": {
-    "heading": "Tutorial summary",
-    "count": "{{seen}} of {{total}} lessons shown",
-    "description": "Each lesson covers a situation worth knowing.",
-    "allSeen": "You saw every lesson the tutorial has to offer.",
-    "viewMissed": "View missed lessons"
-  },
   "noAmmoRegain": "No ammo regain",
   "flankMeleeOrgModifier": "Flank melee org modifier",
   "rearCharge": "Rear charge",
@@ -1528,16 +1509,12 @@
     "dismissLayoutNotice": "Dismiss layout notice"
   },
   "firstSession": {
-    "title": "How would you like to begin?",
-    "description": "Practice against the bot, or head to Play to choose your battle settings.",
-    "practice": {
-      "title": "Practice",
-      "description": "Set up an offline battle against the bot and learn as you play. No clock, no ranking, leave whenever you like."
-    },
-    "play": {
-      "title": "Play",
-      "description": "Choose your pace and battle settings, then find a match."
-    }
+    "title": "Your first battle",
+    "description": "Learn to give orders against the bot, at your own pace. Your map and armies are ready.",
+    "startPractice": "Start practice",
+    "continuePractice": "Continue practice",
+    "customize": "Customize battle",
+    "playOnline": "Play online"
   },
   "playTogether": {
     "title": "Play Together",
@@ -1631,8 +1608,6 @@
     "milestones": {
       "signups": "Accounts created",
       "recommendedActionShown": "Recommended action shown",
-      "tutorialStarted": "Tutorial started",
-      "tutorialCompletedOrSkipped": "Tutorial completed or skipped",
       "matchmakingOpened": "Matchmaking opened",
       "firstMatchmakingStarted": "First search started",
       "matchFound": "Match found",
@@ -1758,5 +1733,19 @@
       "touch": "Choose Walk, then tap open ground to set a destination. The arrow previews the movement; the unit waits for you to submit."
     },
     "submit": "Movement prepared. You can give more orders or press ✓ Submit orders below. Both armies then move at the same time."
+  },
+  "unitComparison": {
+    "stop": "Stop comparing",
+    "baseLabel": "Base values",
+    "title": "Compare units",
+    "choose": "Compare with…",
+    "sameCategory": "Same category",
+    "otherCategories": "Other categories",
+    "gold": "Gold cost",
+    "manpower": "Manpower cost",
+    "baseValues": "Base values, before terrain, formation and condition modifiers; not a combat prediction.",
+    "relativeTo": "Percentages show this unit’s difference relative to {{unit}}.",
+    "stat": "Attribute",
+    "unavailable": "— means unavailable or not applicable."
   }
 }

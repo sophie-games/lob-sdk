@@ -44,7 +44,7 @@ export class RandomMapGenerator {
     mapSize,
   }: GenerateRandomMapProps): GenerateRandomMapResult {
     const gameDataManager = GameDataManager.get(era);
-    // Fixed-roster scenarios (tutorial, presets) pass `dynamicBattleType: null`.
+    // Fixed-roster scenarios (presets) pass `dynamicBattleType: null`.
     // Fall back to the era's DEFAULT_BATTLE_TYPE so downstream consumers
     // (NaturalPath amount scaling, scaledZones, procedural-zone defaults,
     // procedural-tile defaults) always have a battleSize to work with.

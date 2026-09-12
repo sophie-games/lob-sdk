@@ -19,11 +19,6 @@
   "admin": "Administration",
   "analytics": "Analytique",
   "language": "Langue",
-  "tutorial": "Tutoriel",
-  "skipTutorialTitle": "Passer le tutoriel",
-  "skipTutorialMessage": "Passer le reste du tutoriel et revenir au menu ? Il ne vous sera plus demandé de le terminer.",
-  "goToTutorial": "Aller au tutoriel",
-  "tutorials": "Tutoriels",
   "play": "Jouer",
   "ranking": "Classement",
   "history": "Historique",
@@ -373,11 +368,6 @@
   "landing": {
     "message": "<b>Lines of Battle</b> est un jeu tactique napoléonien avec des tours simultanés et des combats en temps réel. Vainquez des adversaires humains avec des troupes et des tactiques précises !",
     "privacy": "En continuant, vous acceptez notre <0>Politique sur la vie privée</0>."
-  },
-  "welcomeModal": {
-    "title": "Bienvenue sur Lines of Battle 👋",
-    "thanks": "Merci de nous joindre, {{name}}!",
-    "p1": "Nouveau sur <b>Lines of Battle</b> ? Commencez par le <tutorialLink>tutoriel</tutorialLink> pour apprendre les mécaniques de base avant votre première bataille."
   },
   "gameTips": {
     "victoryPoints": {
@@ -960,7 +950,6 @@
   },
   "academy": "Académie",
   "encyclopedia": "Encyclopédie",
-  "tutorialTips": "Conseils du Tutoriel",
   "loadingScreenTips": "Conseils d'Écran de Chargement",
   "battleLessons": "Leçons de bataille",
   "gameConstants": "Constantes du Jeu",
@@ -1075,13 +1064,6 @@
     "iron-1": "Fer I",
     "unranked": "Non classé"
   },
-  "tutorialSummary": {
-    "heading": "Résumé du tutoriel",
-    "count": "{{seen}} leçons sur {{total}} affichées",
-    "description": "Chaque leçon couvre une situation qui vaut la peine d'être connue.",
-    "allSeen": "Tu as vu toutes les leçons du tutoriel.",
-    "viewMissed": "Voir les leçons manquées"
-  },
   "matchFoundModal": {
     "title": "Partie trouvée !",
     "message": "Ta partie lente est prête.",
@@ -1175,16 +1157,12 @@
   "gameSearchFinishedTo": "Terminées jusqu’au",
   "gameSearchEmptyDescription": "Élargissez les filtres pour trouver plus de rediffusions.",
   "firstSession": {
-    "title": "Comment souhaitez-vous commencer ?",
-    "description": "Entraînez-vous contre le bot, ou allez dans Jouer pour choisir vos réglages de bataille.",
-    "practice": {
-      "title": "S'entraîner",
-      "description": "Préparez une bataille hors ligne contre le bot et apprenez en jouant. Sans chrono, sans classement, quittez quand vous voulez."
-    },
-    "play": {
-      "title": "Jouer",
-      "description": "Choisissez votre rythme et les paramètres de votre bataille, puis recherchez une partie."
-    }
+    "title": "Votre première bataille",
+    "description": "Apprenez à donner des ordres contre le bot, à votre rythme. La carte et les armées sont prêtes.",
+    "startPractice": "Commencer l’entraînement",
+    "continuePractice": "Reprendre l’entraînement",
+    "customize": "Personnaliser la bataille",
+    "playOnline": "Jouer en ligne"
   },
   "replaceOfflineGameWarning": "Commencer une nouvelle bataille remplacera votre partie hors ligne sauvegardée et sa progression.",
   "returnToMenu": "Retour au menu",
@@ -1202,5 +1180,19 @@
     "step1": "Choisissez la durée de la bataille et ce que vous voyez de l'ennemi.",
     "step2": "Choisissez un scénario et un type de bataille, ou gardez les valeurs par défaut.",
     "step3": "Composez les armées ci-dessous, puis créez la bataille. Elle tourne sur cet appareil, vous pouvez donc vous arrêter et revenir."
+  },
+  "unitComparison": {
+    "stop": "Arrêter la comparaison",
+    "baseLabel": "Valeurs de base",
+    "title": "Comparer les unités",
+    "choose": "Comparer avec…",
+    "sameCategory": "Même catégorie",
+    "otherCategories": "Autres catégories",
+    "gold": "Coût en or",
+    "manpower": "Coût en effectifs",
+    "baseValues": "Valeurs de base, sans modificateurs de terrain, de formation ou d’état ; aucune prédiction de combat.",
+    "relativeTo": "Les pourcentages indiquent l’écart de cette unité par rapport à {{unit}}.",
+    "stat": "Attribut",
+    "unavailable": "— indique une valeur indisponible ou non applicable."
   }
 }

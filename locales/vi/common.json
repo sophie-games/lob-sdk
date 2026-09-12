@@ -17,11 +17,6 @@
   "admin": "Quản trị",
   "analytics": "Phân tích",
   "language": "Ngôn ngữ",
-  "tutorial": "Hướng dẫn",
-  "skipTutorialTitle": "Bỏ qua hướng dẫn",
-  "skipTutorialMessage": "Bỏ qua phần còn lại của hướng dẫn và quay lại menu? Bạn sẽ không được yêu cầu hoàn thành lại.",
-  "goToTutorial": "Đến hướng dẫn",
-  "tutorials": "Hướng dẫn",
   "play": "Chơi",
   "ranking": "Xếp hạng",
   "profile": "Hồ sơ",
@@ -404,11 +399,6 @@
   "landing": {
     "message": "<b>Lines of Battle</b> là trò chơi chiến thuật thời Napoleon với lượt đồng thời và chiến đấu thời gian thực. Đánh bại đối thủ người với quân đội chính xác và chiến thuật!",
     "privacy": "Bằng cách bắt đầu, bạn đồng ý với <0>Chính sách bảo mật</0> của chúng tôi."
-  },
-  "welcomeModal": {
-    "title": "Chào mừng đến với Lines of Battle 👋",
-    "thanks": "Cảm ơn bạn đã tham gia, {{name}}!",
-    "p1": "Mới chơi <b>Lines of Battle</b>? Hãy bắt đầu với <tutorialLink>hướng dẫn</tutorialLink> để nắm các cơ chế cốt lõi trước trận đầu tiên của bạn."
   },
   "gameTips": {
     "victoryPoints": {
@@ -1164,7 +1154,6 @@
   "special": "Đặc biệt",
   "academy": "Học viện",
   "encyclopedia": "Bách khoa toàn thư",
-  "tutorialTips": "Mẹo hướng dẫn",
   "loadingScreenTips": "Mẹo màn hình tải",
   "battleLessons": "Bài học chiến trận",
   "gameConstants": "Hằng số trò chơi",
@@ -1231,13 +1220,6 @@
     "damageReceived": "Nhận",
     "winrate": "Thắng"
   },
-  "tutorialSummary": {
-    "heading": "Tóm tắt hướng dẫn",
-    "count": "Đã hiển thị {{seen}} / {{total}} bài học",
-    "description": "Mỗi bài học đề cập một tình huống đáng biết.",
-    "allSeen": "Bạn đã xem tất cả bài học của hướng dẫn.",
-    "viewMissed": "Xem bài học đã bỏ lỡ"
-  },
   "noAmmoRegain": "Không hồi đạn",
   "flankMeleeOrgModifier": "Hệ số tổ chức cận chiến sườn",
   "rearCharge": "Đột kích từ phía sau",
@@ -1302,16 +1284,12 @@
   "gameSearchFinishedTo": "Kết thúc đến ngày",
   "gameSearchEmptyDescription": "Mở rộng bộ lọc để tìm thêm bản phát lại.",
   "firstSession": {
-    "title": "Bạn muốn bắt đầu như thế nào?",
-    "description": "Luyện tập với bot, hoặc vào Chơi để chọn thiết lập trận đấu của bạn.",
-    "practice": {
-      "title": "Luyện tập",
-      "description": "Dựng một trận ngoại tuyến đấu với bot và vừa chơi vừa học. Không đồng hồ, không xếp hạng, rời đi lúc nào cũng được."
-    },
-    "play": {
-      "title": "Chơi",
-      "description": "Chọn nhịp độ và thiết lập trận chiến, rồi tìm trận đấu."
-    }
+    "title": "Trận chiến đầu tiên của bạn",
+    "description": "Học cách ra lệnh khi đấu với máy theo nhịp độ của bạn. Bản đồ và quân đội đã sẵn sàng.",
+    "startPractice": "Bắt đầu luyện tập",
+    "continuePractice": "Tiếp tục luyện tập",
+    "customize": "Tùy chỉnh trận chiến",
+    "playOnline": "Chơi trực tuyến"
   },
   "replaceOfflineGameWarning": "Bắt đầu trận mới sẽ thay thế trận ngoại tuyến đã lưu và tiến trình của bạn.",
   "returnToMenu": "Trở về menu",
@@ -1329,5 +1307,19 @@
     "step1": "Chọn trận kéo dài bao lâu và bạn nhìn thấy địch tới đâu.",
     "step2": "Chọn một kịch bản và một loại trận, hoặc giữ nguyên mặc định.",
     "step3": "Sắp quân ở bên dưới rồi tạo trận. Trận chạy trên thiết bị này nên bạn có thể dừng rồi quay lại."
+  },
+  "unitComparison": {
+    "stop": "Dừng so sánh",
+    "baseLabel": "Giá trị cơ bản",
+    "title": "So sánh đơn vị",
+    "choose": "So sánh với…",
+    "sameCategory": "Cùng loại",
+    "otherCategories": "Các loại khác",
+    "gold": "Chi phí vàng",
+    "manpower": "Chi phí nhân lực",
+    "baseValues": "Giá trị cơ bản, chưa tính địa hình, đội hình và trạng thái; không dự đoán kết quả giao chiến.",
+    "relativeTo": "Phần trăm thể hiện chênh lệch của đơn vị này so với {{unit}}.",
+    "stat": "Thuộc tính",
+    "unavailable": "— nghĩa là không có giá trị hoặc không áp dụng."
   }
 }

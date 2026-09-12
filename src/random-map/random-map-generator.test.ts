@@ -773,13 +773,24 @@ describe("RandomMapGenerator", () => {
     });
   });
 
-  describe("tutorial scenario", () => {
+  describe("fixed-size instruction scenario", () => {
+    const fixedScenario: Scenario = {
+      version: SCENARIO_SCHEMA_VERSION,
+      name: "fixed-roster-test",
+      description: "Fixed-size map with pixel deployment zones",
+      baseTerrain: TerrainType.Grass,
+      fixedSize: { tilesX: 64, tilesY: 64 },
+      instructions: [],
+      deploymentZones: [
+        { team: 1, zones: [{ team: 1, type: "main", x: 0, y: 0, width: 128, height: 128 }] },
+        { team: 2, zones: [{ team: 2, type: "main", x: 0, y: 896, width: 128, height: 128 }] },
+      ],
+    };
     it("generates a 64x64 map with the declared pixel deployment zones", () => {
       const generator = new RandomMapGenerator();
-      const tutorial = gameDataManager.getScenario("tutorial");
 
       const result = generator.generate({
-        scenario: tutorial,
+        scenario: fixedScenario,
         dynamicBattleType: DEFAULT_BATTLE_TYPE,
         maxPlayers: 2,
         tileSize: TILE_SIZE,
@@ -788,7 +799,7 @@ describe("RandomMapGenerator", () => {
 
       expect(result.map.width).toBe(64 * TILE_SIZE);
       expect(result.map.height).toBe(64 * TILE_SIZE);
-      expect(result.map.deploymentZones).toEqual(tutorial.deploymentZones);
+      expect(result.map.deploymentZones).toEqual(fixedScenario.deploymentZones);
     });
 
     // Regression: production callers (initializeGame) pass dynamicBattleType: null
@@ -797,10 +808,9 @@ describe("RandomMapGenerator", () => {
     // makes the fixed-map path self-sufficient.
     it("handles dynamicBattleType: null for fixed-roster scenarios", () => {
       const generator = new RandomMapGenerator();
-      const tutorial = gameDataManager.getScenario("tutorial");
 
       const result = generator.generate({
-        scenario: tutorial,
+        scenario: fixedScenario,
         dynamicBattleType: null,
         maxPlayers: 2,
         tileSize: TILE_SIZE,
@@ -809,7 +819,7 @@ describe("RandomMapGenerator", () => {
 
       expect(result.map.width).toBe(64 * TILE_SIZE);
       expect(result.map.height).toBe(64 * TILE_SIZE);
-      expect(result.map.deploymentZones).toEqual(tutorial.deploymentZones);
+      expect(result.map.deploymentZones).toEqual(fixedScenario.deploymentZones);
     });
   });
 

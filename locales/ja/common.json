@@ -18,8 +18,6 @@
   "admin": "管理者",
   "analytics": "分析",
   "language": "言語",
-  "tutorial": "チュートリアル",
-  "tutorials": "チュートリアル",
   "play": "プレイ",
   "ranking": "ランキング",
   "profile": "プロフィール",
@@ -133,9 +131,6 @@
     "slowDescriptionPush": "1ターンずつ。あなたの番になったら通知します。",
     "partyFastOnly": "パーティーは現在ライブ対戦のみプレイできます。"
   },
-  "skipTutorialTitle": "チュートリアルをスキップ",
-  "skipTutorialMessage": "チュートリアルの残りをスキップしてメニューに戻りますか？再度完了を求められることはありません。",
-  "goToTutorial": "チュートリアルへ",
   "requiredInMatchmakingQueue": "常にマッチング対象",
   "requiredScenarioBadge": "必須",
   "onlyPartyLeaderCanSearch": "マッチング相手を探せるのはパーティリーダーのみです。",
@@ -407,11 +402,6 @@
   "landing": {
     "message": "<b>Lines of Battle</b>は、同時ターン制とリアルタイム戦闘を特徴とするナポレオン戦術ゲームです。正確な部隊と戦術で人間の敵を撃破しましょう！",
     "privacy": "開始することで、私たちの<0>プライバシーポリシー</0>に同意したことになります。"
-  },
-  "welcomeModal": {
-    "title": "Lines of Battleへようこそ 👋",
-    "thanks": "{{name}}さん、参加ありがとうございます！",
-    "p1": "<b>Lines of Battle</b> は初めてですか？最初の戦いの前に、<tutorialLink>チュートリアル</tutorialLink>で基本の操作を覚えましょう。"
   },
   "gameTips": {
     "victoryPoints": {
@@ -1171,7 +1161,6 @@
   "special": "特殊",
   "academy": "アカデミー",
   "encyclopedia": "百科事典",
-  "tutorialTips": "チュートリアルのヒント",
   "loadingScreenTips": "ローディング画面のヒント",
   "battleLessons": "戦闘レッスン",
   "gameConstants": "ゲーム定数",
@@ -1249,13 +1238,6 @@
     "damageReceived": "受けた",
     "winrate": "勝率"
   },
-  "tutorialSummary": {
-    "heading": "チュートリアル概要",
-    "count": "{{total}} 中 {{seen}} レッスンを表示",
-    "description": "各レッスンは知っておくべき状況を扱います。",
-    "allSeen": "チュートリアルのすべてのレッスンを見ました。",
-    "viewMissed": "見逃したレッスンを表示"
-  },
   "noAmmoRegain": "弾薬の補充なし",
   "flankMeleeOrgModifier": "側面白兵組織修正",
   "rearCharge": "背後からの突撃",
@@ -1312,16 +1294,12 @@
   "gameSearchFinishedTo": "終了日の上限",
   "gameSearchEmptyDescription": "フィルターの条件を広げると、より多くのリプレイが見つかります。",
   "firstSession": {
-    "title": "どのように始めますか？",
-    "description": "ボットと練習するか、「プレイ」で戦闘設定を選んでください。",
-    "practice": {
-      "title": "練習",
-      "description": "ボットとのオフライン戦闘を用意して、遊びながら覚えます。時計もランキングもなく、いつでも抜けられます。"
-    },
-    "play": {
-      "title": "プレイ",
-      "description": "プレイのペースと戦闘設定を選んで、対戦を探しましょう。"
-    }
+    "title": "初めての戦い",
+    "description": "ボットを相手に、自分のペースで命令の出し方を学びましょう。マップと軍隊は準備できています。",
+    "startPractice": "練習を始める",
+    "continuePractice": "練習を続ける",
+    "customize": "戦闘をカスタマイズ",
+    "playOnline": "オンラインで遊ぶ"
   },
   "replaceOfflineGameWarning": "新しい戦闘を始めると、保存済みのオフライン対戦と進行状況が置き換えられます。",
   "returnToMenu": "メニューに戻る",
@@ -1339,5 +1317,19 @@
     "step1": "戦闘の長さと、敵をどこまで見えるかを選びます。",
     "step2": "シナリオと戦闘タイプを選ぶか、初期設定のままにします。",
     "step3": "下で軍を編成し、戦闘を作成します。この端末で動くので、中断して戻れます。"
+  },
+  "unitComparison": {
+    "stop": "比較を終了",
+    "baseLabel": "基本値",
+    "title": "ユニットを比較",
+    "choose": "比較対象…",
+    "sameCategory": "同じカテゴリ",
+    "otherCategories": "その他のカテゴリ",
+    "gold": "ゴールド費用",
+    "manpower": "人的資源の費用",
+    "baseValues": "地形・陣形・状態の補正を含まない基本値です。戦闘結果の予測ではありません。",
+    "relativeTo": "割合は{{unit}}を基準としたこのユニットの差を示します。",
+    "stat": "能力",
+    "unavailable": "— は値が不明または該当しないことを示します。"
   }
 }

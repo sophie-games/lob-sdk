@@ -582,7 +582,7 @@ export interface PlayerSetup {
    */
   units?: UnitCounts;
   /**
-   * Preferred role for this slot (e.g. tutorial wants slot 1 human,
+   * Preferred role for this slot (e.g. a practice map wants slot 1 human,
    * slot 2 bot). Undefined/omitted or `"either"` leaves the choice to
    * the caller (matchmaking, lobby).
    */

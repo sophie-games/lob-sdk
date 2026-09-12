@@ -11,7 +11,7 @@ To add or adapt a lesson using an existing mechanic:
 
 The ammo/organization ratios are fractions of the player's base reserve or the unit's maximum organization. Victory point ratios compare the player's team with the average of all teams, not the leading opponent. `blockedShot.categories` selects the relevant era's unit category IDs. Geometry, visibility and combat eligibility still come from the game's rules.
 
-The client hook accepts a replacement catalog, evaluates named conditions, queues each ID once and persists it when shown. Finished games, spectators and active tutorials suppress all tips. The panel renders the definition's text and resolves its action without checking tip IDs. Target actions disappear when their entity no longer exists.
+The client hook accepts a replacement catalog, evaluates named conditions, queues each ID once and persists it when shown. Finished games and spectators suppress all tips. The panel renders the definition's text and resolves its action without checking tip IDs. Target actions disappear when their entity no longer exists.
 
 A new mechanic needs a condition variant in `types.ts` and its evaluator in the client's `evaluate-game-tip.ts`; a new destination needs an action variant and a handler in `game-tip-action.ts`. Adding a lesson using existing conditions/actions requires no hook or panel changes.
 

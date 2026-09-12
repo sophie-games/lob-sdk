@@ -19,11 +19,6 @@
   "admin": "Administracja",
   "analytics": "Analityka",
   "language": "Język",
-  "tutorial": "Samouczek",
-  "skipTutorialTitle": "Pomiń samouczek",
-  "skipTutorialMessage": "Pominąć resztę samouczka i wrócić do menu? Nie pojawi się ponownie prośba o jego ukończenie.",
-  "goToTutorial": "Przejdź do samouczka",
-  "tutorials": "Samouczki",
   "play": "Graj",
   "ranking": "Ranking",
   "profile": "Profil",
@@ -392,11 +387,6 @@
   "landing": {
     "message": "<b>Lines of Battle</b> to napoleońska gra taktyczna z równoczesnymi turami i walką w czasie rzeczywistym. Pokonaj ludzkich przeciwników precyzyjnymi oddziałami i taktykami!",
     "privacy": "Zaczynając, zgadzasz się z naszą <0>Polityką Prywatności</0>."
-  },
-  "welcomeModal": {
-    "title": "Witaj w Lines of Battle 👋",
-    "thanks": "Dobrze cię tu widzieć {{name}}!",
-    "p1": "Nowy w <b>Lines of Battle</b>? Zacznij od <tutorialLink>samouczka</tutorialLink>, aby poznać podstawowe mechaniki przed pierwszą bitwą."
   },
   "gameTips": {
     "victoryPoints": {
@@ -1097,7 +1087,6 @@
   "special": "Specjalne",
   "academy": "Akademia",
   "encyclopedia": "Encyklopedia",
-  "tutorialTips": "Wskazówki Tutorialu",
   "loadingScreenTips": "Wskazówki Ekranu Ładowania",
   "battleLessons": "Lekcje bitewne",
   "gameConstants": "Stałe Gry",
@@ -1175,13 +1164,6 @@
     "damageReceived": "Otrzymane",
     "winrate": "Winrate"
   },
-  "tutorialSummary": {
-    "heading": "Podsumowanie samouczka",
-    "count": "{{seen}} z {{total}} lekcji pokazanych",
-    "description": "Każda lekcja obejmuje sytuację, którą warto poznać.",
-    "allSeen": "Zobaczyłeś wszystkie lekcje samouczka.",
-    "viewMissed": "Zobacz pominięte lekcje"
-  },
   "max": "Maksymalny",
   "noAmmoRegain": "Brak odzyskiwania amunicji",
   "flankMeleeOrgModifier": "Modyfikator org. wręcz z flanki",
@@ -1255,16 +1237,12 @@
   "gameSearchFinishedTo": "Zakończone do",
   "gameSearchEmptyDescription": "Rozszerz filtry, aby znaleźć więcej powtórek.",
   "firstSession": {
-    "title": "Jak chcesz zacząć?",
-    "description": "Poćwicz przeciw botowi albo przejdź do Graj, aby wybrać ustawienia bitwy.",
-    "practice": {
-      "title": "Trening",
-      "description": "Przygotuj bitwę offline przeciw botowi i ucz się w trakcie gry. Bez zegara, bez rankingu, wyjdź kiedy chcesz."
-    },
-    "play": {
-      "title": "Graj",
-      "description": "Wybierz tempo i ustawienia bitwy, a następnie wyszukaj rozgrywkę."
-    }
+    "title": "Twoja pierwsza bitwa",
+    "description": "Naucz się wydawać rozkazy przeciwko botowi we własnym tempie. Mapa i armie są gotowe.",
+    "startPractice": "Rozpocznij ćwiczenia",
+    "continuePractice": "Kontynuuj ćwiczenia",
+    "customize": "Dostosuj bitwę",
+    "playOnline": "Graj online"
   },
   "replaceOfflineGameWarning": "Nowa bitwa zastąpi zapisaną grę offline i jej postęp.",
   "returnToMenu": "Wróć do menu",
@@ -1282,5 +1260,19 @@
     "step1": "Wybierz, jak długo trwa bitwa i jak wiele widzisz u przeciwnika.",
     "step2": "Wybierz scenariusz i rodzaj bitwy albo zostaw ustawienia domyślne.",
     "step3": "Ustaw armie poniżej i stwórz bitwę. Działa na tym urządzeniu, więc możesz przerwać i wrócić."
+  },
+  "unitComparison": {
+    "stop": "Zakończ porównanie",
+    "baseLabel": "Wartości bazowe",
+    "title": "Porównaj jednostki",
+    "choose": "Porównaj z…",
+    "sameCategory": "Ta sama kategoria",
+    "otherCategories": "Inne kategorie",
+    "gold": "Koszt w złocie",
+    "manpower": "Koszt siły ludzkiej",
+    "baseValues": "Wartości bazowe bez modyfikatorów terenu, formacji i stanu; nie są prognozą walki.",
+    "relativeTo": "Procenty pokazują różnicę tej jednostki względem {{unit}}.",
+    "stat": "Cecha",
+    "unavailable": "— oznacza wartość niedostępną lub niemającą zastosowania."
   }
 }

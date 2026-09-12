@@ -712,18 +712,6 @@ export interface AllyCollisionRule {
   maxOrgRadiusModifier: number;
 }
 
-export interface TutorialRule {
-  /**
-   * Single tutorial scenario for the era. `null` means the era has no tutorial.
-   */
-  scenario: ScenarioName | null;
-  /**
-   * Turn cap for the tutorial battle. Falls back to `DEFAULT_MAX_TURN`, which
-   * is a full-length match and far longer than a first session should be.
-   */
-  maxTurn?: number;
-}
-
 export interface OrganizationRule {
   /** Speed modifier applied based on organization level */
   speedModifier: number;
@@ -810,7 +798,6 @@ export interface GameRules {
   objectives: ObjectivesRule;
   organization: OrganizationRule;
   allyCollision?: AllyCollisionRule;
-  tutorial?: TutorialRule;
 }
 
 export interface UnitSkin {

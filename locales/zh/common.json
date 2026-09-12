@@ -55,8 +55,6 @@
   },
   "analytics": "分析",
   "language": "语言",
-  "tutorial": "教程",
-  "tutorials": "教程",
   "play": "游玩",
   "ranking": "排行",
   "profile": "个人信息",
@@ -253,9 +251,6 @@
     "slowDescriptionPush": "一次一回合。轮到你时我们会通知你。",
     "partyFastOnly": "队伍目前只能进行实时对战。"
   },
-  "skipTutorialTitle": "跳过教程",
-  "skipTutorialMessage": "跳过剩余的教程并返回菜单？系统不会再要求你完成它。",
-  "goToTutorial": "前往教程",
   "requiredInMatchmakingQueue": "始终在匹配队列中",
   "requiredScenarioBadge": "必选",
   "onlyPartyLeaderCanSearch": "只有队长才可以开始匹配。",
@@ -531,11 +526,6 @@
   "landing": {
     "message": "<b>战线统帅：拿破仑</b>是一个同步回合制的多人策略游戏，背景取自拿破仑战争时期。与其它人类玩家对战，并动用你自己配置的军队和策略思维获胜吧！",
     "privacy": "如果继续，将视作你同意我们的<0>隐私政策</0>。"
-  },
-  "welcomeModal": {
-    "title": "欢迎来到 战线统帅：拿破仑 👋",
-    "thanks": "欢迎您的加入，{{name}}！",
-    "p1": "初次接触 <b>Lines of Battle</b>？先从<tutorialLink>教程</tutorialLink>开始，在首场战斗前掌握核心机制。"
   },
   "gameTips": {
     "victoryPoints": {
@@ -1314,7 +1304,6 @@
   "special": "特殊",
   "academy": "学院",
   "encyclopedia": "百科",
-  "tutorialTips": "教学提示",
   "loadingScreenTips": "加载界面提示",
   "battleLessons": "战斗课程",
   "gameConstants": "游戏常量",
@@ -1397,13 +1386,6 @@
     "damageReceived": "承受",
     "winrate": "胜率"
   },
-  "tutorialSummary": {
-    "heading": "教程摘要",
-    "count": "已显示 {{seen}} / {{total}} 节课",
-    "description": "每节课都涵盖一个值得了解的情境。",
-    "allSeen": "你已查看教程中的所有课程。",
-    "viewMissed": "查看错过的课程"
-  },
   "noAmmoRegain": "弹药不可补充",
   "flankMeleeOrgModifier": "侧翼近战组织度修正",
   "rearCharge": "背后冲锋",
@@ -1420,16 +1402,12 @@
   "replayInterfaceKeyboardHint": "H：隐藏/显示 · Esc：显示",
   "replayInterfaceTouchHint": "双击地图可显示界面。",
   "firstSession": {
-    "title": "你想如何开始？",
-    "description": "和电脑对手练习，或前往「游玩」选择你的战斗设置。",
-    "practice": {
-      "title": "练习",
-      "description": "设置一场离线战斗对阵电脑对手，边打边学。没有计时，不计排名，随时可以离开。"
-    },
-    "play": {
-      "title": "游玩",
-      "description": "选择游玩节奏和战斗设置，然后寻找对局。"
-    }
+    "title": "你的第一场战斗",
+    "description": "与电脑对战，按自己的节奏学习下达命令。地图和军队已准备就绪。",
+    "startPractice": "开始练习",
+    "continuePractice": "继续练习",
+    "customize": "自定义战斗",
+    "playOnline": "在线对战"
   },
   "replaceOfflineGameWarning": "开始新战斗将替换已保存的离线对局及其进度。",
   "returnToMenu": "返回菜单",
@@ -1446,5 +1424,19 @@
     "step1": "选择战斗持续多久，以及你能看到敌人多少。",
     "step2": "挑选一个场景和战斗类型，或者保留默认设置。",
     "step3": "在下方编成你的军队，然后创建战斗。它在本机运行，所以你可以随时停下再回来。"
+  },
+  "unitComparison": {
+    "stop": "结束比较",
+    "baseLabel": "基础数值",
+    "title": "比较单位",
+    "choose": "比较对象…",
+    "sameCategory": "同类单位",
+    "otherCategories": "其他类别",
+    "gold": "金币费用",
+    "manpower": "人力费用",
+    "baseValues": "基础数值，不含地形、阵型和状态修正；不代表战斗结果预测。",
+    "relativeTo": "百分比表示本单位相对于{{unit}}的差异。",
+    "stat": "属性",
+    "unavailable": "— 表示数值不可用或不适用。"
   }
 }

@@ -29,7 +29,6 @@ import andesAndValley from "./scenarios/andes-and-valley.json";
 import lowCountries from "./scenarios/low-countries.json";
 import hedgerows from "./scenarios/hedgerows.json";
 import leipzig from "./scenarios/leipzig.json";
-import tutorial from "./scenarios/tutorial.json";
 import lineOfBattle from "./scenarios/line-of-battle.json";
 import warRoomFiftyVsFifty from "./scenarios/war-room-50-vs-50.json";
 import roadToPressburg from "./scenarios/road-to-pressburg.json";
@@ -67,7 +66,6 @@ export const napoleonicScenarioCatalog = {
   "combat-at-mollwitz": combatAtMollwitz,
   "clash-at-chelmnitz": clashAtChelmnitz,
   dresden,
-  tutorial,
   "line-of-battle": lineOfBattle,
   "war-room-50-vs-50": warRoomFiftyVsFifty,
   "twin-river-valley": twinRiverValley,

@@ -19,11 +19,6 @@
   "admin": "Amministrazione",
   "analytics": "Analisi",
   "language": "Lingua",
-  "tutorial": "Tutorial",
-  "skipTutorialTitle": "Salta tutorial",
-  "skipTutorialMessage": "Saltare il resto del tutorial e tornare al menu? Non ti verrà più chiesto di completarlo.",
-  "goToTutorial": "Vai al tutorial",
-  "tutorials": "Tutorial",
   "play": "Gioca",
   "ranking": "Classifica",
   "profile": "Profilo",
@@ -390,11 +385,6 @@
   "landing": {
     "message": "<b>Lines of Battle</b> è un gioco tattico napoleonico con turni simultanei e combattimento in tempo reale. Sconfiggi avversari umani con truppe e tattiche precise!",
     "privacy": "Iniziando, accetti la nostra <0>Informativa sulla privacy</0>."
-  },
-  "welcomeModal": {
-    "title": "Benvenuto in Lines of Battle 👋",
-    "thanks": "Grazie per esserti unito, {{name}}!",
-    "p1": "Nuovo su <b>Lines of Battle</b>? Inizia con il <tutorialLink>tutorial</tutorialLink> per imparare le meccaniche di base prima della tua prima battaglia."
   },
   "gameTips": {
     "victoryPoints": {
@@ -948,7 +938,6 @@
   },
   "academy": "Accademia",
   "encyclopedia": "Enciclopedia",
-  "tutorialTips": "Suggerimenti Tutorial",
   "loadingScreenTips": "Suggerimenti Schermata di Caricamento",
   "battleLessons": "Lezioni di battaglia",
   "gameConstants": "Costanti del Gioco",
@@ -1063,13 +1052,6 @@
     "iron-1": "Ferro I",
     "unranked": "Senza classifica"
   },
-  "tutorialSummary": {
-    "heading": "Riepilogo tutorial",
-    "count": "{{seen}} su {{total}} lezioni mostrate",
-    "description": "Ogni lezione tratta una situazione che vale la pena conoscere.",
-    "allSeen": "Hai visto tutte le lezioni del tutorial.",
-    "viewMissed": "Vedi lezioni mancate"
-  },
   "matchFoundModal": {
     "title": "Partita trovata!",
     "message": "La tua partita lenta è pronta.",
@@ -1165,16 +1147,12 @@
   "gameSearchFinishedTo": "Concluse fino al",
   "gameSearchEmptyDescription": "Amplia i filtri per trovare più replay.",
   "firstSession": {
-    "title": "Come vuoi iniziare?",
-    "description": "Allenati contro il bot, oppure vai su Gioca per scegliere le impostazioni della battaglia.",
-    "practice": {
-      "title": "Allenarsi",
-      "description": "Prepara una battaglia offline contro il bot e impara giocando. Niente orologio, niente classifica, esci quando vuoi."
-    },
-    "play": {
-      "title": "Gioca",
-      "description": "Scegli il ritmo e le impostazioni della battaglia, poi cerca una partita."
-    }
+    "title": "La tua prima battaglia",
+    "description": "Impara a dare ordini contro il bot, al tuo ritmo. La mappa e gli eserciti sono pronti.",
+    "startPractice": "Inizia la pratica",
+    "continuePractice": "Continua la pratica",
+    "customize": "Personalizza battaglia",
+    "playOnline": "Gioca online"
   },
   "replaceOfflineGameWarning": "Una nuova battaglia sostituirà la partita offline salvata e i suoi progressi.",
   "returnToMenu": "Torna al menu",
@@ -1192,5 +1170,19 @@
     "step1": "Scegli quanto dura la battaglia e quanto vedi del nemico.",
     "step2": "Scegli uno scenario e un tipo di battaglia, o lascia i valori predefiniti.",
     "step3": "Componi gli eserciti qui sotto, poi crea la battaglia. Gira su questo dispositivo, quindi puoi fermarti e riprendere."
+  },
+  "unitComparison": {
+    "stop": "Termina confronto",
+    "baseLabel": "Valori base",
+    "title": "Confronta unità",
+    "choose": "Confronta con…",
+    "sameCategory": "Stessa categoria",
+    "otherCategories": "Altre categorie",
+    "gold": "Costo in oro",
+    "manpower": "Costo in uomini",
+    "baseValues": "Valori base, senza modificatori di terreno, formazione e stato; non prevedono l’esito del combattimento.",
+    "relativeTo": "Le percentuali indicano la differenza di questa unità rispetto a {{unit}}.",
+    "stat": "Attributo",
+    "unavailable": "— indica un valore non disponibile o non applicabile."
   }
 }
