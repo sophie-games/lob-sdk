@@ -256,6 +256,7 @@
   "combating": "전투",
   "unitStat": {
     "hp": "체력",
+    "men": "병사",
     "org": "조직력",
     "stamina": "활력",
     "walkMovement": "보행",
@@ -330,6 +331,7 @@
   "maxElevationDiff": "최대 고도 차이",
   "orgDamageModifierByTargetOrg": "표적 조직력에 의한 감소치",
   "damageModifierByTargetHp": "표적 체력에 의한 피해 수정치",
+  "damageModifierByTargetMen": "대상 병력에 따른 피해 보정",
   "value": "값",
   "terrainHitboxHeight": "지형 적중영역 높이",
   "projectileAbsorption": "발사체 흡수치",

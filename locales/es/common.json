@@ -246,6 +246,7 @@
   "combating": "Combate",
   "unitStat": {
     "hp": "HP",
+    "men": "Hombres",
     "org": "Organización",
     "stamina": "Resistencia",
     "walkMovement": "Caminar",
@@ -311,6 +312,7 @@
   "height": "Altura",
   "orgDamageModifierByTargetOrg": "Disminuir según la org del objetivo",
   "damageModifierByTargetHp": "Modificador de Daño según PV del Objetivo",
+  "damageModifierByTargetMen": "Modificador de daño según efectivos del objetivo",
   "heightModifierPerLevel": "Modificador de altura por nivel",
   "damageModifierPerLevel": "Modificador de daño por nivel",
   "maxElevationDiff": "Diferencia máxima de elevación",

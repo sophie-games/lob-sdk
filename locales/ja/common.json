@@ -260,6 +260,7 @@
   "combating": "戦闘中",
   "unitStat": {
     "hp": "HP",
+    "men": "兵士",
     "org": "組織力",
     "stamina": "スタミナ",
     "supply": "補給",
@@ -337,6 +338,7 @@
   "maxElevationDiff": "高度差による修正を受ける最大高度差",
   "orgDamageModifierByTargetOrg": "標的の組織力による組織ダメージ修正",
   "damageModifierByTargetHp": "標的のHPによるダメージ修正",
+  "damageModifierByTargetMen": "標的の兵員数によるダメージ修正",
   "value": "値",
   "terrainHitboxHeight": "地形ヒットボックスの高さ",
   "projectileAbsorption": "弾丸吸収",

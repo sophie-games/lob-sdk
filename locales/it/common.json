@@ -250,6 +250,7 @@
   "combating": "Combattimento",
   "unitStat": {
     "hp": "PV",
+    "men": "Uomini",
     "org": "Organizzazione",
     "stamina": "Resistenza",
     "movement": "Movimento",
@@ -314,6 +315,7 @@
   "height": "Altezza",
   "orgDamageModifierByTargetOrg": "Riduci in base all'organizzazione del bersaglio",
   "damageModifierByTargetHp": "Modificatore Danno per PV del Bersaglio",
+  "damageModifierByTargetMen": "Modificatore del danno in base agli effettivi del bersaglio",
   "heightModifierPerLevel": "Modificatore altezza per livello",
   "damageModifierPerLevel": "Modificatore danno per livello",
   "maxElevationDiff": "Differenza massima di elevazione",

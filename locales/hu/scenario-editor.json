@@ -670,7 +670,11 @@
     },
     "ordersPanel": {
       "title": "Parancsok",
-      "description": "A parancsok azok az utasítások, amelyeket egy játékos csata közben adhat egy egységnek. Itt a korszak parancsait hangolhatod át ehhez a forgatókönyvhöz, de újakat nem hozhatsz létre. Bármelyik érték visszaállítható a játék sajátjára."
+      "description": "A parancsok azok az utasítások, amelyeket egy játékos csata közben adhat egy egységnek. Itt a korszak parancsait hangolhatod át ehhez a forgatókönyvhöz, de újakat nem hozhatsz létre. Bármelyik érték visszaállítható a játék sajátjára.",
+      "general": "Általános módosító",
+      "categoryOverrides": "Kategóriánkénti kivételek",
+      "addCategory": "Kategóriakivétel hozzáadása",
+      "inheritance": "A kivétel nélküli kategóriák az általános módosítót használják: {{value}}%."
     },
     "clonePicker": {
       "alreadyOverridden": "(már felülbírálva)",

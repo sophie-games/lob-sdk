@@ -250,6 +250,7 @@
   "combating": "Harc",
   "unitStat": {
     "hp": "HP",
+    "men": "Emberek",
     "org": "Organizáció",
     "stamina": "Kitartás",
     "movement": "Mozgás",
@@ -314,6 +315,7 @@
   "height": "Magasság",
   "orgDamageModifierByTargetOrg": "Org csökkenés a célpont Org-jából vonatkozóan",
   "damageModifierByTargetHp": "Sebzés módosító a célpont HP-jából",
+  "damageModifierByTargetMen": "Sebzésmódosító a célpont létszáma alapján",
   "heightModifierPerLevel": "Magasságmódosító szintenként",
   "damageModifierPerLevel": "Sebzésmódosító szintenként",
   "maxElevationDiff": "Max. magasságkülönbség",

@@ -667,7 +667,11 @@
     },
     "ordersPanel": {
       "title": "Perintah",
-      "description": "Perintah adalah instruksi yang bisa diberikan pemain kepada unit saat bertempur. Di sini Anda dapat menyetel ulang perintah era untuk skenario ini, tetapi tidak dapat membuat yang baru. Nilai apa pun dapat dikembalikan ke nilai bawaan game."
+      "description": "Perintah adalah instruksi yang bisa diberikan pemain kepada unit saat bertempur. Di sini Anda dapat menyetel ulang perintah era untuk skenario ini, tetapi tidak dapat membuat yang baru. Nilai apa pun dapat dikembalikan ke nilai bawaan game.",
+      "general": "Pengubah umum",
+      "categoryOverrides": "Pengecualian per kategori",
+      "addCategory": "Tambah pengecualian kategori",
+      "inheritance": "Kategori tanpa pengecualian menggunakan pengubah umum: {{value}}%."
     },
     "clonePicker": {
       "alreadyOverridden": "(sudah ditimpa)",

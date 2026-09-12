@@ -220,6 +220,7 @@
   "combating": "กำลังรบ",
   "unitStat": {
     "hp": "HP",
+    "men": "กำลังพล",
     "org": "ขวัญกำลังใจ",
     "stamina": "ความอึด",
     "supply": "เสบียง",
@@ -294,6 +295,7 @@
   "damageModifierPerLevel": "ตัวปรับความเสียหายต่อระดับ",
   "maxElevationDiff": "ความแตกต่างของระดับความสูงสูงสุด",
   "damageModifierByTargetHp": "ตัวปรับความเสียหายตาม HP ของเป้าหมาย",
+  "damageModifierByTargetMen": "ตัวปรับความเสียหายตามกำลังพลเป้าหมาย",
   "terrainHitboxHeight": "ความสูง Hitbox ของภูมิประเทศ",
   "projectileAbsorption": "การดูดซับกระสุน",
   "terrainPName": "ภูมิประเทศ: {{name}}",

@@ -384,6 +384,7 @@
   "combating": "战斗",
   "unitStat": {
     "hp": "HP",
+    "men": "人员",
     "org": "组织度",
     "stamina": "体力",
     "supply": "补给",
@@ -461,6 +462,7 @@
   "maxElevationDiff": "最大高度差",
   "orgDamageModifierByTargetOrg": "基于目标组织度的组织度修正",
   "damageModifierByTargetHp": "基于目标HP的伤害修正",
+  "damageModifierByTargetMen": "基于目标兵力的伤害修正",
   "value": "值",
   "terrainHitboxHeight": "地形遮蔽高度",
   "projectileAbsorption": "枪炮弹抗性",
