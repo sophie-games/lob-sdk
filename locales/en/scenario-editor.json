@@ -701,11 +701,7 @@
     },
     "ordersPanel": {
       "title": "Orders",
-      "description": "Orders are the instructions a player can give a unit during a battle. You can retune the era's own orders here for this scenario, though you cannot invent new ones. Any value can be put back to the game's own.",
-      "general": "General modifier",
-      "categoryOverrides": "Category exceptions",
-      "addCategory": "Add category exception",
-      "inheritance": "Categories without an exception use the general modifier: {{value}}%."
+      "description": "Orders are the instructions a player can give a unit during a battle. You can retune the era's own orders here for this scenario, though you cannot invent new ones. Any value can be put back to the game's own."
     },
     "clonePicker": {
       "alreadyOverridden": "(already overridden)",
