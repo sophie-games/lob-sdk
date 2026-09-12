@@ -286,6 +286,8 @@ export interface ManagedGameConfig {
 export interface ManagedGameClientInfo {
   name: string;
   canManage: boolean;
+  /** Cancelling a live battle is the creator's alone; co-hosts keep the lobby. */
+  canCancel: boolean;
   canSpectate: boolean;
   assignedPlayerNumber?: number;
   /** Epoch seconds while the current turn is frozen. */
