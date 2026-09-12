@@ -613,6 +613,10 @@
   "meleePerformance": "Rendimiento en cuerpo a cuerpo",
   "turnsLeft": "Turnos restantes",
   "battleOverview": {
+    "yourTeam": "Tu equipo",
+    "relativeScore": "{{value}} respecto al promedio de los equipos",
+    "scoreBreakdown": "De dónde salen los puntos",
+    "pressureExplanation": "¿Cómo afecta la presión a los puntos?",
     "title": "Resumen de la Batalla",
     "victoryPoints": "Puntos de Victoria",
     "initialArmyPower": "Poder Inicial del Ejército",
@@ -1394,5 +1398,86 @@
     "step1": "Elige cuánto dura la batalla y cuánto puedes ver del enemigo.",
     "step2": "Escoge un escenario y un tipo de batalla, o deja los valores por defecto.",
     "step3": "Define los ejércitos abajo y crea la batalla. Corre en este dispositivo, así que puedes parar y volver."
+  },
+  "pcHud": {
+    "selection": "Selección",
+    "waiting": "{{count}} unidades aún no tienen órdenes",
+    "nextIdle": "Siguiente sin órdenes",
+    "noOrder": "Sin órdenes este turno",
+    "battleKeysOff": "Teclas de batalla desactivadas · Esc",
+    "history": "Historial",
+    "commandBar": "Comandos de batalla"
+  },
+  "hudHelp": {
+    "formationDetails": "Podés consultar todos los modificadores de la formación en Tácticas.",
+    "help": "Ayuda: {{control}}",
+    "army": "Tocá para abrir o cerrar el árbol del ejército. Arrastrá para cambiar su altura.",
+    "selectAll": "Seleccioná todo tu ejército o limpiá la selección.",
+    "noUnits": "No hay unidades para seleccionar.",
+    "selectOwn": "Primero seleccioná unidades propias.",
+    "selectOne": "Seleccioná una unidad o un objetivo para inspeccionarlo.",
+    "noTactics": "Seleccioná unidades con formaciones o ajustes de fuego automático.",
+    "noOrders": "La selección no tiene órdenes que se puedan eliminar.",
+    "deployment": "Los tipos de orden no están disponibles durante el despliegue.",
+    "submitted": "Ya enviaste las órdenes de este turno.",
+    "finished": "La batalla terminó.",
+    "busy": "Esperá a que termine la acción de batalla en curso.",
+    "unavailable": "Este control no está disponible en el estado actual de la batalla.",
+    "offlineChat": "El chat está disponible en partidas online.",
+    "noReplay": "Todavía no hay acciones anteriores para repetir.",
+    "noSupply": "Esta batalla no usa líneas de suministro.",
+    "noSelection": "Primero seleccioná una unidad.",
+    "noEligible": "No hay unidades disponibles para seleccionar.",
+    "spectator": "Los espectadores no pueden dar órdenes.",
+    "overview": "Abrí el resumen de la batalla. Las bajas y los objetivos afectan los puntos de victoria.",
+    "clock": "Tiempo restante: {{remaining}}. Reserva: {{bank}}.",
+    "selectDivision": "Seleccioná las unidades que esperan órdenes, o toda la división si ya tienen órdenes. Doble toque o doble clic para centrar el mapa.",
+    "selectUnit": "Seleccioná esta unidad. Doble toque o doble clic para centrar el mapa.",
+    "formation": "Aplicá esta formación a las unidades seleccionadas que la admiten.",
+    "orders": {
+      "1": "Elegí caminar para la próxima orden de movimiento.",
+      "2": "Elegí correr para la próxima orden de movimiento.",
+      "3": "Elegí una orden de disparo y luego su objetivo.",
+      "4": "Avanzá disparando; las unidades sin ataque a distancia caminan.",
+      "6": "Elegí una orden de retirada.",
+      "7": "Cambiá hacia dónde miran las unidades seleccionadas."
+    },
+    "commands": {
+      "supplyView": "Mostrá u ocultá las líneas de suministro en el mapa.",
+      "drawLine": "Alterná entre trazar una ruta y desplegar unidades sobre una línea.",
+      "smartCurvedMovements": "Alterná entre movimiento directo y rutas curvas.",
+      "rotateContinuous": "Tocá para girar un cuarto de vuelta. Mantené pulsado para girar continuamente.",
+      "multiSelect": "Agregá unidades a la selección actual.",
+      "tools": "Mostrá u ocultá las herramientas adicionales de batalla.",
+      "tactics": "Elegí formaciones y fuego automático para las unidades seleccionadas.",
+      "ping": "Marcá una posición en el mapa.",
+      "chat": "Leé y enviá mensajes de batalla.",
+      "playerButton": "Consultá los jugadores y sus equipos.",
+      "info": "Inspeccioná la unidad o el objetivo seleccionado.",
+      "replayActions": "Volvé a ver las acciones anteriores.",
+      "menu": "Abrí los ajustes de batalla y las opciones para salir.",
+      "nextIdle": "Seleccioná una unidad sin órdenes. Si no queda ninguna, recorré las unidades disponibles.",
+      "submit": "Enviá las órdenes de este turno. Una vez enviadas, no se pueden retirar.",
+      "remove": "Eliminá las órdenes de las unidades seleccionadas.",
+      "deselect": "Limpiá la selección actual."
+    }
+  },
+  "firstOrders": {
+    "title": "Tus primeras órdenes",
+    "skip": "Omitir ayuda",
+    "select": {
+      "mouse": "Hacé clic en una de tus unidades para seleccionarla. Podés empezar por la unidad marcada.",
+      "touch": "Tocá una de tus unidades para seleccionarla. Podés empezar por la unidad marcada."
+    },
+    "deploy": {
+      "mouse": "Hacé clic derecho en terreno libre dentro de tu zona de despliegue para colocar la unidad. Estás acomodando tu ejército antes de la batalla.",
+      "touch": "Tocá terreno libre dentro de tu zona de despliegue para colocar la unidad. Estás acomodando tu ejército antes de la batalla."
+    },
+    "deployReady": "Unidad colocada. Podés acomodar las demás o pulsar ✓ Enviar órdenes para empezar la batalla.",
+    "move": {
+      "mouse": "Elegí Caminar y hacé clic derecho en terreno libre para marcar un destino. La flecha anticipa el movimiento; la unidad espera a que envíes las órdenes.",
+      "touch": "Elegí Caminar y tocá terreno libre para marcar un destino. La flecha anticipa el movimiento; la unidad espera a que envíes las órdenes."
+    },
+    "submit": "Movimiento preparado. Podés dar más órdenes o pulsar ✓ Enviar órdenes abajo. Los dos ejércitos se moverán al mismo tiempo."
   }
 }

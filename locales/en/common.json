@@ -767,6 +767,10 @@
   "meleePerformance": "Melee performance",
   "turnsLeft": "Turns left",
   "battleOverview": {
+    "yourTeam": "Your team",
+    "relativeScore": "{{value}} relative to the team average",
+    "scoreBreakdown": "Where the points come from",
+    "pressureExplanation": "How does pressure affect the score?",
     "title": "Battle Overview",
     "victoryPoints": "Victory Points",
     "initialArmyPower": "Initial Army Power",
@@ -1671,5 +1675,86 @@
     "step1": "Choose how long the battle runs and how much of the enemy you can see.",
     "step2": "Pick a scenario and a battle type, or keep the defaults.",
     "step3": "Set the armies below, then create the battle. It runs on this device, so you can stop and come back."
+  },
+  "pcHud": {
+    "selection": "Selection",
+    "waiting": "{{count}} units still have no orders",
+    "nextIdle": "Next without orders",
+    "noOrder": "No orders this turn",
+    "battleKeysOff": "Battle keys off · Esc",
+    "history": "History",
+    "commandBar": "Battle commands"
+  },
+  "hudHelp": {
+    "formationDetails": "More formation modifiers are available in Tactics.",
+    "help": "Help: {{control}}",
+    "army": "Tap to open or close the army tree. Drag to change its height.",
+    "selectAll": "Select your whole army, or clear the selection.",
+    "noUnits": "There are no units to select.",
+    "selectOwn": "Select your own units first.",
+    "selectOne": "Select one unit or an objective to inspect.",
+    "noTactics": "Select units with formations or autofire settings.",
+    "noOrders": "The selection has no orders that can be removed.",
+    "deployment": "Order types are unavailable during deployment.",
+    "submitted": "Orders have already been submitted for this turn.",
+    "finished": "The battle has ended.",
+    "busy": "Wait for the current battle action to finish.",
+    "unavailable": "This control is unavailable in the current battle state.",
+    "offlineChat": "Chat is available in online battles.",
+    "noReplay": "There are no previous actions to replay yet.",
+    "noSupply": "This battle does not use supply lines.",
+    "noSelection": "Select a unit first.",
+    "noEligible": "There are no units available to select.",
+    "spectator": "Spectators cannot give orders.",
+    "overview": "Open the battle overview. Victory points reflect casualties and objectives.",
+    "clock": "Time left: {{remaining}}. Bank: {{bank}}.",
+    "selectDivision": "Select units still waiting for orders, or the whole division when all have orders. Double-tap or double-click to centre the map.",
+    "selectUnit": "Select this unit. Double-tap or double-click to centre the map.",
+    "formation": "Apply this formation to selected units that support it.",
+    "orders": {
+      "1": "Choose walking for the next movement order.",
+      "2": "Choose running for the next movement order.",
+      "3": "Choose a shooting order and then its target.",
+      "4": "Advance while firing; melee units walk instead.",
+      "6": "Choose a fallback movement order.",
+      "7": "Change the direction the selected units face."
+    },
+    "commands": {
+      "supplyView": "Show or hide supply lines on the map.",
+      "drawLine": "Switch between drawing a route and deploying units along a line.",
+      "smartCurvedMovements": "Switch between direct movement and curved routes.",
+      "rotateContinuous": "Tap for a quarter turn. Hold to rotate continuously.",
+      "multiSelect": "Add units to the current selection.",
+      "tools": "Show or hide additional battle tools.",
+      "tactics": "Choose formations and autofire settings for selected units.",
+      "ping": "Mark a location on the map.",
+      "chat": "Read and send battle messages.",
+      "playerButton": "View the players and their teams.",
+      "info": "Inspect the selected unit or objective.",
+      "replayActions": "Watch the previous actions again.",
+      "menu": "Open battle settings and exit options.",
+      "nextIdle": "Select a unit without orders. If none remain, cycle through available units.",
+      "submit": "Submit your orders for this turn. Once sent, they cannot be taken back.",
+      "remove": "Clear the orders of the selected units.",
+      "deselect": "Clear the current selection."
+    }
+  },
+  "firstOrders": {
+    "title": "Your first orders",
+    "skip": "Skip guidance",
+    "select": {
+      "mouse": "Click one of your units to select it. The marked unit is a good place to start.",
+      "touch": "Tap one of your units to select it. The marked unit is a good place to start."
+    },
+    "deploy": {
+      "mouse": "Right-click open ground inside your deployment zone to place the selected unit. You are arranging your army before the battle.",
+      "touch": "Tap open ground inside your deployment zone to place the selected unit. You are arranging your army before the battle."
+    },
+    "deployReady": "Unit placed. You can arrange the rest, or press ✓ Submit orders to start the battle.",
+    "move": {
+      "mouse": "Choose Walk, then right-click open ground to set a destination. The arrow previews the movement; the unit waits for you to submit.",
+      "touch": "Choose Walk, then tap open ground to set a destination. The arrow previews the movement; the unit waits for you to submit."
+    },
+    "submit": "Movement prepared. You can give more orders or press ✓ Submit orders below. Both armies then move at the same time."
   }
 }
