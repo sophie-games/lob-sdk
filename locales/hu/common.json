@@ -71,7 +71,6 @@
   "loading": "Betöltés...",
   "yes": "Igen",
   "no": "Nem",
-  "by": "By",
   "logout": "Kijelentkezés",
   "createNewGame": "Új Meccs Léterhozása",
   "randomGameInfo": "A véletlenszerűen generált pályákon az általad adott játékmódra előre meghatározott seregek állnak rendelkezésedre. A seregedet a <0>Seregek összetételénél</0> tudod módosítani és megtekinteni. Ha még nem állítottál be speciális összeállítást, az alapból beállított sereggel kell játszanod.",
@@ -594,7 +593,7 @@
     "title": "Mi újság",
     "xFollowTitle": "Kövesd a fejlesztést",
     "xFollowDescription": "Nézd meg, min dolgozunk éppen, és mi várható legközelebb a Lines of Battle-ben.",
-    "xFollowAction": "@leofldev követése"
+    "xFollowAction": "{{handle}} követése"
   },
   "arenas": "Arénák",
   "arena": {

@@ -70,7 +70,6 @@
   "loading": "Đang tải...",
   "yes": "Có",
   "no": "Không",
-  "by": "Bởi",
   "logout": "Đăng xuất",
   "createNewGame": "Tạo trò chơi mới",
   "randomGameInfo": "Đối với các trò chơi được tạo ngẫu nhiên, trò chơi sẽ sử dụng quân đội bạn đã tạo cho chế độ chiến đấu đã chọn. Bạn có thể xem và quản lý quân đội của mình trong <0>Cấu trúc quân đội</0>. Nếu bạn chưa tạo quân đội nào cho chế độ đó, quân đội mặc định sẽ được sử dụng.",
@@ -969,7 +968,7 @@
     "title": "Có gì mới",
     "xFollowTitle": "Theo dõi quá trình phát triển",
     "xFollowDescription": "Xem những nội dung đang được phát triển và những gì sắp ra mắt trong Lines of Battle.",
-    "xFollowAction": "Theo dõi @leofldev"
+    "xFollowAction": "Theo dõi {{handle}}"
   },
   "invitedPlayers": "Người chơi được mời",
   "partyInviteFrom": "Lời mời nhóm từ {{username}}",

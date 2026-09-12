@@ -68,7 +68,6 @@
   "loading": "読み込み中...",
   "yes": "はい",
   "no": "いいえ",
-  "by": "作成者",
   "logout": "ログアウト",
   "createNewGame": "新しいゲームを作成",
   "randomGameInfo": "ランダム生成ゲームでは、選択した戦闘モードの軍編成が使用されます。「軍編成」で管理・確認できます。軍編成が未作成の場合、デフォルトの編成が使用されます。",
@@ -973,7 +972,7 @@
     "title": "新着情報",
     "xFollowTitle": "開発状況をフォロー",
     "xFollowDescription": "現在取り組んでいる内容と、Lines of Battle の今後の展開をチェックしよう。",
-    "xFollowAction": "@leofldev をフォロー"
+    "xFollowAction": "{{handle}} をフォロー"
   },
   "invitedPlayers": "招待したプレイヤー",
   "partyInviteFrom": "{{username}}からパーティに招待されました",

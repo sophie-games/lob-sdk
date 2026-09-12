@@ -71,7 +71,6 @@
   "loading": "Caricamento...",
   "yes": "Sì",
   "no": "No",
-  "by": "Di",
   "logout": "Esci",
   "createNewGame": "Crea nuovo gioco",
   "randomGameInfo": "Per i giochi generati casualmente, il gioco utilizzerà l'esercito che hai creato per la modalità di battaglia selezionata. Puoi visualizzare e gestire i tuoi eserciti in <0>Composizioni dell'esercito</0>. Se non hai ancora creato eserciti per quella modalità, verrà utilizzato un esercito predefinito.",
@@ -647,7 +646,7 @@
     "title": "Cosa c'è di nuovo",
     "xFollowTitle": "Segui lo sviluppo",
     "xFollowDescription": "Scopri a cosa stiamo lavorando e cosa arriverà prossimamente in Lines of Battle.",
-    "xFollowAction": "Segui @leofldev"
+    "xFollowAction": "Segui {{handle}}"
   },
   "arenas": "Arene",
   "arena": {

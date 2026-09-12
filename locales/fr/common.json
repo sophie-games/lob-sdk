@@ -54,7 +54,6 @@
   "loading": "Chargement...",
   "yes": "Oui",
   "no": "Non",
-  "by": "By",
   "logout": "Se déconnecter",
   "createNewGame": "Créer une nouvelle partie",
   "randomGameInfo": "Dans les parties générées aléatoirement, vous utiliserez l'ordre de bataille que vous avez créé pour ce type de bataille. Vous pouvez voir et gérez la composition de vos armées dans le menu <0>Ordre de bataille</0>. Si vous n'avez pas encore créé d'ordre de bataille, le jeu en sélectionnera une par défaut.",
@@ -659,7 +658,7 @@
     "title": "Quoi de neuf",
     "xFollowTitle": "Suivez le développement",
     "xFollowDescription": "Découvrez ce qui est en cours de développement et ce qui attend prochainement Lines of Battle.",
-    "xFollowAction": "Suivre @leofldev"
+    "xFollowAction": "Suivre {{handle}}"
   },
   "arenas": "Arènes",
   "arena": {

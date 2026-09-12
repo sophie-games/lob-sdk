@@ -194,7 +194,6 @@
   "no": "No",
   "previousSlide": "Previous slide",
   "nextSlide": "Next slide",
-  "by": "By",
   "logout": "Logout",
   "createNewGame": "Create new game",
   "randomGameInfo": "For randomly generated games, the game will use the army you've created for the selected battle mode. You can view and manage your armies in the <0>Army Compositions</0>. If you haven't created any armies for that mode yet, a default army will be used.",
@@ -1150,7 +1149,7 @@
     "title": "Latest updates",
     "xFollowTitle": "Follow the development",
     "xFollowDescription": "See what’s being worked on and what’s coming next for Lines of Battle.",
-    "xFollowAction": "Follow @leofldev"
+    "xFollowAction": "Follow {{handle}}"
   },
   "invitedPlayers": "Invited players",
   "partyInviteFrom": "Party invite from {{username}}",

@@ -188,7 +188,6 @@
   "no": "否",
   "previousSlide": "前一页",
   "nextSlide": "下一页",
-  "by": "来自",
   "logout": "登出",
   "createNewGame": "创建新对局",
   "randomGameInfo": "在随机生成地图的对局中，游戏会使用你在对应模式里预先配置的军队。你可以在<0>军队配置</0>里查看并管理你的军队配置。如果你还没有创建任何军队配置，游戏会按默认方案给你提供配置。",
@@ -1116,7 +1115,7 @@
     "title": "最新动态",
     "xFollowTitle": "关注开发进展",
     "xFollowDescription": "了解 Lines of Battle 正在开发的内容以及接下来的计划。",
-    "xFollowAction": "关注 @leofldev"
+    "xFollowAction": "关注 {{handle}}"
   },
   "invitedPlayers": "邀请玩家",
   "partyInviteFrom": "来自{{username}}的组队邀请",

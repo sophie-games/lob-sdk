@@ -71,7 +71,6 @@
   "loading": "Carregando...",
   "yes": "Sim",
   "no": "Não",
-  "by": "Por",
   "logout": "Sair",
   "createNewGame": "Criar novo jogo",
   "randomGameInfo": "Para jogos gerados aleatoriamente, o jogo usará o exército que você criou para o modo de batalha selecionado. Você pode visualizar e gerenciar seus exércitos em <0>Composições de Exército</0>. Se você ainda não criou exércitos para esse modo, um exército padrão será usado.",
@@ -647,7 +646,7 @@
     "title": "O que há de novo",
     "xFollowTitle": "Acompanhe o desenvolvimento",
     "xFollowDescription": "Veja no que estamos trabalhando e o que vem a seguir em Lines of Battle.",
-    "xFollowAction": "Seguir @leofldev"
+    "xFollowAction": "Seguir {{handle}}"
   },
   "allVisible": "Tudo Visível",
   "teamN": "Equipe {{number}}",

@@ -71,7 +71,6 @@
   "loading": "Yükleniyor...",
   "yes": "Evet",
   "no": "Hayır",
-  "by": "Tarafından",
   "logout": "Çıkış Yap",
   "createNewGame": "Yeni oyun oluştur",
   "randomGameInfo": "Rastgele oluşturulan oyunlar için, oyun seçtiğiniz savaş modu için oluşturduğunuz orduyu kullanır. Ordularınızı <0>Ordu Kompozisyonları</0> bölümünde görüntüleyebilir ve yönetebilirsiniz. Eğer o mod için henüz bir ordu oluşturmadıysanız, varsayılan bir ordu kullanılacaktır.",
@@ -648,7 +647,7 @@
     "title": "Yenilikler",
     "xFollowTitle": "Geliştirme sürecini takip et",
     "xFollowDescription": "Şu anda neler üzerinde çalışıldığını ve Lines of Battle için sırada ne olduğunu gör.",
-    "xFollowAction": "@leofldev'i takip et"
+    "xFollowAction": "{{handle}} hesabını takip et"
   },
   "allVisible": "Tümü Görünür",
   "teamN": "Takım {{number}}",
