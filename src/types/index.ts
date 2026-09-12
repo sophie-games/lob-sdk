@@ -13,7 +13,6 @@ export * from "./scenario";
 export * from "./server-game";
 export * from "./terrain";
 export * from "./trigger";
-export * from "./tutorial";
 export * from "./unit";
 export * from "./collision-config";
 export * from "./skin";

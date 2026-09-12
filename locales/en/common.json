@@ -587,6 +587,126 @@
     "terrain": {
       "title": "Use the ground",
       "description": "Terrain changes movement and combat. Open Info to see a unit's current modifiers and choose suitable ground."
+    },
+    "basicsSelect": {
+      "title": "Giving orders",
+      "description": "Drag a box over your units to pick them, then drag from the selection to draw where they go. Nothing moves until the turn resolves."
+    },
+    "basicsOrderTypes": {
+      "title": "Order types",
+      "description": "Every move has a pace. Walk keeps stamina, Run is faster but tires the unit, Fire and Advance shoots while it closes. Open the order menu to switch."
+    },
+    "basicsFormations": {
+      "title": "Formations",
+      "description": "Formation sets frontage and firepower. Column marches fast, line puts the most muskets forward, square guards every face against cavalry."
+    },
+    "basicsSubmit": {
+      "title": "Submitting the turn",
+      "description": "Orders stay queued until you submit. Both armies then resolve at the same time, so plan for where the enemy will be, not where they are."
+    },
+    "skirmisherVsArtillery": {
+      "title": "Skirmishers against artillery",
+      "description": "Enemy battery in your skirmisher's reach. Pour fire into the gun crew. Skirmishers shred unprotected artillery before it can answer."
+    },
+    "skirmisherVsCavalry": {
+      "title": "Cavalry near your skirmishers",
+      "description": "Your skirmisher will be destroyed by enemy cavalry if it keeps that position. Fall back and seek cover."
+    },
+    "skirmisherVsInfantry": {
+      "title": "Infantry near your skirmishers",
+      "description": "Enemy infantry on top of your skirmisher. Skirmishers fold in melee. Pull back before bayonets reach."
+    },
+    "infantryFormLine": {
+      "title": "Form line",
+      "description": "Switch these units to line. With enemy infantry in musket range or cavalry coming at the front, line gives you the most muskets pointed forward and the best defence against incoming volleys. Don't form square against a frontal charge, you would lose half your firepower."
+    },
+    "infantryVsCavalryFrontal": {
+      "title": "Hold the line",
+      "description": "Enemy cavalry is charging the front of your infantry, but they have orders queued. Clear them so the line stands and fires instead of walking into the hooves."
+    },
+    "infantryVsCavalryFlank": {
+      "title": "Form square",
+      "description": "Cavalry coming at the flank or rear of your infantry. A line gets ridden over from the side. Form square so every face has muskets out."
+    },
+    "infantryBayonetCharge": {
+      "title": "Bayonet charge",
+      "description": "Weak enemy infantry within charge range. Form column and run into them. Bayonet on contact in column breaks them."
+    },
+    "infantryFallback": {
+      "title": "Withdraw this unit",
+      "description": "This unit's organization has cracked, one more volley and it routes. Pull it out before the line breaks."
+    },
+    "infantryVsSkirmishers": {
+      "title": "Infantry against skirmishers",
+      "description": "Skirmishers are close and no cavalry is available. Advance at a walk and force them into melee, where skirmishers are weakest."
+    },
+    "infantryVsArtillery": {
+      "title": "Infantry against artillery",
+      "description": "Enemy guns are close and unscreened. Run straight into the crew before they can turn and fire canister."
+    },
+    "infantryColumnMarch": {
+      "title": "March in column",
+      "description": "No enemies are near this unit. Switch to column for faster marching, then form line before contact."
+    },
+    "cavalryVsWeakerCavalry": {
+      "title": "Cavalry against weaker cavalry",
+      "description": "Enemy cavalry within charge range and shaken, your horse is fresher. Press the advantage: charge before they recover."
+    },
+    "cavalryVsEqualCavalry": {
+      "title": "Cavalry against equal cavalry",
+      "description": "Enemy cavalry in contact and roughly as steady as yours. Don't waste stamina on a charge you can't win. Close at a walk and brawl on even footing."
+    },
+    "cavalryVsStrongerCavalry": {
+      "title": "Cavalry against stronger cavalry",
+      "description": "Enemy cavalry in contact and steadier than yours, a melee here loses. Break off and reset before they commit."
+    },
+    "cavalryVsInfantryFlank": {
+      "title": "Charge the flank",
+      "description": "Enemy infantry's flank is open and they're roughly as steady as you. That's the moment a clean charge breaks them. Hit the side, not the front."
+    },
+    "cavalryVsShakenInfantry": {
+      "title": "Cavalry against shaken infantry",
+      "description": "Enemy infantry is barely holding together, their organization has cracked. One clean charge runs them down before they can rally."
+    },
+    "cavalryVsSkirmishers": {
+      "title": "Cavalry against skirmishers",
+      "description": "Skirmishers caught in the open with a clear lane to your horse. They fold in melee and can't outrun a charge. Ride them down before they reach cover."
+    },
+    "cavalryVsArtillery": {
+      "title": "Cavalry against artillery",
+      "description": "Enemy guns with no screen between you and them. A charge into unscreened crew ends them in one beat. But if a friendly line steps in the way you'll bleed against it instead."
+    },
+    "cavalryPursueRouter": {
+      "title": "Pursue the routed",
+      "description": "That enemy is broken and running, with no support to interrupt the chase. A pursuit by cavalry breaks them for good. Finish them before they reform."
+    },
+    "cavalryFallbackFromInfantry": {
+      "title": "Cavalry under musket fire",
+      "description": "Your cavalry is sitting in musket range of healthy line infantry. Pull back before they grind down your horse, look for shaken targets or open flanks instead."
+    },
+    "enemyInfantrySquare": {
+      "title": "Enemy square",
+      "description": "Enemy infantry has formed square. Every face has muskets out. Keep your cavalry away and look for line or column targets with a flank to exploit."
+    },
+    "artilleryFireAndAdvance": {
+      "title": "Fire and advance",
+      "description": "The enemy is far enough away that you can keep closing while you fire. Switch this artillery to Fire and Advance."
+    },
+    "artilleryRotateToFire": {
+      "title": "Stop to fire",
+      "description": "The enemy is close and your cannon has a clean shot, but it is still moving. Stop the march and rotate the unit onto the target so autofire can work."
+    },
+    "idleUnits": {
+      "title": "Units without orders",
+      "description": "Some of your units have no orders this turn. Give them one, or they will stand still while the rest of the line moves."
+    },
+    "pushObjective": {
+      "title": "Press your lead",
+      "description": "You hold the lead. Push toward the enemy objective. Closing it out denies them any comeback."
+    },
+    "holdObjective": {
+      "title": "Hold your objective",
+      "description": "You're behind on points. Pull back to your objective and hold it. Defending is cheaper than retaking."
     }
   },
   "turn": "Turn",
@@ -633,7 +753,10 @@
   "receivedMeleeDamage": "Received melee damage",
   "noModifiers": "No modifiers",
   "submitOrders": "Submit orders",
-  "submitOrdersConfirmation": "Are you sure you want to submit your battle orders? Once submitted, you won't be able to go back.",
+  "submitOrdersAction": "Submit",
+  "submitOrdersConfirmation": "Once submitted, you can't take them back.",
+  "submitOrdersWithoutOrders_one": "1 unit has no orders and will hold.",
+  "submitOrdersWithoutOrders_other": "{{count}} units have no orders and will hold.",
   "players": "Players",
   "menu": "Menu",
   "replayActions": "Replay actions",
@@ -644,6 +767,10 @@
   "meleePerformance": "Melee performance",
   "turnsLeft": "Turns left",
   "battleOverview": {
+    "yourTeam": "Your team",
+    "relativeScore": "{{value}} relative to the team average",
+    "scoreBreakdown": "Where the points come from",
+    "pressureExplanation": "How does pressure affect the score?",
     "title": "Battle Overview",
     "victoryPoints": "Victory Points",
     "initialArmyPower": "Initial Army Power",
@@ -1242,6 +1369,7 @@
   "encyclopedia": "Encyclopedia",
   "tutorialTips": "Tutorial Tips",
   "loadingScreenTips": "Loading Screen Tips",
+  "battleLessons": "Battle Lessons",
   "gameConstants": "Game Constants",
   "ammo": "Ammo",
   "ammoConsumption": "Ammo Consumption",
@@ -1364,6 +1492,7 @@
     "select": "Select {{target}}",
     "showSelection": "Show the selected units",
     "showTree": "Show the order of battle",
+    "hideTree": "Hide the order of battle",
     "collapse": "Collapse {{target}}",
     "expand": "Expand {{target}}",
     "division": "1st Division",
@@ -1398,10 +1527,10 @@
   },
   "firstSession": {
     "title": "How would you like to begin?",
-    "description": "Learn the basics or head to Play to choose your battle settings.",
-    "learn": {
-      "title": "Learn",
-      "description": "A guided practice battle, about 10 minutes. You can leave at any time; returning starts a new tutorial."
+    "description": "Practice against the bot, or head to Play to choose your battle settings.",
+    "practice": {
+      "title": "Practice",
+      "description": "Set up an offline battle against the bot and learn as you play. No clock, no ranking, leave whenever you like."
     },
     "play": {
       "title": "Play",
@@ -1540,5 +1669,92 @@
     "title": "Confirm your email",
     "confirmed": "Email confirmed. You can now log in.",
     "error": "Could not confirm your email. The link may be invalid or expired."
+  },
+  "offlineSetup": {
+    "title": "Setting up a practice battle",
+    "step1": "Choose how long the battle runs and how much of the enemy you can see.",
+    "step2": "Pick a scenario and a battle type, or keep the defaults.",
+    "step3": "Set the armies below, then create the battle. It runs on this device, so you can stop and come back."
+  },
+  "pcHud": {
+    "selection": "Selection",
+    "waiting": "{{count}} units still have no orders",
+    "nextIdle": "Next without orders",
+    "noOrder": "No orders this turn",
+    "battleKeysOff": "Battle keys off · Esc",
+    "history": "History",
+    "commandBar": "Battle commands"
+  },
+  "hudHelp": {
+    "formationDetails": "More formation modifiers are available in Tactics.",
+    "help": "Help: {{control}}",
+    "army": "Tap to open or close the army tree. Drag to change its height.",
+    "selectAll": "Select your whole army, or clear the selection.",
+    "noUnits": "There are no units to select.",
+    "selectOwn": "Select your own units first.",
+    "selectOne": "Select one unit or an objective to inspect.",
+    "noTactics": "Select units with formations or autofire settings.",
+    "noOrders": "The selection has no orders that can be removed.",
+    "deployment": "Order types are unavailable during deployment.",
+    "submitted": "Orders have already been submitted for this turn.",
+    "finished": "The battle has ended.",
+    "busy": "Wait for the current battle action to finish.",
+    "unavailable": "This control is unavailable in the current battle state.",
+    "offlineChat": "Chat is available in online battles.",
+    "noReplay": "There are no previous actions to replay yet.",
+    "noSupply": "This battle does not use supply lines.",
+    "noSelection": "Select a unit first.",
+    "noEligible": "There are no units available to select.",
+    "spectator": "Spectators cannot give orders.",
+    "overview": "Open the battle overview. Victory points reflect casualties and objectives.",
+    "clock": "Time left: {{remaining}}. Bank: {{bank}}.",
+    "selectDivision": "Select units still waiting for orders, or the whole division when all have orders. Double-tap or double-click to centre the map.",
+    "selectUnit": "Select this unit. Double-tap or double-click to centre the map.",
+    "formation": "Apply this formation to selected units that support it.",
+    "orders": {
+      "1": "Choose walking for the next movement order.",
+      "2": "Choose running for the next movement order.",
+      "3": "Choose a shooting order and then its target.",
+      "4": "Advance while firing; melee units walk instead.",
+      "6": "Choose a fallback movement order.",
+      "7": "Change the direction the selected units face."
+    },
+    "commands": {
+      "supplyView": "Show or hide supply lines on the map.",
+      "drawLine": "Switch between drawing a route and deploying units along a line.",
+      "smartCurvedMovements": "Switch between direct movement and curved routes.",
+      "rotateContinuous": "Tap for a quarter turn. Hold to rotate continuously.",
+      "multiSelect": "Add units to the current selection.",
+      "tools": "Show or hide additional battle tools.",
+      "tactics": "Choose formations and autofire settings for selected units.",
+      "ping": "Mark a location on the map.",
+      "chat": "Read and send battle messages.",
+      "playerButton": "View the players and their teams.",
+      "info": "Inspect the selected unit or objective.",
+      "replayActions": "Watch the previous actions again.",
+      "menu": "Open battle settings and exit options.",
+      "nextIdle": "Select a unit without orders. If none remain, cycle through available units.",
+      "submit": "Submit your orders for this turn. Once sent, they cannot be taken back.",
+      "remove": "Clear the orders of the selected units.",
+      "deselect": "Clear the current selection."
+    }
+  },
+  "firstOrders": {
+    "title": "Your first orders",
+    "skip": "Skip guidance",
+    "select": {
+      "mouse": "Click one of your units to select it. The marked unit is a good place to start.",
+      "touch": "Tap one of your units to select it. The marked unit is a good place to start."
+    },
+    "deploy": {
+      "mouse": "Right-click open ground inside your deployment zone to place the selected unit. You are arranging your army before the battle.",
+      "touch": "Tap open ground inside your deployment zone to place the selected unit. You are arranging your army before the battle."
+    },
+    "deployReady": "Unit placed. You can arrange the rest, or press ✓ Submit orders to start the battle.",
+    "move": {
+      "mouse": "Choose Walk, then right-click open ground to set a destination. The arrow previews the movement; the unit waits for you to submit.",
+      "touch": "Choose Walk, then tap open ground to set a destination. The arrow previews the movement; the unit waits for you to submit."
+    },
+    "submit": "Movement prepared. You can give more orders or press ✓ Submit orders below. Both armies then move at the same time."
   }
 }

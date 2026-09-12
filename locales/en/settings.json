@@ -331,5 +331,9 @@
     "deploy": "Deploy",
     "routeDescription": "Draw the route to follow, keeping the group’s layout at arrival.",
     "deployDescription": "Draw the front where the selected units should deploy."
+  },
+  "showGameTips": {
+    "title": "Show tips",
+    "description": "Short lessons that appear in battle when the situation calls for one. Each is shown only a few times."
   }
 }

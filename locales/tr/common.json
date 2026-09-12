@@ -439,6 +439,126 @@
     "terrain": {
       "title": "Araziyi kullan",
       "description": "Arazi hareketi ve çatışmayı değiştirir. Birliğin güncel değiştiricilerini görmek ve uygun araziyi seçmek için Bilgi'yi aç."
+    },
+    "basicsSelect": {
+      "title": "Emir vermek",
+      "description": "Birliklerinizin üzerine bir kutu sürükleyerek onları seçin, sonra seçimden sürükleyerek gidecekleri yolu çizin. Tur çözülene kadar hiçbir şey hareket etmez."
+    },
+    "basicsOrderTypes": {
+      "title": "Emir türleri",
+      "description": "Her hareketin bir temposu var. Yürüyüş dayanıklılığı korur, Koşu daha hızlıdır ama yorar, Ateş ve İlerle yaklaşırken ateş eder. Değiştirmek için emir menüsünü açın."
+    },
+    "basicsFormations": {
+      "title": "Düzenler",
+      "description": "Düzen cephe genişliğini ve ateş gücünü belirler. Sütun hızlı yürür, hat en çok tüfeği öne çevirir, kare her yönü süvariye karşı korur."
+    },
+    "basicsSubmit": {
+      "title": "Turu gönderme",
+      "description": "Emirler siz turu gönderene kadar bekler. İki ordu aynı anda çözülür, bu yüzden düşmanın nerede olacağını planlayın, nerede olduğunu değil."
+    },
+    "idleUnits": {
+      "title": "Emirsiz birlikler",
+      "description": "Bazı birlikleriniz bu turda emir almadı. Onlara emir verin, yoksa hattın geri kalanı ilerlerken yerlerinde kalırlar."
+    },
+    "skirmisherVsArtillery": {
+      "title": "Avcı piyade topçuya karşı",
+      "description": "Düşman bataryası avcı uçağınızın ulaşabileceği yerde. Silah mürettebatına ateş dökün. Avcılar, korumasız topçuları cevap veremeden parçaladılar."
+    },
+    "skirmisherVsCavalry": {
+      "title": "Avcı piyadenizin yakınında süvari",
+      "description": "Avcı eriniz bu konumu korursa düşman süvarileri tarafından yok edilecek. Geri çekilin ve siper alın."
+    },
+    "skirmisherVsInfantry": {
+      "title": "Avcı piyadenizin yakınında piyade",
+      "description": "Düşman piyadeleri avcı uçağının üstünde. Avcı erleri yakın dövüşte geri çekilir. Süngüler ulaşmadan geri çekilin."
+    },
+    "infantryFormLine": {
+      "title": "Hat düzenine geç",
+      "description": "Bu birimleri hatta geçirin. Tüfek menzilindeki düşman piyadeleri veya süvarilerin önden gelmesiyle, hat size en fazla tüfeğin öne doğru yönlendirilmesini ve gelen yaylım ateşlerine karşı en iyi savunmayı sağlar. Önden hücuma karşı hizalanmayın, ateş gücünüzün yarısını kaybedersiniz."
+    },
+    "infantryVsCavalryFrontal": {
+      "title": "Hattı koru",
+      "description": "Düşman süvarisi piyadenin önüne saldırıyor ama emir sırası var. Onları temizle ki hat yerinde dursun ve toynaklara yürümek yerine ateş etsin."
+    },
+    "infantryVsCavalryFlank": {
+      "title": "Kare düzenine geç",
+      "description": "Süvariler piyadenizin yan veya arka kısmından geliyor. Yan taraftan bir sıra geçiliyor. Vurgulanan her birimde kare oluşturun, böylece her yüzde tüfekler çıkar."
+    },
+    "infantryBayonetCharge": {
+      "title": "Süngü hücumu",
+      "description": "Hücum menzilindeki düşman piyadeleri zayıf. Sütun oluşturun ve onlarla karşılaşın. Sütunla temas eden süngü onları kırar."
+    },
+    "infantryFallback": {
+      "title": "Bu birliği geri çek",
+      "description": "Bu birimin organizasyonu çatladı, bir yaylım ateşi daha açılır ve bozulur. Hat kopmadan önce onu dışarı çekin."
+    },
+    "infantryVsSkirmishers": {
+      "title": "Piyade avcı piyadeye karşı",
+      "description": "Yakında düşman avcıları var ve kullanabileceğiniz süvari yok. Yürüyerek ilerleyin ve en zayıf oldukları yakın dövüşe zorlayın."
+    },
+    "infantryVsArtillery": {
+      "title": "Piyade topçuya karşı",
+      "description": "Yakındaki düşman topları korumasız. Dönüp misket ateşi açamadan doğrudan top mürettebatına koşun."
+    },
+    "infantryColumnMarch": {
+      "title": "Sütun düzeninde yürü",
+      "description": "Bu birimin yakınında düşman yok. Daha hızlı ilerlemek için kol düzenine geçin, temastan önce hat düzeni alın."
+    },
+    "cavalryVsWeakerCavalry": {
+      "title": "Süvari daha zayıf süvariye karşı",
+      "description": "Düşman süvarileri hücum menzilinde ve sarsılmış durumda, atınız daha taze. Avantajı yakalayın: onlar iyileşmeden şarj edin."
+    },
+    "cavalryVsEqualCavalry": {
+      "title": "Süvari denk süvariye karşı",
+      "description": "Düşman süvarileri temas halinde ve kabaca sizinkiler kadar istikrarlı. Kazanamayacağınız bir görev için dayanıklılığınızı boşa harcamayın. Yürüyüşe çıkın ve eşit şartlarda kavga edin."
+    },
+    "cavalryVsStrongerCavalry": {
+      "title": "Süvari daha güçlü süvariye karşı",
+      "description": "Düşman süvarileri temas halinde ve sizinkinden daha istikrarlı, burada yakın dövüşçü kaybeder. Taahhüt etmeden önce kesip sıfırlayın."
+    },
+    "cavalryVsInfantryFlank": {
+      "title": "Kanada hücum et",
+      "description": "Düşman piyadelerinin kanadı açık ve kabaca sizin kadar sağlamlar. İşte o an, temiz bir saldırı onları kırıyor. Öne değil yandan vurun."
+    },
+    "cavalryVsShakenInfantry": {
+      "title": "Süvari sarsılmış piyadeye karşı",
+      "description": "Düşman piyadeleri zar zor bir arada duruyor, teşkilatları çatlamış durumda. Temiz bir saldırı, toparlanmadan önce onları eziyor."
+    },
+    "cavalryVsSkirmishers": {
+      "title": "Süvari avcı piyadeye karşı",
+      "description": "Avcı erleri, atınıza giden açık bir şeritle açıkta yakalandı. Yakın dövüşte pas geçerler ve hücumdan kaçamazlar. Korunmaya ulaşmadan onları aşağıya sürün."
+    },
+    "cavalryVsArtillery": {
+      "title": "Süvari topçuya karşı",
+      "description": "Sizinle onlar arasında perde olmayan düşman silahları. Korumasız mürettebata yapılan saldırı onları tek seferde bitirir. Ama eğer dost bir hat önünüze çıkarsa onun yerine kan kaybedersiniz."
+    },
+    "cavalryPursueRouter": {
+      "title": "Kaçanları kovala",
+      "description": "Bu düşman, kovalamacayı kesintiye uğratacak hiçbir destek olmadan kırılmış ve koşuyor. Süvarilerin takibi onları tamamen bozar. Reform yapmadan önce onları bitirin."
+    },
+    "cavalryFallbackFromInfantry": {
+      "title": "Tüfek ateşi altındaki süvari",
+      "description": "Süvarileriniz sağlıklı hat piyadelerinin tüfek menzilinde oturuyor. Atınızı ezmeden önce geri çekilin, sarsılmış hedefleri arayın veya kanatları açın."
+    },
+    "enemyInfantrySquare": {
+      "title": "Düşman karesi",
+      "description": "Düşman piyade kare aldı. Her cephe de tüfekler hazır. Süvarini uzak tut ve kanadı açık hat ya da kolon hedefler ara."
+    },
+    "artilleryFireAndAdvance": {
+      "title": "Ateş ve ilerle",
+      "description": "Düşman, ateş ederken yaklaşmaya devam edebileceğiniz kadar uzakta. Bu topçu birimini Ateş ve İlerle olarak değiştirin."
+    },
+    "artilleryRotateToFire": {
+      "title": "Ateş için dur",
+      "description": "Düşman yakında ve topunuz temiz bir atış yapıyor ama hâlâ hareket ediyor. Yürüyüşü durdurun ve otomatik ateşleme için üniteyi döndürün."
+    },
+    "pushObjective": {
+      "title": "Üstünlüğünü kullan",
+      "description": "Liderlik sende. Öğrendiklerinizle düşman hedefine doğru ilerleyin. Kapatmak onların herhangi bir geri dönüşünü engelliyor."
+    },
+    "holdObjective": {
+      "title": "Hedefini tut",
+      "description": "Puan bakımından geridesin. Hedefinize geri çekilin ve öğrendiklerinizle onu koruyun. Savunmak, tekrar almaktan daha ucuzdur."
     }
   },
   "turn": "Tur",
@@ -757,6 +877,7 @@
   "encyclopedia": "Ansiklopedi",
   "tutorialTips": "Eğitim İpuçları",
   "loadingScreenTips": "Yükleme Ekranı İpuçları",
+  "battleLessons": "Savaş dersleri",
   "gameConstants": "Oyun Sabitleri",
   "ammo": "Cephane",
   "ammoConsumption": "Cephane Tüketimi",
@@ -1042,10 +1163,10 @@
   "gameSearchEmptyDescription": "Daha fazla tekrar bulmak için filtreleri genişletin.",
   "firstSession": {
     "title": "Nasıl başlamak istersin?",
-    "description": "Temel bilgileri öğren veya savaş ayarlarını seçmek için Oyna bölümüne git.",
-    "learn": {
-      "title": "Öğren",
-      "description": "Yaklaşık 10 dakikalık, yönlendirmeli bir alıştırma savaşı. İstediğin zaman ayrılabilirsin; geri döndüğünde yeni bir eğitim başlar."
+    "description": "Bota karşı antrenman yapın ya da savaş ayarlarınızı seçmek için Oyna'ya gidin.",
+    "practice": {
+      "title": "Antrenman",
+      "description": "Bota karşı çevrimdışı bir savaş kurun ve oynayarak öğrenin. Saat yok, sıralama yok, istediğiniz an çıkın."
     },
     "play": {
       "title": "Oyna",
@@ -1062,5 +1183,11 @@
     "confirmed": "E-posta doğrulandı. Artık giriş yapabilirsiniz.",
     "error": "E-posta doğrulanamadı. Bağlantı geçersiz veya süresi dolmuş olabilir."
   },
-  "watchBattles": "Savaşları izle"
+  "watchBattles": "Savaşları izle",
+  "offlineSetup": {
+    "title": "Antrenman savaşı nasıl kurulur",
+    "step1": "Savaşın ne kadar süreceğini ve düşmanı ne kadar görebileceğinizi seçin.",
+    "step2": "Bir senaryo ve savaş türü seçin ya da varsayılanları bırakın.",
+    "step3": "Aşağıdan orduları kurun, sonra savaşı oluşturun. Bu cihazda çalışır, yani durup geri dönebilirsiniz."
+  }
 }
