@@ -255,21 +255,29 @@
     "canPlaceObjectives": true,
     "movementModifier": {
       "*": 0.5,
-      "midCavalry": 0.28,
-      "lightCavalry": 0.28,
-      "scoutCavalry": 0.28,
-      "heavyCavalry": 0.28,
-      "artillery": 0.25,
-      "horseArtillery": 0.6
+      "midCavalry": 0.3,
+      "lightCavalry": 0.3,
+      "scoutCavalry": 0.3,
+      "heavyCavalry": 0.3,
+      "artillery": 0.6,
+      "horseArtillery": 0.6,
+      "infantry": 0.6,
+      "guardsInfantry": 0.6,
+      "militiaInfantry": 0.6,
+      "skirmishInfantry": 0.6
     },
     "runSpeedModifier": {
-      "*": -0.2,
-      "midCavalry": -0.1,
-      "lightCavalry": -0.1,
-      "scoutCavalry": -0.1,
-      "heavyCavalry": -0.1,
-      "artillery": 0.2,
-      "horseArtillery": 0.2
+      "*": 0,
+      "midCavalry": 0.1,
+      "lightCavalry": 0.1,
+      "scoutCavalry": 0.1,
+      "heavyCavalry": 0.1,
+      "artillery": 0.6,
+      "horseArtillery": 0.2,
+      "infantry": 0,
+      "guardsInfantry": 0,
+      "militiaInfantry": 0,
+      "skirmishInfantry": 0
     },
     "pushStrengthModifier": 0.2,
     "pushDistanceModifier": 0.2
@@ -325,6 +333,7 @@
 
   "shallowWater": {
     "color": "#3e5b7e",
+    "rotationSpeedModifier": -0.75,
     "staminaCostModifier": 1.5,
     "movementModifier": {
       "infantry": -0.6,
@@ -353,7 +362,7 @@
     "defenseModifier": {
       "infantry": -0.5,
       "guardsInfantry": -0.5,
-      "skirmishInfantry": -1,
+      "skirmishInfantry": -0.5,
       "militiaInfantry": -0.5,
       "midCavalry": -0.5,
       "lightCavalry": -0.5,

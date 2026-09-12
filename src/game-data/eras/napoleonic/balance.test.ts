@@ -393,7 +393,7 @@ describe("Napoleonic balance", () => {
         guns: 6,
       },
       "6in_howitzer": {
-        rangedAttack: 2700,
+        rangedAttack: 2600,
         rotationSpeed: 0.31,
         panicFireDistance: 90,
         guns: 6,
@@ -611,7 +611,7 @@ describe("Napoleonic balance", () => {
   it("uses the requested elite infantry balance", () => {
     const expectedByName = {
       guards: {
-        org: 975,
+        org: 950,
         chargeResistance: 0.5,
         meleeAttack: 50,
         orgRadiusBonus: 13,
@@ -784,50 +784,33 @@ describe("Napoleonic balance", () => {
     }
   });
 
-  it("uses the requested 1.8 road movement balance", () => {
-    const nonCavalryOrArtilleryCategories = [
-      "infantry",
-      "guardsInfantry",
-      "skirmishInfantry",
-      "militiaInfantry",
-      "ship",
-    ] as const;
+  it("uses the requested shallow water turning and skirmisher defense", () => {
+    expect(gameDataManager.getRotationSpeedModifier(TerrainType.ShallowWater)).toBe(-0.75);
+    expect(
+      gameDataManager.getUnitTerrainDefenseModifier("skirmishInfantry", TerrainType.ShallowWater),
+    ).toBe(-0.5);
+  });
 
-    for (const category of nonCavalryOrArtilleryCategories) {
-      expect(
-        gameDataManager.getMovementModifier(TerrainType.Road, category),
-      ).toBe(0.5);
-      expect(
-        gameDataManager.getRunSpeedModifier(TerrainType.Road, category),
-      ).toBe(-0.2);
+  it("uses the requested path movement balance on roads and bridges", () => {
+    for (const terrain of [TerrainType.Road, TerrainType.Bridge]) {
+      for (const [category, movement, run] of [
+        ["ship", 0.5, 0],
+        ["midCavalry", 0.3, 0.1],
+        ["lightCavalry", 0.3, 0.1],
+        ["scoutCavalry", 0.3, 0.1],
+        ["heavyCavalry", 0.3, 0.1],
+        ["artillery", 0.6, 0.6],
+        ["horseArtillery", 0.6, 0.2],
+        ["infantry", 0.6, 0],
+        ["guardsInfantry", 0.6, 0],
+        ["militiaInfantry", 0.6, 0],
+        ["skirmishInfantry", 0.6, 0],
+      ] as const) {
+        expect(gameDataManager.getMovementModifier(terrain, category)).toBe(movement);
+        expect(gameDataManager.getRunSpeedModifier(terrain, category)).toBe(run);
+      }
+      expect(gameDataManager.getStaminaCost(terrain)).toBe(-0.5);
     }
-
-    expect(
-      gameDataManager.getMovementModifier(TerrainType.Road, "artillery"),
-    ).toBe(0.25);
-    expect(
-      gameDataManager.getRunSpeedModifier(TerrainType.Road, "artillery"),
-    ).toBe(0.2);
-    expect(
-      gameDataManager.getMovementModifier(TerrainType.Road, "horseArtillery"),
-    ).toBe(0.6);
-    expect(
-      gameDataManager.getRunSpeedModifier(TerrainType.Road, "horseArtillery"),
-    ).toBe(0.2);
-    for (const category of [
-      "midCavalry",
-      "lightCavalry",
-      "scoutCavalry",
-      "heavyCavalry",
-    ] as const) {
-      expect(
-        gameDataManager.getMovementModifier(TerrainType.Road, category),
-      ).toBe(0.28);
-      expect(
-        gameDataManager.getRunSpeedModifier(TerrainType.Road, category),
-      ).toBe(-0.1);
-    }
-    expect(gameDataManager.getStaminaCost(TerrainType.Road)).toBe(-0.5);
   });
 
   it("uses the final forest height and neutral run modifiers for every category", () => {
