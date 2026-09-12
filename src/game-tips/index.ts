@@ -3,5 +3,6 @@ export type {
   GameTipCondition,
   GameTipEvent,
   GameTipAction,
+  GameSituationKey,
 } from "./types";
 export { gameTips } from "../game-data/shared/game-tips";

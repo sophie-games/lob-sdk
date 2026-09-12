@@ -27,7 +27,6 @@ import type {
   GameRules,
 } from "../game-data-manager/types";
 import type { DeepPartial } from "../utils/object-merge";
-import { Tutorial } from "./tutorial";
 
 /**
  * Scenario-scoped override for a single terrain category. The {@link id}
@@ -576,13 +575,6 @@ export interface Scenario {
    * BaseGame.bigObjectiveZoneInset getter.
    */
   bigObjectiveZoneInset?: number;
-
-  /**
-   * Data-driven tutorial overlays. Evaluated client-side by the TutorialRunner
-   * independently of {@link triggers}; the generic trigger system never sees
-   * this field. Safe to omit for non-tutorial scenarios.
-   */
-  tutorial?: Tutorial;
 
   /**
    * Additive unit templates scoped to this scenario. Ids must be >= 10000

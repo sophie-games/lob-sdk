@@ -453,6 +453,126 @@
     "terrain": {
       "title": "Tận dụng địa hình",
       "description": "Địa hình thay đổi di chuyển và chiến đấu. Mở Thông tin để xem các hệ số hiện tại của đơn vị và chọn địa hình phù hợp."
+    },
+    "basicsSelect": {
+      "title": "Ra lệnh",
+      "description": "Kéo một khung quanh các đơn vị để chọn, rồi kéo từ vùng chọn để vẽ đường đi. Không gì di chuyển cho đến khi lượt được giải quyết."
+    },
+    "basicsOrderTypes": {
+      "title": "Các loại lệnh",
+      "description": "Mỗi cách di chuyển có một nhịp độ. Đi bộ giữ thể lực, Chạy nhanh hơn nhưng gây mệt, Bắn và tiến vừa áp sát vừa khai hỏa. Mở menu lệnh để đổi."
+    },
+    "basicsFormations": {
+      "title": "Đội hình",
+      "description": "Đội hình quyết định bề ngang và hỏa lực. Cột hành quân nhanh, hàng đưa nhiều súng hỏa mai ra trước nhất, ô vuông che chắn mọi mặt trước kỵ binh."
+    },
+    "basicsSubmit": {
+      "title": "Gửi lượt",
+      "description": "Lệnh sẽ chờ cho đến khi bạn gửi lượt. Hai bên được giải quyết cùng lúc, nên hãy tính chỗ địch sẽ tới, không phải chỗ địch đang đứng."
+    },
+    "idleUnits": {
+      "title": "Đơn vị chưa có lệnh",
+      "description": "Một số đơn vị của bạn chưa có lệnh trong lượt này. Hãy ra lệnh, nếu không chúng sẽ đứng yên trong khi phần còn lại của tuyến tiến lên."
+    },
+    "skirmisherVsArtillery": {
+      "title": "Tản chiến đấu pháo binh",
+      "description": "Pin của kẻ thù trong tầm tay của người giao tranh của bạn. Đổ lửa vào đội súng. Những kẻ giao tranh sẽ xé nát pháo binh không được bảo vệ trước khi nó kịp phản ứng."
+    },
+    "skirmisherVsCavalry": {
+      "title": "Kỵ binh áp sát quân tản chiến",
+      "description": "Người giao tranh của bạn sẽ bị kỵ binh địch tiêu diệt nếu giữ vị trí đó. Dự phòng và tìm kiếm sự che chở."
+    },
+    "skirmisherVsInfantry": {
+      "title": "Bộ binh áp sát quân tản chiến",
+      "description": "Bộ binh địch trên đầu cuộc giao tranh của bạn. Những kẻ giao tranh gấp trong cận chiến. Hãy lùi lại trước khi lưỡi lê chạm tới."
+    },
+    "infantryFormLine": {
+      "title": "Dàn hàng",
+      "description": "Chuyển các đơn vị này thành dòng. Với bộ binh của đối phương trong tầm bắn súng hỏa mai hoặc kỵ binh đang tiến tới phía trước, tuyến mang lại cho bạn nhiều súng hỏa mai chĩa về phía trước nhất và khả năng phòng thủ tốt nhất trước những loạt đạn đang lao tới. Đừng đứng hình vuông trước đòn tấn công trực diện, bạn sẽ mất một nửa hỏa lực."
+    },
+    "infantryVsCavalryFrontal": {
+      "title": "Giữ vững hàng",
+      "description": "Kỵ binh địch xông vào mặt trước bộ binh của bạn, nhưng họ có lệnh đang xếp hàng. Xóa lệnh để đội hình đứng và bắn thay vì đi vào vó ngựa."
+    },
+    "infantryVsCavalryFlank": {
+      "title": "Kết ô vuông",
+      "description": "Kỵ binh đến bên sườn hoặc phía sau bộ binh của bạn. Một dòng được cưỡi từ bên cạnh. Tạo hình vuông trên mỗi đơn vị được đánh dấu để mọi mặt đều có súng hỏa mai."
+    },
+    "infantryBayonetCharge": {
+      "title": "Xung phong lưỡi lê",
+      "description": "Bộ binh địch yếu trong phạm vi tấn công. Tạo cột và chạy vào chúng. Lưỡi lê khi tiếp xúc với cột sẽ phá vỡ chúng."
+    },
+    "infantryFallback": {
+      "title": "Rút đơn vị này",
+      "description": "Tổ chức của đơn vị này đã rạn nứt, thêm một cú vô lê nữa và nó sẽ thất bại. Kéo nó ra trước khi ngắt dòng."
+    },
+    "infantryVsSkirmishers": {
+      "title": "Bộ binh đấu tản chiến",
+      "description": "Lính tản binh địch đang ở gần và bạn không có kỵ binh. Tiến lên bằng bước đi và ép chúng vào cận chiến, nơi chúng yếu nhất."
+    },
+    "infantryVsArtillery": {
+      "title": "Bộ binh đấu pháo binh",
+      "description": "Pháo địch ở gần và không được bảo vệ. Chạy thẳng vào pháo thủ trước khi họ có thể xoay pháo và bắn đạn ghém."
+    },
+    "infantryColumnMarch": {
+      "title": "Hành quân theo cột",
+      "description": "Không có kẻ địch nào gần đơn vị này. Chuyển sang đội hình cột để hành quân nhanh hơn, rồi dàn thành hàng trước khi tiếp xúc."
+    },
+    "cavalryVsWeakerCavalry": {
+      "title": "Kỵ binh đấu kỵ binh yếu hơn",
+      "description": "Kỵ binh địch trong tầm tấn công và rung chuyển, ngựa của bạn tươi hơn. Nhấn vào lợi thế: sạc trước khi chúng phục hồi."
+    },
+    "cavalryVsEqualCavalry": {
+      "title": "Kỵ binh đấu kỵ binh ngang sức",
+      "description": "Kỵ binh địch tiếp xúc và gần như ổn định như của bạn. Đừng lãng phí sức chịu đựng cho một cuộc tấn công mà bạn không thể thắng. Đóng cửa khi đi dạo và ẩu đả trên nền tảng vững chắc."
+    },
+    "cavalryVsStrongerCavalry": {
+      "title": "Kỵ binh đấu kỵ binh mạnh hơn",
+      "description": "Kỵ binh địch tiếp xúc và vững vàng hơn bạn, cận chiến ở đây sẽ thua. Hãy tắt và thiết lập lại trước khi họ cam kết."
+    },
+    "cavalryVsInfantryFlank": {
+      "title": "Đánh vào sườn",
+      "description": "Sườn của bộ binh địch rộng mở và chúng cũng vững chắc như bạn. Đó là thời điểm một khoản phí sạch sẽ phá vỡ chúng. Đánh vào bên cạnh, không phải phía trước."
+    },
+    "cavalryVsShakenInfantry": {
+      "title": "Kỵ binh đấu bộ binh đã nao núng",
+      "description": "Bộ binh địch hầu như không trụ được, tổ chức của chúng đã rạn nứt. Một lần sạc sạch sẽ khiến chúng suy sụp trước khi chúng có thể phục hồi."
+    },
+    "cavalryVsSkirmishers": {
+      "title": "Kỵ binh đấu tản chiến",
+      "description": "Những kẻ giao tranh bị bắt ở nơi trống trải với làn đường thông thoáng cho ngựa của bạn. Họ gấp trong cận chiến và không thể vượt qua một cuộc tấn công. Đuổi chúng xuống trước khi chúng tới chỗ nấp."
+    },
+    "cavalryVsArtillery": {
+      "title": "Kỵ binh đấu pháo binh",
+      "description": "Súng của kẻ thù không có màn hình giữa bạn và chúng. Một cuộc tấn công vào phi hành đoàn không được sàng lọc sẽ kết thúc họ trong một nhịp. Nhưng nếu một đường dây thân thiện cản đường bạn thì thay vào đó bạn sẽ đổ máu vào đó."
+    },
+    "cavalryPursueRouter": {
+      "title": "Truy kích quân tan vỡ",
+      "description": "Kẻ thù đó tan vỡ và bỏ chạy, không có sự hỗ trợ nào để làm gián đoạn cuộc truy đuổi. Một cuộc truy đuổi của kỵ binh đã phá vỡ chúng vĩnh viễn. Hãy kết thúc chúng trước khi chúng cải cách."
+    },
+    "cavalryFallbackFromInfantry": {
+      "title": "Kỵ binh trong tầm súng hỏa mai",
+      "description": "Kỵ binh của bạn đang ngồi trong tầm súng hỏa mai của bộ binh khỏe mạnh. Hãy lùi lại trước khi chúng hạ gục con ngựa của bạn, thay vào đó hãy tìm những mục tiêu bị rung chuyển hoặc sườn hở."
+    },
+    "enemyInfantrySquare": {
+      "title": "Ô vuông của địch",
+      "description": "Bộ binh địch đã xếp hình vuông. Mỗi mặt đều có súng hỏa mai. Giữ kỵ binh cách xa và tìm mục tiêu hàng ngang hoặc cột có sườn để khai thác."
+    },
+    "artilleryFireAndAdvance": {
+      "title": "Bắn và tiến",
+      "description": "Kẻ thù ở đủ xa để bạn có thể tiếp tục áp sát trong khi bắn. Chuyển đơn vị pháo binh này sang Bắn và tiến."
+    },
+    "artilleryRotateToFire": {
+      "title": "Dừng lại để bắn",
+      "description": "Kẻ thù đang ở gần và khẩu pháo của bạn bắn trúng nhưng nó vẫn đang di chuyển. Dừng cuộc hành quân và xoay đơn vị để tự động bắn."
+    },
+    "pushObjective": {
+      "title": "Tận dụng lợi thế",
+      "description": "Bạn giữ vị trí dẫn đầu. Đẩy mạnh mục tiêu của kẻ thù bằng những gì bạn đã học được. Việc đóng cửa sẽ phủ nhận sự trở lại của họ."
+    },
+    "holdObjective": {
+      "title": "Giữ mục tiêu của bạn",
+      "description": "Bạn đang kém về số điểm. Hãy quay lại mục tiêu của bạn và bám sát nó với những gì bạn đã học được. Phòng thủ rẻ hơn là chiếm lại."
     }
   },
   "turn": "Lượt",
@@ -1044,6 +1164,7 @@
   "encyclopedia": "Bách khoa toàn thư",
   "tutorialTips": "Mẹo hướng dẫn",
   "loadingScreenTips": "Mẹo màn hình tải",
+  "battleLessons": "Bài học chiến trận",
   "gameConstants": "Hằng số trò chơi",
   "ammo": "Đạn",
   "ammoConsumption": "Tiêu thụ đạn",
@@ -1180,10 +1301,10 @@
   "gameSearchEmptyDescription": "Mở rộng bộ lọc để tìm thêm bản phát lại.",
   "firstSession": {
     "title": "Bạn muốn bắt đầu như thế nào?",
-    "description": "Học những điều cơ bản hoặc vào mục Chơi để chọn thiết lập trận chiến.",
-    "learn": {
-      "title": "Học cách chơi",
-      "description": "Một trận chiến luyện tập có hướng dẫn, khoảng 10 phút. Bạn có thể thoát bất cứ lúc nào; khi quay lại, phần hướng dẫn sẽ bắt đầu lại từ đầu."
+    "description": "Luyện tập với bot, hoặc vào Chơi để chọn thiết lập trận đấu của bạn.",
+    "practice": {
+      "title": "Luyện tập",
+      "description": "Dựng một trận ngoại tuyến đấu với bot và vừa chơi vừa học. Không đồng hồ, không xếp hạng, rời đi lúc nào cũng được."
     },
     "play": {
       "title": "Chơi",
@@ -1200,5 +1321,11 @@
     "confirmed": "Email đã được xác nhận. Bạn có thể đăng nhập.",
     "error": "Không thể xác nhận email. Liên kết có thể không hợp lệ hoặc đã hết hạn."
   },
-  "watchBattles": "Xem trận đấu"
+  "watchBattles": "Xem trận đấu",
+  "offlineSetup": {
+    "title": "Cách dựng một trận luyện tập",
+    "step1": "Chọn trận kéo dài bao lâu và bạn nhìn thấy địch tới đâu.",
+    "step2": "Chọn một kịch bản và một loại trận, hoặc giữ nguyên mặc định.",
+    "step3": "Sắp quân ở bên dưới rồi tạo trận. Trận chạy trên thiết bị này nên bạn có thể dừng rồi quay lại."
+  }
 }
