@@ -1174,5 +1174,28 @@
   "orderOfBattle": {
     "showArmy": "Hadsereg megjelenítése",
     "hideArmy": "Hadsereg elrejtése"
+  },
+  "matchAcceptance": {
+    "firstRejection": "Nincs vereség vagy Elo-vesztés. Egy újabb ajánlat elutasítása vagy elmulasztása 24 órán belül 2 percre korlátozza a gyors rangsorolt 1v1-et.",
+    "restrictionTitle": "A keresés átmenetileg korlátozott",
+    "restriction": "Több ajánlatot elutasítottál vagy elmulasztottál. A gyors rangsorolt 1v1 még {{minutes}} percig korlátozott. Privát és offline játékok elérhetők.",
+    "restrictionEnded": "A korlátozás lejárt. Újra kereshetsz.",
+    "rulesTitle": "Rangsorolt szabályok",
+    "rules": "A gyors rangsorolt 1v1 mindkét fél elfogadása után indul. A kilépés már az első körben is rendes vereség, külön automatikus tiltás nélkül. A kapott ajánlatok elutasítása vagy elmulasztása 24 órán belül figyelmeztetést, majd 2, 10 és 60 perces korlátozást eredményez, legfeljebb 60 percet. Az elutasítás nem csökkenti az Elót.",
+
+    "ready": "Rangsorolt · Gyors · 1 az 1 ellen",
+    "accept": "Mérkőzés elfogadása",
+    "decline": "Elutasítás",
+    "timeRemaining": "Hátralévő idő: {{count}} mp",
+    "sending": "Válasz megerősítése…",
+    "waiting": "Elfogadva. Várakozás a másik játékosra…",
+    "creating": "Mindketten elfogadták. Csata előkészítése…",
+    "reconnecting": "Újracsatlakozás…",
+    "error": "Nem sikerült megerősíteni a válaszodat. Próbáld újra.",
+    "ended": "A mérkőzésajánlat véget ért",
+    "requeued": "A másik játékos nem erősítette meg. Visszakerültél a sorba, a várakozási elsőbbséged megmaradt.",
+    "noLoss": "Az ajánlat vereség nélkül ért véget. Újra kereshetsz.",
+    "failed": "Nem sikerült megerősíteni a csata létrejöttét. Új keresés előtt ellenőrizd.",
+    "checkGame": "Mérkőzés ellenőrzése"
   }
 }

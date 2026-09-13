@@ -1223,5 +1223,28 @@
   "orderOfBattle": {
     "showArmy": "Afficher l’armée",
     "hideArmy": "Masquer l’armée"
+  },
+  "matchAcceptance": {
+    "firstRejection": "Aucune défaite ni perte d’Elo. Refuser ou manquer une autre proposition dans les 24 heures restreindra le classé rapide 1v1 pendant 2 minutes.",
+    "restrictionTitle": "Recherche temporairement restreinte",
+    "restriction": "Plusieurs propositions refusées ou manquées. Le classé rapide 1v1 est restreint encore {{minutes}} min. Les parties privées et hors ligne restent disponibles.",
+    "restrictionEnded": "La restriction est terminée. Vous pouvez relancer la recherche.",
+    "rulesTitle": "Règles du classé",
+    "rules": "Le classé rapide 1v1 commence après les deux acceptations. Abandonner compte comme une défaite normale, même au premier tour, sans bannissement automatique supplémentaire. Refuser ou laisser expirer des propositions reçues en 24 heures entraîne un avertissement, puis des restrictions de 2, 10 et 60 minutes, plafonnées à 60. Refuser ne coûte pas d’Elo.",
+
+    "ready": "Classée · Rapide · 1 contre 1",
+    "accept": "Accepter la partie",
+    "decline": "Refuser",
+    "timeRemaining": "Temps restant : {{count}} s",
+    "sending": "Confirmation de votre réponse…",
+    "waiting": "Acceptée. En attente de l’autre joueur…",
+    "creating": "Les deux joueurs ont accepté. Préparation de la bataille…",
+    "reconnecting": "Reconnexion…",
+    "error": "Votre réponse n’a pas pu être confirmée. Réessayez.",
+    "ended": "Proposition terminée",
+    "requeued": "L’autre joueur n’a pas confirmé. Vous retrouvez la file avec votre priorité d’attente.",
+    "noLoss": "La proposition s’est terminée sans défaite. Vous pouvez relancer la recherche.",
+    "failed": "La création de la bataille n’a pas pu être confirmée. Vérifiez avant de relancer la recherche.",
+    "checkGame": "Vérifier la partie"
   }
 }

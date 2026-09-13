@@ -23,10 +23,12 @@ export enum LostReason {
 }
 
 /**
- * Per-battle stats persisted to `game_users.metadata` JSONB. All sub-objects
- * are HP-denominated and keyed by {@link UnitType}.
+ * Per-battle stats and departure context persisted to `game_users.metadata` JSONB.
+ * Damage sub-objects are HP-denominated and keyed by {@link UnitType}.
  */
 export interface PlayerBattleMetadata {
+  /** Persisted alongside lostReason for accepted ranked departures. */
+  rankedDeparture?: { turn: number; openingTurn: boolean };
   /** Cumulative HP this player lost, keyed by this player's unit type (the victim). */
   damageTaken?: UnitCounts;
   /**

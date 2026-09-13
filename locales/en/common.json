@@ -1774,5 +1774,28 @@
   "turnRecovery": {
     "pending": "Updating the battle…",
     "failed": "Couldn’t update the battle."
+  },
+  "matchAcceptance": {
+    "firstRejection": "No loss or Elo penalty. Declining or missing another offer within 24 hours will restrict fast ranked 1v1 for 2 minutes.",
+    "restrictionTitle": "Matchmaking temporarily restricted",
+    "restriction": "Repeated declined or missed offers. Fast ranked 1v1 is restricted for {{minutes}} more min. Private and offline games remain available.",
+    "restrictionEnded": "Your restriction has ended. You can search again.",
+    "rulesTitle": "Ranked rules",
+    "rules": "Fast ranked 1v1 starts when both players accept. Abandoning then counts as a normal loss, even on the first turn, without an extra automatic ban. Declining or missing received offers within 24 hours results in a warning, then 2, 10 and 60-minute restrictions, capped at 60 minutes. Declines do not cost Elo.",
+
+    "ready": "Ranked · Fast · 1v1",
+    "accept": "Accept match",
+    "decline": "Decline",
+    "timeRemaining": "Time remaining: {{count}} s",
+    "sending": "Confirming your response…",
+    "waiting": "Accepted. Waiting for the other player…",
+    "creating": "Both accepted. Preparing the battle…",
+    "reconnecting": "Reconnecting…",
+    "error": "Could not confirm your response. Please try again.",
+    "ended": "Match offer ended",
+    "requeued": "The other player did not confirm. You are back in the queue with your waiting priority preserved.",
+    "noLoss": "This offer ended without a loss. You can search again.",
+    "failed": "We could not confirm whether the battle was created. Check before searching again.",
+    "checkGame": "Check match"
   }
 }

@@ -1467,5 +1467,28 @@
   "orderOfBattle": {
     "showArmy": "显示军队",
     "hideArmy": "隐藏军队"
+  },
+  "matchAcceptance": {
+    "firstRejection": "不计失败，也不扣 Elo。24 小时内再次拒绝或错过邀请，将限制快速排位 1v1 匹配 2 分钟。",
+    "restrictionTitle": "匹配暂时受限",
+    "restriction": "你多次拒绝或错过邀请。快速排位 1v1 匹配还需等待 {{minutes}} 分钟。私人和离线游戏仍可进行。",
+    "restrictionEnded": "限制已结束，可以重新匹配。",
+    "rulesTitle": "排位规则",
+    "rules": "快速排位 1v1 在双方接受后开始。此后放弃，即使是第一回合，也算正常失败，不追加自动封禁。24 小时内拒绝或错过已收到的邀请，先警告，随后限制 2、10、60 分钟，最高 60 分钟。拒绝不扣 Elo。",
+
+    "ready": "排位 · 快速 · 1对1",
+    "accept": "接受对局",
+    "decline": "拒绝",
+    "timeRemaining": "剩余时间：{{count}} 秒",
+    "sending": "正在确认你的回复…",
+    "waiting": "已接受，等待另一位玩家…",
+    "creating": "双方已接受，正在准备战斗…",
+    "reconnecting": "正在重新连接…",
+    "error": "无法确认你的回复，请重试。",
+    "ended": "对局邀请已结束",
+    "requeued": "另一位玩家未确认。你已返回队列，并保留等待优先级。",
+    "noLoss": "邀请已结束，不计失败。你可以重新匹配。",
+    "failed": "无法确认战斗是否已创建。再次匹配前请先检查。",
+    "checkGame": "检查对局"
   }
 }
