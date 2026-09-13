@@ -52,6 +52,12 @@ export interface Player {
   passed: boolean;
   defeated: boolean;
   consecutiveUnplayedTurns: number;
+  /**
+   * Turns this player acted on, deployment included. Shares its definition of
+   * "acted" with {@link consecutiveUnplayedTurns}, so a turn whose provisional
+   * draft was executed on the clock counts.
+   */
+  turnsActed: number;
   ticksUnderPressure: number | null;
   userTier: UserTier;
   turnSubmission: TurnSubmission | null;
@@ -108,6 +114,8 @@ export interface PlayerInfo {
   passed: boolean;
   defeated: boolean;
   consecutiveUnplayedTurns: number;
+  /** See {@link Player.turnsActed}. */
+  turnsActed: number;
   ticksUnderPressure: number | null;
   userTier: UserTier;
   avatarId?: number;
