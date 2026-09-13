@@ -1768,5 +1768,9 @@
     "chooseHuman": "Choose a human player with surviving units.",
     "error": "Could not load or save this battle. Please try again.",
     "import": "Import battle"
+  },
+  "turnRecovery": {
+    "pending": "Updating the battle…",
+    "failed": "Couldn’t update the battle."
   }
 }
