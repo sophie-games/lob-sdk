@@ -1,4 +1,9 @@
 {
+  "orderUndo": {
+    "title": "撤销上一条命令",
+    "description": "恢复之前的命令。受影响单位：{{count}}。",
+    "empty": "没有可撤销的命令。"
+  },
   "otherGameModes": "其他游戏模式",
   "partyWaitingForTeammate": "等待队友",
   "orderSpeed": "指令",

@@ -1,4 +1,9 @@
 {
+  "orderUndo": {
+    "title": "直前の命令を取り消す",
+    "description": "以前の命令に戻します。対象部隊数：{{count}}。",
+    "empty": "取り消せる命令はありません。"
+  },
   "otherGameModes": "その他のゲームモード",
   "partyWaitingForTeammate": "チームメイトを待っています",
   "orderSpeed": "命令",

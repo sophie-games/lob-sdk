@@ -1,4 +1,9 @@
 {
+  "orderUndo": {
+    "title": "Batalkan perintah terakhir",
+    "description": "Pulihkan perintah sebelumnya. Unit terdampak: {{count}}.",
+    "empty": "Tidak ada perintah untuk dibatalkan."
+  },
   "otherGameModes": "Mode permainan lainnya",
   "partyWaitingForTeammate": "Menunggu rekan tim",
   "orderSpeed": "Perintah",

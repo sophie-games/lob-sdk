@@ -1,4 +1,9 @@
 {
+  "orderUndo": {
+    "title": "Letzten Befehl rückgängig machen",
+    "description": "Vorherige Befehle wiederherstellen. Betroffene Einheiten: {{count}}.",
+    "empty": "Keine Befehle zum Rückgängigmachen."
+  },
   "otherGameModes": "Weitere Spielmodi",
   "partyWaitingForTeammate": "Warte auf Mitspieler",
   "orderSpeed": "Befehl",

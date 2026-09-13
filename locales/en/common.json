@@ -1,4 +1,9 @@
 {
+  "orderUndo": {
+    "title": "Undo last order",
+    "description": "Restore the previous orders. Affected units: {{count}}.",
+    "empty": "No orders to undo."
+  },
   "otherGameModes": "Other game modes",
   "partyWaitingForTeammate": "Waiting for teammate",
   "orderSpeed": "Order",

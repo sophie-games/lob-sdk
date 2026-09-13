@@ -1,4 +1,9 @@
 {
+  "orderUndo": {
+    "title": "마지막 명령 취소",
+    "description": "이전 명령을 복원합니다. 영향받는 부대: {{count}}.",
+    "empty": "취소할 명령이 없습니다."
+  },
   "otherGameModes": "다른 게임 모드",
   "partyWaitingForTeammate": "팀원 기다리는 중",
   "orderSpeed": "명령",

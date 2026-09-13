@@ -1,4 +1,9 @@
 {
+  "orderUndo": {
+    "title": "التراجع عن آخر أمر",
+    "description": "استعادة الأوامر السابقة. الوحدات المتأثرة: {{count}}.",
+    "empty": "لا توجد أوامر للتراجع عنها."
+  },
   "otherGameModes": "أوضاع لعب أخرى",
   "partyWaitingForTeammate": "بانتظار زميل",
   "orderSpeed": "الأمر",

@@ -1,4 +1,9 @@
 {
+  "orderUndo": {
+    "title": "Deshacer última orden",
+    "description": "Restaurar las órdenes anteriores. Unidades afectadas: {{count}}.",
+    "empty": "No hay órdenes para deshacer."
+  },
   "otherGameModes": "Otros modos",
   "partyWaitingForTeammate": "Esperando compañero",
   "orderSpeed": "Orden",

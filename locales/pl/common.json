@@ -1,4 +1,9 @@
 {
+  "orderUndo": {
+    "title": "Cofnij ostatni rozkaz",
+    "description": "Przywróć poprzednie rozkazy. Liczba jednostek: {{count}}.",
+    "empty": "Brak rozkazów do cofnięcia."
+  },
   "otherGameModes": "Inne tryby gry",
   "partyWaitingForTeammate": "Oczekiwanie na członka drużyny",
   "orderSpeed": "Rozkaz",

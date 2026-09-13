@@ -1,4 +1,9 @@
 {
+  "orderUndo": {
+    "title": "Annuler le dernier ordre",
+    "description": "Rétablir les ordres précédents. Unités concernées : {{count}}.",
+    "empty": "Aucun ordre à annuler."
+  },
   "otherGameModes": "Autres modes de jeu",
   "partyWaitingForTeammate": "En attente d’un coéquipier",
   "orderSpeed": "Ordre",

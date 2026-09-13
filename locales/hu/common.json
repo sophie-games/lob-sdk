@@ -1,4 +1,9 @@
 {
+  "orderUndo": {
+    "title": "Utolsó parancs visszavonása",
+    "description": "Korábbi parancsok visszaállítása. Érintett egységek: {{count}}.",
+    "empty": "Nincs visszavonható parancs."
+  },
   "otherGameModes": "További játékmódok",
   "partyWaitingForTeammate": "Várakozás csapattársra",
   "orderSpeed": "Parancs",
