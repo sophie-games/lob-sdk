@@ -613,7 +613,7 @@ export class ArmyDeployer {
     )?.amount ?? 0;
   }
 
-  /** The weighted contribution and next spawn threshold, using the deployment rounding rules. */
+  /** The weighted contribution, cost per skirmisher and next spawn threshold. */
   static getSkirmisherAllocation(
     gameDataManager: GameDataManager,
     units: UnitCounts,
@@ -633,6 +633,7 @@ export class ArmyDeployer {
     return {
       amount: groups * skirmishersPerGroup,
       weightedTotal,
+      coreUnitsPerSkirmisher: coreUnitsPerGroup / skirmishersPerGroup,
       nextBreakpoint: Math.ceil((groups + 1) * coreUnitsPerGroup),
     };
   }
