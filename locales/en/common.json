@@ -1663,7 +1663,8 @@
   },
   "pcHud": {
     "selection": "Selection",
-    "waiting": "{{count}} units still have no orders",
+    "waiting": "{{count}} unit still has no orders",
+    "waiting_other": "{{count}} units still have no orders",
     "nextIdle": "Next without orders",
     "noOrder": "No orders this turn",
     "battleKeysOff": "Battle keys off · Esc",
