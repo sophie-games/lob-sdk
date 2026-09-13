@@ -311,7 +311,7 @@ export interface ManagedGameClientInfo {
  * Stores additional game information that doesn't affect gameplay.
  */
 export interface GameMetadata {
-  /** Fast ranked 1v1 accepted by both players before creation; opening forfeits settle normally. */
+  /** Fast ranked match accepted by every player before creation; opening forfeits settle normally. */
   rankedAcceptanceId?: string;
   /** Whether the game ended with a conquest victory. */
   conquestVictory?: boolean;
