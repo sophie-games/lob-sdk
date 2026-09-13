@@ -9,7 +9,7 @@ describe("ArmyDeployer", () => {
     it("sums count times ratio and ignores units without a contribution", () => {
       const result = ArmyDeployer.getSkirmisherAllocation(gameDataManager, { 1: 2, 7: 3, 2: 4, 16: 9 }, "micro");
       expect(result?.weightedTotal).toBeCloseTo(5.6);
-      expect(result).toMatchObject({ amount: 2, nextBreakpoint: 6 });
+      expect(result).toMatchObject({ amount: 2, coreUnitsPerSkirmisher: 2, nextBreakpoint: 6 });
       expect(ArmyDeployer.getSkirmishersAmount(gameDataManager, { 1: 2, 7: 3, 2: 4, 16: 9 }, "micro")).toBe(result?.amount);
     });
 
@@ -17,7 +17,7 @@ describe("ArmyDeployer", () => {
       [0, 0, 2], [1, 0, 2], [2, 1, 4], [4, 2, 6],
     ])("reports the next threshold for %i line infantry", (count, amount, nextBreakpoint) => {
       expect(ArmyDeployer.getSkirmisherAllocation(gameDataManager, { 1: count }, "micro"))
-        .toEqual({ amount, weightedTotal: count, nextBreakpoint });
+        .toEqual({ amount, weightedTotal: count, coreUnitsPerSkirmisher: 2, nextBreakpoint });
     });
 
     it("uses battle-type ratios and the same integer rounding as deployment", () => {
@@ -28,9 +28,9 @@ describe("ArmyDeployer", () => {
         ...gameDataManager.getBattleType("micro"), skirmisherRatio: [2, 2.5],
       });
       expect(ArmyDeployer.getSkirmisherAllocation(custom, { 1: 2, 7: 0.5 }, "micro"))
-        .toEqual({ amount: 0, weightedTotal: 2.6, nextBreakpoint: 3 });
+        .toEqual({ amount: 0, weightedTotal: 2.6, coreUnitsPerSkirmisher: 1.25, nextBreakpoint: 3 });
       expect(ArmyDeployer.getSkirmisherAllocation(custom, { 1: 3 }, "micro"))
-        .toEqual({ amount: 2, weightedTotal: 3, nextBreakpoint: 5 });
+        .toEqual({ amount: 2, weightedTotal: 3, coreUnitsPerSkirmisher: 1.25, nextBreakpoint: 5 });
     });
 
     it("does not show a threshold when automatic skirmishers are disabled by the ratio", () => {
