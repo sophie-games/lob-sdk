@@ -223,6 +223,7 @@
     "matchFound": "Once a match is found, you will be redirected to the game.",
     "cancelledBy": "The queue was cancelled by {{username}}.",
     "cancelledByRestriction": "The queue was cancelled: fast ranked matchmaking is restricted for {{username}} for {{minutes}} more min.",
+    "cancelledByBattle": "The queue was cancelled: {{username}} is already in a fast battle. Finish or rejoin it before searching together.",
     "playersInQueue": "{{count}} players searching",
     "disconnectedReconnecting": "Connection Lost. Reconnecting",
     "eloBoostActive": "Elo boost ×{{multiplier}} active",
