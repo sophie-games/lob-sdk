@@ -1211,5 +1211,28 @@
   "orderOfBattle": {
     "showArmy": "Orduyu göster",
     "hideArmy": "Orduyu gizle"
+  },
+  "matchAcceptance": {
+    "firstRejection": "Yenilgi veya Elo kaybı yok. 24 saat içinde başka bir teklifi reddetmek veya kaçırmak hızlı dereceli eşleşmeyi 2 dakika kısıtlar.",
+    "restrictionTitle": "Eşleştirme geçici olarak kısıtlandı",
+    "restriction": "Birden fazla teklif reddedildi veya kaçırıldı. Hızlı dereceli eşleşme {{minutes}} dakika daha kısıtlı. Özel ve çevrimdışı oyunlar kullanılabilir.",
+    "restrictionEnded": "Kısıtlama sona erdi. Yeniden arayabilirsin.",
+    "rulesTitle": "Dereceli kuralları",
+    "rules": "Hızlı dereceli savaş, tüm oyuncular kabul edince başlar. Sonrasında ayrılmak ilk turda bile normal yenilgi sayılır; ek otomatik yasak uygulanmaz. 24 saat içinde alınan teklifleri reddetmek veya kaçırmak önce uyarı, sonra 2, 10 ve 60 dakikalık kısıtlamalar getirir; üst sınır 60 dakikadır. Reddetmek Elo düşürmez.",
+
+    "ready": "Dereceli · Hızlı",
+    "accept": "Maçı kabul et",
+    "decline": "Reddet",
+    "timeRemaining": "Kalan süre: {{count}} sn",
+    "sending": "Yanıtın onaylanıyor…",
+    "waiting": "Kabul ettin. Diğer oyuncular bekleniyor…",
+    "creating": "Tüm oyuncular kabul etti. Savaş hazırlanıyor…",
+    "reconnecting": "Yeniden bağlanılıyor…",
+    "error": "Yanıtın onaylanamadı. Tekrar dene.",
+    "ended": "Maç teklifi sona erdi",
+    "requeued": "Başka bir oyuncu onaylamadı. Bekleme önceliğin korunarak sıraya döndün.",
+    "noLoss": "Teklif yenilgi olmadan sona erdi. Yeniden arayabilirsin.",
+    "failed": "Savaşın oluşturulduğu doğrulanamadı. Yeniden aramadan önce kontrol et.",
+    "checkGame": "Maçı kontrol et"
   }
 }

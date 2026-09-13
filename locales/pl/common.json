@@ -1302,5 +1302,28 @@
   "orderOfBattle": {
     "showArmy": "Pokaż armię",
     "hideArmy": "Ukryj armię"
+  },
+  "matchAcceptance": {
+    "firstRejection": "Bez porażki i utraty Elo. Odrzucenie lub pominięcie kolejnej propozycji w ciągu 24 godzin zablokuje szybki tryb rankingowy na 2 minuty.",
+    "restrictionTitle": "Wyszukiwanie tymczasowo zablokowane",
+    "restriction": "Kilka propozycji odrzucono lub pominięto. Szybki tryb rankingowy jest zablokowany jeszcze przez {{minutes}} min. Gry prywatne i offline są dostępne.",
+    "restrictionEnded": "Blokada wygasła. Możesz znów szukać gry.",
+    "rulesTitle": "Zasady rankingu",
+    "rules": "Szybka bitwa rankingowa zaczyna się po akceptacji wszystkich graczy. Opuszczenie gry oznacza zwykłą porażkę, także w pierwszej turze, bez dodatkowej automatycznej blokady. Odrzucanie lub pomijanie otrzymanych propozycji w ciągu 24 godzin daje ostrzeżenie, następnie blokady na 2, 10 i 60 minut, maksymalnie 60. Odmowa nie kosztuje Elo.",
+
+    "ready": "Rankingowy · Szybki",
+    "accept": "Akceptuj mecz",
+    "decline": "Odrzuć",
+    "timeRemaining": "Pozostały czas: {{count}} s",
+    "sending": "Potwierdzanie odpowiedzi…",
+    "waiting": "Zaakceptowano. Oczekiwanie na pozostałych graczy…",
+    "creating": "Wszyscy zaakceptowali. Przygotowywanie bitwy…",
+    "reconnecting": "Ponowne łączenie…",
+    "error": "Nie udało się potwierdzić odpowiedzi. Spróbuj ponownie.",
+    "ended": "Propozycja meczu zakończona",
+    "requeued": "Inny gracz nie potwierdził. Wracasz do kolejki z zachowaniem priorytetu oczekiwania.",
+    "noLoss": "Propozycja zakończyła się bez porażki. Możesz szukać ponownie.",
+    "failed": "Nie udało się potwierdzić utworzenia bitwy. Sprawdź przed kolejnym wyszukiwaniem.",
+    "checkGame": "Sprawdź mecz"
   }
 }

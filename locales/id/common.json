@@ -1214,5 +1214,28 @@
   "orderOfBattle": {
     "showArmy": "Tampilkan pasukan",
     "hideArmy": "Sembunyikan pasukan"
+  },
+  "matchAcceptance": {
+    "firstRejection": "Tidak ada kekalahan atau kehilangan Elo. Menolak atau melewatkan tawaran lain dalam 24 jam membatasi ranked cepat selama 2 menit.",
+    "restrictionTitle": "Pencarian dibatasi sementara",
+    "restriction": "Beberapa tawaran ditolak atau terlewat. Ranked cepat dibatasi {{minutes}} menit lagi. Game privat dan offline tetap tersedia.",
+    "restrictionEnded": "Pembatasan berakhir. Kamu dapat mencari lagi.",
+    "rulesTitle": "Aturan ranked",
+    "rules": "Pertempuran ranked cepat dimulai setelah semua pemain menerima. Meninggalkan pertempuran dihitung sebagai kekalahan normal, bahkan pada giliran pertama, tanpa larangan otomatis tambahan. Menolak atau melewatkan tawaran yang diterima dalam 24 jam menghasilkan peringatan, lalu pembatasan 2, 10, dan 60 menit, maksimal 60 menit. Menolak tidak mengurangi Elo.",
+
+    "ready": "Peringkat · Cepat",
+    "accept": "Terima pertandingan",
+    "decline": "Tolak",
+    "timeRemaining": "Sisa waktu: {{count}} dtk",
+    "sending": "Mengonfirmasi jawabanmu…",
+    "waiting": "Diterima. Menunggu pemain lainnya…",
+    "creating": "Semua menerima. Menyiapkan pertempuran…",
+    "reconnecting": "Menghubungkan kembali…",
+    "error": "Jawabanmu tidak dapat dikonfirmasi. Coba lagi.",
+    "ended": "Tawaran pertandingan berakhir",
+    "requeued": "Pemain lain tidak mengonfirmasi. Kamu kembali ke antrean dengan prioritas menunggu tetap terjaga.",
+    "noLoss": "Tawaran berakhir tanpa kekalahan. Kamu bisa mencari lagi.",
+    "failed": "Pembuatan pertempuran belum dapat dikonfirmasi. Periksa sebelum mencari lagi.",
+    "checkGame": "Periksa pertandingan"
   }
 }

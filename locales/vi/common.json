@@ -1349,5 +1349,28 @@
   "orderOfBattle": {
     "showArmy": "Hiện quân đội",
     "hideArmy": "Ẩn quân đội"
+  },
+  "matchAcceptance": {
+    "firstRejection": "Không tính thua hay mất Elo. Từ chối hoặc bỏ lỡ đề nghị khác trong 24 giờ sẽ hạn chế xếp hạng nhanh trong 2 phút.",
+    "restrictionTitle": "Tạm hạn chế tìm trận",
+    "restriction": "Bạn đã từ chối hoặc bỏ lỡ nhiều đề nghị. Xếp hạng nhanh bị hạn chế thêm {{minutes}} phút. Vẫn có thể chơi trận riêng và ngoại tuyến.",
+    "restrictionEnded": "Hạn chế đã kết thúc. Bạn có thể tìm trận lại.",
+    "rulesTitle": "Luật xếp hạng",
+    "rules": "Trận xếp hạng nhanh bắt đầu khi tất cả người chơi chấp nhận. Sau đó bỏ trận được tính là thua bình thường, kể cả lượt đầu, không có lệnh cấm tự động bổ sung. Từ chối hoặc bỏ lỡ đề nghị đã nhận trong 24 giờ sẽ bị cảnh báo, rồi hạn chế 2, 10 và 60 phút, tối đa 60 phút. Từ chối không mất Elo.",
+
+    "ready": "Xếp hạng · Nhanh",
+    "accept": "Chấp nhận trận",
+    "decline": "Từ chối",
+    "timeRemaining": "Thời gian còn lại: {{count}} giây",
+    "sending": "Đang xác nhận phản hồi…",
+    "waiting": "Đã chấp nhận. Đang chờ những người chơi khác…",
+    "creating": "Tất cả đã chấp nhận. Đang chuẩn bị trận…",
+    "reconnecting": "Đang kết nối lại…",
+    "error": "Không thể xác nhận phản hồi. Vui lòng thử lại.",
+    "ended": "Đề nghị trận đã kết thúc",
+    "requeued": "Một người chơi khác không xác nhận. Bạn đã trở lại hàng chờ và giữ nguyên ưu tiên chờ.",
+    "noLoss": "Đề nghị kết thúc mà không tính thua. Bạn có thể tìm lại.",
+    "failed": "Chưa thể xác nhận trận đã được tạo. Hãy kiểm tra trước khi tìm lại.",
+    "checkGame": "Kiểm tra trận"
   }
 }
