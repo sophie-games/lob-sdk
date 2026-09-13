@@ -222,6 +222,7 @@
     "inQueue": "You are now in the matchmaking queue! The system is searching for another player who has selected the same settings as you.",
     "matchFound": "Once a match is found, you will be redirected to the game.",
     "cancelledBy": "The queue was cancelled by {{username}}.",
+    "cancelledByRestriction": "The queue was cancelled: fast ranked matchmaking is restricted for {{username}} for {{minutes}} more min.",
     "playersInQueue": "{{count}} players searching",
     "disconnectedReconnecting": "Connection Lost. Reconnecting",
     "eloBoostActive": "Elo boost ×{{multiplier}} active",
