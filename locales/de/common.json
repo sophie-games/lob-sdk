@@ -1184,5 +1184,21 @@
     "relativeTo": "Die Prozentwerte zeigen den Unterschied dieser Einheit gegenüber {{unit}}.",
     "stat": "Eigenschaft",
     "unavailable": "— bedeutet nicht verfügbar oder nicht zutreffend."
+  },
+  "battleContinuation": {
+    "exports": "Speichern oder exportieren",
+    "continueOffline": "Offline fortsetzen",
+    "replaceTitle": "Gespeicherte Schlacht ersetzen?",
+    "replace": "Ersetzen und fortsetzen",
+    "noUnits": "Keine überlebenden Einheiten",
+    "title": "Schlacht fortsetzen",
+    "description": "Starte eine neue Offline-Schlacht aus dieser Position. Die Punkte werden zurückgesetzt; die vollständige Wiederholung behält die ursprünglichen Aktionen.",
+    "additionalTurns": "Zusätzliche Runden",
+    "download": "Schlacht herunterladen",
+    "exportScenario": "Szenario exportieren",
+    "scenarioHint": "Das Szenario ist bearbeitbar. Die Schlachtdatei enthält auch die Wiederholung.",
+    "chooseHuman": "Wähle einen menschlichen Spieler mit überlebenden Einheiten.",
+    "error": "Diese Schlacht konnte nicht geladen oder gespeichert werden. Bitte erneut versuchen.",
+    "import": "Schlacht importieren"
   }
 }

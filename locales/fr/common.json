@@ -1194,5 +1194,21 @@
     "relativeTo": "Les pourcentages indiquent l’écart de cette unité par rapport à {{unit}}.",
     "stat": "Attribut",
     "unavailable": "— indique une valeur indisponible ou non applicable."
+  },
+  "battleContinuation": {
+    "exports": "Enregistrer ou exporter",
+    "continueOffline": "Continuer hors ligne",
+    "replaceTitle": "Remplacer la bataille sauvegardée ?",
+    "replace": "Remplacer et continuer",
+    "noUnits": "Aucune unité survivante",
+    "title": "Continuer la bataille",
+    "description": "Lancez une nouvelle bataille hors ligne depuis cette position. Les points sont réinitialisés ; le replay complet conserve les actions originales.",
+    "additionalTurns": "Tours supplémentaires",
+    "download": "Télécharger la bataille",
+    "exportScenario": "Exporter le scénario",
+    "scenarioHint": "Le scénario est modifiable. Le fichier de bataille conserve aussi le replay.",
+    "chooseHuman": "Choisissez un joueur humain avec des unités survivantes.",
+    "error": "Impossible de charger ou sauvegarder cette bataille. Réessayez.",
+    "import": "Importer une bataille"
   }
 }

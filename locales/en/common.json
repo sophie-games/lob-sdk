@@ -1747,5 +1747,21 @@
     "relativeTo": "Percentages show this unit’s difference relative to {{unit}}.",
     "stat": "Attribute",
     "unavailable": "— means unavailable or not applicable."
+  },
+  "battleContinuation": {
+    "exports": "Save or export",
+    "continueOffline": "Continue offline",
+    "replaceTitle": "Replace saved battle?",
+    "replace": "Replace and continue",
+    "noUnits": "No surviving units",
+    "title": "Continue battle",
+    "description": "Start a new offline battle from this position. Scores restart; the full replay keeps the original actions.",
+    "additionalTurns": "Additional turns",
+    "download": "Download battle",
+    "exportScenario": "Export scenario",
+    "scenarioHint": "The scenario is editable. The battle file also preserves the replay.",
+    "chooseHuman": "Choose a human player with surviving units.",
+    "error": "Could not load or save this battle. Please try again.",
+    "import": "Import battle"
   }
 }

@@ -1438,5 +1438,21 @@
     "relativeTo": "百分比表示本单位相对于{{unit}}的差异。",
     "stat": "属性",
     "unavailable": "— 表示数值不可用或不适用。"
+  },
+  "battleContinuation": {
+    "exports": "保存或导出",
+    "continueOffline": "离线继续",
+    "replaceTitle": "替换已保存的战斗？",
+    "replace": "替换并继续",
+    "noUnits": "没有幸存单位",
+    "title": "继续战斗",
+    "description": "从此位置开始新的离线战斗。分数将重置；完整回放会保留原始行动。",
+    "additionalTurns": "额外回合",
+    "download": "下载战斗",
+    "exportScenario": "导出场景",
+    "scenarioHint": "场景可以编辑。战斗文件还会保留回放。",
+    "chooseHuman": "请选择仍有存活单位的人类玩家。",
+    "error": "无法加载或保存此战斗，请重试。",
+    "import": "导入战斗"
   }
 }

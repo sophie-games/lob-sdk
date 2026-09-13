@@ -1184,5 +1184,21 @@
     "relativeTo": "As percentagens indicam a diferença desta unidade em relação a {{unit}}.",
     "stat": "Atributo",
     "unavailable": "— indica um valor indisponível ou não aplicável."
+  },
+  "battleContinuation": {
+    "exports": "Salvar ou exportar",
+    "continueOffline": "Continuar offline",
+    "replaceTitle": "Substituir a batalha salva?",
+    "replace": "Substituir e continuar",
+    "noUnits": "Sem unidades sobreviventes",
+    "title": "Continuar batalha",
+    "description": "Inicie uma nova batalha offline desta posição. Os pontos recomeçam; o replay completo mantém as ações originais.",
+    "additionalTurns": "Turnos adicionais",
+    "download": "Baixar batalha",
+    "exportScenario": "Exportar cenário",
+    "scenarioHint": "O cenário pode ser editado. O arquivo da batalha também preserva o replay.",
+    "chooseHuman": "Escolha um jogador humano com unidades sobreviventes.",
+    "error": "Não foi possível carregar ou salvar esta batalha. Tente novamente.",
+    "import": "Importar batalha"
   }
 }

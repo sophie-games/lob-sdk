@@ -1145,5 +1145,21 @@
     "relativeTo": "A százalékok ezen egység eltérését mutatják ehhez képest: {{unit}}.",
     "stat": "Tulajdonság",
     "unavailable": "—: nem elérhető vagy nem alkalmazható érték."
+  },
+  "battleContinuation": {
+    "exports": "Mentés vagy exportálás",
+    "continueOffline": "Folytatás offline",
+    "replaceTitle": "Lecseréled a mentett csatát?",
+    "replace": "Csere és folytatás",
+    "noUnits": "Nincsenek túlélő egységek",
+    "title": "Csata folytatása",
+    "description": "Indíts új offline csatát ebből az állásból. A pontok újraindulnak; a teljes visszajátszás megőrzi az eredeti akciókat.",
+    "additionalTurns": "További körök",
+    "download": "Csata letöltése",
+    "exportScenario": "Forgatókönyv exportálása",
+    "scenarioHint": "A forgatókönyv szerkeszthető. A csatafájl a visszajátszást is megőrzi.",
+    "chooseHuman": "Válassz egy emberi játékost túlélő egységekkel.",
+    "error": "A csatát nem sikerült betölteni vagy menteni. Próbáld újra.",
+    "import": "Csata importálása"
   }
 }

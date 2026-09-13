@@ -1274,5 +1274,21 @@
     "relativeTo": "Procenty pokazują różnicę tej jednostki względem {{unit}}.",
     "stat": "Cecha",
     "unavailable": "— oznacza wartość niedostępną lub niemającą zastosowania."
+  },
+  "battleContinuation": {
+    "exports": "Zapisz lub eksportuj",
+    "continueOffline": "Kontynuuj offline",
+    "replaceTitle": "Zastąpić zapisaną bitwę?",
+    "replace": "Zastąp i kontynuuj",
+    "noUnits": "Brak ocalałych jednostek",
+    "title": "Kontynuuj bitwę",
+    "description": "Rozpocznij nową bitwę offline z tej pozycji. Punkty są resetowane; pełna powtórka zachowuje oryginalne akcje.",
+    "additionalTurns": "Dodatkowe tury",
+    "download": "Pobierz bitwę",
+    "exportScenario": "Eksportuj scenariusz",
+    "scenarioHint": "Scenariusz można edytować. Plik bitwy zachowuje również powtórkę.",
+    "chooseHuman": "Wybierz gracza ludzkiego z ocalałymi jednostkami.",
+    "error": "Nie udało się wczytać lub zapisać bitwy. Spróbuj ponownie.",
+    "import": "Importuj bitwę"
   }
 }
