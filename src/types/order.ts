@@ -63,6 +63,16 @@ export interface WalkOrder
   maintainAllySpacing?: boolean;
   /** Speed ceiling for units moving together as a formation. */
   pace?: number;
+  /**
+   * The formation this order was given to, when it was given to one as a whole:
+   * a shared token across every member's order, so the client can draw the body
+   * one arrow. Absent on an order given to a unit on its own.
+   *
+   * Carried rather than inferred: pace comes from a template constant, so two
+   * brigades of the same unit type sent to opposite places look identical to
+   * anything that guesses from it.
+   */
+  body?: EntityId;
 }
 
 /**
@@ -93,6 +103,16 @@ export interface FallbackOrder
    * slowest member's pace when the order was given to more than one unit.
    */
   pace?: number;
+  /**
+   * The formation this order was given to, when it was given to one as a whole:
+   * a shared token across every member's order, so the client can draw the body
+   * one arrow. Absent on an order given to a unit on its own.
+   *
+   * Carried rather than inferred: pace comes from a template constant, so two
+   * brigades of the same unit type sent to opposite places look identical to
+   * anything that guesses from it.
+   */
+  body?: EntityId;
 }
 
 /**
@@ -124,6 +144,16 @@ export interface RunOrder extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
    * slowest member's pace when the order was given to more than one unit.
    */
   pace?: number;
+  /**
+   * The formation this order was given to, when it was given to one as a whole:
+   * a shared token across every member's order, so the client can draw the body
+   * one arrow. Absent on an order given to a unit on its own.
+   *
+   * Carried rather than inferred: pace comes from a template constant, so two
+   * brigades of the same unit type sent to opposite places look identical to
+   * anything that guesses from it.
+   */
+  body?: EntityId;
 }
 
 /**
@@ -209,6 +239,16 @@ export interface FireAndAdvanceOnPathOrder
    * slowest member's pace when the order was given to more than one unit.
    */
   pace?: number;
+  /**
+   * The formation this order was given to, when it was given to one as a whole:
+   * a shared token across every member's order, so the client can draw the body
+   * one arrow. Absent on an order given to a unit on its own.
+   *
+   * Carried rather than inferred: pace comes from a template constant, so two
+   * brigades of the same unit type sent to opposite places look identical to
+   * anything that guesses from it.
+   */
+  body?: EntityId;
 }
 
 /**
