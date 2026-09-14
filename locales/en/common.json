@@ -727,6 +727,7 @@
     "2": "Run",
     "3": "Shoot",
     "4": "Fire and Advance",
+    "5": "Deploy",
     "6": "Fallback",
     "7": "Face",
     "mixed": "Mixed"
@@ -1664,7 +1665,8 @@
   },
   "pcHud": {
     "selection": "Selection",
-    "waiting": "{{count}} units still have no orders",
+    "waiting": "{{count}} unit still has no orders",
+    "waiting_other": "{{count}} units still have no orders",
     "nextIdle": "Next without orders",
     "noOrder": "No orders this turn",
     "battleKeysOff": "Battle keys off · Esc",
@@ -1697,6 +1699,7 @@
     "selectDivision": "Select units still waiting for orders, or the whole division when all have orders. Double-tap or double-click to centre the map.",
     "selectUnit": "Select this unit. Double-tap or double-click to centre the map.",
     "formation": "Apply this formation to selected units that support it.",
+    "orderType": "Choose the order the next map drag gives the selection.",
     "orders": {
       "1": "Choose walking for the next movement order.",
       "2": "Choose running for the next movement order.",
