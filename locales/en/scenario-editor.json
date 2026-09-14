@@ -3,6 +3,9 @@
     "title": "Export map image",
     "description": "Export the entire terrain without units, grid lines or editor overlays. Map proportions are preserved.",
     "resolution": "Longest edge",
+    "resolution4k": "4K — 3840 px",
+    "resolution8k": "8K — 7680 px",
+    "size": "PNG · {{width}} × {{height}} px",
     "progress": "Rendering… {{percent}}%",
     "error": "Could not export this image. Try 4K or a smaller map.",
     "download": "Download PNG"
@@ -433,6 +436,7 @@
       "canShootLocation": "Can shoot at location",
       "aimMode": "Aim mode",
       "maxRange": "Max range",
+      "preferredRange": "Preferred range (% of max)",
       "engagementTier": "Autofire tier",
       "shotImpactAnim": "Impact animation",
       "bandName": "Range band"

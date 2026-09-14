@@ -26,6 +26,7 @@ import {
   UnitCategoryTemplate,
 } from "@lob-sdk/game-data-manager";
 import { MIN_COLLISION_LEVEL } from "@lob-sdk/constants";
+import { standoffDistance as computeStandoffDistance } from "@lob-sdk/unit/weapon-range";
 import {
   checkCollision,
   degreesToRadians,
@@ -168,7 +169,19 @@ export abstract class BaseUnit extends Entity {
   get supplyConsumptionCombating(): number | undefined { return this.template.supplyConsumptionCombating; }
 
   get fireWhileMoving(): boolean { return (this.template as RangeUnitTemplate).fireWhileMoving ?? false; }
-  get minDistanceToFAA(): number { return (this.template as RangeUnitTemplate).minDistanceToFAA ?? 0; }
+  /**
+   * How close this unit closes on a target before it stops and fights: the nearest
+   * `preferredRange` among the weapons it is firing at its current engagement tier, never
+   * further out than that weapon reaches. Fire and advance stops here.
+   */
+  get standoffDistance(): number {
+    return computeStandoffDistance({
+      rangedDamageTypes: this.rangedDamageTypes ?? [],
+      tier: this.autofireRange,
+      legacyStandoff: (this.template as RangeUnitTemplate).minDistanceToFAA,
+      gameDataManager: this.gameDataManager,
+    });
+  }
   get panicFireDistance(): number { return (this.template as RangeUnitTemplate).panicFireDistance ?? 0; }
   get noAmmoRegain(): boolean { return (this.template as RangeUnitTemplate).noAmmoRegain ?? false; }
   get unlimberTime(): number { return this.template.unlimberTime ?? 0; }

@@ -55,7 +55,8 @@ export interface GameDataManagerConfig {
 export type BaseSpeed = "walk" | "run";
 
 export interface RoutingBehavior {
-  baseSpeed: BaseSpeed;
+  /** Omitted by categories that only set `fleeWhenRouted`; treated as "walk". */
+  baseSpeed?: BaseSpeed;
   /** Whether the unit flees when in Routed state. Defaults to true. */
   fleeWhenRouted?: boolean;
 }
@@ -389,6 +390,11 @@ export type AoeConfig = CircularAoEConfig | TrapezoidalAoeConfig;
 export interface MeleeDamageTypeTemplate {
   id: number;
   name: string;
+  /**
+   * Display grouping: damage types sharing a category collapse into one row
+   * (with the range of their values) in the stat panels. Purely presentational.
+   */
+  category?: string;
   ranged?: false;
   ammoCost?: never;
   damageModifier?: number;
@@ -457,6 +463,11 @@ export enum ShotAimMode {
 export interface RangedDamageTypeTemplate {
   id: number;
   name: string;
+  /**
+   * Display grouping: damage types sharing a category collapse into one row
+   * (with the range of their values) in the stat panels. Purely presentational.
+   */
+  category?: string;
   ranged: true;
   projectileWidth: number;
   damageModifier?: number;
@@ -474,6 +485,13 @@ export interface RangedDamageTypeTemplate {
   damageModifierByTargetHp?: TargetStatModifier;
   /** Weapon's max range (absolute); each band's `from`/`to` is a fraction of this. */
   maxRange: number;
+  /**
+   * The range this weapon wants to fight at, as a fraction of `maxRange`. A unit advancing
+   * under fire and advance stops at the nearest preference among the weapons it is firing,
+   * never further out than that weapon can reach. Omit for a weapon that gives no reason to
+   * close, such as round shot or a shell: it then has no say in where the unit stops.
+   */
+  preferredRange?: number;
   ranges: DamageTypeRange[];
   arcHeight?: number;
   /**

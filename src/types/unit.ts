@@ -318,7 +318,11 @@ export interface RangeUnitTemplate extends BaseUnitTemplate {
   rangedAttack: number;
   rangedDamageTypes: string[];
   fireWhileMoving?: boolean;
-  /** Min distance to fire and advance */
+  /**
+   * @deprecated Absolute stand-off in px. Superseded by the weapons' own `preferredRange`;
+   * still honoured (and clamped to what the unit can reach) so custom scenarios saved with it
+   * keep their behaviour.
+   */
   minDistanceToFAA?: number;
   /** Ammo system properties for artillery */
   ammo?: number;
