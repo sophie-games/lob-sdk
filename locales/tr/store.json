@@ -1,7 +1,7 @@
 {
   "currencyShop": {
     "title": "<0/> Al",
-    "subtitle": "Harika kozmetiklerin kilidini aç ve kalabalığın arasından sıyrıl!",
+    "subtitle": "Prestij'i birimler, ordular, Arenalar, Coalitions, kozmetikler ve daha fazlası için harca.",
     "unavailable": "Mağaza şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin."
   },
 
@@ -11,7 +11,7 @@
     "basic": "Florin",
     "premium": "Prestij",
     "basicDescription": "<currency/>: Bunu kuyrukta maç oynayarak kazan. Birimleri işe almak ve ordunu kurmak için kullan.",
-    "premiumDescription": "<currency/>: Bu, tarzını göstermek için kozmetik satın almak içindir. Oyun ücretsiz olduğu için genellikle gerçek para harcanarak elde edilir.",
+    "premiumDescription": "<currency/>: Oyunun her yerinde birimler, ordular, Arenalar, Coalitions, kozmetikler ve daha fazlası için harca. Satın al ya da oynayarak kazan.",
     "rate": "USD başına {{rate}} {{currency}}",
     "purchase": "{{amount}} {{currency}} Satın Al"
   },
@@ -29,5 +29,6 @@
   },
 
   "purchaseConfirmation": "{{item}} satın almak istediğinizden emin misiniz?",
+  "showPurchased": "Satın alınanları göster",
   "offlineWarning": "Satın alınan öğeler yalnızca çevrimiçi modda çalışır, çevrimdışı modda çalışmaz."
 }

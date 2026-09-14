@@ -1,7 +1,7 @@
 {
   "currencyShop": {
     "title": "Obtenha <0/>",
-    "subtitle": "Desbloqueie cosméticos incríveis e destaque-se da multidão!",
+    "subtitle": "Gaste Prestígio em unidades, exércitos, Arenas, Coalitions, cosméticos e muito mais.",
     "unavailable": "A loja está indisponível no momento. Tente novamente mais tarde."
   },
 
@@ -11,7 +11,7 @@
     "basic": "Florins",
     "premium": "Prestígio",
     "basicDescription": "<currency/>: Ganhe isso jogando partidas na fila. Use-o para recrutar unidades e construir seu exército.",
-    "premiumDescription": "<currency/>: Esta é para comprar cosméticos e exibir seu estilo. Geralmente vem de gastar dinheiro real, já que o jogo é gratuito para jogar.",
+    "premiumDescription": "<currency/>: Gaste em todo o jogo em unidades, exércitos, Arenas, Coalitions, cosméticos e muito mais. Compre ou ganhe jogando.",
     "rate": "{{rate}} {{currency}} por USD",
     "purchase": "Compre {{amount}} {{currency}}"
   },
@@ -29,5 +29,6 @@
   },
 
   "purchaseConfirmation": "Tem certeza de que deseja comprar {{item}}?",
+  "showPurchased": "Mostrar comprados",
   "offlineWarning": "Itens comprados funcionam apenas no modo online, não offline."
 }
