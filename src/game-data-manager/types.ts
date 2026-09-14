@@ -55,7 +55,8 @@ export interface GameDataManagerConfig {
 export type BaseSpeed = "walk" | "run";
 
 export interface RoutingBehavior {
-  baseSpeed: BaseSpeed;
+  /** Omitted by categories that only set `fleeWhenRouted`; treated as "walk". */
+  baseSpeed?: BaseSpeed;
   /** Whether the unit flees when in Routed state. Defaults to true. */
   fleeWhenRouted?: boolean;
 }
