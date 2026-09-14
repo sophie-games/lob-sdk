@@ -70,9 +70,12 @@ export interface WalkOrder
    *
    * Carried rather than inferred: pace comes from a template constant, so two
    * brigades of the same unit type sent to opposite places look identical to
-   * anything that guesses from it.
+   * anything that guesses from it. It spells out the membership rather than
+   * summarising it, because any summary collides — a division and the brigade
+   * inside it holding the lowest id share a minimum, and two brigades can share
+   * a sum.
    */
-  body?: EntityId;
+  body?: string;
 }
 
 /**
@@ -110,9 +113,12 @@ export interface FallbackOrder
    *
    * Carried rather than inferred: pace comes from a template constant, so two
    * brigades of the same unit type sent to opposite places look identical to
-   * anything that guesses from it.
+   * anything that guesses from it. It spells out the membership rather than
+   * summarising it, because any summary collides — a division and the brigade
+   * inside it holding the lowest id share a minimum, and two brigades can share
+   * a sum.
    */
-  body?: EntityId;
+  body?: string;
 }
 
 /**
@@ -151,9 +157,12 @@ export interface RunOrder extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
    *
    * Carried rather than inferred: pace comes from a template constant, so two
    * brigades of the same unit type sent to opposite places look identical to
-   * anything that guesses from it.
+   * anything that guesses from it. It spells out the membership rather than
+   * summarising it, because any summary collides — a division and the brigade
+   * inside it holding the lowest id share a minimum, and two brigades can share
+   * a sum.
    */
-  body?: EntityId;
+  body?: string;
 }
 
 /**
@@ -246,9 +255,12 @@ export interface FireAndAdvanceOnPathOrder
    *
    * Carried rather than inferred: pace comes from a template constant, so two
    * brigades of the same unit type sent to opposite places look identical to
-   * anything that guesses from it.
+   * anything that guesses from it. It spells out the membership rather than
+   * summarising it, because any summary collides — a division and the brigade
+   * inside it holding the lowest id share a minimum, and two brigades can share
+   * a sum.
    */
-  body?: EntityId;
+  body?: string;
 }
 
 /**
