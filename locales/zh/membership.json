@@ -9,12 +9,10 @@
       "silver": "白银",
       "gold": "黄金"
     },
-    "tierTitle": "{{tier}}级会籍",
     "tierPrestige": "每周期获取 {{amount}} 威望",
     "periodEnds": "周期结束：{{date}}",
     "provider": {
       "stripe": "来自Stripe付费",
-      "patreon": "来自Patreon付费",
       "manual": "由战线统帅运营组授予"
     },
     "state": {
@@ -38,7 +36,6 @@
     "openingCheckout": "正在打开付款界面…",
     "checkoutError": "无法打开付款界面，请重试。",
     "portalError": "无法打开资费管理，请重试。",
-    "patreon": "在Patreon上提供支持",
     "nativeStatusOnly": "该会籍资格可在此设备上使用。可以通过以上会籍提供方来管理资费。",
     "nativeNoPurchase": "当前版本不支持本地订阅。你依旧可以使用与该账号连接的其他会籍资格。"
   }
