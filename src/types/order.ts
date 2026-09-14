@@ -44,6 +44,16 @@ interface ExclusiveOrderProps {
 }
 
 /**
+ * The formation a path order was given to as a whole: one token shared by every member's
+ * order, so the client draws the body a single arrow. Carried rather than inferred, because
+ * pace is a template constant and any summary of the membership collides. Absent on an order
+ * given to a unit on its own.
+ */
+interface FormationBodyProps {
+  body?: string;
+}
+
+/**
  * A point on an order path, represented as [x, y] coordinates.
  */
 export type OrderPathPoint = [number, number]; // [x, y]
@@ -52,7 +62,7 @@ export type OrderPathPoint = [number, number]; // [x, y]
  * Order to walk along a specified path.
  */
 export interface WalkOrder
-  extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "path">, FormationBodyProps {
   /** Order type is Walk. */
   type: OrderType.Walk;
   /** Path points to follow, in order. */
@@ -63,19 +73,6 @@ export interface WalkOrder
   maintainAllySpacing?: boolean;
   /** Speed ceiling for units moving together as a formation. */
   pace?: number;
-  /**
-   * The formation this order was given to, when it was given to one as a whole:
-   * a shared token across every member's order, so the client can draw the body
-   * one arrow. Absent on an order given to a unit on its own.
-   *
-   * Carried rather than inferred: pace comes from a template constant, so two
-   * brigades of the same unit type sent to opposite places look identical to
-   * anything that guesses from it. It spells out the membership rather than
-   * summarising it, because any summary collides — a division and the brigade
-   * inside it holding the lowest id share a minimum, and two brigades can share
-   * a sum.
-   */
-  body?: string;
 }
 
 /**
@@ -93,7 +90,7 @@ export interface WalkFollowOrder
  * Order to fall back along a specified path.
  */
 export interface FallbackOrder
-  extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "path">, FormationBodyProps {
   /** Order type is Fallback. */
   type: OrderType.Fallback;
   /** Path points to fall back along, in order. */
@@ -106,19 +103,6 @@ export interface FallbackOrder
    * slowest member's pace when the order was given to more than one unit.
    */
   pace?: number;
-  /**
-   * The formation this order was given to, when it was given to one as a whole:
-   * a shared token across every member's order, so the client can draw the body
-   * one arrow. Absent on an order given to a unit on its own.
-   *
-   * Carried rather than inferred: pace comes from a template constant, so two
-   * brigades of the same unit type sent to opposite places look identical to
-   * anything that guesses from it. It spells out the membership rather than
-   * summarising it, because any summary collides — a division and the brigade
-   * inside it holding the lowest id share a minimum, and two brigades can share
-   * a sum.
-   */
-  body?: string;
 }
 
 /**
@@ -135,7 +119,8 @@ export interface FallbackFollowOrder
 /**
  * Order to run along a specified path.
  */
-export interface RunOrder extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
+export interface RunOrder
+  extends BaseOrder, Omit<ExclusiveOrderProps, "path">, FormationBodyProps {
   /** Order type is Run. */
   type: OrderType.Run;
   /** Path points to run along, in order. */
@@ -150,19 +135,6 @@ export interface RunOrder extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
    * slowest member's pace when the order was given to more than one unit.
    */
   pace?: number;
-  /**
-   * The formation this order was given to, when it was given to one as a whole:
-   * a shared token across every member's order, so the client can draw the body
-   * one arrow. Absent on an order given to a unit on its own.
-   *
-   * Carried rather than inferred: pace comes from a template constant, so two
-   * brigades of the same unit type sent to opposite places look identical to
-   * anything that guesses from it. It spells out the membership rather than
-   * summarising it, because any summary collides — a division and the brigade
-   * inside it holding the lowest id share a minimum, and two brigades can share
-   * a sum.
-   */
-  body?: string;
 }
 
 /**
@@ -235,7 +207,7 @@ export interface FireAndAdvanceToTargetOrder
  * Order to fire and advance along a specified path.
  */
 export interface FireAndAdvanceOnPathOrder
-  extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "path">, FormationBodyProps {
   /** Order type is FireAndAdvance. */
   type: OrderType.FireAndAdvance;
   /** Path points to advance along while firing, in order. */
@@ -248,19 +220,6 @@ export interface FireAndAdvanceOnPathOrder
    * slowest member's pace when the order was given to more than one unit.
    */
   pace?: number;
-  /**
-   * The formation this order was given to, when it was given to one as a whole:
-   * a shared token across every member's order, so the client can draw the body
-   * one arrow. Absent on an order given to a unit on its own.
-   *
-   * Carried rather than inferred: pace comes from a template constant, so two
-   * brigades of the same unit type sent to opposite places look identical to
-   * anything that guesses from it. It spells out the membership rather than
-   * summarising it, because any summary collides — a division and the brigade
-   * inside it holding the lowest id share a minimum, and two brigades can share
-   * a sum.
-   */
-  body?: string;
 }
 
 /**
