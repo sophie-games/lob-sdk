@@ -485,6 +485,13 @@ export interface RangedDamageTypeTemplate {
   damageModifierByTargetHp?: TargetStatModifier;
   /** Weapon's max range (absolute); each band's `from`/`to` is a fraction of this. */
   maxRange: number;
+  /**
+   * The range this weapon wants to fight at, as a fraction of `maxRange`. A unit advancing
+   * under fire and advance stops at the nearest preference among the weapons it is firing,
+   * never further out than that weapon can reach. Omit for a weapon that gives no reason to
+   * close, such as round shot or a shell: it then has no say in where the unit stops.
+   */
+  preferredRange?: number;
   ranges: DamageTypeRange[];
   arcHeight?: number;
   /**

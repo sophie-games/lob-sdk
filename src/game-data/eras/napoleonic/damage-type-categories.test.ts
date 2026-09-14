@@ -1,5 +1,15 @@
 import { GameDataManager } from "@lob-sdk/game-data-manager";
-import enNapoleonic from "../../../../locales/en/era/napoleonic.json";
+import { readFileSync } from "fs";
+import { join } from "path";
+
+// Read rather than import: common's tsconfig compiles this file but does not
+// list the locale JSON among its inputs.
+const enNapoleonic: { damageTypeCategory: Record<string, string> } = JSON.parse(
+  readFileSync(
+    join(__dirname, "../../../../locales/en/era/napoleonic.json"),
+    "utf8",
+  ),
+);
 
 const damageTypes = GameDataManager.get("napoleonic").getDamageTypes();
 
