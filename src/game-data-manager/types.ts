@@ -389,6 +389,11 @@ export type AoeConfig = CircularAoEConfig | TrapezoidalAoeConfig;
 export interface MeleeDamageTypeTemplate {
   id: number;
   name: string;
+  /**
+   * Display grouping: damage types sharing a category collapse into one row
+   * (with the range of their values) in the stat panels. Purely presentational.
+   */
+  category?: string;
   ranged?: false;
   ammoCost?: never;
   damageModifier?: number;
@@ -457,6 +462,11 @@ export enum ShotAimMode {
 export interface RangedDamageTypeTemplate {
   id: number;
   name: string;
+  /**
+   * Display grouping: damage types sharing a category collapse into one row
+   * (with the range of their values) in the stat panels. Purely presentational.
+   */
+  category?: string;
   ranged: true;
   projectileWidth: number;
   damageModifier?: number;
