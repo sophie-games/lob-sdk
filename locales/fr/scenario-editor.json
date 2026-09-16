@@ -173,7 +173,8 @@
     "title": "Zones de déploiement",
     "hint": "Ces zones définissent où chaque armée commence. La phase de déploiement ajoute seulement un tour 0 pour que les joueurs se réorganisent à l'intérieur.",
     "team": "Équipe {{team}}",
-    "wholeTeam": "Tous les joueurs de l'équipe",
+    "remainingPlayers": "Joueurs restants de l'équipe",
+    "assignmentHelp": "Choisissez les joueurs restants ou un ou plusieurs joueurs précis.",
     "player": "Joueur {{player}}",
     "mainZone": "Principale",
     "forwardZone": "Avancée",
@@ -201,7 +202,11 @@
     "drawLineRank": "Rang de tracé de ligne (plus bas = devant)",
     "title": "Modifier la formation personnalisée",
     "collision": "Collision",
-    "collisionHelp": "Empreinte rectangulaire : front sur la largeur et profondeur d'avant en arrière. Réglez les deux valeurs sur 0 pour aucune collision (vol / fantôme).",
+    "collisionHelp": "Forme de l'empreinte : un cercle (rayon) ou un rectangle (front sur la largeur, profondeur d'avant en arrière). Utilisez un rayon de 0 pour aucune collision (vol / fantôme).",
+    "shape": "Forme",
+    "shapeRectangle": "Rectangle",
+    "shapeCircle": "Cercle",
+    "radiusPx": "Rayon (px)",
     "frontagePx": "Front (px)",
     "depthPx": "Profondeur (px)",
     "runMovementModifier": "Modificateur de mouvement en courant",
@@ -217,7 +222,7 @@
     "rangedDamageResistance": "Résistance aux dégâts à distance",
     "rangedOrgResistance": "Résistance org. à distance",
     "fireEdges": "Bords de tir (tir par bord)",
-    "fireEdgesHelp": "Chaque bord de tir émet le long d'une face du rectangle. Une formation sans bord de tir tire par défaut sur un unique bord avant.",
+    "fireEdgesHelp": "Chaque bord de tir émet le long d'une face du rectangle. Une formation sans bord de tir tire par défaut sur un unique bord avant ; les formations en cercle ne tirent pas.",
     "edge": "Bord",
     "edgeLeft": "0 - côté gauche (-Y)",
     "edgeFront": "1 - avant (+X)",
@@ -254,6 +259,7 @@
     }
   },
   "unitTemplateModal": {
+    "initialOrder": "Ordre initial",
     "title": "Modifier le modèle d'unité personnalisé",
     "optBuiltIn": "{{name}} (intégré)",
     "optCustom": "{{name}} (personnalisé)",
@@ -278,6 +284,8 @@
     "orgRadiusBonus": "Bonus de rayon d'organisation",
     "reportStats": "Statistiques du rapport",
     "reportStatsHelp": "Décompte que chaque unité apporte aux rapports de bataille (par ex. hommes, chevaux, canons). Les clés proviennent des unités intégrées de l'époque.",
+    "casualtiesAtZeroHp": "Pertes à zéro PV (%)",
+    "casualtiesAtZeroHpHelp": "Part de l'effectif déclaré de cette unité comptée comme pertes lorsque toute sa barre de PV est épuisée. Les PV représentent la force combattante : avec la valeur par défaut de 50 %, l'unité cesse d'être opérationnelle lorsque la moitié de son effectif déclaré est perdue. La dispersion supprime toujours toute la force combattante restante.",
     "tallyPerUnit": "Décompte par unité",
     "walkMovement": "Mouvement en marchant",
     "runMovement": "Mouvement en courant",
@@ -321,6 +329,10 @@
     "changeAnimationsHelp": "L'animation jouée pendant qu'une unité quitte cette formation pour une autre. Choisissez la formation vers laquelle elle change, puis l'animation à jouer en chemin. Une transition sans ligne ici n'est pas cassée : l'unité passe simplement d'un sprite à l'autre sans rien entre les deux, ce que fait aujourd'hui toute formation sans entrées. La liste contient les animations livrées avec cette ère, et l'infanterie de ligne de l'ère en utilise six."
   },
   "unitCategoryModal": {
+    "meleeFire": {
+      "ratio": "Puissance de feu au corps à corps (0–1)",
+      "hint": "0 désactive tout tir au corps à corps (par défaut). Au-dessus de 0, les points de tir bloqués par des ennemis tirent à cette fraction de leur puissance normale ; les points dégagés gardent leur pleine puissance. Les alliés bloquent toujours le tir."
+    },
     "title": "Modifier la catégorie d'unité personnalisée",
     "optionBuiltIn": "{{name}} (intégré)",
     "optionCustom": "{{name}} (personnalisé)",
@@ -514,7 +526,9 @@
       "importFromScenario": "Importer depuis un scénario",
       "duplicate": "Dupliquer",
       "inThisScenario": "Dans ce scénario",
-      "builtIntoThisEra": "Intégré à cette ère"
+      "builtIntoThisEra": "Intégré à cette ère",
+      "resetToEra": "Réinitialiser à l'époque",
+      "resetAllToEra": "Tout réinitialiser à l'époque"
     },
     "spritesPanel": {
       "title": "Sprites d'unités",
@@ -580,7 +594,6 @@
       "clonePickerTitle": "Cloner une catégorie de terrain intégrée"
     },
     "overrideEditor": {
-      "reset": "Réinitialiser",
       "eraDefault": "défaut de l'époque : {{value}}",
       "structuralTooltip": "Constante structurelle / de déterminisme. La modifier peut casser le rendu, les replays ou l'appariement."
     },
@@ -629,7 +642,7 @@
     },
     "gameConstants": {
       "title": "Constantes du jeu",
-      "description": "Remplacez les constantes numériques de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; Réinitialiser ramène un champ au défaut de l'époque. Les clés marquées ⚠ sont structurelles - les modifier peut casser le rendu, les replays ou l'appariement. Les valeurs sont en unités internes brutes.",
+      "description": "Voici les nombres fondamentaux de l'époque : la durée d'un tour, la taille d'une case, le nombre de tours d'une bataille. Vos modifications ne valent que pour ce scénario, et toute valeur peut être ramenée à celle du jeu.",
       "category": {
         "mapDimensions": "Dimensions de la carte",
         "deployment": "Déploiement",
@@ -653,11 +666,15 @@
     },
     "gameRules": {
       "title": "Règles du jeu",
-      "description": "Remplacez les règles de jeu de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; utilisez Réinitialiser pour ramener un champ au défaut de l'époque. Les valeurs sont en unités internes brutes (certaines statistiques sont stockées pré-échelonnées)."
+      "description": "Voici les systèmes sur lesquels repose votre époque, de la tenue des unités à la manière dont une bataille se gagne. Vos modifications ne valent que pour ce scénario, et toute valeur peut être ramenée à celle du jeu. Les nombres sont exprimés dans les unités du jeu : un chiffre ne correspond donc pas forcément à des mètres ou des minutes."
     },
     "ordersPanel": {
       "title": "Ordres",
-      "description": "Remplacez les valeurs des ordres intégrés de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; utilisez Réinitialiser pour ramener un champ au défaut de l'époque. Vous pouvez modifier les ordres existants mais pas en ajouter de nouveaux."
+      "description": "Les ordres sont les instructions qu'un joueur peut donner à une unité pendant la bataille. Vous pouvez ici réajuster les ordres de l'époque pour ce scénario, mais pas en inventer de nouveaux. Toute valeur peut être ramenée à celle du jeu.",
+      "general": "Modificateur général",
+      "categoryOverrides": "Exceptions par catégorie",
+      "addCategory": "Ajouter une exception de catégorie",
+      "inheritance": "Les catégories sans exception utilisent le modificateur général : {{value}} %."
     },
     "clonePicker": {
       "alreadyOverridden": "(déjà remplacé)",
@@ -1047,5 +1064,12 @@
   },
   "objectiveOwnership": {
     "help": "Les objectifs appartiennent toujours à une équipe. Sur un scénario à effectifs fixes, ce champ nomme un joueur, et l'objectif appartient à l'équipe de ce joueur. Sur un scénario conçu pour des armées dynamiques, il n'y a pas de places de joueur avant que le matchmaking ne les remplisse, le champ nomme donc directement l'équipe."
+  },
+  "mapLabels": {
+    "title": "Noms sur la carte",
+    "help": "Faites un clic droit sur la carte (ou touchez-la avec les commandes tactiles) pour choisir une position, puis ajoutez ou déplacez un nom.",
+    "add": "Ajouter un nom",
+    "move": "Déplacer à la position choisie",
+    "empty": "Aucun nom pour le moment."
   }
 }

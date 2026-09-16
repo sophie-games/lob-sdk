@@ -1,4 +1,11 @@
 {
+  "orderUndo": {
+    "title": "Utolsó parancs visszavonása",
+    "description": "Korábbi parancsok visszaállítása. Érintett egységek: {{count}}.",
+    "empty": "Nincs visszavonható parancs."
+  },
+  "otherGameModes": "További játékmódok",
+  "partyWaitingForTeammate": "Várakozás csapattársra",
   "orderSpeed": "Parancs",
   "orderChargeResistance": "Parancs",
   "shooting": "Lövés",
@@ -11,26 +18,27 @@
   "verified": "Hitelesített fiók",
   "tools": "Eszközök",
   "rotateCamera": "Forgatás",
+  "appLoadingMessage": "Üdvözöljük a Lines of Battle-ban!",
   "skip": "Kihagyás",
   "home": "Home",
   "admin": "Adminisztráció",
   "analytics": "Elemzések",
   "language": "Nyelv",
-  "tutorial": "Tutorial",
-  "skipTutorialTitle": "Oktatóanyag kihagyása",
-  "skipTutorialMessage": "Kihagyod az oktatóanyag további részét és visszatérsz a menübe? Nem fogjuk újra kérni, hogy fejezd be.",
-  "goToTutorial": "Ugrás a tutorialra",
-  "tutorials": "Oktatóanyagok",
   "play": "Játék",
   "ranking": "Toplista",
   "profile": "Profil",
   "history": "History",
   "store": "Áruház",
-  "supporters": "Támogatóink",
   "elo": "Élő",
   "level": "Szint",
   "baseLevelExperience": "Alapszint tapasztalat",
   "experience": "Tapasztalat",
+  "coalitionProgression": {
+    "title": "Koalíció szintje",
+    "fixedCapacity": "{{count}} tag · rögzített kapacitás",
+    "contribute": "{{amount}} florin hozzájárulás",
+    "completeWithPrestige": "Befejezés {{amount}} presztízsért"
+  },
   "nextLevelExperience": "Következő szint tapasztalata",
   "season": "Szezon",
   "time": "Idő",
@@ -59,6 +67,7 @@
     "turn": "Kör {{turnNumber}}/{{maxTurn}}"
   },
   "withdrawMessage": "Ha visszavonulsz a csatából, az vereségként lesz számon tartva, és csökkenteni fogja az Élődet. Biztosan vissza akarsz vonulni?",
+  "withdrawUnrankedMessage": "Ha visszavonulsz a csatából, az vereségnek számít. Biztosan vissza akarsz vonulni?",
   "loading": "Betöltés...",
   "yes": "Igen",
   "no": "Nem",
@@ -169,8 +178,7 @@
   },
   "scenarioEditorTags": {
     "tutorialMessage": " Bizonytalan vagy? Ne agggódj, van róla videó! <tutorialLink>Nézd meg a tutorial videót itt.</tutorialLink>",
-    "randomGuide": "Szeretnél megtanulni véletlenszerű térképeket készíteni? Olvass <0>ezt az útmutatót</0>.",
-    "baleriiMessage": "A Balerii és Nytka játékosok létrehozták a saját térképszerkesztőjüket! Nézd meg a YouTube csatornájukat, hogy lásd, hogyan működik:"
+    "randomGuide": "Szeretnél megtanulni véletlenszerű térképeket készíteni? Olvass <0>ezt az útmutatót</0>."
   },
   "scenarioEditorAutosave": {
     "title": "Automatikusan Mentett Pálya",
@@ -242,6 +250,7 @@
   "combating": "Harc",
   "unitStat": {
     "hp": "HP",
+    "men": "Emberek",
     "org": "Organizáció",
     "stamina": "Kitartás",
     "movement": "Mozgás",
@@ -306,6 +315,7 @@
   "height": "Magasság",
   "orgDamageModifierByTargetOrg": "Org csökkenés a célpont Org-jából vonatkozóan",
   "damageModifierByTargetHp": "Sebzés módosító a célpont HP-jából",
+  "damageModifierByTargetMen": "Sebzésmódosító a célpont létszáma alapján",
   "heightModifierPerLevel": "Magasságmódosító szintenként",
   "damageModifierPerLevel": "Sebzésmódosító szintenként",
   "maxElevationDiff": "Max. magasságkülönbség",
@@ -381,10 +391,172 @@
     "message": "<b>Lines of Battle</b> egy napóleoni taktikai játék egyidejű körökkel és valós idejű harcokkal. Győzd le az emberi ellenfeleket pontos csapatokkal és taktikákkal!",
     "privacy": "A kezdéssel beleegyezel az <0>Adatvédelmi Nyilatkozatunkba</0>."
   },
-  "welcomeModal": {
-    "title": "Üdv a Lines of Battle játékban 👋",
-    "thanks": "Köszönöm, hogy csatlakoztál, {{name}}!",
-    "p1": "Új vagy a <b>Lines of Battle</b> világában? Kezdd az <tutorialLink>oktatóanyaggal</tutorialLink>, hogy megismerd az alapvető mechanikákat az első csatád előtt."
+  "gameTips": {
+    "victoryPoints": {
+      "title": "Győzelmi pontok",
+      "description": "A veszteségek és a célpontok befolyásolják a győzelmi pontokat. Védd a csapataidat és harcolj a célpontokért a felzárkózáshoz."
+    },
+    "blockedFire": {
+      "title": "Blokkolt tüzelés",
+      "description": "Saját csapataid akadályozzák az üteg lövéseit. Tedd szabaddá a tűzvonalát, hogy tüzelhessen."
+    },
+    "organization": {
+      "title": "Szervezettség",
+      "description": "A rendezetlen egységek megfutamodhatnak. Vond ki őket a harcból, hogy új támadás előtt helyrejöjjenek."
+    },
+    "range": {
+      "title": "Lőtávolság",
+      "description": "A távoli lövések kevesebb sebzést okoznak. Menj közelebb vagy korlátozd az automatikus tüzelést."
+    },
+    "flanks": {
+      "title": "Védd az oldalakat",
+      "description": "Az oldalról érkező tűz többet sebez. Fordulj a veszély felé, és védd az oldalakat más egységekkel."
+    },
+    "charge": {
+      "title": "Válaszd meg a rohamot",
+      "description": "Rendezett csapatokat szemből rohamozni kockázatos. Gyengítsd őket tűzzel vagy támadj oldalról."
+    },
+    "objectives": {
+      "title": "Kis célpontok",
+      "description": "A kis csillagok segítik a lőszertartalék feltöltését. Foglald el őket, hogy folytathasd a tüzelést."
+    },
+    "ammo": {
+      "view": "Lőszer megtekintése",
+      "title": "Lőszer",
+      "description": "A tüzérség a lőszertartalékodat fogyasztja, amely minden körben feltöltődik. Lőszer nélkül nem tud tüzelni. Állítsd be az automatikus tüzelést, hogy lőszert takaríts meg."
+    },
+    "running": {
+      "title": "Céllal fuss",
+      "description": "A legtöbb csapatnál a futás állóképességet fogyaszt, és könnyebben megtörnek, ha utána rohamot fogadnak. Menetelj, amíg nincs szükséged sebességre vagy rohamra."
+    },
+    "overlap": {
+      "title": "Ne halmozd egymásra az egységeket",
+      "description": "Az egymást átfedő szövetségesek lassabban mozognak, közelharcban kevésbé hatékonyan harcolnak, kevésbé támogatják egymást, és több szervezettségi sebzést szenvednek."
+    },
+    "terrain": {
+      "title": "Használd a terepet",
+      "description": "A terep módosítja a mozgást és a harcot. Az Infóban láthatod az egység aktuális módosítóit, és kiválaszthatod a megfelelő terepet."
+    },
+    "basicsSelect": {
+      "title": "Parancsok kiadása",
+      "description": "Húzz keretet az egységeid fölé a kijelöléshez, majd húzz a kijelölésből, hogy megrajzold az útvonalukat. A kör kiértékeléséig semmi sem mozdul."
+    },
+    "basicsOrderTypes": {
+      "title": "Parancstípusok",
+      "description": "Minden mozgásnak van tempója. A menetelés kíméli az állóképességet, a futás gyorsabb, de fáraszt, a Mozgás közben lő pedig közeledés közben tüzel. A váltáshoz nyisd meg a parancsmenüt."
+    },
+    "basicsFormations": {
+      "title": "Alakzatok",
+      "description": "Az alakzat dönti el az arcvonal szélességét és a tűzerőt. Az oszlop gyorsan menetel, a sor a legtöbb muskétát fordítja előre, a négyzet pedig minden oldalt véd a lovasságtól."
+    },
+    "basicsSubmit": {
+      "title": "A kör beküldése",
+      "description": "A parancsok addig várnak, amíg be nem küldöd a kört. Mindkét sereg egyszerre értékelődik ki, ezért arra tervezz, hol lesz az ellenség, ne arra, hol van."
+    },
+    "idleUnits": {
+      "title": "Parancs nélküli egységek",
+      "description": "Néhány egységednek nincs parancsa ebben a körben. Adj nekik, különben egy helyben állnak, amíg a vonal többi része előremegy."
+    },
+    "skirmisherVsArtillery": {
+      "title": "Felderítők a tüzérség ellen",
+      "description": "Ellenséges üteg a csatár kezében. Önts tüzet a fegyveres legénységbe. A csetepaté felaprítja a védtelen tüzérséget, mielőtt az válaszolhatna."
+    },
+    "skirmisherVsCavalry": {
+      "title": "Lovasság a felderítőid közelében",
+      "description": "Az ellenséges lovasság megsemmisíti a csetepatéját, ha megtartja ezt a pozíciót. Visszalépés és fedezék keresése."
+    },
+    "skirmisherVsInfantry": {
+      "title": "Gyalogság a felderítőid közelében",
+      "description": "Ellenséges gyalogság a csatározód tetején. A Skirmishers bedobja a közelharcot. Húzza vissza, mielőtt a bajonettek elérnék."
+    },
+    "infantryFormLine": {
+      "title": "Sorba állás",
+      "description": "Kapcsolja ezeket az egységeket vonalra. Ha az ellenséges gyalogság muskétás lőtérben van, vagy lovasság érkezik a frontra, a vonal a legtöbb muskétát nyújtja előre, és a legjobb védelmet nyújtja a bejövő röplabda ellen. Ne alakíts négyzetet frontális töltéssel szemben, mert elveszíted a tűzerőd felét."
+    },
+    "infantryVsCavalryFrontal": {
+      "title": "Tartsd a sort",
+      "description": "Az ellenséges lovasság a gyalogságod elejét rohanja meg, de utasítások várakoznak. Töröld őket, hogy a sor álljon és tüzeljen, ne sétáljon a paták alá."
+    },
+    "infantryVsCavalryFlank": {
+      "title": "Négyzetbe állás",
+      "description": "A lovasság a gyalogságod oldalán vagy hátulján érkezik. Egy vonalat oldalról átlovagolnak. Alakíts négyzetet minden egyes kiemelt egységen, hogy minden arcból legyen muskétás."
+    },
+    "infantryBayonetCharge": {
+      "title": "Szuronyroham",
+      "description": "Gyenge ellenséges gyalogság a támadási tartományon belül. Forma oszlopot, és fuss be őket. Az oszlopban érintkező bajonett eltöri őket."
+    },
+    "infantryFallback": {
+      "title": "Vond ki ezt az egységet",
+      "description": "Ennek az egységnek a szervezete megrepedt, még egy röplabda, és elrepül. Húzza ki, mielőtt a vonal elszakadna."
+    },
+    "infantryVsSkirmishers": {
+      "title": "Gyalogság a felderítők ellen",
+      "description": "Az ellenséges könnyűgyalogság közel van, és nincs bevethető lovasságod. Lépésben nyomulj előre, és kényszerítsd őket közelharcra, ahol a leggyengébbek."
+    },
+    "infantryVsArtillery": {
+      "title": "Gyalogság a tüzérség ellen",
+      "description": "Az ellenséges ágyúk közel vannak és fedezetlenek. Fuss egyenesen a kezelőszemélyzetre, mielőtt elfordulhatnak és kartácsot lőhetnek."
+    },
+    "infantryColumnMarch": {
+      "title": "Menetelés oszlopban",
+      "description": "Nincs ellenség ennek az egységnek a közelében. A gyorsabb menethez válts oszlopra, majd az érintkezés előtt állj vonalba."
+    },
+    "cavalryVsWeakerCavalry": {
+      "title": "Lovasság gyengébb lovasság ellen",
+      "description": "Az ellenséges lovasság támadási hatótávolságon belül és megrázva, a lovad frissebb. Használja ki az előnyt: töltse fel, mielőtt helyreállna."
+    },
+    "cavalryVsEqualCavalry": {
+      "title": "Lovasság egyenrangú lovasság ellen",
+      "description": "Az ellenséges lovasság kapcsolatban van, és nagyjából olyan stabil, mint a tiéd. Ne pazarolja ki állóképességét olyan díjra, amelyet nem nyerhet. Zárja be a sétát és verekedjen egyenletes lábon."
+    },
+    "cavalryVsStrongerCavalry": {
+      "title": "Lovasság erősebb lovasság ellen",
+      "description": "Az ellenséges lovasság kapcsolatban áll, és stabilabb, mint a tiéd, a közelharc itt veszít. Szüntesse meg és állítsa vissza, mielőtt elköveti."
+    },
+    "cavalryVsInfantryFlank": {
+      "title": "Csapj az oldalba",
+      "description": "Az ellenséges gyalogság szárnya nyitva van, és nagyjából olyan stabilak, mint te. Ez az a pillanat, amikor egy tiszta töltés megtöri őket. Oldalt üss, ne elöl."
+    },
+    "cavalryVsShakenInfantry": {
+      "title": "Lovasság megingott gyalogság ellen",
+      "description": "Az ellenséges gyalogság alig tartja össze, szervezetük megrepedt. Egy tiszta töltéssel lefutják őket, mielőtt összeállnának."
+    },
+    "cavalryVsSkirmishers": {
+      "title": "Lovasság a felderítők ellen",
+      "description": "A szabadban elkapott csetepaték szabad sávval a lovad felé. Közelharcban bedobják magukat, és nem tudják lehagyni a töltést. Lovagolja le őket, mielőtt elérnék a fedezéket."
+    },
+    "cavalryVsArtillery": {
+      "title": "Lovasság a tüzérség ellen",
+      "description": "Ellenséges fegyverek képernyő nélkül közted és közöttük. Az át nem vizsgált legénység elleni támadás egy ütemben véget vet nekik. De ha egy barátságos vonal akadályozza az utat, akkor inkább elvérzed ellene."
+    },
+    "cavalryPursueRouter": {
+      "title": "Üldözd a menekülőket",
+      "description": "Az ellenség megtört és fut, nincs támogatás, ami megszakíthatná az üldözést. A lovasság üldözése végleg megtöri őket. Fejezze be őket, mielőtt megreformálják."
+    },
+    "cavalryFallbackFromInfantry": {
+      "title": "Lovasság muskétatűzben",
+      "description": "A lovasságod az egészséges vonalú gyalogság muskétás tartományában ül. Húzódjon hátra, mielőtt ledarálják a lovat, inkább keressen megrázott célpontokat vagy nyitott szárnyakat."
+    },
+    "enemyInfantrySquare": {
+      "title": "Ellenséges négyzet",
+      "description": "Az ellenséges gyalogság négyzetet vett fel. Minden oldalon muskéták. Tartsd távol a lovasságot és keress sor- vagy oszlopcélpontot kihasználható oldallal."
+    },
+    "artilleryFireAndAdvance": {
+      "title": "Mozgás közben lő",
+      "description": "Az ellenség elég messze van ahhoz, hogy lövés közben folyamatosan zárhass. Állítsa át ezt a tüzérségi egységet a következőre: Mozgás közben lő."
+    },
+    "artilleryRotateToFire": {
+      "title": "Állj meg a tüzeléshez",
+      "description": "Az ellenség közel van, és az ágyúd tiszta lövéssel rendelkezik, de még mindig mozog. Állítsa le a menetet, és forgassa el az egységet az automatikus tüzeléshez."
+    },
+    "pushObjective": {
+      "title": "Használd ki az előnyt",
+      "description": "Te tartod a vezetést. Lépj az ellenséges cél felé azzal, amit megtanultál. A lezárás megtagadja tőlük a visszatérést."
+    },
+    "holdObjective": {
+      "title": "Tartsd a célodat",
+      "description": "Lemaradtál a pontokkal. Húzzon vissza a célhoz, és tartsa azt a tanultakkal. A védekezés olcsóbb, mint a visszakapás."
+    }
   },
   "turn": "Kör",
   "bank": "Tartalék",
@@ -405,8 +577,10 @@
     "3": "Célpont megadása",
     "4": "Mozgás közben lő",
     "6": "Visszahúzódás",
-    "7": "Szembenéz"
+    "7": "Szembenéz",
+    "mixed": "Vegyes"
   },
+  "mixedOrderDescription": "Minden egység megtartja a saját parancstípusát.",
   "selectOrder": "Utasítás Kiválasztása",
   "orderType": "Parancs típusa",
   "autofire": "Automatikus tüzelés",
@@ -656,10 +830,6 @@
     "scriptedEvents": "Szkriptelt események"
   },
   "academy": "Akadémia",
-  "encyclopedia": "Enciklopédia",
-  "tutorialTips": "Oktatóanyag Tippek",
-  "loadingScreenTips": "Betöltőképernyő Tippek",
-  "gameConstants": "Játék Konstansok",
   "ammo": "Lőszer",
   "ammoConsumption": "Lőszer Fogyasztás",
   "allowsCharging": "Lehetővé teszi a rohamot",
@@ -814,6 +984,9 @@
   },
   "league": {
     "title": "Liga",
+    "placementTitle": "Besoroló csaták",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "Teljesíts {{total}} rangsorolt csatát, hogy felfedd az Elo-pontodat és a ligádat. Minden eredmény közelebb visz a felfedéshez.",
     "emperor": "Császár",
     "diamond-3": "Gyémánt III",
     "diamond-2": "Gyémánt II",
@@ -834,13 +1007,6 @@
     "iron-2": "Vas II",
     "iron-1": "Vas I",
     "unranked": "Besorolatlan"
-  },
-  "tutorialSummary": {
-    "heading": "Bemutató összefoglaló",
-    "count": "{{seen}} / {{total}} lecke megjelenítve",
-    "description": "Minden lecke egy érdemes megismerni való helyzetet mutat be.",
-    "allSeen": "Láttad a bemutató összes leckéjét.",
-    "viewMissed": "Kihagyott leckék megtekintése"
   },
   "matchFoundModal": {
     "title": "Mérkőzés található!",
@@ -874,6 +1040,7 @@
   "cannotUseAfterRun": "Futás után nem használható",
   "copied": "Másolva!",
   "skirmisherRatio": "Csatárarány",
+  "skirmisherNextBreakpoint": "Következő küszöb",
   "projectileWidth": "Lövedék szélessége",
   "allyCollisionLevel": "Szövetséges ütközési szint",
   "enemyCollisionLevel": "Ellenséges ütközési szint",
@@ -881,7 +1048,6 @@
   "back": "Vissza",
   "autofirePriority": "Automatikus tüzelés prioritása",
   "heightOffset": "Magassági eltolás",
-  "minDistanceToFAA": "Min. távolság a Mozgás közben lő parancshoz",
   "big": "Nagy",
   "small": "Kicsi",
   "rotationSpeed": "Forgási sebesség",
@@ -920,7 +1086,7 @@
   "clanLeagueEnds": "Ends {{date}}",
   "reigningChampion": "Reigning champion",
   "noClanLeagueScores": "No coalition has scored this week yet.",
-  "weeklyGames": "games this week",
+  "weeklyGames": "games",
   "scoringMember": "scoring",
   "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
   "clanChat": "Coalition chat",
@@ -928,5 +1094,102 @@
   "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
   "chatSendFailed": "Failed to send message.",
   "incomingRequests": "Beérkező barátkérelmek",
-  "challengeClan": "Challenge"
+  "challengeClan": "Challenge",
+  "hideReplayInterface": "Felület elrejtése",
+  "replayInterfaceKeyboardHint": "H: elrejtés/megjelenítés · Esc: megjelenítés",
+  "replayInterfaceTouchHint": "Koppints kétszer a térképre a felület megjelenítéséhez.",
+  "filters": "Szűrők",
+  "minTurn": "Minimális kör",
+  "reset": "Visszaállítás",
+  "applyFilters": "Szűrők alkalmazása",
+  "gameSearchAnyPlayerCount": "Tetszőleges szám",
+  "gameSearchFinishedFrom": "Befejezve ettől",
+  "gameSearchFinishedTo": "Befejezve eddig",
+  "gameSearchEmptyDescription": "Bővítsd a szűrési feltételeket további visszajátszások kereséséhez.",
+  "firstSession": {
+    "title": "Az első csatád",
+    "description": "Tanulj meg parancsokat adni a bot ellen, a saját tempódban. A térkép és a seregek készen állnak.",
+    "startPractice": "Gyakorlás indítása",
+    "continuePractice": "Gyakorlás folytatása",
+    "customize": "Csata testreszabása",
+    "playOnline": "Online játék"
+  },
+  "replaceOfflineGameWarning": "Az új csata felülírja a mentett offline játékot és annak előrehaladását.",
+  "returnToMenu": "Vissza a menübe",
+  "exitGameHint": "A menübe visszatérés nem szünetelteti a csatát.",
+  "openReplayFile": "Visszajátszás fájljának megnyitása",
+  "failedToLoadClans": "Nem sikerült betölteni a koalíciókat. Próbáld újra.",
+  "emailConfirmation": {
+    "title": "E-mail-cím megerősítése",
+    "confirmed": "Az e-mail-cím megerősítve. Most már bejelentkezhetsz.",
+    "error": "Nem sikerült megerősíteni az e-mail-címet. A hivatkozás érvénytelen vagy lejárt lehet."
+  },
+  "watchBattles": "Csaták megtekintése",
+  "offlineSetup": {
+    "title": "Gyakorlócsata összeállítása",
+    "step1": "Válaszd ki, meddig tart a csata, és mennyit látsz az ellenségből.",
+    "step2": "Válassz forgatókönyvet és csatatípust, vagy hagyd az alapértelmezést.",
+    "step3": "Állítsd össze lent a seregeket, majd hozd létre a csatát. Ezen az eszközön fut, így megszakíthatod és visszatérhetsz."
+  },
+  "unitComparison": {
+    "stop": "Összehasonlítás befejezése",
+    "baseLabel": "Alapértékek",
+    "title": "Egységek összehasonlítása",
+    "choose": "Összehasonlítás ezzel…",
+    "sameCategory": "Azonos kategória",
+    "otherCategories": "Más kategóriák",
+    "gold": "Aranyköltség",
+    "manpower": "Emberköltség",
+    "baseValues": "Alapértékek terep-, alakzat- és állapotmódosítók nélkül; nem jelzik előre a csata kimenetelét.",
+    "relativeTo": "A százalékok ezen egység eltérését mutatják ehhez képest: {{unit}}.",
+    "stat": "Tulajdonság",
+    "unavailable": "—: nem elérhető vagy nem alkalmazható érték."
+  },
+  "battleContinuation": {
+    "exports": "Mentés vagy exportálás",
+    "continueOffline": "Folytatás offline",
+    "replaceTitle": "Lecseréled a mentett csatát?",
+    "replace": "Csere és folytatás",
+    "noUnits": "Nincsenek túlélő egységek",
+    "title": "Csata folytatása",
+    "description": "Indíts új offline csatát ebből az állásból. A pontok újraindulnak; a teljes visszajátszás megőrzi az eredeti akciókat.",
+    "additionalTurns": "További körök",
+    "download": "Csata letöltése",
+    "exportScenario": "Forgatókönyv exportálása",
+    "scenarioHint": "A forgatókönyv szerkeszthető. A csatafájl a visszajátszást is megőrzi.",
+    "chooseHuman": "Válassz egy emberi játékost túlélő egységekkel.",
+    "error": "A csatát nem sikerült betölteni vagy menteni. Próbáld újra.",
+    "import": "Csata importálása"
+  },
+  "turnRecovery": {
+    "pending": "Csata frissítése…",
+    "failed": "Nem sikerült frissíteni a csatát."
+  },
+  "orderOfBattle": {
+    "showArmy": "Hadsereg megjelenítése",
+    "hideArmy": "Hadsereg elrejtése"
+  },
+  "matchAcceptance": {
+    "firstRejection": "Nincs vereség vagy Elo-vesztés. Egy újabb ajánlat elutasítása vagy elmulasztása 24 órán belül 2 percre korlátozza a gyors rangsorolt játékot.",
+    "restrictionTitle": "A keresés átmenetileg korlátozott",
+    "restriction": "Több ajánlatot elutasítottál vagy elmulasztottál. A gyors rangsorolt játék még {{minutes}} percig korlátozott. Privát és offline játékok elérhetők.",
+    "restrictionEnded": "A korlátozás lejárt. Újra kereshetsz.",
+    "rulesTitle": "Rangsorolt szabályok",
+    "rules": "A gyors rangsorolt csata akkor indul, amikor minden játékos elfogadja. A kilépés már az első körben is rendes vereség, külön automatikus tiltás nélkül. A kapott ajánlatok elutasítása vagy elmulasztása 24 órán belül figyelmeztetést, majd 2, 10 és 60 perces korlátozást eredményez, legfeljebb 60 percet. Az elutasítás nem csökkenti az Elót.",
+
+    "ready": "Rangsorolt · Gyors",
+    "accept": "Mérkőzés elfogadása",
+    "decline": "Elutasítás",
+    "timeRemaining": "Hátralévő idő: {{count}} mp",
+    "sending": "Válasz megerősítése…",
+    "waiting": "Elfogadva. Várakozás a többi játékosra…",
+    "creating": "Mindenki elfogadta. Csata előkészítése…",
+    "reconnecting": "Újracsatlakozás…",
+    "error": "Nem sikerült megerősíteni a válaszodat. Próbáld újra.",
+    "ended": "A mérkőzésajánlat véget ért",
+    "requeued": "Egy másik játékos nem erősítette meg. Visszakerültél a sorba, a várakozási elsőbbséged megmaradt.",
+    "noLoss": "Az ajánlat vereség nélkül ért véget. Újra kereshetsz.",
+    "failed": "Nem sikerült megerősíteni a csata létrejöttét. Új keresés előtt ellenőrizd.",
+    "checkGame": "Mérkőzés ellenőrzése"
+  }
 }

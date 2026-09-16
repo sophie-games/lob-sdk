@@ -1,4 +1,11 @@
 {
+  "orderUndo": {
+    "title": "Hoàn tác lệnh cuối",
+    "description": "Khôi phục các lệnh trước đó. Số đơn vị bị ảnh hưởng: {{count}}.",
+    "empty": "Không có lệnh để hoàn tác."
+  },
+  "otherGameModes": "Các chế độ chơi khác",
+  "partyWaitingForTeammate": "Đang chờ đồng đội",
   "orderSpeed": "Lệnh",
   "orderChargeResistance": "Lệnh",
   "shooting": "Bắn",
@@ -9,26 +16,27 @@
   "verified": "Tài khoản đã xác minh",
   "tools": "Công cụ",
   "rotateCamera": "Xoay",
+  "appLoadingMessage": "Chào mừng đến với Lines of Battle!",
   "skip": "Bỏ qua",
   "home": "Trang chủ",
   "admin": "Quản trị",
   "analytics": "Phân tích",
   "language": "Ngôn ngữ",
-  "tutorial": "Hướng dẫn",
-  "skipTutorialTitle": "Bỏ qua hướng dẫn",
-  "skipTutorialMessage": "Bỏ qua phần còn lại của hướng dẫn và quay lại menu? Bạn sẽ không được yêu cầu hoàn thành lại.",
-  "goToTutorial": "Đến hướng dẫn",
-  "tutorials": "Hướng dẫn",
   "play": "Chơi",
   "ranking": "Xếp hạng",
   "profile": "Hồ sơ",
   "history": "Lịch sử",
   "store": "Cửa hàng",
-  "supporters": "Người ủng hộ",
   "elo": "Elo",
   "level": "Cấp độ",
   "baseLevelExperience": "Kinh nghiệm cơ bản cấp độ",
   "experience": "Kinh nghiệm",
+  "coalitionProgression": {
+    "title": "Cấp liên minh",
+    "fixedCapacity": "{{count}} thành viên · sức chứa cố định",
+    "contribute": "Đóng góp {{amount}} Florin",
+    "completeWithPrestige": "Hoàn tất với {{amount}} Prestige"
+  },
   "nextLevelExperience": "Kinh nghiệm cấp tiếp theo",
   "season": "Mùa",
   "time": "Thời gian",
@@ -58,6 +66,7 @@
     "turn": "Lượt {{turnNumber}}/{{maxTurn}}"
   },
   "withdrawMessage": "Nếu bạn rút khỏi trò chơi này, nó sẽ được tính là thua và sẽ làm giảm Elo của bạn, bạn có chắc chắn muốn rút không?",
+  "withdrawUnrankedMessage": "Nếu bạn rút khỏi trò chơi này, bạn sẽ bị tính là thua. Bạn có chắc chắn muốn rút không?",
   "loading": "Đang tải...",
   "yes": "Có",
   "no": "Không",
@@ -178,8 +187,7 @@
   },
   "scenarioEditorTags": {
     "tutorialMessage": "Không chắc cách sử dụng? Đừng lo, chúng tôi đã hỗ trợ bạn! <tutorialLink>Xem hướng dẫn tại đây.</tutorialLink>",
-    "randomGuide": "Muốn học cách tạo bản đồ ngẫu nhiên? Đọc <0>hướng dẫn này</0>.",
-    "baleriiMessage": "Người chơi Balerii và Nytka đã tạo ra trình chỉnh sửa bản đồ riêng của họ! Hãy xem kênh YouTube của họ để xem cách hoạt động:"
+    "randomGuide": "Muốn học cách tạo bản đồ ngẫu nhiên? Đọc <0>hướng dẫn này</0>."
   },
   "scenarioEditorAutosave": {
     "title": "Kịch bản đã tự động lưu",
@@ -251,6 +259,7 @@
   "combating": "Chiến đấu",
   "unitStat": {
     "hp": "HP",
+    "men": "Người",
     "org": "Tổ chức",
     "stamina": "Thể lực",
     "walkMovement": "Đi bộ",
@@ -326,6 +335,7 @@
   "maxElevationDiff": "Chênh lệch độ cao tối đa",
   "orgDamageModifierByTargetOrg": "Giảm theo tổ chức mục tiêu",
   "damageModifierByTargetHp": "Sửa đổi sát thương theo HP mục tiêu",
+  "damageModifierByTargetMen": "Điều chỉnh sát thương theo quân số mục tiêu",
   "value": "giá trị",
   "terrainHitboxHeight": "Chiều cao hitbox địa hình",
   "projectileAbsorption": "Hấp thụ đạn",
@@ -395,10 +405,172 @@
     "message": "<b>Lines of Battle</b> là trò chơi chiến thuật thời Napoleon với lượt đồng thời và chiến đấu thời gian thực. Đánh bại đối thủ người với quân đội chính xác và chiến thuật!",
     "privacy": "Bằng cách bắt đầu, bạn đồng ý với <0>Chính sách bảo mật</0> của chúng tôi."
   },
-  "welcomeModal": {
-    "title": "Chào mừng đến với Lines of Battle 👋",
-    "thanks": "Cảm ơn bạn đã tham gia, {{name}}!",
-    "p1": "Mới chơi <b>Lines of Battle</b>? Hãy bắt đầu với <tutorialLink>hướng dẫn</tutorialLink> để nắm các cơ chế cốt lõi trước trận đầu tiên của bạn."
+  "gameTips": {
+    "victoryPoints": {
+      "title": "Điểm chiến thắng",
+      "description": "Thương vong và mục tiêu ảnh hưởng đến điểm chiến thắng. Bảo vệ quân và tranh giành mục tiêu để bắt kịp."
+    },
+    "blockedFire": {
+      "title": "Đường bắn bị chặn",
+      "description": "Quân của bạn đang chặn đường bắn của khẩu đội này. Dọn đường bắn để khẩu đội có thể khai hỏa."
+    },
+    "organization": {
+      "title": "Tổ chức",
+      "description": "Đơn vị rối loạn có thể bỏ chạy. Rút khỏi giao tranh để hồi phục trước khi tấn công lại."
+    },
+    "range": {
+      "title": "Tầm bắn",
+      "description": "Bắn xa gây ít sát thương hơn. Tiến gần hoặc giới hạn tự động khai hỏa để bắn hiệu quả."
+    },
+    "flanks": {
+      "title": "Bảo vệ sườn",
+      "description": "Hỏa lực từ sườn gây nhiều sát thương hơn. Quay về phía nguy hiểm và dùng đơn vị khác che sườn."
+    },
+    "charge": {
+      "title": "Chọn lúc xung phong",
+      "description": "Xung phong trực diện vào quân có tổ chức rất nguy hiểm. Làm yếu bằng hỏa lực hoặc đánh vào sườn."
+    },
+    "objectives": {
+      "title": "Mục tiêu nhỏ",
+      "description": "Các ngôi sao nhỏ giúp bổ sung kho đạn. Chiếm chúng để quân đội tiếp tục khai hỏa."
+    },
+    "ammo": {
+      "view": "Xem đạn dược",
+      "title": "Đạn dược",
+      "description": "Pháo binh tiêu hao kho đạn dự trữ của bạn, vốn được bổ sung mỗi lượt. Khi hết đạn, pháo binh không thể bắn. Điều chỉnh tự động khai hỏa để tiết kiệm đạn."
+    },
+    "running": {
+      "title": "Chỉ chạy khi có mục đích",
+      "description": "Với phần lớn quân, chạy tiêu hao thể lực và khiến họ dễ vỡ đội hình hơn nếu bị xung phong ngay sau đó. Hãy đi bộ cho đến khi cần tốc độ hoặc muốn xung phong."
+    },
+    "overlap": {
+      "title": "Đừng chồng đơn vị",
+      "description": "Đồng minh chồng lên nhau di chuyển chậm hơn, chiến đấu cận chiến kém hiệu quả hơn, hỗ trợ nhau ít hơn và chịu nhiều sát thương tổ chức hơn."
+    },
+    "terrain": {
+      "title": "Tận dụng địa hình",
+      "description": "Địa hình thay đổi di chuyển và chiến đấu. Mở Thông tin để xem các hệ số hiện tại của đơn vị và chọn địa hình phù hợp."
+    },
+    "basicsSelect": {
+      "title": "Ra lệnh",
+      "description": "Kéo một khung quanh các đơn vị để chọn, rồi kéo từ vùng chọn để vẽ đường đi. Không gì di chuyển cho đến khi lượt được giải quyết."
+    },
+    "basicsOrderTypes": {
+      "title": "Các loại lệnh",
+      "description": "Mỗi cách di chuyển có một nhịp độ. Đi bộ giữ thể lực, Chạy nhanh hơn nhưng gây mệt, Bắn và tiến vừa áp sát vừa khai hỏa. Mở menu lệnh để đổi."
+    },
+    "basicsFormations": {
+      "title": "Đội hình",
+      "description": "Đội hình quyết định bề ngang và hỏa lực. Cột hành quân nhanh, hàng đưa nhiều súng hỏa mai ra trước nhất, ô vuông che chắn mọi mặt trước kỵ binh."
+    },
+    "basicsSubmit": {
+      "title": "Gửi lượt",
+      "description": "Lệnh sẽ chờ cho đến khi bạn gửi lượt. Hai bên được giải quyết cùng lúc, nên hãy tính chỗ địch sẽ tới, không phải chỗ địch đang đứng."
+    },
+    "idleUnits": {
+      "title": "Đơn vị chưa có lệnh",
+      "description": "Một số đơn vị của bạn chưa có lệnh trong lượt này. Hãy ra lệnh, nếu không chúng sẽ đứng yên trong khi phần còn lại của tuyến tiến lên."
+    },
+    "skirmisherVsArtillery": {
+      "title": "Tản chiến đấu pháo binh",
+      "description": "Pin của kẻ thù trong tầm tay của người giao tranh của bạn. Đổ lửa vào đội súng. Những kẻ giao tranh sẽ xé nát pháo binh không được bảo vệ trước khi nó kịp phản ứng."
+    },
+    "skirmisherVsCavalry": {
+      "title": "Kỵ binh áp sát quân tản chiến",
+      "description": "Người giao tranh của bạn sẽ bị kỵ binh địch tiêu diệt nếu giữ vị trí đó. Dự phòng và tìm kiếm sự che chở."
+    },
+    "skirmisherVsInfantry": {
+      "title": "Bộ binh áp sát quân tản chiến",
+      "description": "Bộ binh địch trên đầu cuộc giao tranh của bạn. Những kẻ giao tranh gấp trong cận chiến. Hãy lùi lại trước khi lưỡi lê chạm tới."
+    },
+    "infantryFormLine": {
+      "title": "Dàn hàng",
+      "description": "Chuyển các đơn vị này thành dòng. Với bộ binh của đối phương trong tầm bắn súng hỏa mai hoặc kỵ binh đang tiến tới phía trước, tuyến mang lại cho bạn nhiều súng hỏa mai chĩa về phía trước nhất và khả năng phòng thủ tốt nhất trước những loạt đạn đang lao tới. Đừng đứng hình vuông trước đòn tấn công trực diện, bạn sẽ mất một nửa hỏa lực."
+    },
+    "infantryVsCavalryFrontal": {
+      "title": "Giữ vững hàng",
+      "description": "Kỵ binh địch xông vào mặt trước bộ binh của bạn, nhưng họ có lệnh đang xếp hàng. Xóa lệnh để đội hình đứng và bắn thay vì đi vào vó ngựa."
+    },
+    "infantryVsCavalryFlank": {
+      "title": "Kết ô vuông",
+      "description": "Kỵ binh đến bên sườn hoặc phía sau bộ binh của bạn. Một dòng được cưỡi từ bên cạnh. Tạo hình vuông trên mỗi đơn vị được đánh dấu để mọi mặt đều có súng hỏa mai."
+    },
+    "infantryBayonetCharge": {
+      "title": "Xung phong lưỡi lê",
+      "description": "Bộ binh địch yếu trong phạm vi tấn công. Tạo cột và chạy vào chúng. Lưỡi lê khi tiếp xúc với cột sẽ phá vỡ chúng."
+    },
+    "infantryFallback": {
+      "title": "Rút đơn vị này",
+      "description": "Tổ chức của đơn vị này đã rạn nứt, thêm một cú vô lê nữa và nó sẽ thất bại. Kéo nó ra trước khi ngắt dòng."
+    },
+    "infantryVsSkirmishers": {
+      "title": "Bộ binh đấu tản chiến",
+      "description": "Lính tản binh địch đang ở gần và bạn không có kỵ binh. Tiến lên bằng bước đi và ép chúng vào cận chiến, nơi chúng yếu nhất."
+    },
+    "infantryVsArtillery": {
+      "title": "Bộ binh đấu pháo binh",
+      "description": "Pháo địch ở gần và không được bảo vệ. Chạy thẳng vào pháo thủ trước khi họ có thể xoay pháo và bắn đạn ghém."
+    },
+    "infantryColumnMarch": {
+      "title": "Hành quân theo cột",
+      "description": "Không có kẻ địch nào gần đơn vị này. Chuyển sang đội hình cột để hành quân nhanh hơn, rồi dàn thành hàng trước khi tiếp xúc."
+    },
+    "cavalryVsWeakerCavalry": {
+      "title": "Kỵ binh đấu kỵ binh yếu hơn",
+      "description": "Kỵ binh địch trong tầm tấn công và rung chuyển, ngựa của bạn tươi hơn. Nhấn vào lợi thế: sạc trước khi chúng phục hồi."
+    },
+    "cavalryVsEqualCavalry": {
+      "title": "Kỵ binh đấu kỵ binh ngang sức",
+      "description": "Kỵ binh địch tiếp xúc và gần như ổn định như của bạn. Đừng lãng phí sức chịu đựng cho một cuộc tấn công mà bạn không thể thắng. Đóng cửa khi đi dạo và ẩu đả trên nền tảng vững chắc."
+    },
+    "cavalryVsStrongerCavalry": {
+      "title": "Kỵ binh đấu kỵ binh mạnh hơn",
+      "description": "Kỵ binh địch tiếp xúc và vững vàng hơn bạn, cận chiến ở đây sẽ thua. Hãy tắt và thiết lập lại trước khi họ cam kết."
+    },
+    "cavalryVsInfantryFlank": {
+      "title": "Đánh vào sườn",
+      "description": "Sườn của bộ binh địch rộng mở và chúng cũng vững chắc như bạn. Đó là thời điểm một khoản phí sạch sẽ phá vỡ chúng. Đánh vào bên cạnh, không phải phía trước."
+    },
+    "cavalryVsShakenInfantry": {
+      "title": "Kỵ binh đấu bộ binh đã nao núng",
+      "description": "Bộ binh địch hầu như không trụ được, tổ chức của chúng đã rạn nứt. Một lần sạc sạch sẽ khiến chúng suy sụp trước khi chúng có thể phục hồi."
+    },
+    "cavalryVsSkirmishers": {
+      "title": "Kỵ binh đấu tản chiến",
+      "description": "Những kẻ giao tranh bị bắt ở nơi trống trải với làn đường thông thoáng cho ngựa của bạn. Họ gấp trong cận chiến và không thể vượt qua một cuộc tấn công. Đuổi chúng xuống trước khi chúng tới chỗ nấp."
+    },
+    "cavalryVsArtillery": {
+      "title": "Kỵ binh đấu pháo binh",
+      "description": "Súng của kẻ thù không có màn hình giữa bạn và chúng. Một cuộc tấn công vào phi hành đoàn không được sàng lọc sẽ kết thúc họ trong một nhịp. Nhưng nếu một đường dây thân thiện cản đường bạn thì thay vào đó bạn sẽ đổ máu vào đó."
+    },
+    "cavalryPursueRouter": {
+      "title": "Truy kích quân tan vỡ",
+      "description": "Kẻ thù đó tan vỡ và bỏ chạy, không có sự hỗ trợ nào để làm gián đoạn cuộc truy đuổi. Một cuộc truy đuổi của kỵ binh đã phá vỡ chúng vĩnh viễn. Hãy kết thúc chúng trước khi chúng cải cách."
+    },
+    "cavalryFallbackFromInfantry": {
+      "title": "Kỵ binh trong tầm súng hỏa mai",
+      "description": "Kỵ binh của bạn đang ngồi trong tầm súng hỏa mai của bộ binh khỏe mạnh. Hãy lùi lại trước khi chúng hạ gục con ngựa của bạn, thay vào đó hãy tìm những mục tiêu bị rung chuyển hoặc sườn hở."
+    },
+    "enemyInfantrySquare": {
+      "title": "Ô vuông của địch",
+      "description": "Bộ binh địch đã xếp hình vuông. Mỗi mặt đều có súng hỏa mai. Giữ kỵ binh cách xa và tìm mục tiêu hàng ngang hoặc cột có sườn để khai thác."
+    },
+    "artilleryFireAndAdvance": {
+      "title": "Bắn và tiến",
+      "description": "Kẻ thù ở đủ xa để bạn có thể tiếp tục áp sát trong khi bắn. Chuyển đơn vị pháo binh này sang Bắn và tiến."
+    },
+    "artilleryRotateToFire": {
+      "title": "Dừng lại để bắn",
+      "description": "Kẻ thù đang ở gần và khẩu pháo của bạn bắn trúng nhưng nó vẫn đang di chuyển. Dừng cuộc hành quân và xoay đơn vị để tự động bắn."
+    },
+    "pushObjective": {
+      "title": "Tận dụng lợi thế",
+      "description": "Bạn giữ vị trí dẫn đầu. Đẩy mạnh mục tiêu của kẻ thù bằng những gì bạn đã học được. Việc đóng cửa sẽ phủ nhận sự trở lại của họ."
+    },
+    "holdObjective": {
+      "title": "Giữ mục tiêu của bạn",
+      "description": "Bạn đang kém về số điểm. Hãy quay lại mục tiêu của bạn và bám sát nó với những gì bạn đã học được. Phòng thủ rẻ hơn là chiếm lại."
+    }
   },
   "turn": "Lượt",
   "bank": "Dự trữ",
@@ -420,8 +592,10 @@
     "3": "Bắn",
     "4": "Bắn và tiến",
     "6": "Rút lui",
-    "7": "Đối mặt"
+    "7": "Đối mặt",
+    "mixed": "Hỗn hợp"
   },
+  "mixedOrderDescription": "Mỗi đơn vị giữ nguyên loại lệnh của mình.",
   "selectOrder": "Chọn lệnh",
   "orderType": "Loại lệnh",
   "autofire": "Tự động bắn",
@@ -778,6 +952,9 @@
   "projectilePenetration": "Xuyên thủng đạn",
   "league": {
     "title": "Hạng",
+    "placementTitle": "Trận phân hạng",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "Hoàn thành {{total}} trận xếp hạng để khám phá Elo và giải đấu của bạn. Mỗi kết quả đưa bạn đến gần lần công bố hơn.",
     "unranked": "Chưa xếp hạng",
     "emperor": "Hoàng đế",
     "diamond-1": "Kim cương I",
@@ -846,6 +1023,7 @@
   "victoryPoints": "Điểm chiến thắng",
   "skirmishersInfo": "Lính tản chiến được đặt tự động tùy thuộc vào số lượng đơn vị có lính tản chiến trong quân đội và tỷ lệ lính tản chiến của loại trận chiến.",
   "skirmisherRatio": "Tỷ lệ lính tản chiến",
+  "skirmisherNextBreakpoint": "Ngưỡng tiếp theo",
   "prestigeDropChance": "Tỷ lệ nhận {{currency}}: {{chance}}% (từ lượt {{turn}})",
   "friendlyFireImmune": "Miễn nhiễm hỏa lực đồng minh",
   "nearbyUnits": "Đơn vị gần",
@@ -952,7 +1130,6 @@
   "noPublicGames": "Hiện không có trò chơi công khai nào.",
   "kFactorTooltip": "Hệ số K ELO (thay đổi xếp hạng tối đa mỗi trận xếp hạng)",
   "max": "Tối đa",
-  "minDistanceToFAA": "Khoảng cách tối thiểu đến FAA",
   "captureProgress": "Tiến độ chiếm",
   "captureThreshold": "Ngưỡng chiếm",
   "logistics": "Hậu cần",
@@ -979,10 +1156,6 @@
   "artillery": "Pháo binh",
   "special": "Đặc biệt",
   "academy": "Học viện",
-  "encyclopedia": "Bách khoa toàn thư",
-  "tutorialTips": "Mẹo hướng dẫn",
-  "loadingScreenTips": "Mẹo màn hình tải",
-  "gameConstants": "Hằng số trò chơi",
   "ammo": "Đạn",
   "ammoConsumption": "Tiêu thụ đạn",
   "allowsCharging": "Cho phép xung kích",
@@ -1046,13 +1219,6 @@
     "damageReceived": "Nhận",
     "winrate": "Thắng"
   },
-  "tutorialSummary": {
-    "heading": "Tóm tắt hướng dẫn",
-    "count": "Đã hiển thị {{seen}} / {{total}} bài học",
-    "description": "Mỗi bài học đề cập một tình huống đáng biết.",
-    "allSeen": "Bạn đã xem tất cả bài học của hướng dẫn.",
-    "viewMissed": "Xem bài học đã bỏ lỡ"
-  },
   "noAmmoRegain": "Không hồi đạn",
   "flankMeleeOrgModifier": "Hệ số tổ chức cận chiến sườn",
   "rearCharge": "Đột kích từ phía sau",
@@ -1099,12 +1265,107 @@
   "clanLeagueEnds": "Ends {{date}}",
   "reigningChampion": "Reigning champion",
   "noClanLeagueScores": "No coalition has scored this week yet.",
-  "weeklyGames": "games this week",
+  "weeklyGames": "games",
   "scoringMember": "scoring",
   "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
   "clanChat": "Coalition chat",
   "clanChatPlaceholder": "Message your coalition…",
   "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
   "chatSendFailed": "Failed to send message.",
-  "challengeClan": "Challenge"
+  "challengeClan": "Challenge",
+  "hideReplayInterface": "Ẩn giao diện",
+  "replayInterfaceKeyboardHint": "H: ẩn/hiện · Esc: hiện",
+  "replayInterfaceTouchHint": "Chạm hai lần vào bản đồ để hiện giao diện.",
+  "filters": "Bộ lọc",
+  "reset": "Đặt lại",
+  "gameSearchAnyPlayerCount": "Số lượng bất kỳ",
+  "gameSearchFinishedFrom": "Kết thúc từ ngày",
+  "gameSearchFinishedTo": "Kết thúc đến ngày",
+  "gameSearchEmptyDescription": "Mở rộng bộ lọc để tìm thêm bản phát lại.",
+  "firstSession": {
+    "title": "Trận chiến đầu tiên của bạn",
+    "description": "Học cách ra lệnh khi đấu với máy theo nhịp độ của bạn. Bản đồ và quân đội đã sẵn sàng.",
+    "startPractice": "Bắt đầu luyện tập",
+    "continuePractice": "Tiếp tục luyện tập",
+    "customize": "Tùy chỉnh trận chiến",
+    "playOnline": "Chơi trực tuyến"
+  },
+  "replaceOfflineGameWarning": "Bắt đầu trận mới sẽ thay thế trận ngoại tuyến đã lưu và tiến trình của bạn.",
+  "returnToMenu": "Trở về menu",
+  "exitGameHint": "Trở về menu không tạm dừng trận đấu.",
+  "openReplayFile": "Mở tệp phát lại",
+  "failedToLoadClans": "Không thể tải liên minh. Vui lòng thử lại.",
+  "emailConfirmation": {
+    "title": "Xác nhận email",
+    "confirmed": "Email đã được xác nhận. Bạn có thể đăng nhập.",
+    "error": "Không thể xác nhận email. Liên kết có thể không hợp lệ hoặc đã hết hạn."
+  },
+  "watchBattles": "Xem trận đấu",
+  "offlineSetup": {
+    "title": "Cách dựng một trận luyện tập",
+    "step1": "Chọn trận kéo dài bao lâu và bạn nhìn thấy địch tới đâu.",
+    "step2": "Chọn một kịch bản và một loại trận, hoặc giữ nguyên mặc định.",
+    "step3": "Sắp quân ở bên dưới rồi tạo trận. Trận chạy trên thiết bị này nên bạn có thể dừng rồi quay lại."
+  },
+  "unitComparison": {
+    "stop": "Dừng so sánh",
+    "baseLabel": "Giá trị cơ bản",
+    "title": "So sánh đơn vị",
+    "choose": "So sánh với…",
+    "sameCategory": "Cùng loại",
+    "otherCategories": "Các loại khác",
+    "gold": "Chi phí vàng",
+    "manpower": "Chi phí nhân lực",
+    "baseValues": "Giá trị cơ bản, chưa tính địa hình, đội hình và trạng thái; không dự đoán kết quả giao chiến.",
+    "relativeTo": "Phần trăm thể hiện chênh lệch của đơn vị này so với {{unit}}.",
+    "stat": "Thuộc tính",
+    "unavailable": "— nghĩa là không có giá trị hoặc không áp dụng."
+  },
+  "battleContinuation": {
+    "exports": "Lưu hoặc xuất",
+    "continueOffline": "Tiếp tục ngoại tuyến",
+    "replaceTitle": "Thay thế trận chiến đã lưu?",
+    "replace": "Thay thế và tiếp tục",
+    "noUnits": "Không còn đơn vị sống sót",
+    "title": "Tiếp tục trận chiến",
+    "description": "Bắt đầu trận chiến ngoại tuyến mới từ vị trí này. Điểm được đặt lại; bản phát lại đầy đủ giữ nguyên các hành động ban đầu.",
+    "additionalTurns": "Lượt bổ sung",
+    "download": "Tải trận chiến",
+    "exportScenario": "Xuất kịch bản",
+    "scenarioHint": "Có thể chỉnh sửa kịch bản. Tệp trận chiến cũng giữ lại bản phát lại.",
+    "chooseHuman": "Chọn người chơi có đơn vị còn sống.",
+    "error": "Không thể tải hoặc lưu trận chiến này. Vui lòng thử lại.",
+    "import": "Nhập trận chiến"
+  },
+  "turnRecovery": {
+    "pending": "Đang cập nhật trận đấu…",
+    "failed": "Không thể cập nhật trận đấu."
+  },
+  "orderOfBattle": {
+    "showArmy": "Hiện quân đội",
+    "hideArmy": "Ẩn quân đội"
+  },
+  "matchAcceptance": {
+    "firstRejection": "Không tính thua hay mất Elo. Từ chối hoặc bỏ lỡ đề nghị khác trong 24 giờ sẽ hạn chế xếp hạng nhanh trong 2 phút.",
+    "restrictionTitle": "Tạm hạn chế tìm trận",
+    "restriction": "Bạn đã từ chối hoặc bỏ lỡ nhiều đề nghị. Xếp hạng nhanh bị hạn chế thêm {{minutes}} phút. Vẫn có thể chơi trận riêng và ngoại tuyến.",
+    "restrictionEnded": "Hạn chế đã kết thúc. Bạn có thể tìm trận lại.",
+    "rulesTitle": "Luật xếp hạng",
+    "rules": "Trận xếp hạng nhanh bắt đầu khi tất cả người chơi chấp nhận. Sau đó bỏ trận được tính là thua bình thường, kể cả lượt đầu, không có lệnh cấm tự động bổ sung. Từ chối hoặc bỏ lỡ đề nghị đã nhận trong 24 giờ sẽ bị cảnh báo, rồi hạn chế 2, 10 và 60 phút, tối đa 60 phút. Từ chối không mất Elo.",
+
+    "ready": "Xếp hạng · Nhanh",
+    "accept": "Chấp nhận trận",
+    "decline": "Từ chối",
+    "timeRemaining": "Thời gian còn lại: {{count}} giây",
+    "sending": "Đang xác nhận phản hồi…",
+    "waiting": "Đã chấp nhận. Đang chờ những người chơi khác…",
+    "creating": "Tất cả đã chấp nhận. Đang chuẩn bị trận…",
+    "reconnecting": "Đang kết nối lại…",
+    "error": "Không thể xác nhận phản hồi. Vui lòng thử lại.",
+    "ended": "Đề nghị trận đã kết thúc",
+    "requeued": "Một người chơi khác không xác nhận. Bạn đã trở lại hàng chờ và giữ nguyên ưu tiên chờ.",
+    "noLoss": "Đề nghị kết thúc mà không tính thua. Bạn có thể tìm lại.",
+    "failed": "Chưa thể xác nhận trận đã được tạo. Hãy kiểm tra trước khi tìm lại.",
+    "checkGame": "Kiểm tra trận"
+  }
 }

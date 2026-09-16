@@ -85,6 +85,7 @@
     "guardsInfantry": "Guards Infantry",
     "midCavalry": "Cavalry",
     "artillery": "Artillery",
+    "horseArtillery": "Horse Artillery",
     "lightInfantry": "Light Infantry",
     "scoutCavalry": "Scout Cavalry",
     "lightCavalry": "Light Cavalry",
@@ -92,6 +93,12 @@
     "militiaInfantry": "Militia Infantry",
     "skirmishInfantry": "Skirmish Infantry",
     "ship": "Navy"
+  },
+  "damageTypeCategory": {
+    "cannonBall": "Cannon Ball",
+    "canister": "Canister",
+    "explosiveShell": "Explosive Shell",
+    "sword": "Sword"
   },
   "damageType": {
     "musket": "Musket",

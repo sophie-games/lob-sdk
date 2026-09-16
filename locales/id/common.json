@@ -1,4 +1,11 @@
 {
+  "orderUndo": {
+    "title": "Batalkan perintah terakhir",
+    "description": "Pulihkan perintah sebelumnya. Unit terdampak: {{count}}.",
+    "empty": "Tidak ada perintah untuk dibatalkan."
+  },
+  "otherGameModes": "Mode permainan lainnya",
+  "partyWaitingForTeammate": "Menunggu rekan tim",
   "orderSpeed": "Perintah",
   "orderChargeResistance": "Perintah",
   "shooting": "Menembak",
@@ -11,26 +18,27 @@
   "verified": "Akun terverifikasi",
   "tools": "Alat",
   "rotateCamera": "Putar",
+  "appLoadingMessage": "Selamat Datang di Lines of Battle!",
   "skip": "Lewati",
   "home": "Halaman Utama",
   "admin": "Admin",
   "analytics": "Analitik",
   "language": "Bahasa",
-  "tutorial": "Tutorial",
-  "skipTutorialTitle": "Lewati tutorial",
-  "skipTutorialMessage": "Lewati sisa tutorial dan kembali ke menu? Anda tidak akan diminta menyelesaikannya lagi.",
-  "goToTutorial": "Ke tutorial",
-  "tutorials": "Tutorial",
   "play": "Bermain",
   "ranking": "Ranking",
   "profile": "Profil",
   "history": "Sejarah Bermain",
   "store": "Toko",
-  "supporters": "Supporters",
   "elo": "Elo",
   "level": "Level",
   "baseLevelExperience": "Pengalaman dasar level",
   "experience": "Pengalaman",
+  "coalitionProgression": {
+    "title": "Level koalisi",
+    "fixedCapacity": "{{count}} anggota · kapasitas tetap",
+    "contribute": "Kontribusikan {{amount}} Florin",
+    "completeWithPrestige": "Selesaikan dengan {{amount}} Prestise"
+  },
   "nextLevelExperience": "Pengalaman level berikutnya",
   "season": "Musim",
   "time": "Waktu",
@@ -60,6 +68,7 @@
     "turn": "Giliran ke {{turnNumber}}/{{maxTurn}}"
   },
   "withdrawMessage": "Jika kamu mengundurkan diri dari permainan ini, maka akan dihitung sebagai kekalahan dan akan menurunkan Elo kamu. Apakah kamu yakin ingin mengundurkan diri?",
+  "withdrawUnrankedMessage": "Jika kamu mengundurkan diri dari permainan ini, maka akan dihitung sebagai kekalahan. Apakah kamu yakin ingin mengundurkan diri?",
   "loading": "Tunggu...",
   "yes": "Ya",
   "no": "Tidak",
@@ -170,8 +179,7 @@
   },
   "scenarioEditorTags": {
     "tutorialMessage": " Tidak yakin bagaimana cara menggunakannya? Jangan kawatir, Kami siap membantu kamu! <tutorialLink>Tonton tutorialnya disini.</tutorialLink>",
-    "randomGuide": "Ingin belajar cara membuat peta acak? Baca <0>panduan ini</0>.",
-    "baleriiMessage": "Pemain Balerii dan Nytka telah membuat editor peta sendiri! Lihat saluran YouTube mereka untuk melihat cara kerjanya:"
+    "randomGuide": "Ingin belajar cara membuat peta acak? Baca <0>panduan ini</0>."
   },
   "scenarioEditorAutosave": {
     "title": "Skenario Tersimpan Otomatis",
@@ -243,6 +251,7 @@
   "combating": "Bertempur",
   "unitStat": {
     "hp": "Nyawa",
+    "men": "Prajurit",
     "org": "Organisasi",
     "stamina": "Stamina",
     "movement": "Pergerakan",
@@ -307,6 +316,7 @@
   "height": "Tinggi",
   "orgDamageModifierByTargetOrg": "Kurangi Berdasarkan Target Organisasi",
   "damageModifierByTargetHp": "Modifier Kerusakan berdasarkan HP Target",
+  "damageModifierByTargetMen": "Pengubah Kerusakan berdasarkan Personel Target",
   "heightModifierPerLevel": "Modifier tinggi per tingkat",
   "damageModifierPerLevel": "Modifier kerusakan per tingkat",
   "maxElevationDiff": "Perbedaan elevasi maksimal",
@@ -382,10 +392,172 @@
     "message": "<b>Lines of Battle</b> adalah permainan taktis Napoleon dengan giliran simultan dan pertempuran real-time. Kalahkan lawan manusia dengan pasukan dan taktik yang akurat!",
     "privacy": "Sebelum memulai permainan, Dimohon kamu menyetujui ketentuan kami<0>Privacy Policy</0>."
   },
-  "welcomeModal": {
-    "title": "Selamat Datang di Lines of Battle 👋",
-    "thanks": "Terimakasih sudah bergabung, {{name}}!",
-    "p1": "Baru di <b>Lines of Battle</b>? Mulailah dengan <tutorialLink>tutorial</tutorialLink> untuk mempelajari mekanik dasar sebelum pertempuran pertamamu."
+  "gameTips": {
+    "victoryPoints": {
+      "title": "Poin kemenangan",
+      "description": "Korban dan sasaran memengaruhi poin kemenangan. Lindungi pasukan dan perebutkan sasaran untuk mengejar ketertinggalan."
+    },
+    "blockedFire": {
+      "title": "Tembakan terhalang",
+      "description": "Pasukanmu menghalangi tembakan baterai ini. Kosongkan jalur tembaknya agar dapat menembak."
+    },
+    "organization": {
+      "title": "Organisasi",
+      "description": "Unit yang kacau dapat melarikan diri. Tarik dari pertempuran agar pulih sebelum menyerang lagi."
+    },
+    "range": {
+      "title": "Jarak tembak",
+      "description": "Tembakan jauh menimbulkan lebih sedikit kerusakan. Mendekatlah atau batasi tembakan otomatis."
+    },
+    "flanks": {
+      "title": "Lindungi sisi",
+      "description": "Tembakan dari samping lebih merusak. Hadapi ancaman dan lindungi sisi dengan unit lain."
+    },
+    "charge": {
+      "title": "Pilih serbuan",
+      "description": "Menyerbu pasukan terorganisasi dari depan berisiko. Lemahkan dengan tembakan atau serang sisi."
+    },
+    "objectives": {
+      "title": "Sasaran kecil",
+      "description": "Bintang kecil membantu mengisi cadangan amunisi. Rebut agar pasukanmu terus menembak."
+    },
+    "ammo": {
+      "view": "Lihat amunisi",
+      "title": "Amunisi",
+      "description": "Artileri menghabiskan cadangan amunisimu, yang terisi kembali setiap giliran. Tanpa amunisi, artileri tidak dapat menembak. Atur tembakan otomatis untuk menghemat amunisi."
+    },
+    "running": {
+      "title": "Berlari dengan tujuan",
+      "description": "Bagi sebagian besar pasukan, berlari menghabiskan stamina dan membuat mereka lebih mudah dipatahkan jika menerima serbuan sesudahnya. Berjalanlah sampai butuh kecepatan atau ingin menyerbu."
+    },
+    "overlap": {
+      "title": "Jangan tumpuk unit",
+      "description": "Sekutu yang bertumpuk bergerak lebih lambat, bertarung kurang efektif dalam pertempuran jarak dekat, saling mendukung lebih sedikit, dan menerima lebih banyak kerusakan organisasi."
+    },
+    "terrain": {
+      "title": "Manfaatkan medan",
+      "description": "Medan mengubah pergerakan dan pertempuran. Buka Info untuk melihat pengubah unit saat ini dan memilih medan yang sesuai."
+    },
+    "basicsSelect": {
+      "title": "Memberi perintah",
+      "description": "Seret kotak di atas pasukan Anda untuk memilihnya, lalu seret dari pilihan untuk menggambar jalurnya. Tidak ada yang bergerak sampai giliran diselesaikan."
+    },
+    "basicsOrderTypes": {
+      "title": "Jenis perintah",
+      "description": "Setiap gerakan punya tempo. Berjalan menghemat stamina, Berlari lebih cepat tetapi melelahkan, Tembak dan Maju menembak sambil mendekat. Buka menu perintah untuk mengganti."
+    },
+    "basicsFormations": {
+      "title": "Formasi",
+      "description": "Formasi menentukan lebar depan dan daya tembak. Kolom berbaris cepat, baris mengarahkan paling banyak musket ke depan, kotak melindungi semua sisi dari kavaleri."
+    },
+    "basicsSubmit": {
+      "title": "Mengirim giliran",
+      "description": "Perintah menunggu sampai Anda mengirim giliran. Kedua pasukan diselesaikan bersamaan, jadi rencanakan ke mana musuh akan berada, bukan di mana ia sekarang."
+    },
+    "idleUnits": {
+      "title": "Pasukan tanpa perintah",
+      "description": "Beberapa pasukan Anda belum punya perintah giliran ini. Beri mereka perintah, atau mereka akan diam saja saat sisa barisan bergerak maju."
+    },
+    "skirmisherVsArtillery": {
+      "title": "Penembak lawan artileri",
+      "description": "Baterai musuh dalam jangkauan skirmisher Anda. Tuangkan api ke kru senjata. Para skirmisher menghancurkan artileri yang tidak terlindungi sebelum dapat menjawab."
+    },
+    "skirmisherVsCavalry": {
+      "title": "Kavaleri dekat penembak Anda",
+      "description": "Skirmisher Anda akan dihancurkan oleh kavaleri musuh jika mempertahankan posisi tersebut. Mundur dan cari perlindungan."
+    },
+    "skirmisherVsInfantry": {
+      "title": "Infanteri dekat penembak Anda",
+      "description": "Infanteri musuh di atas skirmisher Anda. Skirmishers melipat dalam jarak dekat. Tarik kembali sebelum bayonet mencapainya."
+    },
+    "infantryFormLine": {
+      "title": "Bentuk baris",
+      "description": "Ganti satuan-satuan ini menjadi garis. Dengan infanteri musuh dalam jangkauan musket atau kavaleri yang datang di depan, garis memberi Anda musket paling banyak diarahkan ke depan dan pertahanan terbaik terhadap tembakan yang datang. Jangan membentuk persegi melawan serangan frontal, Anda akan kehilangan setengah daya tembak Anda."
+    },
+    "infantryVsCavalryFrontal": {
+      "title": "Pertahankan baris",
+      "description": "Kavaleri musuh menyerbu depan infanterimu, tapi mereka punya perintah antri. Hapus agar barisan berdiri menembak, bukan berjalan ke kaki kuda."
+    },
+    "infantryVsCavalryFlank": {
+      "title": "Bentuk kotak",
+      "description": "Kavaleri datang dari sisi atau belakang infanteri Anda. Sebuah garis dilewati dari samping. Bentuk persegi pada setiap unit yang disorot sehingga setiap mukanya memiliki senapan."
+    },
+    "infantryBayonetCharge": {
+      "title": "Serbuan bayonet",
+      "description": "Infanteri musuh yang lemah dalam jangkauan serangan. Bentuk kolom dan temui mereka. Bayonet yang bersentuhan di kolom mematahkannya."
+    },
+    "infantryFallback": {
+      "title": "Tarik mundur pasukan ini",
+      "description": "Organisasi unit ini telah retak, satu tembakan lagi dan rutenya. Tarik keluar sebelum garis putus."
+    },
+    "infantryVsSkirmishers": {
+      "title": "Infanteri lawan penembak",
+      "description": "Skirmisher musuh berada di dekat Anda dan tidak ada kavaleri yang tersedia. Maju dengan berjalan kaki dan paksa mereka bertarung jarak dekat, tempat mereka paling lemah."
+    },
+    "infantryVsArtillery": {
+      "title": "Infanteri lawan artileri",
+      "description": "Meriam musuh berada dekat dan tanpa perlindungan. Berlari langsung ke awaknya sebelum mereka sempat berputar dan menembakkan peluru canister."
+    },
+    "infantryColumnMarch": {
+      "title": "Berbaris dalam kolom",
+      "description": "Tidak ada musuh di dekat unit ini. Beralih ke formasi kolom untuk bergerak lebih cepat, lalu bentuk formasi garis sebelum kontak."
+    },
+    "cavalryVsWeakerCavalry": {
+      "title": "Kavaleri lawan kavaleri lebih lemah",
+      "description": "Kavaleri musuh dalam jangkauan serangan dan terguncang, kudamu lebih segar. Tekan keuntungannya: isi daya sebelum pulih."
+    },
+    "cavalryVsEqualCavalry": {
+      "title": "Kavaleri lawan kavaleri seimbang",
+      "description": "Kavaleri musuh saling bersentuhan dan kira-kira sama stabilnya dengan milik Anda. Jangan buang stamina pada serangan yang tidak bisa Anda menangkan. Tutup saat berjalan-jalan dan berkelahi dengan seimbang."
+    },
+    "cavalryVsStrongerCavalry": {
+      "title": "Kavaleri lawan kavaleri lebih kuat",
+      "description": "Kavaleri musuh bersentuhan dan lebih mantap dari milikmu, kalah dalam pertarungan jarak dekat di sini. Putuskan dan setel ulang sebelum berkomitmen."
+    },
+    "cavalryVsInfantryFlank": {
+      "title": "Serang sisi",
+      "description": "Sisi infanteri musuh terbuka dan mereka sama stabilnya dengan Anda. Saat itulah muatan bersih menghancurkannya. Pukul bagian samping, bukan bagian depan."
+    },
+    "cavalryVsShakenInfantry": {
+      "title": "Kavaleri lawan infanteri goyah",
+      "description": "Infanteri musuh nyaris tidak bisa bersatu, organisasi mereka telah retak. Satu serangan bersih akan menjatuhkan mereka sebelum mereka bisa bersatu."
+    },
+    "cavalryVsSkirmishers": {
+      "title": "Kavaleri lawan penembak",
+      "description": "Skirmisher terjebak di tempat terbuka dengan jalur yang jelas menuju kuda Anda. Mereka terlipat dalam jarak dekat dan tidak bisa berlari lebih cepat dari serangan. Tunggangi mereka sebelum mereka mencapai perlindungan."
+    },
+    "cavalryVsArtillery": {
+      "title": "Kavaleri lawan artileri",
+      "description": "Senjata musuh tanpa layar antara Anda dan mereka. Tuduhan terhadap kru yang tidak disaring akan mengakhiri mereka dalam satu ketukan. Tetapi jika garis persahabatan menghalangi Anda, Anda malah akan melawannya."
+    },
+    "cavalryPursueRouter": {
+      "title": "Kejar yang kabur",
+      "description": "Musuh itu rusak dan lari, tanpa dukungan untuk menghentikan pengejaran. Pengejaran oleh kavaleri menghancurkan mereka selamanya. Selesaikan mereka sebelum mereka direformasi."
+    },
+    "cavalryFallbackFromInfantry": {
+      "title": "Kavaleri dalam jangkauan musket",
+      "description": "Kavaleri Anda berada dalam jangkauan senapan infanteri garis yang sehat. Tarik mundur sebelum mereka menumpas kudamu, carilah target yang terguncang atau sayap yang terbuka."
+    },
+    "enemyInfantrySquare": {
+      "title": "Kotak musuh",
+      "description": "Infanteri musuh sudah membentuk kotak. Tiap sisi punya muskets siap. Jauhkan kavaleri dan cari target garis atau kolom dengan sayap terbuka."
+    },
+    "artilleryFireAndAdvance": {
+      "title": "Tembak dan maju",
+      "description": "Musuh berada cukup jauh sehingga Anda bisa terus mendekat sambil menembak. Ganti unit artileri ini ke Tembak dan Maju."
+    },
+    "artilleryRotateToFire": {
+      "title": "Berhenti untuk menembak",
+      "description": "Musuh sudah dekat dan meriam Anda mempunyai tembakan yang bersih tetapi masih bergerak. Hentikan pawai dan putar unit untuk menembak otomatis."
+    },
+    "pushObjective": {
+      "title": "Manfaatkan keunggulan",
+      "description": "Anda yang memimpin. Dorong menuju tujuan musuh dengan apa yang telah Anda pelajari. Menutupnya akan membuat mereka tidak bisa kembali lagi."
+    },
+    "holdObjective": {
+      "title": "Pertahankan tujuan Anda",
+      "description": "Anda ketinggalan poin. Tarik kembali ke tujuan Anda dan pertahankan dengan apa yang telah Anda pelajari. Mempertahankan lebih murah daripada merebut kembali."
+    }
   },
   "turn": "Giliran",
   "bank": "Cadangan",
@@ -407,8 +579,10 @@
     "3": "Tembak",
     "4": "Tembak dan Maju",
     "6": "Mundur",
-    "7": "Menghadap"
+    "7": "Menghadap",
+    "mixed": "Campuran"
   },
+  "mixedOrderDescription": "Setiap unit mempertahankan jenis perintahnya sendiri.",
   "selectOrder": "Pilih Perintah",
   "orderType": "Jenis perintah",
   "autofire": "Tembak otomatis",
@@ -707,10 +881,6 @@
     "scriptedEvents": "Peristiwa berskrip"
   },
   "academy": "Akademi",
-  "encyclopedia": "Ensiklopedia",
-  "tutorialTips": "Tips Tutorial",
-  "loadingScreenTips": "Tips Layar Pemuatan",
-  "gameConstants": "Konstanta Permainan",
   "ammo": "Ammunisi",
   "ammoConsumption": "Konsumsi Amunis",
   "arenas": "Arena",
@@ -862,6 +1032,9 @@
   },
   "league": {
     "title": "Liga",
+    "placementTitle": "Pertempuran penempatan",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "Selesaikan {{total}} pertempuran berperingkat untuk mengungkap Elo dan ligamu. Setiap hasil membawamu lebih dekat pada pengungkapan.",
     "emperor": "Kaisar",
     "diamond-3": "Berlian III",
     "diamond-2": "Berlian II",
@@ -882,13 +1055,6 @@
     "iron-2": "Besi II",
     "iron-1": "Besi I",
     "unranked": "Tidak berperingkat"
-  },
-  "tutorialSummary": {
-    "heading": "Ringkasan tutorial",
-    "count": "{{seen}} dari {{total}} pelajaran ditampilkan",
-    "description": "Setiap pelajaran membahas situasi yang patut diketahui.",
-    "allSeen": "Kamu telah melihat semua pelajaran tutorial.",
-    "viewMissed": "Lihat pelajaran yang terlewat"
   },
   "matchFoundModal": {
     "title": "Pertandingan ditemukan!",
@@ -917,6 +1083,7 @@
   "cannotUseAfterRun": "Tidak dapat digunakan setelah lari",
   "copied": "Disalin!",
   "skirmisherRatio": "Rasio penembak jitu",
+  "skirmisherNextBreakpoint": "Ambang berikutnya",
   "projectileWidth": "Lebar proyektil",
   "allyCollisionLevel": "Tingkat tabrakan sekutu",
   "enemyCollisionLevel": "Tingkat tabrakan musuh",
@@ -924,7 +1091,6 @@
   "back": "Kembali",
   "autofirePriority": "Prioritas tembak otomatis",
   "heightOffset": "Offset tinggi",
-  "minDistanceToFAA": "Jarak min untuk Tembak dan Maju",
   "big": "Besar",
   "small": "Kecil",
   "rotationSpeed": "Kecepatan rotasi",
@@ -962,12 +1128,109 @@
   "clanLeagueEnds": "Ends {{date}}",
   "reigningChampion": "Reigning champion",
   "noClanLeagueScores": "No coalition has scored this week yet.",
-  "weeklyGames": "games this week",
+  "weeklyGames": "games",
   "scoringMember": "scoring",
   "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
   "clanChat": "Coalition chat",
   "clanChatPlaceholder": "Message your coalition…",
   "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
   "chatSendFailed": "Failed to send message.",
-  "challengeClan": "Challenge"
+  "challengeClan": "Challenge",
+  "hideReplayInterface": "Sembunyikan antarmuka",
+  "replayInterfaceKeyboardHint": "H: sembunyikan/tampilkan · Esc: tampilkan",
+  "replayInterfaceTouchHint": "Ketuk peta dua kali untuk menampilkan antarmuka.",
+  "filters": "Filter",
+  "minTurn": "Giliran minimum",
+  "reset": "Atur ulang",
+  "applyFilters": "Terapkan filter",
+  "gameSearchAnyPlayerCount": "Jumlah berapa pun",
+  "gameSearchFinishedFrom": "Selesai sejak",
+  "gameSearchFinishedTo": "Selesai hingga",
+  "gameSearchEmptyDescription": "Perluas filter untuk menemukan lebih banyak tayangan ulang.",
+  "firstSession": {
+    "title": "Pertempuran pertamamu",
+    "description": "Belajar memberi perintah melawan bot sesuai kecepatanmu. Peta dan pasukan sudah siap.",
+    "startPractice": "Mulai latihan",
+    "continuePractice": "Lanjutkan latihan",
+    "customize": "Sesuaikan pertempuran",
+    "playOnline": "Main online"
+  },
+  "replaceOfflineGameWarning": "Pertempuran baru akan menggantikan permainan offline tersimpan dan progresnya.",
+  "returnToMenu": "Kembali ke menu",
+  "exitGameHint": "Kembali ke menu tidak menjeda pertempuran.",
+  "openReplayFile": "Buka berkas replay",
+  "failedToLoadClans": "Koalisi tidak dapat dimuat. Coba lagi.",
+  "emailConfirmation": {
+    "title": "Konfirmasi email Anda",
+    "confirmed": "Email dikonfirmasi. Anda sekarang dapat masuk.",
+    "error": "Email tidak dapat dikonfirmasi. Tautan mungkin tidak valid atau kedaluwarsa."
+  },
+  "watchBattles": "Tonton pertempuran",
+  "offlineSetup": {
+    "title": "Menyiapkan pertempuran latihan",
+    "step1": "Pilih berapa lama pertempuran berlangsung dan seberapa jauh Anda melihat musuh.",
+    "step2": "Pilih skenario dan jenis pertempuran, atau biarkan pengaturan bawaan.",
+    "step3": "Susun pasukan di bawah, lalu buat pertempurannya. Jalannya di perangkat ini, jadi Anda bisa berhenti dan kembali."
+  },
+  "unitComparison": {
+    "stop": "Hentikan perbandingan",
+    "baseLabel": "Nilai dasar",
+    "title": "Bandingkan unit",
+    "choose": "Bandingkan dengan…",
+    "sameCategory": "Kategori yang sama",
+    "otherCategories": "Kategori lain",
+    "gold": "Biaya emas",
+    "manpower": "Biaya tenaga manusia",
+    "baseValues": "Nilai dasar tanpa pengubah medan, formasi, dan kondisi; bukan prediksi pertempuran.",
+    "relativeTo": "Persentase menunjukkan selisih unit ini terhadap {{unit}}.",
+    "stat": "Atribut",
+    "unavailable": "— berarti nilai tidak tersedia atau tidak berlaku."
+  },
+  "battleContinuation": {
+    "exports": "Simpan atau ekspor",
+    "continueOffline": "Lanjutkan offline",
+    "replaceTitle": "Ganti pertempuran tersimpan?",
+    "replace": "Ganti dan lanjutkan",
+    "noUnits": "Tidak ada unit yang selamat",
+    "title": "Lanjutkan pertempuran",
+    "description": "Mulai pertempuran offline baru dari posisi ini. Poin diatur ulang; tayangan ulang lengkap menyimpan aksi aslinya.",
+    "additionalTurns": "Giliran tambahan",
+    "download": "Unduh pertempuran",
+    "exportScenario": "Ekspor skenario",
+    "scenarioHint": "Skenario dapat diedit. Berkas pertempuran juga menyimpan tayangan ulang.",
+    "chooseHuman": "Pilih pemain manusia dengan unit yang masih bertahan.",
+    "error": "Tidak dapat memuat atau menyimpan pertempuran ini. Coba lagi.",
+    "import": "Impor pertempuran"
+  },
+  "turnRecovery": {
+    "pending": "Memperbarui pertempuran…",
+    "failed": "Tidak dapat memperbarui pertempuran."
+  },
+  "orderOfBattle": {
+    "showArmy": "Tampilkan pasukan",
+    "hideArmy": "Sembunyikan pasukan"
+  },
+  "matchAcceptance": {
+    "firstRejection": "Tidak ada kekalahan atau kehilangan Elo. Menolak atau melewatkan tawaran lain dalam 24 jam membatasi ranked cepat selama 2 menit.",
+    "restrictionTitle": "Pencarian dibatasi sementara",
+    "restriction": "Beberapa tawaran ditolak atau terlewat. Ranked cepat dibatasi {{minutes}} menit lagi. Game privat dan offline tetap tersedia.",
+    "restrictionEnded": "Pembatasan berakhir. Kamu dapat mencari lagi.",
+    "rulesTitle": "Aturan ranked",
+    "rules": "Pertempuran ranked cepat dimulai setelah semua pemain menerima. Meninggalkan pertempuran dihitung sebagai kekalahan normal, bahkan pada giliran pertama, tanpa larangan otomatis tambahan. Menolak atau melewatkan tawaran yang diterima dalam 24 jam menghasilkan peringatan, lalu pembatasan 2, 10, dan 60 menit, maksimal 60 menit. Menolak tidak mengurangi Elo.",
+
+    "ready": "Peringkat · Cepat",
+    "accept": "Terima pertandingan",
+    "decline": "Tolak",
+    "timeRemaining": "Sisa waktu: {{count}} dtk",
+    "sending": "Mengonfirmasi jawabanmu…",
+    "waiting": "Diterima. Menunggu pemain lainnya…",
+    "creating": "Semua menerima. Menyiapkan pertempuran…",
+    "reconnecting": "Menghubungkan kembali…",
+    "error": "Jawabanmu tidak dapat dikonfirmasi. Coba lagi.",
+    "ended": "Tawaran pertandingan berakhir",
+    "requeued": "Pemain lain tidak mengonfirmasi. Kamu kembali ke antrean dengan prioritas menunggu tetap terjaga.",
+    "noLoss": "Tawaran berakhir tanpa kekalahan. Kamu bisa mencari lagi.",
+    "failed": "Pembuatan pertempuran belum dapat dikonfirmasi. Periksa sebelum mencari lagi.",
+    "checkGame": "Periksa pertandingan"
+  }
 }

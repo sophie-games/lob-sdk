@@ -55,7 +55,8 @@ export interface GameDataManagerConfig {
 export type BaseSpeed = "walk" | "run";
 
 export interface RoutingBehavior {
-  baseSpeed: BaseSpeed;
+  /** Omitted by categories that only set `fleeWhenRouted`; treated as "walk". */
+  baseSpeed?: BaseSpeed;
   /** Whether the unit flees when in Routed state. Defaults to true. */
   fleeWhenRouted?: boolean;
 }
@@ -81,6 +82,8 @@ export interface UnitCategoryTemplate {
   deploymentSection?: DeploymentSection;
   damageTypeResistances?: Partial<Record<string, number>>;
   firingAltitude: number;
+  /** 0 (default) disables all firing in melee. Above 0, enables melee fire and sets the firepower share (0..1) of enemy-blocked emitters; free emitters keep full power and allies still block. */
+  meleeFireRatio?: number;
   captureSpeed?: number;
   autofirePriority?: Partial<Record<UnitCategoryId, number>>;
   /**
@@ -236,6 +239,7 @@ export interface GameConstants {
   CHARGE_BACKLASH_RESIST_FLOOR: number;
 
   HAS_TAKEN_FIRE_SPEED_MODIFIER: number;
+  HAS_BEEN_IN_MELEE_SPEED_MODIFIER: number;
 
   EFFECT_HAS_RAN_TICKS: number;
 
@@ -386,6 +390,11 @@ export type AoeConfig = CircularAoEConfig | TrapezoidalAoeConfig;
 export interface MeleeDamageTypeTemplate {
   id: number;
   name: string;
+  /**
+   * Display grouping: damage types sharing a category collapse into one row
+   * (with the range of their values) in the stat panels. Purely presentational.
+   */
+  category?: string;
   ranged?: false;
   ammoCost?: never;
   damageModifier?: number;
@@ -454,6 +463,11 @@ export enum ShotAimMode {
 export interface RangedDamageTypeTemplate {
   id: number;
   name: string;
+  /**
+   * Display grouping: damage types sharing a category collapse into one row
+   * (with the range of their values) in the stat panels. Purely presentational.
+   */
+  category?: string;
   ranged: true;
   projectileWidth: number;
   damageModifier?: number;
@@ -471,6 +485,13 @@ export interface RangedDamageTypeTemplate {
   damageModifierByTargetHp?: TargetStatModifier;
   /** Weapon's max range (absolute); each band's `from`/`to` is a fraction of this. */
   maxRange: number;
+  /**
+   * The range this weapon wants to fight at, as a fraction of `maxRange`. A unit advancing
+   * under fire and advance stops at the nearest preference among the weapons it is firing,
+   * never further out than that weapon can reach. Omit for a weapon that gives no reason to
+   * close, such as round shot or a shell: it then has no say in where the unit stops.
+   */
+  preferredRange?: number;
   ranges: DamageTypeRange[];
   arcHeight?: number;
   /**
@@ -709,13 +730,6 @@ export interface AllyCollisionRule {
   maxOrgRadiusModifier: number;
 }
 
-export interface TutorialRule {
-  /**
-   * Single tutorial scenario for the era. `null` means the era has no tutorial.
-   */
-  scenario: ScenarioName | null;
-}
-
 export interface OrganizationRule {
   /** Speed modifier applied based on organization level */
   speedModifier: number;
@@ -735,6 +749,8 @@ export interface OrganizationRule {
   maxOrgMeleeAttackBonus: number;
   /** Maximum melee attack penalty when organization is low */
   maxOrgMeleeAttackPenalty: number;
+  /** Non-positive melee defense penalty at the lower organization threshold; defaults to zero. */
+  maxOrgMeleeDefensePenalty?: number;
   /** Base organization regain rate per turn (as proportion of max org) */
   regainRate: number;
   /** Upper limit for organization-based modifiers (as proportion, e.g., 0.9 = 90%) */
@@ -763,8 +779,6 @@ export interface OrganizationRule {
   startedRoutingOrgRadiusModifier: number;
   /** Minimum organization radius distance that is applied when unit has StartedRouting effect: 0 turns off the function */
   startedRoutingOrgRadiusDistance: number;
-  /** Run speed bonus when a unit starts routing, to help them get away: 1 turns off the function */
-  startedRoutingOrgRadiusDistanceRunSpeedBonus: number;
   /** Run cost modifier when a unit is routing after they finish the initial route: 1 turns off the function */
   routingRunCostModifier: number;
   /** Run cost modifier when a unit starts routing: 1 turns off the function */
@@ -802,7 +816,6 @@ export interface GameRules {
   objectives: ObjectivesRule;
   organization: OrganizationRule;
   allyCollision?: AllyCollisionRule;
-  tutorial?: TutorialRule;
 }
 
 export interface UnitSkin {

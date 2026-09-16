@@ -1,4 +1,12 @@
-﻿{
+{
+  "selectedOrderOpacity": {
+    "title": "已选命令不透明度",
+    "description": "所选单位的箭头和目的地预览的不透明度。未选择任何单位时应用于所有单位。设为0%时隐藏。"
+  },
+  "unselectedOrderOpacity": {
+    "title": "未选命令不透明度",
+    "description": "选择单位时，其他单位的箭头和目的地预览的不透明度。设为0%时隐藏。"
+  },
   "gameplay": "游戏性",
   "graphics": "画面",
   "camera": "镜头",
@@ -25,8 +33,10 @@
     "description": "显示控制编组栏。在触摸设备上将其关闭，可避免误触更改你的选择。"
   },
   "smartCurvedMovements": {
-    "title": "智能曲线移动",
-    "description": "启用后会自动优化行动路线，让曲线更加平滑来减少单位转向时浪费的速度。"
+    "title": "移动路线",
+    "description": "直线沿绘制的线段移动；曲线平滑转弯。无法通行的障碍物会自动绕过。",
+    "direct": "直线",
+    "curved": "曲线"
   },
   "pathFinding": {
     "title": "寻路",
@@ -102,9 +112,9 @@
   "gridOpacity": {
     "title": "网格不透明度"
   },
-  "tracerOpacity": {
-    "title": "曳光线不透明度",
-    "description": "调整远程攻击时曳光线的不透明度。设为 0% 时将完全隐藏。"
+  "showChargeDamageIndicators": {
+    "title": "显示冲锋伤害指示器",
+    "description": "单位冲锋时显示浮动伤害数字。"
   },
   "showDebugShapes": {
     "title": "显示调试图形",
@@ -180,7 +190,7 @@
     "shootOrder": "射击指令",
     "fireAndAdvanceOrder": "移动射击指令",
     "fallbackOrder": "后退指令",
-    "toggleSmartCurvedMovements": "切换智能曲线移动",
+    "toggleSmartCurvedMovements": "切换直线与曲线",
     "togglePathFinding": "切换路径寻找",
     "toggleFowPerspective": "切换战争迷雾视角",
     "toggleMultiTurnPathOrders": "切换多回合路径指令",
@@ -307,7 +317,10 @@
   "controlGroups": {
     "recall": "呼叫编组 {{group}}",
     "set": "设置编组 {{group}}",
-    "add": "加入编组 {{group}}",
-    "setExclusive": "仅编入编组 {{group}}"
+    "add": "加入编组 {{group}}"
+  },
+  "showGameTips": {
+    "title": "显示提示",
+    "description": "在战场上按局势出现的简短课程。每条只会显示几次。"
   }
 }

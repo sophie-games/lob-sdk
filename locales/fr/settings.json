@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Opacité des ordres sélectionnés",
+    "description": "Opacité des flèches et des aperçus de destination des unités sélectionnées, ou de toutes les unités si aucune n’est sélectionnée. 0% les masque."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Opacité des ordres non sélectionnés",
+    "description": "Opacité des flèches et des aperçus de destination des autres unités lorsque des unités sont sélectionnées. 0% les masque."
+  },
   "gameplay": "Jouabilité",
   "graphics": "Graphismes",
   "camera": "Caméra",
@@ -25,8 +33,10 @@
     "description": "Affiche la barre des groupes de contrôle. Désactivez-la pour éviter que des appuis accidentels ne modifient votre sélection sur les appareils tactiles."
   },
   "smartCurvedMovements": {
-    "title": "Mouvements courbés intelligents",
-    "description": "Active cette option pour optimiser les trajets de mouvement avec des courbes fluides, réduisant la perte de vitesse lors des rotations."
+    "title": "Trajectoire",
+    "description": "Directe suit les segments tracés ; Courbe arrondit les virages. Les obstacles infranchissables sont contournés automatiquement.",
+    "direct": "Directe",
+    "curved": "Courbe"
   },
   "pathFinding": {
     "title": "Recherche de chemin",
@@ -92,9 +102,9 @@
   "gridOpacity": {
     "title": "Opacité de la grille"
   },
-  "tracerOpacity": {
-    "title": "Opacité des traceurs",
-    "description": "Contrôle l’opacité des lignes traçantes lors des attaques à distance. À 0 %, elles sont masquées."
+  "showChargeDamageIndicators": {
+    "title": "Afficher les dégâts de charge",
+    "description": "Affiche des nombres de dégâts flottants lorsque les unités chargent."
   },
   "showDebugShapes": {
     "title": "Afficher les formes de débogage",
@@ -153,7 +163,7 @@
     "shootOrder": "Ordre de tir",
     "fireAndAdvanceOrder": "Ordre de tirer et avancer",
     "fallbackOrder": "Ordre de repli",
-    "toggleSmartCurvedMovements": "Basculer les mouvements courbés intelligents",
+    "toggleSmartCurvedMovements": "Alterner entre Directe et Courbe",
     "togglePathFinding": "Basculer la recherche de chemin",
     "toggleFowPerspective": "Basculer la perspective de brouillard de guerre",
     "toggleMultiTurnPathOrders": "Basculer les ordres de chemin multi-tours",
@@ -266,13 +276,16 @@
   "controlGroups": {
     "recall": "Rappeler le groupe {{group}}",
     "set": "Définir le groupe {{group}}",
-    "add": "Ajouter au groupe {{group}}",
-    "setExclusive": "Affecter au seul groupe {{group}}"
+    "add": "Ajouter au groupe {{group}}"
   },
   "notifications": {
     "clanLeague": {
       "title": "Coalition league",
       "description": "Notify me when my coalition can still reach the weekly prize positions."
     }
+  },
+  "showGameTips": {
+    "title": "Afficher les conseils",
+    "description": "De courtes leçons qui apparaissent en bataille quand la situation l'exige. Chacune n'est montrée que quelques fois."
   }
 }

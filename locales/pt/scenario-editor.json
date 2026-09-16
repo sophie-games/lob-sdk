@@ -173,7 +173,8 @@
     "title": "Zonas de implantação",
     "hint": "Estas zonas definem onde cada exército começa. A fase de implantação apenas adiciona um turno 0 para os jogadores se reorganizarem dentro delas.",
     "team": "Equipe {{team}}",
-    "wholeTeam": "Todos os jogadores da equipe",
+    "remainingPlayers": "Jogadores restantes da equipe",
+    "assignmentHelp": "Escolha os jogadores restantes ou selecione um ou mais jogadores específicos.",
     "player": "Jogador {{player}}",
     "mainZone": "Principal",
     "forwardZone": "Avançada",
@@ -201,7 +202,11 @@
     "drawLineRank": "Posição ao traçar linha (menor = à frente)",
     "title": "Editar formação personalizada",
     "collision": "Colisão",
-    "collisionHelp": "Área ocupada retangular: frente ao longo da linha de frente e profundidade da frente para trás. Defina ambos os valores como 0 para nenhuma colisão (voo / fantasma).",
+    "collisionHelp": "Forma da área ocupada: um círculo (raio) ou um retângulo (frente ao longo da linha de frente, profundidade da frente para trás). Use raio 0 para nenhuma colisão (voo / fantasma).",
+    "shape": "Forma",
+    "shapeRectangle": "Retângulo",
+    "shapeCircle": "Círculo",
+    "radiusPx": "Raio (px)",
     "frontagePx": "Frente (px)",
     "depthPx": "Profundidade (px)",
     "runMovementModifier": "Modificador de movimento em corrida",
@@ -217,7 +222,7 @@
     "rangedDamageResistance": "Resistência a dano à distância",
     "rangedOrgResistance": "Resistência org. à distância",
     "fireEdges": "Bordas de fogo (fogo de borda)",
-    "fireEdgesHelp": "Cada borda de fogo emite ao longo de uma face do retângulo. Uma formação sem bordas de fogo dispara por uma única borda frontal padrão.",
+    "fireEdgesHelp": "Cada borda de fogo emite ao longo de uma face do retângulo. Uma formação sem bordas de fogo dispara por uma única borda frontal padrão; formações em círculo não disparam.",
     "edge": "Borda",
     "edgeLeft": "0 - lado esquerdo (-Y)",
     "edgeFront": "1 - frente (+X)",
@@ -254,6 +259,7 @@
     }
   },
   "unitTemplateModal": {
+    "initialOrder": "Ordem inicial",
     "title": "Editar modelo de unidade personalizado",
     "optBuiltIn": "{{name}} (interno)",
     "optCustom": "{{name}} (personalizado)",
@@ -278,6 +284,8 @@
     "orgRadiusBonus": "Bônus de raio de org",
     "reportStats": "Estatísticas do relatório",
     "reportStatsHelp": "Contagem que cada unidade contribui para os relatórios de batalha (ex.: homens, cavalos, canhões). As chaves vêm das unidades internas da era.",
+    "casualtiesAtZeroHp": "Baixas a zero PV (%)",
+    "casualtiesAtZeroHpHelp": "Parcela da força registrada desta unidade contada como baixas quando toda a barra de PV é perdida. Os PV representam força de combate: no valor padrão de 50%, a unidade deixa de ser eficaz após metade da força registrada virar baixa. A dispersão ainda remove toda a força de combate restante.",
     "tallyPerUnit": "Contagem por unidade",
     "walkMovement": "Movimento a passo",
     "runMovement": "Movimento em corrida",
@@ -321,6 +329,10 @@
     "changeAnimationsHelp": "A animação reproduzida enquanto uma unidade deixa esta formação por outra. Escolha a formação para a qual ela está mudando e depois a animação a reproduzir pelo caminho. Uma transição sem linha aqui não está quebrada: a unidade simplesmente salta de um sprite para o outro sem nada pelo meio, que é o que hoje fazem todas as formações sem entradas. A lista contém as animações que esta era inclui, e a infantaria de linha da era usa seis delas."
   },
   "unitCategoryModal": {
+    "meleeFire": {
+      "ratio": "Potência de fogo no corpo a corpo (0–1)",
+      "hint": "0 desativa todos os disparos no corpo a corpo (padrão). Acima de 0, emissores bloqueados por inimigos disparam com esta fração da potência normal; emissores livres mantêm potência total. Aliados continuam bloqueando o fogo."
+    },
     "title": "Editar categoria de unidade personalizada",
     "optionBuiltIn": "{{name}} (interno)",
     "optionCustom": "{{name}} (personalizado)",
@@ -514,7 +526,9 @@
       "importFromScenario": "Importar de cenário",
       "duplicate": "Duplicar",
       "inThisScenario": "Neste cenário",
-      "builtIntoThisEra": "Interno a esta era"
+      "builtIntoThisEra": "Interno a esta era",
+      "resetToEra": "Redefinir para a era",
+      "resetAllToEra": "Redefinir tudo para a era"
     },
     "spritesPanel": {
       "title": "Sprites de unidade",
@@ -580,7 +594,6 @@
       "clonePickerTitle": "Clonar uma categoria de terreno interna"
     },
     "overrideEditor": {
-      "reset": "Redefinir",
       "eraDefault": "padrão da era: {{value}}",
       "structuralTooltip": "Constante estrutural / de determinismo. Alterá-la pode quebrar a renderização, replays ou o matchmaking."
     },
@@ -629,7 +642,7 @@
     },
     "gameConstants": {
       "title": "Constantes do jogo",
-      "description": "Sobrescreva as constantes numéricas desta era para este cenário. Apenas os valores alterados são salvos; Redefinir retorna um campo ao padrão da era. As chaves marcadas com ⚠ são estruturais - alterá-las pode quebrar a renderização, replays ou o matchmaking. Os valores estão em unidades internas brutas.",
+      "description": "Estes são os números básicos da era: quanto dura um turno, o tamanho de um ladrilho, quantos turnos dura uma batalha. O que você mudar vale apenas para este cenário, e qualquer valor pode voltar ao do próprio jogo.",
       "category": {
         "mapDimensions": "Dimensões do mapa",
         "deployment": "Implantação",
@@ -653,11 +666,15 @@
     },
     "gameRules": {
       "title": "Regras do jogo",
-      "description": "Sobrescreva as regras de jogabilidade desta era para este cenário. Apenas os valores alterados são salvos; use Redefinir para retornar um campo ao padrão da era. Os valores estão em unidades internas brutas (algumas estatísticas são armazenadas pré-escaladas)."
+      "description": "Estes são os sistemas em que sua era funciona, de como as unidades mantêm a moral até como uma batalha é vencida. O que você mudar vale apenas para este cenário, e qualquer valor pode voltar ao do próprio jogo. Os números estão nas unidades do próprio jogo, portanto podem não corresponder a metros ou minutos."
     },
     "ordersPanel": {
       "title": "Ordens",
-      "description": "Sobrescreva os valores das ordens internas desta era para este cenário. Apenas os valores alterados são salvos; use Redefinir para retornar um campo ao padrão da era. Você pode modificar ordens existentes, mas não adicionar novas."
+      "description": "Ordens são as instruções que um jogador pode dar a uma unidade durante a batalha. Aqui você pode reajustar as ordens da era para este cenário, mas não pode criar novas. Qualquer valor pode voltar ao do próprio jogo.",
+      "general": "Modificador geral",
+      "categoryOverrides": "Exceções por categoria",
+      "addCategory": "Adicionar exceção de categoria",
+      "inheritance": "Categorias sem exceção usam o modificador geral: {{value}}%."
     },
     "clonePicker": {
       "alreadyOverridden": "(já sobrescrito)",
@@ -1047,5 +1064,12 @@
   },
   "objectiveOwnership": {
     "help": "Objetivos sempre pertencem a uma equipe. Em um cenário com elenco fixo, este campo nomeia um jogador, e o objetivo pertence à equipe daquele jogador. Em um cenário feito para exércitos dinâmicos não há vagas de jogador até o matchmaking preenchê-las, então o campo nomeia a equipe diretamente."
+  },
+  "mapLabels": {
+    "title": "Nomes no mapa",
+    "help": "Clique com o botão direito no mapa (ou toque com os controles de toque) para escolher uma posição e depois adicione ou mova um nome.",
+    "add": "Adicionar nome",
+    "move": "Mover para a posição escolhida",
+    "empty": "Ainda não há nomes."
   }
 }

@@ -85,6 +85,29 @@ describe("GameDataManager custom defs", () => {
       expect(allowed.length).toBe(1);
     });
 
+    it.each(["napoleonic", "ww2"] as const)(
+      "loads legacy replay order names in %s without changing the saved definitions",
+      (era) => {
+        const category = {
+          id: "legacy-infantry",
+          firingAltitude: 0,
+          allowedOrders: ["walk", "fireAndAdvance", "advance"],
+        };
+        const manager = GameDataManager.createWithCustomDefs(era, {
+          customUnitCategories: [category],
+        });
+        expect(manager.getUnitCategoryAllowedOrders(category.id)).toEqual([
+          OrderType.Walk,
+          ...(era === "napoleonic" ? [OrderType.FireAndAdvance] : []),
+        ]);
+        expect(category.allowedOrders).toEqual(["walk", "fireAndAdvance", "advance"]);
+        expect(manager.getOrderTemplate(OrderType.Walk).name).toBe("walk");
+        if (era === "napoleonic") {
+          expect(manager.getOrderTemplate(OrderType.FireAndAdvance).name).toBe("fireAndAdvance");
+        }
+      },
+    );
+
     it("throws at load time if an allowedOrder name is unknown", () => {
       expect(() =>
         GameDataManager.createWithCustomDefs("napoleonic", {

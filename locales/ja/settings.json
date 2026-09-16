@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "選択中の命令の不透明度",
+    "description": "選択中のユニットの矢印と移動先プレビューの不透明度。何も選択していない場合はすべてのユニットに適用されます。0%で非表示になります。"
+  },
+  "unselectedOrderOpacity": {
+    "title": "未選択の命令の不透明度",
+    "description": "ユニットを選択している間の、他のユニットの矢印と移動先プレビューの不透明度。0%で非表示になります。"
+  },
   "gameplay": "ゲームプレイ",
   "graphics": "グラフィック",
   "camera": "カメラ",
@@ -25,8 +33,10 @@
     "description": "コントロールグループバーを表示します。タッチデバイスで誤ったタップによって選択が変わるのを防ぐにはオフにします。"
   },
   "smartCurvedMovements": {
-    "title": "スマートカーブ移動",
-    "description": "このオプションを有効にすると、移動経路がスムーズな曲線で最適化され、回転中の速度損失を最小限に抑えます。"
+    "title": "移動経路",
+    "description": "直線は描いた線分に沿って進み、曲線は曲がり角を滑らかにします。通行できない障害物は自動的に迂回します。",
+    "direct": "直線",
+    "curved": "曲線"
   },
   "pathFinding": {
     "title": "経路探索",
@@ -95,9 +105,9 @@
   "gridOpacity": {
     "title": "グリッドの不透明度"
   },
-  "tracerOpacity": {
-    "title": "曳光線の不透明度",
-    "description": "遠距離攻撃時の曳光線の不透明度を調整します。0%にすると非表示になります。"
+  "showChargeDamageIndicators": {
+    "title": "突撃ダメージ表示",
+    "description": "ユニットが突撃したときに、ダメージ数値をフローティング表示します。"
   },
   "showDebugShapes": {
     "title": "デバッグ形状を表示",
@@ -153,7 +163,7 @@
     "shootOrder": "射撃命令",
     "fireAndAdvanceOrder": "発砲して前進する命令",
     "fallbackOrder": "後退命令",
-    "toggleSmartCurvedMovements": "スマートカーブ移動切り替え",
+    "toggleSmartCurvedMovements": "直線と曲線を切り替え",
     "togglePathFinding": "経路探索の切り替え",
     "toggleFowPerspective": "戦争の霧の視点切り替え",
     "toggleMultiTurnPathOrders": "複数ターン経路の指令の切り替え",
@@ -276,13 +286,16 @@
   "controlGroups": {
     "recall": "グループ{{group}}を呼び出す",
     "set": "グループ{{group}}を設定",
-    "add": "グループ{{group}}に追加",
-    "setExclusive": "グループ {{group}} のみに設定"
+    "add": "グループ{{group}}に追加"
   },
   "notifications": {
     "clanLeague": {
       "title": "Coalition league",
       "description": "Notify me when my coalition can still reach the weekly prize positions."
     }
+  },
+  "showGameTips": {
+    "title": "ヒントを表示",
+    "description": "状況に応じて戦闘中に現れる短い解説です。それぞれ数回だけ表示されます。"
   }
 }
