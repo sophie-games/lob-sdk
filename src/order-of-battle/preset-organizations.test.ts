@@ -80,3 +80,48 @@ describe.each(withOrganization)("%s/%s", (_era, _name, scenario) => {
     }
   });
 });
+
+// A brigade is the body a group order moves, so its units have to stand
+// together on the ground. Assigning them greedily does not give that: the unit
+// reached last lands in whichever brigade still had room, however far off that
+// brigade was. This counts the units left standing alone - nothing else of
+// their own brigade within STRANDED_PX - and holds each preset to the few its
+// map genuinely cannot place better.
+const STRANDED_PX = 250;
+const STRANDED: Record<string, number> = {
+  waterloo: 3,
+  borodino: 2,
+  leipzig: 1,
+  dresden: 9,
+  "battle-of-france": 1,
+  "battle-of-moscow": 4,
+};
+
+it.each(withOrganization)(
+  "%s/%s keeps a brigade together",
+  (_era, name, scenario) => {
+    const units = new Map(
+      (scenario.units ?? []).map((unit) => [unit.id, unit.pos]),
+    );
+    const alone = (scenario as Scenario).organizations!.flatMap((org) =>
+      org.divisions.flatMap((division) =>
+        division.brigades.flatMap((brigade) =>
+          brigade.unitIds.length < 2
+            ? []
+            : brigade.unitIds.filter((id) => {
+                const pos = units.get(id)!;
+                return brigade.unitIds.every(
+                  (other) =>
+                    other === id ||
+                    Math.hypot(
+                      units.get(other)!.x - pos.x,
+                      units.get(other)!.y - pos.y,
+                    ) > STRANDED_PX,
+                );
+              }),
+        ),
+      ),
+    );
+    expect(alone.length).toBeLessThanOrEqual(STRANDED[name] ?? 0);
+  },
+);
