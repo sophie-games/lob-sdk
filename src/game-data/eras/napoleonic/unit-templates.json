@@ -240,7 +240,7 @@
         "baseSprite": "column",
         "overlaySprite": "guards-column",
         "changeAnimations": {
-          "elite-square": "column-square",
+          "square": "column-square",
           "line": "column-line"
         }
       },
@@ -249,12 +249,12 @@
         "baseSprite": "line",
         "overlaySprite": "guards-line",
         "changeAnimations": {
-          "elite-square": "line-square",
+          "square": "line-square",
           "column": "line-column"
         }
       },
       {
-        "id": "elite-square",
+        "id": "square",
         "baseSprite": "square",
         "overlaySprite": "guards-square",
         "changeAnimations": {
@@ -435,7 +435,7 @@
         "baseSprite": "column",
         "overlaySprite": "chasseurs-column",
         "changeAnimations": {
-          "elite-square": "column-square",
+          "square": "column-square",
           "line": "column-line"
         }
       },
@@ -444,12 +444,12 @@
         "baseSprite": "line",
         "overlaySprite": "chasseurs-line",
         "changeAnimations": {
-          "elite-square": "line-square",
+          "square": "line-square",
           "column": "line-column"
         }
       },
       {
-        "id": "elite-square",
+        "id": "square",
         "baseSprite": "square",
         "overlaySprite": "chasseurs-square",
         "changeAnimations": {

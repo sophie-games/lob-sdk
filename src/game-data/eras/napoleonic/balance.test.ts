@@ -599,22 +599,17 @@ describe("Napoleonic balance", () => {
     expect(square?.minMovementModifier).toBe(-0.9);
     expect(square?.rangedOrgResistance).toBe(0.15);
 
-    // Elite Square is the square, only less crippling to move in.
+    // Guards and Light Infantry form the same square as the rest of the line.
     expect(
       gameDataManager.getFormationManager().getTemplate("elite-square"),
-    ).toEqual({
-      ...square,
-      id: "elite-square",
-      movementModifier: -0.6,
-      runMovementModifier: -0.6,
-    });
+    ).toBeNull();
     for (const name of ["guards", "light_infantry"]) {
       const unit = unitTemplates.find((template) => template.name === name)!;
 
       expect(unit.formations.map((formation) => formation.id)).toEqual([
         "column",
         "line",
-        "elite-square",
+        "square",
       ]);
     }
     expect(
