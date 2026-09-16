@@ -1503,8 +1503,8 @@
     "addDivision": "New division",
     "addBrigade": "New brigade",
     "unattached": "Unattached",
-    "awaitingOrders": "{{count}} unit still waiting for orders",
-    "awaitingOrders_other": "{{count}} units still waiting for orders",
+    "awaitingOrders": "{{count}} unit still has no orders",
+    "awaitingOrders_other": "{{count}} units still have no orders",
     "allOrdered": "Every unit has its orders",
     "breaking": "Breaking",
     "dragToReassign": "Drag onto another brigade to reassign it",
@@ -1708,6 +1708,7 @@
     "selectAll": "Select your whole army, or clear the selection.",
     "noUnits": "There are no units to select.",
     "selectOwn": "Select your own units first.",
+    "ammoFromReserve": "This unit carries no ammunition of its own: firing draws on the army's reserve.",
     "selectOne": "Select one unit or an objective to inspect.",
     "noTactics": "Select units with formations or autofire settings.",
     "noOrders": "The selection has no orders that can be removed.",
@@ -1767,12 +1768,18 @@
       "mouse": "Right-click open ground inside your deployment zone to place the selected unit. You are arranging your army before the battle.",
       "touch": "Tap open ground inside your deployment zone to place the selected unit. You are arranging your army before the battle."
     },
-    "deployReady": "Unit placed. You can arrange the rest, or press ✓ Submit orders to start the battle.",
-    "move": {
-      "mouse": "Choose Walk, then right-click open ground to set a destination. The arrow previews the movement; the unit waits for you to submit.",
-      "touch": "Choose Walk, then tap open ground to set a destination. The arrow previews the movement; the unit waits for you to submit."
+    "deployReady": {
+      "mouse": "Unit placed. You can arrange the rest, or press Submit orders to start the battle.",
+      "touch": "Unit placed. You can arrange the rest, or press ✓ to start the battle."
     },
-    "submit": "Movement prepared. You can give more orders or press ✓ Submit orders below. Both armies then move at the same time."
+    "move": {
+      "mouse": "Right-click open ground to set a destination. The arrow previews the movement; the unit waits for you to submit.",
+      "touch": "Drag from the unit to open ground to set a destination. The arrow previews the movement; the unit waits for you to submit."
+    },
+    "submit": {
+      "mouse": "Movement prepared. You can give more orders or press Submit orders below. Both armies then move at the same time.",
+      "touch": "Movement prepared. You can give more orders or press ✓ below. Both armies then move at the same time."
+    }
   },
   "unitComparison": {
     "stop": "Stop comparing",
