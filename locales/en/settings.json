@@ -30,7 +30,7 @@
   },
   "directTouchControls": {
     "title": "Direct Touch Controls",
-    "description": "Dragging the map always moves the camera, dragging one of your units draws its order, and a tap on empty ground clears the selection. Turn it off to go back to the previous scheme."
+    "description": "Dragging the map always moves the camera, dragging one of your units draws its order, and a tap on open ground sends the selection there. Turn it off to go back to the previous scheme."
   },
   "showControlGroupsBar": {
     "title": "Control groups bar",
@@ -223,6 +223,10 @@
     "controlGroup9": "Control Group 9",
     "controlGroup0": "Control Group 0",
     "openPingWheel": "Open ping wheel",
+    "toggleArmyPanel": "Show or hide the army",
+    "openPlayersPanel": "Open players",
+    "openReplayActions": "Replay last actions",
+    "openBattleMenu": "Open battle menu",
     "controlGroupsHelp": "The bare digit issues an order. Recall a group with {{modifier}} + its digit."
   },
   "routingTransparency": {
