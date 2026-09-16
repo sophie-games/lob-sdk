@@ -7203,12 +7203,19 @@
   ],
   "objectives": [
     {
+      "name": "Leipzig",
       "player": 1,
       "pos": { "x": 1703.83, "y": 1077.58 },
       "type": 2,
       "vp": 200
     },
-    { "player": 2, "pos": { "x": 2777.37, "y": 2376.4 }, "type": 2, "vp": 200 }
+    {
+      "name": "Liebertwolkwitz",
+      "player": 2,
+      "pos": { "x": 2777.37, "y": 2376.4 },
+      "type": 2,
+      "vp": 200
+    }
   ],
   "players": [
     {

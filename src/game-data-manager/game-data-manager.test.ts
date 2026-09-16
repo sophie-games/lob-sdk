@@ -493,19 +493,23 @@ describe("GameDataManager", () => {
       // Wildcard remains in the map for better JIT optimization
       expect("*" in deepWater.impassable!).toBe(true);
 
-      // Check path category (wildcard + explicit overrides)
-      const path = terrainCategories.path;
+      // Wildcard + explicit override, on a category authored here rather than
+      // on a preset: a rebalance of the presets cannot rot the expectation.
+      const custom = GameDataManager.createWithCustomDefs("napoleonic", {
+        customTerrainCategories: [
+          {
+            id: "path",
+            config: { movementModifier: { "*": 0.4, artillery: 0.9 } },
+          },
+        ],
+      });
+      const path = custom.getTerrainCategories().path;
       expect(path).toBeDefined();
-      if (path && path.movementModifier) {
-        // Explicit override
-        expect(path.movementModifier.artillery).toBe(0.25);
-
-        expect(path.movementModifier.midCavalry).toBe(0.28);
-        expect(path.movementModifier.heavyCavalry).toBe(0.28);
-
-        // Inherited category
-        expect(path.movementModifier.infantry).toBe(0.5);
-      }
+      unitCategories.forEach((category) => {
+        expect(path!.movementModifier![category.id]).toBe(
+          category.id === "artillery" ? 0.9 : 0.4,
+        );
+      });
     });
 
     it("getRotationSpeedModifier defaults to 0 for terrain without the modifier", () => {

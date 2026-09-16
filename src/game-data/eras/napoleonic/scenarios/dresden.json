@@ -7282,9 +7282,9 @@
     }
   ],
   "objectives": [
-    { "player": 2, "pos": { "x": 977.17, "y": 1625.17 }, "vp": 200 },
-    { "player": 1, "pos": { "x": 1326.51, "y": 816.32 }, "vp": 100 },
-    { "player": 1, "pos": { "x": 1299.92, "y": 231.57 }, "vp": 100 }
+    { "name": "Coschütz", "player": 2, "pos": { "x": 977.17, "y": 1625.17 }, "vp": 200 },
+    { "name": "Altstadt", "player": 1, "pos": { "x": 1326.51, "y": 816.32 }, "vp": 100 },
+    { "name": "Neustadt", "player": 1, "pos": { "x": 1299.92, "y": 231.57 }, "vp": 100 }
   ],
   "triggers": [],
   "allowDynamicArmy": false,
