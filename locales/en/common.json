@@ -914,15 +914,12 @@
   "kick": "Kick",
   "noDescription": "No description",
   "save": "Save",
-  "ordersSubmittedDialog": {
-    "p1": {
-      "sent": "Orders sent to the server.",
-      "received": "Orders received by the server.",
-      "processed": "Orders processed by the server."
-    },
-    "p2": "Checking for the opponent's orders in {{value}} seconds",
-    "b": "Check Now",
-    "playersSubmitted": "players submitted"
+  "ordersSent": {
+    "sending": "Sending orders",
+    "received": "Orders received",
+    "processed": "Orders processed",
+    "armies": "{{submitted}} of {{alive}} armies have submitted orders this turn.",
+    "help": "The turn resolves once every army has submitted."
   },
   "search": {
     "clans": "Search coalitions",
@@ -1410,6 +1407,8 @@
   "banned": "Banned",
   "baseAmmo": "Base ammo",
   "range": "Range",
+  "distanceMeters": "{{value}} m",
+  "distanceKilometers": "{{value}} km",
   "show": "Show",
   "hide": "Hide",
   "discord": {
@@ -1701,6 +1700,8 @@
     "waiting_other": "{{count}} units still have no orders",
     "nextIdle": "Next without orders",
     "noOrder": "No orders this turn",
+    "lowest": "lowest",
+    "resizeReading": "Resize the selection reading",
     "battleKeysOff": "Battle keys off · Esc",
     "history": "History",
     "commandBar": "Battle commands",

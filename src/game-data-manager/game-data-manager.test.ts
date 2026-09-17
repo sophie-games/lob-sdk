@@ -180,6 +180,23 @@ describe("GameDataManager", () => {
       });
     });
 
+    describe("ground scale", () => {
+      // Each era's tile covers a stated distance on the ground; the UI divides by
+      // TILE_SIZE to publish ranges, movement and burst radii in real units.
+      const METERS_PER_TILE: Record<string, number> = {
+        napoleonic: 50,
+        ww2: 5000,
+      };
+
+      GameDataManager.getAvailableEras().forEach((era) => {
+        it(`covers ${METERS_PER_TILE[era]} m to the tile in ${era}`, () => {
+          const { TILE_SIZE, METERS_PER_PIXEL } =
+            GameDataManager.get(era).getGameConstants();
+          expect(TILE_SIZE * (METERS_PER_PIXEL ?? 0)).toBe(METERS_PER_TILE[era]);
+        });
+      });
+    });
+
     describe("DEFAULT_BATTLE_TYPE exists for all eras", () => {
       const eras = GameDataManager.getAvailableEras();
 
