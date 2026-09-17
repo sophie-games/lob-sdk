@@ -348,6 +348,12 @@ export interface GameConstants {
    * Divide by this before showing values in the UI.
    */
   STAT_DISPLAY_DIVISOR: number;
+
+  /**
+   * Ground scale: how many metres one world pixel covers. Display only - the
+   * sim works in pixels. Eras that declare no scale show raw pixels instead.
+   */
+  METERS_PER_PIXEL?: number;
 }
 
 // Damage Type Types (moved from @common/damage-type)
