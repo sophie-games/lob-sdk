@@ -914,15 +914,12 @@
   "kick": "Kick",
   "noDescription": "No description",
   "save": "Save",
-  "ordersSubmittedDialog": {
-    "p1": {
-      "sent": "Orders sent to the server.",
-      "received": "Orders received by the server.",
-      "processed": "Orders processed by the server."
-    },
-    "p2": "Checking for the opponent's orders in {{value}} seconds",
-    "b": "Check Now",
-    "playersSubmitted": "players submitted"
+  "ordersSent": {
+    "sending": "Sending orders",
+    "received": "Orders received",
+    "processed": "Orders processed",
+    "armies": "{{submitted}} of {{alive}} armies have submitted orders this turn.",
+    "help": "The turn resolves once every army has submitted."
   },
   "search": {
     "clans": "Search coalitions",
