@@ -1454,12 +1454,18 @@
       "mouse": "Hacé clic derecho en terreno libre dentro de tu zona de despliegue para colocar la unidad. Estás acomodando tu ejército antes de la batalla.",
       "touch": "Tocá terreno libre dentro de tu zona de despliegue para colocar la unidad. Estás acomodando tu ejército antes de la batalla."
     },
-    "deployReady": "Unidad colocada. Podés acomodar las demás o pulsar ✓ Enviar órdenes para empezar la batalla.",
-    "move": {
-      "mouse": "Elegí Caminar y hacé clic derecho en terreno libre para marcar un destino. La flecha anticipa el movimiento; la unidad espera a que envíes las órdenes.",
-      "touch": "Elegí Caminar y tocá terreno libre para marcar un destino. La flecha anticipa el movimiento; la unidad espera a que envíes las órdenes."
+    "deployReady": {
+      "mouse": "Unidad colocada. Podés acomodar las demás o pulsar Enviar órdenes para empezar la batalla.",
+      "touch": "Unidad colocada. Podés acomodar las demás o pulsar ✓ para empezar la batalla."
     },
-    "submit": "Movimiento preparado. Podés dar más órdenes o pulsar ✓ Enviar órdenes abajo. Los dos ejércitos se moverán al mismo tiempo."
+    "move": {
+      "mouse": "Hacé clic derecho en terreno libre para marcar un destino. La flecha anticipa el movimiento; la unidad espera a que envíes las órdenes.",
+      "touch": "Arrastrá desde la unidad hasta terreno libre para marcar un destino. La flecha anticipa el movimiento; la unidad espera a que envíes las órdenes."
+    },
+    "submit": {
+      "mouse": "Movimiento preparado. Podés dar más órdenes o pulsar Enviar órdenes abajo. Los dos ejércitos se moverán al mismo tiempo.",
+      "touch": "Movimiento preparado. Podés dar más órdenes o pulsar ✓ abajo. Los dos ejércitos se moverán al mismo tiempo."
+    }
   },
   "unitComparison": {
     "stop": "Dejar de comparar",
