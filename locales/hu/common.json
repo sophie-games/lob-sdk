@@ -379,7 +379,44 @@
   "armyInvalidForPlayer": "A(z) {{player}}. játékos serege érvénytelen: {{message}}",
   "landing": {
     "message": "<b>Lines of Battle</b> egy napóleoni taktikai játék egyidejű körökkel és valós idejű harcokkal. Győzd le az emberi ellenfeleket pontos csapatokkal és taktikákkal!",
-    "privacy": "A kezdéssel beleegyezel az <0>Adatvédelmi Nyilatkozatunkba</0>."
+    "privacy": "A kezdéssel beleegyezel az <0>Adatvédelmi Nyilatkozatunkba</0>.",
+    "by": "Készítette: <0>Sophie Games</0>",
+    "nav": {
+      "roadmap": "Ütemterv",
+      "wiki": "Közösségi wiki",
+      "terms": "Feltételek"
+    },
+    "aria": {
+      "about": "A Lines of Battle-ről",
+      "platforms": "Játssz a Lines of Battle-lel más platformokon",
+      "communities": "Lines of Battle közösségek"
+    },
+    "seo": {
+      "tagline": "Ingyenes napóleoni stratégiai játék",
+      "description": "Játssz a Lines of Battle-lel, az ingyenes napóleoni stratégiai játékkal, egyidejű körökkel. Tervezd meg a parancsokat, és győzz weben és mobilon."
+    },
+    "about": {
+      "browser": {
+        "title": "Napóleoni stratégiai játék, amit a böngészőben játszol",
+        "body": "A Lines of Battle ingyenes taktikai játék a napóleoni háborúk idején. Egyetlen csatatéren vezetsz egy kisebb sereget gyalogságból, lovasságból és tüzérségből, és más játékosokkal harcolsz meg érte. Nincs mit letölteni: fut a böngészőben, valamint Androidon és iOS-en, ugyanazzal a fiókkal és ugyanazokkal a meccsekkel.",
+        "more": "A játék ingyenes. A fejlesztést kozmetikai és kényelmi funkciók finanszírozzák, amelyek nem befolyásolják egy meccs kimenetelét."
+      },
+      "simultaneous": {
+        "title": "Mindkét fél egyszerre lép",
+        "body": "A legtöbb stratégiai játékban az egyik játékos lép, a másik nézi. Ebben nem. Minden körben megrajzolod az ezredeid útvonalát, kiválasztod az alakzatukat és kijelölöd a célpontjaikat, és az ellenfeled ugyanezt teszi, ugyanabban a pillanatban, anélkül hogy látná a döntéseidet. Aztán a két terv együtt fut le, és látod, mit hoztak valójában a parancsaid.",
+        "more": "Vagyis sosem egy már megtörtént lépésre reagálsz. Egy tervet találgatsz, amit azalatt írnak, amíg te a sajátodat írod. <0>Így működnek az egyidejű körök</0>."
+      },
+      "formations": {
+        "title": "Az alakzatok döntik el a harcot",
+        "body": "Egy napóleoni zászlóalj nem életerőcsík. Több száz ember egy alakzatban, és maga az alakzat a döntés. A vonal minden muskétát a tüzelő sorba állít. Az oszlop mozog és rohamoz, de keskeny arcvonalat mutat. A négyszög megállítja a lovasságot, a tüzérség viszont lekaszálja. Az átváltás időbe kerül, ami talán nincs meg neked.",
+        "more": "A morál, a kimerültség, a lőszer, a terep és a magasság mind beleszól az eredménybe. A megtört egységek nem halnak meg, hanem megfutamodnak, és a futás átragad azokra, akik látják. <0>Nézd meg az összes egységet és értékeiket</0>."
+      },
+      "waysToPlay": {
+        "title": "Játékmódok",
+        "body": "A rangsorolt meccsek a lényeg, a kis párbajoktól a teljes csatákig, egy az egy ellen vagy csapatban. Játszhatsz offline a gép ellen, építhetsz saját forgatókönyveket a szerkesztőben, és visszanézheted bármelyik megvívott csatádat.",
+        "more": "Külön 3D-s változat készül Steamre, történelmi hadjáratokkal és saját többjátékos módddal. A böngészős játék ingyenes, és az is marad. <0>Nézd meg, mi van tervben</0>."
+      }
+    }
   },
   "welcomeModal": {
     "title": "Üdv a Lines of Battle játékban 👋",

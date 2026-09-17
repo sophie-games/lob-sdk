@@ -368,7 +368,44 @@
   "armyInvalidForPlayer": "L'armée du joueur {{player}} est invalide : {{message}}",
   "landing": {
     "message": "<b>Lines of Battle</b> est un jeu tactique napoléonien avec des tours simultanés et des combats en temps réel. Vainquez des adversaires humains avec des troupes et des tactiques précises !",
-    "privacy": "En continuant, vous acceptez notre <0>Politique sur la vie privée</0>."
+    "privacy": "En continuant, vous acceptez notre <0>Politique sur la vie privée</0>.",
+    "by": "Par <0>Sophie Games</0>",
+    "nav": {
+      "roadmap": "Feuille de route",
+      "wiki": "Wiki communautaire",
+      "terms": "Conditions"
+    },
+    "aria": {
+      "about": "À propos de Lines of Battle",
+      "platforms": "Jouer à Lines of Battle sur d'autres plateformes",
+      "communities": "Communautés de Lines of Battle"
+    },
+    "seo": {
+      "tagline": "Jeu de stratégie napoléonienne gratuit",
+      "description": "Jouez à Lines of Battle, un jeu de stratégie napoléonienne gratuit à tours simultanés. Planifiez vos ordres et battez vos adversaires sur web et mobile."
+    },
+    "about": {
+      "browser": {
+        "title": "Un jeu de stratégie napoléonienne qui se joue dans le navigateur",
+        "body": "Lines of Battle est un jeu de tactique gratuit qui se déroule pendant les guerres napoléoniennes. Vous commandez une petite armée d'infanterie, de cavalerie et d'artillerie sur un seul champ de bataille, et vous vous battez pour lui contre d'autres joueurs. Rien à télécharger : le jeu tourne dans le navigateur, ainsi que sur Android et iOS, avec le même compte et les mêmes parties.",
+        "more": "Le jeu est gratuit. Le développement est financé par des cosmétiques et des options de confort qui ne changent pas l'issue d'une partie."
+      },
+      "simultaneous": {
+        "title": "Les deux camps avancent en même temps",
+        "body": "La plupart des jeux de stratégie laissent un joueur agir pendant que l'autre regarde. Pas celui-ci. À chaque tour, vous tracez les trajets de vos régiments, choisissez leurs formations et désignez leurs cibles, et votre adversaire fait de même, au même moment et sans voir vos choix. Les deux plans se déroulent ensuite ensemble et vous découvrez ce que vos ordres ont vraiment produit.",
+        "more": "Vous ne réagissez donc jamais à un coup déjà joué. Vous devinez un plan qui s'écrit pendant que vous écrivez le vôtre. <0>Comment fonctionnent les tours simultanés</0>."
+      },
+      "formations": {
+        "title": "Les formations décident du combat",
+        "body": "Un bataillon napoléonien n'est pas une barre de vie. Ce sont des centaines d'hommes dans une forme, et la forme est la décision. La ligne met chaque mousquet au rang de tir. La colonne se déplace et charge, mais présente un front étroit. Le carré arrête net la cavalerie et se fait massacrer par l'artillerie. Passer de l'une à l'autre prend un temps dont vous ne disposez pas toujours.",
+        "more": "Le moral, l'épuisement, les munitions, le terrain et le relief pèsent tous sur le résultat. Les unités qui craquent ne meurent pas, elles fuient, et une déroute se propage aux unités qui la voient. <0>Parcourez chaque unité et ses statistiques</0>."
+      },
+      "waysToPlay": {
+        "title": "Façons de jouer",
+        "body": "Les parties classées sont le cœur du jeu, du petit duel à la bataille complète, en un contre un ou en équipe. Vous pouvez aussi jouer hors ligne contre l'IA, créer vos propres scénarios dans l'éditeur et revoir n'importe quelle bataille que vous avez menée.",
+        "more": "Une version 3D distincte est en développement pour Steam, avec des campagnes historiques et son propre multijoueur. Le jeu navigateur est gratuit et le restera. <0>Voyez ce qui est prévu</0>."
+      }
+    }
   },
   "welcomeModal": {
     "title": "Bienvenue sur Lines of Battle 👋",

@@ -381,7 +381,44 @@
   "armyInvalidForPlayer": "Armia gracza {{player}} jest niepoprawna: {{message}}",
   "landing": {
     "message": "<b>Lines of Battle</b> to napoleońska gra taktyczna z równoczesnymi turami i walką w czasie rzeczywistym. Pokonaj ludzkich przeciwników precyzyjnymi oddziałami i taktykami!",
-    "privacy": "Zaczynając, zgadzasz się z naszą <0>Polityką Prywatności</0>."
+    "privacy": "Zaczynając, zgadzasz się z naszą <0>Polityką Prywatności</0>.",
+    "by": "Autor: <0>Sophie Games</0>",
+    "nav": {
+      "roadmap": "Plan rozwoju",
+      "wiki": "Wiki społeczności",
+      "terms": "Regulamin"
+    },
+    "aria": {
+      "about": "O Lines of Battle",
+      "platforms": "Zagraj w Lines of Battle na innych platformach",
+      "communities": "Społeczności Lines of Battle"
+    },
+    "seo": {
+      "tagline": "Darmowa gra strategiczna z epoki napoleońskiej",
+      "description": "Zagraj w Lines of Battle, darmową grę strategiczną z epoki napoleońskiej z jednoczesnymi turami. Planuj rozkazy i pokonuj rywali w przeglądarce i na telefonie."
+    },
+    "about": {
+      "browser": {
+        "title": "Napoleońska gra strategiczna, w którą grasz w przeglądarce",
+        "body": "Lines of Battle to darmowa gra taktyczna osadzona w wojnach napoleońskich. Dowodzisz niewielką armią piechoty, kawalerii i artylerii na jednym polu bitwy i walczysz o nie z innymi graczami. Nie ma czego pobierać: gra działa w przeglądarce oraz na Androidzie i iOS, na tym samym koncie i w tych samych meczach.",
+        "more": "Gra jest darmowa. Rozwój finansują kosmetyki i udogodnienia, które nie zmieniają wyniku meczu."
+      },
+      "simultaneous": {
+        "title": "Obie strony ruszają w tej samej chwili",
+        "body": "W większości gier strategicznych jeden gracz wykonuje ruch, a drugi patrzy. Tutaj nie. W każdej turze rysujesz trasy swoich pułków, wybierasz ich szyki i wskazujesz cele, a przeciwnik robi to samo, w tym samym czasie i nie widząc twoich wyborów. Potem oba plany wykonują się razem i widzisz, co naprawdę dały twoje rozkazy.",
+        "more": "To znaczy, że nigdy nie reagujesz na ruch, który już się wydarzył. Zgadujesz plan pisany w tej samej chwili co twój. <0>Jak działają jednoczesne tury</0>."
+      },
+      "formations": {
+        "title": "Szyki rozstrzygają walkę",
+        "body": "Napoleoński batalion to nie pasek zdrowia. To setki ludzi w kształcie, a kształt jest decyzją. Linia stawia każdy muszkiet w szeregu ogniowym. Kolumna maszeruje i szarżuje, ale nadstawia wąski front. Czworobok zatrzymuje kawalerię w miejscu i ginie od artylerii. Zmiana szyku kosztuje czas, którego możesz nie mieć.",
+        "more": "Morale, wyczerpanie, amunicja, teren i wysokość składają się na wynik. Oddziały, które pękają, nie giną, lecz uciekają, a panika udziela się tym, które na to patrzą. <0>Przejrzyj każdą jednostkę i jej statystyki</0>."
+      },
+      "waysToPlay": {
+        "title": "Sposoby gry",
+        "body": "Sercem gry są mecze rankingowe, od małych pojedynków po pełne bitwy, jeden na jednego lub drużynowo. Możesz też grać offline przeciwko SI, budować własne scenariusze w edytorze i oglądać powtórki każdej stoczonej bitwy.",
+        "more": "Osobna wersja 3D powstaje na Steam, z kampaniami historycznymi i własnym trybem wieloosobowym. Gra przeglądarkowa jest darmowa i taka zostanie. <0>Zobacz, co jest w planach</0>."
+      }
+    }
   },
   "welcomeModal": {
     "title": "Witaj w Lines of Battle 👋",
