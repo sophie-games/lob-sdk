@@ -797,12 +797,23 @@ export class GameDataManager {
   }
 
   /**
-   * Gets the maximum number of turns for a battle type, falling back to the
-   * era's DEFAULT_MAX_TURN when the battle type is null or has no maxTurn.
+   * Gets the maximum number of turns, preferring a scenario override, then
+   * the battle type, then the era's DEFAULT_MAX_TURN.
    * @param battleType - The dynamic battle type, or null for preset scenarios.
+   * @param scenario - The selected scenario, when available.
    * @returns The maximum number of turns.
    */
-  public getMaxTurn(battleType: DynamicBattleType | null): number {
+  public getMaxTurn(
+    battleType: DynamicBattleType | null,
+    scenario?: Scenario | null,
+  ): number {
+    const scenarioMaxTurn = scenario?.maxTurn;
+    if (
+      scenarioMaxTurn !== undefined &&
+      Number.isInteger(scenarioMaxTurn) &&
+      scenarioMaxTurn > 0 &&
+      scenarioMaxTurn <= this.getGameConstants().MAX_OFFLINE_GAME_MAX_TURNS
+    ) return scenarioMaxTurn;
     const fromBattleType = battleType
       ? this.tryGetBattleType(battleType)?.maxTurn
       : undefined;

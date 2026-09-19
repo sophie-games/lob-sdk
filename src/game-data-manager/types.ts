@@ -159,6 +159,10 @@ export interface GameConstants {
   TILE_SIZE: number;
 
   DEFAULT_MAX_TURN: number;
+  /** In-world minutes advanced by each combat turn. */
+  MINUTES_PER_TURN: number;
+  /** In-world clock time used when a scenario has no start time. */
+  DEFAULT_BATTLE_START_TIME: string;
   MIN_CUSTOM_GAME_MAX_TURNS: number;
   MAX_CUSTOM_GAME_MAX_TURNS: number;
   MIN_OFFLINE_GAME_MAX_TURNS: number;

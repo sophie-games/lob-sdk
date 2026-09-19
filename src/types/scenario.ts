@@ -418,6 +418,10 @@ export interface Scenario {
   name: string;
   /** Display description. */
   description: string;
+  /** Optional in-world start time in 24-hour HH:mm form; defaults to 00:00. */
+  startTime?: string;
+  /** Optional turn limit used when creating a battle from this scenario. */
+  maxTurn?: number;
   /** Whether the scenario can be used in ranked matches. */
   ranked?: boolean;
   /** Whether the scenario should be hidden from selection. */
