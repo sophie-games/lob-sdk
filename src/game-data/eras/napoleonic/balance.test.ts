@@ -10,7 +10,7 @@ describe("Napoleonic balance", () => {
 
   it("uses the latest range curves and movement penalties", () => {
     for (const [name, points] of [
-      ["musket", [6, 4, 1.5, 0, -0.8]],
+      ["musket", [7, 4, 1.5, 0, -0.8]],
       ["horse-archer-bow", [2.5, 1.25, 0.5, 0]],
     ] as const) {
       const { ranges } = gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(name);
@@ -505,7 +505,7 @@ describe("Napoleonic balance", () => {
       expect(canister.ranges).toMatchObject([
         {
           name: "close",
-          damageModifier: { near: 4.5, far: 2.9 },
+          damageModifier: { near: 4, far: 2.9 },
         },
         { name: "long", damageModifier: { near: 2.4, far: 1.9 } },
       ]);
@@ -707,7 +707,7 @@ describe("Napoleonic balance", () => {
     expect(
       gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>("musket")
         .ranges[0].damageModifier.near,
-    ).toBe(6);
+    ).toBe(7);
   });
 
   it("uses the requested cavalry charge and organization balance", () => {
@@ -929,7 +929,7 @@ describe("Napoleonic balance", () => {
     }
 
     const expectedAbsorption = {
-      musket: 0.15,
+      musket: 0.18,
       "marksman-musket": 0.15,
       rifle: 0.15,
       "horse-archer-bow": 0.4,
@@ -990,10 +990,13 @@ describe("Napoleonic balance", () => {
       expect(
         gameDataManager.getRangedAttackModifier(TerrainType.Building, category),
       ).toBe(0);
+      expect(
+        gameDataManager.getUnitTerrainDefenseModifier(category, TerrainType.Building),
+      ).toBe(0.6);
     }
 
     const expectedAbsorption = {
-      musket: 0.3,
+      musket: 0.27,
       "horse-archer-bow": 0.7,
       "4lb-cannon-ball": 0.3,
       "6lb-cannon-ball": 0.2,
