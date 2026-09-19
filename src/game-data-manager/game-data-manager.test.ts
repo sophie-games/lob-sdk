@@ -255,6 +255,25 @@ describe("GameDataManager", () => {
         customGameConstants: { MINUTES_PER_TURN: 30 },
       }).getGameConstants().MINUTES_PER_TURN).toBe(30);
     });
+    it("provides moddable battle lighting for every era", () => {
+      for (const era of ["napoleonic", "ww2"] as const) {
+        const lighting = GameDataManager.get(era).getGameConstants().BATTLE_LIGHTING;
+        expect(lighting.color).toBe("#18243b");
+        expect(lighting.opacityByTime).toHaveLength(5);
+        const modified = GameDataManager.createWithCustomDefs(era, {
+          customGameConstants: {
+            BATTLE_LIGHTING: {
+              color: "#243047",
+              opacityByTime: [{ time: "12:00", opacity: 0.1 }],
+            },
+          },
+        }).getGameConstants().BATTLE_LIGHTING;
+        expect(modified).toEqual({
+          color: "#243047",
+          opacityByTime: [{ time: "12:00", opacity: 0.1 }],
+        });
+      }
+    });
     it("prefers an optional scenario limit over the battle type", () => {
       expect(GameDataManager.get("napoleonic").getMaxTurn("clash", {
         name: "short battle", description: "", maxTurn: 18,

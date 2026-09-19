@@ -163,6 +163,11 @@ export interface GameConstants {
   MINUTES_PER_TURN: number;
   /** In-world clock time used when a scenario has no start time. */
   DEFAULT_BATTLE_START_TIME: string;
+  /** Cosmetic battlefield tint, interpolated between in-world clock times. */
+  BATTLE_LIGHTING: {
+    color: string;
+    opacityByTime: { time: string; opacity: number }[];
+  };
   MIN_CUSTOM_GAME_MAX_TURNS: number;
   MAX_CUSTOM_GAME_MAX_TURNS: number;
   MIN_OFFLINE_GAME_MAX_TURNS: number;
