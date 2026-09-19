@@ -95,7 +95,7 @@ export interface FallbackOrder
   type: OrderType.Fallback;
   /** Path points to fall back along, in order. */
   path: OrderPathPoint[];
-  /** Final rotation in radians after completing the path. */
+  /** Legacy preview facing, retained for saved orders but ignored by retreat execution. */
   rotation?: number;
   /**
    * Speed ceiling in movement units per turn, so a body ordered as one keeps
