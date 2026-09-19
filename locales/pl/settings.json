@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Nieprzezroczystość wybranych rozkazów",
+    "description": "Nieprzezroczystość strzałek i podglądów pozycji docelowych wybranych jednostek lub wszystkich, gdy żadna nie jest wybrana. 0% je ukrywa."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Nieprzezroczystość pozostałych rozkazów",
+    "description": "Nieprzezroczystość strzałek i podglądów pozycji docelowych pozostałych jednostek, gdy jakieś jednostki są wybrane. 0% je ukrywa."
+  },
   "gameplay": "Rozgrywka",
   "graphics": "Grafika",
   "camera": "Kamera",
@@ -25,8 +33,10 @@
     "description": "Pokazuje pasek grup kontrolnych. Wyłącz go, aby przypadkowe dotknięcia nie zmieniały zaznaczenia na urządzeniach dotykowych."
   },
   "smartCurvedMovements": {
-    "title": "Lepszy ruch po krzywej.",
-    "description": "Włącz tą opcje, aby polepszyć trasy ruchu gładkimi liniami krzywymi, pomniejszając utratę prędkości podczas obrotu."
+    "title": "Trasa ruchu",
+    "description": "Prosta biegnie wzdłuż narysowanych odcinków; Zakrzywiona zaokrągla zakręty. Nieprzekraczalne przeszkody są omijane automatycznie.",
+    "direct": "Prosta",
+    "curved": "Zakrzywiona"
   },
   "pathFinding": {
     "title": "Wyszukiwanie ścieżki",
@@ -95,9 +105,9 @@
   "gridOpacity": {
     "title": "Nieprzezroczystość siatki"
   },
-  "tracerOpacity": {
-    "title": "Krycie smug pocisków",
-    "description": "Steruje kryciem smug pocisków podczas ataków dystansowych. Ustaw 0%, aby je ukryć."
+  "showChargeDamageIndicators": {
+    "title": "Pokaż wskaźniki obrażeń od szarży",
+    "description": "Wyświetla unoszące się liczby obrażeń, gdy jednostki szarżują."
   },
   "showDebugShapes": {
     "title": "Pokaż kształty debugowania",
@@ -153,7 +163,7 @@
     "shootOrder": "Rozkaz Ostrzału",
     "fireAndAdvanceOrder": "Rozkaz natarcia z ostrzałem",
     "fallbackOrder": "Rozkaz Odwrotu",
-    "toggleSmartCurvedMovements": "Przełącz inteligentne zakrzywione ruchy",
+    "toggleSmartCurvedMovements": "Przełącz trasę prostą i zakrzywioną",
     "togglePathFinding": "Przełącz wyszukiwanie ścieżki",
     "toggleFowPerspective": "Przełącz perspektywę mgły wojny",
     "toggleMultiTurnPathOrders": "Przełącz rozkazy ścieżki wieloturowej",
@@ -276,13 +286,16 @@
   "controlGroups": {
     "recall": "Przywołaj grupę {{group}}",
     "set": "Ustaw grupę {{group}}",
-    "add": "Dodaj do grupy {{group}}",
-    "setExclusive": "Przypisz tylko do grupy {{group}}"
+    "add": "Dodaj do grupy {{group}}"
   },
   "notifications": {
     "clanLeague": {
       "title": "Coalition league",
       "description": "Notify me when my coalition can still reach the weekly prize positions."
     }
+  },
+  "showGameTips": {
+    "title": "Pokazuj wskazówki",
+    "description": "Krótkie lekcje pojawiające się w bitwie, gdy wymaga tego sytuacja. Każda jest pokazywana tylko kilka razy."
   }
 }

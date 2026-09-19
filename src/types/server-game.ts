@@ -1,3 +1,4 @@
+import type { OrganizationDoctrine, ScenarioOrganization } from "@lob-sdk/order-of-battle";
 import {
   AnyAction,
   RangedAttackAction,
@@ -7,6 +8,7 @@ import {
   GameLocales,
   GameClientEventDto,
   GameTrigger,
+  TriggerOrderSpec,
   UnitDtoPartialId,
   UnitType,
   UnitCounts,
@@ -90,6 +92,8 @@ export interface BattleTypeTemplate {
   skirmisherRatio?: number[];
   /** Maximum number of each unit type allowed. */
   unitCaps: Record<UnitType, number>;
+  /** Ranked ELO K-factor contribution for this battle type. */
+  kFactor: number;
   /** Number of ticks required to capture small objectives. */
   ticksToCaptureSmall: number;
   /** Number of ticks required to capture big objectives. */
@@ -257,11 +261,60 @@ export interface PlayerBudgetOverride {
   gold?: number;
 }
 
+export type ManagedGamePermission = "manage" | "spectate";
+export type ManagedGameMemberRole = "chief_of_staff" | "reserve";
+
+/** Server-only membership for a private, rostered game. */
+export interface ManagedGameMember {
+  userId: number;
+  playerNumber?: number;
+  permissions?: ManagedGamePermission[];
+  role?: ManagedGameMemberRole;
+}
+
+/** Server-only access configuration persisted with the game metadata. */
+export interface ManagedGameConfig {
+  name: string;
+  members: ManagedGameMember[];
+  /** Unit that carries each seat's player identity and public role marker. */
+  identityUnitIds?: Record<number, EntityId>;
+  /** Epoch seconds at which the Game Master froze the current turn. */
+  pausedAt?: number;
+}
+
+/** Safe subset returned to an authorized managed-game client. */
+export interface ManagedGameClientInfo {
+  name: string;
+  canManage: boolean;
+  /** Cancelling a live battle is the creator's alone; co-hosts keep the lobby. */
+  canCancel: boolean;
+  canSpectate: boolean;
+  assignedPlayerNumber?: number;
+  /** Epoch seconds while the current turn is frozen. */
+  pausedAt?: number;
+  /** This viewer receives the authoritative, unredacted battlefield. */
+  fullVision: boolean;
+  /** One identity-bearing unit per player seat. */
+  identityUnits?: Array<{
+    playerNumber: number;
+    unitId: EntityId;
+  }>;
+  /** Public in-game roles, keyed only by seat so private membership stays hidden. */
+  roles: Array<{
+    playerNumber: number;
+    role: "chief_of_staff";
+  }>;
+}
+
 /**
  * Metadata column in the games table.
  * Stores additional game information that doesn't affect gameplay.
  */
 export interface GameMetadata {
+  /** Scenario's in-world start time, captured for imported games and replays. */
+  startTime?: string;
+  /** Fast ranked match accepted by every player before creation; opening forfeits settle normally. */
+  rankedAcceptanceId?: string;
   /** Whether the game ended with a conquest victory. */
   conquestVictory?: boolean;
   /** Language locales used in the game. */
@@ -283,11 +336,15 @@ export interface GameMetadata {
   /** Sparse game-constant overrides layered on the era registry for this game. */
   customGameConstants?: Partial<GameConstants>;
   /** Sparse (deep-partial) game-rule overrides layered on the era registry for this game. */
+  organizationDoctrine?: OrganizationDoctrine;
+  organizations?: ScenarioOrganization[];
   customGameRules?: DeepPartial<GameRules>;
   /** Sparse per-order overrides (keyed by OrderType id) deep-merged onto the era orders for this game. */
   customOrders?: Partial<Record<OrderType, DeepPartial<OrderTemplate>>>;
   /** Sparse per-battle-type budget/cap overrides layered on the era battle types for this game. */
-  customBattleTypes?: Partial<Record<DynamicBattleType, ScenarioBattleTypeOverride>>;
+  customBattleTypes?: Partial<
+    Record<DynamicBattleType, ScenarioBattleTypeOverride>
+  >;
   /** Absolute per-player (keyed by player number) manpower/gold budget overrides, resolved per player at army validation / display time. */
   playerBudgetOverrides?: Record<number, PlayerBudgetOverride>;
   /** Scenario's army-panel card-grid layout captured at game creation, so the in-lobby army picker groups units like the scenario intends. */
@@ -308,6 +365,8 @@ export interface GameMetadata {
   closedSlots?: number[];
   /** Host-with-lobby games only: user ids the host has kicked and barred from rejoining this game; mutated during the lobby; server-only (never sent to clients). */
   kickedUserIds?: number[];
+  /** Private roster and roles for a subscription-managed game. Never sent to clients. */
+  managedGame?: ManagedGameConfig;
 }
 
 /**
@@ -346,6 +405,8 @@ export interface GameData {
   finished: boolean;
   /** Whether this is a ranked game. */
   ranked: boolean;
+  /** Authorized, non-sensitive managed-game information. */
+  managedGame?: ManagedGameClientInfo;
   /** Reason why the game ended, if finished. */
   endReason: GameEndReason | null;
   /**
@@ -358,7 +419,7 @@ export interface GameData {
    */
   timePreset: GameTimePreset;
 
-  /** ELO K-factor for this game (from time control at creation; use 0 when not applicable). */
+  /** Combined ELO K-factor persisted for this game; use 0 when not applicable. */
   kFactor: number;
 
   /** Dynamic battle type configuration, if applicable. */
@@ -480,6 +541,12 @@ export interface GameState<UsePartialIds extends boolean = false> {
   objectives?: ObjectiveDto<UsePartialIds extends true ? false : true>[];
   /** Game triggers that can modify game state. */
   triggers: GameTrigger[];
+  /** Last turn whose start triggers ran, including across save/load. Absent on older saves. */
+  turnStartProcessed?: number;
+  /** Scripted orders waiting for the prepared turn to resolve; authoritative state only. */
+  pendingTriggerOrders?: TriggerOrderSpec[];
+  /** Trigger variables carried from planning into resolution; authoritative state only. */
+  triggerVars?: Record<string, number>;
 }
 
 /**
@@ -519,7 +586,7 @@ export interface PlayerSetup {
    */
   units?: UnitCounts;
   /**
-   * Preferred role for this slot (e.g. tutorial wants slot 1 human,
+   * Preferred role for this slot (e.g. a practice map wants slot 1 human,
    * slot 2 bot). Undefined/omitted or `"either"` leaves the choice to
    * the caller (matchmaking, lobby).
    */
@@ -598,6 +665,8 @@ export interface AddNewPlayerProps {
   username: string;
   /** The player's ELO rating. */
   elo: number;
+  /** Ranked games settled for this rating in the current season. */
+  eloGames?: number;
   /** The player's tier level. */
   userTier?: UserTier;
   /** Optional unit composition for the player. */
@@ -630,7 +699,7 @@ export interface ServerGameProps {
   turnStartedTime: number;
   /** Fischer timing settings */
   timePreset: GameTimePreset;
-  /** ELO K-factor persisted for this game (matches {@link GameTimePreset.kFactor} at creation). */
+  /** Combined ELO K-factor persisted for this game at creation. */
   kFactor?: number;
   /** Whether the game has started. */
   started: boolean;

@@ -1,4 +1,11 @@
 {
+  "orderUndo": {
+    "title": "Deshacer última orden",
+    "description": "Restaurar las órdenes anteriores. Unidades afectadas: {{count}}.",
+    "empty": "No hay órdenes para deshacer."
+  },
+  "otherGameModes": "Otros modos",
+  "partyWaitingForTeammate": "Esperando compañero",
   "orderSpeed": "Orden",
   "orderChargeResistance": "Orden",
   "shooting": "Disparando",
@@ -11,6 +18,7 @@
   "verified": "Cuenta verificada",
   "tools": "Herramientas",
   "rotateCamera": "Rotar",
+  "appLoadingMessage": "¡Bienvenido a Lines of Battle!",
   "skip": "Saltar",
   "home": "Inicio",
   "homeCreateBattles": "Creá escenarios",
@@ -18,16 +26,10 @@
   "admin": "Administración",
   "analytics": "Analítica",
   "language": "Idioma",
-  "tutorial": "Tutorial",
-  "skipTutorialTitle": "Saltar tutorial",
-  "skipTutorialMessage": "¿Saltar el resto del tutorial y volver al menú? No se te volverá a pedir que lo completes.",
-  "goToTutorial": "Ir al tutorial",
-  "tutorials": "Tutoriales",
   "play": "Jugar",
   "ranking": "Ranking",
   "history": "Historial",
   "store": "Tienda",
-  "supporters": "Patrocinadores",
   "credits": "Créditos",
   "settings": "Configuración",
   "leagueDescription": "Tu liga refleja tu nivel de habilidad. Gana partidas para avanzar dentro de tu liga; cuando llegues al tope, subirás a la siguiente. Si pierdes demasiadas, podrías bajar. Pasa el cursor sobre el ícono de la liga para ver tu Elo actual.",
@@ -50,6 +52,7 @@
     "turn": "Turno {{turnNumber}}/{{maxTurn}}"
   },
   "withdrawMessage": "Si te retirás de esta partida, cuenta como derrota y baja tu Elo. ¿Seguro que querés retirarte?",
+  "withdrawUnrankedMessage": "Si te retirás de esta partida, cuenta como derrota. ¿Seguro que querés retirarte?",
   "loading": "Cargando...",
   "yes": "Sí",
   "no": "No",
@@ -170,8 +173,7 @@
     "createDescription": "Empezá un escenario nuevo desde cero.",
     "loadDescription": "Abrí un archivo de escenario desde tu dispositivo.",
     "tutorialMessage": "¿Necesitás una mano? <tutorialLink>Mirá el tutorial.</tutorialLink>",
-    "randomGuide": "Para crear mapas aleatorios, leé <0>esta guía</0>.",
-    "baleriiMessage": "Balerii y Nytka hicieron su propio editor de mapas. En este video muestran cómo funciona:"
+    "randomGuide": "Para crear mapas aleatorios, leé <0>esta guía</0>."
   },
   "scenarioEditorAutosave": {
     "title": "Escenario Autoguardado",
@@ -217,6 +219,7 @@
   "offerDraw": "Ofrecer empate",
   "replayBattle": "Repetir batalla",
   "downloadReplay": "Descargar repetición",
+  "downloadEventTurnLog": "Descargar datos del evento por turno",
   "stepByTurn": "Paso a paso (pausa automática entre turnos)",
   "pause": "Pausar",
   "stop": "Detener",
@@ -243,6 +246,7 @@
   "combating": "Combate",
   "unitStat": {
     "hp": "HP",
+    "men": "Hombres",
     "org": "Organización",
     "stamina": "Resistencia",
     "walkMovement": "Caminar",
@@ -308,6 +312,7 @@
   "height": "Altura",
   "orgDamageModifierByTargetOrg": "Disminuir según la org del objetivo",
   "damageModifierByTargetHp": "Modificador de Daño según PV del Objetivo",
+  "damageModifierByTargetMen": "Modificador de daño según efectivos del objetivo",
   "heightModifierPerLevel": "Modificador de altura por nivel",
   "damageModifierPerLevel": "Modificador de daño por nivel",
   "maxElevationDiff": "Diferencia máxima de elevación",
@@ -420,12 +425,175 @@
       }
     }
   },
-  "welcomeModal": {
-    "title": "Bienvenido a Lines of Battle 👋!",
-    "thanks": "Gracias por sumarte, {{name}}!",
-    "p1": "¿Nuevo en <b>Lines of Battle</b>? Empieza con el <tutorialLink>tutorial</tutorialLink> para aprender las mecánicas básicas antes de tu primera batalla."
+  "gameTips": {
+    "victoryPoints": {
+      "title": "Victoria",
+      "description": "Las bajas y los objetivos influyen en los puntos de victoria. Protege tus tropas y disputa objetivos para remontar."
+    },
+    "blockedFire": {
+      "title": "Tiro bloqueado",
+      "description": "Tus tropas bloquean el tiro de esta batería. Despeja su línea de tiro para que pueda disparar."
+    },
+    "organization": {
+      "title": "Organización",
+      "description": "Las unidades desorganizadas pueden huir. Retíralas del combate y deja que se recuperen antes de atacar."
+    },
+    "range": {
+      "title": "Alcance",
+      "description": "A larga distancia haces menos daño. Acércate o limita el fuego automático para aprovechar tus disparos."
+    },
+    "flanks": {
+      "title": "Flancos",
+      "description": "El fuego de flanco causa más daño. Gira hacia la amenaza y protege los costados con otras unidades."
+    },
+    "charge": {
+      "title": "Cargas",
+      "description": "Cargar de frente contra tropas organizadas es arriesgado. Debilítalas con fuego o ataca un flanco."
+    },
+    "objectives": {
+      "title": "Objetivos",
+      "description": "Las estrellas pequeñas ayudan a recuperar tu reserva de munición. Captúralas para sostener el fuego."
+    },
+    "ammo": {
+      "view": "Ver munición",
+      "title": "Munición",
+      "description": "La artillería consume tu reserva de munición, que se recarga cada turno. Sin munición no puede disparar. Ajusta el fuego automático para ahorrar."
+    },
+    "running": {
+      "title": "Corre con intención",
+      "description": "Para la mayoría de las tropas, correr consume resistencia y las vuelve más fáciles de quebrar si reciben una carga después. Camina hasta que necesites velocidad o quieras cargar."
+    },
+    "overlap": {
+      "title": "No amontones unidades",
+      "description": "Los aliados superpuestos se mueven más despacio, combaten con menos eficacia en cuerpo a cuerpo, se apoyan menos y sufren más daño de organización."
+    },
+    "terrain": {
+      "title": "Aprovecha el terreno",
+      "description": "El terreno modifica el movimiento y el combate. Abre Información para ver los modificadores actuales de una unidad y elegir un terreno adecuado."
+    },
+    "basicsSelect": {
+      "title": "Dar órdenes",
+      "description": "Arrastra un recuadro sobre tus unidades para seleccionarlas y luego arrastra desde la selección para trazar su recorrido. Nada se mueve hasta que se resuelve el turno."
+    },
+    "basicsOrderTypes": {
+      "title": "Tipos de orden",
+      "description": "Cada movimiento tiene un ritmo. Caminar conserva la resistencia, Correr es más rápido pero cansa, Disparar y Avanzar dispara mientras se acerca. Abre el menú de órdenes para cambiarlo."
+    },
+    "basicsFormations": {
+      "title": "Formaciones",
+      "description": "La formación decide el frente y la potencia de fuego. La columna marcha rápido, la línea apunta más mosquetes al frente y el cuadro protege todos los lados de la caballería."
+    },
+    "basicsSubmit": {
+      "title": "Enviar el turno",
+      "description": "Las órdenes esperan hasta que envías el turno. Ambos ejércitos se resuelven a la vez, así que prevé dónde estará el enemigo, no dónde está."
+    },
+    "idleUnits": {
+      "title": "Unidades sin órdenes",
+      "description": "Algunas de tus unidades no tienen órdenes este turno. Dáselas o se quedarán quietas mientras el resto de la línea avanza."
+    },
+    "skirmisherVsArtillery": {
+      "title": "Tiradores contra artillería",
+      "description": "Batería enemiga al alcance de tu tirador. Concentra fuego en la dotación. Los tiradores destrozan artillería descubierta antes de que responda."
+    },
+    "skirmisherVsCavalry": {
+      "title": "Caballería cerca de tus tiradores",
+      "description": "Tu tirador será destrozado por la caballería enemiga si se queda ahí. Retrocede y busca cobertura."
+    },
+    "skirmisherVsInfantry": {
+      "title": "Infantería cerca de tus tiradores",
+      "description": "Infantería enemiga encima de tu tirador. Los tiradores ceden en melé. Retírate antes de las bayonetas."
+    },
+    "infantryFormLine": {
+      "title": "Formar línea",
+      "description": "Pasa estas unidades a línea. Con infantería enemiga a tiro de mosquete o caballería al frente, la línea concentra más bocas al frente y defiende mejor las descargas. No formes cuadro contra una carga frontal: perderías la mitad del fuego."
+    },
+    "infantryVsCavalryFrontal": {
+      "title": "Mantener la línea",
+      "description": "La caballería enemiga carga el frente de tu infantería, pero tienen órdenes en cola. Bórralas para que la línea se mantenga y dispare en lugar de caminar bajo los cascos."
+    },
+    "infantryVsCavalryFlank": {
+      "title": "Formar cuadro",
+      "description": "Caballería al flanco o retaguardia de tu infantería. Una línea la arrollan por el costado. Forma cuadro en cada unidad resaltada para tener mosquetes en todas las caras."
+    },
+    "infantryBayonetCharge": {
+      "title": "Carga a la bayoneta",
+      "description": "Infantería enemiga débil al alcance de la carga. Forma columna y corre hacia ellos. El choque de bayoneta en columna los rompe."
+    },
+    "infantryFallback": {
+      "title": "Retirar esta unidad",
+      "description": "La cohesión de esta unidad ha saltado; una descarga más y huye. Sácala antes de que se rompa la línea."
+    },
+    "infantryVsSkirmishers": {
+      "title": "Infantería contra tiradores",
+      "description": "Hay tiradores enemigos cerca y no tienes caballería disponible. Avanza al paso y fuérzalos al combate cuerpo a cuerpo, donde son más débiles."
+    },
+    "infantryVsArtillery": {
+      "title": "Infantería contra artillería",
+      "description": "Hay cañones enemigos cerca y sin protección. Corre directo hacia la dotación antes de que puedan girar y disparar metralla."
+    },
+    "infantryColumnMarch": {
+      "title": "Marchar en columna",
+      "description": "No hay enemigos cerca de esta unidad. Pasa a columna para marchar más rápido y forma en línea antes del contacto."
+    },
+    "cavalryVsWeakerCavalry": {
+      "title": "Caballería contra caballería más débil",
+      "description": "Caballería enemiga al alcance de la carga y tambaleante; tus caballos están más frescos. Aprovecha: carga antes de que se recuperen."
+    },
+    "cavalryVsEqualCavalry": {
+      "title": "Caballería contra caballería pareja",
+      "description": "Caballería enemiga en contacto y tan firme como la tuya. No gastes resistencia en una carga que no puedes ganar. Acércate al paso y pelea a pie parejo."
+    },
+    "cavalryVsStrongerCavalry": {
+      "title": "Caballería contra caballería más fuerte",
+      "description": "Caballería enemiga en contacto y más firme que la tuya; un melé aquí la pierdes. Rompe el contacto y recompón antes de que se comprometan."
+    },
+    "cavalryVsInfantryFlank": {
+      "title": "Cargar al flanco",
+      "description": "El flanco de la infantería enemiga está abierto y están tan firmes como tú. Es el momento de una carga limpia. Golpea el costado, no el frente."
+    },
+    "cavalryVsShakenInfantry": {
+      "title": "Caballería contra infantería quebrada",
+      "description": "La infantería enemiga apenas se sostiene; su cohesión ha saltado. Una carga limpia los arrolla antes de que se recompongan."
+    },
+    "cavalryVsSkirmishers": {
+      "title": "Caballería contra tiradores",
+      "description": "Tiradores al descubierto con calle clara hacia tus caballos. Ceden en melé y no pueden huir de una carga. Arrolladlos antes de que lleguen a cobertura."
+    },
+    "cavalryVsArtillery": {
+      "title": "Caballería contra artillería",
+      "description": "Cañones enemigos sin pantalla entre tú y ellos. Una carga contra dotación descubierta los acaba de un golpe. Pero si una línea amiga se interpone, sangrarás contra ella."
+    },
+    "cavalryPursueRouter": {
+      "title": "Perseguir a los que huyen",
+      "description": "Ese enemigo está roto y huye, sin apoyo que interrumpa la persecución. Una persecución de caballería los acaba. Remátalos antes de que se reformen."
+    },
+    "cavalryFallbackFromInfantry": {
+      "title": "Caballería bajo fuego de mosquete",
+      "description": "Tu caballería está a tiro de mosquete de infantería de línea sana. Retírate antes de que desgasten tus caballos; busca blancos tambaleantes o flancos abiertos."
+    },
+    "enemyInfantrySquare": {
+      "title": "Cuadro enemigo",
+      "description": "La infantería enemiga ha formado cuadro. Cada cara tiene mosquetes apuntando. Aleja tu caballería y busca objetivos en línea o columna con un flanco que explotar."
+    },
+    "artilleryFireAndAdvance": {
+      "title": "Disparar y avanzar",
+      "description": "El enemigo está lo bastante lejos para seguir acercándote mientras disparas. Cambia esta pieza a Disparar y Avanzar."
+    },
+    "artilleryRotateToFire": {
+      "title": "Detenerse para disparar",
+      "description": "El enemigo está cerca y tu cañón tiene tiro limpio pero sigue en marcha. Para la marcha y rota la unidad para fuego automático."
+    },
+    "pushObjective": {
+      "title": "Aprovecha la ventaja",
+      "description": "Vas ganando. Empuja hacia el objetivo enemigo con lo aprendido. Cerrarlo les niega la remontada."
+    },
+    "holdObjective": {
+      "title": "Mantén tu objetivo",
+      "description": "Vas perdiendo en puntos. Retrocede a tu objetivo y mantenlo con lo aprendido. Defender cuesta menos que retomar."
+    }
   },
   "turn": "Turno",
+  "battleDay": "Día {{day}}",
   "bank": "Reserva",
   "cap": "Límite",
   "deploy": "Despliegue",
@@ -445,8 +613,10 @@
     "3": "Disparar",
     "4": "Disparar y Avanzar",
     "6": "Retirada",
-    "7": "Enfrentar"
+    "7": "Enfrentar",
+    "mixed": "Mixto"
   },
+  "mixedOrderDescription": "Cada unidad conserva su propio tipo de orden.",
   "selectOrder": "Seleccionar orden",
   "orderType": "Tipo de orden",
   "autofire": "Fuego automático",
@@ -478,6 +648,10 @@
   "meleePerformance": "Rendimiento en cuerpo a cuerpo",
   "turnsLeft": "Turnos restantes",
   "battleOverview": {
+    "yourTeam": "Tu equipo",
+    "relativeScore": "{{value}} respecto al promedio de los equipos",
+    "scoreBreakdown": "De dónde salen los puntos",
+    "pressureExplanation": "¿Cómo afecta la presión a los puntos?",
     "title": "Resumen de la Batalla",
     "victoryPoints": "Puntos de Victoria",
     "initialArmyPower": "Poder Inicial del Ejército",
@@ -549,6 +723,12 @@
   "level": "Nivel",
   "baseLevelExperience": "Experiencia base del nivel",
   "experience": "Experiencia",
+  "coalitionProgression": {
+    "title": "Nivel de la coalición",
+    "fixedCapacity": "{{count}} miembros · capacidad fija",
+    "contribute": "Aportar {{amount}} Florines",
+    "completeWithPrestige": "Completar por {{amount}} de Prestigio"
+  },
   "nextLevelExperience": "Experiencia del siguiente nivel",
   "season": "Temporada",
   "time": "Tiempo",
@@ -612,16 +792,6 @@
   "kick": "Expulsar",
   "noDescription": "Sin descripción",
   "save": "Guardar",
-  "ordersSubmittedDialog": {
-    "p1": {
-      "sent": "Órdenes enviadas al servidor.",
-      "received": "Órdenes recibidas por el servidor.",
-      "processed": "Órdenes procesadas por el servidor."
-    },
-    "p2": "Chequeando las órdenes del oponente en {{value}} segundos",
-    "b": "Chequear ahora",
-    "playersSubmitted": "jugadores enviaron"
-  },
   "search": {
     "clans": "Buscar coaliciones",
     "lob": "Buscar en Lines of Battle"
@@ -756,6 +926,31 @@
     "ready": "Listo",
     "notReady": "No listo",
     "playersChoosingArmies": "Esperando a que {{count}} jugadores elijan su ejército.",
+    "gameMaster": "Game Master",
+    "gameMasterEvent": "Evento con Game Master",
+    "youAreGameMaster": "Sos el Game Master",
+    "cancelManagedGame": "Cancelar War Room",
+    "cancelManagedGameTitle": "¿Cancelar este War Room?",
+    "cancelManagedGameMessage": "Esto finalizará el War Room para todos. No podrá volver a abrirse.",
+    "keepManagedGame": "Mantener War Room",
+    "cancellingManagedGame": "Cancelando...",
+    "cancelManagedGameFailed": "No se pudo cancelar el War Room. Intentá de nuevo.",
+    "managedGameCancelledTitle": "War Room cancelado",
+    "managedGameCancelledMessage": "El Game Master finalizó este War Room.",
+    "pauseManagedGame": "Pausar batalla",
+    "resumeManagedGame": "Reanudar batalla",
+    "updatingManagedGamePause": "Actualizando...",
+    "managedGamePaused": "Batalla pausada",
+    "managedGamePausedHelp": "El reloj y el envío de órdenes quedan congelados hasta que el Game Master reanude la partida.",
+    "managedGamePauseFailedTitle": "No se pudo actualizar la batalla",
+    "managedGamePauseFailedMessage": "El estado de pausa no cambió. Intentá de nuevo.",
+    "replaceWithReserve": "Reemplazar jugador",
+    "noReservesAvailable": "No hay reservas disponibles",
+    "playerToReplace": "Jugador a reemplazar",
+    "reservePlayer": "Reserva",
+    "confirmReplacement": "Transferir puesto",
+    "loadReservesFailed": "No se pudieron cargar las reservas.",
+    "reassignReserveFailed": "No se pudo transferir este puesto.",
     "back": "Volver"
   },
   "limitedMode": {
@@ -814,6 +1009,9 @@
   "projectilePenetration": "Penetración de proyectiles",
   "league": {
     "title": "Liga",
+    "placementTitle": "Batallas de posicionamiento",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "Completa {{total}} batallas clasificatorias para revelar tu Elo y tu liga. Cada resultado te acerca más.",
     "unranked": "Sin clasificar",
     "emperor": "Emperador",
     "diamond-1": "Diamante I",
@@ -931,10 +1129,6 @@
   "artillery": "Artillería",
   "special": "Especial",
   "academy": "Academia",
-  "encyclopedia": "Enciclopedia",
-  "tutorialTips": "Consejos del Tutorial",
-  "loadingScreenTips": "Consejos de Pantalla de Carga",
-  "gameConstants": "Constantes del Juego",
   "ammo": "Munición",
   "ammoConsumption": "Consumo de Munición",
   "allowsCharging": "Permite cargar",
@@ -1008,13 +1202,6 @@
     "damageReceived": "Recibido",
     "winrate": "Winrate"
   },
-  "tutorialSummary": {
-    "heading": "Resumen del tutorial",
-    "count": "Se mostraron {{seen}}/{{total}} lecciones",
-    "description": "Cada lección cubre una situación que vale la pena conocer.",
-    "allSeen": "Viste todas las lecciones del tutorial.",
-    "viewMissed": "Ver lecciones que faltan"
-  },
   "max": "Máximo",
   "noAmmoRegain": "Sin recuperación de munición",
   "flankMeleeOrgModifier": "Modificador de org en cuerpo a cuerpo de flanco",
@@ -1032,6 +1219,7 @@
   "armyWithCount": "Ejército ({{count}})",
   "copied": "¡Copiado!",
   "skirmisherRatio": "Proporción de tiradores",
+  "skirmisherNextBreakpoint": "Próximo umbral",
   "projectileWidth": "Ancho de proyectil",
   "allyCollisionLevel": "Nivel de colisión con aliados",
   "enemyCollisionLevel": "Nivel de colisión con enemigos",
@@ -1039,7 +1227,6 @@
   "back": "Volver",
   "autofirePriority": "Prioridad de fuego automático",
   "heightOffset": "Desplazamiento de altura",
-  "minDistanceToFAA": "Distancia mín. para Disparar y Avanzar",
   "big": "Grande",
   "small": "Pequeño",
   "rotationSpeed": "Velocidad de rotación",
@@ -1124,12 +1311,245 @@
   "clanLeagueEnds": "Termina {{date}}",
   "reigningChampion": "Campeón vigente",
   "noClanLeagueScores": "Ninguna coalición puntuó esta semana todavía.",
-  "weeklyGames": "partidas esta semana",
+  "weeklyGames": "partidas",
   "scoringMember": "puntúa",
   "alreadyScoredThisWeek": "Este jugador ya puntuó para otra coalición esta semana y no puede cambiar hasta el lunes.",
   "clanChat": "Chat de la coalición",
   "clanChatPlaceholder": "Escribí a tu coalición…",
   "clanChatWarning": "El chat de la coalición es privado y queda guardado. Las reglas de la comunidad también se aplican.",
   "chatSendFailed": "No se pudo enviar el mensaje.",
-  "challengeClan": "Desafiar"
+  "challengeClan": "Desafiar",
+  "hideReplayInterface": "Ocultar interfaz",
+  "replayInterfaceKeyboardHint": "H: ocultar/mostrar · Esc: mostrar",
+  "replayInterfaceTouchHint": "Toca dos veces el mapa para mostrar la interfaz.",
+  "filters": "Filtros",
+  "minTurn": "Turno mínimo",
+  "reset": "Restablecer",
+  "applyFilters": "Aplicar filtros",
+  "gameSearchAnyPlayerCount": "Cualquier cantidad",
+  "gameSearchFinishedFrom": "Finalizadas desde",
+  "gameSearchFinishedTo": "Finalizadas hasta",
+  "gameSearchEmptyDescription": "Prueba ampliar los filtros para encontrar más repeticiones.",
+  "firstSession": {
+    "title": "Tu primera batalla",
+    "description": "Aprendé a dar órdenes contra el bot, a tu ritmo. El mapa y los ejércitos ya están listos.",
+    "startPractice": "Empezar práctica",
+    "continuePractice": "Continuar práctica",
+    "customize": "Personalizar batalla",
+    "playOnline": "Jugar online"
+  },
+  "replaceOfflineGameWarning": "Empezar una nueva batalla reemplazará tu partida offline guardada y su progreso.",
+  "returnToMenu": "Volver al menú",
+  "exitGameHint": "Volver al menú no pausa la batalla.",
+  "openReplayFile": "Abrir archivo de repetición",
+  "failedToLoadClans": "No se pudieron cargar las coaliciones. Inténtalo de nuevo.",
+  "emailConfirmation": {
+    "title": "Confirma tu correo",
+    "confirmed": "Correo confirmado. Ya puedes iniciar sesión.",
+    "error": "No se pudo confirmar tu correo. El enlace puede ser inválido o haber caducado."
+  },
+  "watchBattles": "Ver batallas",
+  "orderOfBattle": {
+    "showArmy": "Mostrar ejército",
+    "hideArmy": "Ocultar ejército",
+    "title": "Ejército",
+    "brigade": "{{n}} Brigada",
+    "infantryDivision": "{{n}} División de infantería",
+    "cavalryDivision": "{{n}} División de caballería",
+    "armoredDivision": "{{n}} División Blindada",
+    "artilleryReserve": "Reserva de artillería",
+    "divisionalArtillery": "Artillería divisionaria",
+    "focus": "Centrar el mapa en {{target}}",
+    "rename": "Renombrar {{target}}",
+    "renameAction": "Renombrar",
+    "disband": "Disolver {{target}}",
+    "addDivision": "Crear división",
+    "addBrigade": "Crear brigada",
+    "unattached": "Sin asignar",
+    "dragToReassign": "Arrastra a otra brigada para reasignar",
+    "select": "Seleccionar {{target}}",
+    "showSelection": "Show the selected units",
+    "showTree": "Show the order of battle",
+    "collapse": "Plegar {{target}}",
+    "expand": "Desplegar {{target}}",
+    "division": "1.ª División",
+    "noSelection": "Ninguna unidad seleccionada",
+    "selectionSummary_one": "{{count}} unidad · {{brigades}} brigadas",
+    "selectionSummary_other": "{{count}} unidades · {{brigades}} brigadas",
+    "quickBrigades": "Selección rápida de brigadas",
+    "backToMap": "Volver al mapa",
+    "backToArmy": "Volver al ejército",
+    "details": "Detalles",
+    "editSelection": "Editar selección",
+    "doneSelection": "Listo",
+    "moveTo": "Mover a…",
+    "moveCount_one": "Mover {{count}} unidad a una brigada",
+    "moveCount_other": "Mover {{count}} unidades a una brigada",
+    "confirmMove": "Mover",
+    "clearSelection": "Limpiar",
+    "selectedCount": "{{selected}}/{{total}} seleccionadas",
+    "dragUnit": "Arrastrar {{unit}} para reordenar o mover a otra brigada",
+    "assignBrigade": "Asignar a brigada",
+    "destinationBrigade": "Brigada",
+    "assign": "Asignar",
+    "assignUnit": "Asignar {{unit}} a una brigada",
+    "quickDivisions": "Selección rápida de divisiones",
+    "savedLayout": "Disposición guardada",
+    "layoutHelp": "Las órdenes del grupo recuperan estos lugares de llegada. Mover unidades individualmente no los modifica. Desplegar define una nueva disposición; usá «Guardar disposición actual» para conservar una reorganización manual.",
+    "saveLayout": "Guardar disposición actual",
+    "groupActions": "Acciones de {{target}}",
+    "layoutUpdated": "Disposición actualizada",
+    "undoLayout": "Deshacer",
+    "dismissLayoutNotice": "Cerrar aviso de disposición"
+  },
+  "offlineSetup": {
+    "title": "Cómo preparar una batalla de práctica",
+    "step1": "Elige cuánto dura la batalla y cuánto puedes ver del enemigo.",
+    "step2": "Escoge un escenario y un tipo de batalla, o deja los valores por defecto.",
+    "step3": "Define los ejércitos abajo y crea la batalla. Corre en este dispositivo, así que puedes parar y volver."
+  },
+  "pcHud": {
+    "selection": "Selección",
+    "waiting": "{{count}} unidades aún no tienen órdenes",
+    "nextIdle": "Siguiente sin órdenes",
+    "noOrder": "Sin órdenes este turno",
+    "battleKeysOff": "Teclas de batalla desactivadas · Esc",
+    "history": "Historial",
+    "commandBar": "Comandos de batalla"
+  },
+  "hudHelp": {
+    "formationDetails": "Podés consultar todos los modificadores de la formación en Tácticas.",
+    "help": "Ayuda: {{control}}",
+    "army": "Tocá para abrir o cerrar el árbol del ejército. Arrastrá para cambiar su altura.",
+    "selectAll": "Seleccioná todo tu ejército o limpiá la selección.",
+    "noUnits": "No hay unidades para seleccionar.",
+    "selectOwn": "Primero seleccioná unidades propias.",
+    "selectOne": "Seleccioná una unidad o un objetivo para inspeccionarlo.",
+    "noTactics": "Seleccioná unidades con formaciones o ajustes de fuego automático.",
+    "noOrders": "La selección no tiene órdenes que se puedan eliminar.",
+    "deployment": "Los tipos de orden no están disponibles durante el despliegue.",
+    "submitted": "Ya enviaste las órdenes de este turno.",
+    "finished": "La batalla terminó.",
+    "busy": "Esperá a que termine la acción de batalla en curso.",
+    "unavailable": "Este control no está disponible en el estado actual de la batalla.",
+    "offlineChat": "El chat está disponible en partidas online.",
+    "noReplay": "Todavía no hay acciones anteriores para repetir.",
+    "noSupply": "Esta batalla no usa líneas de suministro.",
+    "noSelection": "Primero seleccioná una unidad.",
+    "noEligible": "No hay unidades disponibles para seleccionar.",
+    "spectator": "Los espectadores no pueden dar órdenes.",
+    "overview": "Abrí el resumen de la batalla. Las bajas y los objetivos afectan los puntos de victoria.",
+    "clock": "Tiempo restante: {{remaining}}. Reserva: {{bank}}.",
+    "selectDivision": "Seleccioná las unidades que esperan órdenes, o toda la división si ya tienen órdenes. Doble toque o doble clic para centrar el mapa.",
+    "selectUnit": "Seleccioná esta unidad. Doble toque o doble clic para centrar el mapa.",
+    "formation": "Aplicá esta formación a las unidades seleccionadas que la admiten.",
+    "orders": {
+      "1": "Elegí caminar para la próxima orden de movimiento.",
+      "2": "Elegí correr para la próxima orden de movimiento.",
+      "3": "Elegí una orden de disparo y luego su objetivo.",
+      "4": "Avanzá disparando; las unidades sin ataque a distancia caminan.",
+      "6": "Elegí una orden de retirada.",
+      "7": "Cambiá hacia dónde miran las unidades seleccionadas."
+    },
+    "commands": {
+      "supplyView": "Mostrá u ocultá las líneas de suministro en el mapa.",
+      "drawLine": "Alterná entre trazar una ruta y desplegar unidades sobre una línea.",
+      "smartCurvedMovements": "Alterná entre movimiento directo y rutas curvas.",
+      "rotateContinuous": "Tocá para girar un cuarto de vuelta. Mantené pulsado para girar continuamente.",
+      "multiSelect": "Agregá unidades a la selección actual.",
+      "tools": "Mostrá u ocultá las herramientas adicionales de batalla.",
+      "tactics": "Elegí formaciones y fuego automático para las unidades seleccionadas.",
+      "ping": "Marcá una posición en el mapa.",
+      "chat": "Leé y enviá mensajes de batalla.",
+      "playerButton": "Consultá los jugadores y sus equipos.",
+      "info": "Inspeccioná la unidad o el objetivo seleccionado.",
+      "replayActions": "Volvé a ver las acciones anteriores.",
+      "menu": "Abrí los ajustes de batalla y las opciones para salir.",
+      "nextIdle": "Seleccioná una unidad sin órdenes. Si no queda ninguna, recorré las unidades disponibles.",
+      "submit": "Enviá las órdenes de este turno. Una vez enviadas, no se pueden retirar.",
+      "remove": "Eliminá las órdenes de las unidades seleccionadas.",
+      "deselect": "Limpiá la selección actual."
+    }
+  },
+  "firstOrders": {
+    "title": "Tus primeras órdenes",
+    "skip": "Omitir ayuda",
+    "select": {
+      "mouse": "Hacé clic en una de tus unidades para seleccionarla. Podés empezar por la unidad marcada.",
+      "touch": "Tocá una de tus unidades para seleccionarla. Podés empezar por la unidad marcada."
+    },
+    "deploy": {
+      "mouse": "Hacé clic derecho en terreno libre dentro de tu zona de despliegue para colocar la unidad. Estás acomodando tu ejército antes de la batalla.",
+      "touch": "Tocá terreno libre dentro de tu zona de despliegue para colocar la unidad. Estás acomodando tu ejército antes de la batalla."
+    },
+    "deployReady": {
+      "mouse": "Unidad colocada. Podés acomodar las demás o pulsar Enviar órdenes para empezar la batalla.",
+      "touch": "Unidad colocada. Podés acomodar las demás o pulsar ✓ para empezar la batalla."
+    },
+    "move": {
+      "mouse": "Hacé clic derecho en terreno libre para marcar un destino. La flecha anticipa el movimiento; la unidad espera a que envíes las órdenes.",
+      "touch": "Arrastrá desde la unidad hasta terreno libre para marcar un destino. La flecha anticipa el movimiento; la unidad espera a que envíes las órdenes."
+    },
+    "submit": {
+      "mouse": "Movimiento preparado. Podés dar más órdenes o pulsar Enviar órdenes abajo. Los dos ejércitos se moverán al mismo tiempo.",
+      "touch": "Movimiento preparado. Podés dar más órdenes o pulsar ✓ abajo. Los dos ejércitos se moverán al mismo tiempo."
+    }
+  },
+  "unitComparison": {
+    "stop": "Dejar de comparar",
+    "baseLabel": "Valores base",
+    "title": "Comparar unidades",
+    "choose": "Comparar con…",
+    "sameCategory": "Misma categoría",
+    "otherCategories": "Otras categorías",
+    "gold": "Coste en oro",
+    "manpower": "Coste en efectivos",
+    "baseValues": "Valores base, sin modificadores de terreno, formación ni estado; no predicen el resultado de un combate.",
+    "relativeTo": "Los porcentajes indican la diferencia de esta unidad respecto a {{unit}}.",
+    "stat": "Atributo",
+    "unavailable": "— indica un valor no disponible o no aplicable."
+  },
+  "battleContinuation": {
+    "exports": "Guardar o exportar",
+    "continueOffline": "Continuar offline",
+    "replaceTitle": "¿Reemplazar la partida guardada?",
+    "replace": "Reemplazar y continuar",
+    "noUnits": "Sin unidades supervivientes",
+    "title": "Continuar batalla",
+    "description": "Iniciá una nueva batalla offline desde esta posición. Los puntos se reinician; la replay completa conserva las acciones originales.",
+    "additionalTurns": "Turnos adicionales",
+    "download": "Descargar partida",
+    "exportScenario": "Exportar escenario",
+    "scenarioHint": "El escenario se puede editar. El archivo de partida conserva también la replay.",
+    "chooseHuman": "Elegí un jugador humano con unidades supervivientes.",
+    "error": "No se pudo cargar o guardar esta partida. Intentá de nuevo.",
+    "import": "Importar partida"
+  },
+  "turnRecovery": {
+    "pending": "Actualizando la partida…",
+    "failed": "No pudimos actualizar la partida."
+  },
+  "matchAcceptance": {
+    "firstRejection": "Sin derrota ni pérdida de Elo. Rechazar o dejar pasar otra propuesta en 24 horas restringirá la ranked rápida durante 2 minutos.",
+    "restrictionTitle": "Búsqueda restringida temporalmente",
+    "restriction": "Rechazaste o dejaste pasar varias propuestas. La ranked rápida está restringida durante {{minutes}} min más. Podés jugar partidas privadas y offline.",
+    "restrictionEnded": "La restricción terminó. Podés volver a buscar.",
+    "rulesTitle": "Reglas de ranked",
+    "rules": "Una batalla ranked rápida comienza cuando aceptan todos los jugadores. Abandonar cuenta como derrota normal, incluso en el primer turno, sin otro baneo automático. Rechazar o dejar vencer propuestas recibidas en 24 horas genera un aviso y luego restricciones de 2, 10 y 60 minutos, con un máximo de 60. Rechazar no quita Elo.",
+
+    "ready": "Clasificatoria · Rápida",
+    "accept": "Aceptar partida",
+    "decline": "Rechazar",
+    "timeRemaining": "Tiempo restante: {{count}} s",
+    "sending": "Confirmando tu respuesta…",
+    "waiting": "Aceptaste. Esperando a los demás jugadores…",
+    "creating": "Aceptaron todos. Preparando la batalla…",
+    "reconnecting": "Reconectando…",
+    "error": "No pudimos confirmar tu respuesta. Intentá de nuevo.",
+    "ended": "Propuesta finalizada",
+    "requeued": "Otro jugador no confirmó. Volviste a la cola conservando tu prioridad de espera.",
+    "noLoss": "La propuesta terminó sin derrota. Podés buscar otra partida.",
+    "failed": "No pudimos confirmar si se creó la batalla. Comprobalo antes de buscar otra.",
+    "checkGame": "Comprobar partida"
+  }
 }

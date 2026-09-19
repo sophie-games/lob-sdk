@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Deckkraft ausgewählter Befehle",
+    "description": "Deckkraft der Pfeile und Zielvorschauen ausgewählter Einheiten oder aller Einheiten, wenn keine ausgewählt ist. 0% blendet sie aus."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Deckkraft nicht ausgewählter Befehle",
+    "description": "Deckkraft der Pfeile und Zielvorschauen anderer Einheiten, solange Einheiten ausgewählt sind. 0% blendet sie aus."
+  },
   "gameplay": "Gameplay",
   "graphics": "Grafik",
   "camera": "Kamera",
@@ -25,8 +33,10 @@
     "description": "Zeigt die Leiste für Kontrollgruppen an. Deaktiviere sie, damit versehentliche Berührungen deine Auswahl auf Touchgeräten nicht verändern."
   },
   "smartCurvedMovements": {
-    "title": "Kluge Kurvenbewegungen",
-    "description": "Aktiviere diese Option, um die Bewegungspfade mit weicheren Kurven zu optimieren, was Geschwindigkeitsverluste beim Drehen verringert."
+    "title": "Bewegungsweg",
+    "description": "Direkt folgt den gezeichneten Abschnitten; Kurvig rundet die Kurven ab. Unpassierbare Hindernisse werden automatisch umgangen.",
+    "direct": "Direkt",
+    "curved": "Kurvig"
   },
   "pathFinding": {
     "title": "Pfadsuche",
@@ -95,9 +105,9 @@
   "gridOpacity": {
     "title": "Rasterdeckkraft"
   },
-  "tracerOpacity": {
-    "title": "Leuchtspur-Deckkraft",
-    "description": "Steuert die Deckkraft der Leuchtspuren bei Fernangriffen. Bei 0 % werden sie ausgeblendet."
+  "showChargeDamageIndicators": {
+    "title": "Schadensanzeigen bei Sturmangriffen",
+    "description": "Zeigt schwebende Schadenszahlen an, wenn Einheiten einen Sturmangriff ausführen."
   },
   "showDebugShapes": {
     "title": "Debug-Formen anzeigen",
@@ -156,7 +166,7 @@
     "shootOrder": "Schießauftrag",
     "fireAndAdvanceOrder": "Feuer-und-Vorrück-Auftrag",
     "fallbackOrder": "Rückzugsauftrag",
-    "toggleSmartCurvedMovements": "Kluge Kurvenbewegungen umschalten",
+    "toggleSmartCurvedMovements": "Zwischen Direkt und Kurvig wechseln",
     "togglePathFinding": "Pfadsuche umschalten",
     "toggleFowPerspective": "Nebel des Krieges Perspektive umschalten",
     "toggleMultiTurnPathOrders": "Mehrzügige Weg-Befehle umschalten",
@@ -269,13 +279,16 @@
   "controlGroups": {
     "recall": "Gruppe {{group}} aufrufen",
     "set": "Gruppe {{group}} festlegen",
-    "add": "Zu Gruppe {{group}} hinzufügen",
-    "setExclusive": "Nur Gruppe {{group}} zuweisen"
+    "add": "Zu Gruppe {{group}} hinzufügen"
   },
   "notifications": {
     "clanLeague": {
       "title": "Coalition league",
       "description": "Notify me when my coalition can still reach the weekly prize positions."
     }
+  },
+  "showGameTips": {
+    "title": "Tipps anzeigen",
+    "description": "Kurze Lektionen, die in der Schlacht erscheinen, wenn die Lage es verlangt. Jede wird nur wenige Male gezeigt."
   }
 }

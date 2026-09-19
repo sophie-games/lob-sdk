@@ -33,6 +33,34 @@ export class ScenarioFeatures {
     return Array.isArray(scenario.players) && scenario.players.length > 0;
   }
 
+  /** Whether a scenario fully defines the map, seats, and starting roster. */
+  static isFixedRosterPreset(scenario: Scenario): boolean {
+    return (
+      scenario.map !== undefined &&
+      ScenarioFeatures.hasFixedPlayers(scenario) &&
+      Array.isArray(scenario.units) &&
+      scenario.units.length > 0 &&
+      !ScenarioFeatures.hasDynamicArmy(scenario)
+    );
+  }
+
+  /** Whether a fixed-roster preset can safely replace one unit per player. */
+  static hasOneUnitPerPlayer(scenario: Scenario): boolean {
+    if (!ScenarioFeatures.isFixedRosterPreset(scenario)) return false;
+    if (scenario.units!.length !== scenario.players!.length) return false;
+
+    const unitCountByPlayer = new Map<number, number>();
+    for (const unit of scenario.units!) {
+      unitCountByPlayer.set(
+        unit.player,
+        (unitCountByPlayer.get(unit.player) ?? 0) + 1,
+      );
+    }
+    return scenario.players!.every(
+      (player) => unitCountByPlayer.get(player.player) === 1,
+    );
+  }
+
   /** Where gameplay starts — scenarios with a deployment phase begin at turn 0. */
   static getInitialTurnNumber(scenario: Scenario): number {
     return ScenarioFeatures.hasDeploymentPhase(scenario) ? 0 : 1;

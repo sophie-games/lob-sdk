@@ -1,3 +1,5 @@
+import type { OrganizationDoctrine, ScenarioOrganization } from "@lob-sdk/order-of-battle";
+import { Point2 } from "@lob-sdk/vector";
 import {
   GameTrigger,
   ObjectiveDto,
@@ -25,7 +27,6 @@ import type {
   GameRules,
 } from "../game-data-manager/types";
 import type { DeepPartial } from "../utils/object-merge";
-import { Tutorial } from "./tutorial";
 
 /**
  * Scenario-scoped override for a single terrain category. The {@link id}
@@ -161,6 +162,19 @@ export const getForwardZone = (
 };
 
 /**
+ * A place name drawn on the map: a town, a village, a landmark.
+ */
+export interface MapLabel {
+  /** Position in pixels. */
+  pos: Point2;
+  /**
+   * The name as written. A scenario-supplied domain value, not an i18next key,
+   * so it renders as-is.
+   */
+  text: string;
+}
+
+/**
  * Represents the game map with terrain, height data, and deployment zones.
  */
 export interface GameMap {
@@ -176,6 +190,8 @@ export interface GameMap {
   heightMap: number[][];
   /** Seed used for random map generation. */
   seed?: number;
+  /** Optional place names drawn over the terrain. */
+  labels?: MapLabel[];
 }
 
 /**
@@ -353,6 +369,39 @@ export type ObjectivesRuleOverride = Pick<
   | "bigObjectiveZoneInset"
 >;
 
+/** A reusable army composition offered for one managed-game seat. */
+export interface ManagedForcePreset {
+  /** Stable identifier stored in the event roster. */
+  id: string;
+  /** Player-facing name shown by the organizer UI. */
+  name: string;
+  /** Optional key in the scenario era locale; falls back to {@link name}. */
+  nameKey?: string;
+  /** Unit types assigned to the seat, in placement-slot order. */
+  units: UnitType[];
+  /** Unit within {@link units} that carries the player's identity and role badge. Defaults to 0. */
+  leaderUnitIndex?: number;
+}
+
+/** Optional force restrictions for one player number in a managed roster. */
+export interface ManagedRosterSeatOptions {
+  player: number;
+  /** Presets this seat may use. Omit to allow every preset in the roster. */
+  forcePresetIds?: string[];
+  /** Initial selection for the organizer. Defaults to the first allowed preset. */
+  defaultForcePresetId?: string;
+}
+
+/**
+ * Data used to turn a fixed map's unit placements into selectable forces.
+ * Existing scenario units are placement slots; a selected preset fills the
+ * first N slots for that player and unused trailing slots are removed.
+ */
+export interface ManagedRosterTemplate {
+  forcePresets: ManagedForcePreset[];
+  seats?: ManagedRosterSeatOptions[];
+}
+
 /**
  * Feature-based scenario schema (replaces the legacy preset/hybrid/random union).
  * All maps go through the procedural pipeline; fixed maps are wrapped in a single
@@ -369,10 +418,18 @@ export interface Scenario {
   name: string;
   /** Display description. */
   description: string;
+  /** Optional in-world start time in 24-hour HH:mm form; defaults to 00:00. */
+  startTime?: string;
+  /** Optional turn limit used when creating a battle from this scenario. */
+  maxTurn?: number;
   /** Whether the scenario can be used in ranked matches. */
   ranked?: boolean;
   /** Whether the scenario should be hidden from selection. */
   hidden?: boolean;
+  /** Whether only subscription-managed custom games may create this scenario. */
+  managedGameOnly?: boolean;
+  /** Optional reusable force choices for subscription-managed games. */
+  managedRoster?: ManagedRosterTemplate;
   /** Game triggers that can modify game state during play. */
   triggers?: GameTrigger[];
   /** Default true. If false, disables automatic victory when only one team is alive. */
@@ -524,13 +581,6 @@ export interface Scenario {
   bigObjectiveZoneInset?: number;
 
   /**
-   * Data-driven tutorial overlays. Evaluated client-side by the TutorialRunner
-   * independently of {@link triggers}; the generic trigger system never sees
-   * this field. Safe to omit for non-tutorial scenarios.
-   */
-  tutorial?: Tutorial;
-
-  /**
    * Additive unit templates scoped to this scenario. Ids must be >= 10000
    * and unique among custom templates; collisions with era built-ins are
    * rejected by validation. Resolved at runtime via the per-game
@@ -591,6 +641,8 @@ export interface Scenario {
    * changed leaves are stored. Deep-merged onto a clone of the era rules by the
    * per-game GameDataManager.
    */
+  organizationDoctrine?: OrganizationDoctrine;
+  organizations?: ScenarioOrganization[];
   customGameRules?: DeepPartial<GameRules>;
 
   /**
@@ -618,7 +670,9 @@ export interface Scenario {
    * the era battle type by the per-game GameDataManager so both the army panel
    * and validateArmy see the scenario's values.
    */
-  customBattleTypes?: Partial<Record<DynamicBattleType, ScenarioBattleTypeOverride>>;
+  customBattleTypes?: Partial<
+    Record<DynamicBattleType, ScenarioBattleTypeOverride>
+  >;
 
   /**
    * Absolute per-player budget overrides, keyed by player number. Each entry

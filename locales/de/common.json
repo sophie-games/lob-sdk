@@ -1,4 +1,11 @@
 {
+  "orderUndo": {
+    "title": "Letzten Befehl rückgängig machen",
+    "description": "Vorherige Befehle wiederherstellen. Betroffene Einheiten: {{count}}.",
+    "empty": "Keine Befehle zum Rückgängigmachen."
+  },
+  "otherGameModes": "Weitere Spielmodi",
+  "partyWaitingForTeammate": "Warte auf Mitspieler",
   "orderSpeed": "Befehl",
   "orderChargeResistance": "Befehl",
   "shooting": "Schießen",
@@ -11,26 +18,27 @@
   "verified": "Verifiziertes Konto",
   "tools": "Werkzeuge",
   "rotateCamera": "Drehen",
+  "appLoadingMessage": "Willkommen bei Lines of Battle!",
   "skip": "Überspringen",
   "home": "Startseite",
   "admin": "Admin",
   "analytics": "Analytik",
   "language": "Sprache",
-  "tutorial": "Tutorial",
-  "skipTutorialTitle": "Tutorial überspringen",
-  "skipTutorialMessage": "Den Rest des Tutorials überspringen und zum Menü zurückkehren? Du wirst nicht erneut aufgefordert, es abzuschließen.",
-  "goToTutorial": "Zum Tutorial",
-  "tutorials": "Tutorials",
   "play": "Spielen",
   "ranking": "Rangliste",
   "profile": "Profil",
   "history": "Historie",
   "store": "Laden",
-  "supporters": "Unterstützer",
   "elo": "Elo",
   "level": "Level",
   "baseLevelExperience": "Basis-Level-Erfahrung",
   "experience": "Erfahrung",
+  "coalitionProgression": {
+    "title": "Koalitionsstufe",
+    "fixedCapacity": "{{count}} Mitglieder · feste Kapazität",
+    "contribute": "{{amount}} Gulden beitragen",
+    "completeWithPrestige": "Für {{amount}} Prestige abschließen"
+  },
   "nextLevelExperience": "Erfahrung für nächstes Level",
   "season": "Saison",
   "time": "Zeit",
@@ -59,6 +67,7 @@
     "turn": "Runde {{turnNumber}}/{{maxTurn}}"
   },
   "withdrawMessage": "Wenn Sie sich von diesem Spiel zurückziehen, wird das als eine Niederlage gewertet und Ihre Elo verringern. Sind Sie sicher, dass Sie sich zurückziehen wollen?",
+  "withdrawUnrankedMessage": "Wenn Sie sich aus diesem Spiel zurückziehen, zählt das als Niederlage. Möchten Sie sich wirklich zurückziehen?",
   "loading": "Lädt...",
   "yes": "Ja",
   "no": "Nein",
@@ -169,8 +178,7 @@
   },
   "scenarioEditorTags": {
     "tutorialMessage": " Nicht sicher, wie Sie es benutzen wollen? Kein Problem, wir haben hier was für dich! <tutorialLink>Schaue dieses Tutorial!</tutorialLink>",
-    "randomGuide": "Möchten Sie lernen, wie man zufällige Karten erstellt? Lesen Sie <0>diese Anleitung</0>.",
-    "baleriiMessage": "Die Spieler Balerii und Nytka haben ihren eigenen Karteneditor erstellt! Schauen Sie sich ihren YouTube-Kanal an, um zu sehen, wie es funktioniert:"
+    "randomGuide": "Möchten Sie lernen, wie man zufällige Karten erstellt? Lesen Sie <0>diese Anleitung</0>."
   },
   "scenarioEditorAutosave": {
     "title": "Automatisch Gespeichertes Szenario",
@@ -242,6 +250,7 @@
   "combating": "Kampf",
   "unitStat": {
     "hp": "LP",
+    "men": "Männer",
     "org": "Organisation",
     "stamina": "Ausdauer",
     "movement": "Fortbewegung",
@@ -306,6 +315,7 @@
   "height": "Höhe",
   "orgDamageModifierByTargetOrg": "Verminderd durch Org des Ziels",
   "damageModifierByTargetHp": "Schadenmodifikator durch KP des Ziels",
+  "damageModifierByTargetMen": "Schadensmodifikator nach Personalstärke des Ziels",
   "heightModifierPerLevel": "Höhenmodifikator pro Stufe",
   "damageModifierPerLevel": "Schadensmodifikator pro Stufe",
   "maxElevationDiff": "Max. Höhenunterschied",
@@ -418,12 +428,175 @@
       }
     }
   },
-  "welcomeModal": {
-    "title": "Willkommen bei Lines of Battle 👋",
-    "thanks": "Schön das Sie dabei sind, {{name}}!",
-    "p1": "Neu bei <b>Lines of Battle</b>? Beginne mit dem <tutorialLink>Tutorial</tutorialLink>, um die grundlegenden Mechaniken vor deiner ersten Schlacht zu lernen."
+  "gameTips": {
+    "victoryPoints": {
+      "title": "Siegpunkte",
+      "description": "Verluste und Ziele beeinflussen die Siegpunkte. Schütze deine Truppen und kämpfe um Ziele, um aufzuholen."
+    },
+    "blockedFire": {
+      "title": "Feuer blockiert",
+      "description": "Deine Truppen blockieren die Schüsse dieser Batterie. Räume ihre Schusslinie frei, damit sie feuern kann."
+    },
+    "organization": {
+      "title": "Organisation",
+      "description": "Desorganisierte Einheiten können fliehen. Ziehe sie aus dem Kampf zurück, damit sie sich vor dem nächsten Angriff erholen."
+    },
+    "range": {
+      "title": "Schussweite",
+      "description": "Schüsse auf große Entfernung richten weniger Schaden an. Rücke näher oder begrenze das automatische Feuer."
+    },
+    "flanks": {
+      "title": "Flanken schützen",
+      "description": "Flankenfeuer verursacht mehr Schaden. Wende dich der Bedrohung zu und sichere die Seiten mit anderen Einheiten."
+    },
+    "charge": {
+      "title": "Sturmangriffe abwägen",
+      "description": "Frontalangriffe auf geordnete Truppen sind riskant. Schwäche sie durch Beschuss oder greife eine Flanke an."
+    },
+    "objectives": {
+      "title": "Kleine Ziele",
+      "description": "Kleine Sterne helfen, deine Munitionsreserve aufzufüllen. Erobere sie, um weiterfeuern zu können."
+    },
+    "ammo": {
+      "view": "Munition anzeigen",
+      "title": "Munition",
+      "description": "Artillerie verbraucht deine Munitionsreserve, die sich jede Runde auffüllt. Ohne Munition kann sie nicht schießen. Passe das automatische Feuer an, um Munition zu sparen."
+    },
+    "running": {
+      "title": "Laufe gezielt",
+      "description": "Bei den meisten Truppen kostet Laufen Ausdauer und macht sie leichter zu brechen, wenn sie danach einen Sturmangriff abfangen. Gehe, bis du Tempo brauchst oder selbst angreifen willst."
+    },
+    "overlap": {
+      "title": "Staple keine Einheiten",
+      "description": "Überlappende Verbündete bewegen sich langsamer, kämpfen im Nahkampf weniger effektiv, unterstützen sich weniger und erleiden mehr Organisationsschaden."
+    },
+    "terrain": {
+      "title": "Nutze das Gelände",
+      "description": "Gelände verändert Bewegung und Kampf. Unter Info siehst du die aktuellen Modifikatoren einer Einheit und kannst passendes Gelände wählen."
+    },
+    "basicsSelect": {
+      "title": "Befehle geben",
+      "description": "Ziehe einen Rahmen über deine Einheiten, um sie auszuwählen, und ziehe dann von der Auswahl aus ihren Weg. Nichts bewegt sich, bis die Runde abgerechnet wird."
+    },
+    "basicsOrderTypes": {
+      "title": "Befehlsarten",
+      "description": "Jeder Marsch hat ein Tempo. Gehen spart Ausdauer, Laufen ist schneller, ermüdet aber, Feuern und Vorrücken schießt im Vorgehen. Öffne das Befehlsmenü zum Wechseln."
+    },
+    "basicsFormations": {
+      "title": "Formationen",
+      "description": "Die Formation bestimmt Frontbreite und Feuerkraft. Die Kolonne marschiert schnell, die Linie richtet die meisten Musketen nach vorn, das Karree schützt jede Seite vor Kavallerie."
+    },
+    "basicsSubmit": {
+      "title": "Runde abschicken",
+      "description": "Befehle warten, bis du die Runde abschickst. Beide Heere werden gleichzeitig abgerechnet, plane also, wo der Feind sein wird, nicht wo er ist."
+    },
+    "idleUnits": {
+      "title": "Einheiten ohne Befehle",
+      "description": "Einige deiner Einheiten haben diese Runde keine Befehle. Gib ihnen welche, sonst bleiben sie stehen, während der Rest der Linie vorgeht."
+    },
+    "skirmisherVsArtillery": {
+      "title": "Schützen gegen Artillerie",
+      "description": "Feindbatterie in Reichweite deines Plänklers. Feuer auf die Bedienung. Plänkler zermalmen ungeschützte Artillerie, bevor sie antwortet."
+    },
+    "skirmisherVsCavalry": {
+      "title": "Kavallerie nahe deinen Schützen",
+      "description": "Feindkavallerie vernichtet deinen Plänkler, wenn er bleibt. Rückzug und Deckung."
+    },
+    "skirmisherVsInfantry": {
+      "title": "Infanterie nahe deinen Schützen",
+      "description": "Feindinfanterie auf deinem Plänkler. Plänkler brechen im Nahkampf. Weg vor den Bajonetten."
+    },
+    "infantryFormLine": {
+      "title": "Linie formieren",
+      "description": "Stelle diese Einheiten in Linie. Bei Feindinfanterie in Musketenreichweite oder Kavallerie von vorn gibt Linie meiste Musketen nach vorn und beste Abwehr gegen Salven. Kein Karree gegen Frontsturm, du verlierst Feuerkraft."
+    },
+    "infantryVsCavalryFrontal": {
+      "title": "Die Linie halten",
+      "description": "Feindliche Kavallerie greift die Front deiner Infanterie an, aber sie haben Befehle in der Warteschlange. Lösche sie, damit die Linie steht und feuert, statt unter die Hufe zu laufen."
+    },
+    "infantryVsCavalryFlank": {
+      "title": "Karree bilden",
+      "description": "Kavallerie an Flanke oder Rücken deiner Infanterie. Eine Linie wird von der Seite überrollt. Forme Karree auf jeder markierten Einheit, damit jede Seite Musketen hat."
+    },
+    "infantryBayonetCharge": {
+      "title": "Bajonettangriff",
+      "description": "Schwache Feindinfanterie in Angriffsreichweite. Kolonne formen und hineinlaufen. Bajonett in Kolonne beim Kontakt bricht sie."
+    },
+    "infantryFallback": {
+      "title": "Diese Einheit zurückziehen",
+      "description": "Zusammenhalt dieser Einheit gebrochen, eine Salve mehr und sie flieht. Zieh sie raus, bevor die Linie reißt."
+    },
+    "infantryVsSkirmishers": {
+      "title": "Infanterie gegen Schützen",
+      "description": "Feindliche Plänkler sind nah und keine Kavallerie ist verfügbar. Rücke im Schritt vor und zwinge sie in den Nahkampf, wo sie am schwächsten sind."
+    },
+    "infantryVsArtillery": {
+      "title": "Infanterie gegen Artillerie",
+      "description": "Feindliche Geschütze sind nah und ungedeckt. Laufe direkt in die Bedienung, bevor sie schwenken und Kartätsche feuern kann."
+    },
+    "infantryColumnMarch": {
+      "title": "In Kolonne marschieren",
+      "description": "Keine Feinde sind in der Nähe dieser Einheit. Wechsle für schnelleres Marschieren in Kolonne und bilde vor Feindkontakt Linie."
+    },
+    "cavalryVsWeakerCavalry": {
+      "title": "Kavallerie gegen schwächere Kavallerie",
+      "description": "Feindkavallerie in Angriffsreichweite und erschüttert, deine Pferde frischer. Nutze es: stürme, bevor sie sich fängt."
+    },
+    "cavalryVsEqualCavalry": {
+      "title": "Kavallerie gegen ebenbürtige Kavallerie",
+      "description": "Feindkavallerie im Kontakt und ähnlich fest wie deine. Verschwende keine Ausdauer auf eine aussichtslose Attacke. Im Schritt nähern und im Nahkampf ausgleichen."
+    },
+    "cavalryVsStrongerCavalry": {
+      "title": "Kavallerie gegen stärkere Kavallerie",
+      "description": "Feindkavallerie im Kontakt und fester als deine, Nahkampf hier verloren. Abbrechen und neu formieren, bevor sie sich festbeißt."
+    },
+    "cavalryVsInfantryFlank": {
+      "title": "Die Flanke angreifen",
+      "description": "Flanke der Feindinfanterie offen und ähnlich fest wie du. Jetzt zählt ein sauberer Sturm. Seite treffen, nicht die Front."
+    },
+    "cavalryVsShakenInfantry": {
+      "title": "Kavallerie gegen erschütterte Infanterie",
+      "description": "Feindinfanterie hält kaum noch, Zusammenhalt gebrochen. Ein sauberer Sturm walzt sie weg, bevor sie sich sammelt."
+    },
+    "cavalryVsSkirmishers": {
+      "title": "Kavallerie gegen Schützen",
+      "description": "Plänkler im Freien mit freier Bahn zu deinen Pferden. Sie brechen im Nahkampf und entkommen keiner Attacke. Überrolle sie vor der Deckung."
+    },
+    "cavalryVsArtillery": {
+      "title": "Kavallerie gegen Artillerie",
+      "description": "Feindgeschütze ohne Schirm dazwischen. Sturm auf offene Bedienung beendet sie sofort. Freundliche Linie dazwischen und du blutest gegen sie."
+    },
+    "cavalryPursueRouter": {
+      "title": "Fliehende verfolgen",
+      "description": "Feind bricht und flieht, ohne Unterstützung, die die Verfolgung stoppt. Kavallerie verfolgt endgültig. Erledige ihn, bevor er sich sammelt."
+    },
+    "cavalryFallbackFromInfantry": {
+      "title": "Kavallerie im Musketenfeuer",
+      "description": "Deine Kavallerie sitzt in Musketenreichweite gesunder Linie. Weg, bevor sie deine Pferde zermahlt; suche erschütterte Ziele oder offene Flanken."
+    },
+    "enemyInfantrySquare": {
+      "title": "Feindliches Karree",
+      "description": "Die feindliche Infanterie hat Karree gebildet. Jede Seite hat Musketen draußen. Halte deine Kavallerie fern und suche nach Linien- oder Kolonnenzielen mit einer offenen Flanke."
+    },
+    "artilleryFireAndAdvance": {
+      "title": "Feuern und vorrücken",
+      "description": "Feind weit genug, dass du beim Feuern vorgehen kannst. Stelle diese Artillerie auf Feuern und Vorrücken."
+    },
+    "artilleryRotateToFire": {
+      "title": "Halten und feuern",
+      "description": "Feind nah, dein Geschütz hat freien Schuss, marschiert aber noch. Marsch stoppen und Einheit drehen für Autofeuer."
+    },
+    "pushObjective": {
+      "title": "Nutze deinen Vorsprung",
+      "description": "Du führst. Drücke zum feindlichen Ziel mit allem Gelernten. Es zu nehmen verhindert jedes Comeback."
+    },
+    "holdObjective": {
+      "title": "Halte dein Ziel",
+      "description": "Du liegst zurück. Zieh zu deinem Ziel und halte es mit dem Gelernten. Verteidigen ist günstiger als Rückeroberung."
+    }
   },
   "turn": "Runde",
+  "battleDay": "Tag {{day}}",
   "bank": "Zeitreserve",
   "cap": "Obergrenze",
   "deploy": "Aufstellung",
@@ -442,8 +615,10 @@
     "3": "Schießen",
     "4": "Feuern und Vorrücken",
     "6": "Zurückfallen",
-    "7": "Ausrichten"
+    "7": "Ausrichten",
+    "mixed": "Gemischt"
   },
+  "mixedOrderDescription": "Jede Einheit behält ihren eigenen Befehlstyp.",
   "selectOrder": "Befehl auswählen",
   "orderType": "Befehlstyp",
   "autofire": "Automatisches Feuern",
@@ -595,16 +770,6 @@
   "kick": "Rauswerfen",
   "noDescription": "Keine Beschreibung",
   "save": "Speichern",
-  "ordersSubmittedDialog": {
-    "p1": {
-      "sent": "Befehle an den Server gesendet.",
-      "received": "Befehle vom Server empfangen.",
-      "processed": "Befehle vom Server verarbeitet."
-    },
-    "p2": "Überprüfung der Befehle des Gegners in {{value}} Sekunden",
-    "b": "Jetzt prüfen",
-    "playersSubmitted": "Spieler haben abgeschickt"
-  },
   "search": {
     "clans": "Suche Koalitionen",
     "lob": "Suche auf Lines of Battle"
@@ -804,10 +969,6 @@
     "scriptedEvents": "Skriptereignisse"
   },
   "academy": "Akademie",
-  "encyclopedia": "Enzyklopädie",
-  "tutorialTips": "Tutorial-Tipps",
-  "loadingScreenTips": "Ladebildschirm-Tipps",
-  "gameConstants": "Spielkonstanten",
   "ammo": "Munition",
   "ammoConsumption": "Munitionsverbrauch",
   "allowsCharging": "Ermöglicht Laden",
@@ -895,6 +1056,9 @@
   },
   "league": {
     "title": "Liga",
+    "placementTitle": "Platzierungsschlachten",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "Schließe {{total}} Ranglistenschlachten ab, um deine Elo und Liga aufzudecken. Jedes Ergebnis bringt dich der Enthüllung näher.",
     "emperor": "Imperator",
     "diamond-3": "Diamant III",
     "diamond-2": "Diamant II",
@@ -915,13 +1079,6 @@
     "iron-2": "Eisen II",
     "iron-1": "Eisen I",
     "unranked": "Nicht eingestuft"
-  },
-  "tutorialSummary": {
-    "heading": "Tutorial-Zusammenfassung",
-    "count": "{{seen}} von {{total}} Lektionen gezeigt",
-    "description": "Jede Lektion behandelt eine wissenswerte Situation.",
-    "allSeen": "Du hast alle Lektionen des Tutorials gesehen.",
-    "viewMissed": "Verpasste Lektionen ansehen"
   },
   "matchFoundModal": {
     "title": "Spiel gefunden!",
@@ -952,6 +1109,7 @@
   "cannotUseAfterRun": "Nach dem Laufen nicht nutzbar",
   "copied": "Kopiert!",
   "skirmisherRatio": "Plänkler-Verhältnis",
+  "skirmisherNextBreakpoint": "Nächster Schwellenwert",
   "projectileWidth": "Projektilbreite",
   "allyCollisionLevel": "Verbündeten-Kollisionsstufe",
   "enemyCollisionLevel": "Feind-Kollisionsstufe",
@@ -959,7 +1117,6 @@
   "back": "Zurück",
   "autofirePriority": "Autofeuer-Priorität",
   "heightOffset": "Höhenversatz",
-  "minDistanceToFAA": "Min. Entfernung für Feuern und Vorrücken",
   "big": "Groß",
   "small": "Klein",
   "rotationSpeed": "Drehgeschwindigkeit",
@@ -997,12 +1154,109 @@
   "clanLeagueEnds": "Ends {{date}}",
   "reigningChampion": "Reigning champion",
   "noClanLeagueScores": "No coalition has scored this week yet.",
-  "weeklyGames": "games this week",
+  "weeklyGames": "games",
   "scoringMember": "scoring",
   "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
   "clanChat": "Coalition chat",
   "clanChatPlaceholder": "Message your coalition…",
   "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
   "chatSendFailed": "Failed to send message.",
-  "challengeClan": "Challenge"
+  "challengeClan": "Challenge",
+  "hideReplayInterface": "Oberfläche ausblenden",
+  "replayInterfaceKeyboardHint": "H: aus-/einblenden · Esc: einblenden",
+  "replayInterfaceTouchHint": "Zweimal auf die Karte tippen, um die Oberfläche einzublenden.",
+  "filters": "Filter",
+  "minTurn": "Mindestrunde",
+  "reset": "Zurücksetzen",
+  "applyFilters": "Filter anwenden",
+  "gameSearchAnyPlayerCount": "Beliebige Anzahl",
+  "gameSearchFinishedFrom": "Beendet ab",
+  "gameSearchFinishedTo": "Beendet bis",
+  "gameSearchEmptyDescription": "Erweitere die Filter, um mehr Wiederholungen zu finden.",
+  "firstSession": {
+    "title": "Deine erste Schlacht",
+    "description": "Lerne in deinem Tempo, im Kampf gegen den Bot Befehle zu geben. Karte und Heere stehen bereit.",
+    "startPractice": "Übung starten",
+    "continuePractice": "Übung fortsetzen",
+    "customize": "Schlacht anpassen",
+    "playOnline": "Online spielen"
+  },
+  "replaceOfflineGameWarning": "Eine neue Schlacht ersetzt deine gespeicherte Offline-Partie und ihren Fortschritt.",
+  "returnToMenu": "Zurück zum Menü",
+  "exitGameHint": "Die Rückkehr zum Menü pausiert die Schlacht nicht.",
+  "openReplayFile": "Replay-Datei öffnen",
+  "failedToLoadClans": "Koalitionen konnten nicht geladen werden. Versuche es erneut.",
+  "emailConfirmation": {
+    "title": "E-Mail bestätigen",
+    "confirmed": "E-Mail bestätigt. Du kannst dich jetzt anmelden.",
+    "error": "E-Mail konnte nicht bestätigt werden. Der Link ist möglicherweise ungültig oder abgelaufen."
+  },
+  "watchBattles": "Schlachten ansehen",
+  "offlineSetup": {
+    "title": "Eine Übungsschlacht einrichten",
+    "step1": "Wähle, wie lange die Schlacht dauert und wie viel du vom Feind siehst.",
+    "step2": "Wähle ein Szenario und eine Schlachtart, oder behalte die Vorgaben.",
+    "step3": "Stelle unten die Heere auf und erstelle die Schlacht. Sie läuft auf diesem Gerät, du kannst also aufhören und zurückkommen."
+  },
+  "unitComparison": {
+    "stop": "Vergleich beenden",
+    "baseLabel": "Basiswerte",
+    "title": "Einheiten vergleichen",
+    "choose": "Vergleichen mit…",
+    "sameCategory": "Gleiche Kategorie",
+    "otherCategories": "Andere Kategorien",
+    "gold": "Goldkosten",
+    "manpower": "Personalkosten",
+    "baseValues": "Basiswerte ohne Gelände-, Formations- und Zustandsmodifikatoren; keine Kampfprognose.",
+    "relativeTo": "Die Prozentwerte zeigen den Unterschied dieser Einheit gegenüber {{unit}}.",
+    "stat": "Eigenschaft",
+    "unavailable": "— bedeutet nicht verfügbar oder nicht zutreffend."
+  },
+  "battleContinuation": {
+    "exports": "Speichern oder exportieren",
+    "continueOffline": "Offline fortsetzen",
+    "replaceTitle": "Gespeicherte Schlacht ersetzen?",
+    "replace": "Ersetzen und fortsetzen",
+    "noUnits": "Keine überlebenden Einheiten",
+    "title": "Schlacht fortsetzen",
+    "description": "Starte eine neue Offline-Schlacht aus dieser Position. Die Punkte werden zurückgesetzt; die vollständige Wiederholung behält die ursprünglichen Aktionen.",
+    "additionalTurns": "Zusätzliche Runden",
+    "download": "Schlacht herunterladen",
+    "exportScenario": "Szenario exportieren",
+    "scenarioHint": "Das Szenario ist bearbeitbar. Die Schlachtdatei enthält auch die Wiederholung.",
+    "chooseHuman": "Wähle einen menschlichen Spieler mit überlebenden Einheiten.",
+    "error": "Diese Schlacht konnte nicht geladen oder gespeichert werden. Bitte erneut versuchen.",
+    "import": "Schlacht importieren"
+  },
+  "turnRecovery": {
+    "pending": "Schlacht wird aktualisiert…",
+    "failed": "Die Schlacht konnte nicht aktualisiert werden."
+  },
+  "orderOfBattle": {
+    "showArmy": "Armee anzeigen",
+    "hideArmy": "Armee ausblenden"
+  },
+  "matchAcceptance": {
+    "firstRejection": "Keine Niederlage und kein Elo-Verlust. Ein weiteres abgelehntes oder verpasstes Angebot innerhalb von 24 Stunden sperrt das schnelle Ranglistenspiel für 2 Minuten.",
+    "restrictionTitle": "Spielsuche vorübergehend gesperrt",
+    "restriction": "Mehrere Angebote abgelehnt oder verpasst. Das schnelle Ranglistenspiel ist noch {{minutes}} Min. gesperrt. Private und Offline-Spiele bleiben verfügbar.",
+    "restrictionEnded": "Die Sperre ist abgelaufen. Du kannst wieder suchen.",
+    "rulesTitle": "Ranglistenregeln",
+    "rules": "Eine schnelle Ranglistenschlacht beginnt, wenn alle Spieler annehmen. Aufgeben zählt auch im ersten Zug als normale Niederlage, ohne zusätzliche automatische Sperre. Abgelehnte oder verpasste empfangene Angebote innerhalb von 24 Stunden führen zu einer Warnung, dann zu Sperren von 2, 10 und 60 Minuten, maximal 60 Minuten. Ablehnen kostet kein Elo.",
+
+    "ready": "Rangliste · Schnell",
+    "accept": "Match annehmen",
+    "decline": "Ablehnen",
+    "timeRemaining": "Verbleibende Zeit: {{count}} s",
+    "sending": "Antwort wird bestätigt…",
+    "waiting": "Angenommen. Warte auf die anderen Spieler…",
+    "creating": "Alle haben angenommen. Schlacht wird vorbereitet…",
+    "reconnecting": "Verbindung wird wiederhergestellt…",
+    "error": "Deine Antwort konnte nicht bestätigt werden. Versuche es erneut.",
+    "ended": "Matchangebot beendet",
+    "requeued": "Ein anderer Spieler hat nicht bestätigt. Du bist wieder in der Warteschlange und behältst deine Wartepriorität.",
+    "noLoss": "Das Angebot endete ohne Niederlage. Du kannst erneut suchen.",
+    "failed": "Es konnte nicht bestätigt werden, ob die Schlacht erstellt wurde. Prüfe dies vor einer neuen Suche.",
+    "checkGame": "Match prüfen"
+  }
 }

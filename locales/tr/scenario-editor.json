@@ -76,9 +76,14 @@
     "allowDeploymentPhaseHelp": "Etkinleştirildiğinde savaş 0. turda başlar, böylece her oyuncu çarpışma başlamadan önce birliklerini kendi yerleşim bölgeleri içinde yeniden konumlandırabilir.",
     "noInherentAmmo": "Kendi cephanesi yok",
     "noInherentAmmoHelp": "Etkinleştirildiğinde, cephanesi olan birimler kendi cephaneleri olmadan doğar ve tüm ikmalini ortak rezervden alır; bu yüzden ilk turda ateş edemez ve ancak rezerv onları ikmal ettiğinde ateş açarlar.",
+    "startTime": "Başlangıç saati",
+    "startTimeHelp": "İsteğe bağlı. 1. turun çağın varsayılan saati olan {{time}} itibarıyla başlaması için boş bırakın.",
+    "maxTurn": "Azami tur",
+    "maxTurnHelp": "İsteğe bağlı senaryo varsayılanı (10–99); oyunlar farklı bir sınır seçebilir.",
     "showGrid": "Izgarayı göster",
     "showUnits": "Birimleri göster",
     "showObjectives": "Hedefleri göster",
+    "showMapLabels": "Harita etiketlerini göster",
     "goBack": "Geri dön",
     "goBackConfirm": "Geri dönüp editörden çıkmak istediğinizden emin misiniz?",
     "display": "Görünüm",
@@ -173,7 +178,8 @@
     "title": "Yerleşim bölgeleri",
     "hint": "Bu bölgeler her ordunun nerede başlayacağını belirler. Yerleşim aşaması yalnızca oyuncuların bölgeler içinde yeniden düzenleme yapabileceği bir 0. tur ekler.",
     "team": "Takım {{team}}",
-    "wholeTeam": "Takımdaki tüm oyuncular",
+    "remainingPlayers": "Takımın kalan oyuncuları",
+    "assignmentHelp": "Takımın kalan oyuncularını veya bir ya da daha fazla belirli oyuncuyu seçin.",
     "player": "Oyuncu {{player}}",
     "mainZone": "Ana",
     "forwardZone": "İleri",
@@ -201,7 +207,11 @@
     "drawLineRank": "Çizgi çizim sırası (düşük = önde)",
     "title": "Özel formasyonu düzenle",
     "collision": "Çarpışma",
-    "collisionHelp": "Dikdörtgen taban: cephe genişliği ve önden arkaya derinlik. Çarpışma olmaması için iki değeri de 0 yapın (uçan / hayalet).",
+    "collisionHelp": "Taban şekli: bir daire (yarıçap) veya bir dikdörtgen (cephe boyunca ön, önden arkaya derinlik). Çarpışma olmaması için yarıçap 0 kullanın (uçan / hayalet).",
+    "shape": "Şekil",
+    "shapeRectangle": "Dikdörtgen",
+    "shapeCircle": "Daire",
+    "radiusPx": "Yarıçap (px)",
     "frontagePx": "Cephe (px)",
     "depthPx": "Derinlik (px)",
     "runMovementModifier": "Koşma hareket değiştirici",
@@ -217,7 +227,7 @@
     "rangedDamageResistance": "Uzak hasar direnci",
     "rangedOrgResistance": "Uzak org direnci",
     "fireEdges": "Ateş kenarları (kenar ateşi)",
-    "fireEdgesHelp": "Her ateş kenarı, dikdörtgenin bir yüzü boyunca ateş yayar. Ateş kenarı olmayan bir formasyon varsayılan tek bir ön kenardan ateş eder.",
+    "fireEdgesHelp": "Her ateş kenarı, dikdörtgenin bir yüzü boyunca ateş yayar. Ateş kenarı olmayan bir formasyon varsayılan tek bir ön kenardan ateş eder; daire formasyonları ateş etmez.",
     "edge": "Kenar",
     "edgeLeft": "0 - sol taraf (-Y)",
     "edgeFront": "1 - ön (+X)",
@@ -254,6 +264,7 @@
     }
   },
   "unitTemplateModal": {
+    "initialOrder": "Başlangıç emri",
     "title": "Özel birim şablonunu düzenle",
     "optBuiltIn": "{{name}} (yerleşik)",
     "optCustom": "{{name}} (özel)",
@@ -278,6 +289,8 @@
     "orgRadiusBonus": "Org yarıçapı bonusu",
     "reportStats": "Rapor istatistikleri",
     "reportStatsHelp": "Her birimin savaş raporlarına kattığı sayım (ör. asker, at, top). Anahtarlar dönemin yerleşik birimlerinden gelir.",
+    "casualtiesAtZeroHp": "Sıfır CP'de kayıp (%)",
+    "casualtiesAtZeroHpHelp": "Tüm CP çubuğu tükendiğinde bu birimin raporlanan gücünün kayıp sayılan oranı. CP savaş gücünü temsil eder: varsayılan %50 değerinde, raporlanan gücün yarısı kayıp olduğunda birim savaş dışı kalır. Dağılma kalan savaş gücünün tamamını yine kaldırır.",
     "tallyPerUnit": "Birim başına sayım",
     "walkMovement": "Yürüme hareketi",
     "runMovement": "Koşma hareketi",
@@ -321,6 +334,10 @@
     "changeAnimationsHelp": "Bir birim bu formasyondan bir başkasına geçerken oynatılan animasyon. Önce geçtiği formasyonu, sonra bu sırada oynatılacak animasyonu seçin. Burada satırı olmayan bir geçiş bozuk değildir: birim aradaki hiçbir şey olmadan bir sprite'tan diğerine geçer; bugün girdisi olmayan her formasyonda olan budur. Liste bu dönemin sunduğu animasyonları içerir ve dönemin hat piyadesi bunlardan altısını kullanır."
   },
   "unitCategoryModal": {
+    "meleeFire": {
+      "ratio": "Yakın dövüşte ateş gücü (0–1)",
+      "hint": "0, yakın dövüşte tüm ateşi devre dışı bırakır (varsayılan). 0 üzerinde, düşmanların engellediği ateş noktaları normal gücün bu oranıyla ateş eder; serbest noktalar tam gücü korur. Dostlar ateşi engellemeye devam eder."
+    },
     "title": "Özel birim kategorisini düzenle",
     "optionBuiltIn": "{{name}} (yerleşik)",
     "optionCustom": "{{name}} (özel)",
@@ -514,7 +531,9 @@
       "importFromScenario": "Senaryodan içe aktar",
       "duplicate": "Çoğalt",
       "inThisScenario": "Bu senaryoda",
-      "builtIntoThisEra": "Bu döneme yerleşik"
+      "builtIntoThisEra": "Bu döneme yerleşik",
+      "resetToEra": "Döneme sıfırla",
+      "resetAllToEra": "Tümünü döneme sıfırla"
     },
     "spritesPanel": {
       "title": "Birim sprite'ları",
@@ -580,7 +599,6 @@
       "clonePickerTitle": "Yerleşik bir arazi kategorisini klonla"
     },
     "overrideEditor": {
-      "reset": "Sıfırla",
       "eraDefault": "dönem varsayılanı: {{value}}",
       "structuralTooltip": "Yapısal / determinizm sabiti. Değiştirmek render'ı, tekrarları veya eşleştirmeyi bozabilir."
     },
@@ -629,7 +647,7 @@
     },
     "gameConstants": {
       "title": "Oyun sabitleri",
-      "description": "Bu senaryo için dönemin sayısal sabitlerini geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; Sıfırla bir alanı dönem varsayılanına döndürür. ⚠ ile işaretli anahtarlar yapısaldır - bunları değiştirmek render'ı, tekrarları veya eşleştirmeyi bozabilir. Değerler ham iç birimlerdir.",
+      "description": "Bunlar dönemin temel sayılarıdır: bir turun ne kadar sürdüğü, bir karenin ne kadar büyük olduğu, bir muharebenin kaç tur sürdüğü. Değiştirdikleriniz yalnızca bu senaryo için geçerlidir ve her değer oyunun kendi değerine döndürülebilir.",
       "category": {
         "mapDimensions": "Harita boyutları",
         "deployment": "Yerleşim",
@@ -653,11 +671,15 @@
     },
     "gameRules": {
       "title": "Oyun kuralları",
-      "description": "Bu senaryo için dönemin oynanış kurallarını geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; bir alanı dönem varsayılanına döndürmek için Sıfırla kullanın. Değerler ham iç birimlerdir (bazı istatistikler önceden ölçeklenmiş olarak saklanır)."
+      "description": "Bunlar döneminizin işleyişini sağlayan sistemlerdir: birliklerin moralini korumasından bir muharebenin nasıl kazanıldığına kadar. Değiştirdikleriniz yalnızca bu senaryo için geçerlidir ve her değer oyunun kendi değerine döndürülebilir. Sayılar oyunun kendi birimlerindedir, dolayısıyla metre veya dakika anlamına gelmeyebilir."
     },
     "ordersPanel": {
       "title": "Emirler",
-      "description": "Bu senaryo için dönemin yerleşik emirlerinin değerlerini geçersiz kılın. Yalnızca değiştirilen değerler kaydedilir; bir alanı dönem varsayılanına döndürmek için Sıfırla kullanın. Mevcut emirleri değiştirebilirsiniz ama yenilerini ekleyemezsiniz."
+      "description": "Emirler, bir oyuncunun muharebe sırasında bir birliğe verebileceği talimatlardır. Burada dönemin emirlerini bu senaryo için yeniden ayarlayabilir, ancak yeni emirler oluşturamazsınız. Her değer oyunun kendi değerine döndürülebilir.",
+      "general": "Genel değiştirici",
+      "categoryOverrides": "Kategori istisnaları",
+      "addCategory": "Kategori istisnası ekle",
+      "inheritance": "İstisnası olmayan kategoriler genel değiştiriciyi kullanır: %{{value}}."
     },
     "clonePicker": {
       "alreadyOverridden": "(zaten geçersiz kılındı)",
@@ -1047,5 +1069,12 @@
   },
   "objectiveOwnership": {
     "help": "Hedefler her zaman bir takıma aittir. Sabit kadrolu bir senaryoda bu alan bir oyuncuyu belirtir ve hedef o oyuncunun takımına ait olur. Dinamik ordular için kurulmuş bir senaryoda ise eşleştirme doldurana kadar oyuncu yuvası yoktur; bu yüzden alan doğrudan takımı belirtir."
+  },
+  "mapLabels": {
+    "title": "Harita etiketleri",
+    "help": "Konum seçmek için haritaya sağ tıklayın (dokunmatik kontrollerde dokunun), ardından bir etiket ekleyin veya taşıyın.",
+    "add": "Etiket ekle",
+    "move": "Seçilen konuma taşı",
+    "empty": "Henüz etiket yok."
   }
 }

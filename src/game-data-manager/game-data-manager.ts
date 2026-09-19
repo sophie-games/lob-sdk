@@ -1,3 +1,6 @@
+import type { OrganizationDoctrine } from "@lob-sdk/order-of-battle";
+import napoleonicOrganization from "@lob-sdk/game-data/eras/napoleonic/organization.json";
+import ww2Organization from "@lob-sdk/game-data/eras/ww2/organization.json";
 import {
   UnitTemplate,
   UnitType,
@@ -74,6 +77,7 @@ import {
   OrderTemplate,
   OrderType,
   getCollisionConfig,
+  isCircleCollision,
 } from "@lob-sdk/types";
 import { FormationManager } from "./formation-manager";
 import { UnitTemplateManager } from "./unit-template-manager";
@@ -114,6 +118,7 @@ const LEGACY_DAMAGE_TYPE_NAMES: Partial<
  * presence guard can't drift apart.
  */
 export type CustomDefs = {
+  organizationDoctrine?: OrganizationDoctrine;
   customUnitTemplates?: UnitTemplate[];
   customDamageTypes?: DamageTypeTemplate[];
   customUnitFormations?: FormationTemplate[];
@@ -138,6 +143,7 @@ export type CustomDefs = {
 const CUSTOM_DEF_PRESENCE: Required<{
   [K in keyof CustomDefs]: (defs: CustomDefs) => boolean;
 }> = {
+  organizationDoctrine: (d) => d.organizationDoctrine !== undefined,
   customUnitTemplates: (d) => !!d.customUnitTemplates?.length,
   customDamageTypes: (d) => !!d.customDamageTypes?.length,
   customUnitFormations: (d) => !!d.customUnitFormations?.length,
@@ -167,6 +173,13 @@ export class GameDataManager {
 
   // Unit templates
   private _unitTemplateManager = new UnitTemplateManager();
+
+  private organizationDoctrine?: OrganizationDoctrine;
+
+  getOrganizationDoctrine(): OrganizationDoctrine {
+    const defaults = this.era === "ww2" ? ww2Organization : napoleonicOrganization;
+    return this.organizationDoctrine ?? (defaults as OrganizationDoctrine);
+  }
 
   // Unit categories
   private unitCategories: UnitCategoryTemplate[] = [];
@@ -345,6 +358,7 @@ export class GameDataManager {
    * mutating an era singleton leaks state across games.
    */
   public loadCustomDefs(customDefs: CustomDefs): void {
+    this.organizationDoctrine = customDefs.organizationDoctrine;
     this._disableEraDefaultUnits = customDefs.disableEraDefaultUnits ?? false;
 
     // Order matters: orders → categories → terrain categories → damage types →
@@ -402,7 +416,13 @@ export class GameDataManager {
             category.id,
             new Set(
               category.allowedOrders.map((order) => {
-                const orderType = this._orderNameMap.get(order);
+                // Replays from the unified-order version called Walk "advance".
+                // Older WW2 replays can also name FAA, which that era lacks.
+                const orderType =
+                  this._orderNameMap.get(order) ??
+                  (order === "advance" || order === "fireAndAdvance"
+                    ? OrderType.Walk
+                    : undefined);
                 if (orderType !== undefined) return orderType;
                 throw new Error(`Order ${order} not found`);
               }),
@@ -777,12 +797,23 @@ export class GameDataManager {
   }
 
   /**
-   * Gets the maximum number of turns for a battle type, falling back to the
-   * era's DEFAULT_MAX_TURN when the battle type is null or has no maxTurn.
+   * Gets the maximum number of turns, preferring a scenario override, then
+   * the battle type, then the era's DEFAULT_MAX_TURN.
    * @param battleType - The dynamic battle type, or null for preset scenarios.
+   * @param scenario - The selected scenario, when available.
    * @returns The maximum number of turns.
    */
-  public getMaxTurn(battleType: DynamicBattleType | null): number {
+  public getMaxTurn(
+    battleType: DynamicBattleType | null,
+    scenario?: Scenario | null,
+  ): number {
+    const scenarioMaxTurn = scenario?.maxTurn;
+    if (
+      scenarioMaxTurn !== undefined &&
+      Number.isInteger(scenarioMaxTurn) &&
+      scenarioMaxTurn > 0 &&
+      scenarioMaxTurn <= this.getGameConstants().MAX_OFFLINE_GAME_MAX_TURNS
+    ) return scenarioMaxTurn;
     const fromBattleType = battleType
       ? this.tryGetBattleType(battleType)?.maxTurn
       : undefined;
@@ -1107,11 +1138,15 @@ export class GameDataManager {
     const formationTemplate = this._formationManager.getTemplate(formationId);
     if (formationTemplate) {
       const config = getCollisionConfig(formationTemplate);
+      if (isCircleCollision(config)) {
+        const diameter = config.radius * 2;
+        return { width: diameter, height: diameter };
+      }
       // width = depth (local X), height = frontage (local Y).
       return { width: config.depth, height: config.frontage };
     }
     // Fallback
-    return { width: 16, height: 16 };
+    return { width: 32, height: 32 };
   }
 
   public getUnitBaseTexture(unitType: UnitType, formationId?: string): string {

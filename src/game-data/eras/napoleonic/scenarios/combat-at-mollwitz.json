@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "startTime": "14:00",
     "name": "name",
     "description": "description",
     "players": [
@@ -1482,6 +1483,7 @@
     ],
     "objectives": [
         {
+            "name": "Pampitz",
             "player": 2,
             "pos": {
                 "x": 745.25,
@@ -1490,6 +1492,7 @@
             "vp": 200
         },
         {
+            "name": "Mollwitz",
             "player": 1,
             "pos": {
                 "x": 128.39,

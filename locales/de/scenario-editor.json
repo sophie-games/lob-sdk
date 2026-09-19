@@ -76,9 +76,14 @@
     "allowDeploymentPhaseHelp": "Wenn aktiviert, beginnt die Schlacht in Zug 0, sodass jeder Spieler seine Einheiten innerhalb seiner Aufstellungszonen neu positionieren kann, bevor die Kämpfe beginnen.",
     "noInherentAmmo": "Keine eigene Munition",
     "noInherentAmmoHelp": "Wenn aktiviert, erscheinen Einheiten mit Munitionssystem ohne eigene Munition und beziehen ihren gesamten Nachschub aus der gemeinsamen Reserve. Sie können daher in der ersten Runde nicht feuern und eröffnen das Feuer erst, wenn die Reserve sie wieder auffüllt.",
+    "startTime": "Startzeit",
+    "startTimeHelp": "Optional. Leer lassen, damit Zug 1 um {{time}} beginnt (Standard der Epoche).",
+    "maxTurn": "Maximale Züge",
+    "maxTurnHelp": "Optionaler Szenariowert (10–99); Spiele können ein anderes Limit wählen.",
     "showGrid": "Raster anzeigen",
     "showUnits": "Einheiten anzeigen",
     "showObjectives": "Ziele anzeigen",
+    "showMapLabels": "Kartenbeschriftungen anzeigen",
     "goBack": "Zurück",
     "goBackConfirm": "Möchtest du wirklich zurückgehen und den Editor verlassen?",
     "display": "Anzeige",
@@ -173,7 +178,8 @@
     "title": "Aufstellungszonen",
     "hint": "Diese Zonen legen fest, wo jede Armee startet. Die Aufstellungsphase fügt lediglich einen Zug 0 hinzu, in dem die Spieler sich darin neu ordnen können.",
     "team": "Team {{team}}",
-    "wholeTeam": "Alle Teamspieler",
+    "remainingPlayers": "Übrige Teamspieler",
+    "assignmentHelp": "Wähle die übrigen Spieler oder einen oder mehrere bestimmte Spieler aus.",
     "player": "Spieler {{player}}",
     "mainZone": "Haupt",
     "forwardZone": "Vorgeschoben",
@@ -201,7 +207,11 @@
     "drawLineRank": "Linienzug-Rang (niedriger = vorne)",
     "title": "Benutzerdefinierte Formation bearbeiten",
     "collision": "Kollision",
-    "collisionHelp": "Rechteckiger Grundriss: Frontbreite quer zur Front und Tiefe von vorne nach hinten. Setze beide Werte auf 0 für keine Kollision (fliegend / Geist).",
+    "collisionHelp": "Grundrissform: ein Kreis (Radius) oder ein Rechteck (Frontbreite quer zur Front, Tiefe von vorne nach hinten). Verwende Radius 0 für keine Kollision (fliegend / Geist).",
+    "shape": "Form",
+    "shapeRectangle": "Rechteck",
+    "shapeCircle": "Kreis",
+    "radiusPx": "Radius (px)",
     "frontagePx": "Frontbreite (px)",
     "depthPx": "Tiefe (px)",
     "runMovementModifier": "Laufbewegungsmodifikator",
@@ -217,7 +227,7 @@
     "rangedDamageResistance": "Fernkampfschadenresistenz",
     "rangedOrgResistance": "Fernkampf-Org-Resistenz",
     "fireEdges": "Feuerkanten (Kantenfeuer)",
-    "fireEdgesHelp": "Jede Feuerkante feuert entlang einer Seite des Rechtecks. Eine Formation ohne Feuerkanten feuert über eine standardmäßige einzelne Frontkante.",
+    "fireEdgesHelp": "Jede Feuerkante feuert entlang einer Seite des Rechtecks. Eine Formation ohne Feuerkanten feuert über eine standardmäßige einzelne Frontkante; Kreisformationen feuern nicht.",
     "edge": "Kante",
     "edgeLeft": "0 - linke Seite (-Y)",
     "edgeFront": "1 - Front (+X)",
@@ -254,6 +264,7 @@
     }
   },
   "unitTemplateModal": {
+    "initialOrder": "Anfangsbefehl",
     "title": "Benutzerdefinierte Einheitenvorlage bearbeiten",
     "optBuiltIn": "{{name}} (integriert)",
     "optCustom": "{{name}} (benutzerdefiniert)",
@@ -278,6 +289,8 @@
     "orgRadiusBonus": "Org-Radius-Bonus",
     "reportStats": "Berichtswerte",
     "reportStatsHelp": "Zählwerte, die jede Einheit zu den Schlachtberichten beiträgt (z. B. Männer, Pferde, Geschütze). Die Schlüssel stammen aus den integrierten Einheiten der Epoche.",
+    "casualtiesAtZeroHp": "Verluste bei null TP (%)",
+    "casualtiesAtZeroHpHelp": "Der Anteil der gemeldeten Stärke dieser Einheit, der als Verlust zählt, wenn ihre gesamte TP-Leiste aufgebraucht ist. TP stehen für Kampfkraft: Beim Standardwert 50 % wird eine Einheit kampfunfähig, sobald die Hälfte ihrer gemeldeten Stärke als Verlust gilt. Zerschlagung entfernt weiterhin die gesamte verbleibende Kampfkraft.",
     "tallyPerUnit": "Zählung pro Einheit",
     "walkMovement": "Gehbewegung",
     "runMovement": "Laufbewegung",
@@ -321,6 +334,10 @@
     "changeAnimationsHelp": "Die Animation, die abgespielt wird, während eine Einheit diese Formation für eine andere verlässt. Wähle die Formation, in die sie wechselt, und dann die Animation, die dabei laufen soll. Ein Übergang ohne Zeile hier ist nicht kaputt: Die Einheit springt einfach von einem Sprite zum anderen, ohne etwas dazwischen, und genau das tut heute jede Formation ohne Einträge. Die Liste enthält die Animationen, die diese Ära mitbringt, und die Linieninfanterie der Ära nutzt sechs davon."
   },
   "unitCategoryModal": {
+    "meleeFire": {
+      "ratio": "Feuerkraft im Nahkampf (0–1)",
+      "hint": "0 deaktiviert sämtliches Feuern im Nahkampf (Standard). Über 0 feuern durch Feinde blockierte Schusspunkte mit diesem Anteil ihrer normalen Feuerkraft; freie Schusspunkte behalten volle Feuerkraft. Verbündete blockieren das Feuer weiterhin."
+    },
     "title": "Benutzerdefinierte Einheitenkategorie bearbeiten",
     "optionBuiltIn": "{{name}} (integriert)",
     "optionCustom": "{{name}} (benutzerdefiniert)",
@@ -514,7 +531,9 @@
       "importFromScenario": "Aus Szenario importieren",
       "duplicate": "Duplizieren",
       "inThisScenario": "In diesem Szenario",
-      "builtIntoThisEra": "In dieser Epoche integriert"
+      "builtIntoThisEra": "In dieser Epoche integriert",
+      "resetToEra": "Auf Epoche zurücksetzen",
+      "resetAllToEra": "Alle auf Epoche zurücksetzen"
     },
     "spritesPanel": {
       "title": "Einheiten-Sprites",
@@ -580,7 +599,6 @@
       "clonePickerTitle": "Eine integrierte Geländekategorie klonen"
     },
     "overrideEditor": {
-      "reset": "Zurücksetzen",
       "eraDefault": "Epochenstandard: {{value}}",
       "structuralTooltip": "Strukturelle / Determinismus-Konstante. Eine Änderung kann Darstellung, Wiederholungen oder Matchmaking beschädigen."
     },
@@ -629,7 +647,7 @@
     },
     "gameConstants": {
       "title": "Spielkonstanten",
-      "description": "Überschreibe die numerischen Konstanten dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; Zurücksetzen stellt ein Feld auf den Epochenstandard zurück. Mit ⚠ markierte Schlüssel sind strukturell - eine Änderung kann Darstellung, Wiederholungen oder Matchmaking beschädigen. Die Werte sind interne Roheinheiten.",
+      "description": "Dies sind die grundlegenden Zahlen der Epoche: wie lange ein Zug dauert, wie groß ein Feld ist, über wie viele Züge eine Schlacht läuft. Änderungen gelten nur für dieses Szenario, und jeder Wert lässt sich auf den des Spiels zurücksetzen.",
       "category": {
         "mapDimensions": "Kartenabmessungen",
         "deployment": "Aufstellung",
@@ -653,11 +671,15 @@
     },
     "gameRules": {
       "title": "Spielregeln",
-      "description": "Überschreibe die Spielregeln dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; verwende Zurücksetzen, um ein Feld auf den Epochenstandard zurückzustellen. Die Werte sind interne Roheinheiten (einige Werte werden vorskaliert gespeichert)."
+      "description": "Dies sind die Systeme, auf denen Ihre Epoche läuft, von der Standfestigkeit der Einheiten bis dazu, wie eine Schlacht gewonnen wird. Änderungen gelten nur für dieses Szenario, und jeder Wert lässt sich auf den des Spiels zurücksetzen. Die Zahlen stehen in den Einheiten des Spiels, eine Angabe muss also nicht Meter oder Minuten bedeuten."
     },
     "ordersPanel": {
       "title": "Befehle",
-      "description": "Überschreibe die Werte der integrierten Befehle dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; verwende Zurücksetzen, um ein Feld auf den Epochenstandard zurückzustellen. Du kannst bestehende Befehle ändern, aber keine neuen hinzufügen."
+      "description": "Befehle sind die Anweisungen, die ein Spieler einer Einheit im Gefecht geben kann. Sie können die Befehle der Epoche hier für dieses Szenario anpassen, aber keine neuen erfinden. Jeder Wert lässt sich auf den des Spiels zurücksetzen.",
+      "general": "Allgemeiner Modifikator",
+      "categoryOverrides": "Ausnahmen nach Kategorie",
+      "addCategory": "Kategorieausnahme hinzufügen",
+      "inheritance": "Kategorien ohne Ausnahme verwenden den allgemeinen Modifikator: {{value}} %."
     },
     "clonePicker": {
       "alreadyOverridden": "(bereits überschrieben)",
@@ -1047,5 +1069,12 @@
   },
   "objectiveOwnership": {
     "help": "Ziele gehören immer einem Team. Bei einem Szenario mit fester Spielerliste benennt dieses Feld einen Spieler, und das Ziel gehört dem Team dieses Spielers. Bei einem Szenario für dynamische Armeen gibt es vor dem Matchmaking noch keine Spielerplätze, daher benennt das Feld direkt das Team."
+  },
+  "mapLabels": {
+    "title": "Kartenbeschriftungen",
+    "help": "Klicke mit der rechten Maustaste auf die Karte (oder tippe bei Touch-Steuerung), um eine Position zu wählen. Füge dann eine Beschriftung hinzu oder verschiebe sie.",
+    "add": "Beschriftung hinzufügen",
+    "move": "Zur gewählten Position verschieben",
+    "empty": "Noch keine Beschriftungen."
   }
 }

@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "선택한 명령 불투명도",
+    "description": "선택한 유닛의 화살표와 목적지 미리보기의 불투명도입니다. 선택한 유닛이 없으면 모든 유닛에 적용됩니다. 0%로 설정하면 숨깁니다."
+  },
+  "unselectedOrderOpacity": {
+    "title": "선택하지 않은 명령 불투명도",
+    "description": "유닛을 선택한 동안 다른 유닛의 화살표와 목적지 미리보기의 불투명도입니다. 0%로 설정하면 숨깁니다."
+  },
   "gameplay": "게임 플레이",
   "graphics": "그래픽",
   "camera": "카메라",
@@ -25,8 +33,10 @@
     "description": "부대 지정 바를 표시합니다. 터치 기기에서 실수로 탭하여 선택이 바뀌는 것을 막으려면 끄세요."
   },
   "smartCurvedMovements": {
-    "title": "지능적 회전 이동",
-    "description": "이 설정을 활성화하면 부대의 이동 경로를 부드러운 곡선형으로 최적화하여 회전 중 속도 손실을 최소화할 수 있습니다."
+    "title": "이동 경로",
+    "description": "직선은 그린 선분을 따라가고, 곡선은 회전을 부드럽게 합니다. 통과할 수 없는 장애물은 자동으로 우회합니다.",
+    "direct": "직선",
+    "curved": "곡선"
   },
   "pathFinding": {
     "title": "경로 찾기",
@@ -102,9 +112,9 @@
   "gridOpacity": {
     "title": "그리드 불투명도"
   },
-  "tracerOpacity": {
-    "title": "예광선 불투명도",
-    "description": "원거리 공격 중 표시되는 예광선의 불투명도를 조절합니다. 0%로 설정하면 숨겨집니다."
+  "showChargeDamageIndicators": {
+    "title": "돌격 피해 표시",
+    "description": "유닛이 돌격할 때 떠오르는 피해 수치를 표시합니다."
   },
   "showDebugShapes": {
     "title": "디버그 모양 표시",
@@ -176,7 +186,7 @@
     "shootOrder": "사격 명령",
     "fireAndAdvanceOrder": "사격 및 전진 명령",
     "fallbackOrder": "후퇴 명령",
-    "toggleSmartCurvedMovements": "지능적 곡선 이동 전환",
+    "toggleSmartCurvedMovements": "직선과 곡선 전환",
     "togglePathFinding": "경로 찾기 전환",
     "toggleFowPerspective": "전장의 안개 시점 전환",
     "toggleMultiTurnPathOrders": "다중 턴 경로 명령 전환",
@@ -299,13 +309,16 @@
   "controlGroups": {
     "recall": "{{group}}번 그룹 호출",
     "set": "{{group}}번 그룹 지정",
-    "add": "{{group}}번 그룹에 추가",
-    "setExclusive": "그룹 {{group}}에만 지정"
+    "add": "{{group}}번 그룹에 추가"
   },
   "notifications": {
     "clanLeague": {
       "title": "Coalition league",
       "description": "Notify me when my coalition can still reach the weekly prize positions."
     }
+  },
+  "showGameTips": {
+    "title": "팁 표시",
+    "description": "상황에 맞춰 전투 중에 나타나는 짧은 설명입니다. 각 항목은 몇 번만 표시됩니다."
   }
 }

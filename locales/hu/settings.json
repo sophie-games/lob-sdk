@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Kijelölt parancsok átlátszatlansága",
+    "description": "A kijelölt egységek nyilainak és célpozíció-előnézeteinek átlátszatlansága. Ha nincs kijelölés, minden egységre vonatkozik. A 0% elrejti őket."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Nem kijelölt parancsok átlátszatlansága",
+    "description": "A többi egység nyilainak és célpozíció-előnézeteinek átlátszatlansága, amikor vannak kijelölt egységek. A 0% elrejti őket."
+  },
   "gameplay": "Gameplay",
   "graphics": "Grafika",
   "camera": "Kamera",
@@ -25,8 +33,10 @@
     "description": "Megjeleníti a vezérlőcsoportok sávját. Kapcsold ki, hogy a véletlen érintések ne változtassák meg a kijelölést érintőképernyős eszközökön."
   },
   "smartCurvedMovements": {
-    "title": "Okos hajlítottságú mozgás",
-    "description": "Ennek a funkciónak az engedélyezése arra van, hogy minimalizálja a forgás közbeni mozgási sebesség-veszteségét."
+    "title": "Mozgási útvonal",
+    "description": "Az Egyenes a rajzolt szakaszokat követi; az Ívelt lekerekíti a kanyarokat. A járhatatlan akadályokat automatikusan megkerüli.",
+    "direct": "Egyenes",
+    "curved": "Ívelt"
   },
   "pathFinding": {
     "title": "Útvonalkeresés",
@@ -95,9 +105,9 @@
   "gridOpacity": {
     "title": "Rács fedettsége"
   },
-  "tracerOpacity": {
-    "title": "Nyomjelző vonalak fedettsége",
-    "description": "A távolsági támadások nyomjelző vonalainak fedettségét szabályozza. 0%-on teljesen elrejti őket."
+  "showChargeDamageIndicators": {
+    "title": "Rohamsebzés-jelzők megjelenítése",
+    "description": "Lebegő sebzésszámokat jelenít meg, amikor az egységek rohamoznak."
   },
   "showDebugShapes": {
     "title": "Hibakeresési alakzatok megjelenítése",
@@ -153,7 +163,7 @@
     "shootOrder": "Lövési parancs",
     "fireAndAdvanceOrder": "Tüzelés és előrehaladás parancs",
     "fallbackOrder": "Visszavonulási parancs",
-    "toggleSmartCurvedMovements": "Okos görbült mozgások váltása",
+    "toggleSmartCurvedMovements": "Váltás az Egyenes és Ívelt között",
     "togglePathFinding": "Útvonalkeresés váltása",
     "toggleFowPerspective": "Háborús köd perspektíva váltása",
     "toggleMultiTurnPathOrders": "Többszörös fordulási út parancsok váltása",
@@ -276,13 +286,16 @@
   "controlGroups": {
     "recall": "{{group}}. csoport előhívása",
     "set": "{{group}}. csoport beállítása",
-    "add": "Hozzáadás a(z) {{group}}. csoporthoz",
-    "setExclusive": "Csak a(z) {{group}}. csoportba"
+    "add": "Hozzáadás a(z) {{group}}. csoporthoz"
   },
   "notifications": {
     "clanLeague": {
       "title": "Coalition league",
       "description": "Notify me when my coalition can still reach the weekly prize positions."
     }
+  },
+  "showGameTips": {
+    "title": "Tippek megjelenítése",
+    "description": "Rövid leckék, amelyek a csatában jelennek meg, amikor a helyzet megkívánja. Mindegyik csak néhányszor látható."
   }
 }

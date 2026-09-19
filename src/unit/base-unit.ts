@@ -3,6 +3,7 @@ import { Point2, Vector2 } from "@lob-sdk/vector";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import {
   getCollisionConfig,
+  isCircleCollision,
   getFrontBackArc,
   getFlankAngles,
   CollisionShapeConfig,
@@ -25,6 +26,7 @@ import {
   UnitCategoryTemplate,
 } from "@lob-sdk/game-data-manager";
 import { MIN_COLLISION_LEVEL } from "@lob-sdk/constants";
+import { standoffDistance as computeStandoffDistance } from "@lob-sdk/unit/weapon-range";
 import {
   checkCollision,
   degreesToRadians,
@@ -34,7 +36,9 @@ import {
 } from "@lob-sdk/utils";
 import { Circle } from "@lob-sdk/shapes/circle";
 import {
+  CollisionShape,
   ObbShape,
+  CircleShape,
   localObbCorners,
 } from "@lob-sdk/shapes/collision-shape";
 import {
@@ -132,7 +136,7 @@ export abstract class BaseUnit extends Entity {
     const types = (this.template as RangeUnitTemplate).rangedDamageTypes;
     return types?.length ? types : null;
   }
-
+  
   get orgRadius(): number { return this.template.orgRadius; }
   get orgRadiusBonus(): number { return this.template.orgRadiusBonus; }
   get pushStrength(): number { return this.template.pushStrength ?? 0; }
@@ -140,6 +144,7 @@ export abstract class BaseUnit extends Entity {
 
   get rotationSpeed(): number { return this.template.rotationSpeed; }
   get rotationMaxThreshold(): number { return this.template.rotationMaxThreshold; }
+  get runRotationMaxThreshold(): number { return this.template.runRotationMaxThreshold ?? this.rotationMaxThreshold; }
   get runRotationSpeed(): number { return this.template.runRotationSpeed; }
   get turningDelay(): number { return this.template.turningDelay ?? 0; }
 
@@ -164,7 +169,19 @@ export abstract class BaseUnit extends Entity {
   get supplyConsumptionCombating(): number | undefined { return this.template.supplyConsumptionCombating; }
 
   get fireWhileMoving(): boolean { return (this.template as RangeUnitTemplate).fireWhileMoving ?? false; }
-  get minDistanceToFAA(): number { return (this.template as RangeUnitTemplate).minDistanceToFAA ?? 0; }
+  /**
+   * How close this unit closes on a target before it stops and fights: the nearest
+   * `preferredRange` among the weapons it is firing at its current engagement tier, never
+   * further out than that weapon reaches. Fire and advance stops here.
+   */
+  get standoffDistance(): number {
+    return computeStandoffDistance({
+      rangedDamageTypes: this.rangedDamageTypes ?? [],
+      tier: this.autofireRange,
+      legacyStandoff: (this.template as RangeUnitTemplate).minDistanceToFAA,
+      gameDataManager: this.gameDataManager,
+    });
+  }
   get panicFireDistance(): number { return (this.template as RangeUnitTemplate).panicFireDistance ?? 0; }
   get noAmmoRegain(): boolean { return (this.template as RangeUnitTemplate).noAmmoRegain ?? false; }
   get unlimberTime(): number { return this.template.unlimberTime ?? 0; }
@@ -181,6 +198,7 @@ export abstract class BaseUnit extends Entity {
     return this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
   }
   get firingAltitude(): number { return this.categoryTemplate.firingAltitude ?? 0; }
+  get meleeFireRatio(): number { return Math.max(0, Math.min(1, this.categoryTemplate.meleeFireRatio ?? 0)); }
   /**
    * Naval-style steering: the unit moves only along its heading (forward, or
    * astern on fallback) and only turns while making way, so it can't strafe or
@@ -192,7 +210,7 @@ export abstract class BaseUnit extends Entity {
   get defaultAutofireRange(): EngagementRange { return this.categoryTemplate.defaultAutofireRange ?? EngagementRange.Max; }
   /** Whether the autofire selector should warn that the `Max` tier wastes ammo for this category. */
   get warnsOnMaxAutofire(): boolean { return this.categoryTemplate.warnOnMaxAutofire === true; }
-
+  
   get enfiladeFireDamageModifier(): number { return this.categoryTemplate.enfiladeFire?.damageModifier ?? 0; }
   get enfiladeFireOrgModifier(): number { return this.categoryTemplate.enfiladeFire?.orgModifier ?? 0; }
   get rearFireOrgModifier(): number { return this.categoryTemplate.rearFire?.orgModifier ?? 0; }
@@ -315,11 +333,14 @@ export abstract class BaseUnit extends Entity {
     position: Point2 = this.position,
     rotation: number = this.rotation,
   ): Point2[] {
-    const config = this.resolveCollisionConfig();
+    const dimensions = this.gameDataManager.getUnitDimensions(
+      this.type,
+      this.effectiveFormation,
+    );
     const sinAngle = Math.sin(rotation);
     const cosAngle = Math.cos(rotation);
 
-    return localObbCorners(config.depth, config.frontage).map((corner) => ({
+    return localObbCorners(dimensions.width, dimensions.height).map((corner) => ({
       x: corner.x * cosAngle - corner.y * sinAngle + position.x,
       y: corner.x * sinAngle + corner.y * cosAngle + position.y,
     }));
@@ -330,7 +351,7 @@ export abstract class BaseUnit extends Entity {
   }
 
   /**
-   * The unit formation's collision config, or a small default square when the unit
+   * The unit formation's collision config, or a small default circle when the unit
    * has no formation template. The single source of the null-formation fallback.
    */
   private resolveCollisionConfig(): CollisionShapeConfig {
@@ -339,21 +360,37 @@ export abstract class BaseUnit extends Entity {
       .getTemplate(this.effectiveFormation);
     return formation
       ? getCollisionConfig(formation)
-      : { type: CollisionShapeType.Obb, frontage: 16, depth: 16 };
+      : { type: CollisionShapeType.Circle, radius: 8 };
   }
 
-  /** The unit's rotated-rectangle collision footprint. */
-  getCollisionShape(position: Point2 = this.position): ObbShape {
+  /** True when this formation collides as a rotated rectangle (Obb) rather than a circle. */
+  usesObbCollision(): boolean {
+    return !isCircleCollision(this.resolveCollisionConfig());
+  }
+
+  /**
+   * The unit's collision footprint as a single shape: a rotated rectangle (Obb) sized
+   * by the formation's frontage/depth, or a circle of the formation's radius. The
+   * narrow phase resolves overlap per shape pair.
+   */
+  getCollisionShape(position: Point2 = this.position): CollisionShape {
+    const config = this.resolveCollisionConfig();
+    if (isCircleCollision(config)) {
+      return new CircleShape({ x: position.x, y: position.y }, config.radius);
+    }
     return new ObbShape(this.calculateObbCorners(position));
   }
 
   /**
-   * Bounding-circle radius of the OBB footprint (no allocation), used for a cheap
-   * broad-phase reject before the exact overlap test.
+   * Bounding-circle radius of the collision footprint (no allocation): the circle
+   * radius, or the OBB half-diagonal. For a cheap broad-phase reject before the
+   * exact overlap test.
    */
   getCollisionBoundingRadius(): number {
     const config = this.resolveCollisionConfig();
-    return Math.hypot(config.frontage, config.depth) / 2;
+    return isCircleCollision(config)
+      ? config.radius
+      : Math.hypot(config.frontage, config.depth) / 2;
   }
 
   getClosestCorner(unit: BaseUnit) {
@@ -435,12 +472,21 @@ export abstract class BaseUnit extends Entity {
   }
 
   /**
-   * Circles approximating the rectangular footprint, turned with the unit. Used by
-   * soft tests (shot line-of-sight, AoE, edge contact), with circles spaced along the
-   * longer side (radius = half the shorter side).
+   * Circles approximating the unit's footprint, turned with the unit. Used by the
+   * soft tests (shot line-of-sight, AoE, edge contact). For a circle formation it is
+   * the single circle; for an Obb it is circles spaced along the longer side (radius =
+   * half the shorter side), which reproduces the legacy tuned multi-circle layout
+   * from frontage/depth instead of explicit knobs.
    */
   calculateCollisionShapes(position = this.position): Circle[] {
     const config = this.resolveCollisionConfig();
+
+    if (isCircleCollision(config)) {
+      return config.radius > 0
+        ? [new Circle(position.x, position.y, config.radius)]
+        : [];
+    }
+
     const { frontage, depth } = config;
     if (frontage <= 0 || depth <= 0) return [];
     const longer = Math.max(frontage, depth);
@@ -482,7 +528,7 @@ export abstract class BaseUnit extends Entity {
       // effectiveFormation (pending ?? current), like the collision OBB and fire
       // emitters, so direction/flank/FF track the formation the unit is forming into.
       const formation = this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
-      // frontBackArc is derived from the OBB footprint.
+      // frontBackArc is derived from the OBB footprint (circles return 360 -> all Front).
       frontBackArc = degreesToRadians(formation ? getFrontBackArc(formation) : 90);
     }
     return getDirectionToPoint(this.position, point, this.rotation, frontBackArc);
@@ -491,10 +537,11 @@ export abstract class BaseUnit extends Entity {
   getFlankMod(attackerPoint: Vector2) {
     const formation = this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
     if (!formation) return 0;
-    // Unflankable formations (square, artillery, skirmishers, dispersed, ship) take no
-    // flank from any angle. Otherwise the flank ramp is derived from the OBB footprint:
-    // wide fronts protect a wide cone, deep ones almost none.
+    // Unflankable formations (square, artillery, skirmishers, dispersed, ship) and circles
+    // (WW2, no facing) take no flank from any angle. Otherwise the flank ramp is derived
+    // from the OBB footprint: wide fronts protect a wide cone, deep ones almost none.
     if (formation.disablesFlankMelee) return 0;
+    if (isCircleCollision(getCollisionConfig(formation))) return 0;
     const { min, max } = getFlankAngles(formation);
     const minFlank = degreesToRadians(min);
     const maxFlank = degreesToRadians(max);

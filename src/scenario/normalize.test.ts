@@ -139,10 +139,10 @@ describe("normalizeScenario", () => {
       instructions: [],
       allowDynamicArmy: true,
     };
-    // Fixed-roster instruction map (e.g. the tutorial): must NOT auto-enable.
+    // Fixed-roster instruction map: must NOT auto-enable.
     const fixedRosterWithInstructions: Scenario = {
       version: SCENARIO_SCHEMA_VERSION,
-      name: "tutorial-like",
+      name: "fixed-roster",
       description: "",
       instructions: [instruction],
       allowDynamicArmy: false,
