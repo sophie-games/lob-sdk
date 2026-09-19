@@ -246,6 +246,27 @@ describe("GameDataManager", () => {
   });
 
   describe("getMaxTurn", () => {
+    it("defines the requested in-world duration for both eras", () => {
+      expect(GameDataManager.get("napoleonic").getGameConstants().MINUTES_PER_TURN).toBe(15);
+      expect(GameDataManager.get("ww2").getGameConstants().MINUTES_PER_TURN).toBe(1440);
+      expect(GameDataManager.get("napoleonic").getGameConstants().DEFAULT_BATTLE_START_TIME).toBe("08:00");
+      expect(GameDataManager.get("ww2").getGameConstants().DEFAULT_BATTLE_START_TIME).toBe("00:00");
+      expect(GameDataManager.createWithCustomDefs("napoleonic", {
+        customGameConstants: { MINUTES_PER_TURN: 30 },
+      }).getGameConstants().MINUTES_PER_TURN).toBe(30);
+    });
+    it("prefers an optional scenario limit over the battle type", () => {
+      expect(GameDataManager.get("napoleonic").getMaxTurn("clash", {
+        name: "short battle", description: "", maxTurn: 18,
+      })).toBe(18);
+    });
+
+    it("ignores malformed imported scenario turn limits", () => {
+      const manager = GameDataManager.get("napoleonic");
+      expect(manager.getMaxTurn("clash", {
+        name: "invalid", description: "", maxTurn: "forever" as unknown as number,
+      })).toBe(manager.getMaxTurn("clash"));
+    });
     const eras = GameDataManager.getAvailableEras();
 
     eras.forEach((era) => {
