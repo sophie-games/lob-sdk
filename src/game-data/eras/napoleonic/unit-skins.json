@@ -4437,5 +4437,44 @@
       }
     },
     "discount": 0
+  },
+  {
+    "id": 281,
+    "name": "garde-du-corps",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 8,
+    "formations": {
+      "cavalry": {
+        "overlay": "garde-du-corps"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 282,
+    "name": "austrian-chevau-legers",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 11,
+    "formations": {
+      "cavalry": {
+        "overlay": "austrian-chevau-legers"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 283,
+    "name": "kaiser-liebgarde-zu-pferd",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 8,
+    "formations": {
+      "cavalry": {
+        "overlay": "kaiser-liebgarde-zu-pferd"
+      }
+    },
+    "discount": 0
   }
 ]
