@@ -289,44 +289,5 @@
     "chargeResistanceModifier": {
       "infantry": 0.15
     }
-  },
-
-  "wall": {
-    "impassable": {
-      "*": true,
-      "infantry": false
-    },
-    "color": "#777770",
-    "hitboxHeight": 1.3,
-    "visionAbsorption": 32,
-    "staminaCostModifier": 1,
-    "movementModifier": {
-      "infantry": -0.75
-    },
-    "defenseModifier": {
-      "infantry": 0.85
-    },
-    "projectileAbsorption": {
-      "musket": 0.8,
-      "marksman-musket": 0.55,
-      "rifle": 0.5,
-      "explosive-shell": 0.15,
-      "12lb-cannon-ball": 0.4,
-      "8lb-cannon-ball": 0.45,
-      "6lb-cannon-ball": 0.5,
-      "4lb-cannon-ball": 0.5,
-      "12lb-canister-fire": 0.6,
-      "8lb-canister-fire": 0.6,
-      "6lb-canister-fire": 0.6,
-      "4lb-canister-fire": 0.6,
-      "howitzer-canister": 0.6
-    },
-    "chargeResistanceModifier": {
-      "infantry": 0.8
-    },
-    "chargeBonusModifier": {
-      "infantry": -0.9
-    },
-    "fixedEnemyCollisionLevel": 2
   }
 }

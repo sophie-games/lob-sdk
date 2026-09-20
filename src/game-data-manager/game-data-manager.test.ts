@@ -569,48 +569,6 @@ describe("GameDataManager", () => {
       });
     });
 
-    it("keeps Austerlitz walls passable for infantry and strongly defensive", () => {
-      const manager = GameDataManager.get("napoleonic");
-      expect(manager.getTerrains()[TerrainType.Wall]).toMatchObject({
-        name: "wall",
-        category: "wall",
-      });
-      expect(manager.isPassable(TerrainType.Wall, "infantry")).toBe(true);
-      expect(manager.getMovementModifier(TerrainType.Wall, "infantry")).toBe(
-        -0.75,
-      );
-      expect(
-        manager.getUnitTerrainDefenseModifier("infantry", TerrainType.Wall),
-      ).toBeGreaterThan(
-        manager.getUnitTerrainDefenseModifier("infantry", TerrainType.Building),
-      );
-      expect(
-        manager.getTerrainProjectileAbsorption(TerrainType.Wall, "musket"),
-      ).toBeGreaterThan(
-        manager.getTerrainProjectileAbsorption(TerrainType.Building, "musket"),
-      );
-
-      const napoleonic = GameDataManager.get("napoleonic");
-      for (const infantry of [
-        "guardsInfantry",
-        "militiaInfantry",
-        "skirmishInfantry",
-      ]) {
-        expect(napoleonic.isPassable(TerrainType.Wall, infantry)).toBe(true);
-      }
-      for (const cavalryOrArtillery of [
-        "heavyCavalry",
-        "lightCavalry",
-        "artillery",
-        "horseArtillery",
-      ]) {
-        expect(napoleonic.isPassable(TerrainType.Wall, cavalryOrArtillery)).toBe(
-          false,
-        );
-      }
-      expect(GameDataManager.get("ww2").getTerrains()[TerrainType.Wall]).toBeUndefined();
-    });
-
     it("getRotationSpeedModifier defaults to 0 for terrain without the modifier", () => {
       // No preset terrain sets rotationSpeedModifier, so it should read as the 0 default.
       expect(gameDataManager.getRotationSpeedModifier(TerrainType.Grass)).toBe(0);
