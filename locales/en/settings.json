@@ -154,7 +154,7 @@
   },
   "drawLineFormation": {
     "title": "Use Draw Line",
-    "description": "When enabled, it will use draw lines when many units selected. When disabled, it will use draw path when many units selected. Draw path is also doable by dragging one of the units."
+    "description": "With multiple groups or units selected, choose whether dragging draws a line or a route. A complete brigade or division draws a route by default; choose Draw Line to rearrange it."
   },
   "useStraightLine": {
     "title": "Use straight line",
@@ -210,7 +210,7 @@
     "simulateMultiTouch": "Simulate Multi-touch",
     "toggleSupplyLines": "Toggle Supply Lines",
     "toggleStraightLine": "Toggle Straight Line",
-    "toggleDrawLine": "Switch Route / Deploy",
+    "toggleDrawLine": "Draw Line",
     "splitInHalf": "Split in Half",
     "controlGroup1": "Control Group 1",
     "controlGroup2": "Control Group 2",
@@ -332,9 +332,9 @@
     "smoothCurves": "Smooth curves",
     "title": "Drawing mode",
     "route": "Route",
-    "deploy": "Deploy",
+    "deploy": "Draw Line",
     "routeDescription": "Draw the route to follow, keeping the group’s layout at arrival.",
-    "deployDescription": "Draw the front where the selected units should deploy."
+    "deployDescription": "Draw a line to arrange the selection; complete brigades and divisions keep their formation when moved with others."
   },
   "showGameTips": {
     "title": "Show tips",
