@@ -85,12 +85,35 @@ describe("Battle of Austerlitz scenario", () => {
     expect(names.filter((name) => name!.length > 32)).toHaveLength(0);
   });
 
+  it("arms the Don Cossack regiments as lancers, not horse archers", () => {
+    // The allied order of battle names Isayev, Kiselev and Khanzhenkov as
+    // Don Cossack regiments; the 1805 Cossack study identifies the pike as
+    // their characteristic weapon, not the bow.
+    // https://www.austerlitz.org/cz/ruska-armada-1805-iii-armada-ruskeho-cara-od-a-do-z-kozaci/
+    const cossacks = onMap.filter((unit) => unit.name?.includes("Cossacks"));
+    expect(cossacks.map((unit) => unit.name)).toEqual([
+      "I/Isayev Cossacks",
+      "II/Isayev Cossacks",
+      "I/Kiselev Cossacks",
+      "II/Kiselev Cossacks",
+      "I/Khanzhenkov Cossacks",
+      "II/Khanzhenkov Cossacks",
+    ]);
+    expect(cossacks.map((unit) => unit.type)).toEqual(Array(6).fill(5));
+  });
+
   it("does not place the same map label twice at one position", () => {
     const labels = scenario.map!.labels!;
     const placements = labels.map(
       ({ text, pos }) => `${text}:${pos.x}:${pos.y}`,
     );
     expect(new Set(placements).size).toBe(labels.length);
+  });
+
+  it("uses road terrain rather than dirt for its route network", () => {
+    const terrain = scenario.map!.terrains!.flat();
+    expect(terrain.filter((tile) => tile === 9)).toHaveLength(0);
+    expect(terrain.filter((tile) => tile === 3).length).toBeGreaterThan(0);
   });
 
   it("puts every unit in exactly one named brigade of its own player", () => {
