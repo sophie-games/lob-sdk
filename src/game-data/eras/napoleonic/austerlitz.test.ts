@@ -211,6 +211,38 @@ describe("Battle of Austerlitz scenario", () => {
       expect([division, formationOf(division)]).toEqual([division, ["line"]]);
   });
 
+  /**
+   * An objective with no owner starts NEUTRAL, which would hand the Pratzen
+   * and the Goldbach villages to whoever walked onto them first. Each one is
+   * held at 07:30 by the command that actually held it — the engine derives
+   * `team` from `player`, so naming the corps is enough and says more.
+   */
+  it("starts each objective under the command that held it", () => {
+    const teamOf = new Map(
+      scenario.players!.map((player) => [player.player, player.team]),
+    );
+    const held = Object.fromEntries(
+      scenario.objectives!.map((objective) => [objective.name, objective.player]),
+    );
+    expect(held).toEqual({
+      "Santon battery": 1, // Lannes fortified it
+      Bosenitz: 1,
+      Kobelnitz: 5, // Legrand's cordon down the Goldbach
+      "Sokolnitz castle": 5,
+      Sokolnitz: 5,
+      Telnitz: 5, // Kienmayer is attacking it, not holding it
+      Blaziowitz: 14, // the Russian Guard Jager battalion is in it
+      "Stare Vinohrady": 11,
+      Pratzen: 11,
+      Pratzeberg: 11, // the 4th Column, and the monarchs with it
+      Augezd: 8,
+      "Satschan causeway": 8,
+    });
+    const sides = scenario.objectives!.map((o) => teamOf.get(o.player!));
+    expect(sides.filter((team) => team === 1)).toHaveLength(6);
+    expect(sides.filter((team) => team === 2)).toHaveLength(6);
+  });
+
   it("stands nobody in the ponds or the stream", () => {
     const terrains = scenario.map!.terrains!;
     const impassable = new Set([5, 12]); // deepWater, city
