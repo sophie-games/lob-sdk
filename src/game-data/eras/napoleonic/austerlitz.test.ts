@@ -11,7 +11,7 @@ describe("Battle of Austerlitz scenario", () => {
   const scenario = gameDataManager.getScenario("austerlitz");
   const templates = gameDataManager.getUnitTemplateManager();
 
-  const FRENCH = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const FRENCH = [1, 2, 3, 4, 5, 6];
   const { MINUTES_PER_TURN } = gameDataManager.getGameConstants();
   const START_MINUTES = 7 * 60 + 30;
   const clockOf = (turn: number): string => {
@@ -62,19 +62,59 @@ describe("Battle of Austerlitz scenario", () => {
     }).toEqual({ battalions: 111, doubleSquadrons: 71, batteries: 40 });
   });
 
-  it("gives each army ten occupied commands for Micro 10v10", () => {
-    expect(scenario.players).toHaveLength(20);
+  it("groups the armies into six French and eight allied field commands", () => {
+    expect(scenario.players).toHaveLength(14);
     expect(scenario.players!.map((p) => p.player)).toEqual(
-      Array.from({ length: 20 }, (_, i) => i + 1),
+      Array.from({ length: 14 }, (_, i) => i + 1),
     );
-    expect(scenario.players!.filter((p) => p.team === 1)).toHaveLength(10);
-    expect(scenario.players!.filter((p) => p.team === 2)).toHaveLength(10);
+    expect(scenario.players!.filter((p) => p.team === 1)).toHaveLength(6);
+    expect(scenario.players!.filter((p) => p.team === 2)).toHaveLength(8);
+    expect(scenario.players).toMatchObject([
+      { name: "V Corps (Lannes)" },
+      { name: "I Corps (Bernadotte)" },
+      { name: "IV Corps (Soult)" },
+      { name: "III Corps (Davout)" },
+      { name: "Cavalry Reserve (Murat)" },
+      { name: "Imperial Reserve (Napoleon)" },
+      { name: "Advance Guard (Kienmayer)" },
+      { name: "1st Column (Dokhturov)" },
+      { name: "2nd Column (Langeron)" },
+      { name: "3rd Column (Przybyszewski)" },
+      { name: "4th Column (Kollowrat and Miloradovich)" },
+      { name: "5th Column (Liechtenstein)" },
+      { name: "Advance Guard (Bagration)" },
+      { name: "Russian Guard (Constantine)" },
+    ]);
     for (const player of scenario.players!) {
       expect(units.filter((unit) => unit.player === player.player).length).toBeGreaterThan(0);
-      expect(player.team).toBe(player.player <= 10 ? 1 : 2);
+      expect(player.team).toBe(player.player <= 6 ? 1 : 2);
     }
+    expect(scenario.objectives!.every(({ player }) =>
+      scenario.players!.some((command) => command.player === player),
+    )).toBe(true);
+    const divisionsOf = (player: number) =>
+      scenario.organizations!.find((organization) => organization.player === player)!
+        .divisions.map((division) => division.name);
+    expect(divisionsOf(3)).toEqual(expect.arrayContaining([
+      "3rd Division (Legrand)",
+      "2nd Division (Vandamme)",
+      "1st Division (Saint-Hilaire)",
+    ]));
+    expect(divisionsOf(5)).toEqual(expect.arrayContaining([
+      "Light Cavalry Division (Kellermann)",
+      "1st Heavy Division (Nansouty)",
+      "3rd Dragoon Division (Beaumont)",
+    ]));
+    expect(divisionsOf(6)).toEqual(expect.arrayContaining([
+      "Imperial Guard Infantry",
+      "Grenadier Division (Oudinot)",
+    ]));
+    expect(divisionsOf(11)).toEqual(expect.arrayContaining([
+      "Miloradovich's Division",
+      "Kollowrat's Division",
+    ]));
     expect(gameDataManager.getScenarioMeta("austerlitz")).toMatchObject({
-      playerCount: 20,
+      playerCount: 14,
     });
   });
 
@@ -190,10 +230,10 @@ describe("Battle of Austerlitz scenario", () => {
       { at: "8:30", units: 7 }, // Kister and Lochet, on the Telnitz lane
       { at: "9:15", units: 8 }, // Bourcier's dragoons behind them
     ]);
-    expect(marchingOn.every((unit) => unit.player === 6)).toBe(true);
+    expect(marchingOn.every((unit) => unit.player === 4)).toBe(true);
 
     // only Heudelet's leading brigade and the corps guns start on the field
-    const present = onMap.filter((unit) => unit.player === 6);
+    const present = onMap.filter((unit) => unit.player === 4);
     expect(present.map((unit) => unit.name).sort()).toEqual([
       "1/108e de Ligne",
       "1re Cie, 5e a Cheval",
@@ -280,16 +320,16 @@ describe("Battle of Austerlitz scenario", () => {
     expect(held).toEqual({
       "Santon battery": 1, // Lannes fortified it
       Bosenitz: 1,
-      Kobelnitz: 5, // Legrand's cordon down the Goldbach
-      "Sokolnitz castle": 5,
-      Sokolnitz: 5,
-      Telnitz: 5, // Kienmayer is attacking it, not holding it
-      Blaziowitz: 18, // the Russian Guard Jager battalion is in it
-      "Stare Vinohrady": 15,
-      Pratzen: 15,
-      Pratzeberg: 15, // the 4th Column, and the monarchs with it
-      Augezd: 12,
-      "Satschan causeway": 12,
+      Kobelnitz: 3, // Legrand's cordon within Soult's IV Corps
+      "Sokolnitz castle": 3,
+      Sokolnitz: 3,
+      Telnitz: 3, // Kienmayer is attacking it, not holding it
+      Blaziowitz: 14, // the Russian Guard Jager battalion is in it
+      "Stare Vinohrady": 11,
+      Pratzen: 11,
+      Pratzeberg: 11, // the 4th Column, and the monarchs with it
+      Augezd: 8,
+      "Satschan causeway": 8,
     });
     const sides = scenario.objectives!.map((o) => teamOf.get(o.player!));
     expect(sides.filter((team) => team === 1)).toHaveLength(6);
