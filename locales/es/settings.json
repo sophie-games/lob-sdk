@@ -129,7 +129,7 @@
   "reset": "Restablecer",
   "drawLineFormation": {
     "title": "Usar líneas de dibujo",
-    "description": "Cuando está habilitado, usará la formación de línea de dibujo cuando se seleccionen muchas unidades. Cuando está deshabilitado, usará la formación de ruta de dibujo cuando se seleccionen muchas unidades. La ruta de dibujo también se puede hacer arrastrando una de las unidades."
+    "description": "Con varios grupos o unidades seleccionados, elegí si al arrastrar dibujás una línea o un recorrido. Una brigada o división completa dibuja un recorrido por defecto; elegí Draw Line para reorganizarla."
   },
   "useStraightLine": {
     "title": "Usar línea recta",
@@ -182,7 +182,7 @@
     "simulateMultiTouch": "Simular Multi-toque",
     "toggleSupplyLines": "Alternar líneas de suministro",
     "toggleStraightLine": "Alternar línea recta",
-    "toggleDrawLine": "Cambiar Recorrido / Desplegar",
+    "toggleDrawLine": "Draw Line",
     "splitInHalf": "Dividir por la mitad",
     "openPingWheel": "Abrir rueda de pings",
     "controlGroupsHelp": "El dígito solo lanza una orden. Recupera un grupo con {{modifier}} + su dígito."
@@ -292,9 +292,9 @@
     "smoothCurves": "Suavizar curvas",
     "title": "Modo de dibujo",
     "route": "Recorrido",
-    "deploy": "Desplegar",
+    "deploy": "Draw Line",
     "routeDescription": "Dibujá el recorrido a seguir, conservando la disposición del grupo al llegar.",
-    "deployDescription": "Dibujá el frente donde desplegar las unidades seleccionadas."
+    "deployDescription": "Dibujá una línea para organizar la selección; las brigadas y divisiones completas conservan su formación al moverse con otras unidades."
   },
   "showGameTips": {
     "title": "Mostrar consejos",
