@@ -85,6 +85,14 @@ describe("Battle of Austerlitz scenario", () => {
     expect(names.filter((name) => name!.length > 32)).toHaveLength(0);
   });
 
+  it("does not place the same map label twice at one position", () => {
+    const labels = scenario.map!.labels!;
+    const placements = labels.map(
+      ({ text, pos }) => `${text}:${pos.x}:${pos.y}`,
+    );
+    expect(new Set(placements).size).toBe(labels.length);
+  });
+
   it("puts every unit in exactly one named brigade of its own player", () => {
     const owner = new Map(onMap.map((unit) => [unit.id, unit.player]));
     const claimed: number[] = [];
