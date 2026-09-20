@@ -183,6 +183,18 @@ describe("Battle of Austerlitz scenario", () => {
     ).toBeLessThan(1000);
   });
 
+  it("gives Davout's successive reinforcements distinct entry positions", () => {
+    // An earlier wave can still be at the entry edge when the next one arrives.
+    // addUnit uses authored coordinates without moving occupants out of the way.
+    const entryPositions = scenario.triggers!.flatMap((trigger) =>
+      trigger.actions
+        .filter((action) => action.type === "addUnit")
+        .flatMap((action) => action.value)
+        .map((unit) => `${unit.pos.x}:${unit.pos.y}`),
+    );
+    expect(new Set(entryPositions).size).toBe(entryPositions.length);
+  });
+
   /**
    * Soult's assault divisions are in colonnes d'attaque behind the Goldbach,
    * Lannes and Bagration are deployed in line astride the Olmutz road, the
