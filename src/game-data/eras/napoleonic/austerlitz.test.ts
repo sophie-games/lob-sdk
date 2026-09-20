@@ -165,6 +165,52 @@ describe("Battle of Austerlitz scenario", () => {
     ).toBeLessThan(1000);
   });
 
+  /**
+   * Soult's assault divisions are in colonnes d'attaque behind the Goldbach,
+   * Lannes and Bagration are deployed in line astride the Olmutz road, the
+   * allied attack columns are marching in column, and the reserves are closed
+   * up in column. Guards and militia are foot and must honour that too — they
+   * are their own unit categories, and treating "infantry" as the only foot
+   * category once stood the whole Imperial Guard in line by accident.
+   */
+  it("forms each division the way it stood that morning", () => {
+    const allowed = (type: number) =>
+      new Set(templates.getTemplate(type).formations.map((f) => f.id));
+    expect(
+      units.filter((unit) => !allowed(unit.type).has(unit.f!)),
+    ).toHaveLength(0);
+
+    const byId = new Map(onMap.map((unit) => [unit.id, unit]));
+    const formationOf = (division: string) => [
+      ...new Set(
+        scenario
+          .organizations!.flatMap((organization) => organization.divisions)
+          .filter((d) => d.name === division)
+          .flatMap((d) => d.brigades)
+          .flatMap((brigade) => brigade.unitIds)
+          .map((id) => byId.get(id)!.f),
+      ),
+    ];
+
+    for (const division of [
+      "2nd Division (Vandamme)",
+      "1st Division (Saint-Hilaire)",
+      "Imperial Guard Infantry",
+      "Grenadier Division (Oudinot)",
+      "1st Column (Dokhturov)",
+      "3rd Column (Przybyszewski)",
+    ])
+      expect([division, formationOf(division)]).toEqual([division, ["column"]]);
+
+    for (const division of [
+      "1st Division (Suchet)",
+      "3rd Division (Legrand)",
+      "Miloradovich's Division",
+      "Guard Infantry (Kollowrizov)",
+    ])
+      expect([division, formationOf(division)]).toEqual([division, ["line"]]);
+  });
+
   it("stands nobody in the ponds or the stream", () => {
     const terrains = scenario.map!.terrains!;
     const impassable = new Set([5, 12]); // deepWater, city
