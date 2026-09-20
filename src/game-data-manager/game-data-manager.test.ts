@@ -569,28 +569,26 @@ describe("GameDataManager", () => {
       });
     });
 
-    it("keeps Wall passable for infantry and strongly defensive in both eras", () => {
-      for (const era of ["napoleonic", "ww2"] as const) {
-        const manager = GameDataManager.get(era);
-        expect(manager.getTerrains()[TerrainType.Wall]).toMatchObject({
-          name: "wall",
-          category: "wall",
-        });
-        expect(manager.isPassable(TerrainType.Wall, "infantry")).toBe(true);
-        expect(manager.getMovementModifier(TerrainType.Wall, "infantry")).toBe(
-          -0.75,
-        );
-        expect(
-          manager.getUnitTerrainDefenseModifier("infantry", TerrainType.Wall),
-        ).toBeGreaterThan(
-          manager.getUnitTerrainDefenseModifier("infantry", TerrainType.Building),
-        );
-        expect(
-          manager.getTerrainProjectileAbsorption(TerrainType.Wall, "musket"),
-        ).toBeGreaterThan(
-          manager.getTerrainProjectileAbsorption(TerrainType.Building, "musket"),
-        );
-      }
+    it("keeps Austerlitz walls passable for infantry and strongly defensive", () => {
+      const manager = GameDataManager.get("napoleonic");
+      expect(manager.getTerrains()[TerrainType.Wall]).toMatchObject({
+        name: "wall",
+        category: "wall",
+      });
+      expect(manager.isPassable(TerrainType.Wall, "infantry")).toBe(true);
+      expect(manager.getMovementModifier(TerrainType.Wall, "infantry")).toBe(
+        -0.75,
+      );
+      expect(
+        manager.getUnitTerrainDefenseModifier("infantry", TerrainType.Wall),
+      ).toBeGreaterThan(
+        manager.getUnitTerrainDefenseModifier("infantry", TerrainType.Building),
+      );
+      expect(
+        manager.getTerrainProjectileAbsorption(TerrainType.Wall, "musket"),
+      ).toBeGreaterThan(
+        manager.getTerrainProjectileAbsorption(TerrainType.Building, "musket"),
+      );
 
       const napoleonic = GameDataManager.get("napoleonic");
       for (const infantry of [
@@ -610,9 +608,7 @@ describe("GameDataManager", () => {
           false,
         );
       }
-      const ww2 = GameDataManager.get("ww2");
-      expect(ww2.isPassable(TerrainType.Wall, "motorized")).toBe(false);
-      expect(ww2.isPassable(TerrainType.Wall, "armored")).toBe(false);
+      expect(GameDataManager.get("ww2").getTerrains()[TerrainType.Wall]).toBeUndefined();
     });
 
     it("getRotationSpeedModifier defaults to 0 for terrain without the modifier", () => {

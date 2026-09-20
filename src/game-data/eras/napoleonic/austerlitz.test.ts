@@ -11,7 +11,7 @@ describe("Battle of Austerlitz scenario", () => {
   const scenario = gameDataManager.getScenario("austerlitz");
   const templates = gameDataManager.getUnitTemplateManager();
 
-  const FRENCH = [1, 2, 3, 4, 5, 6];
+  const FRENCH = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const { MINUTES_PER_TURN } = gameDataManager.getGameConstants();
   const START_MINUTES = 7 * 60 + 30;
   const clockOf = (turn: number): string => {
@@ -62,10 +62,20 @@ describe("Battle of Austerlitz scenario", () => {
     }).toEqual({ battalions: 111, doubleSquadrons: 71, batteries: 40 });
   });
 
-  it("gives every corps and column its own player", () => {
-    expect(scenario.players).toHaveLength(14);
-    expect(scenario.players!.filter((p) => p.team === 1)).toHaveLength(6);
-    expect(scenario.players!.filter((p) => p.team === 2)).toHaveLength(8);
+  it("gives each army ten occupied commands for Micro 10v10", () => {
+    expect(scenario.players).toHaveLength(20);
+    expect(scenario.players!.map((p) => p.player)).toEqual(
+      Array.from({ length: 20 }, (_, i) => i + 1),
+    );
+    expect(scenario.players!.filter((p) => p.team === 1)).toHaveLength(10);
+    expect(scenario.players!.filter((p) => p.team === 2)).toHaveLength(10);
+    for (const player of scenario.players!) {
+      expect(units.filter((unit) => unit.player === player.player).length).toBeGreaterThan(0);
+      expect(player.team).toBe(player.player <= 10 ? 1 : 2);
+    }
+    expect(gameDataManager.getScenarioMeta("austerlitz")).toMatchObject({
+      playerCount: 20,
+    });
   });
 
   it("names every unit, and names no two the same", () => {
@@ -231,12 +241,12 @@ describe("Battle of Austerlitz scenario", () => {
       "Sokolnitz castle": 5,
       Sokolnitz: 5,
       Telnitz: 5, // Kienmayer is attacking it, not holding it
-      Blaziowitz: 14, // the Russian Guard Jager battalion is in it
-      "Stare Vinohrady": 11,
-      Pratzen: 11,
-      Pratzeberg: 11, // the 4th Column, and the monarchs with it
-      Augezd: 8,
-      "Satschan causeway": 8,
+      Blaziowitz: 18, // the Russian Guard Jager battalion is in it
+      "Stare Vinohrady": 15,
+      Pratzen: 15,
+      Pratzeberg: 15, // the 4th Column, and the monarchs with it
+      Augezd: 12,
+      "Satschan causeway": 12,
     });
     const sides = scenario.objectives!.map((o) => teamOf.get(o.player!));
     expect(sides.filter((team) => team === 1)).toHaveLength(6);

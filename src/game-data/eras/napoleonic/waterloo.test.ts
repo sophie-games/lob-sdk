@@ -2,10 +2,9 @@ import { GameDataManager } from "@lob-sdk/game-data-manager";
 
 /**
  * The scenario tracks the real clock of 18 June 1815. It opens at 11:30 and the
- * Prussians enter on the road each column used, far enough out that the march
- * lands them in action at the hour the sources give: Bülow on Lobau at 16:30,
- * Zieten and parts of Pirch at about 18:00. The limit runs half an hour past
- * the 21:00 close so the last of them fights.
+ * Prussians enter at the map edge on the hour their columns crossed that
+ * ground, timed so their march lands them in action when it landed in 1815;
+ * the limit runs half an hour past the 21:00 close so the last of them fights.
  */
 describe("Battle of Waterloo scenario", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
@@ -31,15 +30,12 @@ describe("Battle of Waterloo scenario", () => {
         .reduce((total, action) => total + action.value.length, 0),
     }));
 
-    // Each column starts its march at the hour that puts it into action when
-    // the sources put it there: Bülow recorded attacking Lobau at 16:30, and
-    // Zieten's I Corps with parts of Pirch's II Corps engaged at about 18:00.
     expect(schedule).toEqual([
       { at: "13:00", units: 0 }, // Napoleon sights the column at Chapelle-Saint-Lambert
-      { at: "13:45", units: 28 }, // Bülow's leading brigades, on Lobau at 16:30
-      { at: "14:15", units: 36 }, // the rest of IV Corps on the same road
-      { at: "15:30", units: 17 }, // Pirch's II Corps behind Bülow, engaged 18:15
-      { at: "15:45", units: 24 }, // Zieten's I Corps by Ohain, engaged 18:00
+      { at: "13:45", units: 15 }, // IV Corps crosses the Lasne, in action at 16:30
+      { at: "14:15", units: 14 }, // the rest of IV Corps on the same road
+      { at: "15:45", units: 7 }, // Pirch's II Corps follows Bülow
+      { at: "17:15", units: 15 }, // Zieten's I Corps down the Ohain road
     ]);
   });
 
