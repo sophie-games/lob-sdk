@@ -363,6 +363,8 @@ export interface GameMetadata {
   allowUnbalancedTeams?: boolean;
   /** Host-with-lobby games only: player-slot numbers the host has closed; mutated during the lobby. */
   closedSlots?: number[];
+  /** Host-with-lobby games only: authored command seats delegated to another seat. */
+  commandAssignments?: CommandAssignments;
   /** Host-with-lobby games only: user ids the host has kicked and barred from rejoining this game; mutated during the lobby; server-only (never sent to clients). */
   kickedUserIds?: number[];
   /** Private roster and roles for a subscription-managed game. Never sent to clients. */
@@ -567,6 +569,17 @@ export interface GameResult {
  */
 export type PlayerSetupRole = "human" | "bot" | "either";
 
+/** Player-facing identity of a historical or authored command seat. */
+export interface PlayerCommand {
+  /** Person represented by this seat, for example "Reille". */
+  commander: string;
+  /** Formation commanded from this seat, for example "II Corps". */
+  formation?: string;
+}
+
+/** Per-game delegation from an authored command seat to the seat controlling it. */
+export type CommandAssignments = Record<number, number>;
+
 /**
  * Configuration for a player's setup in the game.
  */
@@ -575,6 +588,8 @@ export interface PlayerSetup {
   player: number;
   /** The team number the player belongs to. */
   team: number;
+  /** Optional authored identity shown anywhere a player chooses this command seat. */
+  command?: PlayerCommand;
   /** Ammo reserve for the player. Used for preset scenarios. */
   ammoReserve?: number;
   /** Base ammo reserve before any modifications. */
