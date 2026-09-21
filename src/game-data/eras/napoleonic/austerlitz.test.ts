@@ -150,6 +150,77 @@ describe("Battle of Austerlitz scenario", () => {
     expect(new Set(placements).size).toBe(labels.length);
   });
 
+  it("does not repeat a place name at an objective or elsewhere on the map", () => {
+    const labels = scenario.map!.labels!;
+    expect(new Set(labels.map(({ text }) => text.toLocaleLowerCase())).size).toBe(labels.length);
+    for (const label of labels) {
+      const matchingObjective = scenario.objectives!.find((objective) =>
+        objective.name!.toLocaleLowerCase() === label.text.toLocaleLowerCase() ||
+        objective.name!.toLocaleLowerCase().startsWith(`${label.text.toLocaleLowerCase()} `),
+      );
+      if (matchingObjective) {
+        const dx = label.pos.x - matchingObjective.pos.x;
+        const dy = label.pos.y - matchingObjective.pos.y;
+        expect(Math.hypot(dx, dy)).toBeGreaterThan(32);
+      }
+    }
+  });
+
+  it("starts with equal, usable victory points for both armies", () => {
+    const teamByPlayer = new Map(scenario.players!.map(({ player, team }) => [player, team]));
+    const totals = new Map<number, number>();
+    for (const objective of scenario.objectives!) {
+      const team = teamByPlayer.get(objective.player!)!;
+      totals.set(team, (totals.get(team) ?? 0) + objective.vp!);
+      const { x, y } = objective.pos;
+      expect([5, 6, 12]).not.toContain(scenario.map!.terrains![Math.floor(x / 16)]![Math.floor(y / 16)]);
+    }
+    expect([...totals.entries()].sort(([a], [b]) => a - b)).toEqual([[1, 600], [2, 600]]);
+  });
+
+  it("gives every bridge site a road approach from two different banks", () => {
+    const terrain = scenario.map!.terrains!;
+    const bridges = new Set<string>();
+    const tile = (x: number, y: number) => `${x},${y}`;
+    const parse = (point: string) => point.split(",").map(Number) as [number, number];
+    for (let x = 0; x < terrain.length; x++)
+      for (let y = 0; y < terrain[x]!.length; y++)
+        if (terrain[x]![y] === 7) bridges.add(tile(x, y));
+
+    const directions = [[-1, 0, "west"], [1, 0, "east"], [0, -1, "north"], [0, 1, "south"]] as const;
+    const groups: Array<Set<string>> = [];
+    while (bridges.size) {
+      const group = new Set<string>();
+      const queue = [bridges.values().next().value!];
+      bridges.delete(queue[0]!);
+      for (const point of queue) {
+        group.add(point);
+        const [x, y] = parse(point);
+        for (const [dx, dy] of directions) {
+          const neighbor = tile(x + dx, y + dy);
+          if (bridges.delete(neighbor)) queue.push(neighbor);
+        }
+      }
+      groups.push(group);
+    }
+    expect(groups).toHaveLength(11);
+    expect(groups.find((group) => group.has(tile(81, 114)))?.size).toBe(7);
+    for (const group of groups) {
+      const banks = new Set<string>();
+      for (const point of group) {
+        const [x, y] = parse(point);
+        for (const [dx, dy, bank] of directions)
+          if (terrain[x + dx]?.[y + dy] === 3) banks.add(bank);
+      }
+      expect(banks.size).toBeGreaterThanOrEqual(2);
+    }
+    for (let x = 1; x < terrain.length - 1; x++)
+      for (let y = 1; y < terrain[x]!.length - 1; y++)
+        if ([4, 5].includes(terrain[x]![y]!))
+          expect(directions.filter(([dx, dy]) => terrain[x + dx]?.[y + dy] === 7).length)
+            .toBeLessThan(3);
+  });
+
   it("uses road terrain rather than dirt for its route network", () => {
     const terrain = scenario.map!.terrains!.flat();
     expect(terrain.filter((tile) => tile === 9)).toHaveLength(0);
