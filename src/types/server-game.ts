@@ -1,4 +1,7 @@
-import type { OrganizationDoctrine, ScenarioOrganization } from "@lob-sdk/order-of-battle";
+import type {
+  OrganizationDoctrine,
+  ScenarioOrganization,
+} from "@lob-sdk/order-of-battle";
 import {
   AnyAction,
   RangedAttackAction,
@@ -24,6 +27,7 @@ import {
   OrderTemplate,
   OrderType,
   ArmyPanelGroup,
+  ArmyOrganization,
   FogOfWarMode,
 } from "@lob-sdk/types";
 import type {
@@ -686,6 +690,8 @@ export interface AddNewPlayerProps {
   userTier?: UserTier;
   /** Optional unit composition for the player. */
   units?: UnitCounts;
+  /** Optional saved OOB for the selected army composition. */
+  organization?: ArmyOrganization | null;
   /** Optional player number. If not provided, will be auto-assigned. */
   playerNumber?: number;
 }

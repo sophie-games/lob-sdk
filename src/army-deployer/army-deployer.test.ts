@@ -1,11 +1,21 @@
 import { UnitCounts, Zone } from "@lob-sdk/types";
 import { ArmyDeployer } from "./army-deployer";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
+import { countArmyOrganizationUnits } from "@lob-sdk/order-of-battle";
 
 describe("ArmyDeployer", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
 
   describe("skirmisher allocation", () => {
+    it("builds the complete deployed roster without mutating the saved army", () => {
+      const units: UnitCounts = { 1: 4 };
+
+      expect(
+        ArmyDeployer.getDeployedUnitCounts(gameDataManager, units, "micro"),
+      ).toEqual({ 1: 4, 16: 2 });
+      expect(units).toEqual({ 1: 4 });
+    });
+
     it("sums count times ratio and ignores units without a contribution", () => {
       const result = ArmyDeployer.getSkirmisherAllocation(gameDataManager, { 1: 2, 7: 3, 2: 4, 16: 9 }, "micro");
       expect(result?.weightedTotal).toBeCloseTo(5.6);
@@ -123,6 +133,21 @@ describe("ArmyDeployer", () => {
       for (const row of blocks) {
         for (const block of row) expect(block.length).toBeLessThanOrEqual(5);
       }
+    });
+
+    it("describes the default deployment as an editable organization", () => {
+      const units: UnitCounts = { 1: 20, 8: 4, 12: 2 };
+      const organization = ArmyDeployer.getDefaultOrganization(
+        gameDataManager,
+        units,
+        "battle",
+      );
+
+      expect(organization.version).toBe(1);
+      expect(organization.divisions.length).toBeGreaterThan(1);
+      expect(countArmyOrganizationUnits(organization)).toEqual(
+        ArmyDeployer.getDeployedUnitCounts(gameDataManager, units, "battle"),
+      );
     });
 
     it("keeps a division together instead of spreading it over the army", () => {
