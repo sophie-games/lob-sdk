@@ -473,20 +473,11 @@ export interface Scenario {
   /**
    * If true: the matchmaking-driven army composition runs and auto-deploys units
    * on top of {@link units}. If false/absent: {@link units} defines the full
-   * roster and no auto-deployment occurs (deployment phase is skipped).
+   * roster and no auto-deployment occurs.
    *
    * Inverse of the legacy {@link LegacyHybridScenario.fixedArmy} flag.
    */
   allowDynamicArmy?: boolean;
-
-  /**
-   * When true, the scenario starts at turn 0 with a deployment phase so the
-   * player can reposition their pre-placed {@link units} inside the declared
-   * deployment zones before the battle begins. Only meaningful for fixed-roster
-   * scenarios (`allowDynamicArmy: false` or absent); dynamic-army scenarios
-   * already run a deployment phase on top of the auto-deployer's output.
-   */
-  allowDeploymentPhase?: boolean;
 
   /**
    * When true (and the scenario has a deployment phase), each team's

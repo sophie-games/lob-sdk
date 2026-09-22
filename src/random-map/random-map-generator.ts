@@ -204,16 +204,12 @@ export class RandomMapGenerator {
     tileSize: number,
     terrains: TerrainType[][],
     mapSeed: number,
-  ): [TeamDeploymentZones, TeamDeploymentZones] | undefined {
+  ): TeamDeploymentZones[] | undefined {
     const bakedZones = fixedMap?.deploymentZones;
-    if (bakedZones && bakedZones.length >= 2) {
-      return [bakedZones[0], bakedZones[1]];
-    }
+    if (bakedZones?.some(({ zones }) => zones.length > 0)) return bakedZones;
 
     const pixelZones = this._getPixelZones(scenario);
-    if (pixelZones && pixelZones.length >= 2) {
-      return [pixelZones[0], pixelZones[1]];
-    }
+    if (pixelZones?.some(({ zones }) => zones.length > 0)) return pixelZones;
 
     const randomZones =
       this._getScaledZones(scenario)?.[battleSize] ??

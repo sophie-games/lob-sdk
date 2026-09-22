@@ -1,4 +1,12 @@
-import { DynamicBattleType, Scenario } from "@lob-sdk/types";
+import {
+  DynamicBattleType,
+  GameMap,
+  Scenario,
+  TeamDeploymentZones,
+} from "@lob-sdk/types";
+
+const hasZones = (groups?: TeamDeploymentZones[]): boolean =>
+  groups?.some(({ zones }) => zones.length > 0) ?? false;
 
 export class ScenarioFeatures {
   /** Whether players pick their own army composition. */
@@ -6,15 +14,26 @@ export class ScenarioFeatures {
     return scenario.allowDynamicArmy === true;
   }
 
-  /**
-   * Scenario opens with a deployment phase (turn 0) so players can reposition
-   * their army inside the deployment zones. Orthogonal to `allowDynamicArmy`
-   * — a scenario can ship with a fixed roster and still grant a deployment
-   * phase (set the flag in JSON) or ship a dynamic army without one. Legacy
-   * random/hybrid scenarios get this set automatically in `normalizeScenario`.
-   */
-  static hasDeploymentPhase(scenario: Scenario): boolean {
-    return scenario.allowDeploymentPhase === true;
+  /** A generated or authored map opens at turn 0 when it contains a zone. */
+  static hasDeploymentPhase(
+    scenario: Scenario,
+    resolvedMap?: Pick<GameMap, "deploymentZones">,
+  ): boolean {
+    if (resolvedMap) return hasZones(resolvedMap.deploymentZones);
+    if (
+      hasZones(scenario.map?.deploymentZones) ||
+      hasZones(scenario.deploymentZones)
+    ) {
+      return true;
+    }
+    if (
+      scenario.randomDeploymentZones ||
+      Object.keys(scenario.scaledDeploymentZones ?? {}).length > 0
+    ) {
+      return true;
+    }
+    // Procedural maps receive battle-size default zones during generation.
+    return scenario.map === undefined;
   }
 
   /**
@@ -70,8 +89,11 @@ export class ScenarioFeatures {
   }
 
   /** Where gameplay starts — scenarios with a deployment phase begin at turn 0. */
-  static getInitialTurnNumber(scenario: Scenario): number {
-    return ScenarioFeatures.hasDeploymentPhase(scenario) ? 0 : 1;
+  static getInitialTurnNumber(
+    scenario: Scenario,
+    resolvedMap?: Pick<GameMap, "deploymentZones">,
+  ): number {
+    return ScenarioFeatures.hasDeploymentPhase(scenario, resolvedMap) ? 0 : 1;
   }
 
   /** Gates a requested battle type — fixed-roster scenarios can't carry one. */

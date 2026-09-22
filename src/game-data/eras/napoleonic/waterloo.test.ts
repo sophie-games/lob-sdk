@@ -8,6 +8,7 @@ import {
 import polygonClipping from "polygon-clipping";
 import type { Polygon } from "polygon-clipping";
 import { getForwardZone, getMainZone } from "../../../types/scenario";
+import { ScenarioFeatures } from "../../../scenario/scenario-features";
 
 /**
  * The fixed 11:30 deployment uses simple shared ground for each army. Passing
@@ -117,7 +118,7 @@ describe("Battle of Waterloo scenario", () => {
   });
 
   it("opens turn 0 with simple shared army ground", () => {
-    expect(scenario.allowDeploymentPhase).toBe(true);
+    expect(ScenarioFeatures.hasDeploymentPhase(scenario)).toBe(true);
     expect(scenario.assignableDeploymentZones).toBe(false);
 
     const [french, allied] = scenario.map!.deploymentZones!;

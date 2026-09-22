@@ -81,8 +81,6 @@
     "allowDynamicArmyHelp": "启用后，玩家会根据匹配的战斗类型带上自己的军队，并在各自的区域内部署。禁用后，战役预置的单位将构成全部阵容（跳过军队配置）。",
     "fixedRoster": "固定玩家",
     "fixedRosterHelp": "启用后，剧本自行定义玩家席位、队伍和弹药储备，大厅无法添加或移除玩家。禁用后，玩家名单来自大厅或匹配系统。",
-    "allowDeploymentPhase": "部署阶段",
-    "allowDeploymentPhaseHelp": "启用后，战斗从第 0 回合开始，每位玩家可以在交战开始前于自己的部署区内重新摆放部队。",
     "placeableObjectives": "玩家放置的目标点",
     "placeableObjectivesHelp": "启用后，每位玩家在部署阶段于自己的区域内放置各自的目标点。禁用后，战斗只使用你在地图上放置的目标点。",
     "placeableObjectivesNeedsDeployment": "请同时启用部署阶段，否则玩家永远无法进入放置这些目标点的回合，也就不会出现任何目标点。",
