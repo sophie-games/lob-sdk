@@ -94,7 +94,6 @@
     "testScenario": "Uji skenario",
     "placeableObjectives": "Objektif yang ditempatkan pemain",
     "placeableObjectivesHelp": "Saat aktif, setiap pemain menempatkan objektifnya sendiri selama fase penempatan, di dalam zonanya sendiri. Saat nonaktif, pertempuran hanya memakai objektif yang Anda tempatkan di peta.",
-    "placeableObjectivesNeedsDeployment": "Aktifkan juga fase penempatan, atau pemain tidak akan pernah mencapai giliran saat mereka menempatkan objektif ini dan tidak ada yang akan muncul.",
     "resting": {
       "thisScenario": "Skenario ini",
       "gettingStarted": "Memulai",
@@ -189,9 +188,7 @@
       "y": "Y",
       "player": "Ditugaskan ke",
       "rotation": "Rotasi (derajat)"
-    },
-    "phaseHelp": "Dengan fase penempatan aktif, pemain mendapat satu giliran tambahan sebelum pertempuran dimulai, semata-mata untuk mengatur ulang posisi unit di dalam zona mereka.",
-    "gateHelp": "Zona ini dapat diedit selama salah satu dari Izinkan pasukan dinamis, Fase penempatan, atau Objektif yang ditempatkan pemain aktif, karena ketiganya sama-sama memerlukan tempat bagi pasukan yang datang untuk memulai. Dengan ketiganya nonaktif, zona ini berwarna abu-abu, dan pada peta prosedural zona ini juga berwarna abu-abu, karena di sana zona ditulis sebagai persentase di panel Peta Acak."
+    }
   },
   "vpBalance": {
     "heading": "Keseimbangan VP (korban vs objektif)",

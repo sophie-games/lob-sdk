@@ -102,7 +102,6 @@
     "testScenario": "Probar escenario",
     "placeableObjectives": "Objetivos colocados por el jugador",
     "placeableObjectivesHelp": "Cuando está activado, cada jugador coloca sus propios objetivos durante la fase de despliegue, dentro de su propia zona. Cuando está desactivado, la batalla usa solo los objetivos que colocaste en el mapa.",
-    "placeableObjectivesNeedsDeployment": "Activa también la fase de despliegue, o los jugadores nunca llegan al turno en el que colocarían estos objetivos y ninguno aparecerá.",
     "resting": {
       "thisScenario": "Este escenario",
       "gettingStarted": "Primeros pasos",
@@ -212,9 +211,7 @@
       "y": "Y",
       "player": "Asignada a",
       "rotation": "Orientación del ejército (grados)"
-    },
-    "phaseHelp": "Con la fase de despliegue activada, los jugadores obtienen un turno extra antes de que empiece el combate, únicamente para reacomodar sus unidades dentro de su zona.",
-    "gateHelp": "Estas zonas son editables mientras cualquiera de Permitir ejército dinámico, Fase de despliegue u Objetivos colocados por el jugador esté activado, ya que las tres necesitan un lugar donde empiece un ejército que llega. Con las tres desactivadas quedan en gris, y en un mapa procedural también quedan en gris, ya que ahí las zonas se definen como porcentajes en el panel de Mapa aleatorio."
+    }
   },
   "vpBalance": {
     "heading": "Balance de PV (bajas vs objetivos)",

@@ -94,7 +94,6 @@
     "testScenario": "Tester le scénario",
     "placeableObjectives": "Objectifs placés par les joueurs",
     "placeableObjectivesHelp": "Activé, chaque joueur positionne ses propres objectifs pendant la phase de déploiement, à l'intérieur de sa propre zone. Désactivé, la bataille n'utilise que les objectifs que vous avez placés sur la carte.",
-    "placeableObjectivesNeedsDeployment": "Activez aussi la phase de déploiement, sinon les joueurs n'atteignent jamais le tour où ils placeraient ces objectifs et aucun n'apparaîtra.",
     "resting": {
       "thisScenario": "Ce scénario",
       "gettingStarted": "Premiers pas",
@@ -204,9 +203,7 @@
       "y": "Y",
       "player": "Assignée à",
       "rotation": "Orientation de l’armée (degrés)"
-    },
-    "phaseHelp": "Avec la phase de déploiement activée, les joueurs disposent d'un tour supplémentaire avant le début des combats, uniquement pour réorganiser leurs unités à l'intérieur de leur zone.",
-    "gateHelp": "Ces zones sont modifiables tant que l'une des options Armée dynamique autorisée, Phase de déploiement ou Objectifs placés par les joueurs est activée, chacune des trois ayant besoin d'un endroit où une armée arrivante puisse démarrer. Avec les trois désactivées, elles sont grisées, et sur une carte procédurale elles sont grisées également, les zones y étant définies sous forme de pourcentages dans le panneau Carte aléatoire à la place."
+    }
   },
   "vpBalance": {
     "heading": "Équilibre VP (pertes vs objectifs)",

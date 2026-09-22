@@ -94,7 +94,6 @@
     "testScenario": "Testuj scenariusz",
     "placeableObjectives": "Cele rozstawiane przez graczy",
     "placeableObjectivesHelp": "Po włączeniu każdy gracz rozstawia własne cele w fazie rozstawienia, w obrębie swojej strefy. Po wyłączeniu bitwa korzysta tylko z celów, które umieściłeś na mapie.",
-    "placeableObjectivesNeedsDeployment": "Włącz także fazę rozstawienia, inaczej gracze nigdy nie dotrą do tury, w której mieliby rozstawić te cele, i żaden się nie pojawi.",
     "resting": {
       "thisScenario": "Ten scenariusz",
       "gettingStarted": "Na początek",
@@ -195,9 +194,7 @@
       "y": "Y",
       "player": "Przypisana do",
       "rotation": "Obrót (stopnie)"
-    },
-    "phaseHelp": "Gdy faza rozstawienia jest włączona, gracze dostają jedną dodatkową turę przed rozpoczęciem walki, wyłącznie po to, by przestawić jednostki w obrębie swojej strefy.",
-    "gateHelp": "Te strefy można edytować, gdy włączona jest którakolwiek z opcji: Zezwól na dynamiczną armię, Faza rozstawienia lub Cele rozstawiane przez graczy, ponieważ każda z tych trzech potrzebuje miejsca, w którym przybywająca armia zaczyna. Gdy wszystkie trzy są wyłączone, strefy są wyszarzone; na mapie proceduralnej także są wyszarzone, ponieważ tam definiuje się je w procentach w panelu Mapa losowa."
+    }
   },
   "vpBalance": {
     "heading": "Bilans PZ (straty vs cele)",

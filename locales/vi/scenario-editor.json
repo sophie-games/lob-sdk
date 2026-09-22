@@ -94,7 +94,6 @@
     "testScenario": "Thử kịch bản",
     "placeableObjectives": "Mục tiêu do người chơi đặt",
     "placeableObjectivesHelp": "Khi bật, mỗi người chơi tự đặt mục tiêu của mình trong giai đoạn triển khai, bên trong vùng của họ. Khi tắt, trận đánh chỉ dùng các mục tiêu bạn đã đặt trên bản đồ.",
-    "placeableObjectivesNeedsDeployment": "Hãy bật cả giai đoạn triển khai, nếu không người chơi sẽ không bao giờ đến lượt đặt các mục tiêu này và sẽ không có mục tiêu nào xuất hiện.",
     "resting": {
       "thisScenario": "Kịch bản này",
       "gettingStarted": "Bắt đầu",
@@ -189,9 +188,7 @@
       "y": "Y",
       "player": "Chỉ định cho",
       "rotation": "Xoay (độ)"
-    },
-    "phaseHelp": "Khi bật giai đoạn triển khai, người chơi có thêm một lượt trước khi giao tranh bắt đầu, chỉ để sắp xếp lại đơn vị của mình bên trong vùng của họ.",
-    "gateHelp": "Các vùng này có thể chỉnh sửa khi bật một trong ba mục Cho phép quân đội linh hoạt, Giai đoạn triển khai hoặc Mục tiêu do người chơi đặt, vì cả ba đều cần một nơi để quân đội đến bắt đầu. Khi tắt cả ba, chúng bị làm mờ, và trên bản đồ tạo sinh chúng cũng bị làm mờ, vì ở đó các vùng được viết theo phần trăm trong bảng Bản đồ ngẫu nhiên."
+    }
   },
   "vpBalance": {
     "heading": "Cân bằng ĐCT (thương vong vs mục tiêu)",

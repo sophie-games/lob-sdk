@@ -94,7 +94,6 @@
     "testScenario": "Testar cenário",
     "placeableObjectives": "Objetivos posicionados pelo jogador",
     "placeableObjectivesHelp": "Quando ativado, cada jogador posiciona seus próprios objetivos durante a fase de implantação, dentro da sua própria zona. Quando desativado, a batalha usa apenas os objetivos que você posicionou no mapa.",
-    "placeableObjectivesNeedsDeployment": "Ative também a fase de implantação, ou os jogadores nunca chegam ao turno em que posicionariam esses objetivos, e nenhum aparecerá.",
     "resting": {
       "thisScenario": "Este cenário",
       "gettingStarted": "Primeiros passos",
@@ -191,9 +190,7 @@
       "y": "Y",
       "player": "Atribuída a",
       "rotation": "Rotação (graus)"
-    },
-    "phaseHelp": "Com a fase de implantação ativada, os jogadores ganham um turno extra antes do combate começar, apenas para reorganizar suas unidades dentro da sua zona.",
-    "gateHelp": "Estas zonas são editáveis enquanto qualquer um entre Permitir exército dinâmico, Fase de implantação ou Objetivos posicionados pelo jogador estiver ativado, já que cada um dos três precisa de um lugar para um exército recém-chegado começar. Com os três desativados elas ficam acinzentadas, e em um mapa procedural elas também ficam acinzentadas, sendo as zonas ali definidas como porcentagens no painel Mapa Aleatório."
+    }
   },
   "vpBalance": {
     "heading": "Equilíbrio de PV (baixas vs objetivos)",
