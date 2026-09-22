@@ -132,17 +132,29 @@ describe("Battle of Waterloo scenario", () => {
     }
   });
 
-  it("keeps every initially placed unit inside its commander's main zone", () => {
+  it("keeps every initially placed unit on ground it may deploy to", () => {
+    const zones = scenario.map!.deploymentZones!.flatMap((team) => team.zones);
     const mainZones = new Map(
-      scenario
-        .map!.deploymentZones!.flatMap((team) => team.zones)
+      zones
         .filter((zone) => zone.type === "main")
+        .map((zone) => [zone.player, zone]),
+    );
+    const forwardZones = new Map(
+      zones
+        .filter((zone) => zone.type === "forward")
         .map((zone) => [zone.player, zone]),
     );
 
     for (const unit of scenario.units!) {
-      const zone = mainZones.get(unit.player)!;
-      expect(isInsideDeploymentZone(zone, unit.pos)).toBe(true);
+      const canDeployForward =
+        gameDataManager.getUnitTemplateManager().getTemplate(unit.type)
+          .canDeployForward ?? false;
+      const valid =
+        isInsideDeploymentZone(mainZones.get(unit.player)!, unit.pos) ||
+        (canDeployForward &&
+          isInsideDeploymentZone(forwardZones.get(unit.player)!, unit.pos));
+      if (!valid)
+        throw new Error(`Unit ${unit.id} is outside its deployment ground`);
     }
   });
 
@@ -155,10 +167,8 @@ describe("Battle of Waterloo scenario", () => {
     }
   });
 
-  it("keeps opposing deployment ground apart and Hougoumont outside French deployment", () => {
+  it("keeps opposing deployment ground at least three tiles apart", () => {
     const [french, allied] = scenario.map!.deploymentZones!;
-    const at = (zones: typeof french.zones, x: number, y: number) =>
-      zones.some((zone) => isInsideDeploymentZone(zone, { x, y }));
     const polygons = (zones: typeof french.zones): Polygon[] =>
       zones.flatMap((zone) =>
         zone.polygons.map(({ outer, holes }) => [
@@ -169,7 +179,6 @@ describe("Battle of Waterloo scenario", () => {
         ]),
       );
 
-    expect(at(french.zones, 844.78, 1213.2)).toBe(false);
     const ground = (zones: typeof french.zones) => {
       const [first, ...rest] = polygons(zones);
       return polygonClipping.union(first!, ...rest);
@@ -179,6 +188,84 @@ describe("Battle of Waterloo scenario", () => {
     expect(polygonClipping.intersection(frenchGround, alliedGround)).toEqual(
       [],
     );
+
+    type Point = { x: number; y: number };
+    const edges = (zones: typeof french.zones): [Point, Point][] =>
+      zones.flatMap((zone) =>
+        zone.polygons.flatMap(({ outer, holes }) =>
+          [outer, ...(holes ?? [])].flatMap((ring) =>
+            ring.map(
+              (point, index) =>
+                [point, ring[(index + 1) % ring.length]!] as [Point, Point],
+            ),
+          ),
+        ),
+      );
+    const pointToEdgeSquared = (point: Point, start: Point, end: Point) => {
+      const dx = end.x - start.x;
+      const dy = end.y - start.y;
+      const lengthSquared = dx * dx + dy * dy;
+      const t = lengthSquared
+        ? Math.max(
+            0,
+            Math.min(
+              1,
+              ((point.x - start.x) * dx + (point.y - start.y) * dy) /
+                lengthSquared,
+            ),
+          )
+        : 0;
+      return (
+        (point.x - start.x - t * dx) ** 2 + (point.y - start.y - t * dy) ** 2
+      );
+    };
+    let nearestSquared = Infinity;
+    for (const [a, b] of edges(french.zones)) {
+      for (const [c, d] of edges(allied.zones)) {
+        nearestSquared = Math.min(
+          nearestSquared,
+          pointToEdgeSquared(a, c, d),
+          pointToEdgeSquared(b, c, d),
+          pointToEdgeSquared(c, a, b),
+          pointToEdgeSquared(d, a, b),
+        );
+      }
+    }
+    expect(Math.sqrt(nearestSquared)).toBeGreaterThanOrEqual(48);
+  });
+
+  it("reserves the three Allied farm objectives for forward-capable troops", () => {
+    const [french, allied] = scenario.map!.deploymentZones!;
+    for (const [name, commanders] of [
+      ["Hougoumont", [7, 8]],
+      ["La Haye Sainte", [7]],
+      ["Papelotte", [7]],
+    ] as const) {
+      const objective = scenario.objectives!.find(
+        (item) => item.name === name,
+      )!;
+      expect(
+        french.zones.some((zone) =>
+          isInsideDeploymentZone(zone, objective.pos),
+        ),
+      ).toBe(false);
+      expect(
+        allied.zones.some(
+          (zone) =>
+            zone.type === "main" && isInsideDeploymentZone(zone, objective.pos),
+        ),
+      ).toBe(false);
+      for (const commander of commanders) {
+        expect(
+          allied.zones.some(
+            (zone) =>
+              zone.player === commander &&
+              zone.type === "forward" &&
+              isInsideDeploymentZone(zone, objective.pos),
+          ),
+        ).toBe(true);
+      }
+    }
   });
 
   it("stages each Prussian formation at the map edge before its battlefield action", () => {
