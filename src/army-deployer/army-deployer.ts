@@ -5,12 +5,15 @@ import {
   UnitCounts,
   DynamicBattleType,
   TeamDeploymentZone,
+  ArmyOrganization,
+  ARMY_ORGANIZATION_VERSION,
 } from "@lob-sdk/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import {
   divideArrayInHalf,
   getClosestPointInsideDeploymentZone,
   getDeploymentZoneBounds,
+  polygonFromBounds,
 } from "@lob-sdk/utils";
 import {
   DivisionDoctrine,
@@ -35,12 +38,21 @@ interface DeployedLine {
   right: DeployedDivision[];
 }
 
+/** A line's divisions in the order deployLine emits their units. */
+const inDeploymentOrder = (line: DeployedLine) => [
+  ...line.centre,
+  ...line.left,
+  ...line.right,
+];
+
 /**
  * One division as the deployer lays it out: its brigades in line, the skirmishers
  * screening it and the battery it carries. Both stand over the division's own
  * stretch of the zone, so the block a player is handed is a division.
  */
 interface DeployedDivision {
+  kind: string;
+  brigadeKind: string;
   brigades: Recruit[][];
   screen: Recruit[];
   guns: Recruit[];
@@ -134,22 +146,10 @@ export class ArmyDeployer {
    * @returns An array of unit DTOs with their positions and rotations set.
    */
   public deploy(): UnitDtoPartialId[] {
-    const unitsByCategory = this.getArmyCompositionByCategory(
-      this.gameDataManager,
-      this.units,
-    );
-
-    const recruits: Recruit[] = [];
-    for (const categoryId in unitsByCategory) {
-      for (const type of unitsByCategory[categoryId as UnitCategoryId] ?? []) {
-        recruits.push({ type, category: categoryId as UnitCategoryId });
-      }
-    }
-
     // One order of battle for the whole army, not one per zone: a division holds
     // a single stretch of the front, and the units of it that deploy forward
     // stand ahead of that same stretch rather than across the whole army.
-    this.deployAsOrderOfBattle(recruits);
+    this.deployAsOrderOfBattle(this.getRecruits());
 
     return this.unitDtos;
   }
@@ -349,9 +349,11 @@ export class ArmyDeployer {
   private planOrderOfBattle(recruits: Recruit[]): {
     front: DeployedLine;
     rear: DeployedLine;
+    ordered: DeployedDivision[];
   } {
     const nothing = { left: [], centre: [], right: [] };
-    if (recruits.length === 0) return { front: nothing, rear: nothing };
+    if (recruits.length === 0)
+      return { front: nothing, rear: nothing, ordered: [] };
 
     const doctrine = this.gameDataManager.getOrganizationDoctrine();
     const byKind = new Map<string, Recruit[]>();
@@ -397,8 +399,7 @@ export class ArmyDeployer {
         const divisions = this.cutIntoDivisions(
           line.length ? line : light,
           divisionsNeeded(group.length, definition.maxTroops),
-          definition.maxPerBrigade,
-          definition.maxBrigades,
+          definition,
         );
         if (line.length)
           light.forEach((r, i) =>
@@ -463,28 +464,40 @@ export class ArmyDeployer {
         row.right.push(...right);
       }
     }
-    return result;
+    return {
+      ...result,
+      ordered: [
+        ...inDeploymentOrder(result.front),
+        ...inDeploymentOrder(result.rear),
+      ],
+    };
   }
 
   /** Cuts a body of troops into `divisions`, none of them over the ceiling. */
   private cutIntoDivisions(
     recruits: Recruit[],
     divisions: number,
-    maxPerBrigade: number,
-    maxBrigades: number,
+    definition: DivisionDoctrine,
   ): DeployedDivision[] {
     if (divisions <= 0 || recruits.length === 0) return [];
     const perDivision = brigadesNeeded(
       Math.ceil(recruits.length / divisions),
-      maxPerBrigade,
-      maxBrigades,
+      definition.maxPerBrigade,
+      definition.maxBrigades,
     );
     const brigades = cutIntoGroups(recruits, divisions * perDivision, () => 1);
 
     const cut: DeployedDivision[] = [];
     for (let i = 0; i < divisions; i++) {
       const slice = brigades.slice(i * perDivision, (i + 1) * perDivision);
-      if (slice.length > 0) cut.push({ brigades: slice, screen: [], guns: [] });
+      if (slice.length > 0)
+        cut.push({
+          kind: definition.id,
+          brigadeKind: definition.brigadeKind,
+          brigades: slice,
+          screen: [],
+          guns: [],
+        });
     }
     return cut;
   }
@@ -632,6 +645,101 @@ export class ArmyDeployer {
     );
   }
 
+  /** The roster that actually reaches the field, including rule-generated units. */
+  static getDeployedUnitCounts(
+    gameDataManager: GameDataManager,
+    units: UnitCounts,
+    dynamicBattleType: DynamicBattleType,
+  ): UnitCounts {
+    const deployed = { ...units };
+    const { skirmisherSpawning } = gameDataManager.getGameRules();
+    if (skirmisherSpawning) {
+      deployed[skirmisherSpawning.unitType] = ArmyDeployer.getSkirmishersAmount(
+        gameDataManager,
+        units,
+        dynamicBattleType,
+      );
+    }
+    return deployed;
+  }
+
+  /** Build the compact, editable OOB that corresponds to the default deployment. */
+  static getDefaultOrganization(
+    gameDataManager: GameDataManager,
+    units: UnitCounts,
+    dynamicBattleType: DynamicBattleType,
+  ): ArmyOrganization {
+    const zone: TeamDeploymentZone = {
+      team: 1,
+      type: "main",
+      polygons: [polygonFromBounds(0, 0, 10000, 1000)],
+    };
+    const deployer = new ArmyDeployer(
+      gameDataManager,
+      units,
+      zone,
+      zone,
+      1,
+      1,
+      dynamicBattleType,
+    );
+    const { ordered } = deployer.planOrderOfBattle(deployer.getRecruits());
+    return {
+      version: ARMY_ORGANIZATION_VERSION,
+      divisions: ordered.map((division) => {
+        const brigades = division.brigades.map((recruits) => ({
+          kind: division.brigadeKind,
+          units: ArmyDeployer.countRecruits(recruits),
+        }));
+
+        for (const recruit of division.screen) {
+          if (brigades.length === 0) {
+            brigades.push({
+              kind: division.brigadeKind,
+              units: {},
+            });
+          }
+          const weakest = brigades.reduce(
+            (best, brigade, index) =>
+              Object.values(brigade.units).reduce(
+                (sum, count) => sum + count,
+                0,
+              ) <
+              Object.values(brigades[best].units).reduce(
+                (sum, count) => sum + count,
+                0,
+              )
+                ? index
+                : best,
+            0,
+          );
+          brigades[weakest].units[recruit.type] =
+            (brigades[weakest].units[recruit.type] ?? 0) + 1;
+        }
+
+        const support = new Map<string, Recruit[]>();
+        for (const recruit of division.guns) {
+          const definition = gameDataManager
+            .getOrganizationDoctrine()
+            .divisions.find(({ categories }) =>
+              categories.includes(recruit.category),
+            );
+          const brigadeKind =
+            definition?.brigadeKind ??
+            gameDataManager.getOrganizationDoctrine().defaultBrigadeKind;
+          const bucket = support.get(brigadeKind) ?? [];
+          bucket.push(recruit);
+          support.set(brigadeKind, bucket);
+        }
+        for (const [kind, recruits] of support) {
+          brigades.push({ kind, units: ArmyDeployer.countRecruits(recruits) });
+        }
+
+        return { kind: division.kind, brigades };
+      }),
+    };
+  }
+
   /** The weighted contribution, cost per skirmisher and next spawn threshold. */
   static getSkirmisherAllocation(
     gameDataManager: GameDataManager,
@@ -664,21 +772,36 @@ export class ArmyDeployer {
    * @param units - A record mapping unit types to their counts.
    * @returns A record mapping category IDs to arrays of unit types.
    */
+  private getRecruits(): Recruit[] {
+    const unitsByCategory = this.getArmyCompositionByCategory(
+      this.gameDataManager,
+      ArmyDeployer.getDeployedUnitCounts(
+        this.gameDataManager,
+        this.units,
+        this.dynamicBattleType,
+      ),
+    );
+    const recruits: Recruit[] = [];
+    for (const categoryId in unitsByCategory) {
+      for (const type of unitsByCategory[categoryId as UnitCategoryId] ?? []) {
+        recruits.push({ type, category: categoryId as UnitCategoryId });
+      }
+    }
+    return recruits;
+  }
+
+  private static countRecruits(recruits: Recruit[]): UnitCounts {
+    const counts: UnitCounts = {};
+    for (const recruit of recruits) {
+      counts[recruit.type] = (counts[recruit.type] ?? 0) + 1;
+    }
+    return counts;
+  }
+
   private getArmyCompositionByCategory(
     gameDataManager: GameDataManager,
     units: UnitCounts,
   ) {
-    const { skirmisherSpawning } = this.gameDataManager.getGameRules();
-
-    if (skirmisherSpawning) {
-      const additionalSkirmishers = ArmyDeployer.getSkirmishersAmount(
-        this.gameDataManager,
-        this.units,
-        this.dynamicBattleType,
-      );
-      units[skirmisherSpawning.unitType] = additionalSkirmishers;
-    }
-
     const unitsByCategory: Partial<Record<UnitCategoryId, UnitType[]>> = {};
     for (const _type in units) {
       const type: UnitType = Number(_type);

@@ -1,4 +1,5 @@
 import { TurnSubmission, UnitCounts, GameUserResult } from "@lob-sdk/types";
+import type { ArmyOrganization } from "./army-organization";
 
 export enum UserTier {
   Free = "free",
@@ -70,6 +71,8 @@ export interface Player {
   turnSubmission: TurnSubmission | null;
   wantsDraw: boolean;
   armyComposition: UnitCounts | null;
+  /** Saved composition OOB snapshot, materialized into game metadata at start. */
+  armyOrganization?: ArmyOrganization | null;
   metadata: PlayerBattleMetadata | null;
   unitsGained: UnitCounts | null;
   /**
