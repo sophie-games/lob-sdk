@@ -82,3 +82,22 @@ describe("ScenarioFeatures.hasOneUnitPerPlayer", () => {
     ).toBe(false);
   });
 });
+
+describe("ScenarioFeatures.hasAssignableDeploymentZones", () => {
+  it("is on when the scenario opts in and has a deployment phase", () => {
+    expect(
+      ScenarioFeatures.hasAssignableDeploymentZones(
+        scenario({ allowDeploymentPhase: true, assignableDeploymentZones: true }),
+      ),
+    ).toBe(true);
+  });
+
+  it.each([
+    ["no opt-in", { allowDeploymentPhase: true }],
+    ["no deployment phase", { assignableDeploymentZones: true }],
+  ])("is off with %s", (_case, overrides) => {
+    expect(
+      ScenarioFeatures.hasAssignableDeploymentZones(scenario(overrides)),
+    ).toBe(false);
+  });
+});

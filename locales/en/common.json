@@ -357,6 +357,14 @@
   "army": "Army",
   "armyWithCount": "Army ({{count}})",
   "deploymentStateMessage": "This is the deployment stage. Take this turn to place your units where you want within the deployment zone. When you're finished, submit your orders to apply the placement.",
+  "deploymentPositions": {
+    "playerPosition": "Player {{player}}'s position",
+    "nobody": "Nobody",
+    "pickerTitle": "Who holds {{position}}?",
+    "strandsTeammate": "Would leave a teammate without a position",
+    "swapsWith": "In exchange for {{position}}",
+    "commanderInChief": "Commander-in-chief"
+  },
   "getStarted": "Get started",
   "colorTag": {
     "1": "Blue",

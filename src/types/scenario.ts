@@ -493,6 +493,13 @@ export interface Scenario {
   allowDeploymentPhase?: boolean;
 
   /**
+   * When true (and the scenario has a deployment phase), each team's
+   * commander-in-chief decides during turn 0 which player holds each authored
+   * command position. Unchanged positions keep their authored owner.
+   */
+  assignableDeploymentZones?: boolean;
+
+  /**
    * When true, units with an ammo system spawn with no inherent ammo (0 instead
    * of their template's `ammo`) and draw their whole load from the player's
    * global reserve, so they cannot fire on the first turn. Highest-priority
