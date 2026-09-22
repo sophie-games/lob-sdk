@@ -22,7 +22,7 @@ const compactCounts = (counts: UnitCounts): UnitCounts =>
     Object.entries(counts)
       .filter(([, count]) => count > 0)
       .sort(([left], [right]) => Number(left) - Number(right)),
-  ) as UnitCounts;
+  );
 
 export function countArmyOrganizationUnits(
   organization: ArmyOrganization,
