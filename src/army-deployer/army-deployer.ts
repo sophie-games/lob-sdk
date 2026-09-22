@@ -13,8 +13,10 @@ import {
   divideArrayInHalf,
   getClosestPointInsideDeploymentZone,
   getDeploymentZoneBounds,
+  mapDeploymentZonePoints,
   polygonFromBounds,
 } from "@lob-sdk/utils";
+import { Point2, Vector2 } from "@lob-sdk/vector";
 import {
   DivisionDoctrine,
   brigadesNeeded,
@@ -30,6 +32,11 @@ interface Recruit {
 
 /** Units of frontage left between one division and the next, so the blocks read apart. */
 const DIVISION_GAP = 2;
+
+const turnAbout = (point: Point2, pivot: Vector2, angle: number): Point2 =>
+  angle === 0
+    ? point
+    : Vector2.fromPoint(point).subtract(pivot).rotate(angle).add(pivot);
 
 /** One line of the deployment: what stands on each wing, and what in the centre. */
 interface DeployedLine {
@@ -111,6 +118,9 @@ export class ArmyDeployer {
   private readonly unitDtos: UnitDtoPartialId[] = [];
 
   private readonly rotation: number;
+  // Each zone turned back to the team's default facing, which the layout assumes.
+  private readonly mainLayoutZone: TeamDeploymentZone;
+  private readonly forwardLayoutZone: TeamDeploymentZone;
 
   /**
    * Creates a new ArmyDeployer instance.
@@ -139,6 +149,24 @@ export class ArmyDeployer {
       gameDataManager.getGameConstants().DEFAULT_BATTLE_TYPE;
     this.rotation =
       this.team === 1 ? 270 * (Math.PI / 180) : 90 * (Math.PI / 180);
+    this.mainLayoutZone = this.toLayoutFrame(mainDeploymentZone);
+    this.forwardLayoutZone = this.toLayoutFrame(forwardDeploymentZone);
+  }
+
+  /** How far a zone's authored facing turns its army from the team's default. */
+  private facingTurn(zone: TeamDeploymentZone) {
+    const { left, top, right, bottom } = getDeploymentZoneBounds(zone);
+    return {
+      pivot: new Vector2((left + right) / 2, (top + bottom) / 2),
+      angle: zone.rotation === undefined ? 0 : zone.rotation - this.rotation,
+    };
+  }
+
+  private toLayoutFrame(zone: TeamDeploymentZone): TeamDeploymentZone {
+    const { pivot, angle } = this.facingTurn(zone);
+    return mapDeploymentZonePoints(zone, (point) =>
+      turnAbout(point, pivot, -angle),
+    );
   }
 
   /**
@@ -212,7 +240,7 @@ export class ArmyDeployer {
   }
 
   private usableWidth(): number {
-    const metrics = this.calculateSectionMetrics(this.mainDeploymentZone);
+    const metrics = this.calculateSectionMetrics(this.mainLayoutZone);
     return (
       metrics.leftFlankWidth +
       metrics.centerWidth +
@@ -233,7 +261,7 @@ export class ArmyDeployer {
     pitch: number,
     anchor?: { start: number; end: number },
   ): { start: number; end: number } {
-    const metrics = this.calculateSectionMetrics(this.mainDeploymentZone);
+    const metrics = this.calculateSectionMetrics(this.mainLayoutZone);
     const zoneStart = metrics.leftFlankStartX + this.MARGIN;
     const spacing = Math.max(0, pitch - this.DEFAULT_UNIT_HEIGHT);
     // A fixed gap between divisions, so the blocks read apart without the army
@@ -329,7 +357,7 @@ export class ArmyDeployer {
         .getUnitTemplateManager()
         .getTemplate(recruit.type);
       const metrics = this.calculateSectionMetrics(
-        canDeployForward ? this.forwardDeploymentZone : this.mainDeploymentZone,
+        canDeployForward ? this.forwardLayoutZone : this.mainLayoutZone,
       );
       const y =
         rowIndex < 0
@@ -515,23 +543,15 @@ export class ArmyDeployer {
     const zone = template.canDeployForward
       ? this.forwardDeploymentZone
       : this.mainDeploymentZone;
-    const bounds = getDeploymentZoneBounds(zone);
-    const centerX = (bounds.left + bounds.right) / 2;
-    const centerY = (bounds.top + bounds.bottom) / 2;
-    // The layout already faces the team's default direction. Turn it by the
-    // difference to the authored facing, leaving the allowed ground fixed.
-    const angle =
-      zone.rotation === undefined ? 0 : zone.rotation - this.rotation;
-    const dx = x - centerX;
-    const dy = y - centerY;
-    const rotatedPosition = {
-      x: centerX + dx * Math.cos(angle) - dy * Math.sin(angle),
-      y: centerY + dx * Math.sin(angle) + dy * Math.cos(angle),
-    };
+    // Turn the point out of the layout frame into the authored facing.
+    const { pivot, angle } = this.facingTurn(zone);
 
     this.unitDtos.push({
       player: this.player,
-      pos: getClosestPointInsideDeploymentZone(zone, rotatedPosition),
+      pos: getClosestPointInsideDeploymentZone(
+        zone,
+        turnAbout({ x, y }, pivot, angle),
+      ),
       rotation: zone.rotation ?? this.rotation,
       type,
     });

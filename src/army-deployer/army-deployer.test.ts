@@ -1,6 +1,11 @@
 import { UnitCounts, TeamDeploymentZone } from "@lob-sdk/types";
-import { polygonFromBounds } from "../utils/deployment-zone";
+import type { Point2 } from "@lob-sdk/vector";
+import {
+  mapDeploymentZonePoints,
+  polygonFromBounds,
+} from "../utils/deployment-zone";
 import { ArmyDeployer } from "./army-deployer";
+import { generateDefaultArmy } from "./utils";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import {
   countArmyOrganizationUnits,
@@ -117,34 +122,41 @@ describe("ArmyDeployer", () => {
     });
   });
 
-  it("rotates generated formation positions with the deployment zone", () => {
-    const unitCounts: UnitCounts = { "1": 2 };
-    const deploymentZone = zone(100, 200, 400, 160);
-    const rotatedZone: TeamDeploymentZone = { ...deploymentZone, rotation: 0 };
+  it("lays an army facing east along the frontage of ground turned to match", () => {
+    const unitCounts = generateDefaultArmy(gameDataManager, "battle").units;
+    const facingNorth = zone(100, 200, 1200, 300);
+    // A quarter turn clockwise about the zone's centre, which faces north to east.
+    const quarterTurn = ({ x, y }: Point2) => ({
+      x: 700 - (y - 350),
+      y: 350 + (x - 700),
+    });
+    const facingEast: TeamDeploymentZone = {
+      ...mapDeploymentZonePoints(facingNorth, quarterTurn),
+      rotation: 0,
+    };
 
-    const unrotated = new ArmyDeployer(
+    const north = new ArmyDeployer(
       gameDataManager,
       unitCounts,
-      deploymentZone,
-      deploymentZone,
+      facingNorth,
+      facingNorth,
       1,
       1,
     ).deploy();
-    const rotated = new ArmyDeployer(
+    const east = new ArmyDeployer(
       gameDataManager,
       unitCounts,
-      rotatedZone,
-      rotatedZone,
+      facingEast,
+      facingEast,
       1,
       1,
     ).deploy();
 
-    const center = { x: 300, y: 280 };
-    expect(rotated).toHaveLength(unrotated.length);
-    rotated.forEach((unit, index) => {
-      const source = unrotated[index].pos;
-      expect(unit.pos.x).toBeCloseTo(center.x - (source.y - center.y));
-      expect(unit.pos.y).toBeCloseTo(center.y + (source.x - center.x));
+    expect(east).toHaveLength(north.length);
+    east.forEach((unit, index) => {
+      const expected = quarterTurn(north[index].pos);
+      expect(unit.pos.x).toBeCloseTo(expected.x);
+      expect(unit.pos.y).toBeCloseTo(expected.y);
       expect(unit.rotation).toBe(0);
     });
   });
