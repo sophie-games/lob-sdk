@@ -3,7 +3,7 @@ import { ScenarioFeatures } from "./scenario-features";
 
 const scenario = (overrides: Partial<Scenario> = {}): Scenario =>
   ({
-    version: 1,
+    version: 2,
     name: "Event template",
     description: "Reusable rostered map",
     map: {},

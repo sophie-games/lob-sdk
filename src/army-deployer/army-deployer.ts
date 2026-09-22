@@ -4,13 +4,13 @@ import {
   UnitType,
   UnitCounts,
   DynamicBattleType,
-  Zone,
+  TeamDeploymentZone,
 } from "@lob-sdk/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import {
   divideArrayInHalf,
-  getClosestPointInsideZone,
-  rotatePointAroundZoneCenter,
+  getClosestPointInsideDeploymentZone,
+  getDeploymentZoneBounds,
 } from "@lob-sdk/utils";
 import {
   DivisionDoctrine,
@@ -113,8 +113,8 @@ export class ArmyDeployer {
   constructor(
     private gameDataManager: GameDataManager,
     units: UnitCounts,
-    private readonly mainDeploymentZone: Zone,
-    private readonly forwardDeploymentZone: Zone,
+    private readonly mainDeploymentZone: TeamDeploymentZone,
+    private readonly forwardDeploymentZone: TeamDeploymentZone,
     private readonly player: number,
     team: number,
     dynamicBattleType?: DynamicBattleType,
@@ -502,12 +502,24 @@ export class ArmyDeployer {
     const zone = template.canDeployForward
       ? this.forwardDeploymentZone
       : this.mainDeploymentZone;
-    const rotatedPosition = rotatePointAroundZoneCenter(zone, { x, y });
+    const bounds = getDeploymentZoneBounds(zone);
+    const centerX = (bounds.left + bounds.right) / 2;
+    const centerY = (bounds.top + bounds.bottom) / 2;
+    // The layout already faces the team's default direction. Turn it by the
+    // difference to the authored facing, leaving the allowed ground fixed.
+    const angle =
+      zone.rotation === undefined ? 0 : zone.rotation - this.rotation;
+    const dx = x - centerX;
+    const dy = y - centerY;
+    const rotatedPosition = {
+      x: centerX + dx * Math.cos(angle) - dy * Math.sin(angle),
+      y: centerY + dx * Math.sin(angle) + dy * Math.cos(angle),
+    };
 
     this.unitDtos.push({
       player: this.player,
-      pos: getClosestPointInsideZone(zone, rotatedPosition),
-      rotation: this.rotation,
+      pos: getClosestPointInsideDeploymentZone(zone, rotatedPosition),
+      rotation: zone.rotation ?? this.rotation,
       type,
     });
   }
@@ -516,8 +528,13 @@ export class ArmyDeployer {
    * Calculates metrics for each deployment section (left flank, center, right flank).
    * @returns A SectionMetrics object containing calculated dimensions and positions.
    */
-  calculateSectionMetrics(deploymentZone: Zone): SectionMetrics {
-    const { x, y, width, height } = deploymentZone;
+  calculateSectionMetrics(deploymentZone: TeamDeploymentZone): SectionMetrics {
+    const {
+      left: x,
+      top: y,
+      width,
+      height,
+    } = getDeploymentZoneBounds(deploymentZone);
     const leftFlankWidth = width * 0.25;
     const centerWidth = width * 0.5;
     const rightFlankWidth = width * 0.25;
@@ -606,11 +623,13 @@ export class ArmyDeployer {
     units: UnitCounts,
     dynamicBattleType: DynamicBattleType,
   ) {
-    return ArmyDeployer.getSkirmisherAllocation(
-      gameDataManager,
-      units,
-      dynamicBattleType,
-    )?.amount ?? 0;
+    return (
+      ArmyDeployer.getSkirmisherAllocation(
+        gameDataManager,
+        units,
+        dynamicBattleType,
+      )?.amount ?? 0
+    );
   }
 
   /** The weighted contribution, cost per skirmisher and next spawn threshold. */
@@ -619,7 +638,8 @@ export class ArmyDeployer {
     units: UnitCounts,
     dynamicBattleType: DynamicBattleType,
   ) {
-    const ratio = gameDataManager.getBattleType(dynamicBattleType).skirmisherRatio;
+    const ratio =
+      gameDataManager.getBattleType(dynamicBattleType).skirmisherRatio;
     if (!ratio || !(ratio[0] > 0) || !(ratio[1] > 0)) return null;
     const [skirmishersPerGroup, coreUnitsPerGroup] = ratio;
     let weightedTotal = 0;

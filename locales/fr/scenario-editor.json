@@ -188,11 +188,24 @@
     "addMainZone": "Ajouter une zone principale",
     "addForwardZone": "Ajouter une zone avancée",
     "removeZone": "Supprimer la zone",
+    "boundary": "Contour",
+    "exclusion": "Zone exclue {{number}}",
+    "polygon": "Polygone {{number}}",
+    "drawOnMap": "Dessiner sur la carte",
+    "removeVertex": "Supprimer le sommet",
+    "addVertex": "Ajouter un sommet",
+    "removePolygon": "Supprimer le polygone",
+    "drawExclusion": "Dessiner une exclusion",
+    "drawAdditionalPolygon": "Dessiner un autre polygone",
+    "drawHint": "Cliquez sur la carte pour ajouter des sommets ({{count}} placés).",
+    "invalidPolygon": "Le polygone ou l’exclusion n’est pas valide.",
+    "undoVertex": "Annuler le dernier sommet",
+    "finishPolygon": "Terminer le polygone",
     "fields": {
       "x": "X",
       "y": "Y",
       "player": "Assignée à",
-      "rotation": "Rotation (degrés)"
+      "rotation": "Orientation de l’armée (degrés)"
     },
     "phaseHelp": "Avec la phase de déploiement activée, les joueurs disposent d'un tour supplémentaire avant le début des combats, uniquement pour réorganiser leurs unités à l'intérieur de leur zone.",
     "gateHelp": "Ces zones sont modifiables tant que l'une des options Armée dynamique autorisée, Phase de déploiement ou Objectifs placés par les joueurs est activée, chacune des trois ayant besoin d'un endroit où une armée arrivante puisse démarrer. Avec les trois désactivées, elles sont grisées, et sur une carte procédurale elles sont grisées également, les zones y étant définies sous forme de pourcentages dans le panneau Carte aléatoire à la place."

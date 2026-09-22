@@ -1,4 +1,11 @@
 import { GameDataManager } from "@lob-sdk/game-data-manager";
+import {
+  getDeploymentZoneArea,
+  isInsideDeploymentZone,
+  isValidDeploymentPolygon,
+} from "../../../utils/deployment-zone";
+import polygonClipping from "polygon-clipping";
+import type { Polygon } from "polygon-clipping";
 
 /**
  * The fixed 11:30 deployment is split by historical field command. Passing turn
@@ -30,12 +37,12 @@ describe("Battle of Waterloo scenario", () => {
 
   it("has thirteen command seats grouped at corps and reserve level", () => {
     expect(scenario.players).toHaveLength(13);
-    expect(scenario.players!.filter((player) => player.team === 1)).toHaveLength(
-      6,
-    );
-    expect(scenario.players!.filter((player) => player.team === 2)).toHaveLength(
-      7,
-    );
+    expect(
+      scenario.players!.filter((player) => player.team === 1),
+    ).toHaveLength(6);
+    expect(
+      scenario.players!.filter((player) => player.team === 2),
+    ).toHaveLength(7);
 
     const divisionOwner = new Map(
       scenario.organizations!.flatMap((organization) =>
@@ -64,16 +71,37 @@ describe("Battle of Waterloo scenario", () => {
       { player: 1, command: { commander: "Reille", formation: "II Corps" } },
       { player: 2, command: { commander: "d'Erlon", formation: "I Corps" } },
       { player: 3, command: { commander: "Lobau", formation: "VI Corps" } },
-      { player: 4, command: { commander: "Kellermann", formation: "III Cavalry Corps" } },
-      { player: 5, command: { commander: "Milhaud", formation: "IV Cavalry Corps" } },
-      { player: 6, command: { commander: "Napoleon", formation: "Imperial Guard & Reserve" } },
-      { player: 7, command: { commander: "Prince of Orange", formation: "I Corps" } },
+      {
+        player: 4,
+        command: { commander: "Kellermann", formation: "III Cavalry Corps" },
+      },
+      {
+        player: 5,
+        command: { commander: "Milhaud", formation: "IV Cavalry Corps" },
+      },
+      {
+        player: 6,
+        command: {
+          commander: "Napoleon",
+          formation: "Imperial Guard & Reserve",
+        },
+      },
+      {
+        player: 7,
+        command: { commander: "Prince of Orange", formation: "I Corps" },
+      },
       { player: 8, command: { commander: "Hill", formation: "II Corps" } },
       { player: 9, command: { commander: "Wellington", formation: "Reserve" } },
       { player: 10, command: { commander: "Uxbridge", formation: "Cavalry" } },
       { player: 11, command: { commander: "Bülow", formation: "IV Corps" } },
-      { player: 12, command: { commander: "Pirch", formation: "II Corps Detachment" } },
-      { player: 13, command: { commander: "Zieten", formation: "I Corps Advance Guard" } },
+      {
+        player: 12,
+        command: { commander: "Pirch", formation: "II Corps Detachment" },
+      },
+      {
+        player: 13,
+        command: { commander: "Zieten", formation: "I Corps Advance Guard" },
+      },
     ]);
   });
 
@@ -114,11 +142,43 @@ describe("Battle of Waterloo scenario", () => {
 
     for (const unit of scenario.units!) {
       const zone = mainZones.get(unit.player)!;
-      expect(unit.pos.x).toBeGreaterThanOrEqual(zone.x);
-      expect(unit.pos.x).toBeLessThanOrEqual(zone.x + zone.width);
-      expect(unit.pos.y).toBeGreaterThanOrEqual(zone.y);
-      expect(unit.pos.y).toBeLessThanOrEqual(zone.y + zone.height);
+      expect(isInsideDeploymentZone(zone, unit.pos)).toBe(true);
     }
+  });
+
+  it("uses valid nonempty polygon ground for every command sector", () => {
+    for (const { zones } of scenario.map!.deploymentZones!) {
+      for (const zone of zones) {
+        expect(getDeploymentZoneArea(zone)).toBeGreaterThan(0);
+        expect(zone.polygons.every(isValidDeploymentPolygon)).toBe(true);
+      }
+    }
+  });
+
+  it("keeps opposing deployment ground apart and Hougoumont outside French deployment", () => {
+    const [french, allied] = scenario.map!.deploymentZones!;
+    const at = (zones: typeof french.zones, x: number, y: number) =>
+      zones.some((zone) => isInsideDeploymentZone(zone, { x, y }));
+    const polygons = (zones: typeof french.zones): Polygon[] =>
+      zones.flatMap((zone) =>
+        zone.polygons.map(({ outer, holes }) => [
+          outer.map(({ x, y }) => [x, y] as [number, number]),
+          ...(holes ?? []).map((ring) =>
+            ring.map(({ x, y }) => [x, y] as [number, number]),
+          ),
+        ]),
+      );
+
+    expect(at(french.zones, 844.78, 1213.2)).toBe(false);
+    const ground = (zones: typeof french.zones) => {
+      const [first, ...rest] = polygons(zones);
+      return polygonClipping.union(first!, ...rest);
+    };
+    const frenchGround = ground(french.zones);
+    const alliedGround = ground(allied.zones);
+    expect(polygonClipping.intersection(frenchGround, alliedGround)).toEqual(
+      [],
+    );
   });
 
   it("stages each Prussian formation at the map edge before its battlefield action", () => {
@@ -143,9 +203,15 @@ describe("Battle of Waterloo scenario", () => {
   it("gives Bülow, Pirch and Zieten their own complete arriving commands", () => {
     expect(scenario.units!.some((unit) => unit.player >= 11)).toBe(false);
 
-    expect(reinforcements.filter((unit) => unit.player === 11)).toHaveLength(57);
-    expect(reinforcements.filter((unit) => unit.player === 12)).toHaveLength(13);
-    expect(reinforcements.filter((unit) => unit.player === 13)).toHaveLength(15);
+    expect(reinforcements.filter((unit) => unit.player === 11)).toHaveLength(
+      57,
+    );
+    expect(reinforcements.filter((unit) => unit.player === 12)).toHaveLength(
+      13,
+    );
+    expect(reinforcements.filter((unit) => unit.player === 13)).toHaveLength(
+      15,
+    );
 
     const bulowNames = reinforcements
       .filter((unit) => unit.player === 11)

@@ -20,6 +20,11 @@ export type RawScenarioInput =
  * migrated based on their `type` discriminator.
  */
 export function normalizeScenario(raw: RawScenarioInput): Scenario {
+  if (raw.version !== undefined && raw.version !== SCENARIO_SCHEMA_VERSION) {
+    throw new Error(
+      `Unsupported scenario schema version ${raw.version}; expected ${SCENARIO_SCHEMA_VERSION}`,
+    );
+  }
   if (_isCurrent(raw)) return _backfillCurrent(raw);
   switch (raw.type) {
     case GameScenarioType.Preset:
@@ -30,9 +35,7 @@ export function normalizeScenario(raw: RawScenarioInput): Scenario {
       return _fromRandom(raw);
     default: {
       const _exhaustive: never = raw;
-      throw new Error(
-        `Unknown scenario shape: ${JSON.stringify(_exhaustive)}`,
-      );
+      throw new Error(`Unknown scenario shape: ${JSON.stringify(_exhaustive)}`);
     }
   }
 }

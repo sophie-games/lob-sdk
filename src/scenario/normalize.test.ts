@@ -1,3 +1,4 @@
+import { polygonFromBounds } from "../utils/deployment-zone";
 import {
   GameMap,
   GameScenarioType,
@@ -28,15 +29,23 @@ const buildPresetMap = (): GameMap => ({
     {
       team: 1,
       zones: [
-        { team: 1, type: "main", x: 0, y: 0, width: 32, height: 32 },
-        { team: 1, type: "forward", x: 0, y: 32, width: 32, height: 32 },
+        { team: 1, type: "main", polygons: [polygonFromBounds(0, 0, 32, 32)] },
+        {
+          team: 1,
+          type: "forward",
+          polygons: [polygonFromBounds(0, 32, 32, 64)],
+        },
       ],
     },
     {
       team: 2,
       zones: [
-        { team: 2, type: "main", x: 64, y: 0, width: 32, height: 32 },
-        { team: 2, type: "forward", x: 64, y: 32, width: 32, height: 32 },
+        { team: 2, type: "main", polygons: [polygonFromBounds(64, 0, 96, 32)] },
+        {
+          team: 2,
+          type: "forward",
+          polygons: [polygonFromBounds(64, 32, 96, 64)],
+        },
       ],
     },
   ],
@@ -92,6 +101,17 @@ const buildRandom = (
 });
 
 describe("normalizeScenario", () => {
+  it("rejects the incompatible rectangular-zone schema explicitly", () => {
+    const oldScenario: Scenario = {
+      version: 1,
+      name: "old",
+      description: "",
+    };
+    expect(() => normalizeScenario(oldScenario)).toThrow(
+      "Unsupported scenario schema version 1; expected 2",
+    );
+  });
+
   it("returns current-schema scenarios unchanged when the feature flags are already set", () => {
     const scenario: Scenario = {
       version: SCENARIO_SCHEMA_VERSION,
@@ -148,9 +168,9 @@ describe("normalizeScenario", () => {
       allowDynamicArmy: false,
       allowDeploymentPhase: true,
     };
-    expect(
-      normalizeScenario(dynamicWithInstructions).placeableObjectives,
-    ).toBe(true);
+    expect(normalizeScenario(dynamicWithInstructions).placeableObjectives).toBe(
+      true,
+    );
     expect(normalizeScenario(dynamicNoInstructions).placeableObjectives).toBe(
       false,
     );
@@ -203,10 +223,12 @@ describe("normalizeScenario", () => {
 
     it("legacy hybrid scenarios opt into a deployment phase", () => {
       expect(
-        normalizeScenario(buildHybrid({ fixedArmy: true })).allowDeploymentPhase,
+        normalizeScenario(buildHybrid({ fixedArmy: true }))
+          .allowDeploymentPhase,
       ).toBe(true);
       expect(
-        normalizeScenario(buildHybrid({ fixedArmy: false })).allowDeploymentPhase,
+        normalizeScenario(buildHybrid({ fixedArmy: false }))
+          .allowDeploymentPhase,
       ).toBe(true);
     });
 

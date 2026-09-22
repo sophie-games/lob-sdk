@@ -1,4 +1,7 @@
-import type { OrganizationDoctrine, ScenarioOrganization } from "@lob-sdk/order-of-battle";
+import type {
+  OrganizationDoctrine,
+  ScenarioOrganization,
+} from "@lob-sdk/order-of-battle";
 import { Point2 } from "@lob-sdk/vector";
 import {
   GameTrigger,
@@ -88,28 +91,26 @@ export enum GameScenarioType {
  */
 export type DeploymentZoneType = "main" | "forward";
 
-/**
- * A single deployment zone rectangle belonging to a team.
- */
+/** A connected piece of a deployment zone; holes leave protected ground out. */
+export interface DeploymentPolygon {
+  outer: Point2[];
+  holes?: Point2[][];
+}
+
+/** A deployment area belonging to a team, drawn in map coordinates. */
 export interface TeamDeploymentZone {
   /** The team number this zone belongs to. */
   team: number;
   /**
    * Player number this zone is reserved for. Omit for a team-wide zone, which
-   * keeps the legacy behavior of being divided between that team's players.
+   * is divided between that team's players when armies are generated.
    */
   player?: number;
   /** Whether the zone is a main or a forward (skirmisher-allowed) zone. */
   type: DeploymentZoneType;
-  /** X coordinate of the zone's top-left corner. */
-  x: number;
-  /** Y coordinate of the zone's top-left corner. */
-  y: number;
-  /** Width of the deployment zone. */
-  width: number;
-  /** Height of the deployment zone. */
-  height: number;
-  /** Clockwise rotation in radians around the zone's center. Defaults to 0. */
+  /** One or more polygons; each may exclude protected ground with holes. */
+  polygons: DeploymentPolygon[];
+  /** Facing of units and generated armies in radians; never rotates the area. */
   rotation?: number;
 }
 
@@ -267,16 +268,10 @@ export interface PercentRange {
   max: number;
 }
 
-/**
- * A percentage-based deployment sub-zone. The top-left origin is placed randomly
- * within the {@link PercentRange} x/y ranges (use `min === max` for a fixed
- * origin); the zone spans `width` x `height`. All values are map percentages.
- */
-export interface DeploymentZoneRect {
+/** Random translation of a polygon expressed in map percentages. */
+export interface DeploymentZoneOrigin {
   x: PercentRange;
   y: PercentRange;
-  width: number;
-  height: number;
 }
 
 /** A percentage-based deployment zone tagged with the role that fills it. */
@@ -285,9 +280,11 @@ export interface RandomDeploymentZone {
   role: DeploymentZoneType;
   /** Player number this zone is reserved for. Omit for a team-wide zone. */
   player?: number;
-  /** Clockwise rotation in radians around the generated rectangle's center. */
+  /** Facing of the generated units and army, never of the polygon. */
   rotation?: number;
-  rect: DeploymentZoneRect;
+  /** Relative vertices in map percentages, translated by a sampled origin. */
+  polygon: DeploymentPolygon;
+  origin: DeploymentZoneOrigin;
 }
 
 /**
@@ -461,7 +458,7 @@ export interface Scenario {
   fixedSize?: { tilesX: number; tilesY: number };
 
   /**
-   * Pixel-based deployment zones (used by legacy preset/hybrid scenarios after normalization).
+   * Pixel-coordinate deployment polygons for authored scenarios.
    * Mutually exclusive with {@link randomDeploymentZones}.
    */
   deploymentZones?: TeamDeploymentZones[];

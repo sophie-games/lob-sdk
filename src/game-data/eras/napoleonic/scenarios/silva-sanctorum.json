@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "name": "name",
   "description": "description",
   "ranked": false,
@@ -12,18 +12,12 @@
         "zones": [
           {
             "team": 1,
-            "x": 394,
-            "y": 1444,
-            "width": 1200,
-            "height": 192,
+            "polygons":[{"outer":[{"x":394,"y":1444},{"x":1594,"y":1444},{"x":1594,"y":1636},{"x":394,"y":1636}]}],
             "type": "main"
           },
           {
             "team": 1,
-            "x": 346,
-            "y": 1388,
-            "width": 1296,
-            "height": 288,
+            "polygons":[{"outer":[{"x":346,"y":1388},{"x":1642,"y":1388},{"x":1642,"y":1676},{"x":346,"y":1676}]}],
             "type": "forward"
           }
         ]
@@ -33,18 +27,12 @@
         "zones": [
           {
             "team": 2,
-            "x": 394,
-            "y": 164,
-            "width": 1200,
-            "height": 192,
+            "polygons":[{"outer":[{"x":394,"y":164},{"x":1594,"y":164},{"x":1594,"y":356},{"x":394,"y":356}]}],
             "type": "main"
           },
           {
             "team": 2,
-            "x": 346,
-            "y": 116,
-            "width": 1296,
-            "height": 288,
+            "polygons":[{"outer":[{"x":346,"y":116},{"x":1642,"y":116},{"x":1642,"y":404},{"x":346,"y":404}]}],
             "type": "forward"
           }
         ]

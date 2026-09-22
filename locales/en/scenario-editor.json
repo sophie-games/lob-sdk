@@ -202,11 +202,24 @@
     "addMainZone": "Add main zone",
     "addForwardZone": "Add forward zone",
     "removeZone": "Remove zone",
+    "boundary": "Boundary",
+    "exclusion": "Exclusion {{number}}",
+    "polygon": "Polygon {{number}}",
+    "drawOnMap": "Draw on map",
+    "removeVertex": "Remove vertex",
+    "addVertex": "Add vertex",
+    "removePolygon": "Remove polygon",
+    "drawExclusion": "Draw exclusion",
+    "drawAdditionalPolygon": "Draw another polygon",
+    "drawHint": "Click the map to add vertices ({{count}} placed).",
+    "invalidPolygon": "The polygon or exclusion is invalid.",
+    "undoVertex": "Undo last vertex",
+    "finishPolygon": "Finish polygon",
     "fields": {
       "x": "X",
       "y": "Y",
       "player": "Assigned to",
-      "rotation": "Rotation (degrees)"
+      "rotation": "Army facing (degrees)"
     }
   },
   "vpBalance": {

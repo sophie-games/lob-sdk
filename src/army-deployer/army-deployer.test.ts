@@ -1,36 +1,90 @@
-import { UnitCounts, Zone } from "@lob-sdk/types";
+import { UnitCounts, TeamDeploymentZone } from "@lob-sdk/types";
+import { polygonFromBounds } from "../utils/deployment-zone";
 import { ArmyDeployer } from "./army-deployer";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 
 describe("ArmyDeployer", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
+  const zone = (
+    x: number,
+    y: number,
+    width: number,
+    height: number,
+  ): TeamDeploymentZone => ({
+    team: 1,
+    type: "main",
+    polygons: [polygonFromBounds(x, y, x + width, y + height)],
+  });
 
   describe("skirmisher allocation", () => {
     it("sums count times ratio and ignores units without a contribution", () => {
-      const result = ArmyDeployer.getSkirmisherAllocation(gameDataManager, { 1: 2, 7: 3, 2: 4, 16: 9 }, "micro");
+      const result = ArmyDeployer.getSkirmisherAllocation(
+        gameDataManager,
+        { 1: 2, 7: 3, 2: 4, 16: 9 },
+        "micro",
+      );
       expect(result?.weightedTotal).toBeCloseTo(5.6);
-      expect(result).toMatchObject({ amount: 2, coreUnitsPerSkirmisher: 2, nextBreakpoint: 6 });
-      expect(ArmyDeployer.getSkirmishersAmount(gameDataManager, { 1: 2, 7: 3, 2: 4, 16: 9 }, "micro")).toBe(result?.amount);
+      expect(result).toMatchObject({
+        amount: 2,
+        coreUnitsPerSkirmisher: 2,
+        nextBreakpoint: 6,
+      });
+      expect(
+        ArmyDeployer.getSkirmishersAmount(
+          gameDataManager,
+          { 1: 2, 7: 3, 2: 4, 16: 9 },
+          "micro",
+        ),
+      ).toBe(result?.amount);
     });
 
     it.each([
-      [0, 0, 2], [1, 0, 2], [2, 1, 4], [4, 2, 6],
-    ])("reports the next threshold for %i line infantry", (count, amount, nextBreakpoint) => {
-      expect(ArmyDeployer.getSkirmisherAllocation(gameDataManager, { 1: count }, "micro"))
-        .toEqual({ amount, weightedTotal: count, coreUnitsPerSkirmisher: 2, nextBreakpoint });
-    });
+      [0, 0, 2],
+      [1, 0, 2],
+      [2, 1, 4],
+      [4, 2, 6],
+    ])(
+      "reports the next threshold for %i line infantry",
+      (count, amount, nextBreakpoint) => {
+        expect(
+          ArmyDeployer.getSkirmisherAllocation(
+            gameDataManager,
+            { 1: count },
+            "micro",
+          ),
+        ).toEqual({
+          amount,
+          weightedTotal: count,
+          coreUnitsPerSkirmisher: 2,
+          nextBreakpoint,
+        });
+      },
+    );
 
     it("uses battle-type ratios and the same integer rounding as deployment", () => {
       const custom = GameDataManager.createWithCustomDefs("napoleonic", {
         customGameRules: { organization: { maxOrgMeleeDefensePenalty: 0 } },
       });
       jest.spyOn(custom, "getBattleType").mockReturnValue({
-        ...gameDataManager.getBattleType("micro"), skirmisherRatio: [2, 2.5],
+        ...gameDataManager.getBattleType("micro"),
+        skirmisherRatio: [2, 2.5],
       });
-      expect(ArmyDeployer.getSkirmisherAllocation(custom, { 1: 2, 7: 0.5 }, "micro"))
-        .toEqual({ amount: 0, weightedTotal: 2.6, coreUnitsPerSkirmisher: 1.25, nextBreakpoint: 3 });
-      expect(ArmyDeployer.getSkirmisherAllocation(custom, { 1: 3 }, "micro"))
-        .toEqual({ amount: 2, weightedTotal: 3, coreUnitsPerSkirmisher: 1.25, nextBreakpoint: 5 });
+      expect(
+        ArmyDeployer.getSkirmisherAllocation(custom, { 1: 2, 7: 0.5 }, "micro"),
+      ).toEqual({
+        amount: 0,
+        weightedTotal: 2.6,
+        coreUnitsPerSkirmisher: 1.25,
+        nextBreakpoint: 3,
+      });
+      expect(
+        ArmyDeployer.getSkirmisherAllocation(custom, { 1: 3 }, "micro"),
+      ).toEqual({
+        amount: 2,
+        weightedTotal: 3,
+        coreUnitsPerSkirmisher: 1.25,
+        nextBreakpoint: 5,
+      });
     });
 
     it("does not show a threshold when automatic skirmishers are disabled by the ratio", () => {
@@ -38,23 +92,28 @@ describe("ArmyDeployer", () => {
         customGameRules: { organization: { maxOrgMeleeDefensePenalty: 0 } },
       });
       jest.spyOn(custom, "getBattleType").mockReturnValue({
-        ...gameDataManager.getBattleType("micro"), skirmisherRatio: [0, 2],
+        ...gameDataManager.getBattleType("micro"),
+        skirmisherRatio: [0, 2],
       });
-      expect(ArmyDeployer.getSkirmisherAllocation(custom, { 1: 10 }, "micro")).toBeNull();
-      expect(ArmyDeployer.getSkirmishersAmount(custom, { 1: 10 }, "micro")).toBe(0);
+      expect(
+        ArmyDeployer.getSkirmisherAllocation(custom, { 1: 10 }, "micro"),
+      ).toBeNull();
+      expect(
+        ArmyDeployer.getSkirmishersAmount(custom, { 1: 10 }, "micro"),
+      ).toBe(0);
     });
   });
 
   it("rotates generated formation positions with the deployment zone", () => {
     const unitCounts: UnitCounts = { "1": 2 };
-    const zone: Zone = { x: 100, y: 200, width: 400, height: 160 };
-    const rotatedZone: Zone = { ...zone, rotation: Math.PI / 2 };
+    const deploymentZone = zone(100, 200, 400, 160);
+    const rotatedZone: TeamDeploymentZone = { ...deploymentZone, rotation: 0 };
 
     const unrotated = new ArmyDeployer(
       gameDataManager,
       unitCounts,
-      zone,
-      zone,
+      deploymentZone,
+      deploymentZone,
       1,
       1,
     ).deploy();
@@ -67,31 +126,27 @@ describe("ArmyDeployer", () => {
       1,
     ).deploy();
 
-    const center = { x: zone.x + zone.width / 2, y: zone.y + zone.height / 2 };
+    const center = { x: 300, y: 280 };
     expect(rotated).toHaveLength(unrotated.length);
     rotated.forEach((unit, index) => {
       const source = unrotated[index].pos;
       expect(unit.pos.x).toBeCloseTo(center.x - (source.y - center.y));
       expect(unit.pos.y).toBeCloseTo(center.y + (source.x - center.x));
+      expect(unit.rotation).toBe(0);
     });
   });
 
   describe("order of battle layout", () => {
     // 1 = line infantry, 8 = cuirassiers, 12 = 12pdr foot artillery. None of the
     // three deploys forward, so they all land in the main zone.
-    const wideZone: Zone = { x: 0, y: 0, width: 1200, height: 300 };
+    const wideZone = zone(0, 0, 1200, 300);
     // Skirmishers are spawned automatically and deploy forward; a zone of its own
     // keeps them out of the rows under test.
-    const forwardZone: Zone = { ...wideZone, y: 2000 };
+    const forwardZone = zone(0, 2000, 1200, 300);
     const deploy = (unitCounts: UnitCounts) =>
-      new ArmyDeployer(
-        gameDataManager,
-        unitCounts,
-        wideZone,
-        forwardZone,
-        1,
-        1,
-      ).deploy().filter((unit) => unit.pos.y < 1000);
+      new ArmyDeployer(gameDataManager, unitCounts, wideZone, forwardZone, 1, 1)
+        .deploy()
+        .filter((unit) => unit.pos.y < 1000);
 
     /** Groups of x that stand together, split wherever the gap more than doubles. */
     const clusters = (xs: number[]) => {
@@ -250,7 +305,9 @@ describe("ArmyDeployer", () => {
         .map((unit) => unit.pos.x)
         .sort((a, b) => a - b);
       const pitch = Math.min(...line.slice(1).map((x, i) => x - line[i]));
-      expect(Math.abs(guns[0].pos.x - guns[1].pos.x)).toBeGreaterThan(3 * pitch);
+      expect(Math.abs(guns[0].pos.x - guns[1].pos.x)).toBeGreaterThan(
+        3 * pitch,
+      );
     });
   });
 
@@ -262,19 +319,19 @@ describe("ArmyDeployer", () => {
         "11": 6,
       };
 
-      const deploymentZone: Zone = {
-        x: 1508.5714285714284,
-        y: 48,
-        width: 43.42857142857143,
-        height: 304,
-      };
+      const deploymentZone = zone(
+        1508.5714285714284,
+        48,
+        43.42857142857143,
+        304,
+      );
 
-      const forwardDeploymentZone: Zone = {
-        x: 1508.5714285714284,
-        y: 48,
-        width: 43.42857142857143,
-        height: 304,
-      };
+      const forwardDeploymentZone = zone(
+        1508.5714285714284,
+        48,
+        43.42857142857143,
+        304,
+      );
 
       const armyDeployer = new ArmyDeployer(
         gameDataManager,
@@ -293,15 +350,36 @@ describe("ArmyDeployer", () => {
   });
 });
 
-
 it("uses scenario doctrine sizes and brigade counts for deployment", () => {
   const base = GameDataManager.get("ww2").getOrganizationDoctrine();
   const game = GameDataManager.createWithCustomDefs("ww2", {
-    organizationDoctrine: { ...base, divisions: base.divisions.map((d) => d.id === "infantry"
-      ? { ...d, maxTroops: 12, maxPerBrigade: 4, maxBrigades: 3 } : d) },
+    organizationDoctrine: {
+      ...base,
+      divisions: base.divisions.map((d) =>
+        d.id === "infantry"
+          ? { ...d, maxTroops: 12, maxPerBrigade: 4, maxBrigades: 3 }
+          : d,
+      ),
+    },
   });
-  const zone: Zone = { x: 0, y: 0, width: 1200, height: 300 };
-  const deployed = new ArmyDeployer(game, { "1": 12 }, zone, { ...zone, y: 2000 }, 1, 1).deploy();
+  const zone: TeamDeploymentZone = {
+    team: 1,
+    type: "main",
+    polygons: [polygonFromBounds(0, 0, 1200, 300)],
+  };
+  const forward: TeamDeploymentZone = {
+    team: 1,
+    type: "forward",
+    polygons: [polygonFromBounds(0, 2000, 1200, 2300)],
+  };
+  const deployed = new ArmyDeployer(
+    game,
+    { "1": 12 },
+    zone,
+    forward,
+    1,
+    1,
+  ).deploy();
   const line = deployed.filter((unit) => unit.type === 1);
   expect(line).toHaveLength(12);
   expect(new Set(line.map((unit) => unit.pos.y)).size).toBe(3);
