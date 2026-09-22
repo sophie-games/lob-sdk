@@ -17,5 +17,6 @@ export * from "./unit";
 export * from "./collision-config";
 export * from "./skin";
 export * from "./army";
+export * from "./army-composition";
 export * from "./army-organization";
 export * from "./util-types";

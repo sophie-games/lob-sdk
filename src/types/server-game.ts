@@ -27,7 +27,7 @@ import {
   OrderTemplate,
   OrderType,
   ArmyPanelGroup,
-  ArmyOrganization,
+  ArmyComposition,
   FogOfWarMode,
 } from "@lob-sdk/types";
 import type {
@@ -690,8 +690,8 @@ export interface AddNewPlayerProps {
   userTier?: UserTier;
   /** Optional unit composition for the player. */
   units?: UnitCounts;
-  /** Optional saved OOB for the selected army composition. */
-  organization?: ArmyOrganization | null;
+  /** Optional saved army preset, including its OOB. */
+  composition?: ArmyComposition | null;
   /** Optional player number. If not provided, will be auto-assigned. */
   playerNumber?: number;
 }
