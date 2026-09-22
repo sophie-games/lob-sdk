@@ -7,6 +7,7 @@ import {
 } from "../../../utils/deployment-zone";
 import polygonClipping from "polygon-clipping";
 import type { Polygon } from "polygon-clipping";
+import { getForwardZone, getMainZone } from "../../../types/scenario";
 
 /**
  * The fixed 11:30 deployment uses simple shared ground for each army. Passing
@@ -121,6 +122,7 @@ describe("Battle of Waterloo scenario", () => {
 
     const [french, allied] = scenario.map!.deploymentZones!;
     expect(french.zones.map(({ type }) => type)).toEqual(["main"]);
+    expect(getForwardZone(french)).toBe(getMainZone(french));
     expect(allied.zones.filter(({ type }) => type === "main")).toHaveLength(3);
     expect(allied.zones.filter(({ type }) => type === "forward")).toHaveLength(4);
     expect([...french.zones, ...allied.zones].every(({ player }) => player === undefined)).toBe(true);

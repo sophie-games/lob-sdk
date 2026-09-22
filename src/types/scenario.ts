@@ -149,17 +149,13 @@ export const getMainZone = (tdz: TeamDeploymentZones): TeamDeploymentZone => {
 };
 
 /**
- * Returns the first forward zone. Throws if none — every team is expected to
- * have at least one forward zone (skirmisher deployment).
+ * Returns the first forward zone, or main ground when the scenario leaves a
+ * team without a separate skirmisher area.
  */
 export const getForwardZone = (
   tdz: TeamDeploymentZones,
 ): TeamDeploymentZone => {
-  const zone = getDeploymentZone(tdz, "forward");
-  if (!zone) {
-    throw new Error(`Team ${tdz.team} has no forward deployment zone`);
-  }
-  return zone;
+  return getDeploymentZone(tdz, "forward") ?? getMainZone(tdz);
 };
 
 /**
