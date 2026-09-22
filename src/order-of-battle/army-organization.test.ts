@@ -1,6 +1,10 @@
 import { GameDataManager } from "@lob-sdk/game-data-manager";
-import type { ArmyOrganization } from "@lob-sdk/types";
 import {
+  ARMY_ORGANIZATION_VERSION,
+  type ArmyOrganization,
+} from "@lob-sdk/types";
+import {
+  MAX_ORGANIZATION_NAME_LENGTH,
   materializeArmyOrganization,
   validateArmyOrganization,
 } from "./army-organization";
@@ -54,6 +58,38 @@ describe("army organization presets", () => {
         "Organization units must exactly match the deployed army",
       ]),
     );
+  });
+
+  it("accepts names up to the shared limit and the current version only", () => {
+    const named = (name: string): ArmyOrganization => ({
+      ...organization,
+      divisions: [{ ...organization.divisions[0], name }],
+    });
+    const roster = { 1: 2, 12: 1, 16: 1 };
+
+    expect(
+      validateArmyOrganization(
+        named("x".repeat(MAX_ORGANIZATION_NAME_LENGTH)),
+        doctrine,
+        roster,
+      ),
+    ).toEqual([]);
+    expect(
+      validateArmyOrganization(
+        named("x".repeat(MAX_ORGANIZATION_NAME_LENGTH + 1)),
+        doctrine,
+        roster,
+      ),
+    ).toEqual([
+      `Organization names must be at most ${MAX_ORGANIZATION_NAME_LENGTH} characters`,
+    ]);
+    expect(
+      validateArmyOrganization(
+        { ...organization, version: ARMY_ORGANIZATION_VERSION + 1 },
+        doctrine,
+        roster,
+      ),
+    ).toEqual(["Invalid army organization"]);
   });
 
   it("materializes counts into stable, unique unit ids", () => {

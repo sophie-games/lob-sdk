@@ -6,6 +6,7 @@ import {
   DynamicBattleType,
   Zone,
   ArmyOrganization,
+  ARMY_ORGANIZATION_VERSION,
 } from "@lob-sdk/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import {
@@ -397,8 +398,6 @@ export class ArmyDeployer {
         const divisions = this.cutIntoDivisions(
           line.length ? line : light,
           divisionsNeeded(group.length, definition.maxTroops),
-          definition.maxPerBrigade,
-          definition.maxBrigades,
           definition,
         );
         if (line.length)
@@ -477,15 +476,13 @@ export class ArmyDeployer {
   private cutIntoDivisions(
     recruits: Recruit[],
     divisions: number,
-    maxPerBrigade: number,
-    maxBrigades: number,
     definition: DivisionDoctrine,
   ): DeployedDivision[] {
     if (divisions <= 0 || recruits.length === 0) return [];
     const perDivision = brigadesNeeded(
       Math.ceil(recruits.length / divisions),
-      maxPerBrigade,
-      maxBrigades,
+      definition.maxPerBrigade,
+      definition.maxBrigades,
     );
     const brigades = cutIntoGroups(recruits, divisions * perDivision, () => 1);
 
@@ -666,7 +663,7 @@ export class ArmyDeployer {
     );
     const { ordered } = deployer.planOrderOfBattle(deployer.getRecruits());
     return {
-      version: 1,
+      version: ARMY_ORGANIZATION_VERSION,
       divisions: ordered.map((division) => {
         const brigades = division.brigades.map((recruits) => ({
           kind: division.brigadeKind,

@@ -1,14 +1,16 @@
-import type {
-  ArmyOrganization,
-  EntityId,
-  UnitCounts,
-  UnitType,
+import {
+  ARMY_ORGANIZATION_VERSION,
+  type ArmyOrganization,
+  type EntityId,
+  type UnitCounts,
+  type UnitType,
 } from "@lob-sdk/types";
 import type { OrganizationDoctrine, ScenarioOrganization } from "./types";
 
 const MAX_DIVISIONS = 100;
 const MAX_BRIGADES_PER_DIVISION = 20;
-const MAX_NAME_LENGTH = 32;
+export const MAX_ORGANIZATION_NAME_LENGTH = 32;
+const NAME_TOO_LONG = `Organization names must be at most ${MAX_ORGANIZATION_NAME_LENGTH} characters`;
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   value !== null && typeof value === "object" && !Array.isArray(value);
@@ -47,7 +49,7 @@ export function validateArmyOrganization(
   const errors: string[] = [];
   if (
     !isRecord(value) ||
-    value.version !== 1 ||
+    value.version !== ARMY_ORGANIZATION_VERSION ||
     !Array.isArray(value.divisions) ||
     value.divisions.length > MAX_DIVISIONS
   ) {
@@ -74,9 +76,9 @@ export function validateArmyOrganization(
     if (
       division.name !== undefined &&
       (typeof division.name !== "string" ||
-        division.name.length > MAX_NAME_LENGTH)
+        division.name.length > MAX_ORGANIZATION_NAME_LENGTH)
     ) {
-      errors.push("Organization names must be at most 32 characters");
+      errors.push(NAME_TOO_LONG);
     }
     if (
       division.brigades.length === 0 ||
@@ -99,9 +101,9 @@ export function validateArmyOrganization(
       if (
         brigade.name !== undefined &&
         (typeof brigade.name !== "string" ||
-          brigade.name.length > MAX_NAME_LENGTH)
+          brigade.name.length > MAX_ORGANIZATION_NAME_LENGTH)
       ) {
-        errors.push("Organization names must be at most 32 characters");
+        errors.push(NAME_TOO_LONG);
       }
       const entries = Object.entries(brigade.units);
       if (entries.length === 0) hasEmptyBody = true;
