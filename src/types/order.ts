@@ -323,7 +323,15 @@ export interface TurnSubmission {
   autofireConfigChanges?: UnitAutofireConfigChange[];
   /** Optional formation changes for units. */
   formationChanges?: UnitFormationChange[];
+  /** Turn 0 only: the commander-in-chief's reassignment of the team's deployment positions. */
+  deploymentZoneAssignments?: DeploymentZoneAssignments;
 }
+
+/**
+ * Authored command seat (the `player` of its deployment zones) to the seat that
+ * now holds that position, or null when nobody does. Missing seats keep their owner.
+ */
+export type DeploymentZoneAssignments = Record<number, number | null>;
 
 /**
  * Change to a unit's autofire configuration.

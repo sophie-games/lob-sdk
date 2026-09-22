@@ -26,6 +26,14 @@ export class ScenarioFeatures {
     return scenario.placeableObjectives === true;
   }
 
+  /** The commander-in-chief reassigns the team's deployment positions during turn 0. */
+  static hasAssignableDeploymentZones(scenario: Scenario): boolean {
+    return (
+      scenario.assignableDeploymentZones === true &&
+      ScenarioFeatures.hasDeploymentPhase(scenario)
+    );
+  }
+
   /** Player slots and teams are baked in; matchmaking can't reshape them. */
   static hasFixedPlayers(
     scenario: Scenario,
