@@ -1,7 +1,10 @@
 import { UnitCounts, Zone } from "@lob-sdk/types";
 import { ArmyDeployer } from "./army-deployer";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
-import { countArmyOrganizationUnits } from "@lob-sdk/order-of-battle";
+import {
+  countArmyOrganizationUnits,
+  materializeArmyOrganization,
+} from "@lob-sdk/order-of-battle";
 
 describe("ArmyDeployer", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
@@ -148,6 +151,44 @@ describe("ArmyDeployer", () => {
       expect(countArmyOrganizationUnits(organization)).toEqual(
         ArmyDeployer.getDeployedUnitCounts(gameDataManager, units, "battle"),
       );
+    });
+
+    it("gives each division of the default organization the battery that deployed with it", () => {
+      // 2 = dragoons (rear wing), 8 = cuirassiers (rear centre), 6 = horse guns,
+      // which both cavalry divisions draw on.
+      const units: UnitCounts = { 1: 10, 2: 5, 8: 5, 6: 4 };
+      const deployed = new ArmyDeployer(
+        gameDataManager,
+        units,
+        wideZone,
+        forwardZone,
+        1,
+        1,
+        "battle",
+      )
+        .deploy()
+        .map((unit, id) => ({ ...unit, id }));
+      const organization = materializeArmyOrganization(
+        ArmyDeployer.getDefaultOrganization(gameDataManager, units, "battle"),
+        1,
+        deployed,
+      );
+
+      expect(organization).not.toBeNull();
+
+      const xsOf = (brigades: { unitIds: number[] }[]) =>
+        brigades.flatMap(({ unitIds }) =>
+          unitIds.map((id) => deployed[id].pos.x),
+        );
+      for (const { brigades } of organization?.divisions ?? []) {
+        const isGuns = ({ kind }: { kind?: string }) => kind === "artillery";
+        const line = xsOf(brigades.filter((brigade) => !isGuns(brigade)));
+        if (line.length === 0) continue;
+        for (const x of xsOf(brigades.filter(isGuns))) {
+          expect(x).toBeGreaterThanOrEqual(Math.min(...line));
+          expect(x).toBeLessThanOrEqual(Math.max(...line));
+        }
+      }
     });
 
     it("keeps a division together instead of spreading it over the army", () => {

@@ -36,6 +36,13 @@ interface DeployedLine {
   right: DeployedDivision[];
 }
 
+/** A line's divisions in the order deployLine emits their units. */
+const inDeploymentOrder = (line: DeployedLine) => [
+  ...line.centre,
+  ...line.left,
+  ...line.right,
+];
+
 /**
  * One division as the deployer lays it out: its brigades in line, the skirmishers
  * screening it and the battery it carries. Both stand over the division's own
@@ -459,7 +466,10 @@ export class ArmyDeployer {
     }
     return {
       ...result,
-      ordered: planned.flatMap(({ divisions }) => divisions),
+      ordered: [
+        ...inDeploymentOrder(result.front),
+        ...inDeploymentOrder(result.rear),
+      ],
     };
   }
 
