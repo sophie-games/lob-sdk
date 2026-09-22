@@ -53,7 +53,7 @@ const onSegment = (point: Point2, a: Point2, b: Point2): boolean => {
 const inRing = (
   ring: Point2[],
   point: Point2,
-  includeEdge: boolean,
+  { includeEdge }: { includeEdge: boolean },
 ): boolean => {
   let inside = false;
   for (let i = 0, previous = ring.length - 1; i < ring.length; previous = i++) {
@@ -76,8 +76,10 @@ export const isInsideDeploymentZone = (
 ): boolean =>
   zone.polygons.some(
     ({ outer, holes }) =>
-      inRing(outer, point, true) &&
-      !(holes ?? []).some((hole) => inRing(hole, point, false)),
+      inRing(outer, point, { includeEdge: true }) &&
+      !(holes ?? []).some((hole) =>
+        inRing(hole, point, { includeEdge: false }),
+      ),
   );
 
 const nearestPointOnSegment = (point: Point2, a: Point2, b: Point2): Point2 => {
@@ -199,14 +201,14 @@ export const isValidDeploymentPolygon = ({
   return holes.every(
     (hole, index) =>
       isValidDeploymentRing(hole) &&
-      hole.every((point) => inRing(outer, point, false)) &&
+      hole.every((point) => inRing(outer, point, { includeEdge: false })) &&
       !ringsIntersect(outer, hole) &&
       holes.every(
         (other, otherIndex) =>
           otherIndex === index ||
           (!ringsIntersect(hole, other) &&
-            !inRing(other, hole[0]!, true) &&
-            !inRing(hole, other[0]!, true)),
+            !inRing(other, hole[0]!, { includeEdge: true }) &&
+            !inRing(hole, other[0]!, { includeEdge: true })),
       ),
   );
 };
