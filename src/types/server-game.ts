@@ -359,6 +359,8 @@ export interface GameMetadata {
   objectivesRuleOverride?: ObjectivesRuleOverride;
   /** Scenario's placeable-objectives flag captured at game creation (imported scenarios have no registry entry to read). */
   placeableObjectives?: boolean;
+  /** Scenario's assignable-deployment-zones flag captured at game creation (imported scenarios have no registry entry to read). */
+  assignableDeploymentZones?: boolean;
   /** Scenario's no-inherent-ammo flag captured at game creation (imported scenarios have no registry entry to read). Resolved via the BaseGame.noInherentAmmo getter. */
   noInherentAmmo?: boolean;
   /** Host-with-lobby games only: players claim numbered slots that the host manages. Set once at creation. */
@@ -594,6 +596,8 @@ export interface PlayerSetup {
   team: number;
   /** Optional authored identity shown anywhere a player chooses this command seat. */
   command?: PlayerCommand;
+  /** Whoever controls this seat assigns the team's deployment positions. At most one per team. */
+  commanderInChief?: boolean;
   /** Ammo reserve for the player. Used for preset scenarios. */
   ammoReserve?: number;
   /** Base ammo reserve before any modifications. */
