@@ -408,7 +408,7 @@
     },
     "range": {
       "title": "Jarak tembak",
-      "description": "Tembakan jauh menimbulkan lebih sedikit kerusakan. Mendekatlah atau batasi tembakan otomatis."
+      "description": "Tembakan jauh menimbulkan lebih sedikit kerusakan. Mendekatlah atau batasi <autofire>tembakan otomatis</autofire>."
     },
     "flanks": {
       "title": "Lindungi sisi",
@@ -425,11 +425,11 @@
     "ammo": {
       "view": "Lihat amunisi",
       "title": "Amunisi",
-      "description": "Artileri menghabiskan cadangan amunisimu, yang terisi kembali setiap giliran. Tanpa amunisi, artileri tidak dapat menembak. Atur tembakan otomatis untuk menghemat amunisi."
+      "description": "Artileri menghabiskan cadangan amunisimu, yang terisi kembali setiap giliran. Tanpa amunisi, artileri tidak dapat menembak. Atur <autofire>tembakan otomatis</autofire> untuk menghemat amunisi."
     },
     "running": {
       "title": "Berlari dengan tujuan",
-      "description": "Bagi sebagian besar pasukan, berlari menghabiskan stamina dan membuat mereka lebih mudah dipatahkan jika menerima serbuan sesudahnya. Berjalanlah sampai butuh kecepatan atau ingin menyerbu."
+      "description": "Bagi sebagian besar pasukan, <run>berlari</run> menghabiskan stamina dan membuat mereka lebih mudah dipatahkan jika menerima serbuan sesudahnya. <walk>Berjalanlah</walk> sampai butuh kecepatan atau ingin menyerbu."
     },
     "overlap": {
       "title": "Jangan tumpuk unit",
@@ -437,7 +437,7 @@
     },
     "terrain": {
       "title": "Manfaatkan medan",
-      "description": "Medan mengubah pergerakan dan pertempuran. Buka Info untuk melihat pengubah unit saat ini dan memilih medan yang sesuai."
+      "description": "Medan mengubah pergerakan dan pertempuran. Buka <info>Info</info> untuk melihat pengubah unit saat ini dan memilih medan yang sesuai."
     },
     "basicsSelect": {
       "title": "Memberi perintah",
@@ -445,15 +445,15 @@
     },
     "basicsOrderTypes": {
       "title": "Jenis perintah",
-      "description": "Setiap gerakan punya tempo. Berjalan menghemat stamina, Berlari lebih cepat tetapi melelahkan, Tembak dan Maju menembak sambil mendekat. Buka menu perintah untuk mengganti."
+      "description": "Setiap gerakan punya tempo. <walk>Berjalan</walk> menghemat stamina, <run>Berlari</run> lebih cepat tetapi melelahkan, <fireAndAdvance>Tembak dan Maju</fireAndAdvance> menembak sambil mendekat. Buka menu perintah untuk mengganti."
     },
     "basicsFormations": {
       "title": "Formasi",
-      "description": "Formasi menentukan lebar depan dan daya tembak. Kolom berbaris cepat, baris mengarahkan paling banyak musket ke depan, kotak melindungi semua sisi dari kavaleri."
+      "description": "Formasi menentukan lebar depan dan daya tembak. <column>Kolom</column> berbaris cepat, <line>baris</line> mengarahkan paling banyak musket ke depan, <square>kotak</square> melindungi semua sisi dari kavaleri."
     },
     "basicsSubmit": {
       "title": "Mengirim giliran",
-      "description": "Perintah menunggu sampai Anda mengirim giliran. Kedua pasukan diselesaikan bersamaan, jadi rencanakan ke mana musuh akan berada, bukan di mana ia sekarang."
+      "description": "Perintah menunggu sampai Anda <submitOrders>mengirim</submitOrders> giliran. Kedua pasukan diselesaikan bersamaan, jadi rencanakan ke mana musuh akan berada, bukan di mana ia sekarang."
     },
     "idleUnits": {
       "title": "Pasukan tanpa perintah",
@@ -465,7 +465,7 @@
     },
     "skirmisherVsCavalry": {
       "title": "Kavaleri dekat penembak Anda",
-      "description": "Skirmisher Anda akan dihancurkan oleh kavaleri musuh jika mempertahankan posisi tersebut. Mundur dan cari perlindungan."
+      "description": "Skirmisher Anda akan dihancurkan oleh kavaleri musuh jika mempertahankan posisi tersebut. <fallback>Mundur</fallback> dan cari perlindungan."
     },
     "skirmisherVsInfantry": {
       "title": "Infanteri dekat penembak Anda",
@@ -473,19 +473,19 @@
     },
     "infantryFormLine": {
       "title": "Bentuk baris",
-      "description": "Ganti satuan-satuan ini menjadi garis. Dengan infanteri musuh dalam jangkauan musket atau kavaleri yang datang di depan, garis memberi Anda musket paling banyak diarahkan ke depan dan pertahanan terbaik terhadap tembakan yang datang. Jangan membentuk persegi melawan serangan frontal, Anda akan kehilangan setengah daya tembak Anda."
+      "description": "Ganti satuan-satuan ini menjadi <line>garis</line>. Dengan infanteri musuh dalam jangkauan musket atau kavaleri yang datang di depan, garis memberi Anda musket paling banyak diarahkan ke depan dan pertahanan terbaik terhadap tembakan yang datang. Jangan membentuk persegi melawan serangan frontal, Anda akan kehilangan setengah daya tembak Anda."
     },
     "infantryVsCavalryFrontal": {
       "title": "Pertahankan baris",
-      "description": "Kavaleri musuh menyerbu depan infanterimu, tapi mereka punya perintah antri. Hapus agar barisan berdiri menembak, bukan berjalan ke kaki kuda."
+      "description": "Kavaleri musuh menyerbu depan infanterimu, tapi mereka punya perintah antri. <removeOrders>Hapus</removeOrders> agar barisan berdiri menembak, bukan berjalan ke kaki kuda."
     },
     "infantryVsCavalryFlank": {
       "title": "Bentuk kotak",
-      "description": "Kavaleri datang dari sisi atau belakang infanteri Anda. Sebuah garis dilewati dari samping. Bentuk persegi pada setiap unit yang disorot sehingga setiap mukanya memiliki senapan."
+      "description": "Kavaleri datang dari sisi atau belakang infanteri Anda. Sebuah garis dilewati dari samping. Bentuk <square>persegi</square> pada setiap unit yang disorot sehingga setiap mukanya memiliki senapan."
     },
     "infantryBayonetCharge": {
       "title": "Serbuan bayonet",
-      "description": "Infanteri musuh yang lemah dalam jangkauan serangan. Bentuk kolom dan temui mereka. Bayonet yang bersentuhan di kolom mematahkannya."
+      "description": "Infanteri musuh yang lemah dalam jangkauan serangan. Bentuk <column>kolom</column> dan <run>berlari</run> ke arah mereka. Bayonet yang bersentuhan di kolom mematahkannya."
     },
     "infantryFallback": {
       "title": "Tarik mundur pasukan ini",
@@ -493,15 +493,15 @@
     },
     "infantryVsSkirmishers": {
       "title": "Infanteri lawan penembak",
-      "description": "Skirmisher musuh berada di dekat Anda dan tidak ada kavaleri yang tersedia. Maju dengan berjalan kaki dan paksa mereka bertarung jarak dekat, tempat mereka paling lemah."
+      "description": "Skirmisher musuh berada di dekat Anda dan tidak ada kavaleri yang tersedia. Maju dengan <walk>berjalan</walk> kaki dan paksa mereka bertarung jarak dekat, tempat mereka paling lemah."
     },
     "infantryVsArtillery": {
       "title": "Infanteri lawan artileri",
-      "description": "Meriam musuh berada dekat dan tanpa perlindungan. Berlari langsung ke awaknya sebelum mereka sempat berputar dan menembakkan peluru canister."
+      "description": "Meriam musuh berada dekat dan tanpa perlindungan. <run>Berlari</run> langsung ke awaknya sebelum mereka sempat berputar dan menembakkan peluru canister."
     },
     "infantryColumnMarch": {
       "title": "Berbaris dalam kolom",
-      "description": "Tidak ada musuh di dekat unit ini. Beralih ke formasi kolom untuk bergerak lebih cepat, lalu bentuk formasi garis sebelum kontak."
+      "description": "Tidak ada musuh di dekat unit ini. Beralih ke formasi <column>kolom</column> untuk bergerak lebih cepat, lalu bentuk formasi <line>garis</line> sebelum kontak."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Kavaleri lawan kavaleri lebih lemah",
@@ -509,7 +509,7 @@
     },
     "cavalryVsEqualCavalry": {
       "title": "Kavaleri lawan kavaleri seimbang",
-      "description": "Kavaleri musuh saling bersentuhan dan kira-kira sama stabilnya dengan milik Anda. Jangan buang stamina pada serangan yang tidak bisa Anda menangkan. Tutup saat berjalan-jalan dan berkelahi dengan seimbang."
+      "description": "Kavaleri musuh saling bersentuhan dan kira-kira sama stabilnya dengan milik Anda. Jangan buang stamina pada serangan yang tidak bisa Anda menangkan. Dekati dengan <walk>berjalan</walk> dan bertarunglah secara seimbang."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Kavaleri lawan kavaleri lebih kuat",
@@ -545,7 +545,7 @@
     },
     "artilleryFireAndAdvance": {
       "title": "Tembak dan maju",
-      "description": "Musuh berada cukup jauh sehingga Anda bisa terus mendekat sambil menembak. Ganti unit artileri ini ke Tembak dan Maju."
+      "description": "Musuh berada cukup jauh sehingga Anda bisa terus mendekat sambil menembak. Ganti unit artileri ini ke <fireAndAdvance>Tembak dan Maju</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "Berhenti untuk menembak",

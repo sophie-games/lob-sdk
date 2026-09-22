@@ -407,7 +407,7 @@
     },
     "range": {
       "title": "Distanza di tiro",
-      "description": "I tiri da lontano infliggono meno danni. Avvicinati o limita il fuoco automatico per sfruttare meglio i colpi."
+      "description": "I tiri da lontano infliggono meno danni. Avvicinati o limita il <autofire>fuoco automatico</autofire> per sfruttare meglio i colpi."
     },
     "flanks": {
       "title": "Proteggi i fianchi",
@@ -424,11 +424,11 @@
     "ammo": {
       "view": "Vedi munizioni",
       "title": "Munizioni",
-      "description": "L’artiglieria consuma la tua riserva di munizioni, che si ricarica ogni turno. Senza munizioni non può sparare. Regola il fuoco automatico per risparmiare munizioni."
+      "description": "L’artiglieria consuma la tua riserva di munizioni, che si ricarica ogni turno. Senza munizioni non può sparare. Regola il <autofire>fuoco automatico</autofire> per risparmiare munizioni."
     },
     "running": {
       "title": "Corri con uno scopo",
-      "description": "Per la maggior parte delle truppe, correre consuma resistenza e le rende più facili da spezzare se subiscono poi una carica. Cammina finché non ti serve velocità o vuoi caricare."
+      "description": "Per la maggior parte delle truppe, <run>correre</run> consuma resistenza e le rende più facili da spezzare se subiscono poi una carica. <walk>Cammina</walk> finché non ti serve velocità o vuoi caricare."
     },
     "overlap": {
       "title": "Non sovrapporre le unità",
@@ -436,7 +436,7 @@
     },
     "terrain": {
       "title": "Sfrutta il terreno",
-      "description": "Il terreno modifica movimento e combattimento. Apri Info per vedere i modificatori attuali di un'unità e scegliere il terreno adatto."
+      "description": "Il terreno modifica movimento e combattimento. Apri <info>Info</info> per vedere i modificatori attuali di un'unità e scegliere il terreno adatto."
     },
     "basicsSelect": {
       "title": "Dare ordini",
@@ -444,15 +444,15 @@
     },
     "basicsOrderTypes": {
       "title": "Tipi di ordine",
-      "description": "Ogni movimento ha un'andatura. Camminare risparmia vigore, Correre è più veloce ma stanca, Fuoco e Avanza spara mentre si avvicina. Apri il menu degli ordini per cambiare."
+      "description": "Ogni movimento ha un'andatura. <walk>Camminare</walk> risparmia vigore, <run>Correre</run> è più veloce ma stanca, <fireAndAdvance>Fuoco e Avanza</fireAndAdvance> spara mentre si avvicina. Apri il menu degli ordini per cambiare."
     },
     "basicsFormations": {
       "title": "Formazioni",
-      "description": "La formazione decide il fronte e la potenza di fuoco. La colonna marcia veloce, la linea punta più moschetti in avanti, il quadrato protegge ogni lato dalla cavalleria."
+      "description": "La formazione decide il fronte e la potenza di fuoco. La <column>colonna</column> marcia veloce, la <line>linea</line> punta più moschetti in avanti, il <square>quadrato</square> protegge ogni lato dalla cavalleria."
     },
     "basicsSubmit": {
       "title": "Invia il turno",
-      "description": "Gli ordini restano in attesa finché non invii il turno. Entrambi gli eserciti si risolvono insieme, quindi prevedi dove sarà il nemico, non dov'è."
+      "description": "Gli ordini restano in attesa finché non <submitOrders>invii</submitOrders> il turno. Entrambi gli eserciti si risolvono insieme, quindi prevedi dove sarà il nemico, non dov'è."
     },
     "idleUnits": {
       "title": "Unità senza ordini",
@@ -464,7 +464,7 @@
     },
     "skirmisherVsCavalry": {
       "title": "Cavalleria vicino ai tuoi schermagliatori",
-      "description": "Il tuo schermagliatore verrà distrutto dalla cavalleria nemica se mantiene quella posizione. Fallback e cerca copertura."
+      "description": "Il tuo schermagliatore verrà distrutto dalla cavalleria nemica se mantiene quella posizione. <fallback>Ripiega</fallback> e cerca copertura."
     },
     "skirmisherVsInfantry": {
       "title": "Fanteria vicino ai tuoi schermagliatori",
@@ -472,19 +472,19 @@
     },
     "infantryFormLine": {
       "title": "Formare la linea",
-      "description": "Metti queste unità in linea. Con la fanteria nemica a portata di moschetto o la cavalleria che arriva in prima linea, la linea ti offre il maggior numero di moschetti puntati in avanti e la migliore difesa contro le raffiche in arrivo. Non formare squadra contro una carica frontale, perderesti metà della tua potenza di fuoco."
+      "description": "Metti queste unità in <line>linea</line>. Con la fanteria nemica a portata di moschetto o la cavalleria che arriva in prima linea, la linea ti offre il maggior numero di moschetti puntati in avanti e la migliore difesa contro le raffiche in arrivo. Non formare squadra contro una carica frontale, perderesti metà della tua potenza di fuoco."
     },
     "infantryVsCavalryFrontal": {
       "title": "Tenere la linea",
-      "description": "Cavalleria nemica carica il fronte della tua fanteria, ma hanno ordini in coda. Cancellali così la linea resta ferma e spara invece di camminare sotto gli zoccoli."
+      "description": "Cavalleria nemica carica il fronte della tua fanteria, ma hanno ordini in coda. <removeOrders>Cancellali</removeOrders> così la linea resta ferma e spara invece di camminare sotto gli zoccoli."
     },
     "infantryVsCavalryFlank": {
       "title": "Formare il quadrato",
-      "description": "La cavalleria arriva sul fianco o sul retro della tua fanteria. Una linea viene superata lateralmente. Forma un quadrato su ciascuna unità evidenziata in modo che ogni faccia abbia i moschetti fuori."
+      "description": "La cavalleria arriva sul fianco o sul retro della tua fanteria. Una linea viene superata lateralmente. Forma un <square>quadrato</square> su ciascuna unità evidenziata in modo che ogni faccia abbia i moschetti fuori."
     },
     "infantryBayonetCharge": {
       "title": "Carica alla baionetta",
-      "description": "Fanteria nemica debole nel raggio di carica. Forma una colonna e imbattiti in loro. La baionetta al contatto nella colonna li rompe."
+      "description": "Fanteria nemica debole nel raggio di carica. Forma una <column>colonna</column> e <run>corri</run> contro di loro. La baionetta al contatto nella colonna li rompe."
     },
     "infantryFallback": {
       "title": "Ritirare questa unità",
@@ -492,15 +492,15 @@
     },
     "infantryVsSkirmishers": {
       "title": "Fanteria contro schermagliatori",
-      "description": "Ci sono schermagliatori nemici vicini e non hai cavalleria disponibile. Avanza al passo e costringili al corpo a corpo, dove sono più deboli."
+      "description": "Ci sono schermagliatori nemici vicini e non hai cavalleria disponibile. Avanza <walk>al passo</walk> e costringili al corpo a corpo, dove sono più deboli."
     },
     "infantryVsArtillery": {
       "title": "Fanteria contro artiglieria",
-      "description": "I cannoni nemici sono vicini e senza protezione. Corri dritto sui serventi prima che possano ruotare e sparare a mitraglia."
+      "description": "I cannoni nemici sono vicini e senza protezione. <run>Corri</run> dritto sui serventi prima che possano ruotare e sparare a mitraglia."
     },
     "infantryColumnMarch": {
       "title": "Marciare in colonna",
-      "description": "Non ci sono nemici vicini a questa unità. Passa alla colonna per marciare più velocemente, poi forma la linea prima del contatto."
+      "description": "Non ci sono nemici vicini a questa unità. Passa alla <column>colonna</column> per marciare più velocemente, poi forma la <line>linea</line> prima del contatto."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Cavalleria contro cavalleria più debole",
@@ -508,7 +508,7 @@
     },
     "cavalryVsEqualCavalry": {
       "title": "Cavalleria contro cavalleria pari",
-      "description": "Cavalleria nemica in contatto e più o meno stabile come la tua. Non sprecare resistenza per una carica che non puoi vincere. Avvicinarsi al passo e rissa ad armi pari."
+      "description": "Cavalleria nemica in contatto e più o meno stabile come la tua. Non sprecare resistenza per una carica che non puoi vincere. Avvicinarsi <walk>al passo</walk> e rissa ad armi pari."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Cavalleria contro cavalleria più forte",
@@ -544,7 +544,7 @@
     },
     "artilleryFireAndAdvance": {
       "title": "Fuoco e avanza",
-      "description": "Il nemico è abbastanza lontano da poter continuare ad avvicinarsi mentre spari. Cambia questa unità di artiglieria in Fuoco e Avanza."
+      "description": "Il nemico è abbastanza lontano da poter continuare ad avvicinarsi mentre spari. Cambia questa unità di artiglieria in <fireAndAdvance>Fuoco e Avanza</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "Fermarsi per sparare",

@@ -409,7 +409,7 @@
     },
     "range": {
       "title": "Zasięg ognia",
-      "description": "Dalekie strzały zadają mniej obrażeń. Podejdź bliżej lub ogranicz automatyczny ostrzał."
+      "description": "Dalekie strzały zadają mniej obrażeń. Podejdź bliżej lub ogranicz <autofire>automatyczny ostrzał</autofire>."
     },
     "flanks": {
       "title": "Chroń flanki",
@@ -426,11 +426,11 @@
     "ammo": {
       "view": "Zobacz amunicję",
       "title": "Amunicja",
-      "description": "Artyleria zużywa twoją rezerwę amunicji, która uzupełnia się co turę. Bez amunicji nie może strzelać. Dostosuj automatyczny ostrzał, aby oszczędzać amunicję."
+      "description": "Artyleria zużywa twoją rezerwę amunicji, która uzupełnia się co turę. Bez amunicji nie może strzelać. Dostosuj <autofire>automatyczny ostrzał</autofire>, aby oszczędzać amunicję."
     },
     "running": {
       "title": "Biegaj z rozmysłem",
-      "description": "Dla większości wojsk bieg zużywa wytrzymałość i ułatwia ich złamanie, jeśli potem przyjmą szarżę. Maszeruj, dopóki nie potrzebujesz szybkości lub nie chcesz szarżować."
+      "description": "Dla większości wojsk <run>bieg</run> zużywa wytrzymałość i ułatwia ich złamanie, jeśli potem przyjmą szarżę. <walk>Maszeruj</walk>, dopóki nie potrzebujesz szybkości lub nie chcesz szarżować."
     },
     "overlap": {
       "title": "Nie nakładaj jednostek",
@@ -438,7 +438,7 @@
     },
     "terrain": {
       "title": "Wykorzystuj teren",
-      "description": "Teren zmienia ruch i walkę. Otwórz Informacje, aby zobaczyć bieżące modyfikatory jednostki i wybrać odpowiedni teren."
+      "description": "Teren zmienia ruch i walkę. Otwórz <info>Informacje</info>, aby zobaczyć bieżące modyfikatory jednostki i wybrać odpowiedni teren."
     },
     "basicsSelect": {
       "title": "Wydawanie rozkazów",
@@ -446,15 +446,15 @@
     },
     "basicsOrderTypes": {
       "title": "Rodzaje rozkazów",
-      "description": "Każdy ruch ma swoje tempo. Marsz oszczędza wytrzymałość, Bieg jest szybszy, ale męczy, Natarcie z ostrzałem strzela w trakcie zbliżania. Otwórz menu rozkazów, aby je zmienić."
+      "description": "Każdy ruch ma swoje tempo. <walk>Marsz</walk> oszczędza wytrzymałość, <run>Bieg</run> jest szybszy, ale męczy, <fireAndAdvance>Natarcie z ostrzałem</fireAndAdvance> strzela w trakcie zbliżania. Otwórz menu rozkazów, aby je zmienić."
     },
     "basicsFormations": {
       "title": "Szyki",
-      "description": "Szyk decyduje o szerokości frontu i sile ognia. Kolumna maszeruje szybko, linia kieruje najwięcej muszkietów do przodu, a czworobok osłania każdy bok przed kawalerią."
+      "description": "Szyk decyduje o szerokości frontu i sile ognia. <column>Kolumna</column> maszeruje szybko, <line>linia</line> kieruje najwięcej muszkietów do przodu, a <square>czworobok</square> osłania każdy bok przed kawalerią."
     },
     "basicsSubmit": {
       "title": "Zatwierdzenie tury",
-      "description": "Rozkazy czekają, aż zatwierdzisz turę. Obie armie rozliczają się jednocześnie, więc planuj tam, gdzie wróg będzie, a nie gdzie stoi."
+      "description": "Rozkazy czekają, aż <submitOrders>zatwierdzisz</submitOrders> turę. Obie armie rozliczają się jednocześnie, więc planuj tam, gdzie wróg będzie, a nie gdzie stoi."
     },
     "idleUnits": {
       "title": "Jednostki bez rozkazów",
@@ -466,7 +466,7 @@
     },
     "skirmisherVsCavalry": {
       "title": "Kawaleria blisko twoich strzelców",
-      "description": "Twój harcownik zostanie zniszczony przez kawalerię wroga, jeśli utrzyma tę pozycję. Cofnij się i szukaj osłony."
+      "description": "Twój harcownik zostanie zniszczony przez kawalerię wroga, jeśli utrzyma tę pozycję. <fallback>Cofnij się</fallback> i szukaj osłony."
     },
     "skirmisherVsInfantry": {
       "title": "Piechota blisko twoich strzelców",
@@ -474,19 +474,19 @@
     },
     "infantryFormLine": {
       "title": "Uformuj linię",
-      "description": "Przełącz te jednostki na linię. Kiedy wroga piechota jest w zasięgu muszkietów, a kawaleria zbliża się z przodu, linia zapewnia najwięcej muszkietów skierowanych do przodu i najlepszą obronę przed nadlatującymi salwami. Nie twórzcie szyku przeciwko szarży frontalnej, stracicie połowę swojej siły ognia."
+      "description": "Przełącz te jednostki na <line>linię</line>. Kiedy wroga piechota jest w zasięgu muszkietów, a kawaleria zbliża się z przodu, linia zapewnia najwięcej muszkietów skierowanych do przodu i najlepszą obronę przed nadlatującymi salwami. Nie twórzcie szyku przeciwko szarży frontalnej, stracicie połowę swojej siły ognia."
     },
     "infantryVsCavalryFrontal": {
       "title": "Utrzymaj linię",
-      "description": "Wroga kawaleria szarżuje na front twojej piechoty, ale mają kolejkę rozkazów. Wyczyść je, by linia stała i strzelała zamiast iść pod kopyta."
+      "description": "Wroga kawaleria szarżuje na front twojej piechoty, ale mają kolejkę rozkazów. <removeOrders>Wyczyść</removeOrders> je, by linia stała i strzelała zamiast iść pod kopyta."
     },
     "infantryVsCavalryFlank": {
       "title": "Uformuj czworobok",
-      "description": "Kawaleria nadchodząca z flanki lub z tyłu twojej piechoty. Lina jest przejeżdżana z boku. Uformuj kwadrat na każdej wyróżnionej jednostce, tak aby każda twarz miała wystawione muszkiety."
+      "description": "Kawaleria nadchodząca z flanki lub z tyłu twojej piechoty. Lina jest przejeżdżana z boku. Uformuj <square>kwadrat</square> na każdej wyróżnionej jednostce, tak aby każda twarz miała wystawione muszkiety."
     },
     "infantryBayonetCharge": {
       "title": "Szarża na bagnety",
-      "description": "Słaba piechota wroga w zasięgu szarży. Utwórz kolumnę i wbiegnij na nie. Bagnet przy kontakcie w kolumnie łamie je."
+      "description": "Słaba piechota wroga w zasięgu szarży. Utwórz <column>kolumnę</column> i <run>wbiegnij</run> na nie. Bagnet przy kontakcie w kolumnie łamie je."
     },
     "infantryFallback": {
       "title": "Wycofaj tę jednostkę",
@@ -494,15 +494,15 @@
     },
     "infantryVsSkirmishers": {
       "title": "Piechota przeciw strzelcom",
-      "description": "Wrodzy harcownicy są blisko, a kawaleria nie jest dostępna. Podejdź krokiem i zmuś ich do walki wręcz, w której są najsłabsi."
+      "description": "Wrodzy harcownicy są blisko, a kawaleria nie jest dostępna. Podejdź <walk>krokiem</walk> i zmuś ich do walki wręcz, w której są najsłabsi."
     },
     "infantryVsArtillery": {
       "title": "Piechota przeciw artylerii",
-      "description": "Wrogie działa są blisko i bez osłony. Biegnij prosto na obsługę, zanim zdąży obrócić działa i wystrzelić kartaczem."
+      "description": "Wrogie działa są blisko i bez osłony. <run>Biegnij</run> prosto na obsługę, zanim zdąży obrócić działa i wystrzelić kartaczem."
     },
     "infantryColumnMarch": {
       "title": "Marsz w kolumnie",
-      "description": "W pobliżu tej jednostki nie ma wrogów. Przejdź do kolumny, aby maszerować szybciej, a przed kontaktem uformuj linię."
+      "description": "W pobliżu tej jednostki nie ma wrogów. Przejdź do <column>kolumny</column>, aby maszerować szybciej, a przed kontaktem uformuj <line>linię</line>."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Kawaleria przeciw słabszej kawalerii",
@@ -510,7 +510,7 @@
     },
     "cavalryVsEqualCavalry": {
       "title": "Kawaleria przeciw równej kawalerii",
-      "description": "Kawaleria wroga w kontakcie i mniej więcej tak stabilna jak twoja. Nie marnuj wytrzymałości na szarżę, której nie możesz wygrać. Blisko na spacer i bójka na równych nogach."
+      "description": "Kawaleria wroga w kontakcie i mniej więcej tak stabilna jak twoja. Nie marnuj wytrzymałości na szarżę, której nie możesz wygrać. Zbliż się <walk>krokiem</walk> i walcz na równych warunkach."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Kawaleria przeciw silniejszej kawalerii",
@@ -546,7 +546,7 @@
     },
     "artilleryFireAndAdvance": {
       "title": "Natarcie z ostrzałem",
-      "description": "Wróg jest na tyle daleko, że możesz się zbliżać podczas strzelania. Zmień tę jednostkę artylerii na Natarcie z ostrzałem."
+      "description": "Wróg jest na tyle daleko, że możesz się zbliżać podczas strzelania. Zmień tę jednostkę artylerii na <fireAndAdvance>Natarcie z ostrzałem</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "Zatrzymaj się, by strzelać",

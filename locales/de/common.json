@@ -407,7 +407,7 @@
     },
     "range": {
       "title": "Schussweite",
-      "description": "Schüsse auf große Entfernung richten weniger Schaden an. Rücke näher oder begrenze das automatische Feuer."
+      "description": "Schüsse auf große Entfernung richten weniger Schaden an. Rücke näher oder begrenze das <autofire>automatische Feuer</autofire>."
     },
     "flanks": {
       "title": "Flanken schützen",
@@ -424,11 +424,11 @@
     "ammo": {
       "view": "Munition anzeigen",
       "title": "Munition",
-      "description": "Artillerie verbraucht deine Munitionsreserve, die sich jede Runde auffüllt. Ohne Munition kann sie nicht schießen. Passe das automatische Feuer an, um Munition zu sparen."
+      "description": "Artillerie verbraucht deine Munitionsreserve, die sich jede Runde auffüllt. Ohne Munition kann sie nicht schießen. Passe das <autofire>automatische Feuer</autofire> an, um Munition zu sparen."
     },
     "running": {
       "title": "Laufe gezielt",
-      "description": "Bei den meisten Truppen kostet Laufen Ausdauer und macht sie leichter zu brechen, wenn sie danach einen Sturmangriff abfangen. Gehe, bis du Tempo brauchst oder selbst angreifen willst."
+      "description": "Bei den meisten Truppen kostet <run>Laufen</run> Ausdauer und macht sie leichter zu brechen, wenn sie danach einen Sturmangriff abfangen. <walk>Gehe</walk>, bis du Tempo brauchst oder selbst angreifen willst."
     },
     "overlap": {
       "title": "Staple keine Einheiten",
@@ -436,7 +436,7 @@
     },
     "terrain": {
       "title": "Nutze das Gelände",
-      "description": "Gelände verändert Bewegung und Kampf. Unter Info siehst du die aktuellen Modifikatoren einer Einheit und kannst passendes Gelände wählen."
+      "description": "Gelände verändert Bewegung und Kampf. Unter <info>Info</info> siehst du die aktuellen Modifikatoren einer Einheit und kannst passendes Gelände wählen."
     },
     "basicsSelect": {
       "title": "Befehle geben",
@@ -444,15 +444,15 @@
     },
     "basicsOrderTypes": {
       "title": "Befehlsarten",
-      "description": "Jeder Marsch hat ein Tempo. Gehen spart Ausdauer, Laufen ist schneller, ermüdet aber, Feuern und Vorrücken schießt im Vorgehen. Öffne das Befehlsmenü zum Wechseln."
+      "description": "Jeder Marsch hat ein Tempo. <walk>Gehen</walk> spart Ausdauer, <run>Laufen</run> ist schneller, ermüdet aber, <fireAndAdvance>Feuern und Vorrücken</fireAndAdvance> schießt im Vorgehen. Öffne das Befehlsmenü zum Wechseln."
     },
     "basicsFormations": {
       "title": "Formationen",
-      "description": "Die Formation bestimmt Frontbreite und Feuerkraft. Die Kolonne marschiert schnell, die Linie richtet die meisten Musketen nach vorn, das Karree schützt jede Seite vor Kavallerie."
+      "description": "Die Formation bestimmt Frontbreite und Feuerkraft. Die <column>Kolonne</column> marschiert schnell, die <line>Linie</line> richtet die meisten Musketen nach vorn, das <square>Karree</square> schützt jede Seite vor Kavallerie."
     },
     "basicsSubmit": {
       "title": "Runde abschicken",
-      "description": "Befehle warten, bis du die Runde abschickst. Beide Heere werden gleichzeitig abgerechnet, plane also, wo der Feind sein wird, nicht wo er ist."
+      "description": "Befehle warten, bis du die Runde <submitOrders>abschickst</submitOrders>. Beide Heere werden gleichzeitig abgerechnet, plane also, wo der Feind sein wird, nicht wo er ist."
     },
     "idleUnits": {
       "title": "Einheiten ohne Befehle",
@@ -464,7 +464,7 @@
     },
     "skirmisherVsCavalry": {
       "title": "Kavallerie nahe deinen Schützen",
-      "description": "Feindkavallerie vernichtet deinen Plänkler, wenn er bleibt. Rückzug und Deckung."
+      "description": "Feindkavallerie vernichtet deinen Plänkler, wenn er bleibt. <fallback>Rückzug</fallback> und Deckung."
     },
     "skirmisherVsInfantry": {
       "title": "Infanterie nahe deinen Schützen",
@@ -472,19 +472,19 @@
     },
     "infantryFormLine": {
       "title": "Linie formieren",
-      "description": "Stelle diese Einheiten in Linie. Bei Feindinfanterie in Musketenreichweite oder Kavallerie von vorn gibt Linie meiste Musketen nach vorn und beste Abwehr gegen Salven. Kein Karree gegen Frontsturm, du verlierst Feuerkraft."
+      "description": "Stelle diese Einheiten in <line>Linie</line>. Bei Feindinfanterie in Musketenreichweite oder Kavallerie von vorn gibt Linie meiste Musketen nach vorn und beste Abwehr gegen Salven. Kein Karree gegen Frontsturm, du verlierst Feuerkraft."
     },
     "infantryVsCavalryFrontal": {
       "title": "Die Linie halten",
-      "description": "Feindliche Kavallerie greift die Front deiner Infanterie an, aber sie haben Befehle in der Warteschlange. Lösche sie, damit die Linie steht und feuert, statt unter die Hufe zu laufen."
+      "description": "Feindliche Kavallerie greift die Front deiner Infanterie an, aber sie haben Befehle in der Warteschlange. <removeOrders>Lösche</removeOrders> sie, damit die Linie steht und feuert, statt unter die Hufe zu laufen."
     },
     "infantryVsCavalryFlank": {
       "title": "Karree bilden",
-      "description": "Kavallerie an Flanke oder Rücken deiner Infanterie. Eine Linie wird von der Seite überrollt. Forme Karree auf jeder markierten Einheit, damit jede Seite Musketen hat."
+      "description": "Kavallerie an Flanke oder Rücken deiner Infanterie. Eine Linie wird von der Seite überrollt. Forme <square>Karree</square> auf jeder markierten Einheit, damit jede Seite Musketen hat."
     },
     "infantryBayonetCharge": {
       "title": "Bajonettangriff",
-      "description": "Schwache Feindinfanterie in Angriffsreichweite. Kolonne formen und hineinlaufen. Bajonett in Kolonne beim Kontakt bricht sie."
+      "description": "Schwache Feindinfanterie in Angriffsreichweite. <column>Kolonne</column> formen und <run>hineinlaufen</run>. Bajonett in Kolonne beim Kontakt bricht sie."
     },
     "infantryFallback": {
       "title": "Diese Einheit zurückziehen",
@@ -492,15 +492,15 @@
     },
     "infantryVsSkirmishers": {
       "title": "Infanterie gegen Schützen",
-      "description": "Feindliche Plänkler sind nah und keine Kavallerie ist verfügbar. Rücke im Schritt vor und zwinge sie in den Nahkampf, wo sie am schwächsten sind."
+      "description": "Feindliche Plänkler sind nah und keine Kavallerie ist verfügbar. Rücke <walk>im Schritt</walk> vor und zwinge sie in den Nahkampf, wo sie am schwächsten sind."
     },
     "infantryVsArtillery": {
       "title": "Infanterie gegen Artillerie",
-      "description": "Feindliche Geschütze sind nah und ungedeckt. Laufe direkt in die Bedienung, bevor sie schwenken und Kartätsche feuern kann."
+      "description": "Feindliche Geschütze sind nah und ungedeckt. <run>Laufe</run> direkt in die Bedienung, bevor sie schwenken und Kartätsche feuern kann."
     },
     "infantryColumnMarch": {
       "title": "In Kolonne marschieren",
-      "description": "Keine Feinde sind in der Nähe dieser Einheit. Wechsle für schnelleres Marschieren in Kolonne und bilde vor Feindkontakt Linie."
+      "description": "Keine Feinde sind in der Nähe dieser Einheit. Wechsle für schnelleres Marschieren in <column>Kolonne</column> und bilde vor Feindkontakt <line>Linie</line>."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Kavallerie gegen schwächere Kavallerie",
@@ -508,7 +508,7 @@
     },
     "cavalryVsEqualCavalry": {
       "title": "Kavallerie gegen ebenbürtige Kavallerie",
-      "description": "Feindkavallerie im Kontakt und ähnlich fest wie deine. Verschwende keine Ausdauer auf eine aussichtslose Attacke. Im Schritt nähern und im Nahkampf ausgleichen."
+      "description": "Feindkavallerie im Kontakt und ähnlich fest wie deine. Verschwende keine Ausdauer auf eine aussichtslose Attacke. <walk>Im Schritt</walk> nähern und im Nahkampf ausgleichen."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Kavallerie gegen stärkere Kavallerie",
@@ -544,7 +544,7 @@
     },
     "artilleryFireAndAdvance": {
       "title": "Feuern und vorrücken",
-      "description": "Feind weit genug, dass du beim Feuern vorgehen kannst. Stelle diese Artillerie auf Feuern und Vorrücken."
+      "description": "Feind weit genug, dass du beim Feuern vorgehen kannst. Stelle diese Artillerie auf <fireAndAdvance>Feuern und Vorrücken</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "Halten und feuern",

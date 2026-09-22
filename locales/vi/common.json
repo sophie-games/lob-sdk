@@ -421,7 +421,7 @@
     },
     "range": {
       "title": "Tầm bắn",
-      "description": "Bắn xa gây ít sát thương hơn. Tiến gần hoặc giới hạn tự động khai hỏa để bắn hiệu quả."
+      "description": "Bắn xa gây ít sát thương hơn. Tiến gần hoặc giới hạn <autofire>tự động khai hỏa</autofire> để bắn hiệu quả."
     },
     "flanks": {
       "title": "Bảo vệ sườn",
@@ -438,11 +438,11 @@
     "ammo": {
       "view": "Xem đạn dược",
       "title": "Đạn dược",
-      "description": "Pháo binh tiêu hao kho đạn dự trữ của bạn, vốn được bổ sung mỗi lượt. Khi hết đạn, pháo binh không thể bắn. Điều chỉnh tự động khai hỏa để tiết kiệm đạn."
+      "description": "Pháo binh tiêu hao kho đạn dự trữ của bạn, vốn được bổ sung mỗi lượt. Khi hết đạn, pháo binh không thể bắn. Điều chỉnh <autofire>tự động khai hỏa</autofire> để tiết kiệm đạn."
     },
     "running": {
       "title": "Chỉ chạy khi có mục đích",
-      "description": "Với phần lớn quân, chạy tiêu hao thể lực và khiến họ dễ vỡ đội hình hơn nếu bị xung phong ngay sau đó. Hãy đi bộ cho đến khi cần tốc độ hoặc muốn xung phong."
+      "description": "Với phần lớn quân, <run>chạy</run> tiêu hao thể lực và khiến họ dễ vỡ đội hình hơn nếu bị xung phong ngay sau đó. Hãy <walk>đi bộ</walk> cho đến khi cần tốc độ hoặc muốn xung phong."
     },
     "overlap": {
       "title": "Đừng chồng đơn vị",
@@ -450,7 +450,7 @@
     },
     "terrain": {
       "title": "Tận dụng địa hình",
-      "description": "Địa hình thay đổi di chuyển và chiến đấu. Mở Thông tin để xem các hệ số hiện tại của đơn vị và chọn địa hình phù hợp."
+      "description": "Địa hình thay đổi di chuyển và chiến đấu. Mở <info>Thông tin</info> để xem các hệ số hiện tại của đơn vị và chọn địa hình phù hợp."
     },
     "basicsSelect": {
       "title": "Ra lệnh",
@@ -458,15 +458,15 @@
     },
     "basicsOrderTypes": {
       "title": "Các loại lệnh",
-      "description": "Mỗi cách di chuyển có một nhịp độ. Đi bộ giữ thể lực, Chạy nhanh hơn nhưng gây mệt, Bắn và tiến vừa áp sát vừa khai hỏa. Mở menu lệnh để đổi."
+      "description": "Mỗi cách di chuyển có một nhịp độ. <walk>Đi bộ</walk> giữ thể lực, <run>Chạy</run> nhanh hơn nhưng gây mệt, <fireAndAdvance>Bắn và tiến</fireAndAdvance> vừa áp sát vừa khai hỏa. Mở menu lệnh để đổi."
     },
     "basicsFormations": {
       "title": "Đội hình",
-      "description": "Đội hình quyết định bề ngang và hỏa lực. Cột hành quân nhanh, hàng đưa nhiều súng hỏa mai ra trước nhất, ô vuông che chắn mọi mặt trước kỵ binh."
+      "description": "Đội hình quyết định bề ngang và hỏa lực. <column>Cột</column> hành quân nhanh, <line>hàng</line> đưa nhiều súng hỏa mai ra trước nhất, <square>ô vuông</square> che chắn mọi mặt trước kỵ binh."
     },
     "basicsSubmit": {
       "title": "Gửi lượt",
-      "description": "Lệnh sẽ chờ cho đến khi bạn gửi lượt. Hai bên được giải quyết cùng lúc, nên hãy tính chỗ địch sẽ tới, không phải chỗ địch đang đứng."
+      "description": "Lệnh sẽ chờ cho đến khi bạn <submitOrders>gửi</submitOrders> lượt. Hai bên được giải quyết cùng lúc, nên hãy tính chỗ địch sẽ tới, không phải chỗ địch đang đứng."
     },
     "idleUnits": {
       "title": "Đơn vị chưa có lệnh",
@@ -478,7 +478,7 @@
     },
     "skirmisherVsCavalry": {
       "title": "Kỵ binh áp sát quân tản chiến",
-      "description": "Người giao tranh của bạn sẽ bị kỵ binh địch tiêu diệt nếu giữ vị trí đó. Dự phòng và tìm kiếm sự che chở."
+      "description": "Người giao tranh của bạn sẽ bị kỵ binh địch tiêu diệt nếu giữ vị trí đó. <fallback>Rút lui</fallback> và tìm chỗ ẩn nấp."
     },
     "skirmisherVsInfantry": {
       "title": "Bộ binh áp sát quân tản chiến",
@@ -486,19 +486,19 @@
     },
     "infantryFormLine": {
       "title": "Dàn hàng",
-      "description": "Chuyển các đơn vị này thành dòng. Với bộ binh của đối phương trong tầm bắn súng hỏa mai hoặc kỵ binh đang tiến tới phía trước, tuyến mang lại cho bạn nhiều súng hỏa mai chĩa về phía trước nhất và khả năng phòng thủ tốt nhất trước những loạt đạn đang lao tới. Đừng đứng hình vuông trước đòn tấn công trực diện, bạn sẽ mất một nửa hỏa lực."
+      "description": "Chuyển các đơn vị này thành <line>hàng</line>. Với bộ binh của đối phương trong tầm bắn súng hỏa mai hoặc kỵ binh đang tiến tới phía trước, tuyến mang lại cho bạn nhiều súng hỏa mai chĩa về phía trước nhất và khả năng phòng thủ tốt nhất trước những loạt đạn đang lao tới. Đừng đứng hình vuông trước đòn tấn công trực diện, bạn sẽ mất một nửa hỏa lực."
     },
     "infantryVsCavalryFrontal": {
       "title": "Giữ vững hàng",
-      "description": "Kỵ binh địch xông vào mặt trước bộ binh của bạn, nhưng họ có lệnh đang xếp hàng. Xóa lệnh để đội hình đứng và bắn thay vì đi vào vó ngựa."
+      "description": "Kỵ binh địch xông vào mặt trước bộ binh của bạn, nhưng họ có lệnh đang xếp hàng. <removeOrders>Xóa lệnh</removeOrders> để đội hình đứng và bắn thay vì đi vào vó ngựa."
     },
     "infantryVsCavalryFlank": {
       "title": "Kết ô vuông",
-      "description": "Kỵ binh đến bên sườn hoặc phía sau bộ binh của bạn. Một dòng được cưỡi từ bên cạnh. Tạo hình vuông trên mỗi đơn vị được đánh dấu để mọi mặt đều có súng hỏa mai."
+      "description": "Kỵ binh đến bên sườn hoặc phía sau bộ binh của bạn. Một dòng được cưỡi từ bên cạnh. Tạo <square>hình vuông</square> trên mỗi đơn vị được đánh dấu để mọi mặt đều có súng hỏa mai."
     },
     "infantryBayonetCharge": {
       "title": "Xung phong lưỡi lê",
-      "description": "Bộ binh địch yếu trong phạm vi tấn công. Tạo cột và chạy vào chúng. Lưỡi lê khi tiếp xúc với cột sẽ phá vỡ chúng."
+      "description": "Bộ binh địch yếu trong phạm vi tấn công. Tạo <column>cột</column> và <run>chạy</run> vào chúng. Lưỡi lê khi tiếp xúc với cột sẽ phá vỡ chúng."
     },
     "infantryFallback": {
       "title": "Rút đơn vị này",
@@ -506,15 +506,15 @@
     },
     "infantryVsSkirmishers": {
       "title": "Bộ binh đấu tản chiến",
-      "description": "Lính tản binh địch đang ở gần và bạn không có kỵ binh. Tiến lên bằng bước đi và ép chúng vào cận chiến, nơi chúng yếu nhất."
+      "description": "Lính tản binh địch đang ở gần và bạn không có kỵ binh. Tiến lên bằng <walk>bước đi</walk> và ép chúng vào cận chiến, nơi chúng yếu nhất."
     },
     "infantryVsArtillery": {
       "title": "Bộ binh đấu pháo binh",
-      "description": "Pháo địch ở gần và không được bảo vệ. Chạy thẳng vào pháo thủ trước khi họ có thể xoay pháo và bắn đạn ghém."
+      "description": "Pháo địch ở gần và không được bảo vệ. <run>Chạy</run> thẳng vào pháo thủ trước khi họ có thể xoay pháo và bắn đạn ghém."
     },
     "infantryColumnMarch": {
       "title": "Hành quân theo cột",
-      "description": "Không có kẻ địch nào gần đơn vị này. Chuyển sang đội hình cột để hành quân nhanh hơn, rồi dàn thành hàng trước khi tiếp xúc."
+      "description": "Không có kẻ địch nào gần đơn vị này. Chuyển sang đội hình <column>cột</column> để hành quân nhanh hơn, rồi dàn thành <line>hàng</line> trước khi tiếp xúc."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Kỵ binh đấu kỵ binh yếu hơn",
@@ -522,7 +522,7 @@
     },
     "cavalryVsEqualCavalry": {
       "title": "Kỵ binh đấu kỵ binh ngang sức",
-      "description": "Kỵ binh địch tiếp xúc và gần như ổn định như của bạn. Đừng lãng phí sức chịu đựng cho một cuộc tấn công mà bạn không thể thắng. Đóng cửa khi đi dạo và ẩu đả trên nền tảng vững chắc."
+      "description": "Kỵ binh địch tiếp xúc và gần như ổn định như của bạn. Đừng lãng phí sức chịu đựng cho một cuộc tấn công mà bạn không thể thắng. Áp sát bằng <walk>đi bộ</walk> và giao chiến ngang sức."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Kỵ binh đấu kỵ binh mạnh hơn",
@@ -558,7 +558,7 @@
     },
     "artilleryFireAndAdvance": {
       "title": "Bắn và tiến",
-      "description": "Kẻ thù ở đủ xa để bạn có thể tiếp tục áp sát trong khi bắn. Chuyển đơn vị pháo binh này sang Bắn và tiến."
+      "description": "Kẻ thù ở đủ xa để bạn có thể tiếp tục áp sát trong khi bắn. Chuyển đơn vị pháo binh này sang <fireAndAdvance>Bắn và tiến</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "Dừng lại để bắn",

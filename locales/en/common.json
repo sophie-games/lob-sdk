@@ -581,7 +581,7 @@
     },
     "range": {
       "title": "Firing range",
-      "description": "Long-range shots deal less damage. Move closer or limit autofire to make your shots count."
+      "description": "Long-range shots deal less damage. Move closer or limit <autofire>autofire</autofire> to make your shots count."
     },
     "flanks": {
       "title": "Flanks",
@@ -598,11 +598,11 @@
     "ammo": {
       "view": "View ammo",
       "title": "Ammunition",
-      "description": "Artillery consumes your ammo reserve, which replenishes each turn. Without ammo, it cannot fire. Adjust autofire to conserve ammo."
+      "description": "Artillery consumes your ammo reserve, which replenishes each turn. Without ammo, it cannot fire. Adjust <autofire>autofire</autofire> to conserve ammo."
     },
     "running": {
       "title": "Run deliberately",
-      "description": "For most troops, running spends stamina and makes them easier to break if charged afterward. Walk until you need speed or want to charge."
+      "description": "For most troops, <run>running</run> spends stamina and makes them easier to break if charged afterward. <walk>Walk</walk> until you need speed or want to charge."
     },
     "overlap": {
       "title": "Don't stack units",
@@ -610,7 +610,7 @@
     },
     "terrain": {
       "title": "Use the ground",
-      "description": "Terrain changes movement and combat. Open Info to see a unit's current modifiers and choose suitable ground."
+      "description": "Terrain changes movement and combat. Open <info>Info</info> to see a unit's current modifiers and choose suitable ground."
     },
     "basicsSelect": {
       "title": "Giving orders",
@@ -618,15 +618,15 @@
     },
     "basicsOrderTypes": {
       "title": "Order types",
-      "description": "Every move has a pace. Walk keeps stamina, Run is faster but tires the unit, Fire and Advance shoots while it closes. Open the order menu to switch."
+      "description": "Every move has a pace. <walk>Walk</walk> keeps stamina, <run>Run</run> is faster but tires the unit, <fireAndAdvance>Fire and Advance</fireAndAdvance> shoots while it closes. Open the order menu to switch."
     },
     "basicsFormations": {
       "title": "Formations",
-      "description": "Formation sets frontage and firepower. Column marches fast, line puts the most muskets forward, square guards every face against cavalry."
+      "description": "Formation sets frontage and firepower. <column>Column</column> marches fast, <line>line</line> puts the most muskets forward, <square>square</square> guards every face against cavalry."
     },
     "basicsSubmit": {
       "title": "Submitting the turn",
-      "description": "Orders stay queued until you submit. Both armies then resolve at the same time, so plan for where the enemy will be, not where they are."
+      "description": "Orders stay queued until you <submitOrders>submit</submitOrders>. Both armies then resolve at the same time, so plan for where the enemy will be, not where they are."
     },
     "skirmisherVsArtillery": {
       "title": "Skirmishers against artillery",
@@ -634,7 +634,7 @@
     },
     "skirmisherVsCavalry": {
       "title": "Cavalry near your skirmishers",
-      "description": "Your skirmisher will be destroyed by enemy cavalry if it keeps that position. Fall back and seek cover."
+      "description": "Your skirmisher will be destroyed by enemy cavalry if it keeps that position. <fallback>Fall back</fallback> and seek cover."
     },
     "skirmisherVsInfantry": {
       "title": "Infantry near your skirmishers",
@@ -642,19 +642,19 @@
     },
     "infantryFormLine": {
       "title": "Form line",
-      "description": "Switch these units to line. With enemy infantry in musket range or cavalry coming at the front, line gives you the most muskets pointed forward and the best defence against incoming volleys. Don't form square against a frontal charge, you would lose half your firepower."
+      "description": "Switch these units to <line>line</line>. With enemy infantry in musket range or cavalry coming at the front, line gives you the most muskets pointed forward and the best defence against incoming volleys. Don't form square against a frontal charge, you would lose half your firepower."
     },
     "infantryVsCavalryFrontal": {
       "title": "Hold the line",
-      "description": "Enemy cavalry is charging the front of your infantry, but they have orders queued. Clear them so the line stands and fires instead of walking into the hooves."
+      "description": "Enemy cavalry is charging the front of your infantry, but they have orders queued. <removeOrders>Clear</removeOrders> them so the line stands and fires instead of walking into the hooves."
     },
     "infantryVsCavalryFlank": {
       "title": "Form square",
-      "description": "Cavalry coming at the flank or rear of your infantry. A line gets ridden over from the side. Form square so every face has muskets out."
+      "description": "Cavalry coming at the flank or rear of your infantry. A line gets ridden over from the side. Form <square>square</square> so every face has muskets out."
     },
     "infantryBayonetCharge": {
       "title": "Bayonet charge",
-      "description": "Weak enemy infantry within charge range. Form column and run into them. Bayonet on contact in column breaks them."
+      "description": "Weak enemy infantry within charge range. Form <column>column</column> and <run>run</run> into them. Bayonet on contact in column breaks them."
     },
     "infantryFallback": {
       "title": "Withdraw this unit",
@@ -662,15 +662,15 @@
     },
     "infantryVsSkirmishers": {
       "title": "Infantry against skirmishers",
-      "description": "Skirmishers are close and no cavalry is available. Advance at a walk and force them into melee, where skirmishers are weakest."
+      "description": "Skirmishers are close and no cavalry is available. Advance at a <walk>walk</walk> and force them into melee, where skirmishers are weakest."
     },
     "infantryVsArtillery": {
       "title": "Infantry against artillery",
-      "description": "Enemy guns are close and unscreened. Run straight into the crew before they can turn and fire canister."
+      "description": "Enemy guns are close and unscreened. <run>Run</run> straight into the crew before they can turn and fire canister."
     },
     "infantryColumnMarch": {
       "title": "March in column",
-      "description": "No enemies are near this unit. Switch to column for faster marching, then form line before contact."
+      "description": "No enemies are near this unit. Switch to <column>column</column> for faster marching, then form <line>line</line> before contact."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Cavalry against weaker cavalry",
@@ -678,7 +678,7 @@
     },
     "cavalryVsEqualCavalry": {
       "title": "Cavalry against equal cavalry",
-      "description": "Enemy cavalry in contact and roughly as steady as yours. Don't waste stamina on a charge you can't win. Close at a walk and brawl on even footing."
+      "description": "Enemy cavalry in contact and roughly as steady as yours. Don't waste stamina on a charge you can't win. Close at a <walk>walk</walk> and brawl on even footing."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Cavalry against stronger cavalry",
@@ -714,7 +714,7 @@
     },
     "artilleryFireAndAdvance": {
       "title": "Fire and advance",
-      "description": "The enemy is far enough away that you can keep closing while you fire. Switch this artillery to Fire and Advance."
+      "description": "The enemy is far enough away that you can keep closing while you fire. Switch this artillery to <fireAndAdvance>Fire and Advance</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "Stop to fire",
