@@ -407,7 +407,7 @@
     },
     "range": {
       "title": "Distância de tiro",
-      "description": "Tiros de longe causam menos dano. Aproxime-se ou limite o fogo automático para aproveitar seus disparos."
+      "description": "Tiros de longe causam menos dano. Aproxime-se ou limite o <autofire>fogo automático</autofire> para aproveitar seus disparos."
     },
     "flanks": {
       "title": "Proteja os flancos",
@@ -424,11 +424,11 @@
     "ammo": {
       "view": "Ver munição",
       "title": "Munição",
-      "description": "A artilharia consome sua reserva de munição, que se recarrega a cada turno. Sem munição, ela não pode disparar. Ajuste o fogo automático para economizar munição."
+      "description": "A artilharia consome sua reserva de munição, que se recarrega a cada turno. Sem munição, ela não pode disparar. Ajuste o <autofire>fogo automático</autofire> para economizar munição."
     },
     "running": {
       "title": "Corra com propósito",
-      "description": "Para a maioria das tropas, correr gasta vigor e as torna mais fáceis de quebrar se receberem uma carga depois. Caminhe até precisar de velocidade ou quiser carregar."
+      "description": "Para a maioria das tropas, <run>correr</run> gasta vigor e as torna mais fáceis de quebrar se receberem uma carga depois. <walk>Caminhe</walk> até precisar de velocidade ou quiser carregar."
     },
     "overlap": {
       "title": "Não empilhe unidades",
@@ -436,7 +436,7 @@
     },
     "terrain": {
       "title": "Use o terreno",
-      "description": "O terreno altera o movimento e o combate. Abra Informações para ver os modificadores atuais de uma unidade e escolher o terreno adequado."
+      "description": "O terreno altera o movimento e o combate. Abra <info>Informações</info> para ver os modificadores atuais de uma unidade e escolher o terreno adequado."
     },
     "basicsSelect": {
       "title": "Dar ordens",
@@ -444,15 +444,15 @@
     },
     "basicsOrderTypes": {
       "title": "Tipos de ordem",
-      "description": "Cada movimento tem um ritmo. Caminhar poupa vigor, Correr é mais rápido mas cansa, Fogo e Avanço atira enquanto se aproxima. Abra o menu de ordens para trocar."
+      "description": "Cada movimento tem um ritmo. <walk>Caminhar</walk> poupa vigor, <run>Correr</run> é mais rápido mas cansa, <fireAndAdvance>Fogo e Avanço</fireAndAdvance> atira enquanto se aproxima. Abra o menu de ordens para trocar."
     },
     "basicsFormations": {
       "title": "Formações",
-      "description": "A formação define a frente e o poder de fogo. A coluna marcha rápido, a linha aponta mais mosquetes à frente e o quadrado protege todos os lados da cavalaria."
+      "description": "A formação define a frente e o poder de fogo. A <column>coluna</column> marcha rápido, a <line>linha</line> aponta mais mosquetes à frente e o <square>quadrado</square> protege todos os lados da cavalaria."
     },
     "basicsSubmit": {
       "title": "Enviar o turno",
-      "description": "As ordens ficam em espera até você enviar o turno. Os dois exércitos se resolvem ao mesmo tempo, então planeje onde o inimigo estará, não onde está."
+      "description": "As ordens ficam em espera até você <submitOrders>enviar</submitOrders> o turno. Os dois exércitos se resolvem ao mesmo tempo, então planeje onde o inimigo estará, não onde está."
     },
     "idleUnits": {
       "title": "Unidades sem ordens",
@@ -464,7 +464,7 @@
     },
     "skirmisherVsCavalry": {
       "title": "Cavalaria perto dos seus escaramuçadores",
-      "description": "Seu escaramuçador será destruído pela cavalaria inimiga se mantiver essa posição. Recuem e procurem cobertura."
+      "description": "Seu escaramuçador será destruído pela cavalaria inimiga se mantiver essa posição. <fallback>Recuem</fallback> e procurem cobertura."
     },
     "skirmisherVsInfantry": {
       "title": "Infantaria perto dos seus escaramuçadores",
@@ -472,19 +472,19 @@
     },
     "infantryFormLine": {
       "title": "Formar linha",
-      "description": "Mude essas unidades para linha. Com a infantaria inimiga ao alcance dos mosquetes ou a cavalaria vindo na frente, a linha oferece o maior número de mosquetes apontados para a frente e a melhor defesa contra saraivadas. Não forme quadrado contra um ataque frontal, você perderia metade do seu poder de fogo."
+      "description": "Mude essas unidades para <line>linha</line>. Com a infantaria inimiga ao alcance dos mosquetes ou a cavalaria vindo na frente, a linha oferece o maior número de mosquetes apontados para a frente e a melhor defesa contra saraivadas. Não forme quadrado contra um ataque frontal, você perderia metade do seu poder de fogo."
     },
     "infantryVsCavalryFrontal": {
       "title": "Manter a linha",
-      "description": "A cavalaria inimiga ataca a frente da tua infantaria, mas têm ordens em fila. Limpa-as para que a linha pare e dispare em vez de marchar para os cascos."
+      "description": "A cavalaria inimiga ataca a frente da tua infantaria, mas têm ordens em fila. <removeOrders>Limpa-as</removeOrders> para que a linha pare e dispare em vez de marchar para os cascos."
     },
     "infantryVsCavalryFlank": {
       "title": "Formar quadrado",
-      "description": "Cavalaria vindo no flanco ou na retaguarda de sua infantaria. Uma linha é ultrapassada pela lateral. Forme um quadrado em cada unidade destacada para que cada face tenha mosquetes."
+      "description": "Cavalaria vindo no flanco ou na retaguarda de sua infantaria. Uma linha é ultrapassada pela lateral. Forme um <square>quadrado</square> em cada unidade destacada para que cada face tenha mosquetes."
     },
     "infantryBayonetCharge": {
       "title": "Carga de baioneta",
-      "description": "Infantaria inimiga fraca dentro do alcance de ataque. Coluna do formulário e encontre-os. A baioneta em contato na coluna os quebra."
+      "description": "Infantaria inimiga fraca dentro do alcance de ataque. Forme <column>coluna</column> e <run>corra</run> contra eles. A baioneta em contato na coluna os quebra."
     },
     "infantryFallback": {
       "title": "Recuar esta unidade",
@@ -492,15 +492,15 @@
     },
     "infantryVsSkirmishers": {
       "title": "Infantaria contra escaramuçadores",
-      "description": "Há escaramuçadores inimigos próximos e nenhuma cavalaria disponível. Avance ao passo e force o combate corpo a corpo, onde eles são mais fracos."
+      "description": "Há escaramuçadores inimigos próximos e nenhuma cavalaria disponível. Avance <walk>ao passo</walk> e force o combate corpo a corpo, onde eles são mais fracos."
     },
     "infantryVsArtillery": {
       "title": "Infantaria contra artilharia",
-      "description": "Os canhões inimigos estão próximos e sem proteção. Corra direto até a guarnição antes que ela possa girar e disparar metralha."
+      "description": "Os canhões inimigos estão próximos e sem proteção. <run>Corra</run> direto até a guarnição antes que ela possa girar e disparar metralha."
     },
     "infantryColumnMarch": {
       "title": "Marchar em coluna",
-      "description": "Não há inimigos perto desta unidade. Mude para coluna para marchar mais rápido e forme linha antes do contato."
+      "description": "Não há inimigos perto desta unidade. Mude para <column>coluna</column> para marchar mais rápido e forme <line>linha</line> antes do contato."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Cavalaria contra cavalaria mais fraca",
@@ -508,7 +508,7 @@
     },
     "cavalryVsEqualCavalry": {
       "title": "Cavalaria contra cavalaria igual",
-      "description": "Cavalaria inimiga em contato e quase tão estável quanto a sua. Não desperdice energia em uma investida que você não pode vencer. Aproxime-se caminhando e brigue em pé de igualdade."
+      "description": "Cavalaria inimiga em contato e quase tão estável quanto a sua. Não desperdice energia em uma investida que você não pode vencer. Aproxime-se <walk>caminhando</walk> e brigue em pé de igualdade."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Cavalaria contra cavalaria mais forte",
@@ -544,7 +544,7 @@
     },
     "artilleryFireAndAdvance": {
       "title": "Fogo e avanço",
-      "description": "O inimigo está longe o suficiente para que você possa continuar se aproximando enquanto atira. Mude esta unidade de artilharia para Fogo e Avanço."
+      "description": "O inimigo está longe o suficiente para que você possa continuar se aproximando enquanto atira. Mude esta unidade de artilharia para <fireAndAdvance>Fogo e Avanço</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "Parar para atirar",

@@ -548,7 +548,7 @@
     },
     "range": {
       "title": "射击距离",
-      "description": "远距离射击造成的伤害较低。靠近敌人或限制自动射击距离，提高射击效果。"
+      "description": "远距离射击造成的伤害较低。靠近敌人或限制<autofire>自动射击</autofire>距离，提高射击效果。"
     },
     "flanks": {
       "title": "保护侧翼",
@@ -565,11 +565,11 @@
     "ammo": {
       "view": "查看弹药",
       "title": "弹药",
-      "description": "炮兵会消耗你的储备弹药，储备会在每回合补充。没有弹药就无法射击。调整自动射击设置以节省弹药。"
+      "description": "炮兵会消耗你的储备弹药，储备会在每回合补充。没有弹药就无法射击。调整<autofire>自动射击</autofire>设置以节省弹药。"
     },
     "running": {
       "title": "有目的地奔跑",
-      "description": "对大多数部队来说，奔跑会消耗耐力，并使其在随后遭受冲锋时更容易崩溃。在需要速度或准备冲锋前请保持行走。"
+      "description": "对大多数部队来说，<run>奔跑</run>会消耗耐力，并使其在随后遭受冲锋时更容易崩溃。在需要速度或准备冲锋前请保持<walk>行走</walk>。"
     },
     "overlap": {
       "title": "不要堆叠部队",
@@ -577,7 +577,7 @@
     },
     "terrain": {
       "title": "利用地形",
-      "description": "地形会改变移动和战斗。打开“信息”查看部队当前的修正效果，并选择合适的地形。"
+      "description": "地形会改变移动和战斗。打开“<info>信息</info>”查看部队当前的修正效果，并选择合适的地形。"
     },
     "basicsSelect": {
       "title": "下达命令",
@@ -585,15 +585,15 @@
     },
     "basicsOrderTypes": {
       "title": "命令类型",
-      "description": "每种行进都有节奏。步行节省体力，奔跑更快但会疲劳，移动射击会一边接近一边开火。打开命令菜单即可切换。"
+      "description": "每种行进都有节奏。<walk>步行</walk>节省体力，<run>奔跑</run>更快但会疲劳，<fireAndAdvance>移动射击</fireAndAdvance>会一边接近一边开火。打开命令菜单即可切换。"
     },
     "basicsFormations": {
       "title": "阵型",
-      "description": "阵型决定正面宽度与火力。纵队行军快，横队正面火枪最多，空心方阵能防住四面的骑兵。"
+      "description": "阵型决定正面宽度与火力。<column>纵队</column>行军快，<line>横队</line>正面火枪最多，<square>空心方阵</square>能防住四面的骑兵。"
     },
     "basicsSubmit": {
       "title": "提交回合",
-      "description": "命令会一直等到你提交回合。双方同时结算，所以要按敌人将会在哪里来计划，而不是他现在在哪里。"
+      "description": "命令会一直等到你<submitOrders>提交</submitOrders>回合。双方同时结算，所以要按敌人将会在哪里来计划，而不是他现在在哪里。"
     },
     "idleUnits": {
       "title": "没有命令的部队",
@@ -605,7 +605,7 @@
     },
     "skirmisherVsCavalry": {
       "title": "骑兵逼近你的散兵",
-      "description": "如果你的散兵保持这个位置，就会被敌方骑兵摧毁。撤退并寻找掩护。"
+      "description": "如果你的散兵保持这个位置，就会被敌方骑兵摧毁。<fallback>撤退</fallback>并寻找掩护。"
     },
     "skirmisherVsInfantry": {
       "title": "步兵逼近你的散兵",
@@ -613,19 +613,19 @@
     },
     "infantryFormLine": {
       "title": "结成横队",
-      "description": "将这些单位切换到线路。当敌方步兵在火枪射程内或骑兵在前方时，线阵可以为你提供最多的火枪指向前方，并为你提供最好的防御来袭的齐射。不要在正面冲锋时形成方阵，否则你会损失一半的火力。"
+      "description": "将这些单位切换为<line>横队</line>。当敌方步兵在火枪射程内或骑兵在前方时，线阵可以为你提供最多的火枪指向前方，并为你提供最好的防御来袭的齐射。不要在正面冲锋时形成方阵，否则你会损失一半的火力。"
     },
     "infantryVsCavalryFrontal": {
       "title": "守住横队",
-      "description": "敌军骑兵正面冲击你的步兵，但他们还有排队的命令。清除它们，让横队站稳开火，不要走进马蹄之下。"
+      "description": "敌军骑兵正面冲击你的步兵，但他们还有排队的命令。<removeOrders>清除</removeOrders>它们，让横队站稳开火，不要走进马蹄之下。"
     },
     "infantryVsCavalryFlank": {
       "title": "结成方阵",
-      "description": "骑兵出现在步兵的侧翼或后方。一条线从侧面被骑过去。在每个突出显示的单位上形成正方形，以便每个面都有步枪。"
+      "description": "骑兵出现在步兵的侧翼或后方。一条线从侧面被骑过去。在每个突出显示的单位上组成<square>空心方阵</square>，以便每个面都有步枪。"
     },
     "infantryBayonetCharge": {
       "title": "刺刀冲锋",
-      "description": "冲锋范围内的弱敌方步兵。形成纵队并遇到他们。刺刀在柱上接触时会破坏它们。"
+      "description": "冲锋范围内的弱敌方步兵。组成<column>纵队</column>并<run>冲向</run>他们。刺刀在柱上接触时会破坏它们。"
     },
     "infantryFallback": {
       "title": "撤下这支部队",
@@ -633,15 +633,15 @@
     },
     "infantryVsSkirmishers": {
       "title": "步兵对散兵",
-      "description": "敌方散兵就在附近，而且你没有骑兵可用。以步行推进，迫使他们进入最不擅长的近战。"
+      "description": "敌方散兵就在附近，而且你没有骑兵可用。以<walk>步行</walk>推进，迫使他们进入最不擅长的近战。"
     },
     "infantryVsArtillery": {
       "title": "步兵对炮兵",
-      "description": "敌方火炮就在附近且无人掩护。在炮手转向并发射霰弹前，直接冲向他们。"
+      "description": "敌方火炮就在附近且无人掩护。在炮手转向并发射霰弹前，直接<run>冲向</run>他们。"
     },
     "infantryColumnMarch": {
       "title": "以纵队行军",
-      "description": "这支部队附近没有敌人。切换为纵队以加快行军，并在接敌前展开成横队。"
+      "description": "这支部队附近没有敌人。切换为<column>纵队</column>以加快行军，并在接敌前展开成<line>横队</line>。"
     },
     "cavalryVsWeakerCavalry": {
       "title": "骑兵对较弱骑兵",
@@ -649,7 +649,7 @@
     },
     "cavalryVsEqualCavalry": {
       "title": "骑兵对势均力敌的骑兵",
-      "description": "敌方骑兵与你的骑兵接触并且大致和你的一样稳定。不要在无法获胜的冲锋上浪费体力。近距离散步并平起平坐地打斗。"
+      "description": "敌方骑兵与你的骑兵接触并且大致和你的一样稳定。不要在无法获胜的冲锋上浪费体力。以<walk>步行</walk>接近，势均力敌地缠斗。"
     },
     "cavalryVsStrongerCavalry": {
       "title": "骑兵对较强骑兵",
@@ -685,7 +685,7 @@
     },
     "artilleryFireAndAdvance": {
       "title": "移动射击",
-      "description": "敌人距离足够远，你可以在开火时保持接近。将此火炮单位切换至移动射击。"
+      "description": "敌人距离足够远，你可以在开火时保持接近。将此火炮单位切换至<fireAndAdvance>移动射击</fireAndAdvance>。"
     },
     "artilleryRotateToFire": {
       "title": "停下开火",
