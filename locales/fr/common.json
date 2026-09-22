@@ -390,7 +390,7 @@
     },
     "range": {
       "title": "Portée de tir",
-      "description": "Les tirs lointains infligent moins de dégâts. Rapprochez-vous ou limitez le tir automatique pour mieux tirer."
+      "description": "Les tirs lointains infligent moins de dégâts. Rapprochez-vous ou limitez le <autofire>tir automatique</autofire> pour mieux tirer."
     },
     "flanks": {
       "title": "Protégez vos flancs",
@@ -407,11 +407,11 @@
     "ammo": {
       "view": "Voir les munitions",
       "title": "Munitions",
-      "description": "L’artillerie consomme votre réserve de munitions, qui se reconstitue chaque tour. Sans munitions, elle ne peut pas tirer. Réglez le tir automatique pour économiser les munitions."
+      "description": "L’artillerie consomme votre réserve de munitions, qui se reconstitue chaque tour. Sans munitions, elle ne peut pas tirer. Réglez le <autofire>tir automatique</autofire> pour économiser les munitions."
     },
     "running": {
       "title": "Courez à bon escient",
-      "description": "Pour la plupart des troupes, courir consomme de l'endurance et les rend plus faciles à briser si elles subissent ensuite une charge. Marchez jusqu'à ce que la vitesse ou une charge soit nécessaire."
+      "description": "Pour la plupart des troupes, <run>courir</run> consomme de l'endurance et les rend plus faciles à briser si elles subissent ensuite une charge. <walk>Marchez</walk> jusqu'à ce que la vitesse ou une charge soit nécessaire."
     },
     "overlap": {
       "title": "N'empilez pas les unités",
@@ -419,7 +419,7 @@
     },
     "terrain": {
       "title": "Utilisez le terrain",
-      "description": "Le terrain modifie le mouvement et le combat. Ouvrez Infos pour voir les modificateurs actuels d'une unité et choisir un terrain adapté."
+      "description": "Le terrain modifie le mouvement et le combat. Ouvrez <info>Infos</info> pour voir les modificateurs actuels d'une unité et choisir un terrain adapté."
     },
     "basicsSelect": {
       "title": "Donner des ordres",
@@ -427,15 +427,15 @@
     },
     "basicsOrderTypes": {
       "title": "Types d'ordre",
-      "description": "Chaque déplacement a une allure. Marcher préserve l'endurance, Courir est plus rapide mais fatigue, Tirer en avançant tire en se rapprochant. Ouvrez le menu des ordres pour changer."
+      "description": "Chaque déplacement a une allure. <walk>Marcher</walk> préserve l'endurance, <run>Courir</run> est plus rapide mais fatigue, <fireAndAdvance>Tirer en avançant</fireAndAdvance> tire en se rapprochant. Ouvrez le menu des ordres pour changer."
     },
     "basicsFormations": {
       "title": "Formations",
-      "description": "La formation définit le front et la puissance de feu. La colonne marche vite, la ligne pointe le plus de mousquets vers l'avant, le carré protège tous les côtés de la cavalerie."
+      "description": "La formation définit le front et la puissance de feu. La <column>colonne</column> marche vite, la <line>ligne</line> pointe le plus de mousquets vers l'avant, le <square>carré</square> protège tous les côtés de la cavalerie."
     },
     "basicsSubmit": {
       "title": "Valider le tour",
-      "description": "Les ordres attendent que vous validiez le tour. Les deux armées se résolvent en même temps : anticipez où sera l'ennemi, pas où il est."
+      "description": "Les ordres attendent que vous <submitOrders>validiez</submitOrders> le tour. Les deux armées se résolvent en même temps : anticipez où sera l'ennemi, pas où il est."
     },
     "idleUnits": {
       "title": "Unités sans ordres",
@@ -447,7 +447,7 @@
     },
     "skirmisherVsCavalry": {
       "title": "Cavalerie près de vos tirailleurs",
-      "description": "Votre tirailleur sera détruit par la cavalerie ennemie s'il reste là. Reculez et cherchez une couverture."
+      "description": "Votre tirailleur sera détruit par la cavalerie ennemie s'il reste là. <fallback>Reculez</fallback> et cherchez une couverture."
     },
     "skirmisherVsInfantry": {
       "title": "Infanterie près de vos tirailleurs",
@@ -455,19 +455,19 @@
     },
     "infantryFormLine": {
       "title": "Former la ligne",
-      "description": "Passez ces unités en ligne. Avec l'infanterie ennemie à portée de mousquet ou la cavalerie de face, la ligne aligne le plus de mousquets et défend le mieux les volées. Ne formez pas le carré contre une charge frontale: vous perdriez la moitié de votre feu."
+      "description": "Passez ces unités en <line>ligne</line>. Avec l'infanterie ennemie à portée de mousquet ou la cavalerie de face, la ligne aligne le plus de mousquets et défend le mieux les volées. Ne formez pas le carré contre une charge frontale: vous perdriez la moitié de votre feu."
     },
     "infantryVsCavalryFrontal": {
       "title": "Tenir la ligne",
-      "description": "La cavalerie ennemie charge le front de ton infanterie, mais des ordres sont en file. Annule-les pour que la ligne tienne et tire au lieu de marcher sous les sabots."
+      "description": "La cavalerie ennemie charge le front de ton infanterie, mais des ordres sont en file. <removeOrders>Annule-les</removeOrders> pour que la ligne tienne et tire au lieu de marcher sous les sabots."
     },
     "infantryVsCavalryFlank": {
       "title": "Former le carré",
-      "description": "Cavalerie sur le flanc ou l'arrière de votre infanterie. Une ligne se fait rouler sur le côté. Formez le carré sur chaque unité surlignée pour avoir des mousquets de tous côtés."
+      "description": "Cavalerie sur le flanc ou l'arrière de votre infanterie. Une ligne se fait rouler sur le côté. Formez le <square>carré</square> sur chaque unité surlignée pour avoir des mousquets de tous côtés."
     },
     "infantryBayonetCharge": {
       "title": "Charge à la baïonnette",
-      "description": "Infanterie ennemie faible à portée de charge. Formez colonne et courez dedans. La baïonnette en colonne au contact les brise."
+      "description": "Infanterie ennemie faible à portée de charge. Formez <column>colonne</column> et <run>courez</run> dedans. La baïonnette en colonne au contact les brise."
     },
     "infantryFallback": {
       "title": "Retirer cette unité",
@@ -475,15 +475,15 @@
     },
     "infantryVsSkirmishers": {
       "title": "Infanterie contre tirailleurs",
-      "description": "Des tirailleurs ennemis sont tout proches et aucune cavalerie n'est disponible. Avancez au pas et forcez-les au corps à corps, où ils sont les plus faibles."
+      "description": "Des tirailleurs ennemis sont tout proches et aucune cavalerie n'est disponible. Avancez <walk>au pas</walk> et forcez-les au corps à corps, où ils sont les plus faibles."
     },
     "infantryVsArtillery": {
       "title": "Infanterie contre artillerie",
-      "description": "Les canons ennemis sont proches et sans protection. Courez droit sur les servants avant qu'ils puissent pivoter et tirer à mitraille."
+      "description": "Les canons ennemis sont proches et sans protection. <run>Courez</run> droit sur les servants avant qu'ils puissent pivoter et tirer à mitraille."
     },
     "infantryColumnMarch": {
       "title": "Marcher en colonne",
-      "description": "Aucun ennemi n'est près de cette unité. Passez en colonne pour accélérer la marche, puis formez la ligne avant le contact."
+      "description": "Aucun ennemi n'est près de cette unité. Passez en <column>colonne</column> pour accélérer la marche, puis formez la <line>ligne</line> avant le contact."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Cavalerie contre cavalerie plus faible",
@@ -491,7 +491,7 @@
     },
     "cavalryVsEqualCavalry": {
       "title": "Cavalerie contre cavalerie égale",
-      "description": "Cavalerie ennemie au contact et aussi ferme que la vôtre. Ne gaspillez pas l'endurance sur une charge perdue d'avance. Approchez au pas et battez-vous à armes égales."
+      "description": "Cavalerie ennemie au contact et aussi ferme que la vôtre. Ne gaspillez pas l'endurance sur une charge perdue d'avance. Approchez <walk>au pas</walk> et battez-vous à armes égales."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Cavalerie contre cavalerie plus forte",
@@ -527,7 +527,7 @@
     },
     "artilleryFireAndAdvance": {
       "title": "Tirer en avançant",
-      "description": "L'ennemi est assez loin pour que vous puissiez continuer à vous rapprocher en tirant. Passez cette pièce en Tirer en avançant."
+      "description": "L'ennemi est assez loin pour que vous puissiez continuer à vous rapprocher en tirant. Passez cette pièce en <fireAndAdvance>Tirer en avançant</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "S'arrêter pour tirer",

@@ -58,6 +58,8 @@ describe("War Room 50v50 preset", () => {
     expect(formationTypes(1)).toEqual(formationTypes(2));
     expect(ScenarioFeatures.hasOneUnitPerPlayer(scenario)).toBe(true);
     expect(ScenarioFeatures.hasDeploymentPhase(scenario)).toBe(true);
+    // Each team's chief of staff arranges its fifty positions in turn 0.
+    expect(ScenarioFeatures.hasAssignableDeploymentZones(scenario)).toBe(true);
     expect(ScenarioFeatures.getInitialTurnNumber(scenario)).toBe(0);
 
     const roster = describeManagedRoster(

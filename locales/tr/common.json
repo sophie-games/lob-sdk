@@ -407,7 +407,7 @@
     },
     "range": {
       "title": "Atış mesafesi",
-      "description": "Uzak atışlar daha az hasar verir. Yaklaş veya daha etkili atışlar için otomatik ateşi sınırla."
+      "description": "Uzak atışlar daha az hasar verir. Yaklaş veya daha etkili atışlar için <autofire>otomatik ateşi</autofire> sınırla."
     },
     "flanks": {
       "title": "Kanatlarını koru",
@@ -424,11 +424,11 @@
     "ammo": {
       "view": "Mühimmatı gör",
       "title": "Mühimmat",
-      "description": "Topçu, her tur yenilenen mühimmat rezervini tüketir. Mühimmat olmadan ateş edemez. Mühimmat tasarrufu için otomatik ateşi ayarla."
+      "description": "Topçu, her tur yenilenen mühimmat rezervini tüketir. Mühimmat olmadan ateş edemez. Mühimmat tasarrufu için <autofire>otomatik ateşi</autofire> ayarla."
     },
     "running": {
       "title": "Amaca yönelik koş",
-      "description": "Çoğu birlikte koşmak dayanıklılık harcar ve ardından bir hücuma uğrarlarsa daha kolay bozulmalarına yol açar. Hıza ihtiyacın veya hücum niyetin olana kadar yürü."
+      "description": "Çoğu birlikte <run>koşmak</run> dayanıklılık harcar ve ardından bir hücuma uğrarlarsa daha kolay bozulmalarına yol açar. Hıza ihtiyacın veya hücum niyetin olana kadar <walk>yürü</walk>."
     },
     "overlap": {
       "title": "Birlikleri üst üste bindirme",
@@ -436,7 +436,7 @@
     },
     "terrain": {
       "title": "Araziyi kullan",
-      "description": "Arazi hareketi ve çatışmayı değiştirir. Birliğin güncel değiştiricilerini görmek ve uygun araziyi seçmek için Bilgi'yi aç."
+      "description": "Arazi hareketi ve çatışmayı değiştirir. Birliğin güncel değiştiricilerini görmek ve uygun araziyi seçmek için <info>Bilgi</info>'yi aç."
     },
     "basicsSelect": {
       "title": "Emir vermek",
@@ -444,15 +444,15 @@
     },
     "basicsOrderTypes": {
       "title": "Emir türleri",
-      "description": "Her hareketin bir temposu var. Yürüyüş dayanıklılığı korur, Koşu daha hızlıdır ama yorar, Ateş ve İlerle yaklaşırken ateş eder. Değiştirmek için emir menüsünü açın."
+      "description": "Her hareketin bir temposu var. <walk>Yürüyüş</walk> dayanıklılığı korur, <run>Koşu</run> daha hızlıdır ama yorar, <fireAndAdvance>Ateş ve İlerle</fireAndAdvance> yaklaşırken ateş eder. Değiştirmek için emir menüsünü açın."
     },
     "basicsFormations": {
       "title": "Düzenler",
-      "description": "Düzen cephe genişliğini ve ateş gücünü belirler. Sütun hızlı yürür, hat en çok tüfeği öne çevirir, kare her yönü süvariye karşı korur."
+      "description": "Düzen cephe genişliğini ve ateş gücünü belirler. <column>Sütun</column> hızlı yürür, <line>hat</line> en çok tüfeği öne çevirir, <square>kare</square> her yönü süvariye karşı korur."
     },
     "basicsSubmit": {
       "title": "Turu gönderme",
-      "description": "Emirler siz turu gönderene kadar bekler. İki ordu aynı anda çözülür, bu yüzden düşmanın nerede olacağını planlayın, nerede olduğunu değil."
+      "description": "Emirler siz turu <submitOrders>gönderene</submitOrders> kadar bekler. İki ordu aynı anda çözülür, bu yüzden düşmanın nerede olacağını planlayın, nerede olduğunu değil."
     },
     "idleUnits": {
       "title": "Emirsiz birlikler",
@@ -464,7 +464,7 @@
     },
     "skirmisherVsCavalry": {
       "title": "Avcı piyadenizin yakınında süvari",
-      "description": "Avcı eriniz bu konumu korursa düşman süvarileri tarafından yok edilecek. Geri çekilin ve siper alın."
+      "description": "Avcı eriniz bu konumu korursa düşman süvarileri tarafından yok edilecek. <fallback>Geri çekilin</fallback> ve siper alın."
     },
     "skirmisherVsInfantry": {
       "title": "Avcı piyadenizin yakınında piyade",
@@ -472,19 +472,19 @@
     },
     "infantryFormLine": {
       "title": "Hat düzenine geç",
-      "description": "Bu birimleri hatta geçirin. Tüfek menzilindeki düşman piyadeleri veya süvarilerin önden gelmesiyle, hat size en fazla tüfeğin öne doğru yönlendirilmesini ve gelen yaylım ateşlerine karşı en iyi savunmayı sağlar. Önden hücuma karşı hizalanmayın, ateş gücünüzün yarısını kaybedersiniz."
+      "description": "Bu birimleri <line>hatta</line> geçirin. Tüfek menzilindeki düşman piyadeleri veya süvarilerin önden gelmesiyle, hat size en fazla tüfeğin öne doğru yönlendirilmesini ve gelen yaylım ateşlerine karşı en iyi savunmayı sağlar. Önden hücuma karşı hizalanmayın, ateş gücünüzün yarısını kaybedersiniz."
     },
     "infantryVsCavalryFrontal": {
       "title": "Hattı koru",
-      "description": "Düşman süvarisi piyadenin önüne saldırıyor ama emir sırası var. Onları temizle ki hat yerinde dursun ve toynaklara yürümek yerine ateş etsin."
+      "description": "Düşman süvarisi piyadenin önüne saldırıyor ama emir sırası var. Onları <removeOrders>temizle</removeOrders> ki hat yerinde dursun ve toynaklara yürümek yerine ateş etsin."
     },
     "infantryVsCavalryFlank": {
       "title": "Kare düzenine geç",
-      "description": "Süvariler piyadenizin yan veya arka kısmından geliyor. Yan taraftan bir sıra geçiliyor. Vurgulanan her birimde kare oluşturun, böylece her yüzde tüfekler çıkar."
+      "description": "Süvariler piyadenizin yan veya arka kısmından geliyor. Yan taraftan bir sıra geçiliyor. Vurgulanan her birimde <square>kare</square> oluşturun, böylece her yüzde tüfekler çıkar."
     },
     "infantryBayonetCharge": {
       "title": "Süngü hücumu",
-      "description": "Hücum menzilindeki düşman piyadeleri zayıf. Sütun oluşturun ve onlarla karşılaşın. Sütunla temas eden süngü onları kırar."
+      "description": "Hücum menzilindeki düşman piyadeleri zayıf. <column>Sütun</column> oluşturun ve üzerlerine <run>koşun</run>. Sütunla temas eden süngü onları kırar."
     },
     "infantryFallback": {
       "title": "Bu birliği geri çek",
@@ -492,15 +492,15 @@
     },
     "infantryVsSkirmishers": {
       "title": "Piyade avcı piyadeye karşı",
-      "description": "Yakında düşman avcıları var ve kullanabileceğiniz süvari yok. Yürüyerek ilerleyin ve en zayıf oldukları yakın dövüşe zorlayın."
+      "description": "Yakında düşman avcıları var ve kullanabileceğiniz süvari yok. <walk>Yürüyerek</walk> ilerleyin ve en zayıf oldukları yakın dövüşe zorlayın."
     },
     "infantryVsArtillery": {
       "title": "Piyade topçuya karşı",
-      "description": "Yakındaki düşman topları korumasız. Dönüp misket ateşi açamadan doğrudan top mürettebatına koşun."
+      "description": "Yakındaki düşman topları korumasız. Dönüp misket ateşi açamadan doğrudan top mürettebatına <run>koşun</run>."
     },
     "infantryColumnMarch": {
       "title": "Sütun düzeninde yürü",
-      "description": "Bu birimin yakınında düşman yok. Daha hızlı ilerlemek için kol düzenine geçin, temastan önce hat düzeni alın."
+      "description": "Bu birimin yakınında düşman yok. Daha hızlı ilerlemek için <column>kol</column> düzenine geçin, temastan önce <line>hat</line> düzeni alın."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Süvari daha zayıf süvariye karşı",
@@ -508,7 +508,7 @@
     },
     "cavalryVsEqualCavalry": {
       "title": "Süvari denk süvariye karşı",
-      "description": "Düşman süvarileri temas halinde ve kabaca sizinkiler kadar istikrarlı. Kazanamayacağınız bir görev için dayanıklılığınızı boşa harcamayın. Yürüyüşe çıkın ve eşit şartlarda kavga edin."
+      "description": "Düşman süvarileri temas halinde ve kabaca sizinkiler kadar istikrarlı. Kazanamayacağınız bir görev için dayanıklılığınızı boşa harcamayın. <walk>Yürüyerek</walk> yaklaşın ve eşit şartlarda çarpışın."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Süvari daha güçlü süvariye karşı",
@@ -544,7 +544,7 @@
     },
     "artilleryFireAndAdvance": {
       "title": "Ateş ve ilerle",
-      "description": "Düşman, ateş ederken yaklaşmaya devam edebileceğiniz kadar uzakta. Bu topçu birimini Ateş ve İlerle olarak değiştirin."
+      "description": "Düşman, ateş ederken yaklaşmaya devam edebileceğiniz kadar uzakta. Bu topçu birimini <fireAndAdvance>Ateş ve İlerle</fireAndAdvance> olarak değiştirin."
     },
     "artilleryRotateToFire": {
       "title": "Ateş için dur",

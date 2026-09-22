@@ -417,7 +417,7 @@
     },
     "range": {
       "title": "사격 거리",
-      "description": "먼 거리에서 쏘면 피해가 줄어듭니다. 가까이 가거나 자동 사격 거리를 제한하세요."
+      "description": "먼 거리에서 쏘면 피해가 줄어듭니다. 가까이 가거나 <autofire>자동 사격</autofire> 거리를 제한하세요."
     },
     "flanks": {
       "title": "측면 보호",
@@ -434,11 +434,11 @@
     "ammo": {
       "view": "탄약 보기",
       "title": "탄약",
-      "description": "포병은 예비 탄약을 소모하며, 예비 탄약은 매 턴 보충됩니다. 탄약이 없으면 사격할 수 없습니다. 자동 사격 설정을 조정해 탄약을 아끼세요."
+      "description": "포병은 예비 탄약을 소모하며, 예비 탄약은 매 턴 보충됩니다. 탄약이 없으면 사격할 수 없습니다. <autofire>자동 사격</autofire> 설정을 조정해 탄약을 아끼세요."
     },
     "running": {
       "title": "목적을 두고 달리기",
-      "description": "대부분의 부대는 달리면 체력을 소모하고, 직후 돌격을 받으면 더 쉽게 무너집니다. 속도가 필요하거나 돌격할 때까지는 걸으세요."
+      "description": "대부분의 부대는 <run>달리면</run> 체력을 소모하고, 직후 돌격을 받으면 더 쉽게 무너집니다. 속도가 필요하거나 돌격할 때까지는 <walk>걸으세요</walk>."
     },
     "overlap": {
       "title": "부대를 겹치지 않기",
@@ -446,7 +446,7 @@
     },
     "terrain": {
       "title": "지형 활용하기",
-      "description": "지형은 이동과 전투를 바꿉니다. 정보를 열어 부대의 현재 보정치를 확인하고 알맞은 지형을 선택하세요."
+      "description": "지형은 이동과 전투를 바꿉니다. <info>정보</info>를 열어 부대의 현재 보정치를 확인하고 알맞은 지형을 선택하세요."
     },
     "basicsSelect": {
       "title": "명령 내리기",
@@ -454,15 +454,15 @@
     },
     "basicsOrderTypes": {
       "title": "명령 종류",
-      "description": "이동에는 속도가 있습니다. 걷기는 체력을 아끼고, 달리기는 빠르지만 지치며, 사격 및 전진은 접근하면서 사격합니다. 명령 메뉴에서 바꾸세요."
+      "description": "이동에는 속도가 있습니다. <walk>걷기</walk>는 체력을 아끼고, <run>달리기</run>는 빠르지만 지치며, <fireAndAdvance>사격 및 전진</fireAndAdvance>은 접근하면서 사격합니다. 명령 메뉴에서 바꾸세요."
     },
     "basicsFormations": {
       "title": "대형",
-      "description": "대형이 정면 폭과 화력을 정합니다. 종대는 행군이 빠르고, 횡대는 가장 많은 머스킷을 앞으로 향하며, 방진은 모든 면을 기병으로부터 지킵니다."
+      "description": "대형이 정면 폭과 화력을 정합니다. <column>종대</column>는 행군이 빠르고, <line>횡대</line>는 가장 많은 머스킷을 앞으로 향하며, <square>방진</square>은 모든 면을 기병으로부터 지킵니다."
     },
     "basicsSubmit": {
       "title": "턴 제출",
-      "description": "명령은 턴을 제출할 때까지 대기합니다. 양쪽 군대가 동시에 처리되므로 적이 지금 있는 곳이 아니라 있을 곳을 계산하세요."
+      "description": "명령은 턴을 <submitOrders>제출</submitOrders>할 때까지 대기합니다. 양쪽 군대가 동시에 처리되므로 적이 지금 있는 곳이 아니라 있을 곳을 계산하세요."
     },
     "idleUnits": {
       "title": "명령 없는 부대",
@@ -474,7 +474,7 @@
     },
     "skirmisherVsCavalry": {
       "title": "척후병에게 접근하는 기병",
-      "description": "당신의 척후병은 그 위치를 유지한다면 적 기병에 의해 파괴될 것입니다. 대체하고 엄폐물을 찾으세요."
+      "description": "당신의 척후병은 그 위치를 유지한다면 적 기병에 의해 파괴될 것입니다. <fallback>후퇴</fallback>하고 엄폐물을 찾으세요."
     },
     "skirmisherVsInfantry": {
       "title": "척후병에게 접근하는 보병",
@@ -482,19 +482,19 @@
     },
     "infantryFormLine": {
       "title": "횡대 편성",
-      "description": "이 장치를 라인으로 전환하십시오. 머스킷 사거리에 있는 적 보병이나 최전방에 다가오는 기병과 함께 전열은 전방을 향한 가장 많은 머스켓 소총과 다가오는 일제 사격에 대한 최선의 방어를 제공합니다. 정면 돌격에 맞서 방진을 형성하지 마십시오. 화력이 절반만 손실됩니다."
+      "description": "이 부대들을 <line>횡대</line>로 전환하십시오. 머스킷 사거리에 있는 적 보병이나 최전방에 다가오는 기병과 함께 전열은 전방을 향한 가장 많은 머스켓 소총과 다가오는 일제 사격에 대한 최선의 방어를 제공합니다. 정면 돌격에 맞서 방진을 형성하지 마십시오. 화력이 절반만 손실됩니다."
     },
     "infantryVsCavalryFrontal": {
       "title": "전열 유지",
-      "description": "적 기병이 보병의 정면으로 돌진 중이지만, 명령이 대기 중이다. 명령을 지워서 발굽 아래로 걷는 대신 진을 지키고 사격하게 하라."
+      "description": "적 기병이 보병의 정면으로 돌진 중이지만, 명령이 대기 중이다. 명령을 <removeOrders>지워서</removeOrders> 발굽 아래로 걷는 대신 진을 지키고 사격하게 하라."
     },
     "infantryVsCavalryFlank": {
       "title": "방진 편성",
-      "description": "기병이 보병의 측면이나 후방으로 옵니다. 측면에서 줄이 넘어갑니다. 강조 표시된 각 유닛에 사각형을 형성하여 모든 얼굴에 총구가 있도록 하세요."
+      "description": "기병이 보병의 측면이나 후방으로 옵니다. 측면에서 줄이 넘어갑니다. 강조 표시된 각 유닛에 <square>방진</square>을 형성하여 모든 얼굴에 총구가 있도록 하세요."
     },
     "infantryBayonetCharge": {
       "title": "총검 돌격",
-      "description": "돌격 범위 내의 약한 적 보병. 열을 형성하고 실행하십시오. 기둥에 닿으면 총검이 부러집니다."
+      "description": "돌격 범위 내의 약한 적 보병. <column>종대</column>를 형성하고 <run>달려</run> 들어가십시오. 기둥에 닿으면 총검이 부러집니다."
     },
     "infantryFallback": {
       "title": "이 부대 후퇴",
@@ -502,15 +502,15 @@
     },
     "infantryVsSkirmishers": {
       "title": "보병 대 척후병",
-      "description": "적 척후병이 가까이 있고 사용할 기병은 없습니다. 걸어서 전진해 척후병이 가장 약한 근접전으로 몰아넣으세요."
+      "description": "적 척후병이 가까이 있고 사용할 기병은 없습니다. <walk>걸어서</walk> 전진해 척후병이 가장 약한 근접전으로 몰아넣으세요."
     },
     "infantryVsArtillery": {
       "title": "보병 대 포병",
-      "description": "적 포병이 가깝고 엄호가 없습니다. 포병이 방향을 돌려 산탄을 쏘기 전에 포병대로 곧장 달려가세요."
+      "description": "적 포병이 가깝고 엄호가 없습니다. 포병이 방향을 돌려 산탄을 쏘기 전에 포병대로 곧장 <run>달려가세요</run>."
     },
     "infantryColumnMarch": {
       "title": "종대 행군",
-      "description": "이 부대 근처에는 적이 없습니다. 더 빠르게 행군하려면 종대로 전환하고, 접촉 전에 횡대를 형성하세요."
+      "description": "이 부대 근처에는 적이 없습니다. 더 빠르게 행군하려면 <column>종대</column>로 전환하고, 접촉 전에 <line>횡대</line>를 형성하세요."
     },
     "cavalryVsWeakerCavalry": {
       "title": "기병 대 약한 기병",
@@ -518,7 +518,7 @@
     },
     "cavalryVsEqualCavalry": {
       "title": "기병 대 대등한 기병",
-      "description": "적 기병대가 접촉하고 있으며 대략 당신만큼 안정적입니다. 이길 수 없는 충전에 체력을 낭비하지 마십시오. 산책할 때 가까워지고 평탄한 상태에서 싸움이 벌어집니다."
+      "description": "적 기병대가 접촉하고 있으며 대략 당신만큼 안정적입니다. 이길 수 없는 충전에 체력을 낭비하지 마십시오. <walk>걸어서</walk> 접근하고 대등하게 싸우세요."
     },
     "cavalryVsStrongerCavalry": {
       "title": "기병 대 강한 기병",
@@ -554,7 +554,7 @@
     },
     "artilleryFireAndAdvance": {
       "title": "사격 및 전진",
-      "description": "적군은 발사하는 동안 계속 접근할 수 있을 만큼 멀리 떨어져 있습니다. 이 포병 유닛을 사격 및 전진으로 전환하세요."
+      "description": "적군은 발사하는 동안 계속 접근할 수 있을 만큼 멀리 떨어져 있습니다. 이 포병 유닛을 <fireAndAdvance>사격 및 전진</fireAndAdvance>으로 전환하세요."
     },
     "artilleryRotateToFire": {
       "title": "멈춰서 사격",

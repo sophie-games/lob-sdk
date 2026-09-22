@@ -404,7 +404,7 @@
     },
     "range": {
       "title": "Alcance",
-      "description": "A larga distancia haces menos daño. Acércate o limita el fuego automático para aprovechar tus disparos."
+      "description": "A larga distancia haces menos daño. Acércate o limita el <autofire>fuego automático</autofire> para aprovechar tus disparos."
     },
     "flanks": {
       "title": "Flancos",
@@ -421,11 +421,11 @@
     "ammo": {
       "view": "Ver munición",
       "title": "Munición",
-      "description": "La artillería consume tu reserva de munición, que se recarga cada turno. Sin munición no puede disparar. Ajusta el fuego automático para ahorrar."
+      "description": "La artillería consume tu reserva de munición, que se recarga cada turno. Sin munición no puede disparar. Ajusta el <autofire>fuego automático</autofire> para ahorrar."
     },
     "running": {
       "title": "Corre con intención",
-      "description": "Para la mayoría de las tropas, correr consume resistencia y las vuelve más fáciles de quebrar si reciben una carga después. Camina hasta que necesites velocidad o quieras cargar."
+      "description": "Para la mayoría de las tropas, <run>correr</run> consume resistencia y las vuelve más fáciles de quebrar si reciben una carga después. <walk>Camina</walk> hasta que necesites velocidad o quieras cargar."
     },
     "overlap": {
       "title": "No amontones unidades",
@@ -433,7 +433,7 @@
     },
     "terrain": {
       "title": "Aprovecha el terreno",
-      "description": "El terreno modifica el movimiento y el combate. Abre Información para ver los modificadores actuales de una unidad y elegir un terreno adecuado."
+      "description": "El terreno modifica el movimiento y el combate. Abre <info>Información</info> para ver los modificadores actuales de una unidad y elegir un terreno adecuado."
     },
     "basicsSelect": {
       "title": "Dar órdenes",
@@ -441,15 +441,15 @@
     },
     "basicsOrderTypes": {
       "title": "Tipos de orden",
-      "description": "Cada movimiento tiene un ritmo. Caminar conserva la resistencia, Correr es más rápido pero cansa, Disparar y Avanzar dispara mientras se acerca. Abre el menú de órdenes para cambiarlo."
+      "description": "Cada movimiento tiene un ritmo. <walk>Caminar</walk> conserva la resistencia, <run>Correr</run> es más rápido pero cansa, <fireAndAdvance>Disparar y Avanzar</fireAndAdvance> dispara mientras se acerca. Abre el menú de órdenes para cambiarlo."
     },
     "basicsFormations": {
       "title": "Formaciones",
-      "description": "La formación decide el frente y la potencia de fuego. La columna marcha rápido, la línea apunta más mosquetes al frente y el cuadro protege todos los lados de la caballería."
+      "description": "La formación decide el frente y la potencia de fuego. La <column>columna</column> marcha rápido, la <line>línea</line> apunta más mosquetes al frente y el <square>cuadro</square> protege todos los lados de la caballería."
     },
     "basicsSubmit": {
       "title": "Enviar el turno",
-      "description": "Las órdenes esperan hasta que envías el turno. Ambos ejércitos se resuelven a la vez, así que prevé dónde estará el enemigo, no dónde está."
+      "description": "Las órdenes esperan hasta que <submitOrders>envías</submitOrders> el turno. Ambos ejércitos se resuelven a la vez, así que prevé dónde estará el enemigo, no dónde está."
     },
     "idleUnits": {
       "title": "Unidades sin órdenes",
@@ -461,7 +461,7 @@
     },
     "skirmisherVsCavalry": {
       "title": "Caballería cerca de tus tiradores",
-      "description": "Tu tirador será destrozado por la caballería enemiga si se queda ahí. Retrocede y busca cobertura."
+      "description": "Tu tirador será destrozado por la caballería enemiga si se queda ahí. <fallback>Retrocede</fallback> y busca cobertura."
     },
     "skirmisherVsInfantry": {
       "title": "Infantería cerca de tus tiradores",
@@ -469,19 +469,19 @@
     },
     "infantryFormLine": {
       "title": "Formar línea",
-      "description": "Pasa estas unidades a línea. Con infantería enemiga a tiro de mosquete o caballería al frente, la línea concentra más bocas al frente y defiende mejor las descargas. No formes cuadro contra una carga frontal: perderías la mitad del fuego."
+      "description": "Pasa estas unidades a <line>línea</line>. Con infantería enemiga a tiro de mosquete o caballería al frente, la línea concentra más bocas al frente y defiende mejor las descargas. No formes cuadro contra una carga frontal: perderías la mitad del fuego."
     },
     "infantryVsCavalryFrontal": {
       "title": "Mantener la línea",
-      "description": "La caballería enemiga carga el frente de tu infantería, pero tienen órdenes en cola. Bórralas para que la línea se mantenga y dispare en lugar de caminar bajo los cascos."
+      "description": "La caballería enemiga carga el frente de tu infantería, pero tienen órdenes en cola. <removeOrders>Bórralas</removeOrders> para que la línea se mantenga y dispare en lugar de caminar bajo los cascos."
     },
     "infantryVsCavalryFlank": {
       "title": "Formar cuadro",
-      "description": "Caballería al flanco o retaguardia de tu infantería. Una línea la arrollan por el costado. Forma cuadro en cada unidad resaltada para tener mosquetes en todas las caras."
+      "description": "Caballería al flanco o retaguardia de tu infantería. Una línea la arrollan por el costado. Forma <square>cuadro</square> en cada unidad resaltada para tener mosquetes en todas las caras."
     },
     "infantryBayonetCharge": {
       "title": "Carga a la bayoneta",
-      "description": "Infantería enemiga débil al alcance de la carga. Forma columna y corre hacia ellos. El choque de bayoneta en columna los rompe."
+      "description": "Infantería enemiga débil al alcance de la carga. Forma <column>columna</column> y <run>corre</run> hacia ellos. El choque de bayoneta en columna los rompe."
     },
     "infantryFallback": {
       "title": "Retirar esta unidad",
@@ -489,15 +489,15 @@
     },
     "infantryVsSkirmishers": {
       "title": "Infantería contra tiradores",
-      "description": "Hay tiradores enemigos cerca y no tienes caballería disponible. Avanza al paso y fuérzalos al combate cuerpo a cuerpo, donde son más débiles."
+      "description": "Hay tiradores enemigos cerca y no tienes caballería disponible. Avanza <walk>al paso</walk> y fuérzalos al combate cuerpo a cuerpo, donde son más débiles."
     },
     "infantryVsArtillery": {
       "title": "Infantería contra artillería",
-      "description": "Hay cañones enemigos cerca y sin protección. Corre directo hacia la dotación antes de que puedan girar y disparar metralla."
+      "description": "Hay cañones enemigos cerca y sin protección. <run>Corre</run> directo hacia la dotación antes de que puedan girar y disparar metralla."
     },
     "infantryColumnMarch": {
       "title": "Marchar en columna",
-      "description": "No hay enemigos cerca de esta unidad. Pasa a columna para marchar más rápido y forma en línea antes del contacto."
+      "description": "No hay enemigos cerca de esta unidad. Pasa a <column>columna</column> para marchar más rápido y forma en <line>línea</line> antes del contacto."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Caballería contra caballería más débil",
@@ -505,7 +505,7 @@
     },
     "cavalryVsEqualCavalry": {
       "title": "Caballería contra caballería pareja",
-      "description": "Caballería enemiga en contacto y tan firme como la tuya. No gastes resistencia en una carga que no puedes ganar. Acércate al paso y pelea a pie parejo."
+      "description": "Caballería enemiga en contacto y tan firme como la tuya. No gastes resistencia en una carga que no puedes ganar. Acércate <walk>al paso</walk> y pelea a pie parejo."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Caballería contra caballería más fuerte",
@@ -541,7 +541,7 @@
     },
     "artilleryFireAndAdvance": {
       "title": "Disparar y avanzar",
-      "description": "El enemigo está lo bastante lejos para seguir acercándote mientras disparas. Cambia esta pieza a Disparar y Avanzar."
+      "description": "El enemigo está lo bastante lejos para seguir acercándote mientras disparas. Cambia esta pieza a <fireAndAdvance>Disparar y Avanzar</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "Detenerse para disparar",
