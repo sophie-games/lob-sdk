@@ -3,13 +3,20 @@ import {
   LegacyHybridScenario,
   LegacyPresetScenario,
   LegacyRandomScenario,
+  LegacyVersion1Scenario,
   Scenario,
 } from "@lob-sdk/types";
 import { SCENARIO_SCHEMA_VERSION } from "./constants";
+import {
+  toPolygonMap,
+  toPolygonRandomZones,
+  toPolygonZoneGroups,
+} from "./legacy-deployment-zones";
 
 /** Any shape the normalizer accepts: current {@link Scenario} or a legacy type. */
 export type RawScenarioInput =
   | Scenario
+  | LegacyVersion1Scenario
   | LegacyPresetScenario
   | LegacyHybridScenario
   | LegacyRandomScenario;
@@ -20,6 +27,7 @@ export type RawScenarioInput =
  * migrated based on their `type` discriminator.
  */
 export function normalizeScenario(raw: RawScenarioInput): Scenario {
+  if (_isVersion1(raw)) return _backfillCurrent(_fromVersion1(raw));
   if (raw.version !== undefined && raw.version !== SCENARIO_SCHEMA_VERSION) {
     throw new Error(
       `Unsupported scenario schema version ${raw.version}; expected ${SCENARIO_SCHEMA_VERSION}`,
@@ -52,6 +60,48 @@ const _backfillCurrent = (raw: Scenario): Scenario => {
 const _isCurrent = (raw: RawScenarioInput): raw is Scenario =>
   raw.version === SCENARIO_SCHEMA_VERSION;
 
+const _isVersion1 = (raw: RawScenarioInput): raw is LegacyVersion1Scenario =>
+  raw.version === 1;
+
+const _fromVersion1 = ({
+  version: _version,
+  allowDeploymentPhase,
+  map,
+  deploymentZones,
+  randomDeploymentZones,
+  scaledDeploymentZones,
+  ...rest
+}: LegacyVersion1Scenario): Scenario => {
+  // Version 1 kept zones no feature used; any zone now opens turn 0.
+  const zonesUsed =
+    rest.allowDynamicArmy === true ||
+    allowDeploymentPhase === true ||
+    rest.placeableObjectives === true;
+  const keptMap =
+    map && (zonesUsed ? map : { ...map, deploymentZones: undefined });
+  return {
+    ...rest,
+    version: SCENARIO_SCHEMA_VERSION,
+    ...(keptMap ? { map: toPolygonMap(keptMap) } : {}),
+    ...(deploymentZones && zonesUsed
+      ? { deploymentZones: toPolygonZoneGroups(deploymentZones) }
+      : {}),
+    ...(randomDeploymentZones
+      ? { randomDeploymentZones: toPolygonRandomZones(randomDeploymentZones) }
+      : {}),
+    ...(scaledDeploymentZones
+      ? {
+          scaledDeploymentZones: Object.fromEntries(
+            Object.entries(scaledDeploymentZones).map(([size, zones]) => [
+              size,
+              toPolygonRandomZones(zones),
+            ]),
+          ) as Scenario["scaledDeploymentZones"],
+        }
+      : {}),
+  };
+};
+
 const _baseFields = (
   raw: LegacyPresetScenario | LegacyHybridScenario | LegacyRandomScenario,
 ) => ({
@@ -67,7 +117,7 @@ const _baseFields = (
 
 const _fromPreset = (raw: LegacyPresetScenario): Scenario => ({
   ..._baseFields(raw),
-  map: raw.map,
+  map: toPolygonMap(raw.map),
   players: raw.players,
   units: raw.units,
   objectives: raw.objectives,
@@ -77,7 +127,7 @@ const _fromPreset = (raw: LegacyPresetScenario): Scenario => ({
 
 const _fromHybrid = (raw: LegacyHybridScenario): Scenario => ({
   ..._baseFields(raw),
-  map: raw.map,
+  map: toPolygonMap(raw.map),
   units: raw.units ?? [],
   objectives: raw.objectives ?? [],
   allowDynamicArmy: raw.fixedArmy !== true,

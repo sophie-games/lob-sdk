@@ -22,6 +22,7 @@ import {
   DynamicBattleType,
   ScenarioBattleTypeOverride,
   PlayerBudgetOverride,
+  Zone,
 } from "@lob-sdk/types";
 import type {
   DamageTypeTemplate,
@@ -230,7 +231,7 @@ export interface LegacyPresetScenario extends BaseScenario {
   /** Discriminator: legacy types never carry a schema version. */
   version?: never;
   /** The game map with terrain and deployment zones. */
-  map: GameMap;
+  map: LegacyGameMap;
   /** Player configurations for the scenario. */
   players: PlayerSetup[];
   /** Units to deploy at the start of the game. */
@@ -249,7 +250,7 @@ export interface LegacyHybridScenario extends BaseScenario {
   /** Discriminator: legacy types never carry a schema version. */
   version?: never;
   /** The game map with terrain and deployment zones. */
-  map: GameMap;
+  map: LegacyGameMap;
   /** Optional units to deploy. If not provided, units may be generated procedurally. */
   units?: UnitDtoPartialId[];
   /** Optional objectives. If not provided, objectives may be generated procedurally. */
@@ -296,6 +297,33 @@ export interface RandomDeploymentZones {
   top: RandomDeploymentZone[];
   /** Zones for the bottom side (team 1). Omit to mirror {@link top}. */
   bottom?: RandomDeploymentZone[];
+}
+
+/** A zone saved as a rectangle, whose rotation also turned the area. */
+export interface LegacyTeamDeploymentZone extends Zone {
+  team: number;
+  player?: number;
+  type: DeploymentZoneType;
+}
+
+/** Rectangle zones; files older than 1.4 carry one main and one forward. */
+export type LegacyTeamDeploymentZones =
+  | { team: number; zones: LegacyTeamDeploymentZone[] }
+  | { team: number; mainZone: Zone; forwardZone: Zone };
+
+/** A percentage rectangle whose top-left corner is sampled from the ranges. */
+export interface LegacyRandomDeploymentZone
+  extends Omit<RandomDeploymentZone, "polygon" | "origin"> {
+  rect: DeploymentZoneOrigin & { width: number; height: number };
+}
+
+export interface LegacyRandomDeploymentZones {
+  top: LegacyRandomDeploymentZone[];
+  bottom?: LegacyRandomDeploymentZone[];
+}
+
+export interface LegacyGameMap extends Omit<GameMap, "deploymentZones"> {
+  deploymentZones?: LegacyTeamDeploymentZones[];
 }
 
 /**
@@ -681,4 +709,23 @@ export interface Scenario {
    * be playable. Carried on the per-game GameDataManager.
    */
   disableEraDefaultUnits?: boolean;
+}
+
+/** Schema version 1: rectangle zones and an explicit deployment switch. */
+export interface LegacyVersion1Scenario
+  extends Omit<
+    Scenario,
+    | "version"
+    | "map"
+    | "deploymentZones"
+    | "randomDeploymentZones"
+    | "scaledDeploymentZones"
+  > {
+  version: 1;
+  map?: LegacyGameMap;
+  deploymentZones?: LegacyTeamDeploymentZones[];
+  randomDeploymentZones?: LegacyRandomDeploymentZones;
+  scaledDeploymentZones?: Record<Size, LegacyRandomDeploymentZones>;
+  /** Opened turn 0; zones alone did not. */
+  allowDeploymentPhase?: boolean;
 }
