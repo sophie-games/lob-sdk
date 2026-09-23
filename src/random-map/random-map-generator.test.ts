@@ -6,6 +6,7 @@ import {
   ScenarioName,
   DynamicBattleType,
   TerrainType,
+  ObjectiveType,
 } from "@lob-sdk/types";
 import { SCENARIO_SCHEMA_VERSION } from "@lob-sdk/scenario";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
@@ -540,8 +541,15 @@ describe("RandomMapGenerator", () => {
       expect(result.map.terrains[3][4]).toBe(TerrainType.ShallowWater);
     });
 
-    it("preserves place labels from a handcrafted map", () => {
+    it("preserves place labels and objective zones from a handcrafted map", () => {
       const labels = [{ pos: { x: 64, y: 96 }, text: "Quatre Bras" }];
+      const objectiveZones = [
+        {
+          team: 1,
+          type: ObjectiveType.Big,
+          polygons: [polygonFromBounds(16, 16, 48, 48)],
+        },
+      ];
       const scenario: Scenario = {
         version: SCENARIO_SCHEMA_VERSION,
         name: "fixed-map-labels",
@@ -552,6 +560,7 @@ describe("RandomMapGenerator", () => {
           terrains: buildBakedTerrains(),
           heightMap: buildBakedHeightMap(),
           labels,
+          objectiveZones,
         },
       };
 
@@ -564,6 +573,7 @@ describe("RandomMapGenerator", () => {
       });
 
       expect(result.map.labels).toEqual(labels);
+      expect(result.map.objectiveZones).toEqual(objectiveZones);
     });
 
     it("pads a heightMap shorter than terrains to the declared dimensions", () => {

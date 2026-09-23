@@ -23,6 +23,7 @@ import {
   ScenarioBattleTypeOverride,
   PlayerBudgetOverride,
   Zone,
+  ObjectiveType,
 } from "@lob-sdk/types";
 import type {
   DamageTypeTemplate,
@@ -160,6 +161,17 @@ export const getForwardZone = (
 };
 
 /**
+ * Ground where a team's players place objectives of one type. A team may have
+ * several; together they replace the zone derived from its deployment ground.
+ */
+export interface ObjectiveZone {
+  team: number;
+  type: ObjectiveType;
+  /** One or more polygons; each may exclude ground with holes. */
+  polygons: DeploymentPolygon[];
+}
+
+/**
  * A place name drawn on the map: a town, a village, a landmark.
  */
 export interface MapLabel {
@@ -182,6 +194,8 @@ export interface GameMap {
   height: number;
   /** Optional deployment zones for each team. */
   deploymentZones?: TeamDeploymentZones[];
+  /** Optional objective placement zones; teams without any use derived ones. */
+  objectiveZones?: ObjectiveZone[];
   /** 2D array of terrain types, indexed by [x][y] in tiles. */
   terrains: TerrainType[][];
   /** 2D array of height values, indexed by [x][y] in tiles. */
