@@ -1094,7 +1094,11 @@
   },
   "objectiveZones": {
     "heading": "Objective zones",
-    "hint": "How much to shrink the areas where objectives can be placed.",
+    "hint": "Draw where each team places its objectives. A team with no zone of a type gets one derived from its deployment ground, shrunk by the trims below.",
+    "bigZone": "Big objectives",
+    "smallZone": "Small objectives",
+    "addBigZone": "Add big-objective zone",
+    "addSmallZone": "Add small-objective zone",
     "smallInset": "Small-objective zone trim",
     "bigInset": "Big-objective zone trim",
     "smallInsetInfo": "How much to narrow the small-objective zone on each side. Trims only its width, keeping its vertical reach. Leave it empty to use the battle type's own figure, or the era's.",
