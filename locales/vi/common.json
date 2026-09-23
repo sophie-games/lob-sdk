@@ -404,7 +404,44 @@
   "armyInvalidForPlayer": "Quân đội của người chơi {{player}} không hợp lệ: {{message}}",
   "landing": {
     "message": "<b>Lines of Battle</b> là trò chơi chiến thuật thời Napoleon với lượt đồng thời và chiến đấu thời gian thực. Đánh bại đối thủ người với quân đội chính xác và chiến thuật!",
-    "privacy": "Bằng cách bắt đầu, bạn đồng ý với <0>Chính sách bảo mật</0> của chúng tôi."
+    "privacy": "Bằng cách bắt đầu, bạn đồng ý với <0>Chính sách bảo mật</0> của chúng tôi.",
+    "by": "Bởi <0>Sophie Games</0>",
+    "nav": {
+      "roadmap": "Lộ trình",
+      "wiki": "Wiki cộng đồng",
+      "terms": "Điều khoản"
+    },
+    "aria": {
+      "about": "Giới thiệu Lines of Battle",
+      "platforms": "Chơi Lines of Battle trên nền tảng khác",
+      "communities": "Cộng đồng Lines of Battle"
+    },
+    "seo": {
+      "tagline": "Game chiến thuật thời Napoleon miễn phí",
+      "description": "Chơi Lines of Battle, game chiến thuật thời Napoleon miễn phí với lượt đi đồng thời. Lên kế hoạch ra lệnh và hạ đối thủ trên web lẫn di động."
+    },
+    "about": {
+      "browser": {
+        "title": "Game chiến thuật thời Napoleon chơi ngay trên trình duyệt",
+        "body": "Lines of Battle là game chiến thuật miễn phí lấy bối cảnh các cuộc chiến tranh Napoleon. Bạn chỉ huy một đạo quân nhỏ gồm bộ binh, kỵ binh và pháo binh trên một chiến trường duy nhất, và tranh giành nó với người chơi khác. Không cần tải gì cả: game chạy trên trình duyệt, và trên Android lẫn iOS với cùng tài khoản, cùng những trận đấu.",
+        "more": "Game miễn phí. Việc phát triển được tài trợ bằng các vật phẩm trang trí và tiện ích không làm thay đổi kết quả trận đấu."
+      },
+      "simultaneous": {
+        "title": "Hai bên cùng di chuyển một lúc",
+        "body": "Phần lớn game chiến thuật để một người đi trong khi người kia ngồi xem. Game này thì không. Mỗi lượt bạn vẽ đường đi cho các trung đoàn, chọn đội hình và chỉ định mục tiêu, còn đối thủ cũng làm y như vậy, cùng lúc và không nhìn thấy lựa chọn của bạn. Sau đó hai kế hoạch chạy cùng nhau và bạn thấy mệnh lệnh của mình thực sự tạo ra điều gì.",
+        "more": "Nghĩa là bạn không bao giờ phản ứng với một nước đã đi rồi. Bạn đang đoán một kế hoạch đang được viết cùng lúc với kế hoạch của bạn. <0>Lượt đi đồng thời hoạt động thế nào</0>."
+      },
+      "formations": {
+        "title": "Đội hình quyết định trận đánh",
+        "body": "Một tiểu đoàn thời Napoleon không phải là thanh máu. Đó là hàng trăm con người trong một hình thế, và chính hình thế ấy là quyết định. Hàng ngang đưa mọi khẩu súng vào tuyến bắn. Hàng dọc dễ cơ động và xung phong nhưng mặt trận lại hẹp. Ô vuông chặn đứng kỵ binh nhưng bị pháo binh tàn sát. Đổi giữa chúng tốn một khoảng thời gian mà bạn có thể không có.",
+        "more": "Sĩ khí, kiệt sức, đạn dược, địa hình và độ cao đều góp phần vào kết quả. Đơn vị vỡ trận không chết mà bỏ chạy, và cơn tháo chạy lây sang những đơn vị chứng kiến. <0>Xem mọi đơn vị và chỉ số của chúng</0>."
+      },
+      "waysToPlay": {
+        "title": "Các cách chơi",
+        "body": "Trận đấu xếp hạng là cốt lõi, từ những cuộc đấu nhỏ đến trận đánh quy mô đầy đủ, một chọi một hoặc theo đội. Bạn cũng có thể chơi ngoại tuyến với AI, tự dựng kịch bản trong trình biên tập, và xem lại bất kỳ trận nào bạn từng đánh.",
+        "more": "Một phiên bản 3D riêng đang được phát triển cho Steam, với các chiến dịch lịch sử và chế độ nhiều người chơi riêng. Bản trình duyệt miễn phí và sẽ luôn miễn phí. <0>Xem những gì đang được lên kế hoạch</0>."
+      }
+    }
   },
   "gameTips": {
     "victoryPoints": {

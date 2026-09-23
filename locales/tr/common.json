@@ -390,7 +390,44 @@
   "armyInvalidForPlayer": "{{player}}. oyuncunun ordusu geçersiz: {{message}}",
   "landing": {
     "message": "<b>Lines of Battle</b>, eşzamanlı turlar ve gerçek zamanlı savaş ile Napolyon taktik oyunudur. Doğru birlikler ve taktiklerle insan rakiplerinizi yenin!",
-    "privacy": "Başlayarak <0>Gizlilik Politikamızı</0> kabul etmiş olursunuz."
+    "privacy": "Başlayarak <0>Gizlilik Politikamızı</0> kabul etmiş olursunuz.",
+    "by": "<0>Sophie Games</0> tarafından",
+    "nav": {
+      "roadmap": "Yol haritası",
+      "wiki": "Topluluk wiki'si",
+      "terms": "Koşullar"
+    },
+    "aria": {
+      "about": "Lines of Battle hakkında",
+      "platforms": "Lines of Battle'ı diğer platformlarda oynayın",
+      "communities": "Lines of Battle toplulukları"
+    },
+    "seo": {
+      "tagline": "Ücretsiz Napolyon dönemi strateji oyunu",
+      "description": "Lines of Battle'ı oynayın: eşzamanlı turlu, ücretsiz bir Napolyon dönemi strateji oyunu. Emirlerinizi planlayın, rakiplerinizi web ve mobilde yenin."
+    },
+    "about": {
+      "browser": {
+        "title": "Tarayıcıda oynadığınız bir Napolyon dönemi strateji oyunu",
+        "body": "Lines of Battle, Napolyon savaşlarında geçen ücretsiz bir taktik oyunudur. Tek bir savaş alanında piyade, süvari ve topçudan oluşan küçük bir orduyu yönetir ve onun için diğer oyuncularla çarpışırsınız. İndirilecek bir şey yok: tarayıcıda, ayrıca aynı hesap ve aynı maçlarla Android ve iOS'ta çalışır.",
+        "more": "Oyun ücretsizdir. Geliştirme, bir maçın sonucunu değiştirmeyen kozmetikler ve kolaylık özellikleriyle finanse edilir."
+      },
+      "simultaneous": {
+        "title": "İki taraf aynı anda hareket eder",
+        "body": "Çoğu strateji oyununda biri hamlesini yaparken diğeri izler. Burada öyle değil. Her turda alaylarınızın izleyeceği yolları çizer, dizilişlerini seçer ve hedeflerini belirlersiniz; rakibiniz de aynı anda ve sizin seçiminizi görmeden aynısını yapar. Sonra iki plan birlikte işler ve emirlerinizin gerçekte ne ürettiğini izlersiniz.",
+        "more": "Yani hiçbir zaman olup bitmiş bir hamleye tepki vermezsiniz. Siz kendi planınızı yazarken yazılmakta olan bir planı tahmin edersiniz. <0>Eşzamanlı turlar nasıl işler</0>."
+      },
+      "formations": {
+        "title": "Savaşı dizilişler belirler",
+        "body": "Napolyon dönemi taburu bir can barı değildir. Bir şekle girmiş yüzlerce adamdır ve karar o şekildir. Hat, her tüfeği ateş sırasına koyar. Kol yürür ve hücum eder ama dar bir cephe sunar. Kare, süvariyi olduğu yerde durdurur ve topçunun altında biçilir. Aralarında geçiş, belki de olmayan bir zamana mal olur.",
+        "more": "Moral, yorgunluk, cephane, arazi ve yükseklik sonuca işler. Kırılan birlikler ölmez, kaçar; bozgun da onu gören birliklere bulaşır. <0>Her birliğe ve istatistiklerine göz atın</0>."
+      },
+      "waysToPlay": {
+        "title": "Oynama biçimleri",
+        "body": "İşin kalbi dereceli maçlardır: küçük düellolardan tam savaşlara, teke tek ya da takım hâlinde. Ayrıca yapay zekâya karşı çevrimdışı oynayabilir, editörde kendi senaryolarınızı kurabilir ve verdiğiniz her savaşın tekrarını izleyebilirsiniz.",
+        "more": "Steam için ayrı bir 3B sürüm geliştiriliyor; tarihsel seferler ve kendi çok oyunculu moduyla. Tarayıcı oyunu ücretsizdir ve öyle kalacak. <0>Neler planlandığını görün</0>."
+      }
+    }
   },
   "gameTips": {
     "victoryPoints": {

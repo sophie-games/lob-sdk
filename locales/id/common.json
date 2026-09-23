@@ -391,7 +391,44 @@
   "armyInvalidForPlayer": "Pasukan pemain {{player}} tidak valid: {{message}}",
   "landing": {
     "message": "<b>Lines of Battle</b> adalah permainan taktis Napoleon dengan giliran simultan dan pertempuran real-time. Kalahkan lawan manusia dengan pasukan dan taktik yang akurat!",
-    "privacy": "Sebelum memulai permainan, Dimohon kamu menyetujui ketentuan kami<0>Privacy Policy</0>."
+    "privacy": "Sebelum memulai permainan, Dimohon kamu menyetujui ketentuan kami<0>Privacy Policy</0>.",
+    "by": "Oleh <0>Sophie Games</0>",
+    "nav": {
+      "roadmap": "Peta jalan",
+      "wiki": "Wiki komunitas",
+      "terms": "Ketentuan"
+    },
+    "aria": {
+      "about": "Tentang Lines of Battle",
+      "platforms": "Mainkan Lines of Battle di platform lain",
+      "communities": "Komunitas Lines of Battle"
+    },
+    "seo": {
+      "tagline": "Game strategi Napoleon gratis",
+      "description": "Mainkan Lines of Battle, game strategi Napoleon gratis dengan giliran serentak. Susun perintah taktis dan kalahkan lawan di web maupun ponsel."
+    },
+    "about": {
+      "browser": {
+        "title": "Game strategi Napoleon yang dimainkan di peramban",
+        "body": "Lines of Battle adalah game taktik gratis berlatar Perang Napoleon. Kamu memimpin pasukan kecil berisi infanteri, kavaleri, dan artileri di satu medan perang, dan memperebutkannya dengan pemain lain. Tidak ada yang perlu diunduh: game ini berjalan di peramban, serta di Android dan iOS dengan akun dan pertandingan yang sama.",
+        "more": "Gratis dimainkan. Pengembangan dibiayai oleh item kosmetik dan fitur kenyamanan yang tidak mengubah hasil pertandingan."
+      },
+      "simultaneous": {
+        "title": "Kedua pihak bergerak bersamaan",
+        "body": "Kebanyakan game strategi membiarkan satu pemain bergerak sementara yang lain menonton. Yang ini tidak. Setiap giliran kamu menggambar jalur resimenmu, memilih formasinya, dan menentukan sasarannya, dan lawanmu melakukan hal yang sama, pada saat yang sama dan tanpa melihat pilihanmu. Lalu kedua rencana berjalan bersama dan kamu melihat apa yang sebenarnya dihasilkan perintahmu.",
+        "more": "Artinya kamu tidak pernah bereaksi terhadap langkah yang sudah terjadi. Kamu menebak rencana yang sedang ditulis saat kamu menulis rencanamu. <0>Cara kerja giliran serentak</0>."
+      },
+      "formations": {
+        "title": "Formasi menentukan pertempuran",
+        "body": "Batalion Napoleon bukan bilah darah. Ia adalah ratusan orang dalam sebuah bentuk, dan bentuk itulah keputusannya. Formasi baris menempatkan setiap musket di barisan tembak. Kolom bergerak dan menyerbu, tetapi bagian depannya sempit. Bujur sangkar menghentikan kavaleri seketika dan dibantai artileri. Berpindah di antaranya butuh waktu yang mungkin tak kamu punya.",
+        "more": "Moral, kelelahan, amunisi, medan, dan ketinggian semuanya memengaruhi hasil. Unit yang patah semangat tidak mati, mereka kabur, dan kepanikan menular ke unit yang menyaksikannya. <0>Jelajahi setiap unit dan statistiknya</0>."
+      },
+      "waysToPlay": {
+        "title": "Cara bermain",
+        "body": "Pertandingan berperingkat adalah intinya, dari duel kecil sampai pertempuran penuh, satu lawan satu atau beregu. Kamu juga bisa bermain luring melawan AI, membangun skenariomu sendiri di editor, dan menonton tayangan ulang pertempuran mana pun yang pernah kamu jalani.",
+        "more": "Versi 3D terpisah sedang dikembangkan untuk Steam, dengan kampanye historis dan mode multipemainnya sendiri. Game peramban ini gratis dan akan tetap gratis. <0>Lihat apa yang direncanakan</0>."
+      }
+    }
   },
   "gameTips": {
     "victoryPoints": {

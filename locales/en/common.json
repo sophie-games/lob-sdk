@@ -566,7 +566,44 @@
   "armyInvalidForPlayer": "Player {{player}}'s army is invalid: {{message}}",
   "landing": {
     "message": "<b>Lines of Battle</b> is a Napoleonic tactics game with simultaneous turns. Plan your orders, try to read your opponent, and watch both sides move at once.",
-    "privacy": "By starting, you agree to our <0>Privacy Policy</0>."
+    "privacy": "By starting, you agree to our <0>Privacy Policy</0>.",
+    "by": "By <0>Sophie Games</0>",
+    "nav": {
+      "roadmap": "Roadmap",
+      "wiki": "Community Wiki",
+      "terms": "Terms"
+    },
+    "aria": {
+      "about": "About Lines of Battle",
+      "platforms": "Play Lines of Battle on other platforms",
+      "communities": "Lines of Battle communities"
+    },
+    "seo": {
+      "tagline": "Free Napoleonic Strategy Game",
+      "description": "Play Lines of Battle, a free Napoleonic strategy game with simultaneous turns. Plan tactical orders, outthink opponents, and battle on web or mobile."
+    },
+    "about": {
+      "browser": {
+        "title": "A Napoleonic strategy game you play in the browser",
+        "body": "Lines of Battle is a free tactics game set in the Napoleonic wars. You command a small army of infantry, cavalry and artillery on a single battlefield, and you fight other players for it. There is nothing to download: it runs in the browser, and on Android and iOS with the same account and the same matches.",
+        "more": "It is free to play. Development is funded by cosmetics and convenience features that do not change the outcome of a match."
+      },
+      "simultaneous": {
+        "title": "Both sides move at the same time",
+        "body": "Most strategy games let one player move while the other watches. This one does not. Every turn you draw the paths your regiments will take, choose their formations and pick their targets, and so does your opponent, at the same time and without seeing what you chose. Then both plans run together and you watch what your orders actually produced.",
+        "more": "It means you are never reacting to a move that already happened. You are guessing at a plan that is being written while you write yours. <0>How simultaneous turns work</0>."
+      },
+      "formations": {
+        "title": "Formations decide the fight",
+        "body": "A Napoleonic battalion is not a health bar. It is hundreds of men in a shape, and the shape is the decision. Line puts every musket in the firing rank. Column moves and charges but presents a narrow front. Square stops cavalry dead and is slaughtered by artillery. Changing between them takes time you may not have.",
+        "more": "Morale, exhaustion, ammunition, terrain and elevation all feed into what happens. Units that break do not die, they rout, and a rout spreads to the units watching it. <0>Browse every unit and its stats</0>."
+      },
+      "waysToPlay": {
+        "title": "Ways to play",
+        "body": "Ranked matches are the heart of it, from small duels to full battles, one against one or in teams. You can also play offline against the AI, build your own scenarios in the editor, and watch replays of any battle you fought.",
+        "more": "A separate 3D version is in development for Steam, with historical campaigns and its own multiplayer. The browser game is free and stays free. <0>See what is planned</0>."
+      }
+    }
   },
   "gameTips": {
     "victoryPoints": {

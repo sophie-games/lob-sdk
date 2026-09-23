@@ -390,7 +390,44 @@
   "armyInvalidForPlayer": "L'esercito del giocatore {{player}} non è valido: {{message}}",
   "landing": {
     "message": "<b>Lines of Battle</b> è un gioco tattico napoleonico con turni simultanei e combattimento in tempo reale. Sconfiggi avversari umani con truppe e tattiche precise!",
-    "privacy": "Iniziando, accetti la nostra <0>Informativa sulla privacy</0>."
+    "privacy": "Iniziando, accetti la nostra <0>Informativa sulla privacy</0>.",
+    "by": "Di <0>Sophie Games</0>",
+    "nav": {
+      "roadmap": "Roadmap",
+      "wiki": "Wiki della community",
+      "terms": "Termini"
+    },
+    "aria": {
+      "about": "Informazioni su Lines of Battle",
+      "platforms": "Gioca a Lines of Battle su altre piattaforme",
+      "communities": "Community di Lines of Battle"
+    },
+    "seo": {
+      "tagline": "Gioco di strategia napoleonica gratuito",
+      "description": "Gioca a Lines of Battle, un gioco di strategia napoleonica gratuito a turni simultanei. Pianifica gli ordini e batti gli avversari su web e mobile."
+    },
+    "about": {
+      "browser": {
+        "title": "Un gioco di strategia napoleonica che giochi nel browser",
+        "body": "Lines of Battle è un gioco di tattica gratuito ambientato nelle guerre napoleoniche. Comandi un piccolo esercito di fanteria, cavalleria e artiglieria su un unico campo di battaglia, e te lo contendi con altri giocatori. Non c'è nulla da scaricare: gira nel browser, e su Android e iOS con lo stesso account e le stesse partite.",
+        "more": "È gratis. Lo sviluppo è finanziato da cosmetici e funzioni di comodità che non cambiano l'esito di una partita."
+      },
+      "simultaneous": {
+        "title": "I due schieramenti si muovono insieme",
+        "body": "Nella maggior parte dei giochi di strategia un giocatore muove mentre l'altro guarda. Qui no. Ogni turno disegni i percorsi dei tuoi reggimenti, scegli le loro formazioni e indichi i loro bersagli, e il tuo avversario fa lo stesso, nello stesso momento e senza vedere le tue scelte. Poi i due piani si svolgono insieme e vedi che cosa hanno prodotto davvero i tuoi ordini.",
+        "more": "Vuol dire che non reagisci mai a una mossa già avvenuta. Stai indovinando un piano che viene scritto mentre scrivi il tuo. <0>Come funzionano i turni simultanei</0>."
+      },
+      "formations": {
+        "title": "Le formazioni decidono lo scontro",
+        "body": "Un battaglione napoleonico non è una barra della vita. Sono centinaia di uomini in una forma, e la forma è la decisione. La linea porta ogni moschetto sulla riga di fuoco. La colonna si muove e carica, ma offre un fronte stretto. Il quadrato ferma di colpo la cavalleria e viene massacrato dall'artiglieria. Passare dall'una all'altra richiede un tempo che forse non hai.",
+        "more": "Morale, spossatezza, munizioni, terreno e quota incidono tutti sul risultato. Le unità che cedono non muoiono, fuggono, e una rotta contagia le unità che la vedono. <0>Sfoglia ogni unità e le sue statistiche</0>."
+      },
+      "waysToPlay": {
+        "title": "Modi di giocare",
+        "body": "Le partite classificate sono il cuore del gioco, dai piccoli duelli alle battaglie complete, uno contro uno o a squadre. Puoi anche giocare offline contro l'IA, costruire i tuoi scenari nell'editor e rivedere i replay di qualsiasi battaglia che hai combattuto.",
+        "more": "Una versione 3D a parte è in sviluppo per Steam, con campagne storiche e un proprio multigiocatore. Il gioco nel browser è gratuito e resta gratuito. <0>Guarda che cosa è in programma</0>."
+      }
+    }
   },
   "gameTips": {
     "victoryPoints": {

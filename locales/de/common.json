@@ -390,7 +390,44 @@
   "armyInvalidForPlayer": "Die Armee von Spieler {{player}} ist ungültig: {{message}}",
   "landing": {
     "message": "<b>Lines of Battle</b> ist ein napoleonisches taktisches Spiel mit gleichzeitigen Zügen und Echtzeit-Kampf. Besiege menschliche Gegner mit präzisen Truppen und Taktiken!",
-    "privacy": "Indem Sie das Spiel starten, stimmen Sie unseren <0>Datenschutzbestimmungen</0> zu."
+    "privacy": "Indem Sie das Spiel starten, stimmen Sie unseren <0>Datenschutzbestimmungen</0> zu.",
+    "by": "Von <0>Sophie Games</0>",
+    "nav": {
+      "roadmap": "Roadmap",
+      "wiki": "Community-Wiki",
+      "terms": "Nutzungsbedingungen"
+    },
+    "aria": {
+      "about": "Über Lines of Battle",
+      "platforms": "Lines of Battle auf anderen Plattformen spielen",
+      "communities": "Lines-of-Battle-Communitys"
+    },
+    "seo": {
+      "tagline": "Kostenloses napoleonisches Strategiespiel",
+      "description": "Spiele Lines of Battle, ein kostenloses napoleonisches Strategiespiel mit simultanen Zügen. Plane deine Befehle und schlage Gegner im Web und mobil."
+    },
+    "about": {
+      "browser": {
+        "title": "Ein napoleonisches Strategiespiel für den Browser",
+        "body": "Lines of Battle ist ein kostenloses Taktikspiel in den Napoleonischen Kriegen. Du führst eine kleine Armee aus Infanterie, Kavallerie und Artillerie auf einem einzigen Schlachtfeld und kämpfst gegen andere Spieler darum. Es gibt nichts herunterzuladen: Es läuft im Browser und auf Android und iOS, mit demselben Konto und denselben Partien.",
+        "more": "Das Spiel ist kostenlos. Die Entwicklung finanziert sich über Kosmetik und Komfortfunktionen, die den Ausgang einer Partie nicht verändern."
+      },
+      "simultaneous": {
+        "title": "Beide Seiten ziehen gleichzeitig",
+        "body": "In den meisten Strategiespielen zieht ein Spieler, während der andere zusieht. Hier nicht. In jedem Zug zeichnest du die Wege deiner Regimenter, wählst ihre Formationen und bestimmst ihre Ziele, und dein Gegner tut dasselbe, zur selben Zeit und ohne deine Wahl zu sehen. Dann laufen beide Pläne zusammen ab und du siehst, was deine Befehle wirklich bewirkt haben.",
+        "more": "Du reagierst also nie auf einen Zug, der schon geschehen ist. Du errätst einen Plan, der geschrieben wird, während du deinen schreibst. <0>Wie simultane Züge funktionieren</0>."
+      },
+      "formations": {
+        "title": "Formationen entscheiden den Kampf",
+        "body": "Ein napoleonisches Bataillon ist kein Lebensbalken. Es sind Hunderte Männer in einer Form, und die Form ist die Entscheidung. Die Linie bringt jede Muskete ins Schützenglied. Die Kolonne marschiert und greift an, bietet aber nur eine schmale Front. Das Karree stoppt Kavallerie augenblicklich und wird von Artillerie niedergemäht. Der Wechsel kostet Zeit, die du vielleicht nicht hast.",
+        "more": "Moral, Erschöpfung, Munition, Gelände und Höhe fließen alle in den Ausgang ein. Einheiten, die brechen, sterben nicht, sie fliehen, und eine Flucht steckt die Einheiten an, die sie sehen. <0>Sieh dir jede Einheit und ihre Werte an</0>."
+      },
+      "waysToPlay": {
+        "title": "Spielmodi",
+        "body": "Ranglistenpartien sind das Herzstück, vom kleinen Duell bis zur großen Schlacht, eins gegen eins oder im Team. Du kannst auch offline gegen die KI spielen, eigene Szenarien im Editor bauen und Wiederholungen jeder geschlagenen Schlacht ansehen.",
+        "more": "Eine eigene 3D-Version ist für Steam in Entwicklung, mit historischen Kampagnen und eigenem Mehrspielermodus. Das Browserspiel ist kostenlos und bleibt es. <0>Sieh, was geplant ist</0>."
+      }
+    }
   },
   "gameTips": {
     "victoryPoints": {
