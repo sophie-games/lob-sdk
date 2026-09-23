@@ -72,8 +72,6 @@
     "allowDynamicArmyHelp": "Bekapcsolva a játékosok a meccskeresési csatatípus alapján hozzák a saját seregüket, és a zónáikon belül állítják fel. Kikapcsolva a pálya előre elhelyezett egységei adják a teljes sereget (a seregösszetétel kimarad).",
     "fixedRoster": "Rögzített játékosok",
     "fixedRosterHelp": "Ha be van kapcsolva, a küldetés maga határozza meg a játékoshelyeket, csapatokat és lőszertartalékokat, és a váró nem tud játékost hozzáadni vagy eltávolítani. Ha ki van kapcsolva, a névsor a váróból vagy a párosításból jön.",
-    "allowDeploymentPhase": "Felállítási fázis",
-    "allowDeploymentPhaseHelp": "Ha be van kapcsolva, a csata a 0. körrel indul, így minden játékos átrendezheti egységeit a saját felállítási zónáin belül, mielőtt a harc elkezdődik.",
     "noInherentAmmo": "Nincs saját lőszer",
     "noInherentAmmoHelp": "Bekapcsolva a lőszerrel rendelkező egységek saját lőszer nélkül jelennek meg, és teljes utánpótlásukat a közös tartalékból veszik, így az első körben nem tudnak tüzelni, és csak akkor nyitnak tüzet, amikor a tartalék feltölti őket.",
     "startTime": "Kezdési idő",
@@ -96,7 +94,6 @@
     "testScenario": "Pálya tesztelése",
     "placeableObjectives": "Játékos által elhelyezett objektívák",
     "placeableObjectivesHelp": "Bekapcsolva minden játékos a felállítási fázisban, a saját zónáján belül helyezi el a saját objektíváit. Kikapcsolva a csata csak azokat az objektívákat használja, amelyeket te helyeztél a térképre.",
-    "placeableObjectivesNeedsDeployment": "Kapcsold be a felállítási fázist is, különben a játékosok soha nem jutnak el ahhoz a körhöz, amelyben elhelyeznék ezeket az objektívákat, és egy sem fog megjelenni.",
     "resting": {
       "thisScenario": "Ez a pálya",
       "gettingStarted": "Első lépések",
@@ -193,9 +190,7 @@
       "y": "Y",
       "player": "Hozzárendelve",
       "rotation": "Forgatás (fok)"
-    },
-    "phaseHelp": "Bekapcsolt felállítási fázissal a játékosok egy extra kört kapnak a harc kezdete előtt, pusztán azért, hogy a zónájukon belül átrendezzék az egységeiket.",
-    "gateHelp": "Ezek a zónák akkor szerkeszthetők, ha a Dinamikus sereg engedélyezése, a Felállítási fázis vagy a Játékos által elhelyezett objektívák közül bármelyik be van kapcsolva, mivel mindháromhoz kell egy hely, ahonnan az érkező sereg indul. Ha mindhárom ki van kapcsolva, szürkék, és procedurális térképen szintén szürkék, mivel ott a zónákat százalékként a Véletlenszerű pálya panelen kell megadni."
+    }
   },
   "vpBalance": {
     "heading": "VP egyensúly (veszteségek vs objektívák)",

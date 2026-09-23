@@ -1,8 +1,18 @@
 import { GameDataManager } from "@lob-sdk/game-data-manager";
+import {
+  getDeploymentZoneArea,
+  getDeploymentZoneBounds,
+  isInsideDeploymentZone,
+  isValidDeploymentPolygon,
+} from "../../../utils/deployment-zone";
+import polygonClipping from "polygon-clipping";
+import type { Polygon } from "polygon-clipping";
+import { getForwardZone, getMainZone } from "../../../types/scenario";
+import { ScenarioFeatures } from "../../../scenario/scenario-features";
 
 /**
- * The fixed 11:30 deployment is split by historical field command. Passing turn
- * 0 preserves it verbatim; moving units gives each commander a bounded sector.
+ * The fixed 11:30 deployment uses simple shared ground for each army. Passing
+ * turn 0 preserves the historical positions; moving units stays behind the line.
  * Prussian triggers represent the formations that reached Waterloo rather than
  * assigning the whole Prussian army to Wellington's player.
  */
@@ -30,12 +40,12 @@ describe("Battle of Waterloo scenario", () => {
 
   it("has thirteen command seats grouped at corps and reserve level", () => {
     expect(scenario.players).toHaveLength(13);
-    expect(scenario.players!.filter((player) => player.team === 1)).toHaveLength(
-      6,
-    );
-    expect(scenario.players!.filter((player) => player.team === 2)).toHaveLength(
-      7,
-    );
+    expect(
+      scenario.players!.filter((player) => player.team === 1),
+    ).toHaveLength(6);
+    expect(
+      scenario.players!.filter((player) => player.team === 2),
+    ).toHaveLength(7);
 
     const divisionOwner = new Map(
       scenario.organizations!.flatMap((organization) =>
@@ -64,16 +74,37 @@ describe("Battle of Waterloo scenario", () => {
       { player: 1, command: { commander: "Reille", formation: "II Corps" } },
       { player: 2, command: { commander: "d'Erlon", formation: "I Corps" } },
       { player: 3, command: { commander: "Lobau", formation: "VI Corps" } },
-      { player: 4, command: { commander: "Kellermann", formation: "III Cavalry Corps" } },
-      { player: 5, command: { commander: "Milhaud", formation: "IV Cavalry Corps" } },
-      { player: 6, command: { commander: "Napoleon", formation: "Imperial Guard & Reserve" } },
-      { player: 7, command: { commander: "Prince of Orange", formation: "I Corps" } },
+      {
+        player: 4,
+        command: { commander: "Kellermann", formation: "III Cavalry Corps" },
+      },
+      {
+        player: 5,
+        command: { commander: "Milhaud", formation: "IV Cavalry Corps" },
+      },
+      {
+        player: 6,
+        command: {
+          commander: "Napoleon",
+          formation: "Imperial Guard & Reserve",
+        },
+      },
+      {
+        player: 7,
+        command: { commander: "Prince of Orange", formation: "I Corps" },
+      },
       { player: 8, command: { commander: "Hill", formation: "II Corps" } },
       { player: 9, command: { commander: "Wellington", formation: "Reserve" } },
       { player: 10, command: { commander: "Uxbridge", formation: "Cavalry" } },
       { player: 11, command: { commander: "Bülow", formation: "IV Corps" } },
-      { player: 12, command: { commander: "Pirch", formation: "II Corps Detachment" } },
-      { player: 13, command: { commander: "Zieten", formation: "I Corps Advance Guard" } },
+      {
+        player: 12,
+        command: { commander: "Pirch", formation: "II Corps Detachment" },
+      },
+      {
+        player: 13,
+        command: { commander: "Zieten", formation: "I Corps Advance Guard" },
+      },
     ]);
   });
 
@@ -86,38 +117,197 @@ describe("Battle of Waterloo scenario", () => {
     }
   });
 
-  it("opens turn 0 with one main and forward deployment zone per player", () => {
-    expect(scenario.allowDeploymentPhase).toBe(true);
+  it("opens turn 0 with simple shared army ground", () => {
+    expect(ScenarioFeatures.hasDeploymentPhase(scenario)).toBe(true);
+    expect(scenario.assignableDeploymentZones).toBe(false);
 
-    const zones = scenario.map!.deploymentZones!.flatMap((team) => team.zones);
-    for (const setup of scenario.players!) {
-      expect(
-        zones.filter(
-          (zone) => zone.player === setup.player && zone.type === "main",
-        ),
-      ).toHaveLength(1);
-      expect(
-        zones.filter(
-          (zone) => zone.player === setup.player && zone.type === "forward",
-        ),
-      ).toHaveLength(1);
+    const [french, allied] = scenario.map!.deploymentZones!;
+    expect(french.zones.map(({ type }) => type)).toEqual(["main"]);
+    expect(getForwardZone(french)).toBe(getMainZone(french));
+    expect(allied.zones.filter(({ type }) => type === "main")).toHaveLength(3);
+    expect(allied.zones.filter(({ type }) => type === "forward")).toHaveLength(4);
+    expect([...french.zones, ...allied.zones].every(({ player }) => player === undefined)).toBe(true);
+  });
+
+  it("keeps every initially placed unit on ground it may deploy to", () => {
+    for (const unit of scenario.units!) {
+      const team = unit.player <= 6 ? 1 : 2;
+      const zones = scenario.map!.deploymentZones!.find((item) => item.team === team)!.zones;
+      const canDeployForward =
+        gameDataManager.getUnitTemplateManager().getTemplate(unit.type)
+          .canDeployForward ?? false;
+      const valid = zones.some(
+        (zone) =>
+          (zone.type === "main" || canDeployForward) &&
+          isInsideDeploymentZone(zone, unit.pos),
+      );
+      if (!valid)
+        throw new Error(`Unit ${unit.id} is outside its deployment ground`);
     }
   });
 
-  it("keeps every initially placed unit inside its commander's main zone", () => {
-    const mainZones = new Map(
-      scenario
-        .map!.deploymentZones!.flatMap((team) => team.zones)
-        .filter((zone) => zone.type === "main")
-        .map((zone) => [zone.player, zone]),
+  it("uses valid nonempty ground with at most eight points per zone", () => {
+    for (const { zones } of scenario.map!.deploymentZones!) {
+      for (const zone of zones) {
+        expect(getDeploymentZoneArea(zone)).toBeGreaterThan(0);
+        expect(zone.polygons.every(isValidDeploymentPolygon)).toBe(true);
+        expect(
+          zone.polygons.reduce(
+            (count, polygon) => count + polygon.outer.length +
+              (polygon.holes ?? []).reduce((sum, hole) => sum + hole.length, 0),
+            0,
+          ),
+        ).toBeLessThanOrEqual(8);
+      }
+    }
+  });
+
+  it("gives every deployment polygon one exclusive owner", () => {
+    const zones = scenario.map!.deploymentZones!.flatMap((team) => team.zones);
+    const polygon = (zone: (typeof zones)[number]): Polygon[] =>
+      zone.polygons.map(({ outer, holes }) => [
+        outer.map(({ x, y }) => [x, y] as [number, number]),
+        ...(holes ?? []).map((ring) =>
+          ring.map(({ x, y }) => [x, y] as [number, number]),
+        ),
+      ]);
+    const ground = (zone: (typeof zones)[number]) => {
+      const [first, ...rest] = polygon(zone);
+      return polygonClipping.union(first!, ...rest);
+    };
+
+    for (let i = 0; i < zones.length; i++) {
+      const first = zones[i]!;
+      const a = getDeploymentZoneBounds(first);
+      for (const second of zones.slice(i + 1)) {
+        const b = getDeploymentZoneBounds(second);
+        if (
+          a.right <= b.left ||
+          b.right <= a.left ||
+          a.bottom <= b.top ||
+          b.bottom <= a.top
+        )
+          continue;
+        expect(
+          polygonClipping.intersection(
+            ground(first),
+            ground(second),
+          ),
+        ).toEqual([]);
+      }
+    }
+  });
+
+  it("keeps ground behind each army's most advanced initial position", () => {
+    const zones = scenario.map!.deploymentZones!.flatMap((team) => team.zones);
+    const frenchFront = Math.min(
+      ...scenario.units!.filter((unit) => unit.player <= 6).map((unit) => unit.pos.y),
+    );
+    const alliedFront = Math.max(
+      ...scenario.units!.filter((unit) => unit.player >= 7).map((unit) => unit.pos.y),
+    );
+    for (const zone of zones) {
+      for (const { outer } of zone.polygons) {
+        for (const point of outer) {
+          expect(
+            zone.team === 1
+              ? point.y >= frenchFront - 0.000001
+              : point.y <= alliedFront + 0.000001,
+          ).toBe(true);
+        }
+      }
+    }
+  });
+
+  it("keeps opposing deployment ground at least three tiles apart", () => {
+    const [french, allied] = scenario.map!.deploymentZones!;
+    const polygons = (zones: typeof french.zones): Polygon[] =>
+      zones.flatMap((zone) =>
+        zone.polygons.map(({ outer, holes }) => [
+          outer.map(({ x, y }) => [x, y] as [number, number]),
+          ...(holes ?? []).map((ring) =>
+            ring.map(({ x, y }) => [x, y] as [number, number]),
+          ),
+        ]),
+      );
+
+    const ground = (zones: typeof french.zones) => {
+      const [first, ...rest] = polygons(zones);
+      return polygonClipping.union(first!, ...rest);
+    };
+    const frenchGround = ground(french.zones);
+    const alliedGround = ground(allied.zones);
+    expect(polygonClipping.intersection(frenchGround, alliedGround)).toEqual(
+      [],
     );
 
-    for (const unit of scenario.units!) {
-      const zone = mainZones.get(unit.player)!;
-      expect(unit.pos.x).toBeGreaterThanOrEqual(zone.x);
-      expect(unit.pos.x).toBeLessThanOrEqual(zone.x + zone.width);
-      expect(unit.pos.y).toBeGreaterThanOrEqual(zone.y);
-      expect(unit.pos.y).toBeLessThanOrEqual(zone.y + zone.height);
+    type Point = { x: number; y: number };
+    const edges = (zones: typeof french.zones): [Point, Point][] =>
+      zones.flatMap((zone) =>
+        zone.polygons.flatMap(({ outer, holes }) =>
+          [outer, ...(holes ?? [])].flatMap((ring) =>
+            ring.map(
+              (point, index) =>
+                [point, ring[(index + 1) % ring.length]!] as [Point, Point],
+            ),
+          ),
+        ),
+      );
+    const pointToEdgeSquared = (point: Point, start: Point, end: Point) => {
+      const dx = end.x - start.x;
+      const dy = end.y - start.y;
+      const lengthSquared = dx * dx + dy * dy;
+      const t = lengthSquared
+        ? Math.max(
+            0,
+            Math.min(
+              1,
+              ((point.x - start.x) * dx + (point.y - start.y) * dy) /
+                lengthSquared,
+            ),
+          )
+        : 0;
+      return (
+        (point.x - start.x - t * dx) ** 2 + (point.y - start.y - t * dy) ** 2
+      );
+    };
+    let nearestSquared = Infinity;
+    for (const [a, b] of edges(french.zones)) {
+      for (const [c, d] of edges(allied.zones)) {
+        nearestSquared = Math.min(
+          nearestSquared,
+          pointToEdgeSquared(a, c, d),
+          pointToEdgeSquared(b, c, d),
+          pointToEdgeSquared(c, a, b),
+          pointToEdgeSquared(d, a, b),
+        );
+      }
+    }
+    expect(Math.sqrt(nearestSquared)).toBeGreaterThanOrEqual(48);
+  });
+
+  it("reserves the three Allied farm objectives for forward-capable troops", () => {
+    const [french, allied] = scenario.map!.deploymentZones!;
+    for (const name of ["Hougoumont", "La Haye Sainte", "Papelotte"]) {
+      const objective = scenario.objectives!.find(
+        (item) => item.name === name,
+      )!;
+      expect(
+        french.zones.some((zone) =>
+          isInsideDeploymentZone(zone, objective.pos),
+        ),
+      ).toBe(false);
+      expect(
+        allied.zones.some(
+          (zone) =>
+            zone.type === "main" && isInsideDeploymentZone(zone, objective.pos),
+        ),
+      ).toBe(false);
+      expect(
+        allied.zones.filter((zone) =>
+          isInsideDeploymentZone(zone, objective.pos),
+        ).map(({ type }) => type),
+      ).toEqual(["forward"]);
     }
   });
 
@@ -143,9 +333,15 @@ describe("Battle of Waterloo scenario", () => {
   it("gives Bülow, Pirch and Zieten their own complete arriving commands", () => {
     expect(scenario.units!.some((unit) => unit.player >= 11)).toBe(false);
 
-    expect(reinforcements.filter((unit) => unit.player === 11)).toHaveLength(57);
-    expect(reinforcements.filter((unit) => unit.player === 12)).toHaveLength(13);
-    expect(reinforcements.filter((unit) => unit.player === 13)).toHaveLength(15);
+    expect(reinforcements.filter((unit) => unit.player === 11)).toHaveLength(
+      57,
+    );
+    expect(reinforcements.filter((unit) => unit.player === 12)).toHaveLength(
+      13,
+    );
+    expect(reinforcements.filter((unit) => unit.player === 13)).toHaveLength(
+      15,
+    );
 
     const bulowNames = reinforcements
       .filter((unit) => unit.player === 11)

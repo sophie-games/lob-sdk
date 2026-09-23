@@ -1,4 +1,7 @@
-import type { OrganizationDoctrine, ScenarioOrganization } from "@lob-sdk/order-of-battle";
+import type {
+  OrganizationDoctrine,
+  ScenarioOrganization,
+} from "@lob-sdk/order-of-battle";
 import { Point2 } from "@lob-sdk/vector";
 import {
   GameTrigger,
@@ -19,6 +22,7 @@ import {
   DynamicBattleType,
   ScenarioBattleTypeOverride,
   PlayerBudgetOverride,
+  Zone,
 } from "@lob-sdk/types";
 import type {
   DamageTypeTemplate,
@@ -88,28 +92,26 @@ export enum GameScenarioType {
  */
 export type DeploymentZoneType = "main" | "forward";
 
-/**
- * A single deployment zone rectangle belonging to a team.
- */
+/** A connected piece of a deployment zone; holes leave protected ground out. */
+export interface DeploymentPolygon {
+  outer: Point2[];
+  holes?: Point2[][];
+}
+
+/** A deployment area belonging to a team, drawn in map coordinates. */
 export interface TeamDeploymentZone {
   /** The team number this zone belongs to. */
   team: number;
   /**
    * Player number this zone is reserved for. Omit for a team-wide zone, which
-   * keeps the legacy behavior of being divided between that team's players.
+   * is divided between that team's players when armies are generated.
    */
   player?: number;
   /** Whether the zone is a main or a forward (skirmisher-allowed) zone. */
   type: DeploymentZoneType;
-  /** X coordinate of the zone's top-left corner. */
-  x: number;
-  /** Y coordinate of the zone's top-left corner. */
-  y: number;
-  /** Width of the deployment zone. */
-  width: number;
-  /** Height of the deployment zone. */
-  height: number;
-  /** Clockwise rotation in radians around the zone's center. Defaults to 0. */
+  /** One or more polygons; each may exclude protected ground with holes. */
+  polygons: DeploymentPolygon[];
+  /** Facing of units and generated armies in radians; never rotates the area. */
   rotation?: number;
 }
 
@@ -148,17 +150,13 @@ export const getMainZone = (tdz: TeamDeploymentZones): TeamDeploymentZone => {
 };
 
 /**
- * Returns the first forward zone. Throws if none — every team is expected to
- * have at least one forward zone (skirmisher deployment).
+ * Returns the first forward zone, or main ground when the scenario leaves a
+ * team without a separate skirmisher area.
  */
 export const getForwardZone = (
   tdz: TeamDeploymentZones,
 ): TeamDeploymentZone => {
-  const zone = getDeploymentZone(tdz, "forward");
-  if (!zone) {
-    throw new Error(`Team ${tdz.team} has no forward deployment zone`);
-  }
-  return zone;
+  return getDeploymentZone(tdz, "forward") ?? getMainZone(tdz);
 };
 
 /**
@@ -233,7 +231,7 @@ export interface LegacyPresetScenario extends BaseScenario {
   /** Discriminator: legacy types never carry a schema version. */
   version?: never;
   /** The game map with terrain and deployment zones. */
-  map: GameMap;
+  map: LegacyGameMap;
   /** Player configurations for the scenario. */
   players: PlayerSetup[];
   /** Units to deploy at the start of the game. */
@@ -252,7 +250,7 @@ export interface LegacyHybridScenario extends BaseScenario {
   /** Discriminator: legacy types never carry a schema version. */
   version?: never;
   /** The game map with terrain and deployment zones. */
-  map: GameMap;
+  map: LegacyGameMap;
   /** Optional units to deploy. If not provided, units may be generated procedurally. */
   units?: UnitDtoPartialId[];
   /** Optional objectives. If not provided, objectives may be generated procedurally. */
@@ -267,16 +265,10 @@ export interface PercentRange {
   max: number;
 }
 
-/**
- * A percentage-based deployment sub-zone. The top-left origin is placed randomly
- * within the {@link PercentRange} x/y ranges (use `min === max` for a fixed
- * origin); the zone spans `width` x `height`. All values are map percentages.
- */
-export interface DeploymentZoneRect {
+/** Random translation of a polygon expressed in map percentages. */
+export interface DeploymentZoneOrigin {
   x: PercentRange;
   y: PercentRange;
-  width: number;
-  height: number;
 }
 
 /** A percentage-based deployment zone tagged with the role that fills it. */
@@ -285,9 +277,11 @@ export interface RandomDeploymentZone {
   role: DeploymentZoneType;
   /** Player number this zone is reserved for. Omit for a team-wide zone. */
   player?: number;
-  /** Clockwise rotation in radians around the generated rectangle's center. */
+  /** Facing of the generated units and army, never of the polygon. */
   rotation?: number;
-  rect: DeploymentZoneRect;
+  /** Relative vertices in map percentages, translated by a sampled origin. */
+  polygon: DeploymentPolygon;
+  origin: DeploymentZoneOrigin;
 }
 
 /**
@@ -303,6 +297,33 @@ export interface RandomDeploymentZones {
   top: RandomDeploymentZone[];
   /** Zones for the bottom side (team 1). Omit to mirror {@link top}. */
   bottom?: RandomDeploymentZone[];
+}
+
+/** A zone saved as a rectangle, whose rotation also turned the area. */
+export interface LegacyTeamDeploymentZone extends Zone {
+  team: number;
+  player?: number;
+  type: DeploymentZoneType;
+}
+
+/** Rectangle zones; files older than 1.4 carry one main and one forward. */
+export type LegacyTeamDeploymentZones =
+  | { team: number; zones: LegacyTeamDeploymentZone[] }
+  | { team: number; mainZone: Zone; forwardZone: Zone };
+
+/** A percentage rectangle whose top-left corner is sampled from the ranges. */
+export interface LegacyRandomDeploymentZone
+  extends Omit<RandomDeploymentZone, "polygon" | "origin"> {
+  rect: DeploymentZoneOrigin & { width: number; height: number };
+}
+
+export interface LegacyRandomDeploymentZones {
+  top: LegacyRandomDeploymentZone[];
+  bottom?: LegacyRandomDeploymentZone[];
+}
+
+export interface LegacyGameMap extends Omit<GameMap, "deploymentZones"> {
+  deploymentZones?: LegacyTeamDeploymentZones[];
 }
 
 /**
@@ -461,7 +482,7 @@ export interface Scenario {
   fixedSize?: { tilesX: number; tilesY: number };
 
   /**
-   * Pixel-based deployment zones (used by legacy preset/hybrid scenarios after normalization).
+   * Pixel-coordinate deployment polygons for authored scenarios.
    * Mutually exclusive with {@link randomDeploymentZones}.
    */
   deploymentZones?: TeamDeploymentZones[];
@@ -480,20 +501,11 @@ export interface Scenario {
   /**
    * If true: the matchmaking-driven army composition runs and auto-deploys units
    * on top of {@link units}. If false/absent: {@link units} defines the full
-   * roster and no auto-deployment occurs (deployment phase is skipped).
+   * roster and no auto-deployment occurs.
    *
    * Inverse of the legacy {@link LegacyHybridScenario.fixedArmy} flag.
    */
   allowDynamicArmy?: boolean;
-
-  /**
-   * When true, the scenario starts at turn 0 with a deployment phase so the
-   * player can reposition their pre-placed {@link units} inside the declared
-   * deployment zones before the battle begins. Only meaningful for fixed-roster
-   * scenarios (`allowDynamicArmy: false` or absent); dynamic-army scenarios
-   * already run a deployment phase on top of the auto-deployer's output.
-   */
-  allowDeploymentPhase?: boolean;
 
   /**
    * When true (and the scenario has a deployment phase), each team's
@@ -697,4 +709,23 @@ export interface Scenario {
    * be playable. Carried on the per-game GameDataManager.
    */
   disableEraDefaultUnits?: boolean;
+}
+
+/** Schema version 1: rectangle zones and an explicit deployment switch. */
+export interface LegacyVersion1Scenario
+  extends Omit<
+    Scenario,
+    | "version"
+    | "map"
+    | "deploymentZones"
+    | "randomDeploymentZones"
+    | "scaledDeploymentZones"
+  > {
+  version: 1;
+  map?: LegacyGameMap;
+  deploymentZones?: LegacyTeamDeploymentZones[];
+  randomDeploymentZones?: LegacyRandomDeploymentZones;
+  scaledDeploymentZones?: Record<Size, LegacyRandomDeploymentZones>;
+  /** Opened turn 0; zones alone did not. */
+  allowDeploymentPhase?: boolean;
 }

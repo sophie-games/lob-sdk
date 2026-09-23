@@ -72,8 +72,6 @@
     "allowDynamicArmyHelp": "Quando ativado, os jogadores trazem seu próprio exército com base no tipo de batalha do matchmaking e o implantam dentro de suas zonas. Quando desativado, as unidades pré-posicionadas do cenário definem todo o plantel (a composição de exército é ignorada).",
     "fixedRoster": "Jogadores fixos",
     "fixedRosterHelp": "Quando ativado, o cenário define as suas próprias vagas de jogador, equipes e reservas de munição, e o lobby não pode adicionar nem remover jogadores. Quando desativado, a lista vem do lobby ou do matchmaking.",
-    "allowDeploymentPhase": "Fase de implantação",
-    "allowDeploymentPhaseHelp": "Quando ativado, a batalha começa no turno 0 para que cada jogador reposicione suas unidades dentro das suas zonas de implantação antes do combate começar.",
     "noInherentAmmo": "Sem munição própria",
     "noInherentAmmoHelp": "Quando ativado, as unidades com munição surgem sem munição própria e retiram todo o seu suprimento da reserva compartilhada, por isso não podem atirar no primeiro turno e só abrem fogo quando a reserva as reabastece.",
     "startTime": "Hora de início",
@@ -96,7 +94,6 @@
     "testScenario": "Testar cenário",
     "placeableObjectives": "Objetivos posicionados pelo jogador",
     "placeableObjectivesHelp": "Quando ativado, cada jogador posiciona seus próprios objetivos durante a fase de implantação, dentro da sua própria zona. Quando desativado, a batalha usa apenas os objetivos que você posicionou no mapa.",
-    "placeableObjectivesNeedsDeployment": "Ative também a fase de implantação, ou os jogadores nunca chegam ao turno em que posicionariam esses objetivos, e nenhum aparecerá.",
     "resting": {
       "thisScenario": "Este cenário",
       "gettingStarted": "Primeiros passos",
@@ -193,9 +190,7 @@
       "y": "Y",
       "player": "Atribuída a",
       "rotation": "Rotação (graus)"
-    },
-    "phaseHelp": "Com a fase de implantação ativada, os jogadores ganham um turno extra antes do combate começar, apenas para reorganizar suas unidades dentro da sua zona.",
-    "gateHelp": "Estas zonas são editáveis enquanto qualquer um entre Permitir exército dinâmico, Fase de implantação ou Objetivos posicionados pelo jogador estiver ativado, já que cada um dos três precisa de um lugar para um exército recém-chegado começar. Com os três desativados elas ficam acinzentadas, e em um mapa procedural elas também ficam acinzentadas, sendo as zonas ali definidas como porcentagens no painel Mapa Aleatório."
+    }
   },
   "vpBalance": {
     "heading": "Equilíbrio de PV (baixas vs objetivos)",

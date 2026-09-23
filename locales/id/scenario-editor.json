@@ -72,8 +72,6 @@
     "allowDynamicArmyHelp": "Saat aktif, pemain membawa pasukan mereka sendiri berdasarkan tipe pertempuran pencarian permainan dan menempatkannya di dalam zona mereka. Saat nonaktif, unit yang telah ditempatkan dalam skenario menentukan seluruh daftar pasukan (komposisi pasukan dilewati).",
     "fixedRoster": "Pemain tetap",
     "fixedRosterHelp": "Bila diaktifkan, skenario menentukan slot pemain, tim, dan cadangan amunisinya sendiri, dan lobi tidak dapat menambah atau menghapus pemain. Bila dinonaktifkan, daftar pemain berasal dari lobi atau matchmaking.",
-    "allowDeploymentPhase": "Fase penempatan",
-    "allowDeploymentPhaseHelp": "Bila diaktifkan, pertempuran dimulai pada giliran 0 sehingga setiap pemain dapat mengatur ulang posisi unitnya di dalam zona penempatannya sebelum pertempuran dimulai.",
     "noInherentAmmo": "Tanpa amunisi sendiri",
     "noInherentAmmoHelp": "Saat diaktifkan, unit dengan amunisi muncul tanpa amunisi sendiri dan mengambil seluruh pasokannya dari cadangan bersama, sehingga tidak bisa menembak pada giliran pertama dan baru melepaskan tembakan setelah cadangan mengisinya kembali.",
     "startTime": "Waktu mulai",
@@ -96,7 +94,6 @@
     "testScenario": "Uji skenario",
     "placeableObjectives": "Objektif yang ditempatkan pemain",
     "placeableObjectivesHelp": "Saat aktif, setiap pemain menempatkan objektifnya sendiri selama fase penempatan, di dalam zonanya sendiri. Saat nonaktif, pertempuran hanya memakai objektif yang Anda tempatkan di peta.",
-    "placeableObjectivesNeedsDeployment": "Aktifkan juga fase penempatan, atau pemain tidak akan pernah mencapai giliran saat mereka menempatkan objektif ini dan tidak ada yang akan muncul.",
     "resting": {
       "thisScenario": "Skenario ini",
       "gettingStarted": "Memulai",
@@ -191,9 +188,7 @@
       "y": "Y",
       "player": "Ditugaskan ke",
       "rotation": "Rotasi (derajat)"
-    },
-    "phaseHelp": "Dengan fase penempatan aktif, pemain mendapat satu giliran tambahan sebelum pertempuran dimulai, semata-mata untuk mengatur ulang posisi unit di dalam zona mereka.",
-    "gateHelp": "Zona ini dapat diedit selama salah satu dari Izinkan pasukan dinamis, Fase penempatan, atau Objektif yang ditempatkan pemain aktif, karena ketiganya sama-sama memerlukan tempat bagi pasukan yang datang untuk memulai. Dengan ketiganya nonaktif, zona ini berwarna abu-abu, dan pada peta prosedural zona ini juga berwarna abu-abu, karena di sana zona ditulis sebagai persentase di panel Peta Acak."
+    }
   },
   "vpBalance": {
     "heading": "Keseimbangan VP (korban vs objektif)",

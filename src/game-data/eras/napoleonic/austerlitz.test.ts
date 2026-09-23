@@ -1,4 +1,5 @@
 import { GameDataManager } from "@lob-sdk/game-data-manager";
+import { ScenarioFeatures } from "@lob-sdk/scenario";
 
 /**
  * Austerlitz opens at 07:30, after Kienmayer has gone in at Telnitz and while
@@ -44,7 +45,7 @@ describe("Battle of Austerlitz scenario", () => {
     expect(scenario.startTime).toBe("07:30");
     expect(scenario.map!.width).toBe(4096); // 256 tiles x 16 px
     expect(scenario.map!.height).toBe(4096);
-    expect(scenario.allowDeploymentPhase).toBe(false);
+    expect(ScenarioFeatures.hasDeploymentPhase(scenario)).toBe(false);
     expect(clockOf(scenario.maxTurn!)).toBe("17:15");
   });
 

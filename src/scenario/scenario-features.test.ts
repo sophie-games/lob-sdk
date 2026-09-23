@@ -1,9 +1,10 @@
 import type { Scenario } from "@lob-sdk/types";
+import { polygonFromBounds } from "../utils/deployment-zone";
 import { ScenarioFeatures } from "./scenario-features";
 
 const scenario = (overrides: Partial<Scenario> = {}): Scenario =>
   ({
-    version: 1,
+    version: 2,
     name: "Event template",
     description: "Reusable rostered map",
     map: {},
@@ -84,20 +85,85 @@ describe("ScenarioFeatures.hasOneUnitPerPlayer", () => {
 });
 
 describe("ScenarioFeatures.hasAssignableDeploymentZones", () => {
+  const withZone = {
+    map: {
+      deploymentZones: [
+        {
+          team: 1,
+          zones: [
+            {
+              team: 1,
+              type: "main" as const,
+              polygons: [polygonFromBounds(0, 0, 32, 32)],
+            },
+          ],
+        },
+      ],
+    },
+  } as Partial<Scenario>;
+
   it("is on when the scenario opts in and has a deployment phase", () => {
     expect(
       ScenarioFeatures.hasAssignableDeploymentZones(
-        scenario({ allowDeploymentPhase: true, assignableDeploymentZones: true }),
+        scenario({ ...withZone, assignableDeploymentZones: true }),
       ),
     ).toBe(true);
   });
 
   it.each([
-    ["no opt-in", { allowDeploymentPhase: true }],
+    ["no opt-in", withZone],
     ["no deployment phase", { assignableDeploymentZones: true }],
   ])("is off with %s", (_case, overrides) => {
     expect(
       ScenarioFeatures.hasAssignableDeploymentZones(scenario(overrides)),
     ).toBe(false);
+  });
+});
+
+describe("ScenarioFeatures.hasDeploymentPhase", () => {
+  it("uses the resolved map and requires at least one zone", () => {
+    const fixed = scenario({
+      map: { deploymentZones: [] } as unknown as Scenario["map"],
+    });
+    expect(ScenarioFeatures.hasDeploymentPhase(fixed)).toBe(false);
+    expect(ScenarioFeatures.getInitialTurnNumber(fixed)).toBe(1);
+    expect(
+      ScenarioFeatures.hasDeploymentPhase(fixed, {
+        deploymentZones: [
+          {
+            team: 1,
+            zones: [
+              {
+                team: 1,
+                type: "main",
+                polygons: [polygonFromBounds(0, 0, 32, 32)],
+              },
+            ],
+          },
+        ],
+      }),
+    ).toBe(true);
+    expect(
+      ScenarioFeatures.getInitialTurnNumber(fixed, {
+        deploymentZones: [
+          {
+            team: 1,
+            zones: [
+              {
+                team: 1,
+                type: "main",
+                polygons: [polygonFromBounds(0, 0, 32, 32)],
+              },
+            ],
+          },
+        ],
+      }),
+    ).toBe(0);
+  });
+
+  it("keeps procedural maps at turn 0 when their default zones are generated", () => {
+    expect(
+      ScenarioFeatures.hasDeploymentPhase(scenario({ map: undefined })),
+    ).toBe(true);
   });
 });

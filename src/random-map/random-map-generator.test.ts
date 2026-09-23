@@ -1,3 +1,4 @@
+import { polygonFromBounds } from "../utils/deployment-zone";
 import { RandomMapGenerator } from "./random-map-generator";
 import {
   Scenario,
@@ -599,7 +600,9 @@ describe("RandomMapGenerator", () => {
       expect(result.map.terrains.length).toBe(TILES_X);
       expect(result.map.heightMap.length).toBe(TILES_X);
       expect(result.map.terrains.every((c) => c.length === TILES_Y)).toBe(true);
-      expect(result.map.heightMap.every((c) => c.length === TILES_Y)).toBe(true);
+      expect(result.map.heightMap.every((c) => c.length === TILES_Y)).toBe(
+        true,
+      );
       // Present heights preserved; padded columns default to 0; terrain intact.
       expect(result.map.heightMap[0][0]).toBe(7);
       expect(result.map.heightMap[TILES_X - 1][0]).toBe(0);
@@ -655,15 +658,31 @@ describe("RandomMapGenerator", () => {
         {
           team: 1,
           zones: [
-            { team: 1, type: "main" as const, x: 0, y: 0, width: 32, height: 32 },
-            { team: 1, type: "forward" as const, x: 0, y: 32, width: 32, height: 32 },
+            {
+              team: 1,
+              type: "main" as const,
+              polygons: [polygonFromBounds(0, 0, 32, 32)],
+            },
+            {
+              team: 1,
+              type: "forward" as const,
+              polygons: [polygonFromBounds(0, 32, 32, 64)],
+            },
           ],
         },
         {
           team: 2,
           zones: [
-            { team: 2, type: "main" as const, x: 64, y: 0, width: 32, height: 32 },
-            { team: 2, type: "forward" as const, x: 64, y: 32, width: 32, height: 32 },
+            {
+              team: 2,
+              type: "main" as const,
+              polygons: [polygonFromBounds(64, 0, 96, 32)],
+            },
+            {
+              team: 2,
+              type: "forward" as const,
+              polygons: [polygonFromBounds(64, 32, 96, 64)],
+            },
           ],
         },
       ];
@@ -782,8 +801,26 @@ describe("RandomMapGenerator", () => {
       fixedSize: { tilesX: 64, tilesY: 64 },
       instructions: [],
       deploymentZones: [
-        { team: 1, zones: [{ team: 1, type: "main", x: 0, y: 0, width: 128, height: 128 }] },
-        { team: 2, zones: [{ team: 2, type: "main", x: 0, y: 896, width: 128, height: 128 }] },
+        {
+          team: 1,
+          zones: [
+            {
+              team: 1,
+              type: "main",
+              polygons: [polygonFromBounds(0, 0, 128, 128)],
+            },
+          ],
+        },
+        {
+          team: 2,
+          zones: [
+            {
+              team: 2,
+              type: "main",
+              polygons: [polygonFromBounds(0, 896, 128, 1024)],
+            },
+          ],
+        },
       ],
     };
     it("generates a 64x64 map with the declared pixel deployment zones", () => {
@@ -841,12 +878,8 @@ describe("RandomMapGenerator", () => {
               role: "main",
               player: 2,
               rotation: Math.PI / 4,
-              rect: {
-                x: { min: 10, max: 10 },
-                y: { min: 5, max: 5 },
-                width: 80,
-                height: 10,
-              },
+              origin: { x: { min: 10, max: 10 }, y: { min: 5, max: 5 } },
+              polygon: polygonFromBounds(0, 0, 80, 10),
             },
           ],
         },
@@ -893,11 +926,9 @@ describe("RandomMapGenerator", () => {
         const z1 = team1.zones[i];
         const z2 = team2.zones[i];
         expect(z1.type).toBe(z2.type);
-        expect(z1.x).toBe(z2.x);
-        expect(z1.width).toBe(z2.width);
-        expect(z1.height).toBe(z2.height);
-        // team 1 (bottom) must be the exact vertical mirror of team 2 (top).
-        expect(z1.y).toBe(mapHeight - z2.y - z2.height);
+        expect(z1.polygons[0].outer).toEqual(
+          z2.polygons[0].outer.map(({ x, y }) => ({ x, y: mapHeight - y })),
+        );
       }
     });
   });

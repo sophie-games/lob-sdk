@@ -72,8 +72,6 @@
     "allowDynamicArmyHelp": "Se attivo, i giocatori portano il proprio esercito in base al tipo di battaglia del matchmaking e lo schierano nelle proprie zone. Se disattivo, le unità pre-posizionate dello scenario definiscono l'intera composizione (la composizione dell'esercito viene saltata).",
     "fixedRoster": "Giocatori fissi",
     "fixedRosterHelp": "Quando è attivo, lo scenario definisce i propri posti giocatore, squadre e riserve di munizioni, e la lobby non può aggiungere né rimuovere giocatori. Quando è disattivo, l'elenco arriva dalla lobby o dal matchmaking.",
-    "allowDeploymentPhase": "Fase di schieramento",
-    "allowDeploymentPhaseHelp": "Quando è attivo, la battaglia inizia al turno 0 così ogni giocatore può riposizionare le proprie unità all'interno delle sue zone di schieramento prima che inizi il combattimento.",
     "noInherentAmmo": "Nessuna munizione propria",
     "noInherentAmmoHelp": "Quando attivo, le unità con munizioni compaiono senza munizioni proprie e attingono l'intera scorta dalla riserva condivisa, quindi non possono sparare al primo turno e aprono il fuoco solo quando la riserva le rifornisce.",
     "startTime": "Ora di inizio",
@@ -96,7 +94,6 @@
     "testScenario": "Prova scenario",
     "placeableObjectives": "Obiettivi posizionati dai giocatori",
     "placeableObjectivesHelp": "Se attivo, ogni giocatore posiziona i propri obiettivi durante la fase di schieramento, all'interno della propria zona. Se disattivo, la battaglia usa solo gli obiettivi che hai posizionato sulla mappa.",
-    "placeableObjectivesNeedsDeployment": "Attiva anche la fase di schieramento, altrimenti i giocatori non raggiungono mai il turno in cui posizionerebbero questi obiettivi e nessuno apparirà.",
     "resting": {
       "thisScenario": "Questo scenario",
       "gettingStarted": "Per iniziare",
@@ -193,9 +190,7 @@
       "y": "Y",
       "player": "Assegnata a",
       "rotation": "Rotazione (gradi)"
-    },
-    "phaseHelp": "Con la fase di schieramento attiva, i giocatori ottengono un turno extra prima che inizi il combattimento, solo per riorganizzare le proprie unità all'interno della propria zona.",
-    "gateHelp": "Queste zone sono modificabili quando almeno una tra Consenti esercito dinamico, Fase di schieramento o Obiettivi posizionati dai giocatori è attiva, poiché ciascuna delle tre ha bisogno di un punto da cui far partire un esercito in arrivo. Con tutte e tre disattive sono in grigio, e su una mappa procedurale sono in grigio anche in quel caso, poiché lì le zone sono definite come percentuali nel pannello Mappa casuale."
+    }
   },
   "vpBalance": {
     "heading": "Bilancio PV (perdite vs obiettivi)",

@@ -7,7 +7,7 @@ import {
 } from "./managed-roster";
 
 const multiUnitScenario = (): Scenario => ({
-  version: 1,
+  version: 2,
   name: "Reusable brigade map",
   description: "One brigade per player",
   map: { width: 256, height: 256, terrains: [], heightMap: [] },
@@ -59,7 +59,7 @@ describe("describeManagedRoster", () => {
 
   it("exposes only the unit type authored for each one-unit map seat", () => {
     const scenario: Scenario = {
-      version: 1,
+      version: 2,
       name: "One unit per player",
       description: "Existing War Room format",
       map: { width: 256, height: 256, terrains: [], heightMap: [] },
@@ -169,7 +169,7 @@ describe("describeManagedRoster", () => {
 describe("materializeManagedRoster", () => {
   it("rejects a scenario without a fixed roster", () => {
     const scenario: Scenario = {
-      version: 1,
+      version: 2,
       name: "Dynamic battle",
       description: "Players build their armies",
       allowDynamicArmy: true,

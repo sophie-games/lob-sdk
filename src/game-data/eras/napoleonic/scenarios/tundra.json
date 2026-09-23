@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "name": "name",
   "description": "description",
   "ranked": true,
@@ -8,21 +8,11 @@
     "top": [
       {
         "role": "main",
-        "rect": {
-          "x": { "min": 5, "max": 5 },
-          "y": { "min": 3, "max": 3 },
-          "width": 90,
-          "height": 10
-        }
+        "origin":{"x":{"min":5,"max":5},"y":{"min":3,"max":3}}, "polygon":{"outer":[{"x":0,"y":0},{"x":90,"y":0},{"x":90,"y":10},{"x":0,"y":10}]}
       },
       {
         "role": "forward",
-        "rect": {
-          "x": { "min": 5, "max": 5 },
-          "y": { "min": 13, "max": 13 },
-          "width": 90,
-          "height": 10
-        }
+        "origin":{"x":{"min":5,"max":5},"y":{"min":13,"max":13}}, "polygon":{"outer":[{"x":0,"y":0},{"x":90,"y":0},{"x":90,"y":10},{"x":0,"y":10}]}
       }
     ]
   },

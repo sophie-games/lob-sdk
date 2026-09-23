@@ -72,8 +72,6 @@
     "allowDynamicArmyHelp": "Po włączeniu gracze wprowadzają własną armię na podstawie typu bitwy matchmakingu i rozstawiają ją w swoich strefach. Po wyłączeniu wcześniej rozmieszczone jednostki scenariusza tworzą pełen skład (kompozycja armii jest pomijana).",
     "fixedRoster": "Stali gracze",
     "fixedRosterHelp": "Gdy włączone, scenariusz sam określa miejsca graczy, drużyny i zapasy amunicji, a poczekalnia nie może dodawać ani usuwać graczy. Gdy wyłączone, skład pochodzi z poczekalni lub z dobierania graczy.",
-    "allowDeploymentPhase": "Faza rozstawienia",
-    "allowDeploymentPhaseHelp": "Gdy włączone, bitwa zaczyna się od tury 0, aby każdy gracz mógł przestawić swoje jednostki w obrębie swoich stref rozstawienia przed rozpoczęciem walki.",
     "noInherentAmmo": "Brak własnej amunicji",
     "noInherentAmmoHelp": "Po włączeniu jednostki z amunicją pojawiają się bez własnych zapasów i czerpią całe zaopatrzenie ze wspólnej rezerwy, więc nie mogą strzelać w pierwszej turze i otwierają ogień dopiero po uzupełnieniu z rezerwy.",
     "startTime": "Godzina rozpoczęcia",
@@ -96,7 +94,6 @@
     "testScenario": "Testuj scenariusz",
     "placeableObjectives": "Cele rozstawiane przez graczy",
     "placeableObjectivesHelp": "Po włączeniu każdy gracz rozstawia własne cele w fazie rozstawienia, w obrębie swojej strefy. Po wyłączeniu bitwa korzysta tylko z celów, które umieściłeś na mapie.",
-    "placeableObjectivesNeedsDeployment": "Włącz także fazę rozstawienia, inaczej gracze nigdy nie dotrą do tury, w której mieliby rozstawić te cele, i żaden się nie pojawi.",
     "resting": {
       "thisScenario": "Ten scenariusz",
       "gettingStarted": "Na początek",
@@ -197,9 +194,7 @@
       "y": "Y",
       "player": "Przypisana do",
       "rotation": "Obrót (stopnie)"
-    },
-    "phaseHelp": "Gdy faza rozstawienia jest włączona, gracze dostają jedną dodatkową turę przed rozpoczęciem walki, wyłącznie po to, by przestawić jednostki w obrębie swojej strefy.",
-    "gateHelp": "Te strefy można edytować, gdy włączona jest którakolwiek z opcji: Zezwól na dynamiczną armię, Faza rozstawienia lub Cele rozstawiane przez graczy, ponieważ każda z tych trzech potrzebuje miejsca, w którym przybywająca armia zaczyna. Gdy wszystkie trzy są wyłączone, strefy są wyszarzone; na mapie proceduralnej także są wyszarzone, ponieważ tam definiuje się je w procentach w panelu Mapa losowa."
+    }
   },
   "vpBalance": {
     "heading": "Bilans PZ (straty vs cele)",

@@ -72,8 +72,6 @@
     "allowDynamicArmyHelp": "Etkinleştirildiğinde, oyuncular eşleştirme savaş türüne göre kendi ordularını getirir ve onları kendi bölgelerine yerleştirir. Devre dışı bırakıldığında, senaryonun önceden yerleştirilmiş birimleri tüm kadroyu tanımlar (ordu kompozisyonu atlanır).",
     "fixedRoster": "Sabit oyuncular",
     "fixedRosterHelp": "Etkinleştirildiğinde senaryo kendi oyuncu yuvalarını, takımlarını ve cephane rezervlerini belirler ve lobi oyuncu ekleyip çıkaramaz. Devre dışı bırakıldığında kadro lobiden veya eşleştirmeden gelir.",
-    "allowDeploymentPhase": "Yerleşim aşaması",
-    "allowDeploymentPhaseHelp": "Etkinleştirildiğinde savaş 0. turda başlar, böylece her oyuncu çarpışma başlamadan önce birliklerini kendi yerleşim bölgeleri içinde yeniden konumlandırabilir.",
     "noInherentAmmo": "Kendi cephanesi yok",
     "noInherentAmmoHelp": "Etkinleştirildiğinde, cephanesi olan birimler kendi cephaneleri olmadan doğar ve tüm ikmalini ortak rezervden alır; bu yüzden ilk turda ateş edemez ve ancak rezerv onları ikmal ettiğinde ateş açarlar.",
     "startTime": "Başlangıç saati",
@@ -96,7 +94,6 @@
     "testScenario": "Senaryoyu test et",
     "placeableObjectives": "Oyuncunun yerleştirdiği hedefler",
     "placeableObjectivesHelp": "Etkinleştirildiğinde her oyuncu kendi hedeflerini yerleşim aşamasında kendi bölgesi içinde konumlandırır. Devre dışı bırakıldığında savaş yalnızca haritaya yerleştirdiğiniz hedefleri kullanır.",
-    "placeableObjectivesNeedsDeployment": "Yerleşim aşamasını da açın; aksi halde oyuncular bu hedefleri yerleştirecekleri tura hiç ulaşamaz ve hiçbiri görünmez.",
     "resting": {
       "thisScenario": "Bu senaryo",
       "gettingStarted": "Başlarken",
@@ -193,9 +190,7 @@
       "y": "Y",
       "player": "Atanan oyuncu",
       "rotation": "Döndürme (derece)"
-    },
-    "phaseHelp": "Yerleşim aşaması açıkken oyuncular, çarpışma başlamadan önce yalnızca birimlerini kendi bölgeleri içinde yeniden dizmek için fazladan bir tur kazanır.",
-    "gateHelp": "Dinamik orduya izin ver, Yerleşim aşaması veya Oyuncunun yerleştirdiği hedefler seçeneklerinden herhangi biri açıkken bu bölgeler düzenlenebilir; çünkü üçünün de gelen bir ordunun başlayacağı bir yere ihtiyacı vardır. Üçü de kapalıyken soluklaşır; prosedürel bir haritada da soluklaşır, çünkü oradaki bölgeler bunun yerine Rastgele Harita panelinde yüzde olarak yazılır."
+    }
   },
   "vpBalance": {
     "heading": "ZP dengesi (kayıplar vs hedefler)",

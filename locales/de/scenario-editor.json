@@ -72,8 +72,6 @@
     "allowDynamicArmyHelp": "Wenn aktiviert, bringen Spieler ihre eigene Armee passend zum Matchmaking-Schlachttyp mit und stellen sie in ihren Zonen auf. Wenn deaktiviert, definieren die vorplatzierten Einheiten des Szenarios den gesamten Bestand (die Armeezusammensetzung entfällt).",
     "fixedRoster": "Feste Spielerliste",
     "fixedRosterHelp": "Wenn aktiviert, legt das Szenario seine eigenen Spielerplätze, Teams und Munitionsreserven fest, und die Lobby kann keine Spieler hinzufügen oder entfernen. Wenn deaktiviert, stammt die Liste aus der Lobby oder dem Matchmaking.",
-    "allowDeploymentPhase": "Aufstellungsphase",
-    "allowDeploymentPhaseHelp": "Wenn aktiviert, beginnt die Schlacht in Zug 0, sodass jeder Spieler seine Einheiten innerhalb seiner Aufstellungszonen neu positionieren kann, bevor die Kämpfe beginnen.",
     "noInherentAmmo": "Keine eigene Munition",
     "noInherentAmmoHelp": "Wenn aktiviert, erscheinen Einheiten mit Munitionssystem ohne eigene Munition und beziehen ihren gesamten Nachschub aus der gemeinsamen Reserve. Sie können daher in der ersten Runde nicht feuern und eröffnen das Feuer erst, wenn die Reserve sie wieder auffüllt.",
     "startTime": "Startzeit",
@@ -96,7 +94,6 @@
     "testScenario": "Szenario testen",
     "placeableObjectives": "Spielerplatzierte Ziele",
     "placeableObjectivesHelp": "Wenn aktiviert, platziert jeder Spieler seine eigenen Ziele während der Aufstellungsphase, innerhalb seiner eigenen Zone. Wenn deaktiviert, verwendet die Schlacht nur die Ziele, die du auf der Karte platziert hast.",
-    "placeableObjectivesNeedsDeployment": "Aktiviere auch die Aufstellungsphase, sonst erreichen die Spieler nie den Zug, in dem sie diese Ziele platzieren würden, und es erscheint keines.",
     "resting": {
       "thisScenario": "Dieses Szenario",
       "gettingStarted": "Erste Schritte",
@@ -193,9 +190,7 @@
       "y": "Y",
       "player": "Zugewiesen an",
       "rotation": "Drehung (Grad)"
-    },
-    "phaseHelp": "Mit aktivierter Aufstellungsphase erhalten die Spieler einen zusätzlichen Zug, bevor die Kämpfe beginnen, nur um ihre Einheiten innerhalb ihrer Zone neu zu ordnen.",
-    "gateHelp": "Diese Zonen sind bearbeitbar, solange eine der drei Optionen Dynamische Armee erlauben, Aufstellungsphase oder Spielerplatzierte Ziele aktiviert ist, da jede von ihnen einen Startpunkt für eine ankommende Armee benötigt. Sind alle drei deaktiviert, sind sie ausgegraut, und auf einer prozeduralen Karte sind sie ebenfalls ausgegraut, da die Zonen dort stattdessen als Prozentwerte im Panel Zufällige Karte festgelegt werden."
+    }
   },
   "vpBalance": {
     "heading": "VP-Bilanz (Verluste vs Ziele)",
