@@ -250,6 +250,10 @@
     "reminders": {
       "title": "Υπενθυμίσεις",
       "description": "Ειδοποίησέ με όταν το σερί ημερών μου κοντεύει να χαθεί."
+    },
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
     }
   },
   "theme": {
@@ -296,12 +300,6 @@
     "recall": "Ανάκληση ομάδας {{group}}",
     "set": "Ορισμός ομάδας {{group}}",
     "add": "Προσθήκη στην ομάδα {{group}}"
-  },
-  "notifications": {
-    "clanLeague": {
-      "title": "Coalition league",
-      "description": "Notify me when my coalition can still reach the weekly prize positions."
-    }
   },
   "showGameTips": {
     "title": "Εμφάνιση συμβουλών",

@@ -235,6 +235,10 @@
     "reminders": {
       "title": "Нагадування",
       "description": "Сповіщати, коли серія днів ось-ось перерветься."
+    },
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
     }
   },
   "theme": {
@@ -281,12 +285,6 @@
     "recall": "Викликати групу {{group}}",
     "set": "Задати групу {{group}}",
     "add": "Додати до групи {{group}}"
-  },
-  "notifications": {
-    "clanLeague": {
-      "title": "Coalition league",
-      "description": "Notify me when my coalition can still reach the weekly prize positions."
-    }
   },
   "showGameTips": {
     "title": "Показувати підказки",

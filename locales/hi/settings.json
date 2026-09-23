@@ -264,6 +264,10 @@
     "reminders": {
       "title": "रिमाइंडर",
       "description": "जब मेरी दैनिक स्ट्रीक खत्म होने वाली हो तो मुझे सूचित करें।"
+    },
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
     }
   },
   "theme": {
@@ -310,12 +314,6 @@
     "recall": "समूह {{group}} बुलाएँ",
     "set": "समूह {{group}} सेट करें",
     "add": "समूह {{group}} में जोड़ें"
-  },
-  "notifications": {
-    "clanLeague": {
-      "title": "Coalition league",
-      "description": "Notify me when my coalition can still reach the weekly prize positions."
-    }
   },
   "showGameTips": {
     "title": "सुझाव दिखाएँ",

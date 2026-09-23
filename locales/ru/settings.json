@@ -268,6 +268,10 @@
     "reminders": {
       "title": "Напоминания",
       "description": "Уведомлять, когда серия дней вот-вот прервётся."
+    },
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
     }
   },
   "theme": {
@@ -314,12 +318,6 @@
     "recall": "Вызвать группу {{group}}",
     "set": "Задать группу {{group}}",
     "add": "Добавить в группу {{group}}"
-  },
-  "notifications": {
-    "clanLeague": {
-      "title": "Coalition league",
-      "description": "Notify me when my coalition can still reach the weekly prize positions."
-    }
   },
   "showGameTips": {
     "title": "Показывать подсказки",

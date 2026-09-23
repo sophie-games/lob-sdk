@@ -241,6 +241,10 @@
     "reminders": {
       "title": "リマインダー",
       "description": "連続日数が途切れそうなときに通知します。"
+    },
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
     }
   },
   "theme": {
@@ -287,12 +291,6 @@
     "recall": "グループ{{group}}を呼び出す",
     "set": "グループ{{group}}を設定",
     "add": "グループ{{group}}に追加"
-  },
-  "notifications": {
-    "clanLeague": {
-      "title": "Coalition league",
-      "description": "Notify me when my coalition can still reach the weekly prize positions."
-    }
   },
   "showGameTips": {
     "title": "ヒントを表示",

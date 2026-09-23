@@ -234,6 +234,10 @@
     "reminders": {
       "title": "Recordatorios",
       "description": "Avísame cuando mi racha diaria esté por terminar."
+    },
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
     }
   },
   "theme": {
@@ -280,12 +284,6 @@
     "recall": "Llamar grupo {{group}}",
     "set": "Fijar grupo {{group}}",
     "add": "Agregar al grupo {{group}}"
-  },
-  "notifications": {
-    "clanLeague": {
-      "title": "Coalition league",
-      "description": "Notify me when my coalition can still reach the weekly prize positions."
-    }
   },
   "drawingMode": {
     "options": "Opciones de movimiento",

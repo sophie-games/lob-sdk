@@ -264,6 +264,10 @@
     "reminders": {
       "title": "Nhắc nhở",
       "description": "Thông báo khi chuỗi ngày của tôi sắp kết thúc."
+    },
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
     }
   },
   "theme": {
@@ -310,12 +314,6 @@
     "recall": "Gọi nhóm {{group}}",
     "set": "Đặt nhóm {{group}}",
     "add": "Thêm vào nhóm {{group}}"
-  },
-  "notifications": {
-    "clanLeague": {
-      "title": "Coalition league",
-      "description": "Notify me when my coalition can still reach the weekly prize positions."
-    }
   },
   "showGameTips": {
     "title": "Hiện mẹo",

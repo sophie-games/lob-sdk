@@ -241,6 +241,10 @@
     "reminders": {
       "title": "Emlékeztetők",
       "description": "Értesíts, ha a napi sorozatom mindjárt megszakad."
+    },
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
     }
   },
   "theme": {
@@ -287,12 +291,6 @@
     "recall": "{{group}}. csoport előhívása",
     "set": "{{group}}. csoport beállítása",
     "add": "Hozzáadás a(z) {{group}}. csoporthoz"
-  },
-  "notifications": {
-    "clanLeague": {
-      "title": "Coalition league",
-      "description": "Notify me when my coalition can still reach the weekly prize positions."
-    }
   },
   "showGameTips": {
     "title": "Tippek megjelenítése",

@@ -231,6 +231,10 @@
     "reminders": {
       "title": "Rappels",
       "description": "Me prévenir quand ma série de jours est sur le point de s'arrêter."
+    },
+    "clanLeague": {
+      "title": "Coalition league",
+      "description": "Notify me when my coalition can still reach the weekly prize positions."
     }
   },
   "theme": {
@@ -277,12 +281,6 @@
     "recall": "Rappeler le groupe {{group}}",
     "set": "Définir le groupe {{group}}",
     "add": "Ajouter au groupe {{group}}"
-  },
-  "notifications": {
-    "clanLeague": {
-      "title": "Coalition league",
-      "description": "Notify me when my coalition can still reach the weekly prize positions."
-    }
   },
   "showGameTips": {
     "title": "Afficher les conseils",
