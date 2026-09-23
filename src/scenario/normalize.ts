@@ -86,10 +86,10 @@ const _fromVersion1 = ({
     ...(deploymentZones && zonesUsed
       ? { deploymentZones: toPolygonZoneGroups(deploymentZones) }
       : {}),
-    ...(randomDeploymentZones
+    ...(randomDeploymentZones && zonesUsed
       ? { randomDeploymentZones: toPolygonRandomZones(randomDeploymentZones) }
       : {}),
-    ...(scaledDeploymentZones
+    ...(scaledDeploymentZones && zonesUsed
       ? {
           scaledDeploymentZones: Object.fromEntries(
             Object.entries(scaledDeploymentZones).map(([size, zones]) => [

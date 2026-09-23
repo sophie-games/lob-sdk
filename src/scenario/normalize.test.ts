@@ -195,6 +195,38 @@ describe("normalizeScenario", () => {
       expect(ScenarioFeatures.getInitialTurnNumber(result)).toBe(1);
     });
 
+    it("drops unused percentage zones too", () => {
+      const zones: LegacyRandomDeploymentZones = {
+        top: [
+          {
+            role: "main",
+            rect: {
+              x: { min: 0, max: 0 },
+              y: { min: 0, max: 0 },
+              width: 10,
+              height: 10,
+            },
+          },
+        ],
+      };
+      const result = normalizeScenario(
+        buildVersion1({
+          randomDeploymentZones: zones,
+          scaledDeploymentZones: {
+            [Size.XSmall]: zones,
+            [Size.Small]: zones,
+            [Size.Medium]: zones,
+            [Size.Large]: zones,
+            [Size.ExtraLarge]: zones,
+          },
+        }),
+      );
+
+      expect(result.randomDeploymentZones).toBeUndefined();
+      expect(result.scaledDeploymentZones).toBeUndefined();
+      expect(ScenarioFeatures.getInitialTurnNumber(result)).toBe(1);
+    });
+
     it("keeps zones that placed objectives or a dynamic army", () => {
       expect(
         normalizeScenario(buildVersion1({ placeableObjectives: true })).map
