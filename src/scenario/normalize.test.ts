@@ -158,7 +158,7 @@ describe("normalizeScenario", () => {
       expect(ScenarioFeatures.getInitialTurnNumber(result)).toBe(0);
     });
 
-    it("keeps a rotated rectangle's area and facing", () => {
+    it("keeps a rotated rectangle's area and turns the team facing with it", () => {
       const map = buildPresetMap();
       map.deploymentZones = [
         {
@@ -182,10 +182,64 @@ describe("normalizeScenario", () => {
       );
       const zone = result.map?.deploymentZones?.[0]?.zones[0];
 
-      expect(zone).toMatchObject({ player: 1, rotation: Math.PI / 2 });
+      // Version 1 turned only the area; team 1 still faced its default 270 deg.
+      expect(zone).toMatchObject({ player: 1, rotation: 2 * Math.PI });
       // On end around its centre (20, 10), it spans x 10..30, y -10..30.
       expect(isInsideDeploymentZone(zone!, { x: 20, y: 25 })).toBe(true);
       expect(isInsideDeploymentZone(zone!, { x: 5, y: 10 })).toBe(false);
+    });
+
+    it("keeps the team facing for a rectangle saved with rotation 0", () => {
+      const map = buildPresetMap();
+      map.deploymentZones = [
+        {
+          team: 2,
+          zones: [
+            {
+              team: 2,
+              type: "main",
+              x: 0,
+              y: 0,
+              width: 4,
+              height: 4,
+              rotation: 0,
+            },
+          ],
+        },
+      ];
+      const result = normalizeScenario(
+        buildVersion1({ map, allowDeploymentPhase: true }),
+      );
+
+      expect(result.map?.deploymentZones?.[0]?.zones[0]).not.toHaveProperty(
+        "rotation",
+      );
+    });
+
+    it("turns percentage zone facing from each side's default", () => {
+      const rect = {
+        x: { min: 0, max: 0 },
+        y: { min: 0, max: 0 },
+        width: 10,
+        height: 10,
+      };
+      const turn = Math.PI / 6;
+      const result = normalizeScenario(
+        buildVersion1({
+          allowDynamicArmy: true,
+          randomDeploymentZones: {
+            top: [{ role: "main", rotation: turn, rect }],
+            bottom: [{ role: "main", rotation: turn, rect }],
+          },
+        }),
+      );
+
+      expect(result.randomDeploymentZones?.top[0]?.rotation).toBeCloseTo(
+        Math.PI / 2 + turn,
+      );
+      expect(result.randomDeploymentZones?.bottom?.[0]?.rotation).toBeCloseTo(
+        (3 * Math.PI) / 2 + turn,
+      );
     });
 
     it("drops zones no feature used, so fixed rosters start at turn 1", () => {
@@ -367,7 +421,9 @@ describe("normalizeScenario", () => {
     });
 
     it("legacy hybrids without zones start at turn 1", () => {
-      expect(ScenarioFeatures.hasDeploymentPhase(normalizeScenario(buildHybrid()))).toBe(false);
+      expect(
+        ScenarioFeatures.hasDeploymentPhase(normalizeScenario(buildHybrid())),
+      ).toBe(false);
     });
 
     it("attaches the hybrid map and defaults missing units/objectives to empty", () => {

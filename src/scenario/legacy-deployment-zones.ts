@@ -35,6 +35,13 @@ const rectanglePolygon = (zone: Zone): DeploymentPolygon => {
   };
 };
 
+/**
+ * Version 1 rotation turned only the area; units kept the team's facing (team 1
+ * faces up, others down). Now rotation is the facing, so add the turn to it.
+ */
+const turnedFacing = (team: number, rotation: number | undefined) =>
+  rotation ? { rotation: (team === 1 ? 1.5 : 0.5) * Math.PI + rotation } : {};
+
 const toTeamZone = ({
   team,
   player,
@@ -45,7 +52,7 @@ const toTeamZone = ({
   ...(player !== undefined ? { player } : {}),
   type,
   polygons: [rectanglePolygon(rect)],
-  ...(rect.rotation !== undefined ? { rotation: rect.rotation } : {}),
+  ...turnedFacing(team, rect.rotation),
 });
 
 export const toPolygonZoneGroups = (
@@ -76,26 +83,24 @@ export const toPolygonMap = ({
     : {}),
 });
 
-const toRandomZone = ({
-  rect: { x, y, width, height },
-  ...zone
-}: LegacyRandomDeploymentZone): RandomDeploymentZone => ({
-  ...zone,
-  origin: { x, y },
-  // Turned in map percent, which matches the old pixel turn on square maps.
-  polygon: rectanglePolygon({
-    x: 0,
-    y: 0,
-    width,
-    height,
-    rotation: zone.rotation,
-  }),
-});
+const toRandomZone =
+  (team: number) =>
+  ({
+    rect: { x, y, width, height },
+    rotation,
+    ...zone
+  }: LegacyRandomDeploymentZone): RandomDeploymentZone => ({
+    ...zone,
+    ...turnedFacing(team, rotation),
+    origin: { x, y },
+    // Turned in map percent, which matches the old pixel turn on square maps.
+    polygon: rectanglePolygon({ x: 0, y: 0, width, height, rotation }),
+  });
 
 export const toPolygonRandomZones = ({
   top,
   bottom,
 }: LegacyRandomDeploymentZones): RandomDeploymentZones => ({
-  top: top.map(toRandomZone),
-  ...(bottom ? { bottom: bottom.map(toRandomZone) } : {}),
+  top: top.map(toRandomZone(2)),
+  ...(bottom ? { bottom: bottom.map(toRandomZone(1)) } : {}),
 });
