@@ -1,6 +1,5 @@
 import type { ScenarioCatalog } from "@lob-sdk/game-data-manager/scenario-catalog";
 import waterloo from "./scenarios/waterloo.json";
-import austerlitz from "./scenarios/austerlitz.json";
 import hills from "./scenarios/hills.json";
 import plains from "./scenarios/plains.json";
 import iberia from "./scenarios/iberia.json";
@@ -62,7 +61,6 @@ export const napoleonicScenarioCatalog = {
   "grobes-schlachtfeld": grobesSchlachtfeld,
   antioch,
   waterloo,
-  austerlitz,
   leipzig,
   borodino,
   "combat-at-mollwitz": combatAtMollwitz,
