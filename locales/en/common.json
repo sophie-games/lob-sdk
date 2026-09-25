@@ -643,7 +643,7 @@
     "ammo": {
       "view": "View ammo",
       "title": "Ammunition",
-      "description": "Artillery consumes your ammo reserve, which replenishes each turn. Without ammo, it cannot fire. Adjust <autofire>autofire</autofire> to conserve ammo."
+      "description": "Artillery carries round shot, canister and shell in separate pools, refilled from your ammo reserve each turn. Out of canister, a battery fires round shot; with every pool empty, it cannot fire. Adjust <autofire>autofire</autofire> to conserve ammo."
     },
     "running": {
       "title": "Run deliberately",
@@ -1457,6 +1457,15 @@
   "encyclopediaSearchWiki": "Search the Community Wiki for “{{query}}”",
   "encyclopediaSeeMore": "See more in the Community Wiki",
   "ammo": "Ammo",
+  "ammoRefill": "+{{percent}}% per turn",
+  "ammoTypeOut": "{{ammoType}} out",
+  "ammoTypes": {
+    "round-shot": "Round shot",
+    "canister": "Canister",
+    "shell": "Shell",
+    "rocket": "Rockets",
+    "ammo": "Ammo"
+  },
   "ammoConsumption": "Ammo Consumption",
   "allowsCharging": "Allows charging",
   "limbersArtillery": "Limbers artillery",
@@ -1537,7 +1546,6 @@
     "damageReceived": "Taken",
     "winrate": "Winrate"
   },
-  "noAmmoRegain": "No ammo regain",
   "flankMeleeOrgModifier": "Flank melee org modifier",
   "rearCharge": "Rear charge",
   "deleteAccount": "Delete account",

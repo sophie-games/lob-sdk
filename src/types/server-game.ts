@@ -476,6 +476,8 @@ export interface ShootResult {
   action: RangedAttackAction;
   /** Amount of ammo consumed by the shot. */
   ammoCost: number;
+  /** Ammo type `ammoCost` is drawn from; null when the shooter has no ammo system. */
+  ammoType: string | null;
   /** Amount of stamina consumed by the shot. */
   staminaCost: number;
 }

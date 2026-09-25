@@ -14,6 +14,7 @@ import {
   UnitEffectDto,
   UnitFormationTemplate,
   RangeUnitTemplate,
+  AmmoPools,
   UnitStatus,
   UnitTemplate,
   UnitType,
@@ -57,7 +58,7 @@ export abstract class BaseUnit extends Entity {
   abstract hp: number;
   abstract org: number;
   abstract stamina: number | null;
-  abstract ammo: number | null;
+  abstract ammo: AmmoPools | null;
   abstract supply: number | null;
   abstract position: Vector2;
   abstract rotation: number;
@@ -112,7 +113,7 @@ export abstract class BaseUnit extends Entity {
   get maxHp(): number { return this.template.hp; }
   get maxOrg(): number { return this.template.org; }
   get maxStamina(): number { return this.template.stamina ?? 0; }
-  get maxAmmo(): number { return (this.template as RangeUnitTemplate).ammo ?? 0; }
+  get ammoCapacity(): AmmoPools | null { return this.gameDataManager.getAmmoCapacity(this.template); }
   get maxSupply(): number { return this.template.supply ?? 0; }
   get manpower(): number { return this.template.manpower; }
   get gold(): number { return this.template.gold; }
@@ -183,7 +184,6 @@ export abstract class BaseUnit extends Entity {
     });
   }
   get panicFireDistance(): number { return (this.template as RangeUnitTemplate).panicFireDistance ?? 0; }
-  get noAmmoRegain(): boolean { return (this.template as RangeUnitTemplate).noAmmoRegain ?? false; }
   get unlimberTime(): number { return this.template.unlimberTime ?? 0; }
   get reducedVisibilityRange(): number | null { return this.template.reducedVisibilityRange ?? null; }
   get flankMeleeOrgModifier(): number { return this.template.flankMeleeOrgModifier ?? 0; }

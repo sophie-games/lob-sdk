@@ -1,6 +1,7 @@
 import { BaseUnit } from "./base-unit";
 import { Vector2 } from "@lob-sdk/vector";
 import {
+  AmmoPools,
   CollisionShapeType,
   OrderType,
   UnitCategoryId,
@@ -30,7 +31,7 @@ describe("BaseUnit", () => {
     hp: number = 800;
     org: number = 500;
     stamina: number | null = template.stamina ?? null;
-    ammo: number = 0;
+    ammo: AmmoPools | null = null;
     supply: number | null = null;
     position: Vector2 = new Vector2(0, 0);
     category: UnitCategoryId = "infantry";

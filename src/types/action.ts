@@ -187,9 +187,13 @@ export interface UpdateUnitStateAction extends BaseAction {
    */
   st?: number;
   /**
-   * Ammo change.
+   * Ammo change, default ammo type.
    */
   am?: number;
+  /**
+   * Ammo change, other ammo types by id. Only the types that changed.
+   */
+  amt?: Record<number, number>;
   /**
    * Supply change.
    */
