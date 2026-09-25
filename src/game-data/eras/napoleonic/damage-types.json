@@ -283,6 +283,7 @@
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
     "ammoCost": 10000,
+    "ammoType": "round-shot",
     "extendRange": false
   },
   {
@@ -325,6 +326,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 20000,
+    "ammoType": "canister",
     "extendRange": true
   },
   {
@@ -417,6 +419,7 @@
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
     "ammoCost": 10000,
+    "ammoType": "round-shot",
     "extendRange": false
   },
   {
@@ -481,6 +484,7 @@
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
     "ammoCost": 10000,
+    "ammoType": "round-shot",
     "extendRange": false
   },
   {
@@ -523,6 +527,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 20000,
+    "ammoType": "canister",
     "extendRange": true
   },
   {
@@ -615,6 +620,7 @@
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
     "ammoCost": 10000,
+    "ammoType": "round-shot",
     "extendRange": false
   },
   {
@@ -657,6 +663,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 18500,
+    "ammoType": "canister",
     "extendRange": true
   },
   {
@@ -749,6 +756,7 @@
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
     "ammoCost": 10000,
+    "ammoType": "round-shot",
     "extendRange": false
   },
   {
@@ -791,6 +799,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 18500,
+    "ammoType": "canister",
     "extendRange": true
   },
   {
@@ -883,6 +892,7 @@
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
     "ammoCost": 10000,
+    "ammoType": "round-shot",
     "extendRange": false
   },
   {
@@ -937,6 +947,7 @@
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
     "ammoCost": 10000,
+    "ammoType": "shell",
     "extendRange": false
   },
   {
@@ -991,6 +1002,7 @@
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
     "ammoCost": 10000,
+    "ammoType": "shell",
     "extendRange": false
   },
   {
@@ -1050,6 +1062,7 @@
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
     "ammoCost": 10000,
+    "ammoType": "shell",
     "extendRange": false
   },
   {
@@ -1092,6 +1105,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 20000,
+    "ammoType": "canister",
     "extendRange": true
   },
   {
@@ -1134,6 +1148,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 20000,
+    "ammoType": "canister",
     "extendRange": true
   },
   {
@@ -1166,6 +1181,7 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "ammoCost": 20000,
+    "ammoType": "canister",
     "extendRange": true
   },
   {
@@ -1297,6 +1313,7 @@
     "shotAnim": "rocketVolley",
     "shotImpactAnim": "shellImpact",
     "ammoCost": 10000,
+    "ammoType": "rocket",
     "extendRange": false
   },
   {
@@ -1346,6 +1363,7 @@
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
     "ammoCost": 9670,
+    "ammoType": "round-shot",
     "extendRange": false
   }
 ]

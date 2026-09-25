@@ -1457,6 +1457,14 @@
   "encyclopediaSearchWiki": "Search the Community Wiki for “{{query}}”",
   "encyclopediaSeeMore": "See more in the Community Wiki",
   "ammo": "Ammo",
+  "ammoRefill": "+{{percent}}% per turn",
+  "ammoTypes": {
+    "round-shot": "Round shot",
+    "canister": "Canister",
+    "shell": "Shell",
+    "rocket": "Rockets",
+    "ammo": "Ammo"
+  },
   "ammoConsumption": "Ammo Consumption",
   "allowsCharging": "Allows charging",
   "limbersArtillery": "Limbers artillery",
@@ -1537,7 +1545,6 @@
     "damageReceived": "Taken",
     "winrate": "Winrate"
   },
-  "noAmmoRegain": "No ammo regain",
   "flankMeleeOrgModifier": "Flank melee org modifier",
   "rearCharge": "Rear charge",
   "deleteAccount": "Delete account",

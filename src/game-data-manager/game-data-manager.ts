@@ -17,6 +17,7 @@ import {
   Size,
   TeamSize,
   CustomTerrainCategoryOverride,
+  AmmoPools,
 } from "@lob-sdk/types";
 import { RawScenarioInput, normalizeScenario } from "@lob-sdk/scenario";
 import { Scenario } from "@lob-sdk/types";
@@ -33,6 +34,7 @@ import {
   Achievement,
   MapSizeTemplate,
   MatchmakingPresetsData,
+  AmmoTypeTemplate,
 } from "./types";
 
 // Import all era-specific data synchronously
@@ -42,6 +44,7 @@ import napoleonicUnitTemplates from "@lob-sdk/game-data/eras/napoleonic/unit-tem
 import napoleonicGameConstants from "@lob-sdk/game-data/eras/napoleonic/game-constants.json";
 import napoleonicAvatars from "@lob-sdk/game-data/eras/napoleonic/avatars.json";
 import napoleonicAchievements from "@lob-sdk/game-data/eras/napoleonic/achievements.json";
+import napoleonicAmmoTypes from "@lob-sdk/game-data/eras/napoleonic/ammo-types.json";
 import napoleonicDamageTypes from "@lob-sdk/game-data/eras/napoleonic/damage-types.json";
 import napoleonicTerrains from "@lob-sdk/game-data/eras/napoleonic/terrains.json";
 import napoleonicTerrainCategories from "@lob-sdk/game-data/eras/napoleonic/terrain-categories.json";
@@ -59,6 +62,7 @@ import ww2UnitTemplates from "@lob-sdk/game-data/eras/ww2/unit-templates.json";
 import ww2GameConstants from "@lob-sdk/game-data/eras/ww2/game-constants.json";
 import ww2Avatars from "@lob-sdk/game-data/eras/ww2/avatars.json";
 import ww2Achievements from "@lob-sdk/game-data/eras/ww2/achievements.json";
+import ww2AmmoTypes from "@lob-sdk/game-data/eras/ww2/ammo-types.json";
 import ww2DamageTypes from "@lob-sdk/game-data/eras/ww2/damage-types.json";
 import ww2Terrains from "@lob-sdk/game-data/eras/ww2/terrains.json";
 import ww2TerrainCategories from "@lob-sdk/game-data/eras/ww2/terrain-categories.json";
@@ -206,6 +210,11 @@ export class GameDataManager {
   private _damageTypeNameMap = new Map<string, DamageTypeTemplate>();
   private _chargeRestrictionsCache: Map<string, Set<UnitCategoryId>> | null =
     null;
+
+  // Ammo types
+  private ammoTypes: AmmoTypeTemplate[] = [];
+  private _ammoTypeMap = new Map<number, AmmoTypeTemplate>();
+  private _ammoTypeNameMap = new Map<string, AmmoTypeTemplate>();
 
   // Terrains
   private terrains: TerrainConfig[] = [];
@@ -598,6 +607,7 @@ export class GameDataManager {
         this.avatars = napoleonicAvatars as Avatar[];
         this.achievements = napoleonicAchievements as Achievement[];
         this.damageTypes = napoleonicDamageTypes as DamageTypeTemplate[];
+        this.ammoTypes = napoleonicAmmoTypes;
         this.terrains = napoleonicTerrains as GameDataManager["terrains"];
         this.terrainCategories = napoleonicTerrainCategories as Record<
           TerrainCategoryType,
@@ -628,6 +638,7 @@ export class GameDataManager {
         this.avatars = ww2Avatars as Avatar[];
         this.achievements = ww2Achievements as Achievement[];
         this.damageTypes = ww2DamageTypes as DamageTypeTemplate[];
+        this.ammoTypes = ww2AmmoTypes;
         this.terrains = ww2Terrains as GameDataManager["terrains"];
         this.terrainCategories =
           ww2TerrainCategories as GameDataManager["terrainCategories"];
@@ -682,6 +693,11 @@ export class GameDataManager {
 
     this.unitSkins.forEach((unitSkin) => {
       this.unitSkinMap.set(unitSkin.id, unitSkin);
+    });
+
+    this.ammoTypes.forEach((ammoType) => {
+      this._ammoTypeMap.set(ammoType.id, ammoType);
+      this._ammoTypeNameMap.set(ammoType.name, ammoType);
     });
 
     // Initialize damage type mappings
@@ -1211,6 +1227,47 @@ export class GameDataManager {
       throw new Error(`Damage type with name ${name} not found`);
     }
     return template as T;
+  }
+
+  public getAmmoTypes(): AmmoTypeTemplate[] {
+    return this.ammoTypes;
+  }
+
+  /** The era's first ammo type: what a weapon without `ammoType` spends. */
+  public getDefaultAmmoType(): AmmoTypeTemplate {
+    return this.ammoTypes[0];
+  }
+
+  public getAmmoTypeByName(name: string): AmmoTypeTemplate {
+    const ammoType = this._ammoTypeNameMap.get(name);
+    if (!ammoType) {
+      throw new Error(`Ammo type with name ${name} not found`);
+    }
+    return ammoType;
+  }
+
+  public getAmmoTypeById(id: number): AmmoTypeTemplate {
+    const ammoType = this._ammoTypeMap.get(id);
+    if (!ammoType) {
+      throw new Error(`Ammo type with id ${id} not found`);
+    }
+    return ammoType;
+  }
+
+  /** The ammo type a ranged weapon draws from. */
+  public getAmmoTypeOf(damageType: RangedDamageTypeTemplate): AmmoTypeTemplate {
+    return damageType.ammoType
+      ? this.getAmmoTypeByName(damageType.ammoType)
+      : this.getDefaultAmmoType();
+  }
+
+  /** A template's ammo capacity per type, or null when it has no ammo system. */
+  public getAmmoCapacity(template: UnitTemplate): AmmoPools | null {
+    const ammo = (template as RangeUnitTemplate).ammo;
+    if (ammo === undefined || ammo === null) return null;
+    return typeof ammo === "number"
+      ? { [this.getDefaultAmmoType().name]: ammo }
+      : ammo;
   }
 
   /** Like {@link getDamageTypeByName} but returns null instead of throwing. */
