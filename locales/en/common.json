@@ -643,7 +643,7 @@
     "ammo": {
       "view": "View ammo",
       "title": "Ammunition",
-      "description": "Artillery consumes your ammo reserve, which replenishes each turn. Without ammo, it cannot fire. Adjust <autofire>autofire</autofire> to conserve ammo."
+      "description": "Artillery carries round shot, canister and shell in separate pools, refilled from your ammo reserve each turn. Out of canister, a battery fires round shot; with every pool empty, it cannot fire. Adjust <autofire>autofire</autofire> to conserve ammo."
     },
     "running": {
       "title": "Run deliberately",
