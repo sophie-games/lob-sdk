@@ -38,6 +38,13 @@ describe("ammo wire encoding", () => {
   it("round-trips", () => {
     const pools = { "round-shot": 1, canister: 2, shell: 3 };
     const { am, amt } = ammoToWire(pools, gdm);
-    expect(ammoFromWire({}, am, amt, gdm)).toEqual(pools);
+    const base = { "round-shot": 10, canister: 20, shell: 30 };
+    expect(ammoFromWire(base, am, amt, gdm)).toEqual(pools);
+  });
+
+  it("ignores a type the base does not carry, such as a pre-pools `am` on rockets", () => {
+    expect(
+      ammoFromWire({ rocket: 50000 }, 30000, { [canisterId]: 6 }, gdm),
+    ).toEqual({ rocket: 50000 });
   });
 });

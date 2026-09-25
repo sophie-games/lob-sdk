@@ -28,7 +28,7 @@ export const ammoToWire = (
   return wire;
 };
 
-/** Returns `base` with the wire's values written over it. */
+/** Returns `base` with the wire's values written over it; types `base` lacks are ignored. */
 export const ammoFromWire = (
   base: AmmoPools,
   am: number | undefined,
@@ -36,12 +36,15 @@ export const ammoFromWire = (
   gameDataManager: GameDataManager,
 ): AmmoPools => {
   const pools = { ...base };
+  const write = (name: string, value: number) => {
+    if (name in pools) pools[name] = value;
+  };
 
   if (am !== undefined) {
-    pools[gameDataManager.getDefaultAmmoType().name] = am;
+    write(gameDataManager.getDefaultAmmoType().name, am);
   }
   for (const [id, value] of Object.entries(amt ?? {})) {
-    pools[gameDataManager.getAmmoTypeById(Number(id)).name] = value;
+    write(gameDataManager.getAmmoTypeById(Number(id)).name, value);
   }
 
   return pools;
