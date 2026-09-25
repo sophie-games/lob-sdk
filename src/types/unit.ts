@@ -329,8 +329,8 @@ export interface RangeUnitTemplate extends BaseUnitTemplate {
    */
   minDistanceToFAA?: number;
   /**
-   * Ammo capacity per ammo type name. A single number is the legacy form and
-   * means the era's default ammo type; read it through `getAmmoCapacity`.
+   * Ammo capacity per ammo type name. A single number is the legacy form, a pool
+   * of that size per ammo type the weapons spend; read it through `getAmmoCapacity`.
    */
   ammo?: number | AmmoPools;
   /** Units with this property will fire at the closest unit instead of ordered target with the shoot order */

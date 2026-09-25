@@ -1265,9 +1265,17 @@ export class GameDataManager {
   public getAmmoCapacity(template: UnitTemplate): AmmoPools | null {
     const ammo = (template as RangeUnitTemplate).ammo;
     if (ammo === undefined || ammo === null) return null;
-    return typeof ammo === "number"
-      ? { [this.getDefaultAmmoType().name]: ammo }
-      : ammo;
+    if (typeof ammo !== "number") return ammo;
+
+    // Legacy form: every type the weapons spend gets the whole number, so no weapon is left without a pool.
+    const pools: AmmoPools = {};
+    for (const name of (template as RangeUnitTemplate).rangedDamageTypes ?? []) {
+      const damageType = this.tryGetDamageTypeByName<RangedDamageTypeTemplate>(name);
+      if (damageType?.ammoCost) pools[this.getAmmoTypeOf(damageType).name] = ammo;
+    }
+    return Object.keys(pools).length > 0
+      ? pools
+      : { [this.getDefaultAmmoType().name]: ammo };
   }
 
   /** Like {@link getDamageTypeByName} but returns null instead of throwing. */

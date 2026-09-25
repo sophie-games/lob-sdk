@@ -40,6 +40,18 @@ describe("ammo types", () => {
       expect(gdm.getAmmoCapacity(legacy)).toEqual({ "round-shot": 20000 });
     });
 
+    it("gives a legacy single number to every ammo type the unit's weapons spend", () => {
+      const battery = gdm
+        .getUnitTemplateManager()
+        .getTemplates()
+        .find((t) => t.name === "12lb_artillery")!;
+      const legacy: UnitTemplate = { ...battery, ammo: 20000 };
+      expect(gdm.getAmmoCapacity(legacy)).toEqual({
+        canister: 20000,
+        "round-shot": 20000,
+      });
+    });
+
     it("passes a per-type map through", () => {
       const pools = { "round-shot": 20000, canister: 10000 };
       const template: UnitTemplate = { ...base, ammo: pools };
