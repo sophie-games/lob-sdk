@@ -76,6 +76,21 @@ describe("ammo types", () => {
     expect(missing).toEqual([]);
   });
 
+  it("gives every ammo type a bar colour that carries white text at 4.5:1", () => {
+    const luminance = (hex: string) => {
+      const [r, g, b] = [1, 3, 5].map((i) => {
+        const c = parseInt(hex.slice(i, i + 2), 16) / 255;
+        return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+      });
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    };
+    const failing = gdm
+      .getAmmoTypes()
+      .filter(({ color }) => 1.05 / (luminance(color) + 0.05) < 4.5)
+      .map(({ name }) => name);
+    expect(failing).toEqual([]);
+  });
+
   it("splits canister and round shot into separate pools on a foot battery", () => {
     const battery = gdm
       .getUnitTemplateManager()
