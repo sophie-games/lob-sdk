@@ -332,7 +332,7 @@
   "unitCategoryModal": {
     "meleeFire": {
       "ratio": "Feuerkraft im Nahkampf (0–1)",
-      "hint": "0 deaktiviert sämtliches Feuern im Nahkampf (Standard). Über 0 feuern durch Feinde blockierte Schusspunkte mit diesem Anteil ihrer normalen Feuerkraft; freie Schusspunkte behalten volle Feuerkraft. Verbündete blockieren das Feuer weiterhin."
+      "hint": "0 (Standard): Von einem Feind verdeckte Schusspunkte schweigen, die übrigen feuern mit voller Feuerkraft weiter. Über 0 feuern von Feinden verdeckte Schusspunkte mit diesem Anteil ihrer normalen Feuerkraft. Verbündete blockieren das Feuer weiterhin."
     },
     "title": "Benutzerdefinierte Einheitenkategorie bearbeiten",
     "optionBuiltIn": "{{name}} (integriert)",

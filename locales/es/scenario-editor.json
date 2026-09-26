@@ -353,7 +353,7 @@
   "unitCategoryModal": {
     "meleeFire": {
       "ratio": "Potencia de fuego en melee (0–1)",
-      "hint": "0 desactiva todo el disparo en melee (predeterminado). Con un valor mayor que 0, los emisores bloqueados por enemigos disparan a esta fracción de su potencia normal; los libres mantienen toda su potencia. Los aliados siguen bloqueando el fuego."
+      "hint": "0 (predeterminado): los emisores cubiertos por un enemigo no disparan y el resto sigue disparando a plena potencia. Con un valor mayor que 0, los emisores cubiertos por enemigos disparan a esta fracción de su potencia normal. Los aliados siguen bloqueando el fuego."
     },
     "title": "Editar categoría de unidad personalizada",
     "optionBuiltIn": "{{name}} (integrada)",

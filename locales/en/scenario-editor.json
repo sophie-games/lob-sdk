@@ -371,7 +371,7 @@
   "unitCategoryModal": {
     "meleeFire": {
       "ratio": "Melee firepower (0–1)",
-      "hint": "0 disables all firing in melee (default). Above 0, enemy-blocked emitters fire at this fraction of normal power; free emitters keep full power. Allies still block fire."
+      "hint": "0 (default): emitters covered by an enemy hold fire, the rest keep firing at full power. Above 0, enemy-covered emitters fire at this fraction of normal power. Allies still block fire."
     },
     "title": "Edit custom unit category",
     "optionBuiltIn": "{{name}} (built-in)",

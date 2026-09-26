@@ -332,7 +332,7 @@
   "unitCategoryModal": {
     "meleeFire": {
       "ratio": "Yakın dövüşte ateş gücü (0–1)",
-      "hint": "0, yakın dövüşte tüm ateşi devre dışı bırakır (varsayılan). 0 üzerinde, düşmanların engellediği ateş noktaları normal gücün bu oranıyla ateş eder; serbest noktalar tam gücü korur. Dostlar ateşi engellemeye devam eder."
+      "hint": "0 (varsayılan): düşmanın örttüğü ateş noktaları ateş etmez, diğerleri tam güçle ateşe devam eder. 0 üzerinde, düşmanların örttüğü noktalar normal gücün bu oranıyla ateş eder. Dostlar ateşi engellemeye devam eder."
     },
     "title": "Özel birim kategorisini düzenle",
     "optionBuiltIn": "{{name}} (yerleşik)",
