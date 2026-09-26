@@ -336,7 +336,7 @@
   "unitCategoryModal": {
     "meleeFire": {
       "ratio": "Siła ognia w walce wręcz (0–1)",
-      "hint": "0 wyłącza cały ostrzał w walce wręcz (domyślnie). Powyżej 0 punkty ostrzału zasłonięte przez wrogów strzelają z taką częścią normalnej siły; niezasłonięte punkty zachowują pełną siłę. Sojusznicy nadal blokują ogień."
+      "hint": "0 (domyślnie): punkty ostrzału zasłonięte przez wroga milczą, pozostałe strzelają dalej z pełną siłą. Powyżej 0 punkty zasłonięte przez wrogów strzelają z taką częścią normalnej siły. Sojusznicy nadal blokują ogień."
     },
     "title": "Edytuj niestandardową kategorię jednostki",
     "optionBuiltIn": "{{name}} (wbudowana)",

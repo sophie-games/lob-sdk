@@ -332,7 +332,7 @@
   "unitCategoryModal": {
     "meleeFire": {
       "ratio": "Tűzerő közelharcban (0–1)",
-      "hint": "A 0 letilt minden lövést közelharcban (alapértelmezés). 0 felett az ellenség által blokkolt tüzelési pontok a normál tűzerő ekkora hányadával lőnek; a szabad pontok megtartják teljes tűzerejüket. A szövetségesek továbbra is blokkolják a tüzet."
+      "hint": "0 (alapértelmezés): az ellenség által takart tüzelési pontok nem lőnek, a többi teljes tűzerővel tovább lő. 0 felett az ellenség által takart pontok a normál tűzerő ekkora hányadával lőnek. A szövetségesek továbbra is blokkolják a tüzet."
     },
     "title": "Egyéni egységkategória szerkesztése",
     "optionBuiltIn": "{{name}} (beépített)",

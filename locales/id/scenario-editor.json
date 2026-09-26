@@ -330,7 +330,7 @@
   "unitCategoryModal": {
     "meleeFire": {
       "ratio": "Daya tembak jarak dekat (0–1)",
-      "hint": "0 menonaktifkan semua tembakan dalam pertempuran jarak dekat (bawaan). Di atas 0, titik tembak yang terhalang musuh menembak dengan fraksi daya normal ini; titik bebas mempertahankan daya penuh. Kawan tetap menghalangi tembakan."
+      "hint": "0 (bawaan): titik tembak yang tertutup musuh tidak menembak, sisanya tetap menembak dengan daya penuh. Di atas 0, titik tembak yang tertutup musuh menembak dengan fraksi daya normal ini. Kawan tetap menghalangi tembakan."
     },
     "title": "Edit kategori unit kustom",
     "optionBuiltIn": "{{name}} (bawaan)",

@@ -332,7 +332,7 @@
   "unitCategoryModal": {
     "meleeFire": {
       "ratio": "Potência de fogo no corpo a corpo (0–1)",
-      "hint": "0 desativa todos os disparos no corpo a corpo (padrão). Acima de 0, emissores bloqueados por inimigos disparam com esta fração da potência normal; emissores livres mantêm potência total. Aliados continuam bloqueando o fogo."
+      "hint": "0 (padrão): emissores cobertos por um inimigo não disparam e os demais continuam com potência total. Acima de 0, emissores cobertos por inimigos disparam com esta fração da potência normal. Aliados continuam bloqueando o fogo."
     },
     "title": "Editar categoria de unidade personalizada",
     "optionBuiltIn": "{{name}} (interno)",

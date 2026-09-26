@@ -330,7 +330,7 @@
   "unitCategoryModal": {
     "meleeFire": {
       "ratio": "Hỏa lực khi cận chiến (0–1)",
-      "hint": "0 tắt toàn bộ việc bắn khi cận chiến (mặc định). Trên 0, các điểm bắn bị địch chặn khai hỏa với tỷ lệ này so với hỏa lực bình thường; điểm bắn tự do giữ toàn bộ hỏa lực. Đồng minh vẫn chặn hỏa lực."
+      "hint": "0 (mặc định): các điểm bắn bị địch che không khai hỏa, các điểm còn lại tiếp tục bắn với toàn bộ hỏa lực. Trên 0, các điểm bắn bị địch che khai hỏa với tỷ lệ này so với hỏa lực bình thường. Đồng minh vẫn chặn hỏa lực."
     },
     "title": "Chỉnh sửa danh mục đơn vị tùy chỉnh",
     "optionBuiltIn": "{{name}} (tích hợp)",

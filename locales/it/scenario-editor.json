@@ -332,7 +332,7 @@
   "unitCategoryModal": {
     "meleeFire": {
       "ratio": "Potenza di fuoco in mischia (0–1)",
-      "hint": "0 disattiva tutti i colpi in mischia (predefinito). Sopra 0, i punti di fuoco bloccati dai nemici sparano a questa frazione della potenza normale; quelli liberi mantengono piena potenza. Gli alleati continuano a bloccare il fuoco."
+      "hint": "0 (predefinito): i punti di fuoco coperti da un nemico non sparano, gli altri continuano a piena potenza. Sopra 0, i punti coperti dai nemici sparano a questa frazione della potenza normale. Gli alleati continuano a bloccare il fuoco."
     },
     "title": "Modifica categoria di unità personalizzata",
     "optionBuiltIn": "{{name}} (integrata)",
