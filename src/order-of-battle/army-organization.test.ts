@@ -92,6 +92,60 @@ describe("army organization presets", () => {
     ).toEqual(["Invalid army organization"]);
   });
 
+  it("accepts a skin per unit type the brigade holds, and nothing else", () => {
+    const withSkins = (skins: unknown) => {
+      const brigade = { ...organization.divisions[0].brigades[0], skins };
+      return {
+        ...organization,
+        divisions: [
+          {
+            ...organization.divisions[0],
+            brigades: [brigade, organization.divisions[0].brigades[1]],
+          },
+        ],
+      };
+    };
+    const roster = { 1: 2, 12: 1, 16: 1 };
+
+    expect(
+      validateArmyOrganization(withSkins({ 1: 17, 16: 129 }), doctrine, roster),
+    ).toEqual([]);
+    for (const invalid of [{ 12: 8 }, { 1: 1.5 }, { 1: "17" }, [17], null]) {
+      expect(
+        validateArmyOrganization(withSkins(invalid), doctrine, roster),
+      ).toEqual(["Invalid brigade skins"]);
+    }
+  });
+
+  it("carries brigade skins onto the materialized brigade", () => {
+    const skinned: ArmyOrganization = {
+      ...organization,
+      divisions: [
+        {
+          ...organization.divisions[0],
+          brigades: [
+            { ...organization.divisions[0].brigades[0], skins: { 1: 17 } },
+            organization.divisions[0].brigades[1],
+          ],
+        },
+      ],
+    };
+
+    expect(
+      materializeArmyOrganization(skinned, 3, [
+        { id: 10, type: 1 },
+        { id: 11, type: 12 },
+        { id: 12, type: 1 },
+        { id: 13, type: 16 },
+      ])?.divisions[0].brigades[0],
+    ).toEqual({
+      kind: "line",
+      name: "1st Brigade",
+      unitIds: [10, 12, 13],
+      skins: { 1: 17 },
+    });
+  });
+
   it("materializes counts into stable, unique unit ids", () => {
     expect(
       materializeArmyOrganization(organization, 3, [

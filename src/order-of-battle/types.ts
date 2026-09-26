@@ -1,4 +1,4 @@
-import type { EntityId, UnitCategoryId } from "@lob-sdk/types";
+import type { BrigadeSkins, EntityId, UnitCategoryId } from "@lob-sdk/types";
 
 export interface OrganizationLabel {
   /** Literal template; {{n}} is replaced with the ordinal. */
@@ -42,6 +42,11 @@ export interface ScenarioOrganization {
   divisions: {
     kind?: string;
     name?: string;
-    brigades: { kind?: string; name?: string; unitIds: EntityId[] }[];
+    brigades: {
+      kind?: string;
+      name?: string;
+      unitIds: EntityId[];
+      skins?: BrigadeSkins;
+    }[];
   }[];
 }
