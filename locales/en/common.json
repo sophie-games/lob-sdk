@@ -1809,7 +1809,7 @@
     "noUnits": "There are no units to select.",
     "selectOwn": "Select your own units first.",
     "ammoFromReserve": "This unit carries no ammunition of its own: firing draws on the army's reserve.",
-    "ammoReserveMeaning": "The reserve every unit fires from. Objectives your team holds add {{regen}} a turn to it, so it can pass what the army started the battle with: {{base}}.",
+    "ammoReserveMeaning": "The reserve every unit fires from. It refills {{regen}} a turn, more for each objective your team holds, and stops refilling at {{base}}.",
     "selectOne": "Select one unit or an objective to inspect.",
     "noTactics": "Select units with formations or autofire settings.",
     "noFormations_one": "This unit cannot change formation.",
