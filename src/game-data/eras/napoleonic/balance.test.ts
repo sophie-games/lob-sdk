@@ -1105,4 +1105,36 @@ describe("Napoleonic balance", () => {
       }
     }
   });
+
+  // Field strengths, not establishments: ~600 per battalion and 120 per
+  // squadron on campaign; batteries count gunners and the gun teams only,
+  // since caissons stayed back with the train.
+  it("reports the period's average field strengths", () => {
+    const expectedByName = {
+      line_infantry: { men: 600, horse: 0 },
+      light_infantry: { men: 600, horse: 0 },
+      grenadiers: { men: 600, horse: 0 },
+      guards: { men: 600, horse: 0 },
+      militia: { men: 600, horse: 0 },
+      skirmishers: { men: 150, horse: 0 },
+      rifles: { men: 150, horse: 0 },
+      dragoons: { men: 240, horse: 240 },
+      lancers: { men: 240, horse: 240 },
+      cuirassiers: { men: 240, horse: 240 },
+      hussars: { men: 240, horse: 240 },
+      horse_archers: { men: 240, horse: 240 },
+      "8lb_artillery": { men: 104, horse: 32 },
+      "12lb_artillery": { men: 120, horse: 48 },
+      "6lb_artillery": { men: 100, horse: 40 },
+      "10lb_licorne": { men: 80, horse: 32 },
+      "6lb_artillery_horse": { men: 84, horse: 120 },
+      rockets: { men: 84, horse: 120 },
+    };
+    const templates = gameDataManager.getUnitTemplateManager().getTemplates();
+
+    for (const [name, expected] of Object.entries(expectedByName)) {
+      const unit = templates.find((template) => template.name === name)!;
+      expect({ name, ...unit.reportStats }).toMatchObject({ name, ...expected });
+    }
+  });
 });

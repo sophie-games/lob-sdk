@@ -33,7 +33,6 @@ it.each(cases)("%s/%s has a valid organization", (era, _name, scenario) => {
 
 it("covers every historical battle that places its own units", () => {
   expect(withOrganization.map(([, name]) => name).sort()).toEqual([
-    "austerlitz",
     "battle-of-france",
     "battle-of-moscow",
     "borodino",
@@ -94,9 +93,6 @@ const STRANDED: Record<string, number> = {
   borodino: 2,
   leipzig: 1,
   dresden: 9,
-  // Legrand held a six-kilometre cordon down the Goldbach, so Merle's brigade
-  // really is split between Kobelnitz and the Corsicans at Telnitz.
-  austerlitz: 1,
   "battle-of-france": 1,
   "battle-of-moscow": 4,
 };

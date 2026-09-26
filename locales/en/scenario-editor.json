@@ -108,6 +108,7 @@
     "showUnits": "Show units",
     "showObjectives": "Show objectives",
     "showMapLabels": "Show map labels",
+    "showDeploymentZones": "Show deployment zones",
     "goBack": "Go back",
     "goBackConfirm": "Leave the editor and go back to the menu?",
     "display": "Display",
@@ -846,8 +847,10 @@
     "scaleAllSizesBy": "Scale all sizes by",
     "apply": "Apply",
     "background": "Reference image",
-    "backgroundHelp": "Lays a picture under the map at half strength, so you can draw terrain to match it. It is an aid while you work and is never saved with the scenario.",
-    "chooseImage": "Choose image"
+    "backgroundHelp": "Lays a picture under the map, half transparent by default, so you can draw terrain to match it. It is an aid while you work and is never saved with the scenario.",
+    "chooseImage": "Choose image",
+    "backgroundOpacity": "Opacity",
+    "backgroundShortcut": "Press {{key}} to show or hide it."
   },
   "localesPanel": {
     "title": "Locales",
