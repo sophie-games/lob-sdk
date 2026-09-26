@@ -284,6 +284,12 @@ export interface ManagedGameConfig {
   identityUnitIds?: Record<number, EntityId>;
   /** Epoch seconds at which the Game Master froze the current turn. */
   pausedAt?: number;
+  /**
+   * Seats whose player withdrew or timed out. They keep their units, and the
+   * battle stays paused, until the Game Master replaces the player or gives
+   * the units to teammates.
+   */
+  vacantSeats?: number[];
 }
 
 /** Safe subset returned to an authorized managed-game client. */
@@ -296,6 +302,8 @@ export interface ManagedGameClientInfo {
   assignedPlayerNumber?: number;
   /** Epoch seconds while the current turn is frozen. */
   pausedAt?: number;
+  /** Seats waiting for the Game Master's decision; see {@link ManagedGameConfig.vacantSeats}. */
+  vacantSeats?: number[];
   /** This viewer receives the authoritative, unredacted battlefield. */
   fullVision: boolean;
   /** One identity-bearing unit per player seat. */
