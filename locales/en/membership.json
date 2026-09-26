@@ -110,7 +110,8 @@
       "invalid": "Add an event name and assign at least one player.",
       "presetRequired": "Choose a scenario with predefined players and starting units, with no more than {{count}} players.",
       "warRoomRequired": "This scenario can only be played as a private War Room.",
-      "forceInvalid": "That force is not available for this seat on the selected map."
+      "forceInvalid": "That force is not available for this seat on the selected map.",
+      "usersNotFound": "Users not found: {{usernames}}"
     },
     "manageStripe": "Manage with Stripe",
     "managePatreon": "Manage on Patreon",
