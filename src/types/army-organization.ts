@@ -1,11 +1,15 @@
-import type { UnitCounts } from "./unit";
+import type { UnitCounts, UnitType } from "./unit";
 
 export const ARMY_ORGANIZATION_VERSION = 1 as const;
+
+/** Skin id chosen for each unit type in a brigade. */
+export type BrigadeSkins = Partial<Record<UnitType, number>>;
 
 export interface ArmyOrganizationBrigade {
   kind: string;
   name?: string;
   units: UnitCounts;
+  skins?: BrigadeSkins;
 }
 
 export interface ArmyOrganizationDivision {

@@ -26,6 +26,17 @@ const compactCounts = (counts: UnitCounts): UnitCounts =>
       .sort(([left], [right]) => Number(left) - Number(right)),
   );
 
+/** Each key must be a unit type the brigade holds, each value a skin id. */
+const validBrigadeSkins = (
+  skins: unknown,
+  units: Record<string, unknown>,
+): boolean =>
+  isRecord(skins) &&
+  Object.entries(skins).every(
+    ([type, skin]) =>
+      type in units && typeof skin === "number" && Number.isSafeInteger(skin),
+  );
+
 export function countArmyOrganizationUnits(
   organization: ArmyOrganization,
 ): UnitCounts {
@@ -105,6 +116,12 @@ export function validateArmyOrganization(
       ) {
         errors.push(NAME_TOO_LONG);
       }
+      if (
+        brigade.skins !== undefined &&
+        !validBrigadeSkins(brigade.skins, brigade.units)
+      ) {
+        errors.push("Invalid brigade skins");
+      }
       const entries = Object.entries(brigade.units);
       if (entries.length === 0) hasEmptyBody = true;
       for (const [rawType, rawCount] of entries) {
@@ -166,6 +183,7 @@ export function materializeArmyOrganization(
         kind: brigade.kind,
         ...(brigade.name ? { name: brigade.name } : {}),
         unitIds,
+        ...(brigade.skins ? { skins: brigade.skins } : {}),
       });
     }
     divisions.push({
