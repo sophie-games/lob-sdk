@@ -533,6 +533,8 @@ export interface RangedDamageTypeTemplate {
   shotAnim: string;
   shotImpactAnim?: string;
   ammoCost?: number;
+  /** Ammo type this weapon draws `ammoCost` from. Defaults to the era's first ammo type. */
+  ammoType?: string;
   reorgDebuff?: number;
   attackEffectDuration?: number;
   extendRange?: boolean;
@@ -571,6 +573,15 @@ export interface StaminaRule {
   rangedAttackPenalty: number;
   meleeAttackPenalty: number;
   meleeDefensePenalty: number; // lashback damage penalty
+}
+
+export interface AmmoTypeTemplate {
+  id: number;
+  name: string;
+  /** Share of the unit's pool for this type that the reserve can refill per turn. */
+  refillRate: number;
+  /** Bar colour, `#rrggbb`. */
+  color: string;
 }
 
 export interface AmmoRule {

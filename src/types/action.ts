@@ -30,6 +30,8 @@ export enum ActionType {
   AddObjectives = 12,
   /** Action changing a unit's formation. */
   FormationChange = 13,
+  /** Action revealing, regrading or hiding units as fog of war changes mid-turn. */
+  FogUpdate = 14,
 }
 
 /**
@@ -185,9 +187,13 @@ export interface UpdateUnitStateAction extends BaseAction {
    */
   st?: number;
   /**
-   * Ammo change.
+   * Ammo change, default ammo type.
    */
   am?: number;
+  /**
+   * Ammo change, other ammo types by id. Only the types that changed.
+   */
+  amt?: Record<number, number>;
   /**
    * Supply change.
    */
@@ -263,6 +269,20 @@ export interface FormationChangeAction extends BaseAction {
 }
 
 /**
+ * A live replay's view of enemy units changing during the turn: `units` come
+ * into sight or change grade (already masked for the viewer), `hidden` leave it.
+ * Never stored: the server builds it per viewer when it filters the stream.
+ */
+export interface FogUpdateAction extends BaseAction {
+  /** Action type is FogUpdate. */
+  type: ActionType.FogUpdate;
+  /** Units revealed or regraded, as the viewer may see them. */
+  units: UnitDto[];
+  /** Units that left sight. */
+  hidden: EntityId[];
+}
+
+/**
  * Union type representing any valid action.
  */
 export type AnyAction =
@@ -278,4 +298,5 @@ export type AnyAction =
   | AddUnitsAction
   | AddObjectivesAction
   | FormationChangeAction
+  | FogUpdateAction
   | TurnAction;

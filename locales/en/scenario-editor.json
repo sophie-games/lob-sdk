@@ -59,6 +59,7 @@
       "terrain": "Terrain",
       "units": "Units",
       "objectives": "Objectives",
+      "lineOfSight": "Sight",
       "triggers": "Triggers"
     },
     "mode": {
@@ -126,6 +127,11 @@
       "saved": "Your work is kept as you go, so you can leave and pick it up later.",
       "placingTouch": "Pick a tool, then tap the map to put something down."
     }
+  },
+  "lineOfSight": {
+    "help": "Right-click the map to see what a unit standing there could see. Right-click again to look from somewhere else.",
+    "helpTouch": "Tap the map to see what a unit standing there could see. Tap again to look from somewhere else.",
+    "legend": "Lit ground is in sight, brightest where fog of war would show the most detail. Dark ground inside the ring is hidden by hills, woods or towns."
   },
   "createScenario": {
     "mapBand": "Map",
@@ -336,7 +342,6 @@
     "minDistanceToFAA": "Stand-off override (legacy)",
     "panicFireDistance": "Panic fire distance",
     "fireWhileMoving": "Fire while moving",
-    "noAmmoRegain": "No ammo regain",
     "rangedDamageTypes": "Ranged damage types",
     "addRangedDamageType": "Add ranged damage type",
     "enableRanged": "Enable ranged",
@@ -453,6 +458,7 @@
       "attackEffectDuration": "Attack effect duration (ticks)",
       "arcHeight": "Arc height",
       "ammoCost": "Ammo cost",
+      "ammoType": "Ammo type",
       "shotSound": "Shot sound",
       "shotAnim": "Shot anim",
       "extendRange": "Extend range",

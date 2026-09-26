@@ -25,9 +25,13 @@ export interface UnitDto {
    */
   st?: number;
   /**
-   * Ammo.
+   * Ammo of the default ammo type. Omitted when full.
    */
   am?: number;
+  /**
+   * Ammo of every other ammo type, by id. A type is omitted when full.
+   */
+  amt?: Record<number, number>;
   /**
    * Supply.
    */
@@ -324,13 +328,17 @@ export interface RangeUnitTemplate extends BaseUnitTemplate {
    * keep their behaviour.
    */
   minDistanceToFAA?: number;
-  /** Ammo system properties for artillery */
-  ammo?: number;
-  /** Disable ammo regen for the unit (eg. rockets) */
-  noAmmoRegain?: boolean;
+  /**
+   * Ammo capacity per ammo type name. A single number is the legacy form, a pool
+   * of that size per ammo type the weapons spend; read it through `getAmmoCapacity`.
+   */
+  ammo?: number | AmmoPools;
   /** Units with this property will fire at the closest unit instead of ordered target with the shoot order */
   panicFireDistance?: number;
 }
+
+/** Ammo amounts keyed by ammo type name. */
+export type AmmoPools = Record<string, number>;
 
 export type UnitTemplate = Readonly<BaseUnitTemplate | RangeUnitTemplate>;
 export type UnitTemplates = Record<UnitType, UnitTemplate>;
