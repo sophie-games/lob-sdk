@@ -1,17 +1,25 @@
 import {
-  GameMap,
+  isInsideDeploymentZone,
+  polygonFromBounds,
+} from "../utils/deployment-zone";
+import {
   GameScenarioType,
+  LegacyGameMap,
+  LegacyRandomDeploymentZones,
+  LegacyVersion1Scenario,
   LegacyHybridScenario,
   InstructionType,
   LegacyPresetScenario,
   LegacyRandomScenario,
   Scenario,
+  Size,
   TerrainType,
 } from "@lob-sdk/types";
 import { SCENARIO_SCHEMA_VERSION } from "./constants";
 import { normalizeScenario } from "./normalize";
+import { ScenarioFeatures } from "./scenario-features";
 
-const buildPresetMap = (): GameMap => ({
+const buildPresetMap = (): LegacyGameMap => ({
   width: 96,
   height: 64,
   terrains: [
@@ -34,15 +42,49 @@ const buildPresetMap = (): GameMap => ({
     },
     {
       team: 2,
-      zones: [
-        { team: 2, type: "main", x: 64, y: 0, width: 32, height: 32 },
-        { team: 2, type: "forward", x: 64, y: 32, width: 32, height: 32 },
-      ],
+      mainZone: { x: 64, y: 0, width: 32, height: 32 },
+      forwardZone: { x: 64, y: 32, width: 32, height: 32 },
     },
   ],
 });
 
-const buildSmallMap = (): GameMap => ({
+const presetPolygonZones = () => [
+  {
+    team: 1,
+    zones: [
+      { team: 1, type: "main", polygons: [polygonFromBounds(0, 0, 32, 32)] },
+      {
+        team: 1,
+        type: "forward",
+        polygons: [polygonFromBounds(0, 32, 32, 64)],
+      },
+    ],
+  },
+  {
+    team: 2,
+    zones: [
+      { team: 2, type: "main", polygons: [polygonFromBounds(64, 0, 96, 32)] },
+      {
+        team: 2,
+        type: "forward",
+        polygons: [polygonFromBounds(64, 32, 96, 64)],
+      },
+    ],
+  },
+];
+
+const buildVersion1 = (
+  overrides: Partial<LegacyVersion1Scenario> = {},
+): LegacyVersion1Scenario => ({
+  version: 1,
+  name: "version-1",
+  description: "",
+  map: buildPresetMap(),
+  allowDynamicArmy: false,
+  ...overrides,
+});
+
+const buildSmallMap = (): LegacyGameMap => ({
   width: 32,
   height: 32,
   terrains: [[TerrainType.Grass]],
@@ -92,35 +134,214 @@ const buildRandom = (
 });
 
 describe("normalizeScenario", () => {
-  it("returns current-schema scenarios unchanged when the feature flags are already set", () => {
+  it("rejects a schema version it does not know", () => {
+    const futureScenario: Scenario = {
+      version: SCENARIO_SCHEMA_VERSION + 1,
+      name: "future",
+      description: "",
+    };
+    expect(() => normalizeScenario(futureScenario)).toThrow(
+      `Unsupported scenario schema version ${SCENARIO_SCHEMA_VERSION + 1}`,
+    );
+  });
+
+  describe("version 1", () => {
+    it("turns rectangle zones, pre-1.4 pairs included, into polygons", () => {
+      const result = normalizeScenario(
+        buildVersion1({ allowDeploymentPhase: true }),
+      );
+
+      expect(result.version).toBe(SCENARIO_SCHEMA_VERSION);
+      expect(result.map?.deploymentZones).toEqual(presetPolygonZones());
+      expect(result.map?.terrains).toEqual(buildPresetMap().terrains);
+      expect(result).not.toHaveProperty("allowDeploymentPhase");
+      expect(ScenarioFeatures.getInitialTurnNumber(result)).toBe(0);
+    });
+
+    it("keeps a rotated rectangle's area and turns the team facing with it", () => {
+      const map = buildPresetMap();
+      map.deploymentZones = [
+        {
+          team: 1,
+          zones: [
+            {
+              team: 1,
+              player: 1,
+              type: "main",
+              x: 0,
+              y: 0,
+              width: 40,
+              height: 20,
+              rotation: Math.PI / 2,
+            },
+          ],
+        },
+      ];
+      const result = normalizeScenario(
+        buildVersion1({ map, allowDeploymentPhase: true }),
+      );
+      const zone = result.map?.deploymentZones?.[0]?.zones[0];
+
+      // Version 1 turned only the area; team 1 still faced its default 270 deg.
+      expect(zone).toMatchObject({ player: 1, rotation: 2 * Math.PI });
+      // On end around its centre (20, 10), it spans x 10..30, y -10..30.
+      expect(isInsideDeploymentZone(zone!, { x: 20, y: 25 })).toBe(true);
+      expect(isInsideDeploymentZone(zone!, { x: 5, y: 10 })).toBe(false);
+    });
+
+    it("keeps the team facing for a rectangle saved with rotation 0", () => {
+      const map = buildPresetMap();
+      map.deploymentZones = [
+        {
+          team: 2,
+          zones: [
+            {
+              team: 2,
+              type: "main",
+              x: 0,
+              y: 0,
+              width: 4,
+              height: 4,
+              rotation: 0,
+            },
+          ],
+        },
+      ];
+      const result = normalizeScenario(
+        buildVersion1({ map, allowDeploymentPhase: true }),
+      );
+
+      expect(result.map?.deploymentZones?.[0]?.zones[0]).not.toHaveProperty(
+        "rotation",
+      );
+    });
+
+    it("turns percentage zone facing from each side's default", () => {
+      const rect = {
+        x: { min: 0, max: 0 },
+        y: { min: 0, max: 0 },
+        width: 10,
+        height: 10,
+      };
+      const turn = Math.PI / 6;
+      const result = normalizeScenario(
+        buildVersion1({
+          allowDynamicArmy: true,
+          randomDeploymentZones: {
+            top: [{ role: "main", rotation: turn, rect }],
+            bottom: [{ role: "main", rotation: turn, rect }],
+          },
+        }),
+      );
+
+      expect(result.randomDeploymentZones?.top[0]?.rotation).toBeCloseTo(
+        Math.PI / 2 + turn,
+      );
+      expect(result.randomDeploymentZones?.bottom?.[0]?.rotation).toBeCloseTo(
+        (3 * Math.PI) / 2 + turn,
+      );
+    });
+
+    it("drops zones no feature used, so fixed rosters start at turn 1", () => {
+      const result = normalizeScenario(buildVersion1());
+
+      expect(result.map?.deploymentZones).toBeUndefined();
+      expect(ScenarioFeatures.getInitialTurnNumber(result)).toBe(1);
+    });
+
+    it("drops unused percentage zones too", () => {
+      const zones: LegacyRandomDeploymentZones = {
+        top: [
+          {
+            role: "main",
+            rect: {
+              x: { min: 0, max: 0 },
+              y: { min: 0, max: 0 },
+              width: 10,
+              height: 10,
+            },
+          },
+        ],
+      };
+      const result = normalizeScenario(
+        buildVersion1({
+          randomDeploymentZones: zones,
+          scaledDeploymentZones: {
+            [Size.XSmall]: zones,
+            [Size.Small]: zones,
+            [Size.Medium]: zones,
+            [Size.Large]: zones,
+            [Size.ExtraLarge]: zones,
+          },
+        }),
+      );
+
+      expect(result.randomDeploymentZones).toBeUndefined();
+      expect(result.scaledDeploymentZones).toBeUndefined();
+      expect(ScenarioFeatures.getInitialTurnNumber(result)).toBe(1);
+    });
+
+    it("keeps zones that placed objectives or a dynamic army", () => {
+      expect(
+        normalizeScenario(buildVersion1({ placeableObjectives: true })).map
+          ?.deploymentZones,
+      ).toEqual(presetPolygonZones());
+      expect(
+        normalizeScenario(buildVersion1({ allowDynamicArmy: true })).map
+          ?.deploymentZones,
+      ).toEqual(presetPolygonZones());
+    });
+
+    it("turns percentage rectangles into an origin and a polygon", () => {
+      const rect = {
+        x: { min: 5, max: 10 },
+        y: { min: 3, max: 3 },
+        width: 90,
+        height: 10,
+      };
+      const converted = {
+        role: "main",
+        player: 2,
+        origin: { x: rect.x, y: rect.y },
+        polygon: polygonFromBounds(0, 0, 90, 10),
+      };
+      const zones: LegacyRandomDeploymentZones = {
+        top: [{ role: "main", player: 2, rect }],
+      };
+      const scaled = { ...zones, bottom: zones.top };
+      const result = normalizeScenario(
+        buildVersion1({
+          map: undefined,
+          allowDynamicArmy: true,
+          randomDeploymentZones: zones,
+          scaledDeploymentZones: {
+            [Size.XSmall]: scaled,
+            [Size.Small]: scaled,
+            [Size.Medium]: scaled,
+            [Size.Large]: scaled,
+            [Size.ExtraLarge]: scaled,
+          },
+        }),
+      );
+
+      expect(result.randomDeploymentZones).toEqual({ top: [converted] });
+      expect(result.scaledDeploymentZones?.[Size.Small]).toEqual({
+        top: [converted],
+        bottom: [converted],
+      });
+    });
+  });
+
+  it("returns current-schema scenarios unchanged when the remaining feature flag is set", () => {
     const scenario: Scenario = {
       version: SCENARIO_SCHEMA_VERSION,
       name: "already-current",
       description: "test",
       instructions: [],
       allowDynamicArmy: true,
-      allowDeploymentPhase: true,
       placeableObjectives: false,
     };
     expect(normalizeScenario(scenario)).toBe(scenario);
-  });
-
-  it("backfills allowDeploymentPhase from allowDynamicArmy on current-schema scenarios without it", () => {
-    const dynamic: Scenario = {
-      version: SCENARIO_SCHEMA_VERSION,
-      name: "dynamic",
-      description: "",
-      instructions: [],
-      allowDynamicArmy: true,
-    };
-    const preset: Scenario = {
-      version: SCENARIO_SCHEMA_VERSION,
-      name: "preset",
-      description: "",
-      allowDynamicArmy: false,
-    };
-    expect(normalizeScenario(dynamic).allowDeploymentPhase).toBe(true);
-    expect(normalizeScenario(preset).allowDeploymentPhase).toBe(false);
   });
 
   it("backfills placeableObjectives only for dynamic-army instruction maps", () => {
@@ -139,18 +360,17 @@ describe("normalizeScenario", () => {
       instructions: [],
       allowDynamicArmy: true,
     };
-    // Fixed-roster instruction map (e.g. the tutorial): must NOT auto-enable.
+    // Fixed-roster instruction map: must NOT auto-enable.
     const fixedRosterWithInstructions: Scenario = {
       version: SCENARIO_SCHEMA_VERSION,
-      name: "tutorial-like",
+      name: "fixed-roster",
       description: "",
       instructions: [instruction],
       allowDynamicArmy: false,
-      allowDeploymentPhase: true,
     };
-    expect(
-      normalizeScenario(dynamicWithInstructions).placeableObjectives,
-    ).toBe(true);
+    expect(normalizeScenario(dynamicWithInstructions).placeableObjectives).toBe(
+      true,
+    );
     expect(normalizeScenario(dynamicNoInstructions).placeableObjectives).toBe(
       false,
     );
@@ -176,10 +396,9 @@ describe("normalizeScenario", () => {
 
       expect(result.version).toBe(SCENARIO_SCHEMA_VERSION);
       expect(result.allowDynamicArmy).toBe(false);
-      expect(result.allowDeploymentPhase).toBe(false);
-      expect(result.map).toBe(preset.map);
+      expect(ScenarioFeatures.hasDeploymentPhase(result)).toBe(true);
       expect(result.map?.terrains).toBe(preset.map.terrains);
-      expect(result.map?.deploymentZones).toEqual(preset.map.deploymentZones);
+      expect(result.map?.deploymentZones).toEqual(presetPolygonZones());
       expect(result.players).toHaveLength(2);
       expect(result.instructions).toBeUndefined();
     });
@@ -201,19 +420,16 @@ describe("normalizeScenario", () => {
       expect(result.allowDynamicArmy).toBe(true);
     });
 
-    it("legacy hybrid scenarios opt into a deployment phase", () => {
+    it("legacy hybrids without zones start at turn 1", () => {
       expect(
-        normalizeScenario(buildHybrid({ fixedArmy: true })).allowDeploymentPhase,
-      ).toBe(true);
-      expect(
-        normalizeScenario(buildHybrid({ fixedArmy: false })).allowDeploymentPhase,
-      ).toBe(true);
+        ScenarioFeatures.hasDeploymentPhase(normalizeScenario(buildHybrid())),
+      ).toBe(false);
     });
 
     it("attaches the hybrid map and defaults missing units/objectives to empty", () => {
       const hybrid = buildHybrid();
       const result = normalizeScenario(hybrid);
-      expect(result.map).toBe(hybrid.map);
+      expect(result.map).toEqual(hybrid.map);
       expect(result.units).toEqual([]);
       expect(result.objectives).toEqual([]);
       expect(result.instructions).toBeUndefined();
@@ -224,7 +440,7 @@ describe("normalizeScenario", () => {
     it("preserves instructions and baseTerrain, sets allowDynamicArmy:true", () => {
       const result = normalizeScenario(buildRandom());
       expect(result.allowDynamicArmy).toBe(true);
-      expect(result.allowDeploymentPhase).toBe(true);
+      expect(ScenarioFeatures.hasDeploymentPhase(result)).toBe(true);
       expect(result.placeableObjectives).toBe(true);
       expect(result.baseTerrain).toBe(TerrainType.Grass);
       expect(result.instructions).toHaveLength(1);
@@ -290,7 +506,6 @@ describe("normalizeScenario", () => {
         description: "every optional field set",
         instructions: [],
         allowDynamicArmy: true,
-        allowDeploymentPhase: true,
         placeableObjectives: false,
         ranked: true,
         hidden: true,

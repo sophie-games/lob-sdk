@@ -72,13 +72,16 @@
     "allowDynamicArmyHelp": "Se attivo, i giocatori portano il proprio esercito in base al tipo di battaglia del matchmaking e lo schierano nelle proprie zone. Se disattivo, le unità pre-posizionate dello scenario definiscono l'intera composizione (la composizione dell'esercito viene saltata).",
     "fixedRoster": "Giocatori fissi",
     "fixedRosterHelp": "Quando è attivo, lo scenario definisce i propri posti giocatore, squadre e riserve di munizioni, e la lobby non può aggiungere né rimuovere giocatori. Quando è disattivo, l'elenco arriva dalla lobby o dal matchmaking.",
-    "allowDeploymentPhase": "Fase di schieramento",
-    "allowDeploymentPhaseHelp": "Quando è attivo, la battaglia inizia al turno 0 così ogni giocatore può riposizionare le proprie unità all'interno delle sue zone di schieramento prima che inizi il combattimento.",
     "noInherentAmmo": "Nessuna munizione propria",
     "noInherentAmmoHelp": "Quando attivo, le unità con munizioni compaiono senza munizioni proprie e attingono l'intera scorta dalla riserva condivisa, quindi non possono sparare al primo turno e aprono il fuoco solo quando la riserva le rifornisce.",
+    "startTime": "Ora di inizio",
+    "startTimeHelp": "Facoltativo. Lascia vuoto per iniziare il turno 1 alle {{time}} (ora predefinita dell’epoca).",
+    "maxTurn": "Turni massimi",
+    "maxTurnHelp": "Valore predefinito facoltativo dello scenario (10–99); le partite possono scegliere un altro limite.",
     "showGrid": "Mostra griglia",
     "showUnits": "Mostra unità",
     "showObjectives": "Mostra obiettivi",
+    "showMapLabels": "Mostra nomi sulla mappa",
     "goBack": "Torna indietro",
     "goBackConfirm": "Vuoi davvero tornare indietro e uscire dall'editor?",
     "display": "Visualizzazione",
@@ -91,7 +94,6 @@
     "testScenario": "Prova scenario",
     "placeableObjectives": "Obiettivi posizionati dai giocatori",
     "placeableObjectivesHelp": "Se attivo, ogni giocatore posiziona i propri obiettivi durante la fase di schieramento, all'interno della propria zona. Se disattivo, la battaglia usa solo gli obiettivi che hai posizionato sulla mappa.",
-    "placeableObjectivesNeedsDeployment": "Attiva anche la fase di schieramento, altrimenti i giocatori non raggiungono mai il turno in cui posizionerebbero questi obiettivi e nessuno apparirà.",
     "resting": {
       "thisScenario": "Questo scenario",
       "gettingStarted": "Per iniziare",
@@ -121,6 +123,8 @@
     "rosterHelp": "Una rosa fissa significa che lo scenario decide i posti dei giocatori, le squadre e le munizioni, e tutti combattono con le unità che hai posizionato. Una rosa dinamica lascia i posti alla lobby o al matchmaking, e i giocatori portano i propri eserciti in battaglia."
   },
   "playersPanel": {
+    "commander": "Comandante",
+    "commandFormation": "Comando",
     "removePlayer": "Rimuovi giocatore",
     "ammoReserve": "Riserva",
     "ammoBase": "Livello base",
@@ -173,7 +177,8 @@
     "title": "Zone di schieramento",
     "hint": "Queste zone definiscono dove inizia ogni esercito. La fase di schieramento aggiunge solo un turno 0 perché i giocatori si riorganizzino al loro interno.",
     "team": "Squadra {{team}}",
-    "wholeTeam": "Tutti i giocatori della squadra",
+    "remainingPlayers": "Giocatori rimanenti della squadra",
+    "assignmentHelp": "Scegli i giocatori rimanenti oppure seleziona uno o più giocatori specifici.",
     "player": "Giocatore {{player}}",
     "mainZone": "Principale",
     "forwardZone": "Avanzata",
@@ -185,9 +190,7 @@
       "y": "Y",
       "player": "Assegnata a",
       "rotation": "Rotazione (gradi)"
-    },
-    "phaseHelp": "Con la fase di schieramento attiva, i giocatori ottengono un turno extra prima che inizi il combattimento, solo per riorganizzare le proprie unità all'interno della propria zona.",
-    "gateHelp": "Queste zone sono modificabili quando almeno una tra Consenti esercito dinamico, Fase di schieramento o Obiettivi posizionati dai giocatori è attiva, poiché ciascuna delle tre ha bisogno di un punto da cui far partire un esercito in arrivo. Con tutte e tre disattive sono in grigio, e su una mappa procedurale sono in grigio anche in quel caso, poiché lì le zone sono definite come percentuali nel pannello Mappa casuale."
+    }
   },
   "vpBalance": {
     "heading": "Bilancio PV (perdite vs obiettivi)",
@@ -201,7 +204,11 @@
     "drawLineRank": "Rango nel tracciare la linea (minore = davanti)",
     "title": "Modifica formazione personalizzata",
     "collision": "Collisione",
-    "collisionHelp": "Ingombro rettangolare: fronte lungo la linea e profondità da fronte a retro. Imposta entrambi i valori a 0 per nessuna collisione (volante / fantasma).",
+    "collisionHelp": "Forma dell'ingombro: un cerchio (raggio) o un rettangolo (frontale lungo il fronte, profondità da fronte a retro). Usa raggio 0 per nessuna collisione (volante / fantasma).",
+    "shape": "Forma",
+    "shapeRectangle": "Rettangolo",
+    "shapeCircle": "Cerchio",
+    "radiusPx": "Raggio (px)",
     "frontagePx": "Frontale (px)",
     "depthPx": "Profondità (px)",
     "runMovementModifier": "Modificatore movimento in corsa",
@@ -217,7 +224,7 @@
     "rangedDamageResistance": "Resistenza danno a distanza",
     "rangedOrgResistance": "Resistenza org. a distanza",
     "fireEdges": "Lati di fuoco (fuoco dai lati)",
-    "fireEdgesHelp": "Ogni lato di fuoco spara lungo una faccia del rettangolo. Una formazione senza lati di fuoco spara da un singolo lato frontale predefinito.",
+    "fireEdgesHelp": "Ogni lato di fuoco spara lungo una faccia del rettangolo. Una formazione senza lati di fuoco spara da un singolo lato frontale predefinito; le formazioni a cerchio non sparano.",
     "edge": "Lato",
     "edgeLeft": "0 - lato sinistro (-Y)",
     "edgeFront": "1 - fronte (+X)",
@@ -254,6 +261,7 @@
     }
   },
   "unitTemplateModal": {
+    "initialOrder": "Ordine iniziale",
     "title": "Modifica modello di unità personalizzato",
     "optBuiltIn": "{{name}} (integrata)",
     "optCustom": "{{name}} (personalizzata)",
@@ -278,6 +286,8 @@
     "orgRadiusBonus": "Bonus raggio org.",
     "reportStats": "Statistiche rapporto",
     "reportStatsHelp": "Conteggio che ogni unità contribuisce ai rapporti di battaglia (es. uomini, cavalli, cannoni). Le chiavi provengono dalle unità integrate dell'epoca.",
+    "casualtiesAtZeroHp": "Perdite a zero PS (%)",
+    "casualtiesAtZeroHpHelp": "Quota della forza dichiarata di questa unità conteggiata come perdite quando l'intera barra dei PS è esaurita. I PS rappresentano la forza combattente: con il valore predefinito del 50%, l'unità cessa di essere efficace quando metà della forza dichiarata diventa una perdita. La dispersione continua a rimuovere tutta la forza combattente residua.",
     "tallyPerUnit": "Conteggio per unità",
     "walkMovement": "Movimento a passo",
     "runMovement": "Movimento in corsa",
@@ -293,7 +303,6 @@
     "rangedAttack": "Attacco a distanza",
     "panicFireDistance": "Distanza fuoco panico",
     "fireWhileMoving": "Fuoco in movimento",
-    "noAmmoRegain": "Nessun recupero munizioni",
     "rangedDamageTypes": "Tipi di danno a distanza",
     "addRangedDamageType": "Aggiungi tipo di danno a distanza",
     "enableRanged": "Abilita a distanza",
@@ -321,6 +330,10 @@
     "changeAnimationsHelp": "L'animazione riprodotta mentre un'unità lascia questa formazione per un'altra. Scegli la formazione verso cui sta cambiando, poi l'animazione da riprodurre durante il passaggio. Una transizione senza una riga qui non è guasta: l'unità passa semplicemente da uno sprite all'altro senza nulla in mezzo, ed è ciò che fa oggi ogni formazione senza voci. L'elenco contiene le animazioni distribuite con questa epoca, e la fanteria di linea dell'epoca ne usa sei."
   },
   "unitCategoryModal": {
+    "meleeFire": {
+      "ratio": "Potenza di fuoco in mischia (0–1)",
+      "hint": "0 (predefinito): i punti di fuoco coperti da un nemico non sparano, gli altri continuano a piena potenza. Sopra 0, i punti coperti dai nemici sparano a questa frazione della potenza normale. Gli alleati continuano a bloccare il fuoco."
+    },
     "title": "Modifica categoria di unità personalizzata",
     "optionBuiltIn": "{{name}} (integrata)",
     "optionCustom": "{{name}} (personalizzata)",
@@ -514,7 +527,9 @@
       "importFromScenario": "Importa da scenario",
       "duplicate": "Duplica",
       "inThisScenario": "In questo scenario",
-      "builtIntoThisEra": "Integrato in questa epoca"
+      "builtIntoThisEra": "Integrato in questa epoca",
+      "resetToEra": "Reimposta all'epoca",
+      "resetAllToEra": "Reimposta tutto all'epoca"
     },
     "spritesPanel": {
       "title": "Sprite di unità",
@@ -580,7 +595,6 @@
       "clonePickerTitle": "Clona una categoria di terreno integrata"
     },
     "overrideEditor": {
-      "reset": "Reimposta",
       "eraDefault": "predefinito epoca: {{value}}",
       "structuralTooltip": "Costante strutturale / di determinismo. Modificarla può compromettere rendering, replay o matchmaking."
     },
@@ -629,7 +643,7 @@
     },
     "gameConstants": {
       "title": "Costanti di gioco",
-      "description": "Sovrascrivi le costanti numeriche di questa epoca per questo scenario. Vengono salvati solo i valori modificati; Reimposta riporta un campo al predefinito dell'epoca. Le chiavi contrassegnate con ⚠ sono strutturali - modificarle può compromettere rendering, replay o matchmaking. I valori sono in unità interne grezze.",
+      "description": "Questi sono i numeri di base dell'epoca: quanto dura un turno, quanto è grande una casella, quanti turni dura una battaglia. Ciò che modifichi vale solo per questo scenario, e qualsiasi valore può essere riportato a quello del gioco.",
       "category": {
         "mapDimensions": "Dimensioni mappa",
         "deployment": "Schieramento",
@@ -653,11 +667,15 @@
     },
     "gameRules": {
       "title": "Regole di gioco",
-      "description": "Sovrascrivi le regole di gioco di questa epoca per questo scenario. Vengono salvati solo i valori modificati; usa Reimposta per riportare un campo al predefinito dell'epoca. I valori sono in unità interne grezze (alcune statistiche sono memorizzate pre-scalate)."
+      "description": "Questi sono i sistemi su cui si regge la tua epoca, da come le unità tengono il morale a come si vince una battaglia. Ciò che modifichi vale solo per questo scenario, e qualsiasi valore può essere riportato a quello del gioco. I numeri sono nelle unità di misura del gioco, quindi una cifra potrebbe non corrispondere a metri o minuti."
     },
     "ordersPanel": {
       "title": "Ordini",
-      "description": "Sovrascrivi i valori degli ordini integrati di questa epoca per questo scenario. Vengono salvati solo i valori modificati; usa Reimposta per riportare un campo al predefinito dell'epoca. Puoi modificare gli ordini esistenti ma non aggiungerne di nuovi."
+      "description": "Gli ordini sono le istruzioni che un giocatore può dare a un'unità durante la battaglia. Qui puoi ritarare gli ordini dell'epoca per questo scenario, ma non puoi inventarne di nuovi. Qualsiasi valore può essere riportato a quello del gioco.",
+      "general": "Modificatore generale",
+      "categoryOverrides": "Eccezioni per categoria",
+      "addCategory": "Aggiungi eccezione di categoria",
+      "inheritance": "Le categorie senza eccezioni usano il modificatore generale: {{value}}%."
     },
     "clonePicker": {
       "alreadyOverridden": "(già sovrascritto)",
@@ -1047,5 +1065,12 @@
   },
   "objectiveOwnership": {
     "help": "Gli obiettivi sono sempre detenuti da una squadra. In uno scenario con rosa fissa, questo campo indica un giocatore, e l'obiettivo appartiene alla squadra di quel giocatore. In uno scenario costruito per eserciti dinamici non ci sono posti giocatore finché il matchmaking non li riempie, quindi il campo indica direttamente la squadra."
+  },
+  "mapLabels": {
+    "title": "Nomi sulla mappa",
+    "help": "Fai clic destro sulla mappa (o toccala con i comandi touch) per scegliere una posizione, poi aggiungi o sposta un nome.",
+    "add": "Aggiungi nome",
+    "move": "Sposta nella posizione scelta",
+    "empty": "Nessun nome ancora."
   }
 }

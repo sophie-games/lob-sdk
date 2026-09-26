@@ -1,4 +1,11 @@
 {
+  "orderUndo": {
+    "title": "Undo last order",
+    "description": "Restore the previous orders. Affected units: {{count}}.",
+    "empty": "No orders to undo."
+  },
+  "otherGameModes": "Other game modes",
+  "partyWaitingForTeammate": "Waiting for teammate",
   "orderSpeed": "Order",
   "orderChargeResistance": "Order",
   "shooting": "Shooting",
@@ -11,6 +18,8 @@
   "verified": "Verified account",
   "tools": "Tools",
   "rotateCamera": "Rotate",
+  "lineOfSight": "Line of sight",
+  "appLoadingMessage": "Welcome to Lines of Battle!",
   "continue": "Continue",
   "skip": "Skip",
   "home": "Home",
@@ -21,6 +30,7 @@
   "homeCheckRanking": "See the leaderboard",
   "homeBuildArmies": "Build your armies",
   "homeWatchBattles": "Finished games and replays",
+  "homeExploreGuide": "Every unit, order, terrain and formation",
   "homeDiscordPrompt": "Let other players find you after a battle.",
   "homeBattles": {
     "title": "Your battles",
@@ -28,10 +38,15 @@
     "ready_other": "{{count}} battles need your orders",
     "waiting": "Orders sent. Waiting on the other side.",
     "empty": "No active battles. Your next turn will show up here.",
+    "offlineSaved": "No active online battles. Your saved practice battle is below.",
     "more_one": "+1 more",
     "more_other": "+{{count}} more",
     "battle": "Battle #{{id}}",
-    "against": "vs {{players}}"
+    "against": "vs {{players}}",
+    "matchFound": "Match Found",
+    "deploy": "Deploy",
+    "yourTurn": "Your Turn",
+    "continueBattle": "Continue Battle"
   },
   "watchBattles": "Watch battles",
   "watch": "Watch",
@@ -54,19 +69,23 @@
   },
   "analytics": "Analytics",
   "language": "Language",
-  "tutorial": "Tutorial",
-  "tutorials": "Tutorials",
   "play": "Play",
   "ranking": "Ranking",
   "profile": "Profile",
   "history": "History",
   "store": "Store",
-  "supporters": "Supporters",
   "elo": "Elo",
   "level": "Level",
   "nextLevelExperience": "Next level experience",
   "baseLevelExperience": "Base level experience",
   "experience": "Experience",
+  "coalitionProgression": {
+    "title": "Coalition level",
+    "fixedCapacity": "{{count}} members · fixed capacity",
+    "contribute": "Contribute {{amount}} Florins",
+    "completeWithPrestige": "Complete for {{amount}} Prestige",
+    "priceChanged": "Another member advanced the coalition while you were looking. Check the new price and try again."
+  },
   "season": "Season",
   "time": "Time",
   "of": "of",
@@ -76,6 +95,7 @@
   "credits": "Credits",
   "creditsSoundEffectsAttribution": "Some sound effects are from <quickSounds>QuickSounds</quickSounds>. <horseGalloping>Horse Galloping by DRAGON-STUDIO</horseGalloping> is used under the <pixabayLicense>Pixabay Content License</pixabayLicense>.",
   "settings": "Settings",
+  "controls": "Controls",
   "leagueDescription": "Your league reflects your skill level. Win games to earn progress within your league, and once you reach the top of a league, you advance to the next one. Lose too many games and you may drop down. Hover the league badge to see your current Elo.",
   "averageLeague": "Average League",
   "clanLeague": "Coalition League",
@@ -151,7 +171,7 @@
   "clanLeagueEnds": "Ends {{date}}",
   "reigningChampion": "Reigning champion",
   "noClanLeagueScores": "No coalition has scored this week yet.",
-  "weeklyGames": "games this week",
+  "weeklyGames": "games",
   "scoringMember": "scoring",
   "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
   "clanChat": "Coalition chat",
@@ -170,12 +190,13 @@
   "armyCompositions": "Army Compositions",
   "account": "Account",
   "scenarioEditor": "Scenario Editor",
-  "wiki": "Wiki",
+  "wiki": "Community Wiki",
   "gameCard": {
     "title": "Game {{id}}",
     "turn": "Turn {{turnNumber}}/{{maxTurn}}"
   },
   "withdrawMessage": "If you withdraw from this game it will count as a loss and that will lower your Elo, are you sure you want to withdraw?",
+  "withdrawUnrankedMessage": "Withdrawing from this game counts as a loss. Are you sure you want to withdraw?",
   "loading": "Loading...",
   "yes": "Yes",
   "no": "No",
@@ -206,6 +227,8 @@
     "inQueue": "You are now in the matchmaking queue! The system is searching for another player who has selected the same settings as you.",
     "matchFound": "Once a match is found, you will be redirected to the game.",
     "cancelledBy": "The queue was cancelled by {{username}}.",
+    "cancelledByRestriction": "The queue was cancelled: fast ranked matchmaking is restricted for {{username}} for {{minutes}} more min.",
+    "cancelledByBattle": "The queue was cancelled: {{username}} is already in a fast battle. Finish or rejoin it before searching together.",
     "playersInQueue": "{{count}} players searching",
     "disconnectedReconnecting": "Connection Lost. Reconnecting",
     "eloBoostActive": "Elo boost ×{{multiplier}} active",
@@ -246,9 +269,6 @@
     "slowDescriptionPush": "One turn at a time. We notify you when it's your move.",
     "partyFastOnly": "Parties can only play live games for now."
   },
-  "skipTutorialTitle": "Skip tutorial",
-  "skipTutorialMessage": "Skip the rest of the tutorial and return to the menu? You won't be asked to complete it again.",
-  "goToTutorial": "Go to tutorial",
   "requiredInMatchmakingQueue": "Always in queue",
   "requiredScenarioBadge": "Required",
   "onlyPartyLeaderCanSearch": "Only the party leader can search for a match.",
@@ -303,8 +323,7 @@
     "createDescription": "Start a new scenario from scratch.",
     "loadDescription": "Open a scenario file from your device.",
     "tutorialMessage": "Need a hand? <tutorialLink>Watch the tutorial.</tutorialLink>",
-    "randomGuide": "For random maps, read <0>this guide</0>.",
-    "baleriiMessage": "Balerii and Nytka made their own map editor. This video shows how it works:"
+    "randomGuide": "For random maps, read <0>this guide</0>."
   },
   "scenarioEditorAutosave": {
     "title": "Autosaved Scenario",
@@ -339,6 +358,16 @@
   "army": "Army",
   "armyWithCount": "Army ({{count}})",
   "deploymentStateMessage": "This is the deployment stage. Take this turn to place your units where you want within the deployment zone. When you're finished, submit your orders to apply the placement.",
+  "deploymentPositions": {
+    "numberedPosition": "Position {{seat}}",
+    "nobody": "Nobody",
+    "pickerTitle": "Who holds {{position}}?",
+    "unnamedPickerTitle": "Who holds this position?",
+    "strandsTeammate": "Would leave a teammate without a position",
+    "swapsWith": "In exchange for {{position}}",
+    "exchangeForTheirPosition": "In exchange for their position",
+    "commanderInChief": "Commander-in-chief"
+  },
   "getStarted": "Get started",
   "colorTag": {
     "1": "Blue",
@@ -351,6 +380,7 @@
   "offerDraw": "Offer draw",
   "replayBattle": "Replay battle",
   "downloadReplay": "Download Replay",
+  "downloadEventTurnLog": "Download per-turn event data",
   "shareFileFailed": "Failed to share file \"{{fileName}}\". Please try again.",
   "stepByTurn": "Step by turn (auto-pause between turns)",
   "pause": "Pause",
@@ -364,10 +394,16 @@
   "purchase": "Purchase",
   "purchased": "Purchased",
   "forUnit": "For {{unit}}",
-  "maxUnitSkinsSelected": "Max {{max}} skins per type",
+  "unitSkinChooseInArmy": "Owned. Pick it per brigade in your army composition.",
   "select": "Select",
   "edit": "Edit",
   "selectAll": "Select All",
+  "selectHalf": "Select Half",
+  "unitContextMenu": {
+    "follow": "Follow",
+    "addToSelection": "Add to selection",
+    "removeFromSelection": "Remove from selection"
+  },
   "deselect": "Deselect",
   "removeFromSelectionTooltip": "Remove from selection – click a unit to remove it",
   "keepOnlyThese": "Keep only these – pick units to keep",
@@ -378,6 +414,7 @@
   "combating": "Combat",
   "unitStat": {
     "hp": "HP",
+    "men": "Men",
     "org": "Organization",
     "stamina": "Stamina",
     "supply": "Supply",
@@ -388,6 +425,7 @@
     "meleeDefense": "Melee Defense",
     "chargeBonus": "Charge Bonus",
     "chargePenetration": "Charge Penetration",
+    "chargePenetrationShort": "Penetration",
     "flankChargePenBonus": "Flanking Charge Pen. Bonus",
     "runChargeResistanceModifier": "Running Charge Res. Mod.",
     "pushStrength": "Push Strength",
@@ -398,6 +436,7 @@
     "rangedAttack": "Ranged Attack",
     "limberMovement": "Limber Movement",
     "chargeResistance": "Charge Resistance",
+    "chargeResistanceShort": "Resistance",
     "status": "Status",
     "timeToRun": "Time to Run",
     "runCost": "Run Cost",
@@ -424,6 +463,15 @@
   "rangedDamageResistance": "Ranged Damage Resistance",
   "rangedOrgResistance": "Ranged Org Resistance",
   "otherStats": "Other Stats",
+  "statGroup": {
+    "movement": "Movement",
+    "turning": "Turning",
+    "meleeAndCharge": "Melee & Charge",
+    "orgAura": "Organization Aura",
+    "routingThresholds": "Routing Thresholds"
+  },
+  "firing": "Firing",
+  "objectives": "Objectives",
   "damageModifier": "Damage Modifier",
   "orgDamageRatio": "Org Damage Ratio",
   "damage": "Damage",
@@ -455,6 +503,7 @@
   "maxElevationDiff": "Max Elevation Difference",
   "orgDamageModifierByTargetOrg": "Org Modifier by Target Org",
   "damageModifierByTargetHp": "Damage Modifier by Target HP",
+  "damageModifierByTargetMen": "Damage Modifier by Target Personnel",
   "value": "value",
   "terrainHitboxHeight": "Terrain Hitbox Height",
   "projectileAbsorption": "Projectile Absorption",
@@ -486,7 +535,8 @@
     "22": "Redoubt",
     "23": "Railway",
     "24": "Railway/Road",
-    "25": "Camp"
+    "25": "Camp",
+    "26": "Wall"
   },
   "clearPlayerUnits": "Clear player units",
   "clearBotUnits": "Clear bot units",
@@ -561,12 +611,175 @@
       }
     }
   },
-  "welcomeModal": {
-    "title": "Welcome to Lines of Battle 👋",
-    "thanks": "Thank you for joining, {{name}}!",
-    "p1": "New to <b>Lines of Battle</b>? Start with the <tutorialLink>tutorial</tutorialLink> to learn the core mechanics before your first battle."
+  "gameTips": {
+    "victoryPoints": {
+      "title": "Victory points",
+      "description": "Casualties and objectives affect victory points. Protect your troops and contest objectives to catch up."
+    },
+    "blockedFire": {
+      "title": "Blocked fire",
+      "description": "Your troops are blocking this battery’s shots. Clear its line of fire so it can shoot."
+    },
+    "organization": {
+      "title": "Organization",
+      "description": "Disorganized units can rout. Pull them out of combat to recover before attacking again."
+    },
+    "range": {
+      "title": "Firing range",
+      "description": "Long-range shots deal less damage. Move closer or limit <autofire>autofire</autofire> to make your shots count."
+    },
+    "flanks": {
+      "title": "Flanks",
+      "description": "Flank fire deals more damage. Face the threat and protect your sides with other units."
+    },
+    "charge": {
+      "title": "Charges",
+      "description": "Frontal charges against organized troops are risky. Weaken them with fire or attack a flank."
+    },
+    "objectives": {
+      "title": "Small stars",
+      "description": "Small stars help replenish your ammo reserve. Capture them to keep your army firing."
+    },
+    "ammo": {
+      "view": "View ammo",
+      "title": "Ammunition",
+      "description": "Artillery carries round shot, canister and shell in separate pools, refilled from your ammo reserve each turn. Out of canister, a battery fires round shot; with every pool empty, it cannot fire. Adjust <autofire>autofire</autofire> to conserve ammo."
+    },
+    "running": {
+      "title": "Run deliberately",
+      "description": "For most troops, <run>running</run> spends stamina and makes them easier to break if charged afterward. <walk>Walk</walk> until you need speed or want to charge."
+    },
+    "overlap": {
+      "title": "Don't stack units",
+      "description": "Overlapping allies move slower, fight less effectively in melee, support each other less, and suffer more organization damage."
+    },
+    "terrain": {
+      "title": "Use the ground",
+      "description": "Terrain changes movement and combat. Open <info>Info</info> to see a unit's current modifiers and choose suitable ground."
+    },
+    "basicsSelect": {
+      "title": "Giving orders",
+      "description": "Drag a box over your units to pick them, then drag from the selection to draw where they go. Nothing moves until the turn resolves."
+    },
+    "basicsOrderTypes": {
+      "title": "Order types",
+      "description": "Every move has a pace. <walk>Walk</walk> keeps stamina, <run>Run</run> is faster but tires the unit, <fireAndAdvance>Fire and Advance</fireAndAdvance> shoots while it closes. Open the order menu to switch."
+    },
+    "basicsFormations": {
+      "title": "Formations",
+      "description": "Formation sets frontage and firepower. <column>Column</column> marches fast, <line>line</line> puts the most muskets forward, <square>square</square> guards every face against cavalry."
+    },
+    "basicsSubmit": {
+      "title": "Submitting the turn",
+      "description": "Orders stay queued until you <submitOrders>submit</submitOrders>. Both armies then resolve at the same time, so plan for where the enemy will be, not where they are."
+    },
+    "skirmisherVsArtillery": {
+      "title": "Skirmishers against artillery",
+      "description": "Enemy battery in your skirmisher's reach. Pour fire into the gun crew. Skirmishers shred unprotected artillery before it can answer."
+    },
+    "skirmisherVsCavalry": {
+      "title": "Cavalry near your skirmishers",
+      "description": "Your skirmisher will be destroyed by enemy cavalry if it keeps that position. <fallback>Fall back</fallback> and seek cover."
+    },
+    "skirmisherVsInfantry": {
+      "title": "Infantry near your skirmishers",
+      "description": "Enemy infantry on top of your skirmisher. Skirmishers fold in melee. Pull back before bayonets reach."
+    },
+    "infantryFormLine": {
+      "title": "Form line",
+      "description": "Switch these units to <line>line</line>. With enemy infantry in musket range or cavalry coming at the front, line gives you the most muskets pointed forward and the best defence against incoming volleys. Don't form square against a frontal charge, you would lose half your firepower."
+    },
+    "infantryVsCavalryFrontal": {
+      "title": "Hold the line",
+      "description": "Enemy cavalry is charging the front of your infantry, but they have orders queued. <removeOrders>Clear</removeOrders> them so the line stands and fires instead of walking into the hooves."
+    },
+    "infantryVsCavalryFlank": {
+      "title": "Form square",
+      "description": "Cavalry coming at the flank or rear of your infantry. A line gets ridden over from the side. Form <square>square</square> so every face has muskets out."
+    },
+    "infantryBayonetCharge": {
+      "title": "Bayonet charge",
+      "description": "Weak enemy infantry within charge range. Form <column>column</column> and <run>run</run> into them. Bayonet on contact in column breaks them."
+    },
+    "infantryFallback": {
+      "title": "Withdraw this unit",
+      "description": "This unit's organization has cracked, one more volley and it routes. Pull it out before the line breaks."
+    },
+    "infantryVsSkirmishers": {
+      "title": "Infantry against skirmishers",
+      "description": "Skirmishers are close and no cavalry is available. Advance at a <walk>walk</walk> and force them into melee, where skirmishers are weakest."
+    },
+    "infantryVsArtillery": {
+      "title": "Infantry against artillery",
+      "description": "Enemy guns are close and unscreened. <run>Run</run> straight into the crew before they can turn and fire canister."
+    },
+    "infantryColumnMarch": {
+      "title": "March in column",
+      "description": "No enemies are near this unit. Switch to <column>column</column> for faster marching, then form <line>line</line> before contact."
+    },
+    "cavalryVsWeakerCavalry": {
+      "title": "Cavalry against weaker cavalry",
+      "description": "Enemy cavalry within charge range and shaken, your horse is fresher. Press the advantage: charge before they recover."
+    },
+    "cavalryVsEqualCavalry": {
+      "title": "Cavalry against equal cavalry",
+      "description": "Enemy cavalry in contact and roughly as steady as yours. Don't waste stamina on a charge you can't win. Close at a <walk>walk</walk> and brawl on even footing."
+    },
+    "cavalryVsStrongerCavalry": {
+      "title": "Cavalry against stronger cavalry",
+      "description": "Enemy cavalry in contact and steadier than yours, a melee here loses. Break off and reset before they commit."
+    },
+    "cavalryVsInfantryFlank": {
+      "title": "Charge the flank",
+      "description": "Enemy infantry's flank is open and they're roughly as steady as you. That's the moment a clean charge breaks them. Hit the side, not the front."
+    },
+    "cavalryVsShakenInfantry": {
+      "title": "Cavalry against shaken infantry",
+      "description": "Enemy infantry is barely holding together, their organization has cracked. One clean charge runs them down before they can rally."
+    },
+    "cavalryVsSkirmishers": {
+      "title": "Cavalry against skirmishers",
+      "description": "Skirmishers caught in the open with a clear lane to your horse. They fold in melee and can't outrun a charge. Ride them down before they reach cover."
+    },
+    "cavalryVsArtillery": {
+      "title": "Cavalry against artillery",
+      "description": "Enemy guns with no screen between you and them. A charge into unscreened crew ends them in one beat. But if a friendly line steps in the way you'll bleed against it instead."
+    },
+    "cavalryPursueRouter": {
+      "title": "Pursue the routed",
+      "description": "That enemy is broken and running, with no support to interrupt the chase. A pursuit by cavalry breaks them for good. Finish them before they reform."
+    },
+    "cavalryFallbackFromInfantry": {
+      "title": "Cavalry under musket fire",
+      "description": "Your cavalry is sitting in musket range of healthy line infantry. Pull back before they grind down your horse, look for shaken targets or open flanks instead."
+    },
+    "enemyInfantrySquare": {
+      "title": "Enemy square",
+      "description": "Enemy infantry has formed square. Every face has muskets out. Keep your cavalry away and look for line or column targets with a flank to exploit."
+    },
+    "artilleryFireAndAdvance": {
+      "title": "Fire and advance",
+      "description": "The enemy is far enough away that you can keep closing while you fire. Switch this artillery to <fireAndAdvance>Fire and Advance</fireAndAdvance>."
+    },
+    "artilleryRotateToFire": {
+      "title": "Stop to fire",
+      "description": "The enemy is close and your cannon has a clean shot, but it is still moving. Stop the march and rotate the unit onto the target so autofire can work."
+    },
+    "idleUnits": {
+      "title": "Units without orders",
+      "description": "Some of your units have no orders this turn. Give them one, or they will stand still while the rest of the line moves."
+    },
+    "pushObjective": {
+      "title": "Press your lead",
+      "description": "You hold the lead. Push toward the enemy objective. Closing it out denies them any comeback."
+    },
+    "holdObjective": {
+      "title": "Hold your objective",
+      "description": "You're behind on points. Pull back to your objective and hold it. Defending is cheaper than retaking."
+    }
   },
   "turn": "Turn",
+  "battleDay": "Day {{day}}",
   "bank": "Bank",
   "cap": "Cap",
   "deploy": "Deploy",
@@ -585,9 +798,12 @@
     "2": "Run",
     "3": "Shoot",
     "4": "Fire and Advance",
+    "5": "Deploy",
     "6": "Fallback",
-    "7": "Face"
+    "7": "Face",
+    "mixed": "Mixed"
   },
+  "mixedOrderDescription": "Each unit keeps its own order type.",
   "selectOrder": "Select Order",
   "orderType": "Order type",
   "autofire": "Autofire",
@@ -608,7 +824,10 @@
   "receivedMeleeDamage": "Received melee damage",
   "noModifiers": "No modifiers",
   "submitOrders": "Submit orders",
-  "submitOrdersConfirmation": "Are you sure you want to submit your battle orders? Once submitted, you won't be able to go back.",
+  "submitOrdersAction": "Submit",
+  "submitOrdersConfirmation": "Once submitted, you can't take them back.",
+  "submitOrdersWithoutOrders_one": "1 unit has no orders and will hold.",
+  "submitOrdersWithoutOrders_other": "{{count}} units have no orders and will hold.",
   "players": "Players",
   "menu": "Menu",
   "replayActions": "Replay actions",
@@ -619,11 +838,20 @@
   "meleePerformance": "Melee performance",
   "turnsLeft": "Turns left",
   "battleOverview": {
+    "reinforcements": "Reinforcements",
+    "reinforcementUnits_one": "{{count}} unit",
+    "reinforcementUnits_other": "{{count}} units",
+    "yourTeam": "Your team",
+    "relativeScore": "{{value}} relative to the team average",
+    "scoreBreakdown": "VP breakdown",
+    "pressureExplanation": "How does pressure affect the score?",
+    "scoreExplanation": "How is the score worked out?",
+    "scoreExplanationBody": "Every team starts from the same base. Objectives add the victory points of the ones the team holds. Losses move points from the team that has lost more of its army to the team that has lost less, so one team's gain is the other's loss. The percentage under a total compares that team with the average of all teams.",
     "title": "Battle Overview",
     "victoryPoints": "Victory Points",
     "initialArmyPower": "Initial Army Power",
     "powerLost": "Power Lost",
-    "lossesRatio": "Losses Ratio",
+    "lossesRatio": "Points from losses",
     "objectives": "Objectives",
     "timeUnderPressure": "Time under pressure",
     "timeUnderPressureTooltip": "Time under pressure is the time a team holds <0>{{percentage}}%</0> of the objective VPs or less. While under pressure, a team loses <1>{{vpPerTurn}}</1> VP per turn.",
@@ -744,15 +972,12 @@
   "kick": "Kick",
   "noDescription": "No description",
   "save": "Save",
-  "ordersSubmittedDialog": {
-    "p1": {
-      "sent": "Orders sent to the server.",
-      "received": "Orders received by the server.",
-      "processed": "Orders processed by the server."
-    },
-    "p2": "Checking for the opponent's orders in {{value}} seconds",
-    "b": "Check Now",
-    "playersSubmitted": "players submitted"
+  "ordersSent": {
+    "sending": "Sending orders",
+    "received": "Orders received",
+    "processed": "Orders processed",
+    "armies": "{{submitted}} of {{alive}} armies have submitted orders this turn.",
+    "help": "The turn resolves once every army has submitted."
   },
   "search": {
     "clans": "Search coalitions",
@@ -780,6 +1005,7 @@
     "private": "Private",
     "public": "Public",
     "autoStartCountdown": "Auto-start in {{countdown}}",
+    "waitingToStart": "Waiting for the battle to start",
     "joinTeam": "Join Team {{team}} ({{count}}/{{capacity}})",
     "teamLocked": "Pick the smaller team",
     "teamFull": "Team is full",
@@ -789,6 +1015,8 @@
     "hostWithLobby": "Host with lobby",
     "allowUnbalancedTeams": "Allow unbalanced teams",
     "joinSlot": "Join as Player {{slot}}",
+    "controlledBy": "Controlled by {{controller}}",
+    "controlledByLabel": "Controlled by",
     "slotTaken": "Seat taken",
     "slotClosed": "Closed",
     "closeSlot": "Close",
@@ -805,10 +1033,37 @@
     "ready": "Ready",
     "notReady": "Not Ready",
     "playersChoosingArmies": "Waiting for {{count}} player(s) to choose their army.",
+    "gameMaster": "Game Master",
+    "gameMasterEvent": "Game Master Event",
+    "youAreGameMaster": "You are the Game Master",
+    "cancelManagedGame": "Cancel War Room",
+    "cancelManagedGameTitle": "Cancel this War Room?",
+    "cancelManagedGameMessage": "This ends the War Room for everyone. It cannot be reopened.",
+    "keepManagedGame": "Keep War Room",
+    "cancellingManagedGame": "Cancelling...",
+    "cancelManagedGameFailed": "Could not cancel the War Room. Please try again.",
+    "cancelManagedGameTypeName": "Type the War Room name to confirm",
+    "managedGameCancelledTitle": "War Room cancelled",
+    "managedGameCancelledMessage": "The Game Master ended this War Room.",
+    "pauseManagedGame": "Pause battle",
+    "resumeManagedGame": "Resume battle",
+    "updatingManagedGamePause": "Updating...",
+    "managedGamePaused": "Battle paused",
+    "managedGamePausedHelp": "The clock and order submissions are frozen until the Game Master resumes play.",
+    "managedGamePauseFailedTitle": "Could not update the battle",
+    "managedGamePauseFailedMessage": "The pause state did not change. Please try again.",
+    "replaceWithReserve": "Replace player",
+    "noReservesAvailable": "No reserves available",
+    "playerToReplace": "Player to replace",
+    "reservePlayer": "Reserve",
+    "confirmReplacement": "Transfer seat",
+    "loadReservesFailed": "Could not load reserves.",
+    "reassignReserveFailed": "Could not transfer this seat.",
     "back": "Back"
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
+    "asymmetricTitle": "{{team1}} vs {{team2}} {{battleTypeName}}",
     "sectionTitle": "Events",
     "featured": "Featured",
     "largeScale": "Large-scale",
@@ -947,6 +1202,9 @@
   "projectilePenetration": "Projectile penetration",
   "league": {
     "title": "League",
+    "placementTitle": "Placement battles",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "Complete {{total}} ranked battles to reveal your Elo and league. Every result brings the reveal closer.",
     "unranked": "Unranked",
     "emperor": "Emperor",
     "diamond-1": "Diamond I",
@@ -1031,6 +1289,8 @@
   "victoryPoints": "Victory Points",
   "skirmishersInfo": "Skirmishers are placed automatically depending on the number of units with skirmishers in the army and the skirmisher ratio of the battle type.",
   "skirmisherRatio": "Skirmisher ratio",
+  "skirmisherPoints": "{{points}} points/{{perSkirmisher}}",
+  "skirmisherNextBreakpoint": "Next threshold",
   "prestigeDropChance": "{{currency}} drop chance: {{chance}}% (from turn {{turn}})",
   "friendlyFireImmune": "Friendly fire immune",
   "nearbyUnits": "Nearby units",
@@ -1152,7 +1412,7 @@
   "noPublicGames": "No public games right now.",
   "kFactorTooltip": "ELO K Factor (max rating change per ranked game)",
   "max": "Max",
-  "minDistanceToFAA": "Min distance to FAA",
+  "standoffDistance": "Fire & advance stand-off",
   "captureProgress": "Capture progress",
   "captureThreshold": "Capture threshold",
   "logistics": "Logistics",
@@ -1182,11 +1442,33 @@
   "artillery": "Artillery",
   "special": "Special",
   "academy": "Academy",
-  "encyclopedia": "Encyclopedia",
-  "tutorialTips": "Tutorial Tips",
-  "loadingScreenTips": "Loading Screen Tips",
-  "gameConstants": "Game Constants",
+  "lobopedia": "LoBopedia",
+  "lobopediaSubtitle": "The field guide to Lines of Battle, straight from the game data",
+  "encyclopediaUnitCount_one": "{{count}} unit",
+  "encyclopediaUnitCount_other": "{{count}} units",
+  "encyclopediaSearchPlaceholder": "Search the LoBopedia",
+  "encyclopediaSearchResults": "Search: {{query}}",
+  "encyclopediaNoResults": "No unit matches “{{query}}”.",
+  "encyclopediaTopic": {
+    "units": "Units",
+    "orders": "Orders",
+    "terrain": "Terrain",
+    "formations": "Formations"
+  },
+  "encyclopediaPreviousPage": "Previous page",
+  "encyclopediaNextPage": "Next page",
+  "encyclopediaSearchWiki": "Search the Community Wiki for “{{query}}”",
+  "encyclopediaSeeMore": "See more in the Community Wiki",
   "ammo": "Ammo",
+  "ammoRefill": "+{{percent}}% per turn",
+  "ammoTypeOut": "{{ammoType}} out",
+  "ammoTypes": {
+    "round-shot": "Round shot",
+    "canister": "Canister",
+    "shell": "Shell",
+    "rocket": "Rockets",
+    "ammo": "Ammo"
+  },
   "ammoConsumption": "Ammo Consumption",
   "allowsCharging": "Allows charging",
   "limbersArtillery": "Limbers artillery",
@@ -1195,6 +1477,8 @@
   "banned": "Banned",
   "baseAmmo": "Base ammo",
   "range": "Range",
+  "distanceMeters": "{{value}} m",
+  "distanceKilometers": "{{value}} km",
   "show": "Show",
   "hide": "Hide",
   "discord": {
@@ -1265,14 +1549,6 @@
     "damageReceived": "Taken",
     "winrate": "Winrate"
   },
-  "tutorialSummary": {
-    "heading": "Tutorial summary",
-    "count": "{{seen}} of {{total}} lessons shown",
-    "description": "Each lesson covers a situation worth knowing.",
-    "allSeen": "You saw every lesson the tutorial has to offer.",
-    "viewMissed": "View missed lessons"
-  },
-  "noAmmoRegain": "No ammo regain",
   "flankMeleeOrgModifier": "Flank melee org modifier",
   "rearCharge": "Rear charge",
   "deleteAccount": "Delete account",
@@ -1282,5 +1558,393 @@
     "message": "Your account will be scheduled for deletion in {{graceDays}} days. You can cancel any time before then by logging back in. After that, your account and personal data are permanently anonymized. Are you sure?",
     "scheduled": "Your account is scheduled for deletion in {{graceDays}} days. Log in again before then to cancel it.",
     "error": "Could not schedule account deletion. Please try again."
+  },
+  "orderOfBattle": {
+    "showArmy": "Show army",
+    "hideArmy": "Hide army",
+    "title": "Army",
+    "presetTitle": "Preset order of battle",
+    "presetHelp": "Organize this composition into divisions and brigades. It will deploy with this structure, including automatically generated units.",
+    "resetPreset": "Restore automatic organization",
+    "resetPresetTitle": "Restore organization?",
+    "resetPresetWarning": "This replaces every division and brigade in your current draft. Your saved army will not change until you save.",
+    "resetPresetCancel": "Keep current",
+    "resetPresetConfirm": "Restore",
+    "presetInvalid": "Every division and brigade must contain units before this army can be saved.",
+    "divisionKind": "Division type",
+    "divisionKindFor": "Division type for {{target}}",
+    "brigadeKindFor": "Brigade type for {{target}}",
+    "moveAmountFor": "Number of {{unit}} units to move from {{source}}",
+    "destinationBrigadeFor": "Destination brigade for {{unit}} from {{source}}",
+    "moveAmount": "Quantity",
+    "moveDestination": "Destination",
+    "confirmMoveFor": "Move {{unit}} from {{source}}",
+    "skin": "Skin",
+    "skinFor": "Skin for {{unit}} in {{source}}",
+    "skinDefault": "Default",
+    "addBrigadeTo": "Create a brigade in {{target}}",
+    "emptyBeforeDisband": "Move every unit out before disbanding this formation.",
+    "emptyBrigade": "Empty — move units here before saving.",
+    "disbandAction": "Disband",
+    "moveUp": "Move {{target}} up",
+    "moveDown": "Move {{target}} down",
+    "unitCount_one": "{{count}} unit",
+    "unitCount_other": "{{count}} units",
+    "brigadeCount_one": "{{count}} brigade",
+    "brigadeCount_other": "{{count}} brigades",
+    "brigade": "{{n}} Brigade",
+    "infantryDivision": "{{n}} Division",
+    "cavalryDivision": "{{n}} Cavalry Division",
+    "armoredDivision": "{{n}} Armored Division",
+    "artilleryReserve": "Artillery Reserve",
+    "divisionalArtillery": "Divisional Artillery",
+    "focus": "Double click to bring the map to {{target}}",
+    "rename": "Rename {{target}}",
+    "renameAction": "Rename",
+    "disband": "Disband {{target}}",
+    "addDivision": "New division",
+    "addBrigade": "New brigade",
+    "unattached": "Unattached",
+    "awaitingOrders": "{{count}} unit still has no orders",
+    "awaitingOrders_other": "{{count}} units still have no orders",
+    "allOrdered": "Every unit has its orders",
+    "breaking": "Breaking",
+    "dragToReassign": "Drag onto another brigade to reassign it",
+    "select": "Select {{target}}",
+    "showSelection": "Show the selected units",
+    "showTree": "Show the order of battle",
+    "hideTree": "Hide the order of battle",
+    "collapse": "Collapse {{target}}",
+    "expand": "Expand {{target}}",
+    "division": "1st Division",
+    "noSelection": "No units selected",
+    "selectionSummary_one": "{{count}} unit · {{brigades}} brigades",
+    "selectionSummary_other": "{{count}} units · {{brigades}} brigades",
+    "quickBrigades": "Quick brigade selection",
+    "backToMap": "Back to map",
+    "backToArmy": "Back to army",
+    "details": "Details",
+    "editSelection": "Edit selection",
+    "doneSelection": "Done",
+    "moveTo": "Move to…",
+    "moveCount_one": "Move {{count}} unit to brigade",
+    "moveCount_other": "Move {{count}} units to brigade",
+    "confirmMove": "Move",
+    "clearSelection": "Clear",
+    "selectedCount": "{{selected}}/{{total}} selected",
+    "dragUnit": "Drag {{unit}} to reorder or move to a brigade",
+    "assignBrigade": "Assign to brigade",
+    "destinationBrigade": "Brigade",
+    "assign": "Assign",
+    "assignUnit": "Assign {{unit}} to brigade",
+    "quickDivisions": "Quick division selection",
+    "savedLayout": "Saved layout",
+    "layoutHelp": "Group orders recover these arrival positions. Moving units individually does not change them. Deploy defines a new layout; use “Save current layout” to keep a manual rearrangement.",
+    "saveLayout": "Save current layout",
+    "groupActions": "Actions for {{target}}",
+    "layoutUpdated": "Layout updated",
+    "undoLayout": "Undo",
+    "dismissLayoutNotice": "Dismiss layout notice"
+  },
+  "firstSession": {
+    "title": "Your first battle",
+    "description": "Learn to give orders against the bot, at your own pace. Your map and armies are ready.",
+    "startPractice": "Start practice",
+    "continuePractice": "Continue practice",
+    "customize": "Customize battle",
+    "playOnline": "Play online"
+  },
+  "playTogether": {
+    "title": "Play Together",
+    "description": "Form a two-player party for a rated Micro 2v2 battle.",
+    "homeAction": "Play with a Friend",
+    "homeDescription": "Invite a friend and queue together",
+    "shareLink": "Share invitation link",
+    "shareText": "Play a Micro battle with me",
+    "revoke": "Revoke link",
+    "revoked": "Invitation link revoked.",
+    "revokeFailed": "The invitation link could not be revoked. Try again.",
+    "onlineFriends": "Online friends",
+    "shared": "Invitation shared.",
+    "createFailed": "The invitation could not be created. Try again.",
+    "invitedBy": "{{username}} invited you to play",
+    "microFast": "Micro 2v2 with the recommended Fast time control",
+    "microFastCommitment": "Both players join the same rated team. The leader starts or cancels the search.",
+    "leaderQueueExplanation": "The party leader starts or cancels matchmaking for both players.",
+    "accept": "Join party",
+    "unavailable": "This invitation expired, was revoked, or has already been used."
+  },
+  "postMatch": {
+    "title": "What next?",
+    "playAnother": "Play Another Match",
+    "playAnotherError": "The next match could not be created. Try again.",
+    "addTeammate": "Add Teammate",
+    "messageTeammate": "Message Teammate",
+    "friendRequestSent": "Friend Request Sent",
+    "shareReplay": "Share Replay",
+    "shareReplayText": "Watch this Lines of Battle replay",
+    "replayShared": "Replay shared.",
+    "settingsFallback": "That previous setup is no longer available, so the current recommended Fast setup was selected."
+  },
+  "retentionJourney": {
+    "title": "Signup-to-second-match funnel",
+    "platform": "Platform",
+    "firstPath": "First path",
+    "experiment": "Experiment",
+    "firstMode": "First mode",
+    "firstTimeControl": "First time control",
+    "provisional": "Provisional rating",
+    "established": "Established rating",
+    "partyFilter": "Solo or party",
+    "acquisitionSource": "Acquisition source",
+    "allPlatforms": "All platforms",
+    "allPaths": "All paths",
+    "allExperiments": "All assignments",
+    "allModes": "All modes",
+    "allTimeControls": "All time controls",
+    "allRatings": "All rating states",
+    "allEntries": "Solo and party",
+    "allAcquisitionSources": "All acquisition sources",
+    "learn": "Learn",
+    "live": "Play Now",
+    "overDays": "Play Over Days",
+    "incompleteD1": "D1 cohort incomplete",
+    "incompleteD7": "D7 cohort incomplete",
+    "incompleteD30": "D30 cohort incomplete",
+    "firstMatchOutcomes": "First-match outcomes",
+    "fetchError": "The journey report could not be loaded.",
+    "socialFunnel": "Play Together funnel",
+    "partyOperations": "Party restoration and queue operations",
+    "cohort": "Cohort",
+    "restorationAttempts": "Restoration attempts",
+    "restorationFailures": "Restoration failures",
+    "restorationFailureRate": "Restoration failure rate",
+    "partyQueuePercentiles": "Party queue p50 / p95",
+    "matchQuality": "First-five-match quality audit",
+    "queueSimulation": "Party-rating queue lifecycle replay",
+    "queueSimulationLegend": "Each rule shows average rating gap / average oldest wait / p95 oldest wait / matchable ticks, including no-match ticks.",
+    "meanRule": "Mean rating",
+    "upperWeightedRule": "Upper-weighted mean",
+    "strongestDiscountRule": "Strongest rating -100",
+    "ratingGap": "Rating gap",
+    "accountAge": "Account age",
+    "partyType": "Entry",
+    "solo": "Solo",
+    "party": "Party",
+    "mixedParty": "Mixed-experience party",
+    "games": "Games",
+    "victoryPointMargin": "Avg. VP margin",
+    "armyPowerMargin": "Avg. power margin",
+    "meanRuleGap": "Mean rule gap",
+    "upperWeightedRuleGap": "Upper-weighted gap",
+    "strongestDiscountRuleGap": "Strongest -100 gap",
+    "snapshotSamples": "Queue snapshots",
+    "meanSnapshotSimulation": "Mean replay: gap / wait / matches",
+    "upperWeightedSnapshotSimulation": "Upper-weighted replay: gap / wait / matches",
+    "strongestDiscountSnapshotSimulation": "Strongest-discount replay: gap / wait / matches",
+    "abandonments": "Abandonments",
+    "secondMatch7d": "Second match within 7 days",
+    "milestones": {
+      "signups": "Accounts created",
+      "recommendedActionShown": "Recommended action shown",
+      "matchmakingOpened": "Matchmaking opened",
+      "firstMatchmakingStarted": "First search started",
+      "matchFound": "Match found",
+      "gameJoined": "Game joined",
+      "deploymentSubmitted": "Deployment submitted",
+      "firstLiveTurnSubmitted": "First live turn submitted",
+      "firstMatchCompleted": "First match completed",
+      "firstMatchAbandoned": "First match abandoned",
+      "nextActionSelected": "Next action selected",
+      "secondMatchmakingStarted": "Second search started",
+      "secondMatchCompleted": "Second match completed",
+      "invitationCreated": "Invitation created",
+      "invitationOpened": "Invitation opened",
+      "invitationAccepted": "Invitation accepted",
+      "invitationExpired": "Invitation expired",
+      "invitationRevoked": "Invitation revoked",
+      "partyFormed": "Party formed",
+      "partyRestored": "Party restored",
+      "partyQueued": "Party queued",
+      "partyMatched": "Party matched",
+      "partyLeft": "Party left",
+      "partyDissolved": "Party dissolved",
+      "sharedMatchCompleted": "Shared match completed",
+      "friendshipAfterSharedMatch": "Friendship after match"
+    }
+  },
+  "hideReplayInterface": "Hide interface",
+  "replayInterfaceKeyboardHint": "H: hide/show · Esc: show",
+  "replayInterfaceTouchHint": "Double-tap the map to show the interface.",
+  "replaceOfflineGameWarning": "Starting a new battle will replace your saved offline battle and its progress.",
+  "returnToMenu": "Return to menu",
+  "exitGameHint": "Returning to the menu does not pause the battle.",
+  "openReplayFile": "Open replay file",
+  "failedToLoadClans": "Could not load coalitions. Please try again.",
+  "emailConfirmation": {
+    "title": "Confirm your email",
+    "confirmed": "Email confirmed. You can now log in.",
+    "error": "Could not confirm your email. The link may be invalid or expired."
+  },
+  "offlineSetup": {
+    "title": "Setting up a practice battle",
+    "step1": "Choose how long the battle runs and how much of the enemy you can see.",
+    "step2": "Pick a scenario and a battle type, or keep the defaults.",
+    "step3": "Set the armies below, then create the battle. It runs on this device, so you can stop and come back."
+  },
+  "pcHud": {
+    "selection": "Selection",
+    "waiting": "{{count}} unit still has no orders",
+    "waiting_other": "{{count}} units still have no orders",
+    "nextIdle": "Next without orders",
+    "noOrder": "No orders this turn",
+    "lowest": "lowest",
+    "resizeReading": "Resize the selection reading",
+    "battleKeysOff": "Battle keys off · Esc",
+    "history": "History",
+    "commandBar": "Battle commands",
+    "turnActions": "Turn actions"
+  },
+  "hudHelp": {
+    "help": "Help: {{control}}",
+    "army": "Tap to open or close the army tree. Drag to change its height.",
+    "selectAll": "Select your whole army, or clear the selection.",
+    "noUnits": "There are no units to select.",
+    "selectOwn": "Select your own units first.",
+    "ammoFromReserve": "This unit carries no ammunition of its own: firing draws on the army's reserve.",
+    "ammoReserveMeaning": "The reserve every unit fires from. It refills {{regen}} a turn, more for each objective your team holds, and stops refilling at {{base}}.",
+    "selectOne": "Select one unit or an objective to inspect.",
+    "noTactics": "Select units with formations or autofire settings.",
+    "noFormations_one": "This unit cannot change formation.",
+    "noFormations_other": "None of these units can change formation.",
+    "noRanged_one": "This unit cannot fire.",
+    "noRanged_other": "None of these units can fire.",
+    "noOrders": "The selection has no orders that can be removed.",
+    "deployment": "Order types are unavailable during deployment.",
+    "submitted": "Orders have already been submitted for this turn.",
+    "finished": "The battle has ended.",
+    "busy": "Wait for the current battle action to finish.",
+    "unavailable": "This control is unavailable in the current battle state.",
+    "offlineChat": "Chat is available in online battles.",
+    "noReplay": "There are no previous actions to replay yet.",
+    "noSupply": "This battle does not use supply lines.",
+    "noSelection": "Select a unit first.",
+    "noEligible": "There are no units available to select.",
+    "spectator": "Spectators cannot give orders.",
+    "overview": "Open the battle overview. Victory points reflect casualties and objectives.",
+    "clock": "Time left: {{remaining}}. Bank: {{bank}}.",
+    "selectDivision": "Select units still waiting for orders, or the whole division when all have orders. Double-tap or double-click to centre the map.",
+    "selectUnit": "Select this unit. Double-tap or double-click to centre the map.",
+    "formation": "Apply this formation to selected units that support it.",
+    "orderType": "Choose the order the next map drag gives the selection.",
+    "orders": {
+      "1": "Choose walking for the next movement order.",
+      "2": "Choose running for the next movement order.",
+      "3": "Choose a shooting order and then its target.",
+      "4": "Advance while firing; melee units walk instead.",
+      "6": "Choose a fallback movement order.",
+      "7": "Change the direction the selected units face."
+    },
+    "commands": {
+      "supplyView": "Show or hide supply lines on the map.",
+      "drawLine": "Draw a line to rearrange one complete brigade or division, or to place multiple groups and units.",
+      "smartCurvedMovements": "Switch between direct movement and curved routes.",
+      "rotateContinuous": "Tap for a quarter turn. Hold to rotate continuously.",
+      "multiSelect": "Add units to the current selection.",
+      "tools": "Show or hide additional battle tools.",
+      "lineOfSight": "Pick a point on the map to see what a unit standing there could see over the terrain. Brighter ground shows more detail.",
+      "tactics": "Choose formations and autofire settings for selected units.",
+      "ping": "Mark a location on the map.",
+      "chat": "Read and send battle messages.",
+      "playerButton": "View the players and their teams.",
+      "info": "Inspect the selected unit or objective.",
+      "replayActions": "Watch the previous actions again.",
+      "menu": "Open battle settings and exit options.",
+      "nextIdle": "Select a unit without orders. If none remain, cycle through available units.",
+      "submit": "Submit your orders for this turn. Once sent, they cannot be taken back.",
+      "remove": "Clear the orders of the selected units.",
+      "deselect": "Clear the current selection."
+    }
+  },
+  "firstOrders": {
+    "title": "Your first orders",
+    "skip": "Skip guidance",
+    "select": {
+      "mouse": "Click one of your units to select it. The marked unit is a good place to start.",
+      "touch": "Tap one of your units to select it. The marked unit is a good place to start."
+    },
+    "deploy": {
+      "mouse": "Right-click open ground inside your deployment zone to place the selected unit. You are arranging your army before the battle.",
+      "touch": "Tap open ground inside your deployment zone to place the selected unit. You are arranging your army before the battle."
+    },
+    "deployReady": {
+      "mouse": "Unit placed. You can arrange the rest, or press Submit orders to start the battle.",
+      "touch": "Unit placed. You can arrange the rest, or press ✓ to start the battle."
+    },
+    "move": {
+      "mouse": "Right-click open ground to set a destination. The arrow previews the movement; the unit waits for you to submit.",
+      "touch": "Drag from the unit to open ground to set a destination. The arrow previews the movement; the unit waits for you to submit."
+    },
+    "submit": {
+      "mouse": "Movement prepared. You can give more orders or press Submit orders below. Both armies then move at the same time.",
+      "touch": "Movement prepared. You can give more orders or press ✓ below. Both armies then move at the same time."
+    }
+  },
+  "unitComparison": {
+    "stop": "Stop comparing",
+    "baseLabel": "Base values",
+    "title": "Compare units",
+    "choose": "Compare with…",
+    "sameCategory": "Same category",
+    "otherCategories": "Other categories",
+    "gold": "Gold cost",
+    "manpower": "Manpower cost",
+    "baseValues": "Base values, before terrain, formation and condition modifiers; not a combat prediction.",
+    "relativeTo": "Percentages show this unit’s difference relative to {{unit}}.",
+    "stat": "Attribute",
+    "unavailable": "— means unavailable or not applicable."
+  },
+  "battleContinuation": {
+    "exports": "Save or export",
+    "continueOffline": "Continue offline",
+    "replaceTitle": "Replace saved battle?",
+    "replace": "Replace and continue",
+    "noUnits": "No surviving units",
+    "title": "Continue battle",
+    "description": "Start a new offline battle from this position. Scores restart; the full replay keeps the original actions.",
+    "additionalTurns": "Additional turns",
+    "download": "Download battle",
+    "exportScenario": "Export scenario",
+    "scenarioHint": "The scenario is editable. The battle file also preserves the replay.",
+    "chooseHuman": "Choose a human player with surviving units.",
+    "error": "Could not load or save this battle. Please try again.",
+    "import": "Import battle"
+  },
+  "turnRecovery": {
+    "pending": "Updating the battle…",
+    "failed": "Couldn’t update the battle."
+  },
+  "matchAcceptance": {
+    "firstRejection": "No loss or Elo penalty. Declining or missing another offer within 24 hours will restrict fast ranked matchmaking for 2 minutes.",
+    "restrictionTitle": "Matchmaking temporarily restricted",
+    "restriction": "Repeated declined or missed offers. Fast ranked matchmaking is restricted for {{minutes}} more min. Private and offline games remain available.",
+    "restrictionEnded": "Your restriction has ended. You can search again.",
+    "rulesTitle": "Ranked rules",
+    "rules": "A fast ranked battle starts when every player accepts. Abandoning then counts as a normal loss, even on the first turn, without an extra automatic ban. Declining or missing received offers within 24 hours results in a warning, then 2, 10 and 60-minute restrictions, capped at 60 minutes. Declines do not cost Elo.",
+
+    "ready": "Ranked · Fast",
+    "accept": "Accept match",
+    "decline": "Decline",
+    "timeRemaining": "Time remaining: {{count}} s",
+    "sending": "Confirming your response…",
+    "waiting": "Accepted. Waiting for the other players…",
+    "creating": "Everyone accepted. Preparing the battle…",
+    "reconnecting": "Reconnecting…",
+    "error": "Could not confirm your response. Please try again.",
+    "ended": "Match offer ended",
+    "requeued": "Another player did not confirm. You are back in the queue with your waiting priority preserved.",
+    "noLoss": "This offer ended without a loss. You can search again.",
+    "failed": "We could not confirm whether the battle was created. Check before searching again.",
+    "checkGame": "Check match"
   }
 }

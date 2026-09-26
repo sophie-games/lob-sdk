@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Opacidade das ordens selecionadas",
+    "description": "Opacidade das setas e prévias de destino das unidades selecionadas, ou de todas quando nenhuma está selecionada. 0% as oculta."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Opacidade das ordens não selecionadas",
+    "description": "Opacidade das setas e prévias de destino das outras unidades enquanto há unidades selecionadas. 0% as oculta."
+  },
   "gameplay": "Jogabilidade",
   "graphics": "Gráficos",
   "camera": "Câmera",
@@ -25,8 +33,10 @@
     "description": "Mostra a barra de grupos de controle. Desative-a para evitar que toques acidentais alterem sua seleção em dispositivos sensíveis ao toque."
   },
   "smartCurvedMovements": {
-    "title": "Movimentos Curvos Inteligentes",
-    "description": "Ative esta opção para otimizar os caminhos de movimento com curvas suaves, minimizando a perda de velocidade durante rotações."
+    "title": "Trajetória",
+    "description": "Direta segue os segmentos desenhados; Curva suaviza as curvas. Os obstáculos intransponíveis são contornados automaticamente.",
+    "direct": "Direta",
+    "curved": "Curva"
   },
   "pathFinding": {
     "title": "Busca de caminho",
@@ -95,17 +105,13 @@
   "gridOpacity": {
     "title": "Opacidade da grade"
   },
-  "tracerOpacity": {
-    "title": "Opacidade dos traçadores",
-    "description": "Controla a opacidade das linhas traçadoras durante ataques à distância. Defina como 0% para ocultá-las."
+  "showChargeDamageIndicators": {
+    "title": "Mostrar indicadores de dano de carga",
+    "description": "Mostra números de dano flutuantes quando as unidades realizam uma carga."
   },
   "showDebugShapes": {
     "title": "Mostrar formas de depuração",
     "description": "Mostra formas de depuração nas unidades incluindo formas de colisão e pontos de verificação de terreno."
-  },
-  "bottomButtons": {
-    "title": "Botões Inferiores",
-    "description": "Configure a ordem dos botões na parte inferior da tela durante o jogo."
   },
   "fullScreen": {
     "title": "Tela Cheia",
@@ -153,7 +159,7 @@
     "shootOrder": "Ordem de disparo",
     "fireAndAdvanceOrder": "Ordem de disparar e avançar",
     "fallbackOrder": "Ordem de recuo",
-    "toggleSmartCurvedMovements": "Alternar movimentos curvos inteligentes",
+    "toggleSmartCurvedMovements": "Alternar entre Direta e Curva",
     "togglePathFinding": "Alternar busca de caminho",
     "toggleFowPerspective": "Alternar perspectiva de névoa de guerra",
     "toggleMultiTurnPathOrders": "Alternar ordens de caminho multi-turnos",
@@ -168,6 +174,7 @@
     "toggleFullscreen": "Alternar tela cheia",
     "simulateMultiTouch": "Simular Multi-toque",
     "toggleSupplyLines": "Alternar linhas de suprimento",
+    "toggleUnitTransparency": "Alternar transparência das unidades",
     "toggleStraightLine": "Alternar linha reta",
     "toggleDrawLine": "Alternar desativar linhas de desenho",
     "splitInHalf": "Dividir ao meio",
@@ -231,6 +238,10 @@
     "reminders": {
       "title": "Lembretes",
       "description": "Avise-me quando minha sequência diária estiver prestes a acabar."
+    },
+    "clanLeague": {
+      "title": "Liga da coligação",
+      "description": "Avisar-me quando a minha coligação ainda puder alcançar as posições premiadas da semana."
     }
   },
   "theme": {
@@ -276,13 +287,10 @@
   "controlGroups": {
     "recall": "Chamar grupo {{group}}",
     "set": "Definir grupo {{group}}",
-    "add": "Adicionar ao grupo {{group}}",
-    "setExclusive": "Atribuir só ao grupo {{group}}"
+    "add": "Adicionar ao grupo {{group}}"
   },
-  "notifications": {
-    "clanLeague": {
-      "title": "Coalition league",
-      "description": "Notify me when my coalition can still reach the weekly prize positions."
-    }
+  "showGameTips": {
+    "title": "Mostrar dicas",
+    "description": "Lições curtas que aparecem na batalha quando a situação pede. Cada uma é mostrada apenas algumas vezes."
   }
 }

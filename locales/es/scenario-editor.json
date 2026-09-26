@@ -1,4 +1,12 @@
 {
+  "mapImage": {
+    "title": "Exportar imagen del mapa",
+    "description": "Exporta todo el terreno sin unidades, cuadrícula ni elementos del editor. Se conservan las proporciones del mapa.",
+    "resolution": "Lado más largo",
+    "progress": "Generando… {{percent}}%",
+    "error": "No se pudo exportar la imagen. Prueba con 4K o un mapa más pequeño.",
+    "download": "Descargar PNG"
+  },
   "inspectorBands": {
     "identity": "Identidad",
     "placement": "Colocación",
@@ -72,13 +80,16 @@
     "allowDynamicArmyHelp": "Cuando está activado, los jugadores traen su propio ejército según el tipo de batalla del emparejamiento y lo despliegan dentro de sus zonas. Cuando está desactivado, las unidades preposicionadas del escenario definen toda la plantilla (se omite la composición del ejército).",
     "fixedRoster": "Jugadores fijos",
     "fixedRosterHelp": "Cuando está activado, el escenario define sus propios puestos de jugador, equipos y reservas de munición, y la sala no puede añadir ni quitar jugadores. Cuando está desactivado, la lista sale de la sala o del emparejamiento.",
-    "allowDeploymentPhase": "Fase de despliegue",
-    "allowDeploymentPhaseHelp": "Cuando está activado, la batalla empieza en el turno 0 para que cada jugador reposicione sus unidades dentro de sus zonas de despliegue antes de que empiece el combate.",
     "noInherentAmmo": "Sin munición propia",
     "noInherentAmmoHelp": "Cuando está activado, las unidades con munición aparecen sin munición propia y toman todo su suministro de la reserva compartida, así que no pueden disparar en el primer turno y recién abren fuego cuando la reserva las reabastece.",
+    "startTime": "Hora de inicio",
+    "startTimeHelp": "Opcional. Déjalo vacío para que el turno 1 empiece a las {{time}} (valor de la era).",
+    "maxTurn": "Turnos máximos",
+    "maxTurnHelp": "Valor predeterminado opcional del escenario (10–99); las partidas pueden elegir otro límite.",
     "showGrid": "Mostrar cuadrícula",
     "showUnits": "Mostrar unidades",
     "showObjectives": "Mostrar objetivos",
+    "showMapLabels": "Mostrar nombres del mapa",
     "goBack": "Volver",
     "goBackConfirm": "¿Seguro que quieres volver y salir del editor?",
     "display": "Visualización",
@@ -91,7 +102,6 @@
     "testScenario": "Probar escenario",
     "placeableObjectives": "Objetivos colocados por el jugador",
     "placeableObjectivesHelp": "Cuando está activado, cada jugador coloca sus propios objetivos durante la fase de despliegue, dentro de su propia zona. Cuando está desactivado, la batalla usa solo los objetivos que colocaste en el mapa.",
-    "placeableObjectivesNeedsDeployment": "Activa también la fase de despliegue, o los jugadores nunca llegan al turno en el que colocarían estos objetivos y ninguno aparecerá.",
     "resting": {
       "thisScenario": "Este escenario",
       "gettingStarted": "Primeros pasos",
@@ -122,6 +132,8 @@
   },
   "playersPanel": {
     "removePlayer": "Quitar jugador",
+    "commander": "Comandante",
+    "commandFormation": "Mando",
     "ammoReserve": "Reserva",
     "ammoBase": "Nivel base",
     "playerNumbered": "Jugador {{number}}",
@@ -173,21 +185,33 @@
     "title": "Zonas de despliegue",
     "hint": "Estas zonas definen dónde empieza cada ejército. La fase de despliegue solo agrega un turno 0 para que los jugadores se reacomoden dentro de ellas.",
     "team": "Equipo {{team}}",
-    "wholeTeam": "Todos los jugadores del equipo",
+    "remainingPlayers": "Jugadores restantes del equipo",
+    "assignmentHelp": "Elige a los jugadores restantes o selecciona uno o más jugadores específicos.",
     "player": "Jugador {{player}}",
     "mainZone": "Principal",
     "forwardZone": "Avanzada",
     "addMainZone": "Añadir zona principal",
     "addForwardZone": "Añadir zona avanzada",
     "removeZone": "Eliminar zona",
+    "boundary": "Contorno",
+    "exclusion": "Área excluida {{number}}",
+    "polygon": "Polígono {{number}}",
+    "drawOnMap": "Dibujar en el mapa",
+    "removeVertex": "Quitar vértice",
+    "addVertex": "Añadir vértice",
+    "removePolygon": "Quitar polígono",
+    "drawExclusion": "Dibujar área excluida",
+    "drawAdditionalPolygon": "Dibujar otro polígono",
+    "drawHint": "Haz clic en el mapa para añadir vértices ({{count}} colocados).",
+    "invalidPolygon": "El polígono o la exclusión no son válidos.",
+    "undoVertex": "Deshacer último vértice",
+    "finishPolygon": "Terminar polígono",
     "fields": {
       "x": "X",
       "y": "Y",
       "player": "Asignada a",
-      "rotation": "Rotación (grados)"
-    },
-    "phaseHelp": "Con la fase de despliegue activada, los jugadores obtienen un turno extra antes de que empiece el combate, únicamente para reacomodar sus unidades dentro de su zona.",
-    "gateHelp": "Estas zonas son editables mientras cualquiera de Permitir ejército dinámico, Fase de despliegue u Objetivos colocados por el jugador esté activado, ya que las tres necesitan un lugar donde empiece un ejército que llega. Con las tres desactivadas quedan en gris, y en un mapa procedural también quedan en gris, ya que ahí las zonas se definen como porcentajes en el panel de Mapa aleatorio."
+      "rotation": "Orientación del ejército (grados)"
+    }
   },
   "vpBalance": {
     "heading": "Balance de PV (bajas vs objetivos)",
@@ -201,7 +225,11 @@
     "drawLineRank": "Rango al dibujar línea (menor = al frente)",
     "title": "Editar formación personalizada",
     "collision": "Colisión",
-    "collisionHelp": "Huella rectangular: frente a lo ancho y profundidad de adelante hacia atrás. Usa 0 en ambos valores para no tener colisión (volador / fantasma).",
+    "collisionHelp": "Forma de la huella: un círculo (radio) o un rectángulo (frente a lo ancho, profundidad de adelante hacia atrás). Usa radio 0 para no tener colisión (volador / fantasma).",
+    "shape": "Forma",
+    "shapeRectangle": "Rectángulo",
+    "shapeCircle": "Círculo",
+    "radiusPx": "Radio (px)",
     "frontagePx": "Frente (px)",
     "depthPx": "Profundidad (px)",
     "runMovementModifier": "Modificador de movimiento al correr",
@@ -217,7 +245,7 @@
     "rangedDamageResistance": "Resistencia al daño a distancia",
     "rangedOrgResistance": "Resistencia org. a distancia",
     "fireEdges": "Bordes de fuego (fuego de borde)",
-    "fireEdgesHelp": "Cada borde de fuego emite a lo largo de una cara del rectángulo. Una formación sin bordes de fuego dispara por un único borde frontal predeterminado.",
+    "fireEdgesHelp": "Cada borde de fuego emite a lo largo de una cara del rectángulo. Una formación sin bordes de fuego dispara por un único borde frontal predeterminado; las formaciones circulares no disparan.",
     "edge": "Borde",
     "edgeLeft": "0 - lado izquierdo (-Y)",
     "edgeFront": "1 - frente (+X)",
@@ -254,6 +282,7 @@
     }
   },
   "unitTemplateModal": {
+    "initialOrder": "Orden inicial",
     "title": "Editar plantilla de unidad personalizada",
     "optBuiltIn": "{{name}} (integrada)",
     "optCustom": "{{name}} (personalizada)",
@@ -278,6 +307,8 @@
     "orgRadiusBonus": "Bono de radio de org",
     "reportStats": "Estadísticas del informe",
     "reportStatsHelp": "Conteo que cada unidad aporta a los informes de batalla (p. ej. hombres, caballos, cañones). Las claves provienen de las unidades integradas de la era.",
+    "casualtiesAtZeroHp": "Bajas a 0 PV (%)",
+    "casualtiesAtZeroHpHelp": "Porcentaje de la fuerza registrada de esta unidad que se cuenta como bajas al perder toda la barra de PV. Los PV representan fuerza de combate: con el valor predeterminado del 50 %, la unidad deja de ser una fuerza efectiva cuando la mitad de su fuerza registrada se convierte en bajas. La desbandada sigue eliminando toda la fuerza de combate restante.",
     "tallyPerUnit": "Conteo por unidad",
     "walkMovement": "Movimiento al caminar",
     "runMovement": "Movimiento al correr",
@@ -293,7 +324,6 @@
     "rangedAttack": "Ataque a distancia",
     "panicFireDistance": "Distancia de fuego de pánico",
     "fireWhileMoving": "Disparar en movimiento",
-    "noAmmoRegain": "Sin recuperación de munición",
     "rangedDamageTypes": "Tipos de daño a distancia",
     "addRangedDamageType": "Agregar tipo de daño a distancia",
     "enableRanged": "Activar a distancia",
@@ -321,6 +351,10 @@
     "changeAnimationsHelp": "La animación que se reproduce mientras una unidad abandona esta formación por otra. Elige la formación a la que cambia y luego la animación que debe reproducirse por el camino. Una transición sin fila aquí no está rota: la unidad simplemente salta de un sprite a otro sin nada en medio, que es lo que hace hoy toda formación sin entradas. La lista contiene las animaciones que trae esta era, y la infantería de línea de la era usa seis de ellas."
   },
   "unitCategoryModal": {
+    "meleeFire": {
+      "ratio": "Potencia de fuego en melee (0–1)",
+      "hint": "0 (predeterminado): los emisores cubiertos por un enemigo no disparan y el resto sigue disparando a plena potencia. Con un valor mayor que 0, los emisores cubiertos por enemigos disparan a esta fracción de su potencia normal. Los aliados siguen bloqueando el fuego."
+    },
     "title": "Editar categoría de unidad personalizada",
     "optionBuiltIn": "{{name}} (integrada)",
     "optionCustom": "{{name}} (personalizada)",
@@ -514,7 +548,9 @@
       "importFromScenario": "Importar desde escenario",
       "duplicate": "Duplicar",
       "inThisScenario": "En este escenario",
-      "builtIntoThisEra": "Integrado en esta era"
+      "builtIntoThisEra": "Integrado en esta era",
+      "resetToEra": "Restablecer a la era",
+      "resetAllToEra": "Restablecer todo a la era"
     },
     "spritesPanel": {
       "title": "Sprites de unidades",
@@ -580,7 +616,6 @@
       "clonePickerTitle": "Clonar una categoría de terreno integrada"
     },
     "overrideEditor": {
-      "reset": "Restablecer",
       "eraDefault": "valor por defecto de la era: {{value}}",
       "structuralTooltip": "Constante estructural / de determinismo. Cambiarla puede romper el renderizado, las repeticiones o el emparejamiento."
     },
@@ -629,7 +664,7 @@
     },
     "gameConstants": {
       "title": "Constantes del juego",
-      "description": "Sobrescribe las constantes numéricas de esta era para este escenario. Solo se guardan los valores cambiados; Restablecer devuelve un campo al valor por defecto de la era. Las claves marcadas con ⚠ son estructurales - cambiarlas puede romper el renderizado, las repeticiones o el emparejamiento. Los valores están en unidades internas en bruto.",
+      "description": "Estos son los números básicos de la era: cuánto dura un turno, cuán grande es una casilla, cuántos turnos dura una batalla. Lo que cambies se aplica solo a este escenario, y cualquier valor puede devolverse al del juego.",
       "category": {
         "mapDimensions": "Dimensiones del mapa",
         "deployment": "Despliegue",
@@ -653,11 +688,15 @@
     },
     "gameRules": {
       "title": "Reglas del juego",
-      "description": "Sobrescribe las reglas de juego de esta era para este escenario. Solo se guardan los valores cambiados; usa Restablecer para devolver un campo al valor por defecto de la era. Los valores están en unidades internas en bruto (algunas estadísticas se almacenan preescaladas)."
+      "description": "Estos son los sistemas sobre los que funciona tu era, desde cómo mantienen la moral las unidades hasta cómo se gana una batalla. Lo que cambies se aplica solo a este escenario, y cualquier valor puede devolverse al del juego. Las cifras están en las unidades propias del juego, así que puede que no se lean como metros o minutos."
     },
     "ordersPanel": {
       "title": "Órdenes",
-      "description": "Sobrescribe los valores de las órdenes integradas de esta era para este escenario. Solo se guardan los valores cambiados; usa Restablecer para devolver un campo al valor por defecto de la era. Puedes modificar órdenes existentes pero no agregar nuevas."
+      "description": "Las órdenes son las instrucciones que un jugador puede dar a una unidad durante la batalla. Aquí puedes reajustar las órdenes de la era para este escenario, aunque no puedes inventar otras nuevas. Cualquier valor puede devolverse al del juego.",
+      "general": "Modificador general",
+      "categoryOverrides": "Excepciones por categoría",
+      "addCategory": "Agregar excepción de categoría",
+      "inheritance": "Las categorías sin excepción usan el modificador general: {{value}}%."
     },
     "clonePicker": {
       "alreadyOverridden": "(ya sobrescrita)",
@@ -1047,5 +1086,12 @@
   },
   "objectiveOwnership": {
     "help": "Los objetivos siempre pertenecen a un equipo. En un escenario con plantilla fija, este campo nombra a un jugador, y el objetivo pertenece al equipo de ese jugador. En un escenario hecho para ejércitos dinámicos no hay puestos de jugador hasta que el emparejamiento los llena, así que el campo nombra directamente al equipo."
+  },
+  "mapLabels": {
+    "title": "Nombres del mapa",
+    "help": "Haz clic derecho en el mapa (o toca con controles táctiles) para elegir una posición y luego añade o mueve un nombre.",
+    "add": "Añadir nombre",
+    "move": "Mover a la posición elegida",
+    "empty": "Aún no hay nombres."
   }
 }

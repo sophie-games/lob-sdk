@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Opacità degli ordini selezionati",
+    "description": "Opacità delle frecce e delle anteprime di destinazione delle unità selezionate, o di tutte le unità se nessuna è selezionata. Lo 0% le nasconde."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Opacità degli ordini non selezionati",
+    "description": "Opacità delle frecce e delle anteprime di destinazione delle altre unità quando ci sono unità selezionate. Lo 0% le nasconde."
+  },
   "gameplay": "Giocabilità",
   "graphics": "Grafica",
   "camera": "Fotocamera",
@@ -25,8 +33,10 @@
     "description": "Mostra la barra dei gruppi di controllo. Disattivala per evitare che tocchi accidentali cambino la selezione sui dispositivi touch."
   },
   "smartCurvedMovements": {
-    "title": "Movimenti curvi intelligenti",
-    "description": "Abilita questa opzione per ottimizzare i percorsi di movimento con curve fluide, riducendo la perdita di velocità durante le rotazioni."
+    "title": "Traiettoria",
+    "description": "Diretta segue i segmenti disegnati; Curva arrotonda le svolte. Gli ostacoli invalicabili vengono aggirati automaticamente.",
+    "direct": "Diretta",
+    "curved": "Curva"
   },
   "pathFinding": {
     "title": "Ricerca del percorso",
@@ -95,17 +105,13 @@
   "gridOpacity": {
     "title": "Opacità della griglia"
   },
-  "tracerOpacity": {
-    "title": "Opacità delle scie traccianti",
-    "description": "Controlla l’opacità delle linee traccianti durante gli attacchi a distanza. Impostala su 0% per nasconderle."
+  "showChargeDamageIndicators": {
+    "title": "Mostra indicatori dei danni da carica",
+    "description": "Mostra numeri fluttuanti dei danni quando le unità caricano."
   },
   "showDebugShapes": {
     "title": "Mostra forme di debug",
     "description": "Mostra forme di debug sulle unità inclusi forme di collisione e punti di controllo del terreno."
-  },
-  "bottomButtons": {
-    "title": "Pulsanti Inferiori",
-    "description": "Configura l'ordine dei pulsanti nella parte inferiore dello schermo durante il gioco."
   },
   "fullScreen": {
     "title": "Schermo intero",
@@ -153,7 +159,7 @@
     "shootOrder": "Ordine di sparo",
     "fireAndAdvanceOrder": "Ordine di sparare e avanzare",
     "fallbackOrder": "Ordine di ritirata",
-    "toggleSmartCurvedMovements": "Attiva/disattiva movimenti curvi intelligenti",
+    "toggleSmartCurvedMovements": "Alterna Diretta e Curva",
     "togglePathFinding": "Attiva/disattiva ricerca percorso",
     "toggleFowPerspective": "Cambia prospettiva nebbia di guerra",
     "toggleMultiTurnPathOrders": "Attiva/disattiva ordini percorso multi-giro",
@@ -168,6 +174,7 @@
     "toggleFullscreen": "Attiva/disattiva schermo intero",
     "simulateMultiTouch": "Simula Multi-touch",
     "toggleSupplyLines": "Attiva/disattiva linee di rifornimento",
+    "toggleUnitTransparency": "Attiva/disattiva trasparenza unità",
     "toggleStraightLine": "Attiva/disattiva linea retta",
     "toggleDrawLine": "Attiva/disattiva disabilitazione linee di disegno",
     "splitInHalf": "Dividi a metà",
@@ -231,6 +238,10 @@
     "reminders": {
       "title": "Promemoria",
       "description": "Avvisami quando la mia serie di giorni sta per finire."
+    },
+    "clanLeague": {
+      "title": "Lega della coalizione",
+      "description": "Avvisami quando la mia coalizione può ancora raggiungere le posizioni premiate della settimana."
     }
   },
   "theme": {
@@ -276,13 +287,10 @@
   "controlGroups": {
     "recall": "Richiama gruppo {{group}}",
     "set": "Imposta gruppo {{group}}",
-    "add": "Aggiungi al gruppo {{group}}",
-    "setExclusive": "Assegna solo al gruppo {{group}}"
+    "add": "Aggiungi al gruppo {{group}}"
   },
-  "notifications": {
-    "clanLeague": {
-      "title": "Coalition league",
-      "description": "Notify me when my coalition can still reach the weekly prize positions."
-    }
+  "showGameTips": {
+    "title": "Mostra i consigli",
+    "description": "Brevi lezioni che compaiono in battaglia quando la situazione lo richiede. Ognuna viene mostrata solo poche volte."
   }
 }

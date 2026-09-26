@@ -1,7 +1,7 @@
 {
   "currencyShop": {
     "title": "Ottieni <0/>",
-    "subtitle": "Sblocca fantastici cosmetici e distinguiti dalla massa!",
+    "subtitle": "Spendi Prestigio in unità, eserciti, Arene, Coalitions, cosmetici e altro.",
     "unavailable": "Il negozio non è al momento disponibile. Riprova più tardi."
   },
 
@@ -11,7 +11,7 @@
     "basic": "Fiorini",
     "premium": "Prestigio",
     "basicDescription": "<currency/>: Guadagna questa giocando partite in coda. Usala per reclutare unità e costruire il tuo esercito.",
-    "premiumDescription": "<currency/>: Questa serve per acquistare cosmetici per sfoggiare il tuo stile. Si ottiene principalmente spendendo soldi veri, dato che il gioco è gratuito.",
+    "premiumDescription": "<currency/>: Spendilo in tutto il gioco per unità, eserciti, Arene, Coalitions, cosmetici e altro. Compralo o guadagnalo giocando.",
     "rate": "{{rate}} {{currency}} per USD",
     "purchase": "Acquista {{amount}} {{currency}}"
   },
@@ -29,5 +29,6 @@
   },
 
   "purchaseConfirmation": "Sei sicuro di voler acquistare {{item}}?",
+  "showPurchased": "Mostra acquistati",
   "offlineWarning": "Gli acquisti funzionano solo in modalità online, non offline."
 }

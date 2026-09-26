@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Opacidad de órdenes seleccionadas",
+    "description": "Opacidad de las flechas y vistas previas de destino de las unidades seleccionadas, o de todas si no hay ninguna seleccionada. El 0% las oculta."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Opacidad de órdenes no seleccionadas",
+    "description": "Opacidad de las flechas y vistas previas de destino de las demás unidades mientras hay unidades seleccionadas. El 0% las oculta."
+  },
   "gameplay": "Jugabilidad",
   "graphics": "Gráficos",
   "camera": "Cámara",
@@ -25,8 +33,10 @@
     "description": "Muestra la barra de grupos de control. Desactívala para evitar que toques accidentales cambien tu selección en dispositivos táctiles."
   },
   "smartCurvedMovements": {
-    "title": "Movimientos Curvos Inteligentes",
-    "description": "Habilita esta opción para optimizar las rutas de movimiento con curvas suaves, minimizando la pérdida de velocidad durante las rotaciones."
+    "title": "Movimiento",
+    "description": "Directo sigue los tramos dibujados; Curvo suaviza los giros. Los obstáculos infranqueables se rodean automáticamente.",
+    "direct": "Directo",
+    "curved": "Curvo"
   },
   "pathFinding": {
     "title": "Búsqueda de ruta",
@@ -95,17 +105,13 @@
   "gridOpacity": {
     "title": "Opacidad de la cuadrícula"
   },
-  "tracerOpacity": {
-    "title": "Opacidad de las líneas trazadoras",
-    "description": "Controla la opacidad de las líneas trazadoras durante los ataques a distancia. Al 0%, se ocultan."
+  "showChargeDamageIndicators": {
+    "title": "Mostrar indicadores de daño de carga",
+    "description": "Muestra números de daño flotantes cuando las unidades cargan."
   },
   "showDebugShapes": {
     "title": "Mostrar formas de depuración",
     "description": "Muestra formas de depuración en las unidades incluyendo formas de colisión y puntos de verificación de terreno."
-  },
-  "bottomButtons": {
-    "title": "Botones Inferiores",
-    "description": "Configura el orden de los botones en la parte inferior de la pantalla durante el juego."
   },
   "fullScreen": {
     "title": "Pantalla Completa",
@@ -119,7 +125,7 @@
   "reset": "Restablecer",
   "drawLineFormation": {
     "title": "Usar líneas de dibujo",
-    "description": "Cuando está habilitado, usará la formación de línea de dibujo cuando se seleccionen muchas unidades. Cuando está deshabilitado, usará la formación de ruta de dibujo cuando se seleccionen muchas unidades. La ruta de dibujo también se puede hacer arrastrando una de las unidades."
+    "description": "Con varios grupos o unidades seleccionados, elegí si al arrastrar dibujás una línea o un recorrido. Una brigada o división completa dibuja un recorrido por defecto; elegí Draw Line para reorganizarla."
   },
   "useStraightLine": {
     "title": "Usar línea recta",
@@ -156,7 +162,7 @@
     "shootOrder": "Orden de disparo",
     "fireAndAdvanceOrder": "Orden de disparar y avanzar",
     "fallbackOrder": "Orden de retirada",
-    "toggleSmartCurvedMovements": "Alternar movimientos curvos inteligentes",
+    "toggleSmartCurvedMovements": "Alternar Directo y Curvo",
     "togglePathFinding": "Alternar búsqueda de ruta",
     "toggleFowPerspective": "Alternar perspectiva de niebla de guerra",
     "toggleMultiTurnPathOrders": "Alternar órdenes de camino multi-turnos",
@@ -171,8 +177,9 @@
     "toggleFullscreen": "Alternar pantalla completa",
     "simulateMultiTouch": "Simular Multi-toque",
     "toggleSupplyLines": "Alternar líneas de suministro",
+    "toggleUnitTransparency": "Alternar transparencia de unidades",
     "toggleStraightLine": "Alternar línea recta",
-    "toggleDrawLine": "Alternar desactivar líneas de dibujo",
+    "toggleDrawLine": "Draw Line",
     "splitInHalf": "Dividir por la mitad",
     "openPingWheel": "Abrir rueda de pings",
     "controlGroupsHelp": "El dígito solo lanza una orden. Recupera un grupo con {{modifier}} + su dígito."
@@ -224,6 +231,10 @@
     "reminders": {
       "title": "Recordatorios",
       "description": "Avísame cuando mi racha diaria esté por terminar."
+    },
+    "clanLeague": {
+      "title": "Liga de la coalición",
+      "description": "Avísame cuando mi coalición todavía pueda alcanzar los puestos con premio de la semana."
     }
   },
   "theme": {
@@ -269,13 +280,19 @@
   "controlGroups": {
     "recall": "Llamar grupo {{group}}",
     "set": "Fijar grupo {{group}}",
-    "add": "Agregar al grupo {{group}}",
-    "setExclusive": "Asignar solo al grupo {{group}}"
+    "add": "Agregar al grupo {{group}}"
   },
-  "notifications": {
-    "clanLeague": {
-      "title": "Coalition league",
-      "description": "Notify me when my coalition can still reach the weekly prize positions."
-    }
+  "drawingMode": {
+    "options": "Opciones de movimiento",
+    "smoothCurves": "Suavizar curvas",
+    "title": "Modo de dibujo",
+    "route": "Recorrido",
+    "deploy": "Draw Line",
+    "routeDescription": "Dibujá el recorrido a seguir, conservando la disposición del grupo al llegar.",
+    "deployDescription": "Dibujá una línea para organizar la selección; las brigadas y divisiones completas conservan su formación al moverse con otras unidades."
+  },
+  "showGameTips": {
+    "title": "Mostrar consejos",
+    "description": "Lecciones breves que aparecen en batalla cuando la situación lo pide. Cada una se muestra solo unas pocas veces."
   }
 }

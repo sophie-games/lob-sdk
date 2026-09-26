@@ -7,6 +7,18 @@
   "TILE_SIZE": 16,
 
   "DEFAULT_MAX_TURN": 40,
+  "MINUTES_PER_TURN": 1440,
+  "DEFAULT_BATTLE_START_TIME": "00:00",
+  "BATTLE_LIGHTING": {
+    "color": "#18243b",
+    "opacityByTime": [
+      { "time": "00:00", "opacity": 0.24 },
+      { "time": "05:00", "opacity": 0.24 },
+      { "time": "08:00", "opacity": 0 },
+      { "time": "18:00", "opacity": 0 },
+      { "time": "21:00", "opacity": 0.24 }
+    ]
+  },
   "MIN_CUSTOM_GAME_MAX_TURNS": 10,
   "MAX_CUSTOM_GAME_MAX_TURNS": 99,
   "MIN_OFFLINE_GAME_MAX_TURNS": 1,
@@ -62,6 +74,7 @@
   "CHARGE_BACKLASH_RESIST_FLOOR": 0,
 
   "HAS_TAKEN_FIRE_SPEED_MODIFIER": -0.12,
+  "HAS_BEEN_IN_MELEE_SPEED_MODIFIER": -0.12,
 
   "EFFECT_HAS_RAN_TICKS": 12,
 
@@ -94,5 +107,6 @@
   "DEFAULT_BATTLE_TYPE": "operational",
   "ROUTING_FORMATION": "dispersed",
   "PROTOTYPE": true,
-  "STAT_DISPLAY_DIVISOR": 100
+  "STAT_DISPLAY_DIVISOR": 100,
+  "METERS_PER_PIXEL": 312.5
 }

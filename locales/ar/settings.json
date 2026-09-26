@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "عتامة أوامر الوحدات المحددة",
+    "description": "عتامة الأسهم ومعاينات الوجهة للوحدات المحددة، أو لجميع الوحدات عند عدم تحديد أي وحدة. تخفيها نسبة 0%."
+  },
+  "unselectedOrderOpacity": {
+    "title": "عتامة أوامر الوحدات غير المحددة",
+    "description": "عتامة الأسهم ومعاينات الوجهة للوحدات الأخرى أثناء تحديد وحدات. تخفيها نسبة 0%."
+  },
   "gameplay": "اللعب",
   "graphics": "الرسوميات",
   "camera": "الكاميرا",
@@ -25,8 +33,10 @@
     "description": "يعرض شريط مجموعات التحكم. عطّله لمنع اللمسات العرضية من تغيير تحديدك على الأجهزة التي تعمل باللمس."
   },
   "smartCurvedMovements": {
-    "title": "الحركات المنحنية الذكية",
-    "description": "تفعيل هذا الخيار لتحسين مسارات الحركة بمنحنيات سلسة، مما يقلل من فقدان السرعة أثناء الدوران."
+    "title": "مسار الحركة",
+    "description": "يتبع المباشر المقاطع المرسومة؛ ويجعل المنحني الانعطافات أكثر سلاسة. يتم الالتفاف تلقائيًا حول العوائق التي يتعذر عبورها.",
+    "direct": "مباشر",
+    "curved": "منحني"
   },
   "pathFinding": {
     "title": "البحث عن المسار",
@@ -102,17 +112,13 @@
   "gridOpacity": {
     "title": "عتامة الشبكة"
   },
-  "tracerOpacity": {
-    "title": "عتامة خطوط التتبّع",
-    "description": "تتحكم في عتامة خطوط التتبّع أثناء الهجمات بعيدة المدى. اضبطها على 0% لإخفائها."
+  "showChargeDamageIndicators": {
+    "title": "إظهار مؤشرات ضرر الاندفاع",
+    "description": "إظهار أرقام الضرر العائمة عند اندفاع الوحدات."
   },
   "showDebugShapes": {
     "title": "إظهار أشكال التصحيح",
     "description": "إظهار أشكال التصحيح على الوحدات بما في ذلك أشكال التصادم ونقاط فحص التضاريس."
-  },
-  "bottomButtons": {
-    "title": "الأزرار السفلية",
-    "description": "قم بتكوين ترتيب الأزرار في الجزء السفلي من الشاشة أثناء اللعب."
   },
   "disableSkins": {
     "title": "تعطيل المظاهر",
@@ -176,7 +182,7 @@
     "shootOrder": "أمر إطلاق النار",
     "fireAndAdvanceOrder": "أمر إطلاق النار والتقدم",
     "fallbackOrder": "أمر التراجع",
-    "toggleSmartCurvedMovements": "تبديل الحركات المنحنية الذكية",
+    "toggleSmartCurvedMovements": "التبديل بين المباشر والمنحني",
     "togglePathFinding": "تبديل البحث عن المسار",
     "toggleFowPerspective": "تبديل منظور ضباب الحرب",
     "toggleMultiTurnPathOrders": "تبديل أوامر المسار متعدد الأدوار",
@@ -191,6 +197,7 @@
     "toggleFullscreen": "تبديل وضع الشاشة الكاملة",
     "simulateMultiTouch": "محاكاة اللمس المتعدد",
     "toggleSupplyLines": "تبديل خطوط الإمداد",
+    "toggleUnitTransparency": "تبديل شفافية الوحدات",
     "toggleStraightLine": "تبديل الخط المستقيم",
     "toggleDrawLine": "تبديل تعطيل خطوط الرسم",
     "splitInHalf": "تقسيم إلى النصف",
@@ -254,6 +261,10 @@
     "reminders": {
       "title": "التذكيرات",
       "description": "أعلمني عندما توشك سلسلة أيامي على الانتهاء."
+    },
+    "clanLeague": {
+      "title": "دوري التحالف",
+      "description": "أعلمني عندما يظل بإمكان تحالفي بلوغ مراكز الجوائز الأسبوعية."
     }
   },
   "theme": {
@@ -299,13 +310,10 @@
   "controlGroups": {
     "recall": "استدعاء المجموعة {{group}}",
     "set": "تعيين المجموعة {{group}}",
-    "add": "إضافة إلى المجموعة {{group}}",
-    "setExclusive": "تعيين للمجموعة {{group}} فقط"
+    "add": "إضافة إلى المجموعة {{group}}"
   },
-  "notifications": {
-    "clanLeague": {
-      "title": "Coalition league",
-      "description": "Notify me when my coalition can still reach the weekly prize positions."
-    }
+  "showGameTips": {
+    "title": "إظهار النصائح",
+    "description": "دروس قصيرة تظهر أثناء المعركة عندما يستدعي الموقف ذلك. تظهر كل نصيحة بضع مرات فقط."
   }
 }

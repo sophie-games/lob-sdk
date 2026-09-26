@@ -1,4 +1,11 @@
-﻿{
+{
+  "orderUndo": {
+    "title": "撤销上一条命令",
+    "description": "恢复之前的命令。受影响单位：{{count}}。",
+    "empty": "没有可撤销的命令。"
+  },
+  "otherGameModes": "其他游戏模式",
+  "partyWaitingForTeammate": "等待队友",
   "orderSpeed": "指令",
   "orderChargeResistance": "指令",
   "shooting": "射击",
@@ -10,7 +17,7 @@
   "verified": "已验证账户",
   "tools": "工具",
   "rotateCamera": "旋转",
-  "continue": "继续",
+  "appLoadingMessage": "欢迎来到 战线统帅：拿破仑！",
   "skip": "跳过",
   "home": "主页",
   "homeStartBattle": "开始或继续一场战斗",
@@ -53,19 +60,22 @@
   },
   "analytics": "分析",
   "language": "语言",
-  "tutorial": "教程",
-  "tutorials": "教程",
   "play": "游玩",
   "ranking": "排行",
   "profile": "个人信息",
   "history": "历史",
   "store": "商店",
-  "supporters": "赞助者",
   "elo": "Elo",
   "level": "等级",
   "nextLevelExperience": "到下一级的经验值",
   "baseLevelExperience": "基础经验值",
   "experience": "经验值",
+  "coalitionProgression": {
+    "title": "联盟等级",
+    "fixedCapacity": "{{count}}名成员 · 固定容量",
+    "contribute": "贡献{{amount}}弗罗林",
+    "completeWithPrestige": "花费{{amount}}威望完成"
+  },
   "season": "赛季",
   "time": "时间",
   "of": "/",
@@ -175,6 +185,7 @@
     "turn": "回合数 {{turnNumber}}/{{maxTurn}}"
   },
   "withdrawMessage": "如果你从对局中撤退，你会自动算作失败并降低Elo，你确定要撤退吗？",
+  "withdrawUnrankedMessage": "如果你从这场对局中撤退，将被算作失败。你确定要撤退吗？",
   "loading": "加载中……",
   "yes": "是",
   "no": "否",
@@ -245,9 +256,6 @@
     "slowDescriptionPush": "一次一回合。轮到你时我们会通知你。",
     "partyFastOnly": "队伍目前只能进行实时对战。"
   },
-  "skipTutorialTitle": "跳过教程",
-  "skipTutorialMessage": "跳过剩余的教程并返回菜单？系统不会再要求你完成它。",
-  "goToTutorial": "前往教程",
   "requiredInMatchmakingQueue": "始终在匹配队列中",
   "requiredScenarioBadge": "必选",
   "onlyPartyLeaderCanSearch": "只有队长才可以开始匹配。",
@@ -302,8 +310,7 @@
     "createDescription": "从零开始创建一场新战役",
     "loadDescription": "从设备本地加载战役文件",
     "tutorialMessage": "不会用？别担心！<tutorialLink>在这里观看教程。</tutorialLink>",
-    "randomGuide": "想学习如何创建随机地图吗？可以阅读<0>此文档</0>。",
-    "baleriiMessage": "Balerii和Nytka这两名玩家自制他们自己的地图编辑器！查看他们的YouTube频道来看看如何使用："
+    "randomGuide": "想学习如何创建随机地图吗？可以阅读<0>此文档</0>。"
   },
   "scenarioEditorAutosave": {
     "title": "自动保存的战役剧本",
@@ -363,10 +370,14 @@
   "purchase": "购买",
   "purchased": "已购买",
   "forUnit": "适用于{{unit}}",
-  "maxUnitSkinsSelected": "每类型最多{{max}}个皮肤",
   "select": "选择",
   "edit": "编辑",
   "selectAll": "全选",
+  "unitContextMenu": {
+    "follow": "跟随",
+    "addToSelection": "加入选择",
+    "removeFromSelection": "移出选择"
+  },
   "deselect": "取消选择",
   "removeFromSelectionTooltip": "从选择中移除 – 点击单位以移除",
   "keepOnlyThese": "仅保留这些 – 选择要保留的单位",
@@ -377,6 +388,7 @@
   "combating": "战斗",
   "unitStat": {
     "hp": "HP",
+    "men": "人员",
     "org": "组织度",
     "stamina": "体力",
     "supply": "补给",
@@ -454,6 +466,7 @@
   "maxElevationDiff": "最大高度差",
   "orgDamageModifierByTargetOrg": "基于目标组织度的组织度修正",
   "damageModifierByTargetHp": "基于目标HP的伤害修正",
+  "damageModifierByTargetMen": "基于目标兵力的伤害修正",
   "value": "值",
   "terrainHitboxHeight": "地形遮蔽高度",
   "projectileAbsorption": "枪炮弹抗性",
@@ -485,7 +498,8 @@
     "22": "要塞",
     "23": "铁路",
     "24": "铁路/道路",
-    "25": "营地"
+    "25": "营地",
+    "26": "墙"
   },
   "clearPlayerUnits": "清除玩家单位",
   "clearBotUnits": "清除AI玩家单位",
@@ -560,12 +574,175 @@
       }
     }
   },
-  "welcomeModal": {
-    "title": "欢迎来到 战线统帅：拿破仑 👋",
-    "thanks": "欢迎您的加入，{{name}}！",
-    "p1": "初次接触 <b>Lines of Battle</b>？先从<tutorialLink>教程</tutorialLink>开始，在首场战斗前掌握核心机制。"
+  "gameTips": {
+    "victoryPoints": {
+      "title": "胜利点数",
+      "description": "伤亡和目标会影响胜利点数。保护部队并争夺目标，以扭转劣势。"
+    },
+    "blockedFire": {
+      "title": "射击受阻",
+      "description": "你的部队挡住了这支炮兵的射线。清空射线，让它能够开火。"
+    },
+    "organization": {
+      "title": "组织度",
+      "description": "组织混乱的单位可能溃逃。让它们退出战斗，恢复后再进攻。"
+    },
+    "range": {
+      "title": "射击距离",
+      "description": "远距离射击造成的伤害较低。靠近敌人或限制<autofire>自动射击</autofire>距离，提高射击效果。"
+    },
+    "flanks": {
+      "title": "保护侧翼",
+      "description": "侧翼火力造成更高伤害。转向威胁，并用其他单位保护两侧。"
+    },
+    "charge": {
+      "title": "选择冲锋时机",
+      "description": "正面冲击组织有序的部队很危险。先用火力削弱敌人，或攻击侧翼。"
+    },
+    "objectives": {
+      "title": "小型目标",
+      "description": "小星星有助于补充弹药储备。占领它们，让军队持续开火。"
+    },
+    "ammo": {
+      "view": "查看弹药",
+      "title": "弹药",
+      "description": "炮兵会消耗你的储备弹药，储备会在每回合补充。没有弹药就无法射击。调整<autofire>自动射击</autofire>设置以节省弹药。"
+    },
+    "running": {
+      "title": "有目的地奔跑",
+      "description": "对大多数部队来说，<run>奔跑</run>会消耗耐力，并使其在随后遭受冲锋时更容易崩溃。在需要速度或准备冲锋前请保持<walk>行走</walk>。"
+    },
+    "overlap": {
+      "title": "不要堆叠部队",
+      "description": "重叠的友军移动更慢，近战效率更低，相互支援更弱，并会承受更多组织度伤害。"
+    },
+    "terrain": {
+      "title": "利用地形",
+      "description": "地形会改变移动和战斗。打开“<info>信息</info>”查看部队当前的修正效果，并选择合适的地形。"
+    },
+    "basicsSelect": {
+      "title": "下达命令",
+      "description": "拖出方框选中你的部队，然后从选区拖动来绘制行进路线。回合结算之前没有任何单位会移动。"
+    },
+    "basicsOrderTypes": {
+      "title": "命令类型",
+      "description": "每种行进都有节奏。<walk>步行</walk>节省体力，<run>奔跑</run>更快但会疲劳，<fireAndAdvance>移动射击</fireAndAdvance>会一边接近一边开火。打开命令菜单即可切换。"
+    },
+    "basicsFormations": {
+      "title": "阵型",
+      "description": "阵型决定正面宽度与火力。<column>纵队</column>行军快，<line>横队</line>正面火枪最多，<square>空心方阵</square>能防住四面的骑兵。"
+    },
+    "basicsSubmit": {
+      "title": "提交回合",
+      "description": "命令会一直等到你<submitOrders>提交</submitOrders>回合。双方同时结算，所以要按敌人将会在哪里来计划，而不是他现在在哪里。"
+    },
+    "idleUnits": {
+      "title": "没有命令的部队",
+      "description": "你有部队本回合还没有命令。给它们下令，否则战线其余部分前进时它们会原地不动。"
+    },
+    "skirmisherVsArtillery": {
+      "title": "散兵对炮兵",
+      "description": "敌人的炮台就在你的散兵触手可及的范围内。向炮组人员倾注火力。散兵在未受保护的火炮做出回应之前将其摧毁。"
+    },
+    "skirmisherVsCavalry": {
+      "title": "骑兵逼近你的散兵",
+      "description": "如果你的散兵保持这个位置，就会被敌方骑兵摧毁。<fallback>撤退</fallback>并寻找掩护。"
+    },
+    "skirmisherVsInfantry": {
+      "title": "步兵逼近你的散兵",
+      "description": "敌方步兵压在你的散兵身上。散兵在混战中溃散。在刺刀到达之前向后拉。"
+    },
+    "infantryFormLine": {
+      "title": "结成横队",
+      "description": "将这些单位切换为<line>横队</line>。当敌方步兵在火枪射程内或骑兵在前方时，线阵可以为你提供最多的火枪指向前方，并为你提供最好的防御来袭的齐射。不要在正面冲锋时形成方阵，否则你会损失一半的火力。"
+    },
+    "infantryVsCavalryFrontal": {
+      "title": "守住横队",
+      "description": "敌军骑兵正面冲击你的步兵，但他们还有排队的命令。<removeOrders>清除</removeOrders>它们，让横队站稳开火，不要走进马蹄之下。"
+    },
+    "infantryVsCavalryFlank": {
+      "title": "结成方阵",
+      "description": "骑兵出现在步兵的侧翼或后方。一条线从侧面被骑过去。在每个突出显示的单位上组成<square>空心方阵</square>，以便每个面都有步枪。"
+    },
+    "infantryBayonetCharge": {
+      "title": "刺刀冲锋",
+      "description": "冲锋范围内的弱敌方步兵。组成<column>纵队</column>并<run>冲向</run>他们。刺刀在柱上接触时会破坏它们。"
+    },
+    "infantryFallback": {
+      "title": "撤下这支部队",
+      "description": "这支部队的组织已经崩溃，再一发齐射，就溃散了。在线断之前将其拉出。"
+    },
+    "infantryVsSkirmishers": {
+      "title": "步兵对散兵",
+      "description": "敌方散兵就在附近，而且你没有骑兵可用。以<walk>步行</walk>推进，迫使他们进入最不擅长的近战。"
+    },
+    "infantryVsArtillery": {
+      "title": "步兵对炮兵",
+      "description": "敌方火炮就在附近且无人掩护。在炮手转向并发射霰弹前，直接<run>冲向</run>他们。"
+    },
+    "infantryColumnMarch": {
+      "title": "以纵队行军",
+      "description": "这支部队附近没有敌人。切换为<column>纵队</column>以加快行军，并在接敌前展开成<line>横队</line>。"
+    },
+    "cavalryVsWeakerCavalry": {
+      "title": "骑兵对较弱骑兵",
+      "description": "冲锋范围内的敌方骑兵受到震动，你的马匹会更加新鲜。按下的好处是：在恢复之前充电。"
+    },
+    "cavalryVsEqualCavalry": {
+      "title": "骑兵对势均力敌的骑兵",
+      "description": "敌方骑兵与你的骑兵接触并且大致和你的一样稳定。不要在无法获胜的冲锋上浪费体力。以<walk>步行</walk>接近，势均力敌地缠斗。"
+    },
+    "cavalryVsStrongerCavalry": {
+      "title": "骑兵对较强骑兵",
+      "description": "敌方骑兵接触得比你的骑兵更稳定，在这里混战就会失败。在他们提交之前中断并重置。"
+    },
+    "cavalryVsInfantryFlank": {
+      "title": "冲击侧翼",
+      "description": "敌方步兵的侧翼是开放的，他们的稳定性大致和你一样。这就是一次干净的冲锋将他们击垮的时刻。打侧面，不要打正面。"
+    },
+    "cavalryVsShakenInfantry": {
+      "title": "骑兵对动摇的步兵",
+      "description": "敌方步兵几乎无法团结起来，他们的组织已经崩溃。一次干净的冲锋将他们击垮，然后他们才重新集结起来。"
+    },
+    "cavalryVsSkirmishers": {
+      "title": "骑兵对散兵",
+      "description": "散兵在空旷的地方被困，与你的马匹有一条畅通无阻的通道。他们在近战中陷入困境，无法逃脱冲锋。在他们到达掩体之前骑倒他们。"
+    },
+    "cavalryVsArtillery": {
+      "title": "骑兵对炮兵",
+      "description": "敌人的枪在你和他们之间没有屏障。对未经筛选的船员的冲锋一下子就结束了他们。但如果友好的队伍挡住了你的路，你就会流血对抗它。"
+    },
+    "cavalryPursueRouter": {
+      "title": "追击溃兵",
+      "description": "那个敌人已经溃散了，正在逃跑，没有任何支持来打断追击。骑兵的追击将他们彻底击溃。在他们改革之前完成他们。"
+    },
+    "cavalryFallbackFromInfantry": {
+      "title": "火枪射程内的骑兵",
+      "description": "你的骑兵正处于健康线列步兵的火枪射程内。在他们碾压你的马之前撤退，寻找动摇的目标或开放的侧翼。"
+    },
+    "enemyInfantrySquare": {
+      "title": "敌军方阵",
+      "description": "敌军步兵已组成方阵，每一面都有火枪指向外。让骑兵远离，去找侧翼暴露的横队或纵队。"
+    },
+    "artilleryFireAndAdvance": {
+      "title": "移动射击",
+      "description": "敌人距离足够远，你可以在开火时保持接近。将此火炮单位切换至<fireAndAdvance>移动射击</fireAndAdvance>。"
+    },
+    "artilleryRotateToFire": {
+      "title": "停下开火",
+      "description": "敌人已经很近了，你的大炮已经射击干净，但它仍在移动。停止行军并旋转单位以自动射击。"
+    },
+    "pushObjective": {
+      "title": "扩大领先",
+      "description": "你保持领先。用你所学到的知识向敌人的目标推进。结束比赛就意味着他们没有任何东山再起的机会。"
+    },
+    "holdObjective": {
+      "title": "守住你的目标",
+      "description": "你在积分上落后了。回到你的目标并用你所学到的知识来坚持它。防守比重夺便宜。"
+    }
   },
   "turn": "回合",
+  "battleDay": "第 {{day}} 天",
   "bank": "储备",
   "cap": "上限",
   "deploy": "部署",
@@ -585,8 +762,10 @@
     "3": "射击",
     "4": "移动射击",
     "6": "后退",
-    "7": "面向"
+    "7": "面向",
+    "mixed": "混合"
   },
+  "mixedOrderDescription": "每个单位保留自己的命令类型。",
   "selectOrder": "选择指令",
   "orderType": "指令类型",
   "autofire": "自动开火",
@@ -743,16 +922,6 @@
   "kick": "踢出",
   "noDescription": "无描述",
   "save": "保存",
-  "ordersSubmittedDialog": {
-    "p1": {
-      "sent": "指令已发送到服务器。",
-      "received": "服务器已接收指令。",
-      "processed": "服务器已处理指令。"
-    },
-    "p2": "{{value}}秒后检查更新",
-    "b": "立刻检查",
-    "playersSubmitted": "位玩家已提交"
-  },
   "search": {
     "clans": "搜索联盟",
     "lob": "在战线统帅内搜索"
@@ -788,6 +957,8 @@
     "hostWithLobby": "使用大厅主持",
     "allowUnbalancedTeams": "允许队伍人数不均",
     "joinSlot": "以玩家 {{slot}} 身份加入",
+    "controlledBy": "由{{controller}}指挥",
+    "controlledByLabel": "指挥者",
     "slotTaken": "座位已被占用",
     "slotClosed": "已关闭",
     "closeSlot": "关闭",
@@ -808,6 +979,7 @@
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} 对 {{playersPerTeam}} {{battleTypeName}}",
+    "asymmetricTitle": "{{team1}} 对 {{team2}} {{battleTypeName}}",
     "sectionTitle": "活动",
     "featured": "精选",
     "largeScale": "大规模",
@@ -946,6 +1118,9 @@
   "projectilePenetration": "射击穿透",
   "league": {
     "title": "段位",
+    "placementTitle": "定位赛",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "完成{{total}}场排位战即可揭晓你的Elo和联赛。每一场结果都会让你离揭晓更近一步。",
     "unranked": "未排名",
     "emperor": "帝皇",
     "diamond-1": "钻石一级",
@@ -1030,6 +1205,7 @@
   "victoryPoints": "胜利点数",
   "skirmishersInfo": "特定兵种会按比例自动提供散兵。散兵比例取决于战斗规模。",
   "skirmisherRatio": "当前散兵比例",
+  "skirmisherNextBreakpoint": "下一阈值",
   "prestigeDropChance": "{{currency}}掉落率：{{chance}}%（从{{turn}}回合开始）",
   "friendlyFireImmune": "免疫友军火力",
   "nearbyUnits": "附近单位",
@@ -1137,7 +1313,6 @@
   "noPublicGames": "目前没有公开游戏。",
   "kFactorTooltip": "ELO K系数（每场排位赛最大积分变动）",
   "max": "最大",
-  "minDistanceToFAA": "移动射击最低距离",
   "captureProgress": "占领进度",
   "captureThreshold": "占领门槛",
   "logistics": "后勤",
@@ -1167,10 +1342,6 @@
   "artillery": "炮兵",
   "special": "特殊",
   "academy": "学院",
-  "encyclopedia": "百科",
-  "tutorialTips": "教学提示",
-  "loadingScreenTips": "加载界面提示",
-  "gameConstants": "游戏常量",
   "ammo": "弹药",
   "ammoConsumption": "弹药消耗",
   "allowsCharging": "允许冲锋",
@@ -1250,14 +1421,6 @@
     "damageReceived": "承受",
     "winrate": "胜率"
   },
-  "tutorialSummary": {
-    "heading": "教程摘要",
-    "count": "已显示 {{seen}} / {{total}} 节课",
-    "description": "每节课都涵盖一个值得了解的情境。",
-    "allSeen": "你已查看教程中的所有课程。",
-    "viewMissed": "查看错过的课程"
-  },
-  "noAmmoRegain": "弹药不可补充",
   "flankMeleeOrgModifier": "侧翼近战组织度修正",
   "rearCharge": "背后冲锋",
   "deleteAccount": "删除账户",
@@ -1267,5 +1430,94 @@
     "message": "您的账户将在 {{graceDays}} 天后被安排删除。在此之前，您随时可以通过重新登录取消。之后，您的账户和个人数据将被永久匿名化。您确定吗？",
     "scheduled": "您的账户已安排在 {{graceDays}} 天后删除。请在期限之前重新登录以取消。",
     "error": "无法安排账户删除。请重试。"
+  },
+  "continue": "继续",
+  "hideReplayInterface": "隐藏界面",
+  "replayInterfaceKeyboardHint": "H：隐藏/显示 · Esc：显示",
+  "replayInterfaceTouchHint": "双击地图可显示界面。",
+  "firstSession": {
+    "title": "你的第一场战斗",
+    "description": "与电脑对战，按自己的节奏学习下达命令。地图和军队已准备就绪。",
+    "startPractice": "开始练习",
+    "continuePractice": "继续练习",
+    "customize": "自定义战斗",
+    "playOnline": "在线对战"
+  },
+  "replaceOfflineGameWarning": "开始新战斗将替换已保存的离线对局及其进度。",
+  "returnToMenu": "返回菜单",
+  "exitGameHint": "返回菜单不会暂停战斗。",
+  "openReplayFile": "打开回放文件",
+  "failedToLoadClans": "无法加载联盟，请重试。",
+  "emailConfirmation": {
+    "title": "确认电子邮箱",
+    "confirmed": "邮箱已确认，现在可以登录。",
+    "error": "无法确认邮箱，链接可能无效或已过期。"
+  },
+  "offlineSetup": {
+    "title": "如何设置一场练习战斗",
+    "step1": "选择战斗持续多久，以及你能看到敌人多少。",
+    "step2": "挑选一个场景和战斗类型，或者保留默认设置。",
+    "step3": "在下方编成你的军队，然后创建战斗。它在本机运行，所以你可以随时停下再回来。"
+  },
+  "unitComparison": {
+    "stop": "结束比较",
+    "baseLabel": "基础数值",
+    "title": "比较单位",
+    "choose": "比较对象…",
+    "sameCategory": "同类单位",
+    "otherCategories": "其他类别",
+    "gold": "金币费用",
+    "manpower": "人力费用",
+    "baseValues": "基础数值，不含地形、阵型和状态修正；不代表战斗结果预测。",
+    "relativeTo": "百分比表示本单位相对于{{unit}}的差异。",
+    "stat": "属性",
+    "unavailable": "— 表示数值不可用或不适用。"
+  },
+  "battleContinuation": {
+    "exports": "保存或导出",
+    "continueOffline": "离线继续",
+    "replaceTitle": "替换已保存的战斗？",
+    "replace": "替换并继续",
+    "noUnits": "没有幸存单位",
+    "title": "继续战斗",
+    "description": "从此位置开始新的离线战斗。分数将重置；完整回放会保留原始行动。",
+    "additionalTurns": "额外回合",
+    "download": "下载战斗",
+    "exportScenario": "导出场景",
+    "scenarioHint": "场景可以编辑。战斗文件还会保留回放。",
+    "chooseHuman": "请选择仍有存活单位的人类玩家。",
+    "error": "无法加载或保存此战斗，请重试。",
+    "import": "导入战斗"
+  },
+  "turnRecovery": {
+    "pending": "正在更新战局…",
+    "failed": "无法更新战局。"
+  },
+  "orderOfBattle": {
+    "showArmy": "显示军队",
+    "hideArmy": "隐藏军队"
+  },
+  "matchAcceptance": {
+    "firstRejection": "不计失败，也不扣 Elo。24 小时内再次拒绝或错过邀请，将限制快速排位匹配 2 分钟。",
+    "restrictionTitle": "匹配暂时受限",
+    "restriction": "你多次拒绝或错过邀请。快速排位匹配还需等待 {{minutes}} 分钟。私人和离线游戏仍可进行。",
+    "restrictionEnded": "限制已结束，可以重新匹配。",
+    "rulesTitle": "排位规则",
+    "rules": "快速排位对战在所有玩家接受后开始。此后放弃，即使是第一回合，也算正常失败，不追加自动封禁。24 小时内拒绝或错过已收到的邀请，先警告，随后限制 2、10、60 分钟，最高 60 分钟。拒绝不扣 Elo。",
+
+    "ready": "排位 · 快速",
+    "accept": "接受对局",
+    "decline": "拒绝",
+    "timeRemaining": "剩余时间：{{count}} 秒",
+    "sending": "正在确认你的回复…",
+    "waiting": "已接受，等待其他玩家…",
+    "creating": "所有玩家已接受，正在准备战斗…",
+    "reconnecting": "正在重新连接…",
+    "error": "无法确认你的回复，请重试。",
+    "ended": "对局邀请已结束",
+    "requeued": "另一位玩家未确认。你已返回队列，并保留等待优先级。",
+    "noLoss": "邀请已结束，不计失败。你可以重新匹配。",
+    "failed": "无法确认战斗是否已创建。再次匹配前请先检查。",
+    "checkGame": "检查对局"
   }
 }

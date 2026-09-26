@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Selected order opacity",
+    "description": "Opacity of arrows and destination previews for selected units, or all units when nothing is selected. 0% hides them."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Unselected order opacity",
+    "description": "Opacity of other units’ arrows and destination previews while units are selected. 0% hides them."
+  },
   "gameplay": "Gameplay",
   "graphics": "Graphics",
   "camera": "Camera",
@@ -20,13 +28,19 @@
     "title": "Allow Touch Selection Box",
     "description": "Enable selection boxes on touch devices to select multiple units at once."
   },
+  "directTouchControls": {
+    "title": "Direct Touch Controls",
+    "description": "Dragging the map always moves the camera, dragging one of your units draws its order, and a tap on open ground sends the selection there. Turn it off to go back to the previous scheme."
+  },
   "showControlGroupsBar": {
     "title": "Control groups bar",
     "description": "Show the control-groups bar. Turn it off to stop accidental taps from changing your selection on touch devices."
   },
   "smartCurvedMovements": {
-    "title": "Smart Curved Movements",
-    "description": "Enable this option to optimize movement paths with smooth curves, minimizing speed loss during rotations."
+    "title": "Movement path",
+    "description": "Direct follows the drawn segments; Curved rounds the turns. Impassable obstacles are avoided automatically.",
+    "direct": "Direct",
+    "curved": "Curved"
   },
   "pathFinding": {
     "title": "Path finding",
@@ -102,9 +116,9 @@
   "gridOpacity": {
     "title": "Grid Opacity"
   },
-  "tracerOpacity": {
-    "title": "Tracer Laser Opacity",
-    "description": "Controls the opacity of tracer lines during ranged attacks. Set to 0% to hide them."
+  "showChargeDamageIndicators": {
+    "title": "Show charge damage indicators",
+    "description": "Display floating damage numbers when units charge."
   },
   "showDebugShapes": {
     "title": "Show debug shapes",
@@ -113,10 +127,6 @@
   "showDebugInfo": {
     "title": "Show Debug Info",
     "description": "This is useful for developers."
-  },
-  "bottomButtons": {
-    "title": "Bottom Buttons",
-    "description": "Configure the order of buttons at the bottom of the screen during gameplay."
   },
   "disableSkins": {
     "title": "Disable Skins",
@@ -140,7 +150,7 @@
   },
   "drawLineFormation": {
     "title": "Use Draw Line",
-    "description": "When enabled, it will use draw lines when many units selected. When disabled, it will use draw path when many units selected. Draw path is also doable by dragging one of the units."
+    "description": "With multiple groups or units selected, choose whether dragging draws a line or a route. A complete brigade or division draws a route by default; choose Draw Line to rearrange it."
   },
   "useStraightLine": {
     "title": "Use straight line",
@@ -180,7 +190,7 @@
     "shootOrder": "Shoot order",
     "fireAndAdvanceOrder": "Fire and advance order",
     "fallbackOrder": "Fallback order",
-    "toggleSmartCurvedMovements": "Toggle Smart Curved Movements",
+    "toggleSmartCurvedMovements": "Switch between Direct and Curved",
     "togglePathFinding": "Toggle Path finding",
     "toggleFowPerspective": "Toggle Fog of War Perspective",
     "toggleMultiTurnPathOrders": "Toggle Multi-turn Path Orders",
@@ -195,8 +205,9 @@
     "toggleFullscreen": "Toggle Fullscreen",
     "simulateMultiTouch": "Simulate Multi-touch",
     "toggleSupplyLines": "Toggle Supply Lines",
+    "toggleUnitTransparency": "Toggle Unit Transparency",
     "toggleStraightLine": "Toggle Straight Line",
-    "toggleDrawLine": "Toggle Draw Line",
+    "toggleDrawLine": "Draw Line",
     "splitInHalf": "Split in Half",
     "controlGroup1": "Control Group 1",
     "controlGroup2": "Control Group 2",
@@ -209,6 +220,10 @@
     "controlGroup9": "Control Group 9",
     "controlGroup0": "Control Group 0",
     "openPingWheel": "Open ping wheel",
+    "toggleArmyPanel": "Show or hide the army",
+    "openPlayersPanel": "Open players",
+    "openReplayActions": "Replay last actions",
+    "openBattleMenu": "Open battle menu",
     "controlGroupsHelp": "The bare digit issues an order. Recall a group with {{modifier}} + its digit."
   },
   "routingTransparency": {
@@ -307,7 +322,19 @@
   "controlGroups": {
     "recall": "Recall Group {{group}}",
     "set": "Set Group {{group}}",
-    "add": "Add to Group {{group}}",
-    "setExclusive": "Set Group {{group}} only"
+    "add": "Add to Group {{group}}"
+  },
+  "drawingMode": {
+    "options": "Movement options",
+    "smoothCurves": "Smooth curves",
+    "title": "Drawing mode",
+    "route": "Route",
+    "deploy": "Draw Line",
+    "routeDescription": "Draw the route to follow, keeping the group’s layout at arrival.",
+    "deployDescription": "Draw a line to arrange the selection; complete brigades and divisions keep their formation when moved with others."
+  },
+  "showGameTips": {
+    "title": "Show tips",
+    "description": "Short lessons that appear in battle when the situation calls for one. Each is shown only a few times."
   }
 }

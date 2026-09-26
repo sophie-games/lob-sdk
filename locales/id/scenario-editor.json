@@ -72,13 +72,16 @@
     "allowDynamicArmyHelp": "Saat aktif, pemain membawa pasukan mereka sendiri berdasarkan tipe pertempuran pencarian permainan dan menempatkannya di dalam zona mereka. Saat nonaktif, unit yang telah ditempatkan dalam skenario menentukan seluruh daftar pasukan (komposisi pasukan dilewati).",
     "fixedRoster": "Pemain tetap",
     "fixedRosterHelp": "Bila diaktifkan, skenario menentukan slot pemain, tim, dan cadangan amunisinya sendiri, dan lobi tidak dapat menambah atau menghapus pemain. Bila dinonaktifkan, daftar pemain berasal dari lobi atau matchmaking.",
-    "allowDeploymentPhase": "Fase penempatan",
-    "allowDeploymentPhaseHelp": "Bila diaktifkan, pertempuran dimulai pada giliran 0 sehingga setiap pemain dapat mengatur ulang posisi unitnya di dalam zona penempatannya sebelum pertempuran dimulai.",
     "noInherentAmmo": "Tanpa amunisi sendiri",
     "noInherentAmmoHelp": "Saat diaktifkan, unit dengan amunisi muncul tanpa amunisi sendiri dan mengambil seluruh pasokannya dari cadangan bersama, sehingga tidak bisa menembak pada giliran pertama dan baru melepaskan tembakan setelah cadangan mengisinya kembali.",
+    "startTime": "Waktu mulai",
+    "startTimeHelp": "Opsional. Kosongkan agar giliran 1 dimulai pukul {{time}} (bawaan era).",
+    "maxTurn": "Giliran maksimum",
+    "maxTurnHelp": "Nilai bawaan skenario opsional (10–99); permainan dapat memilih batas lain.",
     "showGrid": "Tampilkan grid",
     "showUnits": "Tampilkan unit",
     "showObjectives": "Tampilkan objektif",
+    "showMapLabels": "Tampilkan label peta",
     "goBack": "Kembali",
     "goBackConfirm": "Apakah Anda yakin ingin kembali dan keluar dari editor?",
     "display": "Tampilan",
@@ -91,7 +94,6 @@
     "testScenario": "Uji skenario",
     "placeableObjectives": "Objektif yang ditempatkan pemain",
     "placeableObjectivesHelp": "Saat aktif, setiap pemain menempatkan objektifnya sendiri selama fase penempatan, di dalam zonanya sendiri. Saat nonaktif, pertempuran hanya memakai objektif yang Anda tempatkan di peta.",
-    "placeableObjectivesNeedsDeployment": "Aktifkan juga fase penempatan, atau pemain tidak akan pernah mencapai giliran saat mereka menempatkan objektif ini dan tidak ada yang akan muncul.",
     "resting": {
       "thisScenario": "Skenario ini",
       "gettingStarted": "Memulai",
@@ -121,6 +123,8 @@
     "rosterHelp": "Daftar pemain tetap berarti skenario menentukan slot pemain, tim, dan amunisinya, dan semua orang bertempur dengan unit yang Anda tempatkan. Daftar pemain dinamis menyerahkan slot kepada lobi atau pencarian permainan, dan pemain membawa pasukan mereka sendiri ke pertempuran."
   },
   "playersPanel": {
+    "commander": "Komandan",
+    "commandFormation": "Komando",
     "removePlayer": "Hapus pemain",
     "ammoReserve": "Cadangan",
     "ammoBase": "Dasar",
@@ -171,7 +175,8 @@
     "title": "Zona penempatan",
     "hint": "Zona ini menentukan di mana setiap pasukan memulai. Fase penempatan hanya menambahkan giliran 0 agar pemain dapat mengatur ulang posisi di dalamnya.",
     "team": "Tim {{team}}",
-    "wholeTeam": "Semua pemain tim",
+    "remainingPlayers": "Pemain tim lainnya",
+    "assignmentHelp": "Pilih pemain tim lainnya atau satu maupun beberapa pemain tertentu.",
     "player": "Pemain {{player}}",
     "mainZone": "Utama",
     "forwardZone": "Depan",
@@ -183,9 +188,7 @@
       "y": "Y",
       "player": "Ditugaskan ke",
       "rotation": "Rotasi (derajat)"
-    },
-    "phaseHelp": "Dengan fase penempatan aktif, pemain mendapat satu giliran tambahan sebelum pertempuran dimulai, semata-mata untuk mengatur ulang posisi unit di dalam zona mereka.",
-    "gateHelp": "Zona ini dapat diedit selama salah satu dari Izinkan pasukan dinamis, Fase penempatan, atau Objektif yang ditempatkan pemain aktif, karena ketiganya sama-sama memerlukan tempat bagi pasukan yang datang untuk memulai. Dengan ketiganya nonaktif, zona ini berwarna abu-abu, dan pada peta prosedural zona ini juga berwarna abu-abu, karena di sana zona ditulis sebagai persentase di panel Peta Acak."
+    }
   },
   "vpBalance": {
     "heading": "Keseimbangan VP (korban vs objektif)",
@@ -199,7 +202,11 @@
     "drawLineRank": "Peringkat garis (lebih kecil = depan)",
     "title": "Edit formasi kustom",
     "collision": "Tabrakan",
-    "collisionHelp": "Jejak persegi panjang: frontage di sepanjang depan dan depth dari depan ke belakang. Atur keduanya ke 0 untuk tanpa tabrakan (terbang / hantu).",
+    "collisionHelp": "Bentuk jejak: lingkaran (radius) atau persegi panjang (frontage di sepanjang depan, depth dari depan ke belakang). Gunakan radius 0 untuk tanpa tabrakan (terbang / hantu).",
+    "shape": "Bentuk",
+    "shapeRectangle": "Persegi panjang",
+    "shapeCircle": "Lingkaran",
+    "radiusPx": "Radius (px)",
     "frontagePx": "Frontage (px)",
     "depthPx": "Depth (px)",
     "runMovementModifier": "Modifier pergerakan lari",
@@ -215,7 +222,7 @@
     "rangedDamageResistance": "Ketahanan kerusakan jarak jauh",
     "rangedOrgResistance": "Ketahanan org jarak jauh",
     "fireEdges": "Tepi tembak (tembakan tepi)",
-    "fireEdgesHelp": "Setiap tepi tembak memancarkan di sepanjang satu sisi persegi panjang. Formasi tanpa tepi tembak menembak dengan satu tepi depan bawaan.",
+    "fireEdgesHelp": "Setiap tepi tembak memancarkan di sepanjang satu sisi persegi panjang. Formasi tanpa tepi tembak menembak dengan satu tepi depan bawaan; formasi lingkaran tidak menembak.",
     "edge": "Tepi",
     "edgeLeft": "0 - sisi kiri (-Y)",
     "edgeFront": "1 - depan (+X)",
@@ -252,6 +259,7 @@
     }
   },
   "unitTemplateModal": {
+    "initialOrder": "Perintah awal",
     "title": "Edit templat unit kustom",
     "optBuiltIn": "{{name}} (bawaan)",
     "optCustom": "{{name}} (kustom)",
@@ -276,6 +284,8 @@
     "orgRadiusBonus": "Bonus radius org",
     "reportStats": "Statistik laporan",
     "reportStatsHelp": "Hitungan yang dikontribusikan setiap unit ke laporan pertempuran (mis. orang, kuda, meriam). Kunci berasal dari unit bawaan era.",
+    "casualtiesAtZeroHp": "Korban saat HP nol (%)",
+    "casualtiesAtZeroHpHelp": "Bagian kekuatan tercatat unit ini yang dihitung sebagai korban setelah seluruh bilah HP habis. HP mewakili kekuatan tempur: pada nilai bawaan 50%, unit berhenti efektif bertempur setelah separuh kekuatan tercatatnya menjadi korban. Hancur tetap menghapus seluruh kekuatan tempur yang tersisa.",
     "tallyPerUnit": "Hitungan per unit",
     "walkMovement": "Pergerakan jalan",
     "runMovement": "Pergerakan lari",
@@ -291,7 +301,6 @@
     "rangedAttack": "Serangan jarak jauh",
     "panicFireDistance": "Jarak tembakan panik",
     "fireWhileMoving": "Tembak sambil bergerak",
-    "noAmmoRegain": "Tanpa pemulihan amunisi",
     "rangedDamageTypes": "Tipe kerusakan jarak jauh",
     "addRangedDamageType": "Tambah tipe kerusakan jarak jauh",
     "enableRanged": "Aktifkan jarak jauh",
@@ -319,6 +328,10 @@
     "changeAnimationsHelp": "Animasi yang diputar saat sebuah unit meninggalkan formasi ini menuju formasi lain. Pilih formasi tujuannya, lalu animasi yang diputar selama perpindahan itu. Transisi tanpa baris di sini bukan berarti rusak: unit hanya berpindah langsung dari satu sprite ke sprite lain tanpa apa pun di antaranya, dan begitulah semua formasi tanpa entri bekerja saat ini. Daftar ini berisi animasi yang disertakan era ini, dan infanteri baris era ini memakai enam di antaranya."
   },
   "unitCategoryModal": {
+    "meleeFire": {
+      "ratio": "Daya tembak jarak dekat (0–1)",
+      "hint": "0 (bawaan): titik tembak yang tertutup musuh tidak menembak, sisanya tetap menembak dengan daya penuh. Di atas 0, titik tembak yang tertutup musuh menembak dengan fraksi daya normal ini. Kawan tetap menghalangi tembakan."
+    },
     "title": "Edit kategori unit kustom",
     "optionBuiltIn": "{{name}} (bawaan)",
     "optionCustom": "{{name}} (kustom)",
@@ -512,7 +525,9 @@
       "importFromScenario": "Impor dari skenario",
       "duplicate": "Duplikat",
       "inThisScenario": "Dalam skenario ini",
-      "builtIntoThisEra": "Bawaan era ini"
+      "builtIntoThisEra": "Bawaan era ini",
+      "resetToEra": "Reset ke era",
+      "resetAllToEra": "Reset semua ke era"
     },
     "spritesPanel": {
       "title": "Sprite unit",
@@ -578,7 +593,6 @@
       "clonePickerTitle": "Klon kategori medan bawaan"
     },
     "overrideEditor": {
-      "reset": "Reset",
       "eraDefault": "bawaan era: {{value}}",
       "structuralTooltip": "Konstanta struktural / determinisme. Mengubahnya dapat merusak rendering, replay, atau pencarian permainan."
     },
@@ -626,7 +640,7 @@
     },
     "gameConstants": {
       "title": "Konstanta permainan",
-      "description": "Timpa konstanta numerik era ini untuk skenario ini. Hanya nilai yang diubah yang disimpan; Reset mengembalikan field ke bawaan era. Kunci bertanda ⚠ bersifat struktural - mengubahnya dapat merusak rendering, replay, atau pencarian permainan. Nilai adalah unit internal mentah.",
+      "description": "Ini angka-angka dasar era: berapa lama satu giliran, seberapa besar satu petak, berapa giliran sebuah pertempuran berjalan. Perubahan Anda hanya berlaku untuk skenario ini, dan nilai apa pun dapat dikembalikan ke nilai bawaan game.",
       "category": {
         "mapDimensions": "Dimensi peta",
         "deployment": "Penempatan",
@@ -650,11 +664,15 @@
     },
     "gameRules": {
       "title": "Aturan permainan",
-      "description": "Timpa aturan permainan era ini untuk skenario ini. Hanya nilai yang diubah yang disimpan; gunakan Reset untuk mengembalikan field ke bawaan era. Nilai adalah unit internal mentah (beberapa statistik disimpan dalam keadaan terskala)."
+      "description": "Ini sistem yang menjalankan era Anda, dari cara unit menjaga keberanian hingga cara memenangkan pertempuran. Perubahan Anda hanya berlaku untuk skenario ini, dan nilai apa pun dapat dikembalikan ke nilai bawaan game. Angkanya memakai satuan game sendiri, jadi bisa jadi bukan meter atau menit."
     },
     "ordersPanel": {
       "title": "Perintah",
-      "description": "Timpa nilai perintah bawaan era ini untuk skenario ini. Hanya nilai yang diubah yang disimpan; gunakan Reset untuk mengembalikan field ke bawaan era. Anda dapat memodifikasi perintah yang ada tetapi tidak dapat menambah yang baru."
+      "description": "Perintah adalah instruksi yang bisa diberikan pemain kepada unit saat bertempur. Di sini Anda dapat menyetel ulang perintah era untuk skenario ini, tetapi tidak dapat membuat yang baru. Nilai apa pun dapat dikembalikan ke nilai bawaan game.",
+      "general": "Pengubah umum",
+      "categoryOverrides": "Pengecualian per kategori",
+      "addCategory": "Tambah pengecualian kategori",
+      "inheritance": "Kategori tanpa pengecualian menggunakan pengubah umum: {{value}}%."
     },
     "clonePicker": {
       "alreadyOverridden": "(sudah ditimpa)",
@@ -1040,5 +1058,12 @@
   },
   "objectiveOwnership": {
     "help": "Objektif selalu dipegang oleh sebuah tim. Pada skenario dengan daftar pemain tetap, kolom ini menyebut seorang pemain, dan objektif itu milik tim pemain tersebut. Pada skenario yang dibangun untuk pasukan dinamis tidak ada slot pemain sampai pencarian permainan mengisinya, sehingga kolom ini menyebut tim secara langsung."
+  },
+  "mapLabels": {
+    "title": "Label peta",
+    "help": "Klik kanan peta (atau ketuk dengan kontrol sentuh) untuk memilih posisi, lalu tambahkan atau pindahkan label.",
+    "add": "Tambah label",
+    "move": "Pindahkan ke posisi yang dipilih",
+    "empty": "Belum ada label."
   }
 }

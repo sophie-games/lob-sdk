@@ -1,7 +1,7 @@
 {
   "currencyShop": {
     "title": "<0/> を入手",
-    "subtitle": "素晴らしいコスメティクスをアンロックして、群衆の中で目立とう！",
+    "subtitle": "威信はユニット、軍隊、アリーナ、Coalitions、装飾など、さまざまなものに使えます。",
     "unavailable": "ストアは現在ご利用いただけません。しばらくしてからもう一度お試しください。"
   },
 
@@ -11,7 +11,7 @@
     "basic": "フロリン",
     "premium": "威信",
     "basicDescription": "<currency/>: この通貨はマッチをプレイして得られます。ユニットを募集し、軍隊を編成するために使用します。",
-    "premiumDescription": "<currency/>: これはコスメティクスを購入してスタイルを自慢するためのものです。ゲームは無料でプレイできるため、ほとんどは実際のお金を使って入手します。",
+    "premiumDescription": "<currency/>：ゲーム全体でユニット、軍隊、アリーナ、Coalitions、装飾などに使えます。購入するか、プレイして獲得できます。",
     "rate": "{{rate}} {{currency}} / USD",
     "purchase": "{{amount}} {{currency}} を購入"
   },
@@ -29,5 +29,6 @@
   },
 
   "purchaseConfirmation": "{{item}} を購入してもよろしいですか？",
+  "showPurchased": "購入済みを表示",
   "offlineWarning": "購入したアイテムはオンラインモードでのみ機能し、オフラインでは機能しません。"
 }

@@ -1,4 +1,4 @@
-﻿{
+{
   "inspectorBands": {
     "identity": "身份",
     "placement": "布置",
@@ -81,16 +81,18 @@
     "allowDynamicArmyHelp": "启用后，玩家会根据匹配的战斗类型带上自己的军队，并在各自的区域内部署。禁用后，战役预置的单位将构成全部阵容（跳过军队配置）。",
     "fixedRoster": "固定玩家",
     "fixedRosterHelp": "启用后，剧本自行定义玩家席位、队伍和弹药储备，大厅无法添加或移除玩家。禁用后，玩家名单来自大厅或匹配系统。",
-    "allowDeploymentPhase": "部署阶段",
-    "allowDeploymentPhaseHelp": "启用后，战斗从第 0 回合开始，每位玩家可以在交战开始前于自己的部署区内重新摆放部队。",
     "placeableObjectives": "玩家放置的目标点",
     "placeableObjectivesHelp": "启用后，每位玩家在部署阶段于自己的区域内放置各自的目标点。禁用后，战斗只使用你在地图上放置的目标点。",
-    "placeableObjectivesNeedsDeployment": "请同时启用部署阶段，否则玩家永远无法进入放置这些目标点的回合，也就不会出现任何目标点。",
     "noInherentAmmo": "无自带弹药",
     "noInherentAmmoHelp": "启用后，拥有弹药系统的单位出场时自身没有弹药，全部补给来自共享储备，因此第一回合无法开火，只有在储备为其补给后才能开火。",
+    "startTime": "开始时间",
+    "startTimeHelp": "可选。留空时，第 1 回合将于 {{time}} 开始（该时代的默认时间）。",
+    "maxTurn": "最大回合数",
+    "maxTurnHelp": "可选的场景默认值（10–99）；对局仍可选择其他上限。",
     "showGrid": "显示网格",
     "showUnits": "显示单位",
     "showObjectives": "显示目标点",
+    "showMapLabels": "显示地图标注",
     "goBack": "返回",
     "goBackConfirm": "确定要返回并退出编辑器吗？",
     "display": "显示",
@@ -123,6 +125,8 @@
     "rosterHelp": "固定名单意味着由战役剧本决定玩家席位、队伍和弹药，所有人都使用你放置的单位作战。动态名单把席位交给大厅或匹配系统，玩家自带军队上阵。"
   },
   "playersPanel": {
+    "commander": "指挥官",
+    "commandFormation": "部队",
     "playerNumbered": "玩家 {{number}}",
     "removePlayer": "移除玩家",
     "rosterLimits": "一个战役剧本至少需要 {{min}} 名玩家，最多允许 {{max}} 名。",
@@ -173,10 +177,9 @@
   "deployment": {
     "title": "部署区域",
     "hint": "这些区域决定每支军队的起始位置。部署阶段只是额外增加第 0 回合，让玩家在区域内重新摆放。",
-    "phaseHelp": "开启部署阶段后，玩家在交战开始前会多获得一个回合，专门用于在自己的区域内调整单位位置。",
-    "gateHelp": "只要“允许动态军队”“部署阶段”或“玩家放置的目标点”中任意一项开启，这些区域就可以编辑，因为这三项都需要让抵达的军队有个起始位置。三项全部关闭时它们会变灰；在程序生成地图上同样变灰，那里的区域改为在随机地图面板中以百分比设定。",
     "team": "队伍 {{team}}",
-    "wholeTeam": "队伍中的所有玩家",
+    "remainingPlayers": "队伍中的其余玩家",
+    "assignmentHelp": "选择队伍中的其余玩家，或选择一名或多名指定玩家。",
     "player": "玩家 {{player}}",
     "mainZone": "主区域",
     "forwardZone": "前沿",
@@ -202,7 +205,11 @@
     "drawLineRank": "画线排序（越小越靠前）",
     "title": "编辑自定义阵型",
     "collision": "碰撞",
-    "collisionHelp": "矩形占地：正面宽度为 frontage，前后纵深为 depth。将两项都设为 0 可禁用碰撞（飞行 / 幽灵）。",
+    "collisionHelp": "占地形状：圆形（半径）或矩形（正面宽度为 frontage，纵深为 depth 即前后方向）。半径设为 0 表示无碰撞（飞行 / 幽灵）。",
+    "shape": "形状",
+    "shapeRectangle": "矩形",
+    "shapeCircle": "圆形",
+    "radiusPx": "半径（px）",
     "frontagePx": "正面宽度（px）",
     "depthPx": "纵深（px）",
     "runMovementModifier": "疾跑移动修正",
@@ -218,7 +225,7 @@
     "rangedDamageResistance": "远程伤害抗性",
     "rangedOrgResistance": "远程组织度抗性",
     "fireEdges": "射击边（边缘射击）",
-    "fireEdgesHelp": "每条射击边沿矩形的一个面发射。没有射击边的阵型默认从正面单边射击。",
+    "fireEdgesHelp": "每条射击边沿矩形的一个面发射。没有射击边的阵型默认从正面单边射击；圆形阵型不射击。",
     "edge": "边",
     "edgeLeft": "0 - 左侧（-Y）",
     "edgeFront": "1 - 正面（+X）",
@@ -255,6 +262,7 @@
     }
   },
   "unitTemplateModal": {
+    "initialOrder": "初始命令",
     "title": "编辑自定义单位模板",
     "optBuiltIn": "{{name}}（内置）",
     "optCustom": "{{name}}（自定义）",
@@ -279,6 +287,8 @@
     "orgRadiusBonus": "组织度范围加成",
     "reportStats": "简报数据",
     "reportStatsHelp": "每个单位计入战斗简报的计数（例如兵员、马匹、火炮）。键名取自该时代的内置单位。",
+    "casualtiesAtZeroHp": "生命值归零时的伤亡率（%）",
+    "casualtiesAtZeroHpHelp": "生命值条完全耗尽时，该单位报告兵力中计为伤亡的比例。生命值代表战斗力：默认值为50%，即报告兵力的一半成为伤亡后，单位将失去作战能力。溃散仍会移除全部剩余战斗力。",
     "tallyPerUnit": "每单位计数",
     "walkMovement": "行进移动力",
     "runMovement": "疾跑移动力",
@@ -294,7 +304,6 @@
     "rangedAttack": "远程攻击",
     "panicFireDistance": "恐慌射击距离",
     "fireWhileMoving": "移动时射击",
-    "noAmmoRegain": "弹药不可补充",
     "rangedDamageTypes": "远程伤害类型",
     "addRangedDamageType": "添加远程伤害类型",
     "enableRanged": "启用远程",
@@ -322,6 +331,10 @@
     "changeAnimationsHelp": "单位从该阵型转入另一阵型时播放的动画。先选择它要变成的阵型，再选择途中播放的动画。此处没有条目的转换并非出错：单位只是从一张精灵图直接切换到另一张，中间没有任何过渡，今天所有没有条目的阵型都是如此。列表中是本时代提供的动画，本时代的线列步兵用到了其中六种。"
   },
   "unitCategoryModal": {
+    "meleeFire": {
+      "ratio": "近战火力（0–1）",
+      "hint": "0（默认）：被敌军覆盖的射击点停止射击，其余射击点保持全部火力继续射击。大于 0 时，被敌军覆盖的射击点按此比例发挥正常火力。友军仍会阻挡射击。"
+    },
     "title": "编辑自定义单位类别",
     "optionBuiltIn": "{{name}}（内置）",
     "optionCustom": "{{name}}（自定义）",
@@ -515,7 +528,9 @@
       "importFromScenario": "从战役剧本导入",
       "duplicate": "复制",
       "inThisScenario": "本战役剧本中",
-      "builtIntoThisEra": "该时代内置"
+      "builtIntoThisEra": "该时代内置",
+      "resetToEra": "重置为时代默认",
+      "resetAllToEra": "全部重置为时代默认"
     },
     "transfer": {
       "importTitle": "导入",
@@ -603,7 +618,6 @@
       "clonePickerTitle": "克隆内置地形类别"
     },
     "overrideEditor": {
-      "reset": "重置",
       "eraDefault": "时代默认值：{{value}}",
       "structuralTooltip": "结构性 / 确定性常量。更改它可能破坏渲染、回放或匹配。"
     },
@@ -652,7 +666,7 @@
     },
     "gameConstants": {
       "title": "游戏常量",
-      "description": "为本战役覆盖该时代的数值常量。仅保存已更改的值；“重置”会将字段恢复为时代默认值。标记 ⚠ 的键是结构性的——更改它们可能破坏渲染、回放或匹配。数值为原始内部单位。",
+      "description": "这些是该时代的基础数值：一个回合有多长、一格有多大、一场战斗持续多少回合。你的更改只对本剧本生效，任何数值都可以还原为游戏原本的数值。",
       "category": {
         "mapDimensions": "地图尺寸",
         "deployment": "部署",
@@ -676,11 +690,15 @@
     },
     "gameRules": {
       "title": "游戏规则",
-      "description": "为本战役覆盖该时代的玩法规则。仅保存已更改的值；使用“重置”将字段恢复为时代默认值。数值为原始内部单位（部分数据以预缩放形式存储）。"
+      "description": "这些是支撑该时代运转的系统，从部队如何维持士气到如何赢得一场战斗。你的更改只对本剧本生效，任何数值都可以还原为游戏原本的数值。数值使用游戏自身的单位，因此不一定代表米或分钟。"
     },
     "ordersPanel": {
       "title": "指令",
-      "description": "为本战役覆盖该时代内置指令的数值。仅保存已更改的值；使用“重置”将字段恢复为时代默认值。你可以修改现有指令，但不能添加新指令。"
+      "description": "命令是玩家在战斗中可以下达给部队的指示。你可以在此为本剧本重新调整该时代的命令，但无法创建新的命令。任何数值都可以还原为游戏原本的数值。",
+      "general": "通用修正值",
+      "categoryOverrides": "类别例外",
+      "addCategory": "添加类别例外",
+      "inheritance": "没有例外设置的类别使用通用修正值：{{value}}%。"
     },
     "clonePicker": {
       "alreadyOverridden": "（已覆盖）",
@@ -1048,5 +1066,12 @@
     "bigInset": "大目标区域裁剪",
     "smallInsetInfo": "小目标区域每侧收窄多少。仅裁剪宽度，保持高度。",
     "bigInsetInfo": "大目标框每侧缩小多少，在部署区域内居中。"
+  },
+  "mapLabels": {
+    "title": "地图标注",
+    "help": "右键点击地图（触控操作时轻触）选择位置，然后添加或移动标注。",
+    "add": "添加标注",
+    "move": "移动到所选位置",
+    "empty": "暂无标注。"
   }
 }

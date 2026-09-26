@@ -72,13 +72,16 @@
     "allowDynamicArmyHelp": "Une fois activé, les joueurs apportent leur propre armée selon le type de bataille d'appariement et la déploient dans leurs zones. Une fois désactivé, les unités pré-placées du scénario définissent l'ordre de bataille complet (la composition de l'armée est ignorée).",
     "fixedRoster": "Joueurs fixes",
     "fixedRosterHelp": "Lorsque cette option est activée, le scénario définit ses propres emplacements de joueur, équipes et réserves de munitions, et le salon ne peut ni ajouter ni retirer de joueurs. Lorsqu'elle est désactivée, la liste provient du salon ou du matchmaking.",
-    "allowDeploymentPhase": "Phase de déploiement",
-    "allowDeploymentPhaseHelp": "Lorsque cette option est activée, la bataille commence au tour 0 afin que chaque joueur puisse repositionner ses unités dans ses zones de déploiement avant le début des combats.",
     "noInherentAmmo": "Pas de munitions propres",
     "noInherentAmmoHelp": "Lorsque activé, les unités disposant de munitions apparaissent sans munitions propres et puisent tout leur approvisionnement dans la réserve commune ; elles ne peuvent donc pas tirer au premier tour et n'ouvrent le feu qu'une fois réapprovisionnées par la réserve.",
+    "startTime": "Heure de début",
+    "startTimeHelp": "Facultatif. Laissez vide pour commencer le tour 1 à {{time}} (heure par défaut de l’époque).",
+    "maxTurn": "Nombre maximal de tours",
+    "maxTurnHelp": "Valeur facultative du scénario (10–99) ; les parties peuvent choisir une autre limite.",
     "showGrid": "Afficher la grille",
     "showUnits": "Afficher les unités",
     "showObjectives": "Afficher les objectifs",
+    "showMapLabels": "Afficher les noms sur la carte",
     "goBack": "Retour",
     "goBackConfirm": "Êtes-vous sûr de vouloir revenir en arrière et quitter l'éditeur ?",
     "display": "Affichage",
@@ -91,7 +94,6 @@
     "testScenario": "Tester le scénario",
     "placeableObjectives": "Objectifs placés par les joueurs",
     "placeableObjectivesHelp": "Activé, chaque joueur positionne ses propres objectifs pendant la phase de déploiement, à l'intérieur de sa propre zone. Désactivé, la bataille n'utilise que les objectifs que vous avez placés sur la carte.",
-    "placeableObjectivesNeedsDeployment": "Activez aussi la phase de déploiement, sinon les joueurs n'atteignent jamais le tour où ils placeraient ces objectifs et aucun n'apparaîtra.",
     "resting": {
       "thisScenario": "Ce scénario",
       "gettingStarted": "Premiers pas",
@@ -121,6 +123,8 @@
     "rosterHelp": "Des effectifs fixes signifient que le scénario décide des places de joueur, des équipes et des munitions, et que tout le monde combat avec les unités que vous avez placées. Des effectifs dynamiques laissent les places au salon d'attente ou au matchmaking, et les joueurs apportent leurs propres armées à la bataille."
   },
   "playersPanel": {
+    "commander": "Commandant",
+    "commandFormation": "Commandement",
     "removePlayer": "Retirer le joueur",
     "ammoReserve": "Réserve",
     "ammoBase": "Niveau de base",
@@ -173,21 +177,33 @@
     "title": "Zones de déploiement",
     "hint": "Ces zones définissent où chaque armée commence. La phase de déploiement ajoute seulement un tour 0 pour que les joueurs se réorganisent à l'intérieur.",
     "team": "Équipe {{team}}",
-    "wholeTeam": "Tous les joueurs de l'équipe",
+    "remainingPlayers": "Joueurs restants de l'équipe",
+    "assignmentHelp": "Choisissez les joueurs restants ou un ou plusieurs joueurs précis.",
     "player": "Joueur {{player}}",
     "mainZone": "Principale",
     "forwardZone": "Avancée",
     "addMainZone": "Ajouter une zone principale",
     "addForwardZone": "Ajouter une zone avancée",
     "removeZone": "Supprimer la zone",
+    "boundary": "Contour",
+    "exclusion": "Zone exclue {{number}}",
+    "polygon": "Polygone {{number}}",
+    "drawOnMap": "Dessiner sur la carte",
+    "removeVertex": "Supprimer le sommet",
+    "addVertex": "Ajouter un sommet",
+    "removePolygon": "Supprimer le polygone",
+    "drawExclusion": "Dessiner une exclusion",
+    "drawAdditionalPolygon": "Dessiner un autre polygone",
+    "drawHint": "Cliquez sur la carte pour ajouter des sommets ({{count}} placés).",
+    "invalidPolygon": "Le polygone ou l’exclusion n’est pas valide.",
+    "undoVertex": "Annuler le dernier sommet",
+    "finishPolygon": "Terminer le polygone",
     "fields": {
       "x": "X",
       "y": "Y",
       "player": "Assignée à",
-      "rotation": "Rotation (degrés)"
-    },
-    "phaseHelp": "Avec la phase de déploiement activée, les joueurs disposent d'un tour supplémentaire avant le début des combats, uniquement pour réorganiser leurs unités à l'intérieur de leur zone.",
-    "gateHelp": "Ces zones sont modifiables tant que l'une des options Armée dynamique autorisée, Phase de déploiement ou Objectifs placés par les joueurs est activée, chacune des trois ayant besoin d'un endroit où une armée arrivante puisse démarrer. Avec les trois désactivées, elles sont grisées, et sur une carte procédurale elles sont grisées également, les zones y étant définies sous forme de pourcentages dans le panneau Carte aléatoire à la place."
+      "rotation": "Orientation de l’armée (degrés)"
+    }
   },
   "vpBalance": {
     "heading": "Équilibre VP (pertes vs objectifs)",
@@ -201,7 +217,11 @@
     "drawLineRank": "Rang de tracé de ligne (plus bas = devant)",
     "title": "Modifier la formation personnalisée",
     "collision": "Collision",
-    "collisionHelp": "Empreinte rectangulaire : front sur la largeur et profondeur d'avant en arrière. Réglez les deux valeurs sur 0 pour aucune collision (vol / fantôme).",
+    "collisionHelp": "Forme de l'empreinte : un cercle (rayon) ou un rectangle (front sur la largeur, profondeur d'avant en arrière). Utilisez un rayon de 0 pour aucune collision (vol / fantôme).",
+    "shape": "Forme",
+    "shapeRectangle": "Rectangle",
+    "shapeCircle": "Cercle",
+    "radiusPx": "Rayon (px)",
     "frontagePx": "Front (px)",
     "depthPx": "Profondeur (px)",
     "runMovementModifier": "Modificateur de mouvement en courant",
@@ -217,7 +237,7 @@
     "rangedDamageResistance": "Résistance aux dégâts à distance",
     "rangedOrgResistance": "Résistance org. à distance",
     "fireEdges": "Bords de tir (tir par bord)",
-    "fireEdgesHelp": "Chaque bord de tir émet le long d'une face du rectangle. Une formation sans bord de tir tire par défaut sur un unique bord avant.",
+    "fireEdgesHelp": "Chaque bord de tir émet le long d'une face du rectangle. Une formation sans bord de tir tire par défaut sur un unique bord avant ; les formations en cercle ne tirent pas.",
     "edge": "Bord",
     "edgeLeft": "0 - côté gauche (-Y)",
     "edgeFront": "1 - avant (+X)",
@@ -254,6 +274,7 @@
     }
   },
   "unitTemplateModal": {
+    "initialOrder": "Ordre initial",
     "title": "Modifier le modèle d'unité personnalisé",
     "optBuiltIn": "{{name}} (intégré)",
     "optCustom": "{{name}} (personnalisé)",
@@ -278,6 +299,8 @@
     "orgRadiusBonus": "Bonus de rayon d'organisation",
     "reportStats": "Statistiques du rapport",
     "reportStatsHelp": "Décompte que chaque unité apporte aux rapports de bataille (par ex. hommes, chevaux, canons). Les clés proviennent des unités intégrées de l'époque.",
+    "casualtiesAtZeroHp": "Pertes à zéro PV (%)",
+    "casualtiesAtZeroHpHelp": "Part de l'effectif déclaré de cette unité comptée comme pertes lorsque toute sa barre de PV est épuisée. Les PV représentent la force combattante : avec la valeur par défaut de 50 %, l'unité cesse d'être opérationnelle lorsque la moitié de son effectif déclaré est perdue. La dispersion supprime toujours toute la force combattante restante.",
     "tallyPerUnit": "Décompte par unité",
     "walkMovement": "Mouvement en marchant",
     "runMovement": "Mouvement en courant",
@@ -293,7 +316,6 @@
     "rangedAttack": "Attaque à distance",
     "panicFireDistance": "Distance de tir de panique",
     "fireWhileMoving": "Tirer en avançant",
-    "noAmmoRegain": "Pas de regain de munitions",
     "rangedDamageTypes": "Types de dégâts à distance",
     "addRangedDamageType": "Ajouter un type de dégâts à distance",
     "enableRanged": "Activer le tir à distance",
@@ -321,6 +343,10 @@
     "changeAnimationsHelp": "L'animation jouée pendant qu'une unité quitte cette formation pour une autre. Choisissez la formation vers laquelle elle change, puis l'animation à jouer en chemin. Une transition sans ligne ici n'est pas cassée : l'unité passe simplement d'un sprite à l'autre sans rien entre les deux, ce que fait aujourd'hui toute formation sans entrées. La liste contient les animations livrées avec cette ère, et l'infanterie de ligne de l'ère en utilise six."
   },
   "unitCategoryModal": {
+    "meleeFire": {
+      "ratio": "Puissance de feu au corps à corps (0–1)",
+      "hint": "0 (par défaut) : les points de tir couverts par un ennemi cessent le feu, les autres continuent à pleine puissance. Au-dessus de 0, les points de tir couverts par des ennemis tirent à cette fraction de leur puissance normale. Les alliés bloquent toujours le tir."
+    },
     "title": "Modifier la catégorie d'unité personnalisée",
     "optionBuiltIn": "{{name}} (intégré)",
     "optionCustom": "{{name}} (personnalisé)",
@@ -514,7 +540,9 @@
       "importFromScenario": "Importer depuis un scénario",
       "duplicate": "Dupliquer",
       "inThisScenario": "Dans ce scénario",
-      "builtIntoThisEra": "Intégré à cette ère"
+      "builtIntoThisEra": "Intégré à cette ère",
+      "resetToEra": "Réinitialiser à l'époque",
+      "resetAllToEra": "Tout réinitialiser à l'époque"
     },
     "spritesPanel": {
       "title": "Sprites d'unités",
@@ -580,7 +608,6 @@
       "clonePickerTitle": "Cloner une catégorie de terrain intégrée"
     },
     "overrideEditor": {
-      "reset": "Réinitialiser",
       "eraDefault": "défaut de l'époque : {{value}}",
       "structuralTooltip": "Constante structurelle / de déterminisme. La modifier peut casser le rendu, les replays ou l'appariement."
     },
@@ -629,7 +656,7 @@
     },
     "gameConstants": {
       "title": "Constantes du jeu",
-      "description": "Remplacez les constantes numériques de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; Réinitialiser ramène un champ au défaut de l'époque. Les clés marquées ⚠ sont structurelles - les modifier peut casser le rendu, les replays ou l'appariement. Les valeurs sont en unités internes brutes.",
+      "description": "Voici les nombres fondamentaux de l'époque : la durée d'un tour, la taille d'une case, le nombre de tours d'une bataille. Vos modifications ne valent que pour ce scénario, et toute valeur peut être ramenée à celle du jeu.",
       "category": {
         "mapDimensions": "Dimensions de la carte",
         "deployment": "Déploiement",
@@ -653,11 +680,15 @@
     },
     "gameRules": {
       "title": "Règles du jeu",
-      "description": "Remplacez les règles de jeu de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; utilisez Réinitialiser pour ramener un champ au défaut de l'époque. Les valeurs sont en unités internes brutes (certaines statistiques sont stockées pré-échelonnées)."
+      "description": "Voici les systèmes sur lesquels repose votre époque, de la tenue des unités à la manière dont une bataille se gagne. Vos modifications ne valent que pour ce scénario, et toute valeur peut être ramenée à celle du jeu. Les nombres sont exprimés dans les unités du jeu : un chiffre ne correspond donc pas forcément à des mètres ou des minutes."
     },
     "ordersPanel": {
       "title": "Ordres",
-      "description": "Remplacez les valeurs des ordres intégrés de cette époque pour ce scénario. Seules les valeurs modifiées sont sauvegardées ; utilisez Réinitialiser pour ramener un champ au défaut de l'époque. Vous pouvez modifier les ordres existants mais pas en ajouter de nouveaux."
+      "description": "Les ordres sont les instructions qu'un joueur peut donner à une unité pendant la bataille. Vous pouvez ici réajuster les ordres de l'époque pour ce scénario, mais pas en inventer de nouveaux. Toute valeur peut être ramenée à celle du jeu.",
+      "general": "Modificateur général",
+      "categoryOverrides": "Exceptions par catégorie",
+      "addCategory": "Ajouter une exception de catégorie",
+      "inheritance": "Les catégories sans exception utilisent le modificateur général : {{value}} %."
     },
     "clonePicker": {
       "alreadyOverridden": "(déjà remplacé)",
@@ -1047,5 +1078,12 @@
   },
   "objectiveOwnership": {
     "help": "Les objectifs appartiennent toujours à une équipe. Sur un scénario à effectifs fixes, ce champ nomme un joueur, et l'objectif appartient à l'équipe de ce joueur. Sur un scénario conçu pour des armées dynamiques, il n'y a pas de places de joueur avant que le matchmaking ne les remplisse, le champ nomme donc directement l'équipe."
+  },
+  "mapLabels": {
+    "title": "Noms sur la carte",
+    "help": "Faites un clic droit sur la carte (ou touchez-la avec les commandes tactiles) pour choisir une position, puis ajoutez ou déplacez un nom.",
+    "add": "Ajouter un nom",
+    "move": "Déplacer à la position choisie",
+    "empty": "Aucun nom pour le moment."
   }
 }

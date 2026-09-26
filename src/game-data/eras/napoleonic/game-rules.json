@@ -4,17 +4,17 @@
     "rangedTurnCost": 3300,
     "hasRanMeleeStaminaCostModifier": 0,
     "regainRates": {
-      "range1": 4000,
-      "range2": 6000,
-      "range3": 7000,
-      "range4": 6000,
-      "range5": 3000
+      "range1": 5000,
+      "range2": 7500,
+      "range3": 8750,
+      "range4": 7500,
+      "range5": 3750
     },
     "upperModifierLimit": 0.85,
     "lowerModifierLimit": 0.4,
     "chargeResistanceModifier": -0.5,
     "runningMovementPenalty": -0.8,
-    "rangedAttackPenalty": -0.15,
+    "rangedAttackPenalty": -0.3,
     "meleeAttackPenalty": -0.4,
     "meleeDefensePenalty": -0.2
   },
@@ -28,7 +28,7 @@
       "clash": 100000,
       "combat": 200000,
       "battle": 300000,
-      "grand_battle": 480000
+      "grand_battle": 500000
     },
     "goldToAmmoRate": {
       "micro": 1200,
@@ -79,6 +79,7 @@
     "maxOrgRangedAttackPenalty": -0.7,
     "maxOrgMeleeAttackBonus": 0.25,
     "maxOrgMeleeAttackPenalty": -0.25,
+    "maxOrgMeleeDefensePenalty": 0,
     "regainRate": 0.1,
     "upperModifierLimit": 0.95,
     "lowerModifierLimit": 0.35,
@@ -88,23 +89,19 @@
     "nearbyUnitsOrgDamageModifierCap": 0.5,
     "nearbyUnitsOrgDamageModifierPenaltyCap": -0.1,
     "routingUnitNearbyUnitsOrgBonus": 5,
-    "startedRoutingDuration": 32,
-    "startedRoutingOrgRadiusModifier": -2,
+    "startedRoutingDuration": 16,
+    "startedRoutingOrgRadiusModifier": -3,
     "startedRoutingOrgRadiusDistance": 64,
-    "startedRoutingOrgRadiusDistanceRunSpeedBonus": 1.5,
     "routingRunCostModifier": 0.1,
     "startedRoutingRunCostModifier": 1,
     "orgRadiusBonusHpLossReduction": 0.6,
-    "safeOrgRecoveryModifier": 0.3,
+    "safeOrgRecoveryModifier": 0.25,
     "safeDistance": 144,
-    "distantThreatOrgRecoveryModifier": 0.2,
-    "distantThreatDistance": 72,
-    "routingOrgRecoveryModifier": -0.3,
+    "distantThreatOrgRecoveryModifier": 0,
+    "distantThreatDistance": 80,
+    "routingOrgRecoveryModifier": -0.4,
     "maxOrgRecoveryByHpModifier": -0.99,
     "vpDebuffGraceZone": 0.3,
     "vpDebuffMultiplier": 0.5
-  },
-  "tutorial": {
-    "scenario": "tutorial"
   }
 }

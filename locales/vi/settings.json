@@ -1,4 +1,12 @@
 {
+  "selectedOrderOpacity": {
+    "title": "Độ mờ đục của lệnh đã chọn",
+    "description": "Độ mờ đục của mũi tên và hình xem trước vị trí đích của đơn vị đã chọn, hoặc tất cả đơn vị khi không chọn đơn vị nào. 0% sẽ ẩn chúng."
+  },
+  "unselectedOrderOpacity": {
+    "title": "Độ mờ đục của lệnh chưa chọn",
+    "description": "Độ mờ đục của mũi tên và hình xem trước vị trí đích của các đơn vị khác khi có đơn vị được chọn. 0% sẽ ẩn chúng."
+  },
   "gameplay": "Lối chơi",
   "graphics": "Đồ họa",
   "camera": "Camera",
@@ -25,8 +33,10 @@
     "description": "Hiển thị thanh nhóm điều khiển. Tắt đi để tránh việc chạm nhầm làm thay đổi lựa chọn của bạn trên thiết bị cảm ứng."
   },
   "smartCurvedMovements": {
-    "title": "Di chuyển cong thông minh",
-    "description": "Bật tùy chọn này để tối ưu hóa đường di chuyển với các đường cong mượt mà, giảm thiểu mất tốc độ trong quá trình xoay."
+    "title": "Đường di chuyển",
+    "description": "Thẳng đi theo các đoạn đã vẽ; Cong làm mượt các khúc cua. Chướng ngại vật không thể đi qua được tự động đi vòng.",
+    "direct": "Thẳng",
+    "curved": "Cong"
   },
   "pathFinding": {
     "title": "Tìm đường",
@@ -102,17 +112,13 @@
   "gridOpacity": {
     "title": "Độ mờ lưới"
   },
-  "tracerOpacity": {
-    "title": "Độ mờ vệt đạn",
-    "description": "Điều chỉnh độ mờ của vệt đạn trong các đòn tấn công tầm xa. Đặt thành 0% để ẩn chúng."
+  "showChargeDamageIndicators": {
+    "title": "Hiển thị chỉ báo sát thương xung phong",
+    "description": "Hiển thị số sát thương nổi khi đơn vị xung phong."
   },
   "showDebugShapes": {
     "title": "Hiển thị hình dạng debug",
     "description": "Hiển thị hình dạng debug trên các đơn vị bao gồm hình dạng va chạm và điểm kiểm tra địa hình."
-  },
-  "bottomButtons": {
-    "title": "Nút Dưới",
-    "description": "Cấu hình thứ tự các nút ở cuối màn hình trong quá trình chơi game."
   },
   "disableSkins": {
     "title": "Tắt giao diện",
@@ -176,7 +182,7 @@
     "shootOrder": "Lệnh bắn",
     "fireAndAdvanceOrder": "Lệnh bắn và tiến",
     "fallbackOrder": "Lệnh rút lui",
-    "toggleSmartCurvedMovements": "Chuyển đổi di chuyển cong thông minh",
+    "toggleSmartCurvedMovements": "Chuyển giữa Thẳng và Cong",
     "togglePathFinding": "Chuyển đổi tìm đường",
     "toggleFowPerspective": "Chuyển đổi góc nhìn sương mù chiến tranh",
     "toggleMultiTurnPathOrders": "Chuyển đổi lệnh đường đi đa lượt",
@@ -191,6 +197,7 @@
     "toggleFullscreen": "Chuyển đổi chế độ toàn màn hình",
     "simulateMultiTouch": "Mô phỏng đa chạm",
     "toggleSupplyLines": "Chuyển đổi đường tiếp tế",
+    "toggleUnitTransparency": "Bật/tắt độ trong suốt của đơn vị",
     "toggleStraightLine": "Chuyển đổi đường thẳng",
     "toggleDrawLine": "Chuyển đổi tắt vẽ đường",
     "splitInHalf": "Chia đôi",
@@ -254,6 +261,10 @@
     "reminders": {
       "title": "Nhắc nhở",
       "description": "Thông báo khi chuỗi ngày của tôi sắp kết thúc."
+    },
+    "clanLeague": {
+      "title": "Hạng liên minh",
+      "description": "Thông báo cho tôi khi liên minh của tôi vẫn còn có thể lọt vào các vị trí nhận thưởng tuần."
     }
   },
   "theme": {
@@ -299,13 +310,10 @@
   "controlGroups": {
     "recall": "Gọi nhóm {{group}}",
     "set": "Đặt nhóm {{group}}",
-    "add": "Thêm vào nhóm {{group}}",
-    "setExclusive": "Chỉ đặt vào nhóm {{group}}"
+    "add": "Thêm vào nhóm {{group}}"
   },
-  "notifications": {
-    "clanLeague": {
-      "title": "Coalition league",
-      "description": "Notify me when my coalition can still reach the weekly prize positions."
-    }
+  "showGameTips": {
+    "title": "Hiện mẹo",
+    "description": "Những bài học ngắn xuất hiện trong trận khi tình huống đòi hỏi. Mỗi mẹo chỉ hiện vài lần."
   }
 }

@@ -44,7 +44,7 @@ export class RandomMapGenerator {
     mapSize,
   }: GenerateRandomMapProps): GenerateRandomMapResult {
     const gameDataManager = GameDataManager.get(era);
-    // Fixed-roster scenarios (tutorial, presets) pass `dynamicBattleType: null`.
+    // Fixed-roster scenarios (presets) pass `dynamicBattleType: null`.
     // Fall back to the era's DEFAULT_BATTLE_TYPE so downstream consumers
     // (NaturalPath amount scaling, scaledZones, procedural-zone defaults,
     // procedural-tile defaults) always have a battleSize to work with.
@@ -61,9 +61,7 @@ export class RandomMapGenerator {
     // Pre-placed objectives from the scenario seed the result; instruction
     // executors append on top. Callers should NOT merge `scenario.objectives`
     // again — the SDK owns the merge.
-    const objectives: ObjectiveDto<false>[] = [
-      ...(scenario.objectives ?? []),
-    ];
+    const objectives: ObjectiveDto<false>[] = [...(scenario.objectives ?? [])];
 
     // Caller-supplied seed wins; otherwise prefer the baked map's seed; else random.
     const fixedMap: GameMap | undefined = scenario.map;
@@ -77,8 +75,6 @@ export class RandomMapGenerator {
     if (fixedMap) {
       widthPx = fixedMap.width;
       heightPx = fixedMap.height;
-      const tilesX = Math.ceil(widthPx / tileSize);
-      const tilesY = Math.ceil(heightPx / tileSize);
       // Deep-copy AND repair: force both grids rectangular to the declared size.
       // A malformed import (e.g. an editor resize that left heightMap a few
       // columns shorter than terrains) would otherwise be indexed raw downstream
@@ -87,8 +83,8 @@ export class RandomMapGenerator {
       const repair = normalizeMapGrids(
         fixedMap.terrains,
         fixedMap.heightMap,
-        tilesX,
-        tilesY,
+        Math.floor(widthPx / tileSize),
+        Math.floor(heightPx / tileSize),
         scenario.baseTerrain ?? TerrainType.Grass,
       );
       terrains = repair.terrains;
@@ -98,7 +94,7 @@ export class RandomMapGenerator {
           `[RandomMapGenerator] Repaired malformed fixedMap grids for scenario "${scenario.name}": ` +
             `terrains ${fixedMap.terrains.length}x${fixedMap.terrains[0]?.length ?? 0}, ` +
             `heightMap ${fixedMap.heightMap.length}x${fixedMap.heightMap[0]?.length ?? 0} ` +
-            `-> ${tilesX}x${tilesY}.`,
+            `-> ${Math.floor(widthPx / tileSize)}x${Math.floor(heightPx / tileSize)}.`,
         );
       }
     } else {
@@ -160,6 +156,10 @@ export class RandomMapGenerator {
         terrains,
         heightMap,
         ...(deploymentZones ? { deploymentZones } : {}),
+        ...(fixedMap?.labels !== undefined ? { labels: fixedMap.labels } : {}),
+        ...(fixedMap?.objectiveZones !== undefined
+          ? { objectiveZones: fixedMap.objectiveZones }
+          : {}),
         seed: mapSeed,
       },
       objectives,
@@ -207,26 +207,18 @@ export class RandomMapGenerator {
     tileSize: number,
     terrains: TerrainType[][],
     mapSeed: number,
-  ): [TeamDeploymentZones, TeamDeploymentZones] | undefined {
+  ): TeamDeploymentZones[] | undefined {
     const bakedZones = fixedMap?.deploymentZones;
-    if (bakedZones && bakedZones.length >= 2) {
-      return [bakedZones[0], bakedZones[1]];
-    }
+    if (bakedZones?.some(({ zones }) => zones.length > 0)) return bakedZones;
 
     const pixelZones = this._getPixelZones(scenario);
-    if (pixelZones && pixelZones.length >= 2) {
-      return [pixelZones[0], pixelZones[1]];
-    }
+    if (pixelZones?.some(({ zones }) => zones.length > 0)) return pixelZones;
 
     const randomZones =
       this._getScaledZones(scenario)?.[battleSize] ??
       this._getRandomZones(scenario);
 
-    // A persisted scenario from before the randomDeploymentZones restructure
-    // carries the legacy four-field shape, which has no `top` array. Treat any
-    // such (or otherwise malformed) value as "no random zones" and fall back to
-    // defaults rather than crashing in _computePercentZones.
-    if (randomZones && Array.isArray(randomZones.top)) {
+    if (randomZones) {
       return this._computePercentZones(
         randomZones,
         terrains,
@@ -275,26 +267,38 @@ export class RandomMapGenerator {
     const build = (
       team: number,
       zone: RandomDeploymentZone,
-    ): TeamDeploymentZone => ({
-      team,
-      type: zone.role,
-      x:
+    ): TeamDeploymentZone => {
+      const originX =
         getRandomInt(
-          this.percentToTiles(zone.rect.x.min, tilesX),
-          this.percentToTiles(zone.rect.x.max, tilesX),
+          this.percentToTiles(zone.origin.x.min, tilesX),
+          this.percentToTiles(zone.origin.x.max, tilesX),
           random,
-        ) * tileSize,
-      y:
+        ) * tileSize;
+      const originY =
         getRandomInt(
-          this.percentToTiles(zone.rect.y.min, tilesY),
-          this.percentToTiles(zone.rect.y.max, tilesY),
+          this.percentToTiles(zone.origin.y.min, tilesY),
+          this.percentToTiles(zone.origin.y.max, tilesY),
           random,
-        ) * tileSize,
-      width: this.percentToTiles(zone.rect.width, tilesX) * tileSize,
-      height: this.percentToTiles(zone.rect.height, tilesY) * tileSize,
-      ...(zone.player !== undefined ? { player: zone.player } : {}),
-      ...(zone.rotation !== undefined ? { rotation: zone.rotation } : {}),
-    });
+        ) * tileSize;
+      const place = ({ x, y }: { x: number; y: number }) => ({
+        x: originX + this.percentToTiles(x, tilesX) * tileSize,
+        y: originY + this.percentToTiles(y, tilesY) * tileSize,
+      });
+      return {
+        team,
+        type: zone.role,
+        polygons: [
+          {
+            outer: zone.polygon.outer.map(place),
+            ...(zone.polygon.holes
+              ? { holes: zone.polygon.holes.map((ring) => ring.map(place)) }
+              : {}),
+          },
+        ],
+        ...(zone.player !== undefined ? { player: zone.player } : {}),
+        ...(zone.rotation !== undefined ? { rotation: zone.rotation } : {}),
+      };
+    };
 
     // The top side is authored; the bottom side is its exact vertical mirror
     // unless the scenario overrides it. Mirroring in pixels (rather than
@@ -302,26 +306,33 @@ export class RandomMapGenerator {
     // percentToTiles flooring every edge toward the top, which would otherwise
     // hand the bottom team a consistent first-side advantage.
     const mapHeightPx = tilesY * tileSize;
-    const setups =
-      playerSetups ??
-      [
-        { player: 1, team: 1 },
-        { player: 2, team: 2 },
-      ];
+    const setups = playerSetups ?? [
+      { player: 1, team: 1 },
+      { player: 2, team: 2 },
+    ];
     const topPlayers = setups.filter((setup) => setup.team === 2);
     const bottomPlayers = setups.filter((setup) => setup.team === 1);
     const mirrorPlayer = (player: number | undefined): number | undefined => {
       if (player === undefined) return undefined;
-      const teamOrder = topPlayers.findIndex((setup) => setup.player === player);
+      const teamOrder = topPlayers.findIndex(
+        (setup) => setup.player === player,
+      );
       return teamOrder < 0 ? undefined : bottomPlayers[teamOrder]?.player;
     };
     const mirrorToBottom = (zone: TeamDeploymentZone): TeamDeploymentZone => {
       const mirroredPlayer = mirrorPlayer(zone.player);
-      const { player: _player, rotation: _rotation, ...rect } = zone;
+      const { player: _player, rotation: _rotation, ...area } = zone;
+      const reflect = ({ x, y }: { x: number; y: number }) => ({
+        x,
+        y: mapHeightPx - y,
+      });
       return {
-        ...rect,
+        ...area,
         team: 1,
-        y: mapHeightPx - zone.y - zone.height,
+        polygons: zone.polygons.map(({ outer, holes }) => ({
+          outer: outer.map(reflect),
+          ...(holes ? { holes: holes.map((ring) => ring.map(reflect)) } : {}),
+        })),
         ...(mirroredPlayer !== undefined ? { player: mirroredPlayer } : {}),
         ...(zone.rotation !== undefined ? { rotation: -zone.rotation } : {}),
       };
@@ -354,141 +365,139 @@ export class RandomMapGenerator {
     battleSize: Size,
     instructions: AnyInstruction[],
   ) {
-    instructions.forEach(
-      (instruction: AnyInstruction, index: number) => {
-        let boundedTerrains = terrains;
-        let boundedHeightMap = heightMap;
-        if (instruction.xBounds && instruction.yBounds) {
-          boundedTerrains = this.create2DSliceProxy(
-            terrains,
-            instruction.xBounds,
-            instruction.yBounds,
-          );
-          boundedHeightMap = this.create2DSliceProxy(
-            heightMap,
-            instruction.xBounds,
-            instruction.yBounds,
+    instructions.forEach((instruction: AnyInstruction, index: number) => {
+      let boundedTerrains = terrains;
+      let boundedHeightMap = heightMap;
+      if (instruction.xBounds && instruction.yBounds) {
+        boundedTerrains = this.create2DSliceProxy(
+          terrains,
+          instruction.xBounds,
+          instruction.yBounds,
+        );
+        boundedHeightMap = this.create2DSliceProxy(
+          heightMap,
+          instruction.xBounds,
+          instruction.yBounds,
+        );
+      }
+      switch (instruction.type) {
+        case InstructionType.HeightNoise: {
+          new HeightNoiseExecutor(
+            instruction,
+            scenario,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+          ).execute();
+          break;
+        }
+        case InstructionType.TerrainNoise: {
+          new TerrainNoiseExecutor(
+            instruction,
+            scenario,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+          ).execute();
+          break;
+        }
+        case InstructionType.TerrainCircle: {
+          new TerrainCircleExecutor(
+            instruction,
+            scenario,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+          ).execute();
+          break;
+        }
+        case InstructionType.TerrainRectangle: {
+          new TerrainRectangleExecutor(
+            instruction,
+            scenario,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+          ).execute();
+          break;
+        }
+        case InstructionType.NaturalPath: {
+          new NaturalPathExecutor(
+            instruction,
+            scenario,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+            battleSize,
+          ).execute();
+          break;
+        }
+        case InstructionType.ConnectClusters: {
+          new ConnectClustersExecutor(
+            instruction,
+            scenario,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+          ).execute();
+          break;
+        }
+        case InstructionType.Objective: {
+          new ObjectiveExecutor(
+            instruction,
+            scenario,
+            seed,
+            index,
+            widthPx,
+            heightPx,
+            objectives,
+          ).execute();
+          break;
+        }
+        case InstructionType.Lake: {
+          new LakeExecutor(
+            instruction,
+            scenario,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+          ).execute();
+          break;
+        }
+        case InstructionType.ObjectiveLayer: {
+          new ObjectiveLayerExecutor(
+            instruction,
+            tileSize,
+            scenario,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+            objectives,
+            Math.floor(
+              ((instruction.xBounds?.min ?? 0) / 100) * terrains.length,
+            ),
+            Math.floor(
+              ((instruction.yBounds?.min ?? 0) / 100) * terrains[0].length,
+            ),
+          ).execute();
+          break;
+        }
+        default: {
+          const _exhaustive: never = instruction;
+          throw new Error(
+            `Unknown instruction type: ${JSON.stringify(_exhaustive)}`,
           );
         }
-        switch (instruction.type) {
-          case InstructionType.HeightNoise: {
-            new HeightNoiseExecutor(
-              instruction,
-              scenario,
-              seed,
-              index,
-              boundedTerrains,
-              boundedHeightMap,
-            ).execute();
-            break;
-          }
-          case InstructionType.TerrainNoise: {
-            new TerrainNoiseExecutor(
-              instruction,
-              scenario,
-              seed,
-              index,
-              boundedTerrains,
-              boundedHeightMap,
-            ).execute();
-            break;
-          }
-          case InstructionType.TerrainCircle: {
-            new TerrainCircleExecutor(
-              instruction,
-              scenario,
-              seed,
-              index,
-              boundedTerrains,
-              boundedHeightMap,
-            ).execute();
-            break;
-          }
-          case InstructionType.TerrainRectangle: {
-            new TerrainRectangleExecutor(
-              instruction,
-              scenario,
-              seed,
-              index,
-              boundedTerrains,
-              boundedHeightMap,
-            ).execute();
-            break;
-          }
-          case InstructionType.NaturalPath: {
-            new NaturalPathExecutor(
-              instruction,
-              scenario,
-              seed,
-              index,
-              boundedTerrains,
-              boundedHeightMap,
-              battleSize,
-            ).execute();
-            break;
-          }
-          case InstructionType.ConnectClusters: {
-            new ConnectClustersExecutor(
-              instruction,
-              scenario,
-              seed,
-              index,
-              boundedTerrains,
-              boundedHeightMap,
-            ).execute();
-            break;
-          }
-          case InstructionType.Objective: {
-            new ObjectiveExecutor(
-              instruction,
-              scenario,
-              seed,
-              index,
-              widthPx,
-              heightPx,
-              objectives,
-            ).execute();
-            break;
-          }
-          case InstructionType.Lake: {
-            new LakeExecutor(
-              instruction,
-              scenario,
-              seed,
-              index,
-              boundedTerrains,
-              boundedHeightMap,
-            ).execute();
-            break;
-          }
-          case InstructionType.ObjectiveLayer: {
-            new ObjectiveLayerExecutor(
-              instruction,
-              tileSize,
-              scenario,
-              seed,
-              index,
-              boundedTerrains,
-              boundedHeightMap,
-              objectives,
-              Math.floor(
-                ((instruction.xBounds?.min ?? 0) / 100) * terrains.length,
-              ),
-              Math.floor(
-                ((instruction.yBounds?.min ?? 0) / 100) * terrains[0].length,
-              ),
-            ).execute();
-            break;
-          }
-          default: {
-            const _exhaustive: never = instruction;
-            throw new Error(
-              `Unknown instruction type: ${JSON.stringify(_exhaustive)}`,
-            );
-          }
-        }
-      },
-    );
+      }
+    });
   }
 
   // Creates a proxy for a slice of a 2D array. So we can pass bounded areas without having to reprogram all executors

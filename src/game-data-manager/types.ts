@@ -55,7 +55,8 @@ export interface GameDataManagerConfig {
 export type BaseSpeed = "walk" | "run";
 
 export interface RoutingBehavior {
-  baseSpeed: BaseSpeed;
+  /** Omitted by categories that only set `fleeWhenRouted`; treated as "walk". */
+  baseSpeed?: BaseSpeed;
   /** Whether the unit flees when in Routed state. Defaults to true. */
   fleeWhenRouted?: boolean;
 }
@@ -81,6 +82,8 @@ export interface UnitCategoryTemplate {
   deploymentSection?: DeploymentSection;
   damageTypeResistances?: Partial<Record<string, number>>;
   firingAltitude: number;
+  /** 0 (default) disables all firing in melee. Above 0, enables melee fire and sets the firepower share (0..1) of enemy-blocked emitters; free emitters keep full power and allies still block. */
+  meleeFireRatio?: number;
   captureSpeed?: number;
   autofirePriority?: Partial<Record<UnitCategoryId, number>>;
   /**
@@ -156,6 +159,15 @@ export interface GameConstants {
   TILE_SIZE: number;
 
   DEFAULT_MAX_TURN: number;
+  /** In-world minutes advanced by each combat turn. */
+  MINUTES_PER_TURN: number;
+  /** In-world clock time used when a scenario has no start time. */
+  DEFAULT_BATTLE_START_TIME: string;
+  /** Cosmetic battlefield tint, interpolated between in-world clock times. */
+  BATTLE_LIGHTING: {
+    color: string;
+    opacityByTime: { time: string; opacity: number }[];
+  };
   MIN_CUSTOM_GAME_MAX_TURNS: number;
   MAX_CUSTOM_GAME_MAX_TURNS: number;
   MIN_OFFLINE_GAME_MAX_TURNS: number;
@@ -236,6 +248,7 @@ export interface GameConstants {
   CHARGE_BACKLASH_RESIST_FLOOR: number;
 
   HAS_TAKEN_FIRE_SPEED_MODIFIER: number;
+  HAS_BEEN_IN_MELEE_SPEED_MODIFIER: number;
 
   EFFECT_HAS_RAN_TICKS: number;
 
@@ -344,6 +357,12 @@ export interface GameConstants {
    * Divide by this before showing values in the UI.
    */
   STAT_DISPLAY_DIVISOR: number;
+
+  /**
+   * Ground scale: how many metres one world pixel covers. Display only - the
+   * sim works in pixels. Eras that declare no scale show raw pixels instead.
+   */
+  METERS_PER_PIXEL?: number;
 }
 
 // Damage Type Types (moved from @common/damage-type)
@@ -386,6 +405,11 @@ export type AoeConfig = CircularAoEConfig | TrapezoidalAoeConfig;
 export interface MeleeDamageTypeTemplate {
   id: number;
   name: string;
+  /**
+   * Display grouping: damage types sharing a category collapse into one row
+   * (with the range of their values) in the stat panels. Purely presentational.
+   */
+  category?: string;
   ranged?: false;
   ammoCost?: never;
   damageModifier?: number;
@@ -454,6 +478,11 @@ export enum ShotAimMode {
 export interface RangedDamageTypeTemplate {
   id: number;
   name: string;
+  /**
+   * Display grouping: damage types sharing a category collapse into one row
+   * (with the range of their values) in the stat panels. Purely presentational.
+   */
+  category?: string;
   ranged: true;
   projectileWidth: number;
   damageModifier?: number;
@@ -471,6 +500,13 @@ export interface RangedDamageTypeTemplate {
   damageModifierByTargetHp?: TargetStatModifier;
   /** Weapon's max range (absolute); each band's `from`/`to` is a fraction of this. */
   maxRange: number;
+  /**
+   * The range this weapon wants to fight at, as a fraction of `maxRange`. A unit advancing
+   * under fire and advance stops at the nearest preference among the weapons it is firing,
+   * never further out than that weapon can reach. Omit for a weapon that gives no reason to
+   * close, such as round shot or a shell: it then has no say in where the unit stops.
+   */
+  preferredRange?: number;
   ranges: DamageTypeRange[];
   arcHeight?: number;
   /**
@@ -497,6 +533,8 @@ export interface RangedDamageTypeTemplate {
   shotAnim: string;
   shotImpactAnim?: string;
   ammoCost?: number;
+  /** Ammo type this weapon draws `ammoCost` from. Defaults to the era's first ammo type. */
+  ammoType?: string;
   reorgDebuff?: number;
   attackEffectDuration?: number;
   extendRange?: boolean;
@@ -535,6 +573,15 @@ export interface StaminaRule {
   rangedAttackPenalty: number;
   meleeAttackPenalty: number;
   meleeDefensePenalty: number; // lashback damage penalty
+}
+
+export interface AmmoTypeTemplate {
+  id: number;
+  name: string;
+  /** Share of the unit's pool for this type that the reserve can refill per turn. */
+  refillRate: number;
+  /** Bar colour, `#rrggbb`. */
+  color: string;
 }
 
 export interface AmmoRule {
@@ -709,13 +756,6 @@ export interface AllyCollisionRule {
   maxOrgRadiusModifier: number;
 }
 
-export interface TutorialRule {
-  /**
-   * Single tutorial scenario for the era. `null` means the era has no tutorial.
-   */
-  scenario: ScenarioName | null;
-}
-
 export interface OrganizationRule {
   /** Speed modifier applied based on organization level */
   speedModifier: number;
@@ -735,6 +775,8 @@ export interface OrganizationRule {
   maxOrgMeleeAttackBonus: number;
   /** Maximum melee attack penalty when organization is low */
   maxOrgMeleeAttackPenalty: number;
+  /** Non-positive melee defense penalty at the lower organization threshold; defaults to zero. */
+  maxOrgMeleeDefensePenalty?: number;
   /** Base organization regain rate per turn (as proportion of max org) */
   regainRate: number;
   /** Upper limit for organization-based modifiers (as proportion, e.g., 0.9 = 90%) */
@@ -763,8 +805,6 @@ export interface OrganizationRule {
   startedRoutingOrgRadiusModifier: number;
   /** Minimum organization radius distance that is applied when unit has StartedRouting effect: 0 turns off the function */
   startedRoutingOrgRadiusDistance: number;
-  /** Run speed bonus when a unit starts routing, to help them get away: 1 turns off the function */
-  startedRoutingOrgRadiusDistanceRunSpeedBonus: number;
   /** Run cost modifier when a unit is routing after they finish the initial route: 1 turns off the function */
   routingRunCostModifier: number;
   /** Run cost modifier when a unit starts routing: 1 turns off the function */
@@ -802,7 +842,6 @@ export interface GameRules {
   objectives: ObjectivesRule;
   organization: OrganizationRule;
   allyCollision?: AllyCollisionRule;
-  tutorial?: TutorialRule;
 }
 
 export interface UnitSkin {
