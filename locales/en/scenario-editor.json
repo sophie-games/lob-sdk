@@ -465,7 +465,8 @@
       "canShootLocation": "Can shoot at location",
       "aimMode": "Aim mode",
       "maxRange": "Max range",
-      "preferredRange": "Preferred range (% of max)",
+      "preferredRange": "Preferred range",
+      "preferredRangeCustom": "Preferred range (% of max)",
       "engagementTier": "Autofire tier",
       "shotImpactAnim": "Impact animation",
       "bandName": "Range band"
@@ -517,6 +518,10 @@
       "maxRangeRequired": "Max range must be greater than 0",
       "rangeBandBounds": "Each band's From/To must be within 0–100%, with From ≤ To.",
       "lastBandMustReachMax": "The last band must reach 100% (max range)."
+    },
+    "preferredRange": {
+      "none": "None",
+      "custom": "Custom"
     },
     "engagementTier": {
       "low": "Low (close)",
