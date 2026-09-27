@@ -415,6 +415,8 @@ export interface FormationTemplate {
   rotationSpeedModifier?: number;
   disable180Turnaround?: boolean;
   rangedAttackModifier?: number;
+  /** Scales the ammo a volley spends, e.g. more muskets firing in line than in column. */
+  ammoConsumptionModifier?: number;
   chargeBonusModifier?: number;
   chargePenetrationModifier?: number;
   chargeResistanceModifier?: number;
