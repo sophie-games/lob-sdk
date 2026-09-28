@@ -24,7 +24,6 @@ import dresden from "./scenarios/dresden.json";
 import blackForest from "./scenarios/black-forest.json";
 import lake from "./scenarios/lake.json";
 import antioch from "./scenarios/antioch.json";
-import silvaSanctorum from "./scenarios/silva-sanctorum.json";
 import andesAndValley from "./scenarios/andes-and-valley.json";
 import lowCountries from "./scenarios/low-countries.json";
 import hedgerows from "./scenarios/hedgerows.json";
@@ -45,7 +44,6 @@ export const napoleonicScenarioCatalog = {
   "low-countries": lowCountries,
   lake,
   "black-forest": blackForest,
-  "silva-sanctorum": silvaSanctorum,
   "andes-and-valley": andesAndValley,
   "lines-of-legends": linesOfLegends,
   "river-valley": riverValley,
