@@ -3,8 +3,8 @@ import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { GameMap, Size, TerrainType } from "@lob-sdk/types";
 
 // The random maps drawn for the ground of Bonaparte's Italian campaign of 1796-97: a river
-// crossed at its bridges and a ford, an alpine valley, a fortified Apennine ridge and a marsh
-// crossed on dikes. Each is checked over every battle size and several seeds, because a template
+// crossed at its bridges and a ford, an alpine valley, a fortified Apennine ridge, a marsh
+// crossed on dikes and the Rivoli plateau. Each is checked over every battle size and several seeds, because a template
 // that works on one map can wall an army in on another.
 
 const TEMPLATES = [
@@ -12,6 +12,7 @@ const TEMPLATES = [
   "alpine-valley",
   "apennine-ridges",
   "marsh-dikes",
+  "rivoli-plateau",
 ] as const;
 const SIZES = [Size.Small, Size.Medium, Size.Large, Size.ExtraLarge];
 const SEEDS = [1, 42, 12345, 777, 2024];
@@ -35,8 +36,9 @@ class Battle {
     this.tilesY = map.terrains[0].length;
   }
 
+  /** The terrain at (x, y), or undefined off the map. */
   terrain(x: number, y: number) {
-    return this.map.terrains[x][y];
+    return this.map.terrains[x]?.[y];
   }
 
   height(x: number, y: number) {
@@ -166,7 +168,8 @@ function battle(name: string, size: Size, seed: number): Battle {
 const everyMap = (name: string) =>
   SIZES.flatMap((size) => SEEDS.map((seed) => [size, seed] as const));
 
-const { DeepWater, ShallowWater, Bridge, Road, Building, Forest, Redoubt, Cliff, Mud, Farm, FarmGrowing, FarmUnplanted } = TerrainType;
+const { DeepWater, ShallowWater, Bridge, Road, Building, Forest, Redoubt, Cliff, Mud, Farm, FarmGrowing, FarmUnplanted, Wall, Grass } = TerrainType;
+const CROPS = [Farm, FarmGrowing, FarmUnplanted];
 
 describe.each(TEMPLATES)("%s", (name) => {
   it.each(everyMap(name))("both armies can deploy and reach each other (%s, seed %i)", (size, seed) => {
@@ -216,6 +219,38 @@ describe.each(TEMPLATES)("%s", (name) => {
       expect(Math.max(x1 - x0, y1 - y0) + 1).toBeLessThanOrEqual(9);
     }
     expect(fields).toBeGreaterThan(0);
+  });
+});
+
+// The Po plain of 1796 was farmed almost everywhere: fields edged with rows of trees and vines
+// (the piantata), and walled farmsteads (cascine) off the roads that were held as strongpoints.
+// The marsh's wet hollows leave its dry ground less room for fields.
+describe.each([
+  ["river-crossing", 0.5],
+  ["marsh-dikes", 0.35],
+  ["apennine-ridges", 0.3],
+] as const)("%s is the farmed Po plain", (name, farmedShare) => {
+  it.each(everyMap(name))("fields, tree rows and walled farmsteads cover the open ground (%s, seed %i)", (size, seed) => {
+    const b = battle(name, size, seed);
+    // Measured on the ground either side of the middle, where the river or marsh lies.
+    const open = [...b.tilesIn(0, 100, 0, 30), ...b.tilesIn(0, 100, 70, 100)].filter(([x, y]) =>
+      [Grass, ...CROPS].includes(b.terrain(x, y)!),
+    );
+    const farmed = open.filter(([x, y]) => CROPS.includes(b.terrain(x, y)!));
+    expect(farmed.length / open.length).toBeGreaterThan(farmedShare);
+    // A tree row is a line of woodland one tile thick beside a field.
+    const rowTiles = [...b.tilesIn(0, 100, 0, 30), ...b.tilesIn(0, 100, 70, 100)].filter(([x, y]) => {
+      if (b.terrain(x, y) !== Forest || !b.near(x, y, 1, CROPS)) return false;
+      const across = [b.terrain(x - 1, y) === Forest, b.terrain(x + 1, y) === Forest];
+      const along = [b.terrain(x, y - 1) === Forest, b.terrain(x, y + 1) === Forest];
+      return (!across[0] && !across[1] && along.some(Boolean)) || (!along[0] && !along[1] && across.some(Boolean));
+    });
+    expect(rowTiles.length / open.length).toBeGreaterThan(0.01);
+    // Each farmstead is a block of buildings inside its courtyard wall, off a road.
+    const walls = b.tilesIn().filter(([x, y]) => b.terrain(x, y) === Wall);
+    expect(walls.length).toBeGreaterThan(0);
+    for (const [x, y] of walls) expect(b.near(x, y, 1, [Building])).toBe(true);
+    expect(walls.some(([x, y]) => b.near(x, y, 3, [Road]))).toBe(true);
   });
 });
 
@@ -292,15 +327,74 @@ describe("marsh-dikes", () => {
       const road = (x: number, y: number) => b.terrain(x, y) === Road || b.terrain(x, y) === Bridge;
       const marsh = (x: number, y: number) => b.terrain(x, y) === Mud || b.terrain(x, y) === ShallowWater;
       expect(b.share([Mud, ShallowWater], 0, 100, 30, 70)).toBeGreaterThan(0.3);
-      // A deep channel runs through the marsh, bridged where the dikes cross it.
       expect(b.share([DeepWater], 0, 100, 35, 65)).toBeGreaterThan(0.01);
-      // Each dike bridges the channel on its own line, so no single bridge decides the battle.
-      const bridgeColumns = new Set(b.tilesIn().filter(([x, y]) => b.terrain(x, y) === Bridge).map(([x]) => Math.floor(x / 10)));
-      expect(bridgeColumns.size).toBeGreaterThanOrEqual(2);
       // The marsh keeps to the middle: the ground each army deploys on stays mostly dry.
       expect(b.share([Mud, ShallowWater], 0, 100, 0, 20)).toBeLessThan(0.25);
       expect(b.meanHeight(road, 0, 100, 30, 70)).toBeGreaterThan(b.meanHeight(marsh, 0, 100, 30, 70));
       expect(b.zonesConnected((x, y) => b.passable(x, y) && !marsh(x, y) && !road(x, y))).toBe(false);
+    },
+  );
+
+  it.each(everyMap("marsh-dikes"))(
+    "as at Arcole, levees line the stream, crossed at one village-held bridge and a ford downstream (%s, seed %i)",
+    (size, seed) => {
+      const b = battle("marsh-dikes", size, seed);
+      const stream = b.tilesIn().filter(([x, y]) => b.terrain(x, y) === DeepWater);
+      // A dike runs along each bank: nearly every stretch of the stream has a road on both sides.
+      const leveed = stream.filter(
+        ([x, y]) =>
+          [Road, Bridge].some((t) => [b.terrain(x, y - 1), b.terrain(x - 1, y - 1), b.terrain(x + 1, y - 1)].includes(t)) &&
+          [Road, Bridge].some((t) => [b.terrain(x, y + 1), b.terrain(x - 1, y + 1), b.terrain(x + 1, y + 1)].includes(t)),
+      );
+      expect(leveed.length / stream.length).toBeGreaterThan(0.6);
+      // One bridge, held by a village.
+      const bridges = b.tilesIn().filter(([x, y]) => b.terrain(x, y) === Bridge);
+      expect(bridges.length).toBeGreaterThan(0);
+      for (const [x, y] of bridges)
+        for (const [ox, oy] of bridges) expect(Math.max(Math.abs(x - ox), Math.abs(y - oy))).toBeLessThanOrEqual(3);
+      expect(bridges.some(([x, y]) => b.near(x, y, 4, [Building]))).toBe(true);
+      // The only other way over is a ford a track leads to, well away from the bridge.
+      const fords = b.tilesIn().filter(([x, y]) => b.terrain(x, y) === ShallowWater && b.near(x, y, 1, [DeepWater]) && b.near(x, y, 1, [Road]));
+      expect(fords.some(([fx, fy]) => bridges.every(([bx, by]) => Math.max(Math.abs(fx - bx), Math.abs(fy - by)) >= 10))).toBe(true);
+      const acrossStream = (x: number, y: number) => b.passable(x, y) && b.terrain(x, y) !== Bridge && !fords.some(([fx, fy]) => fx === x && fy === y);
+      expect(b.zonesConnected(acrossStream)).toBe(false);
+    },
+  );
+});
+
+describe("rivoli-plateau", () => {
+  it.each(everyMap("rivoli-plateau"))(
+    "a plateau between Monte Baldo and the Adige gorge, climbed from the gorge by a defile (%s, seed %i)",
+    (size, seed) => {
+      const b = battle("rivoli-plateau", size, seed);
+      const plateau = b.meanHeight(undefined, 35, 65);
+      expect(plateau).toBeGreaterThanOrEqual(3.5);
+      expect(b.shareOf((x, y) => b.passable(x, y), 35, 65)).toBeGreaterThan(0.95);
+      // Monte Baldo rises on one side...
+      expect(b.meanHeight(undefined, 0, 15)).toBeGreaterThan(plateau + 1.5);
+      // ...and the Adige runs deep at the foot of the gorge's cliffs on the other.
+      expect(b.meanHeight(undefined, 88, 100)).toBeLessThan(plateau - 2);
+      expect(b.share([DeepWater], 85, 100)).toBeGreaterThan(0.05);
+      expect(b.share([DeepWater], 0, 80)).toBe(0);
+      expect(b.share([Cliff], 70, 85)).toBeGreaterThan(0.2);
+      // A road climbs out of the gorge onto the plateau, as through the Osteria defile.
+      const isRoad = (x: number, y: number) => b.terrain(x, y) === Road || b.terrain(x, y) === Bridge;
+      const open: Tile[] = b.tilesIn().filter(([x, y]) => isRoad(x, y) && b.height(x, y) <= 1.5);
+      const seen = new Set(open.map(([x, y]) => `${x},${y}`));
+      let climbs = false;
+      for (let head = 0; head < open.length && !climbs; head++) {
+        const [x, y] = open[head];
+        if (b.height(x, y) >= 4) climbs = true;
+        for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]] as Tile[])
+          if (isRoad(nx, ny) && !seen.has(`${nx},${ny}`)) {
+            seen.add(`${nx},${ny}`);
+            open.push([nx, ny]);
+          }
+      }
+      expect(climbs).toBe(true);
+      // The San Marco chapel crowns a knoll above the gorge.
+      expect(b.tilesIn(55, 85).some(([x, y]) => b.terrain(x, y) === Building && b.height(x, y) >= 5.5)).toBe(true);
+      expect(b.share([Building], 30, 70)).toBeGreaterThan(0);
     },
   );
 });
