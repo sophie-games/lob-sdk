@@ -599,6 +599,10 @@
       "title": "选择冲锋时机",
       "description": "正面冲击组织有序的部队很危险。先用火力削弱敌人，或攻击侧翼。"
     },
+    "slowCharge": {
+      "title": "冲锋速度不足",
+      "description": "冲锋接敌时速度越快，打击越重，而崎岖地形和拥挤路线会拖慢冲锋。从开阔地冲锋才能全速撞击。"
+    },
     "objectives": {
       "title": "小型目标",
       "description": "小星星有助于补充弹药储备。占领它们，让军队持续开火。"
@@ -731,6 +735,10 @@
     "artilleryRotateToFire": {
       "title": "停下开火",
       "description": "敌人已经很近了，你的大炮已经射击干净，但它仍在移动。停止行军并旋转单位以自动射击。"
+    },
+    "artilleryCanisterRange": {
+      "title": "接近霰弹射程",
+      "description": "敌人刚好在该炮兵连的霰弹射程之外。再靠近一点，它就会发射霰弹，近距离杀伤力大得多。"
     },
     "pushObjective": {
       "title": "扩大领先",

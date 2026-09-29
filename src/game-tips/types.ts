@@ -24,6 +24,7 @@ export type GameSituationKey =
   | "cavalryShouldFallbackFromInfantry"
   | "artilleryCanFireAndAdvance"
   | "artilleryCanRotateToFire"
+  | "artilleryNearCanisterRange"
   | "infantryReadyForLine"
   | "cavalryVsWeakerCavalry"
   | "cavalryVsEqualCavalry"
@@ -53,6 +54,7 @@ export type GameTipCondition =
   | { kind: "maxAutofire" }
   | { kind: "exposedFlank" }
   | { kind: "chargeOrder" }
+  | { kind: "slowCharge" }
   | { kind: "ammoObjective" }
   | { kind: "victoryPoints"; maxRatioFromAverage: number }
   | { kind: "blockedShot"; categories: readonly string[] }

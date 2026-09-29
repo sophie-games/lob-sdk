@@ -458,6 +458,10 @@
       "title": "Sturmangriffe abwägen",
       "description": "Frontalangriffe auf geordnete Truppen sind riskant. Schwäche sie durch Beschuss oder greife eine Flanke an."
     },
+    "slowCharge": {
+      "title": "Langsamer Sturmangriff",
+      "description": "Ein Sturmangriff trifft umso härter, je schneller er beim Aufprall ist, und schwieriges Gelände oder verstopfte Wege bremsen ihn. Greife über offenes Gelände an, um mit voller Geschwindigkeit zu treffen."
+    },
     "objectives": {
       "title": "Kleine Ziele",
       "description": "Kleine Sterne helfen, deine Munitionsreserve aufzufüllen. Erobere sie, um weiterfeuern zu können."
@@ -590,6 +594,10 @@
     "artilleryRotateToFire": {
       "title": "Halten und feuern",
       "description": "Feind nah, dein Geschütz hat freien Schuss, marschiert aber noch. Marsch stoppen und Einheit drehen für Autofeuer."
+    },
+    "artilleryCanisterRange": {
+      "title": "Fast in Kartätschenreichweite",
+      "description": "Der Feind steht knapp außerhalb der Kartätschenreichweite dieser Batterie. Rücke etwas näher heran, dann feuert sie Kartätschen, die aus der Nähe viel mehr Schaden anrichten."
     },
     "pushObjective": {
       "title": "Nutze deinen Vorsprung",

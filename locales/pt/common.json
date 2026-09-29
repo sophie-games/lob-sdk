@@ -458,6 +458,10 @@
       "title": "Escolha suas cargas",
       "description": "Cargas frontais contra tropas organizadas são arriscadas. Enfraqueça-as com tiros ou ataque um flanco."
     },
+    "slowCharge": {
+      "title": "Carga lenta",
+      "description": "Uma carga atinge mais forte quanto mais rápido chega ao contato, e terreno difícil ou rotas congestionadas a freiam. Carregue por terreno aberto para atingir a toda velocidade."
+    },
     "objectives": {
       "title": "Objetivos pequenos",
       "description": "Estrelas pequenas ajudam a recuperar sua reserva de munição. Capture-as para continuar disparando."
@@ -590,6 +594,10 @@
     "artilleryRotateToFire": {
       "title": "Parar para atirar",
       "description": "O inimigo está próximo e seu canhão dispara certeiro, mas ainda está em movimento. Pare a marcha e gire a unidade para disparo automático."
+    },
+    "artilleryCanisterRange": {
+      "title": "Quase no alcance da metralha",
+      "description": "O inimigo está logo além do alcance de metralha desta bateria. Aproxime-se um pouco e ela disparará metralha, muito mais letal de perto."
     },
     "pushObjective": {
       "title": "Aproveite a vantagem",
