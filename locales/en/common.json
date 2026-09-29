@@ -636,6 +636,10 @@
       "title": "Charges",
       "description": "Frontal charges against organized troops are risky. Weaken them with fire or attack a flank."
     },
+    "slowCharge": {
+      "title": "Slow charge",
+      "description": "A charge hits harder the faster it is moving at contact, and rough ground and crowded routes slow it down. Charge across open ground to strike at full speed."
+    },
     "objectives": {
       "title": "Small stars",
       "description": "Small stars help replenish your ammo reserve. Capture them to keep your army firing."
@@ -764,6 +768,10 @@
     "artilleryRotateToFire": {
       "title": "Stop to fire",
       "description": "The enemy is close and your cannon has a clean shot, but it is still moving. Stop the march and rotate the unit onto the target so autofire can work."
+    },
+    "artilleryCanisterRange": {
+      "title": "Close to canister range",
+      "description": "The enemy is just beyond this battery's canister range. Move a little closer and it will fire canister, which hits much harder up close."
     },
     "idleUnits": {
       "title": "Units without orders",
@@ -1889,7 +1897,7 @@
     },
     "move": {
       "mouse": "Right-click open ground to set a destination. The arrow previews the movement; the unit waits for you to submit.",
-      "touch": "Drag from the unit to open ground to set a destination. The arrow previews the movement; the unit waits for you to submit."
+      "touch": "Tap open ground to set a destination. The arrow previews the movement; the unit waits for you to submit."
     },
     "submit": {
       "mouse": "Movement prepared. You can give more orders or press Submit orders below. Both armies then move at the same time.",

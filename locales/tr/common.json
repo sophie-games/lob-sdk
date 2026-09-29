@@ -458,6 +458,10 @@
       "title": "Hücumlarını seç",
       "description": "Düzenli birliklere önden hücum risklidir. Ateşle zayıflat veya bir kanada saldır."
     },
+    "slowCharge": {
+      "title": "Yavaş hücum",
+      "description": "Hücum, temas anında ne kadar hızlıysa o kadar sert vurur; engebeli arazi ve kalabalık rotalar onu yavaşlatır. Tam hızla vurmak için açık araziden hücum et."
+    },
     "objectives": {
       "title": "Küçük hedefler",
       "description": "Küçük yıldızlar mühimmat rezervini yenilemeye yardım eder. Ordunun ateşi sürdürmesi için onları ele geçir."
@@ -590,6 +594,10 @@
     "artilleryRotateToFire": {
       "title": "Ateş için dur",
       "description": "Düşman yakında ve topunuz temiz bir atış yapıyor ama hâlâ hareket ediyor. Yürüyüşü durdurun ve otomatik ateşleme için üniteyi döndürün."
+    },
+    "artilleryCanisterRange": {
+      "title": "Misket menziline yakın",
+      "description": "Düşman, bu bataryanın misket menzilinin hemen dışında. Biraz yaklaş ve yakından çok daha ağır hasar veren misket atmaya başlasın."
     },
     "pushObjective": {
       "title": "Üstünlüğünü kullan",
