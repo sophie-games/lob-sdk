@@ -8,8 +8,8 @@ import { getPosition } from "../utils";
 import { TerrainFilterMatcher } from "../terrain-filter-matcher";
 import { InstructionArea } from "../frame-angle";
 
-/** Places a `skipBlocked` scatter may try per rectangle before giving up on it. */
-const MAX_TRIES = 20;
+/** Places a `skipBlocked` scatter tries per rectangle before giving up on it, by default. */
+const DEFAULT_TRIES = 20;
 
 export class TerrainRectangleExecutor {
   private random: () => number;
@@ -59,7 +59,7 @@ export class TerrainRectangleExecutor {
       const maxWidth = scatter.maxWidth ?? width;
       const minHeight = scatter.minHeight ?? height;
       const maxHeight = scatter.maxHeight ?? height;
-      for (let j = 0, tries = 0; j < count && tries < count * MAX_TRIES; tries++) {
+      for (let j = 0, tries = 0; j < count && tries < count * (scatter?.tries ?? DEFAULT_TRIES); tries++) {
         // Random position anywhere on the map
         const randX = Math.floor(random() * tilesX);
         const randY = Math.floor(random() * tilesY);
@@ -146,7 +146,7 @@ export class TerrainRectangleExecutor {
     const maxWidth = scatter?.maxWidth ?? width;
     const minHeight = scatter?.minHeight ?? height;
     const maxHeight = scatter?.maxHeight ?? height;
-    for (let j = 0, tries = 0; j < count && tries < count * MAX_TRIES; tries++) {
+    for (let j = 0, tries = 0; j < count && tries < count * (scatter?.tries ?? DEFAULT_TRIES); tries++) {
       const [x, y] = candidates[Math.floor(random() * candidates.length)];
       const drawn = this.generateRectangleStructure(
         {

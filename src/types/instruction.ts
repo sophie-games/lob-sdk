@@ -273,6 +273,8 @@ export interface InstructionTerrainRectangle extends BaseInstruction {
     maxHeight?: number;
     /** Rotation: fixed number or {min, max} range for random rotation. */
     rotation?: number | Range;
+    /** With `skipBlocked`: places tried per rectangle before it is dropped. Default 20. */
+    tries?: number;
     /** Fixed height value for scattered rectangles. */
     height?: number;
     /** Minimum height value for scattered rectangles. */
@@ -520,7 +522,7 @@ export interface InstructionSymmetry extends BaseInstruction {
  */
 /**
  * Instruction to lay out fields the way farmland grows along roads: the grass beside each road,
- * past a one-tile verge, is cut into strips that run parallel to it, and each strip is sown with
+ * past a verge, is cut into strips that run parallel to it, and each strip is sown with
  * one crop or left as meadow. Neighbouring strips never share a crop, so each reads as its own
  * field, and a sliver where a strip is cut short stays meadow. Only grass is sown.
  */
@@ -543,6 +545,12 @@ export interface InstructionFields extends BaseInstruction {
   border?: { terrain: TerrainType; chance: number };
   /** Heights the fields may be sown on. */
   heights?: Range[];
+  /** Grass left unsown along the road, in tiles. Default 1. */
+  verge?: number;
+  /** Strip directions are rounded to multiples of this many degrees. Default 22.5. */
+  directionStep?: number;
+  /** Parcels smaller than this many tiles stay meadow. Default: half the smallest strip. */
+  minTiles?: number;
 }
 
 export type AnyInstruction =

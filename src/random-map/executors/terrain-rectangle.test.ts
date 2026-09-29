@@ -263,4 +263,29 @@ describe("TerrainRectangleExecutor skipBlocked", () => {
     expect(tilesOf(terrains, TerrainType.Farm)).toHaveLength(25);
     expect(tilesOf(terrains, TerrainType.FarmGrowing)).toHaveLength(25);
   });
+
+  it("tries each blocked copy elsewhere as many times as its scatter allows", () => {
+    // Crowded fields along a road: with one try, a blocked copy is simply dropped.
+    const sowAlongRoad = (tries?: number) => {
+      const { terrains, heightMap } = grassMap();
+      for (let y = 0; y < SIZE; y++) terrains[30][y] = TerrainType.Road;
+      run(
+        {
+          terrain: TerrainType.Farm,
+          width: 4,
+          height: 4,
+          position: { type: "range", min: [0, 0], max: [100, 100] },
+          terrainFilter: { terrains: [TerrainType.Road], searchRadius: 5 },
+          excludeTerrains: [TerrainType.Road, TerrainType.Farm],
+          skipBlocked: true,
+          scatter: { count: 40, minWidth: 4, maxWidth: 5, minHeight: 4, maxHeight: 5, ...(tries ? { tries } : {}) },
+        },
+        terrains,
+        heightMap,
+        42,
+      );
+      return tilesOf(terrains, TerrainType.Farm).length;
+    };
+    expect(sowAlongRoad(1)).toBeLessThan(sowAlongRoad());
+  });
 });

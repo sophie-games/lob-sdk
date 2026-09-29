@@ -140,4 +140,31 @@ describe("FieldsExecutor", () => {
     for (let x = 0; x < SIZE; x++) for (let y = 0; y < ROAD_Y; y++) expect(CROPS).not.toContain(terrains[x][y]);
     expect(fields(terrains).length).toBeGreaterThan(0);
   });
+
+  it("leaves the verge its instruction asks for", () => {
+    const { terrains, heightMap } = map((_, y) => y === ROAD_Y);
+    sow(terrains, heightMap, 42, { verge: 3, chance: 1 });
+    for (let x = 0; x < SIZE; x++)
+      for (let y = 0; y < SIZE; y++)
+        if (CROPS.includes(terrains[x][y])) expect(Math.abs(y - ROAD_Y)).toBeGreaterThan(3);
+    expect(fields(terrains).length).toBeGreaterThan(0);
+  });
+
+  it("leaves meadow any parcel smaller than its minimum field", () => {
+    const { terrains, heightMap } = map((_, y) => y === ROAD_Y);
+    // No strip can reach 1000 tiles, so nothing is sown.
+    sow(terrains, heightMap, 42, { chance: 1, minTiles: 1000 });
+    expect(fields(terrains)).toHaveLength(0);
+  });
+
+  it("rounds strip directions to its direction step", () => {
+    // A diagonal road with strips held to right angles: every field runs along an axis.
+    const { terrains, heightMap } = map((x, y) => x === y || x === y + 1);
+    sow(terrains, heightMap, 42, { directionStep: 90 });
+    const all = fields(terrains).filter((f) => f.length >= 6);
+    expect(all.length).toBeGreaterThan(5);
+    // An upright block spans as much along x + y as along x and y together; a diagonal strip less.
+    const upright = all.filter((f) => spread(f, ([x, y]) => x + y) >= spread(f, ([x]) => x) + spread(f, ([, y]) => y) - 2);
+    expect(upright.length / all.length).toBeGreaterThan(0.7);
+  });
 });

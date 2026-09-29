@@ -1,12 +1,8 @@
 import { InstructionFields, TerrainType } from "@lob-sdk/types";
 import { deriveSeed, randomSeeded } from "@lob-sdk/seed";
 
-/** Grass left unsown along the road itself. */
-const VERGE = 1;
 /** How far around a road tile its direction is measured. */
 const DIRECTION_RADIUS = 3;
-/** Strip directions are rounded to this many steps over half a turn, so field edges run straight. */
-const DIRECTION_STEPS = 8;
 
 const NEIGHBOURS = [
   [-1, -1], [0, -1], [1, -1],
@@ -40,12 +36,15 @@ export class FieldsExecutor {
   execute(): void {
     const { instruction, terrains, heightMap, tilesX, tilesY } = this;
     const { maxDistance, heights, border } = instruction;
+    const verge = instruction.verge ?? 1;
+    // Directions are rounded to whole steps so field edges run straight.
+    const steps = Math.max(1, Math.round(180 / (instruction.directionStep ?? 22.5)));
     const along = new Set(instruction.along ?? [TerrainType.Road]);
     const { dist, source } = this.distances(along, maxDistance);
     const road = this.roads(along);
 
     // Strip edges across the road, and each strip's length and phase along it.
-    const edges = [VERGE + 1];
+    const edges = [verge + 1];
     while (edges[edges.length - 1] <= maxDistance) edges.push(edges[edges.length - 1] + this.int(instruction.width));
     const lengths = edges.map(() => this.int(instruction.size));
     const phases = lengths.map((length) => this.random() * length);
@@ -59,7 +58,7 @@ export class FieldsExecutor {
       for (let y = 0; y < tilesY; y++) {
         const i = x * tilesY + y;
         const d = dist[i];
-        if (d < VERGE + 1 || d > maxDistance || terrains[x][y] !== TerrainType.Grass) continue;
+        if (d < verge + 1 || d > maxDistance || terrains[x][y] !== TerrainType.Grass) continue;
         if (heights && !heights.some((r) => heightMap[x][y] >= r.min && heightMap[x][y] <= r.max)) continue;
 
         const s = source[i];
@@ -67,10 +66,10 @@ export class FieldsExecutor {
         const sy = s % tilesY;
         let step = directions.get(s);
         if (step === undefined) {
-          step = this.direction(sx, sy, along);
+          step = this.direction(sx, sy, along, steps);
           directions.set(s, step);
         }
-        const angle = (step * Math.PI) / DIRECTION_STEPS;
+        const angle = (step * Math.PI) / steps;
         const ux = Math.cos(angle);
         const uy = Math.sin(angle);
         const cross = ux * (y - sy) - uy * (x - sx);
@@ -168,8 +167,8 @@ export class FieldsExecutor {
     return road;
   }
 
-  /** The road's direction at (x, y), as one of DIRECTION_STEPS steps over half a turn. */
-  private direction(x: number, y: number, along: Set<TerrainType>): number {
+  /** The road's direction at (x, y), as one of `steps` steps over half a turn. */
+  private direction(x: number, y: number, along: Set<TerrainType>, steps: number): number {
     let cxx = 0;
     let cyy = 0;
     let cxy = 0;
@@ -181,8 +180,8 @@ export class FieldsExecutor {
           cxy += dx * dy;
         }
     const angle = 0.5 * Math.atan2(2 * cxy, cxx - cyy);
-    const steps = Math.round((angle * DIRECTION_STEPS) / Math.PI);
-    return ((steps % DIRECTION_STEPS) + DIRECTION_STEPS) % DIRECTION_STEPS;
+    const step = Math.round((angle * steps) / Math.PI);
+    return ((step % steps) + steps) % steps;
   }
 
   /**
@@ -208,7 +207,8 @@ export class FieldsExecutor {
     // A sliver left where a strip is cut short stays meadow rather than read as a field.
     const tiles = new Int32Array(count);
     for (const parcel of parcelOf) if (parcel >= 0) tiles[parcel]++;
-    const smallest = Math.ceil((instruction.width.min * instruction.size.min) / 2);
+    const smallest =
+      instruction.minTiles ?? Math.ceil((instruction.width.min * instruction.size.min) / 2);
     const crops: (TerrainType | null)[] = Array(count).fill(null);
     for (let p = 0; p < count; p++) {
       if (this.random() >= instruction.chance || tiles[p] < smallest) continue;
