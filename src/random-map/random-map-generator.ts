@@ -27,6 +27,7 @@ import { ObjectiveExecutor } from "./executors/objective";
 import { ObjectiveLayerExecutor } from "./executors/objective-layer";
 import { LakeExecutor } from "./executors/lake";
 import { SymmetryExecutor } from "./executors/symmetry";
+import { FieldsExecutor } from "./executors/fields";
 import { normalizeMapGrids } from "./normalize-map-grids";
 import { deriveSeed, generateRandomSeed, randomSeeded } from "@lob-sdk/seed";
 import { GameDataManager, GameEra } from "@lob-sdk/game-data-manager";
@@ -494,6 +495,16 @@ export class RandomMapGenerator {
         case InstructionType.Symmetry: {
           new SymmetryExecutor(
             instruction,
+            boundedTerrains,
+            boundedHeightMap,
+          ).execute();
+          break;
+        }
+        case InstructionType.Fields: {
+          new FieldsExecutor(
+            instruction,
+            seed,
+            index,
             boundedTerrains,
             boundedHeightMap,
           ).execute();

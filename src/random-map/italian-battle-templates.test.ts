@@ -194,7 +194,7 @@ describe.each(TEMPLATES)("%s", (name) => {
     },
   );
 
-  it.each(everyMap(name))("fields are compact blocks, never stretched into long strips (%s, seed %i)", (size, seed) => {
+  it.each(everyMap(name))("each field is one strip, never several merged into a sprawling patch (%s, seed %i)", (size, seed) => {
     // Each field is one crop; neighbouring fields of another crop are separate fields.
     const b = battle(name, size, seed);
     const seen = new Set<string>();
@@ -203,40 +203,39 @@ describe.each(TEMPLATES)("%s", (name) => {
       const crop = b.terrain(sx, sy);
       if (![Farm, FarmGrowing, FarmUnplanted].includes(crop) || seen.has(`${sx},${sy}`)) continue;
       fields++;
-      let [x0, y0, x1, y1] = [sx, sy, sx, sy];
+      let tiles = 0;
       const stack: Tile[] = [[sx, sy]];
       seen.add(`${sx},${sy}`);
       while (stack.length) {
         const [x, y] = stack.pop()!;
-        [x0, y0, x1, y1] = [Math.min(x0, x), Math.min(y0, y), Math.max(x1, x), Math.max(y1, y)];
+        tiles++;
         for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]] as Tile[])
           if (nx >= 0 && ny >= 0 && nx < b.tilesX && ny < b.tilesY && b.terrain(nx, ny) === crop && !seen.has(`${nx},${ny}`)) {
             seen.add(`${nx},${ny}`);
             stack.push([nx, ny]);
           }
       }
-      // A field is at most 400-450 m on a side.
-      expect(Math.max(x1 - x0, y1 - y0) + 1).toBeLessThanOrEqual(9);
+      // A strip is at most 4 tiles by 12, 200 by 600 m; drawn along a diagonal road it covers up
+      // to half as many tiles again.
+      expect(tiles).toBeLessThanOrEqual(72);
     }
     expect(fields).toBeGreaterThan(0);
   });
 });
 
-// The Po plain of 1796 was farmed almost everywhere: fields edged with rows of trees and vines
-// (the piantata), and walled farmsteads (cascine) off the roads that were held as strongpoints.
-// The marsh's wet hollows leave its dry ground less room for fields.
-describe.each([
-  ["river-crossing", 0.5],
-  ["marsh-dikes", 0.35],
-] as const)("%s is the farmed Po plain", (name, farmedShare) => {
-  it.each(everyMap(name))("fields, tree rows and walled farmsteads cover the open ground (%s, seed %i)", (size, seed) => {
+// The Po plain of 1796 was farmed along its roads in strips edged with rows of trees and vines
+// (the piantata), with meadow between, and walled farmsteads (cascine) off the roads that were
+// held as strongpoints.
+describe.each(["river-crossing", "marsh-dikes"] as const)("%s is the farmed Po plain", (name) => {
+  it.each(everyMap(name))("strip fields, tree rows and walled farmsteads line the roads (%s, seed %i)", (size, seed) => {
     const b = battle(name, size, seed);
     // Measured on the ground either side of the middle, where the river or marsh lies.
     const open = [...b.tilesIn(0, 100, 0, 30), ...b.tilesIn(0, 100, 70, 100)].filter(([x, y]) =>
       [Grass, ...CROPS].includes(b.terrain(x, y)!),
     );
     const farmed = open.filter(([x, y]) => CROPS.includes(b.terrain(x, y)!));
-    expect(farmed.length / open.length).toBeGreaterThan(farmedShare);
+    expect(farmed.length / open.length).toBeGreaterThan(0.15);
+    expect(farmed.length / open.length).toBeLessThan(0.5);
     // A tree row is a line of open woodland one tile thick beside a field.
     const rowTiles = [...b.tilesIn(0, 100, 0, 30), ...b.tilesIn(0, 100, 70, 100)].filter(([x, y]) => {
       if (b.terrain(x, y) !== LightForest || !b.near(x, y, 1, CROPS)) return false;

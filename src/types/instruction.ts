@@ -104,6 +104,8 @@ export enum InstructionType {
   ObjectiveLayer = "OBJECTIVE_LAYER",
   /** Instruction to copy one half of the map onto the other. */
   Symmetry = "SYMMETRY",
+  /** Instruction to lay out fields in strips along the roads. */
+  Fields = "FIELDS",
 }
 
 /**
@@ -505,6 +507,33 @@ export interface InstructionSymmetry extends BaseInstruction {
 /**
  * Union type representing any valid procedural generation instruction.
  */
+/**
+ * Instruction to lay out fields the way farmland grows along roads: the grass beside each road,
+ * past a one-tile verge, is cut into strips that run parallel to it, and each strip is sown with
+ * one crop or left as meadow. Neighbouring strips never share a crop, so each reads as its own
+ * field, and a sliver where a strip is cut short stays meadow. Only grass is sown.
+ */
+export interface InstructionFields extends BaseInstruction {
+  /** Instruction type is Fields. */
+  type: InstructionType.Fields;
+  /** Crops to sow, one per strip. */
+  terrains: TerrainType[];
+  /** Terrains the strips run along. Default: road. */
+  along?: TerrainType[];
+  /** How far from the road, in tiles, the fields reach. */
+  maxDistance: number;
+  /** Width of a strip across the road, in tiles. */
+  width: Range;
+  /** Length of a strip along the road, in tiles. */
+  size: Range;
+  /** Share of strips that are sown; the rest stay meadow. */
+  chance: number;
+  /** Optional line of this terrain (a hedge or tree row) between strips, drawn with `chance`. */
+  border?: { terrain: TerrainType; chance: number };
+  /** Heights the fields may be sown on. */
+  heights?: Range[];
+}
+
 export type AnyInstruction =
   | InstructionTerrainNoise
   | InstructionHeightNoise
@@ -515,4 +544,5 @@ export type AnyInstruction =
   | InstructionObjective
   | InstructionLake
   | InstructionObjectiveLayer
-  | InstructionSymmetry;
+  | InstructionSymmetry
+  | InstructionFields;
