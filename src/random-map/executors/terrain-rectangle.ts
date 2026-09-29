@@ -126,8 +126,12 @@ export class TerrainRectangleExecutor {
     }
     // Candidates are map tiles; on a turned map, those whose local place is in range.
     const candidates: [number, number][] = [];
+    // A turned frame overhangs the map, so density counts only the area's tiles on the map.
+    let mapTiles = tilesX * tilesY;
     if (area) {
+      mapTiles = 0;
       for (const [x, y, u, v] of area.tiles()) {
+        mapTiles++;
         const [iu, iv] = [Math.round(u), Math.round(v)];
         if (iu >= minX && iu <= maxX && iv >= minY && iv <= maxY && matcher.matches(x, y))
           candidates.push([x, y]);
@@ -141,7 +145,7 @@ export class TerrainRectangleExecutor {
     let count = 1;
     if (scatter?.count !== undefined) count = scatter.count;
     else if (scatter?.countPer100x100 !== undefined)
-      count = Math.round(((tilesX * tilesY) / 10000) * scatter.countPer100x100);
+      count = Math.round((mapTiles / 10000) * scatter.countPer100x100);
     const minWidth = scatter?.minWidth ?? width;
     const maxWidth = scatter?.maxWidth ?? width;
     const minHeight = scatter?.minHeight ?? height;

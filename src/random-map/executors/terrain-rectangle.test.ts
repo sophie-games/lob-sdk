@@ -6,6 +6,7 @@ import {
   TerrainType,
 } from "@lob-sdk/types";
 import { SCENARIO_SCHEMA_VERSION } from "@lob-sdk/scenario";
+import { TurnedFrame } from "../frame-angle";
 
 // `terrainFilter` places a rectangle relative to the ground already drawn - a village at a
 // bridge, a redoubt on a crest - and `excludeTerrains` keeps its fill off ground it must not bury.
@@ -287,5 +288,36 @@ describe("TerrainRectangleExecutor skipBlocked", () => {
       return tilesOf(terrains, TerrainType.Farm).length;
     };
     expect(sowAlongRoad(1)).toBeLessThan(sowAlongRoad());
+  });
+});
+
+describe("TerrainRectangleExecutor terrainFilter on a turned map", () => {
+  it("scatters as many copies per 100x100 as on the unturned map", () => {
+    // Every grass tile matches; 1x1 copies make each drawn copy one tile.
+    const villages = (angle: number) => {
+      const { terrains, heightMap } = grassMap();
+      new TerrainRectangleExecutor(
+        {
+          type: InstructionType.TerrainRectangle,
+          terrain: TerrainType.Farm,
+          width: 1,
+          height: 1,
+          position: { type: "range", min: [0, 0], max: [100, 100] },
+          terrainFilter: { terrains: [TerrainType.Grass] },
+          excludeTerrains: [TerrainType.Farm],
+          skipBlocked: true,
+          scatter: { countPer100x100: 50 },
+        },
+        scenario,
+        7,
+        0,
+        terrains,
+        heightMap,
+        angle ? new TurnedFrame(angle, SIZE, SIZE).area() : undefined,
+      ).execute();
+      return tilesOf(terrains, TerrainType.Farm).length;
+    };
+    // The 45-degree frame covers twice the map; its extra area is off the map.
+    expect(villages(45)).toBe(villages(0));
   });
 });
