@@ -53,11 +53,11 @@ export class TerrainNoiseExecutor {
         value = convertTo01Range(value);
 
         // Check if value falls within any of the threshold ranges
-        const shouldApplyTerrain = ranges.some(
+        const range = ranges.find(
           (range) => value >= range.min && value <= range.max
         );
 
-        if (shouldApplyTerrain) {
+        if (range) {
           // Check height constraints if specified
           const currentHeight = heightMap[x][y];
           const heightConstraint = height;
@@ -69,7 +69,7 @@ export class TerrainNoiseExecutor {
                 currentHeight <= heightConstraint.max)) &&
             (!excludeTerrains || !excludeTerrains.includes(terrains[x][y]))
           ) {
-            terrains[x][y] = terrain;
+            terrains[x][y] = range.terrain ?? terrain;
           }
         }
       }

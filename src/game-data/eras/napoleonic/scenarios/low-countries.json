@@ -80,7 +80,7 @@
       "scale": 8,
       "ranges": [
         { "min": 0, "max": 0.18 },
-        { "min": 0.185, "max": 0.2 }
+        { "min": 0.185, "max": 0.2, "terrain": 27 }
       ],
       "multiplier": 1,
       "height": {
@@ -314,7 +314,7 @@
       "scale": 25,
       "ranges": [
         { "min": 0, "max": 0.08 },
-        { "min": 0.085, "max": 0.1 }
+        { "min": 0.085, "max": 0.1, "terrain": 27 }
       ],
       "multiplier": 1,
       "height": {

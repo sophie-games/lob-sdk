@@ -129,8 +129,11 @@ export interface InstructionTerrainNoise extends BaseInstruction {
   terrain: TerrainType;
   /** Scale of the noise (smaller = more detail, larger = smoother). Can be a single number or [x, y] for different scales per axis. */
   scale: number | Point2;
-  /** Ranges of noise values that will place this terrain. */
-  ranges: Array<Range>;
+  /**
+   * Ranges of noise values that will place this terrain. A range's own `terrain` paints that
+   * instead, from the same noise: a wood's dense core and its open fringe in one field.
+   */
+  ranges: Array<Range & { terrain?: TerrainType }>;
   /** Optional multiplier for noise values. */
   multiplier?: number;
   /** Optional offset for noise values. */
