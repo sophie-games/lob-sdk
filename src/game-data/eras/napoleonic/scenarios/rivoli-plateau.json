@@ -276,26 +276,63 @@
     {
       "type": "NATURAL_PATH",
       "terrain": 5,
-      "between": "top-bottom",
+      "between": "points",
       "range": {
-        "min": 30,
-        "max": 70
-      },
-      "width": 2,
-      "xBounds": {
-        "min": 88,
-        "max": 98
-      },
-      "yBounds": {
         "min": 0,
         "max": 100
       },
+      "width": 2,
       "amount": {
         "min": 1,
         "max": 1
       },
-      "noiseWeight": 3,
-      "noiseSmoothness": 3
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 88,
+            "max": 94
+          },
+          "yRange": {
+            "min": 0,
+            "max": 0
+          }
+        },
+        {
+          "xRange": {
+            "min": 86,
+            "max": 88
+          },
+          "yRange": {
+            "min": 14,
+            "max": 20
+          }
+        },
+        {
+          "xRange": {
+            "min": 92,
+            "max": 95
+          },
+          "yRange": {
+            "min": 30,
+            "max": 36
+          }
+        },
+        {
+          "xRange": {
+            "min": 88,
+            "max": 92
+          },
+          "yRange": {
+            "min": 52,
+            "max": 52
+          }
+        }
+      ],
+      "uphillHeightCost": 50,
+      "noiseWeight": 11,
+      "noiseSmoothness": 4,
+      "curveLen": 8,
+      "curveWeight": 0.3
     },
     {
       "type": "NATURAL_PATH",

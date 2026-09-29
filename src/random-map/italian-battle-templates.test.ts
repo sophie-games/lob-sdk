@@ -228,7 +228,6 @@ describe.each(TEMPLATES)("%s", (name) => {
 describe.each([
   ["river-crossing", 0.5],
   ["marsh-dikes", 0.35],
-  ["apennine-ridges", 0.3],
 ] as const)("%s is the farmed Po plain", (name, farmedShare) => {
   it.each(everyMap(name))("fields, tree rows and walled farmsteads cover the open ground (%s, seed %i)", (size, seed) => {
     const b = battle(name, size, seed);
@@ -317,6 +316,18 @@ describe("apennine-ridges", () => {
       for (const [x, y] of b.tilesIn()) if (b.terrain(x, y) === Redoubt) expect(b.height(x, y)).toBeGreaterThanOrEqual(5);
     },
   );
+
+  it.each(everyMap("apennine-ridges"))(
+    "chestnut woods clothe the slopes, with only small fields in their clearings (%s, seed %i)",
+    (size, seed) => {
+      // Montenotte and Dego were fought over wooded hills and terraces, not the farmed Po plain.
+      const b = battle("apennine-ridges", size, seed);
+      const slopes = [...b.tilesIn(0, 100, 10, 40), ...b.tilesIn(0, 100, 60, 90)];
+      const share = (terrains: TerrainType[]) => slopes.filter(([x, y]) => terrains.includes(b.terrain(x, y)!)).length / slopes.length;
+      expect(share([Forest])).toBeGreaterThan(0.3);
+      expect(share(CROPS)).toBeLessThan(0.15);
+    },
+  );
 });
 
 describe("marsh-dikes", () => {
@@ -377,6 +388,14 @@ describe("rivoli-plateau", () => {
       expect(b.share([DeepWater], 85, 100)).toBeGreaterThan(0.05);
       expect(b.share([DeepWater], 0, 80)).toBe(0);
       expect(b.share([Cliff], 70, 85)).toBeGreaterThan(0.2);
+      // The river winds along the gorge floor rather than running ruler-straight.
+      const channel = [...Array(b.tilesY).keys()]
+        .map((y) => b.tilesIn(80, 100, (y * 100) / b.tilesY, ((y + 1) * 100) / b.tilesY).filter(([x, ty]) => ty === y && b.terrain(x, y) === DeepWater))
+        .filter((row) => row.length > 0)
+        .map((row) => row.reduce((sum, [x]) => sum + x, 0) / row.length);
+      const bends = channel.filter((x, i) => i > 0 && x !== channel[i - 1]).length;
+      expect(Math.max(...channel) - Math.min(...channel)).toBeGreaterThanOrEqual(4);
+      expect(bends).toBeGreaterThanOrEqual(6);
       // A road climbs out of the gorge onto the plateau, as through the Osteria defile.
       const isRoad = (x: number, y: number) => b.terrain(x, y) === Road || b.terrain(x, y) === Bridge;
       const open: Tile[] = b.tilesIn().filter(([x, y]) => isRoad(x, y) && b.height(x, y) <= 1.5);
