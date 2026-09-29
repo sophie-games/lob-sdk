@@ -79,6 +79,12 @@ export interface TerrainCategoryConfig {
   pushDistanceModifier?: number;
   fixedEnemyCollisionLevel?: number;
   prioritizeMovement?: boolean;
+  /**
+   * Its movement and run modifiers apply in full while any part of a unit's
+   * footprint is on it, above a prioritized road: a one-tile wall slows a whole
+   * battalion climbing it, not the share of the footprint on it.
+   */
+  obstructsMovement?: boolean;
   supplyRoute?: boolean;
 }
 
