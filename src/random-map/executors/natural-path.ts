@@ -103,7 +103,11 @@ export class NaturalPathExecutor {
     const landed = points.map(({ x, y }) => this.area!.toMap(x, y));
     const out: Point2[] = [];
     const push = ([x, y]: [number, number]) => {
-      const p = { x: Math.round(x), y: Math.round(y) };
+      // The nearest tile can round to just outside the area, where the path could never reach it.
+      const corners = [Math.round(x), Math.floor(x), Math.ceil(x)].flatMap((cx) =>
+        [Math.round(y), Math.floor(y), Math.ceil(y)].map((cy) => ({ x: cx, y: cy })),
+      );
+      const p = corners.find((c) => this.area!.contains(c.x, c.y)) ?? corners[0];
       const last = out[out.length - 1];
       if (!last || last.x !== p.x || last.y !== p.y) out.push(p);
     };
