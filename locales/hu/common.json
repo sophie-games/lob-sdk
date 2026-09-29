@@ -433,6 +433,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: roham visszaverve ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: roham visszaverve",
+    "brokenByCharge": "{{unit}} megtört egy roham alatt ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} megtört egy roham alatt",
+    "reason": {
+      "targetFormation": "cél {{formation}} alakzatban",
+      "targetGround": "cél {{terrain}} terepen",
+      "slowContact": "{{percent}}% sebesség az ütközéskor",
+      "frontal": "a frontot találta",
+      "tired": "fáradt csapatok",
+      "disordered": "rendezetlen csapatok",
+      "flanked": "oldalba kapott támadás"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Győzelmi pontok",

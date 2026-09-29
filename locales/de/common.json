@@ -433,6 +433,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: Angriff abgewiesen ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: Angriff abgewiesen",
+    "brokenByCharge": "{{unit}} brach unter einem Angriff ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} brach unter einem Angriff",
+    "reason": {
+      "targetFormation": "Ziel in {{formation}}",
+      "targetGround": "Ziel in {{terrain}}",
+      "slowContact": "{{percent}} % Tempo beim Aufprall",
+      "frontal": "traf die Front",
+      "tired": "erschöpfte Truppen",
+      "disordered": "ungeordnete Truppen",
+      "flanked": "in der Flanke getroffen"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Siegpunkte",

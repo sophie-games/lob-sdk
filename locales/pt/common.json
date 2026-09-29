@@ -433,6 +433,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: carga repelida ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: carga repelida",
+    "brokenByCharge": "{{unit}} cedeu a uma carga ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} cedeu a uma carga",
+    "reason": {
+      "targetFormation": "alvo em {{formation}}",
+      "targetGround": "alvo em {{terrain}}",
+      "slowContact": "{{percent}}% de velocidade no contato",
+      "frontal": "atingiu a frente",
+      "tired": "tropas cansadas",
+      "disordered": "tropas desorganizadas",
+      "flanked": "atingida no flanco"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Pontos de vitória",

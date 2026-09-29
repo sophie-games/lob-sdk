@@ -450,6 +450,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: 突撃は撃退された（{{reasons}}）",
+    "chargeRepelledPlain": "{{unit}}: 突撃は撃退された",
+    "brokenByCharge": "{{unit}}は突撃を受けて崩れた（{{reasons}}）",
+    "brokenByChargePlain": "{{unit}}は突撃を受けて崩れた",
+    "reason": {
+      "targetFormation": "目標は{{formation}}",
+      "targetGround": "目標は{{terrain}}",
+      "slowContact": "接触時の速度{{percent}}%",
+      "frontal": "正面に突撃",
+      "tired": "疲れた部隊",
+      "disordered": "混乱した部隊",
+      "flanked": "側面を突かれた"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "勝利ポイント",

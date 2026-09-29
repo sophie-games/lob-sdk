@@ -406,6 +406,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: การชาร์จถูกตีกลับ ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: การชาร์จถูกตีกลับ",
+    "brokenByCharge": "{{unit}} แตกพ่ายต่อการชาร์จ ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} แตกพ่ายต่อการชาร์จ",
+    "reason": {
+      "targetFormation": "เป้าหมายอยู่ใน {{formation}}",
+      "targetGround": "เป้าหมายอยู่ใน {{terrain}}",
+      "slowContact": "ความเร็ว {{percent}}% ขณะปะทะ",
+      "frontal": "ปะทะด้านหน้า",
+      "tired": "ทหารเหนื่อยล้า",
+      "disordered": "ทหารไร้ระเบียบ",
+      "flanked": "ถูกตีด้านข้าง"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "คะแนนชัยชนะ",

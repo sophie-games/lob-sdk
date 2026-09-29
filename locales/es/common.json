@@ -430,6 +430,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: carga rechazada ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: carga rechazada",
+    "brokenByCharge": "{{unit}} se quebró ante una carga ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} se quebró ante una carga",
+    "reason": {
+      "targetFormation": "objetivo en {{formation}}",
+      "targetGround": "objetivo en {{terrain}}",
+      "slowContact": "{{percent}}% de velocidad al contacto",
+      "frontal": "golpeó el frente",
+      "tired": "tropas cansadas",
+      "disordered": "tropas desorganizadas",
+      "flanked": "atacada por el flanco"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Victoria",

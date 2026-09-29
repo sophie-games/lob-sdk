@@ -433,6 +433,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: hücum püskürtüldü ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: hücum püskürtüldü",
+    "brokenByCharge": "{{unit}} bir hücum karşısında dağıldı ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} bir hücum karşısında dağıldı",
+    "reason": {
+      "targetFormation": "hedef {{formation}} düzeninde",
+      "targetGround": "hedef {{terrain}} arazisinde",
+      "slowContact": "temas anında %{{percent}} hız",
+      "frontal": "cepheye çarptı",
+      "tired": "yorgun birlikler",
+      "disordered": "düzensiz birlikler",
+      "flanked": "kanattan vuruldu"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Zafer puanları",

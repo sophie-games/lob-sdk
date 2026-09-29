@@ -443,6 +443,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: 돌격 격퇴됨 ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: 돌격 격퇴됨",
+    "brokenByCharge": "{{unit}}이(가) 돌격에 무너짐 ({{reasons}})",
+    "brokenByChargePlain": "{{unit}}이(가) 돌격에 무너짐",
+    "reason": {
+      "targetFormation": "목표가 {{formation}} 대형",
+      "targetGround": "목표가 {{terrain}}에 위치",
+      "slowContact": "접촉 시 속도 {{percent}}%",
+      "frontal": "정면에 부딪힘",
+      "tired": "지친 병력",
+      "disordered": "혼란한 병력",
+      "flanked": "측면 공격을 받음"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "승리 점수",

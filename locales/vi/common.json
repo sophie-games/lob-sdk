@@ -447,6 +447,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: đợt xung phong bị đẩy lùi ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: đợt xung phong bị đẩy lùi",
+    "brokenByCharge": "{{unit}} tan vỡ trước một đợt xung phong ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} tan vỡ trước một đợt xung phong",
+    "reason": {
+      "targetFormation": "mục tiêu trong đội hình {{formation}}",
+      "targetGround": "mục tiêu ở {{terrain}}",
+      "slowContact": "tốc độ {{percent}}% lúc va chạm",
+      "frontal": "đâm vào chính diện",
+      "tired": "quân mệt mỏi",
+      "disordered": "quân rối loạn",
+      "flanked": "bị đánh vào sườn"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Điểm chiến thắng",
