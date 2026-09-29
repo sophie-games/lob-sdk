@@ -108,7 +108,7 @@
         "min": 0,
         "max": 100
       },
-      "width": 2,
+      "width": 1,
       "height": 0.5,
       "amount": {
         "min": 1,
@@ -191,28 +191,11 @@
     {
       "type": "TERRAIN_NOISE",
       "terrain": 11,
-      "scale": 6,
+      "scale": 13,
       "ranges": [
         {
           "min": 0.45,
           "max": 1
-        }
-      ],
-      "multiplier": 1,
-      "excludeTerrains": [
-        19,
-        4,
-        5
-      ]
-    },
-    {
-      "type": "TERRAIN_NOISE",
-      "terrain": 17,
-      "scale": 5,
-      "ranges": [
-        {
-          "min": 0.7,
-          "max": 0.85
         }
       ],
       "multiplier": 1,
@@ -311,8 +294,8 @@
       "terrain": 3,
       "between": "top-bottom",
       "range": {
-        "min": 15,
-        "max": 85
+        "min": 0,
+        "max": 100
       },
       "width": 1,
       "height": 2.5,
@@ -344,20 +327,130 @@
           "cost": -1
         }
       ],
+      "xBounds": {
+        "min": 8,
+        "max": 38
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
       "amount": {
-        "min": 2,
-        "max": 2,
+        "min": 1,
+        "max": 1
+      }
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 1,
+      "height": 2.5,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 5,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 2,
+          "toTerrain": 2
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 5,
+          "cost": 10
+        },
+        {
+          "terrain": 4,
+          "cost": 4
+        },
+        {
+          "terrain": 2,
+          "cost": -1
+        }
+      ],
+      "xBounds": {
+        "min": 62,
+        "max": 92
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "amount": {
+        "min": 1,
+        "max": 1
+      }
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 1,
+      "height": 2.5,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 5,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 2,
+          "toTerrain": 2
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 5,
+          "cost": 10
+        },
+        {
+          "terrain": 4,
+          "cost": 4
+        },
+        {
+          "terrain": 2,
+          "cost": -1
+        }
+      ],
+      "xBounds": {
+        "min": 42,
+        "max": 58
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "amount": {
+        "min": 1,
+        "max": 1,
         "min_scaling_factor": {
-          "s": 1,
-          "m": 1,
-          "l": 1.5,
-          "xl": 1.5
+          "s": 0,
+          "m": 0,
+          "l": 1,
+          "xl": 1
         },
         "max_scaling_factor": {
-          "s": 1,
-          "m": 1,
-          "l": 1.5,
-          "xl": 1.5
+          "s": 0,
+          "m": 0,
+          "l": 1,
+          "xl": 1
         }
       }
     }

@@ -33,7 +33,7 @@
         "min": 0,
         "max": 100
       },
-      "width": 3,
+      "width": 2,
       "height": 1,
       "xBounds": {
         "min": 0,
@@ -149,27 +149,11 @@
     {
       "type": "TERRAIN_NOISE",
       "terrain": 11,
-      "scale": 7,
+      "scale": 14,
       "ranges": [
         {
-          "min": 0.5,
+          "min": 0.45,
           "max": 1
-        }
-      ],
-      "multiplier": 1,
-      "excludeTerrains": [
-        2,
-        5
-      ]
-    },
-    {
-      "type": "TERRAIN_NOISE",
-      "terrain": 18,
-      "scale": 5,
-      "ranges": [
-        {
-          "min": 0.62,
-          "max": 0.8
         }
       ],
       "multiplier": 1,
@@ -181,11 +165,11 @@
     {
       "type": "TERRAIN_NOISE",
       "terrain": 17,
-      "scale": 6,
+      "scale": 20,
       "ranges": [
         {
-          "min": 0.0,
-          "max": 0.2
+          "min": 0.8,
+          "max": 1
         }
       ],
       "multiplier": 1,
@@ -197,10 +181,10 @@
     {
       "type": "TERRAIN_NOISE",
       "terrain": 1,
-      "scale": 5,
+      "scale": 9,
       "ranges": [
         {
-          "min": 0.8,
+          "min": 0.78,
           "max": 1
         }
       ],
@@ -210,7 +194,7 @@
         5
       ],
       "smoothing": {
-        "minSurrounding": 2
+        "minSurrounding": 3
       }
     },
     {
@@ -361,7 +345,7 @@
         "min": 0,
         "max": 100
       },
-      "width": 2,
+      "width": 1,
       "terrainReplacements": [
         {
           "fromTerrain": 5,
@@ -384,6 +368,14 @@
         {
           "terrain": 5,
           "cost": 20
+        },
+        {
+          "terrain": 7,
+          "cost": 500
+        },
+        {
+          "terrain": 2,
+          "cost": 30
         }
       ],
       "amount": {
@@ -421,7 +413,7 @@
         "min": 0,
         "max": 100
       },
-      "width": 2,
+      "width": 1,
       "terrainReplacements": [
         {
           "fromTerrain": 5,
@@ -444,6 +436,14 @@
         {
           "terrain": 5,
           "cost": 20
+        },
+        {
+          "terrain": 7,
+          "cost": 500
+        },
+        {
+          "terrain": 2,
+          "cost": 30
         }
       ],
       "amount": {

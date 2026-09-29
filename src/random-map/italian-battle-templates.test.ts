@@ -210,6 +210,13 @@ describe("river-crossing", () => {
         if (b.terrain(x, y) === Bridge && b.near(x, y, 4, [Building])) villageAtBridge = true;
       }
       expect(villageAtBridge).toBe(true);
+      // As at Lodi, Borghetto and Gradisca: one bridge carries the road, and the way round it is a
+      // ford at least 500 m (10 tiles) off.
+      const bridges = b.tilesIn().filter(([x, y]) => b.terrain(x, y) === Bridge);
+      const fords = b.tilesIn().filter(([x, y]) => b.terrain(x, y) === ShallowWater && b.near(x, y, 1, [DeepWater]));
+      expect(bridges.length).toBeGreaterThan(0);
+      expect(fords.length).toBeGreaterThan(0);
+      expect(fords.some(([fx, fy]) => bridges.every(([bx, by]) => Math.max(Math.abs(fx - bx), Math.abs(fy - by)) >= 10))).toBe(true);
     },
   );
 });
@@ -260,7 +267,9 @@ describe("marsh-dikes", () => {
       expect(b.share([Mud, ShallowWater], 0, 100, 30, 70)).toBeGreaterThan(0.3);
       // A deep channel runs through the marsh, bridged where the dikes cross it.
       expect(b.share([DeepWater], 0, 100, 35, 65)).toBeGreaterThan(0.01);
-      expect(b.share([Bridge])).toBeGreaterThan(0);
+      // Each dike bridges the channel on its own line, so no single bridge decides the battle.
+      const bridgeColumns = new Set(b.tilesIn().filter(([x, y]) => b.terrain(x, y) === Bridge).map(([x]) => Math.floor(x / 10)));
+      expect(bridgeColumns.size).toBeGreaterThanOrEqual(2);
       // The marsh keeps to the middle: the ground each army deploys on stays mostly dry.
       expect(b.share([Mud, ShallowWater], 0, 100, 0, 20)).toBeLessThan(0.25);
       expect(b.meanHeight(road, 0, 100, 30, 70)).toBeGreaterThan(b.meanHeight(marsh, 0, 100, 30, 70));
