@@ -34,6 +34,10 @@ import warRoomFiftyVsFifty from "./scenarios/war-room-50-vs-50.json";
 import roadToPressburg from "./scenarios/road-to-pressburg.json";
 import laMeuse from "./scenarios/la-meuse.json";
 import twinRiverValley from "./scenarios/twin-river-valley.json";
+import riverCrossing from "./scenarios/river-crossing.json";
+import alpineValley from "./scenarios/alpine-valley.json";
+import apennineRidges from "./scenarios/apennine-ridges.json";
+import marshDikes from "./scenarios/marsh-dikes.json";
 
 export const napoleonicScenarioCatalog = {
   plains,
@@ -71,4 +75,8 @@ export const napoleonicScenarioCatalog = {
   "twin-river-valley": twinRiverValley,
   "la-meuse": laMeuse,
   "road-to-pressburg": roadToPressburg,
+  "river-crossing": riverCrossing,
+  "alpine-valley": alpineValley,
+  "apennine-ridges": apennineRidges,
+  "marsh-dikes": marshDikes,
 } as unknown as ScenarioCatalog;

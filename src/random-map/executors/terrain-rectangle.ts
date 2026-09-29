@@ -5,6 +5,7 @@ import {
 } from "@lob-sdk/types";
 import { deriveSeed, randomSeeded } from "@lob-sdk/seed";
 import { getPosition } from "../utils";
+import { TerrainFilterMatcher } from "../terrain-filter-matcher";
 
 export class TerrainRectangleExecutor {
   private random: () => number;
@@ -26,6 +27,11 @@ export class TerrainRectangleExecutor {
 
     const tilesX = this.terrains.length;
     const tilesY = this.terrains[0].length;
+
+    if (this.instruction.terrainFilter) {
+      this.executeFiltered();
+      return;
+    }
 
     // Support scatter property for random placement
     if (scatter) {
@@ -86,7 +92,60 @@ export class TerrainRectangleExecutor {
     }
   }
 
-  private generateRectangleStructure(instruction = this.instruction): void {
+  /**
+   * Draws the rectangle, or each scattered copy, centred on a tile the terrain filter accepts,
+   * inside `position` when it is a range. Draws nothing where no tile matches.
+   */
+  private executeFiltered(): void {
+    const { random, instruction, terrains, heightMap } = this;
+    const { scatter, width, height, position } = instruction;
+    const tilesX = terrains.length;
+    const tilesY = terrains[0].length;
+    const matcher = new TerrainFilterMatcher(
+      instruction.terrainFilter!,
+      terrains,
+      heightMap,
+    );
+
+    let [minX, minY, maxX, maxY] = [0, 0, tilesX - 1, tilesY - 1];
+    if (position?.type === "range") {
+      minX = Math.floor((tilesX * position.min[0]) / 100);
+      minY = Math.floor((tilesY * position.min[1]) / 100);
+      maxX = Math.min(tilesX - 1, Math.floor((tilesX * position.max[0]) / 100));
+      maxY = Math.min(tilesY - 1, Math.floor((tilesY * position.max[1]) / 100));
+    }
+    const candidates: [number, number][] = [];
+    for (let x = minX; x <= maxX; x++)
+      for (let y = minY; y <= maxY; y++)
+        if (matcher.matches(x, y)) candidates.push([x, y]);
+    if (candidates.length === 0) return;
+
+    let count = 1;
+    if (scatter?.count !== undefined) count = scatter.count;
+    else if (scatter?.countPer100x100 !== undefined)
+      count = Math.round(((tilesX * tilesY) / 10000) * scatter.countPer100x100);
+    const minWidth = scatter?.minWidth ?? width;
+    const maxWidth = scatter?.maxWidth ?? width;
+    const minHeight = scatter?.minHeight ?? height;
+    const maxHeight = scatter?.maxHeight ?? height;
+    for (let j = 0; j < count; j++) {
+      const [x, y] = candidates[Math.floor(random() * candidates.length)];
+      this.generateRectangleStructure(
+        {
+          ...instruction,
+          width: minWidth + Math.floor(random() * (maxWidth - minWidth + 1)),
+          height: minHeight + Math.floor(random() * (maxHeight - minHeight + 1)),
+        },
+        [x, y],
+      );
+    }
+  }
+
+  /** Draws one rectangle, centred on `centre` (in tiles) when given, else on its `position`. */
+  private generateRectangleStructure(
+    instruction = this.instruction,
+    centre?: [number, number],
+  ): void {
     const {
       width,
       height,
@@ -95,19 +154,17 @@ export class TerrainRectangleExecutor {
       border,
       position: structurePosition,
       heightFilter,
+      excludeTerrains,
     } = instruction;
+    const excluded = new Set(excludeTerrains ?? []);
 
     const { terrains, heightMap } = this;
 
     const tilesX = this.terrains.length;
     const tilesY = this.terrains[0].length;
 
-    const [centerX, centerY] = getPosition(
-      structurePosition,
-      tilesX,
-      tilesY,
-      this.random
-    );
+    const [centerX, centerY] =
+      centre ?? getPosition(structurePosition, tilesX, tilesY, this.random);
 
     // Precompute rotation
     const angleRad = (rotation * Math.PI) / 180;
@@ -135,6 +192,8 @@ export class TerrainRectangleExecutor {
         const dy = y - centerY;
         const localX = dx * cosA + dy * sinA;
         const localY = -dx * sinA + dy * cosA;
+
+        if (excluded.has(terrains[x][y])) continue;
 
         // Check if inside main rectangle
         if (Math.abs(localX) <= halfW && Math.abs(localY) <= halfH) {

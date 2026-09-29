@@ -1,0 +1,448 @@
+{
+  "version": 2,
+  "name": "name",
+  "description": "description",
+  "ranked": false,
+  "baseTerrain": 0,
+  "allowDynamicArmy": true,
+  "instructions": [
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "x": 18,
+            "y": 14
+          },
+          "multiplier": 1,
+          "offset": 1.1
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 1,
+      "max": 3
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 0,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 11,
+      "height": 1,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 0,
+            "max": 0
+          },
+          "yRange": {
+            "min": 40,
+            "max": 46
+          }
+        },
+        {
+          "xRange": {
+            "min": 50,
+            "max": 50
+          },
+          "yRange": {
+            "min": 50,
+            "max": 50
+          }
+        }
+      ],
+      "noiseWeight": 10,
+      "noiseSmoothness": 3
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 0,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 11,
+      "height": 1,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 0,
+            "max": 0
+          },
+          "yRange": {
+            "min": 54,
+            "max": 60
+          }
+        },
+        {
+          "xRange": {
+            "min": 50,
+            "max": 50
+          },
+          "yRange": {
+            "min": 50,
+            "max": 50
+          }
+        }
+      ],
+      "noiseWeight": 10,
+      "noiseSmoothness": 3
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 5,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 2,
+      "height": 0.5,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 0,
+            "max": 0
+          },
+          "yRange": {
+            "min": 46,
+            "max": 54
+          }
+        },
+        {
+          "xRange": {
+            "min": 50,
+            "max": 50
+          },
+          "yRange": {
+            "min": 50,
+            "max": 50
+          }
+        }
+      ],
+      "noiseWeight": 8,
+      "noiseSmoothness": 3
+    },
+    {
+      "type": "SYMMETRY",
+      "mode": "rotate",
+      "keep": "left",
+      "terrains": [
+        5
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 19,
+      "scale": 1,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": 0,
+        "max": 1.49
+      },
+      "excludeTerrains": [
+        5
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 4,
+      "scale": 4,
+      "ranges": [
+        {
+          "min": 0.58,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": 0,
+        "max": 1.49
+      },
+      "excludeTerrains": [
+        5
+      ],
+      "smoothing": {
+        "minSurrounding": 2
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 11,
+      "scale": 6,
+      "ranges": [
+        {
+          "min": 0.45,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "excludeTerrains": [
+        19,
+        4,
+        5
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 17,
+      "scale": 5,
+      "ranges": [
+        {
+          "min": 0.7,
+          "max": 0.85
+        }
+      ],
+      "multiplier": 1,
+      "excludeTerrains": [
+        19,
+        4,
+        5
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 1,
+      "scale": 4,
+      "ranges": [
+        {
+          "min": 0.82,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "excludeTerrains": [
+        19,
+        4,
+        5
+      ],
+      "smoothing": {
+        "minSurrounding": 2
+      }
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 2,
+      "width": 2,
+      "height": 2,
+      "position": {
+        "type": "range",
+        "min": [
+          0,
+          0
+        ],
+        "max": [
+          100,
+          100
+        ]
+      },
+      "xBounds": {
+        "min": 15,
+        "max": 85
+      },
+      "yBounds": {
+        "min": 12,
+        "max": 28
+      },
+      "scatter": {
+        "countPer100x100": 45,
+        "minWidth": 2,
+        "maxWidth": 4,
+        "minHeight": 2,
+        "maxHeight": 4
+      }
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 2,
+      "width": 2,
+      "height": 2,
+      "position": {
+        "type": "range",
+        "min": [
+          0,
+          0
+        ],
+        "max": [
+          100,
+          100
+        ]
+      },
+      "xBounds": {
+        "min": 15,
+        "max": 85
+      },
+      "yBounds": {
+        "min": 72,
+        "max": 88
+      },
+      "scatter": {
+        "countPer100x100": 45,
+        "minWidth": 2,
+        "maxWidth": 4,
+        "minHeight": 2,
+        "maxHeight": 4
+      }
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "range": {
+        "min": 15,
+        "max": 85
+      },
+      "width": 1,
+      "height": 2.5,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 5,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 2,
+          "toTerrain": 2
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 5,
+          "cost": 10
+        },
+        {
+          "terrain": 4,
+          "cost": 4
+        },
+        {
+          "terrain": 2,
+          "cost": -1
+        }
+      ],
+      "amount": {
+        "min": 2,
+        "max": 2,
+        "min_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1.5,
+          "xl": 1.5
+        },
+        "max_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1.5,
+          "xl": 1.5
+        }
+      }
+    }
+  ],
+  "triggers": [],
+  "locales": {
+    "en": {
+      "name": "Marsh and Dikes",
+      "description": "A marsh lies between the armies, crossed only on raised dikes that bridge its channel."
+    },
+    "es": {
+      "name": "Pantano y diques",
+      "description": "Un pantano se extiende entre los ej\u00e9rcitos y solo se cruza por diques elevados que tienden puentes sobre su canal."
+    },
+    "fr": {
+      "name": "Marais et digues",
+      "description": "Un marais s'\u00e9tend entre les arm\u00e9es ; on ne le traverse que par des digues sur\u00e9lev\u00e9es qui franchissent son chenal."
+    },
+    "de": {
+      "name": "Sumpf und Deiche",
+      "description": "Zwischen den Armeen liegt ein Sumpf, der nur auf erh\u00f6hten Deichen zu \u00fcberqueren ist, die seinen Kanal \u00fcberbr\u00fccken."
+    },
+    "it": {
+      "name": "Palude e argini",
+      "description": "Una palude si stende tra gli eserciti e si attraversa solo sugli argini rialzati che scavalcano il suo canale."
+    },
+    "pt": {
+      "name": "P\u00e2ntano e diques",
+      "description": "Um p\u00e2ntano estende-se entre os ex\u00e9rcitos e s\u00f3 se atravessa por diques elevados que cruzam o seu canal."
+    },
+    "ru": {
+      "name": "\u0411\u043e\u043b\u043e\u0442\u043e \u0438 \u0434\u0430\u043c\u0431\u044b",
+      "description": "\u041c\u0435\u0436\u0434\u0443 \u0430\u0440\u043c\u0438\u044f\u043c\u0438 \u043b\u0435\u0436\u0438\u0442 \u0431\u043e\u043b\u043e\u0442\u043e, \u043a\u043e\u0442\u043e\u0440\u043e\u0435 \u043c\u043e\u0436\u043d\u043e \u043f\u0435\u0440\u0435\u0441\u0435\u0447\u044c \u0442\u043e\u043b\u044c\u043a\u043e \u043f\u043e \u0432\u044b\u0441\u043e\u043a\u0438\u043c \u0434\u0430\u043c\u0431\u0430\u043c \u0441 \u043c\u043e\u0441\u0442\u0430\u043c\u0438 \u0447\u0435\u0440\u0435\u0437 \u043f\u0440\u043e\u0442\u043e\u043a\u0443."
+    },
+    "uk": {
+      "name": "\u0411\u043e\u043b\u043e\u0442\u043e \u0456 \u0434\u0430\u043c\u0431\u0438",
+      "description": "\u041c\u0456\u0436 \u0430\u0440\u043c\u0456\u044f\u043c\u0438 \u043b\u0435\u0436\u0438\u0442\u044c \u0431\u043e\u043b\u043e\u0442\u043e, \u044f\u043a\u0435 \u043c\u043e\u0436\u043d\u0430 \u043f\u0435\u0440\u0435\u0442\u043d\u0443\u0442\u0438 \u043b\u0438\u0448\u0435 \u0432\u0438\u0441\u043e\u043a\u0438\u043c\u0438 \u0434\u0430\u043c\u0431\u0430\u043c\u0438 \u0437 \u043c\u043e\u0441\u0442\u0430\u043c\u0438 \u0447\u0435\u0440\u0435\u0437 \u043f\u0440\u043e\u0442\u043e\u043a\u0443."
+    },
+    "pl": {
+      "name": "Bagna i groble",
+      "description": "Mi\u0119dzy armiami le\u017c\u0105 bagna, kt\u00f3re mo\u017cna przeby\u0107 tylko po wysokich groblach z mostami nad kana\u0142em."
+    },
+    "hu": {
+      "name": "Mocs\u00e1r \u00e9s g\u00e1tak",
+      "description": "A seregek k\u00f6z\u00f6tt mocs\u00e1r ter\u00fcl el, amelyen csak a csatorn\u00e1j\u00e1t \u00e1thidal\u00f3, magas\u00edtott g\u00e1takon lehet \u00e1tkelni."
+    },
+    "el": {
+      "name": "\u0388\u03bb\u03bf\u03c2 \u03ba\u03b1\u03b9 \u03b1\u03bd\u03b1\u03c7\u03ce\u03bc\u03b1\u03c4\u03b1",
+      "description": "\u0388\u03bd\u03b1 \u03ad\u03bb\u03bf\u03c2 \u03b1\u03c0\u03bb\u03ce\u03bd\u03b5\u03c4\u03b1\u03b9 \u03b1\u03bd\u03ac\u03bc\u03b5\u03c3\u03b1 \u03c3\u03c4\u03bf\u03c5\u03c2 \u03c3\u03c4\u03c1\u03b1\u03c4\u03bf\u03cd\u03c2 \u03ba\u03b1\u03b9 \u03b4\u03b9\u03b1\u03c3\u03c7\u03af\u03b6\u03b5\u03c4\u03b1\u03b9 \u03bc\u03cc\u03bd\u03bf \u03b1\u03c0\u03cc \u03c5\u03c0\u03b5\u03c1\u03c5\u03c8\u03c9\u03bc\u03ad\u03bd\u03b1 \u03b1\u03bd\u03b1\u03c7\u03ce\u03bc\u03b1\u03c4\u03b1 \u03c0\u03bf\u03c5 \u03b3\u03b5\u03c6\u03c5\u03c1\u03ce\u03bd\u03bf\u03c5\u03bd \u03c4\u03bf \u03ba\u03b1\u03bd\u03ac\u03bb\u03b9 \u03c4\u03bf\u03c5."
+    },
+    "tr": {
+      "name": "Batakl\u0131k ve Setler",
+      "description": "Ordular aras\u0131nda, yaln\u0131zca kanal\u0131 \u00fczerinde k\u00f6pr\u00fcl\u00fc y\u00fcksek setlerden ge\u00e7ilebilen bir batakl\u0131k uzan\u0131r."
+    },
+    "ar": {
+      "name": "\u0627\u0644\u0645\u0633\u062a\u0646\u0642\u0639 \u0648\u0627\u0644\u0633\u062f\u0648\u062f",
+      "description": "\u064a\u0645\u062a\u062f \u0645\u0633\u062a\u0646\u0642\u0639 \u0628\u064a\u0646 \u0627\u0644\u062c\u064a\u0634\u064a\u0646 \u0644\u0627 \u064a\u064f\u0639\u0628\u0631 \u0625\u0644\u0627 \u0639\u0644\u0649 \u0633\u062f\u0648\u062f \u0645\u0631\u062a\u0641\u0639\u0629 \u062a\u0639\u0644\u0648 \u0642\u0646\u0627\u062a\u0647 \u0628\u062c\u0633\u0648\u0631."
+    },
+    "hi": {
+      "name": "\u0926\u0932\u0926\u0932 \u0914\u0930 \u0924\u091f\u092c\u0902\u0927",
+      "description": "\u0938\u0947\u0928\u093e\u0913\u0902 \u0915\u0947 \u092c\u0940\u091a \u090f\u0915 \u0926\u0932\u0926\u0932 \u0939\u0948, \u091c\u093f\u0938\u0947 \u0915\u0947\u0935\u0932 \u090a\u0901\u091a\u0947 \u0924\u091f\u092c\u0902\u0927\u094b\u0902 \u0938\u0947 \u092a\u093e\u0930 \u0915\u093f\u092f\u093e \u091c\u093e \u0938\u0915\u0924\u093e \u0939\u0948 \u091c\u094b \u0909\u0938\u0915\u0940 \u0928\u0939\u0930 \u092a\u0930 \u092a\u0941\u0932 \u092c\u0928\u093e\u0924\u0947 \u0939\u0948\u0902\u0964"
+    },
+    "id": {
+      "name": "Rawa dan Tanggul",
+      "description": "Rawa terbentang di antara kedua pasukan, hanya bisa dilintasi lewat tanggul tinggi yang menjembatani salurannya."
+    },
+    "th": {
+      "name": "\u0e1a\u0e36\u0e07\u0e41\u0e25\u0e30\u0e04\u0e31\u0e19\u0e14\u0e34\u0e19",
+      "description": "\u0e1a\u0e36\u0e07\u0e17\u0e2d\u0e14\u0e15\u0e31\u0e27\u0e23\u0e30\u0e2b\u0e27\u0e48\u0e32\u0e07\u0e01\u0e2d\u0e07\u0e17\u0e31\u0e1e \u0e02\u0e49\u0e32\u0e21\u0e44\u0e14\u0e49\u0e40\u0e09\u0e1e\u0e32\u0e30\u0e1a\u0e19\u0e04\u0e31\u0e19\u0e14\u0e34\u0e19\u0e22\u0e01\u0e2a\u0e39\u0e07\u0e17\u0e35\u0e48\u0e21\u0e35\u0e2a\u0e30\u0e1e\u0e32\u0e19\u0e02\u0e49\u0e32\u0e21\u0e23\u0e48\u0e2d\u0e07\u0e19\u0e49\u0e33"
+    },
+    "vi": {
+      "name": "\u0110\u1ea7m l\u1ea7y v\u00e0 \u0111\u00ea",
+      "description": "M\u1ed9t \u0111\u1ea7m l\u1ea7y n\u1eb1m gi\u1eefa hai \u0111\u1ea1o qu\u00e2n, ch\u1ec9 c\u00f3 th\u1ec3 v\u01b0\u1ee3t qua tr\u00ean nh\u1eefng con \u0111\u00ea cao b\u1eafc c\u1ea7u qua k\u00eanh."
+    },
+    "ja": {
+      "name": "\u6cbc\u6ca2\u3068\u5824\u9632",
+      "description": "\u4e21\u8ecd\u306e\u9593\u306b\u6cbc\u5730\u304c\u5e83\u304c\u308a\u3001\u6c34\u8def\u306b\u6a4b\u3092\u67b6\u3051\u305f\u9ad8\u3044\u5824\u9632\u306e\u4e0a\u3067\u3057\u304b\u6e21\u308c\u306a\u3044\u3002"
+    },
+    "kr": {
+      "name": "\ub2aa\uacfc \uc81c\ubc29",
+      "description": "\ub450 \uad70\ub300 \uc0ac\uc774\uc5d0 \ub2aa\uc774 \ud3bc\uccd0\uc838 \uc788\uc73c\uba70, \uc218\ub85c \uc704\uc5d0 \ub2e4\ub9ac\ub97c \ub193\uc740 \ub192\uc740 \uc81c\ubc29\uc73c\ub85c\ub9cc \uac74\ub110 \uc218 \uc788\ub2e4."
+    },
+    "zh": {
+      "name": "\u6cbc\u6cfd\u4e0e\u5824\u575d",
+      "description": "\u4e24\u519b\u4e4b\u95f4\u6a2a\u7740\u4e00\u7247\u6cbc\u6cfd\uff0c\u53ea\u80fd\u6cbf\u7740\u67b6\u6865\u8de8\u8fc7\u6c34\u9053\u7684\u9ad8\u5824\u901a\u8fc7\u3002"
+    }
+  }
+}

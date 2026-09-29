@@ -1,0 +1,800 @@
+{
+  "version": 2,
+  "name": "name",
+  "description": "description",
+  "ranked": false,
+  "baseTerrain": 0,
+  "allowDynamicArmy": true,
+  "instructions": [
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "x": 6,
+            "y": 8
+          },
+          "multiplier": 0.5,
+          "offset": 0.75
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 5,
+      "max": 7
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "x": 3,
+            "y": 5
+          },
+          "multiplier": 3
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 2,
+      "max": 7,
+      "xBounds": {
+        "min": 14,
+        "max": 86
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 0
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 2,
+      "max": 2,
+      "xBounds": {
+        "min": 28,
+        "max": 72
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 0,
+      "between": "top-bottom",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 9,
+      "height": 2,
+      "xBounds": {
+        "min": 18,
+        "max": 34
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "noiseWeight": 6,
+      "noiseSmoothness": 3
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 0,
+      "between": "top-bottom",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 9,
+      "height": 2,
+      "xBounds": {
+        "min": 66,
+        "max": 82
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "noiseWeight": 6,
+      "noiseSmoothness": 3
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 0,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 3,
+      "height": 3,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 22,
+            "max": 24
+          },
+          "yRange": {
+            "min": 18,
+            "max": 42
+          }
+        },
+        {
+          "xRange": {
+            "min": 2,
+            "max": 8
+          },
+          "yRange": {
+            "min": 12,
+            "max": 48
+          }
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 0,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 3,
+      "height": 3,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 22,
+            "max": 24
+          },
+          "yRange": {
+            "min": 58,
+            "max": 82
+          }
+        },
+        {
+          "xRange": {
+            "min": 2,
+            "max": 8
+          },
+          "yRange": {
+            "min": 52,
+            "max": 88
+          }
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 0,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 3,
+      "height": 3,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 76,
+            "max": 78
+          },
+          "yRange": {
+            "min": 18,
+            "max": 42
+          }
+        },
+        {
+          "xRange": {
+            "min": 92,
+            "max": 98
+          },
+          "yRange": {
+            "min": 12,
+            "max": 48
+          }
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 0,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 3,
+      "height": 3,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 76,
+            "max": 78
+          },
+          "yRange": {
+            "min": 58,
+            "max": 82
+          }
+        },
+        {
+          "xRange": {
+            "min": 92,
+            "max": 98
+          },
+          "yRange": {
+            "min": 52,
+            "max": 88
+          }
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 0,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 9,
+      "height": 7,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 10,
+            "max": 14
+          },
+          "yRange": {
+            "min": 40,
+            "max": 44
+          }
+        },
+        {
+          "xRange": {
+            "min": 24,
+            "max": 28
+          },
+          "yRange": {
+            "min": 43,
+            "max": 47
+          }
+        }
+      ],
+      "noiseWeight": 6,
+      "noiseSmoothness": 3
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 0,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 5,
+      "height": 7,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 24,
+            "max": 28
+          },
+          "yRange": {
+            "min": 43,
+            "max": 47
+          }
+        },
+        {
+          "xRange": {
+            "min": 34,
+            "max": 37
+          },
+          "yRange": {
+            "min": 45,
+            "max": 49
+          }
+        }
+      ],
+      "noiseWeight": 6,
+      "noiseSmoothness": 3
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 0,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 3,
+      "height": 6,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 34,
+            "max": 37
+          },
+          "yRange": {
+            "min": 45,
+            "max": 49
+          }
+        },
+        {
+          "xRange": {
+            "min": 41,
+            "max": 44
+          },
+          "yRange": {
+            "min": 47,
+            "max": 50
+          }
+        }
+      ],
+      "noiseWeight": 6,
+      "noiseSmoothness": 3
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "x": 2.5,
+            "y": 2.5
+          },
+          "multiplier": 1,
+          "offset": 0.55
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 5,
+      "max": 7,
+      "ranges": [
+        {
+          "min": 5.5,
+          "max": 7.5
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 0
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 2,
+      "max": 2,
+      "ranges": [
+        {
+          "min": 1.99,
+          "max": 2.01
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "x": 12,
+            "y": 10
+          },
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 2,
+      "max": 3,
+      "ranges": [
+        {
+          "min": 1.99,
+          "max": 2.01
+        }
+      ],
+      "xBounds": {
+        "min": 24,
+        "max": 76
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    {
+      "type": "SYMMETRY",
+      "mode": "rotate",
+      "keep": "top"
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 11,
+      "scale": 4,
+      "ranges": [
+        {
+          "min": 0.5,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": 1.9,
+        "max": 2.6
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 18,
+      "scale": 4,
+      "ranges": [
+        {
+          "min": 0.7,
+          "max": 0.9
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": 1.9,
+        "max": 2.6
+      }
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 2,
+      "width": 2,
+      "height": 2,
+      "position": {
+        "type": "range",
+        "min": [
+          0,
+          0
+        ],
+        "max": [
+          100,
+          100
+        ]
+      },
+      "xBounds": {
+        "min": 30,
+        "max": 70
+      },
+      "yBounds": {
+        "min": 18,
+        "max": 82
+      },
+      "scatter": {
+        "countPer100x100": 16,
+        "minWidth": 2,
+        "maxWidth": 4,
+        "minHeight": 2,
+        "maxHeight": 4
+      }
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "top-bottom",
+      "range": {
+        "min": 40,
+        "max": 60
+      },
+      "width": 2,
+      "height": 1.5,
+      "terrainCosts": [
+        {
+          "terrain": 2,
+          "cost": 5
+        }
+      ],
+      "xBounds": {
+        "min": 30,
+        "max": 70
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "noiseWeight": 3
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "range": {
+        "min": 35,
+        "max": 65
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 2,
+          "toTerrain": 2
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": 6
+        },
+        {
+          "terrain": 2,
+          "cost": -1
+        }
+      ],
+      "xBounds": {
+        "min": 27,
+        "max": 73
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "uphillHeightCost": 3,
+      "downHillHeightCost": 3
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 1,
+      "scale": 4,
+      "ranges": [
+        {
+          "min": 0.3,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": 2.9,
+        "max": 5.4
+      },
+      "smoothing": {
+        "minSurrounding": 1
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 9,
+      "scale": 3,
+      "ranges": [
+        {
+          "min": 0.45,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": 4.5,
+        "max": 5.4
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 6,
+      "scale": 1,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": 5.5,
+        "max": 99
+      }
+    }
+  ],
+  "triggers": [],
+  "locales": {
+    "en": {
+      "name": "Alpine Valley",
+      "description": "A narrow valley between mountain walls, with a river and one road, closing to a defile halfway down."
+    },
+    "es": {
+      "name": "Valle alpino",
+      "description": "Un valle estrecho entre paredes de monta\u00f1a, con un r\u00edo y un solo camino, que se cierra en un desfiladero a mitad de camino."
+    },
+    "fr": {
+      "name": "Vall\u00e9e alpine",
+      "description": "Une vall\u00e9e \u00e9troite entre des parois de montagne, avec une rivi\u00e8re et une seule route, qui se resserre en d\u00e9fil\u00e9 \u00e0 mi-chemin."
+    },
+    "de": {
+      "name": "Alpental",
+      "description": "Ein enges Tal zwischen Bergw\u00e4nden mit einem Fluss und einer einzigen Stra\u00dfe, das sich auf halbem Weg zu einem Engpass schlie\u00dft."
+    },
+    "it": {
+      "name": "Valle alpina",
+      "description": "Una valle stretta tra pareti di montagna, con un fiume e una sola strada, che si chiude in una gola a met\u00e0 percorso."
+    },
+    "pt": {
+      "name": "Vale alpino",
+      "description": "Um vale estreito entre pared\u00f5es de montanha, com um rio e uma \u00fanica estrada, que se fecha num desfiladeiro a meio caminho."
+    },
+    "ru": {
+      "name": "\u0410\u043b\u044c\u043f\u0438\u0439\u0441\u043a\u0430\u044f \u0434\u043e\u043b\u0438\u043d\u0430",
+      "description": "\u0423\u0437\u043a\u0430\u044f \u0434\u043e\u043b\u0438\u043d\u0430 \u043c\u0435\u0436\u0434\u0443 \u0433\u043e\u0440\u043d\u044b\u043c\u0438 \u0441\u0442\u0435\u043d\u0430\u043c\u0438, \u0441 \u0440\u0435\u043a\u043e\u0439 \u0438 \u0435\u0434\u0438\u043d\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0439 \u0434\u043e\u0440\u043e\u0433\u043e\u0439, \u043f\u043e\u0441\u0435\u0440\u0435\u0434\u0438\u043d\u0435 \u0441\u0443\u0436\u0430\u0435\u0442\u0441\u044f \u0432 \u0442\u0435\u0441\u043d\u0438\u043d\u0443."
+    },
+    "uk": {
+      "name": "\u0410\u043b\u044c\u043f\u0456\u0439\u0441\u044c\u043a\u0430 \u0434\u043e\u043b\u0438\u043d\u0430",
+      "description": "\u0412\u0443\u0437\u044c\u043a\u0430 \u0434\u043e\u043b\u0438\u043d\u0430 \u043c\u0456\u0436 \u0433\u0456\u0440\u0441\u044c\u043a\u0438\u043c\u0438 \u0441\u0442\u0456\u043d\u0430\u043c\u0438, \u0437 \u0440\u0456\u0447\u043a\u043e\u044e \u0442\u0430 \u0454\u0434\u0438\u043d\u043e\u044e \u0434\u043e\u0440\u043e\u0433\u043e\u044e, \u043f\u043e\u0441\u0435\u0440\u0435\u0434\u0438\u043d\u0456 \u0437\u0432\u0443\u0436\u0443\u0454\u0442\u044c\u0441\u044f \u0432 \u0443\u0449\u0435\u043b\u0438\u043d\u0443."
+    },
+    "pl": {
+      "name": "Dolina alpejska",
+      "description": "W\u0105ska dolina mi\u0119dzy \u015bcianami g\u00f3r, z rzek\u0105 i jedn\u0105 drog\u0105, w po\u0142owie zw\u0119\u017caj\u0105ca si\u0119 w w\u0105w\u00f3z."
+    },
+    "hu": {
+      "name": "Alpesi v\u00f6lgy",
+      "description": "Sz\u0171k v\u00f6lgy hegyfalak k\u00f6z\u00f6tt, foly\u00f3val \u00e9s egyetlen \u00fattal, amely f\u00e9l\u00faton szoross\u00e1 sz\u0171k\u00fcl."
+    },
+    "el": {
+      "name": "\u0391\u03bb\u03c0\u03b9\u03ba\u03ae \u03ba\u03bf\u03b9\u03bb\u03ac\u03b4\u03b1",
+      "description": "\u039c\u03b9\u03b1 \u03c3\u03c4\u03b5\u03bd\u03ae \u03ba\u03bf\u03b9\u03bb\u03ac\u03b4\u03b1 \u03b1\u03bd\u03ac\u03bc\u03b5\u03c3\u03b1 \u03c3\u03b5 \u03bf\u03c1\u03b5\u03b9\u03bd\u03ac \u03c4\u03b5\u03af\u03c7\u03b7, \u03bc\u03b5 \u03ad\u03bd\u03b1 \u03c0\u03bf\u03c4\u03ac\u03bc\u03b9 \u03ba\u03b1\u03b9 \u03ad\u03bd\u03b1\u03bd \u03b4\u03c1\u03cc\u03bc\u03bf, \u03c0\u03bf\u03c5 \u03c3\u03c4\u03b5\u03bd\u03b5\u03cd\u03b5\u03b9 \u03c3\u03b5 \u03c6\u03b1\u03c1\u03ac\u03b3\u03b3\u03b9 \u03c3\u03c4\u03b7 \u03bc\u03ad\u03c3\u03b7."
+    },
+    "tr": {
+      "name": "Alp Vadisi",
+      "description": "Da\u011f duvarlar\u0131 aras\u0131nda, bir nehri ve tek bir yolu olan, yar\u0131 yolda bir ge\u00e7ide daralan dar bir vadi."
+    },
+    "ar": {
+      "name": "\u0648\u0627\u062f\u064d \u0623\u0644\u0628\u064a",
+      "description": "\u0648\u0627\u062f\u064d \u0636\u064a\u0642 \u0628\u064a\u0646 \u062c\u062f\u0631\u0627\u0646 \u062c\u0628\u0644\u064a\u0629\u060c \u0641\u064a\u0647 \u0646\u0647\u0631 \u0648\u0637\u0631\u064a\u0642 \u0648\u0627\u062d\u062f\u060c \u064a\u0636\u064a\u0642 \u0641\u064a \u0645\u0646\u062a\u0635\u0641\u0647 \u0625\u0644\u0649 \u0645\u0645\u0631."
+    },
+    "hi": {
+      "name": "\u0905\u0932\u094d\u092a\u093e\u0907\u0928 \u0918\u093e\u091f\u0940",
+      "description": "\u092a\u0939\u093e\u0921\u093c\u0940 \u0926\u0940\u0935\u093e\u0930\u094b\u0902 \u0915\u0947 \u092c\u0940\u091a \u090f\u0915 \u0938\u0902\u0915\u0930\u0940 \u0918\u093e\u091f\u0940, \u091c\u093f\u0938\u092e\u0947\u0902 \u090f\u0915 \u0928\u0926\u0940 \u0914\u0930 \u090f\u0915 \u0939\u0940 \u0938\u0921\u093c\u0915 \u0939\u0948, \u091c\u094b \u092c\u0940\u091a \u092e\u0947\u0902 \u090f\u0915 \u0926\u0930\u094d\u0930\u0947 \u092e\u0947\u0902 \u0938\u093f\u092e\u091f \u091c\u093e\u0924\u0940 \u0939\u0948\u0964"
+    },
+    "id": {
+      "name": "Lembah Alpen",
+      "description": "Lembah sempit di antara dinding gunung, dengan sungai dan satu jalan, yang menyempit menjadi celah di tengahnya."
+    },
+    "th": {
+      "name": "\u0e2b\u0e38\u0e1a\u0e40\u0e02\u0e32\u0e41\u0e2d\u0e25\u0e1b\u0e4c",
+      "description": "\u0e2b\u0e38\u0e1a\u0e40\u0e02\u0e32\u0e41\u0e04\u0e1a\u0e23\u0e30\u0e2b\u0e27\u0e48\u0e32\u0e07\u0e1c\u0e19\u0e31\u0e07\u0e20\u0e39\u0e40\u0e02\u0e32 \u0e21\u0e35\u0e41\u0e21\u0e48\u0e19\u0e49\u0e33\u0e41\u0e25\u0e30\u0e16\u0e19\u0e19\u0e2a\u0e32\u0e22\u0e40\u0e14\u0e35\u0e22\u0e27 \u0e41\u0e25\u0e30\u0e1a\u0e35\u0e1a\u0e41\u0e04\u0e1a\u0e40\u0e1b\u0e47\u0e19\u0e0a\u0e48\u0e2d\u0e07\u0e40\u0e02\u0e32\u0e01\u0e25\u0e32\u0e07\u0e17\u0e32\u0e07"
+    },
+    "vi": {
+      "name": "Thung l\u0169ng Alps",
+      "description": "M\u1ed9t thung l\u0169ng h\u1eb9p gi\u1eefa nh\u1eefng v\u00e1ch n\u00fai, c\u00f3 m\u1ed9t con s\u00f4ng v\u00e0 m\u1ed9t con \u0111\u01b0\u1eddng, th\u1eaft l\u1ea1i th\u00e0nh h\u1ebbm n\u00fai \u1edf gi\u1eefa."
+    },
+    "ja": {
+      "name": "\u30a2\u30eb\u30d7\u30b9\u306e\u8c37",
+      "description": "\u5c71\u306e\u58c1\u306b\u631f\u307e\u308c\u305f\u72ed\u3044\u8c37\u3002\u5ddd\u3068\u4e00\u672c\u306e\u9053\u304c\u901a\u308a\u3001\u9014\u4e2d\u3067\u9698\u8def\u306b\u72ed\u307e\u308b\u3002"
+    },
+    "kr": {
+      "name": "\uc54c\ud504\uc2a4 \uacc4\uace1",
+      "description": "\uc0b0\ubcbd \uc0ac\uc774\uc758 \uc881\uc740 \uacc4\uace1. \uac15\uacfc \uae38 \ud558\ub098\uac00 \uc9c0\ub098\uba70 \uc911\uac04\uc5d0 \ud611\uace1\uc73c\ub85c \uc881\uc544\uc9c4\ub2e4."
+    },
+    "zh": {
+      "name": "\u963f\u5c14\u5351\u65af\u5c71\u8c37",
+      "description": "\u5c71\u58c1\u4e4b\u95f4\u7684\u72ed\u7a84\u5c71\u8c37\uff0c\u6709\u4e00\u6761\u6cb3\u548c\u4e00\u6761\u8def\uff0c\u5728\u4e2d\u9014\u6536\u7a84\u4e3a\u9698\u53e3\u3002"
+    }
+  },
+  "randomDeploymentZones": {
+    "top": [
+      {
+        "role": "main",
+        "origin": {
+          "x": {
+            "min": 25,
+            "max": 25
+          },
+          "y": {
+            "min": 3,
+            "max": 3
+          }
+        },
+        "polygon": {
+          "outer": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 50,
+              "y": 0
+            },
+            {
+              "x": 50,
+              "y": 10
+            },
+            {
+              "x": 0,
+              "y": 10
+            }
+          ]
+        }
+      },
+      {
+        "role": "forward",
+        "origin": {
+          "x": {
+            "min": 25,
+            "max": 25
+          },
+          "y": {
+            "min": 13,
+            "max": 13
+          }
+        },
+        "polygon": {
+          "outer": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 50,
+              "y": 0
+            },
+            {
+              "x": 50,
+              "y": 10
+            },
+            {
+              "x": 0,
+              "y": 10
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

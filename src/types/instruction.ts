@@ -102,6 +102,8 @@ export enum InstructionType {
   Lake = "LAKE",
   /** Instruction to place an objective layer. */
   ObjectiveLayer = "OBJECTIVE_LAYER",
+  /** Instruction to copy one half of the map onto the other. */
+  Symmetry = "SYMMETRY",
 }
 
 /**
@@ -262,6 +264,14 @@ export interface InstructionTerrainRectangle extends BaseInstruction {
     /** Maximum height value for scattered rectangles. */
     maxHeightValue?: number;
   };
+  /**
+   * Places the rectangle (and each scattered copy) centred on a tile the filter accepts, inside
+   * `position` when it is a range: a village beside a bridge, a redoubt on a crest. Nothing is
+   * drawn when no tile matches.
+   */
+  terrainFilter?: TerrainFilter;
+  /** Terrain types the fill and border leave as they are, such as a bridge under a village. */
+  excludeTerrains?: TerrainType[];
 }
 
 export interface ScalingFactor extends Record<Size, number> {}
@@ -420,15 +430,15 @@ export interface InstructionLake extends BaseInstruction {
   position: PositionData;
 }
 
-interface TerrainFilter {
+export interface TerrainFilter {
   /** Terrain type to filter. */
   terrains?: TerrainType[];
   /** Search radius. Default is 0. */
   searchRadius?: number;
   /** Minimum amount of terrains to filter. Default is 1. */
   minAmount?: number;
-  /** Heights that this objective layer can be placed on. */
-  heights?: [Range];
+  /** Heights that the feature can be placed on. */
+  heights?: Range[];
 }
 
 /**
@@ -461,6 +471,29 @@ export interface InstructionObjectiveLayer extends BaseInstruction {
 }
 
 /**
+ * Copies one half of the map onto the other, so two armies deployed on opposite halves meet
+ * the same ground. Relief and obstacles can be made fair while woods and villages stay irregular.
+ */
+export interface InstructionSymmetry extends BaseInstruction {
+  /** Instruction type is Symmetry. */
+  type: InstructionType.Symmetry;
+  /**
+   * `mirror` reflects the kept half across the middle; `rotate` turns it 180 degrees, which keeps
+   * the two ends fair while the map's left and right still differ.
+   */
+  mode: "mirror" | "rotate";
+  /** The half that is kept and copied. Default is "top". */
+  keep?: "top" | "bottom" | "left" | "right";
+  /** Copy the relief. Default is true. */
+  heights?: boolean;
+  /**
+   * Copy only these terrain types: a tile is overwritten when it or its source holds one of
+   * them. All terrain is copied when absent.
+   */
+  terrains?: TerrainType[];
+}
+
+/**
  * Union type representing any valid procedural generation instruction.
  */
 export type AnyInstruction =
@@ -472,4 +505,5 @@ export type AnyInstruction =
   | InstructionConnectClusters
   | InstructionObjective
   | InstructionLake
-  | InstructionObjectiveLayer;
+  | InstructionObjectiveLayer
+  | InstructionSymmetry;
