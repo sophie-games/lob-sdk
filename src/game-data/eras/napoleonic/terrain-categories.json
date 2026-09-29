@@ -147,6 +147,97 @@
     "pushDistanceModifier": 1.5
   },
 
+  "lightForest": {
+    "impassable": {
+      "ship": true
+    },
+    "color": "#5b6f34",
+    "canPlaceObjectives": true,
+    "staminaCostModifier": 0.2,
+    "hitboxHeight": 1.2,
+    "visionAbsorption": 6,
+    "movementModifier": {
+      "infantry": -0.2,
+      "guardsInfantry": -0.2,
+      "militiaInfantry": -0.2,
+      "skirmishInfantry": -0.1,
+      "midCavalry": -0.35,
+      "lightCavalry": -0.35,
+      "scoutCavalry": -0.35,
+      "heavyCavalry": -0.35,
+      "artillery": -0.3,
+      "horseArtillery": -0.3
+    },
+    "attackModifier": {
+      "infantry": 0.1,
+      "guardsInfantry": 0.1,
+      "militiaInfantry": 0.1,
+      "skirmishInfantry": 0.5,
+      "midCavalry": -0.3,
+      "lightCavalry": -0.3,
+      "scoutCavalry": -0.3,
+      "heavyCavalry": -0.3
+    },
+    "defenseModifier": {
+      "infantry": 0.15,
+      "guardsInfantry": 0.15,
+      "militiaInfantry": 0.15,
+      "skirmishInfantry": 0.6,
+      "midCavalry": -0.2,
+      "lightCavalry": -0.2,
+      "scoutCavalry": -0.2,
+      "heavyCavalry": -0.2,
+      "artillery": -0.3,
+      "horseArtillery": -0.3
+    },
+    "rangedAttackModifier": {
+      "artillery": -0.3,
+      "horseArtillery": -0.3
+    },
+    "projectileAbsorption": {
+      "musket": 0.09,
+      "marksman-musket": 0.075,
+      "horse-archer-bow": 0.2,
+      "rifle": 0.075,
+      "4lb-cannon-ball": 0.15,
+      "4lb-canister-fire": 0.15,
+      "6lb-cannon-ball": 0.125,
+      "6lb-canister-fire": 0.15,
+      "8lb-cannon-ball": 0.125,
+      "8lb-canister-fire": 0.15,
+      "10lb-explosive-shell": 0.05,
+      "10lb-cannon-ball": 0.125,
+      "10lb-canister-fire": 0.15,
+      "12lb-cannon-ball": 0.1,
+      "12lb-canister-fire": 0.15,
+      "18lb-explosive-shell": 0.05,
+      "18lb-cannon-ball": 0.1,
+      "18lb-canister-fire": 0.15,
+      "explosive-shell": 0.05,
+      "howitzer-canister": 0.15
+    },
+    "chargeResistanceModifier": {
+      "infantry": 0.2,
+      "guardsInfantry": 0.2,
+      "militiaInfantry": 0.2,
+      "skirmishInfantry": 0.5,
+      "midCavalry": -0.1,
+      "lightCavalry": -0.1,
+      "scoutCavalry": -0.1,
+      "heavyCavalry": -0.1
+    },
+    "chargeBonusModifier": {
+      "infantry": -0.4,
+      "guardsInfantry": -0.4,
+      "militiaInfantry": -0.4,
+      "skirmishInfantry": -0.4,
+      "midCavalry": -0.35,
+      "lightCavalry": -0.35,
+      "scoutCavalry": -0.35,
+      "heavyCavalry": -0.35
+    }
+  },
+
   "building": {
     "impassable": {
       "ship": true

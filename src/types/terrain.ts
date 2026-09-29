@@ -28,11 +28,14 @@ export enum TerrainType {
   RailwayRoad = 24,
   Camp = 25,
   Wall = 26,
+  LightForest = 27,
+  LightForestWinter = 28,
 }
 
 export enum TerrainCategoryType {
   Land = "land",
   Forest = "forest",
+  LightForest = "lightForest",
   Building = "building",
   Wall = "wall",
   Path = "path",
