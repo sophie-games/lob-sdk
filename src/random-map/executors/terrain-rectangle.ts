@@ -6,6 +6,7 @@ import {
 import { deriveSeed, randomSeeded } from "@lob-sdk/seed";
 import { getPosition } from "../utils";
 import { TerrainFilterMatcher } from "../terrain-filter-matcher";
+import { InstructionArea } from "../frame-angle";
 
 /** Places a `skipBlocked` scatter may try per rectangle before giving up on it. */
 const MAX_TRIES = 20;
@@ -19,7 +20,12 @@ export class TerrainRectangleExecutor {
     private seed: number,
     private index: number,
     private terrains: TerrainType[][],
-    private heightMap: number[][]
+    private heightMap: number[][],
+    /**
+     * On a turned map: the instruction's area. Positions are read in its local grid, and each
+     * rectangle is drawn on the map where it lands, turned with it and kept inside the area.
+     */
+    private area?: InstructionArea,
   ) {
     this.random = randomSeeded(deriveSeed(seed, index + 1));
   }
@@ -28,8 +34,8 @@ export class TerrainRectangleExecutor {
     const { random } = this;
     const { scatter, width, height } = this.instruction;
 
-    const tilesX = this.terrains.length;
-    const tilesY = this.terrains[0].length;
+    const tilesX = this.area?.tilesX ?? this.terrains.length;
+    const tilesY = this.area?.tilesY ?? this.terrains[0].length;
 
     if (this.instruction.terrainFilter) {
       this.executeFiltered();
@@ -101,10 +107,10 @@ export class TerrainRectangleExecutor {
    * inside `position` when it is a range. Draws nothing where no tile matches.
    */
   private executeFiltered(): void {
-    const { random, instruction, terrains, heightMap } = this;
+    const { random, instruction, terrains, heightMap, area } = this;
     const { scatter, width, height, position } = instruction;
-    const tilesX = terrains.length;
-    const tilesY = terrains[0].length;
+    const tilesX = area?.tilesX ?? terrains.length;
+    const tilesY = area?.tilesY ?? terrains[0].length;
     const matcher = new TerrainFilterMatcher(
       instruction.terrainFilter!,
       terrains,
@@ -118,10 +124,18 @@ export class TerrainRectangleExecutor {
       maxX = Math.min(tilesX - 1, Math.floor((tilesX * position.max[0]) / 100));
       maxY = Math.min(tilesY - 1, Math.floor((tilesY * position.max[1]) / 100));
     }
+    // Candidates are map tiles; on a turned map, those whose local place is in range.
     const candidates: [number, number][] = [];
-    for (let x = minX; x <= maxX; x++)
-      for (let y = minY; y <= maxY; y++)
-        if (matcher.matches(x, y)) candidates.push([x, y]);
+    if (area) {
+      for (const [x, y, u, v] of area.tiles()) {
+        const [iu, iv] = [Math.round(u), Math.round(v)];
+        if (iu >= minX && iu <= maxX && iv >= minY && iv <= maxY && matcher.matches(x, y))
+          candidates.push([x, y]);
+      }
+    } else
+      for (let x = minX; x <= maxX; x++)
+        for (let y = minY; y <= maxY; y++)
+          if (matcher.matches(x, y)) candidates.push([x, y]);
     if (candidates.length === 0) return;
 
     let count = 1;
@@ -141,23 +155,26 @@ export class TerrainRectangleExecutor {
           height: minHeight + Math.floor(random() * (maxHeight - minHeight + 1)),
         },
         [x, y],
+        true,
       );
       if (drawn || !instruction.skipBlocked) j++;
     }
   }
 
   /**
-   * Draws one rectangle, centred on `centre` (in tiles) when given, else on its `position`.
-   * Returns false when `skipBlocked` left it undrawn.
+   * Draws one rectangle, centred on `centre` (in tiles; local, or on the map when `onMap`) when
+   * given, else on its `position`. Returns false when `skipBlocked` left it undrawn.
    */
   private generateRectangleStructure(
     instruction = this.instruction,
     centre?: [number, number],
+    onMap = false,
   ): boolean {
+    const { area } = this;
     const {
       width,
       height,
-      rotation = 0,
+      rotation: ownRotation = 0,
       terrain,
       border,
       position: structurePosition,
@@ -172,8 +189,17 @@ export class TerrainRectangleExecutor {
     const tilesX = this.terrains.length;
     const tilesY = this.terrains[0].length;
 
+    const localCentre =
+      centre ??
+      getPosition(
+        structurePosition,
+        area?.tilesX ?? tilesX,
+        area?.tilesY ?? tilesY,
+        this.random,
+      );
     const [centerX, centerY] =
-      centre ?? getPosition(structurePosition, tilesX, tilesY, this.random);
+      area && !onMap ? area.toMap(localCentre[0], localCentre[1]) : localCentre;
+    const rotation = ownRotation + (area?.angle ?? 0);
 
     // Precompute rotation
     const angleRad = (rotation * Math.PI) / 180;
@@ -183,7 +209,10 @@ export class TerrainRectangleExecutor {
     // Compute bounding box
     const halfW = width / 2;
     const halfH = height / 2;
-    const borderWidth = border?.width ?? 0;
+    // A border turned off the grid is widened by |cos| + |sin| so it stays whole side to side,
+    // with no diagonal gap a unit could slip through; unturned, it keeps its width.
+    const borderWidth =
+      (border?.width ?? 0) * (border ? Math.abs(cosA) + Math.abs(sinA) : 1);
 
     // Axis-aligned bounding box for rotated rectangle
     const maxR = Math.ceil(
@@ -216,7 +245,7 @@ export class TerrainRectangleExecutor {
         const localX = dx * cosA + dy * sinA;
         const localY = -dx * sinA + dy * cosA;
 
-        if (excluded.has(terrains[x][y])) continue;
+        if (excluded.has(terrains[x][y]) || (area && !area.contains(x, y))) continue;
 
         // Check if inside main rectangle
         if (Math.abs(localX) <= halfW && Math.abs(localY) <= halfH) {

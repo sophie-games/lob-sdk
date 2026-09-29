@@ -6,6 +6,7 @@ import {
 import { deriveSeed, randomSeeded } from "@lob-sdk/seed";
 import { createNoise2D, NoiseFunction2D } from "simplex-noise";
 import { convertTo01Range } from "../utils";
+import { InstructionArea } from "../frame-angle";
 
 export class TerrainNoiseExecutor {
   private noise: NoiseFunction2D;
@@ -16,7 +17,9 @@ export class TerrainNoiseExecutor {
     private seed: number,
     private index: number,
     private terrains: TerrainType[][],
-    private heightMap: number[][]
+    private heightMap: number[][],
+    /** On a turned map: where the instruction works and the local coordinates it samples. */
+    private area?: InstructionArea,
   ) {
     this.noise = createNoise2D(randomSeeded(deriveSeed(seed, index + 1)));
   }
@@ -40,9 +43,11 @@ export class TerrainNoiseExecutor {
       scaleY = scale.y;
     }
 
-    for (let x = 0; x < tilesX; x++) {
-      for (let y = 0; y < tilesY; y++) {
-        let value = this.noise(x / scaleX, y / scaleY);
+    const tiles: Iterable<[number, number, number, number]> =
+      this.area?.tiles() ?? allTiles(tilesX, tilesY);
+    for (const [x, y, u, v] of tiles) {
+      {
+        let value = this.noise(u / scaleX, v / scaleY);
 
         // Apply darkness adjustment
         value *= multiplier ?? 1;
@@ -88,6 +93,7 @@ export class TerrainNoiseExecutor {
 
     // Create a copy of the terrain map for the smoothing pass
     const terrainCopy = this.terrains.map((row: TerrainType[]) => [...row]);
+    const area = this.area;
 
     // Side-only neighbor offsets: up, down, left, right
     const sideNeighbors = [
@@ -99,7 +105,7 @@ export class TerrainNoiseExecutor {
 
     for (let x = 0; x < tilesX; x++) {
       for (let y = 0; y < tilesY; y++) {
-        if (terrainCopy[x][y] === terrain) {
+        if (terrainCopy[x][y] === terrain && (!area || area.contains(x, y))) {
           let surroundingCount = 0;
 
           for (const [dx, dy] of sideNeighbors) {
@@ -120,4 +126,8 @@ export class TerrainNoiseExecutor {
       }
     }
   }
+}
+
+function* allTiles(tilesX: number, tilesY: number): Generator<[number, number, number, number]> {
+  for (let x = 0; x < tilesX; x++) for (let y = 0; y < tilesY; y++) yield [x, y, x, y];
 }

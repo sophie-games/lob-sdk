@@ -107,4 +107,55 @@ describe("random map angle", () => {
   it("ignores the angle when the scenario accepts none", () => {
     expect(generate(riverScenario(), 45)).toEqual(generate(riverScenario()));
   });
+
+  it.each([30, 45, -20])("draws roads, streams and walls whole when turned %i degrees", (angle) => {
+    // A 1-tile road across the map, a 1-tile stream down it, and a walled farmstead.
+    const scenario: Scenario = {
+      ...riverScenario({ min: -90, max: 90 }),
+      instructions: [
+        { type: InstructionType.NaturalPath, terrain: TerrainType.Road, between: "left-right", range: { min: 30, max: 30 }, width: 1, amount: { min: 1, max: 1 } },
+        { type: InstructionType.NaturalPath, terrain: TerrainType.ShallowWater, between: "top-bottom", range: { min: 70, max: 70 }, width: 1, amount: { min: 1, max: 1 } },
+        {
+          type: InstructionType.TerrainRectangle,
+          terrain: TerrainType.Building,
+          position: { type: "exact", coords: [35, 65] },
+          width: 4,
+          height: 4,
+          border: { width: 1, terrain: TerrainType.Wall },
+        },
+      ],
+    };
+    const groups = (terrains: TerrainType[][], terrain: TerrainType, diagonal: boolean) => {
+      const seen = new Set<string>();
+      let count = 0;
+      terrains.forEach((column, x) =>
+        column.forEach((t, y) => {
+          if (t !== terrain || seen.has(`${x},${y}`)) return;
+          count++;
+          const stack = [[x, y]];
+          seen.add(`${x},${y}`);
+          while (stack.length) {
+            const [cx, cy] = stack.pop()!;
+            for (let dx = -1; dx <= 1; dx++)
+              for (let dy = -1; dy <= 1; dy++) {
+                if (!diagonal && dx && dy) continue;
+                const [nx, ny] = [cx + dx, cy + dy];
+                if (terrains[nx]?.[ny] === terrain && !seen.has(`${nx},${ny}`)) {
+                  seen.add(`${nx},${ny}`);
+                  stack.push([nx, ny]);
+                }
+              }
+          }
+        }),
+      );
+      return count;
+    };
+    const straight = generate(scenario).terrains;
+    const turned = generate(scenario, angle).terrains;
+    // As many pieces as when drawn straight: the stream cuts the road where they cross.
+    expect(groups(turned, TerrainType.Road, true)).toBe(groups(straight, TerrainType.Road, true));
+    // Water and walls must hold side to side, or troops would slip through a diagonal gap.
+    expect(groups(turned, TerrainType.ShallowWater, false)).toBe(groups(straight, TerrainType.ShallowWater, false));
+    expect(groups(turned, TerrainType.Wall, false)).toBe(1);
+  });
 });

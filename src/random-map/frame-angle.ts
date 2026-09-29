@@ -1,81 +1,119 @@
-import { ObjectiveDto, TerrainType } from "@lob-sdk/types";
-import { limitSlopes } from "./slopes";
+import { Range } from "@lob-sdk/types";
 
 /**
- * A procedural map drawn at an angle: the instructions run on a larger grid that covers the map
- * however it is turned, and the result is turned about its centre and cropped to the map. The
- * angle is in degrees, clockwise on screen.
+ * The frame a turned procedural map is generated in: a grid, turned by the angle about the map's
+ * centre, large enough to cover the whole map. Instructions read their positions, ranges and
+ * bounds in it, and draw straight onto the map at the turned place, so every feature is traced
+ * at its angle rather than turned afterwards. The angle is in degrees, clockwise on screen.
  */
-export class FrameAngle {
-  private readonly cos: number;
-  private readonly sin: number;
-  /** Size of the grid the instructions run on. */
+export class TurnedFrame {
+  readonly cos: number;
+  readonly sin: number;
+  /** Size of the frame, in tiles. */
   readonly tilesX: number;
   readonly tilesY: number;
 
   constructor(
-    angle: number,
-    private readonly mapTilesX: number,
-    private readonly mapTilesY: number,
+    readonly angle: number,
+    readonly mapTilesX: number,
+    readonly mapTilesY: number,
   ) {
     const radians = (angle * Math.PI) / 180;
     this.cos = Math.cos(radians);
     this.sin = Math.sin(radians);
     const c = Math.abs(this.cos);
     const s = Math.abs(this.sin);
-    // One tile of margin on every side, so rounding never samples outside the grid.
-    this.tilesX = Math.ceil(mapTilesX * c + mapTilesY * s) + 2;
-    this.tilesY = Math.ceil(mapTilesX * s + mapTilesY * c) + 2;
+    this.tilesX = Math.ceil(mapTilesX * c + mapTilesY * s);
+    this.tilesY = Math.ceil(mapTilesX * s + mapTilesY * c);
   }
 
-  /** Turns the drawn grids onto the map, then lowers any slope the turn made steeper than one level a tile. */
-  turn(terrains: TerrainType[][], heightMap: number[][]) {
-    const outTerrains: TerrainType[][] = [];
-    const outHeights: number[][] = [];
-    for (let x = 0; x < this.mapTilesX; x++) {
-      outTerrains[x] = [];
-      outHeights[x] = [];
-      for (let y = 0; y < this.mapTilesY; y++) {
-        const [sx, sy] = this.source(x, y);
-        outTerrains[x][y] = terrains[sx][sy];
-        outHeights[x][y] = heightMap[sx][sy];
-      }
-    }
-    limitSlopes(outHeights);
-    return { terrains: outTerrains, heightMap: outHeights };
+  /** Where frame point (fx, fy) lies on the map. */
+  toMap(fx: number, fy: number): [number, number] {
+    const dx = fx - (this.tilesX - 1) / 2;
+    const dy = fy - (this.tilesY - 1) / 2;
+    return [
+      dx * this.cos - dy * this.sin + (this.mapTilesX - 1) / 2,
+      dx * this.sin + dy * this.cos + (this.mapTilesY - 1) / 2,
+    ];
+  }
+
+  /** Where map point (mx, my) lies in the frame. */
+  toFrame(mx: number, my: number): [number, number] {
+    const dx = mx - (this.mapTilesX - 1) / 2;
+    const dy = my - (this.mapTilesY - 1) / 2;
+    return [
+      dx * this.cos + dy * this.sin + (this.tilesX - 1) / 2,
+      -dx * this.sin + dy * this.cos + (this.tilesY - 1) / 2,
+    ];
   }
 
   /**
-   * Moves the objectives the instructions placed with the terrain under them, and drops any the
-   * turn left off the map.
+   * The part of the frame an instruction works in: all of it, or the rectangle its bounds cut,
+   * which is what a bounded instruction treats as its edges.
    */
-  turnObjectives(objectives: ObjectiveDto<false>[], tileSize: number): ObjectiveDto<false>[] {
-    const width = this.mapTilesX * tileSize;
-    const height = this.mapTilesY * tileSize;
-    return objectives
-      .map((objective) => {
-        const x = objective.pos.x - (this.tilesX * tileSize) / 2;
-        const y = objective.pos.y - (this.tilesY * tileSize) / 2;
-        return {
-          ...objective,
-          pos: {
-            x: x * this.cos - y * this.sin + width / 2,
-            y: x * this.sin + y * this.cos + height / 2,
-          },
-        };
-      })
-      .filter(({ pos }) => pos.x >= 0 && pos.y >= 0 && pos.x < width && pos.y < height);
+  area(xBounds?: Range, yBounds?: Range): InstructionArea {
+    if (!xBounds || !yBounds) return new InstructionArea(this, 0, 0, this.tilesX, this.tilesY);
+    const x0 = Math.floor((xBounds.min / 100) * this.tilesX);
+    const x1 = Math.floor((xBounds.max / 100) * this.tilesX);
+    const y0 = Math.floor((yBounds.min / 100) * this.tilesY);
+    const y1 = Math.floor((yBounds.max / 100) * this.tilesY);
+    return new InstructionArea(this, x0, y0, x1 - x0, y1 - y0);
+  }
+}
+
+/**
+ * An instruction's own grid, in the turned frame: `tilesX` by `tilesY` local tiles whose origin
+ * is (x0, y0) in the frame. Positions and percentages are read in it; drawing lands on the map.
+ */
+export class InstructionArea {
+  constructor(
+    private readonly frame: TurnedFrame,
+    private readonly x0: number,
+    private readonly y0: number,
+    readonly tilesX: number,
+    readonly tilesY: number,
+  ) {}
+
+  get angle(): number {
+    return this.frame.angle;
   }
 
-  /** The drawn tile that lands on map tile (x, y). */
-  private source(x: number, y: number): [number, number] {
-    const dx = x - (this.mapTilesX - 1) / 2;
-    const dy = y - (this.mapTilesY - 1) / 2;
-    const sx = Math.round(dx * this.cos + dy * this.sin + (this.tilesX - 1) / 2);
-    const sy = Math.round(-dx * this.sin + dy * this.cos + (this.tilesY - 1) / 2);
-    return [
-      Math.min(this.tilesX - 1, Math.max(0, sx)),
-      Math.min(this.tilesY - 1, Math.max(0, sy)),
-    ];
+  /** Where local point (u, v) lies on the map. */
+  toMap(u: number, v: number): [number, number] {
+    return this.frame.toMap(u + this.x0, v + this.y0);
+  }
+
+  /** Where map point (mx, my) lies in local coordinates. */
+  local(mx: number, my: number): [number, number] {
+    const [fx, fy] = this.frame.toFrame(mx, my);
+    return [fx - this.x0, fy - this.y0];
+  }
+
+  /** The map tile local point (u, v) falls on, or null off the map. */
+  mapTile(u: number, v: number): [number, number] | null {
+    const [mx, my] = this.toMap(u, v);
+    const x = Math.round(mx);
+    const y = Math.round(my);
+    if (x < 0 || y < 0 || x >= this.frame.mapTilesX || y >= this.frame.mapTilesY) return null;
+    return [x, y];
+  }
+
+  /** Whether map tile (mx, my) lies inside this area. */
+  contains(mx: number, my: number): boolean {
+    const [u, v] = this.local(mx, my);
+    const iu = Math.round(u);
+    const iv = Math.round(v);
+    return iu >= 0 && iv >= 0 && iu < this.tilesX && iv < this.tilesY;
+  }
+
+  /** Every map tile inside this area, with its local coordinates. */
+  *tiles(): Generator<[number, number, number, number]> {
+    for (let mx = 0; mx < this.frame.mapTilesX; mx++)
+      for (let my = 0; my < this.frame.mapTilesY; my++) {
+        const [u, v] = this.local(mx, my);
+        const iu = Math.round(u);
+        const iv = Math.round(v);
+        if (iu >= 0 && iv >= 0 && iu < this.tilesX && iv < this.tilesY) yield [mx, my, u, v];
+      }
   }
 }

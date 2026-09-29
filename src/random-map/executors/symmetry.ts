@@ -1,5 +1,6 @@
 import { InstructionSymmetry, TerrainType } from "@lob-sdk/types";
 import { limitSlopes } from "../slopes";
+import { InstructionArea } from "../frame-angle";
 
 /**
  * Copies one half of the map onto the other, so two armies deployed on opposite halves meet the
@@ -15,6 +16,8 @@ export class SymmetryExecutor {
     private readonly instruction: InstructionSymmetry,
     private readonly terrains: TerrainType[][],
     private readonly heightMap: number[][],
+    /** On a turned map: the frame whose halves are kept and copied. */
+    private readonly area?: InstructionArea,
   ) {
     this.tilesX = terrains.length;
     this.tilesY = terrains[0].length;
@@ -38,6 +41,7 @@ export class SymmetryExecutor {
 
   /** Whether (x, y) lies in the half that is overwritten. An odd middle line is its own image. */
   private isTarget(x: number, y: number): boolean {
+    if (this.area) return this.isTurnedTarget(x, y);
     switch (this.instruction.keep ?? "top") {
       case "top":
         return y >= Math.ceil(this.tilesY / 2);
@@ -50,11 +54,47 @@ export class SymmetryExecutor {
     }
   }
 
+  /**
+   * On a turned map, the halves are the turned frame's. A tile and its image under a half turn
+   * lie either side of the frame's centre, so exactly one of them is overwritten.
+   */
+  private isTurnedTarget(x: number, y: number): boolean {
+    const area = this.area!;
+    const [u, v] = area.local(x, y);
+    const du = u - (area.tilesX - 1) / 2;
+    const dv = v - (area.tilesY - 1) / 2;
+    const tie = 1e-6;
+    switch (this.instruction.keep ?? "top") {
+      case "top":
+        return dv > tie || (Math.abs(dv) <= tie && du > tie);
+      case "bottom":
+        return dv < -tie || (Math.abs(dv) <= tie && du < -tie);
+      case "left":
+        return du > tie || (Math.abs(du) <= tie && dv > tie);
+      case "right":
+        return du < -tie || (Math.abs(du) <= tie && dv < -tie);
+    }
+  }
+
   /** The kept tile whose image lands on (x, y). */
   private sourceOf(x: number, y: number): [number, number] {
     const flippedX = this.tilesX - 1 - x;
     const flippedY = this.tilesY - 1 - y;
     if (this.instruction.mode === "rotate") return [flippedX, flippedY];
+    if (this.area) {
+      // A mirror across the turned frame's middle line, to the nearest tile.
+      const [u, v] = this.area.local(x, y);
+      const keep = this.instruction.keep ?? "top";
+      const [mu, mv] =
+        keep === "top" || keep === "bottom"
+          ? [u, this.area.tilesY - 1 - v]
+          : [this.area.tilesX - 1 - u, v];
+      const [mx, my] = this.area.toMap(mu, mv);
+      return [
+        Math.min(this.tilesX - 1, Math.max(0, Math.round(mx))),
+        Math.min(this.tilesY - 1, Math.max(0, Math.round(my))),
+      ];
+    }
     const keep = this.instruction.keep ?? "top";
     return keep === "top" || keep === "bottom" ? [x, flippedY] : [flippedX, y];
   }

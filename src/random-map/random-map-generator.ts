@@ -28,7 +28,7 @@ import { ObjectiveLayerExecutor } from "./executors/objective-layer";
 import { LakeExecutor } from "./executors/lake";
 import { SymmetryExecutor } from "./executors/symmetry";
 import { FieldsExecutor } from "./executors/fields";
-import { FrameAngle } from "./frame-angle";
+import { InstructionArea, TurnedFrame } from "./frame-angle";
 import { normalizeMapGrids } from "./normalize-map-grids";
 import { deriveSeed, generateRandomSeed, randomSeeded } from "@lob-sdk/seed";
 import { GameDataManager, GameEra } from "@lob-sdk/game-data-manager";
@@ -75,8 +75,8 @@ export class RandomMapGenerator {
     let heightMap: number[][];
     let widthPx: number;
     let heightPx: number;
-    // Set when the terrain is drawn turned (see FrameAngle).
-    let frame: FrameAngle | undefined;
+    // Set when the terrain is generated turned (see TurnedFrame).
+    let frame: TurnedFrame | undefined;
 
     if (fixedMap) {
       widthPx = fixedMap.width;
@@ -120,16 +120,14 @@ export class RandomMapGenerator {
       const angle = accepted
         ? Math.min(accepted.max, Math.max(accepted.min, parameters?.angle ?? 0))
         : 0;
-      if (angle !== 0) frame = new FrameAngle(angle, tilesX, tilesY);
-      const gridX = frame?.tilesX ?? tilesX;
-      const gridY = frame?.tilesY ?? tilesY;
+      if (angle !== 0) frame = new TurnedFrame(angle, tilesX, tilesY);
 
       terrains = [];
       heightMap = [];
-      for (let x = 0; x < gridX; x++) {
+      for (let x = 0; x < tilesX; x++) {
         terrains[x] = [];
         heightMap[x] = [];
-        for (let y = 0; y < gridY; y++) {
+        for (let y = 0; y < tilesY; y++) {
           terrains[x][y] = scenario.baseTerrain ?? TerrainType.Grass;
           heightMap[x][y] = 0;
         }
@@ -137,7 +135,6 @@ export class RandomMapGenerator {
     }
 
     const instructionsToRun: AnyInstruction[] = scenario.instructions ?? [];
-    const presetObjectives = objectives.length;
 
     this.executeInstructions(
       scenario,
@@ -145,19 +142,13 @@ export class RandomMapGenerator {
       terrains,
       heightMap,
       objectives,
-      terrains.length * tileSize,
-      terrains[0].length * tileSize,
+      widthPx,
+      heightPx,
       tileSize,
       battleSize,
       instructionsToRun,
+      frame,
     );
-
-    if (frame) {
-      ({ terrains, heightMap } = frame.turn(terrains, heightMap));
-      objectives.push(
-        ...frame.turnObjectives(objectives.splice(presetObjectives), tileSize),
-      );
-    }
 
     const deploymentZones = this.resolveDeploymentZones(
       scenario,
@@ -386,11 +377,24 @@ export class RandomMapGenerator {
     tileSize: number,
     battleSize: Size,
     instructions: AnyInstruction[],
+    frame?: TurnedFrame,
   ) {
+    // On a turned map these instructions draw at their angle, each in its area of the frame;
+    // the rest draw unturned.
+    const turned = new Set<InstructionType>([
+      InstructionType.HeightNoise,
+      InstructionType.TerrainNoise,
+      InstructionType.TerrainRectangle,
+      InstructionType.NaturalPath,
+      InstructionType.Symmetry,
+    ]);
     instructions.forEach((instruction: AnyInstruction, index: number) => {
       let boundedTerrains = terrains;
       let boundedHeightMap = heightMap;
-      if (instruction.xBounds && instruction.yBounds) {
+      let area: InstructionArea | undefined;
+      if (frame && turned.has(instruction.type)) {
+        area = frame.area(instruction.xBounds, instruction.yBounds);
+      } else if (instruction.xBounds && instruction.yBounds) {
         boundedTerrains = this.create2DSliceProxy(
           terrains,
           instruction.xBounds,
@@ -411,6 +415,7 @@ export class RandomMapGenerator {
             index,
             boundedTerrains,
             boundedHeightMap,
+            area,
           ).execute();
           break;
         }
@@ -422,6 +427,7 @@ export class RandomMapGenerator {
             index,
             boundedTerrains,
             boundedHeightMap,
+            area,
           ).execute();
           break;
         }
@@ -444,6 +450,7 @@ export class RandomMapGenerator {
             index,
             boundedTerrains,
             boundedHeightMap,
+            area,
           ).execute();
           break;
         }
@@ -456,6 +463,7 @@ export class RandomMapGenerator {
             boundedTerrains,
             boundedHeightMap,
             battleSize,
+            area,
           ).execute();
           break;
         }
@@ -517,6 +525,7 @@ export class RandomMapGenerator {
             instruction,
             boundedTerrains,
             boundedHeightMap,
+            area,
           ).execute();
           break;
         }
