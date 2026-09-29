@@ -577,6 +577,9 @@ describe("GameDataManager", () => {
           category: "wall",
         });
         expect(manager.isPassable(TerrainType.Wall, "infantry")).toBe(true);
+        // A one-tile wall slows the whole battalion climbing it.
+        expect(manager.hasObstructsMovement(TerrainType.Wall)).toBe(true);
+        expect(manager.hasObstructsMovement(TerrainType.Road)).toBe(false);
         expect(manager.getMovementModifier(TerrainType.Wall, "infantry")).toBe(
           -0.75,
         );
