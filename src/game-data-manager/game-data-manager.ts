@@ -1820,8 +1820,8 @@ export class GameDataManager {
    */
   public getRankedMinScenariosForMatchmaking(isRanked = true): number {
     if (!isRanked) return 1;
-    const pool = this.getScenarios().filter(
-      (name) => this.scenarioIndex[name].ranked,
+    const pool = Object.values(this.scenarioIndex).filter(
+      (meta) => meta.ranked && !meta.hidden,
     );
     return Math.floor(pool.length / 2) + 1;
   }
