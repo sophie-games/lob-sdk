@@ -866,6 +866,7 @@
     "startFromTemplate": "Ξεκινήστε από πρότυπο",
     "loadInstructionsFromTemplate": "Φόρτωση οδηγιών από πρότυπο",
     "generating": "Δημιουργία…",
+    "acceptedAngle": "Αποδεκτή γωνία (±)",
     "angle": "Γωνία",
     "generatePreview": "Δημιουργία προεπισκόπησης",
     "instructions": "Οδηγίες",
@@ -919,6 +920,7 @@
       "curveLen": "Μήκος καμπύλης",
       "curveWeight": "Βάρος καμπύλης",
       "deep": "Βαθύ νερό",
+      "directionStep": "Βήμα κατεύθυνσης",
       "downHillHeightCost": "Κόστος κατηφόρας",
       "edgeDistance": "Απόσταση από το άκρο",
       "edgeWeight": "Βάρος άκρου",
@@ -952,6 +954,7 @@
       "minHeight": "Ελάχιστο ύψος",
       "minHeightValue": "Τιμή ελάχιστου ύψους",
       "minSurrounding": "Ελάχιστα γειτονικά πλακίδια",
+      "minTiles": "Μικρότερο χωράφι",
       "minWidth": "Ελάχιστο πλάτος",
       "min_scaling_factor": "Ελάχιστη κλιμάκωση κατά μέγεθος χάρτη",
       "mode": "Λειτουργία",
@@ -982,6 +985,7 @@
       "shallow": "Ρηχό νερό",
       "shore": "Ακτή",
       "size": "Μέγεθος",
+      "skipBlocked": "Παράλειψη μπλοκαρισμένων",
       "smoothing": "Εξομάλυνση",
       "startHeightRanges": "Εύρη ύψους αρχής",
       "team": "Ομάδα",
@@ -991,8 +995,10 @@
       "terrainReplacements": "Αντικαταστάσεις εδάφους",
       "terrains": "Εδάφη",
       "toTerrain": "Σε έδαφος",
+      "tries": "Προσπάθειες",
       "type": "Τύπος",
       "uphillHeightCost": "Κόστος ανηφόρας",
+      "verge": "Άκρη",
       "width": "Πλάτος",
       "x": "X",
       "xBounds": "Όρια X",
@@ -1018,7 +1024,9 @@
     "objectiveType": {
       "small": "Μικρός",
       "big": "Μεγάλος"
-    }
+    },
+    "addField": "Προσθήκη πεδίου",
+    "removeField": "Αφαίρεση"
   },
   "randomDeployment": {
     "title": "Ζώνες ανάπτυξης",

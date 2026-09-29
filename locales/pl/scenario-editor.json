@@ -880,6 +880,7 @@
     "startFromTemplate": "Zacznij od szablonu",
     "loadInstructionsFromTemplate": "Załaduj instrukcje z szablonu",
     "generating": "Generowanie…",
+    "acceptedAngle": "Dopuszczalny kąt (±)",
     "angle": "Kąt",
     "generatePreview": "Generuj podgląd",
     "instructions": "Instrukcje",
@@ -933,6 +934,7 @@
       "curveLen": "Długość krzywej",
       "curveWeight": "Waga krzywej",
       "deep": "Woda głęboka",
+      "directionStep": "Krok kierunku",
       "downHillHeightCost": "Koszt w dół",
       "edgeDistance": "Odległość od krawędzi",
       "edgeWeight": "Waga krawędzi",
@@ -966,6 +968,7 @@
       "minHeight": "Min. wysokość",
       "minHeightValue": "Min. wartość wysokości",
       "minSurrounding": "Min. otaczających kafelków",
+      "minTiles": "Najmniejsze pole",
       "minWidth": "Min. szerokość",
       "min_scaling_factor": "Min. skalowanie wg rozmiaru mapy",
       "mode": "Tryb",
@@ -996,6 +999,7 @@
       "shallow": "Woda płytka",
       "shore": "Brzeg",
       "size": "Rozmiar",
+      "skipBlocked": "Pomiń zablokowane",
       "smoothing": "Wygładzanie",
       "startHeightRanges": "Początkowe zakresy wysokości",
       "team": "Drużyna",
@@ -1005,8 +1009,10 @@
       "terrainReplacements": "Zamiany terenu",
       "terrains": "Tereny",
       "toTerrain": "Na teren",
+      "tries": "Próby",
       "type": "Typ",
       "uphillHeightCost": "Koszt pod górę",
+      "verge": "Pobocze",
       "width": "Szerokość",
       "x": "X",
       "xBounds": "Granice X",
@@ -1032,7 +1038,9 @@
     "objectiveType": {
       "small": "Mały",
       "big": "Duży"
-    }
+    },
+    "addField": "Dodaj pole",
+    "removeField": "Usuń"
   },
   "randomDeployment": {
     "title": "Strefy rozstawienia",

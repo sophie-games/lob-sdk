@@ -859,6 +859,7 @@
     "startFromTemplate": "템플릿에서 시작",
     "loadInstructionsFromTemplate": "템플릿에서 지시 불러오기",
     "generating": "생성 중…",
+    "acceptedAngle": "허용 각도 (±)",
     "angle": "각도",
     "generatePreview": "미리보기 생성",
     "instructions": "지시",
@@ -912,6 +913,7 @@
       "curveLen": "곡선 길이",
       "curveWeight": "곡선 가중치",
       "deep": "깊은 물",
+      "directionStep": "방향 단계",
       "downHillHeightCost": "내리막 비용",
       "edgeDistance": "가장자리 거리",
       "edgeWeight": "가장자리 가중치",
@@ -945,6 +947,7 @@
       "minHeight": "최소 높이",
       "minHeightValue": "최소 높이 값",
       "minSurrounding": "최소 주변 타일",
+      "minTiles": "최소 밭",
       "minWidth": "최소 너비",
       "min_scaling_factor": "맵 크기별 최소 배율",
       "mode": "모드",
@@ -975,6 +978,7 @@
       "shallow": "얕은 물",
       "shore": "물가",
       "size": "크기",
+      "skipBlocked": "막힌 곳 건너뛰기",
       "smoothing": "평활화",
       "startHeightRanges": "시작 높이 범위",
       "team": "팀",
@@ -984,8 +988,10 @@
       "terrainReplacements": "지형 교체",
       "terrains": "지형",
       "toTerrain": "대상 지형",
+      "tries": "시도 횟수",
       "type": "유형",
       "uphillHeightCost": "오르막 비용",
+      "verge": "가장자리",
       "width": "너비",
       "x": "X",
       "xBounds": "X 경계",
@@ -1011,7 +1017,9 @@
     "objectiveType": {
       "small": "소형",
       "big": "대형"
-    }
+    },
+    "addField": "항목 추가",
+    "removeField": "제거"
   },
   "randomDeployment": {
     "title": "배치 구역",

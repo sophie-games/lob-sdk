@@ -859,6 +859,7 @@
     "startFromTemplate": "Mulai dari templat",
     "loadInstructionsFromTemplate": "Muat instruksi dari templat",
     "generating": "Menghasilkan…",
+    "acceptedAngle": "Sudut yang diterima (±)",
     "angle": "Sudut",
     "generatePreview": "Hasilkan pratinjau",
     "instructions": "Instruksi",
@@ -912,6 +913,7 @@
       "curveLen": "Panjang kurva",
       "curveWeight": "Bobot kurva",
       "deep": "Air dalam",
+      "directionStep": "Langkah arah",
       "downHillHeightCost": "Biaya menurun",
       "edgeDistance": "Jarak tepi",
       "edgeWeight": "Bobot tepi",
@@ -945,6 +947,7 @@
       "minHeight": "Tinggi min",
       "minHeightValue": "Nilai tinggi min",
       "minSurrounding": "Tile sekitar min",
+      "minTiles": "Ladang terkecil",
       "minWidth": "Lebar min",
       "min_scaling_factor": "Penskalaan min menurut ukuran peta",
       "mode": "Mode",
@@ -975,6 +978,7 @@
       "shallow": "Air dangkal",
       "shore": "Pantai",
       "size": "Ukuran",
+      "skipBlocked": "Lewati yang terhalang",
       "smoothing": "Penghalusan",
       "startHeightRanges": "Rentang tinggi awal",
       "team": "Tim",
@@ -984,8 +988,10 @@
       "terrainReplacements": "Penggantian medan",
       "terrains": "Medan",
       "toTerrain": "Ke medan",
+      "tries": "Percobaan",
       "type": "Tipe",
       "uphillHeightCost": "Biaya menanjak",
+      "verge": "Tepi",
       "width": "Lebar",
       "x": "X",
       "xBounds": "Batas X",
@@ -1011,7 +1017,9 @@
     "objectiveType": {
       "small": "Kecil",
       "big": "Besar"
-    }
+    },
+    "addField": "Tambah bidang",
+    "removeField": "Hapus"
   },
   "randomDeployment": {
     "title": "Zona penempatan",

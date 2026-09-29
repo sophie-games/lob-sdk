@@ -859,6 +859,7 @@
     "startFromTemplate": "Bắt đầu từ mẫu",
     "loadInstructionsFromTemplate": "Tải hướng dẫn từ mẫu",
     "generating": "Đang tạo…",
+    "acceptedAngle": "Góc chấp nhận (±)",
     "angle": "Góc",
     "generatePreview": "Tạo bản xem trước",
     "instructions": "Hướng dẫn",
@@ -912,6 +913,7 @@
       "curveLen": "Độ dài đường cong",
       "curveWeight": "Trọng số đường cong",
       "deep": "Nước sâu",
+      "directionStep": "Bước hướng",
       "downHillHeightCost": "Chi phí xuống dốc",
       "edgeDistance": "Khoảng cách tới cạnh",
       "edgeWeight": "Trọng số cạnh",
@@ -945,6 +947,7 @@
       "minHeight": "Chiều cao tối thiểu",
       "minHeightValue": "Giá trị chiều cao tối thiểu",
       "minSurrounding": "Số ô xung quanh tối thiểu",
+      "minTiles": "Ruộng nhỏ nhất",
       "minWidth": "Chiều rộng tối thiểu",
       "min_scaling_factor": "Co giãn tối thiểu theo kích thước bản đồ",
       "mode": "Chế độ",
@@ -975,6 +978,7 @@
       "shallow": "Nước nông",
       "shore": "Bờ",
       "size": "Kích thước",
+      "skipBlocked": "Bỏ qua chỗ bị chặn",
       "smoothing": "Làm mượt",
       "startHeightRanges": "Khoảng chiều cao đầu",
       "team": "Đội",
@@ -984,8 +988,10 @@
       "terrainReplacements": "Thay thế địa hình",
       "terrains": "Địa hình",
       "toTerrain": "Đến địa hình",
+      "tries": "Số lần thử",
       "type": "Loại",
       "uphillHeightCost": "Chi phí lên dốc",
+      "verge": "Lề đường",
       "width": "Chiều rộng",
       "x": "X",
       "xBounds": "Giới hạn X",
@@ -1011,7 +1017,9 @@
     "objectiveType": {
       "small": "Nhỏ",
       "big": "Lớn"
-    }
+    },
+    "addField": "Thêm trường",
+    "removeField": "Xóa"
   },
   "randomDeployment": {
     "title": "Khu vực triển khai",

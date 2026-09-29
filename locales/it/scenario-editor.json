@@ -866,6 +866,7 @@
     "startFromTemplate": "Parti da un modello",
     "loadInstructionsFromTemplate": "Carica istruzioni da modello",
     "generating": "Generazione…",
+    "acceptedAngle": "Angolo accettato (±)",
     "angle": "Angolo",
     "generatePreview": "Genera anteprima",
     "instructions": "Istruzioni",
@@ -919,6 +920,7 @@
       "curveLen": "Lunghezza curva",
       "curveWeight": "Peso curva",
       "deep": "Acqua profonda",
+      "directionStep": "Passo di direzione",
       "downHillHeightCost": "Costo in discesa",
       "edgeDistance": "Distanza dal bordo",
       "edgeWeight": "Peso bordo",
@@ -952,6 +954,7 @@
       "minHeight": "Altezza minima",
       "minHeightValue": "Valore altezza minima",
       "minSurrounding": "Tile circostanti minime",
+      "minTiles": "Campo minimo",
       "minWidth": "Larghezza minima",
       "min_scaling_factor": "Scalatura minima per dimensione mappa",
       "mode": "Modalità",
@@ -982,6 +985,7 @@
       "shallow": "Acqua bassa",
       "shore": "Riva",
       "size": "Dimensione",
+      "skipBlocked": "Salta bloccati",
       "smoothing": "Levigatura",
       "startHeightRanges": "Intervalli altezza iniziale",
       "team": "Squadra",
@@ -991,8 +995,10 @@
       "terrainReplacements": "Sostituzioni terreno",
       "terrains": "Terreni",
       "toTerrain": "A terreno",
+      "tries": "Tentativi",
       "type": "Tipo",
       "uphillHeightCost": "Costo in salita",
+      "verge": "Bordo",
       "width": "Larghezza",
       "x": "X",
       "xBounds": "Limiti X",
@@ -1018,7 +1024,9 @@
     "objectiveType": {
       "small": "Piccolo",
       "big": "Grande"
-    }
+    },
+    "addField": "Aggiungi un campo",
+    "removeField": "Rimuovi"
   },
   "randomDeployment": {
     "title": "Zone di schieramento",

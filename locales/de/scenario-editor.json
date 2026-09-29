@@ -866,6 +866,7 @@
     "startFromTemplate": "Von einer Vorlage starten",
     "loadInstructionsFromTemplate": "Anweisungen aus Vorlage laden",
     "generating": "Erzeugt…",
+    "acceptedAngle": "Erlaubter Winkel (±)",
     "angle": "Winkel",
     "generatePreview": "Vorschau erzeugen",
     "instructions": "Anweisungen",
@@ -919,6 +920,7 @@
       "curveLen": "Kurvenlänge",
       "curveWeight": "Kurvengewicht",
       "deep": "Tiefwasser",
+      "directionStep": "Richtungsschritt",
       "downHillHeightCost": "Bergab-Kosten",
       "edgeDistance": "Randabstand",
       "edgeWeight": "Randgewicht",
@@ -952,6 +954,7 @@
       "minHeight": "Min. Höhe",
       "minHeightValue": "Min. Höhenwert",
       "minSurrounding": "Min. umgebende Kacheln",
+      "minTiles": "Kleinstes Feld",
       "minWidth": "Min. Breite",
       "min_scaling_factor": "Min. Skalierung nach Kartengröße",
       "mode": "Modus",
@@ -982,6 +985,7 @@
       "shallow": "Flachwasser",
       "shore": "Ufer",
       "size": "Größe",
+      "skipBlocked": "Blockierte überspringen",
       "smoothing": "Glättung",
       "startHeightRanges": "Start-Höhenbereiche",
       "team": "Team",
@@ -991,8 +995,10 @@
       "terrainReplacements": "Geländeersetzungen",
       "terrains": "Geländearten",
       "toTerrain": "Zu Gelände",
+      "tries": "Versuche",
       "type": "Typ",
       "uphillHeightCost": "Bergauf-Kosten",
+      "verge": "Randstreifen",
       "width": "Breite",
       "x": "X",
       "xBounds": "X-Grenzen",
@@ -1018,7 +1024,9 @@
     "objectiveType": {
       "small": "Klein",
       "big": "Groß"
-    }
+    },
+    "addField": "Feld hinzufügen",
+    "removeField": "Entfernen"
   },
   "randomDeployment": {
     "title": "Aufstellungszonen",

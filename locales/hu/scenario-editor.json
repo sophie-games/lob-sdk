@@ -866,6 +866,7 @@
     "startFromTemplate": "Kezdés sablonból",
     "loadInstructionsFromTemplate": "Utasítások betöltése sablonból",
     "generating": "Generálás…",
+    "acceptedAngle": "Elfogadott szög (±)",
     "angle": "Szög",
     "generatePreview": "Előnézet generálása",
     "instructions": "Utasítások",
@@ -919,6 +920,7 @@
       "curveLen": "Görbe hossza",
       "curveWeight": "Görbe súlya",
       "deep": "Mély víz",
+      "directionStep": "Irány lépés",
       "downHillHeightCost": "Lejtmenet költsége",
       "edgeDistance": "Széltávolság",
       "edgeWeight": "Szél súlya",
@@ -952,6 +954,7 @@
       "minHeight": "Min. magasság",
       "minHeightValue": "Min. magassági érték",
       "minSurrounding": "Min. környező mező",
+      "minTiles": "Legkisebb mező",
       "minWidth": "Min. szélesség",
       "min_scaling_factor": "Min. skálázás térképméret szerint",
       "mode": "Mód",
@@ -982,6 +985,7 @@
       "shallow": "Sekély víz",
       "shore": "Part",
       "size": "Méret",
+      "skipBlocked": "Blokkoltak kihagyása",
       "smoothing": "Simítás",
       "startHeightRanges": "Kezdő magassági tartományok",
       "team": "Csapat",
@@ -991,8 +995,10 @@
       "terrainReplacements": "Terepcserék",
       "terrains": "Terepek",
       "toTerrain": "Erre a terepre",
+      "tries": "Próbálkozások",
       "type": "Típus",
       "uphillHeightCost": "Emelkedő költsége",
+      "verge": "Szegély",
       "width": "Szélesség",
       "x": "X",
       "xBounds": "X határok",
@@ -1018,7 +1024,9 @@
     "objectiveType": {
       "small": "Kicsi",
       "big": "Nagy"
-    }
+    },
+    "addField": "Mező hozzáadása",
+    "removeField": "Eltávolítás"
   },
   "randomDeployment": {
     "title": "Felállási zónák",

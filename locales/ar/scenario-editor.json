@@ -894,6 +894,7 @@
     "startFromTemplate": "البدء من قالب",
     "loadInstructionsFromTemplate": "تحميل التعليمات من قالب",
     "generating": "جاري التوليد…",
+    "acceptedAngle": "الزاوية المقبولة (±)",
     "angle": "الزاوية",
     "generatePreview": "توليد معاينة",
     "instructions": "التعليمات",
@@ -947,6 +948,7 @@
       "curveLen": "طول المنحنى",
       "curveWeight": "وزن المنحنى",
       "deep": "ماء عميق",
+      "directionStep": "خطوة الاتجاه",
       "downHillHeightCost": "تكلفة الانحدار",
       "edgeDistance": "مسافة الحافة",
       "edgeWeight": "وزن الحافة",
@@ -980,6 +982,7 @@
       "minHeight": "الارتفاع الأدنى",
       "minHeightValue": "قيمة الارتفاع الدنيا",
       "minSurrounding": "أدنى عدد بلاطات محيطة",
+      "minTiles": "أصغر حقل",
       "minWidth": "العرض الأدنى",
       "min_scaling_factor": "أدنى تحجيم حسب حجم الخريطة",
       "mode": "الوضع",
@@ -1010,6 +1013,7 @@
       "shallow": "ماء ضحل",
       "shore": "الشاطئ",
       "size": "الحجم",
+      "skipBlocked": "تخطي المحجوب",
       "smoothing": "التنعيم",
       "startHeightRanges": "نطاقات الارتفاع الابتدائية",
       "team": "الفريق",
@@ -1019,8 +1023,10 @@
       "terrainReplacements": "استبدالات التضاريس",
       "terrains": "التضاريس",
       "toTerrain": "إلى تضاريس",
+      "tries": "المحاولات",
       "type": "النوع",
       "uphillHeightCost": "تكلفة الصعود",
+      "verge": "الحافة",
       "width": "العرض",
       "x": "X",
       "xBounds": "حدود X",
@@ -1046,7 +1052,9 @@
     "objectiveType": {
       "small": "صغير",
       "big": "كبير"
-    }
+    },
+    "addField": "إضافة حقل",
+    "removeField": "إزالة"
   },
   "randomDeployment": {
     "title": "مناطق الانتشار",

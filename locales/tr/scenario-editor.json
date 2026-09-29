@@ -866,6 +866,7 @@
     "startFromTemplate": "Bir şablondan başla",
     "loadInstructionsFromTemplate": "Şablondan talimatları yükle",
     "generating": "Oluşturuluyor…",
+    "acceptedAngle": "Kabul edilen açı (±)",
     "angle": "Açı",
     "generatePreview": "Önizleme oluştur",
     "instructions": "Talimatlar",
@@ -919,6 +920,7 @@
       "curveLen": "Eğri uzunluğu",
       "curveWeight": "Eğri ağırlığı",
       "deep": "Derin su",
+      "directionStep": "Yön adımı",
       "downHillHeightCost": "Yokuş aşağı maliyeti",
       "edgeDistance": "Kenar mesafesi",
       "edgeWeight": "Kenar ağırlığı",
@@ -952,6 +954,7 @@
       "minHeight": "Min yükseklik",
       "minHeightValue": "Min yükseklik değeri",
       "minSurrounding": "Min çevre karesi",
+      "minTiles": "En küçük tarla",
       "minWidth": "Min genişlik",
       "min_scaling_factor": "Harita boyutuna göre min ölçekleme",
       "mode": "Mod",
@@ -982,6 +985,7 @@
       "shallow": "Sığ su",
       "shore": "Kıyı",
       "size": "Boyut",
+      "skipBlocked": "Engellileri atla",
       "smoothing": "Yumuşatma",
       "startHeightRanges": "Başlangıç yükseklik aralıkları",
       "team": "Takım",
@@ -991,8 +995,10 @@
       "terrainReplacements": "Arazi değişimleri",
       "terrains": "Araziler",
       "toTerrain": "Hedef arazi",
+      "tries": "Deneme",
       "type": "Tür",
       "uphillHeightCost": "Yokuş yukarı maliyeti",
+      "verge": "Kenar",
       "width": "Genişlik",
       "x": "X",
       "xBounds": "X sınırları",
@@ -1018,7 +1024,9 @@
     "objectiveType": {
       "small": "Küçük",
       "big": "Büyük"
-    }
+    },
+    "addField": "Alan ekle",
+    "removeField": "Kaldır"
   },
   "randomDeployment": {
     "title": "Konuşlanma bölgeleri",

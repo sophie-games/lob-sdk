@@ -880,6 +880,7 @@
     "startFromTemplate": "Начать с шаблона",
     "loadInstructionsFromTemplate": "Загрузить инструкции из шаблона",
     "generating": "Генерация…",
+    "acceptedAngle": "Допустимый угол (±)",
     "angle": "Угол",
     "generatePreview": "Сгенерировать предпросмотр",
     "instructions": "Инструкции",
@@ -933,6 +934,7 @@
       "curveLen": "Длина кривой",
       "curveWeight": "Вес кривой",
       "deep": "Глубокая вода",
+      "directionStep": "Шаг направления",
       "downHillHeightCost": "Стоимость спуска",
       "edgeDistance": "Расстояние до края",
       "edgeWeight": "Вес края",
@@ -966,6 +968,7 @@
       "minHeight": "Мин. высота",
       "minHeightValue": "Мин. значение высоты",
       "minSurrounding": "Мин. окружающих тайлов",
+      "minTiles": "Наименьшее поле",
       "minWidth": "Мин. ширина",
       "min_scaling_factor": "Мин. масштабирование по размеру карты",
       "mode": "Режим",
@@ -996,6 +999,7 @@
       "shallow": "Мелкая вода",
       "shore": "Берег",
       "size": "Размер",
+      "skipBlocked": "Пропускать заблокированные",
       "smoothing": "Сглаживание",
       "startHeightRanges": "Диапазоны начальной высоты",
       "team": "Команда",
@@ -1005,8 +1009,10 @@
       "terrainReplacements": "Замены местности",
       "terrains": "Местности",
       "toTerrain": "В местность",
+      "tries": "Попытки",
       "type": "Тип",
       "uphillHeightCost": "Стоимость подъёма",
+      "verge": "Обочина",
       "width": "Ширина",
       "x": "X",
       "xBounds": "Границы X",
@@ -1032,7 +1038,9 @@
     "objectiveType": {
       "small": "Малый",
       "big": "Большой"
-    }
+    },
+    "addField": "Добавить поле",
+    "removeField": "Удалить"
   },
   "randomDeployment": {
     "title": "Зоны развёртывания",

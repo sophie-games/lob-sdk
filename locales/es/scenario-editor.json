@@ -887,6 +887,7 @@
     "startFromTemplate": "Empezar desde una plantilla",
     "loadInstructionsFromTemplate": "Cargar instrucciones desde plantilla",
     "generating": "Generando…",
+    "acceptedAngle": "Ángulo aceptado (±)",
     "angle": "Ángulo",
     "generatePreview": "Generar vista previa",
     "instructions": "Instrucciones",
@@ -940,6 +941,7 @@
       "curveLen": "Longitud de curva",
       "curveWeight": "Peso de curva",
       "deep": "Agua profunda",
+      "directionStep": "Paso de dirección",
       "downHillHeightCost": "Costo cuesta abajo",
       "edgeDistance": "Distancia al borde",
       "edgeWeight": "Peso de borde",
@@ -973,6 +975,7 @@
       "minHeight": "Altura mín.",
       "minHeightValue": "Valor de altura mín.",
       "minSurrounding": "Casillas circundantes mín.",
+      "minTiles": "Campo mínimo",
       "minWidth": "Ancho mín.",
       "min_scaling_factor": "Escala mín. por tamaño de mapa",
       "mode": "Modo",
@@ -1003,6 +1006,7 @@
       "shallow": "Agua poco profunda",
       "shore": "Orilla",
       "size": "Tamaño",
+      "skipBlocked": "Omitir bloqueados",
       "smoothing": "Suavizado",
       "startHeightRanges": "Rangos de altura inicial",
       "team": "Equipo",
@@ -1012,8 +1016,10 @@
       "terrainReplacements": "Reemplazos de terreno",
       "terrains": "Terrenos",
       "toTerrain": "A terreno",
+      "tries": "Intentos",
       "type": "Tipo",
       "uphillHeightCost": "Costo cuesta arriba",
+      "verge": "Borde",
       "width": "Ancho",
       "x": "X",
       "xBounds": "Límites de X",
@@ -1039,7 +1045,9 @@
     "objectiveType": {
       "small": "Pequeño",
       "big": "Grande"
-    }
+    },
+    "addField": "Agregar un campo",
+    "removeField": "Quitar"
   },
   "randomDeployment": {
     "title": "Zonas de despliegue",

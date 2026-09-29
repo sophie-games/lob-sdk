@@ -925,6 +925,7 @@
     "startFromTemplate": "Start from a template",
     "loadInstructionsFromTemplate": "Load template",
     "generating": "Generating…",
+    "acceptedAngle": "Accepted angle (±)",
     "angle": "Angle",
     "generatePreview": "Generate preview",
     "instructions": "Instructions",
@@ -977,6 +978,7 @@
       "curveLen": "Curve length",
       "curveWeight": "Curve weight",
       "deep": "Deep water",
+      "directionStep": "Direction step",
       "downHillHeightCost": "Downhill cost",
       "edgeDistance": "Edge distance",
       "edgeWeight": "Edge weight",
@@ -1010,6 +1012,7 @@
       "minHeight": "Min height",
       "minHeightValue": "Min height value",
       "minSurrounding": "Min surrounding tiles",
+      "minTiles": "Smallest field",
       "minWidth": "Min width",
       "min_scaling_factor": "Min scaling by map size",
       "mode": "Mode",
@@ -1040,6 +1043,7 @@
       "shallow": "Shallow water",
       "shore": "Shore",
       "size": "Size",
+      "skipBlocked": "Skip blocked",
       "smoothing": "Smoothing",
       "startHeightRanges": "Start height ranges",
       "team": "Team",
@@ -1049,8 +1053,10 @@
       "terrainReplacements": "Terrain replacements",
       "terrains": "Terrains",
       "toTerrain": "To terrain",
+      "tries": "Tries",
       "type": "Type",
       "uphillHeightCost": "Uphill cost",
+      "verge": "Verge",
       "width": "Width",
       "x": "X",
       "xBounds": "X bounds",
@@ -1076,7 +1082,9 @@
     "objectiveType": {
       "small": "Small",
       "big": "Big"
-    }
+    },
+    "addField": "Add a field",
+    "removeField": "Remove"
   },
   "randomDeployment": {
     "title": "Deployment zones",

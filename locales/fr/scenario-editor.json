@@ -879,6 +879,7 @@
     "startFromTemplate": "Partir d'un modèle",
     "loadInstructionsFromTemplate": "Charger les instructions depuis un modèle",
     "generating": "Génération…",
+    "acceptedAngle": "Angle accepté (±)",
     "angle": "Angle",
     "generatePreview": "Générer l'aperçu",
     "instructions": "Instructions",
@@ -932,6 +933,7 @@
       "curveLen": "Longueur de courbe",
       "curveWeight": "Poids de courbe",
       "deep": "Eau profonde",
+      "directionStep": "Pas de direction",
       "downHillHeightCost": "Coût en descente",
       "edgeDistance": "Distance au bord",
       "edgeWeight": "Poids du bord",
@@ -965,6 +967,7 @@
       "minHeight": "Hauteur min",
       "minHeightValue": "Valeur de hauteur min",
       "minSurrounding": "Tuiles environnantes min",
+      "minTiles": "Plus petit champ",
       "minWidth": "Largeur min",
       "min_scaling_factor": "Mise à l'échelle min selon la taille de carte",
       "mode": "Mode",
@@ -995,6 +998,7 @@
       "shallow": "Eau peu profonde",
       "shore": "Rivage",
       "size": "Taille",
+      "skipBlocked": "Ignorer les bloqués",
       "smoothing": "Lissage",
       "startHeightRanges": "Plages de hauteur initiale",
       "team": "Équipe",
@@ -1004,8 +1008,10 @@
       "terrainReplacements": "Remplacements de terrain",
       "terrains": "Terrains",
       "toTerrain": "Terrain d'arrivée",
+      "tries": "Essais",
       "type": "Type",
       "uphillHeightCost": "Coût en montée",
+      "verge": "Accotement",
       "width": "Largeur",
       "x": "X",
       "xBounds": "Limites X",
@@ -1031,7 +1037,9 @@
     "objectiveType": {
       "small": "Petit",
       "big": "Grand"
-    }
+    },
+    "addField": "Ajouter un champ",
+    "removeField": "Retirer"
   },
   "randomDeployment": {
     "title": "Zones de déploiement",
