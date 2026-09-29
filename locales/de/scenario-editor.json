@@ -826,20 +826,7 @@
   "triggers": {
     "title": "Auslöser",
     "moreInfo": "Mehr Informationen zu Auslösern hier",
-    "format": "Formatieren",
-    "invalidJsonFormat": "Ungültiges JSON-Format",
     "fixBeforeTesting": "Behebe die Triggerfehler, bevor du dieses Szenario testest.",
-    "validation": {
-      "expectedArray": "{{path}} muss ein Array sein.",
-      "expectedObject": "{{path}} muss ein Objekt sein.",
-      "unitAtTriggerLevel": "{{path}} sieht wie eine Einheit aus. Lege sie in eine addUnit-Aktion.",
-      "invalidEvent": "{{path}} muss onTurnStart oder onTurnEnd sein.",
-      "invalidConditionLogic": "{{path}} muss AND oder OR sein.",
-      "invalidOnce": "{{path}} muss true oder false sein.",
-      "invalidConditionType": "{{path}} hat einen unbekannten Bedingungstyp.",
-      "invalidActionType": "{{path}} hat einen unbekannten Aktionstyp.",
-      "invalidValue": "{{path}} hat einen ungültigen Wert für {{type}}."
-    },
     "event": "Ereignis",
     "conditionLogic": "Bedingungslogik",
     "conditionLogicAnd": "Alle Bedingungen (UND)",
@@ -854,7 +841,6 @@
     "lastClickHint": "Wo du zuletzt auf der Karte geklickt hast, in den Koordinaten, die ein Auslöser zum Platzieren einer Einheit oder Bewegen der Kamera verwendet.",
     "addTrigger": "Auslöser hinzufügen",
     "noTriggers": "Noch keine Auslöser.",
-    "fixJsonFirst": "Diese Auslöser enthalten Fehler, die das Formular nicht anzeigen kann. Behebe sie unter Als JSON bearbeiten.",
     "noConditions": "Keine Bedingungen, daher löst er immer aus.",
     "noActions": "Noch keine Aktionen.",
     "always": "Immer",
@@ -931,7 +917,9 @@
       "6": "Zurückfallen",
       "7": "Drehen",
       "-1": "Aktuellen Befehl abbrechen"
-    }
+    },
+    "unreadableTitle": "Unlesbarer Auslöser",
+    "unreadable": "Der Editor kann diesen Auslöser nicht anzeigen. Entferne ihn und erstelle ihn neu."
   },
   "randomMap": {
     "title": "Zufällige Karte",

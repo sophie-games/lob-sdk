@@ -826,20 +826,7 @@
   "triggers": {
     "title": "Trigger",
     "moreInfo": "Maggiori informazioni sui trigger qui",
-    "format": "Formatta",
-    "invalidJsonFormat": "Formato JSON non valido",
     "fixBeforeTesting": "Correggi gli errori dei trigger prima di provare questo scenario.",
-    "validation": {
-      "expectedArray": "{{path}} deve essere un array.",
-      "expectedObject": "{{path}} deve essere un oggetto.",
-      "unitAtTriggerLevel": "{{path}} sembra un’unità. Inseriscila in un’azione addUnit.",
-      "invalidEvent": "{{path}} deve essere onTurnStart o onTurnEnd.",
-      "invalidConditionLogic": "{{path}} deve essere AND o OR.",
-      "invalidOnce": "{{path}} deve essere true o false.",
-      "invalidConditionType": "{{path}} ha un tipo di condizione sconosciuto.",
-      "invalidActionType": "{{path}} ha un tipo di azione sconosciuto.",
-      "invalidValue": "{{path}} ha un valore non valido per {{type}}."
-    },
     "event": "Evento",
     "conditionLogic": "Logica delle condizioni",
     "conditionLogicAnd": "Tutte le condizioni (AND)",
@@ -854,7 +841,6 @@
     "lastClickHint": "Dove hai fatto clic per ultimo sulla mappa, nelle coordinate che un trigger usa per posizionare un'unità o spostare la telecamera.",
     "addTrigger": "Aggiungi trigger",
     "noTriggers": "Ancora nessun trigger.",
-    "fixJsonFirst": "Questi trigger contengono errori che il modulo non può mostrare. Correggili in Modifica come JSON.",
     "noConditions": "Nessuna condizione, quindi si attiva sempre.",
     "noActions": "Ancora nessuna azione.",
     "always": "Sempre",
@@ -931,7 +917,9 @@
       "6": "Ripiega",
       "7": "Ruota",
       "-1": "Annulla l'ordine attuale"
-    }
+    },
+    "unreadableTitle": "Trigger illeggibile",
+    "unreadable": "L'editor non può mostrare questo trigger. Rimuovilo e ricrealo."
   },
   "randomMap": {
     "title": "Mappa casuale",

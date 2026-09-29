@@ -826,20 +826,7 @@
   "triggers": {
     "title": "ट्रिगर",
     "moreInfo": "ट्रिगर के बारे में अधिक जानकारी यहाँ",
-    "format": "प्रारूप",
-    "invalidJsonFormat": "अमान्य JSON प्रारूप",
     "fixBeforeTesting": "इस परिदृश्य को जाँचने से पहले ट्रिगर की त्रुटियाँ ठीक करें।",
-    "validation": {
-      "expectedArray": "{{path}} एक सरणी होनी चाहिए।",
-      "expectedObject": "{{path}} एक ऑब्जेक्ट होना चाहिए।",
-      "unitAtTriggerLevel": "{{path}} एक यूनिट जैसी दिखती है। इसे addUnit कार्रवाई के अंदर रखें।",
-      "invalidEvent": "{{path}} onTurnStart या onTurnEnd होना चाहिए।",
-      "invalidConditionLogic": "{{path}} AND या OR होना चाहिए।",
-      "invalidOnce": "{{path}} true या false होना चाहिए।",
-      "invalidConditionType": "{{path}} में अज्ञात शर्त प्रकार है।",
-      "invalidActionType": "{{path}} में अज्ञात कार्रवाई प्रकार है।",
-      "invalidValue": "{{path}} में {{type}} के लिए अमान्य मान है।"
-    },
     "event": "घटना",
     "conditionLogic": "शर्त तर्क",
     "conditionLogicAnd": "सभी शर्तें (AND)",
@@ -854,7 +841,6 @@
     "lastClickHint": "मानचित्र पर आपने आख़िरी बार जहाँ चुना, उन्हीं निर्देशांकों में जिन्हें ट्रिगर इकाई रखने या कैमरा हिलाने के लिए उपयोग करता है।",
     "addTrigger": "ट्रिगर जोड़ें",
     "noTriggers": "अभी कोई ट्रिगर नहीं है।",
-    "fixJsonFirst": "इन ट्रिगर में ऐसी त्रुटियाँ हैं जो फ़ॉर्म नहीं दिखा सकता। इन्हें JSON के रूप में संपादित करें में ठीक करें।",
     "noConditions": "कोई शर्त नहीं, इसलिए यह हमेशा चलता है।",
     "noActions": "अभी कोई क्रिया नहीं है।",
     "always": "हमेशा",
@@ -931,7 +917,9 @@
       "6": "पीछे हटना",
       "7": "घूमना",
       "-1": "मौजूदा आदेश रद्द करें"
-    }
+    },
+    "unreadableTitle": "अपठनीय ट्रिगर",
+    "unreadable": "संपादक यह ट्रिगर नहीं दिखा सकता। इसे हटाकर फिर से बनाएँ।"
   },
   "randomMap": {
     "title": "यादृच्छिक मानचित्र",

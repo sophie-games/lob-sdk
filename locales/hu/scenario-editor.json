@@ -826,20 +826,7 @@
   "triggers": {
     "title": "Triggerek",
     "moreInfo": "További információ a triggerekről itt",
-    "format": "Formázás",
-    "invalidJsonFormat": "Érvénytelen JSON formátum",
     "fixBeforeTesting": "Javítsd ki a triggerek hibáit a forgatókönyv tesztelése előtt.",
-    "validation": {
-      "expectedArray": "A(z) {{path}} értéknek tömbnek kell lennie.",
-      "expectedObject": "A(z) {{path}} értéknek objektumnak kell lennie.",
-      "unitAtTriggerLevel": "A(z) {{path}} egységnek tűnik. Tedd egy addUnit műveletbe.",
-      "invalidEvent": "A(z) {{path}} értéke onTurnStart vagy onTurnEnd lehet.",
-      "invalidConditionLogic": "A(z) {{path}} értéke AND vagy OR lehet.",
-      "invalidOnce": "A(z) {{path}} értéke true vagy false lehet.",
-      "invalidConditionType": "A(z) {{path}} ismeretlen feltételtípust tartalmaz.",
-      "invalidActionType": "A(z) {{path}} ismeretlen művelettípust tartalmaz.",
-      "invalidValue": "A(z) {{path}} értéke érvénytelen ehhez: {{type}}."
-    },
     "event": "Esemény",
     "conditionLogic": "Feltétel-logika",
     "conditionLogicAnd": "Minden feltétel (ÉS)",
@@ -854,7 +841,6 @@
     "lastClickHint": "Ahová utoljára kattintottál a térképen, abban a koordináta-rendszerben, amelyet a trigger egység elhelyezéséhez vagy a kamera mozgatásához használ.",
     "addTrigger": "Trigger hozzáadása",
     "noTriggers": "Még nincsenek triggerek.",
-    "fixJsonFirst": "Ezekben a triggerekben olyan hibák vannak, amelyeket az űrlap nem tud megjeleníteni. Javítsd őket a Szerkesztés JSON-ként nézetben.",
     "noConditions": "Nincs feltétel, ezért mindig aktiválódik.",
     "noActions": "Még nincsenek műveletek.",
     "always": "Mindig",
@@ -931,7 +917,9 @@
       "6": "Visszavonulás",
       "7": "Fordulás",
       "-1": "Jelenlegi parancs törlése"
-    }
+    },
+    "unreadableTitle": "Olvashatatlan trigger",
+    "unreadable": "A szerkesztő nem tudja megjeleníteni ezt a triggert. Töröld, és hozd létre újra."
   },
   "randomMap": {
     "title": "Véletlenszerű pálya",

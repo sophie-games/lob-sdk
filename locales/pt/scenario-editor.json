@@ -826,20 +826,7 @@
   "triggers": {
     "title": "Gatilhos",
     "moreInfo": "Mais informações sobre gatilhos aqui",
-    "format": "Formatar",
-    "invalidJsonFormat": "Formato JSON inválido",
     "fixBeforeTesting": "Corrija os erros dos gatilhos antes de testar este cenário.",
-    "validation": {
-      "expectedArray": "{{path}} deve ser uma lista.",
-      "expectedObject": "{{path}} deve ser um objeto.",
-      "unitAtTriggerLevel": "{{path}} parece ser uma unidade. Coloque-a dentro de uma ação addUnit.",
-      "invalidEvent": "{{path}} deve ser onTurnStart ou onTurnEnd.",
-      "invalidConditionLogic": "{{path}} deve ser AND ou OR.",
-      "invalidOnce": "{{path}} deve ser true ou false.",
-      "invalidConditionType": "{{path}} tem um tipo de condição desconhecido.",
-      "invalidActionType": "{{path}} tem um tipo de ação desconhecido.",
-      "invalidValue": "{{path}} tem um valor inválido para {{type}}."
-    },
     "event": "Evento",
     "conditionLogic": "Lógica de Condição",
     "conditionLogicAnd": "Todas as condições (E)",
@@ -854,7 +841,6 @@
     "lastClickHint": "Onde você clicou por último no mapa, nas coordenadas que um gatilho usa para posicionar uma unidade ou mover a câmera.",
     "addTrigger": "Adicionar gatilho",
     "noTriggers": "Ainda não há gatilhos.",
-    "fixJsonFirst": "Estes gatilhos têm erros que o formulário não consegue mostrar. Corrija-os em Editar como JSON.",
     "noConditions": "Sem condições, então sempre dispara.",
     "noActions": "Ainda não há ações.",
     "always": "Sempre",
@@ -931,7 +917,9 @@
       "6": "Recuar",
       "7": "Girar",
       "-1": "Cancelar ordem atual"
-    }
+    },
+    "unreadableTitle": "Gatilho ilegível",
+    "unreadable": "O editor não consegue mostrar este gatilho. Remova-o e crie-o de novo."
   },
   "randomMap": {
     "title": "Mapa Aleatório",

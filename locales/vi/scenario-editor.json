@@ -819,20 +819,7 @@
   "triggers": {
     "title": "Trình kích hoạt",
     "moreInfo": "Thêm thông tin về trình kích hoạt tại đây",
-    "format": "Định dạng",
-    "invalidJsonFormat": "Định dạng JSON không hợp lệ",
     "fixBeforeTesting": "Hãy sửa lỗi trình kích hoạt trước khi thử kịch bản này.",
-    "validation": {
-      "expectedArray": "{{path}} phải là một mảng.",
-      "expectedObject": "{{path}} phải là một đối tượng.",
-      "unitAtTriggerLevel": "{{path}} có vẻ là một đơn vị. Hãy đặt nó bên trong hành động addUnit.",
-      "invalidEvent": "{{path}} phải là onTurnStart hoặc onTurnEnd.",
-      "invalidConditionLogic": "{{path}} phải là AND hoặc OR.",
-      "invalidOnce": "{{path}} phải là giá trị boolean.",
-      "invalidConditionType": "{{path}} có loại điều kiện không xác định.",
-      "invalidActionType": "{{path}} có loại hành động không xác định.",
-      "invalidValue": "Giá trị tại {{path}} không hợp lệ cho {{type}}."
-    },
     "event": "Sự kiện",
     "conditionLogic": "Logic điều kiện",
     "conditionLogicAnd": "Tất cả điều kiện (AND)",
@@ -847,7 +834,6 @@
     "lastClickHint": "Nơi bạn chọn lần cuối trên bản đồ, theo hệ tọa độ mà trình kích hoạt dùng để đặt một đơn vị hoặc di chuyển camera.",
     "addTrigger": "Thêm trình kích hoạt",
     "noTriggers": "Chưa có trình kích hoạt nào.",
-    "fixJsonFirst": "Các trình kích hoạt này có lỗi mà biểu mẫu không hiển thị được. Hãy sửa trong Chỉnh sửa dưới dạng JSON.",
     "noConditions": "Không có điều kiện nên luôn kích hoạt.",
     "noActions": "Chưa có hành động nào.",
     "always": "Luôn luôn",
@@ -924,7 +910,9 @@
       "6": "Lui quân",
       "7": "Xoay",
       "-1": "Hủy lệnh hiện tại"
-    }
+    },
+    "unreadableTitle": "Trình kích hoạt không đọc được",
+    "unreadable": "Trình chỉnh sửa không hiển thị được trình kích hoạt này. Hãy xóa và tạo lại."
   },
   "randomMap": {
     "title": "Bản đồ ngẫu nhiên",

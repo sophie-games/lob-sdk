@@ -839,20 +839,7 @@
   "triggers": {
     "title": "Déclencheurs",
     "moreInfo": "Plus d'infos sur les déclencheurs ici",
-    "format": "Formater",
-    "invalidJsonFormat": "Format JSON invalide",
     "fixBeforeTesting": "Corrigez les erreurs de déclencheur avant de tester ce scénario.",
-    "validation": {
-      "expectedArray": "{{path}} doit être un tableau.",
-      "expectedObject": "{{path}} doit être un objet.",
-      "unitAtTriggerLevel": "{{path}} ressemble à une unité. Placez-la dans une action addUnit.",
-      "invalidEvent": "{{path}} doit être onTurnStart ou onTurnEnd.",
-      "invalidConditionLogic": "{{path}} doit être AND ou OR.",
-      "invalidOnce": "{{path}} doit être true ou false.",
-      "invalidConditionType": "{{path}} possède un type de condition inconnu.",
-      "invalidActionType": "{{path}} possède un type d’action inconnu.",
-      "invalidValue": "{{path}} possède une valeur invalide pour {{type}}."
-    },
     "event": "Événement",
     "conditionLogic": "Logique des conditions",
     "conditionLogicAnd": "Toutes les conditions (ET)",
@@ -867,7 +854,6 @@
     "lastClickHint": "L'endroit que vous avez sélectionné en dernier sur la carte, dans les coordonnées qu'un déclencheur utilise pour placer une unité ou déplacer la caméra.",
     "addTrigger": "Ajouter un déclencheur",
     "noTriggers": "Aucun déclencheur pour l'instant.",
-    "fixJsonFirst": "Ces déclencheurs contiennent des erreurs que le formulaire ne peut pas afficher. Corrigez-les dans Modifier en JSON.",
     "noConditions": "Aucune condition, il se déclenche donc toujours.",
     "noActions": "Aucune action pour l'instant.",
     "always": "Toujours",
@@ -944,7 +930,9 @@
       "6": "Repli",
       "7": "Pivoter",
       "-1": "Annuler l'ordre en cours"
-    }
+    },
+    "unreadableTitle": "Déclencheur illisible",
+    "unreadable": "L'éditeur ne peut pas afficher ce déclencheur. Supprimez-le et recréez-le."
   },
   "randomMap": {
     "title": "Carte aléatoire",

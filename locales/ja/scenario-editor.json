@@ -826,20 +826,7 @@
   "triggers": {
     "title": "トリガー",
     "moreInfo": "トリガーの詳細はこちら",
-    "format": "整形",
-    "invalidJsonFormat": "無効なJSON形式",
     "fixBeforeTesting": "このシナリオをテストする前に、トリガーのエラーを修正してください。",
-    "validation": {
-      "expectedArray": "{{path}} は配列である必要があります。",
-      "expectedObject": "{{path}} はオブジェクトである必要があります。",
-      "unitAtTriggerLevel": "{{path}} はユニットのようです。addUnit アクション内に配置してください。",
-      "invalidEvent": "{{path}} は onTurnStart または onTurnEnd である必要があります。",
-      "invalidConditionLogic": "{{path}} は AND または OR である必要があります。",
-      "invalidOnce": "{{path}} はブール値である必要があります。",
-      "invalidConditionType": "{{path}} に不明な条件タイプがあります。",
-      "invalidActionType": "{{path}} に不明なアクションタイプがあります。",
-      "invalidValue": "{{path}} の値は {{type}} に対して無効です。"
-    },
     "event": "イベント",
     "conditionLogic": "条件ロジック",
     "conditionLogicAnd": "すべての条件（AND）",
@@ -854,7 +841,6 @@
     "lastClickHint": "マップ上で最後に選んだ場所を、トリガーがユニットの配置やカメラの移動に使う座標で表示します。",
     "addTrigger": "トリガーを追加",
     "noTriggers": "トリガーはまだありません。",
-    "fixJsonFirst": "このトリガーにはフォームで表示できないエラーがあります。「JSONとして編集」で修正してください。",
     "noConditions": "条件がないため、常に発動します。",
     "noActions": "アクションはまだありません。",
     "always": "常に",
@@ -931,7 +917,9 @@
       "6": "後退",
       "7": "旋回",
       "-1": "現在の命令を取り消す"
-    }
+    },
+    "unreadableTitle": "読み取れないトリガー",
+    "unreadable": "エディターではこのトリガーを表示できません。削除して作り直してください。"
   },
   "randomMap": {
     "title": "ランダムマップ",

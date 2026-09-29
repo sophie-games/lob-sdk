@@ -826,20 +826,7 @@
   "triggers": {
     "title": "ทริกเกอร์",
     "moreInfo": "ข้อมูลเพิ่มเติมเกี่ยวกับทริกเกอร์ที่นี่",
-    "format": "จัดรูปแบบ",
-    "invalidJsonFormat": "รูปแบบ JSON ไม่ถูกต้อง",
     "fixBeforeTesting": "แก้ไขข้อผิดพลาดของทริกเกอร์ก่อนทดสอบสถานการณ์นี้",
-    "validation": {
-      "expectedArray": "{{path}} ต้องเป็นอาร์เรย์",
-      "expectedObject": "{{path}} ต้องเป็นอ็อบเจ็กต์",
-      "unitAtTriggerLevel": "{{path}} ดูเหมือนเป็นยูนิต โปรดวางไว้ภายในการกระทำ addUnit",
-      "invalidEvent": "{{path}} ต้องเป็น onTurnStart หรือ onTurnEnd",
-      "invalidConditionLogic": "{{path}} ต้องเป็น AND หรือ OR",
-      "invalidOnce": "{{path}} ต้องเป็นค่าบูลีน",
-      "invalidConditionType": "{{path}} มีประเภทเงื่อนไขที่ไม่รู้จัก",
-      "invalidActionType": "{{path}} มีประเภทการกระทำที่ไม่รู้จัก",
-      "invalidValue": "ค่าที่ {{path}} ไม่ถูกต้องสำหรับ {{type}}"
-    },
     "event": "เหตุการณ์",
     "conditionLogic": "ตรรกะเงื่อนไข",
     "conditionLogicAnd": "ทุกเงื่อนไข (AND)",
@@ -854,7 +841,6 @@
     "lastClickHint": "จุดที่คุณเลือกล่าสุดบนแผนที่ ในระบบพิกัดที่ทริกเกอร์ใช้สำหรับวางยูนิตหรือเลื่อนกล้อง",
     "addTrigger": "เพิ่มทริกเกอร์",
     "noTriggers": "ยังไม่มีทริกเกอร์",
-    "fixJsonFirst": "ทริกเกอร์เหล่านี้มีข้อผิดพลาดที่แบบฟอร์มแสดงไม่ได้ แก้ไขใน แก้ไขเป็น JSON",
     "noConditions": "ไม่มีเงื่อนไข จึงทำงานเสมอ",
     "noActions": "ยังไม่มีการกระทำ",
     "always": "เสมอ",
@@ -931,7 +917,9 @@
       "6": "ถอย",
       "7": "หมุน",
       "-1": "ยกเลิกคำสั่งปัจจุบัน"
-    }
+    },
+    "unreadableTitle": "ทริกเกอร์ที่อ่านไม่ได้",
+    "unreadable": "ตัวแก้ไขแสดงทริกเกอร์นี้ไม่ได้ ลบออกแล้วสร้างใหม่"
   },
   "randomMap": {
     "title": "แผนที่สุ่ม",

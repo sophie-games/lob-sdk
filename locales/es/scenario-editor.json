@@ -847,20 +847,7 @@
   "triggers": {
     "title": "Disparadores",
     "moreInfo": "Más información sobre disparadores aquí",
-    "format": "Formatear",
-    "invalidJsonFormat": "Formato JSON no válido",
     "fixBeforeTesting": "Corrige los errores de los disparadores antes de probar este escenario.",
-    "validation": {
-      "expectedArray": "{{path}} debe ser una lista.",
-      "expectedObject": "{{path}} debe ser un objeto.",
-      "unitAtTriggerLevel": "{{path}} parece una unidad. Colócala dentro de una acción addUnit.",
-      "invalidEvent": "{{path}} debe ser onTurnStart u onTurnEnd.",
-      "invalidConditionLogic": "{{path}} debe ser AND u OR.",
-      "invalidOnce": "{{path}} debe ser true o false.",
-      "invalidConditionType": "{{path}} tiene un tipo de condición desconocido.",
-      "invalidActionType": "{{path}} tiene un tipo de acción desconocido.",
-      "invalidValue": "{{path}} tiene un valor no válido para {{type}}."
-    },
     "event": "Evento",
     "conditionLogic": "Lógica de condiciones",
     "conditionLogicAnd": "Todas las condiciones (AND)",
@@ -875,7 +862,6 @@
     "lastClickHint": "Lo último que elegiste en el mapa, en las coordenadas que usa un disparador para colocar una unidad o mover la cámara.",
     "addTrigger": "Agregar disparador",
     "noTriggers": "Aún no hay disparadores.",
-    "fixJsonFirst": "Estos disparadores tienen errores que el formulario no puede mostrar. Corrígelos en Editar como JSON.",
     "noConditions": "Sin condiciones, así que siempre se activa.",
     "noActions": "Aún no hay acciones.",
     "always": "Siempre",
@@ -952,7 +938,9 @@
       "6": "Replegarse",
       "7": "Girar",
       "-1": "Cancelar orden actual"
-    }
+    },
+    "unreadableTitle": "Disparador ilegible",
+    "unreadable": "El editor no puede mostrar este disparador. Quítalo y vuelve a crearlo."
   },
   "randomMap": {
     "title": "Mapa aleatorio",

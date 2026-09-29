@@ -840,20 +840,7 @@
   "triggers": {
     "title": "Wyzwalacze",
     "moreInfo": "Więcej informacji o wyzwalaczach tutaj",
-    "format": "Formatuj",
-    "invalidJsonFormat": "Nieprawidłowy format JSON",
     "fixBeforeTesting": "Popraw błędy wyzwalaczy przed przetestowaniem tego scenariusza.",
-    "validation": {
-      "expectedArray": "{{path}} musi być tablicą.",
-      "expectedObject": "{{path}} musi być obiektem.",
-      "unitAtTriggerLevel": "{{path}} wygląda jak jednostka. Umieść ją wewnątrz akcji addUnit.",
-      "invalidEvent": "{{path}} musi mieć wartość onTurnStart lub onTurnEnd.",
-      "invalidConditionLogic": "{{path}} musi mieć wartość AND lub OR.",
-      "invalidOnce": "{{path}} musi mieć wartość true lub false.",
-      "invalidConditionType": "{{path}} ma nieznany typ warunku.",
-      "invalidActionType": "{{path}} ma nieznany typ akcji.",
-      "invalidValue": "{{path}} ma nieprawidłową wartość dla {{type}}."
-    },
     "event": "Zdarzenie",
     "conditionLogic": "Logika warunków",
     "conditionLogicAnd": "Wszystkie warunki (AND)",
@@ -868,7 +855,6 @@
     "lastClickHint": "Miejsce, które ostatnio wskazałeś na mapie, we współrzędnych używanych przez wyzwalacz do umieszczenia jednostki lub przesunięcia kamery.",
     "addTrigger": "Dodaj wyzwalacz",
     "noTriggers": "Brak wyzwalaczy.",
-    "fixJsonFirst": "Te wyzwalacze zawierają błędy, których formularz nie potrafi pokazać. Popraw je w trybie Edytuj jako JSON.",
     "noConditions": "Brak warunków, więc zawsze się uruchamia.",
     "noActions": "Brak akcji.",
     "always": "Zawsze",
@@ -945,7 +931,9 @@
       "6": "Odwrót",
       "7": "Obrót",
       "-1": "Anuluj bieżący rozkaz"
-    }
+    },
+    "unreadableTitle": "Nieczytelny wyzwalacz",
+    "unreadable": "Edytor nie może wyświetlić tego wyzwalacza. Usuń go i utwórz ponownie."
   },
   "randomMap": {
     "title": "Mapa losowa",

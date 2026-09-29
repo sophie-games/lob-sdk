@@ -819,20 +819,7 @@
   "triggers": {
     "title": "트리거",
     "moreInfo": "트리거에 대한 자세한 정보는 여기에서",
-    "format": "형식",
-    "invalidJsonFormat": "잘못된 JSON 형식",
     "fixBeforeTesting": "이 시나리오를 테스트하기 전에 트리거 오류를 수정하세요.",
-    "validation": {
-      "expectedArray": "{{path}}은(는) 배열이어야 합니다.",
-      "expectedObject": "{{path}}은(는) 객체여야 합니다.",
-      "unitAtTriggerLevel": "{{path}}은(는) 유닛으로 보입니다. addUnit 작업 안에 배치하세요.",
-      "invalidEvent": "{{path}}은(는) onTurnStart 또는 onTurnEnd여야 합니다.",
-      "invalidConditionLogic": "{{path}}은(는) AND 또는 OR이어야 합니다.",
-      "invalidOnce": "{{path}}은(는) 불리언 값이어야 합니다.",
-      "invalidConditionType": "{{path}}에 알 수 없는 조건 유형이 있습니다.",
-      "invalidActionType": "{{path}}에 알 수 없는 작업 유형이 있습니다.",
-      "invalidValue": "{{path}}의 값이 {{type}}에 유효하지 않습니다."
-    },
     "event": "이벤트",
     "conditionLogic": "조건 논리",
     "conditionLogicAnd": "모든 조건 (AND)",
@@ -847,7 +834,6 @@
     "lastClickHint": "맵에서 마지막으로 선택한 지점을, 트리거가 부대 배치나 카메라 이동에 사용하는 좌표로 표시합니다.",
     "addTrigger": "트리거 추가",
     "noTriggers": "아직 트리거가 없습니다.",
-    "fixJsonFirst": "이 트리거에는 양식에서 표시할 수 없는 오류가 있습니다. JSON으로 편집에서 수정하세요.",
     "noConditions": "조건이 없으므로 항상 발동합니다.",
     "noActions": "아직 동작이 없습니다.",
     "always": "항상",
@@ -924,7 +910,9 @@
       "6": "후퇴",
       "7": "회전",
       "-1": "현재 명령 취소"
-    }
+    },
+    "unreadableTitle": "읽을 수 없는 트리거",
+    "unreadable": "편집기에서 이 트리거를 표시할 수 없습니다. 삭제한 뒤 다시 만드세요."
   },
   "randomMap": {
     "title": "무작위 맵",

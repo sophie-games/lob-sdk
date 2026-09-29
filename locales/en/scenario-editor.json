@@ -887,20 +887,7 @@
     "moreInfo": "Read how triggers work.",
     "lastClick": "Last map click",
     "lastClickHint": "Where you last picked on the map, in the coordinates a trigger uses for placing a unit or moving the camera.",
-    "format": "Tidy the formatting",
-    "invalidJsonFormat": "Invalid JSON format",
     "fixBeforeTesting": "Fix the trigger errors before testing this scenario.",
-    "validation": {
-      "expectedArray": "{{path}} must be an array.",
-      "expectedObject": "{{path}} must be an object.",
-      "unitAtTriggerLevel": "{{path}} looks like a unit. Put it inside an addUnit action.",
-      "invalidEvent": "{{path}} must be onTurnStart or onTurnEnd.",
-      "invalidConditionLogic": "{{path}} must be AND or OR.",
-      "invalidOnce": "{{path}} must be true or false.",
-      "invalidConditionType": "{{path}} has an unknown condition type.",
-      "invalidActionType": "{{path}} has an unknown action type.",
-      "invalidValue": "{{path}} has an invalid value for {{type}}."
-    },
     "event": "Event",
     "conditionLogic": "Condition logic",
     "conditionLogicAnd": "All conditions (AND)",
@@ -912,7 +899,6 @@
     "once": "Once",
     "addTrigger": "Add trigger",
     "noTriggers": "No triggers yet.",
-    "fixJsonFirst": "These triggers have errors the form cannot show. Fix them in Edit as JSON.",
     "noConditions": "No conditions, so it always fires.",
     "noActions": "No actions yet.",
     "always": "Always",
@@ -989,7 +975,9 @@
       "6": "Fall back",
       "7": "Rotate",
       "-1": "Cancel current order"
-    }
+    },
+    "unreadableTitle": "Unreadable trigger",
+    "unreadable": "The editor cannot show this trigger. Remove it and make it again."
   },
   "randomMap": {
     "title": "Random map",

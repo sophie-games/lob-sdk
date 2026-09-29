@@ -840,20 +840,7 @@
   "triggers": {
     "title": "Тригери",
     "moreInfo": "Більше про тригери тут",
-    "format": "Формат",
-    "invalidJsonFormat": "Недійсний формат JSON",
     "fixBeforeTesting": "Виправте помилки тригерів перед перевіркою цього сценарію.",
-    "validation": {
-      "expectedArray": "{{path}} має бути масивом.",
-      "expectedObject": "{{path}} має бути об’єктом.",
-      "unitAtTriggerLevel": "{{path}} схоже на юніта. Помістіть його всередину дії addUnit.",
-      "invalidEvent": "{{path}} має бути onTurnStart або onTurnEnd.",
-      "invalidConditionLogic": "{{path}} має бути AND або OR.",
-      "invalidOnce": "{{path}} має бути true або false.",
-      "invalidConditionType": "{{path}} містить невідомий тип умови.",
-      "invalidActionType": "{{path}} містить невідомий тип дії.",
-      "invalidValue": "{{path}} містить недійсне значення для {{type}}."
-    },
     "event": "Подія",
     "conditionLogic": "Логіка умов",
     "conditionLogicAnd": "Усі умови (AND)",
@@ -868,7 +855,6 @@
     "lastClickHint": "Місце, яке ви востаннє вибрали на карті, у координатах, які тригер використовує для розміщення підрозділу або переміщення камери.",
     "addTrigger": "Додати тригер",
     "noTriggers": "Тригерів ще немає.",
-    "fixJsonFirst": "У цих тригерах є помилки, які форма не може показати. Виправте їх у режимі «Редагувати як JSON».",
     "noConditions": "Умов немає, тож спрацьовує завжди.",
     "noActions": "Дій ще немає.",
     "always": "Завжди",
@@ -945,7 +931,9 @@
       "6": "Відступити",
       "7": "Розвернутися",
       "-1": "Скасувати поточний наказ"
-    }
+    },
+    "unreadableTitle": "Нечитабельний тригер",
+    "unreadable": "Редактор не може показати цей тригер. Видаліть його та створіть знову."
   },
   "randomMap": {
     "title": "Випадкова карта",

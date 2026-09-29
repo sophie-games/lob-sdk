@@ -819,20 +819,7 @@
   "triggers": {
     "title": "Pemicu",
     "moreInfo": "Info lebih lanjut tentang pemicu di sini",
-    "format": "Format",
-    "invalidJsonFormat": "Format JSON tidak valid",
     "fixBeforeTesting": "Perbaiki kesalahan pemicu sebelum menguji skenario ini.",
-    "validation": {
-      "expectedArray": "{{path}} harus berupa larik.",
-      "expectedObject": "{{path}} harus berupa objek.",
-      "unitAtTriggerLevel": "{{path}} tampak seperti unit. Letakkan di dalam aksi addUnit.",
-      "invalidEvent": "{{path}} harus berupa onTurnStart atau onTurnEnd.",
-      "invalidConditionLogic": "{{path}} harus berupa AND atau OR.",
-      "invalidOnce": "{{path}} harus berupa true atau false.",
-      "invalidConditionType": "{{path}} memiliki jenis kondisi yang tidak dikenal.",
-      "invalidActionType": "{{path}} memiliki jenis aksi yang tidak dikenal.",
-      "invalidValue": "{{path}} memiliki nilai yang tidak valid untuk {{type}}."
-    },
     "event": "Peristiwa",
     "conditionLogic": "Logika Kondisi",
     "conditionLogicAnd": "Semua kondisi (AND)",
@@ -847,7 +834,6 @@
     "lastClickHint": "Tempat terakhir Anda memilih di peta, dalam koordinat yang dipakai pemicu untuk menempatkan unit atau memindahkan kamera.",
     "addTrigger": "Tambah pemicu",
     "noTriggers": "Belum ada pemicu.",
-    "fixJsonFirst": "Pemicu ini punya kesalahan yang tidak bisa ditampilkan formulir. Perbaiki di Edit sebagai JSON.",
     "noConditions": "Tanpa kondisi, jadi selalu aktif.",
     "noActions": "Belum ada aksi.",
     "always": "Selalu",
@@ -924,7 +910,9 @@
       "6": "Mundur",
       "7": "Putar",
       "-1": "Batalkan perintah saat ini"
-    }
+    },
+    "unreadableTitle": "Pemicu tidak terbaca",
+    "unreadable": "Editor tidak bisa menampilkan pemicu ini. Hapus lalu buat lagi."
   },
   "randomMap": {
     "title": "Peta Acak",
