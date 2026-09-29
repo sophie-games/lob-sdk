@@ -9,6 +9,7 @@ const TILE = 16;
 const FRENCH = 1;
 const GARRISON = 2;
 const RELIEF = 3;
+const RESERVE = 4;
 
 const scenario = normalizeScenario(
   (napoleonicScenarioCatalog as unknown as Record<string, RawScenarioInput>)[
@@ -80,16 +81,37 @@ const mainZoneOf = (player: number) =>
     .find((zone) => zone.player === player && zone.type === "main");
 
 describe("Mantua 1797", () => {
-  it("seats the French blockade against the garrison and a relief column", () => {
+  it("seats the French blockade and reserve against the garrison and a relief column", () => {
     expect(scenario.allowDynamicArmy).toBe(true);
     expect(scenario.players).toEqual([
       { player: FRENCH, team: 1 },
       { player: GARRISON, team: 2 },
       { player: RELIEF, team: 2 },
+      { player: RESERVE, team: 1 },
     ]);
-    for (const player of [FRENCH, GARRISON, RELIEF]) {
+    for (const player of [FRENCH, GARRISON, RELIEF, RESERVE]) {
       expect(mainZoneOf(player)).toBeDefined();
     }
+  });
+
+  it("brings the relief from the east and the French reserve from the north, as on 16 January", () => {
+    const centreOf = (player: number) => {
+      const corners = mainZoneOf(player)!.polygons.flatMap(({ outer }) => outer);
+      return {
+        x: corners.reduce((sum, p) => sum + p.x, 0) / corners.length,
+        y: corners.reduce((sum, p) => sum + p.y, 0) / corners.length,
+      };
+    };
+    const garrison = centreOf(GARRISON);
+    const relief = centreOf(RELIEF);
+    const reserve = centreOf(RESERVE);
+    const blockade = centreOf(FRENCH);
+
+    expect(relief.x - garrison.x).toBeGreaterThan(80 * TILE);
+    expect(garrison.y - reserve.y).toBeGreaterThan(80 * TILE);
+    // The blockade stands between the reserve and the fortress.
+    expect(blockade.y).toBeGreaterThan(reserve.y);
+    expect(blockade.y).toBeLessThan(garrison.y);
   });
 
   it("gives the French La Favorita and San Giorgio, and the garrison the Cittadella and the city", () => {
