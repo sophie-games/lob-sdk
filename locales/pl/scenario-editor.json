@@ -949,6 +949,8 @@
     "startFromTemplate": "Zacznij od szablonu",
     "loadInstructionsFromTemplate": "Załaduj instrukcje z szablonu",
     "generating": "Generowanie…",
+    "acceptedAngle": "Dopuszczalny kąt (±)",
+    "angle": "Kąt",
     "generatePreview": "Generuj podgląd",
     "instructions": "Instrukcje",
     "instructionsWithCount": "Instrukcje ({{count}})",
@@ -989,6 +991,7 @@
     "selectFile": "Wybierz plik",
     "importedFile": "Zaimportowany plik",
     "field": {
+      "along": "Wzdłuż",
       "amount": "Ilość",
       "between": "Pomiędzy",
       "border": "Obramowanie",
@@ -1000,6 +1003,7 @@
       "curveLen": "Długość krzywej",
       "curveWeight": "Waga krzywej",
       "deep": "Woda głęboka",
+      "directionStep": "Krok kierunku",
       "downHillHeightCost": "Koszt w dół",
       "edgeDistance": "Odległość od krawędzi",
       "edgeWeight": "Waga krawędzi",
@@ -1013,6 +1017,7 @@
       "heightFilter": "Filtr wysokości",
       "heightRanges": "Zakresy wysokości",
       "heights": "Wysokości",
+      "keep": "Zachowaj",
       "l": "Duży",
       "m": "Średni",
       "max": "Maks",
@@ -1032,8 +1037,10 @@
       "minHeight": "Min. wysokość",
       "minHeightValue": "Min. wartość wysokości",
       "minSurrounding": "Min. otaczających kafelków",
+      "minTiles": "Najmniejsze pole",
       "minWidth": "Min. szerokość",
       "min_scaling_factor": "Min. skalowanie wg rozmiaru mapy",
+      "mode": "Tryb",
       "multiplier": "Mnożnik",
       "name": "Nazwa",
       "noiseSmoothness": "Gładkość szumu",
@@ -1061,6 +1068,7 @@
       "shallow": "Woda płytka",
       "shore": "Brzeg",
       "size": "Rozmiar",
+      "skipBlocked": "Pomiń zablokowane",
       "smoothing": "Wygładzanie",
       "startHeightRanges": "Początkowe zakresy wysokości",
       "team": "Drużyna",
@@ -1070,8 +1078,10 @@
       "terrainReplacements": "Zamiany terenu",
       "terrains": "Tereny",
       "toTerrain": "Na teren",
+      "tries": "Próby",
       "type": "Typ",
       "uphillHeightCost": "Koszt pod górę",
+      "verge": "Pobocze",
       "width": "Szerokość",
       "x": "X",
       "xBounds": "Granice X",
@@ -1090,12 +1100,16 @@
       "connectClusters": "Połącz skupiska",
       "objective": "Cel",
       "lake": "Jezioro",
-      "objectiveLayer": "Warstwa celów"
+      "objectiveLayer": "Warstwa celów",
+      "symmetry": "Symetria",
+      "fields": "Pola"
     },
     "objectiveType": {
       "small": "Mały",
       "big": "Duży"
-    }
+    },
+    "addField": "Dodaj pole",
+    "removeField": "Usuń"
   },
   "randomDeployment": {
     "title": "Strefy rozstawienia",

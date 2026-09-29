@@ -14,6 +14,26 @@ import { generateDefaultArmy } from "@lob-sdk/army-deployer";
 describe("GameDataManager", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
 
+  describe("ranked matchmaking pool", () => {
+    const shown = gameDataManager.getScenarios();
+    const ranked = shown.filter((name) => gameDataManager.getScenario(name).ranked);
+
+    it("offers every random map", () => {
+      const random = shown.filter((name) => "instructions" in gameDataManager.getScenario(name));
+      expect(ranked).toEqual(expect.arrayContaining(random));
+    });
+
+    // Half plus one: any two players' selections always share a map.
+    it.each([
+      ["napoleonic", ranked.length],
+      ["ww2", 1],
+    ] as const)("requires more than half the %s ranked maps", (era, count) => {
+      expect(GameDataManager.get(era).getRankedMinScenariosForMatchmaking()).toBe(
+        Math.floor(count / 2) + 1,
+      );
+    });
+  });
+
   describe("getObjectiveSpacing", () => {
     it("returns a positive spacing for every napoleonic battle type", () => {
       gameDataManager.getAllDynamicBattleTypes().forEach((battleType) => {

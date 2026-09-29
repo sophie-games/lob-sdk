@@ -995,6 +995,8 @@
     "startFromTemplate": "Start from a template",
     "loadInstructionsFromTemplate": "Load template",
     "generating": "Generating…",
+    "acceptedAngle": "Accepted angle (±)",
+    "angle": "Angle",
     "generatePreview": "Generate preview",
     "instructions": "Instructions",
     "instructionsWithCount": "Instructions ({{count}})",
@@ -1034,6 +1036,7 @@
     "selectFile": "Select file",
     "importedFile": "Imported file",
     "field": {
+      "along": "Along",
       "amount": "Amount",
       "between": "Between",
       "border": "Border",
@@ -1045,6 +1048,7 @@
       "curveLen": "Curve length",
       "curveWeight": "Curve weight",
       "deep": "Deep water",
+      "directionStep": "Direction step",
       "downHillHeightCost": "Downhill cost",
       "edgeDistance": "Edge distance",
       "edgeWeight": "Edge weight",
@@ -1058,6 +1062,7 @@
       "heightFilter": "Height filter",
       "heightRanges": "Height ranges",
       "heights": "Heights",
+      "keep": "Keep",
       "l": "Large",
       "m": "Medium",
       "max": "Max",
@@ -1077,8 +1082,10 @@
       "minHeight": "Min height",
       "minHeightValue": "Min height value",
       "minSurrounding": "Min surrounding tiles",
+      "minTiles": "Smallest field",
       "minWidth": "Min width",
       "min_scaling_factor": "Min scaling by map size",
+      "mode": "Mode",
       "multiplier": "Multiplier",
       "name": "Name",
       "noiseSmoothness": "Noise smoothness",
@@ -1106,6 +1113,7 @@
       "shallow": "Shallow water",
       "shore": "Shore",
       "size": "Size",
+      "skipBlocked": "Skip blocked",
       "smoothing": "Smoothing",
       "startHeightRanges": "Start height ranges",
       "team": "Team",
@@ -1115,8 +1123,10 @@
       "terrainReplacements": "Terrain replacements",
       "terrains": "Terrains",
       "toTerrain": "To terrain",
+      "tries": "Tries",
       "type": "Type",
       "uphillHeightCost": "Uphill cost",
+      "verge": "Verge",
       "width": "Width",
       "x": "X",
       "xBounds": "X bounds",
@@ -1135,12 +1145,16 @@
       "connectClusters": "Connect clusters",
       "objective": "Objective",
       "lake": "Lake",
-      "objectiveLayer": "Objective layer"
+      "objectiveLayer": "Objective layer",
+      "symmetry": "Symmetry",
+      "fields": "Fields"
     },
     "objectiveType": {
       "small": "Small",
       "big": "Big"
-    }
+    },
+    "addField": "Add a field",
+    "removeField": "Remove"
   },
   "randomDeployment": {
     "title": "Deployment zones",

@@ -935,6 +935,8 @@
     "startFromTemplate": "テンプレートから開始",
     "loadInstructionsFromTemplate": "テンプレートから指示を読み込む",
     "generating": "生成中…",
+    "acceptedAngle": "許容角度 (±)",
+    "angle": "角度",
     "generatePreview": "プレビューを生成",
     "instructions": "指示",
     "instructionsWithCount": "指示（{{count}}）",
@@ -975,6 +977,7 @@
     "selectFile": "ファイルを選択",
     "importedFile": "インポートしたファイル",
     "field": {
+      "along": "沿って",
       "amount": "量",
       "between": "間",
       "border": "境界",
@@ -986,6 +989,7 @@
       "curveLen": "曲線の長さ",
       "curveWeight": "曲線の重み",
       "deep": "深い水域",
+      "directionStep": "方向の刻み",
       "downHillHeightCost": "下り坂のコスト",
       "edgeDistance": "端からの距離",
       "edgeWeight": "端の重み",
@@ -999,6 +1003,7 @@
       "heightFilter": "高さフィルター",
       "heightRanges": "高さ範囲",
       "heights": "高さ",
+      "keep": "保持",
       "l": "大",
       "m": "中",
       "max": "最大",
@@ -1018,8 +1023,10 @@
       "minHeight": "最小の高さ",
       "minHeightValue": "最小高さの値",
       "minSurrounding": "周囲タイルの最小数",
+      "minTiles": "最小の畑",
       "minWidth": "最小の幅",
       "min_scaling_factor": "マップサイズによる最小スケーリング",
+      "mode": "モード",
       "multiplier": "倍率",
       "name": "名前",
       "noiseSmoothness": "ノイズの滑らかさ",
@@ -1047,6 +1054,7 @@
       "shallow": "浅い水域",
       "shore": "岸",
       "size": "サイズ",
+      "skipBlocked": "ブロックをスキップ",
       "smoothing": "平滑化",
       "startHeightRanges": "開始高さ範囲",
       "team": "チーム",
@@ -1056,8 +1064,10 @@
       "terrainReplacements": "地形の置換",
       "terrains": "地形",
       "toTerrain": "変換先の地形",
+      "tries": "試行回数",
       "type": "種類",
       "uphillHeightCost": "上り坂のコスト",
+      "verge": "路肩",
       "width": "幅",
       "x": "X",
       "xBounds": "X 境界",
@@ -1076,12 +1086,16 @@
       "connectClusters": "クラスターを接続",
       "objective": "目標",
       "lake": "湖",
-      "objectiveLayer": "目標レイヤー"
+      "objectiveLayer": "目標レイヤー",
+      "symmetry": "対称",
+      "fields": "畑"
     },
     "objectiveType": {
       "small": "小",
       "big": "大"
-    }
+    },
+    "addField": "項目を追加",
+    "removeField": "削除"
   },
   "randomDeployment": {
     "title": "配置ゾーン",

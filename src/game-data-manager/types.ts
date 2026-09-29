@@ -880,6 +880,4 @@ export interface MatchmakingPresetsData {
   defaultBattleTypes?: DynamicBattleType[];
   /** Scenario IDs that must always be included in ranked matchmaking for this era. Optional; empty if omitted. */
   rankedRequiredScenarios?: ScenarioName[];
-  /** Minimum number of scenarios a player must have selected for ranked matchmaking. Optional. */
-  rankedMinScenarios?: number;
 }

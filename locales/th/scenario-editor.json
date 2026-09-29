@@ -935,6 +935,8 @@
     "startFromTemplate": "เริ่มจากเทมเพลต",
     "loadInstructionsFromTemplate": "โหลดคำสั่งจากเทมเพลต",
     "generating": "กำลังสร้าง…",
+    "acceptedAngle": "มุมที่ยอมรับ (±)",
+    "angle": "มุม",
     "generatePreview": "สร้างตัวอย่าง",
     "instructions": "คำสั่ง",
     "instructionsWithCount": "คำสั่ง ({{count}})",
@@ -975,6 +977,7 @@
     "selectFile": "เลือกไฟล์",
     "importedFile": "ไฟล์ที่นำเข้า",
     "field": {
+      "along": "ตามแนว",
       "amount": "ปริมาณ",
       "between": "ระหว่าง",
       "border": "ขอบ",
@@ -986,6 +989,7 @@
       "curveLen": "ความยาวเส้นโค้ง",
       "curveWeight": "น้ำหนักเส้นโค้ง",
       "deep": "น้ำลึก",
+      "directionStep": "ขั้นทิศทาง",
       "downHillHeightCost": "ต้นทุนลงเนิน",
       "edgeDistance": "ระยะจากขอบ",
       "edgeWeight": "น้ำหนักขอบ",
@@ -999,6 +1003,7 @@
       "heightFilter": "ตัวกรองความสูง",
       "heightRanges": "ช่วงความสูง",
       "heights": "ความสูง",
+      "keep": "คงไว้",
       "l": "ใหญ่",
       "m": "กลาง",
       "max": "สูงสุด",
@@ -1018,8 +1023,10 @@
       "minHeight": "ความสูงต่ำสุด",
       "minHeightValue": "ค่าความสูงต่ำสุด",
       "minSurrounding": "ช่องรอบข้างต่ำสุด",
+      "minTiles": "แปลงเล็กสุด",
       "minWidth": "ความกว้างต่ำสุด",
       "min_scaling_factor": "การปรับสเกลต่ำสุดตามขนาดแผนที่",
+      "mode": "โหมด",
       "multiplier": "ตัวคูณ",
       "name": "ชื่อ",
       "noiseSmoothness": "ความเรียบของนอยส์",
@@ -1047,6 +1054,7 @@
       "shallow": "น้ำตื้น",
       "shore": "ชายฝั่ง",
       "size": "ขนาด",
+      "skipBlocked": "ข้ามที่ถูกกั้น",
       "smoothing": "การทำให้เรียบ",
       "startHeightRanges": "ช่วงความสูงเริ่มต้น",
       "team": "ทีม",
@@ -1056,8 +1064,10 @@
       "terrainReplacements": "การแทนที่ภูมิประเทศ",
       "terrains": "ภูมิประเทศ",
       "toTerrain": "ไปยังภูมิประเทศ",
+      "tries": "จำนวนครั้ง",
       "type": "ประเภท",
       "uphillHeightCost": "ต้นทุนขึ้นเนิน",
+      "verge": "ขอบทาง",
       "width": "ความกว้าง",
       "x": "X",
       "xBounds": "ขอบเขต X",
@@ -1076,12 +1086,16 @@
       "connectClusters": "เชื่อมกลุ่ม",
       "objective": "เป้าหมาย",
       "lake": "ทะเลสาบ",
-      "objectiveLayer": "เลเยอร์เป้าหมาย"
+      "objectiveLayer": "เลเยอร์เป้าหมาย",
+      "symmetry": "สมมาตร",
+      "fields": "ทุ่งนา"
     },
     "objectiveType": {
       "small": "เล็ก",
       "big": "ใหญ่"
-    }
+    },
+    "addField": "เพิ่มช่อง",
+    "removeField": "ลบ"
   },
   "randomDeployment": {
     "title": "โซนการวางกำลัง",

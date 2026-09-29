@@ -9,31 +9,26 @@ import saandLakes from "./scenarios/saand-lakes.json";
 import amnisNucum from "./scenarios/amnis-nucum.json";
 import cittaDeiFalchi from "./scenarios/citta-dei-falchi.json";
 import roadToAmnisNucum from "./scenarios/road-to-amnis-nucum.json";
-import ruralAlpine from "./scenarios/rural-alpine.json";
 import falkenhugel from "./scenarios/falkenhugel.json";
 import grobesSchlachtfeld from "./scenarios/grobes-schlachtfeld.json";
 import mediterraneaNucum from "./scenarios/mediterranea-nucum.json";
 import riverValley from "./scenarios/river-valley.json";
 import linesOfLegends from "./scenarios/lines-of-legends.json";
-import aestateVillas from "./scenarios/aestate-villas.json";
-import borodino from "./scenarios/borodino.json";
-import combatAtMollwitz from "./scenarios/combat-at-mollwitz.json";
-import clashAtChelmnitz from "./scenarios/clash-at-chelmnitz.json";
 import tundra from "./scenarios/tundra.json";
-import dresden from "./scenarios/dresden.json";
-import blackForest from "./scenarios/black-forest.json";
-import lake from "./scenarios/lake.json";
 import antioch from "./scenarios/antioch.json";
-import silvaSanctorum from "./scenarios/silva-sanctorum.json";
 import andesAndValley from "./scenarios/andes-and-valley.json";
 import lowCountries from "./scenarios/low-countries.json";
 import hedgerows from "./scenarios/hedgerows.json";
-import leipzig from "./scenarios/leipzig.json";
 import lineOfBattle from "./scenarios/line-of-battle.json";
 import warRoomFiftyVsFifty from "./scenarios/war-room-50-vs-50.json";
 import roadToPressburg from "./scenarios/road-to-pressburg.json";
 import laMeuse from "./scenarios/la-meuse.json";
 import twinRiverValley from "./scenarios/twin-river-valley.json";
+import riverCrossing from "./scenarios/river-crossing.json";
+import alpineValley from "./scenarios/alpine-valley.json";
+import apennineRidges from "./scenarios/apennine-ridges.json";
+import marshDikes from "./scenarios/marsh-dikes.json";
+import rivoliPlateau from "./scenarios/rivoli-plateau.json";
 import mantua1797 from "./scenarios/mantua-1797.json";
 
 export const napoleonicScenarioCatalog = {
@@ -44,9 +39,6 @@ export const napoleonicScenarioCatalog = {
   city,
   hedgerows,
   "low-countries": lowCountries,
-  lake,
-  "black-forest": blackForest,
-  "silva-sanctorum": silvaSanctorum,
   "andes-and-valley": andesAndValley,
   "lines-of-legends": linesOfLegends,
   "river-valley": riverValley,
@@ -54,23 +46,21 @@ export const napoleonicScenarioCatalog = {
   "faucon-river-valley": fauconRiverValley,
   "amnis-nucum": amnisNucum,
   "road-to-amnis-nucum": roadToAmnisNucum,
-  "aestate-villas": aestateVillas,
   "citta-dei-falchi": cittaDeiFalchi,
-  "rural-alpine": ruralAlpine,
   "mediterranea-nucum": mediterraneaNucum,
   falkenhugel,
   "grobes-schlachtfeld": grobesSchlachtfeld,
   antioch,
   waterloo,
-  leipzig,
-  borodino,
-  "combat-at-mollwitz": combatAtMollwitz,
-  "clash-at-chelmnitz": clashAtChelmnitz,
-  dresden,
   "line-of-battle": lineOfBattle,
   "war-room-50-vs-50": warRoomFiftyVsFifty,
   "twin-river-valley": twinRiverValley,
   "la-meuse": laMeuse,
   "road-to-pressburg": roadToPressburg,
+  "river-crossing": riverCrossing,
+  "alpine-valley": alpineValley,
+  "apennine-ridges": apennineRidges,
+  "marsh-dikes": marshDikes,
+  "rivoli-plateau": rivoliPlateau,
   "mantua-1797": mantua1797,
 } as unknown as ScenarioCatalog;

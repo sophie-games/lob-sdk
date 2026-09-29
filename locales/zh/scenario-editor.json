@@ -945,6 +945,8 @@
     "startFromTemplate": "从模板开始",
     "loadInstructionsFromTemplate": "从模板加载指令",
     "generating": "生成中……",
+    "acceptedAngle": "允许角度 (±)",
+    "angle": "角度",
     "generatePreview": "生成预览",
     "instructions": "指令",
     "instructionsWithCount": "指令（{{count}}）",
@@ -984,6 +986,7 @@
     "selectFile": "选择文件",
     "importedFile": "已导入的文件",
     "field": {
+      "along": "沿着",
       "amount": "总量",
       "between": "介于",
       "border": "边界",
@@ -995,6 +998,7 @@
       "curveLen": "曲线长度",
       "curveWeight": "曲线权重",
       "deep": "深水",
+      "directionStep": "方向步长",
       "downHillHeightCost": "下坡花费",
       "edgeDistance": "边缘距离",
       "edgeWeight": "边缘权重",
@@ -1008,6 +1012,7 @@
       "heightFilter": "高度筛选",
       "heightRanges": "高度范围",
       "heights": "高度",
+      "keep": "保留",
       "l": "大",
       "m": "中",
       "max": "最大",
@@ -1027,8 +1032,10 @@
       "minHeight": "最小高度",
       "minHeightValue": "最小高度值",
       "minSurrounding": "最少周围格数",
+      "minTiles": "最小田块",
       "minWidth": "最小宽度",
       "min_scaling_factor": "按地图大小的最小缩放",
+      "mode": "模式",
       "multiplier": "倍率",
       "name": "名称",
       "noiseSmoothness": "噪声平滑度",
@@ -1056,6 +1063,7 @@
       "shallow": "浅水",
       "shore": "岸边",
       "size": "大小",
+      "skipBlocked": "跳过受阻",
       "smoothing": "平滑",
       "startHeightRanges": "起点高度范围",
       "team": "队伍",
@@ -1065,8 +1073,10 @@
       "terrainReplacements": "地形替换",
       "terrains": "地形",
       "toTerrain": "目标地形",
+      "tries": "尝试次数",
       "type": "类型",
       "uphillHeightCost": "上坡花费",
+      "verge": "路肩",
       "width": "宽度",
       "x": "X",
       "xBounds": "X 边界",
@@ -1085,12 +1095,16 @@
       "connectClusters": "连接群簇",
       "objective": "目标点",
       "lake": "湖泊",
-      "objectiveLayer": "目标点层"
+      "objectiveLayer": "目标点层",
+      "symmetry": "对称",
+      "fields": "田地"
     },
     "objectiveType": {
       "small": "小",
       "big": "大"
-    }
+    },
+    "addField": "添加字段",
+    "removeField": "移除"
   },
   "randomDeployment": {
     "title": "部署区域",

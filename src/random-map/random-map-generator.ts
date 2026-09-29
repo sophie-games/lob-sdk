@@ -26,6 +26,9 @@ import { ConnectClustersExecutor } from "./executors/connect-clusters";
 import { ObjectiveExecutor } from "./executors/objective";
 import { ObjectiveLayerExecutor } from "./executors/objective-layer";
 import { LakeExecutor } from "./executors/lake";
+import { SymmetryExecutor } from "./executors/symmetry";
+import { FieldsExecutor } from "./executors/fields";
+import { InstructionArea, TurnedFrame } from "./frame-angle";
 import { normalizeMapGrids } from "./normalize-map-grids";
 import { deriveSeed, generateRandomSeed, randomSeeded } from "@lob-sdk/seed";
 import { GameDataManager, GameEra } from "@lob-sdk/game-data-manager";
@@ -42,6 +45,7 @@ export class RandomMapGenerator {
     tilesX,
     tilesY,
     mapSize,
+    parameters,
   }: GenerateRandomMapProps): GenerateRandomMapResult {
     const gameDataManager = GameDataManager.get(era);
     // Fixed-roster scenarios (presets) pass `dynamicBattleType: null`.
@@ -71,6 +75,8 @@ export class RandomMapGenerator {
     let heightMap: number[][];
     let widthPx: number;
     let heightPx: number;
+    // Set when the terrain is generated turned (see TurnedFrame).
+    let frame: TurnedFrame | undefined;
 
     if (fixedMap) {
       widthPx = fixedMap.width;
@@ -110,6 +116,12 @@ export class RandomMapGenerator {
       widthPx = tilesX * tileSize;
       heightPx = tilesY * tileSize;
 
+      const accepted = scenario.parameters?.angle;
+      const angle = accepted
+        ? Math.min(accepted.max, Math.max(accepted.min, parameters?.angle ?? 0))
+        : 0;
+      if (angle !== 0) frame = new TurnedFrame(angle, tilesX, tilesY);
+
       terrains = [];
       heightMap = [];
       for (let x = 0; x < tilesX; x++) {
@@ -135,6 +147,7 @@ export class RandomMapGenerator {
       tileSize,
       battleSize,
       instructionsToRun,
+      frame,
     );
 
     const deploymentZones = this.resolveDeploymentZones(
@@ -364,11 +377,24 @@ export class RandomMapGenerator {
     tileSize: number,
     battleSize: Size,
     instructions: AnyInstruction[],
+    frame?: TurnedFrame,
   ) {
+    // On a turned map these instructions draw at their angle, each in its area of the frame;
+    // the rest draw unturned.
+    const turned = new Set<InstructionType>([
+      InstructionType.HeightNoise,
+      InstructionType.TerrainNoise,
+      InstructionType.TerrainRectangle,
+      InstructionType.NaturalPath,
+      InstructionType.Symmetry,
+    ]);
     instructions.forEach((instruction: AnyInstruction, index: number) => {
       let boundedTerrains = terrains;
       let boundedHeightMap = heightMap;
-      if (instruction.xBounds && instruction.yBounds) {
+      let area: InstructionArea | undefined;
+      if (frame && turned.has(instruction.type)) {
+        area = frame.area(instruction.xBounds, instruction.yBounds);
+      } else if (instruction.xBounds && instruction.yBounds) {
         boundedTerrains = this.create2DSliceProxy(
           terrains,
           instruction.xBounds,
@@ -389,6 +415,7 @@ export class RandomMapGenerator {
             index,
             boundedTerrains,
             boundedHeightMap,
+            area,
           ).execute();
           break;
         }
@@ -400,6 +427,7 @@ export class RandomMapGenerator {
             index,
             boundedTerrains,
             boundedHeightMap,
+            area,
           ).execute();
           break;
         }
@@ -422,6 +450,7 @@ export class RandomMapGenerator {
             index,
             boundedTerrains,
             boundedHeightMap,
+            area,
           ).execute();
           break;
         }
@@ -434,6 +463,7 @@ export class RandomMapGenerator {
             boundedTerrains,
             boundedHeightMap,
             battleSize,
+            area,
           ).execute();
           break;
         }
@@ -487,6 +517,25 @@ export class RandomMapGenerator {
             Math.floor(
               ((instruction.yBounds?.min ?? 0) / 100) * terrains[0].length,
             ),
+          ).execute();
+          break;
+        }
+        case InstructionType.Symmetry: {
+          new SymmetryExecutor(
+            instruction,
+            boundedTerrains,
+            boundedHeightMap,
+            area,
+          ).execute();
+          break;
+        }
+        case InstructionType.Fields: {
+          new FieldsExecutor(
+            instruction,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
           ).execute();
           break;
         }

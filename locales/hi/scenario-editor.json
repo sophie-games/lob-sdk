@@ -935,6 +935,8 @@
     "startFromTemplate": "टेम्पलेट से शुरू करें",
     "loadInstructionsFromTemplate": "टेम्पलेट से निर्देश लोड करें",
     "generating": "उत्पन्न हो रहा है…",
+    "acceptedAngle": "स्वीकृत कोण (±)",
+    "angle": "कोण",
     "generatePreview": "पूर्वावलोकन उत्पन्न करें",
     "instructions": "निर्देश",
     "instructionsWithCount": "निर्देश ({{count}})",
@@ -975,6 +977,7 @@
     "selectFile": "फ़ाइल चुनें",
     "importedFile": "आयातित फ़ाइल",
     "field": {
+      "along": "के साथ-साथ",
       "amount": "मात्रा",
       "between": "के बीच",
       "border": "सीमा",
@@ -986,6 +989,7 @@
       "curveLen": "वक्र लंबाई",
       "curveWeight": "वक्र भार",
       "deep": "गहरा पानी",
+      "directionStep": "दिशा चरण",
       "downHillHeightCost": "ढलान उतरने की लागत",
       "edgeDistance": "किनारे से दूरी",
       "edgeWeight": "किनारा भार",
@@ -999,6 +1003,7 @@
       "heightFilter": "ऊंचाई फ़िल्टर",
       "heightRanges": "ऊंचाई रेंज",
       "heights": "ऊंचाइयाँ",
+      "keep": "रखें",
       "l": "बड़ा",
       "m": "मध्यम",
       "max": "अधिकतम",
@@ -1018,8 +1023,10 @@
       "minHeight": "न्यूनतम ऊंचाई",
       "minHeightValue": "न्यूनतम ऊंचाई मान",
       "minSurrounding": "न्यूनतम आसपास की टाइलें",
+      "minTiles": "सबसे छोटा खेत",
       "minWidth": "न्यूनतम चौड़ाई",
       "min_scaling_factor": "मानचित्र आकार से न्यूनतम स्केलिंग",
+      "mode": "मोड",
       "multiplier": "गुणक",
       "name": "नाम",
       "noiseSmoothness": "नॉइज़ चिकनाई",
@@ -1047,6 +1054,7 @@
       "shallow": "उथला पानी",
       "shore": "तट",
       "size": "आकार",
+      "skipBlocked": "अवरुद्ध छोड़ें",
       "smoothing": "चिकनाई",
       "startHeightRanges": "आरंभ ऊंचाई रेंज",
       "team": "टीम",
@@ -1056,8 +1064,10 @@
       "terrainReplacements": "भूभाग प्रतिस्थापन",
       "terrains": "भूभाग",
       "toTerrain": "किस भूभाग में",
+      "tries": "प्रयास",
       "type": "प्रकार",
       "uphillHeightCost": "ढलान चढ़ने की लागत",
+      "verge": "किनारा",
       "width": "चौड़ाई",
       "x": "X",
       "xBounds": "X सीमाएँ",
@@ -1076,12 +1086,16 @@
       "connectClusters": "क्लस्टर जोड़ें",
       "objective": "उद्देश्य",
       "lake": "झील",
-      "objectiveLayer": "उद्देश्य परत"
+      "objectiveLayer": "उद्देश्य परत",
+      "symmetry": "समरूपता",
+      "fields": "खेत"
     },
     "objectiveType": {
       "small": "छोटा",
       "big": "बड़ा"
-    }
+    },
+    "addField": "फ़ील्ड जोड़ें",
+    "removeField": "हटाएँ"
   },
   "randomDeployment": {
     "title": "तैनाती क्षेत्र",

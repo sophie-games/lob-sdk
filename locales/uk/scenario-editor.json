@@ -949,6 +949,8 @@
     "startFromTemplate": "Почати з шаблону",
     "loadInstructionsFromTemplate": "Завантажити інструкції з шаблону",
     "generating": "Генерація…",
+    "acceptedAngle": "Допустимий кут (±)",
+    "angle": "Кут",
     "generatePreview": "Згенерувати попередній перегляд",
     "instructions": "Інструкції",
     "instructionsWithCount": "Інструкції ({{count}})",
@@ -989,6 +991,7 @@
     "selectFile": "Вибрати файл",
     "importedFile": "Імпортований файл",
     "field": {
+      "along": "Уздовж",
       "amount": "Кількість",
       "between": "Між",
       "border": "Межа",
@@ -1000,6 +1003,7 @@
       "curveLen": "Довжина кривої",
       "curveWeight": "Вага кривої",
       "deep": "Глибока вода",
+      "directionStep": "Крок напрямку",
       "downHillHeightCost": "Вартість спуску",
       "edgeDistance": "Відстань від краю",
       "edgeWeight": "Вага краю",
@@ -1013,6 +1017,7 @@
       "heightFilter": "Фільтр висоти",
       "heightRanges": "Діапазони висоти",
       "heights": "Висоти",
+      "keep": "Зберегти",
       "l": "Великий",
       "m": "Середній",
       "max": "Макс",
@@ -1032,8 +1037,10 @@
       "minHeight": "Мін. висота",
       "minHeightValue": "Значення мін. висоти",
       "minSurrounding": "Мін. навколишніх тайлів",
+      "minTiles": "Найменше поле",
       "minWidth": "Мін. ширина",
       "min_scaling_factor": "Мін. масштабування за розміром карти",
+      "mode": "Режим",
       "multiplier": "Множник",
       "name": "Назва",
       "noiseSmoothness": "Плавність шуму",
@@ -1061,6 +1068,7 @@
       "shallow": "Мілка вода",
       "shore": "Берег",
       "size": "Розмір",
+      "skipBlocked": "Пропускати заблоковані",
       "smoothing": "Згладжування",
       "startHeightRanges": "Діапазони початкової висоти",
       "team": "Команда",
@@ -1070,8 +1078,10 @@
       "terrainReplacements": "Заміни місцевості",
       "terrains": "Типи місцевості",
       "toTerrain": "На місцевість",
+      "tries": "Спроби",
       "type": "Тип",
       "uphillHeightCost": "Вартість підйому",
+      "verge": "Узбіччя",
       "width": "Ширина",
       "x": "X",
       "xBounds": "Межі X",
@@ -1090,12 +1100,16 @@
       "connectClusters": "З'єднати кластери",
       "objective": "Ціль",
       "lake": "Озеро",
-      "objectiveLayer": "Шар цілей"
+      "objectiveLayer": "Шар цілей",
+      "symmetry": "Симетрія",
+      "fields": "Поля"
     },
     "objectiveType": {
       "small": "Малий",
       "big": "Великий"
-    }
+    },
+    "addField": "Додати поле",
+    "removeField": "Видалити"
   },
   "randomDeployment": {
     "title": "Зони розгортання",
