@@ -14,17 +14,11 @@ import grobesSchlachtfeld from "./scenarios/grobes-schlachtfeld.json";
 import mediterraneaNucum from "./scenarios/mediterranea-nucum.json";
 import riverValley from "./scenarios/river-valley.json";
 import linesOfLegends from "./scenarios/lines-of-legends.json";
-import borodino from "./scenarios/borodino.json";
-import combatAtMollwitz from "./scenarios/combat-at-mollwitz.json";
-import clashAtChelmnitz from "./scenarios/clash-at-chelmnitz.json";
 import tundra from "./scenarios/tundra.json";
-import dresden from "./scenarios/dresden.json";
-import lake from "./scenarios/lake.json";
 import antioch from "./scenarios/antioch.json";
 import andesAndValley from "./scenarios/andes-and-valley.json";
 import lowCountries from "./scenarios/low-countries.json";
 import hedgerows from "./scenarios/hedgerows.json";
-import leipzig from "./scenarios/leipzig.json";
 import lineOfBattle from "./scenarios/line-of-battle.json";
 import warRoomFiftyVsFifty from "./scenarios/war-room-50-vs-50.json";
 import roadToPressburg from "./scenarios/road-to-pressburg.json";
@@ -44,7 +38,6 @@ export const napoleonicScenarioCatalog = {
   city,
   hedgerows,
   "low-countries": lowCountries,
-  lake,
   "andes-and-valley": andesAndValley,
   "lines-of-legends": linesOfLegends,
   "river-valley": riverValley,
@@ -58,11 +51,6 @@ export const napoleonicScenarioCatalog = {
   "grobes-schlachtfeld": grobesSchlachtfeld,
   antioch,
   waterloo,
-  leipzig,
-  borodino,
-  "combat-at-mollwitz": combatAtMollwitz,
-  "clash-at-chelmnitz": clashAtChelmnitz,
-  dresden,
   "line-of-battle": lineOfBattle,
   "war-room-50-vs-50": warRoomFiftyVsFifty,
   "twin-river-valley": twinRiverValley,
