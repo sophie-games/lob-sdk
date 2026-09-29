@@ -458,6 +458,10 @@
       "title": "Scegli le cariche",
       "description": "Caricare frontalmente truppe organizzate è rischioso. Indeboliscile con il fuoco o attacca un fianco."
     },
+    "slowCharge": {
+      "title": "Carica lenta",
+      "description": "Una carica colpisce più forte quanto più è veloce al contatto, e il terreno difficile o i percorsi affollati la rallentano. Carica su terreno aperto per colpire a piena velocità."
+    },
     "objectives": {
       "title": "Obiettivi piccoli",
       "description": "Le stelle piccole aiutano a rifornire la riserva di munizioni. Catturale per continuare a sparare."
@@ -590,6 +594,10 @@
     "artilleryRotateToFire": {
       "title": "Fermarsi per sparare",
       "description": "Il nemico è vicino e il tuo cannone ha un tiro pulito ma è ancora in movimento. Interrompi la marcia e ruota l'unità in modalità fuoco automatico."
+    },
+    "artilleryCanisterRange": {
+      "title": "Quasi a tiro di mitraglia",
+      "description": "Il nemico è appena oltre la gittata a mitraglia di questa batteria. Avvicinati un po’ e sparerà a mitraglia, molto più letale da vicino."
     },
     "pushObjective": {
       "title": "Sfrutta il vantaggio",
