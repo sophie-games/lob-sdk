@@ -143,6 +143,33 @@ describe("Mantua 1797", () => {
       expect(counts.get(TerrainType.Redoubt)).toBeGreaterThan(0);
     });
 
+    it("gives the guns a redoubt strip behind the land-front walls, not the lake-front ones", () => {
+      const water = [TerrainType.ShallowWater, TerrainType.DeepWater];
+      const around = (tx: number, ty: number, steps: number[][]) =>
+        steps.map(([dx, dy]) => terrains[tx + dx!]?.[ty + dy!]);
+      const four = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+      const eight = [...four, [1, 1], [1, -1], [-1, 1], [-1, -1]];
+
+      let behindLandWalls = 0;
+      let behindLakeWallsOnly = 0;
+      terrains.forEach((column, tx) =>
+        column.forEach((terrain, ty) => {
+          if (terrain !== TerrainType.Redoubt) return;
+          const walls = four
+            .map(([dx, dy]) => [tx + dx!, ty + dy!] as const)
+            .filter(([x, y]) => terrains[x]?.[y] === TerrainType.Wall);
+          if (walls.length === 0) return;
+          const land = walls.some(
+            ([x, y]) => !around(x, y, eight).some((t) => water.includes(t!)),
+          );
+          if (land) behindLandWalls++;
+          else behindLakeWallsOnly++;
+        }),
+      );
+      expect(behindLandWalls).toBeGreaterThan(100);
+      expect(behindLakeWallsOnly).toBe(0);
+    });
+
     it("lets cavalry in only through its gates and causeways", () => {
       const cavalry = passable("lightCavalry");
       expect(reaches(laFavorita!.pos, cittadella!.pos, cavalry)).toBe(true);
