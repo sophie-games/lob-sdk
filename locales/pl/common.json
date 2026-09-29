@@ -435,6 +435,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: szarża odparta ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: szarża odparta",
+    "brokenByCharge": "{{unit}} załamał się pod szarżą ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} załamał się pod szarżą",
+    "reason": {
+      "targetFormation": "cel w szyku {{formation}}",
+      "targetGround": "cel w terenie {{terrain}}",
+      "slowContact": "{{percent}}% prędkości przy uderzeniu",
+      "frontal": "uderzenie w front",
+      "tired": "zmęczone oddziały",
+      "disordered": "rozproszone oddziały",
+      "flanked": "uderzenie w flankę"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Punkty zwycięstwa",

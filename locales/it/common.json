@@ -433,6 +433,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: carica respinta ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: carica respinta",
+    "brokenByCharge": "{{unit}} ha ceduto a una carica ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} ha ceduto a una carica",
+    "reason": {
+      "targetFormation": "bersaglio in {{formation}}",
+      "targetGround": "bersaglio in {{terrain}}",
+      "slowContact": "{{percent}}% di velocità all'impatto",
+      "frontal": "ha colpito il fronte",
+      "tired": "truppe stanche",
+      "disordered": "truppe disordinate",
+      "flanked": "colpita sul fianco"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Punti vittoria",

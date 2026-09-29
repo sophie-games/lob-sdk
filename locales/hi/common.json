@@ -447,6 +447,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: धावा विफल ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: धावा विफल",
+    "brokenByCharge": "{{unit}} एक धावे के आगे टूट गई ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} एक धावे के आगे टूट गई",
+    "reason": {
+      "targetFormation": "लक्ष्य {{formation}} में",
+      "targetGround": "लक्ष्य {{terrain}} में",
+      "slowContact": "टक्कर पर {{percent}}% गति",
+      "frontal": "सामने से टकराया",
+      "tired": "थकी हुई टुकड़ी",
+      "disordered": "अव्यवस्थित टुकड़ी",
+      "flanked": "पार्श्व पर हमला"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "विजय अंक",

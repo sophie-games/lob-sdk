@@ -447,6 +447,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: صُدّ الاندفاع ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: صُدّ الاندفاع",
+    "brokenByCharge": "{{unit}}: انهارت أمام اندفاع ({{reasons}})",
+    "brokenByChargePlain": "{{unit}}: انهارت أمام اندفاع",
+    "reason": {
+      "targetFormation": "الهدف في تشكيل {{formation}}",
+      "targetGround": "الهدف في {{terrain}}",
+      "slowContact": "{{percent}}% من السرعة عند الالتحام",
+      "frontal": "ضرب الجبهة",
+      "tired": "قوات منهكة",
+      "disordered": "قوات غير منظمة",
+      "flanked": "ضربة في الجناح"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "نقاط النصر",

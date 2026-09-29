@@ -434,6 +434,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: serbuan dipukul mundur ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: serbuan dipukul mundur",
+    "brokenByCharge": "{{unit}} patah oleh serbuan ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} patah oleh serbuan",
+    "reason": {
+      "targetFormation": "sasaran dalam {{formation}}",
+      "targetGround": "sasaran di {{terrain}}",
+      "slowContact": "kecepatan {{percent}}% saat kontak",
+      "frontal": "menghantam bagian depan",
+      "tired": "pasukan lelah",
+      "disordered": "pasukan kacau",
+      "flanked": "diserang dari sisi"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Poin kemenangan",

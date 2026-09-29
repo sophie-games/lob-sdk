@@ -611,6 +611,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: charge repelled ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: charge repelled",
+    "brokenByCharge": "{{unit}} broke under a charge ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} broke under a charge",
+    "reason": {
+      "targetFormation": "target in {{formation}}",
+      "targetGround": "target in {{terrain}}",
+      "slowContact": "{{percent}}% speed at contact",
+      "frontal": "struck the front",
+      "tired": "tired troops",
+      "disordered": "disordered troops",
+      "flanked": "hit in the flank"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Victory points",

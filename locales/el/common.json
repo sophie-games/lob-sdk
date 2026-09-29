@@ -444,6 +444,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: η έφοδος αποκρούστηκε ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: η έφοδος αποκρούστηκε",
+    "brokenByCharge": "{{unit}}: λύγισε κάτω από έφοδο ({{reasons}})",
+    "brokenByChargePlain": "{{unit}}: λύγισε κάτω από έφοδο",
+    "reason": {
+      "targetFormation": "στόχος σε {{formation}}",
+      "targetGround": "στόχος σε {{terrain}}",
+      "slowContact": "{{percent}}% ταχύτητα στην επαφή",
+      "frontal": "χτύπησε το μέτωπο",
+      "tired": "κουρασμένα στρατεύματα",
+      "disordered": "αποδιοργανωμένα στρατεύματα",
+      "flanked": "χτύπημα στο πλευρό"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Πόντοι νίκης",

@@ -574,6 +574,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}：冲锋被击退（{{reasons}}）",
+    "chargeRepelledPlain": "{{unit}}：冲锋被击退",
+    "brokenByCharge": "{{unit}}在冲锋下崩溃（{{reasons}}）",
+    "brokenByChargePlain": "{{unit}}在冲锋下崩溃",
+    "reason": {
+      "targetFormation": "目标处于{{formation}}",
+      "targetGround": "目标位于{{terrain}}",
+      "slowContact": "接敌时速度{{percent}}%",
+      "frontal": "撞上正面",
+      "tired": "部队疲惫",
+      "disordered": "部队混乱",
+      "flanked": "侧翼遭袭"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "胜利点数",

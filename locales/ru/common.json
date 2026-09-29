@@ -449,6 +449,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: атака отбита ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: атака отбита",
+    "brokenByCharge": "{{unit}} не выдержал атаки ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} не выдержал атаки",
+    "reason": {
+      "targetFormation": "цель в строю «{{formation}}»",
+      "targetGround": "цель на местности «{{terrain}}»",
+      "slowContact": "{{percent}}% скорости при ударе",
+      "frontal": "удар во фронт",
+      "tired": "уставшие войска",
+      "disordered": "расстроенные войска",
+      "flanked": "удар во фланг"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Очки победы",
