@@ -441,6 +441,10 @@
       "title": "Choisissez vos charges",
       "description": "Charger de front des troupes organisées est risqué. Affaiblissez-les par le feu ou attaquez un flanc."
     },
+    "slowCharge": {
+      "title": "Charge ralentie",
+      "description": "Une charge frappe d’autant plus fort qu’elle va vite au contact, et un terrain difficile ou un itinéraire encombré la ralentissent. Chargez en terrain dégagé pour frapper à pleine vitesse."
+    },
     "objectives": {
       "title": "Petits objectifs",
       "description": "Les petites étoiles aident à reconstituer votre réserve de munitions. Capturez-les pour continuer à tirer."
@@ -573,6 +577,10 @@
     "artilleryRotateToFire": {
       "title": "S'arrêter pour tirer",
       "description": "L'ennemi est proche et votre canon a un tir dégagé mais il bouge encore. Arrêtez la marche et faites pivoter l'unité pour le tir automatique."
+    },
+    "artilleryCanisterRange": {
+      "title": "Presque à portée de mitraille",
+      "description": "L’ennemi est juste au-delà de la portée de mitraille de cette batterie. Rapprochez-vous un peu et elle tirera à mitraille, bien plus meurtrière de près."
     },
     "pushObjective": {
       "title": "Exploitez votre avance",

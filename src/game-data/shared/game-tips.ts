@@ -209,6 +209,21 @@ export const gameTips: readonly GameTipDefinition[] = [
     },
   },
   {
+    id: "slowCharge",
+    battleOnly: true,
+    on: ["orderPlaced"],
+    condition: {
+      kind: "slowCharge",
+    },
+    maxShows: TACTICAL_SHOWS,
+    titleKey: "gameTips.slowCharge.title",
+    descriptionKey: "gameTips.slowCharge.description",
+    action: {
+      type: "unit",
+      labelKey: "game-messages:view",
+    },
+  },
+  {
     id: "blockedFire",
     battleOnly: true,
     on: ["shootAttempted"],
@@ -586,6 +601,22 @@ export const gameTips: readonly GameTipDefinition[] = [
     maxShows: TACTICAL_SHOWS,
     titleKey: "gameTips.artilleryRotateToFire.title",
     descriptionKey: "gameTips.artilleryRotateToFire.description",
+    action: {
+      type: "unit",
+      labelKey: "game-messages:view",
+    },
+  },
+  {
+    id: "artilleryCanisterRange",
+    battleOnly: true,
+    on: ["ready", "stateUpdated"],
+    condition: {
+      kind: "situation",
+      situation: "artilleryNearCanisterRange",
+    },
+    maxShows: TACTICAL_SHOWS,
+    titleKey: "gameTips.artilleryCanisterRange.title",
+    descriptionKey: "gameTips.artilleryCanisterRange.description",
     action: {
       type: "unit",
       labelKey: "game-messages:view",
