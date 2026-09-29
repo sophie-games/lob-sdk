@@ -919,7 +919,14 @@
       "-1": "Aktuellen Befehl abbrechen"
     },
     "unreadableTitle": "Unlesbarer Auslöser",
-    "unreadable": "Der Editor kann diesen Auslöser nicht anzeigen. Entferne ihn und erstelle ihn neu."
+    "unreadable": "Der Editor kann diesen Auslöser nicht anzeigen. Entferne ihn und erstelle ihn neu.",
+    "orderMissing": {
+      "unit": "Wähle die Einheit, die diesen Befehl erhält.",
+      "targetOrPath": "Gib eine Zieleinheit an oder füge einen Wegpunkt hinzu.",
+      "path": "Füge mindestens einen Wegpunkt hinzu.",
+      "targetOrPlace": "Gib eine Zieleinheit oder einen Ort an.",
+      "place": "Gib einen Ort an."
+    }
   },
   "randomMap": {
     "title": "Zufällige Karte",

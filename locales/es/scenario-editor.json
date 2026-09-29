@@ -940,7 +940,14 @@
       "-1": "Cancelar orden actual"
     },
     "unreadableTitle": "Disparador ilegible",
-    "unreadable": "El editor no puede mostrar este disparador. Quítalo y vuelve a crearlo."
+    "unreadable": "El editor no puede mostrar este disparador. Quítalo y vuelve a crearlo.",
+    "orderMissing": {
+      "unit": "Elige la unidad que recibe esta orden.",
+      "targetOrPath": "Indica una unidad objetivo o agrega un punto de ruta.",
+      "path": "Agrega al menos un punto de ruta.",
+      "targetOrPlace": "Indica una unidad objetivo o un lugar.",
+      "place": "Indica un lugar."
+    }
   },
   "randomMap": {
     "title": "Mapa aleatorio",

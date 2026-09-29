@@ -919,7 +919,14 @@
       "-1": "Mevcut emri iptal et"
     },
     "unreadableTitle": "Okunamayan tetikleyici",
-    "unreadable": "Düzenleyici bu tetikleyiciyi gösteremiyor. Kaldırıp yeniden oluşturun."
+    "unreadable": "Düzenleyici bu tetikleyiciyi gösteremiyor. Kaldırıp yeniden oluşturun.",
+    "orderMissing": {
+      "unit": "Bu emri alacak birliği seçin.",
+      "targetOrPath": "Bir hedef birlik verin ya da bir ara nokta ekleyin.",
+      "path": "En az bir ara nokta ekleyin.",
+      "targetOrPlace": "Bir hedef birlik ya da bir yer verin.",
+      "place": "Bir yer verin."
+    }
   },
   "randomMap": {
     "title": "Rastgele Harita",

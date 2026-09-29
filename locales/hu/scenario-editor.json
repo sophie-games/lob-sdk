@@ -919,7 +919,14 @@
       "-1": "Jelenlegi parancs törlése"
     },
     "unreadableTitle": "Olvashatatlan trigger",
-    "unreadable": "A szerkesztő nem tudja megjeleníteni ezt a triggert. Töröld, és hozd létre újra."
+    "unreadable": "A szerkesztő nem tudja megjeleníteni ezt a triggert. Töröld, és hozd létre újra.",
+    "orderMissing": {
+      "unit": "Válaszd ki az egységet, amely ezt a parancsot kapja.",
+      "targetOrPath": "Adj meg egy célegységet, vagy adj hozzá egy útpontot.",
+      "path": "Adj hozzá legalább egy útpontot.",
+      "targetOrPlace": "Adj meg egy célegységet vagy egy helyet.",
+      "place": "Adj meg egy helyet."
+    }
   },
   "randomMap": {
     "title": "Véletlenszerű pálya",

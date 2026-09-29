@@ -919,7 +919,14 @@
       "-1": "Annulla l'ordine attuale"
     },
     "unreadableTitle": "Trigger illeggibile",
-    "unreadable": "L'editor non può mostrare questo trigger. Rimuovilo e ricrealo."
+    "unreadable": "L'editor non può mostrare questo trigger. Rimuovilo e ricrealo.",
+    "orderMissing": {
+      "unit": "Scegli l'unità che riceve questo ordine.",
+      "targetOrPath": "Indica un'unità bersaglio o aggiungi una tappa.",
+      "path": "Aggiungi almeno una tappa.",
+      "targetOrPlace": "Indica un'unità bersaglio o un luogo.",
+      "place": "Indica un luogo."
+    }
   },
   "randomMap": {
     "title": "Mappa casuale",

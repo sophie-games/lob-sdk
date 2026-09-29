@@ -919,7 +919,14 @@
       "-1": "Cancelar ordem atual"
     },
     "unreadableTitle": "Gatilho ilegível",
-    "unreadable": "O editor não consegue mostrar este gatilho. Remova-o e crie-o de novo."
+    "unreadable": "O editor não consegue mostrar este gatilho. Remova-o e crie-o de novo.",
+    "orderMissing": {
+      "unit": "Escolha a unidade que recebe esta ordem.",
+      "targetOrPath": "Informe uma unidade alvo ou adicione um ponto.",
+      "path": "Adicione pelo menos um ponto.",
+      "targetOrPlace": "Informe uma unidade alvo ou um local.",
+      "place": "Informe um local."
+    }
   },
   "randomMap": {
     "title": "Mapa Aleatório",

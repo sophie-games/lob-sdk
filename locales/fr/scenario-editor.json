@@ -932,7 +932,14 @@
       "-1": "Annuler l'ordre en cours"
     },
     "unreadableTitle": "Déclencheur illisible",
-    "unreadable": "L'éditeur ne peut pas afficher ce déclencheur. Supprimez-le et recréez-le."
+    "unreadable": "L'éditeur ne peut pas afficher ce déclencheur. Supprimez-le et recréez-le.",
+    "orderMissing": {
+      "unit": "Choisissez l'unité qui reçoit cet ordre.",
+      "targetOrPath": "Indiquez une unité cible ou ajoutez un point de passage.",
+      "path": "Ajoutez au moins un point de passage.",
+      "targetOrPlace": "Indiquez une unité cible ou un lieu.",
+      "place": "Indiquez un lieu."
+    }
   },
   "randomMap": {
     "title": "Carte aléatoire",

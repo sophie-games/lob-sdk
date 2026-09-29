@@ -928,7 +928,14 @@
       "-1": "取消当前命令"
     },
     "unreadableTitle": "无法读取的触发器",
-    "unreadable": "编辑器无法显示此触发器。请删除后重新创建。"
+    "unreadable": "编辑器无法显示此触发器。请删除后重新创建。",
+    "orderMissing": {
+      "unit": "请选择接收此命令的单位。",
+      "targetOrPath": "请指定目标单位或添加路径点。",
+      "path": "请至少添加一个路径点。",
+      "targetOrPlace": "请指定目标单位或地点。",
+      "place": "请指定地点。"
+    }
   },
   "randomMap": {
     "title": "随机地图",

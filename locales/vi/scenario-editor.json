@@ -912,7 +912,14 @@
       "-1": "Hủy lệnh hiện tại"
     },
     "unreadableTitle": "Trình kích hoạt không đọc được",
-    "unreadable": "Trình chỉnh sửa không hiển thị được trình kích hoạt này. Hãy xóa và tạo lại."
+    "unreadable": "Trình chỉnh sửa không hiển thị được trình kích hoạt này. Hãy xóa và tạo lại.",
+    "orderMissing": {
+      "unit": "Chọn đơn vị nhận mệnh lệnh này.",
+      "targetOrPath": "Chọn đơn vị mục tiêu hoặc thêm một điểm trên đường đi.",
+      "path": "Thêm ít nhất một điểm trên đường đi.",
+      "targetOrPlace": "Chọn đơn vị mục tiêu hoặc một vị trí.",
+      "place": "Chọn một vị trí."
+    }
   },
   "randomMap": {
     "title": "Bản đồ ngẫu nhiên",

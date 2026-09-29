@@ -977,7 +977,14 @@
       "-1": "Cancel current order"
     },
     "unreadableTitle": "Unreadable trigger",
-    "unreadable": "The editor cannot show this trigger. Remove it and make it again."
+    "unreadable": "The editor cannot show this trigger. Remove it and make it again.",
+    "orderMissing": {
+      "unit": "Pick the unit that gets this order.",
+      "targetOrPath": "Give a target unit or add a waypoint.",
+      "path": "Add at least one waypoint.",
+      "targetOrPlace": "Give a target unit or a place.",
+      "place": "Give a place."
+    }
   },
   "randomMap": {
     "title": "Random map",

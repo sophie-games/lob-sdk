@@ -933,7 +933,14 @@
       "-1": "Anuluj bieżący rozkaz"
     },
     "unreadableTitle": "Nieczytelny wyzwalacz",
-    "unreadable": "Edytor nie może wyświetlić tego wyzwalacza. Usuń go i utwórz ponownie."
+    "unreadable": "Edytor nie może wyświetlić tego wyzwalacza. Usuń go i utwórz ponownie.",
+    "orderMissing": {
+      "unit": "Wybierz jednostkę, która dostanie ten rozkaz.",
+      "targetOrPath": "Podaj jednostkę docelową albo dodaj punkt trasy.",
+      "path": "Dodaj co najmniej jeden punkt trasy.",
+      "targetOrPlace": "Podaj jednostkę docelową albo miejsce.",
+      "place": "Podaj miejsce."
+    }
   },
   "randomMap": {
     "title": "Mapa losowa",

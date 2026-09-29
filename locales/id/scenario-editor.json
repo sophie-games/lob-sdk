@@ -912,7 +912,14 @@
       "-1": "Batalkan perintah saat ini"
     },
     "unreadableTitle": "Pemicu tidak terbaca",
-    "unreadable": "Editor tidak bisa menampilkan pemicu ini. Hapus lalu buat lagi."
+    "unreadable": "Editor tidak bisa menampilkan pemicu ini. Hapus lalu buat lagi.",
+    "orderMissing": {
+      "unit": "Pilih unit yang menerima perintah ini.",
+      "targetOrPath": "Isi unit sasaran atau tambah titik jalan.",
+      "path": "Tambah setidaknya satu titik jalan.",
+      "targetOrPlace": "Isi unit sasaran atau tempat.",
+      "place": "Isi tempat."
+    }
   },
   "randomMap": {
     "title": "Peta Acak",
