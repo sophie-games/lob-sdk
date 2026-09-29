@@ -1482,6 +1482,11 @@ export class GameDataManager {
     return terrainCategory?.prioritizeMovement ?? false; // these conditionals cause big-suck on performance, set defaults at initialization
   }
 
+  public hasObstructsMovement(terrainType: TerrainType): boolean {
+    const category = this.getCategoryByTerrain(terrainType);
+    return this.terrainCategories![category]?.obstructsMovement ?? false;
+  }
+
   /**
    * Check if a terrain category has the supplyRoute flag
    */

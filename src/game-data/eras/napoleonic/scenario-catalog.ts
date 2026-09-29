@@ -34,6 +34,7 @@ import warRoomFiftyVsFifty from "./scenarios/war-room-50-vs-50.json";
 import roadToPressburg from "./scenarios/road-to-pressburg.json";
 import laMeuse from "./scenarios/la-meuse.json";
 import twinRiverValley from "./scenarios/twin-river-valley.json";
+import mantua1797 from "./scenarios/mantua-1797.json";
 
 export const napoleonicScenarioCatalog = {
   plains,
@@ -71,4 +72,5 @@ export const napoleonicScenarioCatalog = {
   "twin-river-valley": twinRiverValley,
   "la-meuse": laMeuse,
   "road-to-pressburg": roadToPressburg,
+  "mantua-1797": mantua1797,
 } as unknown as ScenarioCatalog;
