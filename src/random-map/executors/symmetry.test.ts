@@ -8,6 +8,7 @@ import {
   TerrainType,
 } from "@lob-sdk/types";
 import { SCENARIO_SCHEMA_VERSION } from "@lob-sdk/scenario";
+import { TurnedFrame } from "../frame-angle";
 
 // SYMMETRY copies one half of the map onto the other, so two armies deployed on opposite
 // halves meet the same ground. `mirror` reflects across the middle, `rotate` turns the kept
@@ -144,4 +145,39 @@ describe("SymmetryExecutor", () => {
     expect(unmatchedWoods).toBeGreaterThan(0);
     expect(heightMap).toEqual(untouched.heightMap);
   });
+
+  it.each(["rotate", "mirror"] as const)(
+    "%s on a turned map with bounds: the area's bottom half copies its top, nothing else changes",
+    (mode) => {
+      const untouched = irregularMap(42);
+      const { terrains, heightMap } = irregularMap(42);
+      // The left half of a frame turned 20 degrees.
+      const area = new TurnedFrame(20, W, H).area({ min: 0, max: 50 }, { min: 0, max: 100 });
+      new SymmetryExecutor(
+        { type: InstructionType.Symmetry, mode, keep: "top", heights: false },
+        terrains,
+        heightMap,
+        area,
+      ).execute();
+      let copied = 0;
+      for (let x = 0; x < W; x++)
+        for (let y = 0; y < H; y++) {
+          const [u, v] = area.local(x, y);
+          if (!area.contains(x, y) || v <= (area.tilesY - 1) / 2) {
+            expect(terrains[x][y]).toBe(untouched.terrains[x][y]);
+            continue;
+          }
+          // The source is this tile's image in the area's own middle, from the kept top half.
+          const [mx, my] = area.toMap(
+            mode === "rotate" ? area.tilesX - 1 - u : u,
+            area.tilesY - 1 - v,
+          );
+          const ix = Math.min(W - 1, Math.max(0, Math.round(mx)));
+          const iy = Math.min(H - 1, Math.max(0, Math.round(my)));
+          expect(terrains[x][y]).toBe(untouched.terrains[ix][iy]);
+          copied++;
+        }
+      expect(copied).toBeGreaterThan(0);
+    },
+  );
 });

@@ -60,6 +60,7 @@ export class SymmetryExecutor {
    */
   private isTurnedTarget(x: number, y: number): boolean {
     const area = this.area!;
+    if (!area.contains(x, y)) return false;
     const [u, v] = area.local(x, y);
     const du = u - (area.tilesX - 1) / 2;
     const dv = v - (area.tilesY - 1) / 2;
@@ -80,22 +81,24 @@ export class SymmetryExecutor {
   private sourceOf(x: number, y: number): [number, number] {
     const flippedX = this.tilesX - 1 - x;
     const flippedY = this.tilesY - 1 - y;
-    if (this.instruction.mode === "rotate") return [flippedX, flippedY];
+    const keep = this.instruction.keep ?? "top";
     if (this.area) {
-      // A mirror across the turned frame's middle line, to the nearest tile.
+      // A half turn about, or a mirror across, the area's own middle, to the nearest tile.
       const [u, v] = this.area.local(x, y);
-      const keep = this.instruction.keep ?? "top";
+      const [ru, rv] = [this.area.tilesX - 1 - u, this.area.tilesY - 1 - v];
       const [mu, mv] =
-        keep === "top" || keep === "bottom"
-          ? [u, this.area.tilesY - 1 - v]
-          : [this.area.tilesX - 1 - u, v];
+        this.instruction.mode === "rotate"
+          ? [ru, rv]
+          : keep === "top" || keep === "bottom"
+            ? [u, rv]
+            : [ru, v];
       const [mx, my] = this.area.toMap(mu, mv);
       return [
         Math.min(this.tilesX - 1, Math.max(0, Math.round(mx))),
         Math.min(this.tilesY - 1, Math.max(0, Math.round(my))),
       ];
     }
-    const keep = this.instruction.keep ?? "top";
+    if (this.instruction.mode === "rotate") return [flippedX, flippedY];
     return keep === "top" || keep === "bottom" ? [x, flippedY] : [flippedX, y];
   }
 }
