@@ -435,6 +435,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: carica respinta ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: carica respinta",
+    "brokenByCharge": "{{unit}} ha ceduto a una carica ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} ha ceduto a una carica",
+    "reason": {
+      "targetFormation": "bersaglio in {{formation}}",
+      "targetGround": "bersaglio in {{terrain}}",
+      "slowContact": "{{percent}}% di velocità all'impatto",
+      "frontal": "ha colpito il fronte",
+      "tired": "truppe stanche",
+      "disordered": "truppe disordinate",
+      "flanked": "colpita sul fianco"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Punti vittoria",
@@ -459,6 +474,10 @@
     "charge": {
       "title": "Scegli le cariche",
       "description": "Caricare frontalmente truppe organizzate è rischioso. Indeboliscile con il fuoco o attacca un fianco."
+    },
+    "slowCharge": {
+      "title": "Carica lenta",
+      "description": "Una carica colpisce più forte quanto più è veloce al contatto, e il terreno difficile o i percorsi affollati la rallentano. Carica su terreno aperto per colpire a piena velocità."
     },
     "objectives": {
       "title": "Obiettivi piccoli",
@@ -592,6 +611,10 @@
     "artilleryRotateToFire": {
       "title": "Fermarsi per sparare",
       "description": "Il nemico è vicino e il tuo cannone ha un tiro pulito ma è ancora in movimento. Interrompi la marcia e ruota l'unità in modalità fuoco automatico."
+    },
+    "artilleryCanisterRange": {
+      "title": "Quasi a tiro di mitraglia",
+      "description": "Il nemico è appena oltre la gittata a mitraglia di questa batteria. Avvicinati un po’ e sparerà a mitraglia, molto più letale da vicino."
     },
     "pushObjective": {
       "title": "Sfrutta il vantaggio",

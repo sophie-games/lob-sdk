@@ -613,6 +613,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: charge repelled ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: charge repelled",
+    "brokenByCharge": "{{unit}} broke under a charge ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} broke under a charge",
+    "reason": {
+      "targetFormation": "target in {{formation}}",
+      "targetGround": "target in {{terrain}}",
+      "slowContact": "{{percent}}% speed at contact",
+      "frontal": "struck the front",
+      "tired": "tired troops",
+      "disordered": "disordered troops",
+      "flanked": "hit in the flank"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Victory points",
@@ -637,6 +652,10 @@
     "charge": {
       "title": "Charges",
       "description": "Frontal charges against organized troops are risky. Weaken them with fire or attack a flank."
+    },
+    "slowCharge": {
+      "title": "Slow charge",
+      "description": "A charge hits harder the faster it is moving at contact, and rough ground and crowded routes slow it down. Charge across open ground to strike at full speed."
     },
     "objectives": {
       "title": "Small stars",
@@ -766,6 +785,10 @@
     "artilleryRotateToFire": {
       "title": "Stop to fire",
       "description": "The enemy is close and your cannon has a clean shot, but it is still moving. Stop the march and rotate the unit onto the target so autofire can work."
+    },
+    "artilleryCanisterRange": {
+      "title": "Close to canister range",
+      "description": "The enemy is just beyond this battery's canister range. Move a little closer and it will fire canister, which hits much harder up close."
     },
     "idleUnits": {
       "title": "Units without orders",
@@ -1607,6 +1630,8 @@
     "focus": "Double click to bring the map to {{target}}",
     "rename": "Rename {{target}}",
     "renameAction": "Rename",
+    "hideBanner": "Hide banner",
+    "showBanner": "Show banner",
     "disband": "Disband {{target}}",
     "addDivision": "New division",
     "addBrigade": "New brigade",

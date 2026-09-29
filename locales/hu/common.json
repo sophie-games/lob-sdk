@@ -435,6 +435,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: roham visszaverve ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: roham visszaverve",
+    "brokenByCharge": "{{unit}} megtört egy roham alatt ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} megtört egy roham alatt",
+    "reason": {
+      "targetFormation": "cél {{formation}} alakzatban",
+      "targetGround": "cél {{terrain}} terepen",
+      "slowContact": "{{percent}}% sebesség az ütközéskor",
+      "frontal": "a frontot találta",
+      "tired": "fáradt csapatok",
+      "disordered": "rendezetlen csapatok",
+      "flanked": "oldalba kapott támadás"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Győzelmi pontok",
@@ -459,6 +474,10 @@
     "charge": {
       "title": "Válaszd meg a rohamot",
       "description": "Rendezett csapatokat szemből rohamozni kockázatos. Gyengítsd őket tűzzel vagy támadj oldalról."
+    },
+    "slowCharge": {
+      "title": "Lassú roham",
+      "description": "A roham annál erősebben talál, minél gyorsabb az ütközéskor, a nehéz terep és a zsúfolt útvonal pedig lelassítja. Rohamozz nyílt terepen, hogy teljes sebességgel csapj le."
     },
     "objectives": {
       "title": "Kis célpontok",
@@ -592,6 +611,10 @@
     "artilleryRotateToFire": {
       "title": "Állj meg a tüzeléshez",
       "description": "Az ellenség közel van, és az ágyúd tiszta lövéssel rendelkezik, de még mindig mozog. Állítsa le a menetet, és forgassa el az egységet az automatikus tüzeléshez."
+    },
+    "artilleryCanisterRange": {
+      "title": "Majdnem kartácslőtávon",
+      "description": "Az ellenség épp az üteg kartácslőtávolságán kívül áll. Menj egy kicsit közelebb, és kartáccsal fog tüzelni, ami közelről sokkal pusztítóbb."
     },
     "pushObjective": {
       "title": "Használd ki az előnyt",

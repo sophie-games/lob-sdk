@@ -449,6 +449,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: صُدّ الاندفاع ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: صُدّ الاندفاع",
+    "brokenByCharge": "{{unit}}: انهارت أمام اندفاع ({{reasons}})",
+    "brokenByChargePlain": "{{unit}}: انهارت أمام اندفاع",
+    "reason": {
+      "targetFormation": "الهدف في تشكيل {{formation}}",
+      "targetGround": "الهدف في {{terrain}}",
+      "slowContact": "{{percent}}% من السرعة عند الالتحام",
+      "frontal": "ضرب الجبهة",
+      "tired": "قوات منهكة",
+      "disordered": "قوات غير منظمة",
+      "flanked": "ضربة في الجناح"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "نقاط النصر",
@@ -473,6 +488,10 @@
     "charge": {
       "title": "اختر اندفاعاتك",
       "description": "الاندفاع من الأمام نحو قوات منظمة خطير. أضعفها بالنيران أو هاجم جناحًا."
+    },
+    "slowCharge": {
+      "title": "اندفاع بطيء",
+      "description": "يضرب الاندفاع بقوة أكبر كلما كان أسرع لحظة الالتحام، والأرض الوعرة والطرق المزدحمة تبطئه. اندفع عبر أرض مكشوفة لتضرب بكامل السرعة."
     },
     "objectives": {
       "title": "الأهداف الصغيرة",
@@ -606,6 +625,10 @@
     "artilleryRotateToFire": {
       "title": "توقف لإطلاق النار",
       "description": "العدو قريب ومدفعك لديه طلقة نظيفة لكنه لا يزال يتحرك. أوقف المسيرة وقم بتدوير الوحدة لإطلاق النار تلقائيًا."
+    },
+    "artilleryCanisterRange": {
+      "title": "قريب من مدى الخردق",
+      "description": "العدو خارج مدى الخردق لهذه البطارية بقليل. اقترب قليلًا وستطلق الخردق، وهو أشد فتكًا من مسافة قريبة."
     },
     "pushObjective": {
       "title": "استثمر تقدمك",

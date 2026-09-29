@@ -437,6 +437,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: szarża odparta ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: szarża odparta",
+    "brokenByCharge": "{{unit}} załamał się pod szarżą ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} załamał się pod szarżą",
+    "reason": {
+      "targetFormation": "cel w szyku {{formation}}",
+      "targetGround": "cel w terenie {{terrain}}",
+      "slowContact": "{{percent}}% prędkości przy uderzeniu",
+      "frontal": "uderzenie w front",
+      "tired": "zmęczone oddziały",
+      "disordered": "rozproszone oddziały",
+      "flanked": "uderzenie w flankę"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Punkty zwycięstwa",
@@ -461,6 +476,10 @@
     "charge": {
       "title": "Wybieraj szarże",
       "description": "Szarże od frontu na zorganizowane wojska są ryzykowne. Osłab je ostrzałem lub zaatakuj flankę."
+    },
+    "slowCharge": {
+      "title": "Powolna szarża",
+      "description": "Szarża uderza tym mocniej, im szybciej porusza się w chwili zderzenia, a trudny teren i zatłoczona trasa ją spowalniają. Szarżuj przez otwarty teren, by uderzyć z pełną prędkością."
     },
     "objectives": {
       "title": "Małe cele",
@@ -594,6 +613,10 @@
     "artilleryRotateToFire": {
       "title": "Zatrzymaj się, by strzelać",
       "description": "Wróg jest blisko, a twoje działo ma czysty strzał, ale wciąż się porusza. Zatrzymaj marsz i obróć jednostkę, aby uruchomiła automatyczny ogień."
+    },
+    "artilleryCanisterRange": {
+      "title": "Prawie w zasięgu kartaczy",
+      "description": "Wróg jest tuż poza zasięgiem kartaczy tej baterii. Podejdź trochę bliżej, a zacznie strzelać kartaczami, które z bliska są dużo groźniejsze."
     },
     "pushObjective": {
       "title": "Wykorzystaj przewagę",

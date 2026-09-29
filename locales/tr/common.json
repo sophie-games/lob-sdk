@@ -435,6 +435,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: hücum püskürtüldü ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: hücum püskürtüldü",
+    "brokenByCharge": "{{unit}} bir hücum karşısında dağıldı ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} bir hücum karşısında dağıldı",
+    "reason": {
+      "targetFormation": "hedef {{formation}} düzeninde",
+      "targetGround": "hedef {{terrain}} arazisinde",
+      "slowContact": "temas anında %{{percent}} hız",
+      "frontal": "cepheye çarptı",
+      "tired": "yorgun birlikler",
+      "disordered": "düzensiz birlikler",
+      "flanked": "kanattan vuruldu"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Zafer puanları",
@@ -459,6 +474,10 @@
     "charge": {
       "title": "Hücumlarını seç",
       "description": "Düzenli birliklere önden hücum risklidir. Ateşle zayıflat veya bir kanada saldır."
+    },
+    "slowCharge": {
+      "title": "Yavaş hücum",
+      "description": "Hücum, temas anında ne kadar hızlıysa o kadar sert vurur; engebeli arazi ve kalabalık rotalar onu yavaşlatır. Tam hızla vurmak için açık araziden hücum et."
     },
     "objectives": {
       "title": "Küçük hedefler",
@@ -592,6 +611,10 @@
     "artilleryRotateToFire": {
       "title": "Ateş için dur",
       "description": "Düşman yakında ve topunuz temiz bir atış yapıyor ama hâlâ hareket ediyor. Yürüyüşü durdurun ve otomatik ateşleme için üniteyi döndürün."
+    },
+    "artilleryCanisterRange": {
+      "title": "Misket menziline yakın",
+      "description": "Düşman, bu bataryanın misket menzilinin hemen dışında. Biraz yaklaş ve yakından çok daha ağır hasar veren misket atmaya başlasın."
     },
     "pushObjective": {
       "title": "Üstünlüğünü kullan",

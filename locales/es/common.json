@@ -432,6 +432,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: carga rechazada ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: carga rechazada",
+    "brokenByCharge": "{{unit}} se quebró ante una carga ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} se quebró ante una carga",
+    "reason": {
+      "targetFormation": "objetivo en {{formation}}",
+      "targetGround": "objetivo en {{terrain}}",
+      "slowContact": "{{percent}}% de velocidad al contacto",
+      "frontal": "golpeó el frente",
+      "tired": "tropas cansadas",
+      "disordered": "tropas desorganizadas",
+      "flanked": "atacada por el flanco"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "Victoria",
@@ -456,6 +471,10 @@
     "charge": {
       "title": "Cargas",
       "description": "Cargar de frente contra tropas organizadas es arriesgado. Debilítalas con fuego o ataca un flanco."
+    },
+    "slowCharge": {
+      "title": "Carga lenta",
+      "description": "Una carga golpea más fuerte cuanto más rápido llega al contacto, y el terreno difícil y las rutas congestionadas la frenan. Carga por terreno abierto para golpear a toda velocidad."
     },
     "objectives": {
       "title": "Objetivos",
@@ -589,6 +608,10 @@
     "artilleryRotateToFire": {
       "title": "Detenerse para disparar",
       "description": "El enemigo está cerca y tu cañón tiene tiro limpio pero sigue en marcha. Para la marcha y rota la unidad para fuego automático."
+    },
+    "artilleryCanisterRange": {
+      "title": "Cerca del alcance de metralla",
+      "description": "El enemigo está justo fuera del alcance de metralla de esta batería. Acércate un poco y disparará metralla, que hace mucho más daño de cerca."
     },
     "pushObjective": {
       "title": "Aprovecha la ventaja",

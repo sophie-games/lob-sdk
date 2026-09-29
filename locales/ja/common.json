@@ -452,6 +452,21 @@
       }
     }
   },
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: 突撃は撃退された（{{reasons}}）",
+    "chargeRepelledPlain": "{{unit}}: 突撃は撃退された",
+    "brokenByCharge": "{{unit}}は突撃を受けて崩れた（{{reasons}}）",
+    "brokenByChargePlain": "{{unit}}は突撃を受けて崩れた",
+    "reason": {
+      "targetFormation": "目標は{{formation}}",
+      "targetGround": "目標は{{terrain}}",
+      "slowContact": "接触時の速度{{percent}}%",
+      "frontal": "正面に突撃",
+      "tired": "疲れた部隊",
+      "disordered": "混乱した部隊",
+      "flanked": "側面を突かれた"
+    }
+  },
   "gameTips": {
     "victoryPoints": {
       "title": "勝利ポイント",
@@ -476,6 +491,10 @@
     "charge": {
       "title": "突撃の判断",
       "description": "統率の取れた部隊への正面突撃は危険です。射撃で弱らせるか、側面を攻撃しましょう。"
+    },
+    "slowCharge": {
+      "title": "遅い突撃",
+      "description": "突撃の威力は接触時の速度で決まり、悪路や混雑した経路は突撃を遅くします。全速でぶつかるには開けた地形を通って突撃しましょう。"
     },
     "objectives": {
       "title": "小さな目標",
@@ -609,6 +628,10 @@
     "artilleryRotateToFire": {
       "title": "停止して砲撃",
       "description": "敵が近くにいて、大砲はきれいに命中しましたが、まだ動いています。行進を停止し、ユニットを回転させて自動発射します。"
+    },
+    "artilleryCanisterRange": {
+      "title": "散弾の射程まであと少し",
+      "description": "敵はこの砲兵隊の散弾の射程のすぐ外にいます。少し近づけば散弾を撃ち、近距離ではるかに大きな損害を与えます。"
     },
     "pushObjective": {
       "title": "優位を押し広げる",

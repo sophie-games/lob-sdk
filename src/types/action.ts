@@ -114,6 +114,8 @@ export interface MeleeAttackActionResult {
   charge?: boolean;
   /** Damage dealt by this unit. */
   d?: number;
+  /** Backlash this unit took from its own charge. */
+  b?: number;
 }
 
 /**

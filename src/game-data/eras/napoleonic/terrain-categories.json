@@ -764,6 +764,7 @@
   },
 
   "wall": {
+    "obstructsMovement": true,
     "impassable": {
       "*": true,
       "infantry": false,
