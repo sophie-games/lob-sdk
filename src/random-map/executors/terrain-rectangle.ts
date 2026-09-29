@@ -7,6 +7,9 @@ import { deriveSeed, randomSeeded } from "@lob-sdk/seed";
 import { getPosition } from "../utils";
 import { TerrainFilterMatcher } from "../terrain-filter-matcher";
 
+/** Places a `skipBlocked` scatter may try per rectangle before giving up on it. */
+const MAX_TRIES = 20;
+
 export class TerrainRectangleExecutor {
   private random: () => number;
 
@@ -50,7 +53,7 @@ export class TerrainRectangleExecutor {
       const maxWidth = scatter.maxWidth ?? width;
       const minHeight = scatter.minHeight ?? height;
       const maxHeight = scatter.maxHeight ?? height;
-      for (let j = 0; j < count; j++) {
+      for (let j = 0, tries = 0; j < count && tries < count * MAX_TRIES; tries++) {
         // Random position anywhere on the map
         const randX = Math.floor(random() * tilesX);
         const randY = Math.floor(random() * tilesY);
@@ -79,13 +82,14 @@ export class TerrainRectangleExecutor {
           const maxHV = scatter.maxHeightValue;
           heightValue = minHV + Math.floor(random() * (maxHV - minHV + 1));
         }
-        this.generateRectangleStructure({
+        const drawn = this.generateRectangleStructure({
           ...this.instruction,
           position: { type: "exact", coords: [randX, randY] },
           width,
           height,
           rotation,
         });
+        if (drawn || !this.instruction.skipBlocked) j++;
       }
     } else {
       this.generateRectangleStructure();
@@ -128,9 +132,9 @@ export class TerrainRectangleExecutor {
     const maxWidth = scatter?.maxWidth ?? width;
     const minHeight = scatter?.minHeight ?? height;
     const maxHeight = scatter?.maxHeight ?? height;
-    for (let j = 0; j < count; j++) {
+    for (let j = 0, tries = 0; j < count && tries < count * MAX_TRIES; tries++) {
       const [x, y] = candidates[Math.floor(random() * candidates.length)];
-      this.generateRectangleStructure(
+      const drawn = this.generateRectangleStructure(
         {
           ...instruction,
           width: minWidth + Math.floor(random() * (maxWidth - minWidth + 1)),
@@ -138,14 +142,18 @@ export class TerrainRectangleExecutor {
         },
         [x, y],
       );
+      if (drawn || !instruction.skipBlocked) j++;
     }
   }
 
-  /** Draws one rectangle, centred on `centre` (in tiles) when given, else on its `position`. */
+  /**
+   * Draws one rectangle, centred on `centre` (in tiles) when given, else on its `position`.
+   * Returns false when `skipBlocked` left it undrawn.
+   */
   private generateRectangleStructure(
     instruction = this.instruction,
     centre?: [number, number],
-  ): void {
+  ): boolean {
     const {
       width,
       height,
@@ -155,6 +163,7 @@ export class TerrainRectangleExecutor {
       position: structurePosition,
       heightFilter,
       excludeTerrains,
+      skipBlocked,
     } = instruction;
     const excluded = new Set(excludeTerrains ?? []);
 
@@ -184,6 +193,20 @@ export class TerrainRectangleExecutor {
     const maxX = Math.min(tilesX - 1, Math.ceil(centerX + maxR));
     const minY = Math.max(0, Math.floor(centerY - maxR));
     const maxY = Math.min(tilesY - 1, Math.ceil(centerY + maxR));
+
+    if (skipBlocked) {
+      // Blocked when the fill would land on an excluded tile or touch its own terrain, which
+      // would merge the two into one shape.
+      for (let x = Math.max(0, minX - 1); x <= Math.min(tilesX - 1, maxX + 1); x++)
+        for (let y = Math.max(0, minY - 1); y <= Math.min(tilesY - 1, maxY + 1); y++) {
+          const dx = x - centerX;
+          const dy = y - centerY;
+          const u = Math.abs(dx * cosA + dy * sinA) - halfW - borderWidth;
+          const v = Math.abs(-dx * sinA + dy * cosA) - halfH - borderWidth;
+          if (u <= 0 && v <= 0 && excluded.has(terrains[x][y])) return false;
+          if (u <= 1 && v <= 1 && terrains[x][y] === terrain) return false;
+        }
+    }
 
     for (let x = minX; x <= maxX; x++) {
       for (let y = minY; y <= maxY; y++) {
@@ -215,5 +238,6 @@ export class TerrainRectangleExecutor {
         }
       }
     }
+    return true;
   }
 }

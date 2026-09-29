@@ -166,7 +166,7 @@ function battle(name: string, size: Size, seed: number): Battle {
 const everyMap = (name: string) =>
   SIZES.flatMap((size) => SEEDS.map((seed) => [size, seed] as const));
 
-const { DeepWater, ShallowWater, Bridge, Road, Building, Forest, Redoubt, Cliff, Mud } = TerrainType;
+const { DeepWater, ShallowWater, Bridge, Road, Building, Forest, Redoubt, Cliff, Mud, Farm, FarmGrowing, FarmUnplanted } = TerrainType;
 
 describe.each(TEMPLATES)("%s", (name) => {
   it.each(everyMap(name))("both armies can deploy and reach each other (%s, seed %i)", (size, seed) => {
@@ -190,6 +190,33 @@ describe.each(TEMPLATES)("%s", (name) => {
       expect(Math.abs(b.shareOf(blocked, 0, 100, 0, 50) - b.shareOf(blocked, 0, 100, 50, 100))).toBeLessThan(0.05);
     },
   );
+
+  it.each(everyMap(name))("fields are compact blocks, never stretched into long strips (%s, seed %i)", (size, seed) => {
+    // Each field is one crop; neighbouring fields of another crop are separate fields.
+    const b = battle(name, size, seed);
+    const seen = new Set<string>();
+    let fields = 0;
+    for (const [sx, sy] of b.tilesIn()) {
+      const crop = b.terrain(sx, sy);
+      if (![Farm, FarmGrowing, FarmUnplanted].includes(crop) || seen.has(`${sx},${sy}`)) continue;
+      fields++;
+      let [x0, y0, x1, y1] = [sx, sy, sx, sy];
+      const stack: Tile[] = [[sx, sy]];
+      seen.add(`${sx},${sy}`);
+      while (stack.length) {
+        const [x, y] = stack.pop()!;
+        [x0, y0, x1, y1] = [Math.min(x0, x), Math.min(y0, y), Math.max(x1, x), Math.max(y1, y)];
+        for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]] as Tile[])
+          if (nx >= 0 && ny >= 0 && nx < b.tilesX && ny < b.tilesY && b.terrain(nx, ny) === crop && !seen.has(`${nx},${ny}`)) {
+            seen.add(`${nx},${ny}`);
+            stack.push([nx, ny]);
+          }
+      }
+      // A field is at most 400-450 m on a side.
+      expect(Math.max(x1 - x0, y1 - y0) + 1).toBeLessThanOrEqual(9);
+    }
+    expect(fields).toBeGreaterThan(0);
+  });
 });
 
 describe("river-crossing", () => {

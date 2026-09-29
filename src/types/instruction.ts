@@ -272,6 +272,12 @@ export interface InstructionTerrainRectangle extends BaseInstruction {
   terrainFilter?: TerrainFilter;
   /** Terrain types the fill and border leave as they are, such as a bridge under a village. */
   excludeTerrains?: TerrainType[];
+  /**
+   * Draw a rectangle only whole: one that would cover an `excludeTerrains` tile or touch its own
+   * terrain is skipped, and a scattered copy is tried elsewhere instead. Keeps scattered fields
+   * from merging into one stretched shape.
+   */
+  skipBlocked?: boolean;
 }
 
 export interface ScalingFactor extends Record<Size, number> {}

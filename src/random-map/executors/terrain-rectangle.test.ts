@@ -179,3 +179,88 @@ describe("TerrainRectangleExecutor excludeTerrains", () => {
     expect(terrains[BRIDGE_X + 1][BRIDGE_Y]).toBe(TerrainType.Forest);
   });
 });
+
+describe("TerrainRectangleExecutor skipBlocked", () => {
+  /** Groups the tiles of a terrain into 4-connected patches and returns each patch's bounding box. */
+  function patches(terrains: TerrainType[][], terrain: TerrainType) {
+    const seen = new Set<string>();
+    const boxes: { w: number; h: number; tiles: number }[] = [];
+    for (const [sx, sy] of tilesOf(terrains, terrain)) {
+      if (seen.has(`${sx},${sy}`)) continue;
+      const stack = [[sx, sy]];
+      seen.add(`${sx},${sy}`);
+      let [x0, y0, x1, y1, tiles] = [sx, sy, sx, sy, 0];
+      while (stack.length) {
+        const [x, y] = stack.pop()!;
+        tiles++;
+        [x0, y0, x1, y1] = [Math.min(x0, x), Math.min(y0, y), Math.max(x1, x), Math.max(y1, y)];
+        for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]])
+          if (terrains[nx]?.[ny] === terrain && !seen.has(`${nx},${ny}`)) {
+            seen.add(`${nx},${ny}`);
+            stack.push([nx, ny]);
+          }
+      }
+      boxes.push({ w: x1 - x0 + 1, h: y1 - y0 + 1, tiles });
+    }
+    return boxes;
+  }
+
+  it.each([1, 42, 777])(
+    "draws each field whole or not at all, so fields never merge into long bands (seed %i)",
+    (seed) => {
+      // Fields scattered along a road: without skipBlocked, a field that overlaps an earlier
+      // one fills only the leftover grass and the two read as one stretched field.
+      const { terrains, heightMap } = grassMap();
+      for (let y = 0; y < SIZE; y++) terrains[30][y] = TerrainType.Road;
+      run(
+        {
+          terrain: TerrainType.Farm,
+          width: 4,
+          height: 4,
+          position: { type: "range", min: [0, 0], max: [100, 100] },
+          terrainFilter: { terrains: [TerrainType.Road], searchRadius: 5 },
+          excludeTerrains: [TerrainType.Road, TerrainType.Farm],
+          skipBlocked: true,
+          scatter: { count: 30, minWidth: 4, maxWidth: 5, minHeight: 4, maxHeight: 5 },
+        },
+        terrains,
+        heightMap,
+        seed,
+      );
+      const fields = patches(terrains, TerrainType.Farm);
+      expect(fields.length).toBeGreaterThan(5);
+      for (const field of fields) {
+        // A lone rectangle fills its bounding box; two touching ones would span twice its side.
+        expect(Math.max(field.w, field.h)).toBeLessThanOrEqual(6);
+        expect(field.tiles).toBe(field.w * field.h);
+      }
+      expect(terrains[30].every((t) => t === TerrainType.Road)).toBe(true);
+    },
+  );
+
+  it("lets a field of another crop sit right beside it", () => {
+    // Plains' fields cluster: neighbours of different crops share an edge, each still whole.
+    const { terrains, heightMap } = grassMap();
+    // `exact` coords are percentages of the map; this takes the centre in tiles.
+    const field = (terrain: TerrainType, x: number) =>
+      run(
+        {
+          terrain,
+          width: 4,
+          height: 4,
+          position: { type: "exact", coords: [((x + 0.5) * 100) / SIZE, 50] },
+          excludeTerrains: [TerrainType.Farm, TerrainType.FarmGrowing],
+          skipBlocked: true,
+        },
+        terrains,
+        heightMap,
+        1,
+      );
+    field(TerrainType.Farm, 20);
+    field(TerrainType.FarmGrowing, 25);
+    // Covers the growing field: skipped rather than drawn around it.
+    field(TerrainType.Farm, 27);
+    expect(tilesOf(terrains, TerrainType.Farm)).toHaveLength(25);
+    expect(tilesOf(terrains, TerrainType.FarmGrowing)).toHaveLength(25);
+  });
+});

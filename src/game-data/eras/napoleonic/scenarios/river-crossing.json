@@ -510,8 +510,8 @@
     {
       "type": "TERRAIN_RECTANGLE",
       "terrain": 11,
-      "width": 3,
-      "height": 3,
+      "width": 5,
+      "height": 5,
       "position": {
         "type": "range",
         "min": [
@@ -546,19 +546,20 @@
         4,
         5
       ],
+      "skipBlocked": true,
       "scatter": {
-        "countPer100x100": 34,
-        "minWidth": 3,
-        "maxWidth": 6,
-        "minHeight": 3,
-        "maxHeight": 7
+        "countPer100x100": 15.0,
+        "minWidth": 5,
+        "maxWidth": 8,
+        "minHeight": 5,
+        "maxHeight": 8
       }
     },
     {
       "type": "TERRAIN_RECTANGLE",
       "terrain": 18,
-      "width": 3,
-      "height": 3,
+      "width": 5,
+      "height": 5,
       "position": {
         "type": "range",
         "min": [
@@ -593,19 +594,20 @@
         4,
         5
       ],
+      "skipBlocked": true,
       "scatter": {
-        "countPer100x100": 34,
-        "minWidth": 3,
-        "maxWidth": 6,
-        "minHeight": 3,
-        "maxHeight": 7
+        "countPer100x100": 15.0,
+        "minWidth": 5,
+        "maxWidth": 8,
+        "minHeight": 5,
+        "maxHeight": 8
       }
     },
     {
       "type": "TERRAIN_RECTANGLE",
       "terrain": 17,
-      "width": 3,
-      "height": 3,
+      "width": 5,
+      "height": 5,
       "position": {
         "type": "range",
         "min": [
@@ -640,12 +642,202 @@
         4,
         5
       ],
+      "skipBlocked": true,
       "scatter": {
-        "countPer100x100": 34,
-        "minWidth": 3,
-        "maxWidth": 6,
-        "minHeight": 3,
-        "maxHeight": 7
+        "countPer100x100": 15.0,
+        "minWidth": 5,
+        "maxWidth": 8,
+        "minHeight": 5,
+        "maxHeight": 8
+      }
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 11,
+      "width": 5,
+      "height": 5,
+      "position": {
+        "type": "range",
+        "min": [
+          0,
+          0
+        ],
+        "max": [
+          100,
+          100
+        ]
+      },
+      "terrainFilter": {
+        "terrains": [
+          3,
+          2
+        ],
+        "searchRadius": 6
+      },
+      "excludeTerrains": [
+        1,
+        2,
+        3,
+        9,
+        10,
+        11,
+        17,
+        18,
+        19,
+        22,
+        7,
+        6,
+        4,
+        5
+      ],
+      "skipBlocked": true,
+      "scatter": {
+        "countPer100x100": 15.0,
+        "minWidth": 5,
+        "maxWidth": 8,
+        "minHeight": 5,
+        "maxHeight": 8
+      }
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 18,
+      "width": 5,
+      "height": 5,
+      "position": {
+        "type": "range",
+        "min": [
+          0,
+          0
+        ],
+        "max": [
+          100,
+          100
+        ]
+      },
+      "terrainFilter": {
+        "terrains": [
+          3,
+          2
+        ],
+        "searchRadius": 6
+      },
+      "excludeTerrains": [
+        1,
+        2,
+        3,
+        9,
+        10,
+        11,
+        17,
+        18,
+        19,
+        22,
+        7,
+        6,
+        4,
+        5
+      ],
+      "skipBlocked": true,
+      "scatter": {
+        "countPer100x100": 15.0,
+        "minWidth": 5,
+        "maxWidth": 8,
+        "minHeight": 5,
+        "maxHeight": 8
+      }
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 17,
+      "width": 5,
+      "height": 5,
+      "position": {
+        "type": "range",
+        "min": [
+          0,
+          0
+        ],
+        "max": [
+          100,
+          100
+        ]
+      },
+      "terrainFilter": {
+        "terrains": [
+          3,
+          2
+        ],
+        "searchRadius": 6
+      },
+      "excludeTerrains": [
+        1,
+        2,
+        3,
+        9,
+        10,
+        11,
+        17,
+        18,
+        19,
+        22,
+        7,
+        6,
+        4,
+        5
+      ],
+      "skipBlocked": true,
+      "scatter": {
+        "countPer100x100": 15.0,
+        "minWidth": 5,
+        "maxWidth": 8,
+        "minHeight": 5,
+        "maxHeight": 8
+      }
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 0,
+      "width": 3,
+      "height": 3,
+      "position": {
+        "type": "range",
+        "min": [
+          0,
+          0
+        ],
+        "max": [
+          100,
+          100
+        ]
+      },
+      "terrainFilter": {
+        "terrains": [
+          0
+        ],
+        "searchRadius": 2,
+        "minAmount": 5
+      },
+      "excludeTerrains": [
+        0,
+        1,
+        2,
+        3,
+        9,
+        10,
+        19,
+        22,
+        7,
+        6,
+        4,
+        5
+      ],
+      "scatter": {
+        "countPer100x100": 300,
+        "minWidth": 2,
+        "maxWidth": 4,
+        "minHeight": 2,
+        "maxHeight": 4
       }
     }
   ],
