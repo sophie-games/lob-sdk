@@ -515,7 +515,7 @@
     },
     {
       "type": "TERRAIN_NOISE",
-      "terrain": 1,
+      "terrain": 27,
       "scale": 3,
       "ranges": [
         {
@@ -550,7 +550,7 @@
       "scale": 6,
       "ranges": [
         {
-          "min": 0.5,
+          "min": 0.8,
           "max": 1
         }
       ],
@@ -573,7 +573,34 @@
     },
     {
       "type": "TERRAIN_NOISE",
-      "terrain": 1,
+      "terrain": 27,
+      "scale": 6,
+      "ranges": [
+        {
+          "min": 0.55,
+          "max": 0.8
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": 4.6,
+        "max": 6.4
+      },
+      "xBounds": {
+        "min": 0,
+        "max": 34
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "smoothing": {
+        "minSurrounding": 2
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 27,
       "scale": 6,
       "ranges": [
         {
@@ -836,7 +863,7 @@
     },
     {
       "type": "TERRAIN_RECTANGLE",
-      "terrain": 1,
+      "terrain": 27,
       "width": 1,
       "height": 6,
       "position": {
@@ -866,6 +893,7 @@
       },
       "excludeTerrains": [
         1,
+        27,
         2,
         3,
         9,
@@ -891,7 +919,7 @@
     },
     {
       "type": "TERRAIN_RECTANGLE",
-      "terrain": 1,
+      "terrain": 27,
       "width": 6,
       "height": 1,
       "position": {
@@ -921,6 +949,7 @@
       },
       "excludeTerrains": [
         1,
+        27,
         2,
         3,
         9,
@@ -975,6 +1004,7 @@
       },
       "excludeTerrains": [
         1,
+        27,
         2,
         3,
         9,
@@ -1030,6 +1060,7 @@
       },
       "excludeTerrains": [
         1,
+        27,
         2,
         3,
         9,
@@ -1085,6 +1116,7 @@
       },
       "excludeTerrains": [
         1,
+        27,
         2,
         3,
         9,
@@ -1140,6 +1172,7 @@
       },
       "excludeTerrains": [
         1,
+        27,
         2,
         3,
         9,
@@ -1195,6 +1228,7 @@
       },
       "excludeTerrains": [
         1,
+        27,
         2,
         3,
         9,
@@ -1250,6 +1284,7 @@
       },
       "excludeTerrains": [
         1,
+        27,
         2,
         3,
         9,
@@ -1306,6 +1341,7 @@
       },
       "excludeTerrains": [
         1,
+        27,
         2,
         3,
         9,
@@ -1359,6 +1395,7 @@
       },
       "excludeTerrains": [
         1,
+        27,
         2,
         3,
         9,
@@ -1412,6 +1449,7 @@
       },
       "excludeTerrains": [
         1,
+        27,
         2,
         3,
         9,
@@ -1465,6 +1503,7 @@
       },
       "excludeTerrains": [
         1,
+        27,
         2,
         3,
         9,
@@ -1518,6 +1557,7 @@
       },
       "excludeTerrains": [
         1,
+        27,
         2,
         3,
         9,
@@ -1571,6 +1611,7 @@
       },
       "excludeTerrains": [
         1,
+        27,
         2,
         3,
         9,
@@ -1618,6 +1659,7 @@
       "excludeTerrains": [
         0,
         1,
+        27,
         2,
         3,
         9,

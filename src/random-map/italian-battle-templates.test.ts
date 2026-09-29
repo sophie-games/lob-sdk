@@ -168,7 +168,7 @@ function battle(name: string, size: Size, seed: number): Battle {
 const everyMap = (name: string) =>
   SIZES.flatMap((size) => SEEDS.map((seed) => [size, seed] as const));
 
-const { DeepWater, ShallowWater, Bridge, Road, Building, Forest, Redoubt, Cliff, Mud, Farm, FarmGrowing, FarmUnplanted, Wall, Grass } = TerrainType;
+const { DeepWater, ShallowWater, Bridge, Road, Building, Forest, LightForest, Redoubt, Cliff, Mud, Farm, FarmGrowing, FarmUnplanted, Wall, Grass } = TerrainType;
 const CROPS = [Farm, FarmGrowing, FarmUnplanted];
 
 describe.each(TEMPLATES)("%s", (name) => {
@@ -187,7 +187,7 @@ describe.each(TEMPLATES)("%s", (name) => {
     (size, seed) => {
       const b = battle(name, size, seed);
       const blocked = (x: number, y: number) => !b.passable(x, y);
-      const cover = [Forest, Building, Redoubt];
+      const cover = [Forest, LightForest, Building, Redoubt];
       expect(Math.abs(b.meanHeight(undefined, 0, 100, 0, 50) - b.meanHeight(undefined, 0, 100, 50, 100))).toBeLessThan(0.4);
       expect(Math.abs(b.share(cover, 0, 100, 0, 50) - b.share(cover, 0, 100, 50, 100))).toBeLessThan(0.06);
       expect(Math.abs(b.shareOf(blocked, 0, 100, 0, 50) - b.shareOf(blocked, 0, 100, 50, 100))).toBeLessThan(0.05);
@@ -237,11 +237,11 @@ describe.each([
     );
     const farmed = open.filter(([x, y]) => CROPS.includes(b.terrain(x, y)!));
     expect(farmed.length / open.length).toBeGreaterThan(farmedShare);
-    // A tree row is a line of woodland one tile thick beside a field.
+    // A tree row is a line of open woodland one tile thick beside a field.
     const rowTiles = [...b.tilesIn(0, 100, 0, 30), ...b.tilesIn(0, 100, 70, 100)].filter(([x, y]) => {
-      if (b.terrain(x, y) !== Forest || !b.near(x, y, 1, CROPS)) return false;
-      const across = [b.terrain(x - 1, y) === Forest, b.terrain(x + 1, y) === Forest];
-      const along = [b.terrain(x, y - 1) === Forest, b.terrain(x, y + 1) === Forest];
+      if (b.terrain(x, y) !== LightForest || !b.near(x, y, 1, CROPS)) return false;
+      const across = [b.terrain(x - 1, y) === LightForest, b.terrain(x + 1, y) === LightForest];
+      const along = [b.terrain(x, y - 1) === LightForest, b.terrain(x, y + 1) === LightForest];
       return (!across[0] && !across[1] && along.some(Boolean)) || (!along[0] && !along[1] && across.some(Boolean));
     });
     expect(rowTiles.length / open.length).toBeGreaterThan(0.01);
@@ -318,13 +318,16 @@ describe("apennine-ridges", () => {
   );
 
   it.each(everyMap("apennine-ridges"))(
-    "chestnut woods clothe the slopes, with only small fields in their clearings (%s, seed %i)",
+    "open chestnut groves on the slopes, with only small fields (%s, seed %i)",
     (size, seed) => {
-      // Montenotte and Dego were fought over wooded hills and terraces, not the farmed Po plain.
+      // Montenotte and Dego were fought over hills of pasture and chestnut groves, not the farmed
+      // Po plain. Groves are light forest, which lines and columns can still cross.
       const b = battle("apennine-ridges", size, seed);
       const slopes = [...b.tilesIn(0, 100, 10, 40), ...b.tilesIn(0, 100, 60, 90)];
       const share = (terrains: TerrainType[]) => slopes.filter(([x, y]) => terrains.includes(b.terrain(x, y)!)).length / slopes.length;
-      expect(share([Forest])).toBeGreaterThan(0.3);
+      expect(share([LightForest])).toBeGreaterThan(0.15);
+      expect(share([LightForest])).toBeLessThan(0.45);
+      expect(share([Forest])).toBeLessThan(0.1);
       expect(share(CROPS)).toBeLessThan(0.15);
     },
   );
