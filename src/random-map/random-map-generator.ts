@@ -28,6 +28,7 @@ import { ObjectiveLayerExecutor } from "./executors/objective-layer";
 import { LakeExecutor } from "./executors/lake";
 import { SymmetryExecutor } from "./executors/symmetry";
 import { FieldsExecutor } from "./executors/fields";
+import { FrameAngle } from "./frame-angle";
 import { normalizeMapGrids } from "./normalize-map-grids";
 import { deriveSeed, generateRandomSeed, randomSeeded } from "@lob-sdk/seed";
 import { GameDataManager, GameEra } from "@lob-sdk/game-data-manager";
@@ -44,6 +45,7 @@ export class RandomMapGenerator {
     tilesX,
     tilesY,
     mapSize,
+    parameters,
   }: GenerateRandomMapProps): GenerateRandomMapResult {
     const gameDataManager = GameDataManager.get(era);
     // Fixed-roster scenarios (presets) pass `dynamicBattleType: null`.
@@ -73,6 +75,8 @@ export class RandomMapGenerator {
     let heightMap: number[][];
     let widthPx: number;
     let heightPx: number;
+    // Set when the terrain is drawn turned (see FrameAngle).
+    let frame: FrameAngle | undefined;
 
     if (fixedMap) {
       widthPx = fixedMap.width;
@@ -112,12 +116,20 @@ export class RandomMapGenerator {
       widthPx = tilesX * tileSize;
       heightPx = tilesY * tileSize;
 
+      const accepted = scenario.parameters?.angle;
+      const angle = accepted
+        ? Math.min(accepted.max, Math.max(accepted.min, parameters?.angle ?? 0))
+        : 0;
+      if (angle !== 0) frame = new FrameAngle(angle, tilesX, tilesY);
+      const gridX = frame?.tilesX ?? tilesX;
+      const gridY = frame?.tilesY ?? tilesY;
+
       terrains = [];
       heightMap = [];
-      for (let x = 0; x < tilesX; x++) {
+      for (let x = 0; x < gridX; x++) {
         terrains[x] = [];
         heightMap[x] = [];
-        for (let y = 0; y < tilesY; y++) {
+        for (let y = 0; y < gridY; y++) {
           terrains[x][y] = scenario.baseTerrain ?? TerrainType.Grass;
           heightMap[x][y] = 0;
         }
@@ -125,6 +137,7 @@ export class RandomMapGenerator {
     }
 
     const instructionsToRun: AnyInstruction[] = scenario.instructions ?? [];
+    const presetObjectives = objectives.length;
 
     this.executeInstructions(
       scenario,
@@ -132,12 +145,19 @@ export class RandomMapGenerator {
       terrains,
       heightMap,
       objectives,
-      widthPx,
-      heightPx,
+      terrains.length * tileSize,
+      terrains[0].length * tileSize,
       tileSize,
       battleSize,
       instructionsToRun,
     );
+
+    if (frame) {
+      ({ terrains, heightMap } = frame.turn(terrains, heightMap));
+      objectives.push(
+        ...frame.turnObjectives(objectives.splice(presetObjectives), tileSize),
+      );
+    }
 
     const deploymentZones = this.resolveDeploymentZones(
       scenario,

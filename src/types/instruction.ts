@@ -36,6 +36,17 @@ export interface GenerateRandomMapProps {
    * `battleSize` flows (dimensions, instruction scaling, deployment zones).
    */
   mapSize?: Size;
+  /**
+   * Values the caller passes to the generation. `angle` turns a procedural map's terrain that
+   * many degrees clockwise; it applies only within the range the scenario's `parameters` accept.
+   */
+  parameters?: RandomMapParameters;
+}
+
+/** Values a caller may pass to procedural map generation. */
+export interface RandomMapParameters {
+  /** Degrees clockwise to turn the terrain, so a river or ridge runs at that angle to the armies' line. */
+  angle?: number;
 }
 
 /**

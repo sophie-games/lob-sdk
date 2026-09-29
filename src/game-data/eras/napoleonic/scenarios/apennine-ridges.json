@@ -590,5 +590,11 @@
       "name": "\u4e9a\u5e73\u5b81\u5c71\u810a",
       "description": "\u4e00\u9053\u9661\u5ced\u7684\u5c71\u810a\u6a2a\u4e98\u4e24\u519b\u4e4b\u95f4\uff0c\u5c71\u9876\u7b51\u6709\u591a\u9762\u5821\u548c\u4e00\u5ea7\u57ce\u5821\u3002"
     }
+  },
+  "parameters": {
+    "angle": {
+      "min": -45,
+      "max": 45
+    }
   }
 }

@@ -146,8 +146,8 @@ class Battle {
 }
 
 const cache = new Map<string, Battle>();
-function battle(name: string, size: Size, seed: number): Battle {
-  const id = `${name}/${size}/${seed}`;
+function battle(name: string, size: Size, seed: number, angle?: number): Battle {
+  const id = `${name}/${size}/${seed}/${angle ?? 0}`;
   let result = cache.get(id);
   if (!result) {
     const { map } = generator.generate({
@@ -158,6 +158,7 @@ function battle(name: string, size: Size, seed: number): Battle {
       tileSize: TILE_SIZE,
       era: "napoleonic",
       mapSize: size,
+      ...(angle !== undefined ? { parameters: { angle } } : {}),
     });
     result = new Battle(map, size);
     cache.set(id, result);
@@ -181,6 +182,24 @@ describe.each(TEMPLATES)("%s", (name) => {
     }
     expect(b.zonesConnected((x, y) => b.passable(x, y))).toBe(true);
   });
+
+  // A campaign battle turns the ground to the angle its river or ridge runs across the armies'
+  // line, as far as the template allows; turned either way to that limit it stays playable and fair.
+  const accepted = GameDataManager.get("napoleonic").getScenario(name as never).parameters?.angle;
+  if (accepted) it.each([accepted.min, accepted.max].flatMap((angle) => SEEDS.slice(0, 2).map((seed) => [angle, seed] as const)))(
+    "turned %i degrees, both armies can still deploy, reach each other and meet even ground (seed %i)",
+    (angle, seed) => {
+      const b = battle(name, Size.Medium, seed, angle);
+      for (const team of [1, 2]) {
+        const zone = b.mainZone(team);
+        expect(zone.filter(([x, y]) => b.passable(x, y)).length / zone.length).toBeGreaterThanOrEqual(0.9);
+      }
+      expect(b.zonesConnected((x, y) => b.passable(x, y))).toBe(true);
+      const blocked = (x: number, y: number) => !b.passable(x, y);
+      expect(Math.abs(b.meanHeight(undefined, 0, 100, 0, 50) - b.meanHeight(undefined, 0, 100, 50, 100))).toBeLessThan(0.4);
+      expect(Math.abs(b.shareOf(blocked, 0, 100, 0, 50) - b.shareOf(blocked, 0, 100, 50, 100))).toBeLessThan(0.05);
+    },
+  );
 
   it.each(everyMap(name))(
     "neither half of the field favours the army deployed on it (%s, seed %i)",
