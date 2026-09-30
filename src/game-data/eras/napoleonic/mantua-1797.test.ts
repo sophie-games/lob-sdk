@@ -184,6 +184,12 @@ describe("Mantua 1797", () => {
       ).toBe(true);
     });
 
+    it("lets the guns be hauled up onto the walls when the gates are shut", () => {
+      expect(
+        reaches(laFavorita!.pos, cittadella!.pos, gatesShut(passable("artillery"))),
+      ).toBe(true);
+    });
+
     it("deploys the garrison inside the walls, on ground a unit can stand on", () => {
       for (const { outer } of mainZoneOf(GARRISON)!.polygons) {
         for (const corner of outer) {

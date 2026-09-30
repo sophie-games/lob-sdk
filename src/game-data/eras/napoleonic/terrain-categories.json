@@ -679,7 +679,9 @@
       "infantry": false,
       "guardsInfantry": false,
       "militiaInfantry": false,
-      "skirmishInfantry": false
+      "skirmishInfantry": false,
+      "artillery": false,
+      "horseArtillery": false
     },
     "color": "#777770",
     "hitboxHeight": 1.2,
@@ -689,7 +691,9 @@
       "infantry": -0.75,
       "guardsInfantry": -0.75,
       "militiaInfantry": -0.75,
-      "skirmishInfantry": -0.75
+      "skirmishInfantry": -0.75,
+      "artillery": -0.9,
+      "horseArtillery": -0.9
     },
     "defenseModifier": {
       "infantry": 0.85,

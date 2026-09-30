@@ -603,14 +603,15 @@ describe("GameDataManager", () => {
       ]) {
         expect(napoleonic.isPassable(TerrainType.Wall, infantry)).toBe(true);
       }
-      for (const cavalryOrArtillery of [
-        "heavyCavalry",
-        "lightCavalry",
-        "artillery",
-        "horseArtillery",
-      ]) {
-        expect(napoleonic.isPassable(TerrainType.Wall, cavalryOrArtillery)).toBe(
-          false,
+      for (const cavalry of ["heavyCavalry", "lightCavalry"]) {
+        expect(napoleonic.isPassable(TerrainType.Wall, cavalry)).toBe(false);
+      }
+      // Guns can be hauled up onto a wall to fight from it, far slower than a
+      // battalion climbs it.
+      for (const guns of ["artillery", "horseArtillery"]) {
+        expect(napoleonic.isPassable(TerrainType.Wall, guns)).toBe(true);
+        expect(napoleonic.getMovementModifier(TerrainType.Wall, guns)).toBeLessThanOrEqual(
+          -0.9,
         );
       }
       const ww2 = GameDataManager.get("ww2");
