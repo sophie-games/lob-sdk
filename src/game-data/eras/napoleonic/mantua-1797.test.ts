@@ -156,6 +156,29 @@ describe("Mantua 1797", () => {
       expect(againstRampart).toHaveLength(0);
     });
 
+    it("stands its ramparts level with the ground around them, not as raised ridges", () => {
+      const heights = map.heightMap!;
+      const raised: [number, number][] = [];
+      terrains.forEach((column, tx) =>
+        column.forEach((terrain, ty) => {
+          if (terrain !== TerrainType.Rampart) return;
+          const ground: number[] = [];
+          for (let dx = -1; dx <= 1; dx++) {
+            for (let dy = -1; dy <= 1; dy++) {
+              const t = terrains[tx + dx]?.[ty + dy];
+              if (t !== undefined && t !== TerrainType.Rampart) {
+                ground.push(heights[tx + dx]![ty + dy]!);
+              }
+            }
+          }
+          if (ground.length > 0 && heights[tx]![ty]! > Math.min(...ground)) {
+            raised.push([tx, ty]);
+          }
+        }),
+      );
+      expect(raised).toEqual([]);
+    });
+
     it("lets cavalry in only through its gates and causeways", () => {
       const cavalry = passable("lightCavalry");
       expect(reaches(laFavorita!.pos, cittadella!.pos, cavalry)).toBe(true);
