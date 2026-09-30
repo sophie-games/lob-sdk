@@ -174,8 +174,12 @@
     "title": "Order type applies to selection",
     "description": "On: changing the movement type retypes the selected units' current orders and the order button follows your selection. Off: it only sets the type for the next order you draw (classic)."
   },
-  "showChat": {
-    "title": "Show chat"
+  "chatVisibility": {
+    "title": "Chat",
+    "description": "Team only hides the messages sent to all players.",
+    "all": "All",
+    "teamOnly": "Team only",
+    "off": "Off"
   },
   "keybindings": {
     "rotateCameraLeft": "Rotate camera left",
