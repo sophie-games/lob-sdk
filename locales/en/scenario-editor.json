@@ -859,7 +859,15 @@
     "backgroundHelp": "Lays a picture under the map, half transparent by default, so you can draw terrain to match it. It is an aid while you work and is never saved with the scenario.",
     "chooseImage": "Choose image",
     "backgroundOpacity": "Opacity",
-    "backgroundShortcut": "Press {{key}} to show or hide it."
+    "backgroundShortcut": "Press {{key}} to show or hide it.",
+    "backgroundFitStretch": "Stretch",
+    "backgroundFitContain": "Fit",
+    "backgroundFitCover": "Fill",
+    "backgroundScale": "Scale",
+    "backgroundRotation": "Rotation",
+    "backgroundOffsetX": "Move X",
+    "backgroundOffsetY": "Move Y",
+    "backgroundReset": "Reset placement"
   },
   "localesPanel": {
     "title": "Locales",
