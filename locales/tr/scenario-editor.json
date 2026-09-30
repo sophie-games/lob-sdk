@@ -935,6 +935,8 @@
     "startFromTemplate": "Bir şablondan başla",
     "loadInstructionsFromTemplate": "Şablondan talimatları yükle",
     "generating": "Oluşturuluyor…",
+    "acceptedAngle": "Kabul edilen açı (±)",
+    "angle": "Açı",
     "generatePreview": "Önizleme oluştur",
     "instructions": "Talimatlar",
     "instructionsWithCount": "Talimatlar ({{count}})",
@@ -975,6 +977,7 @@
     "selectFile": "Dosya seç",
     "importedFile": "İçe aktarılan dosya",
     "field": {
+      "along": "Boyunca",
       "amount": "Miktar",
       "between": "Arasında",
       "border": "Sınır",
@@ -986,6 +989,7 @@
       "curveLen": "Eğri uzunluğu",
       "curveWeight": "Eğri ağırlığı",
       "deep": "Derin su",
+      "directionStep": "Yön adımı",
       "downHillHeightCost": "Yokuş aşağı maliyeti",
       "edgeDistance": "Kenar mesafesi",
       "edgeWeight": "Kenar ağırlığı",
@@ -999,6 +1003,7 @@
       "heightFilter": "Yükseklik filtresi",
       "heightRanges": "Yükseklik aralıkları",
       "heights": "Yükseklikler",
+      "keep": "Koru",
       "l": "Büyük",
       "m": "Orta",
       "max": "Maks",
@@ -1018,8 +1023,10 @@
       "minHeight": "Min yükseklik",
       "minHeightValue": "Min yükseklik değeri",
       "minSurrounding": "Min çevre karesi",
+      "minTiles": "En küçük tarla",
       "minWidth": "Min genişlik",
       "min_scaling_factor": "Harita boyutuna göre min ölçekleme",
+      "mode": "Mod",
       "multiplier": "Çarpan",
       "name": "İsim",
       "noiseSmoothness": "Gürültü pürüzsüzlüğü",
@@ -1047,6 +1054,7 @@
       "shallow": "Sığ su",
       "shore": "Kıyı",
       "size": "Boyut",
+      "skipBlocked": "Engellileri atla",
       "smoothing": "Yumuşatma",
       "startHeightRanges": "Başlangıç yükseklik aralıkları",
       "team": "Takım",
@@ -1056,8 +1064,10 @@
       "terrainReplacements": "Arazi değişimleri",
       "terrains": "Araziler",
       "toTerrain": "Hedef arazi",
+      "tries": "Deneme",
       "type": "Tür",
       "uphillHeightCost": "Yokuş yukarı maliyeti",
+      "verge": "Kenar",
       "width": "Genişlik",
       "x": "X",
       "xBounds": "X sınırları",
@@ -1076,12 +1086,16 @@
       "connectClusters": "Kümeleri bağla",
       "objective": "Hedef",
       "lake": "Göl",
-      "objectiveLayer": "Hedef katmanı"
+      "objectiveLayer": "Hedef katmanı",
+      "symmetry": "Simetri",
+      "fields": "Tarlalar"
     },
     "objectiveType": {
       "small": "Küçük",
       "big": "Büyük"
-    }
+    },
+    "addField": "Alan ekle",
+    "removeField": "Kaldır"
   },
   "randomDeployment": {
     "title": "Konuşlanma bölgeleri",

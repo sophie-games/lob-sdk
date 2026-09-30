@@ -928,6 +928,8 @@
     "startFromTemplate": "Mulai dari templat",
     "loadInstructionsFromTemplate": "Muat instruksi dari templat",
     "generating": "Menghasilkan…",
+    "acceptedAngle": "Sudut yang diterima (±)",
+    "angle": "Sudut",
     "generatePreview": "Hasilkan pratinjau",
     "instructions": "Instruksi",
     "instructionsWithCount": "Instruksi ({{count}})",
@@ -968,6 +970,7 @@
     "selectFile": "Pilih file",
     "importedFile": "File yang diimpor",
     "field": {
+      "along": "Sepanjang",
       "amount": "Banyaknya",
       "between": "Antara",
       "border": "Batas",
@@ -979,6 +982,7 @@
       "curveLen": "Panjang kurva",
       "curveWeight": "Bobot kurva",
       "deep": "Air dalam",
+      "directionStep": "Langkah arah",
       "downHillHeightCost": "Biaya menurun",
       "edgeDistance": "Jarak tepi",
       "edgeWeight": "Bobot tepi",
@@ -992,6 +996,7 @@
       "heightFilter": "Filter tinggi",
       "heightRanges": "Rentang tinggi",
       "heights": "Ketinggian",
+      "keep": "Pertahankan",
       "l": "Besar",
       "m": "Sedang",
       "max": "Maks",
@@ -1011,8 +1016,10 @@
       "minHeight": "Tinggi min",
       "minHeightValue": "Nilai tinggi min",
       "minSurrounding": "Tile sekitar min",
+      "minTiles": "Ladang terkecil",
       "minWidth": "Lebar min",
       "min_scaling_factor": "Penskalaan min menurut ukuran peta",
+      "mode": "Mode",
       "multiplier": "Pengali",
       "name": "Nama",
       "noiseSmoothness": "Kehalusan noise",
@@ -1040,6 +1047,7 @@
       "shallow": "Air dangkal",
       "shore": "Pantai",
       "size": "Ukuran",
+      "skipBlocked": "Lewati yang terhalang",
       "smoothing": "Penghalusan",
       "startHeightRanges": "Rentang tinggi awal",
       "team": "Tim",
@@ -1049,8 +1057,10 @@
       "terrainReplacements": "Penggantian medan",
       "terrains": "Medan",
       "toTerrain": "Ke medan",
+      "tries": "Percobaan",
       "type": "Tipe",
       "uphillHeightCost": "Biaya menanjak",
+      "verge": "Tepi",
       "width": "Lebar",
       "x": "X",
       "xBounds": "Batas X",
@@ -1069,12 +1079,16 @@
       "connectClusters": "Hubungkan klaster",
       "objective": "Objektif",
       "lake": "Danau",
-      "objectiveLayer": "Lapisan objektif"
+      "objectiveLayer": "Lapisan objektif",
+      "symmetry": "Simetri",
+      "fields": "Ladang"
     },
     "objectiveType": {
       "small": "Kecil",
       "big": "Besar"
-    }
+    },
+    "addField": "Tambah bidang",
+    "removeField": "Hapus"
   },
   "randomDeployment": {
     "title": "Zona penempatan",

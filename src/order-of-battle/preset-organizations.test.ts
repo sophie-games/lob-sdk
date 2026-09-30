@@ -35,9 +35,6 @@ it("covers every historical battle that places its own units", () => {
   expect(withOrganization.map(([, name]) => name).sort()).toEqual([
     "battle-of-france",
     "battle-of-moscow",
-    "borodino",
-    "dresden",
-    "leipzig",
     "waterloo",
   ]);
 });
@@ -90,9 +87,6 @@ describe.each(withOrganization)("%s/%s", (_era, _name, scenario) => {
 const STRANDED_PX = 250;
 const STRANDED: Record<string, number> = {
   waterloo: 3,
-  borodino: 2,
-  leipzig: 1,
-  dresden: 9,
   "battle-of-france": 1,
   "battle-of-moscow": 4,
 };

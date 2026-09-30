@@ -1814,12 +1814,16 @@ export class GameDataManager {
   }
 
   /**
-   * Gets the minimum number of scenarios a player must have selected for ranked matchmaking.
-   * Returns 1 when not ranked or when no minimum is configured.
+   * Gets the minimum number of scenarios a player must have selected for ranked matchmaking:
+   * more than half the ranked pool, so any two players' selections share a map.
+   * Returns 1 when not ranked.
    */
   public getRankedMinScenariosForMatchmaking(isRanked = true): number {
     if (!isRanked) return 1;
-    return this.matchmakingPresets?.rankedMinScenarios ?? 1;
+    const pool = Object.values(this.scenarioIndex).filter(
+      (meta) => meta.ranked && !meta.hidden,
+    );
+    return Math.floor(pool.length / 2) + 1;
   }
 
   /**

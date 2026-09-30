@@ -496,6 +496,13 @@ export interface Scenario {
   fixedSize?: { tilesX: number; tilesY: number };
 
   /**
+   * Generation values this scenario accepts from the caller (ignored when {@link map} is set).
+   * `angle`: the range of angles, in degrees clockwise, its terrain may be turned by; a passed
+   * angle is held to it, and without it the terrain is never turned.
+   */
+  parameters?: { angle?: Range };
+
+  /**
    * Pixel-coordinate deployment polygons for authored scenarios.
    * Mutually exclusive with {@link randomDeploymentZones}.
    */

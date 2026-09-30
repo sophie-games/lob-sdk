@@ -935,6 +935,8 @@
     "startFromTemplate": "Ξεκινήστε από πρότυπο",
     "loadInstructionsFromTemplate": "Φόρτωση οδηγιών από πρότυπο",
     "generating": "Δημιουργία…",
+    "acceptedAngle": "Αποδεκτή γωνία (±)",
+    "angle": "Γωνία",
     "generatePreview": "Δημιουργία προεπισκόπησης",
     "instructions": "Οδηγίες",
     "instructionsWithCount": "Οδηγίες ({{count}})",
@@ -975,6 +977,7 @@
     "selectFile": "Επιλογή αρχείου",
     "importedFile": "Εισαγόμενο αρχείο",
     "field": {
+      "along": "Κατά μήκος",
       "amount": "Ποσότητα",
       "between": "Μεταξύ",
       "border": "Περίγραμμα",
@@ -986,6 +989,7 @@
       "curveLen": "Μήκος καμπύλης",
       "curveWeight": "Βάρος καμπύλης",
       "deep": "Βαθύ νερό",
+      "directionStep": "Βήμα κατεύθυνσης",
       "downHillHeightCost": "Κόστος κατηφόρας",
       "edgeDistance": "Απόσταση από το άκρο",
       "edgeWeight": "Βάρος άκρου",
@@ -999,6 +1003,7 @@
       "heightFilter": "Φίλτρο ύψους",
       "heightRanges": "Εύρη ύψους",
       "heights": "Ύψη",
+      "keep": "Διατήρηση",
       "l": "Μεγάλο",
       "m": "Μεσαίο",
       "max": "Μέγιστο",
@@ -1018,8 +1023,10 @@
       "minHeight": "Ελάχιστο ύψος",
       "minHeightValue": "Τιμή ελάχιστου ύψους",
       "minSurrounding": "Ελάχιστα γειτονικά πλακίδια",
+      "minTiles": "Μικρότερο χωράφι",
       "minWidth": "Ελάχιστο πλάτος",
       "min_scaling_factor": "Ελάχιστη κλιμάκωση κατά μέγεθος χάρτη",
+      "mode": "Λειτουργία",
       "multiplier": "Πολλαπλασιαστής",
       "name": "Όνομα",
       "noiseSmoothness": "Ομαλότητα θορύβου",
@@ -1047,6 +1054,7 @@
       "shallow": "Ρηχό νερό",
       "shore": "Ακτή",
       "size": "Μέγεθος",
+      "skipBlocked": "Παράλειψη μπλοκαρισμένων",
       "smoothing": "Εξομάλυνση",
       "startHeightRanges": "Εύρη ύψους αρχής",
       "team": "Ομάδα",
@@ -1056,8 +1064,10 @@
       "terrainReplacements": "Αντικαταστάσεις εδάφους",
       "terrains": "Εδάφη",
       "toTerrain": "Σε έδαφος",
+      "tries": "Προσπάθειες",
       "type": "Τύπος",
       "uphillHeightCost": "Κόστος ανηφόρας",
+      "verge": "Άκρη",
       "width": "Πλάτος",
       "x": "X",
       "xBounds": "Όρια X",
@@ -1076,12 +1086,16 @@
       "connectClusters": "Σύνδεση συστάδων",
       "objective": "Στόχος",
       "lake": "Λίμνη",
-      "objectiveLayer": "Στρώμα στόχων"
+      "objectiveLayer": "Στρώμα στόχων",
+      "symmetry": "Συμμετρία",
+      "fields": "Χωράφια"
     },
     "objectiveType": {
       "small": "Μικρός",
       "big": "Μεγάλος"
-    }
+    },
+    "addField": "Προσθήκη πεδίου",
+    "removeField": "Αφαίρεση"
   },
   "randomDeployment": {
     "title": "Ζώνες ανάπτυξης",

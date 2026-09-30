@@ -10,6 +10,7 @@ import { deriveSeed, randomSeeded } from "@lob-sdk/seed";
 import { NaturalPathGenerator } from "../natural-path-generator";
 import { Point2 } from "@lob-sdk/vector";
 import { getRandomInt } from "@lob-sdk/utils";
+import { InstructionArea } from "../frame-angle";
 
 const TOP_EDGE: Range = { min: 0, max: 0 };
 const BOTTOM_EDGE: Range = { min: 100, max: 100 };
@@ -27,6 +28,11 @@ export class NaturalPathExecutor {
     private terrains: TerrainType[][],
     private heightMap: number[][],
     private battleSize: Size,
+    /**
+     * On a turned map: the instruction's area. Its points are found in the area's local grid
+     * and the path is traced on the map between where they land, inside the area.
+     */
+    private area?: InstructionArea,
   ) {
     this.random = randomSeeded(deriveSeed(seed, index + 1));
   }
@@ -77,12 +83,46 @@ export class NaturalPathExecutor {
       downHillHeightCost,
       heightDiffCost,
       printNoiseDebug,
+      this.area && ((x, y) => this.area!.contains(x, y)),
     );
 
     for (let i = 0; i < amountNumber; i++) {
       let pathPoints = this.generatePathPoints();
+      if (this.area) pathPoints = this.onMap(pathPoints);
       naturalPathGenerator.generatePath(pathPoints);
     }
+  }
+
+  /**
+   * Local points moved to where they land on the map. A leg that runs off the map is cut at its
+   * edge, so a path from edge to edge of the turned frame enters and leaves at the map's edges.
+   */
+  private onMap(points: Point2[]): Point2[] {
+    const maxX = this.terrains.length - 1;
+    const maxY = this.terrains[0].length - 1;
+    const landed = points.map(({ x, y }) => this.area!.toMap(x, y));
+    const out: Point2[] = [];
+    const push = ([x, y]: [number, number]) => {
+      // The nearest tile can round to just outside the area, where the path could never reach it.
+      const corners = [Math.round(x), Math.floor(x), Math.ceil(x)].flatMap((cx) =>
+        [Math.round(y), Math.floor(y), Math.ceil(y)].map((cy) => ({ x: cx, y: cy })),
+      );
+      const p = corners.find((c) => this.area!.contains(c.x, c.y)) ?? corners[0];
+      const last = out[out.length - 1];
+      if (!last || last.x !== p.x || last.y !== p.y) out.push(p);
+    };
+    if (landed.length === 1) {
+      const [x, y] = landed[0];
+      if (x >= 0 && y >= 0 && x <= maxX && y <= maxY) push(landed[0]);
+      return out;
+    }
+    for (let i = 0; i < landed.length - 1; i++) {
+      const leg = clip(landed[i], landed[i + 1], maxX, maxY);
+      if (!leg) continue;
+      push(leg[0]);
+      push(leg[1]);
+    }
+    return out;
   }
 
   private generatePathPoints() {
@@ -187,8 +227,8 @@ export class NaturalPathExecutor {
     yRange: Range,
     heightRanges?: Array<{ min: number; max: number }>,
   ): Point2 | null {
-    const tilesX = this.terrains.length;
-    const tilesY = this.terrains[0].length;
+    const tilesX = this.area?.tilesX ?? this.terrains.length;
+    const tilesY = this.area?.tilesY ?? this.terrains[0].length;
 
     const minX = Math.floor((xRange.min / 100) * (tilesX - 1));
     const maxX = Math.floor((xRange.max / 100) * (tilesX - 1));
@@ -244,7 +284,10 @@ export class NaturalPathExecutor {
     point: Point2,
     ranges: Array<{ min: number; max: number }>,
   ): boolean {
-    const height = this.heightMap[point.x][point.y];
+    const tile = this.area ? this.area.mapTile(point.x, point.y) : [point.x, point.y];
+    // A point off the map sets no condition: the path is cut at the map's edge.
+    if (!tile) return true;
+    const height = this.heightMap[tile[0]][tile[1]];
 
     return ranges.some((range) => {
       return height >= range.min && height <= range.max;
@@ -296,4 +339,36 @@ export class NaturalPathExecutor {
 
     return { start, end };
   }
+}
+
+/** The part of segment a-b inside [0, maxX] x [0, maxY] (Liang-Barsky), or null if none. */
+function clip(
+  a: [number, number],
+  b: [number, number],
+  maxX: number,
+  maxY: number,
+): [[number, number], [number, number]] | null {
+  const dx = b[0] - a[0];
+  const dy = b[1] - a[1];
+  let t0 = 0;
+  let t1 = 1;
+  for (const [p, q] of [
+    [-dx, a[0]],
+    [dx, maxX - a[0]],
+    [-dy, a[1]],
+    [dy, maxY - a[1]],
+  ]) {
+    if (p === 0) {
+      if (q < 0) return null;
+      continue;
+    }
+    const t = q / p;
+    if (p < 0) t0 = Math.max(t0, t);
+    else t1 = Math.min(t1, t);
+    if (t0 > t1) return null;
+  }
+  return [
+    [a[0] + t0 * dx, a[1] + t0 * dy],
+    [a[0] + t1 * dx, a[1] + t1 * dy],
+  ];
 }

@@ -963,6 +963,8 @@
     "startFromTemplate": "البدء من قالب",
     "loadInstructionsFromTemplate": "تحميل التعليمات من قالب",
     "generating": "جاري التوليد…",
+    "acceptedAngle": "الزاوية المقبولة (±)",
+    "angle": "الزاوية",
     "generatePreview": "توليد معاينة",
     "instructions": "التعليمات",
     "instructionsWithCount": "التعليمات ({{count}})",
@@ -1003,6 +1005,7 @@
     "selectFile": "اختيار ملف",
     "importedFile": "ملف مستورَد",
     "field": {
+      "along": "على طول",
       "amount": "المقدار",
       "between": "بين",
       "border": "الحد",
@@ -1014,6 +1017,7 @@
       "curveLen": "طول المنحنى",
       "curveWeight": "وزن المنحنى",
       "deep": "ماء عميق",
+      "directionStep": "خطوة الاتجاه",
       "downHillHeightCost": "تكلفة الانحدار",
       "edgeDistance": "مسافة الحافة",
       "edgeWeight": "وزن الحافة",
@@ -1027,6 +1031,7 @@
       "heightFilter": "مرشّح الارتفاع",
       "heightRanges": "نطاقات الارتفاع",
       "heights": "الارتفاعات",
+      "keep": "الإبقاء على",
       "l": "كبير",
       "m": "متوسط",
       "max": "الأقصى",
@@ -1046,8 +1051,10 @@
       "minHeight": "الارتفاع الأدنى",
       "minHeightValue": "قيمة الارتفاع الدنيا",
       "minSurrounding": "أدنى عدد بلاطات محيطة",
+      "minTiles": "أصغر حقل",
       "minWidth": "العرض الأدنى",
       "min_scaling_factor": "أدنى تحجيم حسب حجم الخريطة",
+      "mode": "الوضع",
       "multiplier": "المضاعِف",
       "name": "الاسم",
       "noiseSmoothness": "نعومة الضجيج",
@@ -1075,6 +1082,7 @@
       "shallow": "ماء ضحل",
       "shore": "الشاطئ",
       "size": "الحجم",
+      "skipBlocked": "تخطي المحجوب",
       "smoothing": "التنعيم",
       "startHeightRanges": "نطاقات الارتفاع الابتدائية",
       "team": "الفريق",
@@ -1084,8 +1092,10 @@
       "terrainReplacements": "استبدالات التضاريس",
       "terrains": "التضاريس",
       "toTerrain": "إلى تضاريس",
+      "tries": "المحاولات",
       "type": "النوع",
       "uphillHeightCost": "تكلفة الصعود",
+      "verge": "الحافة",
       "width": "العرض",
       "x": "X",
       "xBounds": "حدود X",
@@ -1104,12 +1114,16 @@
       "connectClusters": "ربط التجمعات",
       "objective": "هدف",
       "lake": "بحيرة",
-      "objectiveLayer": "طبقة أهداف"
+      "objectiveLayer": "طبقة أهداف",
+      "symmetry": "تناظر",
+      "fields": "حقول"
     },
     "objectiveType": {
       "small": "صغير",
       "big": "كبير"
-    }
+    },
+    "addField": "إضافة حقل",
+    "removeField": "إزالة"
   },
   "randomDeployment": {
     "title": "مناطق الانتشار",

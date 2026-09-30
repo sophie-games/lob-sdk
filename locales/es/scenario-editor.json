@@ -956,6 +956,8 @@
     "startFromTemplate": "Empezar desde una plantilla",
     "loadInstructionsFromTemplate": "Cargar instrucciones desde plantilla",
     "generating": "Generando…",
+    "acceptedAngle": "Ángulo aceptado (±)",
+    "angle": "Ángulo",
     "generatePreview": "Generar vista previa",
     "instructions": "Instrucciones",
     "instructionsWithCount": "Instrucciones ({{count}})",
@@ -996,6 +998,7 @@
     "selectFile": "Seleccionar archivo",
     "importedFile": "Archivo importado",
     "field": {
+      "along": "A lo largo de",
       "amount": "Cantidad",
       "between": "Entre",
       "border": "Borde",
@@ -1007,6 +1010,7 @@
       "curveLen": "Longitud de curva",
       "curveWeight": "Peso de curva",
       "deep": "Agua profunda",
+      "directionStep": "Paso de dirección",
       "downHillHeightCost": "Costo cuesta abajo",
       "edgeDistance": "Distancia al borde",
       "edgeWeight": "Peso de borde",
@@ -1020,6 +1024,7 @@
       "heightFilter": "Filtro de altura",
       "heightRanges": "Rangos de altura",
       "heights": "Alturas",
+      "keep": "Conservar",
       "l": "Grande",
       "m": "Mediano",
       "max": "Máx.",
@@ -1039,8 +1044,10 @@
       "minHeight": "Altura mín.",
       "minHeightValue": "Valor de altura mín.",
       "minSurrounding": "Casillas circundantes mín.",
+      "minTiles": "Campo mínimo",
       "minWidth": "Ancho mín.",
       "min_scaling_factor": "Escala mín. por tamaño de mapa",
+      "mode": "Modo",
       "multiplier": "Multiplicador",
       "name": "Nombre",
       "noiseSmoothness": "Suavidad del ruido",
@@ -1068,6 +1075,7 @@
       "shallow": "Agua poco profunda",
       "shore": "Orilla",
       "size": "Tamaño",
+      "skipBlocked": "Omitir bloqueados",
       "smoothing": "Suavizado",
       "startHeightRanges": "Rangos de altura inicial",
       "team": "Equipo",
@@ -1077,8 +1085,10 @@
       "terrainReplacements": "Reemplazos de terreno",
       "terrains": "Terrenos",
       "toTerrain": "A terreno",
+      "tries": "Intentos",
       "type": "Tipo",
       "uphillHeightCost": "Costo cuesta arriba",
+      "verge": "Borde",
       "width": "Ancho",
       "x": "X",
       "xBounds": "Límites de X",
@@ -1097,12 +1107,16 @@
       "connectClusters": "Conectar grupos",
       "objective": "Objetivo",
       "lake": "Lago",
-      "objectiveLayer": "Capa de objetivos"
+      "objectiveLayer": "Capa de objetivos",
+      "symmetry": "Simetría",
+      "fields": "Campos"
     },
     "objectiveType": {
       "small": "Pequeño",
       "big": "Grande"
-    }
+    },
+    "addField": "Agregar un campo",
+    "removeField": "Quitar"
   },
   "randomDeployment": {
     "title": "Zonas de despliegue",
