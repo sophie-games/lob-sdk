@@ -25,14 +25,14 @@ const tileOf = ({ x, y }: { x: number; y: number }) => ({
   ty: Math.floor(y / TILE),
 });
 
-/** A causeway, or a road running through a gap in the walls. */
+/** A causeway, or a road running through a gap in the ramparts. */
 const isGateOrCauseway = (tx: number, ty: number) => {
   const terrain = terrains[tx]![ty]!;
   if (terrain === TerrainType.Bridge) return true;
   if (terrain !== TerrainType.Road) return false;
   for (let dx = -1; dx <= 1; dx++) {
     for (let dy = -1; dy <= 1; dy++) {
-      if (terrains[tx + dx]?.[ty + dy] === TerrainType.Wall) return true;
+      if (terrains[tx + dx]?.[ty + dy] === TerrainType.Rampart) return true;
     }
   }
   return false;
@@ -132,42 +132,51 @@ describe("Mantua 1797", () => {
       (terrain: TerrainType, tx: number, ty: number) =>
         open(terrain) && !isGateOrCauseway(tx, ty);
 
-    it("is walled with Wall terrain, and the blockade redoubts stay redoubts", () => {
+    it("is walled with Rampart, not farm Wall, and the blockade redoubts stay redoubts", () => {
       const counts = new Map<TerrainType, number>();
       for (const column of terrains) {
         for (const terrain of column) {
           counts.set(terrain, (counts.get(terrain) ?? 0) + 1);
         }
       }
-      expect(counts.get(TerrainType.Wall)).toBeGreaterThan(300);
+      expect(counts.get(TerrainType.Rampart)).toBeGreaterThan(300);
+      expect(counts.get(TerrainType.Wall) ?? 0).toBe(0);
       expect(counts.get(TerrainType.Redoubt)).toBeGreaterThan(0);
     });
 
-    it("gives the guns a redoubt strip behind the land-front walls, not the lake-front ones", () => {
-      const water = [TerrainType.ShallowWater, TerrainType.DeepWater];
-      const around = (tx: number, ty: number, steps: number[][]) =>
-        steps.map(([dx, dy]) => terrains[tx + dx!]?.[ty + dy!]);
+    it("keeps no gun strip of redoubt against the ramparts: the guns stand on them", () => {
       const four = [[1, 0], [-1, 0], [0, 1], [0, -1]];
-      const eight = [...four, [1, 1], [1, -1], [-1, 1], [-1, -1]];
+      const againstRampart = terrains.flatMap((column, tx) =>
+        column.filter(
+          (terrain, ty) =>
+            terrain === TerrainType.Redoubt &&
+            four.some(([dx, dy]) => terrains[tx + dx!]?.[ty + dy!] === TerrainType.Rampart),
+        ),
+      );
+      expect(againstRampart).toHaveLength(0);
+    });
 
-      let behindLandWalls = 0;
-      let behindLakeWallsOnly = 0;
+    it("stands its ramparts level with the ground around them, not as raised ridges", () => {
+      const heights = map.heightMap!;
+      const raised: [number, number][] = [];
       terrains.forEach((column, tx) =>
         column.forEach((terrain, ty) => {
-          if (terrain !== TerrainType.Redoubt) return;
-          const walls = four
-            .map(([dx, dy]) => [tx + dx!, ty + dy!] as const)
-            .filter(([x, y]) => terrains[x]?.[y] === TerrainType.Wall);
-          if (walls.length === 0) return;
-          const land = walls.some(
-            ([x, y]) => !around(x, y, eight).some((t) => water.includes(t!)),
-          );
-          if (land) behindLandWalls++;
-          else behindLakeWallsOnly++;
+          if (terrain !== TerrainType.Rampart) return;
+          const ground: number[] = [];
+          for (let dx = -1; dx <= 1; dx++) {
+            for (let dy = -1; dy <= 1; dy++) {
+              const t = terrains[tx + dx]?.[ty + dy];
+              if (t !== undefined && t !== TerrainType.Rampart) {
+                ground.push(heights[tx + dx]![ty + dy]!);
+              }
+            }
+          }
+          if (ground.length > 0 && heights[tx]![ty]! > Math.min(...ground)) {
+            raised.push([tx, ty]);
+          }
         }),
       );
-      expect(behindLandWalls).toBeGreaterThan(100);
-      expect(behindLakeWallsOnly).toBe(0);
+      expect(raised).toEqual([]);
     });
 
     it("lets cavalry in only through its gates and causeways", () => {
@@ -184,12 +193,31 @@ describe("Mantua 1797", () => {
       ).toBe(true);
     });
 
+    it("lets the guns be hauled up onto the ramparts when the gates are shut", () => {
+      expect(
+        reaches(laFavorita!.pos, cittadella!.pos, gatesShut(passable("artillery"))),
+      ).toBe(true);
+    });
+
+    it("would keep the guns out if the ramparts were farm walls", () => {
+      const asWall = (terrain: TerrainType) =>
+        terrain === TerrainType.Rampart ? TerrainType.Wall : terrain;
+      const artillery = passable("artillery");
+      expect(
+        reaches(
+          laFavorita!.pos,
+          cittadella!.pos,
+          gatesShut((terrain) => artillery(asWall(terrain))),
+        ),
+      ).toBe(false);
+    });
+
     it("deploys the garrison inside the walls, on ground a unit can stand on", () => {
       for (const { outer } of mainZoneOf(GARRISON)!.polygons) {
         for (const corner of outer) {
           const { tx, ty } = tileOf(corner);
           const terrain = terrains[tx]![ty]!;
-          expect(terrain).not.toBe(TerrainType.Wall);
+          expect(terrain).not.toBe(TerrainType.Rampart);
           expect(passable("lightCavalry")(terrain)).toBe(true);
         }
       }

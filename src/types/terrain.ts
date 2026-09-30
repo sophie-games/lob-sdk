@@ -30,6 +30,7 @@ export enum TerrainType {
   Wall = 26,
   LightForest = 27,
   LightForestWinter = 28,
+  Rampart = 29,
 }
 
 export enum TerrainCategoryType {
@@ -38,6 +39,7 @@ export enum TerrainCategoryType {
   LightForest = "lightForest",
   Building = "building",
   Wall = "wall",
+  Rampart = "rampart",
   Path = "path",
   ShallowWater = "shallowWater",
   DeepWater = "deepWater",

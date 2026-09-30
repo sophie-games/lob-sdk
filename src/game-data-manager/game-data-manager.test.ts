@@ -638,6 +638,46 @@ describe("GameDataManager", () => {
       expect(ww2.isPassable(TerrainType.Wall, "armored")).toBe(false);
     });
 
+    it("makes a Rampart a Wall that Napoleonic guns can be hauled onto", () => {
+      for (const era of ["napoleonic", "ww2"] as const) {
+        const manager = GameDataManager.get(era);
+        expect(manager.getTerrains()[TerrainType.Rampart]).toMatchObject({
+          name: "rampart",
+          category: "rampart",
+        });
+        // Infantry fights from a rampart as from a wall.
+        expect(manager.isPassable(TerrainType.Rampart, "infantry")).toBe(true);
+        expect(manager.hasObstructsMovement(TerrainType.Rampart)).toBe(true);
+        expect(manager.getMovementModifier(TerrainType.Rampart, "infantry")).toBe(
+          manager.getMovementModifier(TerrainType.Wall, "infantry"),
+        );
+        expect(
+          manager.getUnitTerrainDefenseModifier("infantry", TerrainType.Rampart),
+        ).toBe(manager.getUnitTerrainDefenseModifier("infantry", TerrainType.Wall));
+      }
+
+      const napoleonic = GameDataManager.get("napoleonic");
+      for (const cavalry of ["heavyCavalry", "lightCavalry"]) {
+        expect(napoleonic.isPassable(TerrainType.Rampart, cavalry)).toBe(false);
+      }
+      // Guns are hauled up onto a rampart far slower than a battalion climbs it,
+      // and its parapet covers their crews as it covers infantry.
+      for (const guns of ["artillery", "horseArtillery"]) {
+        expect(napoleonic.isPassable(TerrainType.Rampart, guns)).toBe(true);
+        expect(napoleonic.getMovementModifier(TerrainType.Rampart, guns)).toBe(-0.9);
+        expect(napoleonic.getUnitTerrainDefenseModifier(guns, TerrainType.Rampart)).toBe(
+          napoleonic.getUnitTerrainDefenseModifier("infantry", TerrainType.Wall),
+        );
+        expect(napoleonic.getRangedAttackModifier(TerrainType.Rampart, guns)).toBe(0);
+      }
+
+      // WW2 has no guns to haul up: its rampart is its wall.
+      const ww2 = GameDataManager.get("ww2");
+      const { color: _wallColor, ...wall } = ww2.getTerrainCategories().wall!;
+      const { color: _rampartColor, ...rampart } = ww2.getTerrainCategories().rampart!;
+      expect(rampart).toEqual(wall);
+    });
+
     it("getRotationSpeedModifier defaults to 0 for terrain without the modifier", () => {
       // No preset terrain sets rotationSpeedModifier, so it should read as the 0 default.
       expect(gameDataManager.getRotationSpeedModifier(TerrainType.Grass)).toBe(0);
