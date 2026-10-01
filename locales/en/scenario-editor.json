@@ -50,6 +50,7 @@
     "optionBuiltIn": "{{name}} (built-in)",
     "optionCustom": "{{name}} (custom)",
     "optionAllUnitCategories": "All unit categories",
+    "optionAllFormations": "All formations",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Rotation speed modifier"
   },
@@ -538,11 +539,13 @@
     "sections": {
       "scalarProperties": "Scalar properties",
       "perUnitCategoryModifiers": "Per unit category modifiers",
-      "projectileAbsorption": "Projectile absorption"
+      "projectileAbsorption": "Projectile absorption",
+      "takeOver": "Whole unit on this terrain"
     },
     "identityHint": "This overrides one of the era's terrain categories, for this scenario only. You cannot change which terrains belong to it, since the era fixes that. What you can change is how the category treats the troops standing on it.",
     "perUnitCategoryHint": "Each row sets the value for one kind of troops. The `*` row is the default, used by any kind you have not given a row of its own. Deleting a row that `*` covers will not stick, because it returns the next time you edit. Give that row its own value instead.",
     "projectileAbsorptionHint": "Each row sets the value for one damage type.",
+    "takesOverAtHint": "Each row is a formation and a share of the unit from 0 to 1. Once that share of the unit stands on this terrain, the whole unit counts as on it. The `*` row is for any formation without a row of its own. With no rows, a unit always mixes the terrains under it by how much of each it covers. When two allied units stand side by side on it, only the one covering more of it counts as on it.",
     "option": {
       "builtIn": "{{name}} (built-in)",
       "custom": "{{name}} (custom)"
@@ -555,7 +558,8 @@
       "pushDistanceModifier": "Push distance modifier",
       "fixedEnemyCollisionLevel": "Fixed enemy collision level",
       "canPlaceObjectives": "Can place objectives",
-      "prioritizeMovement": "Prioritize movement",
+      "followedOnClick": "Clicks follow it like a road",
+      "takesOverAt": "Whole unit counts as on it from this share",
       "obstructsMovement": "Full movement penalty under any part of a unit",
       "supplyRoute": "Supply route",
       "impassableFor": "Impassable for",
@@ -567,7 +571,8 @@
     "errors": {
       "idInUse": "Terrain category id \"{{id}}\" is already in use",
       "unknownUnitCategories": "{{field}} references unknown unit categories: {{keys}}",
-      "unknownDamageTypes": "Projectile absorption points at damage types that do not exist: {{keys}}"
+      "unknownDamageTypes": "Projectile absorption points at damage types that do not exist: {{keys}}",
+      "unknownFormations": "{{field}} references unknown formations: {{keys}}"
     }
   },
   "customDefs": {

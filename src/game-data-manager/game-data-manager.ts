@@ -458,8 +458,16 @@ export class GameDataManager {
         // the caller's config is live state elsewhere (the scenario editor
         // holds its overrides in React state), so expanding it in place would
         // write one explicit entry per unit category into the user's draft.
-        this.terrainCategories[override.id as TerrainCategoryType] =
-          structuredClone(override.config);
+        const config = structuredClone(override.config);
+        if (config.prioritizeMovement) {
+          config.followedOnClick ??= true;
+          config.takesOverAt ??= structuredClone(
+            this.terrainCategories[override.id as TerrainCategoryType]
+              ?.takesOverAt ?? { "*": 0.5 },
+          );
+        }
+        delete config.prioritizeMovement;
+        this.terrainCategories[override.id as TerrainCategoryType] = config;
       }
       // Re-expand wildcards on the (possibly overridden) maps so any newly
       // introduced category id has the right wildcard fallbacks applied.
@@ -1473,13 +1481,19 @@ export class GameDataManager {
     ); // these conditionals cause big-suck on performance, set defaults at initialization
   }
 
-  /**
-   * Check if a terrain category has the prioritizeMovement flag
-   */
-  public hasPrioritizeMovement(terrainType: TerrainType): boolean {
+  public isFollowedOnClick(terrainType: TerrainType): boolean {
     const category = this.getCategoryByTerrain(terrainType);
-    const terrainCategory = this.terrainCategories![category]; // This indirection on lookup is painful, becuase its done many times. Replace with direct lookup
-    return terrainCategory?.prioritizeMovement ?? false; // these conditionals cause big-suck on performance, set defaults at initialization
+    return this.terrainCategories![category]?.followedOnClick ?? false;
+  }
+
+  /** The footprint share at which this terrain takes over a unit in `formationId`, if it ever does. */
+  public getTakeOverAt(
+    terrainType: TerrainType,
+    formationId: string,
+  ): number | undefined {
+    const category = this.getCategoryByTerrain(terrainType);
+    const takesOverAt = this.terrainCategories![category]?.takesOverAt;
+    return takesOverAt?.[formationId] ?? takesOverAt?.["*"];
   }
 
   public hasObstructsMovement(terrainType: TerrainType): boolean {

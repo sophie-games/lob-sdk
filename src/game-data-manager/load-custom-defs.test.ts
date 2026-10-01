@@ -480,6 +480,29 @@ describe("GameDataManager custom defs", () => {
   });
 
   describe("loadCustomDefs: custom terrain categories", () => {
+    it("reads a road's click-following and per-formation take-over coverage", () => {
+      const m = GameDataManager.get("napoleonic");
+      expect(m.isFollowedOnClick(TerrainType.Road)).toBe(true);
+      expect(m.isFollowedOnClick(TerrainType.Grass)).toBe(false);
+      expect(m.getTakeOverAt(TerrainType.Road, "column")).toBe(0.65);
+      expect(m.getTakeOverAt(TerrainType.Road, "line")).toBe(1);
+      expect(m.getTakeOverAt(TerrainType.Road, "someCustomFormation")).toBe(0.5);
+      expect(m.getTakeOverAt(TerrainType.Grass, "column")).toBeUndefined();
+    });
+
+    it("migrates a saved override's prioritizeMovement to click-following with the built-in's take-over", () => {
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customTerrainCategories: [
+          { id: "path", config: { prioritizeMovement: true, movementModifier: { "*": 0.5 } } },
+          { id: "forest", config: { prioritizeMovement: true } },
+        ],
+      });
+      expect(m.isFollowedOnClick(TerrainType.Road)).toBe(true);
+      expect(m.getTakeOverAt(TerrainType.Road, "column")).toBe(0.65);
+      expect(m.isFollowedOnClick(TerrainType.Forest)).toBe(true);
+      expect(m.getTakeOverAt(TerrainType.Forest, "column")).toBe(0.5);
+    });
+
     it("overrides an existing terrain category config", () => {
       const m = GameDataManager.createWithCustomDefs("napoleonic", {
         customTerrainCategories: [

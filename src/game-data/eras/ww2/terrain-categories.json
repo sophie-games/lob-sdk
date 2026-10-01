@@ -157,7 +157,8 @@
   "path": {
     "color": "#c9be98",
     "staminaCostModifier": -0.5,
-    "prioritizeMovement": true,
+    "followedOnClick": true,
+    "takesOverAt": { "*": 0.5 },
     "movementModifier": {
       "infantry": 0.3
     }
@@ -173,7 +174,8 @@
   "railwayRoad": {
     "color": "#a68b6b",
     "staminaCostModifier": -0.5,
-    "prioritizeMovement": true,
+    "followedOnClick": true,
+    "takesOverAt": { "*": 0.5 },
     "canPlaceObjectives": true,
     "supplyRoute": true,
     "movementModifier": {
