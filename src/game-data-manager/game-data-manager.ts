@@ -162,11 +162,6 @@ const CUSTOM_DEF_PRESENCE: Required<{
 };
 
 /**
- * Centralized game data manager.
- * Provides access to all game data including units, formations, terrains, battle types, and more.
- * Uses a singleton pattern per era to ensure efficient memory usage.
- */
-/**
  * A copy of a saved terrain override with its deprecated `prioritizeMovement`
  * read as click-following and `builtIn`'s take-over.
  */
@@ -183,6 +178,11 @@ export const migrateTerrainCategoryConfig = (
   return migrated;
 };
 
+/**
+ * Centralized game data manager.
+ * Provides access to all game data including units, formations, terrains, battle types, and more.
+ * Uses a singleton pattern per era to ensure efficient memory usage.
+ */
 export class GameDataManager {
   readonly era: GameEra;
   private static instances: Map<GameEra, GameDataManager> = new Map();
