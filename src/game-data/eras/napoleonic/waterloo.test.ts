@@ -175,25 +175,34 @@ describe("Battle of Waterloo scenario", () => {
     expect(steep).toEqual([]);
   });
 
+  const edgeNeighbours = (x: number, y: number): [number, number][] => [
+    [x + 1, y],
+    [x - 1, y],
+    [x, y + 1],
+    [x, y - 1],
+  ];
+
   it("joins every road into one network through edge-sharing tiles", () => {
     const terrains = scenario.map!.terrains;
     const paths = [TerrainType.Road, TerrainType.Dirt, TerrainType.Bridge, TerrainType.SunkenRoad];
-    const isPath = (x: number, y: number) => paths.includes(terrains[x]?.[y]!);
+    const isPath = (x: number, y: number) => {
+      const terrain = terrains[x]?.[y];
+      return terrain !== undefined && paths.includes(terrain);
+    };
     const tiles = terrains.flatMap((column, x) =>
-      column.flatMap((_, y) => (isPath(x, y) ? [`${x},${y}`] : [])),
+      column.flatMap((_, y): [number, number][] => (isPath(x, y) ? [[x, y]] : [])),
     );
-    const seen = new Set([tiles[0]!]);
-    const queue = [tiles[0]!];
-    while (queue.length > 0) {
-      const [x, y] = queue.pop()!.split(",").map(Number) as [number, number];
-      for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]] as const) {
+    const seen = new Set(tiles.slice(0, 1).map(([x, y]) => `${x},${y}`));
+    const queue = tiles.slice(0, 1);
+    for (let next = queue.pop(); next; next = queue.pop()) {
+      for (const [nx, ny] of edgeNeighbours(...next)) {
         if (isPath(nx, ny) && !seen.has(`${nx},${ny}`)) {
           seen.add(`${nx},${ny}`);
-          queue.push(`${nx},${ny}`);
+          queue.push([nx, ny]);
         }
       }
     }
-    expect(tiles.filter((tile) => !seen.has(tile))).toEqual([]);
+    expect(tiles.filter(([x, y]) => !seen.has(`${x},${y}`))).toEqual([]);
   });
 
   it("never leaves a field tile alone among other ground", () => {
@@ -202,7 +211,7 @@ describe("Battle of Waterloo scenario", () => {
     const lone = terrains.flatMap((column, x) =>
       column.flatMap((terrain, y) =>
         fields.includes(terrain) &&
-        ![[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]].some(([nx, ny]) => terrains[nx!]?.[ny!] === terrain)
+        !edgeNeighbours(x, y).some(([nx, ny]) => terrains[nx]?.[ny] === terrain)
           ? [{ x, y }]
           : [],
       ),
