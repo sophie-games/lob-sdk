@@ -169,7 +169,7 @@ function battle(name: string, size: Size, seed: number, angle?: number): Battle 
 const everyMap = (name: string) =>
   SIZES.flatMap((size) => SEEDS.map((seed) => [size, seed] as const));
 
-const { DeepWater, ShallowWater, Bridge, Road, Building, Forest, LightForest, Redoubt, Cliff, Mud, Farm, FarmGrowing, FarmUnplanted, Wall, Grass } = TerrainType;
+const { DeepWater, ShallowWater, Bridge, Road, Building, Forest, LightForest, Redoubt, Cliff, Mud, Farm, FarmGrowing, FarmUnplanted, FortifiedFarm, Grass } = TerrainType;
 const CROPS = [Farm, FarmGrowing, FarmUnplanted];
 
 describe.each(TEMPLATES)("%s", (name) => {
@@ -206,7 +206,7 @@ describe.each(TEMPLATES)("%s", (name) => {
     (size, seed) => {
       const b = battle(name, size, seed);
       const blocked = (x: number, y: number) => !b.passable(x, y);
-      const cover = [Forest, LightForest, Building, Redoubt];
+      const cover = [Forest, LightForest, Building, FortifiedFarm, Redoubt];
       expect(Math.abs(b.meanHeight(undefined, 0, 100, 0, 50) - b.meanHeight(undefined, 0, 100, 50, 100))).toBeLessThan(0.4);
       expect(Math.abs(b.share(cover, 0, 100, 0, 50) - b.share(cover, 0, 100, 50, 100))).toBeLessThan(0.06);
       expect(Math.abs(b.shareOf(blocked, 0, 100, 0, 50) - b.shareOf(blocked, 0, 100, 50, 100))).toBeLessThan(0.05);
@@ -263,11 +263,10 @@ describe.each(["river-crossing", "marsh-dikes"] as const)("%s is the farmed Po p
       return (!across[0] && !across[1] && along.some(Boolean)) || (!along[0] && !along[1] && across.some(Boolean));
     });
     expect(rowTiles.length / open.length).toBeGreaterThan(0.01);
-    // Each farmstead is a block of buildings inside its courtyard wall, off a road.
-    const walls = b.tilesIn().filter(([x, y]) => b.terrain(x, y) === Wall);
-    expect(walls.length).toBeGreaterThan(0);
-    for (const [x, y] of walls) expect(b.near(x, y, 1, [Building])).toBe(true);
-    expect(walls.some(([x, y]) => b.near(x, y, 3, [Road]))).toBe(true);
+    // The walled farmsteads (cascine) are fortified farms off a road.
+    const farmsteads = b.tilesIn().filter(([x, y]) => b.terrain(x, y) === FortifiedFarm);
+    expect(farmsteads.length).toBeGreaterThan(0);
+    expect(farmsteads.some(([x, y]) => b.near(x, y, 3, [Road]))).toBe(true);
   });
 });
 

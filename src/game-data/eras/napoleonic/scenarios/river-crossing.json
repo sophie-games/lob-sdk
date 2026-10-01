@@ -509,7 +509,7 @@
     },
     {
       "type": "TERRAIN_RECTANGLE",
-      "terrain": 2,
+      "terrain": 26,
       "width": 2,
       "height": 2,
       "position": {
@@ -522,10 +522,6 @@
           100,
           100
         ]
-      },
-      "border": {
-        "width": 1,
-        "terrain": 26
       },
       "terrainFilter": {
         "terrains": [

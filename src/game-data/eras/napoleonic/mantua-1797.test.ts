@@ -132,7 +132,7 @@ describe("Mantua 1797", () => {
       (terrain: TerrainType, tx: number, ty: number) =>
         open(terrain) && !isGateOrCauseway(tx, ty);
 
-    it("is walled with Rampart, not farm Wall, and the blockade redoubts stay redoubts", () => {
+    it("is walled with Rampart, not Fortified farm, and the blockade redoubts stay redoubts", () => {
       const counts = new Map<TerrainType, number>();
       for (const column of terrains) {
         for (const terrain of column) {
@@ -140,7 +140,7 @@ describe("Mantua 1797", () => {
         }
       }
       expect(counts.get(TerrainType.Rampart)).toBeGreaterThan(300);
-      expect(counts.get(TerrainType.Wall) ?? 0).toBe(0);
+      expect(counts.get(TerrainType.FortifiedFarm) ?? 0).toBe(0);
       expect(counts.get(TerrainType.Redoubt)).toBeGreaterThan(0);
     });
 
@@ -199,15 +199,15 @@ describe("Mantua 1797", () => {
       ).toBe(true);
     });
 
-    it("would keep the guns out if the ramparts were farm walls", () => {
-      const asWall = (terrain: TerrainType) =>
-        terrain === TerrainType.Rampart ? TerrainType.Wall : terrain;
+    it("would keep the guns out if the ramparts were fortified farms", () => {
+      const asFarm = (terrain: TerrainType) =>
+        terrain === TerrainType.Rampart ? TerrainType.FortifiedFarm : terrain;
       const artillery = passable("artillery");
       expect(
         reaches(
           laFavorita!.pos,
           cittadella!.pos,
-          gatesShut((terrain) => artillery(asWall(terrain))),
+          gatesShut((terrain) => artillery(asFarm(terrain))),
         ),
       ).toBe(false);
     });

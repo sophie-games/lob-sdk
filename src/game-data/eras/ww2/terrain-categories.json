@@ -334,13 +334,13 @@
     }
   },
 
-  "wall": {
+  "fortifiedFarm": {
     "obstructsMovement": true,
     "impassable": {
       "*": true,
       "infantry": false
     },
-    "color": "#777770",
+    "color": "#9a5a46",
     "hitboxHeight": 1.3,
     "visionAbsorption": 32,
     "staminaCostModifier": 1,
@@ -348,7 +348,7 @@
       "infantry": -0.75
     },
     "defenseModifier": {
-      "infantry": 0.85
+      "infantry": 1
     },
     "projectileAbsorption": {
       "musket": 0.8,
@@ -366,7 +366,7 @@
       "howitzer-canister": 0.6
     },
     "chargeResistanceModifier": {
-      "infantry": 0.8
+      "infantry": 0.9
     },
     "chargeBonusModifier": {
       "infantry": -0.9
