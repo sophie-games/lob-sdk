@@ -166,6 +166,23 @@ const CUSTOM_DEF_PRESENCE: Required<{
  * Provides access to all game data including units, formations, terrains, battle types, and more.
  * Uses a singleton pattern per era to ensure efficient memory usage.
  */
+/**
+ * A copy of a saved terrain override with its deprecated `prioritizeMovement`
+ * read as click-following and `builtIn`'s take-over.
+ */
+export const migrateTerrainCategoryConfig = (
+  config: TerrainCategoryConfig,
+  builtIn: TerrainCategoryConfig | undefined,
+): TerrainCategoryConfig => {
+  const migrated = structuredClone(config);
+  if (migrated.prioritizeMovement) {
+    migrated.followedOnClick ??= true;
+    migrated.takesOverAt ??= structuredClone(builtIn?.takesOverAt ?? { "*": 0.5 });
+  }
+  delete migrated.prioritizeMovement;
+  return migrated;
+};
+
 export class GameDataManager {
   readonly era: GameEra;
   private static instances: Map<GameEra, GameDataManager> = new Map();
@@ -458,16 +475,11 @@ export class GameDataManager {
         // the caller's config is live state elsewhere (the scenario editor
         // holds its overrides in React state), so expanding it in place would
         // write one explicit entry per unit category into the user's draft.
-        const config = structuredClone(override.config);
-        if (config.prioritizeMovement) {
-          config.followedOnClick ??= true;
-          config.takesOverAt ??= structuredClone(
-            this.terrainCategories[override.id as TerrainCategoryType]
-              ?.takesOverAt ?? { "*": 0.5 },
+        this.terrainCategories[override.id as TerrainCategoryType] =
+          migrateTerrainCategoryConfig(
+            override.config,
+            this.terrainCategories[override.id as TerrainCategoryType],
           );
-        }
-        delete config.prioritizeMovement;
-        this.terrainCategories[override.id as TerrainCategoryType] = config;
       }
       // Re-expand wildcards on the (possibly overridden) maps so any newly
       // introduced category id has the right wildcard fallbacks applied.
