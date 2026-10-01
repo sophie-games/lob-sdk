@@ -589,71 +589,79 @@ describe("GameDataManager", () => {
       });
     });
 
-    it("keeps Wall passable for infantry and strongly defensive in both eras", () => {
+    it("makes a Fortified farm an infantry strongpoint in both eras", () => {
       for (const era of ["napoleonic", "ww2"] as const) {
         const manager = GameDataManager.get(era);
-        expect(manager.getTerrains()[TerrainType.Wall]).toMatchObject({
-          name: "wall",
-          category: "wall",
+        expect(manager.getTerrains()[TerrainType.FortifiedFarm]).toMatchObject({
+          name: "fortifiedFarm",
+          category: "fortifiedFarm",
         });
-        expect(manager.isPassable(TerrainType.Wall, "infantry")).toBe(true);
-        // A one-tile wall slows the whole battalion climbing it.
-        expect(manager.hasObstructsMovement(TerrainType.Wall)).toBe(true);
+        expect(manager.getTerrainCategories()).not.toHaveProperty("wall");
+        expect(manager.isPassable(TerrainType.FortifiedFarm, "infantry")).toBe(true);
+        // Its walls slow the whole battalion climbing in, not just the part on them.
+        expect(manager.hasObstructsMovement(TerrainType.FortifiedFarm)).toBe(true);
         expect(manager.hasObstructsMovement(TerrainType.Road)).toBe(false);
-        expect(manager.getMovementModifier(TerrainType.Wall, "infantry")).toBe(
+        expect(manager.getMovementModifier(TerrainType.FortifiedFarm, "infantry")).toBe(
           -0.75,
         );
         expect(
-          manager.getUnitTerrainDefenseModifier("infantry", TerrainType.Wall),
+          manager.getUnitTerrainDefenseModifier("infantry", TerrainType.FortifiedFarm),
         ).toBeGreaterThan(
           manager.getUnitTerrainDefenseModifier("infantry", TerrainType.Building),
         );
         expect(
-          manager.getTerrainProjectileAbsorption(TerrainType.Wall, "musket"),
+          manager.getChargeResistanceModifier("infantry", TerrainType.FortifiedFarm),
         ).toBeGreaterThan(
-          manager.getTerrainProjectileAbsorption(TerrainType.Building, "musket"),
+          manager.getChargeResistanceModifier("infantry", TerrainType.Building),
+        );
+        // Its buildings hide what is inside as a village does.
+        expect(manager.getVisionAbsorption(TerrainType.FortifiedFarm)).toBe(
+          manager.getVisionAbsorption(TerrainType.Building),
         );
       }
 
       const napoleonic = GameDataManager.get("napoleonic");
-      for (const infantry of [
-        "guardsInfantry",
-        "militiaInfantry",
-        "skirmishInfantry",
-      ]) {
-        expect(napoleonic.isPassable(TerrainType.Wall, infantry)).toBe(true);
+      for (const infantry of ["infantry", "guardsInfantry", "militiaInfantry"]) {
+        expect(napoleonic.isPassable(TerrainType.FortifiedFarm, infantry)).toBe(true);
+        expect(
+          napoleonic.getUnitTerrainDefenseModifier(infantry, TerrainType.FortifiedFarm),
+        ).toBe(1);
       }
+      // Skirmishers firing from loopholes and windows gain most, as in a village.
+      expect(napoleonic.isPassable(TerrainType.FortifiedFarm, "skirmishInfantry")).toBe(true);
+      expect(
+        napoleonic.getUnitTerrainDefenseModifier("skirmishInfantry", TerrainType.FortifiedFarm),
+      ).toBeGreaterThan(
+        napoleonic.getUnitTerrainDefenseModifier("skirmishInfantry", TerrainType.Building),
+      );
       for (const cavalryOrArtillery of [
         "heavyCavalry",
         "lightCavalry",
         "artillery",
         "horseArtillery",
       ]) {
-        expect(napoleonic.isPassable(TerrainType.Wall, cavalryOrArtillery)).toBe(
-          false,
-        );
+        expect(
+          napoleonic.isPassable(TerrainType.FortifiedFarm, cavalryOrArtillery),
+        ).toBe(false);
       }
       const ww2 = GameDataManager.get("ww2");
-      expect(ww2.isPassable(TerrainType.Wall, "motorized")).toBe(false);
-      expect(ww2.isPassable(TerrainType.Wall, "armored")).toBe(false);
+      expect(ww2.isPassable(TerrainType.FortifiedFarm, "motorized")).toBe(false);
+      expect(ww2.isPassable(TerrainType.FortifiedFarm, "armored")).toBe(false);
     });
 
-    it("makes a Rampart a Wall that Napoleonic guns can be hauled onto", () => {
+    it("makes a Rampart a fortress wall that Napoleonic guns can be hauled onto", () => {
       for (const era of ["napoleonic", "ww2"] as const) {
         const manager = GameDataManager.get(era);
         expect(manager.getTerrains()[TerrainType.Rampart]).toMatchObject({
           name: "rampart",
           category: "rampart",
         });
-        // Infantry fights from a rampart as from a wall.
         expect(manager.isPassable(TerrainType.Rampart, "infantry")).toBe(true);
         expect(manager.hasObstructsMovement(TerrainType.Rampart)).toBe(true);
-        expect(manager.getMovementModifier(TerrainType.Rampart, "infantry")).toBe(
-          manager.getMovementModifier(TerrainType.Wall, "infantry"),
+        expect(manager.getMovementModifier(TerrainType.Rampart, "infantry")).toBe(-0.75);
+        expect(manager.getUnitTerrainDefenseModifier("infantry", TerrainType.Rampart)).toBe(
+          0.85,
         );
-        expect(
-          manager.getUnitTerrainDefenseModifier("infantry", TerrainType.Rampart),
-        ).toBe(manager.getUnitTerrainDefenseModifier("infantry", TerrainType.Wall));
       }
 
       const napoleonic = GameDataManager.get("napoleonic");
@@ -666,16 +674,15 @@ describe("GameDataManager", () => {
         expect(napoleonic.isPassable(TerrainType.Rampart, guns)).toBe(true);
         expect(napoleonic.getMovementModifier(TerrainType.Rampart, guns)).toBe(-0.9);
         expect(napoleonic.getUnitTerrainDefenseModifier(guns, TerrainType.Rampart)).toBe(
-          napoleonic.getUnitTerrainDefenseModifier("infantry", TerrainType.Wall),
+          napoleonic.getUnitTerrainDefenseModifier("infantry", TerrainType.Rampart),
         );
         expect(napoleonic.getRangedAttackModifier(TerrainType.Rampart, guns)).toBe(0);
       }
 
-      // WW2 has no guns to haul up: its rampart is its wall.
+      // WW2 has no guns to haul up: its rampart stops everything but infantry.
       const ww2 = GameDataManager.get("ww2");
-      const { color: _wallColor, ...wall } = ww2.getTerrainCategories().wall!;
-      const { color: _rampartColor, ...rampart } = ww2.getTerrainCategories().rampart!;
-      expect(rampart).toEqual(wall);
+      expect(ww2.isPassable(TerrainType.Rampart, "motorized")).toBe(false);
+      expect(ww2.isPassable(TerrainType.Rampart, "armored")).toBe(false);
     });
 
     it("getRotationSpeedModifier defaults to 0 for terrain without the modifier", () => {

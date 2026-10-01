@@ -766,7 +766,7 @@
     }
   },
 
-  "wall": {
+  "fortifiedFarm": {
     "obstructsMovement": true,
     "impassable": {
       "*": true,
@@ -775,9 +775,9 @@
       "militiaInfantry": false,
       "skirmishInfantry": false
     },
-    "color": "#777770",
+    "color": "#9a5a46",
     "hitboxHeight": 1.2,
-    "visionAbsorption": 14,
+    "visionAbsorption": 10,
     "staminaCostModifier": 1,
     "movementModifier": {
       "infantry": -0.75,
@@ -786,10 +786,10 @@
       "skirmishInfantry": -0.75
     },
     "defenseModifier": {
-      "infantry": 0.85,
-      "guardsInfantry": 0.85,
-      "militiaInfantry": 0.85,
-      "skirmishInfantry": 0.85
+      "infantry": 1,
+      "guardsInfantry": 1,
+      "militiaInfantry": 1,
+      "skirmishInfantry": 2.5
     },
     "projectileAbsorption": {
       "musket": 0.6,
@@ -814,10 +814,10 @@
       "howitzer-canister": 0.6
     },
     "chargeResistanceModifier": {
-      "infantry": 0.8,
-      "guardsInfantry": 0.8,
-      "militiaInfantry": 0.8,
-      "skirmishInfantry": 0.8
+      "infantry": 0.9,
+      "guardsInfantry": 0.9,
+      "militiaInfantry": 0.9,
+      "skirmishInfantry": 0.9
     },
     "chargeBonusModifier": {
       "*": -0.9

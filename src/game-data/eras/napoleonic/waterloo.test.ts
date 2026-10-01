@@ -390,8 +390,56 @@ describe("Battle of Waterloo scenario", () => {
     }
   });
 
-  it("posts Hougoumont's garrison wholly in the chateau, garden walls and wood", () => {
-    const cover = [TerrainType.Building, TerrainType.Wall, TerrainType.Forest];
+  // At 50 m a tile: Hougoumont's buildings and walled garden, and La Haye Sainte beside
+  // the chaussee, each one fortified farm at its own size.
+  it("draws Hougoumont and La Haye Sainte as fortified farms at their real size", () => {
+    const terrains = scenario.map!.terrains;
+    const farmAround = (name: string) => {
+      const { x, y } = scenario.objectives!.find((item) => item.name === name)!.pos;
+      const start: [number, number] = [Math.floor(x / 16), Math.floor(y / 16)];
+      expect(terrains[start[0]]![start[1]]).toBe(TerrainType.FortifiedFarm);
+      const seen = new Set([start.join()]);
+      const queue = [start];
+      while (queue.length > 0) {
+        const [u, v] = queue.pop()!;
+        for (const [du, dv] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+          const next: [number, number] = [u + du!, v + dv!];
+          if (terrains[next[0]]?.[next[1]] === TerrainType.FortifiedFarm && !seen.has(next.join())) {
+            seen.add(next.join());
+            queue.push(next);
+          }
+        }
+      }
+      return [...seen].map((key) => key.split(",").map(Number) as [number, number]);
+    };
+
+    const hougoumont = farmAround("Hougoumont");
+    expect(hougoumont).toHaveLength(12);
+    // The orchard east of the garden is open woodland, and the wood to the south stays clear of the walls.
+    const east = Math.max(...hougoumont.map(([x]) => x));
+    const south = Math.max(...hougoumont.map(([, y]) => y));
+    for (const [, y] of hougoumont.filter(([x]) => x === east)) {
+      expect(terrains[east + 1]![y]).toBe(TerrainType.LightForest);
+    }
+    for (const [x] of hougoumont.filter(([, y]) => y === south)) {
+      expect(terrains[x]![south + 1]).not.toBe(TerrainType.Forest);
+    }
+
+    const laHayeSainte = farmAround("La Haye Sainte");
+    expect(laHayeSainte.length).toBeLessThanOrEqual(2);
+    // The chaussee runs on past the farm's gate.
+    for (const [x, y] of laHayeSainte) {
+      expect(terrains[x + 1]![y] === TerrainType.Road || terrains[x + 1]![y] === TerrainType.FortifiedFarm).toBe(true);
+    }
+    // Papelotte and La Haye, on the Allied left, are farm buildings, and no other farm is fortified.
+    const papelotte = scenario.objectives!.find((item) => item.name === "Papelotte")!.pos;
+    expect(terrains[Math.floor(papelotte.x / 16)]![Math.floor(papelotte.y / 16)]).toBe(TerrainType.Building);
+    const fortified = terrains.flat().filter((terrain) => terrain === TerrainType.FortifiedFarm);
+    expect(fortified).toHaveLength(hougoumont.length + laHayeSainte.length);
+  });
+
+  it("posts Hougoumont's garrison wholly in the walled farm, its orchard and the wood", () => {
+    const cover = [TerrainType.FortifiedFarm, TerrainType.LightForest, TerrainType.Forest];
     const hougoumont = scenario.objectives!.find(
       (item) => item.name === "Hougoumont",
     )!.pos;

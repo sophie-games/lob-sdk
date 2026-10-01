@@ -109,7 +109,7 @@ describe("random map angle", () => {
   });
 
   it.each([30, 45, -20])("draws roads, streams and walls whole when turned %i degrees", (angle) => {
-    // A 1-tile road across the map, a 1-tile stream down it, and a walled farmstead.
+    // A 1-tile road across the map, a 1-tile stream down it, and a walled enclosure.
     const scenario: Scenario = {
       ...riverScenario({ min: -90, max: 90 }),
       instructions: [
@@ -121,7 +121,7 @@ describe("random map angle", () => {
           position: { type: "exact", coords: [35, 65] },
           width: 4,
           height: 4,
-          border: { width: 1, terrain: TerrainType.Wall },
+          border: { width: 1, terrain: TerrainType.Rampart },
         },
       ],
     };
@@ -156,6 +156,6 @@ describe("random map angle", () => {
     expect(groups(turned, TerrainType.Road, true)).toBe(groups(straight, TerrainType.Road, true));
     // Water and walls must hold side to side, or troops would slip through a diagonal gap.
     expect(groups(turned, TerrainType.ShallowWater, false)).toBe(groups(straight, TerrainType.ShallowWater, false));
-    expect(groups(turned, TerrainType.Wall, false)).toBe(1);
+    expect(groups(turned, TerrainType.Rampart, false)).toBe(1);
   });
 });
