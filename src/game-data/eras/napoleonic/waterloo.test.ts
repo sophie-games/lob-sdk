@@ -342,6 +342,41 @@ describe("Battle of Waterloo scenario", () => {
     }
   });
 
+  it("faces every deployment zone toward the enemy in front of it", () => {
+    // Without an authored rotation a zone faces its team's default: team 1
+    // up the map (270 degrees), the others down it (90 degrees).
+    const teamOf = new Map(scenario.players!.map(({ player, team }) => [player, team]));
+    const apart = (a: number, b: number) =>
+      Math.abs((((a - b) % (2 * Math.PI)) + 3 * Math.PI) % (2 * Math.PI) - Math.PI);
+    const zones = scenario.map!.deploymentZones!.flatMap(({ zones }) => zones);
+    expect(zones.length).toBeGreaterThan(0);
+    for (const zone of zones) {
+      const corners = zone.polygons.flatMap(({ outer }) => outer);
+      const from = {
+        x: corners.reduce((sum, p) => sum + p.x, 0) / corners.length,
+        y: corners.reduce((sum, p) => sum + p.y, 0) / corners.length,
+      };
+      // The enemy it fights: the centre of the 40 enemy units nearest to it.
+      const nearest = scenario
+        .units!.filter((unit) => teamOf.get(unit.player) !== zone.team)
+        .sort(
+          (a, b) =>
+            Math.hypot(a.pos.x - from.x, a.pos.y - from.y) -
+            Math.hypot(b.pos.x - from.x, b.pos.y - from.y),
+        )
+        .slice(0, 40);
+      const enemy = {
+        x: nearest.reduce((sum, unit) => sum + unit.pos.x, 0) / nearest.length,
+        y: nearest.reduce((sum, unit) => sum + unit.pos.y, 0) / nearest.length,
+      };
+      const facing = zone.rotation ?? (zone.team === 1 ? 1.5 : 0.5) * Math.PI;
+      // A flank zone facing along the front would be 90 degrees off.
+      expect(apart(facing, Math.atan2(enemy.y - from.y, enemy.x - from.x))).toBeLessThan(
+        Math.PI / 4,
+      );
+    }
+  });
+
   it("keeps opposing deployment ground at least three tiles apart", () => {
     const [french, allied] = scenario.map!.deploymentZones!;
     const polygons = (zones: typeof french.zones): Polygon[] =>

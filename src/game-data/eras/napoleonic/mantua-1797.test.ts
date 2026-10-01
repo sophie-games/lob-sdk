@@ -72,6 +72,39 @@ const reaches = (
   return false;
 };
 
+const heights = map.heightMap!;
+const WATER = [TerrainType.ShallowWater, TerrainType.DeepWater];
+
+/** 4-connected bodies of open water; a bridge splits them. */
+const waterBodies = () => {
+  const seen = new Set<string>();
+  const bodies: [number, number][][] = [];
+  terrains.forEach((column, x) =>
+    column.forEach((terrain, y) => {
+      if (!WATER.includes(terrain) || seen.has(`${x},${y}`)) return;
+      const body: [number, number][] = [[x, y]];
+      seen.add(`${x},${y}`);
+      for (let i = 0; i < body.length; i++) {
+        const [bx, by] = body[i]!;
+        for (const [nx, ny] of [
+          [bx + 1, by],
+          [bx - 1, by],
+          [bx, by + 1],
+          [bx, by - 1],
+        ] as [number, number][]) {
+          const t = terrains[nx]?.[ny];
+          if (t !== undefined && WATER.includes(t) && !seen.has(`${nx},${ny}`)) {
+            seen.add(`${nx},${ny}`);
+            body.push([nx, ny]);
+          }
+        }
+      }
+      bodies.push(body);
+    }),
+  );
+  return bodies;
+};
+
 const objectivesOf = (team: number) =>
   scenario.objectives!.filter((objective) => objective.team === team);
 
@@ -79,6 +112,15 @@ const mainZoneOf = (player: number) =>
   map
     .deploymentZones!.flatMap(({ zones }) => zones)
     .find((zone) => zone.player === player && zone.type === "main");
+
+/** The mean of a seat's main zone corners. */
+const centreOf = (player: number) => {
+  const corners = mainZoneOf(player)!.polygons.flatMap(({ outer }) => outer);
+  return {
+    x: corners.reduce((sum, p) => sum + p.x, 0) / corners.length,
+    y: corners.reduce((sum, p) => sum + p.y, 0) / corners.length,
+  };
+};
 
 describe("Mantua 1797", () => {
   it("seats the French blockade and reserve against the garrison and a relief column", () => {
@@ -95,13 +137,6 @@ describe("Mantua 1797", () => {
   });
 
   it("brings the relief from the east and the French reserve from the north, as on 16 January", () => {
-    const centreOf = (player: number) => {
-      const corners = mainZoneOf(player)!.polygons.flatMap(({ outer }) => outer);
-      return {
-        x: corners.reduce((sum, p) => sum + p.x, 0) / corners.length,
-        y: corners.reduce((sum, p) => sum + p.y, 0) / corners.length,
-      };
-    };
     const garrison = centreOf(GARRISON);
     const relief = centreOf(RELIEF);
     const reserve = centreOf(RESERVE);
@@ -114,12 +149,108 @@ describe("Mantua 1797", () => {
     expect(blockade.y).toBeLessThan(garrison.y);
   });
 
+  it("faces every army toward its enemy: the French on the fortress, the relief on the blockade", () => {
+    // A zone's rotation is the generated army's facing in radians, clockwise
+    // from east with y growing south, so 270 degrees faces up the map.
+    const bearing = (
+      from: { x: number; y: number },
+      to: { x: number; y: number },
+    ) => Math.atan2(to.y - from.y, to.x - from.x);
+    const apart = (a: number, b: number) =>
+      Math.abs((((a - b) % (2 * Math.PI)) + 3 * Math.PI) % (2 * Math.PI) - Math.PI);
+    const fortress = centreOf(GARRISON);
+    const blockade = centreOf(FRENCH);
+    const targets: Record<number, { x: number; y: number }> = {
+      [FRENCH]: fortress,
+      [RESERVE]: fortress,
+      [RELIEF]: blockade,
+    };
+    const zones = map.deploymentZones!.flatMap(({ zones }) => zones);
+    expect(zones.length).toBe(8);
+    for (const zone of zones) {
+      expect(zone.rotation).toBeDefined();
+      if (zone.player === GARRISON) {
+        // South, its team's default: turning the army inside two walled
+        // zones stacks it, and its AI mans the walls facing the enemy.
+        expect(apart(zone.rotation!, Math.PI / 2)).toBeLessThan(1e-3);
+        continue;
+      }
+      const wanted = bearing(centreOf(zone.player!), targets[zone.player!]!);
+      expect(apart(zone.rotation!, wanted)).toBeLessThan(Math.PI / 18);
+    }
+    // The French reserve faces down the map, the relief across it to the west.
+    expect(apart(mainZoneOf(RESERVE)!.rotation!, Math.PI / 2)).toBeLessThan(Math.PI / 8);
+    expect(apart(mainZoneOf(RELIEF)!.rotation!, Math.PI)).toBeLessThan(Math.PI / 4);
+  });
+
   it("gives the French La Favorita and San Giorgio, and the garrison the Cittadella and the city", () => {
     expect(objectivesOf(1)).toHaveLength(2);
     expect(objectivesOf(2)).toHaveLength(2);
     for (const objective of scenario.objectives!) {
       expect(objective.type).toBe(ObjectiveType.Big);
     }
+  });
+
+  describe("heights at 5 m of real elevation a level", () => {
+    it("sets every water body at one level, and the lakes, the Mincio and the Paiolo at level 0", () => {
+      const bodies = waterBodies();
+      for (const body of bodies) {
+        expect(new Set(body.map(([x, y]) => heights[x]![y]))).toHaveProperty("size", 1);
+      }
+      // The three lakes, the Mincio and the Paiolo are every body of any size.
+      const large = bodies.filter((body) => body.length >= 200);
+      expect(large.length).toBeGreaterThanOrEqual(3);
+      for (const [[x, y]] of large) {
+        expect(heights[x]![y]).toBe(0);
+      }
+    });
+
+    it("stands the city and the Cittadella at level 1, not on the DEM's rooftops", () => {
+      // The town inside the enceinte, and the Cittadella across the Mulini.
+      const town = [
+        [98, 115, 145, 160],
+        [106, 90, 126, 110],
+      ];
+      const levels = new Set<number>();
+      for (const [x0, y0, x1, y1] of town) {
+        for (let x = x0!; x < x1!; x++) {
+          for (let y = y0!; y < y1!; y++) {
+            if (terrains[x]![y] === TerrainType.Building) levels.add(heights[x]![y]!);
+          }
+        }
+      }
+      expect([...levels]).toEqual([1]);
+    });
+
+    it("rises from the southern plain to La Favorita and the north", () => {
+      const meanLevel = (y0: number, y1: number) => {
+        const levels = terrains.flatMap((column, x) =>
+          column
+            .slice(y0, y1)
+            .flatMap((terrain, i) => (WATER.includes(terrain) ? [] : [heights[x]![y0 + i]!])),
+        );
+        return levels.reduce((sum, level) => sum + level, 0) / levels.length;
+      };
+      const [laFavorita] = objectivesOf(1);
+      const { tx, ty } = tileOf(laFavorita!.pos);
+
+      expect(meanLevel(0, 64) - meanLevel(192, 256)).toBeGreaterThanOrEqual(1);
+      expect(heights[tx]![ty]).toBe(3);
+    });
+
+    it("never sets a tile more than one level above any of its neighbours", () => {
+      const steep = heights.flatMap((column, x) =>
+        column.flatMap((height, y) =>
+          [-1, 0, 1].flatMap((dx) =>
+            [-1, 0, 1]
+              .map((dy) => heights[x + dx]?.[y + dy])
+              .filter((other) => other !== undefined && Math.abs(other - height) > 1)
+              .map(() => ({ x, y })),
+          ),
+        ),
+      );
+      expect(steep).toEqual([]);
+    });
   });
 
   describe("the fortress", () => {
@@ -156,27 +287,28 @@ describe("Mantua 1797", () => {
       expect(againstRampart).toHaveLength(0);
     });
 
-    it("stands its ramparts level with the ground around them, not as raised ridges", () => {
-      const heights = map.heightMap!;
-      const raised: [number, number][] = [];
+    it("stands its ramparts and redoubts level with the ground beside them, not as ridges or trenches", () => {
+      const works = [TerrainType.Rampart, TerrainType.Redoubt];
+      const offLevel: [number, number][] = [];
       terrains.forEach((column, tx) =>
         column.forEach((terrain, ty) => {
-          if (terrain !== TerrainType.Rampart) return;
+          if (!works.includes(terrain)) return;
+          // The ground beside a work: neither another work nor the water it faces.
           const ground: number[] = [];
           for (let dx = -1; dx <= 1; dx++) {
             for (let dy = -1; dy <= 1; dy++) {
               const t = terrains[tx + dx]?.[ty + dy];
-              if (t !== undefined && t !== TerrainType.Rampart) {
+              if (t !== undefined && !works.includes(t) && !WATER.includes(t)) {
                 ground.push(heights[tx + dx]![ty + dy]!);
               }
             }
           }
-          if (ground.length > 0 && heights[tx]![ty]! > Math.min(...ground)) {
-            raised.push([tx, ty]);
+          if (ground.length > 0 && heights[tx]![ty]! !== Math.min(...ground)) {
+            offLevel.push([tx, ty]);
           }
         }),
       );
-      expect(raised).toEqual([]);
+      expect(offLevel).toEqual([]);
     });
 
     it("lets cavalry in only through its gates and causeways", () => {
