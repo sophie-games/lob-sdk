@@ -390,9 +390,9 @@ describe("Battle of Waterloo scenario", () => {
     }
   });
 
-  // At 50 m a tile: Hougoumont's buildings and walled garden, La Haye Sainte beside the
-  // chaussee and the two farms of the Allied left, each one fortified farm at its own size.
-  it("draws the strongpoint farms as fortified farms at their real size", () => {
+  // At 50 m a tile: Hougoumont's buildings and walled garden, and La Haye Sainte beside
+  // the chaussee, each one fortified farm at its own size.
+  it("draws Hougoumont and La Haye Sainte as fortified farms at their real size", () => {
     const terrains = scenario.map!.terrains;
     const farmAround = (name: string) => {
       const { x, y } = scenario.objectives!.find((item) => item.name === name)!.pos;
@@ -431,7 +431,11 @@ describe("Battle of Waterloo scenario", () => {
     for (const [x, y] of laHayeSainte) {
       expect(terrains[x + 1]![y] === TerrainType.Road || terrains[x + 1]![y] === TerrainType.FortifiedFarm).toBe(true);
     }
-    expect(farmAround("Papelotte").length).toBeLessThanOrEqual(4);
+    // Papelotte and La Haye, on the Allied left, are farm buildings, and no other farm is fortified.
+    const papelotte = scenario.objectives!.find((item) => item.name === "Papelotte")!.pos;
+    expect(terrains[Math.floor(papelotte.x / 16)]![Math.floor(papelotte.y / 16)]).toBe(TerrainType.Building);
+    const fortified = terrains.flat().filter((terrain) => terrain === TerrainType.FortifiedFarm);
+    expect(fortified).toHaveLength(hougoumont.length + laHayeSainte.length);
   });
 
   it("posts Hougoumont's garrison wholly in the walled farm, its orchard and the wood", () => {
