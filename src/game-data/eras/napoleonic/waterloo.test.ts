@@ -175,6 +175,50 @@ describe("Battle of Waterloo scenario", () => {
     expect(steep).toEqual([]);
   });
 
+  const edgeNeighbours = (x: number, y: number): [number, number][] => [
+    [x + 1, y],
+    [x - 1, y],
+    [x, y + 1],
+    [x, y - 1],
+  ];
+
+  it("joins every road into one network through edge-sharing tiles", () => {
+    const terrains = scenario.map!.terrains;
+    const paths = [TerrainType.Road, TerrainType.Dirt, TerrainType.Bridge, TerrainType.SunkenRoad];
+    const isPath = (x: number, y: number) => {
+      const terrain = terrains[x]?.[y];
+      return terrain !== undefined && paths.includes(terrain);
+    };
+    const tiles = terrains.flatMap((column, x) =>
+      column.flatMap((_, y): [number, number][] => (isPath(x, y) ? [[x, y]] : [])),
+    );
+    const seen = new Set(tiles.slice(0, 1).map(([x, y]) => `${x},${y}`));
+    const queue = tiles.slice(0, 1);
+    for (let next = queue.pop(); next; next = queue.pop()) {
+      for (const [nx, ny] of edgeNeighbours(...next)) {
+        if (isPath(nx, ny) && !seen.has(`${nx},${ny}`)) {
+          seen.add(`${nx},${ny}`);
+          queue.push([nx, ny]);
+        }
+      }
+    }
+    expect(tiles.filter(([x, y]) => !seen.has(`${x},${y}`))).toEqual([]);
+  });
+
+  it("never leaves a field tile alone among other ground", () => {
+    const terrains = scenario.map!.terrains;
+    const fields = [TerrainType.Farm, TerrainType.FarmUnplanted, TerrainType.FarmGrowing];
+    const lone = terrains.flatMap((column, x) =>
+      column.flatMap((terrain, y) =>
+        fields.includes(terrain) &&
+        !edgeNeighbours(x, y).some(([nx, ny]) => terrains[nx]?.[ny] === terrain)
+          ? [{ x, y }]
+          : [],
+      ),
+    );
+    expect(lone).toEqual([]);
+  });
+
   it("leaves objective names to the objectives", () => {
     const names = new Set(scenario.objectives!.map(({ name }) => name));
     // Nor a label on the objective, or in the band below it where its name is drawn.
