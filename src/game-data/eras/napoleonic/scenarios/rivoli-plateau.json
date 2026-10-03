@@ -1,0 +1,1050 @@
+{
+  "version": 2,
+  "name": "name",
+  "description": "description",
+  "ranked": true,
+  "baseTerrain": 0,
+  "allowDynamicArmy": true,
+  "instructions": [
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "x": 12,
+            "y": 9
+          },
+          "multiplier": 1,
+          "offset": 0.2
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 4,
+      "max": 5
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "x": 5,
+            "y": 8
+          },
+          "multiplier": 0.5,
+          "offset": 0.75
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 5,
+      "max": 7,
+      "xBounds": {
+        "min": 0,
+        "max": 20
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "x": 3,
+            "y": 4
+          },
+          "multiplier": 1,
+          "offset": 0.4
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 4,
+      "max": 6,
+      "xBounds": {
+        "min": 16,
+        "max": 30
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 0
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 7,
+      "max": 7,
+      "ranges": [
+        {
+          "min": 6.99,
+          "max": 7.01
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 0
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 6,
+      "max": 6,
+      "ranges": [
+        {
+          "min": 5.99,
+          "max": 6.01
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 0
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 5,
+      "max": 5,
+      "ranges": [
+        {
+          "min": 4.99,
+          "max": 5.01
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 0
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 0,
+      "max": 0,
+      "xBounds": {
+        "min": 80,
+        "max": 100
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 0
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 0,
+      "max": 0,
+      "ranges": [
+        {
+          "min": -0.01,
+          "max": 0.01
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 0,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 1,
+      "height": 0.01,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 82,
+            "max": 84
+          },
+          "yRange": {
+            "min": 20,
+            "max": 24
+          }
+        },
+        {
+          "xRange": {
+            "min": 74,
+            "max": 77
+          },
+          "yRange": {
+            "min": 29,
+            "max": 33
+          }
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 0,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 1,
+      "height": 0.01,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 82,
+            "max": 84
+          },
+          "yRange": {
+            "min": 4,
+            "max": 10
+          }
+        },
+        {
+          "xRange": {
+            "min": 76,
+            "max": 79
+          },
+          "yRange": {
+            "min": 8,
+            "max": 14
+          }
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 0,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 1,
+      "height": 0.01,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 82,
+            "max": 84
+          },
+          "yRange": {
+            "min": 38,
+            "max": 44
+          }
+        },
+        {
+          "xRange": {
+            "min": 76,
+            "max": 79
+          },
+          "yRange": {
+            "min": 40,
+            "max": 46
+          }
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 5,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 2,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 88,
+            "max": 94
+          },
+          "yRange": {
+            "min": 0,
+            "max": 0
+          }
+        },
+        {
+          "xRange": {
+            "min": 86,
+            "max": 88
+          },
+          "yRange": {
+            "min": 14,
+            "max": 20
+          }
+        },
+        {
+          "xRange": {
+            "min": 92,
+            "max": 95
+          },
+          "yRange": {
+            "min": 30,
+            "max": 36
+          }
+        },
+        {
+          "xRange": {
+            "min": 88,
+            "max": 92
+          },
+          "yRange": {
+            "min": 52,
+            "max": 52
+          }
+        }
+      ],
+      "uphillHeightCost": 50,
+      "noiseWeight": 11,
+      "noiseSmoothness": 4,
+      "curveLen": 8,
+      "curveWeight": 0.3
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "range": {
+        "min": 20,
+        "max": 80
+      },
+      "width": 1,
+      "terrainCosts": [
+        {
+          "terrain": 5,
+          "cost": 50
+        }
+      ],
+      "xBounds": {
+        "min": 80,
+        "max": 92
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "uphillHeightCost": 20,
+      "downHillHeightCost": 20
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 1,
+      "terrainCosts": [
+        {
+          "terrain": 5,
+          "cost": 50
+        }
+      ],
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 84,
+            "max": 87
+          },
+          "yRange": {
+            "min": 18,
+            "max": 22
+          }
+        },
+        {
+          "xRange": {
+            "min": 74,
+            "max": 77
+          },
+          "yRange": {
+            "min": 29,
+            "max": 33
+          }
+        },
+        {
+          "xRange": {
+            "min": 45,
+            "max": 55
+          },
+          "yRange": {
+            "min": 20,
+            "max": 26
+          }
+        }
+      ],
+      "uphillHeightCost": 2,
+      "downHillHeightCost": 2
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 0,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 1,
+      "height": 6,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 62,
+            "max": 68
+          },
+          "yRange": {
+            "min": 46,
+            "max": 47
+          }
+        },
+        {
+          "xRange": {
+            "min": 63,
+            "max": 67
+          },
+          "yRange": {
+            "min": 49,
+            "max": 50
+          }
+        }
+      ]
+    },
+    {
+      "type": "SYMMETRY",
+      "mode": "mirror",
+      "keep": "top"
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 6,
+      "scale": 1,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": 0.5,
+        "max": 3.5
+      },
+      "excludeTerrains": [
+        3,
+        5
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 6,
+      "scale": {
+        "x": 2,
+        "y": 4
+      },
+      "ranges": [
+        {
+          "min": 0.45,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": 3.9,
+        "max": 5.1
+      },
+      "xBounds": {
+        "min": 73,
+        "max": 80
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "excludeTerrains": [
+        3
+      ],
+      "smoothing": {
+        "minSurrounding": 3
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 27,
+      "scale": 3,
+      "ranges": [
+        {
+          "min": 0.6,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": -0.1,
+        "max": 0.1
+      },
+      "xBounds": {
+        "min": 80,
+        "max": 100
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "excludeTerrains": [
+        3,
+        5
+      ],
+      "smoothing": {
+        "minSurrounding": 2
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 1,
+      "scale": 6,
+      "ranges": [
+        {
+          "min": 0.8,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": 4.6,
+        "max": 6.4
+      },
+      "xBounds": {
+        "min": 0,
+        "max": 34
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "smoothing": {
+        "minSurrounding": 2
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 27,
+      "scale": 6,
+      "ranges": [
+        {
+          "min": 0.55,
+          "max": 0.8
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": 4.6,
+        "max": 6.4
+      },
+      "xBounds": {
+        "min": 0,
+        "max": 34
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "smoothing": {
+        "minSurrounding": 2
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 27,
+      "scale": 6,
+      "ranges": [
+        {
+          "min": 0.8,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": 3.9,
+        "max": 5.4
+      },
+      "xBounds": {
+        "min": 30,
+        "max": 76
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "smoothing": {
+        "minSurrounding": 2
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 9,
+      "scale": 3,
+      "ranges": [
+        {
+          "min": 0.45,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": 6.5,
+        "max": 99
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 6,
+      "scale": 2,
+      "ranges": [
+        {
+          "min": 0.85,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": 6.8,
+        "max": 99
+      },
+      "smoothing": {
+        "minSurrounding": 2
+      }
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 2,
+      "width": 2,
+      "height": 2,
+      "position": {
+        "type": "range",
+        "min": [
+          55,
+          35
+        ],
+        "max": [
+          80,
+          65
+        ]
+      },
+      "terrainFilter": {
+        "heights": [
+          {
+            "min": 5.5,
+            "max": 6.5
+          }
+        ]
+      },
+      "excludeTerrains": [
+        3,
+        6,
+        5
+      ],
+      "scatter": {
+        "count": 1
+      }
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 2,
+      "width": 2,
+      "height": 2,
+      "position": {
+        "type": "range",
+        "min": [
+          0,
+          0
+        ],
+        "max": [
+          100,
+          100
+        ]
+      },
+      "xBounds": {
+        "min": 38,
+        "max": 62
+      },
+      "yBounds": {
+        "min": 16,
+        "max": 28
+      },
+      "scatter": {
+        "countPer100x100": 220,
+        "minWidth": 2,
+        "maxWidth": 4,
+        "minHeight": 2,
+        "maxHeight": 4
+      }
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 2,
+      "width": 2,
+      "height": 2,
+      "position": {
+        "type": "range",
+        "min": [
+          0,
+          0
+        ],
+        "max": [
+          100,
+          100
+        ]
+      },
+      "xBounds": {
+        "min": 38,
+        "max": 62
+      },
+      "yBounds": {
+        "min": 72,
+        "max": 84
+      },
+      "scatter": {
+        "countPer100x100": 220,
+        "minWidth": 2,
+        "maxWidth": 4,
+        "minHeight": 2,
+        "maxHeight": 4
+      }
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 2,
+      "width": 2,
+      "height": 2,
+      "position": {
+        "type": "range",
+        "min": [
+          0,
+          0
+        ],
+        "max": [
+          100,
+          100
+        ]
+      },
+      "xBounds": {
+        "min": 26,
+        "max": 74
+      },
+      "yBounds": {
+        "min": 6,
+        "max": 40
+      },
+      "scatter": {
+        "countPer100x100": 25,
+        "minWidth": 2,
+        "maxWidth": 3,
+        "minHeight": 2,
+        "maxHeight": 3
+      }
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "terrain": 2,
+      "width": 2,
+      "height": 2,
+      "position": {
+        "type": "range",
+        "min": [
+          0,
+          0
+        ],
+        "max": [
+          100,
+          100
+        ]
+      },
+      "xBounds": {
+        "min": 26,
+        "max": 74
+      },
+      "yBounds": {
+        "min": 60,
+        "max": 94
+      },
+      "scatter": {
+        "countPer100x100": 25,
+        "minWidth": 2,
+        "maxWidth": 3,
+        "minHeight": 2,
+        "maxHeight": 3
+      }
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "range": {
+        "min": 30,
+        "max": 65
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 2,
+          "toTerrain": 2
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 6,
+          "cost": 50
+        },
+        {
+          "terrain": 5,
+          "cost": 50
+        },
+        {
+          "terrain": 1,
+          "cost": 3
+        },
+        {
+          "terrain": 2,
+          "cost": -1
+        }
+      ],
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "uphillHeightCost": 3,
+      "downHillHeightCost": 3
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        11,
+        18,
+        17
+      ],
+      "maxDistance": 7,
+      "width": {
+        "min": 3,
+        "max": 4
+      },
+      "size": {
+        "min": 6,
+        "max": 12
+      },
+      "chance": 0.45,
+      "along": [
+        3,
+        2
+      ],
+      "border": {
+        "terrain": 27,
+        "chance": 0.25
+      },
+      "heights": [
+        {
+          "min": 3.9,
+          "max": 5.1
+        }
+      ]
+    }
+  ],
+  "triggers": [],
+  "locales": {
+    "en": {
+      "name": "Rivoli Plateau",
+      "description": "A plateau between the Adige gorge and the slopes of Monte Baldo. Roads climb onto it from the gorge through narrow defiles."
+    },
+    "es": {
+      "name": "Meseta de R\u00edvoli",
+      "description": "Una meseta entre la garganta del Adigio y las laderas del Monte Baldo. Los caminos suben a ella desde la garganta por estrechos desfiladeros."
+    },
+    "fr": {
+      "name": "Plateau de Rivoli",
+      "description": "Un plateau entre les gorges de l'Adige et les pentes du Monte Baldo. Des routes y montent depuis les gorges par d'\u00e9troits d\u00e9fil\u00e9s."
+    },
+    "de": {
+      "name": "Plateau von Rivoli",
+      "description": "Ein Plateau zwischen der Etschschlucht und den H\u00e4ngen des Monte Baldo. Stra\u00dfen steigen aus der Schlucht durch enge Engp\u00e4sse hinauf."
+    },
+    "it": {
+      "name": "Altopiano di Rivoli",
+      "description": "Un altopiano tra la gola dell'Adige e le pendici del Monte Baldo. Dalla gola vi salgono strade per stretti passaggi."
+    },
+    "pt": {
+      "name": "Planalto de Rivoli",
+      "description": "Um planalto entre o desfiladeiro do \u00c1dige e as encostas do Monte Baldo. As estradas sobem at\u00e9 ele a partir do desfiladeiro por passagens estreitas."
+    },
+    "ru": {
+      "name": "\u041f\u043b\u0430\u0442\u043e \u0420\u0438\u0432\u043e\u043b\u0438",
+      "description": "\u041f\u043b\u0430\u0442\u043e \u043c\u0435\u0436\u0434\u0443 \u0443\u0449\u0435\u043b\u044c\u0435\u043c \u0410\u0434\u0438\u0434\u0436\u0435 \u0438 \u0441\u043a\u043b\u043e\u043d\u0430\u043c\u0438 \u041c\u043e\u043d\u0442\u0435-\u0411\u0430\u043b\u044c\u0434\u043e. \u0414\u043e\u0440\u043e\u0433\u0438 \u043f\u043e\u0434\u043d\u0438\u043c\u0430\u044e\u0442\u0441\u044f \u043d\u0430 \u043d\u0435\u0433\u043e \u0438\u0437 \u0443\u0449\u0435\u043b\u044c\u044f \u043f\u043e \u0443\u0437\u043a\u0438\u043c \u0442\u0435\u0441\u043d\u0438\u043d\u0430\u043c."
+    },
+    "uk": {
+      "name": "\u041f\u043b\u0430\u0442\u043e \u0420\u0456\u0432\u043e\u043b\u0456",
+      "description": "\u041f\u043b\u0430\u0442\u043e \u043c\u0456\u0436 \u0443\u0449\u0435\u043b\u0438\u043d\u043e\u044e \u0410\u0434\u0456\u0434\u0436\u0435 \u0442\u0430 \u0441\u0445\u0438\u043b\u0430\u043c\u0438 \u041c\u043e\u043d\u0442\u0435-\u0411\u0430\u043b\u044c\u0434\u043e. \u0414\u043e\u0440\u043e\u0433\u0438 \u043f\u0456\u0434\u043d\u0456\u043c\u0430\u044e\u0442\u044c\u0441\u044f \u043d\u0430 \u043d\u044c\u043e\u0433\u043e \u0437 \u0443\u0449\u0435\u043b\u0438\u043d\u0438 \u0432\u0443\u0437\u044c\u043a\u0438\u043c\u0438 \u043f\u0440\u043e\u0445\u043e\u0434\u0430\u043c\u0438."
+    },
+    "pl": {
+      "name": "P\u0142askowy\u017c Rivoli",
+      "description": "P\u0142askowy\u017c mi\u0119dzy w\u0105wozem Adygi a stokami Monte Baldo. Drogi wspinaj\u0105 si\u0119 na niego z w\u0105wozu w\u0105skimi przesmykami."
+    },
+    "hu": {
+      "name": "A rivoli fenns\u00edk",
+      "description": "Fenns\u00edk az Adige-szurdok \u00e9s a Monte Baldo lejt\u0151i k\u00f6z\u00f6tt. Az utak sz\u0171k szorosokon kapaszkodnak fel r\u00e1 a szurdokb\u00f3l."
+    },
+    "el": {
+      "name": "\u039f\u03c1\u03bf\u03c0\u03ad\u03b4\u03b9\u03bf \u03c4\u03bf\u03c5 \u03a1\u03af\u03b2\u03bf\u03bb\u03b9",
+      "description": "\u0388\u03bd\u03b1 \u03bf\u03c1\u03bf\u03c0\u03ad\u03b4\u03b9\u03bf \u03b1\u03bd\u03ac\u03bc\u03b5\u03c3\u03b1 \u03c3\u03c4\u03bf \u03c6\u03b1\u03c1\u03ac\u03b3\u03b3\u03b9 \u03c4\u03bf\u03c5 \u0391\u03b4\u03af\u03b3\u03b7 \u03ba\u03b1\u03b9 \u03c4\u03b9\u03c2 \u03c0\u03bb\u03b1\u03b3\u03b9\u03ad\u03c2 \u03c4\u03bf\u03c5 \u039c\u03cc\u03bd\u03c4\u03b5 \u039c\u03c0\u03ac\u03bb\u03bd\u03c4\u03bf. \u0394\u03c1\u03cc\u03bc\u03bf\u03b9 \u03b1\u03bd\u03b5\u03b2\u03b1\u03af\u03bd\u03bf\u03c5\u03bd \u03c3\u03b5 \u03b1\u03c5\u03c4\u03cc \u03b1\u03c0\u03cc \u03c4\u03bf \u03c6\u03b1\u03c1\u03ac\u03b3\u03b3\u03b9 \u03bc\u03ad\u03c3\u03b1 \u03b1\u03c0\u03cc \u03c3\u03c4\u03b5\u03bd\u03ac \u03c0\u03b5\u03c1\u03ac\u03c3\u03bc\u03b1\u03c4\u03b1."
+    },
+    "tr": {
+      "name": "Rivoli Platosu",
+      "description": "Adige bo\u011faz\u0131 ile Monte Baldo yama\u00e7lar\u0131 aras\u0131nda bir plato. Yollar bo\u011fazdan dar ge\u00e7itlerle platoya t\u0131rman\u0131r."
+    },
+    "ar": {
+      "name": "\u0647\u0636\u0628\u0629 \u0631\u064a\u0641\u0648\u0644\u064a",
+      "description": "\u0647\u0636\u0628\u0629 \u0628\u064a\u0646 \u062e\u0627\u0646\u0642 \u0646\u0647\u0631 \u0627\u0644\u0623\u062f\u064a\u062c\u064a \u0648\u0645\u0646\u062d\u062f\u0631\u0627\u062a \u062c\u0628\u0644 \u0628\u0627\u0644\u062f\u0648\u060c \u062a\u0635\u0639\u062f \u0625\u0644\u064a\u0647\u0627 \u0627\u0644\u0637\u0631\u0642 \u0645\u0646 \u0627\u0644\u062e\u0627\u0646\u0642 \u0639\u0628\u0631 \u0645\u0645\u0631\u0627\u062a \u0636\u064a\u0642\u0629."
+    },
+    "hi": {
+      "name": "\u0930\u093f\u0935\u094b\u0932\u0940 \u0915\u093e \u092a\u0920\u093e\u0930",
+      "description": "\u0905\u0921\u093f\u091c\u0947 \u0915\u0940 \u0918\u093e\u091f\u0940 \u0914\u0930 \u092e\u094b\u0902\u091f\u0947 \u092c\u093e\u0932\u094d\u0921\u094b \u0915\u0940 \u0922\u0932\u093e\u0928\u094b\u0902 \u0915\u0947 \u092c\u0940\u091a \u090f\u0915 \u092a\u0920\u093e\u0930\u0964 \u0938\u0921\u093c\u0915\u0947\u0902 \u0918\u093e\u091f\u0940 \u0938\u0947 \u0924\u0902\u0917 \u0926\u0930\u094d\u0930\u094b\u0902 \u0938\u0947 \u0939\u094b\u0915\u0930 \u0909\u0938 \u092a\u0930 \u091a\u0922\u093c\u0924\u0940 \u0939\u0948\u0902\u0964"
+    },
+    "id": {
+      "name": "Dataran Tinggi Rivoli",
+      "description": "Dataran tinggi di antara ngarai Adige dan lereng Monte Baldo. Jalan-jalan mendaki ke sana dari ngarai melalui celah sempit."
+    },
+    "th": {
+      "name": "\u0e17\u0e35\u0e48\u0e23\u0e32\u0e1a\u0e2a\u0e39\u0e07\u0e23\u0e34\u0e42\u0e27\u0e25\u0e35",
+      "description": "\u0e17\u0e35\u0e48\u0e23\u0e32\u0e1a\u0e2a\u0e39\u0e07\u0e23\u0e30\u0e2b\u0e27\u0e48\u0e32\u0e07\u0e2b\u0e38\u0e1a\u0e1c\u0e32\u0e41\u0e21\u0e48\u0e19\u0e49\u0e33\u0e2d\u0e32\u0e14\u0e35\u0e40\u0e08\u0e01\u0e31\u0e1a\u0e25\u0e32\u0e14\u0e40\u0e02\u0e32\u0e21\u0e2d\u0e19\u0e40\u0e15\u0e1a\u0e31\u0e25\u0e42\u0e14 \u0e16\u0e19\u0e19\u0e44\u0e15\u0e48\u0e02\u0e36\u0e49\u0e19\u0e21\u0e32\u0e08\u0e32\u0e01\u0e2b\u0e38\u0e1a\u0e1c\u0e32\u0e1c\u0e48\u0e32\u0e19\u0e0a\u0e48\u0e2d\u0e07\u0e40\u0e02\u0e32\u0e41\u0e04\u0e1a"
+    },
+    "vi": {
+      "name": "Cao nguy\u00ean Rivoli",
+      "description": "M\u1ed9t cao nguy\u00ean gi\u1eefa h\u1ebbm n\u00fai s\u00f4ng Adige v\u00e0 s\u01b0\u1eddn n\u00fai Monte Baldo. Nh\u1eefng con \u0111\u01b0\u1eddng leo l\u00ean t\u1eeb h\u1ebbm n\u00fai qua c\u00e1c \u0111\u00e8o h\u1eb9p."
+    },
+    "ja": {
+      "name": "\u30ea\u30f4\u30a9\u30ea\u9ad8\u539f",
+      "description": "\u30a2\u30c7\u30a3\u30b8\u30a7\u5ce1\u8c37\u3068\u30e2\u30f3\u30c6\u30fb\u30d0\u30eb\u30c9\u306e\u659c\u9762\u306b\u631f\u307e\u308c\u305f\u9ad8\u539f\u3002\u9053\u306f\u5ce1\u8c37\u304b\u3089\u72ed\u3044\u9698\u8def\u3092\u901a\u3063\u3066\u767b\u3063\u3066\u304f\u308b\u3002"
+    },
+    "kr": {
+      "name": "\ub9ac\ubcfc\ub9ac \uace0\uc6d0",
+      "description": "\uc544\ub514\uc81c \ud611\uace1\uacfc \ubaac\ud14c\ubc1c\ub3c4 \ube44\ud0c8 \uc0ac\uc774\uc758 \uace0\uc6d0. \uae38\uc740 \uc881\uc740 \uc560\ub85c\ub97c \uc9c0\ub098 \ud611\uace1\uc5d0\uc11c \uc62c\ub77c\uc628\ub2e4."
+    },
+    "zh": {
+      "name": "\u91cc\u6c83\u5229\u9ad8\u539f",
+      "description": "\u4f4d\u4e8e\u963f\u8fea\u6770\u5ce1\u8c37\u4e0e\u5df4\u5c14\u591a\u5c71\u5761\u4e4b\u95f4\u7684\u9ad8\u539f\uff0c\u9053\u8def\u4ece\u5ce1\u8c37\u7ecf\u72ed\u7a84\u7684\u9698\u53e3\u6500\u4e0a\u9ad8\u539f\u3002"
+    }
+  },
+  "randomDeploymentZones": {
+    "top": [
+      {
+        "role": "main",
+        "origin": {
+          "x": {
+            "min": 24,
+            "max": 24
+          },
+          "y": {
+            "min": 3,
+            "max": 3
+          }
+        },
+        "polygon": {
+          "outer": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 50,
+              "y": 0
+            },
+            {
+              "x": 50,
+              "y": 10
+            },
+            {
+              "x": 0,
+              "y": 10
+            }
+          ]
+        }
+      },
+      {
+        "role": "forward",
+        "origin": {
+          "x": {
+            "min": 24,
+            "max": 24
+          },
+          "y": {
+            "min": 13,
+            "max": 13
+          }
+        },
+        "polygon": {
+          "outer": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 50,
+              "y": 0
+            },
+            {
+              "x": 50,
+              "y": 10
+            },
+            {
+              "x": 0,
+              "y": 10
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

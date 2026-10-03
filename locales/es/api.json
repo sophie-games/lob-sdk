@@ -23,5 +23,9 @@
   "MAX_SLOW_QUEUE_LIMIT_REACHED": "Ya tienes el máximo de partidas esperando en la cola. Retira una antes de volver a entrar en cola.",
   "USER_NOT_ADDED_TO_THE_QUEUE": "No se te pudo añadir a la cola. Inténtalo de nuevo.",
   "INVALID_CURRENCY_TYPE": "Selección de moneda inválida.",
-  "INTERNAL_ERROR": "Algo salió mal. Inténtalo de nuevo."
+  "INTERNAL_ERROR": "Algo salió mal. Inténtalo de nuevo.",
+  "Username or email already taken": "El nombre de usuario o correo ya está en uso.",
+  "INVALID_EMAIL": "Introduce una dirección de correo válida.",
+  "DISPOSABLE_EMAIL_NOT_ALLOWED": "No se permiten direcciones de correo temporales.",
+  "INVALID_USERNAME": "Elige otro nombre: de 3 a 50 letras latinas, números, guiones o guiones bajos."
 }

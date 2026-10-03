@@ -1,0 +1,100 @@
+{
+  "defaultDivisionKind": "infantry",
+  "defaultBrigadeKind": "line",
+  "divisions": [
+    {
+      "id": "infantry",
+      "titleKey": "orderOfBattle.infantryDivision",
+      "categories": [
+        "infantry",
+        "guardsInfantry",
+        "militiaInfantry",
+        "skirmishInfantry"
+      ],
+      "brigadeKind": "line",
+      "maxTroops": 10,
+      "maxPerBrigade": 5,
+      "maxBrigades": 2,
+      "distributedCategories": [
+        "skirmishInfantry"
+      ],
+      "row": "front",
+      "position": "centre",
+      "support": [
+        {
+          "kind": "artillery",
+          "maxBlocks": 2
+        }
+      ]
+    },
+    {
+      "id": "cavalry",
+      "titleKey": "orderOfBattle.cavalryDivision",
+      "categories": [
+        "lightCavalry",
+        "scoutCavalry",
+        "midCavalry",
+        "heavyCavalry"
+      ],
+      "brigadeKind": "line",
+      "maxTroops": 5,
+      "maxPerBrigade": 3,
+      "maxBrigades": 2,
+      "row": "front",
+      "position": "flanks",
+      "classes": [
+        {
+          "categories": [
+            "scoutCavalry",
+            "lightCavalry"
+          ],
+          "row": "front",
+          "position": "flanks"
+        },
+        {
+          "categories": [
+            "midCavalry"
+          ],
+          "row": "rear",
+          "position": "flanks"
+        },
+        {
+          "categories": [
+            "heavyCavalry"
+          ],
+          "row": "rear",
+          "position": "centre"
+        }
+      ],
+      "support": [
+        {
+          "kind": "artillery",
+          "maxBlocks": 1,
+          "fasterThan": "infantry"
+        }
+      ]
+    },
+    {
+      "id": "artillery",
+      "titleKey": "orderOfBattle.artilleryReserve",
+      "categories": [
+        "artillery",
+        "horseArtillery"
+      ],
+      "brigadeKind": "artillery",
+      "maxTroops": 1000,
+      "maxPerBrigade": 1000,
+      "maxBrigades": 1,
+      "row": "rear",
+      "position": "centre"
+    }
+  ],
+  "brigades": {
+    "line": {
+      "titleKey": "orderOfBattle.brigade"
+    },
+    "artillery": {
+      "titleKey": "orderOfBattle.divisionalArtillery"
+    }
+  }
+}

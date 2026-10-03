@@ -3,21 +3,24 @@
     "id": 4,
     "name": "fireAndAdvance",
     "isDefault": true,
-    "speedModifierWhenShooting": -0.1,
+    "speedModifierWhenShooting": -0.2,
     "speedModifierWhenShootingByCategory": {
-      "infantry": -0.1,
-      "guardsInfantry": -0.1,
-      "artillery": -0.1,
-      "militiaInfantry": -0.1,
-      "skirmishInfantry": -0.4
+      "infantry": -0.2,
+      "guardsInfantry": -0.2,
+      "artillery": -0.2,
+      "horseArtillery": -0.2,
+      "militiaInfantry": -0.2,
+      "skirmishInfantry": -0.2
     },
     "allowFireWhenMoving": true,
     "orgRegainModifier": -0.15,
+    "rangedDamageModifier": -0.2,
     "rangedDamageModifierByCategory": {
       "infantry": -0.2,
       "guardsInfantry": -0.2,
       "artillery": -0.4,
-      "militiaInfantry": -0.2,
+      "horseArtillery": -0.4,
+      "militiaInfantry": -0.35,
       "skirmishInfantry": -0.2
     }
   },
@@ -51,17 +54,19 @@
       "guardsInfantry": -0.35,
       "militiaInfantry": -0.35,
       "skirmishInfantry": -0.35,
-      "artillery": -0.8
+      "artillery": -0.8,
+      "horseArtillery": -0.8
     },
     "speedModifierByCategory": {
       "infantry": -0.35,
       "guardsInfantry": -0.35,
       "artillery": -0.55,
+      "horseArtillery": -0.55,
       "militiaInfantry": -0.35,
       "skirmishInfantry": -0.35,
       "ship": -0.5
     },
-    "speedModifier": -0.3,
+    "speedModifier": -0.6,
     "chargeResistance": -0.2,
     "allowFireWhenMoving": true,
     "receivedOrgDamage": 0.15,

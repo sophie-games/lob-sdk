@@ -1,4 +1,15 @@
 {
+  "mapImage": {
+    "title": "Export map image",
+    "description": "Export the entire terrain without units, grid lines or editor overlays. Map proportions are preserved.",
+    "resolution": "Longest edge",
+    "resolution4k": "4K — 3840 px",
+    "resolution8k": "8K — 7680 px",
+    "size": "PNG · {{width}} × {{height}} px",
+    "progress": "Rendering… {{percent}}%",
+    "error": "Could not export this image. Try 4K or a smaller map.",
+    "download": "Download PNG"
+  },
   "inspectorBands": {
     "identity": "Identity",
     "placement": "Placement",
@@ -39,6 +50,7 @@
     "optionBuiltIn": "{{name}} (built-in)",
     "optionCustom": "{{name}} (custom)",
     "optionAllUnitCategories": "All unit categories",
+    "optionAllFormations": "All formations",
     "nameWithKind": "{{name}} ({{kind}})",
     "rotationSpeedModifier": "Rotation speed modifier"
   },
@@ -48,6 +60,7 @@
       "terrain": "Terrain",
       "units": "Units",
       "objectives": "Objectives",
+      "lineOfSight": "Sight",
       "triggers": "Triggers"
     },
     "mode": {
@@ -81,16 +94,22 @@
     "allowDynamicArmyHelp": "When on, players build their own army for the battle type and deploy it inside their zones. When off, they fight with the units you placed on the map and the army screen is skipped.",
     "fixedRoster": "Fixed roster",
     "fixedRosterHelp": "When on, the scenario decides the player slots, the teams, and the ammunition each side gets, and nobody can be added or removed in the lobby, and the Players section below is yours to edit. When off, the lobby or matchmaking decides who plays, and that section is grayed because the roster is no longer the scenario's to set.",
-    "allowDeploymentPhase": "Deployment phase",
-    "allowDeploymentPhaseHelp": "When on, the battle opens with one extra turn before any fighting, so each player can rearrange their units inside their deployment zone. When off, the fighting starts at once, with no chance to reposition first.",
     "placeableObjectives": "Player-placed objectives",
     "placeableObjectivesHelp": "When on, each player positions their own objectives during the deployment phase, inside their own zone. When off, the battle uses only the objectives you placed on the map.",
-    "placeableObjectivesNeedsDeployment": "Switch on the deployment phase as well, or players never reach the turn in which they would place these objectives and none will appear.",
+    "assignableDeploymentZones": "Commander-in-chief assigns positions",
+    "assignableDeploymentZonesHelp": "When on, each team's commander-in-chief decides during the deployment phase which player holds each command's position, or leaves one empty. The enemy never sees the choice. Mark the commander-in-chief in the players panel; without one, the team's first seat decides.",
+    "placeableObjectivesNeedsDeployment": "Add a deployment zone as well, or players never reach the turn in which they would place these objectives and none will appear.",
     "noInherentAmmo": "Ammunition from the reserve only",
     "noInherentAmmoHelp": "When on, units start with no ammunition and draw everything from their side's shared reserve, so they cannot fire until the first resupply reaches them. When off, they begin the battle with their own supply as usual.",
+    "startTime": "Start time",
+    "startTimeHelp": "Optional. Leave empty for turn 1 to start at {{time}} (the era default).",
+    "maxTurn": "Maximum turns",
+    "maxTurnHelp": "Optional scenario default (10–99); games can still choose another limit.",
     "showGrid": "Show grid",
     "showUnits": "Show units",
     "showObjectives": "Show objectives",
+    "showMapLabels": "Show map labels",
+    "showDeploymentZones": "Show deployment zones",
     "goBack": "Go back",
     "goBackConfirm": "Leave the editor and go back to the menu?",
     "display": "Display",
@@ -110,6 +129,11 @@
       "placingTouch": "Pick a tool, then tap the map to put something down."
     }
   },
+  "lineOfSight": {
+    "help": "Right-click the map to see what a unit standing there could see. Right-click again to look from somewhere else.",
+    "helpTouch": "Tap the map to see what a unit standing there could see. Tap again to look from somewhere else.",
+    "legend": "Lit ground is in sight, brightest where fog of war would show the most detail. Dark ground inside the ring is hidden by hills, woods or towns."
+  },
   "createScenario": {
     "mapBand": "Map",
     "forcesBand": "Forces",
@@ -124,6 +148,9 @@
   },
   "playersPanel": {
     "playerNumbered": "Player {{number}}",
+    "commander": "Commander",
+    "commandFormation": "Command",
+    "commanderInChief": "Commander-in-chief",
     "removePlayer": "Remove player",
     "rosterLimits": "A scenario needs at least {{min}} players and allows at most {{max}}.",
     "ammoReserve": "Reserve",
@@ -173,21 +200,37 @@
   "deployment": {
     "title": "Deployment zones",
     "hint": "Each team can have several zones, with individual zones reserved for a player when needed.",
-    "phaseHelp": "With the deployment phase on, players get one extra turn before the fighting begins, purely to shuffle their units around inside their zone.",
-    "gateHelp": "These zones are editable while any one of Allow dynamic army, Deployment phase or Player-placed objectives is on, since each of the three needs somewhere for an arriving army to start. With all three off they are grayed, and on a procedural map they are grayed as well, the zones there being authored as percentages in the Random map panel instead.",
+    "phaseHelp": "When the map has at least one deployment zone, the battle opens with one extra turn before any fighting, so players can rearrange their units inside their zones.",
+    "gateHelp": "Remove every zone to start the fighting at once, with no deployment turn. On a procedural map this section is grayed, the zones there being authored as percentages in the Random map panel instead.",
     "team": "Team {{team}}",
-    "wholeTeam": "All team players",
+    "remainingPlayers": "Remaining team players",
+    "assignmentHelp": "Choose the remaining players or select one or more specific players.",
     "player": "Player {{player}}",
     "mainZone": "Main",
     "forwardZone": "Forward",
     "addMainZone": "Add main zone",
     "addForwardZone": "Add forward zone",
     "removeZone": "Remove zone",
+    "boundary": "Boundary",
+    "exclusion": "Exclusion {{number}}",
+    "polygon": "Polygon {{number}}",
+    "drawOnMap": "Draw on map",
+    "removeVertex": "Remove vertex",
+    "addVertex": "Add vertex",
+    "removePolygon": "Remove polygon",
+    "drawExclusion": "Draw exclusion",
+    "drawAdditionalPolygon": "Draw another polygon",
+    "drawHint": "Click the map to add vertices ({{count}} placed).",
+    "invalidPolygon": "The polygon or exclusion is invalid.",
+    "undoVertex": "Undo last vertex",
+    "finishPolygon": "Finish polygon",
+    "rightAngles": "Right angles",
+    "rightAnglesHint": "Keeps every edge horizontal or vertical, and closes the shape square on finish.",
     "fields": {
       "x": "X",
       "y": "Y",
       "player": "Assigned to",
-      "rotation": "Rotation (degrees)"
+      "rotation": "Army facing (degrees)"
     }
   },
   "vpBalance": {
@@ -202,7 +245,11 @@
     "drawLineRank": "Draw-line rank (lower = front)",
     "title": "Edit custom formation",
     "collision": "Collision",
-    "collisionHelp": "The rectangular space this formation takes up on the ground: frontage across the front and depth from front to back. Set both values to 0 for no collision (flying / ghost).",
+    "collisionHelp": "The space this formation takes up on the ground. A circle needs only a radius, while a rectangle needs its frontage across the front and its depth from front to back. Set the radius to 0 and the formation takes up no space at all, passing through everything.",
+    "shape": "Shape",
+    "shapeRectangle": "Rectangle",
+    "shapeCircle": "Circle",
+    "radiusPx": "Radius (px)",
     "frontagePx": "Frontage (px)",
     "depthPx": "Depth (px)",
     "runMovementModifier": "Run movement modifier",
@@ -217,8 +264,9 @@
     "flanking": "Flanking",
     "rangedDamageResistance": "Ranged damage resistance",
     "rangedOrgResistance": "Ranged org resistance",
+    "ammoConsumptionModifier": "Ammo consumption modifier",
     "fireEdges": "Fire edges (edge-fire)",
-    "fireEdgesHelp": "Each fire edge emits along one face of the rectangle. A formation with no fire edges fires from a default single front edge.",
+    "fireEdgesHelp": "Each fire edge emits along one face of the rectangle. A formation with no fire edges fires a default single front edge; circle formations do not fire.",
     "edge": "Edge",
     "edgeLeft": "0 - left side (-Y)",
     "edgeFront": "1 - front (+X)",
@@ -255,6 +303,7 @@
     }
   },
   "unitTemplateModal": {
+    "initialOrder": "Initial order",
     "title": "Edit custom unit template",
     "optBuiltIn": "{{name}} (built-in)",
     "optCustom": "{{name}} (custom)",
@@ -279,6 +328,8 @@
     "orgRadiusBonus": "Org radius bonus",
     "reportStats": "Report stats",
     "reportStatsHelp": "What this unit adds to the tallies in a battle report, such as men, horses, or guns. The categories come from the era's own units.",
+    "casualtiesAtZeroHp": "Casualties at 0 HP (%)",
+    "casualtiesAtZeroHpHelp": "The share of this unit's reported strength counted as casualties after its whole HP bar is lost. HP represents combat strength: at the default 50%, a unit becomes combat-ineffective after half its reported strength becomes casualties. Shattering still removes all remaining combat strength.",
     "tallyPerUnit": "Tally per unit",
     "walkMovement": "Walk movement",
     "runMovement": "Run movement",
@@ -292,9 +343,9 @@
     "chargeSound": "Charge sound",
     "rangedCombat": "Ranged combat",
     "rangedAttack": "Ranged attack",
+    "minDistanceToFAA": "Stand-off override (legacy)",
     "panicFireDistance": "Panic fire distance",
     "fireWhileMoving": "Fire while moving",
-    "noAmmoRegain": "No ammo regain",
     "rangedDamageTypes": "Ranged damage types",
     "addRangedDamageType": "Add ranged damage type",
     "enableRanged": "Enable ranged",
@@ -322,6 +373,10 @@
     "changeAnimationsHelp": "The animation played while a unit leaves this formation for another one. Pick the formation it is changing into, then the animation to play on the way. A transition with no row here is not broken: the unit simply snaps from one sprite to the other with nothing in between, which is what every formation without entries does today. The list holds the animations this era ships, and the era's line infantry uses six of them."
   },
   "unitCategoryModal": {
+    "meleeFire": {
+      "ratio": "Melee firepower (0–1)",
+      "hint": "0 (default): emitters covered by an enemy hold fire, the rest keep firing at full power. Above 0, enemy-covered emitters fire at this fraction of normal power. Allies still block fire."
+    },
     "title": "Edit custom unit category",
     "optionBuiltIn": "{{name}} (built-in)",
     "optionCustom": "{{name}} (custom)",
@@ -407,12 +462,15 @@
       "attackEffectDuration": "Attack effect duration (ticks)",
       "arcHeight": "Arc height",
       "ammoCost": "Ammo cost",
+      "ammoType": "Ammo type",
       "shotSound": "Shot sound",
       "shotAnim": "Shot anim",
       "extendRange": "Extend range",
       "canShootLocation": "Can shoot at location",
       "aimMode": "Aim mode",
       "maxRange": "Max range",
+      "preferredRange": "Preferred range",
+      "preferredRangeCustom": "Preferred range (% of max)",
       "engagementTier": "Autofire tier",
       "shotImpactAnim": "Impact animation",
       "bandName": "Range band"
@@ -465,6 +523,10 @@
       "rangeBandBounds": "Each band's From/To must be within 0–100%, with From ≤ To.",
       "lastBandMustReachMax": "The last band must reach 100% (max range)."
     },
+    "preferredRange": {
+      "none": "None",
+      "custom": "Custom"
+    },
     "engagementTier": {
       "low": "Low (close)",
       "medium": "Effective (mid)",
@@ -479,11 +541,13 @@
     "sections": {
       "scalarProperties": "Scalar properties",
       "perUnitCategoryModifiers": "Per unit category modifiers",
-      "projectileAbsorption": "Projectile absorption"
+      "projectileAbsorption": "Projectile absorption",
+      "takeOver": "Whole unit on this terrain"
     },
     "identityHint": "This overrides one of the era's terrain categories, for this scenario only. You cannot change which terrains belong to it, since the era fixes that. What you can change is how the category treats the troops standing on it.",
     "perUnitCategoryHint": "Each row sets the value for one kind of troops. The `*` row is the default, used by any kind you have not given a row of its own. Deleting a row that `*` covers will not stick, because it returns the next time you edit. Give that row its own value instead.",
     "projectileAbsorptionHint": "Each row sets the value for one damage type.",
+    "takesOverAtHint": "Each row is a formation and a share of the unit from 0 to 1. Once that share of the unit stands on this terrain, the whole unit counts as on it. The `*` row is for any formation without a row of its own. With no rows, a unit always mixes the terrains under it by how much of each it covers. When two allied units stand side by side on it, only the one covering more of it counts as on it.",
     "option": {
       "builtIn": "{{name}} (built-in)",
       "custom": "{{name}} (custom)"
@@ -496,7 +560,9 @@
       "pushDistanceModifier": "Push distance modifier",
       "fixedEnemyCollisionLevel": "Fixed enemy collision level",
       "canPlaceObjectives": "Can place objectives",
-      "prioritizeMovement": "Prioritize movement",
+      "followedOnClick": "Clicks follow it like a road",
+      "takesOverAt": "Whole unit counts as on it from this share",
+      "obstructsMovement": "Full movement penalty under any part of a unit",
       "supplyRoute": "Supply route",
       "impassableFor": "Impassable for",
       "attackModifier": "Attack modifier",
@@ -507,7 +573,8 @@
     "errors": {
       "idInUse": "Terrain category id \"{{id}}\" is already in use",
       "unknownUnitCategories": "{{field}} references unknown unit categories: {{keys}}",
-      "unknownDamageTypes": "Projectile absorption points at damage types that do not exist: {{keys}}"
+      "unknownDamageTypes": "Projectile absorption points at damage types that do not exist: {{keys}}",
+      "unknownFormations": "{{field}} references unknown formations: {{keys}}"
     }
   },
   "customDefs": {
@@ -515,7 +582,9 @@
       "importFromScenario": "Import from scenario",
       "duplicate": "Duplicate",
       "inThisScenario": "In this scenario",
-      "builtIntoThisEra": "Built into this era"
+      "builtIntoThisEra": "Built into this era",
+      "resetToEra": "Reset to era",
+      "resetAllToEra": "Reset all to era"
     },
     "transfer": {
       "importTitle": "Import",
@@ -537,7 +606,9 @@
       "imported_other": "Imported {{count}} categories.",
       "exported_one": "Exported {{count}} category.",
       "exported_other": "Exported {{count}} categories.",
-      "exceededCap": "{{category}}: importing would exceed the limit of {{max}} (would be {{count}})."
+      "exceededCap": "{{category}}: importing would exceed the limit of {{max}} (would be {{count}}).",
+      "pickItemsHint": "Open a category to bring across only some of its items.",
+      "itemsPicked": "{{category}}: {{picked}} of {{total}}"
     },
     "spritesPanel": {
       "title": "Unit sprites",
@@ -603,7 +674,6 @@
       "clonePickerTitle": "Clone a built-in terrain category"
     },
     "overrideEditor": {
-      "reset": "Reset",
       "eraDefault": "era default: {{value}}",
       "structuralTooltip": "This one shapes how the game itself runs. Changing it can break how battles are drawn, how replays play back, and how matchmaking works."
     },
@@ -641,9 +711,9 @@
       "importedCount_other": "Added {{count}} overrides."
     },
     "importArmyCompositionsModal": {
-      "title": "Import army compositions from scenario",
-      "pickFilePrompt": "Choose a scenario file to bring its army compositions across. Any scenario you have downloaded from the editor will do.",
-      "noArmyCompositions": "This scenario has no army composition settings to import.",
+      "title": "Import force compositions from scenario",
+      "pickFilePrompt": "Choose a scenario file to bring its force compositions across. Any scenario you have downloaded from the editor will do.",
+      "noArmyCompositions": "This scenario has no force composition settings to import.",
       "fieldBattleTypes": "Battle-type budgets & unit caps",
       "fieldPlayerBudgets": "Per-player budgets",
       "fieldArmyPanelGroups": "Army panel groups",
@@ -652,7 +722,7 @@
     },
     "gameConstants": {
       "title": "Game constants",
-      "description": "These are the era's underlying numbers: how long a turn lasts, how large a tile is, how many turns a battle runs. Anything you change applies to this scenario alone, and Reset puts a value back as you found it.",
+      "description": "These are the era's underlying numbers: how long a turn lasts, how large a tile is, how many turns a battle runs. Anything you change applies to this scenario alone, and any value can be put back to the game's own.",
       "category": {
         "mapDimensions": "Map dimensions",
         "deployment": "Deployment",
@@ -676,11 +746,15 @@
     },
     "gameRules": {
       "title": "Game rules",
-      "description": "These are the systems your era runs on, from how units hold their nerve to how a battle is won. Anything you change applies to this scenario alone, and Reset puts a value back as you found it. The numbers are in the game's own units, so a figure may not read as meters or minutes."
+      "description": "These are the systems your era runs on, from how units hold their nerve to how a battle is won. Anything you change applies to this scenario alone, and any value can be put back to the game's own. The numbers are in the game's own units, so a figure may not read as meters or minutes."
     },
     "ordersPanel": {
       "title": "Orders",
-      "description": "Orders are the instructions a player can give a unit during a battle. You can retune the era's own orders here for this scenario, though you cannot invent new ones. Reset puts a value back as you found it."
+      "description": "Orders are the instructions a player can give a unit during a battle. You can retune the era's own orders here for this scenario, though you cannot invent new ones. Any value can be put back to the game's own.",
+      "general": "General modifier",
+      "categoryOverrides": "Category exceptions",
+      "addCategory": "Add category exception",
+      "inheritance": "Categories without an exception use the general modifier: {{value}}%."
     },
     "clonePicker": {
       "alreadyOverridden": "(already overridden)",
@@ -696,7 +770,7 @@
     "armyPanelGroups": {
       "title": "Army panel groups",
       "description": "Choose the headings players see when buying an army, which units sit under each, and their order. This starts from the era's default layout.",
-      "statusDefault": "Untouched. This scenario uses the era's standard army compositions, and editing anything below switches it to a list of your own.",
+      "statusDefault": "Untouched. This scenario uses the era's standard force compositions, and editing anything below switches it to a list of your own.",
       "statusCustom": "Customized. Players now see only the units you put into a group, and nothing else. Add a new unit to the scenario later and it stays hidden until you group it here too.",
       "statusEraDisabled": "The era's own units are switched off, so the standard layout is hidden. Build your groups from this scenario's units below.",
       "namePlaceholder": "Group name",
@@ -707,8 +781,8 @@
       "moveDown": "Move down"
     },
     "customArmyCompositions": {
-      "title": "Army compositions",
-      "betaNotice": "The army composition options below are still in beta. They apply when players build an army for an offline game or a custom game. If you find a bug, please report it in the official Discord server.",
+      "title": "Force compositions",
+      "betaNotice": "The force composition options below are still in beta. They apply when players build an army for an offline game or a custom game. If you find a bug, please report it in the official Discord server.",
       "disableEraUnits": "Disable era default units",
       "useEraUnits": "Use the era's own units",
       "useEraUnitsHelp": "On, and players may field the era's own units alongside anything this scenario adds. Off, and they play with only the units this scenario provides — the era's disappear from the army screen and cannot be chosen.",
@@ -789,8 +863,20 @@
     "scaleAllSizesBy": "Scale all sizes by",
     "apply": "Apply",
     "background": "Reference image",
-    "backgroundHelp": "Lays a picture under the map at half strength, so you can draw terrain to match it. It is an aid while you work and is never saved with the scenario.",
-    "chooseImage": "Choose image"
+    "backgroundHelp": "Lays a picture under the map, half transparent by default, so you can draw terrain to match it. It is an aid while you work and is never saved with the scenario.",
+    "chooseImage": "Choose image",
+    "backgroundOpacity": "Opacity",
+    "backgroundShortcut": "Press {{key}} to show or hide it.",
+    "backgroundFitStretch": "Stretch",
+    "backgroundFitContain": "Fit",
+    "backgroundFitCover": "Fill",
+    "backgroundScale": "Scale",
+    "backgroundRotation": "Rotation",
+    "backgroundOffsetX": "Move X",
+    "backgroundOffsetY": "Move Y",
+    "backgroundReset": "Reset placement",
+    "backgroundDrag": "Drag on the map",
+    "backgroundDragHelp": "While on, dragging on the map with the left or right button moves the image. The middle button still pans the camera."
   },
   "localesPanel": {
     "title": "Locales",
@@ -817,26 +903,9 @@
     "title": "Triggers",
     "intro": "A trigger checks the battle at the start or the end of a turn, then acts when the conditions you set are true. Make one below.",
     "moreInfo": "Read how triggers work.",
-    "lastClick": "Position to copy",
+    "lastClick": "Last map click",
     "lastClickHint": "Where you last picked on the map, in the coordinates a trigger uses for placing a unit or moving the camera.",
-    "createTrigger": "Create trigger",
-    "createTriggerButton": "Create trigger",
-    "createDisabledInvalidJson": "Fix the JSON below before you can make a trigger.",
-    "createDisabledNeedsConditionAndAction": "A trigger needs at least one condition and one action.",
-    "format": "Tidy the formatting",
-    "invalidJsonFormat": "Invalid JSON format",
     "fixBeforeTesting": "Fix the trigger errors before testing this scenario.",
-    "validation": {
-      "expectedArray": "{{path}} must be an array.",
-      "expectedObject": "{{path}} must be an object.",
-      "unitAtTriggerLevel": "{{path}} looks like a unit. Put it inside an addUnit action.",
-      "invalidEvent": "{{path}} must be onTurnStart or onTurnEnd.",
-      "invalidConditionLogic": "{{path}} must be AND or OR.",
-      "invalidOnce": "{{path}} must be true or false.",
-      "invalidConditionType": "{{path}} has an unknown condition type.",
-      "invalidActionType": "{{path}} has an unknown action type.",
-      "invalidValue": "{{path}} has an invalid value for {{type}}."
-    },
     "event": "Event",
     "conditionLogic": "Condition logic",
     "conditionLogicAnd": "All conditions (AND)",
@@ -846,8 +915,94 @@
     "actions": "Actions",
     "addAction": "Add action",
     "once": "Once",
-    "groupTrigger": "Trigger",
-    "value": "Value"
+    "addTrigger": "Add trigger",
+    "noTriggers": "No triggers yet.",
+    "noConditions": "No conditions, so it always fires.",
+    "noActions": "No actions yet.",
+    "always": "Always",
+    "nothing": "Nothing",
+    "and": "and",
+    "or": "or",
+    "conditionType": "Condition type",
+    "actionType": "Action type",
+    "events": {
+      "onTurnStart": "Start of turn",
+      "onTurnEnd": "End of turn"
+    },
+    "conditionTypes": {
+      "isTurn": "Turn is",
+      "isTurnMultipleOf": "Every few turns",
+      "isTurnGreaterThan": "Turn is after",
+      "isTurnLessThan": "Turn is before",
+      "objectiveBelongsTo": "Objective held by",
+      "isUnitNotAlive": "Unit is destroyed",
+      "isUnitRouting": "Unit is routing",
+      "unitMovedThisTurn": "Unit moved this turn",
+      "chance": "Random chance",
+      "isVar": "Variable is"
+    },
+    "actionTypes": {
+      "addUnit": "Add units",
+      "removeUnit": "Remove units",
+      "addTrigger": "Add triggers",
+      "showMessage": "Show message",
+      "defeatPlayer": "Defeat player",
+      "moveCamera": "Move camera",
+      "setVar": "Set variable",
+      "endGame": "End battle",
+      "orderUnit": "Order unit"
+    },
+    "fields": {
+      "rotationDegrees": "Rotation (°)",
+      "useLastClick": "Use last map click",
+      "playerN": "Player {{n}}",
+      "teamN": "Team {{n}}",
+      "everyTurns": "Every (turns)",
+      "offset": "Offset",
+      "heldBy": "Held by",
+      "chancePercent": "Chance (%)",
+      "variable": "Variable",
+      "value": "Value",
+      "notEqual": "Is not this value",
+      "title": "Title",
+      "message": "Message",
+      "zoom": "Zoom",
+      "durationSeconds": "Duration (s)",
+      "reason": "Reason",
+      "addUnit": "Add unit",
+      "addCopiedUnits": "Add copied units ({{count}})",
+      "copyUnitsHint": "Select units on the map and copy them to add them here with all their settings.",
+      "order": "Order",
+      "target": "Target unit",
+      "path": "Path",
+      "addWaypoint": "Add waypoint at last map click",
+      "targetOrPlaceHint": "Give a target unit or a place, not both."
+    },
+    "endReasons": {
+      "victory": "Victory",
+      "max_turn": "Turn limit reached",
+      "cancelled": "Cancelled",
+      "draw_by_agreement": "Draw"
+    },
+    "orderTypes": {
+      "1": "Walk",
+      "2": "Run",
+      "3": "Shoot",
+      "4": "Fire and advance",
+      "5": "Place",
+      "6": "Fall back",
+      "7": "Rotate",
+      "-1": "Cancel current order"
+    },
+    "unreadableTitle": "Unreadable trigger",
+    "unreadable": "The editor cannot show this trigger. Remove it and make it again.",
+    "orderMissing": {
+      "unit": "Pick the unit that gets this order.",
+      "targetOrPath": "Give a target unit or add a waypoint.",
+      "path": "Add at least one waypoint.",
+      "targetOrPlace": "Give a target unit or a place.",
+      "place": "Give a place."
+    }
   },
   "randomMap": {
     "title": "Random map",
@@ -857,6 +1012,8 @@
     "startFromTemplate": "Start from a template",
     "loadInstructionsFromTemplate": "Load template",
     "generating": "Generating…",
+    "acceptedAngle": "Accepted angle (±)",
+    "angle": "Angle",
     "generatePreview": "Generate preview",
     "instructions": "Instructions",
     "instructionsWithCount": "Instructions ({{count}})",
@@ -896,6 +1053,7 @@
     "selectFile": "Select file",
     "importedFile": "Imported file",
     "field": {
+      "along": "Along",
       "amount": "Amount",
       "between": "Between",
       "border": "Border",
@@ -907,6 +1065,7 @@
       "curveLen": "Curve length",
       "curveWeight": "Curve weight",
       "deep": "Deep water",
+      "directionStep": "Direction step",
       "downHillHeightCost": "Downhill cost",
       "edgeDistance": "Edge distance",
       "edgeWeight": "Edge weight",
@@ -920,6 +1079,7 @@
       "heightFilter": "Height filter",
       "heightRanges": "Height ranges",
       "heights": "Heights",
+      "keep": "Keep",
       "l": "Large",
       "m": "Medium",
       "max": "Max",
@@ -939,8 +1099,10 @@
       "minHeight": "Min height",
       "minHeightValue": "Min height value",
       "minSurrounding": "Min surrounding tiles",
+      "minTiles": "Smallest field",
       "minWidth": "Min width",
       "min_scaling_factor": "Min scaling by map size",
+      "mode": "Mode",
       "multiplier": "Multiplier",
       "name": "Name",
       "noiseSmoothness": "Noise smoothness",
@@ -968,6 +1130,7 @@
       "shallow": "Shallow water",
       "shore": "Shore",
       "size": "Size",
+      "skipBlocked": "Skip blocked",
       "smoothing": "Smoothing",
       "startHeightRanges": "Start height ranges",
       "team": "Team",
@@ -977,8 +1140,10 @@
       "terrainReplacements": "Terrain replacements",
       "terrains": "Terrains",
       "toTerrain": "To terrain",
+      "tries": "Tries",
       "type": "Type",
       "uphillHeightCost": "Uphill cost",
+      "verge": "Verge",
       "width": "Width",
       "x": "X",
       "xBounds": "X bounds",
@@ -997,12 +1162,16 @@
       "connectClusters": "Connect clusters",
       "objective": "Objective",
       "lake": "Lake",
-      "objectiveLayer": "Objective layer"
+      "objectiveLayer": "Objective layer",
+      "symmetry": "Symmetry",
+      "fields": "Fields"
     },
     "objectiveType": {
       "small": "Small",
       "big": "Big"
-    }
+    },
+    "addField": "Add a field",
+    "removeField": "Remove"
   },
   "randomDeployment": {
     "title": "Deployment zones",
@@ -1043,10 +1212,21 @@
   },
   "objectiveZones": {
     "heading": "Objective zones",
-    "hint": "How much to shrink the areas where objectives can be placed.",
+    "hint": "Draw where each team places its objectives. A team with no zone of a type gets one derived from its deployment ground, shrunk by the trims below.",
+    "bigZone": "Big objectives",
+    "smallZone": "Small objectives",
+    "addBigZone": "Add big-objective zone",
+    "addSmallZone": "Add small-objective zone",
     "smallInset": "Small-objective zone trim",
     "bigInset": "Big-objective zone trim",
     "smallInsetInfo": "How much to narrow the small-objective zone on each side. Trims only its width, keeping its vertical reach. Leave it empty to use the battle type's own figure, or the era's.",
     "bigInsetInfo": "How much to shrink the big-objective box on each side, centered inside the deployment zone. Leave it empty to use the battle type's own figure, or the era's."
+  },
+  "mapLabels": {
+    "title": "Map labels",
+    "help": "Place names for rivers, hills and villages that are not objectives. An objective draws its own name, so name it in its own panel instead of adding a label over it. Right-click the map (or tap with touch controls) to choose a position, then add or move a label.",
+    "add": "Add label",
+    "move": "Move to clicked position",
+    "empty": "No labels yet."
   }
 }

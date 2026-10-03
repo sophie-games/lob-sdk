@@ -5,8 +5,12 @@
   "COLLISION_PUSH_MAX_ANGLE_RANGE_DEGREES": "collision",
 
   "TILE_SIZE": "mapDimensions",
+  "METERS_PER_PIXEL": "mapDimensions",
 
   "DEFAULT_MAX_TURN": "gameLimits",
+  "MINUTES_PER_TURN": "gameLimits",
+  "DEFAULT_BATTLE_START_TIME": "gameLimits",
+  "BATTLE_LIGHTING": "effects",
   "MIN_CUSTOM_GAME_MAX_TURNS": "gameLimits",
   "MAX_CUSTOM_GAME_MAX_TURNS": "gameLimits",
   "MIN_OFFLINE_GAME_MAX_TURNS": "gameLimits",
@@ -77,6 +81,7 @@
   "CHARGE_BACKLASH_RESIST_FLOOR": "combat",
 
   "HAS_TAKEN_FIRE_SPEED_MODIFIER": "combat",
+  "HAS_BEEN_IN_MELEE_SPEED_MODIFIER": "combat",
 
   "EFFECT_HAS_RAN_TICKS": "effects",
 

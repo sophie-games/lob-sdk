@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "name": "Andes & Valley",
   "description": "Andes Valley: a narrow pass between mountains marked by a raging river. Along its banks lie small villages and farms that sustain life in the valley. A finely balanced battlefield where no army holds the advantage of terrain.",
   "map": {
@@ -11,18 +11,12 @@
         "zones": [
           {
             "team": 1,
-            "x": 90,
-            "y": 1310,
-            "width": 1632,
-            "height": 192,
+            "polygons":[{"outer":[{"x":90,"y":1310},{"x":1722,"y":1310},{"x":1722,"y":1502},{"x":90,"y":1502}]}],
             "type": "main"
           },
           {
             "team": 1,
-            "x": 44,
-            "y": 1262,
-            "width": 1728,
-            "height": 384,
+            "polygons":[{"outer":[{"x":44,"y":1262},{"x":1772,"y":1262},{"x":1772,"y":1646},{"x":44,"y":1646}]}],
             "type": "forward"
           }
         ]
@@ -32,18 +26,12 @@
         "zones": [
           {
             "team": 2,
-            "x": 90,
-            "y": 100,
-            "width": 1632,
-            "height": 192,
+            "polygons":[{"outer":[{"x":90,"y":100},{"x":1722,"y":100},{"x":1722,"y":292},{"x":90,"y":292}]}],
             "type": "main"
           },
           {
             "team": 2,
-            "x": 44,
-            "y": 4,
-            "width": 1728,
-            "height": 384,
+            "polygons":[{"outer":[{"x":44,"y":4},{"x":1772,"y":4},{"x":1772,"y":388},{"x":44,"y":388}]}],
             "type": "forward"
           }
         ]

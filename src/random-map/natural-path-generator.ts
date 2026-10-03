@@ -71,6 +71,8 @@ export class NaturalPathGenerator {
     private downHillHeightCost: number = 1,
     heightDiffCost?: number, // only for backwards compat,
     printNoiseDebug = false,
+    /** On a turned map: the tiles the path may use, the instruction's turned area. */
+    private inside?: (x: number, y: number) => boolean,
   ) {
     if (width < 1) {
       throw new Error("Path width must be a positive number");
@@ -254,7 +256,10 @@ export class NaturalPathGenerator {
   }
 
   private isValidTile(grid: number[][], x: number, y: number): boolean {
-    return x >= 0 && y >= 0 && x < grid.length && y < grid[0].length;
+    return (
+      x >= 0 && y >= 0 && x < grid.length && y < grid[0].length &&
+      (!this.inside || this.inside(x, y))
+    );
   }
 
   private calculateHeightDiffCost(current: Point2, neighbor: Point2): number {

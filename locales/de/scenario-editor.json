@@ -72,13 +72,16 @@
     "allowDynamicArmyHelp": "Wenn aktiviert, bringen Spieler ihre eigene Armee passend zum Matchmaking-Schlachttyp mit und stellen sie in ihren Zonen auf. Wenn deaktiviert, definieren die vorplatzierten Einheiten des Szenarios den gesamten Bestand (die Armeezusammensetzung entfällt).",
     "fixedRoster": "Feste Spielerliste",
     "fixedRosterHelp": "Wenn aktiviert, legt das Szenario seine eigenen Spielerplätze, Teams und Munitionsreserven fest, und die Lobby kann keine Spieler hinzufügen oder entfernen. Wenn deaktiviert, stammt die Liste aus der Lobby oder dem Matchmaking.",
-    "allowDeploymentPhase": "Aufstellungsphase",
-    "allowDeploymentPhaseHelp": "Wenn aktiviert, beginnt die Schlacht in Zug 0, sodass jeder Spieler seine Einheiten innerhalb seiner Aufstellungszonen neu positionieren kann, bevor die Kämpfe beginnen.",
     "noInherentAmmo": "Keine eigene Munition",
     "noInherentAmmoHelp": "Wenn aktiviert, erscheinen Einheiten mit Munitionssystem ohne eigene Munition und beziehen ihren gesamten Nachschub aus der gemeinsamen Reserve. Sie können daher in der ersten Runde nicht feuern und eröffnen das Feuer erst, wenn die Reserve sie wieder auffüllt.",
+    "startTime": "Startzeit",
+    "startTimeHelp": "Optional. Leer lassen, damit Zug 1 um {{time}} beginnt (Standard der Epoche).",
+    "maxTurn": "Maximale Züge",
+    "maxTurnHelp": "Optionaler Szenariowert (10–99); Spiele können ein anderes Limit wählen.",
     "showGrid": "Raster anzeigen",
     "showUnits": "Einheiten anzeigen",
     "showObjectives": "Ziele anzeigen",
+    "showMapLabels": "Kartenbeschriftungen anzeigen",
     "goBack": "Zurück",
     "goBackConfirm": "Möchtest du wirklich zurückgehen und den Editor verlassen?",
     "display": "Anzeige",
@@ -91,7 +94,6 @@
     "testScenario": "Szenario testen",
     "placeableObjectives": "Spielerplatzierte Ziele",
     "placeableObjectivesHelp": "Wenn aktiviert, platziert jeder Spieler seine eigenen Ziele während der Aufstellungsphase, innerhalb seiner eigenen Zone. Wenn deaktiviert, verwendet die Schlacht nur die Ziele, die du auf der Karte platziert hast.",
-    "placeableObjectivesNeedsDeployment": "Aktiviere auch die Aufstellungsphase, sonst erreichen die Spieler nie den Zug, in dem sie diese Ziele platzieren würden, und es erscheint keines.",
     "resting": {
       "thisScenario": "Dieses Szenario",
       "gettingStarted": "Erste Schritte",
@@ -121,6 +123,8 @@
     "rosterHelp": "Eine feste Spielerliste bedeutet, dass das Szenario die Spielerplätze, die Teams und die Munition festlegt, und alle kämpfen mit den Einheiten, die du platziert hast. Eine dynamische Spielerliste überlässt die Plätze der Lobby oder dem Matchmaking, und die Spieler bringen ihre eigenen Armeen in die Schlacht."
   },
   "playersPanel": {
+    "commander": "Befehlshaber",
+    "commandFormation": "Kommando",
     "removePlayer": "Spieler entfernen",
     "ammoReserve": "Reserve",
     "ammoBase": "Basis",
@@ -173,7 +177,8 @@
     "title": "Aufstellungszonen",
     "hint": "Diese Zonen legen fest, wo jede Armee startet. Die Aufstellungsphase fügt lediglich einen Zug 0 hinzu, in dem die Spieler sich darin neu ordnen können.",
     "team": "Team {{team}}",
-    "wholeTeam": "Alle Teamspieler",
+    "remainingPlayers": "Übrige Teamspieler",
+    "assignmentHelp": "Wähle die übrigen Spieler oder einen oder mehrere bestimmte Spieler aus.",
     "player": "Spieler {{player}}",
     "mainZone": "Haupt",
     "forwardZone": "Vorgeschoben",
@@ -185,9 +190,7 @@
       "y": "Y",
       "player": "Zugewiesen an",
       "rotation": "Drehung (Grad)"
-    },
-    "phaseHelp": "Mit aktivierter Aufstellungsphase erhalten die Spieler einen zusätzlichen Zug, bevor die Kämpfe beginnen, nur um ihre Einheiten innerhalb ihrer Zone neu zu ordnen.",
-    "gateHelp": "Diese Zonen sind bearbeitbar, solange eine der drei Optionen Dynamische Armee erlauben, Aufstellungsphase oder Spielerplatzierte Ziele aktiviert ist, da jede von ihnen einen Startpunkt für eine ankommende Armee benötigt. Sind alle drei deaktiviert, sind sie ausgegraut, und auf einer prozeduralen Karte sind sie ebenfalls ausgegraut, da die Zonen dort stattdessen als Prozentwerte im Panel Zufällige Karte festgelegt werden."
+    }
   },
   "vpBalance": {
     "heading": "VP-Bilanz (Verluste vs Ziele)",
@@ -201,7 +204,11 @@
     "drawLineRank": "Linienzug-Rang (niedriger = vorne)",
     "title": "Benutzerdefinierte Formation bearbeiten",
     "collision": "Kollision",
-    "collisionHelp": "Rechteckiger Grundriss: Frontbreite quer zur Front und Tiefe von vorne nach hinten. Setze beide Werte auf 0 für keine Kollision (fliegend / Geist).",
+    "collisionHelp": "Grundrissform: ein Kreis (Radius) oder ein Rechteck (Frontbreite quer zur Front, Tiefe von vorne nach hinten). Verwende Radius 0 für keine Kollision (fliegend / Geist).",
+    "shape": "Form",
+    "shapeRectangle": "Rechteck",
+    "shapeCircle": "Kreis",
+    "radiusPx": "Radius (px)",
     "frontagePx": "Frontbreite (px)",
     "depthPx": "Tiefe (px)",
     "runMovementModifier": "Laufbewegungsmodifikator",
@@ -216,8 +223,9 @@
     "flanking": "Flankierung",
     "rangedDamageResistance": "Fernkampfschadenresistenz",
     "rangedOrgResistance": "Fernkampf-Org-Resistenz",
+    "ammoConsumptionModifier": "Munitionsverbrauchsmodifikator",
     "fireEdges": "Feuerkanten (Kantenfeuer)",
-    "fireEdgesHelp": "Jede Feuerkante feuert entlang einer Seite des Rechtecks. Eine Formation ohne Feuerkanten feuert über eine standardmäßige einzelne Frontkante.",
+    "fireEdgesHelp": "Jede Feuerkante feuert entlang einer Seite des Rechtecks. Eine Formation ohne Feuerkanten feuert über eine standardmäßige einzelne Frontkante; Kreisformationen feuern nicht.",
     "edge": "Kante",
     "edgeLeft": "0 - linke Seite (-Y)",
     "edgeFront": "1 - Front (+X)",
@@ -254,6 +262,7 @@
     }
   },
   "unitTemplateModal": {
+    "initialOrder": "Anfangsbefehl",
     "title": "Benutzerdefinierte Einheitenvorlage bearbeiten",
     "optBuiltIn": "{{name}} (integriert)",
     "optCustom": "{{name}} (benutzerdefiniert)",
@@ -278,6 +287,8 @@
     "orgRadiusBonus": "Org-Radius-Bonus",
     "reportStats": "Berichtswerte",
     "reportStatsHelp": "Zählwerte, die jede Einheit zu den Schlachtberichten beiträgt (z. B. Männer, Pferde, Geschütze). Die Schlüssel stammen aus den integrierten Einheiten der Epoche.",
+    "casualtiesAtZeroHp": "Verluste bei null TP (%)",
+    "casualtiesAtZeroHpHelp": "Der Anteil der gemeldeten Stärke dieser Einheit, der als Verlust zählt, wenn ihre gesamte TP-Leiste aufgebraucht ist. TP stehen für Kampfkraft: Beim Standardwert 50 % wird eine Einheit kampfunfähig, sobald die Hälfte ihrer gemeldeten Stärke als Verlust gilt. Zerschlagung entfernt weiterhin die gesamte verbleibende Kampfkraft.",
     "tallyPerUnit": "Zählung pro Einheit",
     "walkMovement": "Gehbewegung",
     "runMovement": "Laufbewegung",
@@ -293,7 +304,6 @@
     "rangedAttack": "Fernkampfangriff",
     "panicFireDistance": "Panikfeuer-Entfernung",
     "fireWhileMoving": "Feuern während der Bewegung",
-    "noAmmoRegain": "Keine Munitionsregeneration",
     "rangedDamageTypes": "Fernkampfschadenstypen",
     "addRangedDamageType": "Fernkampfschadenstyp hinzufügen",
     "enableRanged": "Fernkampf aktivieren",
@@ -321,6 +331,10 @@
     "changeAnimationsHelp": "Die Animation, die abgespielt wird, während eine Einheit diese Formation für eine andere verlässt. Wähle die Formation, in die sie wechselt, und dann die Animation, die dabei laufen soll. Ein Übergang ohne Zeile hier ist nicht kaputt: Die Einheit springt einfach von einem Sprite zum anderen, ohne etwas dazwischen, und genau das tut heute jede Formation ohne Einträge. Die Liste enthält die Animationen, die diese Ära mitbringt, und die Linieninfanterie der Ära nutzt sechs davon."
   },
   "unitCategoryModal": {
+    "meleeFire": {
+      "ratio": "Feuerkraft im Nahkampf (0–1)",
+      "hint": "0 (Standard): Von einem Feind verdeckte Schusspunkte schweigen, die übrigen feuern mit voller Feuerkraft weiter. Über 0 feuern von Feinden verdeckte Schusspunkte mit diesem Anteil ihrer normalen Feuerkraft. Verbündete blockieren das Feuer weiterhin."
+    },
     "title": "Benutzerdefinierte Einheitenkategorie bearbeiten",
     "optionBuiltIn": "{{name}} (integriert)",
     "optionCustom": "{{name}} (benutzerdefiniert)",
@@ -495,7 +509,6 @@
       "pushDistanceModifier": "Schubdistanzmodifikator",
       "fixedEnemyCollisionLevel": "Feste Feind-Kollisionsstufe",
       "canPlaceObjectives": "Kann Ziele platzieren",
-      "prioritizeMovement": "Bewegung priorisieren",
       "supplyRoute": "Versorgungsroute",
       "impassableFor": "Unpassierbar für",
       "attackModifier": "Angriffsmodifikator",
@@ -514,7 +527,9 @@
       "importFromScenario": "Aus Szenario importieren",
       "duplicate": "Duplizieren",
       "inThisScenario": "In diesem Szenario",
-      "builtIntoThisEra": "In dieser Epoche integriert"
+      "builtIntoThisEra": "In dieser Epoche integriert",
+      "resetToEra": "Auf Epoche zurücksetzen",
+      "resetAllToEra": "Alle auf Epoche zurücksetzen"
     },
     "spritesPanel": {
       "title": "Einheiten-Sprites",
@@ -580,7 +595,6 @@
       "clonePickerTitle": "Eine integrierte Geländekategorie klonen"
     },
     "overrideEditor": {
-      "reset": "Zurücksetzen",
       "eraDefault": "Epochenstandard: {{value}}",
       "structuralTooltip": "Strukturelle / Determinismus-Konstante. Eine Änderung kann Darstellung, Wiederholungen oder Matchmaking beschädigen."
     },
@@ -629,7 +643,7 @@
     },
     "gameConstants": {
       "title": "Spielkonstanten",
-      "description": "Überschreibe die numerischen Konstanten dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; Zurücksetzen stellt ein Feld auf den Epochenstandard zurück. Mit ⚠ markierte Schlüssel sind strukturell - eine Änderung kann Darstellung, Wiederholungen oder Matchmaking beschädigen. Die Werte sind interne Roheinheiten.",
+      "description": "Dies sind die grundlegenden Zahlen der Epoche: wie lange ein Zug dauert, wie groß ein Feld ist, über wie viele Züge eine Schlacht läuft. Änderungen gelten nur für dieses Szenario, und jeder Wert lässt sich auf den des Spiels zurücksetzen.",
       "category": {
         "mapDimensions": "Kartenabmessungen",
         "deployment": "Aufstellung",
@@ -653,11 +667,15 @@
     },
     "gameRules": {
       "title": "Spielregeln",
-      "description": "Überschreibe die Spielregeln dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; verwende Zurücksetzen, um ein Feld auf den Epochenstandard zurückzustellen. Die Werte sind interne Roheinheiten (einige Werte werden vorskaliert gespeichert)."
+      "description": "Dies sind die Systeme, auf denen Ihre Epoche läuft, von der Standfestigkeit der Einheiten bis dazu, wie eine Schlacht gewonnen wird. Änderungen gelten nur für dieses Szenario, und jeder Wert lässt sich auf den des Spiels zurücksetzen. Die Zahlen stehen in den Einheiten des Spiels, eine Angabe muss also nicht Meter oder Minuten bedeuten."
     },
     "ordersPanel": {
       "title": "Befehle",
-      "description": "Überschreibe die Werte der integrierten Befehle dieser Epoche für dieses Szenario. Nur geänderte Werte werden gespeichert; verwende Zurücksetzen, um ein Feld auf den Epochenstandard zurückzustellen. Du kannst bestehende Befehle ändern, aber keine neuen hinzufügen."
+      "description": "Befehle sind die Anweisungen, die ein Spieler einer Einheit im Gefecht geben kann. Sie können die Befehle der Epoche hier für dieses Szenario anpassen, aber keine neuen erfinden. Jeder Wert lässt sich auf den des Spiels zurücksetzen.",
+      "general": "Allgemeiner Modifikator",
+      "categoryOverrides": "Ausnahmen nach Kategorie",
+      "addCategory": "Kategorieausnahme hinzufügen",
+      "inheritance": "Kategorien ohne Ausnahme verwenden den allgemeinen Modifikator: {{value}} %."
     },
     "clonePicker": {
       "alreadyOverridden": "(bereits überschrieben)",
@@ -807,22 +825,7 @@
   "triggers": {
     "title": "Auslöser",
     "moreInfo": "Mehr Informationen zu Auslösern hier",
-    "createTrigger": "Auslöser erstellen",
-    "createTriggerButton": "Auslöser erstellen",
-    "format": "Formatieren",
-    "invalidJsonFormat": "Ungültiges JSON-Format",
     "fixBeforeTesting": "Behebe die Triggerfehler, bevor du dieses Szenario testest.",
-    "validation": {
-      "expectedArray": "{{path}} muss ein Array sein.",
-      "expectedObject": "{{path}} muss ein Objekt sein.",
-      "unitAtTriggerLevel": "{{path}} sieht wie eine Einheit aus. Lege sie in eine addUnit-Aktion.",
-      "invalidEvent": "{{path}} muss onTurnStart oder onTurnEnd sein.",
-      "invalidConditionLogic": "{{path}} muss AND oder OR sein.",
-      "invalidOnce": "{{path}} muss true oder false sein.",
-      "invalidConditionType": "{{path}} hat einen unbekannten Bedingungstyp.",
-      "invalidActionType": "{{path}} hat einen unbekannten Aktionstyp.",
-      "invalidValue": "{{path}} hat einen ungültigen Wert für {{type}}."
-    },
     "event": "Ereignis",
     "conditionLogic": "Bedingungslogik",
     "conditionLogicAnd": "Alle Bedingungen (UND)",
@@ -833,12 +836,96 @@
     "addAction": "Aktion hinzufügen",
     "once": "Einmalig",
     "intro": "Ein Auslöser prüft die Schlacht zu Beginn oder Ende eines Zugs und handelt dann, wenn die von dir festgelegten Bedingungen zutreffen. Erstelle unten einen.",
-    "lastClick": "Position zum Kopieren",
+    "lastClick": "Letzter Klick auf der Karte",
     "lastClickHint": "Wo du zuletzt auf der Karte geklickt hast, in den Koordinaten, die ein Auslöser zum Platzieren einer Einheit oder Bewegen der Kamera verwendet.",
-    "createDisabledInvalidJson": "Behebe zuerst das JSON unten, bevor du einen Auslöser erstellen kannst.",
-    "createDisabledNeedsConditionAndAction": "Ein Auslöser benötigt mindestens eine Bedingung und eine Aktion.",
-    "groupTrigger": "Auslöser",
-    "value": "Wert"
+    "addTrigger": "Auslöser hinzufügen",
+    "noTriggers": "Noch keine Auslöser.",
+    "noConditions": "Keine Bedingungen, daher löst er immer aus.",
+    "noActions": "Noch keine Aktionen.",
+    "always": "Immer",
+    "nothing": "Nichts",
+    "and": "und",
+    "or": "oder",
+    "conditionType": "Bedingungstyp",
+    "actionType": "Aktionstyp",
+    "events": {
+      "onTurnStart": "Zugbeginn",
+      "onTurnEnd": "Zugende"
+    },
+    "conditionTypes": {
+      "isTurn": "Zug ist",
+      "isTurnMultipleOf": "Alle paar Züge",
+      "isTurnGreaterThan": "Zug ist nach",
+      "isTurnLessThan": "Zug ist vor",
+      "objectiveBelongsTo": "Ziel gehalten von",
+      "isUnitNotAlive": "Einheit ist vernichtet",
+      "isUnitRouting": "Einheit ist auf der Flucht",
+      "unitMovedThisTurn": "Einheit hat sich in diesem Zug bewegt",
+      "chance": "Zufallschance",
+      "isVar": "Variable ist"
+    },
+    "actionTypes": {
+      "addUnit": "Einheiten hinzufügen",
+      "removeUnit": "Einheiten entfernen",
+      "addTrigger": "Auslöser hinzufügen",
+      "showMessage": "Nachricht anzeigen",
+      "defeatPlayer": "Spieler besiegen",
+      "moveCamera": "Kamera bewegen",
+      "setVar": "Variable setzen",
+      "endGame": "Schlacht beenden",
+      "orderUnit": "Einheit befehligen"
+    },
+    "fields": {
+      "rotationDegrees": "Drehung (°)",
+      "useLastClick": "Letzten Kartenklick verwenden",
+      "playerN": "Spieler {{n}}",
+      "teamN": "Team {{n}}",
+      "everyTurns": "Alle (Züge)",
+      "offset": "Versatz",
+      "heldBy": "Gehalten von",
+      "chancePercent": "Chance (%)",
+      "variable": "Variable",
+      "value": "Wert",
+      "notEqual": "Ist nicht dieser Wert",
+      "title": "Titel",
+      "message": "Nachricht",
+      "zoom": "Zoom",
+      "durationSeconds": "Dauer (s)",
+      "reason": "Grund",
+      "addUnit": "Einheit hinzufügen",
+      "addCopiedUnits": "Kopierte Einheiten hinzufügen ({{count}})",
+      "copyUnitsHint": "Wähle Einheiten auf der Karte aus und kopiere sie, um sie hier mit allen Einstellungen hinzuzufügen.",
+      "order": "Befehl",
+      "target": "Zieleinheit",
+      "path": "Pfad",
+      "addWaypoint": "Wegpunkt am letzten Kartenklick hinzufügen",
+      "targetOrPlaceHint": "Gib eine Zieleinheit oder einen Ort an, nicht beides."
+    },
+    "endReasons": {
+      "victory": "Sieg",
+      "max_turn": "Zuglimit erreicht",
+      "cancelled": "Abgebrochen",
+      "draw_by_agreement": "Unentschieden"
+    },
+    "orderTypes": {
+      "1": "Gehen",
+      "2": "Laufen",
+      "3": "Schießen",
+      "4": "Feuer und Vorrücken",
+      "5": "Platzieren",
+      "6": "Zurückfallen",
+      "7": "Drehen",
+      "-1": "Aktuellen Befehl abbrechen"
+    },
+    "unreadableTitle": "Unlesbarer Auslöser",
+    "unreadable": "Der Editor kann diesen Auslöser nicht anzeigen. Entferne ihn und erstelle ihn neu.",
+    "orderMissing": {
+      "unit": "Wähle die Einheit, die diesen Befehl erhält.",
+      "targetOrPath": "Gib eine Zieleinheit an oder füge einen Wegpunkt hinzu.",
+      "path": "Füge mindestens einen Wegpunkt hinzu.",
+      "targetOrPlace": "Gib eine Zieleinheit oder einen Ort an.",
+      "place": "Gib einen Ort an."
+    }
   },
   "randomMap": {
     "title": "Zufällige Karte",
@@ -847,6 +934,8 @@
     "startFromTemplate": "Von einer Vorlage starten",
     "loadInstructionsFromTemplate": "Anweisungen aus Vorlage laden",
     "generating": "Erzeugt…",
+    "acceptedAngle": "Erlaubter Winkel (±)",
+    "angle": "Winkel",
     "generatePreview": "Vorschau erzeugen",
     "instructions": "Anweisungen",
     "instructionsWithCount": "Anweisungen ({{count}})",
@@ -887,6 +976,7 @@
     "selectFile": "Datei auswählen",
     "importedFile": "Importierte Datei",
     "field": {
+      "along": "Entlang",
       "amount": "Menge",
       "between": "Zwischen",
       "border": "Rand",
@@ -898,6 +988,7 @@
       "curveLen": "Kurvenlänge",
       "curveWeight": "Kurvengewicht",
       "deep": "Tiefwasser",
+      "directionStep": "Richtungsschritt",
       "downHillHeightCost": "Bergab-Kosten",
       "edgeDistance": "Randabstand",
       "edgeWeight": "Randgewicht",
@@ -911,6 +1002,7 @@
       "heightFilter": "Höhenfilter",
       "heightRanges": "Höhenbereiche",
       "heights": "Höhen",
+      "keep": "Beibehalten",
       "l": "Groß",
       "m": "Mittel",
       "max": "Max.",
@@ -930,8 +1022,10 @@
       "minHeight": "Min. Höhe",
       "minHeightValue": "Min. Höhenwert",
       "minSurrounding": "Min. umgebende Kacheln",
+      "minTiles": "Kleinstes Feld",
       "minWidth": "Min. Breite",
       "min_scaling_factor": "Min. Skalierung nach Kartengröße",
+      "mode": "Modus",
       "multiplier": "Multiplikator",
       "name": "Name",
       "noiseSmoothness": "Rauschglättung",
@@ -959,6 +1053,7 @@
       "shallow": "Flachwasser",
       "shore": "Ufer",
       "size": "Größe",
+      "skipBlocked": "Blockierte überspringen",
       "smoothing": "Glättung",
       "startHeightRanges": "Start-Höhenbereiche",
       "team": "Team",
@@ -968,8 +1063,10 @@
       "terrainReplacements": "Geländeersetzungen",
       "terrains": "Geländearten",
       "toTerrain": "Zu Gelände",
+      "tries": "Versuche",
       "type": "Typ",
       "uphillHeightCost": "Bergauf-Kosten",
+      "verge": "Randstreifen",
       "width": "Breite",
       "x": "X",
       "xBounds": "X-Grenzen",
@@ -988,12 +1085,16 @@
       "connectClusters": "Cluster verbinden",
       "objective": "Ziel",
       "lake": "See",
-      "objectiveLayer": "Zielebene"
+      "objectiveLayer": "Zielebene",
+      "symmetry": "Symmetrie",
+      "fields": "Felder"
     },
     "objectiveType": {
       "small": "Klein",
       "big": "Groß"
-    }
+    },
+    "addField": "Feld hinzufügen",
+    "removeField": "Entfernen"
   },
   "randomDeployment": {
     "title": "Aufstellungszonen",
@@ -1047,5 +1148,12 @@
   },
   "objectiveOwnership": {
     "help": "Ziele gehören immer einem Team. Bei einem Szenario mit fester Spielerliste benennt dieses Feld einen Spieler, und das Ziel gehört dem Team dieses Spielers. Bei einem Szenario für dynamische Armeen gibt es vor dem Matchmaking noch keine Spielerplätze, daher benennt das Feld direkt das Team."
+  },
+  "mapLabels": {
+    "title": "Kartenbeschriftungen",
+    "help": "Klicke mit der rechten Maustaste auf die Karte (oder tippe bei Touch-Steuerung), um eine Position zu wählen. Füge dann eine Beschriftung hinzu oder verschiebe sie.",
+    "add": "Beschriftung hinzufügen",
+    "move": "Zur gewählten Position verschieben",
+    "empty": "Noch keine Beschriftungen."
   }
 }

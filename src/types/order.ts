@@ -44,6 +44,16 @@ interface ExclusiveOrderProps {
 }
 
 /**
+ * The formation a path order was given to as a whole: one token shared by every member's
+ * order, so the client draws the body a single arrow. Carried rather than inferred, because
+ * pace is a template constant and any summary of the membership collides. Absent on an order
+ * given to a unit on its own.
+ */
+interface FormationBodyProps {
+  body?: string;
+}
+
+/**
  * A point on an order path, represented as [x, y] coordinates.
  */
 export type OrderPathPoint = [number, number]; // [x, y]
@@ -52,13 +62,17 @@ export type OrderPathPoint = [number, number]; // [x, y]
  * Order to walk along a specified path.
  */
 export interface WalkOrder
-  extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "path">, FormationBodyProps {
   /** Order type is Walk. */
   type: OrderType.Walk;
   /** Path points to follow, in order. */
   path: OrderPathPoint[];
   /** Final rotation in radians after completing the path. */
   rotation?: number;
+  /** Keep clear of hard allied formations while executing this path. */
+  maintainAllySpacing?: boolean;
+  /** Speed ceiling for units moving together as a formation. */
+  pace?: number;
 }
 
 /**
@@ -76,13 +90,19 @@ export interface WalkFollowOrder
  * Order to fall back along a specified path.
  */
 export interface FallbackOrder
-  extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "path">, FormationBodyProps {
   /** Order type is Fallback. */
   type: OrderType.Fallback;
   /** Path points to fall back along, in order. */
   path: OrderPathPoint[];
-  /** Final rotation in radians after completing the path. */
+  /** Legacy preview facing, retained for saved orders but ignored by retreat execution. */
   rotation?: number;
+  /**
+   * Speed ceiling in movement units per turn, so a body ordered as one keeps
+   * together instead of stretching out at each unit's own pace. Set to the
+   * slowest member's pace when the order was given to more than one unit.
+   */
+  pace?: number;
 }
 
 /**
@@ -99,13 +119,22 @@ export interface FallbackFollowOrder
 /**
  * Order to run along a specified path.
  */
-export interface RunOrder extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
+export interface RunOrder
+  extends BaseOrder, Omit<ExclusiveOrderProps, "path">, FormationBodyProps {
   /** Order type is Run. */
   type: OrderType.Run;
   /** Path points to run along, in order. */
   path: OrderPathPoint[];
   /** Final rotation in radians after completing the path. */
   rotation?: number;
+  /** Keep clear of hard allied formations while executing this path. */
+  maintainAllySpacing?: boolean;
+  /**
+   * Speed ceiling in movement units per turn, so a body ordered as one keeps
+   * together instead of stretching out at each unit's own pace. Set to the
+   * slowest member's pace when the order was given to more than one unit.
+   */
+  pace?: number;
 }
 
 /**
@@ -178,13 +207,19 @@ export interface FireAndAdvanceToTargetOrder
  * Order to fire and advance along a specified path.
  */
 export interface FireAndAdvanceOnPathOrder
-  extends BaseOrder, Omit<ExclusiveOrderProps, "path"> {
+  extends BaseOrder, Omit<ExclusiveOrderProps, "path">, FormationBodyProps {
   /** Order type is FireAndAdvance. */
   type: OrderType.FireAndAdvance;
   /** Path points to advance along while firing, in order. */
   path: OrderPathPoint[];
   /** Final rotation in radians after completing the path. */
   rotation?: number;
+  /**
+   * Speed ceiling in movement units per turn, so a body ordered as one keeps
+   * together instead of stretching out at each unit's own pace. Set to the
+   * slowest member's pace when the order was given to more than one unit.
+   */
+  pace?: number;
 }
 
 /**
@@ -288,7 +323,15 @@ export interface TurnSubmission {
   autofireConfigChanges?: UnitAutofireConfigChange[];
   /** Optional formation changes for units. */
   formationChanges?: UnitFormationChange[];
+  /** Turn 0 only: the commander-in-chief's reassignment of the team's deployment positions. */
+  deploymentZoneAssignments?: DeploymentZoneAssignments;
 }
+
+/**
+ * Authored command seat (the `player` of its deployment zones) to the seat that
+ * now holds that position, or null when nobody does. Missing seats keep their owner.
+ */
+export type DeploymentZoneAssignments = Record<number, number | null>;
 
 /**
  * Change to a unit's autofire configuration.
