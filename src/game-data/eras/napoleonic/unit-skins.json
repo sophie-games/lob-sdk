@@ -4476,5 +4476,73 @@
       }
     },
     "discount": 0
+  },
+  {
+    "id": 284,
+    "name": "bavarian-militia",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 10,
+    "formations": {
+      "column": {
+        "overlay": "bavarian-militia-column"
+      },
+      "line": {
+        "overlay": "bavarian-militia-line"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 285,
+    "name": "bavarian-jagers",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 17,
+    "formations": {
+      "skirmish": {
+        "overlay": "bavarian-jagers"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 286,
+    "name": "bavarian-12lb-artillery",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 12,
+    "formations": {
+      "artillery": {
+        "overlay": "bavarian-12lb-artillery"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 287,
+    "name": "bavarian-horse-artillery",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 6,
+    "formations": {
+      "artillery": {
+        "overlay": "bavarian-horse-artillery"
+      }
+    },
+    "discount": 0
+  },
+  {
+    "id": 288,
+    "name": "bavarian-6lb-artillery",
+    "tier": 1,
+    "premiumPrice": 150,
+    "unitType": 18,
+    "formations": {
+      "artillery": {
+        "overlay": "bavarian-6lb-artillery"
+      }
+    },
+    "discount": 0
   }
 ]
