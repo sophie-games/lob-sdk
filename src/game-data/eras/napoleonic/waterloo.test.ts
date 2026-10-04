@@ -273,41 +273,17 @@ describe("Battle of Waterloo scenario", () => {
   });
 
   it("gives no command a detached sliver of ground a whole command could crowd into", () => {
-    type Ring = { x: number; y: number }[];
-    const gap = (a: Ring, b: Ring) =>
-      Math.min(
-        ...a.flatMap((p) =>
-          b.map((s, i) => {
-            const e = b[(i + 1) % b.length]!;
-            const dx = e.x - s.x;
-            const dy = e.y - s.y;
-            const t = Math.max(
-              0,
-              Math.min(1, ((p.x - s.x) * dx + (p.y - s.y) * dy) / (dx * dx + dy * dy || 1)),
-            );
-            return Math.hypot(p.x - s.x - t * dx, p.y - s.y - t * dy);
-          }),
-        ),
-      );
     const zones = scenario.map!.deploymentZones!.flatMap((team) => team.zones);
+    const toPoints = (ring: [number, number][]) => ring.map(([x, y]) => ({ x, y }));
     for (const zone of zones.filter((zone) => zone.type === "main")) {
-      const rings = zone.polygons.map(({ outer }) => outer);
-      // Polygons that touch form one piece of ground.
-      const piece = rings.map((_, i) => i);
-      const root = (i: number): number => (piece[i] === i ? i : root(piece[i]!));
-      rings.forEach((a, i) =>
-        rings.forEach((b, j) => {
-          if (j > i && Math.min(gap(a, b), gap(b, a)) <= 1) piece[root(j)] = root(i);
-        }),
-      );
-      const areas = new Map<number, number>();
-      rings.forEach((outer, i) =>
-        areas.set(
-          root(i),
-          (areas.get(root(i)) ?? 0) + getDeploymentZoneArea({ ...zone, polygons: [{ outer }] }),
-        ),
-      );
-      for (const area of areas.values()) {
+      const [first, ...rest] = zone.polygons.map(({ outer }): Polygon => [
+        outer.map(({ x, y }) => [x, y]),
+      ]);
+      // Polygons that touch merge into one piece of ground.
+      for (const [outer, ...holes] of polygonClipping.union(first!, ...rest)) {
+        const area = getDeploymentZoneArea({
+          polygons: [{ outer: toPoints(outer!), holes: holes.map(toPoints) }],
+        });
         if (area < 2000)
           throw new Error(`Player ${zone.player} has a ${Math.round(area)} px² sliver of ground`);
       }
