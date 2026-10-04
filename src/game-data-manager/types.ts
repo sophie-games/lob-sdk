@@ -644,6 +644,21 @@ export interface EntrenchmentRule {
   pushStrengthModifierPerLevel: number;
 }
 
+/**
+ * Combat edge for fighting from higher ground, per height level of difference
+ * between the two units (capped at {@link maxLevelDiff}). All zero = no effect.
+ */
+export interface HeightRule {
+  /** Melee damage dealt by the higher unit, per level above its target. */
+  meleeAttackBonusPerLevel: number;
+  /** Melee damage taken by the higher unit, reduced per level above its attacker. */
+  meleeDefenseBonusPerLevel: number;
+  /** Charge damage per level the charger is above (bonus) or below (penalty) its target. */
+  chargeBonusPerLevel: number;
+  /** Level difference beyond which the modifiers stop growing. */
+  maxLevelDiff: number;
+}
+
 export interface ObjectivesRule {
   /** Capture radius around objectives (in world units) */
   radius: number;
@@ -839,6 +854,7 @@ export interface GameRules {
   skirmisherSpawning?: SkirmishersRule;
   supplyLines?: SupplyLinesRule;
   entrenchment?: EntrenchmentRule;
+  height?: HeightRule;
   objectives: ObjectivesRule;
   organization: OrganizationRule;
   allyCollision?: AllyCollisionRule;
