@@ -272,6 +272,34 @@ describe("Battle of Waterloo scenario", () => {
     }
   });
 
+  it("gives no command a detached sliver of ground a whole command could crowd into", () => {
+    const zones = scenario.map!.deploymentZones!.flatMap((team) => team.zones);
+    const toPoints = (ring: [number, number][]) => ring.map(([x, y]) => ({ x, y }));
+    for (const zone of zones.filter((zone) => zone.type === "main")) {
+      const [first, ...rest] = zone.polygons.map(({ outer }): Polygon => [
+        outer.map(({ x, y }) => [x, y]),
+      ]);
+      // Polygons that touch merge into one piece of ground.
+      for (const [outer, ...holes] of polygonClipping.union(first!, ...rest)) {
+        const area = getDeploymentZoneArea({
+          polygons: [{ outer: toPoints(outer!), holes: holes.map(toPoints) }],
+        });
+        if (area < 2000)
+          throw new Error(`Player ${zone.player} has a ${Math.round(area)} px² sliver of ground`);
+      }
+    }
+  });
+
+  it("gives the cavalry corps room to form up", () => {
+    for (const player of [4, 5]) {
+      const units = scenario.units!.filter((unit) => unit.player === player);
+      const ground = scenario.map!.deploymentZones!
+        .flatMap((team) => team.zones)
+        .find((zone) => zone.player === player && zone.type === "main")!;
+      expect(getDeploymentZoneArea(ground) / units.length).toBeGreaterThanOrEqual(3000);
+    }
+  });
+
   it("uses valid nonempty ground of at most sixteen points per polygon", () => {
     for (const { zones } of scenario.map!.deploymentZones!) {
       for (const zone of zones) {
