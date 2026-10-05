@@ -3,6 +3,7 @@ import {
   checkCollision,
   degreesToRadians,
   getClosestPointInsideZone,
+  setHeightRecursively,
   getDirectionToPoint,
   getFlankingPercent,
   getMaxOrgProportionDebuff,
@@ -968,5 +969,44 @@ describe("getFlankingPercent", () => {
       maxAngle,
     );
     expect(result).toBe(0);
+  });
+});
+
+describe("setHeightRecursively", () => {
+  /** The breadth-first reference the function must keep matching, tile for tile. */
+  const reference = (x: number, y: number, height: number, heightMap: number[][]) => {
+    const queue = [{ x, y, height }];
+    const visited = new Set<string>();
+    while (queue.length) {
+      const { x: cx, y: cy, height: ch } = queue.shift()!;
+      if (visited.has(`${cx},${cy}`)) continue;
+      visited.add(`${cx},${cy}`);
+      heightMap[cx][cy] = ch;
+      for (const [dx, dy] of [[-1, -1], [0, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1]]) {
+        const h = heightMap[cx + dx]?.[cy + dy];
+        if (h === undefined) continue;
+        const diff = h - ch;
+        const next = diff > 1 ? ch + 1 : diff < -1 ? ch - 1 : h;
+        if (next !== h) queue.push({ x: cx + dx, y: cy + dy, height: next });
+      }
+    }
+  };
+
+  it("smooths the ground around an edit exactly as the breadth-first reference does", () => {
+    let seed = 9;
+    const random = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const make = () => Array.from({ length: 30 }, () => Array.from({ length: 24 }, () => Math.floor(random() * 3)));
+    for (let run = 0; run < 40; run++) {
+      const actual = make();
+      const expected = actual.map((column) => [...column]);
+      const x = Math.floor(random() * 30);
+      const y = Math.floor(random() * 24);
+      const height = Math.floor(random() * 12) - 2;
+
+      setHeightRecursively(x, y, height, actual);
+      reference(x, y, height, expected);
+
+      expect(actual).toEqual(expected);
+    }
   });
 });

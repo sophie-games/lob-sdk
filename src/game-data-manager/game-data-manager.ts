@@ -20,7 +20,7 @@ import {
   AmmoPools,
 } from "@lob-sdk/types";
 import { RawScenarioInput, normalizeScenario } from "@lob-sdk/scenario";
-import { Scenario } from "@lob-sdk/types";
+import { Scenario, VisionObstacle } from "@lob-sdk/types";
 import {
   GameConstants,
   GameEra,
@@ -1656,6 +1656,19 @@ export class GameDataManager {
     const category = this.getCategoryByTerrain(terrainType);
     const terrainCategory = this.terrainCategories![category]; // This indirection on lookup is painful, becuase its done many times. Replace with direct lookup
     return terrainCategory?.visionAbsorption ?? 1; // these conditionals cause big-suck on performance, set defaults at initialization
+  }
+
+  /**
+   * The terrain's sight cost and the height it applies up to: its hitbox, the same band
+   * that stops shots. A category without a hitbox stops sight at any height.
+   */
+  public getVisionObstacle(terrainType: TerrainType): VisionObstacle {
+    const category = this.getCategoryByTerrain(terrainType);
+    const terrainCategory = this.terrainCategories![category];
+    return {
+      absorption: terrainCategory?.visionAbsorption ?? 1,
+      height: terrainCategory?.hitboxHeight ?? Infinity,
+    };
   }
 
   /**

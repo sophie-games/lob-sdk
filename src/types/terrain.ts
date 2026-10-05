@@ -58,6 +58,13 @@ export interface TerrainConfig {
 
 export type TerrainsData = Record<string, TerrainConfig>;
 
+/** How a terrain stops sight: what it costs the line, up to how far above its tile. */
+export interface VisionObstacle {
+  absorption: number;
+  /** Levels above the tile height; a line passing higher crosses it as open ground. */
+  height: number;
+}
+
 export interface TerrainCategoryConfig {
   color?: string;
   canPlaceObjectives?: boolean;
