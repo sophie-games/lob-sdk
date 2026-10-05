@@ -458,9 +458,9 @@
       "endBottomWidth": "Végső alsó szélesség",
       "startHeight": "Kezdő magasság",
       "endHeight": "Végső magasság",
-      "heightModifierPerLevelHelp": "Az elsőn túli minden egyes szintnyi magasságkülönbséggel ennyivel változtatja a robbanás alakjának mélységét. A negatív érték zsugorítja a lefedett területet, a pozitív megnyújtja. A korszak ágyúgolyói -0.15 értéket használnak.",
-      "damageModifierPerLevelHelp": "Az elsőn túli minden egyes szintnyi magasságkülönbséggel hozzáadja ezt a sebzésmódosítót. A negatív érték tompítja a találatot, a pozitív erősíti. A korszak ágyúgolyói -0.05 értéket használnak.",
-      "maxElevationDiffHelp": "A legtöbb szintnyi magasságkülönbség, ami még számíthat. A különbséget abszolút értékben mérjük, így a felfelé és a lefelé tüzelés ugyanúgy számít, és egy szintnyi vagy kisebb különbség egyáltalán nem érvényesül. A korszak ágyúgolyói 4-nél állnak meg."
+      "heightModifierPerLevelHelp": "Az elsőn túli minden egyes szintnyi magasságkülönbséggel ennyivel változtatja a robbanás alakjának mélységét. A negatív érték zsugorítja a lefedett területet, a pozitív megnyújtja. A korszak ágyúgolyói -0.075 értéket használnak.",
+      "damageModifierPerLevelHelp": "Az elsőn túli minden egyes szintnyi magasságkülönbséggel hozzáadja ezt a sebzésmódosítót. A negatív érték tompítja a találatot, a pozitív erősíti. A korszak ágyúgolyói -0.025 értéket használnak.",
+      "maxElevationDiffHelp": "A legtöbb szintnyi magasságkülönbség, ami még számíthat. A különbséget abszolút értékben mérjük, így a felfelé és a lefelé tüzelés ugyanúgy számít, és egy szintnyi vagy kisebb különbség egyáltalán nem érvényesül. A korszak ágyúgolyói 8-nál állnak meg."
     },
     "addRangeBracket": "Hatótáv-sáv hozzáadása",
     "addAreaOfEffect": "Hatásterület hozzáadása",

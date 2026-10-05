@@ -471,9 +471,9 @@
       "endBottomWidth": "Largeur inf. de fin",
       "startHeight": "Hauteur de début",
       "endHeight": "Hauteur de fin",
-      "heightModifierPerLevelHelp": "Modifie la profondeur de la zone d'explosion de cette fraction pour chaque niveau d'écart d'élévation au-delà du premier. Une valeur négative rétrécit l'empreinte, une valeur positive l'étire. Les boulets de l'ère utilisent -0.15.",
-      "damageModifierPerLevelHelp": "Ajoute ce modificateur de dégâts pour chaque niveau d'écart d'élévation au-delà du premier. Une valeur négative adoucit le coup, une valeur positive le durcit. Les boulets de l'ère utilisent -0.05.",
-      "maxElevationDiffHelp": "Le nombre maximal de niveaux d'écart d'élévation qui peuvent compter. L'écart est mesuré en valeur absolue, si bien que tirer vers le haut et tirer vers le bas sont traités de la même façon, et un écart d'un niveau ou moins n'applique rien du tout. Les boulets de l'ère plafonnent à 4."
+      "heightModifierPerLevelHelp": "Modifie la profondeur de la zone d'explosion de cette fraction pour chaque niveau d'écart d'élévation au-delà du premier. Une valeur négative rétrécit l'empreinte, une valeur positive l'étire. Les boulets de l'ère utilisent -0.075.",
+      "damageModifierPerLevelHelp": "Ajoute ce modificateur de dégâts pour chaque niveau d'écart d'élévation au-delà du premier. Une valeur négative adoucit le coup, une valeur positive le durcit. Les boulets de l'ère utilisent -0.025.",
+      "maxElevationDiffHelp": "Le nombre maximal de niveaux d'écart d'élévation qui peuvent compter. L'écart est mesuré en valeur absolue, si bien que tirer vers le haut et tirer vers le bas sont traités de la même façon, et un écart d'un niveau ou moins n'applique rien du tout. Les boulets de l'ère plafonnent à 8."
     },
     "addRangeBracket": "Ajouter une tranche de portée",
     "addAreaOfEffect": "Ajouter une zone d'effet",

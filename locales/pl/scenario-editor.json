@@ -462,9 +462,9 @@
       "endBottomWidth": "Końcowa szerokość dołu",
       "startHeight": "Wysokość początkowa",
       "endHeight": "Wysokość końcowa",
-      "heightModifierPerLevelHelp": "Zmienia głębokość kształtu wybuchu o ten ułamek na każdy poziom różnicy wzniesienia powyżej pierwszego. Wartość ujemna kurczy obszar, dodatnia go wydłuża. Kule armatnie tej epoki używają -0.15.",
-      "damageModifierPerLevelHelp": "Dodaje ten modyfikator obrażeń za każdy poziom różnicy wzniesienia powyżej pierwszego. Wartość ujemna osłabia trafienie, dodatnia je wzmacnia. Kule armatnie tej epoki używają -0.05.",
-      "maxElevationDiffHelp": "Największa liczba poziomów różnicy wzniesienia, jaka może się liczyć. Różnicę mierzy się bezwzględnie, więc ogień pod górę i z góry traktowane są tak samo, a różnica jednego poziomu lub mniejsza nie daje nic. Kule armatnie tej epoki mają limit 4."
+      "heightModifierPerLevelHelp": "Zmienia głębokość kształtu wybuchu o ten ułamek na każdy poziom różnicy wzniesienia powyżej pierwszego. Wartość ujemna kurczy obszar, dodatnia go wydłuża. Kule armatnie tej epoki używają -0.075.",
+      "damageModifierPerLevelHelp": "Dodaje ten modyfikator obrażeń za każdy poziom różnicy wzniesienia powyżej pierwszego. Wartość ujemna osłabia trafienie, dodatnia je wzmacnia. Kule armatnie tej epoki używają -0.025.",
+      "maxElevationDiffHelp": "Największa liczba poziomów różnicy wzniesienia, jaka może się liczyć. Różnicę mierzy się bezwzględnie, więc ogień pod górę i z góry traktowane są tak samo, a różnica jednego poziomu lub mniejsza nie daje nic. Kule armatnie tej epoki mają limit 8."
     },
     "addRangeBracket": "Dodaj przedział zasięgu",
     "addAreaOfEffect": "Dodaj obszar działania",

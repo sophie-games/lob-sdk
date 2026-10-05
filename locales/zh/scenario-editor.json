@@ -459,9 +459,9 @@
       "endBottomWidth": "结束底边宽",
       "startHeight": "起始高度",
       "endHeight": "结束高度",
-      "heightModifierPerLevelHelp": "每超出第一级的高度差等级，按此比例改变爆炸形状的纵深。负值缩小覆盖范围，正值将其拉长。本时代的实心弹使用 -0.15。",
-      "damageModifierPerLevelHelp": "每超出第一级的高度差等级，加上这一伤害修正。负值削弱这一击，正值使其加重。本时代的实心弹使用 -0.05。",
-      "maxElevationDiffHelp": "可以计入的最大高度差等级数。高度差按绝对值计算，因此向上射击与向下射击同等对待，而一级或更小的高度差完全不产生作用。本时代的实心弹上限为 4。"
+      "heightModifierPerLevelHelp": "每超出第一级的高度差等级，按此比例改变爆炸形状的纵深。负值缩小覆盖范围，正值将其拉长。本时代的实心弹使用 -0.075。",
+      "damageModifierPerLevelHelp": "每超出第一级的高度差等级，加上这一伤害修正。负值削弱这一击，正值使其加重。本时代的实心弹使用 -0.025。",
+      "maxElevationDiffHelp": "可以计入的最大高度差等级数。高度差按绝对值计算，因此向上射击与向下射击同等对待，而一级或更小的高度差完全不产生作用。本时代的实心弹上限为 8。"
     },
     "addRangeBracket": "添加距离区段",
     "addAreaOfEffect": "添加作用范围",
