@@ -18,6 +18,7 @@ import {
   UnitStatus,
   UnitTemplate,
   UnitType,
+  UnitAutofireConfigChange,
 } from "@lob-sdk/types";
 import {
   EngagementRange,
@@ -89,6 +90,8 @@ export abstract class BaseUnit extends Entity {
    * to `Max` (open fire at full range). Applies to autofire only, not ordered or panic fire.
    */
   abstract autofireRange: EngagementRange;
+  /** The player's Fire & Advance approach tier; undefined follows `autofireRange`. */
+  abstract approachRange: EngagementRange | undefined;
   /**
    * If true, the unit cannot change formation in the current tick.
    */
@@ -170,15 +173,26 @@ export abstract class BaseUnit extends Entity {
   get supplyConsumptionCombating(): number | undefined { return this.template.supplyConsumptionCombating; }
 
   get fireWhileMoving(): boolean { return (this.template as RangeUnitTemplate).fireWhileMoving ?? false; }
+  /** The approach tier in force: never further out than the fire tier, so the unit never halts out of range. */
+  get effectiveApproachRange(): EngagementRange {
+    return Math.min(this.approachRange ?? EngagementRange.Max, this.autofireRange);
+  }
+
+  applyAutofireConfig({ autofireRange, approachRange }: UnitAutofireConfigChange): void {
+    // Default to Max (no throttle) for submissions from clients sent before the field swap.
+    this.autofireRange = autofireRange ?? EngagementRange.Max;
+    this.approachRange = approachRange === EngagementRange.Max ? undefined : approachRange;
+  }
+
   /**
    * How close this unit closes on a target before it stops and fights: the nearest
-   * `preferredRange` among the weapons it is firing at its current engagement tier, never
-   * further out than that weapon reaches. Fire and advance stops here.
+   * `preferredRange` among the weapons it fires at its approach tier, never further out
+   * than that weapon reaches. Fire and advance stops here.
    */
   get standoffDistance(): number {
     return computeStandoffDistance({
       rangedDamageTypes: this.rangedDamageTypes ?? [],
-      tier: this.autofireRange,
+      tier: this.effectiveApproachRange,
       legacyStandoff: (this.template as RangeUnitTemplate).minDistanceToFAA,
       gameDataManager: this.gameDataManager,
     });
