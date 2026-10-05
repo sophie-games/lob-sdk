@@ -3,7 +3,6 @@ import { TerrainType } from "@lob-sdk/types";
 import { setHeightRecursively } from "@lob-sdk/utils";
 import { Point2 } from "@lob-sdk/vector";
 import { createNoise2D, NoiseFunction2D } from "simplex-noise";
-import { aStar } from "@lob-sdk/a-star/abstract-a-star";
 
 interface TerrainReplacement {
   fromTerrain: TerrainType;
@@ -100,52 +99,86 @@ export class NaturalPathGenerator {
   }
 
   public generatePath(pathPoints: Point2[]) {
-    const paths: Neighbor[][] = [];
+    const paths: Point2[][] = [];
     for (let i = 0; i < pathPoints.length - 1; i++) {
-      const shortestPath = aStar<Neighbor>({
-        start: {
-          point: pathPoints[i],
-          dist: 0,
-          dirHistory: [],
-        },
-        goal: {
-          point: pathPoints[i + 1],
-          dist: 0, // ignored but used for generic A*
-          dirHistory: [], // ignored but used for generic A*
-        },
-        estimateFromNodeToGoal: (tile) =>
-          this.heuristic(tile.point, pathPoints[i + 1]),
-        neighborsAdjacentToNode: (center) => this.getNeighbors(center),
-        actualCostToMove: (cameFromMap, from, to) =>
-          this.calculateMoveCost(cameFromMap, from, to),
-        nodeKey: (tile) => tile.point.x + tile.point.y * this.terrains.length,
-      });
-      paths.push(shortestPath ?? []);
+      paths.push(this.shortestPath(pathPoints[i], pathPoints[i + 1]) ?? []);
     }
 
     paths.map((path) => this.fillPathTiles(path));
   }
 
-  private getNeighbors(node: Neighbor): Neighbor[] {
-    const neighbors = this.DIRECTIONS.map((dir, dirIndex) => ({
-      point: { x: node.point.x + dir.x, y: node.point.y + dir.y },
-      dist: dir.dist,
-      dirHistory: this.pushDir(node.dirHistory, dirIndex),
-    })).filter((p) => {
-      return (
-        this.validTurn(p, node) &&
-        this.isValidTile(this.heightMap, p.point.x, p.point.y)
-      );
-    });
-    return neighbors;
+  /**
+   * Dijkstra over tiles, each settled once. A tile keeps the direction history of the
+   * route that reached it cheapest, which prices and restricts the turns out of it.
+   * Typed arrays rather than a node object per neighbour: a 512-tile map has 262k tiles.
+   */
+  private shortestPath(start: Point2, goal: Point2): Point2[] | null {
+    const width = this.terrains.length;
+    const size = width * this.terrains[0].length;
+    const historyLength = this.curveLen;
+    const cost = new Float64Array(size).fill(Infinity);
+    const cameFrom = new Int32Array(size).fill(-1);
+    const settled = new Uint8Array(size);
+    // The last `historyLength` directions into each tile, oldest first.
+    const histories = new Int8Array(size * historyLength);
+    const historySizes = new Uint8Array(size);
+
+    const startIndex = start.x + start.y * width;
+    const goalIndex = goal.x + goal.y * width;
+    cost[startIndex] = 0;
+    const open = new PriorityQueue<number>();
+    open.enqueue(startIndex, 0);
+
+    const from: Neighbor = { point: { x: 0, y: 0 }, dist: 0, dirHistory: [] };
+    const to: Neighbor = { point: { x: 0, y: 0 }, dist: 0, dirHistory: [] };
+    const toHistory = to.dirHistory;
+
+    for (let index = open.dequeue(); index !== undefined; index = open.dequeue()) {
+      if (settled[index]) continue;
+      settled[index] = 1;
+      if (index === goalIndex) {
+        const path: Point2[] = [];
+        for (let at = index; at !== -1; at = cameFrom[at]) {
+          path.push({ x: at % width, y: Math.floor(at / width) });
+        }
+        return path.reverse();
+      }
+
+      from.point.x = index % width;
+      from.point.y = Math.floor(index / width);
+      const fromStart = index * historyLength;
+      const fromSize = historySizes[index];
+      // The newest directions a step keeps: room for one more within the curve length.
+      const kept = Math.max(0, Math.min(fromSize, historyLength - 1));
+
+      for (let dir = 0; dir < this.DIRECTIONS.length; dir++) {
+        const step = this.DIRECTIONS[dir];
+        to.point.x = from.point.x + step.x;
+        to.point.y = from.point.y + step.y;
+        if (!this.isValidTile(this.heightMap, to.point.x, to.point.y)) continue;
+        const next = to.point.x + to.point.y * width;
+        if (settled[next]) continue;
+
+        to.dist = step.dist;
+        toHistory.length = 0;
+        for (let k = fromSize - kept; k < fromSize; k++) toHistory.push(histories[fromStart + k]);
+        if (historyLength > 0) toHistory.push(dir);
+        if (!this.validTurn(to, from)) continue;
+
+        const candidate = cost[index] + this.calculateMoveCost(from, to);
+        if (candidate >= cost[next]) continue;
+        cost[next] = candidate;
+        cameFrom[next] = index;
+        histories.set(toHistory, next * historyLength);
+        historySizes[next] = toHistory.length;
+        open.enqueue(next, candidate);
+      }
+    }
+
+    return null;
   }
 
-  /** TODO: instead of using the dirHistory on the node, curve cost could be done via the cameFromMap property */
-  private calculateMoveCost(
-    cameFromMap: Map<any, any>,
-    fromTile: Neighbor,
-    toTile: Neighbor,
-  ): number {
+  private calculateMoveCost(fromTile: Neighbor, toTile: Neighbor): number {
     return (
       toTile.dist +
       this.calculateTerrainCost(toTile.point) +
@@ -187,16 +220,6 @@ export class NaturalPathGenerator {
       }
       console.log(line);
     }
-  }
-
-  /** Adds direction history to a node  */
-  private pushDir(dirHistory: number[], dirIndex: number): number[] {
-    const h = dirHistory.slice();
-    h.push(dirIndex);
-    if (h.length > this.curveLen) {
-      h.shift();
-    }
-    return h;
   }
 
   /** Calculates segment curve cost based on constructor params */
@@ -243,18 +266,6 @@ export class NaturalPathGenerator {
     );
   }
 
-  /** Using euclidian distance as A* Hueristic */
-  private heuristic(a: Point2, b: Point2): number {
-    // After testing, Djisktra's just produces more reliable results and since any heuristic used was breaking the pathfinding.
-    // Its unclear how this was happening since the minimum weight was was higher than these algorithms should have been producing
-    return 0;
-    const dx = Math.abs(a.x - b.x);
-    const dy = Math.abs(a.y - b.y);
-    // return dx + dy;
-    // return Math.sqrt(dx * dx + dy * dy); // Euclidian distance
-    // return dx + dy + (Math.SQRT2 - 2) * Math.min(dx, dy); // Octile distance
-  }
-
   private isValidTile(grid: number[][], x: number, y: number): boolean {
     return (
       x >= 0 && y >= 0 && x < grid.length && y < grid[0].length &&
@@ -272,7 +283,7 @@ export class NaturalPathGenerator {
     return Math.abs(diff) * this.downHillHeightCost;
   }
 
-  private fillPathTiles(path: Neighbor[]) {
+  private fillPathTiles(path: Point2[]) {
     // Snapshot terrain before drawing so width>1 overlaps don't re-evaluate
     // replacement rules against tiles this same path already painted.
     const originalTerrains = this.terrains.map((row) => [...row]);
@@ -281,12 +292,7 @@ export class NaturalPathGenerator {
       const end = path[i + 1];
 
       // Use Bresenham's line algorithm for the center path
-      const points = this.orthagonalizeLine(
-        start.point.x,
-        start.point.y,
-        end.point.x,
-        end.point.y,
-      );
+      const points = this.orthagonalizeLine(start.x, start.y, end.x, end.y);
       for (const point of points) {
         const terrainType = this.getTerrainForTile(
           point.x,

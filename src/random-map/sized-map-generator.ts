@@ -1,0 +1,586 @@
+import { getDeploymentZonesByMapSize } from "./map-size";
+import {
+  GameMap,
+  RandomDeploymentZone,
+  RandomDeploymentZones,
+  Size,
+  TeamDeploymentZones,
+} from "@lob-sdk/types";
+import {
+  ObjectiveDto,
+  TeamDeploymentZone,
+  GenerateRandomMapResult,
+  GenerateRandomMapProps,
+  InstructionType,
+  AnyInstruction,
+  Scenario,
+  TerrainType,
+  Range,
+} from "@lob-sdk/types";
+import { TerrainNoiseExecutor } from "./executors/terrain-noise";
+import { HeightNoiseExecutor } from "./executors/height-noise";
+import { TerrainCircleExecutor } from "./executors/terrain-circle";
+import { TerrainRectangleExecutor } from "./executors/terrain-rectangle";
+import { NaturalPathExecutor } from "./executors/natural-path";
+import { ConnectClustersExecutor } from "./executors/connect-clusters";
+import { ObjectiveExecutor } from "./executors/objective";
+import { ObjectiveLayerExecutor } from "./executors/objective-layer";
+import { LakeExecutor } from "./executors/lake";
+import { SymmetryExecutor } from "./executors/symmetry";
+import { FieldsExecutor } from "./executors/fields";
+import { InstructionArea, TurnedFrame } from "./frame-angle";
+import { normalizeMapGrids } from "./normalize-map-grids";
+import { deriveSeed, generateRandomSeed, randomSeeded } from "@lob-sdk/seed";
+import type { MapSizeTemplate } from "@lob-sdk/game-data-manager";
+import { getRandomInt } from "@lob-sdk/utils";
+
+/** The battle size a generation is for, and the era's map sizes, resolved by the caller. */
+export interface MapSizing {
+  battleSize: Size;
+  mapSizes: Record<Size, MapSizeTemplate>;
+}
+
+/**
+ * RandomMapGenerator without the game data lookup: the caller passes the sizing, so
+ * this module never imports GameDataManager and a worker can run it without bundling
+ * the era's data.
+ */
+export class SizedMapGenerator {
+  generate(
+    {
+      scenario,
+      seed,
+      tileSize,
+      tilesX,
+      tilesY,
+      parameters,
+    }: GenerateRandomMapProps,
+    { battleSize, mapSizes }: MapSizing,
+  ): GenerateRandomMapResult {
+    const { map } = mapSizes[battleSize];
+
+    // Pre-placed objectives from the scenario seed the result; instruction
+    // executors append on top. Callers should NOT merge `scenario.objectives`
+    // again — the SDK owns the merge.
+    const objectives: ObjectiveDto<false>[] = [...(scenario.objectives ?? [])];
+
+    // Caller-supplied seed wins; otherwise prefer the baked map's seed; else random.
+    const fixedMap: GameMap | undefined = scenario.map;
+    const mapSeed = seed ?? fixedMap?.seed ?? generateRandomSeed();
+
+    let terrains: TerrainType[][];
+    let heightMap: number[][];
+    let widthPx: number;
+    let heightPx: number;
+    // Set when the terrain is generated turned (see TurnedFrame).
+    let frame: TurnedFrame | undefined;
+
+    if (fixedMap) {
+      widthPx = fixedMap.width;
+      heightPx = fixedMap.height;
+      // Deep-copy AND repair: force both grids rectangular to the declared size.
+      // A malformed import (e.g. an editor resize that left heightMap a few
+      // columns shorter than terrains) would otherwise be indexed raw downstream
+      // and crash the turn simulation (fog-of-war LOS), bots, and rendering.
+      // Runs before instruction executors, which also index the grids raw.
+      const repair = normalizeMapGrids(
+        fixedMap.terrains,
+        fixedMap.heightMap,
+        Math.floor(widthPx / tileSize),
+        Math.floor(heightPx / tileSize),
+        scenario.baseTerrain ?? TerrainType.Grass,
+      );
+      terrains = repair.terrains;
+      heightMap = repair.heightMap;
+      if (repair.repaired) {
+        console.warn(
+          `[RandomMapGenerator] Repaired malformed fixedMap grids for scenario "${scenario.name}": ` +
+            `terrains ${fixedMap.terrains.length}x${fixedMap.terrains[0]?.length ?? 0}, ` +
+            `heightMap ${fixedMap.heightMap.length}x${fixedMap.heightMap[0]?.length ?? 0} ` +
+            `-> ${Math.floor(widthPx / tileSize)}x${Math.floor(heightPx / tileSize)}.`,
+        );
+      }
+    } else {
+      // Precedence: caller-supplied tilesX/tilesY (scenario editor) >
+      // scenario.fixedSize (pinned dimensions) > battle-size defaults.
+      if (!tilesX) {
+        tilesX = scenario.fixedSize?.tilesX ?? map.tilesX;
+      }
+      if (!tilesY) {
+        tilesY = scenario.fixedSize?.tilesY ?? map.tilesY;
+      }
+
+      widthPx = tilesX * tileSize;
+      heightPx = tilesY * tileSize;
+
+      const accepted = scenario.parameters?.angle;
+      const angle = accepted
+        ? Math.min(accepted.max, Math.max(accepted.min, parameters?.angle ?? 0))
+        : 0;
+      if (angle !== 0) frame = new TurnedFrame(angle, tilesX, tilesY);
+
+      terrains = [];
+      heightMap = [];
+      for (let x = 0; x < tilesX; x++) {
+        terrains[x] = [];
+        heightMap[x] = [];
+        for (let y = 0; y < tilesY; y++) {
+          terrains[x][y] = scenario.baseTerrain ?? TerrainType.Grass;
+          heightMap[x][y] = 0;
+        }
+      }
+    }
+
+    const instructionsToRun: AnyInstruction[] = scenario.instructions ?? [];
+
+    this.executeInstructions(
+      scenario,
+      mapSeed,
+      terrains,
+      heightMap,
+      objectives,
+      widthPx,
+      heightPx,
+      tileSize,
+      battleSize,
+      instructionsToRun,
+      frame,
+    );
+
+    const deploymentZones = this.resolveDeploymentZones(
+      scenario,
+      fixedMap,
+      battleSize,
+      widthPx,
+      heightPx,
+      mapSizes,
+      tileSize,
+      terrains,
+      mapSeed,
+    );
+
+    return {
+      map: {
+        width: widthPx,
+        height: heightPx,
+        terrains,
+        heightMap,
+        ...(deploymentZones ? { deploymentZones } : {}),
+        ...(fixedMap?.labels !== undefined ? { labels: fixedMap.labels } : {}),
+        ...(fixedMap?.objectiveZones !== undefined
+          ? { objectiveZones: fixedMap.objectiveZones }
+          : {}),
+        seed: mapSeed,
+      },
+      objectives,
+    };
+  }
+
+  /** Reads pixel zones. */
+  private _getPixelZones(
+    scenario: Scenario,
+  ): TeamDeploymentZones[] | undefined {
+    return scenario.deploymentZones;
+  }
+
+  /** Reads percentage-based zones (already normalized to the current shape). */
+  private _getRandomZones(
+    scenario: Scenario,
+  ): RandomDeploymentZones | undefined {
+    return scenario.randomDeploymentZones;
+  }
+
+  private _getScaledZones(
+    scenario: Scenario,
+  ): Record<Size, RandomDeploymentZones> | undefined {
+    return scenario.scaledDeploymentZones;
+  }
+
+  /**
+   * Precedence: scenario.map.deploymentZones > scenario.deploymentZones >
+   *             scenario.scaledDeploymentZones[battleSize] >
+   *             scenario.randomDeploymentZones >
+   *             battle-size defaults (procedural only).
+   *
+   * Returns `undefined` when the scenario ships a handcrafted `map` but
+   * declares no zones anywhere. Battle-size defaults assume procedural
+   * dimensions; for author-sized maps the consumer picks the right default
+   * (era-wide constants centered on the fixed map).
+   */
+  private resolveDeploymentZones(
+    scenario: Scenario,
+    fixedMap: GameMap | undefined,
+    battleSize: Size,
+    widthPx: number,
+    heightPx: number,
+    mapSizes: Record<Size, MapSizeTemplate>,
+    tileSize: number,
+    terrains: TerrainType[][],
+    mapSeed: number,
+  ): TeamDeploymentZones[] | undefined {
+    const bakedZones = fixedMap?.deploymentZones;
+    if (bakedZones?.some(({ zones }) => zones.length > 0)) return bakedZones;
+
+    const pixelZones = this._getPixelZones(scenario);
+    if (pixelZones?.some(({ zones }) => zones.length > 0)) return pixelZones;
+
+    const randomZones =
+      this._getScaledZones(scenario)?.[battleSize] ??
+      this._getRandomZones(scenario);
+
+    if (randomZones) {
+      return this._computePercentZones(
+        randomZones,
+        terrains,
+        tileSize,
+        mapSeed,
+        scenario.players,
+      );
+    }
+
+    // Handcrafted map with no declarations: let the consumer decide.
+    if (fixedMap) {
+      return undefined;
+    }
+
+    return [
+      getDeploymentZonesByMapSize(
+        battleSize,
+        widthPx,
+        heightPx,
+        1,
+        mapSizes,
+        tileSize,
+      ),
+      getDeploymentZonesByMapSize(
+        battleSize,
+        widthPx,
+        heightPx,
+        2,
+        mapSizes,
+        tileSize,
+      ),
+    ];
+  }
+
+  private _computePercentZones(
+    deploymentZones: RandomDeploymentZones,
+    terrains: TerrainType[][],
+    tileSize: number,
+    seed: number,
+    playerSetups: Scenario["players"],
+  ): [TeamDeploymentZones, TeamDeploymentZones] {
+    const random = randomSeeded(deriveSeed(seed, 0));
+    const tilesX = terrains.length;
+    const tilesY = terrains[0].length;
+
+    const build = (
+      team: number,
+      zone: RandomDeploymentZone,
+    ): TeamDeploymentZone => {
+      const originX =
+        getRandomInt(
+          this.percentToTiles(zone.origin.x.min, tilesX),
+          this.percentToTiles(zone.origin.x.max, tilesX),
+          random,
+        ) * tileSize;
+      const originY =
+        getRandomInt(
+          this.percentToTiles(zone.origin.y.min, tilesY),
+          this.percentToTiles(zone.origin.y.max, tilesY),
+          random,
+        ) * tileSize;
+      const place = ({ x, y }: { x: number; y: number }) => ({
+        x: originX + this.percentToTiles(x, tilesX) * tileSize,
+        y: originY + this.percentToTiles(y, tilesY) * tileSize,
+      });
+      return {
+        team,
+        type: zone.role,
+        polygons: [
+          {
+            outer: zone.polygon.outer.map(place),
+            ...(zone.polygon.holes
+              ? { holes: zone.polygon.holes.map((ring) => ring.map(place)) }
+              : {}),
+          },
+        ],
+        ...(zone.player !== undefined ? { player: zone.player } : {}),
+        ...(zone.rotation !== undefined ? { rotation: zone.rotation } : {}),
+      };
+    };
+
+    // The top side is authored; the bottom side is its exact vertical mirror
+    // unless the scenario overrides it. Mirroring in pixels (rather than
+    // converting a separate bottom config) keeps the sides symmetric despite
+    // percentToTiles flooring every edge toward the top, which would otherwise
+    // hand the bottom team a consistent first-side advantage.
+    const mapHeightPx = tilesY * tileSize;
+    const setups = playerSetups ?? [
+      { player: 1, team: 1 },
+      { player: 2, team: 2 },
+    ];
+    const topPlayers = setups.filter((setup) => setup.team === 2);
+    const bottomPlayers = setups.filter((setup) => setup.team === 1);
+    const mirrorPlayer = (player: number | undefined): number | undefined => {
+      if (player === undefined) return undefined;
+      const teamOrder = topPlayers.findIndex(
+        (setup) => setup.player === player,
+      );
+      return teamOrder < 0 ? undefined : bottomPlayers[teamOrder]?.player;
+    };
+    const mirrorToBottom = (zone: TeamDeploymentZone): TeamDeploymentZone => {
+      const mirroredPlayer = mirrorPlayer(zone.player);
+      const { player: _player, rotation: _rotation, ...area } = zone;
+      const reflect = ({ x, y }: { x: number; y: number }) => ({
+        x,
+        y: mapHeightPx - y,
+      });
+      return {
+        ...area,
+        team: 1,
+        polygons: zone.polygons.map(({ outer, holes }) => ({
+          outer: outer.map(reflect),
+          ...(holes ? { holes: holes.map((ring) => ring.map(reflect)) } : {}),
+        })),
+        ...(mirroredPlayer !== undefined ? { player: mirroredPlayer } : {}),
+        ...(zone.rotation !== undefined ? { rotation: -zone.rotation } : {}),
+      };
+    };
+
+    const topZones = deploymentZones.top.map((zone) => build(2, zone));
+    const bottomZones = deploymentZones.bottom
+      ? deploymentZones.bottom.map((zone) => build(1, zone))
+      : topZones.map(mirrorToBottom);
+
+    return [
+      { team: 1, zones: bottomZones },
+      { team: 2, zones: topZones },
+    ];
+  }
+
+  private percentToTiles(percent: number, tileLength: number) {
+    return Math.floor((percent / 100) * (tileLength - 1));
+  }
+
+  private executeInstructions(
+    scenario: Scenario,
+    seed: number,
+    terrains: TerrainType[][],
+    heightMap: number[][],
+    objectives: ObjectiveDto<false>[],
+    widthPx: number,
+    heightPx: number,
+    tileSize: number,
+    battleSize: Size,
+    instructions: AnyInstruction[],
+    frame?: TurnedFrame,
+  ) {
+    // On a turned map these instructions draw at their angle, each in its area of the frame;
+    // the rest draw unturned.
+    const turned = new Set<InstructionType>([
+      InstructionType.HeightNoise,
+      InstructionType.TerrainNoise,
+      InstructionType.TerrainRectangle,
+      InstructionType.NaturalPath,
+      InstructionType.Symmetry,
+    ]);
+    instructions.forEach((instruction: AnyInstruction, index: number) => {
+      let boundedTerrains = terrains;
+      let boundedHeightMap = heightMap;
+      let area: InstructionArea | undefined;
+      if (frame && turned.has(instruction.type)) {
+        area = frame.area(instruction.xBounds, instruction.yBounds);
+      } else if (instruction.xBounds && instruction.yBounds) {
+        boundedTerrains = this.create2DSliceProxy(
+          terrains,
+          instruction.xBounds,
+          instruction.yBounds,
+        );
+        boundedHeightMap = this.create2DSliceProxy(
+          heightMap,
+          instruction.xBounds,
+          instruction.yBounds,
+        );
+      }
+      switch (instruction.type) {
+        case InstructionType.HeightNoise: {
+          new HeightNoiseExecutor(
+            instruction,
+            scenario,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+            area,
+          ).execute();
+          break;
+        }
+        case InstructionType.TerrainNoise: {
+          new TerrainNoiseExecutor(
+            instruction,
+            scenario,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+            area,
+          ).execute();
+          break;
+        }
+        case InstructionType.TerrainCircle: {
+          new TerrainCircleExecutor(
+            instruction,
+            scenario,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+          ).execute();
+          break;
+        }
+        case InstructionType.TerrainRectangle: {
+          new TerrainRectangleExecutor(
+            instruction,
+            scenario,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+            area,
+          ).execute();
+          break;
+        }
+        case InstructionType.NaturalPath: {
+          new NaturalPathExecutor(
+            instruction,
+            scenario,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+            battleSize,
+            area,
+          ).execute();
+          break;
+        }
+        case InstructionType.ConnectClusters: {
+          new ConnectClustersExecutor(
+            instruction,
+            scenario,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+          ).execute();
+          break;
+        }
+        case InstructionType.Objective: {
+          new ObjectiveExecutor(
+            instruction,
+            scenario,
+            seed,
+            index,
+            widthPx,
+            heightPx,
+            objectives,
+          ).execute();
+          break;
+        }
+        case InstructionType.Lake: {
+          new LakeExecutor(
+            instruction,
+            scenario,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+          ).execute();
+          break;
+        }
+        case InstructionType.ObjectiveLayer: {
+          new ObjectiveLayerExecutor(
+            instruction,
+            tileSize,
+            scenario,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+            objectives,
+            Math.floor(
+              ((instruction.xBounds?.min ?? 0) / 100) * terrains.length,
+            ),
+            Math.floor(
+              ((instruction.yBounds?.min ?? 0) / 100) * terrains[0].length,
+            ),
+          ).execute();
+          break;
+        }
+        case InstructionType.Symmetry: {
+          new SymmetryExecutor(
+            instruction,
+            boundedTerrains,
+            boundedHeightMap,
+            area,
+          ).execute();
+          break;
+        }
+        case InstructionType.Fields: {
+          new FieldsExecutor(
+            instruction,
+            seed,
+            index,
+            boundedTerrains,
+            boundedHeightMap,
+          ).execute();
+          break;
+        }
+        default: {
+          const _exhaustive: never = instruction;
+          throw new Error(
+            `Unknown instruction type: ${JSON.stringify(_exhaustive)}`,
+          );
+        }
+      }
+    });
+  }
+
+  // Creates a proxy for a slice of a 2D array. So we can pass bounded areas without having to reprogram all executors
+  private create2DSliceProxy<T>(
+    array: T[][],
+    xRange: Range,
+    yRange: Range,
+  ): T[][] {
+    // Slice the 2D array according to specified rows and columns
+    const xStart = Math.floor((xRange.min / 100) * array.length);
+    const xEnd = Math.floor((xRange.max / 100) * array.length);
+    const yStart = Math.floor((yRange.min / 100) * array[0].length);
+    const yEnd = Math.floor((yRange.max / 100) * array[0].length);
+
+    // Create proxied rows
+    const proxiedRows: T[][] = [];
+    for (let i = xStart; i < xEnd; i++) {
+      const originalRow = array[i];
+      const rowSlice = originalRow.slice(yStart, yEnd);
+
+      // Wrap the row slice in a proxy
+      const rowProxy = new Proxy(rowSlice, {
+        set(target, colKey, value) {
+          const colIndex = Number(colKey);
+          if (!isNaN(colIndex) && colIndex < rowSlice.length) {
+            // Update original array
+            array[i][yStart + colIndex] = value;
+            // Update proxy
+            target[colIndex] = value;
+            return true;
+          }
+          return false;
+        },
+      });
+
+      proxiedRows.push(rowProxy);
+    }
+    return proxiedRows;
+  }
+}

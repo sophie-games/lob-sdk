@@ -4,7 +4,7 @@ import {
   TeamDeploymentZone,
   DeploymentZoneType,
 } from "@lob-sdk/types";
-import { GameEra, GameDataManager } from "@lob-sdk/game-data-manager";
+import type { MapSizeTemplate } from "@lob-sdk/game-data-manager";
 import { polygonFromBounds } from "@lob-sdk/utils";
 
 /**
@@ -33,11 +33,9 @@ export const getDeploymentZonesByMapSize = (
   mapWidth: number,
   mapHeight: number,
   team: number,
-  era: GameEra,
+  mapSizes: Record<Size, MapSizeTemplate>,
   tileSize: number,
 ): TeamDeploymentZones => {
-  const mapSizes = GameDataManager.get(era).getMapSizes();
-
   return {
     team,
     zones: [

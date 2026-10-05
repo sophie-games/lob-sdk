@@ -851,7 +851,9 @@
   },
   "mapSize": {
     "widthInTiles": "Width in tiles",
-    "heightInTiles": "Height in tiles"
+    "heightInTiles": "Height in tiles",
+    "extent": "{{width}} × {{height}}",
+    "groundSize": "Ground size"
   },
   "mapPoint": {
     "title": "Map point",
