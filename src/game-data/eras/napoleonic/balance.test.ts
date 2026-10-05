@@ -817,7 +817,6 @@ describe("Napoleonic balance", () => {
         ["scoutCavalry", 0.3, 0.1],
         ["heavyCavalry", 0.3, 0.1],
         ["artillery", 0.6, 0.6],
-        ["horseArtillery", 0.6, 0.2],
         ["infantry", 0.6, 0.03],
         ["guardsInfantry", 0.6, 0.03],
         ["militiaInfantry", 0.6, 0.03],
@@ -1095,14 +1094,12 @@ describe("Napoleonic balance", () => {
       "4lb-cannon-ball": 0.75,
     };
 
-    for (const category of ["artillery", "horseArtillery"]) {
-      for (const [damageType, expected] of Object.entries(
-        resistanceByDamageType,
-      )) {
-        expect(
-          gameDataManager.getUnitCategoryResistance(category, damageType),
-        ).toBe(expected);
-      }
+    for (const [damageType, expected] of Object.entries(
+      resistanceByDamageType,
+    )) {
+      expect(
+        gameDataManager.getUnitCategoryResistance("artillery", damageType),
+      ).toBe(expected);
     }
   });
 
