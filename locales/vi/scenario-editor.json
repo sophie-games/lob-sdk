@@ -456,9 +456,9 @@
       "endBottomWidth": "Chiều rộng dưới cuối",
       "startHeight": "Chiều cao đầu",
       "endHeight": "Chiều cao cuối",
-      "heightModifierPerLevelHelp": "Thay đổi chiều sâu của hình nổ theo tỷ lệ này cho mỗi cấp chênh lệch độ cao sau cấp đầu tiên. Giá trị âm thu nhỏ vùng phủ, giá trị dương kéo dài nó. Đạn tròn của thời đại này dùng -0.15.",
-      "damageModifierPerLevelHelp": "Cộng thêm hệ số sát thương này cho mỗi cấp chênh lệch độ cao sau cấp đầu tiên. Giá trị âm làm nhẹ đòn đánh, giá trị dương làm nó nặng hơn. Đạn tròn của thời đại này dùng -0.05.",
-      "maxElevationDiffHelp": "Số cấp chênh lệch độ cao nhiều nhất có thể được tính. Chênh lệch được đo theo trị tuyệt đối, nên bắn lên dốc và bắn xuống dốc được xử lý như nhau, và chênh lệch một cấp trở xuống thì không áp dụng gì cả. Đạn tròn của thời đại này giới hạn ở 4."
+      "heightModifierPerLevelHelp": "Thay đổi chiều sâu của hình nổ theo tỷ lệ này cho mỗi cấp chênh lệch độ cao sau cấp đầu tiên. Giá trị âm thu nhỏ vùng phủ, giá trị dương kéo dài nó. Đạn tròn của thời đại này dùng -0.075.",
+      "damageModifierPerLevelHelp": "Cộng thêm hệ số sát thương này cho mỗi cấp chênh lệch độ cao sau cấp đầu tiên. Giá trị âm làm nhẹ đòn đánh, giá trị dương làm nó nặng hơn. Đạn tròn của thời đại này dùng -0.025.",
+      "maxElevationDiffHelp": "Số cấp chênh lệch độ cao nhiều nhất có thể được tính. Chênh lệch được đo theo trị tuyệt đối, nên bắn lên dốc và bắn xuống dốc được xử lý như nhau, và chênh lệch một cấp trở xuống thì không áp dụng gì cả. Đạn tròn của thời đại này giới hạn ở 8."
     },
     "addRangeBracket": "Thêm khoảng tầm bắn",
     "addAreaOfEffect": "Thêm vùng ảnh hưởng",
