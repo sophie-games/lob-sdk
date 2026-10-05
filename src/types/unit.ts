@@ -88,6 +88,11 @@ export interface UnitDto {
   afr?: EngagementRange;
 
   /**
+   * Fire & Advance approach tier (EngagementRange). Omitted when it follows `afr`.
+   */
+  apr?: EngagementRange;
+
+  /**
    * Current formation
    */
   f?: string;

@@ -44,6 +44,7 @@ describe("BaseUnit", () => {
     hardAllyOverlap: number = 0;
     softAllyOverlap: number = 0;
     autofireRange: EngagementRange = EngagementRange.Max;
+    approachRange: EngagementRange | undefined = undefined;
     entrenchment: number = 0;
     status = UnitStatus.Standing;
     currentFormation: string = "column";
