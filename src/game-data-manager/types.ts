@@ -659,8 +659,6 @@ export interface HeightRule {
   uphillSpeedModifierPerLevel: number;
   /** Speed change at run pace per level the ground falls over one tile of travel. */
   downhillRunSpeedModifierPerLevel: number;
-  /** Running stamina cost change per level the ground falls over one tile of travel (negative = cheaper). */
-  downhillRunStaminaModifierPerLevel: number;
   /** Level difference (or levels per tile of slope) beyond which the modifiers stop growing. */
   maxLevelDiff: number;
 }
