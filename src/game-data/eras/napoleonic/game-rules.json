@@ -41,7 +41,9 @@
   "height": {
     "meleeAttackBonusPerLevel": 0,
     "meleeDefenseBonusPerLevel": 0,
-    "chargeBonusPerLevel": 0,
+    "chargeBonusPerLevel": 0.1,
+    "uphillSpeedModifierPerLevel": -0.2,
+    "downhillRunSpeedModifierPerLevel": 0.1,
     "maxLevelDiff": 4
   },
   "skirmisherSpawning": {
