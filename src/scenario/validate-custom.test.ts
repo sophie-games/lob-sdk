@@ -951,6 +951,21 @@ describe("validateScenarioCustomDefs", () => {
       expect(errors.filter((e) => e.scope === "unitTemplate")).toEqual([]);
     });
 
+    it("accepts a saved unit and doctrine still naming the retired horse artillery category", () => {
+      const doctrine = structuredClone(era.getOrganizationDoctrine());
+      doctrine.divisions
+        .find((d) => d.categories.includes("artillery"))!
+        .categories.push("horseArtillery");
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customUnitTemplates: [makeUnitTemplate({ category: "horseArtillery" })],
+          organizationDoctrine: doctrine,
+        }),
+        era,
+      );
+      expect(errors).toEqual([]);
+    });
+
     it("flags unknown meleeDamageType cross-ref", () => {
       const errors = validateScenarioCustomDefs(
         makeScenario({

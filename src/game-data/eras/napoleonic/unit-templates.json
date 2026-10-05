@@ -328,7 +328,7 @@
   {
     "name": "6lb_artillery_horse",
     "type": 6,
-    "category": "horseArtillery",
+    "category": "artillery",
     "initialOrder": 2,
     "rangedAttack": 2800,
     "meleeAttack": 1000,
@@ -1135,7 +1135,7 @@
   {
     "name": "rockets",
     "type": 19,
-    "category": "horseArtillery",
+    "category": "artillery",
     "initialOrder": 2,
     "rangedAttack": 1700,
     "meleeAttack": 1000,

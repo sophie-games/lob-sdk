@@ -115,6 +115,13 @@ const LEGACY_DAMAGE_TYPE_NAMES: Partial<
   },
 };
 
+/** Unit categories later merged into another, so saved custom units still load. */
+const LEGACY_UNIT_CATEGORY_IDS: Partial<
+  Record<GameEra, Readonly<Record<string, UnitCategoryId>>>
+> = {
+  napoleonic: { horseArtillery: "artillery" },
+};
+
 /**
  * Scenario-scoped custom definitions layered onto an era registry by
  * {@link GameDataManager.createWithCustomDefs} / {@link GameDataManager.loadCustomDefs}.
@@ -515,16 +522,18 @@ export class GameDataManager {
     if (customDefs.customUnitTemplates?.length) {
       // Dedupe-by-type so override produces a single entry; otherwise
       // `getTemplates()` (which array consumers iterate) double-counts.
-      const customByType = new Map(
-        customDefs.customUnitTemplates.map((t) => [t.type, t]),
-      );
+      const customTemplates = customDefs.customUnitTemplates.map((t) => {
+        const merged = this.unitCategoryMap.has(t.category)
+          ? undefined
+          : this.getLegacyUnitCategoryIds()[t.category];
+        return merged ? { ...t, category: merged } : t;
+      });
+      const customByType = new Map(customTemplates.map((t) => [t.type, t]));
       const existing = this._unitTemplateManager.getTemplates();
       const existingTypes = new Set(existing.map((t) => t.type));
       const merged = [
         ...existing.map((t) => customByType.get(t.type) ?? t),
-        ...customDefs.customUnitTemplates.filter(
-          (t) => !existingTypes.has(t.type),
-        ),
+        ...customTemplates.filter((t) => !existingTypes.has(t.type)),
       ];
       this._unitTemplateManager = new UnitTemplateManager();
       this._unitTemplateManager.load(merged);
@@ -1095,6 +1104,11 @@ export class GameDataManager {
     }
 
     return template;
+  }
+
+  /** Retired category ids that saved custom data may still name, to the category they became. */
+  public getLegacyUnitCategoryIds(): Readonly<Record<string, UnitCategoryId>> {
+    return LEGACY_UNIT_CATEGORY_IDS[this.era] ?? {};
   }
 
   /**

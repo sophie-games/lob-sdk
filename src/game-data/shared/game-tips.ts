@@ -229,7 +229,7 @@ export const gameTips: readonly GameTipDefinition[] = [
     on: ["shootAttempted"],
     condition: {
       kind: "blockedShot",
-      categories: ["artillery", "horseArtillery"],
+      categories: ["artillery"],
     },
     titleKey: "gameTips.blockedFire.title",
     descriptionKey: "gameTips.blockedFire.description",

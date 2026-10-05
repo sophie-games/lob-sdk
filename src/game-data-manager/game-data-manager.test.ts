@@ -634,12 +634,7 @@ describe("GameDataManager", () => {
       ).toBeGreaterThan(
         napoleonic.getUnitTerrainDefenseModifier("skirmishInfantry", TerrainType.Building),
       );
-      for (const cavalryOrArtillery of [
-        "heavyCavalry",
-        "lightCavalry",
-        "artillery",
-        "horseArtillery",
-      ]) {
+      for (const cavalryOrArtillery of ["heavyCavalry", "lightCavalry", "artillery"]) {
         expect(
           napoleonic.isPassable(TerrainType.FortifiedFarm, cavalryOrArtillery),
         ).toBe(false);
@@ -670,14 +665,12 @@ describe("GameDataManager", () => {
       }
       // Guns are hauled up onto a rampart far slower than a battalion climbs it,
       // and its parapet covers their crews as it covers infantry.
-      for (const guns of ["artillery", "horseArtillery"]) {
-        expect(napoleonic.isPassable(TerrainType.Rampart, guns)).toBe(true);
-        expect(napoleonic.getMovementModifier(TerrainType.Rampart, guns)).toBe(-0.9);
-        expect(napoleonic.getUnitTerrainDefenseModifier(guns, TerrainType.Rampart)).toBe(
-          napoleonic.getUnitTerrainDefenseModifier("infantry", TerrainType.Rampart),
-        );
-        expect(napoleonic.getRangedAttackModifier(TerrainType.Rampart, guns)).toBe(0);
-      }
+      expect(napoleonic.isPassable(TerrainType.Rampart, "artillery")).toBe(true);
+      expect(napoleonic.getMovementModifier(TerrainType.Rampart, "artillery")).toBe(-0.9);
+      expect(napoleonic.getUnitTerrainDefenseModifier("artillery", TerrainType.Rampart)).toBe(
+        napoleonic.getUnitTerrainDefenseModifier("infantry", TerrainType.Rampart),
+      );
+      expect(napoleonic.getRangedAttackModifier(TerrainType.Rampart, "artillery")).toBe(0);
 
       // WW2 has no guns to haul up: its rampart stops everything but infantry.
       const ww2 = GameDataManager.get("ww2");
@@ -721,6 +714,38 @@ describe("GameDataManager", () => {
       expect(m.getRunSpeedModifier(TerrainType.Mud, "infantry")).toBe(-0.2);
       // Neither set -> 0.
       expect(m.getRunSpeedModifier(TerrainType.Mud, "artillery")).toBe(0);
+    });
+  });
+
+  describe("horse artillery", () => {
+    it("is plain artillery: the guns and rockets share one category", () => {
+      const napoleonic = GameDataManager.get("napoleonic");
+      expect(
+        napoleonic.getUnitCategories().map((c) => c.id),
+      ).not.toContain("horseArtillery");
+      const categoryOf = (name: string) =>
+        napoleonic
+          .getUnitTemplateManager()
+          .getTemplates()
+          .find((t) => t.name === name)?.category;
+      expect(categoryOf("6lb_artillery_horse")).toBe("artillery");
+      expect(categoryOf("rockets")).toBe("artillery");
+    });
+
+    it("loads a saved custom unit still in the retired category as artillery", () => {
+      const napoleonic = GameDataManager.get("napoleonic");
+      const horseGuns = napoleonic
+        .getUnitTemplateManager()
+        .getTemplates()
+        .find((t) => t.name === "6lb_artillery_horse")!;
+      const custom = GameDataManager.createWithCustomDefs("napoleonic", {
+        customUnitTemplates: [{ ...horseGuns, category: "horseArtillery" }],
+      });
+      const loaded = custom
+        .getUnitTemplateManager()
+        .getTemplates()
+        .find((t) => t.type === horseGuns.type)!;
+      expect(loaded.category).toBe("artillery");
     });
   });
 
