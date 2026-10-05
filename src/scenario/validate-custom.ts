@@ -115,7 +115,9 @@ export function validateScenarioCustomDefs(
         [
           ...eraGameDataManager.getUnitCategories(),
           ...customUnitCategories,
-        ].flatMap((c) => (typeof c?.id === "string" ? [c.id] : [])),
+        ]
+          .flatMap((c) => (typeof c?.id === "string" ? [c.id] : []))
+          .concat(Object.keys(eraGameDataManager.getLegacyUnitCategoryIds())),
       ),
     ).map((message) => ({ scope: "organization" as const, message })),
   );
@@ -899,7 +901,9 @@ function validateCustomUnitTemplates(
   );
   const customCategoryIds = new Set(customUnitCategories.map((c) => c.id));
   const isKnownCategory = (id: string) =>
-    builtInCategoryIds.has(id) || customCategoryIds.has(id);
+    builtInCategoryIds.has(id) ||
+    customCategoryIds.has(id) ||
+    Object.hasOwn(eraGameDataManager.getLegacyUnitCategoryIds(), id);
 
   for (const template of customUnitTemplates) {
     // Reusing a built-in `type` id is an explicit override; CUSTOM_UNIT_TYPE_MIN
