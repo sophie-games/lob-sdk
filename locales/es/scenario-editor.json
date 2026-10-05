@@ -479,9 +479,9 @@
       "endBottomWidth": "Ancho inferior final",
       "startHeight": "Altura inicial",
       "endHeight": "Altura final",
-      "heightModifierPerLevelHelp": "Cambia la profundidad de la forma de la explosión en esta fracción por cada nivel de diferencia de elevación más allá del primero. Un valor negativo encoge la huella, uno positivo la alarga. Las balas de cañón de la era usan -0.15.",
-      "damageModifierPerLevelHelp": "Añade este modificador de daño por cada nivel de diferencia de elevación más allá del primero. Un valor negativo suaviza el impacto, uno positivo lo endurece. Las balas de cañón de la era usan -0.05.",
-      "maxElevationDiffHelp": "El máximo de niveles de diferencia de elevación que pueden contar. La diferencia se mide en valor absoluto, así que disparar cuesta arriba y cuesta abajo se tratan igual, y una diferencia de un nivel o menos no aplica nada en absoluto. Las balas de cañón de la era se limitan a 4."
+      "heightModifierPerLevelHelp": "Cambia la profundidad de la forma de la explosión en esta fracción por cada nivel de diferencia de elevación más allá del primero. Un valor negativo encoge la huella, uno positivo la alarga. Las balas de cañón de la era usan -0.075.",
+      "damageModifierPerLevelHelp": "Añade este modificador de daño por cada nivel de diferencia de elevación más allá del primero. Un valor negativo suaviza el impacto, uno positivo lo endurece. Las balas de cañón de la era usan -0.025.",
+      "maxElevationDiffHelp": "El máximo de niveles de diferencia de elevación que pueden contar. La diferencia se mide en valor absoluto, así que disparar cuesta arriba y cuesta abajo se tratan igual, y una diferencia de un nivel o menos no aplica nada en absoluto. Las balas de cañón de la era se limitan a 8."
     },
     "addRangeBracket": "Agregar tramo de alcance",
     "addAreaOfEffect": "Agregar área de efecto",

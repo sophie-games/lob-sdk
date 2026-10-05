@@ -504,9 +504,9 @@
       "endBottomWidth": "End bottom width",
       "startHeight": "Start height",
       "endHeight": "End height",
-      "heightModifierPerLevelHelp": "Changes the depth of the blast shape by this fraction for every level of elevation difference past the first. Negative shrinks the footprint, positive stretches it. The era's cannonballs use -0.15.",
-      "damageModifierPerLevelHelp": "Adds this damage modifier for every level of elevation difference past the first. Negative softens the hit, positive hardens it. The era's cannonballs use -0.05.",
-      "maxElevationDiffHelp": "The most levels of elevation difference that can count. The difference is measured in absolute terms, so firing uphill and downhill are treated the same, and a difference of one level or less applies nothing at all. The era's cannonballs cap at 4."
+      "heightModifierPerLevelHelp": "Changes the depth of the blast shape by this fraction for every level of elevation difference past the first. Negative shrinks the footprint, positive stretches it. The era's cannonballs use -0.075.",
+      "damageModifierPerLevelHelp": "Adds this damage modifier for every level of elevation difference past the first. Negative softens the hit, positive hardens it. The era's cannonballs use -0.025.",
+      "maxElevationDiffHelp": "The most levels of elevation difference that can count. The difference is measured in absolute terms, so firing uphill and downhill are treated the same, and a difference of one level or less applies nothing at all. The era's cannonballs cap at 8."
     },
     "addRangeBracket": "Add range bracket",
     "addAreaOfEffect": "Add area of effect",

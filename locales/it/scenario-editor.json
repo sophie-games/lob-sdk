@@ -458,9 +458,9 @@
       "endBottomWidth": "Larghezza inferiore finale",
       "startHeight": "Altezza iniziale",
       "endHeight": "Altezza finale",
-      "heightModifierPerLevelHelp": "Cambia la profondità della forma dell'esplosione di questa frazione per ogni livello di differenza di elevazione oltre il primo. Un valore negativo riduce l'impronta, uno positivo la allunga. Le palle di cannone dell'epoca usano -0.15.",
-      "damageModifierPerLevelHelp": "Aggiunge questo modificatore di danno per ogni livello di differenza di elevazione oltre il primo. Un valore negativo attenua il colpo, uno positivo lo rafforza. Le palle di cannone dell'epoca usano -0.05.",
-      "maxElevationDiffHelp": "Il numero massimo di livelli di differenza di elevazione che possono contare. La differenza è misurata in valore assoluto, quindi sparare in salita e in discesa sono trattati allo stesso modo, e una differenza di un livello o meno non applica nulla. Le palle di cannone dell'epoca si fermano a 4."
+      "heightModifierPerLevelHelp": "Cambia la profondità della forma dell'esplosione di questa frazione per ogni livello di differenza di elevazione oltre il primo. Un valore negativo riduce l'impronta, uno positivo la allunga. Le palle di cannone dell'epoca usano -0.075.",
+      "damageModifierPerLevelHelp": "Aggiunge questo modificatore di danno per ogni livello di differenza di elevazione oltre il primo. Un valore negativo attenua il colpo, uno positivo lo rafforza. Le palle di cannone dell'epoca usano -0.025.",
+      "maxElevationDiffHelp": "Il numero massimo di livelli di differenza di elevazione che possono contare. La differenza è misurata in valore assoluto, quindi sparare in salita e in discesa sono trattati allo stesso modo, e una differenza di un livello o meno non applica nulla. Le palle di cannone dell'epoca si fermano a 8."
     },
     "addRangeBracket": "Aggiungi fascia di gittata",
     "addAreaOfEffect": "Aggiungi area d'effetto",

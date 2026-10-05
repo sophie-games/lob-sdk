@@ -458,9 +458,9 @@
       "endBottomWidth": "Untere Endbreite",
       "startHeight": "Starthöhe",
       "endHeight": "Endhöhe",
-      "heightModifierPerLevelHelp": "Ändert die Tiefe der Explosionsform um diesen Anteil für jede Höhenstufe Unterschied über die erste hinaus. Negativ verkleinert die Grundfläche, positiv streckt sie. Die Kanonenkugeln der Ära nutzen -0.15.",
-      "damageModifierPerLevelHelp": "Fügt diesen Schadensmodifikator für jede Höhenstufe Unterschied über die erste hinaus hinzu. Negativ mildert den Treffer, positiv verschärft ihn. Die Kanonenkugeln der Ära nutzen -0.05.",
-      "maxElevationDiffHelp": "Die größte Anzahl an Höhenstufen Unterschied, die zählen kann. Der Unterschied wird als Absolutwert gemessen, sodass Feuer bergauf und bergab gleich behandelt werden, und ein Unterschied von einer Stufe oder weniger wirkt überhaupt nicht. Die Kanonenkugeln der Ära sind bei 4 gedeckelt."
+      "heightModifierPerLevelHelp": "Ändert die Tiefe der Explosionsform um diesen Anteil für jede Höhenstufe Unterschied über die erste hinaus. Negativ verkleinert die Grundfläche, positiv streckt sie. Die Kanonenkugeln der Ära nutzen -0.075.",
+      "damageModifierPerLevelHelp": "Fügt diesen Schadensmodifikator für jede Höhenstufe Unterschied über die erste hinaus hinzu. Negativ mildert den Treffer, positiv verschärft ihn. Die Kanonenkugeln der Ära nutzen -0.025.",
+      "maxElevationDiffHelp": "Die größte Anzahl an Höhenstufen Unterschied, die zählen kann. Der Unterschied wird als Absolutwert gemessen, sodass Feuer bergauf und bergab gleich behandelt werden, und ein Unterschied von einer Stufe oder weniger wirkt überhaupt nicht. Die Kanonenkugeln der Ära sind bei 8 gedeckelt."
     },
     "addRangeBracket": "Reichweitenbereich hinzufügen",
     "addAreaOfEffect": "Wirkungsbereich hinzufügen",

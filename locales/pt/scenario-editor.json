@@ -458,9 +458,9 @@
       "endBottomWidth": "Largura inferior final",
       "startHeight": "Altura inicial",
       "endHeight": "Altura final",
-      "heightModifierPerLevelHelp": "Altera a profundidade da forma da explosão nesta fração por cada nível de diferença de elevação além do primeiro. Negativo encolhe a área, positivo a alonga. As balas de canhão da era usam -0.15.",
-      "damageModifierPerLevelHelp": "Adiciona este modificador de dano por cada nível de diferença de elevação além do primeiro. Negativo suaviza o impacto, positivo o reforça. As balas de canhão da era usam -0.05.",
-      "maxElevationDiffHelp": "O maior número de níveis de diferença de elevação que pode contar. A diferença é medida em termos absolutos, portanto disparar para cima e para baixo é tratado da mesma forma, e uma diferença de um nível ou menos não aplica nada. As balas de canhão da era têm limite de 4."
+      "heightModifierPerLevelHelp": "Altera a profundidade da forma da explosão nesta fração por cada nível de diferença de elevação além do primeiro. Negativo encolhe a área, positivo a alonga. As balas de canhão da era usam -0.075.",
+      "damageModifierPerLevelHelp": "Adiciona este modificador de dano por cada nível de diferença de elevação além do primeiro. Negativo suaviza o impacto, positivo o reforça. As balas de canhão da era usam -0.025.",
+      "maxElevationDiffHelp": "O maior número de níveis de diferença de elevação que pode contar. A diferença é medida em termos absolutos, portanto disparar para cima e para baixo é tratado da mesma forma, e uma diferença de um nível ou menos não aplica nada. As balas de canhão da era têm limite de 8."
     },
     "addRangeBracket": "Adicionar faixa de alcance",
     "addAreaOfEffect": "Adicionar área de efeito",
