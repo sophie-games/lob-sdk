@@ -121,6 +121,14 @@
     "title": "Topographic view",
     "description": "Color the battlefield by elevation, from green lowlands to brown heights, and mark the main summits with their height."
   },
+  "sunShadows": {
+    "title": "Sun shadows",
+    "description": "Hills and ridges cast shadows away from the sun. Off keeps only the shading of slopes. Applies from the next battle."
+  },
+  "sunElevation": {
+    "title": "Sun height",
+    "description": "How high the sun stands over the battlefield: lower casts longer shadows. Applies from the next battle."
+  },
   "gridOpacity": {
     "title": "Grid Opacity"
   },
