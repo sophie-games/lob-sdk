@@ -318,6 +318,12 @@ interface BaseUnitTemplate {
   initialOrder?: OrderType;
 
   /**
+   * The order a unit left on `initialOrder` goes in at instead when a visible
+   * enemy would be inside its autofire reach of the destination.
+   */
+  initialOrderNearEnemy?: OrderType;
+
+  /**
    * Max entrenchment level.
    */
   maxEntrenchment?: number;
