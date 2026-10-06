@@ -110,7 +110,7 @@
     "id": "artillery",
     "defaultAutofireRange": 1,
     "warnOnMaxAutofire": true,
-    "ordersExemptFromBodyPace": [4],
+    "ordersExemptFromBodyPace": [4, 6],
     "chargeStaminaCost": 10000,
     "chargeBacklashMultiplier": 1.5,
     "runChargeBacklashMultiplier": 0.75,
