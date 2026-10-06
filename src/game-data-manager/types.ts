@@ -2,6 +2,7 @@ import { GameTimePresetId } from "@lob-sdk/game-time-preset";
 import {
   DynamicBattleType,
   LeagueType,
+  OrderType,
   ScenarioName,
   SkinTier,
   TeamSize,
@@ -97,6 +98,12 @@ export interface UnitCategoryTemplate {
    * minimal damage (e.g. artillery). Independent of `defaultAutofireRange`.
    */
   warnOnMaxAutofire?: boolean;
+  /**
+   * Orders under which a unit of this category does not set the pace of the
+   * division or brigade it is ordered with, e.g. a battery on Fire and Advance,
+   * so the body marches on at its other members' pace.
+   */
+  ordersExemptFromBodyPace?: OrderType[];
   routingBehavior?: RoutingBehavior;
   enfiladeFire?: EnfiladeFireConfig;
   rearFire?: RearFireConfig;

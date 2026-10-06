@@ -224,6 +224,8 @@ export abstract class BaseUnit extends Entity {
   get defaultAutofireRange(): EngagementRange { return this.categoryTemplate.defaultAutofireRange ?? EngagementRange.Max; }
   /** Whether the autofire selector should warn that the `Max` tier wastes ammo for this category. */
   get warnsOnMaxAutofire(): boolean { return this.categoryTemplate.warnOnMaxAutofire === true; }
+  /** Whether, under this order, the unit leaves its body's pace to the other members. */
+  isExemptFromBodyPace(order: OrderType): boolean { return this.categoryTemplate.ordersExemptFromBodyPace?.includes(order) === true; }
   
   get enfiladeFireDamageModifier(): number { return this.categoryTemplate.enfiladeFire?.damageModifier ?? 0; }
   get enfiladeFireOrgModifier(): number { return this.categoryTemplate.enfiladeFire?.orgModifier ?? 0; }

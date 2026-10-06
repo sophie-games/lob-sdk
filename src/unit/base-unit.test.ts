@@ -92,6 +92,16 @@ describe("BaseUnit", () => {
     expect(unit.runMovementSound).toBe("infantry-running");
   });
 
+  it("sets its body's pace unless its category lists the order as exempt", () => {
+    expect(unit.isExemptFromBodyPace(OrderType.FireAndAdvance)).toBe(false);
+    (unit as unknown as { categoryTemplate: unknown }).categoryTemplate = {
+      ...categoryTemplate,
+      ordersExemptFromBodyPace: [OrderType.FireAndAdvance],
+    };
+    expect(unit.isExemptFromBodyPace(OrderType.FireAndAdvance)).toBe(true);
+    expect(unit.isExemptFromBodyPace(OrderType.Run)).toBe(false);
+  });
+
   describe("rotation thresholds", () => {
     it("falls back to the walk threshold when no run threshold is configured", () => {
       expect(unit.runRotationMaxThreshold).toBe(unit.rotationMaxThreshold);
