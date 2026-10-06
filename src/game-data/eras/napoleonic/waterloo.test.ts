@@ -13,7 +13,7 @@ import { TerrainType } from "../../../types/terrain";
 import { getCollisionConfig, isCircleCollision } from "../../../types/collision-config";
 
 /**
- * The fixed 11:30 deployment gives every command its own sector of its army's
+ * The fixed 11:30 deployment gives every division its own sector of its army's
  * ground. Passing turn 0 keeps the placement; moving units stays behind the line.
  * Prussian triggers represent the formations that reached Waterloo rather than
  * assigning the whole Prussian army to Wellington's player.
@@ -34,84 +34,66 @@ describe("Battle of Waterloo scenario", () => {
       trigger.actions.filter((action) => action.type === "addUnit"),
     )
     .flatMap((action) => action.value);
+  const teamOf = (player: number) =>
+    scenario.players!.find((seat) => seat.player === player)!.team;
 
   it("runs the historical day and then some", () => {
     expect(scenario.startTime).toBe("11:30");
     expect(clockOf(scenario.maxTurn!)).toBe("21:15");
   });
 
-  it("has thirteen command seats grouped at corps and reserve level", () => {
-    expect(scenario.players).toHaveLength(13);
-    expect(
-      scenario.players!.filter((player) => player.team === 1),
-    ).toHaveLength(6);
-    expect(
-      scenario.players!.filter((player) => player.team === 2),
-    ).toHaveLength(7);
-
-    const divisionOwner = new Map(
-      scenario.organizations!.flatMap((organization) =>
-        organization.divisions.map((division) => [
-          division.name,
-          organization.player,
-        ]),
-      ),
+  // One seat per division, numbered and grouped as in the order-of-battle sheet.
+  it("has a seat for each division", () => {
+    expect(scenario.players!.map(({ player }) => player)).toEqual(
+      Array.from({ length: 52 }, (_, index) => index + 1),
     );
-    expect(divisionOwner.get("6th Division (Jérôme Bonaparte)")).toBe(1);
-    expect(divisionOwner.get("1st Division (Quiot)")).toBe(2);
-    expect(divisionOwner.get("19th Division (Simmer)")).toBe(3);
-    expect(divisionOwner.get("11th Cavalry Division (l'Héritier)")).toBe(4);
-    expect(divisionOwner.get("13th Cavalry Division (Wathier)")).toBe(5);
-    expect(divisionOwner.get("Old Guard (Friant)")).toBe(6);
-    expect(divisionOwner.get("2nd Netherlands Division (Perponcher)")).toBe(7);
-    expect(divisionOwner.get("3rd Netherlands Division (Chassé)")).toBe(7);
-    expect(divisionOwner.get("Nassau Contingent (Kruse)")).toBe(9);
-    expect(divisionOwner.get("2nd Division (Clinton)")).toBe(8);
-    expect(divisionOwner.get("5th Division (Picton)")).toBe(9);
-    expect(divisionOwner.get("3rd Cavalry Division (Domon)")).toBe(3);
-    expect(divisionOwner.get("5th Cavalry Division (Subervie)")).toBe(3);
-    expect(divisionOwner.get("Household Brigade (Somerset)")).toBe(10);
+    expect(scenario.players!.filter(({ team }) => team === 1)).toHaveLength(23);
+    expect(scenario.players!.filter(({ team }) => team === 2)).toHaveLength(29);
+
+    const ownersOf = new Map<string | undefined, number[]>();
+    for (const { player, divisions } of scenario.organizations!) {
+      for (const { name } of divisions) {
+        ownersOf.set(name, [...(ownersOf.get(name) ?? []), player]);
+      }
+    }
+    expect(ownersOf.get("2nd Cavalry Division (Piré)")).toEqual([1]);
+    expect(ownersOf.get("6th Division (Jérôme Bonaparte)")).toEqual([2]);
+    expect(ownersOf.get("19th Division (Simmer)")).toEqual([12]);
+    expect(ownersOf.get("Old Guard (Friant)")).toEqual([23]);
+    expect(ownersOf.get("1st Division (Cooke)")).toEqual([24]);
+    expect(ownersOf.get("Brunswick Corps (Olfermann)")).toEqual([35]);
+    // Lambert's own brigade serves beside the Nassauers.
+    expect(ownersOf.get("6th Division (Lambert)")).toEqual([32, 34]);
+    expect(ownersOf.get("7th Cavalry Brigade (Arentschildt)")).toEqual([44]);
+    expect(ownersOf.get("Hanoverian Cavalry Brigade (Estorff)")).toEqual([45]);
+    // The largest divisions fill a second seat.
+    expect(ownersOf.get("3rd Division (Alten)")).toEqual([25, 26]);
+    expect(ownersOf.get("3rd Netherlands Division (Chassé)")).toEqual([28, 29]);
+    expect(ownersOf.get("Netherlands Cavalry Division (Collaert)")).toEqual([40, 41]);
   });
 
   it("names every command seat for lobby selection", () => {
+    const commands = scenario.players!.map(
+      ({ command }) => `${command!.commander}, ${command!.formation}`,
+    );
+    expect(new Set(commands).size).toBe(commands.length);
     expect(
-      scenario.players!.map(({ player, command }) => ({ player, command })),
+      [1, 23, 24, 26, 46, 48, 52].map((seat) => scenario.players![seat - 1]!.command),
     ).toEqual([
-      { player: 1, command: { commander: "Reille", formation: "II Corps" } },
-      { player: 2, command: { commander: "d'Erlon", formation: "I Corps" } },
-      { player: 3, command: { commander: "Lobau", formation: "VI Corps" } },
-      {
-        player: 4,
-        command: { commander: "Kellermann", formation: "III Cavalry Corps" },
-      },
-      {
-        player: 5,
-        command: { commander: "Milhaud", formation: "IV Cavalry Corps" },
-      },
-      {
-        player: 6,
-        command: {
-          commander: "Napoleon",
-          formation: "Imperial Guard & Reserve",
-        },
-      },
-      {
-        player: 7,
-        command: { commander: "Prince of Orange", formation: "I Corps" },
-      },
-      { player: 8, command: { commander: "Hill", formation: "II Corps" } },
-      { player: 9, command: { commander: "Wellington", formation: "Reserve" } },
-      { player: 10, command: { commander: "Uxbridge", formation: "Cavalry" } },
-      { player: 11, command: { commander: "Bülow", formation: "IV Corps" } },
-      {
-        player: 12,
-        command: { commander: "Pirch", formation: "II Corps Detachment" },
-      },
-      {
-        player: 13,
-        command: { commander: "Zieten", formation: "I Corps Advance Guard" },
-      },
+      { commander: "Piré", formation: "2nd Cavalry Division" },
+      { commander: "Friant", formation: "Old Guard" },
+      { commander: "Cooke", formation: "1st Division" },
+      { commander: "Alten", formation: "3rd Division (cont.)" },
+      { commander: "Losthin", formation: "15th Brigade" },
+      { commander: "Prince William", formation: "IV Corps Reserve Cavalry" },
+      { commander: "Steinmetz", formation: "1st Brigade" },
     ]);
+  });
+
+  it("gives each army's command to the first division under its commander", () => {
+    expect(
+      scenario.players!.filter((seat) => seat.commanderInChief).map(({ player }) => player),
+    ).toEqual([18, 32]);
   });
 
   it("preserves each army's total ammunition while splitting command", () => {
@@ -132,13 +114,14 @@ describe("Battle of Waterloo scenario", () => {
       // Prussian seats have no troops at 11:30, so they get no ground.
       expect(
         zones.filter((zone) => zone.player === player && zone.type === "main"),
-      ).toHaveLength(player <= 10 ? 1 : 0);
+      ).toHaveLength(player <= 45 ? 1 : 0);
     }
     for (const zone of zones) {
       expect(zone.player).toBeDefined();
     }
   });
 
+  // Each objective belongs to the division posted nearest it.
   it("scores the ground each army fought for", () => {
     expect(
       scenario.objectives!.map(({ name, player, type }) => ({ name, player, type })),
@@ -146,15 +129,15 @@ describe("Battle of Waterloo scenario", () => {
       expect.arrayContaining([
         // Each army's big objective is its rear: Wellington's road to Brussels
         // at Mont-Saint-Jean, Napoleon's command post and road home at Rossomme.
-        { name: "Mont-Saint-Jean", player: 9, type: ObjectiveType.Big },
-        { name: "La Belle Alliance", player: 6, type: undefined },
-        { name: "Hougoumont", player: 7, type: undefined },
-        { name: "La Haye Sainte", player: 7, type: undefined },
-        { name: "Papelotte", player: 7, type: undefined },
+        { name: "Mont-Saint-Jean", player: 32, type: ObjectiveType.Big },
+        { name: "La Belle Alliance", player: 21, type: undefined },
+        { name: "Hougoumont", player: 24, type: undefined },
+        { name: "La Haye Sainte", player: 26, type: undefined },
+        { name: "Papelotte", player: 27, type: undefined },
         // Where Zieten joined Wellington's left.
-        { name: "Smohain", player: 7, type: undefined },
-        { name: "Plancenoit", player: 3, type: undefined },
-        { name: "Rossomme", player: 6, type: ObjectiveType.Big },
+        { name: "Smohain", player: 27, type: undefined },
+        { name: "Plancenoit", player: 11, type: undefined },
+        { name: "Rossomme", player: 22, type: ObjectiveType.Big },
       ]),
     );
     expect(scenario.objectives).toHaveLength(8);
@@ -272,7 +255,8 @@ describe("Battle of Waterloo scenario", () => {
     }
   });
 
-  it("gives no command a detached sliver of ground a whole command could crowd into", () => {
+  // A division posted apart from the rest keeps the small piece of ground it stands on.
+  it("gives no command a detached sliver of empty ground a whole command could crowd into", () => {
     const zones = scenario.map!.deploymentZones!.flatMap((team) => team.zones);
     const toPoints = (ring: [number, number][]) => ring.map(([x, y]) => ({ x, y }));
     for (const zone of zones.filter((zone) => zone.type === "main")) {
@@ -281,22 +265,28 @@ describe("Battle of Waterloo scenario", () => {
       ]);
       // Polygons that touch merge into one piece of ground.
       for (const [outer, ...holes] of polygonClipping.union(first!, ...rest)) {
-        const area = getDeploymentZoneArea({
+        const piece = {
+          ...zone,
           polygons: [{ outer: toPoints(outer!), holes: holes.map(toPoints) }],
-        });
-        if (area < 2000)
-          throw new Error(`Player ${zone.player} has a ${Math.round(area)} px² sliver of ground`);
+        };
+        const holdsItsTroops = scenario.units!.some(
+          (unit) => unit.player === zone.player && isInsideDeploymentZone(piece, unit.pos),
+        );
+        if (!holdsItsTroops && getDeploymentZoneArea(piece) < 2000)
+          throw new Error(`Player ${zone.player} has an empty sliver of ground`);
       }
     }
   });
 
   it("gives the cavalry corps room to form up", () => {
-    for (const player of [4, 5]) {
-      const units = scenario.units!.filter((unit) => unit.player === player);
-      const ground = scenario.map!.deploymentZones!
+    // Kellermann's and Milhaud's divisions.
+    for (const corps of [[14, 15], [16, 17]]) {
+      const units = scenario.units!.filter((unit) => corps.includes(unit.player));
+      const area = scenario.map!.deploymentZones!
         .flatMap((team) => team.zones)
-        .find((zone) => zone.player === player && zone.type === "main")!;
-      expect(getDeploymentZoneArea(ground) / units.length).toBeGreaterThanOrEqual(3000);
+        .filter((zone) => corps.includes(zone.player!) && zone.type === "main")
+        .reduce((total, zone) => total + getDeploymentZoneArea(zone), 0);
+      expect(area / units.length).toBeGreaterThanOrEqual(3000);
     }
   });
 
@@ -314,6 +304,13 @@ describe("Battle of Waterloo scenario", () => {
   });
 
   it("gives every deployment polygon one exclusive owner", () => {
+    const ringArea = (ring: [number, number][]) =>
+      Math.abs(
+        ring.reduce(
+          (sum, [x, y], i) => sum + x * ring[(i + 1) % ring.length]![1] - ring[(i + 1) % ring.length]![0] * y,
+          0,
+        ),
+      ) / 2;
     const zones = scenario.map!.deploymentZones!.flatMap((team) => team.zones);
     const polygon = (zone: (typeof zones)[number]): Polygon[] =>
       zone.polygons.map(({ outer, holes }) => [
@@ -339,12 +336,11 @@ describe("Battle of Waterloo scenario", () => {
           b.bottom <= a.top
         )
           continue;
-        expect(
-          polygonClipping.intersection(
-            ground(first),
-            ground(second),
-          ),
-        ).toEqual([]);
+        // Divisions cut from one corps sector share edges, so allow float noise along them.
+        const overlap = polygonClipping
+          .intersection(ground(first), ground(second))
+          .reduce((total, [outer]) => total + ringArea(outer!), 0);
+        expect(overlap).toBeLessThan(0.01);
       }
     }
   });
@@ -352,10 +348,10 @@ describe("Battle of Waterloo scenario", () => {
   it("keeps ground behind each army's most advanced initial position", () => {
     const zones = scenario.map!.deploymentZones!.flatMap((team) => team.zones);
     const frenchFront = Math.min(
-      ...scenario.units!.filter((unit) => unit.player <= 6).map((unit) => unit.pos.y),
+      ...scenario.units!.filter((unit) => teamOf(unit.player) === 1).map((unit) => unit.pos.y),
     );
     const alliedFront = Math.max(
-      ...scenario.units!.filter((unit) => unit.player >= 7).map((unit) => unit.pos.y),
+      ...scenario.units!.filter((unit) => teamOf(unit.player) === 2).map((unit) => unit.pos.y),
     );
     for (const zone of zones) {
       for (const { outer } of zone.polygons) {
@@ -552,7 +548,7 @@ describe("Battle of Waterloo scenario", () => {
     )!.pos;
     const garrison = scenario.units!.filter(
       (unit) =>
-        unit.player >= 7 &&
+        teamOf(unit.player) === 2 &&
         Math.hypot(unit.pos.x - hougoumont.x, unit.pos.y - hougoumont.y) <= 130,
     );
     expect(garrison.length).toBeGreaterThan(0);
@@ -592,7 +588,7 @@ describe("Battle of Waterloo scenario", () => {
       scenario.units!
         .filter(
           (unit) =>
-            unit.player >= 7 &&
+            teamOf(unit.player) === 2 &&
             Math.hypot(unit.pos.x - hougoumont.x, unit.pos.y - hougoumont.y) <= 130,
         )
         .map((unit) => brigadeOf.get(unit.id!)),
@@ -851,7 +847,7 @@ describe("Battle of Waterloo scenario", () => {
       ],
     };
     const brigades = scenario.organizations!
-      .filter((organization) => organization.player >= 7)
+      .filter((organization) => teamOf(organization.player) === 2)
       .flatMap((organization) => organization.divisions)
       .flatMap((division) => division.brigades);
     for (const [brigade, names] of Object.entries(expected)) {
@@ -1123,7 +1119,7 @@ describe("Battle of Waterloo scenario", () => {
       ],
     };
     const brigades = scenario.organizations!
-      .filter((organization) => organization.player <= 6)
+      .filter((organization) => teamOf(organization.player) === 1)
       .flatMap((organization) => organization.divisions)
       .flatMap((division) => division.brigades);
     for (const [brigade, names] of Object.entries(expected)) {
@@ -1163,67 +1159,31 @@ describe("Battle of Waterloo scenario", () => {
     ]);
   });
 
-  it("gives Bülow, Pirch and Zieten their own complete arriving commands", () => {
-    expect(scenario.units!.some((unit) => unit.player >= 11)).toBe(false);
+  it("gives each arriving Prussian brigade its own seat", () => {
+    const prussianSeats = [46, 47, 48, 49, 50, 51, 52];
+    expect(scenario.units!.some((unit) => prussianSeats.includes(unit.player))).toBe(false);
+    expect(
+      prussianSeats.map(
+        (seat) => reinforcements.filter((unit) => unit.player === seat).length,
+      ),
+    ).toEqual([12, 9, 9, 13, 14, 13, 15]);
 
-    expect(reinforcements.filter((unit) => unit.player === 11)).toHaveLength(
-      57,
+    const namesOf = (seat: number) =>
+      reinforcements.filter((unit) => unit.player === seat).map((unit) => unit.name);
+    expect(namesOf(46)).toEqual(
+      expect.arrayContaining(["I/18th Infantry Regiment", "III/4th Silesian Landwehr"]),
     );
-    expect(reinforcements.filter((unit) => unit.player === 12)).toHaveLength(
-      13,
+    expect(namesOf(47)).toEqual(
+      expect.arrayContaining(["I/15th Infantry Regiment", "III/2nd Silesian Landwehr"]),
     );
-    expect(reinforcements.filter((unit) => unit.player === 13)).toHaveLength(
-      15,
+    expect(namesOf(48)).not.toContain("I/15th Infantry Regiment");
+    expect(namesOf(49)).toContain("III/3rd Neumark Landwehr");
+    expect(namesOf(50)).toContain("III/2nd Pomeranian Landwehr");
+    expect(namesOf(51)).toEqual(
+      expect.arrayContaining(["F/25th Infantry Regiment", "Field Jäger Detachment"]),
     );
-
-    const bulowNames = reinforcements
-      .filter((unit) => unit.player === 11)
-      .map((unit) => unit.name);
-    expect(bulowNames).toEqual(
-      expect.arrayContaining([
-        "I/10th Infantry Regiment",
-        "III/3rd Neumark Landwehr",
-        "I/11th Infantry Regiment",
-        "III/2nd Pomeranian Landwehr",
-        "I/18th Infantry Regiment",
-        "III/4th Silesian Landwehr",
-        "I/15th Infantry Regiment",
-        "III/2nd Silesian Landwehr",
-        "6pdr Horse Battery No. 1",
-        "7pdr Howitzer Battery No. 4",
-      ]),
-    );
-    expect(bulowNames).not.toContain("1st Silesian Landwehr Cavalry");
-    expect(bulowNames).not.toContain("2nd Pomeranian Landwehr Cavalry");
-
-    const pirchNames = reinforcements
-      .filter((unit) => unit.player === 12)
-      .map((unit) => unit.name);
-    expect(pirchNames).toEqual(
-      expect.arrayContaining([
-        "I/2nd Infantry Regiment",
-        "F/25th Infantry Regiment",
-        "III/5th Westphalian Landwehr",
-        "Field Jäger Detachment",
-        "6pdr Foot Battery No. 10",
-      ]),
-    );
-
-    const zietenNames = reinforcements
-      .filter((unit) => unit.player === 13)
-      .map((unit) => unit.name);
-    expect(zietenNames).toEqual(
-      expect.arrayContaining([
-        "I/12th Infantry Regiment",
-        "F/24th Infantry Regiment",
-        "III/1st Westphalian Landwehr",
-        "Silesian Schützen (1st & 3rd Companies)",
-        "4th (1st Silesian) Hussars",
-        "3rd Brandenburg Uhlans",
-        "5th Brandenburg Dragoons",
-        "2nd Kurmark Landwehr Cavalry",
-        "6pdr Horse Battery No. 7",
-      ]),
+    expect(namesOf(52)).toEqual(
+      expect.arrayContaining(["F/24th Infantry Regiment", "3rd Brandenburg Uhlans"]),
     );
   });
 
