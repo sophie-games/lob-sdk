@@ -66,6 +66,16 @@ export const gameTips: readonly GameTipDefinition[] = [
     },
   },
   {
+    id: "infoPanel",
+    battleOnly: false,
+    on: ["unitSelected"],
+    condition: {
+      kind: "always",
+    },
+    titleKey: "gameTips.infoPanel.title",
+    descriptionKey: "gameTips.infoPanel.description",
+  },
+  {
     id: "running",
     battleOnly: false,
     on: ["ready", "unitSelected", "orderTypeChanged"],

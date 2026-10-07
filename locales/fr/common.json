@@ -635,6 +635,10 @@
     "shellsVsCover": {
       "title": "Obus contre couvert",
       "description": "Un ennemi à portée est à couvert. Les obus explosifs perdent bien moins que les boulets contre les bois, les bâtiments et les ouvrages de terre, cette pièce est donc la bonne pour frapper des troupes à couvert."
+    },
+    "infoPanel": {
+      "title": "Détails de l'unité",
+      "description": "Ouvrez <info>Infos</info> sur une unité sélectionnée pour voir ses armes et portées, ce que change chaque formation et chaque modificateur qui agit sur elle en ce moment."
     }
   },
   "turn": "Tour",
