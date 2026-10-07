@@ -658,6 +658,18 @@
     "infoPanel": {
       "title": "Szczegóły jednostki",
       "description": "Otwórz <info>Informacje</info> wybranej jednostki, aby zobaczyć jej broń i zasięgi, co zmienia każda formacja i każdy modyfikator, który teraz na nią działa."
+    },
+    "uphillCharge": {
+      "title": "Szarża pod górę",
+      "description": "Ta szarża wspina się do celu. Szarża traci siłę z każdym poziomem wysokości, który pokonuje, a stok ją spowalnia. Szarżuj z płaskiego lub wyższego terenu albo najpierw osłab cel."
+    },
+    "contestedCapture": {
+      "title": "Sporny cel",
+      "description": "W strefie tego celu stoi wrogi oddział. Dopóki obie strony mają tam wojska, zdobywanie nie postępuje, a postęp przepada. Wypchnij go lub złam, aby zająć cel."
+    },
+    "lineOnRoad": {
+      "title": "Maszeruj w kolumnie",
+      "description": "Ten batalion maszeruje drogą w <line>linii</line>. Droga przyspiesza tylko oddział, który na niej stoi, a linia jest za szeroka, by się na niej zmieścić. Na czas marszu przejdź do <column>kolumny</column>."
     }
   },
   "turn": "Tura",

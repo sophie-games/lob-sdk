@@ -75,6 +75,14 @@ export type GameTipCondition =
     }
   | { kind: "orgRadius"; minOrgRadiusBonus: number }
   | { kind: "rearFire" }
+  | { kind: "uphillCharge"; minLevelDiff: number }
+  | { kind: "contestedCapture" }
+  | {
+      kind: "formationOnRoad";
+      formations: readonly string[];
+      minRoadShare: number;
+      minDistancePx: number;
+    }
   | { kind: "always" }
   | {
       kind: "situation";

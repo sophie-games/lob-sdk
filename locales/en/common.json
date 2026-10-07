@@ -834,6 +834,18 @@
     "infoPanel": {
       "title": "Unit details",
       "description": "Open <info>Info</info> on a selected unit to see its weapons and ranges, what each formation changes, and every modifier acting on it right now."
+    },
+    "uphillCharge": {
+      "title": "Charging uphill",
+      "description": "This charge climbs to its target. A charge loses force for every height level it climbs, and the slope slows it down. Charge from level or higher ground, or wear the target down first."
+    },
+    "contestedCapture": {
+      "title": "Contested objective",
+      "description": "An enemy unit is inside this objective's zone. While both sides have troops there, the capture does not advance and any progress is lost. Drive it out or break it to take the objective."
+    },
+    "lineOnRoad": {
+      "title": "March in column",
+      "description": "This battalion is marching along a road in <line>line</line>. A road only speeds up a unit that is on it, and a line is too wide to fit on one. Switch to <column>column</column> for the march."
     }
   },
   "turn": "Turn",

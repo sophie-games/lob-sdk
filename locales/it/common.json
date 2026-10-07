@@ -656,6 +656,18 @@
     "infoPanel": {
       "title": "Dettagli dell'unità",
       "description": "Apri <info>Info</info> su un'unità selezionata per vedere armi e gittate, cosa cambia ogni formazione e ogni modificatore che agisce su di essa in questo momento."
+    },
+    "uphillCharge": {
+      "title": "Carica in salita",
+      "description": "Questa carica sale verso il bersaglio. Una carica perde forza per ogni livello di altezza che sale, e il pendio la rallenta. Carica da terreno pianeggiante o più alto, oppure logora prima il bersaglio."
+    },
+    "contestedCapture": {
+      "title": "Obiettivo conteso",
+      "description": "Un'unità nemica è dentro la zona di questo obiettivo. Finché entrambe le parti vi hanno truppe, la conquista non avanza e il progresso va perso. Scacciala o spezzala per prendere l'obiettivo."
+    },
+    "lineOnRoad": {
+      "title": "Marcia in colonna",
+      "description": "Questo battaglione marcia lungo una strada in <line>linea</line>. Una strada accelera solo l'unità che vi si trova sopra, e una linea è troppo larga per starci. Passa in <column>colonna</column> per la marcia."
     }
   },
   "turn": "Turno",

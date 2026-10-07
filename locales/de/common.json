@@ -656,6 +656,18 @@
     "infoPanel": {
       "title": "Einheitendetails",
       "description": "Unter <info>Info</info> siehst du bei einer ausgewählten Einheit ihre Waffen und Reichweiten, was jede Formation ändert, und jeden Modifikator, der gerade auf sie wirkt."
+    },
+    "uphillCharge": {
+      "title": "Sturmangriff bergauf",
+      "description": "Dieser Sturmangriff führt bergauf zum Ziel. Ein Sturmangriff verliert mit jeder Höhenstufe, die er hinaufläuft, an Wucht, und der Hang bremst ihn. Greife von ebenem oder höherem Gelände an oder zermürbe das Ziel vorher."
+    },
+    "contestedCapture": {
+      "title": "Umkämpftes Ziel",
+      "description": "Eine feindliche Einheit steht im Bereich dieses Ziels. Solange beide Seiten dort Truppen haben, kommt die Eroberung nicht voran und der Fortschritt geht verloren. Vertreibe oder breche sie, um das Ziel einzunehmen."
+    },
+    "lineOnRoad": {
+      "title": "In Kolonne marschieren",
+      "description": "Dieses Bataillon marschiert in <line>Linie</line> eine Straße entlang. Eine Straße beschleunigt nur eine Einheit, die auf ihr steht, und eine Linie ist zu breit dafür. Wechsle für den Marsch in <column>Kolonne</column>."
     }
   },
   "turn": "Runde",
