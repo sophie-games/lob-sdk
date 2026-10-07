@@ -61,15 +61,17 @@ describe("Battle of Waterloo scenario", () => {
     expect(ownersOf.get("19th Division (Simmer)")).toEqual([12]);
     expect(ownersOf.get("Old Guard (Friant)")).toEqual([23]);
     expect(ownersOf.get("1st Division (Cooke)")).toEqual([24]);
-    expect(ownersOf.get("Brunswick Corps (Olfermann)")).toEqual([35]);
+    expect(ownersOf.get("Brunswick Corps (Olfermann)")).toEqual([36]);
     // Lambert's own brigade serves beside the Nassauers.
-    expect(ownersOf.get("6th Division (Lambert)")).toEqual([32, 34]);
-    expect(ownersOf.get("7th Cavalry Brigade (Arentschildt)")).toEqual([44]);
+    expect(ownersOf.get("6th Division (Lambert)")).toEqual([33, 35]);
+    expect(ownersOf.get("7th Cavalry Brigade (Arentschildt)")).toEqual([45]);
     expect(ownersOf.get("Hanoverian Cavalry Brigade (Estorff)")).toEqual([45]);
-    // The largest divisions fill a second seat.
+    // The largest divisions fill a second seat; Perponcher's splits between the
+    // centre with Hougoumont's Nassauers and Saxe-Weimar around Papelotte.
     expect(ownersOf.get("3rd Division (Alten)")).toEqual([25, 26]);
-    expect(ownersOf.get("3rd Netherlands Division (Chassé)")).toEqual([28, 29]);
-    expect(ownersOf.get("Netherlands Cavalry Division (Collaert)")).toEqual([40, 41]);
+    expect(ownersOf.get("2nd Netherlands Division (Perponcher)")).toEqual([27, 28]);
+    expect(ownersOf.get("3rd Netherlands Division (Chassé)")).toEqual([29, 30]);
+    expect(ownersOf.get("Netherlands Cavalry Division (Collaert)")).toEqual([41, 42]);
   });
 
   it("names every command seat for lobby selection", () => {
@@ -78,12 +80,14 @@ describe("Battle of Waterloo scenario", () => {
     );
     expect(new Set(commands).size).toBe(commands.length);
     expect(
-      [1, 23, 24, 26, 46, 48, 52].map((seat) => scenario.players![seat - 1]!.command),
+      [1, 23, 24, 26, 28, 45, 46, 48, 52].map((seat) => scenario.players![seat - 1]!.command),
     ).toEqual([
       { commander: "Piré", formation: "2nd Cavalry Division" },
       { commander: "Friant", formation: "Old Guard" },
       { commander: "Cooke", formation: "1st Division" },
       { commander: "Alten", formation: "3rd Division (cont.)" },
+      { commander: "Perponcher", formation: "2nd Netherlands Division (cont.)" },
+      { commander: "Arentschildt", formation: "7th Cavalry Brigade" },
       { commander: "Losthin", formation: "15th Brigade" },
       { commander: "Prince William", formation: "IV Corps Reserve Cavalry" },
       { commander: "Steinmetz", formation: "1st Brigade" },
@@ -93,7 +97,7 @@ describe("Battle of Waterloo scenario", () => {
   it("gives each army's command to the first division under its commander", () => {
     expect(
       scenario.players!.filter((seat) => seat.commanderInChief).map(({ player }) => player),
-    ).toEqual([18, 32]);
+    ).toEqual([18, 33]);
   });
 
   it("preserves each army's total ammunition while splitting command", () => {
@@ -129,13 +133,13 @@ describe("Battle of Waterloo scenario", () => {
       expect.arrayContaining([
         // Each army's big objective is its rear: Wellington's road to Brussels
         // at Mont-Saint-Jean, Napoleon's command post and road home at Rossomme.
-        { name: "Mont-Saint-Jean", player: 32, type: ObjectiveType.Big },
+        { name: "Mont-Saint-Jean", player: 33, type: ObjectiveType.Big },
         { name: "La Belle Alliance", player: 21, type: undefined },
         { name: "Hougoumont", player: 24, type: undefined },
         { name: "La Haye Sainte", player: 26, type: undefined },
-        { name: "Papelotte", player: 27, type: undefined },
+        { name: "Papelotte", player: 28, type: undefined },
         // Where Zieten joined Wellington's left.
-        { name: "Smohain", player: 27, type: undefined },
+        { name: "Smohain", player: 28, type: undefined },
         { name: "Plancenoit", player: 11, type: undefined },
         { name: "Rossomme", player: 22, type: ObjectiveType.Big },
       ]),
@@ -851,10 +855,12 @@ describe("Battle of Waterloo scenario", () => {
       .flatMap((organization) => organization.divisions)
       .flatMap((division) => division.brigades);
     for (const [brigade, names] of Object.entries(expected)) {
-      const found = brigades.find((item) => item.name === brigade);
+      // A brigade split between two seats is still one brigade.
+      const found = brigades.filter((item) => item.name === brigade);
       expect({
         brigade,
-        names: found?.unitIds
+        names: found
+          .flatMap((item) => item.unitIds)
           .map((id) => scenario.units!.find((unit) => unit.id === id)!.name)
           .sort(),
       }).toEqual({ brigade, names });
