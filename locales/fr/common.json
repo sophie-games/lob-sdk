@@ -639,6 +639,18 @@
     "infoPanel": {
       "title": "Détails de l'unité",
       "description": "Ouvrez <info>Infos</info> sur une unité sélectionnée pour voir ses armes et portées, ce que change chaque formation et chaque modificateur qui agit sur elle en ce moment."
+    },
+    "uphillCharge": {
+      "title": "Charge en montée",
+      "description": "Cette charge monte vers sa cible. Une charge perd de la force à chaque niveau de hauteur gravi, et la pente la ralentit. Chargez depuis un terrain plat ou plus haut, ou usez d'abord la cible."
+    },
+    "contestedCapture": {
+      "title": "Objectif disputé",
+      "description": "Une unité ennemie se trouve dans la zone de cet objectif. Tant que les deux camps y ont des troupes, la capture n'avance pas et la progression est perdue. Chassez-la ou brisez-la pour prendre l'objectif."
+    },
+    "lineOnRoad": {
+      "title": "Marchez en colonne",
+      "description": "Ce bataillon suit une route en <line>ligne</line>. Une route n'accélère qu'une unité qui est dessus, et une ligne est trop large pour y tenir. Passez en <column>colonne</column> pour la marche."
     }
   },
   "turn": "Tour",

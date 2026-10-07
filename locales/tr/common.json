@@ -656,6 +656,18 @@
     "infoPanel": {
       "title": "Birlik ayrıntıları",
       "description": "Seçili bir birliğin silahlarını ve menzillerini, her düzenin neyi değiştirdiğini ve şu anda ona etki eden tüm değiştiricileri görmek için <info>Bilgi</info>'yi aç."
+    },
+    "uphillCharge": {
+      "title": "Yokuş yukarı hücum",
+      "description": "Bu hücum hedefine yokuş yukarı çıkıyor. Bir hücum tırmandığı her yükseklik seviyesinde güç kaybeder ve yamaç onu yavaşlatır. Düz ya da daha yüksek araziden hücum et veya önce hedefi yıprat."
+    },
+    "contestedCapture": {
+      "title": "Çekişmeli hedef",
+      "description": "Bu hedefin bölgesinde bir düşman birliği var. İki tarafın da orada birliği olduğu sürece ele geçirme ilerlemez ve ilerleme kaybolur. Hedefi almak için onu dışarı sür ya da boz."
+    },
+    "lineOnRoad": {
+      "title": "Kol düzeninde yürü",
+      "description": "Bu tabur bir yol boyunca <line>hat</line> düzeninde yürüyor. Yol yalnızca üzerindeki birliği hızlandırır ve hat, yola sığmayacak kadar geniştir. Yürüyüş için <column>kol</column> düzenine geç."
     }
   },
   "turn": "Tur",

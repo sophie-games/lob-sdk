@@ -208,6 +208,21 @@ export const gameTips: readonly GameTipDefinition[] = [
     },
   },
   {
+    id: "contestedCapture",
+    battleOnly: true,
+    on: ["ready", "stateUpdated"],
+    condition: {
+      kind: "contestedCapture",
+    },
+    maxShows: TACTICAL_SHOWS,
+    titleKey: "gameTips.contestedCapture.title",
+    descriptionKey: "gameTips.contestedCapture.description",
+    action: {
+      type: "objective",
+      labelKey: "game-messages:view",
+    },
+  },
+  {
     id: "flanks",
     battleOnly: true,
     on: ["ready", "stateUpdated", "unitSelected"],
@@ -245,6 +260,25 @@ export const gameTips: readonly GameTipDefinition[] = [
     },
     titleKey: "gameTips.terrain.title",
     descriptionKey: "gameTips.terrain.description",
+    action: {
+      type: "unit",
+      labelKey: "game-messages:view",
+    },
+  },
+  {
+    id: "lineOnRoad",
+    eras: ["napoleonic"],
+    battleOnly: true,
+    on: ["orderPlaced"],
+    condition: {
+      kind: "formationOnRoad",
+      formations: ["line"],
+      minRoadShare: 0.6,
+      minDistancePx: 128,
+    },
+    maxShows: TACTICAL_SHOWS,
+    titleKey: "gameTips.lineOnRoad.title",
+    descriptionKey: "gameTips.lineOnRoad.description",
     action: {
       type: "unit",
       labelKey: "game-messages:view",
@@ -303,6 +337,22 @@ export const gameTips: readonly GameTipDefinition[] = [
     maxShows: TACTICAL_SHOWS,
     titleKey: "gameTips.slowCharge.title",
     descriptionKey: "gameTips.slowCharge.description",
+    action: {
+      type: "unit",
+      labelKey: "game-messages:view",
+    },
+  },
+  {
+    id: "uphillCharge",
+    battleOnly: true,
+    on: ["orderPlaced"],
+    condition: {
+      kind: "uphillCharge",
+      minLevelDiff: 1,
+    },
+    maxShows: TACTICAL_SHOWS,
+    titleKey: "gameTips.uphillCharge.title",
+    descriptionKey: "gameTips.uphillCharge.description",
     action: {
       type: "unit",
       labelKey: "game-messages:view",

@@ -657,6 +657,18 @@
     "infoPanel": {
       "title": "Detail unit",
       "description": "Buka <info>Info</info> pada unit yang dipilih untuk melihat senjata dan jangkauannya, apa yang diubah setiap formasi, dan setiap pengubah yang sedang berlaku padanya."
+    },
+    "uphillCharge": {
+      "title": "Serbuan menanjak",
+      "description": "Serbuan ini menanjak ke sasarannya. Serbuan kehilangan kekuatan setiap naik satu tingkat ketinggian, dan lereng memperlambatnya. Serbu dari tanah datar atau lebih tinggi, atau lemahkan sasaran lebih dulu."
+    },
+    "contestedCapture": {
+      "title": "Tujuan diperebutkan",
+      "description": "Ada unit musuh di dalam zona tujuan ini. Selama kedua pihak punya pasukan di sana, perebutan tidak maju dan kemajuannya hilang. Usir atau patahkan unit itu untuk merebut tujuan."
+    },
+    "lineOnRoad": {
+      "title": "Berbaris dalam kolom",
+      "description": "Batalion ini berbaris di jalan dalam formasi <line>baris</line>. Jalan hanya mempercepat unit yang berada di atasnya, dan formasi baris terlalu lebar untuk muat. Ganti ke <column>kolom</column> selama berbaris."
     }
   },
   "turn": "Giliran",

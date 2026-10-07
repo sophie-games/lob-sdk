@@ -656,6 +656,18 @@
     "infoPanel": {
       "title": "Detalhes da unidade",
       "description": "Abra <info>Informações</info> de uma unidade selecionada para ver suas armas e alcances, o que cada formação muda e cada modificador que age sobre ela agora."
+    },
+    "uphillCharge": {
+      "title": "Carga morro acima",
+      "description": "Esta carga sobe até o alvo. Uma carga perde força a cada nível de altura que sobe, e a encosta a desacelera. Carregue a partir de terreno plano ou mais alto, ou desgaste o alvo antes."
+    },
+    "contestedCapture": {
+      "title": "Objetivo disputado",
+      "description": "Uma unidade inimiga está dentro da zona deste objetivo. Enquanto os dois lados tiverem tropas ali, a captura não avança e o progresso é perdido. Expulse-a ou quebre-a para tomar o objetivo."
+    },
+    "lineOnRoad": {
+      "title": "Marche em coluna",
+      "description": "Este batalhão marcha por uma estrada em <line>linha</line>. Uma estrada só acelera a unidade que está sobre ela, e uma linha é larga demais para caber. Mude para <column>coluna</column> durante a marcha."
     }
   },
   "turn": "Turno",

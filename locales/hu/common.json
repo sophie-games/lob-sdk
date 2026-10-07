@@ -656,6 +656,18 @@
     "infoPanel": {
       "title": "Egység részletei",
       "description": "Az <info>Infóban</info> láthatod a kiválasztott egység fegyvereit és lőtávolságait, hogy mit változtatnak az egyes alakzatok, és minden módosítót, amely éppen hat rá."
+    },
+    "uphillCharge": {
+      "title": "Roham felfelé",
+      "description": "Ez a roham felfelé tart a célpontjához. A roham minden megmászott magassági szinttel erejét veszti, és a lejtő lelassítja. Rohamozz sík vagy magasabb terepről, vagy előbb gyengítsd a célpontot."
+    },
+    "contestedCapture": {
+      "title": "Vitatott célpont",
+      "description": "Ellenséges egység áll ennek a célpontnak a zónájában. Amíg mindkét félnek vannak ott csapatai, az elfoglalás nem halad, és az előrehaladás elvész. Űzd ki vagy törd meg, hogy elfoglald a célpontot."
+    },
+    "lineOnRoad": {
+      "title": "Menetelj oszlopban",
+      "description": "Ez a zászlóalj <line>vonalban</line> halad egy úton. Az út csak a rajta álló egységet gyorsítja, a vonal pedig túl széles ahhoz, hogy elférjen rajta. Válts <column>oszlopra</column> a menethez."
     }
   },
   "turn": "Kör",

@@ -653,6 +653,18 @@
     "infoPanel": {
       "title": "Detalles de la unidad",
       "description": "Abre <info>Información</info> con una unidad seleccionada para ver sus armas y alcances, lo que cambia cada formación y cada modificador que le afecta ahora mismo."
+    },
+    "uphillCharge": {
+      "title": "Carga cuesta arriba",
+      "description": "Esta carga sube hacia su objetivo. Una carga pierde fuerza por cada nivel de altura que sube, y la pendiente la frena. Carga desde terreno llano o más alto, o desgasta antes al objetivo."
+    },
+    "contestedCapture": {
+      "title": "Objetivo disputado",
+      "description": "Una unidad enemiga está dentro de la zona de este objetivo. Mientras ambos bandos tengan tropas allí, la captura no avanza y se pierde el progreso. Expúlsala o quiébrala para tomar el objetivo."
+    },
+    "lineOnRoad": {
+      "title": "Marcha en columna",
+      "description": "Este batallón marcha por un camino en <line>línea</line>. Un camino solo acelera a la unidad que está sobre él, y una línea es demasiado ancha para caber. Cambia a <column>columna</column> para la marcha."
     }
   },
   "turn": "Turno",

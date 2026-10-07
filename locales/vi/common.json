@@ -670,6 +670,18 @@
     "infoPanel": {
       "title": "Chi tiết đơn vị",
       "description": "Mở <info>Thông tin</info> của đơn vị đang chọn để xem vũ khí và tầm bắn, những gì mỗi đội hình thay đổi, và mọi hệ số đang tác động lên nó lúc này."
+    },
+    "uphillCharge": {
+      "title": "Xung phong lên dốc",
+      "description": "Đợt xung phong này phải leo lên tới mục tiêu. Xung phong mất sức sau mỗi bậc độ cao phải leo, và con dốc làm nó chậm lại. Hãy xung phong từ chỗ bằng phẳng hoặc cao hơn, hoặc làm suy yếu mục tiêu trước."
+    },
+    "contestedCapture": {
+      "title": "Mục tiêu tranh chấp",
+      "description": "Có một đơn vị địch trong vùng của mục tiêu này. Khi cả hai bên đều có quân ở đó, việc chiếm không tiến triển và tiến độ bị mất. Hãy đẩy lui hoặc đánh vỡ nó để chiếm mục tiêu."
+    },
+    "lineOnRoad": {
+      "title": "Hành quân theo cột",
+      "description": "Tiểu đoàn này đang hành quân trên đường theo <line>hàng</line>. Con đường chỉ tăng tốc cho đơn vị đứng trên nó, và đội hình hàng quá rộng để vừa. Hãy chuyển sang <column>cột</column> khi hành quân."
     }
   },
   "turn": "Lượt",
