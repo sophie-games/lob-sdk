@@ -71,7 +71,7 @@ export interface WalkOrder
   rotation?: number;
   /** Keep clear of hard allied formations while executing this path. */
   maintainAllySpacing?: boolean;
-  /** Speed ceiling for units moving together as a formation. */
+  /** The body's pace: each member is slowed by this over its own walk. */
   pace?: number;
 }
 
@@ -98,9 +98,9 @@ export interface FallbackOrder
   /** Legacy preview facing, retained for saved orders but ignored by retreat execution. */
   rotation?: number;
   /**
-   * Speed ceiling in movement units per turn, so a body ordered as one keeps
-   * together instead of stretching out at each unit's own pace. Set to the
-   * slowest member's pace when the order was given to more than one unit.
+   * Movement units per turn a body ordered as one keeps to, so it does not
+   * stretch out: each member is slowed by this over its own walk, so terrain
+   * still counts. The slowest member's walk when ordered to more than one unit.
    */
   pace?: number;
 }
@@ -129,11 +129,7 @@ export interface RunOrder
   rotation?: number;
   /** Keep clear of hard allied formations while executing this path. */
   maintainAllySpacing?: boolean;
-  /**
-   * Speed ceiling in movement units per turn, so a body ordered as one keeps
-   * together instead of stretching out at each unit's own pace. Set to the
-   * slowest member's pace when the order was given to more than one unit.
-   */
+  /** Ignored: a running body breaks ranks, each member at its own pace. */
   pace?: number;
 }
 
@@ -215,9 +211,9 @@ export interface FireAndAdvanceOnPathOrder
   /** Final rotation in radians after completing the path. */
   rotation?: number;
   /**
-   * Speed ceiling in movement units per turn, so a body ordered as one keeps
-   * together instead of stretching out at each unit's own pace. Set to the
-   * slowest member's pace when the order was given to more than one unit.
+   * Movement units per turn a body ordered as one keeps to, so it does not
+   * stretch out: each member is slowed by this over its own walk, so terrain
+   * still counts. The slowest member's walk when ordered to more than one unit.
    */
   pace?: number;
 }

@@ -97,8 +97,44 @@ describe("standoffDistance", () => {
     expect(standoff(["12lb-cannon-ball"], EngagementRange.Low)).toBe(0);
   });
 
+  it("stops where a picked approach tier reaches, each closing in further", () => {
+    const picked = (approachTier: EngagementRange) =>
+      standoffDistance({ rangedDamageTypes: ["musket"], tier: EngagementRange.Max, approachTier, gameDataManager });
+    expect(picked(EngagementRange.Low)).toBeCloseTo(23.4, 2);
+    expect(picked(EngagementRange.Medium)).toBeCloseTo(44.1, 2);
+    expect(picked(EngagementRange.Max)).toBeCloseTo(90, 2);
+    // Round shot still has no say in a picked approach.
+    expect(standoffDistance({
+      rangedDamageTypes: ["12lb-canister-fire", "12lb-cannon-ball"],
+      tier: EngagementRange.Max,
+      approachTier: EngagementRange.Max,
+      gameDataManager,
+    })).toBeCloseTo(145, 1);
+  });
+
+  it("closes a gun with only round shot to a picked tier's reach too", () => {
+    expect(standoffDistance({
+      rangedDamageTypes: ["12lb-cannon-ball"],
+      tier: EngagementRange.Max,
+      approachTier: EngagementRange.Medium,
+      gameDataManager,
+    })).toBeCloseTo(usableMaxRange(weapon("12lb-cannon-ball"), EngagementRange.Medium)!, 6);
+    // Unpicked, round shot still gives no reason to close.
+    expect(standoff(["12lb-cannon-ball"], EngagementRange.Max)).toBe(0);
+  });
+
   it("honours a legacy absolute stand-off, still clamped to the reach", () => {
     expect(standoff(["musket"], EngagementRange.Max, 60)).toBe(60);
     expect(standoff(["musket"], EngagementRange.Low, 60)).toBeCloseTo(23.4, 2);
+  });
+
+  it("clamps a legacy stand-off to a picked approach tier's reach", () => {
+    expect(standoffDistance({
+      rangedDamageTypes: ["musket"],
+      tier: EngagementRange.Max,
+      approachTier: EngagementRange.Low,
+      legacyStandoff: 60,
+      gameDataManager,
+    })).toBeCloseTo(23.4, 2);
   });
 });

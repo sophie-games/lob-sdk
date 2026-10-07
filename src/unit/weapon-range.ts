@@ -50,26 +50,31 @@ export const bindingWeapon = (
 /**
  * How close a unit closes on its target before it stops and fights: the nearest `preferredRange`
  * among the weapons it is actually firing at this tier, never further out than that weapon can
- * reach. A weapon with no preference (round shot, a shell) gives no reason to close and has no
- * say; a unit whose weapons all decline closes to contact.
+ * reach. Unpicked, a weapon with no preference (round shot, a shell) gives no reason to close
+ * and has no say; a unit whose weapons all decline closes to contact.
  *
  * Being derived, it follows the player's engagement-range setting and cannot leave a unit
- * holding outside the range it is firing at.
+ * holding outside the range it is firing at. An `approachTier` the player picked instead stops
+ * where that tier reaches for every weapon it fires, so each one closes in further than
+ * the one above it.
  */
 export const standoffDistance = ({
   rangedDamageTypes,
   tier,
+  approachTier,
   legacyStandoff,
   gameDataManager,
 }: {
   rangedDamageTypes: readonly string[];
   tier: EngagementRange;
+  /** The approach tier the player picked, never past `tier`; unset closes to the preferred range. */
+  approachTier?: EngagementRange;
   /** A template's deprecated absolute `minDistanceToFAA`; still wins, still clamped. */
   legacyStandoff?: number;
   gameDataManager: GameDataManager;
 }): number => {
   if (legacyStandoff !== undefined) {
-    const binding = bindingWeapon(rangedDamageTypes, tier, gameDataManager);
+    const binding = bindingWeapon(rangedDamageTypes, approachTier ?? tier, gameDataManager);
     return binding === null
       ? legacyStandoff
       : Math.min(legacyStandoff, binding.reach);
@@ -77,11 +82,15 @@ export const standoffDistance = ({
 
   let standoff: number | null = null;
   for (const weapon of rangedWeapons(rangedDamageTypes, gameDataManager)) {
-    if (weapon.preferredRange === undefined) continue;
-    const reach = usableMaxRange(weapon, tier);
+    // A picked tier binds every weapon it fires; unpicked, only one that wants to close.
+    const { preferredRange } = weapon;
+    if (approachTier === undefined && preferredRange === undefined) continue;
+    const reach = usableMaxRange(weapon, approachTier ?? tier);
     if (reach === null) continue;
 
-    const preferred = Math.min(weapon.preferredRange * weapon.maxRange, reach);
+    const preferred = preferredRange === undefined || approachTier !== undefined
+      ? reach
+      : Math.min(preferredRange * weapon.maxRange, reach);
     if (standoff === null || preferred < standoff) {
       standoff = preferred;
     }
