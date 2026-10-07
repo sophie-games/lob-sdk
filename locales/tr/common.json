@@ -668,6 +668,14 @@
     "lineOnRoad": {
       "title": "Kol düzeninde yürü",
       "description": "Bu tabur bir yol boyunca <line>hat</line> düzeninde yürüyor. Yol yalnızca üzerindeki birliği hızlandırır ve hat, yola sığmayacak kadar geniştir. Yürüyüş için <column>kol</column> düzenine geç."
+    },
+    "garrisonStrongpoint": {
+      "title": "Tahkimatı tut",
+      "description": "Bu taburun yakınındaki tahkimli çiftlik ya da sur boş görünüyor. İçindeki piyadeye ateşle, yakın dövüşte ya da hücumla zarar vermek çok daha zordur, ancak içeri girmek yavaştır. Düşmandan önce al."
+    },
+    "blockedSight": {
+      "title": "Bu birliğin görüşü dışında",
+      "description": "Ordunun gördüğü bir düşman bu birlikten gizli. Tepeler görüşü keser, ormanlar, binalar ve ekinler de görüş içlerinden geçtiğinde keser, yüksek yerden ise üstlerinden görülür. Oraya gitmeden önce bir noktadan neyin görüldüğünü <lineOfSight>Görüş hattı</lineOfSight> ile kontrol et."
     }
   },
   "turn": "Tur",

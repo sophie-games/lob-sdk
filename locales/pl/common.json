@@ -670,6 +670,14 @@
     "lineOnRoad": {
       "title": "Maszeruj w kolumnie",
       "description": "Ten batalion maszeruje drogą w <line>linii</line>. Droga przyspiesza tylko oddział, który na niej stoi, a linia jest za szeroka, by się na niej zmieścić. Na czas marszu przejdź do <column>kolumny</column>."
+    },
+    "garrisonStrongpoint": {
+      "title": "Obsadź punkt oporu",
+      "description": "Ufortyfikowany folwark lub wał obok tego batalionu wygląda na pusty. Piechotę w środku znacznie trudniej zranić ogniem, w walce wręcz lub szarżą, choć wejście trwa długo. Zajmij go przed wrogiem."
+    },
+    "blockedSight": {
+      "title": "Poza zasięgiem wzroku oddziału",
+      "description": "Wróg, którego widzi twoja armia, jest ukryty przed tym oddziałem. Wzgórza zasłaniają widok, a lasy, budynki i uprawy zasłaniają go, gdy przez nie przechodzi, za to z wysokości widać ponad nimi. Sprawdź <lineOfSight>Linią wzroku</lineOfSight>, co widać z danego miejsca, zanim tam pójdziesz."
     }
   },
   "turn": "Tura",

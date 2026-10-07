@@ -651,6 +651,14 @@
     "lineOnRoad": {
       "title": "Marchez en colonne",
       "description": "Ce bataillon suit une route en <line>ligne</line>. Une route n'accélère qu'une unité qui est dessus, et une ligne est trop large pour y tenir. Passez en <column>colonne</column> pour la marche."
+    },
+    "garrisonStrongpoint": {
+      "title": "Tenez le point fort",
+      "description": "Une ferme fortifiée ou un rempart près de ce bataillon semble vide. L'infanterie à l'intérieur est bien plus difficile à atteindre par le feu, la mêlée ou les charges, même si y entrer est lent. Prenez-le avant l'ennemi."
+    },
+    "blockedSight": {
+      "title": "Hors de vue de cette unité",
+      "description": "Un ennemi que votre armée voit est caché à cette unité. Les collines bloquent la vue, et les bois, bâtiments et cultures la bloquent quand elle les traverse, alors que les hauteurs voient par-dessus. Utilisez <lineOfSight>Ligne de vue</lineOfSight> pour vérifier ce qu'on voit depuis un point avant d'y aller."
     }
   },
   "turn": "Tour",

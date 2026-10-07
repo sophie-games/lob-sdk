@@ -78,6 +78,13 @@ export type GameTipCondition =
   | { kind: "uphillCharge"; minLevelDiff: number }
   | { kind: "contestedCapture" }
   | {
+      kind: "emptyStrongpoint";
+      terrainCategories: readonly string[];
+      unitCategories: readonly string[];
+      withinPx: number;
+    }
+  | { kind: "blockedSight" }
+  | {
       kind: "formationOnRoad";
       formations: readonly string[];
       minRoadShare: number;

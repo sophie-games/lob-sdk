@@ -668,6 +668,14 @@
     "lineOnRoad": {
       "title": "Menetelj oszlopban",
       "description": "Ez a zászlóalj <line>vonalban</line> halad egy úton. Az út csak a rajta álló egységet gyorsítja, a vonal pedig túl széles ahhoz, hogy elférjen rajta. Válts <column>oszlopra</column> a menethez."
+    },
+    "garrisonStrongpoint": {
+      "title": "Foglald el az erődpontot",
+      "description": "Egy erődített major vagy sánc ennek a zászlóaljnak a közelében üresnek látszik. A benne álló gyalogságot sokkal nehezebb megsebezni tűzzel, közelharcban vagy rohammal, bár a bejutás lassú. Foglald el, mielőtt az ellenség teszi."
+    },
+    "blockedSight": {
+      "title": "Az egység látóterén kívül",
+      "description": "Egy ellenség, amelyet a sereged lát, rejtve van ez elől az egység elől. A dombok eltakarják a kilátást, az erdők, épületek és vetések pedig akkor, ha a látóvonal áthalad rajtuk, míg a magaslatról át lehet látni felettük. A <lineOfSight>Látóvonallal</lineOfSight> nézd meg, mit látni egy pontról, mielőtt odamész."
     }
   },
   "turn": "Kör",

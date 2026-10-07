@@ -668,6 +668,14 @@
     "lineOnRoad": {
       "title": "Marcia in colonna",
       "description": "Questo battaglione marcia lungo una strada in <line>linea</line>. Una strada accelera solo l'unità che vi si trova sopra, e una linea è troppo larga per starci. Passa in <column>colonna</column> per la marcia."
+    },
+    "garrisonStrongpoint": {
+      "title": "Occupa il caposaldo",
+      "description": "Una fattoria fortificata o un bastione vicino a questo battaglione sembra vuoto. La fanteria al suo interno è molto più difficile da colpire con il fuoco, in mischia o con le cariche, anche se entrarci è lento. Prendilo prima del nemico."
+    },
+    "blockedSight": {
+      "title": "Fuori dalla vista di questa unità",
+      "description": "Un nemico che il tuo esercito vede è nascosto a questa unità. Le colline bloccano la vista, e boschi, edifici e coltivi la bloccano quando li attraversa, mentre le alture vedono oltre. Usa <lineOfSight>Linea di vista</lineOfSight> per controllare cosa si vede da un punto prima di spostarti lì."
     }
   },
   "turn": "Turno",

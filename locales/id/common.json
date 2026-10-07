@@ -669,6 +669,14 @@
     "lineOnRoad": {
       "title": "Berbaris dalam kolom",
       "description": "Batalion ini berbaris di jalan dalam formasi <line>baris</line>. Jalan hanya mempercepat unit yang berada di atasnya, dan formasi baris terlalu lebar untuk muat. Ganti ke <column>kolom</column> selama berbaris."
+    },
+    "garrisonStrongpoint": {
+      "title": "Duduki titik kuat",
+      "description": "Sebuah pertanian berbenteng atau benteng tanah di dekat batalion ini tampak kosong. Infanteri di dalamnya jauh lebih sulit dilukai dengan tembakan, pertarungan jarak dekat, atau serbuan, meski masuknya lambat. Rebut sebelum musuh."
+    },
+    "blockedSight": {
+      "title": "Di luar pandangan unit ini",
+      "description": "Musuh yang terlihat oleh pasukanmu tersembunyi dari unit ini. Bukit menghalangi pandangan, sedangkan hutan, bangunan, dan ladang menghalanginya saat garis pandang melewatinya, sementara dataran tinggi melihat dari atasnya. Gunakan <lineOfSight>Garis pandang</lineOfSight> untuk memeriksa apa yang terlihat dari suatu titik sebelum bergerak ke sana."
     }
   },
   "turn": "Giliran",

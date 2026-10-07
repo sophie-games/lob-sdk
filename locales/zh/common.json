@@ -809,6 +809,14 @@
     "lineOnRoad": {
       "title": "以纵队行军",
       "description": "这个营正以<line>横队</line>沿道路行进。道路只会加快站在路上的部队，而横队太宽，放不进道路。行军时请换成<column>纵队</column>。"
+    },
+    "garrisonStrongpoint": {
+      "title": "占领据点",
+      "description": "这个营附近的一座设防农庄或城墙看起来是空的。里面的步兵受到射击、近战或冲锋时都难伤得多，只是进入较慢。抢在敌人之前占领它。"
+    },
+    "blockedSight": {
+      "title": "超出该部队视野",
+      "description": "你的军队能看到的一个敌人，这个部队却看不到。山丘会遮挡视线，树林、建筑和农田会在视线穿过时遮挡，而高处能越过它们看到。移动前可用<lineOfSight>视线</lineOfSight>查看某个位置能看到什么。"
     }
   },
   "turn": "回合",

@@ -665,6 +665,14 @@
     "lineOnRoad": {
       "title": "Marcha en columna",
       "description": "Este batallón marcha por un camino en <line>línea</line>. Un camino solo acelera a la unidad que está sobre él, y una línea es demasiado ancha para caber. Cambia a <column>columna</column> para la marcha."
+    },
+    "garrisonStrongpoint": {
+      "title": "Ocupa el punto fuerte",
+      "description": "Una granja fortificada o una muralla cerca de este batallón parece vacía. La infantería dentro de una es mucho más difícil de dañar con fuego, cuerpo a cuerpo o cargas, aunque entrar es lento. Tómala antes que el enemigo."
+    },
+    "blockedSight": {
+      "title": "Fuera de la vista de esta unidad",
+      "description": "Un enemigo que tu ejército ve está oculto para esta unidad. Las colinas bloquean la vista, y los bosques, edificios y cultivos la bloquean cuando pasa a través de ellos, mientras que el terreno alto ve por encima. Usa <lineOfSight>Línea de visión</lineOfSight> para comprobar qué se ve desde un punto antes de moverte allí."
     }
   },
   "turn": "Turno",

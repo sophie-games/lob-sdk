@@ -846,6 +846,14 @@
     "lineOnRoad": {
       "title": "March in column",
       "description": "This battalion is marching along a road in <line>line</line>. A road only speeds up a unit that is on it, and a line is too wide to fit on one. Switch to <column>column</column> for the march."
+    },
+    "garrisonStrongpoint": {
+      "title": "Hold the strongpoint",
+      "description": "A fortified farm or rampart near this battalion looks empty. Infantry inside one is much harder to hurt with fire, melee or charges, though it is slow to get in. Take it before the enemy does."
+    },
+    "blockedSight": {
+      "title": "Out of this unit's sight",
+      "description": "An enemy your army can see is hidden from this unit. Hills block sight, and woods, buildings and crops block sight that passes through them, while high ground sees over them. Use <lineOfSight>Line of sight</lineOfSight> to check what a spot can see before you move there."
     }
   },
   "turn": "Turn",

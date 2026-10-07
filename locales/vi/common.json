@@ -682,6 +682,14 @@
     "lineOnRoad": {
       "title": "Hành quân theo cột",
       "description": "Tiểu đoàn này đang hành quân trên đường theo <line>hàng</line>. Con đường chỉ tăng tốc cho đơn vị đứng trên nó, và đội hình hàng quá rộng để vừa. Hãy chuyển sang <column>cột</column> khi hành quân."
+    },
+    "garrisonStrongpoint": {
+      "title": "Chiếm cứ điểm",
+      "description": "Một trang trại kiên cố hoặc thành lũy gần tiểu đoàn này có vẻ trống. Bộ binh bên trong khó bị gây sát thương hơn nhiều bởi hỏa lực, cận chiến hay xung phong, dù việc vào bên trong khá chậm. Hãy chiếm nó trước quân địch."
+    },
+    "blockedSight": {
+      "title": "Ngoài tầm nhìn của đơn vị này",
+      "description": "Một đơn vị địch mà quân bạn thấy được lại bị che khuất với đơn vị này. Đồi chắn tầm nhìn, còn rừng, nhà cửa và ruộng chắn tầm nhìn khi nó đi xuyên qua, trong khi chỗ cao nhìn được qua phía trên. Dùng <lineOfSight>Đường ngắm</lineOfSight> để xem từ một điểm thấy được gì trước khi di chuyển tới đó."
     }
   },
   "turn": "Lượt",
