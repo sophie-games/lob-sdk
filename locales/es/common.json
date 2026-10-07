@@ -673,6 +673,14 @@
     "blockedSight": {
       "title": "Fuera de la vista de esta unidad",
       "description": "Un enemigo que tu ejército ve está oculto para esta unidad. Las colinas bloquean la vista, y los bosques, edificios y cultivos la bloquean cuando pasa a través de ellos, mientras que el terreno alto ve por encima. Usa <lineOfSight>Línea de visión</lineOfSight> para comprobar qué se ve desde un punto antes de moverte allí."
+    },
+    "closeToApproach": {
+      "title": "Hasta dónde avanzar",
+      "description": "<fireAndAdvance>Disparar y Avanzar</fireAndAdvance> detiene a esta unidad donde sus armas rinden mejor. El ajuste \"Close to\" bajo <autofire>fuego automático</autofire> le permite seguir acercándose mientras dispara, para abrir fuego a larga distancia y aun así terminar el avance de cerca."
+    },
+    "roundShotHeight": {
+      "title": "Bala rasa y pendientes",
+      "description": "Un enemigo a tu alcance está muy por encima o por debajo de esta batería. La bala rasa rebota por el suelo, así que disparar cuesta arriba o cuesta abajo acorta su rebote y debilita cada impacto. Sitúa los cañones al nivel de sus blancos cuando puedas. Las granadas y la metralla no se ven afectadas."
     }
   },
   "turn": "Turno",

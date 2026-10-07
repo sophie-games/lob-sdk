@@ -676,6 +676,14 @@
     "blockedSight": {
       "title": "Az egység látóterén kívül",
       "description": "Egy ellenség, amelyet a sereged lát, rejtve van ez elől az egység elől. A dombok eltakarják a kilátást, az erdők, épületek és vetések pedig akkor, ha a látóvonal áthalad rajtuk, míg a magaslatról át lehet látni felettük. A <lineOfSight>Látóvonallal</lineOfSight> nézd meg, mit látni egy pontról, mielőtt odamész."
+    },
+    "closeToApproach": {
+      "title": "Meddig nyomuljon előre",
+      "description": "A <fireAndAdvance>Mozgás közben lő</fireAndAdvance> parancs ott állítja meg az egységet, ahol a fegyverei a leghatékonyabbak. Az <autofire>automatikus tüzelést</autofire> beállító panel „Close to” opciójával tüzelés közben is tovább közelíthet, így messziről nyithat tüzet, és mégis közelről fejezheti be az előrenyomulást."
+    },
+    "roundShotHeight": {
+      "title": "Tömör golyó és lejtők",
+      "description": "Egy lőtávolságon belüli ellenség jóval magasabban vagy mélyebben áll ennél az ütegnél. A tömör golyó végigpattog a talajon, így felfelé vagy lefelé lőve rövidebb a pattanása és gyengébb minden találat. Ha teheted, az ágyúkat a célpontjukkal egy szintbe állítsd. A gránátokra és a kartácsra ez nem vonatkozik."
     }
   },
   "turn": "Kör",

@@ -659,6 +659,14 @@
     "blockedSight": {
       "title": "Hors de vue de cette unité",
       "description": "Un ennemi que votre armée voit est caché à cette unité. Les collines bloquent la vue, et les bois, bâtiments et cultures la bloquent quand elle les traverse, alors que les hauteurs voient par-dessus. Utilisez <lineOfSight>Ligne de vue</lineOfSight> pour vérifier ce qu'on voit depuis un point avant d'y aller."
+    },
+    "closeToApproach": {
+      "title": "Jusqu'où avancer",
+      "description": "<fireAndAdvance>Tirer en avançant</fireAndAdvance> arrête cette unité là où ses armes sont les plus efficaces. Le réglage « Close to » sous <autofire>tir automatique</autofire> lui permet de continuer à approcher en tirant, pour ouvrir le feu de loin et finir quand même l'avance au contact."
+    },
+    "roundShotHeight": {
+      "title": "Boulets et pentes",
+      "description": "Un ennemi à portée est nettement plus haut ou plus bas que cette batterie. Le boulet ricoche sur le sol, donc tirer en montée ou en descente raccourcit son ricochet et affaiblit chaque impact. Placez les pièces au niveau de leurs cibles quand vous le pouvez. Les obus et la mitraille ne sont pas concernés."
     }
   },
   "turn": "Tour",

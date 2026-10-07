@@ -676,6 +676,14 @@
     "blockedSight": {
       "title": "Bu birliğin görüşü dışında",
       "description": "Ordunun gördüğü bir düşman bu birlikten gizli. Tepeler görüşü keser, ormanlar, binalar ve ekinler de görüş içlerinden geçtiğinde keser, yüksek yerden ise üstlerinden görülür. Oraya gitmeden önce bir noktadan neyin görüldüğünü <lineOfSight>Görüş hattı</lineOfSight> ile kontrol et."
+    },
+    "closeToApproach": {
+      "title": "Ne kadar yaklaşmalı",
+      "description": "<fireAndAdvance>Ateş ve İlerle</fireAndAdvance>, bu birliği silahlarının en iyi işlediği yerde durdurur. <autofire>otomatik ateşi</autofire> ayarlarındaki \"Close to\" seçeneği, ateş ederken yaklaşmayı sürdürmesini sağlar; böylece uzaktan ateş açıp ilerlemeyi yine de yakında bitirebilir."
+    },
+    "roundShotHeight": {
+      "title": "Dolu gülle ve yamaçlar",
+      "description": "Menzildeki bir düşman bu bataryanın epey üstünde ya da altında. Dolu gülle yerde seker, bu yüzden yokuş yukarı ya da aşağı ateş etmek sekmesini kısaltır ve her isabeti zayıflatır. Mümkünse topları hedefleriyle aynı seviyeye yerleştir. Humbara ve misket bundan etkilenmez."
     }
   },
   "turn": "Tur",

@@ -84,6 +84,8 @@ export type GameTipCondition =
       withinPx: number;
     }
   | { kind: "blockedSight" }
+  | { kind: "fireAndAdvanceApproach" }
+  | { kind: "roundShotAcrossHeight"; minLevelDiff: number }
   | {
       kind: "formationOnRoad";
       formations: readonly string[];

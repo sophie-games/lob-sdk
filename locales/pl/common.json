@@ -678,6 +678,14 @@
     "blockedSight": {
       "title": "Poza zasięgiem wzroku oddziału",
       "description": "Wróg, którego widzi twoja armia, jest ukryty przed tym oddziałem. Wzgórza zasłaniają widok, a lasy, budynki i uprawy zasłaniają go, gdy przez nie przechodzi, za to z wysokości widać ponad nimi. Sprawdź <lineOfSight>Linią wzroku</lineOfSight>, co widać z danego miejsca, zanim tam pójdziesz."
+    },
+    "closeToApproach": {
+      "title": "Jak blisko podejść",
+      "description": "<fireAndAdvance>Natarcie z ostrzałem</fireAndAdvance> zatrzymuje ten oddział tam, gdzie jego broń działa najlepiej. Ustawienie „Close to” w sekcji <autofire>automatyczny ostrzał</autofire> pozwala mu dalej się zbliżać podczas strzelania, by otworzyć ogień z daleka i mimo to dokończyć natarcie z bliska."
+    },
+    "roundShotHeight": {
+      "title": "Kule pełne i stoki",
+      "description": "Wróg w zasięgu stoi wyraźnie wyżej lub niżej niż ta bateria. Kula pełna odbija się od ziemi, więc strzał pod górę lub w dół skraca jej rykoszet i osłabia każde trafienie. Ustawiaj działa na poziomie celów, gdy tylko możesz. Granaty i kartacze nie są objęte tą zasadą."
     }
   },
   "turn": "Tura",

@@ -676,6 +676,14 @@
     "blockedSight": {
       "title": "Fuori dalla vista di questa unità",
       "description": "Un nemico che il tuo esercito vede è nascosto a questa unità. Le colline bloccano la vista, e boschi, edifici e coltivi la bloccano quando li attraversa, mentre le alture vedono oltre. Usa <lineOfSight>Linea di vista</lineOfSight> per controllare cosa si vede da un punto prima di spostarti lì."
+    },
+    "closeToApproach": {
+      "title": "Fin dove avanzare",
+      "description": "<fireAndAdvance>Fuoco e Avanza</fireAndAdvance> ferma questa unità dove le sue armi rendono meglio. L'impostazione \"Close to\" sotto <autofire>fuoco automatico</autofire> le permette di continuare ad avvicinarsi mentre spara, così può aprire il fuoco da lontano e concludere comunque l'avanzata da vicino."
+    },
+    "roundShotHeight": {
+      "title": "Palle piene e pendii",
+      "description": "Un nemico a portata è molto più in alto o più in basso di questa batteria. La palla piena rimbalza sul terreno, quindi sparare in salita o in discesa accorcia il rimbalzo e indebolisce ogni colpo. Piazza i cannoni alla stessa altezza dei bersagli quando puoi. Granate e mitraglia non sono influenzate."
     }
   },
   "turn": "Turno",

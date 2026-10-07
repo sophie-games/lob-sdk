@@ -690,6 +690,14 @@
     "blockedSight": {
       "title": "Ngoài tầm nhìn của đơn vị này",
       "description": "Một đơn vị địch mà quân bạn thấy được lại bị che khuất với đơn vị này. Đồi chắn tầm nhìn, còn rừng, nhà cửa và ruộng chắn tầm nhìn khi nó đi xuyên qua, trong khi chỗ cao nhìn được qua phía trên. Dùng <lineOfSight>Đường ngắm</lineOfSight> để xem từ một điểm thấy được gì trước khi di chuyển tới đó."
+    },
+    "closeToApproach": {
+      "title": "Tiến gần đến đâu",
+      "description": "Lệnh <fireAndAdvance>Bắn và tiến</fireAndAdvance> dừng đơn vị này ở nơi vũ khí của nó hiệu quả nhất. Tùy chọn \"Close to\" trong <autofire>tự động khai hỏa</autofire> cho phép nó tiếp tục áp sát trong khi bắn, để khai hỏa từ xa mà vẫn hoàn tất cuộc tiến công ở cự ly gần."
+    },
+    "roundShotHeight": {
+      "title": "Đạn đặc và sườn dốc",
+      "description": "Một đơn vị địch trong tầm đang ở cao hơn hoặc thấp hơn hẳn khẩu đội này. Đạn đặc nảy dọc mặt đất, nên bắn lên hay xuống dốc sẽ làm đường nảy ngắn lại và mỗi phát trúng yếu đi. Khi có thể, hãy đặt pháo ngang tầm mục tiêu. Đạn nổ và đạn chùm không bị ảnh hưởng."
     }
   },
   "turn": "Lượt",
