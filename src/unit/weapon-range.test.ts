@@ -116,4 +116,14 @@ describe("standoffDistance", () => {
     expect(standoff(["musket"], EngagementRange.Max, 60)).toBe(60);
     expect(standoff(["musket"], EngagementRange.Low, 60)).toBeCloseTo(23.4, 2);
   });
+
+  it("clamps a legacy stand-off to a picked approach tier's reach", () => {
+    expect(standoffDistance({
+      rangedDamageTypes: ["musket"],
+      tier: EngagementRange.Max,
+      approachTier: EngagementRange.Low,
+      legacyStandoff: 60,
+      gameDataManager,
+    })).toBeCloseTo(23.4, 2);
+  });
 });

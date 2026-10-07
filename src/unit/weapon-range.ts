@@ -73,7 +73,7 @@ export const standoffDistance = ({
   gameDataManager: GameDataManager;
 }): number => {
   if (legacyStandoff !== undefined) {
-    const binding = bindingWeapon(rangedDamageTypes, tier, gameDataManager);
+    const binding = bindingWeapon(rangedDamageTypes, approachTier ?? tier, gameDataManager);
     return binding === null
       ? legacyStandoff
       : Math.min(legacyStandoff, binding.reach);
