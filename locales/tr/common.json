@@ -624,6 +624,38 @@
     "holdObjective": {
       "title": "Hedefini tut",
       "description": "Puan bakımından geridesin. Hedefinize geri çekilin ve öğrendiklerinizle onu koruyun. Savunmak, tekrar almaktan daha ucuzdur."
+    },
+    "runWithoutStamina": {
+      "title": "Koşarak götür",
+      "description": "Bu birliğin dayanıklılığı yok, bu yüzden <run>koşmak</run> ona hiçbir şeye mal olmaz. Yakında düşman yokken uzun bir yolda onu koştur. Koştuktan hemen sonra ateş edemez ve hareket halindeyken bir hücum için kolay avdır."
+    },
+    "routing": {
+      "title": "Bir birlik bozuldu",
+      "description": "Bu birlik bozgunda. Yeni bozulmuş bir birlik çevresindeki dost birliklerin organizasyonunu düşürür. Sarsılmış birlikleri ondan uzak tut ve boşluğu taze bir yedekle kapat."
+    },
+    "stamina": {
+      "title": "Yorgun birlikler",
+      "description": "Bu birliğin dayanıklılığı düşük. Yorgun birlikler daha kötü hareket eder, ateş eder ve savaşır, dayanıklılık da yavaş geri gelir. Koşmak yerine <walk>yürü</walk> ve tekrar savaşa sokmadan önce dinlendir."
+    },
+    "rearFire": {
+      "title": "Arkadan ateş",
+      "description": "Menzildeki bir düşman bu birliğe sırtını dönmüş. Arkadan gelen ateş ona çok daha fazla organizasyona mal olur, o dönmeden bundan yararlan."
+    },
+    "orgRadius": {
+      "title": "Organizasyon yarıçapı",
+      "description": "Mavi daire bu birliğin organizasyon yarıçapıdır. İçindeki dost birlikler organizasyon kazanır, düşmanlar ise kaybeder. Bu birliğinki özellikle güçlüdür, onu ihtiyacı olan birliklerin yakınında tut."
+    },
+    "leaveSquare": {
+      "title": "Kareyi boz",
+      "description": "Görünürde düşman süvarisi yok. Bir <square>kare</square> neredeyse hiç hareket etmez ve ateşten ek hasar alır, bu yüzden süvari tekrar tehdit edene kadar <line>hat</line> ya da <column>kol</column> düzenine dön."
+    },
+    "shellsVsCover": {
+      "title": "Siper karşısında humbara",
+      "description": "Menzildeki bir düşman siperde. Patlayıcı humbaralar ormanlarda, binalarda ve toprak tabyalarda dolu güllelerden çok daha az etki kaybeder, bu yüzden siperdeki birliklere karşı doğru top budur."
+    },
+    "infoPanel": {
+      "title": "Birlik ayrıntıları",
+      "description": "Seçili bir birliğin silahlarını ve menzillerini, her düzenin neyi değiştirdiğini ve şu anda ona etki eden tüm değiştiricileri görmek için <info>Bilgi</info>'yi aç."
     }
   },
   "turn": "Tur",

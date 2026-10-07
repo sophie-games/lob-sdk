@@ -638,6 +638,38 @@
     "holdObjective": {
       "title": "Giữ mục tiêu của bạn",
       "description": "Bạn đang kém về số điểm. Hãy quay lại mục tiêu của bạn và bám sát nó với những gì bạn đã học được. Phòng thủ rẻ hơn là chiếm lại."
+    },
+    "runWithoutStamina": {
+      "title": "Cho nó chạy",
+      "description": "Đơn vị này không có thể lực, nên <run>chạy</run> chẳng tốn gì của nó. Khi di chuyển đường dài mà không có địch ở gần, hãy cho nó chạy. Nó không thể bắn ngay sau khi chạy và dễ trở thành con mồi cho một đợt xung phong khi đang di chuyển."
+    },
+    "routing": {
+      "title": "Một đơn vị đã vỡ",
+      "description": "Đơn vị này đang tháo chạy. Một đơn vị vừa vỡ sẽ làm giảm tổ chức của quân ta xung quanh nó. Giữ các đơn vị đang dao động tránh xa nó và đưa một đội dự bị còn sung sức lên lấp khoảng trống."
+    },
+    "stamina": {
+      "title": "Quân mệt mỏi",
+      "description": "Đơn vị này sắp cạn thể lực. Quân mệt di chuyển, bắn và chiến đấu kém hơn, và thể lực hồi phục chậm. Hãy <walk>đi bộ</walk> thay vì chạy, và cho nó nghỉ trước khi đưa vào trận lần nữa."
+    },
+    "rearFire": {
+      "title": "Bắn vào sau lưng",
+      "description": "Một đơn vị địch trong tầm đang quay lưng về phía đơn vị này. Hỏa lực vào sau lưng khiến nó mất nhiều tổ chức hơn hẳn, hãy tận dụng trước khi nó quay lại."
+    },
+    "orgRadius": {
+      "title": "Bán kính tổ chức",
+      "description": "Vòng tròn xanh là bán kính tổ chức của đơn vị này. Quân ta bên trong được tăng tổ chức còn quân địch bên trong bị mất tổ chức. Bán kính của đơn vị này đặc biệt mạnh, hãy giữ nó gần những đơn vị cần đến."
+    },
+    "leaveSquare": {
+      "title": "Bỏ đội hình vuông",
+      "description": "Không thấy kỵ binh địch. Đội hình <square>hình vuông</square> gần như không di chuyển được và chịu thêm sát thương từ hỏa lực, hãy chuyển lại sang <line>hàng</line> hoặc <column>cột</column> cho đến khi kỵ binh lại đe dọa."
+    },
+    "shellsVsCover": {
+      "title": "Đạn nổ chống công sự",
+      "description": "Một đơn vị địch trong tầm đang ẩn nấp. Đạn nổ bị rừng, nhà cửa và công sự đất cản ít hơn nhiều so với đạn đặc, nên khẩu pháo này là lựa chọn đúng để đánh quân đang ẩn nấp."
+    },
+    "infoPanel": {
+      "title": "Chi tiết đơn vị",
+      "description": "Mở <info>Thông tin</info> của đơn vị đang chọn để xem vũ khí và tầm bắn, những gì mỗi đội hình thay đổi, và mọi hệ số đang tác động lên nó lúc này."
     }
   },
   "turn": "Lượt",

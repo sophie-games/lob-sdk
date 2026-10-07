@@ -625,6 +625,38 @@
     "holdObjective": {
       "title": "Pertahankan tujuan Anda",
       "description": "Anda ketinggalan poin. Tarik kembali ke tujuan Anda dan pertahankan dengan apa yang telah Anda pelajari. Mempertahankan lebih murah daripada merebut kembali."
+    },
+    "runWithoutStamina": {
+      "title": "Larikan ke sana",
+      "description": "Unit ini tidak punya stamina, jadi <run>berlari</run> tidak merugikannya sama sekali. Dalam perjalanan jauh tanpa musuh di dekatnya, suruh ia berlari. Ia tidak bisa menembak tepat setelah berlari dan mudah menjadi mangsa serbuan saat bergerak."
+    },
+    "routing": {
+      "title": "Sebuah unit patah",
+      "description": "Unit ini sedang kocar-kacir. Unit yang baru saja patah menguras organisasi pasukan kawan di sekitarnya. Jauhkan unit yang goyah darinya dan datangkan cadangan segar untuk menutup celah."
+    },
+    "stamina": {
+      "title": "Pasukan lelah",
+      "description": "Stamina unit ini rendah. Pasukan yang lelah bergerak, menembak, dan bertarung lebih buruk, dan stamina pulih dengan lambat. <walk>Berjalanlah</walk> alih-alih berlari, dan istirahatkan sebelum mengerahkannya lagi."
+    },
+    "rearFire": {
+      "title": "Tembakan ke belakang",
+      "description": "Musuh dalam jangkauan membelakangi unit ini. Tembakan ke belakang membuatnya kehilangan jauh lebih banyak organisasi, jadi manfaatkan sebelum ia berbalik."
+    },
+    "orgRadius": {
+      "title": "Radius organisasi",
+      "description": "Lingkaran biru adalah radius organisasi unit ini. Unit kawan di dalamnya mendapat organisasi dan musuh di dalamnya kehilangannya. Radius unit ini sangat kuat, jadi jaga agar tetap dekat dengan pasukan yang membutuhkannya."
+    },
+    "leaveSquare": {
+      "title": "Bubarkan formasi kotak",
+      "description": "Tidak ada kavaleri musuh yang terlihat. Formasi <square>kotak</square> nyaris tidak bisa bergerak dan menerima kerusakan tambahan dari tembakan, jadi kembali ke <line>barisan</line> atau <column>kolom</column> sampai kavaleri mengancam lagi."
+    },
+    "shellsVsCover": {
+      "title": "Granat melawan perlindungan",
+      "description": "Musuh dalam jangkauan sedang berlindung. Granat peledak kehilangan jauh lebih sedikit daripada peluru padat di hutan, bangunan, dan kubu tanah, jadi meriam inilah yang tepat untuk menghantam pasukan yang berlindung."
+    },
+    "infoPanel": {
+      "title": "Detail unit",
+      "description": "Buka <info>Info</info> pada unit yang dipilih untuk melihat senjata dan jangkauannya, apa yang diubah setiap formasi, dan setiap pengubah yang sedang berlaku padanya."
     }
   },
   "turn": "Giliran",

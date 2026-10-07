@@ -802,6 +802,38 @@
     "holdObjective": {
       "title": "Hold your objective",
       "description": "You're behind on points. Pull back to your objective and hold it. Defending is cheaper than retaking."
+    },
+    "runWithoutStamina": {
+      "title": "Run it there",
+      "description": "This unit has no stamina, so <run>running</run> costs it nothing. On a long move with no enemy close, run it. It cannot fire right after running and is easy prey for a charge while it moves."
+    },
+    "routing": {
+      "title": "A unit has broken",
+      "description": "This unit is routing. A unit that has just broken drains the organization of friendly troops around it. Keep shaken units clear of it and bring up a fresh reserve to fill the gap."
+    },
+    "stamina": {
+      "title": "Tired troops",
+      "description": "This unit is low on stamina. Tired troops move, shoot and fight worse, and stamina comes back slowly. <walk>Walk</walk> instead of running, and rest it before you commit it again."
+    },
+    "rearFire": {
+      "title": "Fire into the rear",
+      "description": "An enemy in range has its back to this unit. Fire into the rear costs a unit far more organization, so make the most of it before the enemy turns."
+    },
+    "orgRadius": {
+      "title": "Org radius",
+      "description": "The blue circle is this unit's org radius. Friendly units inside it gain organization and enemies inside it lose it. This unit's is especially strong, so keep it near the troops that need it."
+    },
+    "leaveSquare": {
+      "title": "Leave the square",
+      "description": "No enemy cavalry is in sight. A <square>square</square> barely moves and takes extra damage from fire, so switch back to <line>line</line> or <column>column</column> until cavalry threatens again."
+    },
+    "shellsVsCover": {
+      "title": "Shells against cover",
+      "description": "An enemy in range is in cover. Explosive shells lose far less to woods, buildings and earthworks than round shot, so this gun is the right one to hit troops in cover."
+    },
+    "infoPanel": {
+      "title": "Unit details",
+      "description": "Open <info>Info</info> on a selected unit to see its weapons and ranges, what each formation changes, and every modifier acting on it right now."
     }
   },
   "turn": "Turn",
@@ -1041,6 +1073,7 @@
     "slotNoLongerAvailable": "Someone else took that seat first. Pick again.",
     "slotActionFailed": "That didn't work. Please try again.",
     "hostWithLobby": "Host with lobby",
+    "hostWithLobbyRequired": "This scenario has its own army rules, so players build their armies in the lobby.",
     "allowUnbalancedTeams": "Allow unbalanced teams",
     "joinSlot": "Join as Player {{slot}}",
     "controlledBy": "Controlled by {{controller}}",

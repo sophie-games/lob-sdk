@@ -624,6 +624,38 @@
     "holdObjective": {
       "title": "Tartsd a célodat",
       "description": "Lemaradtál a pontokkal. Húzzon vissza a célhoz, és tartsa azt a tanultakkal. A védekezés olcsóbb, mint a visszakapás."
+    },
+    "runWithoutStamina": {
+      "title": "Futtasd oda",
+      "description": "Ennek az egységnek nincs állóképessége, így a <run>futás</run> semmibe sem kerül neki. Hosszú úton, ha nincs közel ellenség, futtasd. Futás után közvetlenül nem tud tüzelni, és mozgás közben könnyű préda egy rohamnak."
+    },
+    "routing": {
+      "title": "Egy egység megtört",
+      "description": "Ez az egység menekül. Egy épp megtört egység elszívja a körülötte álló baráti csapatok szervezettségét. Tartsd távol tőle a megrendült egységeket, és friss tartalékkal zárd be a rést."
+    },
+    "stamina": {
+      "title": "Fáradt csapatok",
+      "description": "Ennek az egységnek kevés az állóképessége. A fáradt csapatok rosszabbul mozognak, lőnek és harcolnak, az állóképesség pedig lassan tér vissza. <walk>Menetelj</walk> futás helyett, és pihentesd, mielőtt újra bevetnéd."
+    },
+    "rearFire": {
+      "title": "Tűz a hátba",
+      "description": "Egy lőtávolságon belüli ellenség hátat fordít ennek az egységnek. A hátba lőtt tűz sokkal több szervezettségébe kerül, használd ki, mielőtt megfordul."
+    },
+    "orgRadius": {
+      "title": "Szervezettségi sugár",
+      "description": "A kék kör ennek az egységnek a szervezettségi sugara. A benne álló baráti egységek szervezettséget nyernek, az ellenségek pedig veszítenek. Ennek az egységnek különösen erős, ezért tartsd közel azokhoz a csapatokhoz, akiknek szükségük van rá."
+    },
+    "leaveSquare": {
+      "title": "Bontsd fel a négyzetet",
+      "description": "Nem látszik ellenséges lovasság. A <square>négyzet</square> alig mozog, és több sebzést kap a tűztől, ezért válts vissza <line>vonalra</line> vagy <column>oszlopra</column>, amíg a lovasság újra nem fenyeget."
+    },
+    "shellsVsCover": {
+      "title": "Gránát fedezék ellen",
+      "description": "Egy lőtávolságon belüli ellenség fedezékben van. A robbanó gránátok erdőben, épületekben és földsáncokban sokkal kevesebbet veszítenek, mint a tömör golyók, ezért ez az ágyú a megfelelő a fedezékben lévő csapatok ellen."
+    },
+    "infoPanel": {
+      "title": "Egység részletei",
+      "description": "Az <info>Infóban</info> láthatod a kiválasztott egység fegyvereit és lőtávolságait, hogy mit változtatnak az egyes alakzatok, és minden módosítót, amely éppen hat rá."
     }
   },
   "turn": "Kör",

@@ -607,6 +607,38 @@
     "holdObjective": {
       "title": "Tenez votre objectif",
       "description": "Vous êtes derrière aux points. Reculez vers votre objectif et tenez-le avec ce que vous avez appris. Défendre coûte moins que reprendre."
+    },
+    "runWithoutStamina": {
+      "title": "Faites-la courir",
+      "description": "Cette unité n'a pas d'endurance, donc <run>courir</run> ne lui coûte rien. Pour un long trajet sans ennemi proche, faites-la courir. Elle ne peut pas tirer juste après avoir couru et c'est une proie facile pour une charge pendant qu'elle se déplace."
+    },
+    "routing": {
+      "title": "Une unité a rompu",
+      "description": "Cette unité est en déroute. Une unité qui vient de rompre fait perdre de l'organisation aux troupes alliées autour d'elle. Éloignez-en les unités ébranlées et amenez une réserve fraîche pour combler le trou."
+    },
+    "stamina": {
+      "title": "Troupes fatiguées",
+      "description": "Cette unité manque d'endurance. Les troupes fatiguées se déplacent, tirent et combattent moins bien, et l'endurance revient lentement. <walk>Marchez</walk> au lieu de courir et laissez-la se reposer avant de l'engager à nouveau."
+    },
+    "rearFire": {
+      "title": "Feu dans le dos",
+      "description": "Un ennemi à portée tourne le dos à cette unité. Le feu dans le dos lui coûte bien plus d'organisation, profitez-en avant qu'il ne se retourne."
+    },
+    "orgRadius": {
+      "title": "Rayon d'organisation",
+      "description": "Le cercle bleu est le rayon d'organisation de cette unité. Les unités alliées à l'intérieur gagnent de l'organisation et les ennemis en perdent. Celui de cette unité est particulièrement fort, gardez-la près des troupes qui en ont besoin."
+    },
+    "leaveSquare": {
+      "title": "Quittez le carré",
+      "description": "Aucune cavalerie ennemie en vue. Un <square>carré</square> bouge à peine et subit des dégâts supplémentaires du feu, repassez en <line>ligne</line> ou en <column>colonne</column> jusqu'à ce que la cavalerie menace à nouveau."
+    },
+    "shellsVsCover": {
+      "title": "Obus contre couvert",
+      "description": "Un ennemi à portée est à couvert. Les obus explosifs perdent bien moins que les boulets contre les bois, les bâtiments et les ouvrages de terre, cette pièce est donc la bonne pour frapper des troupes à couvert."
+    },
+    "infoPanel": {
+      "title": "Détails de l'unité",
+      "description": "Ouvrez <info>Infos</info> sur une unité sélectionnée pour voir ses armes et portées, ce que change chaque formation et chaque modificateur qui agit sur elle en ce moment."
     }
   },
   "turn": "Tour",
