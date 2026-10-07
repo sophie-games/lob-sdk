@@ -75,6 +75,20 @@ describe("BaseUnit", () => {
     unit = new TestUnit(id, gameDataManager);
   });
 
+  describe("approach tier", () => {
+    it("has no tier until the player picks one", () => {
+      expect(unit.effectiveApproachRange).toBeUndefined();
+    });
+
+    it("keeps far as a choice of its own, never a fire tier it cannot reach", () => {
+      unit.applyAutofireConfig({ unitId: 10, autofireRange: EngagementRange.Max, approachRange: EngagementRange.Max });
+      expect(unit.effectiveApproachRange).toBe(EngagementRange.Max);
+
+      unit.applyAutofireConfig({ unitId: 10, autofireRange: EngagementRange.Low, approachRange: EngagementRange.Max });
+      expect(unit.effectiveApproachRange).toBe(EngagementRange.Low);
+    });
+  });
+
   it("exposes its unit template charge sound", () => {
     expect(unit.chargeSound).toBe("infantry-charge");
   });

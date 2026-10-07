@@ -54,16 +54,20 @@ export const bindingWeapon = (
  * say; a unit whose weapons all decline closes to contact.
  *
  * Being derived, it follows the player's engagement-range setting and cannot leave a unit
- * holding outside the range it is firing at.
+ * holding outside the range it is firing at. An `approachTier` the player picked instead stops
+ * where that tier reaches, so each one closes in further than the one above it.
  */
 export const standoffDistance = ({
   rangedDamageTypes,
   tier,
+  approachTier,
   legacyStandoff,
   gameDataManager,
 }: {
   rangedDamageTypes: readonly string[];
   tier: EngagementRange;
+  /** The approach tier the player picked, never past `tier`; unset closes to the preferred range. */
+  approachTier?: EngagementRange;
   /** A template's deprecated absolute `minDistanceToFAA`; still wins, still clamped. */
   legacyStandoff?: number;
   gameDataManager: GameDataManager;
@@ -78,10 +82,12 @@ export const standoffDistance = ({
   let standoff: number | null = null;
   for (const weapon of rangedWeapons(rangedDamageTypes, gameDataManager)) {
     if (weapon.preferredRange === undefined) continue;
-    const reach = usableMaxRange(weapon, tier);
+    const reach = usableMaxRange(weapon, approachTier ?? tier);
     if (reach === null) continue;
 
-    const preferred = Math.min(weapon.preferredRange * weapon.maxRange, reach);
+    const preferred = approachTier === undefined
+      ? Math.min(weapon.preferredRange * weapon.maxRange, reach)
+      : reach;
     if (standoff === null || preferred < standoff) {
       standoff = preferred;
     }
