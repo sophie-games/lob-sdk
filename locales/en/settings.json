@@ -160,9 +160,11 @@
   "reset": "Reset",
   "tierRequirement": {
     "title": "Tier Requirement",
-    "settingRequires": "{{setting}} is only available for {{tier}} tier players",
+    "settingRequiresPlan": "{{setting}} requires the {{plan}} membership or higher",
     "description": "Upgrade your tier on Patreon to access this setting and other premium features!",
-    "goToPatreon": "Go to Patreon"
+    "goToPatreon": "Go to Patreon",
+    "storeDescription": "Get a membership in the Store to access this setting and other premium features!",
+    "goToStore": "Go to Store"
   },
   "drawLineFormation": {
     "title": "Use Draw Line",
