@@ -147,14 +147,15 @@ describe("Battle of Waterloo scenario", () => {
     expect(scenario.objectives).toHaveLength(8);
   });
 
-  it("never steps more than one height level between neighbouring tiles", () => {
+  it("never steps more height levels between neighbouring tiles than the height rule caps", () => {
     const heights = scenario.map!.heightMap;
+    const { maxLevelDiff } = gameDataManager.getGameRules().height!;
     const steep = heights.flatMap((column, x) =>
       column.flatMap((height, y) =>
         [-1, 0, 1].flatMap((dx) =>
           [-1, 0, 1]
             .map((dy) => heights[x + dx]?.[y + dy])
-            .filter((other) => other !== undefined && Math.abs(other - height) > 1)
+            .filter((other) => other !== undefined && Math.abs(other - height) > maxLevelDiff)
             .map(() => ({ x, y })),
         ),
       ),

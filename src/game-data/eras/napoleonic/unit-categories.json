@@ -63,6 +63,7 @@
     "id": "midCavalry",
     "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
+    "uphillSlowdownMultiplier": 1.25,
     "deploymentSection": "front",
     "firingAltitude": 0.98,
     "routingBehavior": {
@@ -113,6 +114,7 @@
     "ordersExemptFromBodyPace": [4, 6],
     "chargeStaminaCost": 10000,
     "chargeBacklashMultiplier": 1.5,
+    "uphillSlowdownMultiplier": 1.5,
     "runChargeBacklashMultiplier": 0.75,
     "deploymentSection": "front",
     "firingAltitude": 0.98,
@@ -166,6 +168,7 @@
     "id": "scoutCavalry",
     "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
+    "uphillSlowdownMultiplier": 1.25,
     "deploymentSection": "front",
     "firingAltitude": 0.98,
     "routingBehavior": {
@@ -212,6 +215,7 @@
     "id": "lightCavalry",
     "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
+    "uphillSlowdownMultiplier": 1.25,
     "deploymentSection": "front",
     "firingAltitude": 0.98,
     "routingBehavior": {
@@ -258,6 +262,7 @@
     "id": "heavyCavalry",
     "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
+    "uphillSlowdownMultiplier": 1.25,
     "deploymentSection": "front",
     "firingAltitude": 0.98,
     "routingBehavior": {
@@ -344,6 +349,7 @@
     "id": "skirmishInfantry",
     "chargeStaminaCost": 10000,
     "chargeBacklashMultiplier": 0,
+    "uphillSlowdownMultiplier": 0.5,
     "deploymentSection": "front",
     "firingAltitude": 0.98,
     "routingBehavior": {
