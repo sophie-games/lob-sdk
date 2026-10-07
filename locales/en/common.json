@@ -830,6 +830,10 @@
     "shellsVsCover": {
       "title": "Shells against cover",
       "description": "An enemy in range is in cover. Explosive shells lose far less to woods, buildings and earthworks than round shot, so this gun is the right one to hit troops in cover."
+    },
+    "infoPanel": {
+      "title": "Unit details",
+      "description": "Open <info>Info</info> on a selected unit to see its weapons and ranges, what each formation changes, and every modifier acting on it right now."
     }
   },
   "turn": "Turn",
