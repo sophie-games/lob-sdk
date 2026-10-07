@@ -112,6 +112,17 @@ describe("standoffDistance", () => {
     })).toBeCloseTo(145, 1);
   });
 
+  it("closes a gun with only round shot to a picked tier's reach too", () => {
+    expect(standoffDistance({
+      rangedDamageTypes: ["12lb-cannon-ball"],
+      tier: EngagementRange.Max,
+      approachTier: EngagementRange.Medium,
+      gameDataManager,
+    })).toBeCloseTo(usableMaxRange(weapon("12lb-cannon-ball"), EngagementRange.Medium)!, 6);
+    // Unpicked, round shot still gives no reason to close.
+    expect(standoff(["12lb-cannon-ball"], EngagementRange.Max)).toBe(0);
+  });
+
   it("honours a legacy absolute stand-off, still clamped to the reach", () => {
     expect(standoff(["musket"], EngagementRange.Max, 60)).toBe(60);
     expect(standoff(["musket"], EngagementRange.Low, 60)).toBeCloseTo(23.4, 2);
