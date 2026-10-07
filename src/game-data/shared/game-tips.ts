@@ -348,6 +348,20 @@ export const gameTips: readonly GameTipDefinition[] = [
     },
   },
   {
+    id: "closeToApproach",
+    battleOnly: true,
+    on: ["orderPlaced"],
+    condition: {
+      kind: "fireAndAdvanceApproach",
+    },
+    titleKey: "gameTips.closeToApproach.title",
+    descriptionKey: "gameTips.closeToApproach.description",
+    action: {
+      type: "unit",
+      labelKey: "game-messages:view",
+    },
+  },
+  {
     id: "charge",
     battleOnly: true,
     on: ["orderPlaced"],
@@ -833,6 +847,22 @@ export const gameTips: readonly GameTipDefinition[] = [
     maxShows: TACTICAL_SHOWS,
     titleKey: "gameTips.shellsVsCover.title",
     descriptionKey: "gameTips.shellsVsCover.description",
+    action: {
+      type: "unit",
+      labelKey: "game-messages:view",
+    },
+  },
+  {
+    id: "roundShotHeight",
+    battleOnly: true,
+    on: ["unitSelected"],
+    condition: {
+      kind: "roundShotAcrossHeight",
+      minLevelDiff: 3,
+    },
+    maxShows: TACTICAL_SHOWS,
+    titleKey: "gameTips.roundShotHeight.title",
+    descriptionKey: "gameTips.roundShotHeight.description",
     action: {
       type: "unit",
       labelKey: "game-messages:view",

@@ -854,6 +854,14 @@
     "blockedSight": {
       "title": "Out of this unit's sight",
       "description": "An enemy your army can see is hidden from this unit. Hills block sight, and woods, buildings and crops block sight that passes through them, while high ground sees over them. Use <lineOfSight>Line of sight</lineOfSight> to check what a spot can see before you move there."
+    },
+    "closeToApproach": {
+      "title": "How close to advance",
+      "description": "<fireAndAdvance>Fire and Advance</fireAndAdvance> halts this unit where its weapons work best. The Close to setting under <autofire>autofire</autofire> lets it keep closing in while it fires, so it can open fire at long range and still finish the advance up close."
+    },
+    "roundShotHeight": {
+      "title": "Round shot and slopes",
+      "description": "An enemy in range is well above or below this battery. Round shot skips along the ground, so firing up or down a slope shortens its skip and weakens each hit. Site guns level with their targets where you can. Shells and canister are not affected."
     }
   },
   "turn": "Turn",

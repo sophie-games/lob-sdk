@@ -676,6 +676,14 @@
     "blockedSight": {
       "title": "Außer Sicht dieser Einheit",
       "description": "Ein Feind, den deine Armee sieht, ist für diese Einheit verborgen. Hügel versperren die Sicht, und Wälder, Gebäude und Felder versperren sie, wenn sie durch sie hindurchführt, während Anhöhen darüber hinwegsehen. Prüfe mit <lineOfSight>Sichtlinie</lineOfSight>, was man von einem Punkt aus sieht, bevor du dorthin ziehst."
+    },
+    "closeToApproach": {
+      "title": "Wie weit vorrücken",
+      "description": "<fireAndAdvance>Feuern und Vorrücken</fireAndAdvance> hält diese Einheit dort an, wo ihre Waffen am besten wirken. Mit der Einstellung „Annähern bis“ unter dem <autofire>automatischen Feuer</autofire> rückt sie weiter vor, während sie feuert, und kann so auf große Distanz das Feuer eröffnen und trotzdem bis auf kurze Distanz heranrücken."
+    },
+    "roundShotHeight": {
+      "title": "Vollkugeln am Hang",
+      "description": "Ein Feind in Reichweite steht deutlich höher oder tiefer als diese Batterie. Vollkugeln springen über den Boden, daher verkürzt Feuer bergauf oder bergab ihren Sprung und schwächt jeden Treffer. Stelle Geschütze möglichst auf gleicher Höhe wie ihre Ziele auf. Granaten und Kartätschen sind nicht betroffen."
     }
   },
   "turn": "Runde",
@@ -709,6 +717,7 @@
   "autofireEffective": "Effektive Reichweite",
   "autofireMaxAmmoWarning": "Auf große Entfernung ist der Schaden minimal, aber du verbrauchst trotzdem Munition. Nur nutzen, wenn du weißt, was du tust.",
   "autofireRange": "Autofeuer-Reichweite",
+  "approachRange": "Annähern bis",
   "allowFireWhenMoving": "Erlaube Feuern während der Bewegung",
   "meleeDamage": "Nahkampfschaden",
   "rangedDamage": "Fernkampfschaden",

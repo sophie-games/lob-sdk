@@ -676,6 +676,14 @@
     "blockedSight": {
       "title": "Fora da vista desta unidade",
       "description": "Um inimigo que seu exército vê está oculto para esta unidade. Colinas bloqueiam a visão, e bosques, edifícios e plantações a bloqueiam quando ela passa por eles, enquanto o terreno alto vê por cima. Use <lineOfSight>Linha de visão</lineOfSight> para conferir o que se vê de um ponto antes de ir para lá."
+    },
+    "closeToApproach": {
+      "title": "Até onde avançar",
+      "description": "<fireAndAdvance>Fogo e Avanço</fireAndAdvance> para esta unidade onde suas armas rendem melhor. A opção \"Aproximar até\" no <autofire>fogo automático</autofire> permite que ela continue se aproximando enquanto dispara, para abrir fogo de longe e ainda terminar o avanço de perto."
+    },
+    "roundShotHeight": {
+      "title": "Bala sólida e encostas",
+      "description": "Um inimigo ao alcance está bem acima ou abaixo desta bateria. A bala sólida quica pelo chão, então atirar morro acima ou abaixo encurta o quique e enfraquece cada impacto. Posicione os canhões no nível dos alvos quando puder. Granadas e metralha não são afetadas."
     }
   },
   "turn": "Turno",
@@ -709,6 +717,7 @@
   "autofireEffective": "Alcance efetivo",
   "autofireMaxAmmoWarning": "A longa distância o dano é mínimo, mas você ainda gasta munição. Use só se souber o que está fazendo.",
   "autofireRange": "Alcance do tiro automático",
+  "approachRange": "Aproximar até",
   "allowFireWhenMoving": "Permitir fogo ao mover",
   "meleeDamage": "Dano corpo a corpo",
   "rangedDamage": "Dano à distância",

@@ -817,6 +817,14 @@
     "blockedSight": {
       "title": "超出该部队视野",
       "description": "你的军队能看到的一个敌人，这个部队却看不到。山丘会遮挡视线，树林、建筑和农田会在视线穿过时遮挡，而高处能越过它们看到。移动前可用<lineOfSight>视线</lineOfSight>查看某个位置能看到什么。"
+    },
+    "closeToApproach": {
+      "title": "推进多近",
+      "description": "<fireAndAdvance>移动射击</fireAndAdvance>会让该部队停在武器最有效的位置。<autofire>自动射击</autofire>下的“逼近距离”设置能让它一边射击一边继续逼近，从远处开火，同时仍在近距离完成推进。"
+    },
+    "roundShotHeight": {
+      "title": "实心弹与坡地",
+      "description": "射程内有敌人明显高于或低于这个炮兵连。实心弹沿地面弹跳，向坡上或坡下射击会缩短弹跳距离并削弱每次命中。尽量把火炮布置在与目标同一高度。榴弹和霰弹不受影响。"
     }
   },
   "turn": "回合",
@@ -851,6 +859,7 @@
   "autofireEffective": "有效射程",
   "autofireMaxAmmoWarning": "远距离伤害极低，但仍会消耗弹药。请在清楚后果时再使用。",
   "autofireRange": "自动开火距离",
+  "approachRange": "逼近距离",
   "allowFireWhenMoving": "允许移动射击",
   "meleeDamage": "近战伤害",
   "rangedDamage": "远程伤害",

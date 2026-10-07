@@ -677,6 +677,14 @@
     "blockedSight": {
       "title": "Di luar pandangan unit ini",
       "description": "Musuh yang terlihat oleh pasukanmu tersembunyi dari unit ini. Bukit menghalangi pandangan, sedangkan hutan, bangunan, dan ladang menghalanginya saat garis pandang melewatinya, sementara dataran tinggi melihat dari atasnya. Gunakan <lineOfSight>Garis pandang</lineOfSight> untuk memeriksa apa yang terlihat dari suatu titik sebelum bergerak ke sana."
+    },
+    "closeToApproach": {
+      "title": "Seberapa dekat maju",
+      "description": "<fireAndAdvance>Tembak dan Maju</fireAndAdvance> menghentikan unit ini di tempat senjatanya paling efektif. Pengaturan \"Mendekat hingga\" di bawah <autofire>tembakan otomatis</autofire> membuatnya terus mendekat sambil menembak, sehingga bisa mulai menembak dari jauh dan tetap menuntaskan gerak maju dari dekat."
+    },
+    "roundShotHeight": {
+      "title": "Peluru padat dan lereng",
+      "description": "Musuh dalam jangkauan berada jauh lebih tinggi atau lebih rendah dari baterai ini. Peluru padat memantul di tanah, jadi menembak naik atau turun lereng memperpendek pantulannya dan melemahkan setiap hantaman. Tempatkan meriam sejajar dengan sasarannya bila bisa. Granat dan peluru kanister tidak terpengaruh."
     }
   },
   "turn": "Giliran",
@@ -711,6 +719,7 @@
   "autofireEffective": "Jarak efektif",
   "autofireMaxAmmoWarning": "Pada jarak jauh kerusakannya minim tetapi amunisi tetap terpakai. Gunakan hanya jika kamu tahu yang kamu lakukan.",
   "autofireRange": "Jarak tembak otomatis",
+  "approachRange": "Mendekat hingga",
   "allowFireWhenMoving": "Izinkan menembak sambil bergerak",
   "meleeDamage": "Kerusakan Jarak Dekat",
   "rangedDamage": "Kerusakan Jarak Jauh",
