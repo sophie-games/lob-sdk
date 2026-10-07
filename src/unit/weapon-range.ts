@@ -83,13 +83,14 @@ export const standoffDistance = ({
   let standoff: number | null = null;
   for (const weapon of rangedWeapons(rangedDamageTypes, gameDataManager)) {
     // A picked tier binds every weapon it fires; unpicked, only one that wants to close.
-    if (approachTier === undefined && weapon.preferredRange === undefined) continue;
+    const { preferredRange } = weapon;
+    if (approachTier === undefined && preferredRange === undefined) continue;
     const reach = usableMaxRange(weapon, approachTier ?? tier);
     if (reach === null) continue;
 
-    const preferred = approachTier === undefined
-      ? Math.min(weapon.preferredRange! * weapon.maxRange, reach)
-      : reach;
+    const preferred = preferredRange === undefined || approachTier !== undefined
+      ? reach
+      : Math.min(preferredRange * weapon.maxRange, reach);
     if (standoff === null || preferred < standoff) {
       standoff = preferred;
     }
