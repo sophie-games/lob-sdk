@@ -679,7 +679,7 @@
     },
     "closeToApproach": {
       "title": "Wie weit vorrücken",
-      "description": "<fireAndAdvance>Feuern und Vorrücken</fireAndAdvance> hält diese Einheit dort an, wo ihre Waffen am besten wirken. Mit der Einstellung „Close to“ unter <autofire>automatische Feuer</autofire> rückt sie weiter vor, während sie feuert, und kann so auf große Distanz das Feuer eröffnen und trotzdem bis auf kurze Distanz heranrücken."
+      "description": "<fireAndAdvance>Feuern und Vorrücken</fireAndAdvance> hält diese Einheit dort an, wo ihre Waffen am besten wirken. Mit der Einstellung „Annähern bis“ unter <autofire>automatische Feuer</autofire> rückt sie weiter vor, während sie feuert, und kann so auf große Distanz das Feuer eröffnen und trotzdem bis auf kurze Distanz heranrücken."
     },
     "roundShotHeight": {
       "title": "Vollkugeln am Hang",
@@ -717,6 +717,7 @@
   "autofireEffective": "Effektive Reichweite",
   "autofireMaxAmmoWarning": "Auf große Entfernung ist der Schaden minimal, aber du verbrauchst trotzdem Munition. Nur nutzen, wenn du weißt, was du tust.",
   "autofireRange": "Autofeuer-Reichweite",
+  "approachRange": "Annähern bis",
   "allowFireWhenMoving": "Erlaube Feuern während der Bewegung",
   "meleeDamage": "Nahkampfschaden",
   "rangedDamage": "Fernkampfschaden",

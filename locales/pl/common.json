@@ -681,7 +681,7 @@
     },
     "closeToApproach": {
       "title": "Jak blisko podejść",
-      "description": "<fireAndAdvance>Natarcie z ostrzałem</fireAndAdvance> zatrzymuje ten oddział tam, gdzie jego broń działa najlepiej. Ustawienie „Close to” w sekcji <autofire>automatyczny ostrzał</autofire> pozwala mu dalej się zbliżać podczas strzelania, by otworzyć ogień z daleka i mimo to dokończyć natarcie z bliska."
+      "description": "<fireAndAdvance>Natarcie z ostrzałem</fireAndAdvance> zatrzymuje ten oddział tam, gdzie jego broń działa najlepiej. Ustawienie „Podejście na” w sekcji <autofire>automatyczny ostrzał</autofire> pozwala mu dalej się zbliżać podczas strzelania, by otworzyć ogień z daleka i mimo to dokończyć natarcie z bliska."
     },
     "roundShotHeight": {
       "title": "Kule pełne i stoki",
@@ -719,6 +719,7 @@
   "autofireEffective": "Zasięg skuteczny",
   "autofireMaxAmmoWarning": "Na dużym dystansie obrażenia są minimalne, ale amunicja i tak się zużywa. Używaj tylko jeśli wiesz, co robisz.",
   "autofireRange": "Zasięg automatycznego ognia",
+  "approachRange": "Podejście na",
   "allowFireWhenMoving": "Pozwala strzelać podczas ruchu",
   "meleeDamage": "Obrażenia wręcz",
   "rangedDamage": "Obrażenia dystansowe",

@@ -693,7 +693,7 @@
     },
     "closeToApproach": {
       "title": "Tiến gần đến đâu",
-      "description": "Lệnh <fireAndAdvance>Bắn và tiến</fireAndAdvance> dừng đơn vị này ở nơi vũ khí của nó hiệu quả nhất. Tùy chọn \"Close to\" trong <autofire>tự động khai hỏa</autofire> cho phép nó tiếp tục áp sát trong khi bắn, để khai hỏa từ xa mà vẫn hoàn tất cuộc tiến công ở cự ly gần."
+      "description": "Lệnh <fireAndAdvance>Bắn và tiến</fireAndAdvance> dừng đơn vị này ở nơi vũ khí của nó hiệu quả nhất. Tùy chọn \"Áp sát đến\" trong <autofire>tự động khai hỏa</autofire> cho phép nó tiếp tục áp sát trong khi bắn, để khai hỏa từ xa mà vẫn hoàn tất cuộc tiến công ở cự ly gần."
     },
     "roundShotHeight": {
       "title": "Đạn đặc và sườn dốc",
@@ -732,6 +732,7 @@
   "autofireEffective": "Tầm bắn hiệu quả",
   "autofireMaxAmmoWarning": "Ở tầm xa sát thương rất thấp nhưng vẫn tốn đạn. Chỉ dùng nếu bạn biết mình đang làm gì.",
   "autofireRange": "Tầm bắn tự động",
+  "approachRange": "Áp sát đến",
   "allowFireWhenMoving": "Cho phép bắn khi di chuyển",
   "meleeDamage": "Sát thương cận chiến",
   "rangedDamage": "Sát thương tầm xa",

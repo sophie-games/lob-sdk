@@ -679,7 +679,7 @@
     },
     "closeToApproach": {
       "title": "Meddig nyomuljon előre",
-      "description": "A <fireAndAdvance>Mozgás közben lő</fireAndAdvance> parancs ott állítja meg az egységet, ahol a fegyverei a leghatékonyabbak. Az <autofire>automatikus tüzelést</autofire> beállító panel „Close to” opciójával tüzelés közben is tovább közelíthet, így messziről nyithat tüzet, és mégis közelről fejezheti be az előrenyomulást."
+      "description": "A <fireAndAdvance>Mozgás közben lő</fireAndAdvance> parancs ott állítja meg az egységet, ahol a fegyverei a leghatékonyabbak. Az <autofire>automatikus tüzelést</autofire> beállító panel „Közelítés” opciójával tüzelés közben is tovább közelíthet, így messziről nyithat tüzet, és mégis közelről fejezheti be az előrenyomulást."
     },
     "roundShotHeight": {
       "title": "Tömör golyó és lejtők",
@@ -717,6 +717,7 @@
   "autofireEffective": "Hatásos lőtáv",
   "autofireMaxAmmoWarning": "Nagy távolságon a sebzés minimális, de a lőszer így is fogy. Csak akkor használd, ha tudod, mit csinálsz.",
   "autofireRange": "Automatikus tüzelés hatótávja",
+  "approachRange": "Közelítés",
   "allowFireWhenMoving": "Lőhet mozgás közben",
   "meleeDamage": "Közelharci sebzés",
   "rangedDamage": "Távolsági sebzés",

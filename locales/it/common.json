@@ -679,7 +679,7 @@
     },
     "closeToApproach": {
       "title": "Fin dove avanzare",
-      "description": "<fireAndAdvance>Fuoco e Avanza</fireAndAdvance> ferma questa unità dove le sue armi rendono meglio. L'impostazione \"Close to\" sotto <autofire>fuoco automatico</autofire> le permette di continuare ad avvicinarsi mentre spara, così può aprire il fuoco da lontano e concludere comunque l'avanzata da vicino."
+      "description": "<fireAndAdvance>Fuoco e Avanza</fireAndAdvance> ferma questa unità dove le sue armi rendono meglio. L'impostazione \"Avvicinarsi a\" sotto <autofire>fuoco automatico</autofire> le permette di continuare ad avvicinarsi mentre spara, così può aprire il fuoco da lontano e concludere comunque l'avanzata da vicino."
     },
     "roundShotHeight": {
       "title": "Palle piene e pendii",
@@ -717,6 +717,7 @@
   "autofireEffective": "Gittata utile",
   "autofireMaxAmmoWarning": "A lunga distanza il danno è minimo ma consumi comunque munizioni. Usalo solo se sai cosa fai.",
   "autofireRange": "Gittata del fuoco automatico",
+  "approachRange": "Avvicinarsi a",
   "allowFireWhenMoving": "Consenti fuoco durante il movimento",
   "meleeDamage": "Danno corpo a corpo",
   "rangedDamage": "Danno a distanza",

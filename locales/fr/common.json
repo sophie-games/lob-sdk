@@ -662,7 +662,7 @@
     },
     "closeToApproach": {
       "title": "Jusqu'où avancer",
-      "description": "<fireAndAdvance>Tirer en avançant</fireAndAdvance> arrête cette unité là où ses armes sont les plus efficaces. Le réglage « Close to » sous <autofire>tir automatique</autofire> lui permet de continuer à approcher en tirant, pour ouvrir le feu de loin et finir quand même l'avance au contact."
+      "description": "<fireAndAdvance>Tirer en avançant</fireAndAdvance> arrête cette unité là où ses armes sont les plus efficaces. Le réglage « Approcher à » sous <autofire>tir automatique</autofire> lui permet de continuer à approcher en tirant, pour ouvrir le feu de loin et finir quand même l'avance au contact."
     },
     "roundShotHeight": {
       "title": "Boulets et pentes",
@@ -700,6 +700,7 @@
   "autofireEffective": "Portée efficace",
   "autofireMaxAmmoWarning": "À longue distance, les dégâts sont minimes mais vous consommez quand même des munitions. À utiliser seulement si vous savez ce que vous faites.",
   "autofireRange": "Portée du tir automatique",
+  "approachRange": "Approcher à",
   "allowFireWhenMoving": "Permet de tirer en avançant",
   "meleeDamage": "Dégâts de mêlée",
   "rangedDamage": "Dégâts à distance",

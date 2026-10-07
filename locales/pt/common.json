@@ -679,7 +679,7 @@
     },
     "closeToApproach": {
       "title": "Até onde avançar",
-      "description": "<fireAndAdvance>Fogo e Avanço</fireAndAdvance> para esta unidade onde suas armas rendem melhor. A opção \"Close to\" em <autofire>fogo automático</autofire> permite que ela continue se aproximando enquanto dispara, para abrir fogo de longe e ainda terminar o avanço de perto."
+      "description": "<fireAndAdvance>Fogo e Avanço</fireAndAdvance> para esta unidade onde suas armas rendem melhor. A opção \"Aproximar até\" em <autofire>fogo automático</autofire> permite que ela continue se aproximando enquanto dispara, para abrir fogo de longe e ainda terminar o avanço de perto."
     },
     "roundShotHeight": {
       "title": "Bala sólida e encostas",
@@ -717,6 +717,7 @@
   "autofireEffective": "Alcance efetivo",
   "autofireMaxAmmoWarning": "A longa distância o dano é mínimo, mas você ainda gasta munição. Use só se souber o que está fazendo.",
   "autofireRange": "Alcance do tiro automático",
+  "approachRange": "Aproximar até",
   "allowFireWhenMoving": "Permitir fogo ao mover",
   "meleeDamage": "Dano corpo a corpo",
   "rangedDamage": "Dano à distância",
