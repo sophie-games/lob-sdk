@@ -58,6 +58,23 @@ export type GameTipCondition =
   | { kind: "ammoObjective" }
   | { kind: "victoryPoints"; maxRatioFromAverage: number }
   | { kind: "blockedShot"; categories: readonly string[] }
+  | { kind: "routing" }
+  | {
+      kind: "unthreatenedFormation";
+      formations: readonly string[];
+      threatCategories: readonly string[];
+      minThreatDistancePx: number;
+    }
+  | { kind: "stamina"; maxRatio: number }
+  | { kind: "tirelessWalk"; minDistancePx: number; minEnemyDistancePx: number }
+  | {
+      kind: "coverPiercingFire";
+      damageTypes: readonly string[];
+      comparedTo: string;
+      minAbsorptionGap: number;
+    }
+  | { kind: "orgRadius"; minOrgRadiusBonus: number }
+  | { kind: "rearFire" }
   | { kind: "always" }
   | {
       kind: "situation";

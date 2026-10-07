@@ -80,6 +80,22 @@ export const gameTips: readonly GameTipDefinition[] = [
     },
   },
   {
+    id: "runWithoutStamina",
+    battleOnly: false,
+    on: ["orderPlaced"],
+    condition: {
+      kind: "tirelessWalk",
+      minDistancePx: 256,
+      minEnemyDistancePx: 256,
+    },
+    titleKey: "gameTips.runWithoutStamina.title",
+    descriptionKey: "gameTips.runWithoutStamina.description",
+    action: {
+      type: "unit",
+      labelKey: "game-messages:view",
+    },
+  },
+  {
     id: "overlap",
     battleOnly: true,
     on: ["ready", "stateUpdated"],
@@ -139,6 +155,35 @@ export const gameTips: readonly GameTipDefinition[] = [
     },
   },
   {
+    id: "routing",
+    battleOnly: true,
+    on: ["stateUpdated"],
+    condition: {
+      kind: "routing",
+    },
+    titleKey: "gameTips.routing.title",
+    descriptionKey: "gameTips.routing.description",
+    action: {
+      type: "unit",
+      labelKey: "game-messages:view",
+    },
+  },
+  {
+    id: "stamina",
+    battleOnly: true,
+    on: ["stateUpdated"],
+    condition: {
+      kind: "stamina",
+      maxRatio: 0.4,
+    },
+    titleKey: "gameTips.stamina.title",
+    descriptionKey: "gameTips.stamina.description",
+    action: {
+      type: "unit",
+      labelKey: "game-messages:view",
+    },
+  },
+  {
     id: "objectives",
     battleOnly: true,
     on: ["ready", "stateUpdated"],
@@ -167,6 +212,21 @@ export const gameTips: readonly GameTipDefinition[] = [
     },
   },
   {
+    id: "rearFire",
+    battleOnly: true,
+    on: ["ready", "stateUpdated"],
+    condition: {
+      kind: "rearFire",
+    },
+    maxShows: TACTICAL_SHOWS,
+    titleKey: "gameTips.rearFire.title",
+    descriptionKey: "gameTips.rearFire.description",
+    action: {
+      type: "unit",
+      labelKey: "game-messages:view",
+    },
+  },
+  {
     id: "terrain",
     battleOnly: false,
     on: ["ready", "stateUpdated", "unitSelected"],
@@ -175,6 +235,21 @@ export const gameTips: readonly GameTipDefinition[] = [
     },
     titleKey: "gameTips.terrain.title",
     descriptionKey: "gameTips.terrain.description",
+    action: {
+      type: "unit",
+      labelKey: "game-messages:view",
+    },
+  },
+  {
+    id: "orgRadius",
+    battleOnly: false,
+    on: ["unitSelected"],
+    condition: {
+      kind: "orgRadius",
+      minOrgRadiusBonus: 1100,
+    },
+    titleKey: "gameTips.orgRadius.title",
+    descriptionKey: "gameTips.orgRadius.description",
     action: {
       type: "unit",
       labelKey: "game-messages:view",
@@ -329,6 +404,30 @@ export const gameTips: readonly GameTipDefinition[] = [
     maxShows: TACTICAL_SHOWS,
     titleKey: "gameTips.infantryVsCavalryFlank.title",
     descriptionKey: "gameTips.infantryVsCavalryFlank.description",
+    action: {
+      type: "unit",
+      labelKey: "game-messages:view",
+    },
+  },
+  {
+    id: "leaveSquare",
+    eras: ["napoleonic"],
+    battleOnly: true,
+    on: ["ready", "stateUpdated"],
+    condition: {
+      kind: "unthreatenedFormation",
+      formations: ["square"],
+      threatCategories: [
+        "midCavalry",
+        "lightCavalry",
+        "heavyCavalry",
+        "scoutCavalry",
+      ],
+      minThreatDistancePx: 256,
+    },
+    maxShows: TACTICAL_SHOWS,
+    titleKey: "gameTips.leaveSquare.title",
+    descriptionKey: "gameTips.leaveSquare.description",
     action: {
       type: "unit",
       labelKey: "game-messages:view",
@@ -617,6 +716,29 @@ export const gameTips: readonly GameTipDefinition[] = [
     maxShows: TACTICAL_SHOWS,
     titleKey: "gameTips.artilleryCanisterRange.title",
     descriptionKey: "gameTips.artilleryCanisterRange.description",
+    action: {
+      type: "unit",
+      labelKey: "game-messages:view",
+    },
+  },
+  {
+    id: "shellsVsCover",
+    eras: ["napoleonic"],
+    battleOnly: true,
+    on: ["ready", "stateUpdated"],
+    condition: {
+      kind: "coverPiercingFire",
+      damageTypes: [
+        "explosive-shell",
+        "10lb-explosive-shell",
+        "18lb-explosive-shell",
+      ],
+      comparedTo: "12lb-cannon-ball",
+      minAbsorptionGap: 0.05,
+    },
+    maxShows: TACTICAL_SHOWS,
+    titleKey: "gameTips.shellsVsCover.title",
+    descriptionKey: "gameTips.shellsVsCover.description",
     action: {
       type: "unit",
       labelKey: "game-messages:view",
