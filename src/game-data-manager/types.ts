@@ -112,6 +112,8 @@ export interface UnitCategoryTemplate {
   chargeBacklashMultiplier?: number;
   /** Backlash multiplier when the defender has run (HasRan) and can't brace; falls back to chargeBacklashMultiplier. */
   runChargeBacklashMultiplier?: number;
+  /** Scales the height rule's uphill slowdown for this category, e.g. above 1 for guns and horses. Defaults to 1. */
+  uphillSlowdownMultiplier?: number;
   /** Max stamina a charge drains from this category (scaled by STAT_PRECISION_SCALE), floored at 25%: the charger pays it head-on, a defender when flanked. Defaults to 0 (no cost) when unset. */
   chargeStaminaCost?: number;
 
