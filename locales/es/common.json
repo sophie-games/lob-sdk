@@ -621,6 +621,34 @@
     "holdObjective": {
       "title": "Mantén tu objetivo",
       "description": "Vas perdiendo en puntos. Retrocede a tu objetivo y mantenlo con lo aprendido. Defender cuesta menos que retomar."
+    },
+    "runWithoutStamina": {
+      "title": "Llévala corriendo",
+      "description": "Esta unidad no tiene resistencia, así que <run>correr</run> no le cuesta nada. En un desplazamiento largo sin enemigos cerca, hazla correr. No puede disparar justo después de correr y es presa fácil de una carga mientras se mueve."
+    },
+    "routing": {
+      "title": "Una unidad se ha quebrado",
+      "description": "Esta unidad está en desbandada. Una unidad que acaba de quebrarse resta organización a las tropas aliadas que la rodean. Aleja de ella a las unidades tocadas y trae una reserva fresca para cubrir el hueco."
+    },
+    "stamina": {
+      "title": "Tropas cansadas",
+      "description": "Esta unidad tiene poca resistencia. Las tropas cansadas se mueven, disparan y combaten peor, y la resistencia se recupera despacio. <walk>Camina</walk> en lugar de correr y déjala descansar antes de volver a comprometerla."
+    },
+    "rearFire": {
+      "title": "Fuego por la retaguardia",
+      "description": "Un enemigo a tu alcance da la espalda a esta unidad. El fuego por la retaguardia le cuesta mucha más organización, así que aprovéchalo antes de que se gire."
+    },
+    "orgRadius": {
+      "title": "Radio de organización",
+      "description": "El círculo azul es el radio de organización de esta unidad. Las unidades aliadas dentro de él ganan organización y los enemigos la pierden. El de esta unidad es especialmente fuerte, así que mantenla cerca de las tropas que lo necesitan."
+    },
+    "leaveSquare": {
+      "title": "Deshaz el cuadro",
+      "description": "No hay caballería enemiga a la vista. Un <square>cuadro</square> apenas se mueve y recibe daño extra del fuego, así que vuelve a <line>línea</line> o <column>columna</column> hasta que la caballería vuelva a amenazar."
+    },
+    "shellsVsCover": {
+      "title": "Granadas contra cobertura",
+      "description": "Un enemigo a tu alcance está a cubierto. Las granadas explosivas pierden mucho menos que las balas rasas contra bosques, edificios y obras de tierra, así que esta pieza es la indicada para batir tropas a cubierto."
     }
   },
   "turn": "Turno",

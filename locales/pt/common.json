@@ -624,6 +624,34 @@
     "holdObjective": {
       "title": "Mantenha o seu objetivo",
       "description": "Você está atrás em pontos. Volte ao seu objetivo e mantenha-o com o que aprendeu. Defender é mais barato do que retomar."
+    },
+    "runWithoutStamina": {
+      "title": "Leve-a correndo",
+      "description": "Esta unidade não tem vigor, então <run>correr</run> não lhe custa nada. Num deslocamento longo sem inimigos perto, faça-a correr. Ela não pode disparar logo depois de correr e é presa fácil para uma carga enquanto se move."
+    },
+    "routing": {
+      "title": "Uma unidade debandou",
+      "description": "Esta unidade está em debandada. Uma unidade que acabou de quebrar tira organização das tropas aliadas à sua volta. Afaste dela as unidades abaladas e traga uma reserva descansada para fechar a brecha."
+    },
+    "stamina": {
+      "title": "Tropas cansadas",
+      "description": "Esta unidade está com pouco vigor. Tropas cansadas se movem, disparam e combatem pior, e o vigor volta devagar. <walk>Caminhe</walk> em vez de correr e deixe-a descansar antes de comprometê-la de novo."
+    },
+    "rearFire": {
+      "title": "Fogo pela retaguarda",
+      "description": "Um inimigo ao alcance está de costas para esta unidade. Fogo pela retaguarda custa muito mais organização, então aproveite antes que ele se vire."
+    },
+    "orgRadius": {
+      "title": "Raio de organização",
+      "description": "O círculo azul é o raio de organização desta unidade. Unidades aliadas dentro dele ganham organização e inimigos dentro dele perdem. O desta unidade é especialmente forte, então mantenha-a perto das tropas que precisam dele."
+    },
+    "leaveSquare": {
+      "title": "Desfaça o quadrado",
+      "description": "Não há cavalaria inimiga à vista. Um <square>quadrado</square> mal se move e sofre dano extra de fogo, então volte para <line>linha</line> ou <column>coluna</column> até a cavalaria ameaçar de novo."
+    },
+    "shellsVsCover": {
+      "title": "Granadas contra cobertura",
+      "description": "Um inimigo ao alcance está protegido. Granadas explosivas perdem muito menos que balas sólidas contra bosques, edifícios e obras de terra, então esta peça é a certa para atingir tropas protegidas."
     }
   },
   "turn": "Turno",

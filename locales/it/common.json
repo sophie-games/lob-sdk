@@ -624,6 +624,34 @@
     "holdObjective": {
       "title": "Tieni il tuo obiettivo",
       "description": "Sei indietro ai punti. Torna al tuo obiettivo e mantienilo con ciò che hai imparato. Difendere è più economico che riprendere."
+    },
+    "runWithoutStamina": {
+      "title": "Falla correre",
+      "description": "Questa unità non ha resistenza, quindi <run>correre</run> non le costa nulla. In uno spostamento lungo senza nemici vicini, falla correre. Non può sparare subito dopo aver corso ed è una preda facile per una carica mentre si muove."
+    },
+    "routing": {
+      "title": "Un'unità ha ceduto",
+      "description": "Questa unità è in rotta. Un'unità che ha appena ceduto toglie organizzazione alle truppe amiche intorno a lei. Tieni lontane le unità scosse e porta avanti una riserva fresca per chiudere il varco."
+    },
+    "stamina": {
+      "title": "Truppe stanche",
+      "description": "Questa unità ha poca resistenza. Le truppe stanche si muovono, sparano e combattono peggio, e la resistenza torna lentamente. <walk>Cammina</walk> invece di correre e lasciala riposare prima di impegnarla di nuovo."
+    },
+    "rearFire": {
+      "title": "Fuoco alle spalle",
+      "description": "Un nemico a portata volta le spalle a questa unità. Il fuoco alle spalle gli costa molta più organizzazione, sfruttalo prima che si giri."
+    },
+    "orgRadius": {
+      "title": "Raggio di organizzazione",
+      "description": "Il cerchio blu è il raggio di organizzazione di questa unità. Le unità amiche al suo interno guadagnano organizzazione e i nemici la perdono. Quello di questa unità è particolarmente forte, tienila vicina alle truppe che ne hanno bisogno."
+    },
+    "leaveSquare": {
+      "title": "Sciogli il quadrato",
+      "description": "Nessuna cavalleria nemica in vista. Un <square>quadrato</square> si muove a malapena e subisce danni extra dal fuoco, torna in <line>linea</line> o in <column>colonna</column> finché la cavalleria non minaccia di nuovo."
+    },
+    "shellsVsCover": {
+      "title": "Granate contro il riparo",
+      "description": "Un nemico a portata è al riparo. Le granate esplosive perdono molto meno delle palle piene contro boschi, edifici e terrapieni, quindi questo pezzo è quello giusto per colpire truppe al riparo."
     }
   },
   "turn": "Turno",

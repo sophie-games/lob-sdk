@@ -624,6 +624,34 @@
     "holdObjective": {
       "title": "Halte dein Ziel",
       "description": "Du liegst zurück. Zieh zu deinem Ziel und halte es mit dem Gelernten. Verteidigen ist günstiger als Rückeroberung."
+    },
+    "runWithoutStamina": {
+      "title": "Lass sie laufen",
+      "description": "Diese Einheit hat keine Ausdauer, also kostet sie <run>Laufen</run> nichts. Lass sie auf einem langen Weg ohne Feind in der Nähe laufen. Direkt nach dem Laufen kann sie nicht feuern, und in Bewegung ist sie leichte Beute für einen Sturmangriff."
+    },
+    "routing": {
+      "title": "Eine Einheit ist gebrochen",
+      "description": "Diese Einheit flieht. Eine gerade gebrochene Einheit entzieht befreundeten Truppen um sie herum Organisation. Halte angeschlagene Einheiten von ihr fern und schließe die Lücke mit einer frischen Reserve."
+    },
+    "stamina": {
+      "title": "Erschöpfte Truppen",
+      "description": "Diese Einheit hat wenig Ausdauer. Erschöpfte Truppen bewegen sich, schießen und kämpfen schlechter, und Ausdauer kehrt nur langsam zurück. <walk>Gehe</walk> statt zu laufen und lass sie ruhen, bevor du sie wieder einsetzt."
+    },
+    "rearFire": {
+      "title": "Feuer in den Rücken",
+      "description": "Ein Feind in Reichweite kehrt dieser Einheit den Rücken zu. Feuer in den Rücken kostet ihn weit mehr Organisation, also nutze es, bevor er sich umdreht."
+    },
+    "orgRadius": {
+      "title": "Organisationsradius",
+      "description": "Der blaue Kreis ist der Organisationsradius dieser Einheit. Befreundete Einheiten darin gewinnen Organisation, Feinde darin verlieren sie. Der dieser Einheit ist besonders stark, also halte sie nahe bei den Truppen, die ihn brauchen."
+    },
+    "leaveSquare": {
+      "title": "Karree auflösen",
+      "description": "Keine feindliche Kavallerie in Sicht. Ein <square>Karree</square> bewegt sich kaum und nimmt zusätzlichen Schaden durch Beschuss, also wechsle zurück in <line>Linie</line> oder <column>Kolonne</column>, bis wieder Kavallerie droht."
+    },
+    "shellsVsCover": {
+      "title": "Granaten gegen Deckung",
+      "description": "Ein Feind in Reichweite ist in Deckung. Sprenggranaten verlieren an Wäldern, Gebäuden und Erdwerken weit weniger als Vollkugeln, also ist dieses Geschütz das richtige gegen Truppen in Deckung."
     }
   },
   "turn": "Runde",

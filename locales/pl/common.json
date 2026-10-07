@@ -626,6 +626,34 @@
     "holdObjective": {
       "title": "Utrzymaj swój cel",
       "description": "Jesteś opóźniony w zdobywaniu punktów. Powróć do celu i trzymaj się tego, czego się nauczyłeś. Obrona jest tańsza niż odzyskanie."
+    },
+    "runWithoutStamina": {
+      "title": "Niech biegnie",
+      "description": "Ten oddział nie ma wytrzymałości, więc <run>bieg</run> nic go nie kosztuje. Na długim przemarszu bez wroga w pobliżu każ mu biec. Zaraz po biegu nie może strzelać, a w ruchu jest łatwym łupem dla szarży."
+    },
+    "routing": {
+      "title": "Oddział się załamał",
+      "description": "Ten oddział ucieka. Oddział, który właśnie się załamał, odbiera organizację sojuszniczym wojskom wokół siebie. Trzymaj od niego z dala nadwątlone oddziały i zamknij lukę świeżym odwodem."
+    },
+    "stamina": {
+      "title": "Zmęczone wojska",
+      "description": "Ten oddział ma mało wytrzymałości. Zmęczone wojska gorzej się poruszają, strzelają i walczą, a wytrzymałość wraca powoli. <walk>Maszeruj</walk> zamiast biec i daj mu odpocząć, zanim znów rzucisz go do walki."
+    },
+    "rearFire": {
+      "title": "Ogień w tyły",
+      "description": "Wróg w zasięgu stoi tyłem do tego oddziału. Ogień w tyły kosztuje go znacznie więcej organizacji, więc wykorzystaj to, zanim się odwróci."
+    },
+    "orgRadius": {
+      "title": "Promień organizacji",
+      "description": "Niebieskie koło to promień organizacji tego oddziału. Sojusznicze oddziały w jego obrębie zyskują organizację, a wrogowie ją tracą. Ten oddział ma go szczególnie silny, więc trzymaj go blisko wojsk, które go potrzebują."
+    },
+    "leaveSquare": {
+      "title": "Rozwiąż czworobok",
+      "description": "Nie widać wrogiej kawalerii. <square>Czworobok</square> ledwo się porusza i otrzymuje dodatkowe obrażenia od ognia, więc wróć do <line>linii</line> lub <column>kolumny</column>, dopóki kawaleria znów nie zagrozi."
+    },
+    "shellsVsCover": {
+      "title": "Granaty na osłony",
+      "description": "Wróg w zasięgu jest w osłonie. Granaty wybuchowe tracą na lasach, budynkach i szańcach znacznie mniej niż kule pełne, więc to działo najlepiej nadaje się na wojska w osłonie."
     }
   },
   "turn": "Tura",
