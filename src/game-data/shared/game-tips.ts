@@ -285,6 +285,40 @@ export const gameTips: readonly GameTipDefinition[] = [
     },
   },
   {
+    id: "garrisonStrongpoint",
+    eras: ["napoleonic"],
+    battleOnly: true,
+    on: ["unitSelected"],
+    condition: {
+      kind: "emptyStrongpoint",
+      terrainCategories: ["fortifiedFarm", "rampart"],
+      unitCategories: ["infantry", "guardsInfantry", "militiaInfantry"],
+      withinPx: 96,
+    },
+    maxShows: TACTICAL_SHOWS,
+    titleKey: "gameTips.garrisonStrongpoint.title",
+    descriptionKey: "gameTips.garrisonStrongpoint.description",
+    action: {
+      type: "unit",
+      labelKey: "game-messages:view",
+    },
+  },
+  {
+    id: "blockedSight",
+    battleOnly: true,
+    on: ["unitSelected"],
+    condition: {
+      kind: "blockedSight",
+    },
+    maxShows: TACTICAL_SHOWS,
+    titleKey: "gameTips.blockedSight.title",
+    descriptionKey: "gameTips.blockedSight.description",
+    action: {
+      type: "unit",
+      labelKey: "game-messages:view",
+    },
+  },
+  {
     id: "orgRadius",
     battleOnly: false,
     on: ["unitSelected"],
