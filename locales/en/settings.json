@@ -247,7 +247,7 @@
     "openPlayersPanel": "Open players",
     "openReplayActions": "Replay last actions",
     "openBattleMenu": "Open battle menu",
-    "controlGroupsHelp": "The bare digit issues an order. Recall a group with {{modifier}} + its digit."
+    "controlGroupsHelp": "The bare digit issues an order. Select a group with {{modifier}} + its digit."
   },
   "routingTransparency": {
     "title": "Routing Unit Transparency"
@@ -343,7 +343,7 @@
     "resetDescription": "Back to the default palette."
   },
   "controlGroups": {
-    "recall": "Recall Group {{group}}",
+    "recall": "Select Group {{group}}",
     "set": "Set Group {{group}}",
     "add": "Add to Group {{group}}"
   },

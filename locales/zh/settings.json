@@ -212,7 +212,7 @@
     "controlGroup9": "控制编组9",
     "controlGroup0": "控制编组0",
     "openPingWheel": "打开标记轮盘",
-    "controlGroupsHelp": "单独按数字会下达命令。呼叫编组请按 {{modifier}} + 数字。"
+    "controlGroupsHelp": "单独按数字会下达命令。选择编组请按 {{modifier}} + 数字。"
   },
   "routingTransparency": {
     "title": "溃退单位透明度"
@@ -308,7 +308,7 @@
     "resetDescription": "恢复默认调色板。"
   },
   "controlGroups": {
-    "recall": "呼叫编组 {{group}}",
+    "recall": "选择编组 {{group}}",
     "set": "设置编组 {{group}}",
     "add": "加入编组 {{group}}"
   },

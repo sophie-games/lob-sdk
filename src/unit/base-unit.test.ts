@@ -106,6 +106,14 @@ describe("BaseUnit", () => {
     expect(unit.runMovementSound).toBe("infantry-running");
   });
 
+  it("walks at its formation's share of its walk, which is what its body's pace measures", () => {
+    expect(unit.formationWalkMovement).toBe(unit.walkMovement);
+    unit.currentFormation = "line";
+    expect(unit.formationWalkMovement).toBeCloseTo(unit.walkMovement * 0.75);
+    unit.pendingFormationId = "column";
+    expect(unit.formationWalkMovement).toBe(unit.walkMovement);
+  });
+
   it("sets its body's pace unless its category lists the order as exempt", () => {
     expect(unit.isExemptFromBodyPace(OrderType.FireAndAdvance)).toBe(false);
     (unit as unknown as { categoryTemplate: unknown }).categoryTemplate = {

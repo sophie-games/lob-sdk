@@ -122,6 +122,10 @@ export abstract class BaseUnit extends Entity {
   get gold(): number { return this.template.gold; }
 
   get walkMovement(): number { return this.template.walkMovement; }
+  /** Its walk in the formation it holds or is forming: what a body's pace is measured in. */
+  get formationWalkMovement(): number {
+    return this.walkMovement * (1 + (this.effectiveFormationTemplate?.movementModifier ?? 0));
+  }
   get runStartUpMovement(): number { return this.template.runStartUpMovement ?? this.template.walkMovement; }
   get runMovement(): number { return this.template.runMovement; }
   get timeToRun(): number { return this.template.timeToRun; }
