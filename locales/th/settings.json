@@ -204,7 +204,7 @@
     "rotateCameraRight": "หมุนกล้องขวา",
     "toggleApplyOrderTypeToSelection": "เปิด/ปิด การใช้ประเภทคำสั่งกับหน่วยที่เลือก",
     "openTacticsModal": "เปิดเมนูยุทธวิธี",
-    "controlGroupsHelp": "กดตัวเลขเปล่าจะเป็นการสั่งการ เรียกกลุ่มด้วย {{modifier}} + ตัวเลขของกลุ่ม"
+    "controlGroupsHelp": "กดตัวเลขเปล่าจะเป็นการสั่งการ เลือกกลุ่มด้วย {{modifier}} + ตัวเลขของกลุ่ม"
   },
   "routingTransparency": {
     "title": "ความโปร่งใสของหน่วยที่กำลังแตกพ่าย"
@@ -291,7 +291,7 @@
     "resetDescription": "กลับไปใช้จานสีเริ่มต้น"
   },
   "controlGroups": {
-    "recall": "เรียกกลุ่ม {{group}}",
+    "recall": "เลือกกลุ่ม {{group}}",
     "set": "ตั้งกลุ่ม {{group}}",
     "add": "เพิ่มเข้ากลุ่ม {{group}}"
   },
