@@ -42,6 +42,7 @@ export interface ScenarioOrganization {
   divisions: {
     kind?: string;
     name?: string;
+    standard?: number;
     brigades: {
       kind?: string;
       name?: string;
