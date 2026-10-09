@@ -505,6 +505,36 @@ describe("ArmyDeployer", () => {
           .size,
       ).toBe(1);
     });
+
+    it("keeps every brigade row of a deep saved division apart in the zone", () => {
+      const units: UnitCounts = { 1: 8 };
+      const deployed = new ArmyDeployer(
+        gameDataManager,
+        units,
+        zone(0, 0, 1200, 192),
+        forwardZone,
+        1,
+        1,
+        "battle",
+      ).deploy({
+        version: 1,
+        divisions: [
+          {
+            kind: "infantry",
+            brigades: Array.from({ length: 8 }, () => ({
+              kind: "line",
+              units: { 1: 1 },
+            })),
+          },
+        ],
+      });
+      const ys = deployed
+        .filter((unit) => unit.type === 1)
+        .map((unit) => unit.pos.y);
+
+      expect(new Set(ys).size).toBe(8);
+      expect(Math.max(...ys)).toBeLessThan(192);
+    });
   });
 
   describe("calculateSectionMetrics()", () => {

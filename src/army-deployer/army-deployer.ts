@@ -117,6 +117,8 @@ export class ArmyDeployer {
   private readonly team: number;
   private readonly dynamicBattleType: DynamicBattleType;
   private readonly unitDtos: UnitDtoPartialId[] = [];
+  /** Distance between one row and the next, shortened when the rows would overrun the zone. */
+  private rowStep = this.DEFAULT_UNIT_HEIGHT + this.MARGIN;
 
   private readonly rotation: number;
   // Each zone turned back to the team's default facing, which the layout assumes.
@@ -238,6 +240,22 @@ export class ArmyDeployer {
     // One pitch for both lines, so the blocks of the second sit on the same grid
     // as the first rather than on a scale of their own.
     const pitch = Math.min(this.pitchFor(all(front)), this.pitchFor(all(rear)));
+    // A saved division can be many brigades deep, so the rows close up to fit the
+    // zone rather than piling the last of them onto its back edge.
+    const lastRow = Math.max(
+      depth - 1,
+      ...all(rear).map(
+        (division) =>
+          depth + division.brigades.length - (division.guns.length ? 0 : 1),
+      ),
+    );
+    if (lastRow > 0)
+      this.rowStep = Math.min(
+        this.rowStep,
+        (getDeploymentZoneBounds(this.mainLayoutZone).height -
+          3 * this.MARGIN) /
+          lastRow,
+      );
 
     // The light cavalry rides one row ahead of the line it covers: it screened,
     // and standing it level with the infantry makes it read as part of it.
@@ -382,8 +400,7 @@ export class ArmyDeployer {
     const lineStartX =
       startX + (width - (recruits.length * pitch - spacing)) / 2;
     // Rows run away from the enemy, which is downwards for team 1.
-    const step =
-      (this.DEFAULT_UNIT_HEIGHT + this.MARGIN) * (this.team === 1 ? 1 : -1);
+    const step = this.rowStep * (this.team === 1 ? 1 : -1);
 
     recruits.forEach((recruit, index) => {
       const { canDeployForward } = this.gameDataManager
