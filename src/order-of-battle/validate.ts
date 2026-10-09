@@ -102,7 +102,8 @@ export function validateOrganization(
     if (
       !record(label) ||
       (label.name !== undefined && typeof label.name !== "string") ||
-      (label.titleKey !== undefined && typeof label.titleKey !== "string")
+      (label.titleKey !== undefined && typeof label.titleKey !== "string") ||
+      (label.kindTitleKey !== undefined && typeof label.kindTitleKey !== "string")
     )
       errors.push("Organization labels must contain text");
   }
