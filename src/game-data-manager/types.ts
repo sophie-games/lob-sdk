@@ -36,7 +36,7 @@ export interface Achievement {
   trigger: AchievementTrigger;
 }
 
-/** A store-sold standard a division flies; its art is the objective flag of the same name. */
+/** A store-sold standard a division flies; its art lives in the era's division-standards folder under the same name. */
 export interface DivisionStandard {
   id: number;
   name: string;
