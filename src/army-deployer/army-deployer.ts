@@ -117,6 +117,8 @@ export class ArmyDeployer {
   private readonly team: number;
   private readonly dynamicBattleType: DynamicBattleType;
   private readonly unitDtos: UnitDtoPartialId[] = [];
+  /** Distance between one row and the next, shortened when the rows would overrun the zone. */
+  private rowStep = this.DEFAULT_UNIT_HEIGHT + this.MARGIN;
 
   private readonly rotation: number;
   // Each zone turned back to the team's default facing, which the layout assumes.
@@ -172,14 +174,41 @@ export class ArmyDeployer {
 
   /**
    * Deploys all units in the deployment zone according to their categories and deployment sections.
+   * @param organization - A saved order of battle to lay out instead of the doctrine's.
    * @returns An array of unit DTOs with their positions and rotations set.
    */
-  public deploy(): UnitDtoPartialId[] {
+  public deploy(organization?: ArmyOrganization): UnitDtoPartialId[] {
     // One order of battle for the whole army, not one per zone: a division holds
     // a single stretch of the front, and the units of it that deploy forward
     // stand ahead of that same stretch rather than across the whole army.
-    this.deployAsOrderOfBattle(this.getRecruits());
+    if (!organization) {
+      this.deployAsOrderOfBattle(this.planOrderOfBattle(this.getRecruits()));
+      return this.unitDtos;
+    }
 
+    // The player's divisions lead the front line's centre in their own order,
+    // brigade 1 in front; what they leave unassigned follows by doctrine. Units
+    // come out in organization order, which is how materialize assigns IDs.
+    const plan = this.planOrderOfBattle(
+      this.recruitsOf(
+        ArmyDeployer.getUnassignedUnits(
+          this.gameDataManager,
+          organization,
+          this.units,
+          this.dynamicBattleType,
+        ),
+      ),
+    );
+    plan.front.centre.unshift(
+      ...organization.divisions.map((division) => ({
+        kind: division.kind,
+        brigadeKind: division.brigades[0]?.kind ?? "",
+        brigades: division.brigades.map(({ units }) => this.recruitsOf(units)),
+        screen: [],
+        guns: [],
+      })),
+    );
+    this.deployAsOrderOfBattle(plan);
     return this.unitDtos;
   }
 
@@ -190,8 +219,13 @@ export class ArmyDeployer {
    * its battery beside them. The gaps between the blocks are what makes a
    * division read as a division on the field.
    */
-  private deployAsOrderOfBattle(recruits: Recruit[]) {
-    const { front, rear } = this.planOrderOfBattle(recruits);
+  private deployAsOrderOfBattle({
+    front,
+    rear,
+  }: {
+    front: DeployedLine;
+    rear: DeployedLine;
+  }) {
     const all = (line: DeployedLine) => [
       ...line.left,
       ...line.centre,
@@ -206,6 +240,22 @@ export class ArmyDeployer {
     // One pitch for both lines, so the blocks of the second sit on the same grid
     // as the first rather than on a scale of their own.
     const pitch = Math.min(this.pitchFor(all(front)), this.pitchFor(all(rear)));
+    // A saved division can be many brigades deep, so the rows close up to fit the
+    // zone rather than piling the last of them onto its back edge.
+    const lastRow = Math.max(
+      depth - 1,
+      ...all(rear).map(
+        (division) =>
+          depth + division.brigades.length - (division.guns.length ? 0 : 1),
+      ),
+    );
+    if (lastRow > 0)
+      this.rowStep = Math.min(
+        this.rowStep,
+        (getDeploymentZoneBounds(this.mainLayoutZone).height -
+          3 * this.MARGIN) /
+          lastRow,
+      );
 
     // The light cavalry rides one row ahead of the line it covers: it screened,
     // and standing it level with the infantry makes it read as part of it.
@@ -350,8 +400,7 @@ export class ArmyDeployer {
     const lineStartX =
       startX + (width - (recruits.length * pitch - spacing)) / 2;
     // Rows run away from the enemy, which is downwards for team 1.
-    const step =
-      (this.DEFAULT_UNIT_HEIGHT + this.MARGIN) * (this.team === 1 ? 1 : -1);
+    const step = this.rowStep * (this.team === 1 ? 1 : -1);
 
     recruits.forEach((recruit, index) => {
       const { canDeployForward } = this.gameDataManager
@@ -380,9 +429,9 @@ export class ArmyDeployer {
     rear: DeployedLine;
     ordered: DeployedDivision[];
   } {
-    const nothing = { left: [], centre: [], right: [] };
+    const nothing = (): DeployedLine => ({ left: [], centre: [], right: [] });
     if (recruits.length === 0)
-      return { front: nothing, rear: nothing, ordered: [] };
+      return { front: nothing(), rear: nothing(), ordered: [] };
 
     const doctrine = this.gameDataManager.getOrganizationDoctrine();
     const byKind = new Map<string, Recruit[]>();
@@ -708,6 +757,31 @@ export class ArmyDeployer {
     units: UnitCounts,
     dynamicBattleType: DynamicBattleType,
   ): ArmyOrganization {
+    const unassigned = ArmyDeployer.getUnassignedUnits(
+      gameDataManager,
+      organization,
+      units,
+      dynamicBattleType,
+    );
+    if (Object.keys(unassigned).length === 0) return organization;
+    const { divisions } = ArmyDeployer.organizeByDoctrine(
+      gameDataManager,
+      unassigned,
+      dynamicBattleType,
+    );
+    return {
+      ...organization,
+      divisions: [...organization.divisions, ...divisions],
+    };
+  }
+
+  /** The deployed units `organization` does not hold. */
+  private static getUnassignedUnits(
+    gameDataManager: GameDataManager,
+    organization: ArmyOrganization,
+    units: UnitCounts,
+    dynamicBattleType: DynamicBattleType,
+  ): UnitCounts {
     const assigned = countArmyOrganizationUnits(organization);
     const unassigned: UnitCounts = {};
     for (const [type, count] of Object.entries(
@@ -720,16 +794,7 @@ export class ArmyDeployer {
       const left = count - (assigned[Number(type)] ?? 0);
       if (left > 0) unassigned[Number(type)] = left;
     }
-    if (Object.keys(unassigned).length === 0) return organization;
-    const { divisions } = ArmyDeployer.organizeByDoctrine(
-      gameDataManager,
-      unassigned,
-      dynamicBattleType,
-    );
-    return {
-      ...organization,
-      divisions: [...organization.divisions, ...divisions],
-    };
+    return unassigned;
   }
 
   private static organizeByDoctrine(
