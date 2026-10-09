@@ -1,4 +1,8 @@
-import { UnitCounts, TeamDeploymentZone } from "@lob-sdk/types";
+import {
+  ArmyOrganization,
+  UnitCounts,
+  TeamDeploymentZone,
+} from "@lob-sdk/types";
 import type { Point2 } from "@lob-sdk/vector";
 import {
   mapDeploymentZonePoints,
@@ -419,6 +423,87 @@ describe("ArmyDeployer", () => {
       expect(Math.abs(guns[0].pos.x - guns[1].pos.x)).toBeGreaterThan(
         3 * pitch,
       );
+    });
+
+    it("deploys a fully assigned organization once", () => {
+      const units: UnitCounts = { 1: 4 };
+      const deployed = new ArmyDeployer(
+        gameDataManager,
+        units,
+        wideZone,
+        forwardZone,
+        1,
+        1,
+        "battle",
+      ).deploy(
+        ArmyDeployer.getDefaultOrganization(gameDataManager, units, "battle"),
+      );
+
+      expect(deployed).toHaveLength(
+        Object.values(
+          ArmyDeployer.getDeployedUnitCounts(gameDataManager, units, "battle"),
+        ).reduce((sum, count) => sum + count, 0),
+      );
+    });
+
+    it("deploys saved divisions side by side in order, brigade 1 in front", () => {
+      const units: UnitCounts = { 1: 6, 8: 2, 12: 1 };
+      const saved: ArmyOrganization = {
+        version: 1,
+        divisions: [
+          {
+            kind: "cavalry",
+            brigades: [{ kind: "line", units: { 8: 2 } }],
+          },
+          {
+            kind: "infantry",
+            brigades: [
+              { kind: "line", units: { 1: 2 } },
+              { kind: "line", units: { 1: 3 } },
+            ],
+          },
+        ],
+      };
+      const deployed = new ArmyDeployer(
+        gameDataManager,
+        units,
+        wideZone,
+        forwardZone,
+        1,
+        1,
+        "battle",
+      )
+        .deploy(saved)
+        .map((unit, id) => ({ ...unit, id }));
+      const organization = materializeArmyOrganization(
+        ArmyDeployer.organizeUnassignedUnits(
+          gameDataManager,
+          saved,
+          units,
+          "battle",
+        ),
+        1,
+        deployed,
+      );
+      const positions = (unitIds: number[]) =>
+        unitIds.map((id) => deployed[id].pos);
+      const [cavalry, infantry] = organization!.divisions;
+      const cavalryXs = positions(cavalry.brigades[0].unitIds).map((p) => p.x);
+      const [first, second] = infantry.brigades.map(({ unitIds }) =>
+        positions(unitIds),
+      );
+
+      expect(Math.max(...cavalryXs)).toBeLessThan(
+        Math.min(...[...first, ...second].map((p) => p.x)),
+      );
+      // Team 1 faces up the map, so its front rows have the smaller y.
+      expect(Math.max(...first.map((p) => p.y))).toBeLessThan(
+        Math.min(...second.map((p) => p.y)),
+      );
+      expect(
+        new Set(cavalry.brigades[0].unitIds.map((id) => deployed[id].pos.y))
+          .size,
+      ).toBe(1);
     });
   });
 
