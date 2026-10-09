@@ -20,6 +20,7 @@ import { Point2, Vector2 } from "@lob-sdk/vector";
 import {
   DivisionDoctrine,
   brigadesNeeded,
+  countArmyOrganizationUnits,
   cutIntoGroups,
   divisionsNeeded,
 } from "@lob-sdk/order-of-battle";
@@ -689,6 +690,53 @@ export class ArmyDeployer {
     units: UnitCounts,
     dynamicBattleType: DynamicBattleType,
   ): ArmyOrganization {
+    return ArmyDeployer.organizeByDoctrine(
+      gameDataManager,
+      ArmyDeployer.getDeployedUnitCounts(
+        gameDataManager,
+        units,
+        dynamicBattleType,
+      ),
+      dynamicBattleType,
+    );
+  }
+
+  /** Append doctrine divisions for the deployed units `organization` leaves unassigned. */
+  static organizeUnassignedUnits(
+    gameDataManager: GameDataManager,
+    organization: ArmyOrganization,
+    units: UnitCounts,
+    dynamicBattleType: DynamicBattleType,
+  ): ArmyOrganization {
+    const assigned = countArmyOrganizationUnits(organization);
+    const unassigned: UnitCounts = {};
+    for (const [type, count] of Object.entries(
+      ArmyDeployer.getDeployedUnitCounts(
+        gameDataManager,
+        units,
+        dynamicBattleType,
+      ),
+    )) {
+      const left = count - (assigned[Number(type)] ?? 0);
+      if (left > 0) unassigned[Number(type)] = left;
+    }
+    if (Object.keys(unassigned).length === 0) return organization;
+    const { divisions } = ArmyDeployer.organizeByDoctrine(
+      gameDataManager,
+      unassigned,
+      dynamicBattleType,
+    );
+    return {
+      ...organization,
+      divisions: [...organization.divisions, ...divisions],
+    };
+  }
+
+  private static organizeByDoctrine(
+    gameDataManager: GameDataManager,
+    deployed: UnitCounts,
+    dynamicBattleType: DynamicBattleType,
+  ): ArmyOrganization {
     const zone: TeamDeploymentZone = {
       team: 1,
       type: "main",
@@ -696,14 +744,16 @@ export class ArmyDeployer {
     };
     const deployer = new ArmyDeployer(
       gameDataManager,
-      units,
+      deployed,
       zone,
       zone,
       1,
       1,
       dynamicBattleType,
     );
-    const { ordered } = deployer.planOrderOfBattle(deployer.getRecruits());
+    const { ordered } = deployer.planOrderOfBattle(
+      deployer.recruitsOf(deployed),
+    );
     return {
       version: ARMY_ORGANIZATION_VERSION,
       divisions: ordered.map((division) => {
@@ -793,13 +843,19 @@ export class ArmyDeployer {
    * @returns A record mapping category IDs to arrays of unit types.
    */
   private getRecruits(): Recruit[] {
-    const unitsByCategory = this.getArmyCompositionByCategory(
-      this.gameDataManager,
+    return this.recruitsOf(
       ArmyDeployer.getDeployedUnitCounts(
         this.gameDataManager,
         this.units,
         this.dynamicBattleType,
       ),
+    );
+  }
+
+  private recruitsOf(deployed: UnitCounts): Recruit[] {
+    const unitsByCategory = this.getArmyCompositionByCategory(
+      this.gameDataManager,
+      deployed,
     );
     const recruits: Recruit[] = [];
     for (const categoryId in unitsByCategory) {
