@@ -286,8 +286,16 @@ export class ArmyDeployer {
       1,
       division.screen.length,
       division.guns.length,
-      ...division.brigades.map((brigade) => brigade.length),
+      ...division.brigades.map((brigade) => {
+        const forward = brigade.filter((r) => this.deploysForward(r)).length;
+        return Math.max(forward, brigade.length - forward);
+      }),
     );
+  }
+
+  private deploysForward({ type }: Recruit): boolean {
+    return !!this.gameDataManager.getUnitTemplateManager().getTemplate(type)
+      .canDeployForward;
   }
 
   private usableWidth(): number {
@@ -335,21 +343,34 @@ export class ArmyDeployer {
       }
     };
 
+    const zoneEnd = zoneStart + this.usableWidth();
+    const leftWidth = widthOf(line.left);
+    const rightWidth = widthOf(line.right);
+    const centreWidth = Math.max(0, widthOf(line.centre) - gap);
     const middle =
       anchor === undefined
-        ? zoneStart + this.usableWidth() / 2
+        ? (zoneStart + zoneEnd) / 2
         : (anchor.start + anchor.end) / 2;
-    const centreWidth = Math.max(0, widthOf(line.centre) - gap);
-    const start = middle - centreWidth / 2;
+    let start = middle - centreWidth / 2;
+    // A front line whose wings would run off the zone moves over to keep them on it.
+    if (anchor === undefined) {
+      const from = start - leftWidth;
+      const to = start + centreWidth + rightWidth;
+      start +=
+        to - from > zoneEnd - zoneStart
+          ? (zoneStart + zoneEnd - from - to) / 2
+          : Math.max(0, zoneStart - from) - Math.max(0, to - zoneEnd);
+    }
     const end = start + centreWidth;
 
     // The wings hang off the anchor when there is one, so a line with nothing in
-    // its centre still puts them beside the army rather than in the middle of it.
-    const leftEdge = anchor?.start ?? start;
-    const rightEdge = anchor?.end ?? end;
+    // its centre still puts them beside the army rather than in the middle of it,
+    // but never past the zone's edge, where they would pile up on it.
+    const leftEdge = Math.max(anchor?.start ?? start, zoneStart + leftWidth);
+    const rightEdge = Math.min(anchor?.end ?? end, zoneEnd - rightWidth);
 
     place(line.centre, start, rows.centre);
-    place(line.left, leftEdge - widthOf(line.left), rows.wings);
+    place(line.left, leftEdge - leftWidth, rows.wings);
     place(line.right, rightEdge + gap, rows.wings);
 
     return { start, end };
@@ -385,7 +406,8 @@ export class ArmyDeployer {
    * Rows count back from the first brigade line at 0; the negative ones stand
    * ahead of it, the battery at -1 and the skirmish screen at -2. A unit that
    * deploys forward takes the same row in its own zone, so it stands ahead of
-   * its own division rather than of the army.
+   * its own division rather than of the army, centred on it apart from the rest
+   * of the row so it holds no slot in that line.
    */
   private deployRow(
     recruits: Recruit[],
@@ -397,22 +419,23 @@ export class ArmyDeployer {
     if (recruits.length === 0) return;
 
     const pitch = this.DEFAULT_UNIT_HEIGHT + spacing;
-    const lineStartX =
-      startX + (width - (recruits.length * pitch - spacing)) / 2;
     // Rows run away from the enemy, which is downwards for team 1.
     const step = this.rowStep * (this.team === 1 ? 1 : -1);
+    const forwardCount = recruits.filter((r) => this.deploysForward(r)).length;
+    const placed = { forward: 0, main: 0 };
 
-    recruits.forEach((recruit, index) => {
-      const { canDeployForward } = this.gameDataManager
-        .getUnitTemplateManager()
-        .getTemplate(recruit.type);
+    recruits.forEach((recruit) => {
+      const forward = this.deploysForward(recruit);
+      const count = forward ? forwardCount : recruits.length - forwardCount;
+      const lineStartX = startX + (width - (count * pitch - spacing)) / 2;
       const metrics = this.calculateSectionMetrics(
-        canDeployForward ? this.forwardLayoutZone : this.mainLayoutZone,
+        forward ? this.forwardLayoutZone : this.mainLayoutZone,
       );
       const y =
         rowIndex < 0
           ? metrics.frontY + (rowIndex + 1) * step
           : metrics.centerY + rowIndex * step;
+      const index = forward ? placed.forward++ : placed.main++;
       this.addUnit(recruit.type, lineStartX + index * pitch, y);
     });
   }

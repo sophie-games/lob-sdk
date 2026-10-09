@@ -383,6 +383,21 @@ describe("ArmyDeployer", () => {
       for (const unit of horse) expect(unit.pos.y).toBeGreaterThan(lastLine);
     });
 
+    it("keeps the cavalry wings inside the zone when the infantry fills its width", () => {
+      // Without room beside the line the wings used to pile up on the zone's edge.
+      const deployed = new ArmyDeployer(
+        gameDataManager,
+        { "1": 90, "2": 12, "11": 4 },
+        wideZone,
+        forwardZone,
+        1,
+        1,
+      ).deploy();
+      const positions = deployed.map(({ pos }) => `${pos.x},${pos.y}`);
+
+      expect(new Set(positions).size).toBe(positions.length);
+    });
+
     it("masses the cuirassiers behind the centre, between the dragoon wings", () => {
       // 8 = cuirassiers. Splitting them between the wings is Wagram, which left
       // nothing in hand to exploit the breakthrough.
@@ -504,6 +519,33 @@ describe("ArmyDeployer", () => {
         new Set(cavalry.brigades[0].unitIds.map((id) => deployed[id].pos.y))
           .size,
       ).toBe(1);
+    });
+
+    it("centres a brigade's forward units on the division without holding their slots in its line", () => {
+      // 1 = line infantry; 7 = light infantry, which deploys forward.
+      const units: UnitCounts = { 1: 4, 7: 4 };
+      const deployed = new ArmyDeployer(
+        gameDataManager,
+        units,
+        wideZone,
+        forwardZone,
+        1,
+        1,
+        "battle",
+      ).deploy({
+        version: 1,
+        divisions: [
+          {
+            kind: "infantry",
+            brigades: [{ kind: "line", units: { 1: 4, 7: 4 } }],
+          },
+        ],
+      });
+      const xsOf = (type: number) =>
+        deployed.filter((unit) => unit.type === type).map((unit) => unit.pos.x);
+      const mean = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
+
+      expect(mean(xsOf(7))).toBeCloseTo(mean(xsOf(1)));
     });
 
     it("keeps every brigade row of a deep saved division apart in the zone", () => {
