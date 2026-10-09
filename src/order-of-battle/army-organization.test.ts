@@ -37,6 +37,28 @@ describe("army organization presets", () => {
     ).toEqual([]);
   });
 
+  it("leaves the units it does not hold unassigned", () => {
+    expect(
+      validateArmyOrganization(organization, doctrine, {
+        1: 5,
+        12: 1,
+        16: 1,
+        20: 2,
+      }),
+    ).toEqual([]);
+    expect(
+      validateArmyOrganization({ version: 1, divisions: [] }, doctrine, {
+        1: 5,
+      }),
+    ).toEqual([]);
+  });
+
+  it("rejects more units of a type than the army has", () => {
+    expect(
+      validateArmyOrganization(organization, doctrine, { 1: 1, 12: 1, 16: 1 }),
+    ).toEqual(["Organization cannot hold more units than the deployed army"]);
+  });
+
   it("rejects unknown data, empty bodies and roster mismatches", () => {
     const invalid: ArmyOrganization = {
       version: 1,
@@ -55,7 +77,7 @@ describe("army organization presets", () => {
         "Divisions and brigades cannot be empty",
         "Unknown brigade kind unknown",
         "Organization unit counts must be positive integers",
-        "Organization units must exactly match the deployed army",
+        "Organization cannot hold more units than the deployed army",
       ]),
     );
   });
@@ -167,6 +189,19 @@ describe("army organization presets", () => {
         },
       ],
     });
+  });
+
+  it("materializes only the assigned units, leaving the rest out", () => {
+    expect(
+      materializeArmyOrganization(organization, 2, [
+        { id: 10, type: 1 },
+        { id: 11, type: 12 },
+        { id: 12, type: 1 },
+        { id: 13, type: 16 },
+        { id: 14, type: 1 },
+        { id: 15, type: 20 },
+      ])?.divisions[0].brigades.map(({ unitIds }) => unitIds),
+    ).toEqual([[10, 12, 13], [11]]);
   });
 
   it("refuses to materialize a preset that no longer matches the roster", () => {

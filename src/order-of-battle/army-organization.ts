@@ -51,7 +51,7 @@ export function countArmyOrganizationUnits(
   return compactCounts(counts);
 }
 
-/** Validate the persisted JSON shape and require it to cover the deployed roster exactly. */
+/** Validate the persisted JSON shape; units it does not hold stay unassigned. */
 export function validateArmyOrganization(
   value: unknown,
   doctrine: OrganizationDoctrine,
@@ -144,15 +144,16 @@ export function validateArmyOrganization(
   if (invalidCount)
     errors.push("Organization unit counts must be positive integers");
 
-  const actual = compactCounts(totals);
-  const expected = compactCounts(expectedUnits);
-  if (JSON.stringify(actual) !== JSON.stringify(expected)) {
-    errors.push("Organization units must exactly match the deployed army");
+  const exceeds = Object.entries(totals).some(
+    ([type, count]) => count > (expectedUnits[Number(type)] ?? 0),
+  );
+  if (exceeds) {
+    errors.push("Organization cannot hold more units than the deployed army");
   }
   return [...new Set(errors)];
 }
 
-/** Replace compact counts with this match's real IDs, preserving deterministic unit order. */
+/** Replace compact counts with this match's real IDs, preserving deterministic unit order. Leftover units stay out. */
 export function materializeArmyOrganization(
   organization: ArmyOrganization,
   player: number,
@@ -193,8 +194,5 @@ export function materializeArmyOrganization(
     });
   }
 
-  for (const [type, bucket] of byType) {
-    if ((taken.get(type) ?? 0) !== bucket.length) return null;
-  }
   return { player, divisions };
 }
