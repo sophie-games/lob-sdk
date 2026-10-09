@@ -1054,10 +1054,6 @@ export class GameDataManager {
     return this.terrainCategories!;
   }
 
-  /**
-   * Gets all objective skins for the current era.
-   * @returns An array of objective skin objects.
-   */
   public getDivisionStandards(): DivisionStandard[] {
     return this.divisionStandards;
   }
@@ -1066,6 +1062,10 @@ export class GameDataManager {
     return id === undefined ? undefined : this.divisionStandardMap.get(id);
   }
 
+  /**
+   * Gets all objective skins for the current era.
+   * @returns An array of objective skin objects.
+   */
   public getObjectiveSkins(): ObjectiveSkin[] {
     return this.objectiveSkins;
   }
