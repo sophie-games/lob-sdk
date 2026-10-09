@@ -5,6 +5,7 @@
     {
       "id": "infantry",
       "titleKey": "orderOfBattle.infantryDivision",
+      "kindTitleKey": "orderOfBattle.infantryDivisionType",
       "categories": [
         "infantry",
         "guardsInfantry",
@@ -30,6 +31,7 @@
     {
       "id": "cavalry",
       "titleKey": "orderOfBattle.cavalryDivision",
+      "kindTitleKey": "orderOfBattle.cavalryDivisionType",
       "categories": [
         "lightCavalry",
         "scoutCavalry",
@@ -90,7 +92,8 @@
   ],
   "brigades": {
     "line": {
-      "titleKey": "orderOfBattle.brigade"
+      "titleKey": "orderOfBattle.brigade",
+      "kindTitleKey": "orderOfBattle.brigadeType"
     },
     "artillery": {
       "titleKey": "orderOfBattle.divisionalArtillery"

@@ -5,6 +5,8 @@ export interface OrganizationLabel {
   name?: string;
   /** Translation key in the common namespace; takes precedence over name. */
   titleKey?: string;
+  /** Translation key naming the type itself, for type pickers, when the title carries an ordinal. */
+  kindTitleKey?: string;
 }
 
 /** A division type and the rules used when an army has no authored organization. */

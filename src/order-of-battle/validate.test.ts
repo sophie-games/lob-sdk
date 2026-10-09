@@ -89,6 +89,14 @@ it("validates limits and support references", () => {
   expect(errors).toContain("support rule");
 });
 
+it("rejects a type label that is not text", () => {
+  const bad = structuredClone(doctrine);
+  Object.assign(bad.divisions[0], { kindTitleKey: 1 });
+  expect(validate({ organizationDoctrine: bad })).toContain(
+    "Organization labels must contain text",
+  );
+});
+
 it("loads scenario-specific doctrine without leaking into another game", () => {
   const custom: OrganizationDoctrine = {
     defaultDivisionKind: "fleet",
