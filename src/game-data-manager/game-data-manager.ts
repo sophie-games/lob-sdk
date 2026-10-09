@@ -30,6 +30,7 @@ import {
   RangedDamageTypeTemplate,
   UnitSkin,
   ObjectiveSkin,
+  DivisionStandard,
   Avatar,
   Achievement,
   MapSizeTemplate,
@@ -49,6 +50,7 @@ import napoleonicDamageTypes from "@lob-sdk/game-data/eras/napoleonic/damage-typ
 import napoleonicTerrains from "@lob-sdk/game-data/eras/napoleonic/terrains.json";
 import napoleonicTerrainCategories from "@lob-sdk/game-data/eras/napoleonic/terrain-categories.json";
 import napoleonicObjectiveSkins from "@lob-sdk/game-data/eras/napoleonic/objective-skins.json";
+import napoleonicDivisionStandards from "@lob-sdk/game-data/eras/napoleonic/division-standards.json";
 import napoleonicUnitCategories from "@lob-sdk/game-data/eras/napoleonic/unit-categories.json";
 import napoleonicUnitSkinsData from "@lob-sdk/game-data/eras/napoleonic/unit-skins.json";
 import napoleonicGameRules from "@lob-sdk/game-data/eras/napoleonic/game-rules.json";
@@ -67,6 +69,7 @@ import ww2DamageTypes from "@lob-sdk/game-data/eras/ww2/damage-types.json";
 import ww2Terrains from "@lob-sdk/game-data/eras/ww2/terrains.json";
 import ww2TerrainCategories from "@lob-sdk/game-data/eras/ww2/terrain-categories.json";
 import ww2ObjectiveSkins from "@lob-sdk/game-data/eras/ww2/objective-skins.json";
+import ww2DivisionStandards from "@lob-sdk/game-data/eras/ww2/division-standards.json";
 import ww2UnitCategories from "@lob-sdk/game-data/eras/ww2/unit-categories.json";
 import ww2UnitSkins from "@lob-sdk/game-data/eras/ww2/unit-skins.json";
 import ww2GameRules from "@lob-sdk/game-data/eras/ww2/game-rules.json";
@@ -253,6 +256,8 @@ export class GameDataManager {
   // Objective skins
   private objectiveSkins: ObjectiveSkin[] = [];
   private objectiveSkinMap: Map<number, ObjectiveSkin> = new Map();
+  private divisionStandards: DivisionStandard[] = [];
+  private divisionStandardMap: Map<number, DivisionStandard> = new Map();
 
   // Unit skins
   private unitSkins: UnitSkin[] = [];
@@ -643,6 +648,7 @@ export class GameDataManager {
           TerrainCategoryConfig
         > as GameDataManager["terrainCategories"];
         this.objectiveSkins = napoleonicObjectiveSkins as ObjectiveSkin[];
+        this.divisionStandards = napoleonicDivisionStandards;
         this.unitCategories =
           napoleonicUnitCategories as UnitCategoryTemplate[];
         this.unitSkins = napoleonicUnitSkinsData as unknown as UnitSkin[];
@@ -672,6 +678,7 @@ export class GameDataManager {
         this.terrainCategories =
           ww2TerrainCategories as GameDataManager["terrainCategories"];
         this.objectiveSkins = ww2ObjectiveSkins as ObjectiveSkin[];
+        this.divisionStandards = ww2DivisionStandards;
         this.unitCategories = ww2UnitCategories as UnitCategoryTemplate[];
         this.unitSkins = ww2UnitSkins as unknown as UnitSkin[];
         this.gameRules = ww2GameRules as GameRules;
@@ -719,6 +726,9 @@ export class GameDataManager {
     this.objectiveSkins.forEach((objectiveSkin) => {
       this.objectiveSkinMap.set(objectiveSkin.id, objectiveSkin);
     });
+    this.divisionStandardMap = new Map(
+      this.divisionStandards.map((standard) => [standard.id, standard]),
+    );
 
     this.unitSkins.forEach((unitSkin) => {
       this.unitSkinMap.set(unitSkin.id, unitSkin);
@@ -1042,6 +1052,14 @@ export class GameDataManager {
    */
   public getTerrainCategories() {
     return this.terrainCategories!;
+  }
+
+  public getDivisionStandards(): DivisionStandard[] {
+    return this.divisionStandards;
+  }
+
+  public getDivisionStandard(id?: number): DivisionStandard | undefined {
+    return id === undefined ? undefined : this.divisionStandardMap.get(id);
   }
 
   /**

@@ -14,6 +14,26 @@ import { generateDefaultArmy } from "@lob-sdk/army-deployer";
 describe("GameDataManager", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
 
+  describe("division standards", () => {
+    it("sells each napoleonic standard once, priced, with a flag drawn for it", () => {
+      const standards = gameDataManager.getDivisionStandards();
+      expect(standards.length).toBeGreaterThan(0);
+      expect(new Set(standards.map(({ id }) => id)).size).toBe(standards.length);
+      for (const standard of standards) {
+        expect(standard.premiumPrice).toBeGreaterThan(0);
+        // Its art is the objective flag of the same name.
+        expect(
+          gameDataManager.getObjectiveSkins().some(({ name }) => name === standard.name),
+        ).toBe(true);
+        expect(gameDataManager.getDivisionStandard(standard.id)).toBe(standard);
+      }
+    });
+
+    it("has none in ww2", () => {
+      expect(GameDataManager.get("ww2").getDivisionStandards()).toEqual([]);
+    });
+  });
+
   describe("ranked matchmaking pool", () => {
     const shown = gameDataManager.getScenarios();
     const ranked = shown.filter((name) => gameDataManager.getScenario(name).ranked);

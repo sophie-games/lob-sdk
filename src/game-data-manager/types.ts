@@ -36,6 +36,16 @@ export interface Achievement {
   trigger: AchievementTrigger;
 }
 
+/** A store-sold standard a division flies; its art is the objective flag of the same name. */
+export interface DivisionStandard {
+  id: number;
+  name: string;
+  tier: SkinTier;
+  premiumPrice: number;
+  locked?: boolean;
+  discount?: number;
+}
+
 export interface ObjectiveSkin {
   id: number;
   name: string;

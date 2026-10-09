@@ -92,6 +92,13 @@ export function validateArmyOrganization(
       errors.push(NAME_TOO_LONG);
     }
     if (
+      division.standard !== undefined &&
+      (typeof division.standard !== "number" ||
+        !Number.isSafeInteger(division.standard))
+    ) {
+      errors.push("Invalid division standard");
+    }
+    if (
       division.brigades.length === 0 ||
       division.brigades.length > MAX_BRIGADES_PER_DIVISION
     ) {
@@ -190,6 +197,7 @@ export function materializeArmyOrganization(
     divisions.push({
       kind: division.kind,
       ...(division.name ? { name: division.name } : {}),
+      ...(division.standard !== undefined ? { standard: division.standard } : {}),
       brigades,
     });
   }

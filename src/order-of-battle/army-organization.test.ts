@@ -204,6 +204,31 @@ describe("army organization presets", () => {
     ).toEqual([[10, 12, 13], [11]]);
   });
 
+  it("accepts a division standard as an integer id and carries it into the match", () => {
+    const withStandard: ArmyOrganization = {
+      ...organization,
+      divisions: [{ ...organization.divisions[0], standard: 3 }],
+    };
+    expect(
+      validateArmyOrganization(withStandard, doctrine, { 1: 2, 12: 1, 16: 1 }),
+    ).toEqual([]);
+    expect(
+      validateArmyOrganization(
+        { ...organization, divisions: [{ ...organization.divisions[0], standard: "3" }] },
+        doctrine,
+        { 1: 2, 12: 1, 16: 1 },
+      ),
+    ).toEqual(["Invalid division standard"]);
+    expect(
+      materializeArmyOrganization(withStandard, 1, [
+        { id: 10, type: 1 },
+        { id: 11, type: 12 },
+        { id: 12, type: 1 },
+        { id: 13, type: 16 },
+      ])?.divisions[0].standard,
+    ).toBe(3);
+  });
+
   it("refuses to materialize a preset that no longer matches the roster", () => {
     expect(
       materializeArmyOrganization(organization, 1, [

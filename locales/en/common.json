@@ -310,6 +310,7 @@
   "units": "Units",
   "unitSkins": "Unit Skins",
   "objectiveSkins": "Objective Skins",
+  "divisionStandards": "Division Standards",
   "avatars": "Avatars",
   "withdraw": "Withdraw",
   "importScenario": "Import scenario",
@@ -395,6 +396,7 @@
   "purchased": "Purchased",
   "forUnit": "For {{unit}}",
   "unitSkinChooseInArmy": "Owned. Pick it per brigade in your army composition.",
+  "divisionStandardChooseInArmy": "Owned. Fly it over a division in your army composition.",
   "select": "Select",
   "edit": "Edit",
   "selectAll": "Select All",
@@ -1734,7 +1736,11 @@
     "moveAction": "Move",
     "previewTitle": "Deployment preview",
     "previewHelp": "Where each division starts, with the enemy at the top. Each division has the colour of the bar under its flag, and grey units are unassigned and placed by the usual rules. The real map decides the exact spacing.",
-    "previewEnemy": "Enemy"
+    "previewEnemy": "Enemy",
+    "standard": "Standard",
+    "standardFor": "Standard for {{target}}",
+    "noStandard": "None",
+    "standardsInStore": "Buy standards in the store"
   },
   "firstSession": {
     "title": "Your first battle",

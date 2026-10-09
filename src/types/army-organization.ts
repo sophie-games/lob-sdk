@@ -15,6 +15,8 @@ export interface ArmyOrganizationBrigade {
 export interface ArmyOrganizationDivision {
   kind: string;
   name?: string;
+  /** Id of a bought `DivisionStandard` the division flies. */
+  standard?: number;
   brigades: ArmyOrganizationBrigade[];
 }
 
