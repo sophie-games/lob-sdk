@@ -1652,7 +1652,7 @@
     "hideArmy": "Hide army",
     "title": "Army",
     "presetTitle": "Preset order of battle",
-    "presetHelp": "Drag units from Unassigned into a brigade, onto the box on the right to start a division, or below a brigade to start a new one. Drag a flag or a brigade name to reorder, click a name to rename it, or click a flag for its options. On a touch screen, hold a card to drag it, or tap it and then tap where it goes. The army deploys with this structure.",
+    "presetHelp": "Drag units from Unassigned into a brigade, onto the box on the right to start a division, or below a brigade to start a new one. Drag a flag or a brigade name to reorder, click a name to rename it, or click a flag for its options, which can also move a division or brigade. On a touch screen, hold a card to drag it, or tap it and then tap where it goes. The army deploys with this structure.",
     "resetPreset": "Restore automatic organization",
     "resetPresetTitle": "Restore organization?",
     "resetPresetWarning": "This replaces every division and brigade in your current draft. Your saved army will not change until you save.",
@@ -1729,7 +1729,9 @@
     "unassignedTitle": "Unassigned",
     "unassignedHelp": "Units left here deploy the way they would without an order of battle.",
     "allAssigned": "Every unit is in a division.",
-    "divisionOptions": "Options for {{target}}"
+    "divisionOptions": "Options for {{target}}",
+    "moveFormation": "Move {{target}}",
+    "moveAction": "Move"
   },
   "firstSession": {
     "title": "Your first battle",
