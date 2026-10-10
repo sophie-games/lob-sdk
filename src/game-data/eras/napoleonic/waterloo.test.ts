@@ -534,7 +534,7 @@ describe("Battle of Waterloo scenario", () => {
     }
 
     const laHayeSainte = farmAround("La Haye Sainte");
-    expect(laHayeSainte.length).toBeLessThanOrEqual(2);
+    expect(laHayeSainte).toHaveLength(1);
     // The chaussee runs on past the farm's gate.
     for (const [x, y] of laHayeSainte) {
       expect(terrains[x + 1]![y] === TerrainType.Road || terrains[x + 1]![y] === TerrainType.FortifiedFarm).toBe(true);
