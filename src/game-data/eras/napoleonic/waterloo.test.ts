@@ -576,6 +576,20 @@ describe("Battle of Waterloo scenario", () => {
     }
   });
 
+  it("posts a company of La Haye Sainte's garrison inside the walled farm", () => {
+    const laHayeSainte = scenario.objectives!.find(
+      (item) => item.name === "La Haye Sainte",
+    )!.pos;
+    const insideTheFarm = scenario.units!.filter(
+      (unit) =>
+        teamOf(unit.player) === 2 &&
+        Math.hypot(unit.pos.x - laHayeSainte.x, unit.pos.y - laHayeSainte.y) <= 60 &&
+        scenario.map!.terrains[Math.floor(unit.pos.x / 16)]![Math.floor(unit.pos.y / 16)] ===
+          TerrainType.FortifiedFarm,
+    );
+    expect(insideTheFarm.length).toBeGreaterThan(0);
+  });
+
   it("garrisons Hougoumont with the troops that held it at 11:30", () => {
     const brigadeOf = new Map(
       scenario.organizations!.flatMap((organization) =>
