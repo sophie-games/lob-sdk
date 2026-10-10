@@ -1,4 +1,5 @@
 import { validateOrganization } from "@lob-sdk/order-of-battle/validate";
+import type { ScenarioOrganization } from "@lob-sdk/order-of-battle";
 import {
   Scenario,
   UnitTemplate,
@@ -173,6 +174,7 @@ export function validateScenarioCustomDefs(
       customSprites,
       customUnitTemplates,
       customDamageTypes,
+      asArray(scenario.organizations),
     ),
   );
   errors.push(...validateGameConstantOverrides(customGameConstants));
@@ -1088,6 +1090,7 @@ function validateCustomSprites(
   customSprites: Record<string, CustomSprite>,
   customUnitTemplates: UnitTemplate[],
   customDamageTypes: DamageTypeTemplate[],
+  organizations: ScenarioOrganization[],
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
 
@@ -1147,6 +1150,20 @@ function validateCustomSprites(
         field: damageType.name,
         message: `damage type "${damageType.name}" references missing custom sprite "${ref}"`,
       });
+    }
+  }
+
+  for (const organization of organizations) {
+    const divisions = organization?.divisions;
+    for (const division of Array.isArray(divisions) ? divisions : []) {
+      const ref = division?.banner;
+      if (ref !== undefined && !(ref in customSprites)) {
+        errors.push({
+          scope: "customSprite",
+          field: division.name,
+          message: `division banner references missing custom sprite "${ref}"`,
+        });
+      }
     }
   }
 

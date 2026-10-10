@@ -1268,6 +1268,33 @@ describe("validateCustomSprites", () => {
     ).toBe(true);
   });
 
+  it("accepts a division banner referencing an embedded custom sprite", () => {
+    expect(
+      spriteErrors({
+        organizations: [
+          { player: 1, divisions: [{ name: "Guard", banner: "cs_eagle", brigades: [] }] },
+        ],
+        customSprites: { cs_eagle: validSprite },
+      }),
+    ).toEqual([]);
+  });
+
+  it("flags a division banner referencing a missing custom sprite", () => {
+    const errors = spriteErrors({
+      organizations: [
+        { player: 1, divisions: [{ name: "Guard", banner: "cs_missing", brigades: [] }] },
+      ],
+      customSprites: {},
+    });
+    expect(
+      errors.some(
+        (e) =>
+          e.field === "Guard" &&
+          /division banner references missing custom sprite "cs_missing"/.test(e.message),
+      ),
+    ).toBe(true);
+  });
+
   describe("game constant & rule overrides", () => {
     it("accepts a valid sparse override with no errors", () => {
       const errors = validateScenarioCustomDefs(
