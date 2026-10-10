@@ -290,6 +290,8 @@ export interface ManagedGameConfig {
    * the units to teammates.
    */
   vacantSeats?: number[];
+  /** Anyone may replay the finished battle, not only members. */
+  publicReplay?: boolean;
 }
 
 /** Safe subset returned to an authorized managed-game client. */
