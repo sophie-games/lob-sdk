@@ -7,6 +7,7 @@ import {
   Size,
 } from "@lob-sdk/types";
 import { SCENARIO_SCHEMA_VERSION } from "@lob-sdk/scenario";
+import { TurnedFrame } from "../frame-angle";
 
 // Helper function to create valid instruction objects
 function createInstruction(
@@ -190,6 +191,32 @@ describe("NaturalPathExecutor", () => {
       const tiles = mockTerrains.flat();
       expect(tiles).toContain(TerrainType.Forest);
       expect(tiles).not.toContain(TerrainType.Road);
+    });
+  });
+
+  describe("on a turned map", () => {
+    it("reaches a point on the far edge of its area", () => {
+      // At 45 degrees on a 10x12 map, the area's last column lands on a map tile whose nearest
+      // tile rounds back to just outside the area.
+      const terrains = Array.from({ length: 10 }, () => Array(12).fill(TerrainType.Grass));
+      const heightMap = Array.from({ length: 10 }, () => Array(12).fill(0));
+      const area = new TurnedFrame(45, 10, 12).area({ min: 0, max: 50 }, { min: 32, max: 68 });
+      const instruction = createInstruction({
+        terrain: TerrainType.DeepWater,
+        between: "points",
+        midPoints: [
+          { xRange: { min: 0, max: 0 }, yRange: { min: 50, max: 50 } },
+          { xRange: { min: 100, max: 100 }, yRange: { min: 50, max: 50 } },
+        ],
+      });
+
+      new NaturalPathExecutor(instruction, mockScenario, 1, 0, terrains, heightMap, Size.Medium, area).execute();
+
+      const [endX, endY] = area.toMap(area.tilesX - 1, Math.floor((area.tilesY - 1) / 2));
+      const nearEnd = terrains.some((column, x) =>
+        column.some((t, y) => t === TerrainType.DeepWater && Math.hypot(x - endX, y - endY) <= 1.5),
+      );
+      expect(nearEnd).toBe(true);
     });
   });
 });

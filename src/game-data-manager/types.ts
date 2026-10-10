@@ -2,6 +2,7 @@ import { GameTimePresetId } from "@lob-sdk/game-time-preset";
 import {
   DynamicBattleType,
   LeagueType,
+  OrderType,
   ScenarioName,
   SkinTier,
   TeamSize,
@@ -35,6 +36,16 @@ export interface Achievement {
   trigger: AchievementTrigger;
 }
 
+/** A store-sold standard a division flies; its art lives in the era's division-standards folder under the same name. */
+export interface DivisionStandard {
+  id: number;
+  name: string;
+  tier: SkinTier;
+  premiumPrice: number;
+  locked?: boolean;
+  discount?: number;
+}
+
 export interface ObjectiveSkin {
   id: number;
   name: string;
@@ -55,7 +66,8 @@ export interface GameDataManagerConfig {
 export type BaseSpeed = "walk" | "run";
 
 export interface RoutingBehavior {
-  baseSpeed: BaseSpeed;
+  /** Omitted by categories that only set `fleeWhenRouted`; treated as "walk". */
+  baseSpeed?: BaseSpeed;
   /** Whether the unit flees when in Routed state. Defaults to true. */
   fleeWhenRouted?: boolean;
 }
@@ -81,6 +93,8 @@ export interface UnitCategoryTemplate {
   deploymentSection?: DeploymentSection;
   damageTypeResistances?: Partial<Record<string, number>>;
   firingAltitude: number;
+  /** 0 (default) disables all firing in melee. Above 0, enables melee fire and sets the firepower share (0..1) of enemy-blocked emitters; free emitters keep full power and allies still block. */
+  meleeFireRatio?: number;
   captureSpeed?: number;
   autofirePriority?: Partial<Record<UnitCategoryId, number>>;
   /**
@@ -94,6 +108,12 @@ export interface UnitCategoryTemplate {
    * minimal damage (e.g. artillery). Independent of `defaultAutofireRange`.
    */
   warnOnMaxAutofire?: boolean;
+  /**
+   * Orders under which a unit of this category does not set the pace of the
+   * division or brigade it is ordered with, e.g. a battery on Fire and Advance,
+   * so the body marches on at its other members' pace.
+   */
+  ordersExemptFromBodyPace?: OrderType[];
   routingBehavior?: RoutingBehavior;
   enfiladeFire?: EnfiladeFireConfig;
   rearFire?: RearFireConfig;
@@ -102,6 +122,8 @@ export interface UnitCategoryTemplate {
   chargeBacklashMultiplier?: number;
   /** Backlash multiplier when the defender has run (HasRan) and can't brace; falls back to chargeBacklashMultiplier. */
   runChargeBacklashMultiplier?: number;
+  /** Scales the height rule's uphill slowdown for this category, e.g. above 1 for guns and horses. Defaults to 1. */
+  uphillSlowdownMultiplier?: number;
   /** Max stamina a charge drains from this category (scaled by STAT_PRECISION_SCALE), floored at 25%: the charger pays it head-on, a defender when flanked. Defaults to 0 (no cost) when unset. */
   chargeStaminaCost?: number;
 
@@ -156,6 +178,15 @@ export interface GameConstants {
   TILE_SIZE: number;
 
   DEFAULT_MAX_TURN: number;
+  /** In-world minutes advanced by each combat turn. */
+  MINUTES_PER_TURN: number;
+  /** In-world clock time used when a scenario has no start time. */
+  DEFAULT_BATTLE_START_TIME: string;
+  /** Cosmetic battlefield tint, interpolated between in-world clock times. */
+  BATTLE_LIGHTING: {
+    color: string;
+    opacityByTime: { time: string; opacity: number }[];
+  };
   MIN_CUSTOM_GAME_MAX_TURNS: number;
   MAX_CUSTOM_GAME_MAX_TURNS: number;
   MIN_OFFLINE_GAME_MAX_TURNS: number;
@@ -202,7 +233,6 @@ export interface GameConstants {
 
   MAX_HP_RANGED_ATTACK_PENALTY: number;
 
-  MAX_HP_MELEE_ATTACK_BONUS: number;
   MAX_HP_MELEE_ATTACK_PENALTY: number;
 
   MAX_DAMAGE_MODIFIER_CLAMP: number;
@@ -236,6 +266,7 @@ export interface GameConstants {
   CHARGE_BACKLASH_RESIST_FLOOR: number;
 
   HAS_TAKEN_FIRE_SPEED_MODIFIER: number;
+  HAS_BEEN_IN_MELEE_SPEED_MODIFIER: number;
 
   EFFECT_HAS_RAN_TICKS: number;
 
@@ -344,6 +375,12 @@ export interface GameConstants {
    * Divide by this before showing values in the UI.
    */
   STAT_DISPLAY_DIVISOR: number;
+
+  /**
+   * Ground scale: how many metres one world pixel covers. Display only - the
+   * sim works in pixels. Eras that declare no scale show raw pixels instead.
+   */
+  METERS_PER_PIXEL?: number;
 }
 
 // Damage Type Types (moved from @common/damage-type)
@@ -386,6 +423,11 @@ export type AoeConfig = CircularAoEConfig | TrapezoidalAoeConfig;
 export interface MeleeDamageTypeTemplate {
   id: number;
   name: string;
+  /**
+   * Display grouping: damage types sharing a category collapse into one row
+   * (with the range of their values) in the stat panels. Purely presentational.
+   */
+  category?: string;
   ranged?: false;
   ammoCost?: never;
   damageModifier?: number;
@@ -454,6 +496,11 @@ export enum ShotAimMode {
 export interface RangedDamageTypeTemplate {
   id: number;
   name: string;
+  /**
+   * Display grouping: damage types sharing a category collapse into one row
+   * (with the range of their values) in the stat panels. Purely presentational.
+   */
+  category?: string;
   ranged: true;
   projectileWidth: number;
   damageModifier?: number;
@@ -471,6 +518,13 @@ export interface RangedDamageTypeTemplate {
   damageModifierByTargetHp?: TargetStatModifier;
   /** Weapon's max range (absolute); each band's `from`/`to` is a fraction of this. */
   maxRange: number;
+  /**
+   * The range this weapon wants to fight at, as a fraction of `maxRange`. A unit advancing
+   * under fire and advance stops at the nearest preference among the weapons it is firing,
+   * never further out than that weapon can reach. Omit for a weapon that gives no reason to
+   * close, such as round shot or a shell: it then has no say in where the unit stops.
+   */
+  preferredRange?: number;
   ranges: DamageTypeRange[];
   arcHeight?: number;
   /**
@@ -497,6 +551,8 @@ export interface RangedDamageTypeTemplate {
   shotAnim: string;
   shotImpactAnim?: string;
   ammoCost?: number;
+  /** Ammo type this weapon draws `ammoCost` from. Defaults to the era's first ammo type. */
+  ammoType?: string;
   reorgDebuff?: number;
   attackEffectDuration?: number;
   extendRange?: boolean;
@@ -534,7 +590,15 @@ export interface StaminaRule {
   runningMovementPenalty: number;
   rangedAttackPenalty: number;
   meleeAttackPenalty: number;
-  meleeDefensePenalty: number; // lashback damage penalty
+}
+
+export interface AmmoTypeTemplate {
+  id: number;
+  name: string;
+  /** Share of the unit's pool for this type that the reserve can refill per turn. */
+  refillRate: number;
+  /** Bar colour, `#rrggbb`. */
+  color: string;
 }
 
 export interface AmmoRule {
@@ -595,6 +659,25 @@ export interface EntrenchmentRule {
   meleeDefenseBonusPerLevel: number;
   /** Push strength modifier per entrenchment level (multiplicative, e.g., 0.1 means 10% increase per level) */
   pushStrengthModifierPerLevel: number;
+}
+
+/**
+ * Combat edge for fighting from higher ground, per height level of difference
+ * between the two units (capped at {@link maxLevelDiff}). All zero = no effect.
+ */
+export interface HeightRule {
+  /** Melee damage dealt by the higher unit, per level above its target. */
+  meleeAttackBonusPerLevel: number;
+  /** Melee damage taken by the higher unit, reduced per level above its attacker. */
+  meleeDefenseBonusPerLevel: number;
+  /** Charge damage per level the charger is above (bonus) or below (penalty) its target. */
+  chargeBonusPerLevel: number;
+  /** Speed change per level the ground rises over one tile of travel (negative = slower). */
+  uphillSpeedModifierPerLevel: number;
+  /** Speed change at run pace per level the ground falls over one tile of travel. */
+  downhillRunSpeedModifierPerLevel: number;
+  /** Level difference (or levels per tile of slope) beyond which the modifiers stop growing. */
+  maxLevelDiff: number;
 }
 
 export interface ObjectivesRule {
@@ -709,13 +792,6 @@ export interface AllyCollisionRule {
   maxOrgRadiusModifier: number;
 }
 
-export interface TutorialRule {
-  /**
-   * Single tutorial scenario for the era. `null` means the era has no tutorial.
-   */
-  scenario: ScenarioName | null;
-}
-
 export interface OrganizationRule {
   /** Speed modifier applied based on organization level */
   speedModifier: number;
@@ -731,10 +807,10 @@ export interface OrganizationRule {
   maxOrgDebuffStaminaLowProportion: number;
   /** Maximum ranged attack penalty when organization is low */
   maxOrgRangedAttackPenalty: number;
-  /** Maximum melee attack bonus when organization is high */
-  maxOrgMeleeAttackBonus: number;
   /** Maximum melee attack penalty when organization is low */
   maxOrgMeleeAttackPenalty: number;
+  /** Non-positive melee defense penalty at the lower organization threshold; defaults to zero. */
+  maxOrgMeleeDefensePenalty?: number;
   /** Base organization regain rate per turn (as proportion of max org) */
   regainRate: number;
   /** Upper limit for organization-based modifiers (as proportion, e.g., 0.9 = 90%) */
@@ -763,8 +839,6 @@ export interface OrganizationRule {
   startedRoutingOrgRadiusModifier: number;
   /** Minimum organization radius distance that is applied when unit has StartedRouting effect: 0 turns off the function */
   startedRoutingOrgRadiusDistance: number;
-  /** Run speed bonus when a unit starts routing, to help them get away: 1 turns off the function */
-  startedRoutingOrgRadiusDistanceRunSpeedBonus: number;
   /** Run cost modifier when a unit is routing after they finish the initial route: 1 turns off the function */
   routingRunCostModifier: number;
   /** Run cost modifier when a unit starts routing: 1 turns off the function */
@@ -799,10 +873,10 @@ export interface GameRules {
   skirmisherSpawning?: SkirmishersRule;
   supplyLines?: SupplyLinesRule;
   entrenchment?: EntrenchmentRule;
+  height?: HeightRule;
   objectives: ObjectivesRule;
   organization: OrganizationRule;
   allyCollision?: AllyCollisionRule;
-  tutorial?: TutorialRule;
 }
 
 export interface UnitSkin {
@@ -841,6 +915,4 @@ export interface MatchmakingPresetsData {
   defaultBattleTypes?: DynamicBattleType[];
   /** Scenario IDs that must always be included in ranked matchmaking for this era. Optional; empty if omitted. */
   rankedRequiredScenarios?: ScenarioName[];
-  /** Minimum number of scenarios a player must have selected for ranked matchmaking. Optional. */
-  rankedMinScenarios?: number;
 }

@@ -27,5 +27,9 @@
   "MAX_SLOW_QUEUE_LIMIT_REACHED": "你在队列中等待的对局已达上限。请先撤回一局再重新排队。",
   "USER_NOT_ADDED_TO_THE_QUEUE": "无法将你加入队列，请重试。",
   "INVALID_CURRENCY_TYPE": "货币选择无效。",
-  "INTERNAL_ERROR": "出错了，请重试。"
+  "INTERNAL_ERROR": "出错了，请重试。",
+  "Username or email already taken": "用户名或邮箱已被使用。",
+  "INVALID_EMAIL": "请输入有效的电子邮箱地址。",
+  "DISPOSABLE_EMAIL_NOT_ALLOWED": "不允许使用临时邮箱。",
+  "INVALID_USERNAME": "请选择其他用户名：3–50 个拉丁字母、数字、下划线或连字符。"
 }

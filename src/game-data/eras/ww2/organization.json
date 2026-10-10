@@ -1,0 +1,38 @@
+{
+  "defaultDivisionKind": "infantry",
+  "defaultBrigadeKind": "line",
+  "divisions": [
+    {
+      "id": "infantry",
+      "titleKey": "orderOfBattle.infantryDivision",
+      "categories": [
+        "infantry",
+        "motorized"
+      ],
+      "brigadeKind": "line",
+      "maxTroops": 10,
+      "maxPerBrigade": 5,
+      "maxBrigades": 2,
+      "row": "front",
+      "position": "centre"
+    },
+    {
+      "id": "cavalry",
+      "categories": [
+        "armored"
+      ],
+      "brigadeKind": "line",
+      "maxTroops": 5,
+      "maxPerBrigade": 3,
+      "maxBrigades": 2,
+      "row": "front",
+      "position": "flanks",
+      "titleKey": "orderOfBattle.armoredDivision"
+    }
+  ],
+  "brigades": {
+    "line": {
+      "titleKey": "orderOfBattle.brigade"
+    }
+  }
+}

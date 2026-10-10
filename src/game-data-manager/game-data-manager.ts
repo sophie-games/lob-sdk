@@ -1,3 +1,6 @@
+import type { OrganizationDoctrine } from "@lob-sdk/order-of-battle";
+import napoleonicOrganization from "@lob-sdk/game-data/eras/napoleonic/organization.json";
+import ww2Organization from "@lob-sdk/game-data/eras/ww2/organization.json";
 import {
   UnitTemplate,
   UnitType,
@@ -14,9 +17,10 @@ import {
   Size,
   TeamSize,
   CustomTerrainCategoryOverride,
+  AmmoPools,
 } from "@lob-sdk/types";
 import { RawScenarioInput, normalizeScenario } from "@lob-sdk/scenario";
-import { Scenario } from "@lob-sdk/types";
+import { Scenario, VisionObstacle } from "@lob-sdk/types";
 import {
   GameConstants,
   GameEra,
@@ -26,10 +30,12 @@ import {
   RangedDamageTypeTemplate,
   UnitSkin,
   ObjectiveSkin,
+  DivisionStandard,
   Avatar,
   Achievement,
   MapSizeTemplate,
   MatchmakingPresetsData,
+  AmmoTypeTemplate,
 } from "./types";
 
 // Import all era-specific data synchronously
@@ -39,10 +45,12 @@ import napoleonicUnitTemplates from "@lob-sdk/game-data/eras/napoleonic/unit-tem
 import napoleonicGameConstants from "@lob-sdk/game-data/eras/napoleonic/game-constants.json";
 import napoleonicAvatars from "@lob-sdk/game-data/eras/napoleonic/avatars.json";
 import napoleonicAchievements from "@lob-sdk/game-data/eras/napoleonic/achievements.json";
+import napoleonicAmmoTypes from "@lob-sdk/game-data/eras/napoleonic/ammo-types.json";
 import napoleonicDamageTypes from "@lob-sdk/game-data/eras/napoleonic/damage-types.json";
 import napoleonicTerrains from "@lob-sdk/game-data/eras/napoleonic/terrains.json";
 import napoleonicTerrainCategories from "@lob-sdk/game-data/eras/napoleonic/terrain-categories.json";
 import napoleonicObjectiveSkins from "@lob-sdk/game-data/eras/napoleonic/objective-skins.json";
+import napoleonicDivisionStandards from "@lob-sdk/game-data/eras/napoleonic/division-standards.json";
 import napoleonicUnitCategories from "@lob-sdk/game-data/eras/napoleonic/unit-categories.json";
 import napoleonicUnitSkinsData from "@lob-sdk/game-data/eras/napoleonic/unit-skins.json";
 import napoleonicGameRules from "@lob-sdk/game-data/eras/napoleonic/game-rules.json";
@@ -56,10 +64,12 @@ import ww2UnitTemplates from "@lob-sdk/game-data/eras/ww2/unit-templates.json";
 import ww2GameConstants from "@lob-sdk/game-data/eras/ww2/game-constants.json";
 import ww2Avatars from "@lob-sdk/game-data/eras/ww2/avatars.json";
 import ww2Achievements from "@lob-sdk/game-data/eras/ww2/achievements.json";
+import ww2AmmoTypes from "@lob-sdk/game-data/eras/ww2/ammo-types.json";
 import ww2DamageTypes from "@lob-sdk/game-data/eras/ww2/damage-types.json";
 import ww2Terrains from "@lob-sdk/game-data/eras/ww2/terrains.json";
 import ww2TerrainCategories from "@lob-sdk/game-data/eras/ww2/terrain-categories.json";
 import ww2ObjectiveSkins from "@lob-sdk/game-data/eras/ww2/objective-skins.json";
+import ww2DivisionStandards from "@lob-sdk/game-data/eras/ww2/division-standards.json";
 import ww2UnitCategories from "@lob-sdk/game-data/eras/ww2/unit-categories.json";
 import ww2UnitSkins from "@lob-sdk/game-data/eras/ww2/unit-skins.json";
 import ww2GameRules from "@lob-sdk/game-data/eras/ww2/game-rules.json";
@@ -74,6 +84,7 @@ import {
   OrderTemplate,
   OrderType,
   getCollisionConfig,
+  isCircleCollision,
 } from "@lob-sdk/types";
 import { FormationManager } from "./formation-manager";
 import { UnitTemplateManager } from "./unit-template-manager";
@@ -107,6 +118,13 @@ const LEGACY_DAMAGE_TYPE_NAMES: Partial<
   },
 };
 
+/** Unit categories later merged into another, so saved custom units still load. */
+const LEGACY_UNIT_CATEGORY_IDS: Partial<
+  Record<GameEra, Readonly<Record<string, UnitCategoryId>>>
+> = {
+  napoleonic: { horseArtillery: "artillery" },
+};
+
 /**
  * Scenario-scoped custom definitions layered onto an era registry by
  * {@link GameDataManager.createWithCustomDefs} / {@link GameDataManager.loadCustomDefs}.
@@ -114,6 +132,7 @@ const LEGACY_DAMAGE_TYPE_NAMES: Partial<
  * presence guard can't drift apart.
  */
 export type CustomDefs = {
+  organizationDoctrine?: OrganizationDoctrine;
   customUnitTemplates?: UnitTemplate[];
   customDamageTypes?: DamageTypeTemplate[];
   customUnitFormations?: FormationTemplate[];
@@ -138,6 +157,7 @@ export type CustomDefs = {
 const CUSTOM_DEF_PRESENCE: Required<{
   [K in keyof CustomDefs]: (defs: CustomDefs) => boolean;
 }> = {
+  organizationDoctrine: (d) => d.organizationDoctrine !== undefined,
   customUnitTemplates: (d) => !!d.customUnitTemplates?.length,
   customDamageTypes: (d) => !!d.customDamageTypes?.length,
   customUnitFormations: (d) => !!d.customUnitFormations?.length,
@@ -149,6 +169,23 @@ const CUSTOM_DEF_PRESENCE: Required<{
   customOrders: (d) => Object.keys(d.customOrders ?? {}).length > 0,
   customBattleTypes: (d) => Object.keys(d.customBattleTypes ?? {}).length > 0,
   disableEraDefaultUnits: (d) => !!d.disableEraDefaultUnits,
+};
+
+/**
+ * A copy of a saved terrain override with its deprecated `prioritizeMovement`
+ * read as click-following and `builtIn`'s take-over.
+ */
+export const migrateTerrainCategoryConfig = (
+  config: TerrainCategoryConfig,
+  builtIn: TerrainCategoryConfig | undefined,
+): TerrainCategoryConfig => {
+  const migrated = structuredClone(config);
+  if (migrated.prioritizeMovement) {
+    migrated.followedOnClick ??= true;
+    migrated.takesOverAt ??= structuredClone(builtIn?.takesOverAt ?? { "*": 0.5 });
+  }
+  delete migrated.prioritizeMovement;
+  return migrated;
 };
 
 /**
@@ -167,6 +204,13 @@ export class GameDataManager {
 
   // Unit templates
   private _unitTemplateManager = new UnitTemplateManager();
+
+  private organizationDoctrine?: OrganizationDoctrine;
+
+  getOrganizationDoctrine(): OrganizationDoctrine {
+    const defaults = this.era === "ww2" ? ww2Organization : napoleonicOrganization;
+    return this.organizationDoctrine ?? (defaults as OrganizationDoctrine);
+  }
 
   // Unit categories
   private unitCategories: UnitCategoryTemplate[] = [];
@@ -194,6 +238,11 @@ export class GameDataManager {
   private _chargeRestrictionsCache: Map<string, Set<UnitCategoryId>> | null =
     null;
 
+  // Ammo types
+  private ammoTypes: AmmoTypeTemplate[] = [];
+  private _ammoTypeMap = new Map<number, AmmoTypeTemplate>();
+  private _ammoTypeNameMap = new Map<string, AmmoTypeTemplate>();
+
   // Terrains
   private terrains: TerrainConfig[] = [];
   private terrainMap: Map<TerrainType, TerrainConfig> = new Map();
@@ -207,6 +256,8 @@ export class GameDataManager {
   // Objective skins
   private objectiveSkins: ObjectiveSkin[] = [];
   private objectiveSkinMap: Map<number, ObjectiveSkin> = new Map();
+  private divisionStandards: DivisionStandard[] = [];
+  private divisionStandardMap: Map<number, DivisionStandard> = new Map();
 
   // Unit skins
   private unitSkins: UnitSkin[] = [];
@@ -345,6 +396,7 @@ export class GameDataManager {
    * mutating an era singleton leaks state across games.
    */
   public loadCustomDefs(customDefs: CustomDefs): void {
+    this.organizationDoctrine = customDefs.organizationDoctrine;
     this._disableEraDefaultUnits = customDefs.disableEraDefaultUnits ?? false;
 
     // Order matters: orders → categories → terrain categories → damage types →
@@ -402,7 +454,13 @@ export class GameDataManager {
             category.id,
             new Set(
               category.allowedOrders.map((order) => {
-                const orderType = this._orderNameMap.get(order);
+                // Replays from the unified-order version called Walk "advance".
+                // Older WW2 replays can also name FAA, which that era lacks.
+                const orderType =
+                  this._orderNameMap.get(order) ??
+                  (order === "advance" || order === "fireAndAdvance"
+                    ? OrderType.Walk
+                    : undefined);
                 if (orderType !== undefined) return orderType;
                 throw new Error(`Order ${order} not found`);
               }),
@@ -430,7 +488,10 @@ export class GameDataManager {
         // holds its overrides in React state), so expanding it in place would
         // write one explicit entry per unit category into the user's draft.
         this.terrainCategories[override.id as TerrainCategoryType] =
-          structuredClone(override.config);
+          migrateTerrainCategoryConfig(
+            override.config,
+            this.terrainCategories[override.id as TerrainCategoryType],
+          );
       }
       // Re-expand wildcards on the (possibly overridden) maps so any newly
       // introduced category id has the right wildcard fallbacks applied.
@@ -466,16 +527,18 @@ export class GameDataManager {
     if (customDefs.customUnitTemplates?.length) {
       // Dedupe-by-type so override produces a single entry; otherwise
       // `getTemplates()` (which array consumers iterate) double-counts.
-      const customByType = new Map(
-        customDefs.customUnitTemplates.map((t) => [t.type, t]),
-      );
+      const customTemplates = customDefs.customUnitTemplates.map((t) => {
+        const merged = this.unitCategoryMap.has(t.category)
+          ? undefined
+          : this.getLegacyUnitCategoryIds()[t.category];
+        return merged ? { ...t, category: merged } : t;
+      });
+      const customByType = new Map(customTemplates.map((t) => [t.type, t]));
       const existing = this._unitTemplateManager.getTemplates();
       const existingTypes = new Set(existing.map((t) => t.type));
       const merged = [
         ...existing.map((t) => customByType.get(t.type) ?? t),
-        ...customDefs.customUnitTemplates.filter(
-          (t) => !existingTypes.has(t.type),
-        ),
+        ...customTemplates.filter((t) => !existingTypes.has(t.type)),
       ];
       this._unitTemplateManager = new UnitTemplateManager();
       this._unitTemplateManager.load(merged);
@@ -578,12 +641,14 @@ export class GameDataManager {
         this.avatars = napoleonicAvatars as Avatar[];
         this.achievements = napoleonicAchievements as Achievement[];
         this.damageTypes = napoleonicDamageTypes as DamageTypeTemplate[];
+        this.ammoTypes = napoleonicAmmoTypes;
         this.terrains = napoleonicTerrains as GameDataManager["terrains"];
         this.terrainCategories = napoleonicTerrainCategories as Record<
           TerrainCategoryType,
           TerrainCategoryConfig
         > as GameDataManager["terrainCategories"];
         this.objectiveSkins = napoleonicObjectiveSkins as ObjectiveSkin[];
+        this.divisionStandards = napoleonicDivisionStandards;
         this.unitCategories =
           napoleonicUnitCategories as UnitCategoryTemplate[];
         this.unitSkins = napoleonicUnitSkinsData as unknown as UnitSkin[];
@@ -608,10 +673,12 @@ export class GameDataManager {
         this.avatars = ww2Avatars as Avatar[];
         this.achievements = ww2Achievements as Achievement[];
         this.damageTypes = ww2DamageTypes as DamageTypeTemplate[];
+        this.ammoTypes = ww2AmmoTypes;
         this.terrains = ww2Terrains as GameDataManager["terrains"];
         this.terrainCategories =
           ww2TerrainCategories as GameDataManager["terrainCategories"];
         this.objectiveSkins = ww2ObjectiveSkins as ObjectiveSkin[];
+        this.divisionStandards = ww2DivisionStandards;
         this.unitCategories = ww2UnitCategories as UnitCategoryTemplate[];
         this.unitSkins = ww2UnitSkins as unknown as UnitSkin[];
         this.gameRules = ww2GameRules as GameRules;
@@ -659,9 +726,17 @@ export class GameDataManager {
     this.objectiveSkins.forEach((objectiveSkin) => {
       this.objectiveSkinMap.set(objectiveSkin.id, objectiveSkin);
     });
+    this.divisionStandardMap = new Map(
+      this.divisionStandards.map((standard) => [standard.id, standard]),
+    );
 
     this.unitSkins.forEach((unitSkin) => {
       this.unitSkinMap.set(unitSkin.id, unitSkin);
+    });
+
+    this.ammoTypes.forEach((ammoType) => {
+      this._ammoTypeMap.set(ammoType.id, ammoType);
+      this._ammoTypeNameMap.set(ammoType.name, ammoType);
     });
 
     // Initialize damage type mappings
@@ -777,12 +852,23 @@ export class GameDataManager {
   }
 
   /**
-   * Gets the maximum number of turns for a battle type, falling back to the
-   * era's DEFAULT_MAX_TURN when the battle type is null or has no maxTurn.
+   * Gets the maximum number of turns, preferring a scenario override, then
+   * the battle type, then the era's DEFAULT_MAX_TURN.
    * @param battleType - The dynamic battle type, or null for preset scenarios.
+   * @param scenario - The selected scenario, when available.
    * @returns The maximum number of turns.
    */
-  public getMaxTurn(battleType: DynamicBattleType | null): number {
+  public getMaxTurn(
+    battleType: DynamicBattleType | null,
+    scenario?: Scenario | null,
+  ): number {
+    const scenarioMaxTurn = scenario?.maxTurn;
+    if (
+      scenarioMaxTurn !== undefined &&
+      Number.isInteger(scenarioMaxTurn) &&
+      scenarioMaxTurn > 0 &&
+      scenarioMaxTurn <= this.getGameConstants().MAX_OFFLINE_GAME_MAX_TURNS
+    ) return scenarioMaxTurn;
     const fromBattleType = battleType
       ? this.tryGetBattleType(battleType)?.maxTurn
       : undefined;
@@ -968,6 +1054,14 @@ export class GameDataManager {
     return this.terrainCategories!;
   }
 
+  public getDivisionStandards(): DivisionStandard[] {
+    return this.divisionStandards;
+  }
+
+  public getDivisionStandard(id?: number): DivisionStandard | undefined {
+    return id === undefined ? undefined : this.divisionStandardMap.get(id);
+  }
+
   /**
    * Gets all objective skins for the current era.
    * @returns An array of objective skin objects.
@@ -1028,6 +1122,11 @@ export class GameDataManager {
     }
 
     return template;
+  }
+
+  /** Retired category ids that saved custom data may still name, to the category they became. */
+  public getLegacyUnitCategoryIds(): Readonly<Record<string, UnitCategoryId>> {
+    return LEGACY_UNIT_CATEGORY_IDS[this.era] ?? {};
   }
 
   /**
@@ -1107,11 +1206,15 @@ export class GameDataManager {
     const formationTemplate = this._formationManager.getTemplate(formationId);
     if (formationTemplate) {
       const config = getCollisionConfig(formationTemplate);
+      if (isCircleCollision(config)) {
+        const diameter = config.radius * 2;
+        return { width: diameter, height: diameter };
+      }
       // width = depth (local X), height = frontage (local Y).
       return { width: config.depth, height: config.frontage };
     }
     // Fallback
-    return { width: 16, height: 16 };
+    return { width: 32, height: 32 };
   }
 
   public getUnitBaseTexture(unitType: UnitType, formationId?: string): string {
@@ -1176,6 +1279,55 @@ export class GameDataManager {
       throw new Error(`Damage type with name ${name} not found`);
     }
     return template as T;
+  }
+
+  public getAmmoTypes(): AmmoTypeTemplate[] {
+    return this.ammoTypes;
+  }
+
+  /** The era's first ammo type: what a weapon without `ammoType` spends. */
+  public getDefaultAmmoType(): AmmoTypeTemplate {
+    return this.ammoTypes[0];
+  }
+
+  public getAmmoTypeByName(name: string): AmmoTypeTemplate {
+    const ammoType = this._ammoTypeNameMap.get(name);
+    if (!ammoType) {
+      throw new Error(`Ammo type with name ${name} not found`);
+    }
+    return ammoType;
+  }
+
+  public getAmmoTypeById(id: number): AmmoTypeTemplate {
+    const ammoType = this._ammoTypeMap.get(id);
+    if (!ammoType) {
+      throw new Error(`Ammo type with id ${id} not found`);
+    }
+    return ammoType;
+  }
+
+  /** The ammo type a ranged weapon draws from. */
+  public getAmmoTypeOf(damageType: RangedDamageTypeTemplate): AmmoTypeTemplate {
+    return damageType.ammoType
+      ? this.getAmmoTypeByName(damageType.ammoType)
+      : this.getDefaultAmmoType();
+  }
+
+  /** A template's ammo capacity per type, or null when it has no ammo system. */
+  public getAmmoCapacity(template: UnitTemplate): AmmoPools | null {
+    const ammo = (template as RangeUnitTemplate).ammo;
+    if (ammo === undefined || ammo === null) return null;
+    if (typeof ammo !== "number") return ammo;
+
+    // Legacy form: every type the weapons spend gets the whole number, so no weapon is left without a pool.
+    const pools: AmmoPools = {};
+    for (const name of (template as RangeUnitTemplate).rangedDamageTypes ?? []) {
+      const damageType = this.tryGetDamageTypeByName<RangedDamageTypeTemplate>(name);
+      if (damageType?.ammoCost) pools[this.getAmmoTypeOf(damageType).name] = ammo;
+    }
+    return Object.keys(pools).length > 0
+      ? pools
+      : { [this.getDefaultAmmoType().name]: ammo };
   }
 
   /** Like {@link getDamageTypeByName} but returns null instead of throwing. */
@@ -1373,13 +1525,24 @@ export class GameDataManager {
     ); // these conditionals cause big-suck on performance, set defaults at initialization
   }
 
-  /**
-   * Check if a terrain category has the prioritizeMovement flag
-   */
-  public hasPrioritizeMovement(terrainType: TerrainType): boolean {
+  public isFollowedOnClick(terrainType: TerrainType): boolean {
     const category = this.getCategoryByTerrain(terrainType);
-    const terrainCategory = this.terrainCategories![category]; // This indirection on lookup is painful, becuase its done many times. Replace with direct lookup
-    return terrainCategory?.prioritizeMovement ?? false; // these conditionals cause big-suck on performance, set defaults at initialization
+    return this.terrainCategories![category]?.followedOnClick ?? false;
+  }
+
+  /** The footprint share at which this terrain takes over a unit in `formationId`, if it ever does. */
+  public getTakeOverAt(
+    terrainType: TerrainType,
+    formationId: string,
+  ): number | undefined {
+    const category = this.getCategoryByTerrain(terrainType);
+    const takesOverAt = this.terrainCategories![category]?.takesOverAt;
+    return takesOverAt?.[formationId] ?? takesOverAt?.["*"];
+  }
+
+  public hasObstructsMovement(terrainType: TerrainType): boolean {
+    const category = this.getCategoryByTerrain(terrainType);
+    return this.terrainCategories![category]?.obstructsMovement ?? false;
   }
 
   /**
@@ -1525,6 +1688,19 @@ export class GameDataManager {
     const category = this.getCategoryByTerrain(terrainType);
     const terrainCategory = this.terrainCategories![category]; // This indirection on lookup is painful, becuase its done many times. Replace with direct lookup
     return terrainCategory?.visionAbsorption ?? 1; // these conditionals cause big-suck on performance, set defaults at initialization
+  }
+
+  /**
+   * The terrain's sight cost and the height it applies up to: its hitbox, the same band
+   * that stops shots. A category without a hitbox stops sight at any height.
+   */
+  public getVisionObstacle(terrainType: TerrainType): VisionObstacle {
+    const category = this.getCategoryByTerrain(terrainType);
+    const terrainCategory = this.terrainCategories![category];
+    return {
+      absorption: terrainCategory?.visionAbsorption ?? 1,
+      height: terrainCategory?.hitboxHeight ?? Infinity,
+    };
   }
 
   /**
@@ -1709,12 +1885,16 @@ export class GameDataManager {
   }
 
   /**
-   * Gets the minimum number of scenarios a player must have selected for ranked matchmaking.
-   * Returns 1 when not ranked or when no minimum is configured.
+   * Gets the minimum number of scenarios a player must have selected for ranked matchmaking:
+   * more than half the ranked pool, so any two players' selections share a map.
+   * Returns 1 when not ranked.
    */
   public getRankedMinScenariosForMatchmaking(isRanked = true): number {
     if (!isRanked) return 1;
-    return this.matchmakingPresets?.rankedMinScenarios ?? 1;
+    const pool = Object.values(this.scenarioIndex).filter(
+      (meta) => meta.ranked && !meta.hidden,
+    );
+    return Math.floor(pool.length / 2) + 1;
   }
 
   /**

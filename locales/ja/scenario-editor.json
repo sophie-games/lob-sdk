@@ -72,13 +72,16 @@
     "allowDynamicArmyHelp": "有効にすると、プレイヤーはマッチメイキングの戦闘タイプに応じた自分の軍を持ち込み、自分のゾーン内に配置します。無効にすると、シナリオの事前配置ユニットが全編成を定義します（軍編成はスキップされます）。",
     "fixedRoster": "固定プレイヤー",
     "fixedRosterHelp": "有効にすると、シナリオがプレイヤー枠、チーム、弾薬備蓄を自前で定義し、ロビーからプレイヤーを追加・削除できなくなります。無効にすると、参加者はロビーまたはマッチメイキングから決まります。",
-    "allowDeploymentPhase": "配置フェーズ",
-    "allowDeploymentPhaseHelp": "有効にすると、戦闘はターン0から始まり、各プレイヤーは戦闘開始前に自軍の配置ゾーン内でユニットを配置し直せます。",
     "noInherentAmmo": "弾薬の初期携行なし",
     "noInherentAmmoHelp": "有効にすると、弾薬を持つユニットは自前の弾薬なしで出現し、すべての補給を共有リザーブから得ます。そのため最初のターンには射撃できず、リザーブから補給された後にのみ射撃を開始します。",
+    "startTime": "開始時刻",
+    "startTimeHelp": "任意。空欄の場合、第1ターンは時代の既定時刻 {{time}} に始まります。",
+    "maxTurn": "最大ターン数",
+    "maxTurnHelp": "シナリオの任意の既定値（10～99）。ゲームでは別の上限を選べます。",
     "showGrid": "グリッドを表示",
     "showUnits": "ユニットを表示",
     "showObjectives": "目標を表示",
+    "showMapLabels": "マップのラベルを表示",
     "goBack": "戻る",
     "goBackConfirm": "戻ってエディターを終了してもよろしいですか？",
     "display": "表示",
@@ -91,7 +94,6 @@
     "testScenario": "シナリオをテスト",
     "placeableObjectives": "プレイヤーが配置する目標",
     "placeableObjectivesHelp": "有効にすると、各プレイヤーは配置フェーズ中に自分のゾーン内で自分の目標を配置します。無効にすると、戦闘ではあなたがマップに配置した目標のみが使用されます。",
-    "placeableObjectivesNeedsDeployment": "配置フェーズも有効にしてください。有効にしないと、プレイヤーはこれらの目標を配置するターンに到達できず、目標は一つも表示されません。",
     "resting": {
       "thisScenario": "このシナリオ",
       "gettingStarted": "はじめに",
@@ -121,6 +123,8 @@
     "rosterHelp": "固定のプレイヤー構成では、シナリオがプレイヤー枠、チーム、弾薬を決め、全員があなたが配置したユニットで戦います。動的なプレイヤー構成では枠はロビーやマッチメイキングに委ねられ、プレイヤーは自分の軍を戦闘に持ち込みます。"
   },
   "playersPanel": {
+    "commander": "指揮官",
+    "commandFormation": "部隊",
     "removePlayer": "プレイヤーを削除",
     "ammoReserve": "予備",
     "ammoBase": "基本",
@@ -173,7 +177,8 @@
     "title": "配置ゾーン",
     "hint": "このゾーンが各軍のスタート位置を決めます。配置フェーズはその中で並べ替えるためのターン0を追加するだけです。",
     "team": "チーム {{team}}",
-    "wholeTeam": "チームの全プレイヤー",
+    "remainingPlayers": "チームの残りのプレイヤー",
+    "assignmentHelp": "残りのプレイヤー、または1人以上の特定のプレイヤーを選択します。",
     "player": "プレイヤー {{player}}",
     "mainZone": "メイン",
     "forwardZone": "前進",
@@ -185,9 +190,7 @@
       "y": "Y",
       "player": "割り当て先",
       "rotation": "回転（度）"
-    },
-    "phaseHelp": "配置フェーズを有効にすると、戦闘開始前にプレイヤーは自分のゾーン内でユニットを並べ替えるためだけの追加ターンを1回得ます。",
-    "gateHelp": "これらのゾーンは、「動的な軍を許可」「配置フェーズ」「プレイヤーが配置する目標」のいずれか一つでも有効なときに編集できます。三つのいずれも、到着した軍の開始位置を必要とするためです。三つすべて無効の場合はグレー表示になり、プロシージャルマップでも同様にグレー表示になります。そこでのゾーンは、代わりに「ランダムマップ」パネルで割合として設定されます。"
+    }
   },
   "vpBalance": {
     "heading": "VPバランス（損害 vs 目標）",
@@ -201,7 +204,11 @@
     "drawLineRank": "ライン描画の序列（小さいほど前列）",
     "title": "カスタム隊形を編集",
     "collision": "衝突",
-    "collisionHelp": "矩形の占有範囲です。正面方向の横幅と、前後方向の奥行きを設定します。衝突なし（飛行／ゴースト）にするには両方を0にします。",
+    "collisionHelp": "占有形状: 円（半径）または矩形（前面の正面幅、前後の奥行き）。衝突なし（飛行／ゴースト）にするには半径0を使用します。",
+    "shape": "形状",
+    "shapeRectangle": "矩形",
+    "shapeCircle": "円",
+    "radiusPx": "半径（px）",
     "frontagePx": "正面幅（px）",
     "depthPx": "奥行き（px）",
     "runMovementModifier": "走行移動修正",
@@ -216,8 +223,9 @@
     "flanking": "側面攻撃",
     "rangedDamageResistance": "遠距離ダメージ耐性",
     "rangedOrgResistance": "遠距離組織耐性",
+    "ammoConsumptionModifier": "弾薬消費修正値",
     "fireEdges": "射撃エッジ（エッジ射撃）",
-    "fireEdgesHelp": "各射撃エッジは矩形の1つの面に沿って発射します。射撃エッジのない隊形はデフォルトで前面の単一エッジから発射します。",
+    "fireEdgesHelp": "各射撃エッジは矩形の1つの面に沿って発射します。射撃エッジのない隊形はデフォルトで前面の単一エッジから発射します。円形の隊形は発射しません。",
     "edge": "エッジ",
     "edgeLeft": "0 - 左側（-Y）",
     "edgeFront": "1 - 前面（+X）",
@@ -254,6 +262,7 @@
     }
   },
   "unitTemplateModal": {
+    "initialOrder": "初期命令",
     "title": "カスタムユニットテンプレートを編集",
     "optBuiltIn": "{{name}}（組み込み）",
     "optCustom": "{{name}}（カスタム）",
@@ -278,6 +287,8 @@
     "orgRadiusBonus": "編成範囲ボーナス",
     "reportStats": "報告ステータス",
     "reportStatsHelp": "各ユニットが戦闘報告に提供する集計（例: 兵、馬、砲）。キーは時代の組み込みユニットに由来します。",
+    "casualtiesAtZeroHp": "HP 0時の損害率（%）",
+    "casualtiesAtZeroHpHelp": "HPバーをすべて失ったとき、このユニットの報告上の兵力のうち損害として数える割合です。HPは戦闘力を表します。既定値の50%では、報告上の兵力の半分を失うと戦闘不能になります。壊走による崩壊では残りの戦闘力もすべて失われます。",
     "tallyPerUnit": "ユニットあたりの集計",
     "walkMovement": "歩行移動",
     "runMovement": "走行移動",
@@ -293,7 +304,6 @@
     "rangedAttack": "遠距離攻撃",
     "panicFireDistance": "パニック射撃距離",
     "fireWhileMoving": "移動中に射撃",
-    "noAmmoRegain": "弾薬の補充なし",
     "rangedDamageTypes": "遠距離ダメージタイプ",
     "addRangedDamageType": "遠距離ダメージタイプを追加",
     "enableRanged": "遠距離を有効化",
@@ -321,6 +331,10 @@
     "changeAnimationsHelp": "ユニットがこの隊形から別の隊形へ移るあいだに再生されるアニメーションです。変更先の隊形を選び、次にその途中で再生するアニメーションを選びます。ここに行がない遷移は不具合ではありません。ユニットは単に片方のスプライトからもう片方へ切り替わり、あいだには何も入りません。現在、項目のない隊形はすべてこの動作です。一覧にはこの時代に同梱されたアニメーションが並び、この時代の戦列歩兵はそのうち6つを使用します。"
   },
   "unitCategoryModal": {
+    "meleeFire": {
+      "ratio": "近接戦闘中の火力（0–1）",
+      "hint": "0（初期設定）: 敵に覆われた射撃点は射撃せず、残りは全火力で射撃を続けます。0 より大きい場合、敵に覆われた射撃点は通常の火力のこの割合で射撃します。味方による射撃の遮断は引き続き適用されます。"
+    },
     "title": "カスタムユニットカテゴリーを編集",
     "optionBuiltIn": "{{name}}（組み込み）",
     "optionCustom": "{{name}}（カスタム）",
@@ -444,9 +458,9 @@
       "endBottomWidth": "終了下幅",
       "startHeight": "開始高さ",
       "endHeight": "終了高さ",
-      "heightModifierPerLevelHelp": "標高差が1レベルを超えるごとに、爆発形状の奥行きをこの割合で変化させます。負の値は範囲を縮め、正の値は伸ばします。この時代の砲弾は -0.15 を使用します。",
-      "damageModifierPerLevelHelp": "標高差が1レベルを超えるごとに、このダメージ修正を加算します。負の値は威力を弱め、正の値は強めます。この時代の砲弾は -0.05 を使用します。",
-      "maxElevationDiffHelp": "計算に反映される標高差の上限レベルです。差は絶対値で測るため、上り撃ちと下り撃ちは同じ扱いになり、1レベル以下の差では何も適用されません。この時代の砲弾は4で頭打ちになります。"
+      "heightModifierPerLevelHelp": "標高差が1レベルを超えるごとに、爆発形状の奥行きをこの割合で変化させます。負の値は範囲を縮め、正の値は伸ばします。この時代の砲弾は -0.075 を使用します。",
+      "damageModifierPerLevelHelp": "標高差が1レベルを超えるごとに、このダメージ修正を加算します。負の値は威力を弱め、正の値は強めます。この時代の砲弾は -0.025 を使用します。",
+      "maxElevationDiffHelp": "計算に反映される標高差の上限レベルです。差は絶対値で測るため、上り撃ちと下り撃ちは同じ扱いになり、1レベル以下の差では何も適用されません。この時代の砲弾は8で頭打ちになります。"
     },
     "addRangeBracket": "射程区分を追加",
     "addAreaOfEffect": "効果範囲を追加",
@@ -495,7 +509,6 @@
       "pushDistanceModifier": "押しの距離修正",
       "fixedEnemyCollisionLevel": "敵に対する固定衝突レベル",
       "canPlaceObjectives": "目標を配置可能",
-      "prioritizeMovement": "移動を優先",
       "supplyRoute": "補給路",
       "impassableFor": "通行不可の対象",
       "attackModifier": "攻撃修正",
@@ -514,7 +527,9 @@
       "importFromScenario": "シナリオからインポート",
       "duplicate": "複製",
       "inThisScenario": "このシナリオ内",
-      "builtIntoThisEra": "この時代に組み込み"
+      "builtIntoThisEra": "この時代に組み込み",
+      "resetToEra": "時代の設定に戻す",
+      "resetAllToEra": "すべて時代の設定に戻す"
     },
     "spritesPanel": {
       "title": "ユニットスプライト",
@@ -580,7 +595,6 @@
       "clonePickerTitle": "組み込み地形カテゴリーを複製"
     },
     "overrideEditor": {
-      "reset": "リセット",
       "eraDefault": "時代のデフォルト: {{value}}",
       "structuralTooltip": "構造的／決定論的な定数です。変更すると、描画、リプレイ、またはマッチメイキングが壊れる可能性があります。"
     },
@@ -629,7 +643,7 @@
     },
     "gameConstants": {
       "title": "ゲーム定数",
-      "description": "このシナリオに対して時代の数値定数を上書きします。変更された値のみが保存されます。リセットでフィールドを時代のデフォルトに戻します。⚠ が付いたキーは構造的なものです。変更すると、描画、リプレイ、またはマッチメイキングが壊れる可能性があります。値は生の内部単位です。",
+      "description": "時代の基礎となる数値です。1ターンの長さ、タイルの大きさ、戦闘が続くターン数など。変更したものはこのシナリオにのみ適用され、どの値もゲーム本来の値に戻せます。",
       "category": {
         "mapDimensions": "マップ寸法",
         "deployment": "配置",
@@ -653,11 +667,15 @@
     },
     "gameRules": {
       "title": "ゲームルール",
-      "description": "このシナリオに対して時代のゲームプレイルールを上書きします。変更された値のみが保存されます。フィールドを時代のデフォルトに戻すにはリセットを使用します。値は生の内部単位です（一部のステータスは事前にスケーリングされて保存されます）。"
+      "description": "部隊の士気の保ち方から勝敗の決まり方まで、この時代を動かしている仕組みです。変更したものはこのシナリオにのみ適用され、どの値もゲーム本来の値に戻せます。数値はゲーム独自の単位なので、メートルや分とは限りません。"
     },
     "ordersPanel": {
       "title": "命令",
-      "description": "このシナリオに対して時代の組み込み命令の値を上書きします。変更された値のみが保存されます。フィールドを時代のデフォルトに戻すにはリセットを使用します。既存の命令は変更できますが、新しいものを追加することはできません。"
+      "description": "命令は、戦闘中にプレイヤーが部隊へ出せる指示です。ここでは時代の命令をこのシナリオ用に調整できますが、新しい命令を作ることはできません。どの値もゲーム本来の値に戻せます。",
+      "general": "共通補正値",
+      "categoryOverrides": "カテゴリ別の例外",
+      "addCategory": "カテゴリの例外を追加",
+      "inheritance": "例外のないカテゴリには共通補正値が適用されます：{{value}}%。"
     },
     "clonePicker": {
       "alreadyOverridden": "（既に上書き済み）",
@@ -807,22 +825,7 @@
   "triggers": {
     "title": "トリガー",
     "moreInfo": "トリガーの詳細はこちら",
-    "createTrigger": "トリガーを作成",
-    "createTriggerButton": "トリガーを作成",
-    "format": "整形",
-    "invalidJsonFormat": "無効なJSON形式",
     "fixBeforeTesting": "このシナリオをテストする前に、トリガーのエラーを修正してください。",
-    "validation": {
-      "expectedArray": "{{path}} は配列である必要があります。",
-      "expectedObject": "{{path}} はオブジェクトである必要があります。",
-      "unitAtTriggerLevel": "{{path}} はユニットのようです。addUnit アクション内に配置してください。",
-      "invalidEvent": "{{path}} は onTurnStart または onTurnEnd である必要があります。",
-      "invalidConditionLogic": "{{path}} は AND または OR である必要があります。",
-      "invalidOnce": "{{path}} はブール値である必要があります。",
-      "invalidConditionType": "{{path}} に不明な条件タイプがあります。",
-      "invalidActionType": "{{path}} に不明なアクションタイプがあります。",
-      "invalidValue": "{{path}} の値は {{type}} に対して無効です。"
-    },
     "event": "イベント",
     "conditionLogic": "条件ロジック",
     "conditionLogicAnd": "すべての条件（AND）",
@@ -833,12 +836,96 @@
     "addAction": "アクションを追加",
     "once": "一度だけ",
     "intro": "トリガーはターンの開始時または終了時に戦闘を確認し、設定した条件が満たされたときに動作します。下で作成してください。",
-    "lastClick": "コピーする位置",
+    "lastClick": "マップ上の最後のクリック",
     "lastClickHint": "マップ上で最後に選んだ場所を、トリガーがユニットの配置やカメラの移動に使う座標で表示します。",
-    "createDisabledInvalidJson": "トリガーを作成する前に、下のJSONを修正してください。",
-    "createDisabledNeedsConditionAndAction": "トリガーには少なくとも1つの条件と1つのアクションが必要です。",
-    "groupTrigger": "トリガー",
-    "value": "値"
+    "addTrigger": "トリガーを追加",
+    "noTriggers": "トリガーはまだありません。",
+    "noConditions": "条件がないため、常に発動します。",
+    "noActions": "アクションはまだありません。",
+    "always": "常に",
+    "nothing": "なし",
+    "and": "かつ",
+    "or": "または",
+    "conditionType": "条件の種類",
+    "actionType": "アクションの種類",
+    "events": {
+      "onTurnStart": "ターン開始時",
+      "onTurnEnd": "ターン終了時"
+    },
+    "conditionTypes": {
+      "isTurn": "ターンが次と等しい",
+      "isTurnMultipleOf": "数ターンごと",
+      "isTurnGreaterThan": "ターンが次より後",
+      "isTurnLessThan": "ターンが次より前",
+      "objectiveBelongsTo": "目標の保持者",
+      "isUnitNotAlive": "ユニットが撃破された",
+      "isUnitRouting": "ユニットが敗走中",
+      "unitMovedThisTurn": "ユニットがこのターンに移動した",
+      "chance": "ランダムな確率",
+      "isVar": "変数の値"
+    },
+    "actionTypes": {
+      "addUnit": "ユニットを追加",
+      "removeUnit": "ユニットを削除",
+      "addTrigger": "トリガーを追加",
+      "showMessage": "メッセージを表示",
+      "defeatPlayer": "プレイヤーを敗北させる",
+      "moveCamera": "カメラを移動",
+      "setVar": "変数を設定",
+      "endGame": "戦闘を終了",
+      "orderUnit": "ユニットに命令"
+    },
+    "fields": {
+      "rotationDegrees": "回転（°）",
+      "useLastClick": "マップ上の最後のクリックを使う",
+      "playerN": "プレイヤー{{n}}",
+      "teamN": "チーム{{n}}",
+      "everyTurns": "間隔（ターン）",
+      "offset": "オフセット",
+      "heldBy": "保持者",
+      "chancePercent": "確率（%）",
+      "variable": "変数",
+      "value": "値",
+      "notEqual": "この値ではない",
+      "title": "タイトル",
+      "message": "メッセージ",
+      "zoom": "ズーム",
+      "durationSeconds": "所要時間（秒）",
+      "reason": "理由",
+      "addUnit": "ユニットを追加",
+      "addCopiedUnits": "コピーしたユニットを追加（{{count}}）",
+      "copyUnitsHint": "マップ上でユニットを選択してコピーすると、すべての設定ごとここに追加できます。",
+      "order": "命令",
+      "target": "目標ユニット",
+      "path": "経路",
+      "addWaypoint": "最後のクリック位置に経由地点を追加",
+      "targetOrPlaceHint": "目標ユニットか場所のどちらか一方を指定してください。"
+    },
+    "endReasons": {
+      "victory": "勝利",
+      "max_turn": "ターン上限に到達",
+      "cancelled": "中止",
+      "draw_by_agreement": "引き分け"
+    },
+    "orderTypes": {
+      "1": "歩行",
+      "2": "駆け足",
+      "3": "射撃",
+      "4": "射撃しつつ前進",
+      "5": "配置",
+      "6": "後退",
+      "7": "旋回",
+      "-1": "現在の命令を取り消す"
+    },
+    "unreadableTitle": "読み取れないトリガー",
+    "unreadable": "エディターではこのトリガーを表示できません。削除して作り直してください。",
+    "orderMissing": {
+      "unit": "この命令を受けるユニットを選んでください。",
+      "targetOrPath": "目標ユニットを指定するか、経由地点を追加してください。",
+      "path": "経由地点を1つ以上追加してください。",
+      "targetOrPlace": "目標ユニットか場所を指定してください。",
+      "place": "場所を指定してください。"
+    }
   },
   "randomMap": {
     "title": "ランダムマップ",
@@ -847,6 +934,8 @@
     "startFromTemplate": "テンプレートから開始",
     "loadInstructionsFromTemplate": "テンプレートから指示を読み込む",
     "generating": "生成中…",
+    "acceptedAngle": "許容角度 (±)",
+    "angle": "角度",
     "generatePreview": "プレビューを生成",
     "instructions": "指示",
     "instructionsWithCount": "指示（{{count}}）",
@@ -887,6 +976,7 @@
     "selectFile": "ファイルを選択",
     "importedFile": "インポートしたファイル",
     "field": {
+      "along": "沿って",
       "amount": "量",
       "between": "間",
       "border": "境界",
@@ -898,6 +988,7 @@
       "curveLen": "曲線の長さ",
       "curveWeight": "曲線の重み",
       "deep": "深い水域",
+      "directionStep": "方向の刻み",
       "downHillHeightCost": "下り坂のコスト",
       "edgeDistance": "端からの距離",
       "edgeWeight": "端の重み",
@@ -911,6 +1002,7 @@
       "heightFilter": "高さフィルター",
       "heightRanges": "高さ範囲",
       "heights": "高さ",
+      "keep": "保持",
       "l": "大",
       "m": "中",
       "max": "最大",
@@ -930,8 +1022,10 @@
       "minHeight": "最小の高さ",
       "minHeightValue": "最小高さの値",
       "minSurrounding": "周囲タイルの最小数",
+      "minTiles": "最小の畑",
       "minWidth": "最小の幅",
       "min_scaling_factor": "マップサイズによる最小スケーリング",
+      "mode": "モード",
       "multiplier": "倍率",
       "name": "名前",
       "noiseSmoothness": "ノイズの滑らかさ",
@@ -959,6 +1053,7 @@
       "shallow": "浅い水域",
       "shore": "岸",
       "size": "サイズ",
+      "skipBlocked": "ブロックをスキップ",
       "smoothing": "平滑化",
       "startHeightRanges": "開始高さ範囲",
       "team": "チーム",
@@ -968,8 +1063,10 @@
       "terrainReplacements": "地形の置換",
       "terrains": "地形",
       "toTerrain": "変換先の地形",
+      "tries": "試行回数",
       "type": "種類",
       "uphillHeightCost": "上り坂のコスト",
+      "verge": "路肩",
       "width": "幅",
       "x": "X",
       "xBounds": "X 境界",
@@ -988,12 +1085,16 @@
       "connectClusters": "クラスターを接続",
       "objective": "目標",
       "lake": "湖",
-      "objectiveLayer": "目標レイヤー"
+      "objectiveLayer": "目標レイヤー",
+      "symmetry": "対称",
+      "fields": "畑"
     },
     "objectiveType": {
       "small": "小",
       "big": "大"
-    }
+    },
+    "addField": "項目を追加",
+    "removeField": "削除"
   },
   "randomDeployment": {
     "title": "配置ゾーン",
@@ -1047,5 +1148,12 @@
   },
   "objectiveOwnership": {
     "help": "目標は常にチームが保持します。プレイヤー構成が固定のシナリオでは、このフィールドはプレイヤーを指定し、目標はそのプレイヤーのチームに属します。動的な軍向けに作られたシナリオでは、マッチメイキングが埋めるまでプレイヤー枠が存在しないため、このフィールドはチームを直接指定します。"
+  },
+  "mapLabels": {
+    "title": "マップのラベル",
+    "help": "マップを右クリック（タッチ操作ではタップ）して位置を選び、ラベルを追加または移動します。",
+    "add": "ラベルを追加",
+    "move": "選択した位置に移動",
+    "empty": "ラベルはまだありません。"
   }
 }

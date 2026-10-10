@@ -27,12 +27,19 @@ export enum TerrainType {
   Railway = 23,
   RailwayRoad = 24,
   Camp = 25,
+  FortifiedFarm = 26,
+  LightForest = 27,
+  LightForestWinter = 28,
+  Rampart = 29,
 }
 
 export enum TerrainCategoryType {
   Land = "land",
   Forest = "forest",
+  LightForest = "lightForest",
   Building = "building",
+  FortifiedFarm = "fortifiedFarm",
+  Rampart = "rampart",
   Path = "path",
   ShallowWater = "shallowWater",
   DeepWater = "deepWater",
@@ -50,6 +57,13 @@ export interface TerrainConfig {
 }
 
 export type TerrainsData = Record<string, TerrainConfig>;
+
+/** How a terrain stops sight: what it costs the line, up to how far above its tile. */
+export interface VisionObstacle {
+  absorption: number;
+  /** Levels above the tile height; a line passing higher crosses it as open ground. */
+  height: number;
+}
 
 export interface TerrainCategoryConfig {
   color?: string;
@@ -76,7 +90,23 @@ export interface TerrainCategoryConfig {
   pushStrengthModifier?: number;
   pushDistanceModifier?: number;
   fixedEnemyCollisionLevel?: number;
+  /** A click on this terrain routes along it, as on a road. */
+  followedOnClick?: boolean;
+  /**
+   * Formation id ("*" for any other) -> share of the footprint at which the
+   * whole unit counts as on this terrain. Below it, or when absent, the
+   * footprint blends by proportion. Of two allies side by side on it, only the
+   * one covering more counts.
+   */
+  takesOverAt?: Partial<Record<string, number>>;
+  /** @deprecated Saved overrides only; loading migrates it to {@link followedOnClick}. */
   prioritizeMovement?: boolean;
+  /**
+   * Its movement and run modifiers apply in full while any part of a unit's
+   * footprint is on it, above a road it is on: a one-tile wall slows a whole
+   * battalion climbing it, not the share of the footprint on it.
+   */
+  obstructsMovement?: boolean;
   supplyRoute?: boolean;
 }
 

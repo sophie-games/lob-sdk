@@ -66,7 +66,7 @@ export abstract class BaseVpService {
   }
 
   protected _getTeamVictoryStats(
-    players: Player[],
+    players: Pick<Player, "playerNumber" | "team">[],
     team: number,
     objectiveVps: number
   ): GetVictoryPointsTeam {

@@ -1,5 +1,6 @@
 {
-  "version": 1,
+  "version": 2,
+  "startTime": "00:00",
   "name": "name",
   "description": "description",
   "players": [
@@ -1589,6 +1590,7 @@
   },
   "units": [
     {
+      "id": 1,
       "hp": 40000,
       "name": "249th Rifle Division",
       "player": 2,
@@ -1598,6 +1600,7 @@
       "en": 1
     },
     {
+      "id": 2,
       "hp": 40000,
       "name": "133rd Rifle Division",
       "player": 2,
@@ -1607,6 +1610,7 @@
       "en": 1
     },
     {
+      "id": 3,
       "hp": 40000,
       "name": "126th Rifle Division",
       "player": 2,
@@ -1616,6 +1620,7 @@
       "en": 1
     },
     {
+      "id": 4,
       "hp": 40000,
       "name": "256th Rifle Division",
       "player": 2,
@@ -1625,6 +1630,7 @@
       "en": 1
     },
     {
+      "id": 5,
       "hp": 40000,
       "name": "174th Rifle Division",
       "player": 2,
@@ -1634,6 +1640,7 @@
       "en": 1
     },
     {
+      "id": 6,
       "hp": 40000,
       "name": "179th Rifle Division",
       "player": 2,
@@ -1643,6 +1650,7 @@
       "en": 1
     },
     {
+      "id": 7,
       "hp": 40000,
       "name": "186th Rifle Division",
       "player": 2,
@@ -1652,6 +1660,7 @@
       "en": 1
     },
     {
+      "id": 8,
       "hp": 40000,
       "name": "178th Rifle Division",
       "player": 2,
@@ -1661,6 +1670,7 @@
       "en": 1
     },
     {
+      "id": 9,
       "hp": 40000,
       "name": "246th Rifle Division",
       "player": 2,
@@ -1670,6 +1680,7 @@
       "en": 1
     },
     {
+      "id": 10,
       "hp": 40000,
       "name": "243rd Rifle Division",
       "player": 2,
@@ -1679,6 +1690,7 @@
       "en": 1
     },
     {
+      "id": 11,
       "hp": 35000,
       "name": "107th Mechanized Division",
       "player": 2,
@@ -1688,6 +1700,7 @@
       "en": 1
     },
     {
+      "id": 12,
       "hp": 40000,
       "name": "250th Rifle Division",
       "player": 2,
@@ -1697,6 +1710,7 @@
       "en": 1
     },
     {
+      "id": 13,
       "hp": 40000,
       "name": "91st Rifle Division",
       "player": 2,
@@ -1706,6 +1720,7 @@
       "en": 1
     },
     {
+      "id": 14,
       "hp": 40000,
       "name": "166th Rifle Division",
       "player": 2,
@@ -1715,6 +1730,7 @@
       "en": 1
     },
     {
+      "id": 15,
       "hp": 25000,
       "name": "214th Rifle Division",
       "player": 2,
@@ -1724,6 +1740,7 @@
       "en": 1
     },
     {
+      "id": 16,
       "hp": 40000,
       "name": "50th Rifle Division",
       "player": 2,
@@ -1733,6 +1750,7 @@
       "en": 1
     },
     {
+      "id": 17,
       "hp": 40000,
       "name": "38th Rifle Division",
       "player": 2,
@@ -1742,6 +1760,7 @@
       "en": 1
     },
     {
+      "id": 18,
       "hp": 40000,
       "name": "144th Rifle Division",
       "player": 2,
@@ -1751,6 +1770,7 @@
       "en": 1
     },
     {
+      "id": 19,
       "hp": 40000,
       "name": "129th Rifle Division",
       "player": 2,
@@ -1760,6 +1780,7 @@
       "en": 1
     },
     {
+      "id": 20,
       "hp": 40000,
       "name": "299th Rifle Division",
       "player": 2,
@@ -1769,6 +1790,7 @@
       "en": 1
     },
     {
+      "id": 21,
       "hp": 40000,
       "name": "269th Rifle Division",
       "player": 2,
@@ -1778,6 +1800,7 @@
       "en": 1
     },
     {
+      "id": 22,
       "hp": 40000,
       "name": "280th Rifle Division",
       "player": 2,
@@ -1787,6 +1810,7 @@
       "en": 1
     },
     {
+      "id": 23,
       "hp": 40000,
       "name": "258th Rifle Division",
       "player": 2,
@@ -1796,6 +1820,7 @@
       "en": 1
     },
     {
+      "id": 24,
       "hp": 40000,
       "name": "290th Rifle Division",
       "player": 2,
@@ -1805,6 +1830,7 @@
       "en": 1
     },
     {
+      "id": 25,
       "hp": 40000,
       "name": "278th Rifle Division",
       "player": 2,
@@ -1814,6 +1840,7 @@
       "en": 1
     },
     {
+      "id": 26,
       "hp": 40000,
       "name": "279th Rifle Division",
       "player": 2,
@@ -1823,6 +1850,7 @@
       "en": 1
     },
     {
+      "id": 27,
       "hp": 40000,
       "name": "217th Rifle Division",
       "player": 2,
@@ -1832,6 +1860,7 @@
       "en": 1
     },
     {
+      "id": 28,
       "hp": 40000,
       "name": "309th Rifle Division",
       "player": 2,
@@ -1841,6 +1870,7 @@
       "en": 1
     },
     {
+      "id": 29,
       "hp": 40000,
       "name": "53rd Rifle Division",
       "player": 2,
@@ -1850,6 +1880,7 @@
       "en": 1
     },
     {
+      "id": 30,
       "hp": 40000,
       "name": "222nd Rifle Division",
       "player": 2,
@@ -1859,6 +1890,7 @@
       "en": 1
     },
     {
+      "id": 31,
       "hp": 40000,
       "name": "303rd Rifle Division",
       "player": 2,
@@ -1868,6 +1900,7 @@
       "en": 8
     },
     {
+      "id": 32,
       "hp": 40000,
       "name": "19th Rifle Division",
       "player": 2,
@@ -1877,6 +1910,7 @@
       "en": 1
     },
     {
+      "id": 33,
       "hp": 25000,
       "name": "60th Rifle Division",
       "player": 2,
@@ -1886,6 +1920,7 @@
       "en": 1
     },
     {
+      "id": 34,
       "hp": 25000,
       "name": "17th Rifle Division",
       "player": 2,
@@ -1895,6 +1930,7 @@
       "en": 1
     },
     {
+      "id": 35,
       "hp": 25000,
       "name": "149th Rifle Division",
       "player": 2,
@@ -1904,6 +1940,7 @@
       "en": 1
     },
     {
+      "id": 36,
       "hp": 25000,
       "name": "6th People's Militia Division",
       "player": 2,
@@ -1913,6 +1950,7 @@
       "en": 1
     },
     {
+      "id": 37,
       "hp": 25000,
       "name": "29th Rifle Division",
       "player": 2,
@@ -1922,6 +1960,7 @@
       "en": 1
     },
     {
+      "id": 38,
       "hp": 25000,
       "name": "8th Rifle Division",
       "player": 2,
@@ -1931,6 +1970,7 @@
       "en": 1
     },
     {
+      "id": 39,
       "hp": 25000,
       "name": "152nd Rifle Division",
       "player": 2,
@@ -1940,6 +1980,7 @@
       "en": 1
     },
     {
+      "id": 40,
       "hp": 25000,
       "name": "2nd Rifle Division",
       "player": 2,
@@ -1949,6 +1990,7 @@
       "en": 1
     },
     {
+      "id": 41,
       "hp": 25000,
       "name": "140th Rifle Division",
       "player": 2,
@@ -1958,6 +2000,7 @@
       "en": 1
     },
     {
+      "id": 42,
       "hp": 25000,
       "name": "248th Rifle Division",
       "player": 2,
@@ -1967,6 +2010,7 @@
       "en": 1
     },
     {
+      "id": 43,
       "hp": 25000,
       "name": "220th Rifle Division",
       "player": 2,
@@ -1976,6 +2020,7 @@
       "en": 1
     },
     {
+      "id": 44,
       "hp": 25000,
       "name": "119th Rifle Division",
       "player": 2,
@@ -1985,6 +2030,7 @@
       "en": 1
     },
     {
+      "id": 45,
       "hp": 25000,
       "name": "247th Rifle Division",
       "player": 2,
@@ -1994,6 +2040,7 @@
       "en": 1
     },
     {
+      "id": 46,
       "hp": 25000,
       "name": "106th Rifle Division",
       "player": 2,
@@ -2003,6 +2050,7 @@
       "en": 1
     },
     {
+      "id": 47,
       "hp": 25000,
       "name": "139th Rifle Division",
       "player": 2,
@@ -2012,6 +2060,7 @@
       "en": 1
     },
     {
+      "id": 48,
       "hp": 30000,
       "name": "143rd Tank Brigade",
       "player": 2,
@@ -2020,6 +2069,7 @@
       "type": 2
     },
     {
+      "id": 49,
       "hp": 30000,
       "name": "147th Tank Brigade",
       "player": 2,
@@ -2028,6 +2078,7 @@
       "type": 2
     },
     {
+      "id": 50,
       "hp": 30000,
       "name": "144th Tank Brigade",
       "player": 2,
@@ -2036,6 +2087,7 @@
       "type": 2
     },
     {
+      "id": 51,
       "hp": 35000,
       "name": "101st Mechanized Division",
       "player": 2,
@@ -2045,6 +2097,7 @@
       "en": 1
     },
     {
+      "id": 52,
       "hp": 30000,
       "name": "127th Tank Brigade",
       "player": 2,
@@ -2053,6 +2106,7 @@
       "type": 2
     },
     {
+      "id": 53,
       "hp": 30000,
       "name": "128th Tank Brigade",
       "player": 2,
@@ -2061,6 +2115,7 @@
       "type": 2
     },
     {
+      "id": 54,
       "hp": 40000,
       "name": "73rd Rifle Division",
       "player": 2,
@@ -2070,6 +2125,7 @@
       "en": 1
     },
     {
+      "id": 55,
       "hp": 30000,
       "name": "145th Tank Brigade",
       "player": 2,
@@ -2078,6 +2134,7 @@
       "type": 2
     },
     {
+      "id": 56,
       "name": "293rd Infantry Division",
       "player": 1,
       "pos": { "x": 680.37, "y": 1523.2 },
@@ -2086,6 +2143,7 @@
       "en": 3
     },
     {
+      "id": 57,
       "name": "56th Infantry Division",
       "player": 1,
       "pos": { "x": 688.72, "y": 1494.58 },
@@ -2094,6 +2152,7 @@
       "en": 3
     },
     {
+      "id": 58,
       "name": "167th Infantry Division",
       "player": 1,
       "pos": { "x": 696.67, "y": 1456.82 },
@@ -2102,6 +2161,7 @@
       "en": 3
     },
     {
+      "id": 59,
       "name": "31st Infantry Division",
       "player": 1,
       "pos": { "x": 709.39, "y": 1415.48 },
@@ -2110,6 +2170,7 @@
       "en": 3
     },
     {
+      "id": 60,
       "name": "98th Infantry Division",
       "player": 1,
       "pos": { "x": 447.89, "y": 1217.14 },
@@ -2118,6 +2179,7 @@
       "en": 3
     },
     {
+      "id": 61,
       "name": "7th Infantry Division",
       "player": 1,
       "pos": { "x": 540.3, "y": 1139.71 },
@@ -2126,6 +2188,7 @@
       "en": 3
     },
     {
+      "id": 62,
       "name": "267th Infantry Division",
       "player": 1,
       "pos": { "x": 513.92, "y": 1101.76 },
@@ -2134,6 +2197,7 @@
       "en": 3
     },
     {
+      "id": 63,
       "name": "268th Infantry Division",
       "player": 1,
       "pos": { "x": 484.97, "y": 1059.94 },
@@ -2142,6 +2206,7 @@
       "en": 3
     },
     {
+      "id": 64,
       "name": "112th Infantry Division",
       "player": 1,
       "pos": { "x": 683.66, "y": 1333.13 },
@@ -2150,6 +2215,7 @@
       "en": 3
     },
     {
+      "id": 65,
       "name": "260th Infantry Division",
       "player": 1,
       "pos": { "x": 671.32, "y": 1304.85 },
@@ -2158,6 +2224,7 @@
       "en": 3
     },
     {
+      "id": 66,
       "name": "258th Infantry Division",
       "player": 1,
       "pos": { "x": 696.79, "y": 1215.15 },
@@ -2166,6 +2233,7 @@
       "en": 3
     },
     {
+      "id": 67,
       "name": "34th Infantry Division",
       "player": 1,
       "pos": { "x": 675, "y": 1239.05 },
@@ -2174,6 +2242,7 @@
       "en": 3
     },
     {
+      "id": 68,
       "name": "17th Infantry Division",
       "player": 1,
       "pos": { "x": 668.43, "y": 1271.61 },
@@ -2182,6 +2251,7 @@
       "en": 3
     },
     {
+      "id": 69,
       "name": "15th Infantry Division",
       "player": 1,
       "pos": { "x": 525.66, "y": 931.66 },
@@ -2190,6 +2260,7 @@
       "en": 3
     },
     {
+      "id": 70,
       "name": "78th Infantry Division",
       "player": 1,
       "pos": { "x": 527.36, "y": 965.63 },
@@ -2198,6 +2269,7 @@
       "en": 3
     },
     {
+      "id": 71,
       "name": "23rd Infantry Division",
       "player": 1,
       "pos": { "x": 541.24, "y": 1000.87 },
@@ -2206,6 +2278,7 @@
       "en": 3
     },
     {
+      "id": 72,
       "name": "197th Infantry Division",
       "player": 1,
       "pos": { "x": 562.65, "y": 1028.84 },
@@ -2214,6 +2287,7 @@
       "en": 3
     },
     {
+      "id": 73,
       "name": "252nd Infantry Division",
       "player": 1,
       "pos": { "x": 579.49, "y": 1070.8 },
@@ -2222,6 +2296,7 @@
       "en": 3
     },
     {
+      "id": 74,
       "name": "2nd Panzer Division",
       "player": 1,
       "pos": { "x": 646.9, "y": 1152.65 },
@@ -2229,6 +2304,7 @@
       "type": 2
     },
     {
+      "id": 75,
       "name": "10th Panzer Division",
       "player": 1,
       "pos": { "x": 674.21, "y": 1178.65 },
@@ -2236,6 +2312,7 @@
       "type": 2
     },
     {
+      "id": 76,
       "name": "11th Panzer Division",
       "player": 1,
       "pos": { "x": 605.07, "y": 1142.26 },
@@ -2243,6 +2320,7 @@
       "type": 2
     },
     {
+      "id": 77,
       "name": "3rd Motorized Infantry Division",
       "player": 1,
       "pos": { "x": 416.33, "y": 917.09 },
@@ -2250,6 +2328,7 @@
       "type": 3
     },
     {
+      "id": 78,
       "name": "20th Panzer Division",
       "player": 1,
       "pos": { "x": 372.18, "y": 901.48 },
@@ -2257,6 +2336,7 @@
       "type": 2
     },
     {
+      "id": 79,
       "name": "12th Infantry Division",
       "player": 1,
       "pos": { "x": 447.42, "y": 55.79 },
@@ -2265,6 +2345,7 @@
       "en": 3
     },
     {
+      "id": 80,
       "name": "123rd Infantry Division",
       "player": 1,
       "pos": { "x": 407.91, "y": 78.28 },
@@ -2273,6 +2354,7 @@
       "en": 3
     },
     {
+      "id": 81,
       "name": "253rd Infantry Division",
       "player": 1,
       "pos": { "x": 400.62, "y": 115.97 },
@@ -2281,6 +2363,7 @@
       "en": 3
     },
     {
+      "id": 82,
       "name": "251st Infantry Division",
       "player": 1,
       "pos": { "x": 406.78, "y": 157.24 },
@@ -2289,6 +2372,7 @@
       "en": 3
     },
     {
+      "id": 83,
       "name": "102nd Infantry Division",
       "player": 1,
       "pos": { "x": 387.68, "y": 195.71 },
@@ -2297,6 +2381,7 @@
       "en": 3
     },
     {
+      "id": 84,
       "name": "256th Infantry Division",
       "player": 1,
       "pos": { "x": 383.87, "y": 232.96 },
@@ -2305,6 +2390,7 @@
       "en": 3
     },
     {
+      "id": 85,
       "name": "206th Infantry Division",
       "player": 1,
       "pos": { "x": 367.51, "y": 277.93 },
@@ -2313,6 +2399,7 @@
       "en": 3
     },
     {
+      "id": 86,
       "name": "110th Infantry Division",
       "player": 1,
       "pos": { "x": 394.91, "y": 313.48 },
@@ -2321,6 +2408,7 @@
       "en": 3
     },
     {
+      "id": 87,
       "name": "26th Infantry Division",
       "player": 1,
       "pos": { "x": 356.71, "y": 345.59 },
@@ -2329,6 +2417,7 @@
       "en": 3
     },
     {
+      "id": 88,
       "name": "6th Infantry Division",
       "player": 1,
       "pos": { "x": 341.66, "y": 390.76 },
@@ -2337,6 +2426,7 @@
       "en": 3
     },
     {
+      "id": 89,
       "name": "1st Panzer Division",
       "player": 1,
       "pos": { "x": 476.91, "y": 522.14 },
@@ -2344,6 +2434,7 @@
       "type": 2
     },
     {
+      "id": 90,
       "name": "6th Panzer Division",
       "player": 1,
       "pos": { "x": 503.84, "y": 538.04 },
@@ -2351,6 +2442,7 @@
       "type": 2
     },
     {
+      "id": 91,
       "name": "7th Panzer Division",
       "player": 1,
       "pos": { "x": 530.52, "y": 553.68 },
@@ -2358,6 +2450,7 @@
       "type": 2
     },
     {
+      "id": 92,
       "name": "36th Motorized Infantry Division",
       "player": 1,
       "pos": { "x": 473.86, "y": 552.27 },
@@ -2365,6 +2458,7 @@
       "type": 3
     },
     {
+      "id": 93,
       "name": "129th Infantry Division",
       "player": 1,
       "pos": { "x": 379.16, "y": 440.6 },
@@ -2373,6 +2467,7 @@
       "en": 3
     },
     {
+      "id": 94,
       "name": "35th Infantry Division",
       "player": 1,
       "pos": { "x": 404.03, "y": 458.73 },
@@ -2381,6 +2476,7 @@
       "en": 3
     },
     {
+      "id": 95,
       "name": "106th Infantry Division",
       "player": 1,
       "pos": { "x": 428.04, "y": 484.15 },
@@ -2389,6 +2485,7 @@
       "en": 3
     },
     {
+      "id": 96,
       "name": "5th Infantry Division",
       "player": 1,
       "pos": { "x": 436.85, "y": 659.44 },
@@ -2397,6 +2494,7 @@
       "en": 3
     },
     {
+      "id": 97,
       "name": "161st Infantry Division",
       "player": 1,
       "pos": { "x": 448.63, "y": 731.31 },
@@ -2405,6 +2503,7 @@
       "en": 3
     },
     {
+      "id": 98,
       "name": "8th Infantry Division",
       "player": 1,
       "pos": { "x": 513.55, "y": 640.01 },
@@ -2413,6 +2512,7 @@
       "en": 3
     },
     {
+      "id": 99,
       "name": "87th Infantry Division",
       "player": 1,
       "pos": { "x": 514.17, "y": 672.25 },
@@ -2421,6 +2521,7 @@
       "en": 3
     },
     {
+      "id": 100,
       "name": "255th Infantry Division",
       "player": 1,
       "pos": { "x": 499.29, "y": 702.33 },
@@ -2429,6 +2530,7 @@
       "en": 3
     },
     {
+      "id": 101,
       "name": "162nd Infantry Division",
       "player": 1,
       "pos": { "x": 503.12, "y": 736.79 },
@@ -2437,6 +2539,7 @@
       "en": 3
     },
     {
+      "id": 102,
       "name": "86th Infantry Division",
       "player": 1,
       "pos": { "x": 514.68, "y": 770.24 },
@@ -2445,6 +2548,7 @@
       "en": 3
     },
     {
+      "id": 103,
       "name": "137th Infantry Division",
       "player": 1,
       "pos": { "x": 513.99, "y": 804.21 },
@@ -2453,6 +2557,7 @@
       "en": 3
     },
     {
+      "id": 104,
       "name": "263rd Infantry Division",
       "player": 1,
       "pos": { "x": 531.58, "y": 838.13 },
@@ -2461,6 +2566,7 @@
       "en": 3
     },
     {
+      "id": 105,
       "name": "183rd Infantry Division",
       "player": 1,
       "pos": { "x": 528.86, "y": 869.83 },
@@ -2469,6 +2575,7 @@
       "en": 3
     },
     {
+      "id": 106,
       "name": "292nd Infantry Division",
       "player": 1,
       "pos": { "x": 523.44, "y": 901.2 },
@@ -2477,6 +2584,7 @@
       "en": 3
     },
     {
+      "id": 107,
       "name": "SS-Division «Reich» (mot.)",
       "player": 1,
       "pos": { "x": 295.77, "y": 1235.33 },
@@ -2484,6 +2592,7 @@
       "type": 3
     },
     {
+      "id": 108,
       "name": "19th Panzer Division",
       "player": 1,
       "pos": { "x": 38.2, "y": 728.76 },
@@ -2491,6 +2600,7 @@
       "type": 2
     },
     {
+      "id": 109,
       "hp": 30000,
       "name": "42nd Tank Brigade",
       "player": 2,
@@ -2499,6 +2609,7 @@
       "type": 2
     },
     {
+      "id": 110,
       "hp": 30000,
       "name": "108th Tank Division",
       "player": 2,
@@ -2507,6 +2618,7 @@
       "type": 2
     },
     {
+      "id": 111,
       "name": "28th Infantry Division",
       "player": 1,
       "pos": { "x": 513.55, "y": 607.76 },
@@ -2514,6 +2626,7 @@
       "type": 1
     },
     {
+      "id": 112,
       "name": "14th Motorized Infantry Division",
       "player": 1,
       "pos": { "x": 502.05, "y": 576 },
@@ -2521,6 +2634,7 @@
       "type": 3
     },
     {
+      "id": 113,
       "hp": 40000,
       "name": "252nd Rifle Division",
       "player": 2,
@@ -2530,6 +2644,7 @@
       "en": 1
     },
     {
+      "id": 114,
       "hp": 25000,
       "name": "18th Rifle Division",
       "player": 2,
@@ -2539,6 +2654,7 @@
       "en": 1
     },
     {
+      "id": 115,
       "hp": 40000,
       "name": "242nd Rifle Division",
       "player": 2,
@@ -2548,6 +2664,7 @@
       "en": 1
     },
     {
+      "id": 116,
       "hp": 40000,
       "name": "162nd Rifle Division",
       "player": 2,
@@ -2557,6 +2674,7 @@
       "en": 1
     },
     {
+      "id": 117,
       "hp": 25000,
       "name": "134th Rifle Division",
       "player": 2,
@@ -2566,6 +2684,7 @@
       "en": 1
     },
     {
+      "id": 118,
       "hp": 40000,
       "name": "89th Rifle Division",
       "player": 2,
@@ -2575,6 +2694,7 @@
       "en": 1
     },
     {
+      "id": 119,
       "hp": 30000,
       "name": "126th Tank Brigade",
       "player": 2,
@@ -2583,6 +2703,7 @@
       "type": 2
     },
     {
+      "id": 120,
       "hp": 40000,
       "name": "244th Rifle Division",
       "player": 2,
@@ -2592,6 +2713,7 @@
       "en": 1
     },
     {
+      "id": 121,
       "hp": 40000,
       "name": "112th Rifle Division",
       "player": 2,
@@ -2601,6 +2723,7 @@
       "en": 1
     },
     {
+      "id": 122,
       "hp": 40000,
       "name": "229th Rifle Division",
       "player": 2,
@@ -2610,6 +2733,7 @@
       "en": 1
     },
     {
+      "id": 123,
       "hp": 25000,
       "name": "194th Mountain Rifle Division",
       "player": 2,
@@ -2619,6 +2743,7 @@
       "en": 1
     },
     {
+      "id": 124,
       "hp": 25000,
       "name": "113th Rifle Division",
       "player": 2,
@@ -2628,6 +2753,7 @@
       "en": 1
     },
     {
+      "id": 125,
       "hp": 40000,
       "name": "103rd Rifle Division",
       "player": 2,
@@ -2637,6 +2763,7 @@
       "en": 1
     },
     {
+      "id": 126,
       "hp": 40000,
       "name": "211th Rifle Division",
       "player": 2,
@@ -2646,6 +2773,7 @@
       "en": 1
     },
     {
+      "id": 127,
       "hp": 25000,
       "name": "173rd Rifle Division",
       "player": 2,
@@ -2655,6 +2783,7 @@
       "en": 1
     },
     {
+      "id": 128,
       "hp": 40000,
       "name": "260th Rifle Division",
       "player": 2,
@@ -2664,6 +2793,7 @@
       "en": 1
     },
     {
+      "id": 129,
       "hp": 25000,
       "name": "154th Rifle Division",
       "player": 2,
@@ -2673,6 +2803,7 @@
       "en": 1
     },
     {
+      "id": 130,
       "name": "52nd Infantry Division",
       "player": 1,
       "pos": { "x": 710.12, "y": 1390.21 },
@@ -2681,6 +2812,7 @@
       "en": 3
     },
     {
+      "id": 131,
       "name": "131st Infantry Division",
       "player": 1,
       "pos": { "x": 695.94, "y": 1365.72 },
@@ -2689,6 +2821,7 @@
       "en": 3
     },
     {
+      "id": 132,
       "hp": 40000,
       "name": "251st Rifle Division",
       "player": 2,
@@ -2698,6 +2831,7 @@
       "en": 1
     },
     {
+      "id": 133,
       "name": "5th Panzer Division",
       "player": 1,
       "pos": { "x": 595.18, "y": 1098.76 },
@@ -2705,6 +2839,7 @@
       "type": 2
     },
     {
+      "id": 134,
       "hp": 30000,
       "name": "Dovator's Cavalry Group",
       "player": 2,
@@ -2714,6 +2849,7 @@
       "en": 1
     },
     {
+      "id": 135,
       "hp": 30000,
       "name": "Dovator's Cavalry Group",
       "player": 2,
@@ -2723,6 +2859,7 @@
       "en": 1
     },
     {
+      "id": 136,
       "hp": 30000,
       "name": "Dovator's Cavalry Group",
       "player": 2,
@@ -2732,6 +2869,7 @@
       "en": 1
     },
     {
+      "id": 137,
       "hp": 30000,
       "name": "Dovator's Cavalry Group",
       "player": 2,
@@ -2741,6 +2879,7 @@
       "en": 1
     },
     {
+      "id": 138,
       "hp": 40000,
       "name": "282nd Rifle Division",
       "player": 2,
@@ -2750,6 +2889,7 @@
       "en": 1
     },
     {
+      "id": 139,
       "hp": 25000,
       "name": "287th Rifle Division",
       "player": 2,
@@ -2759,6 +2899,7 @@
       "en": 1
     },
     {
+      "id": 140,
       "hp": 25000,
       "name": "18th Rifle Division",
       "player": 2,
@@ -2768,6 +2909,7 @@
       "en": 1
     },
     {
+      "id": 141,
       "hp": 30000,
       "name": "148th Tank Brigade",
       "player": 2,
@@ -2776,6 +2918,7 @@
       "type": 2
     },
     {
+      "id": 142,
       "hp": 35000,
       "name": "45th Cavalry Division",
       "player": 2,
@@ -4408,5 +4551,345 @@
       "trigger.north_counteroffensive.message": "До кінця листопада 1941 року радянське командування зосередило війська новоствореної 20-ї армії і 1-ї ударної армії в районі Загорська (нині Сергієв Посад). Ставка планувала кинути ці армії в контрнаступ на північ від Москви на початку грудня. Однак німецький прорив під Яхромою змусив негайно задіяти 1-у ударну армію для ліквідації прориву."
     }
   },
-  "allowDynamicArmy": false
+  "allowDynamicArmy": false,
+  "organizations": [
+    {
+      "player": 1,
+      "divisions": [
+        {
+          "kind": "infantry",
+          "name": "9th Army (Strauss)",
+          "brigades": [
+            {
+              "unitIds": [
+                79,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85
+              ],
+              "name": "Infantry Corps"
+            }
+          ]
+        },
+        {
+          "kind": "infantry",
+          "name": "3rd Panzer Group (Reinhardt)",
+          "brigades": [
+            {
+              "unitIds": [
+                89,
+                90,
+                91,
+                92,
+                112
+              ],
+              "name": "Panzer Corps"
+            },
+            {
+              "unitIds": [
+                86,
+                87,
+                88,
+                93,
+                94,
+                95
+              ],
+              "name": "Infantry Corps"
+            }
+          ]
+        },
+        {
+          "kind": "infantry",
+          "name": "4th Panzer Group (Hoepner)",
+          "brigades": [
+            {
+              "unitIds": [
+                74,
+                75,
+                76,
+                78,
+                107,
+                108,
+                133
+              ],
+              "name": "Panzer Corps"
+            },
+            {
+              "unitIds": [
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                111
+              ],
+              "name": "Infantry Corps"
+            }
+          ]
+        },
+        {
+          "kind": "infantry",
+          "name": "4th Army (Kluge)",
+          "brigades": [
+            {
+              "unitIds": [
+                62,
+                63,
+                69,
+                70,
+                71,
+                72,
+                73,
+                104,
+                105,
+                106
+              ],
+              "name": "Infantry Corps"
+            }
+          ]
+        },
+        {
+          "kind": "infantry",
+          "name": "2nd Panzer Army (Guderian)",
+          "brigades": [
+            {
+              "unitIds": [
+                77
+              ],
+              "name": "Panzer Corps"
+            },
+            {
+              "unitIds": [
+                60,
+                61,
+                65,
+                66,
+                67,
+                68
+              ],
+              "name": "Infantry Corps"
+            }
+          ]
+        },
+        {
+          "kind": "infantry",
+          "name": "2nd Army (Weichs)",
+          "brigades": [
+            {
+              "unitIds": [
+                56,
+                57,
+                58,
+                59,
+                64,
+                130,
+                131
+              ],
+              "name": "Infantry Corps"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "player": 2,
+      "divisions": [
+        {
+          "kind": "infantry",
+          "name": "South-Western Front (Timoshenko)",
+          "brigades": [
+            {
+              "unitIds": [
+                21,
+                22,
+                109,
+                110,
+                128,
+                129,
+                138,
+                139
+              ],
+              "name": "3rd Army"
+            },
+            {
+              "unitIds": [
+                20,
+                23,
+                24,
+                25
+              ],
+              "name": "13th Army"
+            }
+          ]
+        },
+        {
+          "kind": "infantry",
+          "name": "Western Front, left wing (Zhukov)",
+          "brigades": [
+            {
+              "unitIds": [
+                30,
+                31,
+                33,
+                34,
+                35,
+                55,
+                124,
+                126
+              ],
+              "name": "10th Army (Golikov)"
+            },
+            {
+              "unitIds": [
+                26,
+                27,
+                29,
+                127,
+                140,
+                141
+              ],
+              "name": "50th Army (Boldin)"
+            },
+            {
+              "unitIds": [
+                28,
+                32,
+                47,
+                125,
+                142
+              ],
+              "name": "49th Army (Zakharkin)"
+            }
+          ]
+        },
+        {
+          "kind": "infantry",
+          "name": "Western Front, centre (Zhukov)",
+          "brigades": [
+            {
+              "unitIds": [
+                18,
+                19,
+                36,
+                37,
+                46,
+                50,
+                54,
+                122
+              ],
+              "name": "43rd Army (Golubev)"
+            },
+            {
+              "unitIds": [
+                14,
+                16,
+                17,
+                117,
+                118,
+                121
+              ],
+              "name": "33rd Army (Yefremov)"
+            },
+            {
+              "unitIds": [
+                15,
+                38,
+                39,
+                40,
+                48,
+                49,
+                51,
+                52,
+                53
+              ],
+              "name": "5th Army (Govorov)"
+            }
+          ]
+        },
+        {
+          "kind": "infantry",
+          "name": "Western Front, right wing (Zhukov)",
+          "brigades": [
+            {
+              "unitIds": [
+                41,
+                42,
+                123
+              ],
+              "name": "16th Army (Rokossovsky)"
+            },
+            {
+              "unitIds": [
+                13,
+                116,
+                119,
+                120,
+                132
+              ],
+              "name": "20th Army (Vlasov)"
+            },
+            {
+              "unitIds": [
+                43,
+                44,
+                45,
+                114
+              ],
+              "name": "1st Shock Army (Kuznetsov)"
+            },
+            {
+              "unitIds": [
+                11,
+                12,
+                115,
+                136,
+                137
+              ],
+              "name": "30th Army (Lelyushenko)"
+            }
+          ]
+        },
+        {
+          "kind": "infantry",
+          "name": "Kalinin Front (Konev)",
+          "brigades": [
+            {
+              "unitIds": [
+                10,
+                113,
+                134,
+                135
+              ],
+              "name": "31st Army"
+            },
+            {
+              "unitIds": [
+                6,
+                7,
+                8,
+                9
+              ],
+              "name": "29th Army"
+            },
+            {
+              "unitIds": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "name": "22nd Army"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

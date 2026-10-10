@@ -72,13 +72,16 @@
     "allowDynamicArmyHelp": "Quando ativado, os jogadores trazem seu próprio exército com base no tipo de batalha do matchmaking e o implantam dentro de suas zonas. Quando desativado, as unidades pré-posicionadas do cenário definem todo o plantel (a composição de exército é ignorada).",
     "fixedRoster": "Jogadores fixos",
     "fixedRosterHelp": "Quando ativado, o cenário define as suas próprias vagas de jogador, equipes e reservas de munição, e o lobby não pode adicionar nem remover jogadores. Quando desativado, a lista vem do lobby ou do matchmaking.",
-    "allowDeploymentPhase": "Fase de implantação",
-    "allowDeploymentPhaseHelp": "Quando ativado, a batalha começa no turno 0 para que cada jogador reposicione suas unidades dentro das suas zonas de implantação antes do combate começar.",
     "noInherentAmmo": "Sem munição própria",
     "noInherentAmmoHelp": "Quando ativado, as unidades com munição surgem sem munição própria e retiram todo o seu suprimento da reserva compartilhada, por isso não podem atirar no primeiro turno e só abrem fogo quando a reserva as reabastece.",
+    "startTime": "Hora de início",
+    "startTimeHelp": "Opcional. Deixe vazio para o turno 1 começar às {{time}} (padrão da era).",
+    "maxTurn": "Turnos máximos",
+    "maxTurnHelp": "Padrão opcional do cenário (10–99); partidas podem escolher outro limite.",
     "showGrid": "Mostrar grade",
     "showUnits": "Mostrar unidades",
     "showObjectives": "Mostrar objetivos",
+    "showMapLabels": "Mostrar nomes no mapa",
     "goBack": "Voltar",
     "goBackConfirm": "Tem certeza de que deseja voltar e sair do editor?",
     "display": "Exibição",
@@ -91,7 +94,6 @@
     "testScenario": "Testar cenário",
     "placeableObjectives": "Objetivos posicionados pelo jogador",
     "placeableObjectivesHelp": "Quando ativado, cada jogador posiciona seus próprios objetivos durante a fase de implantação, dentro da sua própria zona. Quando desativado, a batalha usa apenas os objetivos que você posicionou no mapa.",
-    "placeableObjectivesNeedsDeployment": "Ative também a fase de implantação, ou os jogadores nunca chegam ao turno em que posicionariam esses objetivos, e nenhum aparecerá.",
     "resting": {
       "thisScenario": "Este cenário",
       "gettingStarted": "Primeiros passos",
@@ -121,6 +123,8 @@
     "rosterHelp": "Um elenco fixo significa que o cenário decide as vagas de jogador, as equipes e a munição, e todos combatem com as unidades que você posicionou. Um elenco dinâmico deixa as vagas para o lobby ou para o matchmaking, e os jogadores trazem seus próprios exércitos para a batalha."
   },
   "playersPanel": {
+    "commander": "Comandante",
+    "commandFormation": "Comando",
     "removePlayer": "Remover jogador",
     "ammoReserve": "Reserva",
     "ammoBase": "Nível base",
@@ -173,7 +177,8 @@
     "title": "Zonas de implantação",
     "hint": "Estas zonas definem onde cada exército começa. A fase de implantação apenas adiciona um turno 0 para os jogadores se reorganizarem dentro delas.",
     "team": "Equipe {{team}}",
-    "wholeTeam": "Todos os jogadores da equipe",
+    "remainingPlayers": "Jogadores restantes da equipe",
+    "assignmentHelp": "Escolha os jogadores restantes ou selecione um ou mais jogadores específicos.",
     "player": "Jogador {{player}}",
     "mainZone": "Principal",
     "forwardZone": "Avançada",
@@ -185,9 +190,7 @@
       "y": "Y",
       "player": "Atribuída a",
       "rotation": "Rotação (graus)"
-    },
-    "phaseHelp": "Com a fase de implantação ativada, os jogadores ganham um turno extra antes do combate começar, apenas para reorganizar suas unidades dentro da sua zona.",
-    "gateHelp": "Estas zonas são editáveis enquanto qualquer um entre Permitir exército dinâmico, Fase de implantação ou Objetivos posicionados pelo jogador estiver ativado, já que cada um dos três precisa de um lugar para um exército recém-chegado começar. Com os três desativados elas ficam acinzentadas, e em um mapa procedural elas também ficam acinzentadas, sendo as zonas ali definidas como porcentagens no painel Mapa Aleatório."
+    }
   },
   "vpBalance": {
     "heading": "Equilíbrio de PV (baixas vs objetivos)",
@@ -201,7 +204,11 @@
     "drawLineRank": "Posição ao traçar linha (menor = à frente)",
     "title": "Editar formação personalizada",
     "collision": "Colisão",
-    "collisionHelp": "Área ocupada retangular: frente ao longo da linha de frente e profundidade da frente para trás. Defina ambos os valores como 0 para nenhuma colisão (voo / fantasma).",
+    "collisionHelp": "Forma da área ocupada: um círculo (raio) ou um retângulo (frente ao longo da linha de frente, profundidade da frente para trás). Use raio 0 para nenhuma colisão (voo / fantasma).",
+    "shape": "Forma",
+    "shapeRectangle": "Retângulo",
+    "shapeCircle": "Círculo",
+    "radiusPx": "Raio (px)",
     "frontagePx": "Frente (px)",
     "depthPx": "Profundidade (px)",
     "runMovementModifier": "Modificador de movimento em corrida",
@@ -216,8 +223,9 @@
     "flanking": "Flanqueamento",
     "rangedDamageResistance": "Resistência a dano à distância",
     "rangedOrgResistance": "Resistência org. à distância",
+    "ammoConsumptionModifier": "Modificador de consumo de munição",
     "fireEdges": "Bordas de fogo (fogo de borda)",
-    "fireEdgesHelp": "Cada borda de fogo emite ao longo de uma face do retângulo. Uma formação sem bordas de fogo dispara por uma única borda frontal padrão.",
+    "fireEdgesHelp": "Cada borda de fogo emite ao longo de uma face do retângulo. Uma formação sem bordas de fogo dispara por uma única borda frontal padrão; formações em círculo não disparam.",
     "edge": "Borda",
     "edgeLeft": "0 - lado esquerdo (-Y)",
     "edgeFront": "1 - frente (+X)",
@@ -254,6 +262,7 @@
     }
   },
   "unitTemplateModal": {
+    "initialOrder": "Ordem inicial",
     "title": "Editar modelo de unidade personalizado",
     "optBuiltIn": "{{name}} (interno)",
     "optCustom": "{{name}} (personalizado)",
@@ -278,6 +287,8 @@
     "orgRadiusBonus": "Bônus de raio de org",
     "reportStats": "Estatísticas do relatório",
     "reportStatsHelp": "Contagem que cada unidade contribui para os relatórios de batalha (ex.: homens, cavalos, canhões). As chaves vêm das unidades internas da era.",
+    "casualtiesAtZeroHp": "Baixas a zero PV (%)",
+    "casualtiesAtZeroHpHelp": "Parcela da força registrada desta unidade contada como baixas quando toda a barra de PV é perdida. Os PV representam força de combate: no valor padrão de 50%, a unidade deixa de ser eficaz após metade da força registrada virar baixa. A dispersão ainda remove toda a força de combate restante.",
     "tallyPerUnit": "Contagem por unidade",
     "walkMovement": "Movimento a passo",
     "runMovement": "Movimento em corrida",
@@ -293,7 +304,6 @@
     "rangedAttack": "Ataque à distância",
     "panicFireDistance": "Distância de fogo de pânico",
     "fireWhileMoving": "Disparar em movimento",
-    "noAmmoRegain": "Sem recuperação de munição",
     "rangedDamageTypes": "Tipos de dano à distância",
     "addRangedDamageType": "Adicionar tipo de dano à distância",
     "enableRanged": "Ativar à distância",
@@ -321,6 +331,10 @@
     "changeAnimationsHelp": "A animação reproduzida enquanto uma unidade deixa esta formação por outra. Escolha a formação para a qual ela está mudando e depois a animação a reproduzir pelo caminho. Uma transição sem linha aqui não está quebrada: a unidade simplesmente salta de um sprite para o outro sem nada pelo meio, que é o que hoje fazem todas as formações sem entradas. A lista contém as animações que esta era inclui, e a infantaria de linha da era usa seis delas."
   },
   "unitCategoryModal": {
+    "meleeFire": {
+      "ratio": "Potência de fogo no corpo a corpo (0–1)",
+      "hint": "0 (padrão): emissores cobertos por um inimigo não disparam e os demais continuam com potência total. Acima de 0, emissores cobertos por inimigos disparam com esta fração da potência normal. Aliados continuam bloqueando o fogo."
+    },
     "title": "Editar categoria de unidade personalizada",
     "optionBuiltIn": "{{name}} (interno)",
     "optionCustom": "{{name}} (personalizado)",
@@ -444,9 +458,9 @@
       "endBottomWidth": "Largura inferior final",
       "startHeight": "Altura inicial",
       "endHeight": "Altura final",
-      "heightModifierPerLevelHelp": "Altera a profundidade da forma da explosão nesta fração por cada nível de diferença de elevação além do primeiro. Negativo encolhe a área, positivo a alonga. As balas de canhão da era usam -0.15.",
-      "damageModifierPerLevelHelp": "Adiciona este modificador de dano por cada nível de diferença de elevação além do primeiro. Negativo suaviza o impacto, positivo o reforça. As balas de canhão da era usam -0.05.",
-      "maxElevationDiffHelp": "O maior número de níveis de diferença de elevação que pode contar. A diferença é medida em termos absolutos, portanto disparar para cima e para baixo é tratado da mesma forma, e uma diferença de um nível ou menos não aplica nada. As balas de canhão da era têm limite de 4."
+      "heightModifierPerLevelHelp": "Altera a profundidade da forma da explosão nesta fração por cada nível de diferença de elevação além do primeiro. Negativo encolhe a área, positivo a alonga. As balas de canhão da era usam -0.075.",
+      "damageModifierPerLevelHelp": "Adiciona este modificador de dano por cada nível de diferença de elevação além do primeiro. Negativo suaviza o impacto, positivo o reforça. As balas de canhão da era usam -0.025.",
+      "maxElevationDiffHelp": "O maior número de níveis de diferença de elevação que pode contar. A diferença é medida em termos absolutos, portanto disparar para cima e para baixo é tratado da mesma forma, e uma diferença de um nível ou menos não aplica nada. As balas de canhão da era têm limite de 8."
     },
     "addRangeBracket": "Adicionar faixa de alcance",
     "addAreaOfEffect": "Adicionar área de efeito",
@@ -495,7 +509,6 @@
       "pushDistanceModifier": "Modificador de distância de empurrão",
       "fixedEnemyCollisionLevel": "Nível de colisão com inimigos fixo",
       "canPlaceObjectives": "Pode colocar objetivos",
-      "prioritizeMovement": "Priorizar movimento",
       "supplyRoute": "Rota de suprimentos",
       "impassableFor": "Intransponível para",
       "attackModifier": "Modificador de ataque",
@@ -514,7 +527,9 @@
       "importFromScenario": "Importar de cenário",
       "duplicate": "Duplicar",
       "inThisScenario": "Neste cenário",
-      "builtIntoThisEra": "Interno a esta era"
+      "builtIntoThisEra": "Interno a esta era",
+      "resetToEra": "Redefinir para a era",
+      "resetAllToEra": "Redefinir tudo para a era"
     },
     "spritesPanel": {
       "title": "Sprites de unidade",
@@ -580,7 +595,6 @@
       "clonePickerTitle": "Clonar uma categoria de terreno interna"
     },
     "overrideEditor": {
-      "reset": "Redefinir",
       "eraDefault": "padrão da era: {{value}}",
       "structuralTooltip": "Constante estrutural / de determinismo. Alterá-la pode quebrar a renderização, replays ou o matchmaking."
     },
@@ -629,7 +643,7 @@
     },
     "gameConstants": {
       "title": "Constantes do jogo",
-      "description": "Sobrescreva as constantes numéricas desta era para este cenário. Apenas os valores alterados são salvos; Redefinir retorna um campo ao padrão da era. As chaves marcadas com ⚠ são estruturais - alterá-las pode quebrar a renderização, replays ou o matchmaking. Os valores estão em unidades internas brutas.",
+      "description": "Estes são os números básicos da era: quanto dura um turno, o tamanho de um ladrilho, quantos turnos dura uma batalha. O que você mudar vale apenas para este cenário, e qualquer valor pode voltar ao do próprio jogo.",
       "category": {
         "mapDimensions": "Dimensões do mapa",
         "deployment": "Implantação",
@@ -653,11 +667,15 @@
     },
     "gameRules": {
       "title": "Regras do jogo",
-      "description": "Sobrescreva as regras de jogabilidade desta era para este cenário. Apenas os valores alterados são salvos; use Redefinir para retornar um campo ao padrão da era. Os valores estão em unidades internas brutas (algumas estatísticas são armazenadas pré-escaladas)."
+      "description": "Estes são os sistemas em que sua era funciona, de como as unidades mantêm a moral até como uma batalha é vencida. O que você mudar vale apenas para este cenário, e qualquer valor pode voltar ao do próprio jogo. Os números estão nas unidades do próprio jogo, portanto podem não corresponder a metros ou minutos."
     },
     "ordersPanel": {
       "title": "Ordens",
-      "description": "Sobrescreva os valores das ordens internas desta era para este cenário. Apenas os valores alterados são salvos; use Redefinir para retornar um campo ao padrão da era. Você pode modificar ordens existentes, mas não adicionar novas."
+      "description": "Ordens são as instruções que um jogador pode dar a uma unidade durante a batalha. Aqui você pode reajustar as ordens da era para este cenário, mas não pode criar novas. Qualquer valor pode voltar ao do próprio jogo.",
+      "general": "Modificador geral",
+      "categoryOverrides": "Exceções por categoria",
+      "addCategory": "Adicionar exceção de categoria",
+      "inheritance": "Categorias sem exceção usam o modificador geral: {{value}}%."
     },
     "clonePicker": {
       "alreadyOverridden": "(já sobrescrito)",
@@ -807,22 +825,7 @@
   "triggers": {
     "title": "Gatilhos",
     "moreInfo": "Mais informações sobre gatilhos aqui",
-    "createTrigger": "Criar Gatilho",
-    "createTriggerButton": "Criar gatilho",
-    "format": "Formatar",
-    "invalidJsonFormat": "Formato JSON inválido",
     "fixBeforeTesting": "Corrija os erros dos gatilhos antes de testar este cenário.",
-    "validation": {
-      "expectedArray": "{{path}} deve ser uma lista.",
-      "expectedObject": "{{path}} deve ser um objeto.",
-      "unitAtTriggerLevel": "{{path}} parece ser uma unidade. Coloque-a dentro de uma ação addUnit.",
-      "invalidEvent": "{{path}} deve ser onTurnStart ou onTurnEnd.",
-      "invalidConditionLogic": "{{path}} deve ser AND ou OR.",
-      "invalidOnce": "{{path}} deve ser true ou false.",
-      "invalidConditionType": "{{path}} tem um tipo de condição desconhecido.",
-      "invalidActionType": "{{path}} tem um tipo de ação desconhecido.",
-      "invalidValue": "{{path}} tem um valor inválido para {{type}}."
-    },
     "event": "Evento",
     "conditionLogic": "Lógica de Condição",
     "conditionLogicAnd": "Todas as condições (E)",
@@ -833,12 +836,96 @@
     "addAction": "Adicionar Ação",
     "once": "Uma vez",
     "intro": "Um gatilho verifica a batalha no início ou no fim de um turno, e então age quando as condições que você definir forem verdadeiras. Crie um abaixo.",
-    "lastClick": "Posição para copiar",
+    "lastClick": "Último clique no mapa",
     "lastClickHint": "Onde você clicou por último no mapa, nas coordenadas que um gatilho usa para posicionar uma unidade ou mover a câmera.",
-    "createDisabledInvalidJson": "Corrija o JSON abaixo antes de poder criar um gatilho.",
-    "createDisabledNeedsConditionAndAction": "Um gatilho precisa de pelo menos uma condição e uma ação.",
-    "groupTrigger": "Gatilho",
-    "value": "Valor"
+    "addTrigger": "Adicionar gatilho",
+    "noTriggers": "Ainda não há gatilhos.",
+    "noConditions": "Sem condições, então sempre dispara.",
+    "noActions": "Ainda não há ações.",
+    "always": "Sempre",
+    "nothing": "Nada",
+    "and": "e",
+    "or": "ou",
+    "conditionType": "Tipo de condição",
+    "actionType": "Tipo de ação",
+    "events": {
+      "onTurnStart": "Início do turno",
+      "onTurnEnd": "Fim do turno"
+    },
+    "conditionTypes": {
+      "isTurn": "O turno é",
+      "isTurnMultipleOf": "A cada alguns turnos",
+      "isTurnGreaterThan": "O turno é depois de",
+      "isTurnLessThan": "O turno é antes de",
+      "objectiveBelongsTo": "Objetivo controlado por",
+      "isUnitNotAlive": "A unidade foi destruída",
+      "isUnitRouting": "A unidade está em debandada",
+      "unitMovedThisTurn": "A unidade se moveu neste turno",
+      "chance": "Chance aleatória",
+      "isVar": "A variável é"
+    },
+    "actionTypes": {
+      "addUnit": "Adicionar unidades",
+      "removeUnit": "Remover unidades",
+      "addTrigger": "Adicionar gatilhos",
+      "showMessage": "Mostrar mensagem",
+      "defeatPlayer": "Derrotar jogador",
+      "moveCamera": "Mover câmera",
+      "setVar": "Definir variável",
+      "endGame": "Encerrar batalha",
+      "orderUnit": "Dar ordem à unidade"
+    },
+    "fields": {
+      "rotationDegrees": "Rotação (°)",
+      "useLastClick": "Usar último clique no mapa",
+      "playerN": "Jogador {{n}}",
+      "teamN": "Equipe {{n}}",
+      "everyTurns": "A cada (turnos)",
+      "offset": "Deslocamento",
+      "heldBy": "Controlado por",
+      "chancePercent": "Chance (%)",
+      "variable": "Variável",
+      "value": "Valor",
+      "notEqual": "Não é este valor",
+      "title": "Título",
+      "message": "Mensagem",
+      "zoom": "Zoom",
+      "durationSeconds": "Duração (s)",
+      "reason": "Motivo",
+      "addUnit": "Adicionar unidade",
+      "addCopiedUnits": "Adicionar unidades copiadas ({{count}})",
+      "copyUnitsHint": "Selecione unidades no mapa e copie-as para adicioná-las aqui com todas as suas configurações.",
+      "order": "Ordem",
+      "target": "Unidade alvo",
+      "path": "Caminho",
+      "addWaypoint": "Adicionar ponto no último clique",
+      "targetOrPlaceHint": "Informe uma unidade alvo ou um local, não ambos."
+    },
+    "endReasons": {
+      "victory": "Vitória",
+      "max_turn": "Limite de turnos atingido",
+      "cancelled": "Cancelada",
+      "draw_by_agreement": "Empate"
+    },
+    "orderTypes": {
+      "1": "Andar",
+      "2": "Correr",
+      "3": "Atirar",
+      "4": "Fogo e avanço",
+      "5": "Posicionar",
+      "6": "Recuar",
+      "7": "Girar",
+      "-1": "Cancelar ordem atual"
+    },
+    "unreadableTitle": "Gatilho ilegível",
+    "unreadable": "O editor não consegue mostrar este gatilho. Remova-o e crie-o de novo.",
+    "orderMissing": {
+      "unit": "Escolha a unidade que recebe esta ordem.",
+      "targetOrPath": "Informe uma unidade alvo ou adicione um ponto.",
+      "path": "Adicione pelo menos um ponto.",
+      "targetOrPlace": "Informe uma unidade alvo ou um local.",
+      "place": "Informe um local."
+    }
   },
   "randomMap": {
     "title": "Mapa Aleatório",
@@ -847,6 +934,8 @@
     "startFromTemplate": "Começar de um modelo",
     "loadInstructionsFromTemplate": "Carregar instruções do modelo",
     "generating": "Gerando…",
+    "acceptedAngle": "Ângulo aceito (±)",
+    "angle": "Ângulo",
     "generatePreview": "Gerar prévia",
     "instructions": "Instruções",
     "instructionsWithCount": "Instruções ({{count}})",
@@ -887,6 +976,7 @@
     "selectFile": "Selecionar arquivo",
     "importedFile": "Arquivo importado",
     "field": {
+      "along": "Ao longo de",
       "amount": "Quantidade",
       "between": "Entre",
       "border": "Borda",
@@ -898,6 +988,7 @@
       "curveLen": "Comprimento da curva",
       "curveWeight": "Peso da curva",
       "deep": "Água profunda",
+      "directionStep": "Passo de direção",
       "downHillHeightCost": "Custo de descida",
       "edgeDistance": "Distância da borda",
       "edgeWeight": "Peso da borda",
@@ -911,6 +1002,7 @@
       "heightFilter": "Filtro de altura",
       "heightRanges": "Faixas de altura",
       "heights": "Alturas",
+      "keep": "Manter",
       "l": "Grande",
       "m": "Médio",
       "max": "Máx.",
@@ -930,8 +1022,10 @@
       "minHeight": "Altura mínima",
       "minHeightValue": "Valor mínimo de altura",
       "minSurrounding": "Tiles vizinhos mínimos",
+      "minTiles": "Menor campo",
       "minWidth": "Largura mínima",
       "min_scaling_factor": "Escala mínima pelo tamanho do mapa",
+      "mode": "Modo",
       "multiplier": "Multiplicador",
       "name": "Nome",
       "noiseSmoothness": "Suavidade do ruído",
@@ -959,6 +1053,7 @@
       "shallow": "Água rasa",
       "shore": "Costa",
       "size": "Tamanho",
+      "skipBlocked": "Ignorar bloqueados",
       "smoothing": "Suavização",
       "startHeightRanges": "Faixas de altura inicial",
       "team": "Equipe",
@@ -968,8 +1063,10 @@
       "terrainReplacements": "Substituições de terreno",
       "terrains": "Terrenos",
       "toTerrain": "Para terreno",
+      "tries": "Tentativas",
       "type": "Tipo",
       "uphillHeightCost": "Custo de subida",
+      "verge": "Borda",
       "width": "Largura",
       "x": "X",
       "xBounds": "Limites de X",
@@ -988,12 +1085,16 @@
       "connectClusters": "Conectar aglomerados",
       "objective": "Objetivo",
       "lake": "Lago",
-      "objectiveLayer": "Camada de objetivos"
+      "objectiveLayer": "Camada de objetivos",
+      "symmetry": "Simetria",
+      "fields": "Campos"
     },
     "objectiveType": {
       "small": "Pequeno",
       "big": "Grande"
-    }
+    },
+    "addField": "Adicionar um campo",
+    "removeField": "Remover"
   },
   "randomDeployment": {
     "title": "Zonas de posicionamento",
@@ -1047,5 +1148,12 @@
   },
   "objectiveOwnership": {
     "help": "Objetivos sempre pertencem a uma equipe. Em um cenário com elenco fixo, este campo nomeia um jogador, e o objetivo pertence à equipe daquele jogador. Em um cenário feito para exércitos dinâmicos não há vagas de jogador até o matchmaking preenchê-las, então o campo nomeia a equipe diretamente."
+  },
+  "mapLabels": {
+    "title": "Nomes no mapa",
+    "help": "Clique com o botão direito no mapa (ou toque com os controles de toque) para escolher uma posição e depois adicione ou mova um nome.",
+    "add": "Adicionar nome",
+    "move": "Mover para a posição escolhida",
+    "empty": "Ainda não há nomes."
   }
 }

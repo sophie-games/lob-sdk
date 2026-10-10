@@ -5,6 +5,7 @@ import {
   TerrainType,
   FormationTemplate,
   getCollisionConfig,
+  isCircleCollision,
   CollisionShapeType,
 } from "@lob-sdk/types";
 import { DamageTypeTemplate, GameEra } from "@lob-sdk/game-data-manager";
@@ -12,6 +13,43 @@ import { generateDefaultArmy } from "@lob-sdk/army-deployer";
 
 describe("GameDataManager", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
+
+  describe("division standards", () => {
+    it("sells each napoleonic standard once, priced and named", () => {
+      const standards = gameDataManager.getDivisionStandards();
+      expect(standards.length).toBeGreaterThan(0);
+      expect(new Set(standards.map(({ id }) => id)).size).toBe(standards.length);
+      expect(new Set(standards.map(({ name }) => name)).size).toBe(standards.length);
+      for (const standard of standards) {
+        expect(standard.premiumPrice).toBeGreaterThan(0);
+        expect(gameDataManager.getDivisionStandard(standard.id)).toBe(standard);
+      }
+    });
+
+    it("has none in ww2", () => {
+      expect(GameDataManager.get("ww2").getDivisionStandards()).toEqual([]);
+    });
+  });
+
+  describe("ranked matchmaking pool", () => {
+    const shown = gameDataManager.getScenarios();
+    const ranked = shown.filter((name) => gameDataManager.getScenario(name).ranked);
+
+    it("offers every random map", () => {
+      const random = shown.filter((name) => "instructions" in gameDataManager.getScenario(name));
+      expect(ranked).toEqual(expect.arrayContaining(random));
+    });
+
+    // Half plus one: any two players' selections always share a map.
+    it.each([
+      ["napoleonic", ranked.length],
+      ["ww2", 1],
+    ] as const)("requires more than half the %s ranked maps", (era, count) => {
+      expect(GameDataManager.get(era).getRankedMinScenariosForMatchmaking()).toBe(
+        Math.floor(count / 2) + 1,
+      );
+    });
+  });
 
   describe("getObjectiveSpacing", () => {
     it("returns a positive spacing for every napoleonic battle type", () => {
@@ -126,6 +164,38 @@ describe("GameDataManager", () => {
   });
 
   describe("getBattleType", () => {
+    it("configures the ranked K-factor contribution for every battle type", () => {
+      const factorsByEra = Object.fromEntries(
+        GameDataManager.getAvailableEras().map((era) => {
+          const manager = GameDataManager.get(era);
+          return [
+            era,
+            Object.fromEntries(
+              manager
+                .getAllDynamicBattleTypes()
+                .map((battleType) => [
+                  battleType,
+                  manager.getBattleType(battleType).kFactor,
+                ]),
+            ),
+          ];
+        }),
+      );
+
+      expect(factorsByEra).toEqual({
+        napoleonic: {
+          micro: 16,
+          clash: 24,
+          combat: 32,
+          battle: 40,
+          grand_battle: 48,
+        },
+        ww2: {
+          operational: 32,
+        },
+      });
+    });
+
     describe("default armies respect unit caps from battle-types.json", () => {
       const battleTypes = gameDataManager.getAllDynamicBattleTypes();
 
@@ -143,6 +213,23 @@ describe("GameDataManager", () => {
               expect(count).toBeLessThanOrEqual(unitCap);
             }
           });
+        });
+      });
+    });
+
+    describe("ground scale", () => {
+      // Each era's tile covers a stated distance on the ground; the UI divides by
+      // TILE_SIZE to publish ranges, movement and burst radii in real units.
+      const METERS_PER_TILE: Record<string, number> = {
+        napoleonic: 50,
+        ww2: 5000,
+      };
+
+      GameDataManager.getAvailableEras().forEach((era) => {
+        it(`covers ${METERS_PER_TILE[era]} m to the tile in ${era}`, () => {
+          const { TILE_SIZE, METERS_PER_PIXEL } =
+            GameDataManager.get(era).getGameConstants();
+          expect(TILE_SIZE * (METERS_PER_PIXEL ?? 0)).toBe(METERS_PER_TILE[era]);
         });
       });
     });
@@ -196,6 +283,46 @@ describe("GameDataManager", () => {
   });
 
   describe("getMaxTurn", () => {
+    it("defines the requested in-world duration for both eras", () => {
+      expect(GameDataManager.get("napoleonic").getGameConstants().MINUTES_PER_TURN).toBe(15);
+      expect(GameDataManager.get("ww2").getGameConstants().MINUTES_PER_TURN).toBe(1440);
+      expect(GameDataManager.get("napoleonic").getGameConstants().DEFAULT_BATTLE_START_TIME).toBe("08:00");
+      expect(GameDataManager.get("ww2").getGameConstants().DEFAULT_BATTLE_START_TIME).toBe("00:00");
+      expect(GameDataManager.createWithCustomDefs("napoleonic", {
+        customGameConstants: { MINUTES_PER_TURN: 30 },
+      }).getGameConstants().MINUTES_PER_TURN).toBe(30);
+    });
+    it("provides moddable battle lighting for every era", () => {
+      for (const era of ["napoleonic", "ww2"] as const) {
+        const lighting = GameDataManager.get(era).getGameConstants().BATTLE_LIGHTING;
+        expect(lighting.color).toBe("#18243b");
+        expect(lighting.opacityByTime).toHaveLength(5);
+        const modified = GameDataManager.createWithCustomDefs(era, {
+          customGameConstants: {
+            BATTLE_LIGHTING: {
+              color: "#243047",
+              opacityByTime: [{ time: "12:00", opacity: 0.1 }],
+            },
+          },
+        }).getGameConstants().BATTLE_LIGHTING;
+        expect(modified).toEqual({
+          color: "#243047",
+          opacityByTime: [{ time: "12:00", opacity: 0.1 }],
+        });
+      }
+    });
+    it("prefers an optional scenario limit over the battle type", () => {
+      expect(GameDataManager.get("napoleonic").getMaxTurn("clash", {
+        name: "short battle", description: "", maxTurn: 18,
+      })).toBe(18);
+    });
+
+    it("ignores malformed imported scenario turn limits", () => {
+      const manager = GameDataManager.get("napoleonic");
+      expect(manager.getMaxTurn("clash", {
+        name: "invalid", description: "", maxTurn: "forever" as unknown as number,
+      })).toBe(manager.getMaxTurn("clash"));
+    });
     const eras = GameDataManager.getAvailableEras();
 
     eras.forEach((era) => {
@@ -460,18 +587,112 @@ describe("GameDataManager", () => {
       // Wildcard remains in the map for better JIT optimization
       expect("*" in deepWater.impassable!).toBe(true);
 
-      // Check path category (wildcard + explicit overrides)
-      const path = terrainCategories.path;
+      // Wildcard + explicit override, on a category authored here rather than
+      // on a preset: a rebalance of the presets cannot rot the expectation.
+      const custom = GameDataManager.createWithCustomDefs("napoleonic", {
+        customTerrainCategories: [
+          {
+            id: "path",
+            config: { movementModifier: { "*": 0.4, artillery: 0.9 } },
+          },
+        ],
+      });
+      const path = custom.getTerrainCategories().path;
       expect(path).toBeDefined();
-      if (path && path.movementModifier) {
-        // Overridden categories
-        expect(path.movementModifier.midCavalry).toBe(0.2);
-        expect(path.movementModifier.heavyCavalry).toBe(0.2);
+      unitCategories.forEach((category) => {
+        expect(path!.movementModifier![category.id]).toBe(
+          category.id === "artillery" ? 0.9 : 0.4,
+        );
+      });
+    });
 
-        // Inherited categories
-        expect(path.movementModifier.infantry).toBe(0.3);
-        expect(path.movementModifier.artillery).toBe(0.3);
+    it("makes a Fortified farm an infantry strongpoint in both eras", () => {
+      for (const era of ["napoleonic", "ww2"] as const) {
+        const manager = GameDataManager.get(era);
+        expect(manager.getTerrains()[TerrainType.FortifiedFarm]).toMatchObject({
+          name: "fortifiedFarm",
+          category: "fortifiedFarm",
+        });
+        expect(manager.getTerrainCategories()).not.toHaveProperty("wall");
+        expect(manager.isPassable(TerrainType.FortifiedFarm, "infantry")).toBe(true);
+        // Its walls slow the whole battalion climbing in, not just the part on them.
+        expect(manager.hasObstructsMovement(TerrainType.FortifiedFarm)).toBe(true);
+        expect(manager.hasObstructsMovement(TerrainType.Road)).toBe(false);
+        expect(manager.getMovementModifier(TerrainType.FortifiedFarm, "infantry")).toBe(
+          -0.75,
+        );
+        expect(
+          manager.getUnitTerrainDefenseModifier("infantry", TerrainType.FortifiedFarm),
+        ).toBeGreaterThan(
+          manager.getUnitTerrainDefenseModifier("infantry", TerrainType.Building),
+        );
+        expect(
+          manager.getChargeResistanceModifier("infantry", TerrainType.FortifiedFarm),
+        ).toBeGreaterThan(
+          manager.getChargeResistanceModifier("infantry", TerrainType.Building),
+        );
+        // Its buildings hide what is inside as a village does.
+        expect(manager.getVisionAbsorption(TerrainType.FortifiedFarm)).toBe(
+          manager.getVisionAbsorption(TerrainType.Building),
+        );
       }
+
+      const napoleonic = GameDataManager.get("napoleonic");
+      for (const infantry of ["infantry", "guardsInfantry", "militiaInfantry"]) {
+        expect(napoleonic.isPassable(TerrainType.FortifiedFarm, infantry)).toBe(true);
+        expect(
+          napoleonic.getUnitTerrainDefenseModifier(infantry, TerrainType.FortifiedFarm),
+        ).toBe(1);
+      }
+      // Skirmishers firing from loopholes and windows gain most, as in a village.
+      expect(napoleonic.isPassable(TerrainType.FortifiedFarm, "skirmishInfantry")).toBe(true);
+      expect(
+        napoleonic.getUnitTerrainDefenseModifier("skirmishInfantry", TerrainType.FortifiedFarm),
+      ).toBeGreaterThan(
+        napoleonic.getUnitTerrainDefenseModifier("skirmishInfantry", TerrainType.Building),
+      );
+      for (const cavalryOrArtillery of ["heavyCavalry", "lightCavalry", "artillery"]) {
+        expect(
+          napoleonic.isPassable(TerrainType.FortifiedFarm, cavalryOrArtillery),
+        ).toBe(false);
+      }
+      const ww2 = GameDataManager.get("ww2");
+      expect(ww2.isPassable(TerrainType.FortifiedFarm, "motorized")).toBe(false);
+      expect(ww2.isPassable(TerrainType.FortifiedFarm, "armored")).toBe(false);
+    });
+
+    it("makes a Rampart a fortress wall that Napoleonic guns can be hauled onto", () => {
+      for (const era of ["napoleonic", "ww2"] as const) {
+        const manager = GameDataManager.get(era);
+        expect(manager.getTerrains()[TerrainType.Rampart]).toMatchObject({
+          name: "rampart",
+          category: "rampart",
+        });
+        expect(manager.isPassable(TerrainType.Rampart, "infantry")).toBe(true);
+        expect(manager.hasObstructsMovement(TerrainType.Rampart)).toBe(true);
+        expect(manager.getMovementModifier(TerrainType.Rampart, "infantry")).toBe(-0.75);
+        expect(manager.getUnitTerrainDefenseModifier("infantry", TerrainType.Rampart)).toBe(
+          0.85,
+        );
+      }
+
+      const napoleonic = GameDataManager.get("napoleonic");
+      for (const cavalry of ["heavyCavalry", "lightCavalry"]) {
+        expect(napoleonic.isPassable(TerrainType.Rampart, cavalry)).toBe(false);
+      }
+      // Guns are hauled up onto a rampart far slower than a battalion climbs it,
+      // and its parapet covers their crews as it covers infantry.
+      expect(napoleonic.isPassable(TerrainType.Rampart, "artillery")).toBe(true);
+      expect(napoleonic.getMovementModifier(TerrainType.Rampart, "artillery")).toBe(-0.9);
+      expect(napoleonic.getUnitTerrainDefenseModifier("artillery", TerrainType.Rampart)).toBe(
+        napoleonic.getUnitTerrainDefenseModifier("infantry", TerrainType.Rampart),
+      );
+      expect(napoleonic.getRangedAttackModifier(TerrainType.Rampart, "artillery")).toBe(0);
+
+      // WW2 has no guns to haul up: its rampart stops everything but infantry.
+      const ww2 = GameDataManager.get("ww2");
+      expect(ww2.isPassable(TerrainType.Rampart, "motorized")).toBe(false);
+      expect(ww2.isPassable(TerrainType.Rampart, "armored")).toBe(false);
     });
 
     it("getRotationSpeedModifier defaults to 0 for terrain without the modifier", () => {
@@ -481,14 +702,14 @@ describe("GameDataManager", () => {
     });
 
     it("getRunSpeedModifier falls back to the movement modifier when unset", () => {
-      // No preset terrain sets runSpeedModifier, so run speed matches walk speed.
+      // Categories without a run override still use their walk modifier.
       expect(
         gameDataManager.getRunSpeedModifier(TerrainType.Mud, "infantry"),
       ).toBe(gameDataManager.getMovementModifier(TerrainType.Mud, "infantry"));
       expect(
-        gameDataManager.getRunSpeedModifier(TerrainType.Forest, "heavyCavalry"),
+        gameDataManager.getRunSpeedModifier(TerrainType.Mud, "artillery"),
       ).toBe(
-        gameDataManager.getMovementModifier(TerrainType.Forest, "heavyCavalry"),
+        gameDataManager.getMovementModifier(TerrainType.Mud, "artillery"),
       );
     });
 
@@ -510,6 +731,38 @@ describe("GameDataManager", () => {
       expect(m.getRunSpeedModifier(TerrainType.Mud, "infantry")).toBe(-0.2);
       // Neither set -> 0.
       expect(m.getRunSpeedModifier(TerrainType.Mud, "artillery")).toBe(0);
+    });
+  });
+
+  describe("horse artillery", () => {
+    it("is plain artillery: the guns and rockets share one category", () => {
+      const napoleonic = GameDataManager.get("napoleonic");
+      expect(
+        napoleonic.getUnitCategories().map((c) => c.id),
+      ).not.toContain("horseArtillery");
+      const categoryOf = (name: string) =>
+        napoleonic
+          .getUnitTemplateManager()
+          .getTemplates()
+          .find((t) => t.name === name)?.category;
+      expect(categoryOf("6lb_artillery_horse")).toBe("artillery");
+      expect(categoryOf("rockets")).toBe("artillery");
+    });
+
+    it("loads a saved custom unit still in the retired category as artillery", () => {
+      const napoleonic = GameDataManager.get("napoleonic");
+      const horseGuns = napoleonic
+        .getUnitTemplateManager()
+        .getTemplates()
+        .find((t) => t.name === "6lb_artillery_horse")!;
+      const custom = GameDataManager.createWithCustomDefs("napoleonic", {
+        customUnitTemplates: [{ ...horseGuns, category: "horseArtillery" }],
+      });
+      const loaded = custom
+        .getUnitTemplateManager()
+        .getTemplates()
+        .find((t) => t.type === horseGuns.type)!;
+      expect(loaded.category).toBe("artillery");
     });
   });
 
@@ -661,11 +914,11 @@ describe("GameDataManager", () => {
       });
     });
 
-    it("upgrades a legacy circle footprint to equal square dimensions", () => {
+    it("uses a circle footprint's diameter for both dimensions", () => {
       const m = GameDataManager.createWithCustomDefs("napoleonic", {
         customUnitFormations: [
           cloneFormation({
-            collisionShape: { type: 0, radius: 20 } as never,
+            collisionShape: { type: CollisionShapeType.Circle, radius: 20 },
           }),
         ],
       });
@@ -674,23 +927,19 @@ describe("GameDataManager", () => {
         height: 40,
       });
     });
-
-    it("uses the same 16px square fallback as BaseUnit for a missing formation", () => {
-      expect(
-        gameDataManager.getUnitDimensions(unitType, "missing-formation"),
-      ).toEqual({ width: 16, height: 16 });
-    });
   });
 
-  describe("collision shape configuration", () => {
+  describe("collision shape gating (only WW2 stays a circle; napoleonic uses Obb)", () => {
     const shapeOf = (era: GameEra, id: string) => {
       const formation = GameDataManager.get(era)
         .getFormationManager()
         .getTemplate(id)!;
-      return getCollisionConfig(formation).type;
+      return isCircleCollision(getCollisionConfig(formation)) ? "circle" : "obb";
     };
 
-    const napoleonicFormations = [
+    // Real napoleonic units collide as rotated rectangles; only the `unknown`
+    // fallback stays a circle. Pinned so a formation can't silently flip shapes.
+    const napoleonicObb = [
       "line",
       "column",
       "square",
@@ -700,19 +949,19 @@ describe("GameDataManager", () => {
       "artillery",
       "ship",
     ];
-    napoleonicFormations.forEach((id) => {
+    napoleonicObb.forEach((id) => {
       it(`napoleonic ${id} collides as an Obb`, () => {
-        expect(shapeOf("napoleonic", id)).toBe(CollisionShapeType.Obb);
+        expect(shapeOf("napoleonic", id)).toBe("obb");
       });
     });
 
-    it("napoleonic unknown fallback collides as an Obb", () => {
-      expect(shapeOf("napoleonic", "unknown")).toBe(CollisionShapeType.Obb);
+    it("napoleonic unknown fallback stays a circle", () => {
+      expect(shapeOf("napoleonic", "unknown")).toBe("circle");
     });
 
     ["default", "dispersed"].forEach((id) => {
-      it(`ww2 ${id} collides as an Obb`, () => {
-        expect(shapeOf("ww2", id)).toBe(CollisionShapeType.Obb);
+      it(`ww2 ${id} collides as a circle`, () => {
+        expect(shapeOf("ww2", id)).toBe("circle");
       });
     });
   });

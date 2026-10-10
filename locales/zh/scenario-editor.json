@@ -1,4 +1,4 @@
-﻿{
+{
   "inspectorBands": {
     "identity": "身份",
     "placement": "布置",
@@ -81,16 +81,18 @@
     "allowDynamicArmyHelp": "启用后，玩家会根据匹配的战斗类型带上自己的军队，并在各自的区域内部署。禁用后，战役预置的单位将构成全部阵容（跳过军队配置）。",
     "fixedRoster": "固定玩家",
     "fixedRosterHelp": "启用后，剧本自行定义玩家席位、队伍和弹药储备，大厅无法添加或移除玩家。禁用后，玩家名单来自大厅或匹配系统。",
-    "allowDeploymentPhase": "部署阶段",
-    "allowDeploymentPhaseHelp": "启用后，战斗从第 0 回合开始，每位玩家可以在交战开始前于自己的部署区内重新摆放部队。",
     "placeableObjectives": "玩家放置的目标点",
     "placeableObjectivesHelp": "启用后，每位玩家在部署阶段于自己的区域内放置各自的目标点。禁用后，战斗只使用你在地图上放置的目标点。",
-    "placeableObjectivesNeedsDeployment": "请同时启用部署阶段，否则玩家永远无法进入放置这些目标点的回合，也就不会出现任何目标点。",
     "noInherentAmmo": "无自带弹药",
     "noInherentAmmoHelp": "启用后，拥有弹药系统的单位出场时自身没有弹药，全部补给来自共享储备，因此第一回合无法开火，只有在储备为其补给后才能开火。",
+    "startTime": "开始时间",
+    "startTimeHelp": "可选。留空时，第 1 回合将于 {{time}} 开始（该时代的默认时间）。",
+    "maxTurn": "最大回合数",
+    "maxTurnHelp": "可选的场景默认值（10–99）；对局仍可选择其他上限。",
     "showGrid": "显示网格",
     "showUnits": "显示单位",
     "showObjectives": "显示目标点",
+    "showMapLabels": "显示地图标注",
     "goBack": "返回",
     "goBackConfirm": "确定要返回并退出编辑器吗？",
     "display": "显示",
@@ -123,6 +125,8 @@
     "rosterHelp": "固定名单意味着由战役剧本决定玩家席位、队伍和弹药，所有人都使用你放置的单位作战。动态名单把席位交给大厅或匹配系统，玩家自带军队上阵。"
   },
   "playersPanel": {
+    "commander": "指挥官",
+    "commandFormation": "部队",
     "playerNumbered": "玩家 {{number}}",
     "removePlayer": "移除玩家",
     "rosterLimits": "一个战役剧本至少需要 {{min}} 名玩家，最多允许 {{max}} 名。",
@@ -173,10 +177,9 @@
   "deployment": {
     "title": "部署区域",
     "hint": "这些区域决定每支军队的起始位置。部署阶段只是额外增加第 0 回合，让玩家在区域内重新摆放。",
-    "phaseHelp": "开启部署阶段后，玩家在交战开始前会多获得一个回合，专门用于在自己的区域内调整单位位置。",
-    "gateHelp": "只要“允许动态军队”“部署阶段”或“玩家放置的目标点”中任意一项开启，这些区域就可以编辑，因为这三项都需要让抵达的军队有个起始位置。三项全部关闭时它们会变灰；在程序生成地图上同样变灰，那里的区域改为在随机地图面板中以百分比设定。",
     "team": "队伍 {{team}}",
-    "wholeTeam": "队伍中的所有玩家",
+    "remainingPlayers": "队伍中的其余玩家",
+    "assignmentHelp": "选择队伍中的其余玩家，或选择一名或多名指定玩家。",
     "player": "玩家 {{player}}",
     "mainZone": "主区域",
     "forwardZone": "前沿",
@@ -202,7 +205,11 @@
     "drawLineRank": "画线排序（越小越靠前）",
     "title": "编辑自定义阵型",
     "collision": "碰撞",
-    "collisionHelp": "矩形占地：正面宽度为 frontage，前后纵深为 depth。将两项都设为 0 可禁用碰撞（飞行 / 幽灵）。",
+    "collisionHelp": "占地形状：圆形（半径）或矩形（正面宽度为 frontage，纵深为 depth 即前后方向）。半径设为 0 表示无碰撞（飞行 / 幽灵）。",
+    "shape": "形状",
+    "shapeRectangle": "矩形",
+    "shapeCircle": "圆形",
+    "radiusPx": "半径（px）",
     "frontagePx": "正面宽度（px）",
     "depthPx": "纵深（px）",
     "runMovementModifier": "疾跑移动修正",
@@ -217,8 +224,9 @@
     "flanking": "侧翼",
     "rangedDamageResistance": "远程伤害抗性",
     "rangedOrgResistance": "远程组织度抗性",
+    "ammoConsumptionModifier": "弹药消耗修正",
     "fireEdges": "射击边（边缘射击）",
-    "fireEdgesHelp": "每条射击边沿矩形的一个面发射。没有射击边的阵型默认从正面单边射击。",
+    "fireEdgesHelp": "每条射击边沿矩形的一个面发射。没有射击边的阵型默认从正面单边射击；圆形阵型不射击。",
     "edge": "边",
     "edgeLeft": "0 - 左侧（-Y）",
     "edgeFront": "1 - 正面（+X）",
@@ -255,6 +263,7 @@
     }
   },
   "unitTemplateModal": {
+    "initialOrder": "初始命令",
     "title": "编辑自定义单位模板",
     "optBuiltIn": "{{name}}（内置）",
     "optCustom": "{{name}}（自定义）",
@@ -279,6 +288,8 @@
     "orgRadiusBonus": "组织度范围加成",
     "reportStats": "简报数据",
     "reportStatsHelp": "每个单位计入战斗简报的计数（例如兵员、马匹、火炮）。键名取自该时代的内置单位。",
+    "casualtiesAtZeroHp": "生命值归零时的伤亡率（%）",
+    "casualtiesAtZeroHpHelp": "生命值条完全耗尽时，该单位报告兵力中计为伤亡的比例。生命值代表战斗力：默认值为50%，即报告兵力的一半成为伤亡后，单位将失去作战能力。溃散仍会移除全部剩余战斗力。",
     "tallyPerUnit": "每单位计数",
     "walkMovement": "行进移动力",
     "runMovement": "疾跑移动力",
@@ -294,7 +305,6 @@
     "rangedAttack": "远程攻击",
     "panicFireDistance": "恐慌射击距离",
     "fireWhileMoving": "移动时射击",
-    "noAmmoRegain": "弹药不可补充",
     "rangedDamageTypes": "远程伤害类型",
     "addRangedDamageType": "添加远程伤害类型",
     "enableRanged": "启用远程",
@@ -322,6 +332,10 @@
     "changeAnimationsHelp": "单位从该阵型转入另一阵型时播放的动画。先选择它要变成的阵型，再选择途中播放的动画。此处没有条目的转换并非出错：单位只是从一张精灵图直接切换到另一张，中间没有任何过渡，今天所有没有条目的阵型都是如此。列表中是本时代提供的动画，本时代的线列步兵用到了其中六种。"
   },
   "unitCategoryModal": {
+    "meleeFire": {
+      "ratio": "近战火力（0–1）",
+      "hint": "0（默认）：被敌军覆盖的射击点停止射击，其余射击点保持全部火力继续射击。大于 0 时，被敌军覆盖的射击点按此比例发挥正常火力。友军仍会阻挡射击。"
+    },
     "title": "编辑自定义单位类别",
     "optionBuiltIn": "{{name}}（内置）",
     "optionCustom": "{{name}}（自定义）",
@@ -445,9 +459,9 @@
       "endBottomWidth": "结束底边宽",
       "startHeight": "起始高度",
       "endHeight": "结束高度",
-      "heightModifierPerLevelHelp": "每超出第一级的高度差等级，按此比例改变爆炸形状的纵深。负值缩小覆盖范围，正值将其拉长。本时代的实心弹使用 -0.15。",
-      "damageModifierPerLevelHelp": "每超出第一级的高度差等级，加上这一伤害修正。负值削弱这一击，正值使其加重。本时代的实心弹使用 -0.05。",
-      "maxElevationDiffHelp": "可以计入的最大高度差等级数。高度差按绝对值计算，因此向上射击与向下射击同等对待，而一级或更小的高度差完全不产生作用。本时代的实心弹上限为 4。"
+      "heightModifierPerLevelHelp": "每超出第一级的高度差等级，按此比例改变爆炸形状的纵深。负值缩小覆盖范围，正值将其拉长。本时代的实心弹使用 -0.075。",
+      "damageModifierPerLevelHelp": "每超出第一级的高度差等级，加上这一伤害修正。负值削弱这一击，正值使其加重。本时代的实心弹使用 -0.025。",
+      "maxElevationDiffHelp": "可以计入的最大高度差等级数。高度差按绝对值计算，因此向上射击与向下射击同等对待，而一级或更小的高度差完全不产生作用。本时代的实心弹上限为 8。"
     },
     "addRangeBracket": "添加距离区段",
     "addAreaOfEffect": "添加作用范围",
@@ -496,7 +510,6 @@
       "pushDistanceModifier": "推力距离修正",
       "fixedEnemyCollisionLevel": "固定敌军碰撞等级",
       "canPlaceObjectives": "可放置目标点",
-      "prioritizeMovement": "优先移动",
       "supplyRoute": "补给路线",
       "impassableFor": "对以下不可通行",
       "attackModifier": "攻击修正",
@@ -515,7 +528,9 @@
       "importFromScenario": "从战役剧本导入",
       "duplicate": "复制",
       "inThisScenario": "本战役剧本中",
-      "builtIntoThisEra": "该时代内置"
+      "builtIntoThisEra": "该时代内置",
+      "resetToEra": "重置为时代默认",
+      "resetAllToEra": "全部重置为时代默认"
     },
     "transfer": {
       "importTitle": "导入",
@@ -603,7 +618,6 @@
       "clonePickerTitle": "克隆内置地形类别"
     },
     "overrideEditor": {
-      "reset": "重置",
       "eraDefault": "时代默认值：{{value}}",
       "structuralTooltip": "结构性 / 确定性常量。更改它可能破坏渲染、回放或匹配。"
     },
@@ -652,7 +666,7 @@
     },
     "gameConstants": {
       "title": "游戏常量",
-      "description": "为本战役覆盖该时代的数值常量。仅保存已更改的值；“重置”会将字段恢复为时代默认值。标记 ⚠ 的键是结构性的——更改它们可能破坏渲染、回放或匹配。数值为原始内部单位。",
+      "description": "这些是该时代的基础数值：一个回合有多长、一格有多大、一场战斗持续多少回合。你的更改只对本剧本生效，任何数值都可以还原为游戏原本的数值。",
       "category": {
         "mapDimensions": "地图尺寸",
         "deployment": "部署",
@@ -676,11 +690,15 @@
     },
     "gameRules": {
       "title": "游戏规则",
-      "description": "为本战役覆盖该时代的玩法规则。仅保存已更改的值；使用“重置”将字段恢复为时代默认值。数值为原始内部单位（部分数据以预缩放形式存储）。"
+      "description": "这些是支撑该时代运转的系统，从部队如何维持士气到如何赢得一场战斗。你的更改只对本剧本生效，任何数值都可以还原为游戏原本的数值。数值使用游戏自身的单位，因此不一定代表米或分钟。"
     },
     "ordersPanel": {
       "title": "指令",
-      "description": "为本战役覆盖该时代内置指令的数值。仅保存已更改的值；使用“重置”将字段恢复为时代默认值。你可以修改现有指令，但不能添加新指令。"
+      "description": "命令是玩家在战斗中可以下达给部队的指示。你可以在此为本剧本重新调整该时代的命令，但无法创建新的命令。任何数值都可以还原为游戏原本的数值。",
+      "general": "通用修正值",
+      "categoryOverrides": "类别例外",
+      "addCategory": "添加类别例外",
+      "inheritance": "没有例外设置的类别使用通用修正值：{{value}}%。"
     },
     "clonePicker": {
       "alreadyOverridden": "（已覆盖）",
@@ -817,26 +835,9 @@
     "title": "触发器",
     "intro": "触发器会在回合开始或结束时检查战局，并在你设定的条件成立时执行动作。在下方创建一个。",
     "moreInfo": "在此了解更多有关触发器的信息",
-    "lastClick": "可复制的坐标",
+    "lastClick": "地图上最后一次点击",
     "lastClickHint": "你最后在地图上点选的位置，采用触发器放置单位或移动镜头时使用的坐标。",
-    "createTrigger": "创建触发器",
-    "createTriggerButton": "创建触发器",
-    "createDisabledInvalidJson": "请先修正下方的 JSON，然后才能创建触发器。",
-    "createDisabledNeedsConditionAndAction": "触发器至少需要一个条件和一个动作。",
-    "format": "格式",
-    "invalidJsonFormat": "无效的 JSON 格式",
     "fixBeforeTesting": "测试此场景前，请修复触发器错误。",
-    "validation": {
-      "expectedArray": "{{path}} 必须是数组。",
-      "expectedObject": "{{path}} 必须是对象。",
-      "unitAtTriggerLevel": "{{path}} 看起来像一个单位。请将其放入 addUnit 动作中。",
-      "invalidEvent": "{{path}} 必须是 onTurnStart 或 onTurnEnd。",
-      "invalidConditionLogic": "{{path}} 必须是 AND 或 OR。",
-      "invalidOnce": "{{path}} 必须是布尔值。",
-      "invalidConditionType": "{{path}} 包含未知的条件类型。",
-      "invalidActionType": "{{path}} 包含未知的动作类型。",
-      "invalidValue": "{{path}} 的值对 {{type}} 无效。"
-    },
     "event": "事件",
     "conditionLogic": "条件逻辑",
     "conditionLogicAnd": "所有条件（AND）",
@@ -846,8 +847,94 @@
     "actions": "动作",
     "addAction": "添加动作",
     "once": "仅一次",
-    "groupTrigger": "触发器",
-    "value": "值"
+    "addTrigger": "添加触发器",
+    "noTriggers": "还没有触发器。",
+    "noConditions": "没有条件，因此总会触发。",
+    "noActions": "还没有动作。",
+    "always": "总是",
+    "nothing": "无",
+    "and": "且",
+    "or": "或",
+    "conditionType": "条件类型",
+    "actionType": "动作类型",
+    "events": {
+      "onTurnStart": "回合开始",
+      "onTurnEnd": "回合结束"
+    },
+    "conditionTypes": {
+      "isTurn": "回合等于",
+      "isTurnMultipleOf": "每隔几回合",
+      "isTurnGreaterThan": "回合晚于",
+      "isTurnLessThan": "回合早于",
+      "objectiveBelongsTo": "目标点由谁控制",
+      "isUnitNotAlive": "单位已被消灭",
+      "isUnitRouting": "单位正在溃逃",
+      "unitMovedThisTurn": "单位本回合移动过",
+      "chance": "随机概率",
+      "isVar": "变量等于"
+    },
+    "actionTypes": {
+      "addUnit": "添加单位",
+      "removeUnit": "移除单位",
+      "addTrigger": "添加触发器",
+      "showMessage": "显示消息",
+      "defeatPlayer": "判定玩家失败",
+      "moveCamera": "移动镜头",
+      "setVar": "设置变量",
+      "endGame": "结束战斗",
+      "orderUnit": "命令单位"
+    },
+    "fields": {
+      "rotationDegrees": "旋转（°）",
+      "useLastClick": "使用地图上最后一次点击",
+      "playerN": "玩家 {{n}}",
+      "teamN": "队伍 {{n}}",
+      "everyTurns": "每隔（回合）",
+      "offset": "偏移",
+      "heldBy": "控制者",
+      "chancePercent": "概率（%）",
+      "variable": "变量",
+      "value": "值",
+      "notEqual": "不等于此值",
+      "title": "标题",
+      "message": "消息",
+      "zoom": "缩放",
+      "durationSeconds": "时长（秒）",
+      "reason": "原因",
+      "addUnit": "添加单位",
+      "addCopiedUnits": "添加已复制的单位（{{count}}）",
+      "copyUnitsHint": "在地图上选中单位并复制，即可连同全部设置添加到这里。",
+      "order": "命令",
+      "target": "目标单位",
+      "path": "路径",
+      "addWaypoint": "在最后一次点击处添加路径点",
+      "targetOrPlaceHint": "请指定目标单位或地点，不要同时指定。"
+    },
+    "endReasons": {
+      "victory": "胜利",
+      "max_turn": "达到回合上限",
+      "cancelled": "已取消",
+      "draw_by_agreement": "平局"
+    },
+    "orderTypes": {
+      "1": "行进",
+      "2": "奔跑",
+      "3": "射击",
+      "4": "边射击边前进",
+      "5": "放置",
+      "6": "后撤",
+      "7": "转向",
+      "-1": "取消当前命令"
+    },
+    "unreadableTitle": "无法读取的触发器",
+    "unreadable": "编辑器无法显示此触发器。请删除后重新创建。",
+    "orderMissing": {
+      "unit": "请选择接收此命令的单位。",
+      "targetOrPath": "请指定目标单位或添加路径点。",
+      "path": "请至少添加一个路径点。",
+      "targetOrPlace": "请指定目标单位或地点。",
+      "place": "请指定地点。"
+    }
   },
   "randomMap": {
     "title": "随机地图",
@@ -857,6 +944,8 @@
     "startFromTemplate": "从模板开始",
     "loadInstructionsFromTemplate": "从模板加载指令",
     "generating": "生成中……",
+    "acceptedAngle": "允许角度 (±)",
+    "angle": "角度",
     "generatePreview": "生成预览",
     "instructions": "指令",
     "instructionsWithCount": "指令（{{count}}）",
@@ -896,6 +985,7 @@
     "selectFile": "选择文件",
     "importedFile": "已导入的文件",
     "field": {
+      "along": "沿着",
       "amount": "总量",
       "between": "介于",
       "border": "边界",
@@ -907,6 +997,7 @@
       "curveLen": "曲线长度",
       "curveWeight": "曲线权重",
       "deep": "深水",
+      "directionStep": "方向步长",
       "downHillHeightCost": "下坡花费",
       "edgeDistance": "边缘距离",
       "edgeWeight": "边缘权重",
@@ -920,6 +1011,7 @@
       "heightFilter": "高度筛选",
       "heightRanges": "高度范围",
       "heights": "高度",
+      "keep": "保留",
       "l": "大",
       "m": "中",
       "max": "最大",
@@ -939,8 +1031,10 @@
       "minHeight": "最小高度",
       "minHeightValue": "最小高度值",
       "minSurrounding": "最少周围格数",
+      "minTiles": "最小田块",
       "minWidth": "最小宽度",
       "min_scaling_factor": "按地图大小的最小缩放",
+      "mode": "模式",
       "multiplier": "倍率",
       "name": "名称",
       "noiseSmoothness": "噪声平滑度",
@@ -968,6 +1062,7 @@
       "shallow": "浅水",
       "shore": "岸边",
       "size": "大小",
+      "skipBlocked": "跳过受阻",
       "smoothing": "平滑",
       "startHeightRanges": "起点高度范围",
       "team": "队伍",
@@ -977,8 +1072,10 @@
       "terrainReplacements": "地形替换",
       "terrains": "地形",
       "toTerrain": "目标地形",
+      "tries": "尝试次数",
       "type": "类型",
       "uphillHeightCost": "上坡花费",
+      "verge": "路肩",
       "width": "宽度",
       "x": "X",
       "xBounds": "X 边界",
@@ -997,12 +1094,16 @@
       "connectClusters": "连接群簇",
       "objective": "目标点",
       "lake": "湖泊",
-      "objectiveLayer": "目标点层"
+      "objectiveLayer": "目标点层",
+      "symmetry": "对称",
+      "fields": "田地"
     },
     "objectiveType": {
       "small": "小",
       "big": "大"
-    }
+    },
+    "addField": "添加字段",
+    "removeField": "移除"
   },
   "randomDeployment": {
     "title": "部署区域",
@@ -1048,5 +1149,12 @@
     "bigInset": "大目标区域裁剪",
     "smallInsetInfo": "小目标区域每侧收窄多少。仅裁剪宽度，保持高度。",
     "bigInsetInfo": "大目标框每侧缩小多少，在部署区域内居中。"
+  },
+  "mapLabels": {
+    "title": "地图标注",
+    "help": "右键点击地图（触控操作时轻触）选择位置，然后添加或移动标注。",
+    "add": "添加标注",
+    "move": "移动到所选位置",
+    "empty": "暂无标注。"
   }
 }

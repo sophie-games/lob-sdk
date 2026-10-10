@@ -4,7 +4,8 @@ import {
   TeamDeploymentZone,
   DeploymentZoneType,
 } from "@lob-sdk/types";
-import { GameEra, GameDataManager } from "@lob-sdk/game-data-manager";
+import type { MapSizeTemplate } from "@lob-sdk/game-data-manager";
+import { polygonFromBounds } from "@lob-sdk/utils";
 
 /**
  * Calculates the map size index based on the number of players.
@@ -32,11 +33,9 @@ export const getDeploymentZonesByMapSize = (
   mapWidth: number,
   mapHeight: number,
   team: number,
-  era: GameEra,
+  mapSizes: Record<Size, MapSizeTemplate>,
   tileSize: number,
 ): TeamDeploymentZones => {
-  const mapSizes = GameDataManager.get(era).getMapSizes();
-
   return {
     team,
     zones: [
@@ -82,5 +81,9 @@ function zoneSize(
     team === 1
       ? (mapHeight + totalHeight) / 2 - zoneHeight
       : (mapHeight - totalHeight) / 2;
-  return { team, type, width: zoneWidth, height: zoneHeight, x, y };
+  return {
+    team,
+    type,
+    polygons: [polygonFromBounds(x, y, x + zoneWidth, y + zoneHeight)],
+  };
 }
