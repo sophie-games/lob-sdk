@@ -1,6 +1,7 @@
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { GenerateRandomMapProps, InstructionType, Scenario, TerrainType } from "@lob-sdk/types";
-import { RandomMapGenerator, resolveMapSizing } from "./random-map-generator";
+import { RandomMapGenerator } from "./random-map-generator";
+import { resolveMapSizing } from "./resolve-map-sizing";
 import { SizedMapGenerator } from "./sized-map-generator";
 
 const scenario = {
