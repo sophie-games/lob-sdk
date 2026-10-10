@@ -64,6 +64,8 @@
       "description": "Choose a built-in scenario or import a custom one with predefined players and starting units, then assign its forces to players. Your membership includes one active private event for up to {{count}} players, with Game Master controls, reserves, command roles, and Full Vision recording.",
       "name": "Event name",
       "namePlaceholder": "Waterloo Invitational",
+      "publicReplay": "Public replay",
+      "publicReplayHelp": "Once the battle ends, anyone with the link can watch the replay. Otherwise only the War Room's members can.",
       "seats": "Players",
       "seatsHelp": "Select a unit on the map, enter the player's username, and assign it. Green markers are already assigned.",
       "assignedCount": "{{assigned}} of {{total}} assigned",
