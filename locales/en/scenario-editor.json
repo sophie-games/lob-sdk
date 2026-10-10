@@ -615,7 +615,7 @@
     },
     "spritesPanel": {
       "title": "Unit sprites",
-      "description": "A sprite is the picture a unit wears on the field. Upload your own and you can pick them when you set up a unit's formations. They ride inside the scenario file itself, so each one has to stay under {{kb}}KB. Upload one below.",
+      "description": "A sprite is the picture a unit wears on the field. Upload your own and you can pick them when you set up a unit's formations. They ride inside the scenario file itself, so each one has to stay under {{kb}}KB. A division in the scenario's organizations can fly one as its banner too: set the division's \"banner\" to the sprite's name. Upload one below.",
       "yourSprites": "Your sprites",
       "noSprites": "None yet, so your units wear the pictures the era already provides.",
       "uploadSprite": "Upload sprite",
@@ -626,6 +626,7 @@
       "tooLargeAlert": "Image too large; could not compress under {{kb}}KB. Try a smaller or simpler image.",
       "invalidImageAlert": "Could not read the image. Use a PNG or WebP file.",
       "deleteBlockedAlert": "You can't delete this sprite while {{where}} still use it. Change those references first.",
+      "divisionBannerRef": "{{name}} (division banner)",
       "libraryTitle": "Sprite library",
       "libraryDescription": "Every sprite the era already provides, free for you to use. Have a look before you make your own.",
       "filterPlaceholder": "Filter by name...",

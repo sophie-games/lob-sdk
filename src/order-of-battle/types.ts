@@ -45,6 +45,8 @@ export interface ScenarioOrganization {
     kind?: string;
     name?: string;
     standard?: number;
+    /** Name of a `customSprites` image the division's banner flies. */
+    banner?: string;
     brigades: {
       kind?: string;
       name?: string;
