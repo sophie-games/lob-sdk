@@ -30,6 +30,7 @@ import apennineRidges from "./scenarios/apennine-ridges.json";
 import marshDikes from "./scenarios/marsh-dikes.json";
 import rivoliPlateau from "./scenarios/rivoli-plateau.json";
 import mantua1797 from "./scenarios/mantua-1797.json";
+import caldiero1805 from "./scenarios/caldiero-1805.json";
 
 export const napoleonicScenarioCatalog = {
   plains,
@@ -63,4 +64,5 @@ export const napoleonicScenarioCatalog = {
   "marsh-dikes": marshDikes,
   "rivoli-plateau": rivoliPlateau,
   "mantua-1797": mantua1797,
+  "caldiero-1805": caldiero1805,
 } as unknown as ScenarioCatalog;
