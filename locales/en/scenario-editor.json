@@ -159,6 +159,27 @@
     "ammoBase": "Base",
     "ammoHelp": "How much ammunition this player's army has. The reserve is what it spends over the battle, and the base is the level the reserve climbs back toward each turn."
   },
+  "divisionsPanel": {
+    "title": "Divisions",
+    "help": "Select units on the map and pick their brigade in the unit panel. A player with no divisions here has their army grouped automatically; units left out of every brigade start unassigned.",
+    "selectOnMap": "Select on map",
+    "unassignedCount_one": "{{count}} unit is in no brigade.",
+    "unassignedCount_other": "{{count}} units are in no brigade.",
+    "unitCount_one": "{{count}} unit",
+    "unitCount_other": "{{count}} units",
+    "divisionName": "Division name",
+    "brigadeName": "Brigade name",
+    "kind": "Type",
+    "moveUp": "Move up",
+    "moveDown": "Move down",
+    "removeDivision": "Remove division",
+    "removeBrigade": "Remove brigade",
+    "brigade": "Brigade",
+    "unassigned": "Unassigned",
+    "mixed": "Several brigades",
+    "newBrigadeOption": "New brigade",
+    "newDivisionOption": "New division"
+  },
   "terrainPanel": {
     "brush": "Brush",
     "shape": "Shape",
