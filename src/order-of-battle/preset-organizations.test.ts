@@ -33,6 +33,7 @@ it.each(cases)("%s/%s has a valid organization", (era, _name, scenario) => {
 
 it("covers every historical battle that places its own units", () => {
   expect(withOrganization.map(([, name]) => name).sort()).toEqual([
+    "austerlitz-1805",
     "battle-of-france",
     "battle-of-moscow",
     "waterloo",
@@ -87,6 +88,9 @@ describe.each(withOrganization)("%s/%s", (_era, _name, scenario) => {
 const STRANDED_PX = 250;
 const STRANDED: Record<string, number> = {
   waterloo: 3,
+  // Legrand held a cordon down the Goldbach, putting the Corsicans in Telnitz and
+  // the Po skirmishers in Sokolnitz, and Soult's corps guns went one per sector.
+  "austerlitz-1805": 6,
   "battle-of-france": 1,
   "battle-of-moscow": 4,
 };
