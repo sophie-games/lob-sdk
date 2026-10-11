@@ -186,7 +186,7 @@
   },
   "applyOrderTypeToSelection": {
     "title": "Order type applies to selection",
-    "description": "On: changing the movement type retypes the selected units' current orders and the order button follows your selection. Off: it only sets the type for the next order you draw (classic)."
+    "description": "On: changing the movement type also retypes the selected units' current orders. Off: it only sets the type for the next order you draw (classic)."
   },
   "chatVisibility": {
     "title": "Chat",
