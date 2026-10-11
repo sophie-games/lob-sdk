@@ -31,6 +31,7 @@ import marshDikes from "./scenarios/marsh-dikes.json";
 import rivoliPlateau from "./scenarios/rivoli-plateau.json";
 import mantua1797 from "./scenarios/mantua-1797.json";
 import caldiero1805 from "./scenarios/caldiero-1805.json";
+import austerlitz1805 from "./scenarios/austerlitz-1805.json";
 import teugnHausen1809 from "./scenarios/teugn-hausen-1809.json";
 
 export const napoleonicScenarioCatalog = {
@@ -66,5 +67,6 @@ export const napoleonicScenarioCatalog = {
   "rivoli-plateau": rivoliPlateau,
   "mantua-1797": mantua1797,
   "caldiero-1805": caldiero1805,
+  "austerlitz-1805": austerlitz1805,
   "teugn-hausen-1809": teugnHausen1809,
 } as unknown as ScenarioCatalog;
