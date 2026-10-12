@@ -61,7 +61,8 @@
       "units": "Units",
       "objectives": "Objectives",
       "lineOfSight": "Sight",
-      "triggers": "Triggers"
+      "triggers": "Triggers",
+      "divisions": "Divisions"
     },
     "mode": {
       "scenario": "Scenario",
@@ -161,8 +162,12 @@
   },
   "divisionsPanel": {
     "title": "Divisions",
-    "help": "Select units on the map and pick their brigade in the unit panel. A player with no divisions here has their army grouped automatically; units left out of every brigade start unassigned.",
+    "help": "Select units on the map, then group them here. A player with no divisions has their army grouped automatically; units in no brigade start unassigned.",
     "selectOnMap": "Select on map",
+    "addSelection": "Add selected units",
+    "newBrigadeFromSelection": "New brigade from selected units",
+    "newDivisionFromSelection": "New division from selected units",
+    "selectUnassigned": "Select them",
     "unassignedCount_one": "{{count}} unit is in no brigade.",
     "unassignedCount_other": "{{count}} units are in no brigade.",
     "unitCount_one": "{{count}} unit",
