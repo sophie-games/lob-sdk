@@ -19,6 +19,11 @@ export interface DivisionDoctrine extends OrganizationLabel {
   maxBrigades: number;
   /** These categories are spread evenly across divisions of this type. */
   distributedCategories?: UnitCategoryId[];
+  /**
+   * Each division's share of `distributedCategories` forms one brigade of this
+   * kind, its screen, rather than joining its weakest brigade.
+   */
+  distributedBrigadeKind?: string;
   /** Keep categories in different classes in separate divisions. */
   classes?: {
     categories: UnitCategoryId[];

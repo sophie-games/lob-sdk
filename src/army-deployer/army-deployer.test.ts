@@ -224,6 +224,30 @@ describe("ArmyDeployer", () => {
       );
     });
 
+    it("gives the skirmishers of each infantry division a light brigade of their own", () => {
+      const organization = ArmyDeployer.getDefaultOrganization(
+        gameDataManager,
+        { 1: 20 },
+        "battle",
+      );
+      const skirmish = (type: string) =>
+        gameDataManager.getUnitTemplateManager().getTemplate(Number(type))
+          .category === "skirmishInfantry";
+      const infantry = organization.divisions.filter(
+        (division) => division.kind === "infantry",
+      );
+
+      expect(infantry.length).toBeGreaterThan(1);
+      for (const division of infantry) {
+        const light = division.brigades.filter((b) => b.kind === "light");
+        expect(light).toHaveLength(1);
+        expect(Object.keys(light[0].units).every(skirmish)).toBe(true);
+        for (const brigade of division.brigades.filter((b) => b.kind !== "light")) {
+          expect(Object.keys(brigade.units).some(skirmish)).toBe(false);
+        }
+      }
+    });
+
     it("organizes the units a saved organization leaves unassigned by doctrine", () => {
       const units: UnitCounts = { 1: 20, 8: 4, 12: 2 };
       const byDoctrine = ArmyDeployer.getDefaultOrganization(
@@ -546,6 +570,38 @@ describe("ArmyDeployer", () => {
       const mean = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
 
       expect(mean(xsOf(7))).toBeCloseTo(mean(xsOf(1)));
+    });
+
+    it("deploys a saved light brigade as its division's screen", () => {
+      // 1 = line infantry; 7 = light infantry, which deploys forward.
+      const deployOrganization = (
+        brigades: { kind: string; units: UnitCounts }[],
+      ) =>
+        new ArmyDeployer(
+          gameDataManager,
+          { 1: 4, 7: 4 },
+          wideZone,
+          forwardZone,
+          1,
+          1,
+          "battle",
+        ).deploy({ version: 1, divisions: [{ kind: "infantry", brigades }] });
+      const of = (units: { type: number; pos: { x: number; y: number } }[], type: number) =>
+        units.filter((unit) => unit.type === type).map((unit) => unit.pos);
+      const mean = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
+
+      const screened = deployOrganization([
+        { kind: "line", units: { 1: 4 } },
+        { kind: "light", units: { 7: 4 } },
+      ]);
+      const inLine = deployOrganization([{ kind: "line", units: { 1: 4, 7: 4 } }]);
+
+      // Centred on the division, one row ahead of where a brigade row would put
+      // them, and no brigade row of its own behind the line.
+      expect(mean(of(screened, 7).map((p) => p.x))).toBeCloseTo(mean(of(screened, 1).map((p) => p.x)));
+      expect(new Set(of(screened, 7).map((p) => p.y)).size).toBe(1);
+      expect(of(screened, 7)[0].y).toBeLessThan(of(inLine, 7)[0].y);
+      expect(of(screened, 1)).toEqual(of(inLine, 1));
     });
 
     it("keeps every brigade row of a deep saved division apart in the zone", () => {

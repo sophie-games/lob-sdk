@@ -200,13 +200,25 @@ export class ArmyDeployer {
       ),
     );
     plan.front.centre.unshift(
-      ...organization.divisions.map((division) => ({
-        kind: division.kind,
-        brigadeKind: division.brigades[0]?.kind ?? "",
-        brigades: division.brigades.map(({ units }) => this.recruitsOf(units)),
-        screen: [],
-        guns: [],
-      })),
+      ...organization.divisions.map((division) => {
+        // Its light brigade screens the division, as the doctrine deploys one.
+        const light = ArmyDeployer.screenBrigadeKind(
+          this.gameDataManager,
+          division.kind,
+        );
+        const isScreen = (kind: string) => light !== undefined && kind === light;
+        return {
+          kind: division.kind,
+          brigadeKind: division.brigades[0]?.kind ?? "",
+          brigades: division.brigades
+            .filter(({ kind }) => !isScreen(kind))
+            .map(({ units }) => this.recruitsOf(units)),
+          screen: division.brigades
+            .filter(({ kind }) => isScreen(kind))
+            .flatMap(({ units }) => this.recruitsOf(units)),
+          guns: [],
+        };
+      }),
     );
     this.deployAsOrderOfBattle(plan);
     return this.unitDtos;
@@ -756,6 +768,16 @@ export class ArmyDeployer {
     return deployed;
   }
 
+  /** The brigade kind a division of `kind` gives its skirmish screen, if it gives it one. */
+  private static screenBrigadeKind(
+    gameDataManager: GameDataManager,
+    kind: string,
+  ): string | undefined {
+    return gameDataManager
+      .getOrganizationDoctrine()
+      .divisions.find((d) => d.id === kind)?.distributedBrigadeKind;
+  }
+
   /** Build the compact, editable OOB that corresponds to the default deployment. */
   static getDefaultOrganization(
     gameDataManager: GameDataManager,
@@ -850,29 +872,36 @@ export class ArmyDeployer {
           units: ArmyDeployer.countRecruits(recruits),
         }));
 
-        for (const recruit of division.screen) {
-          if (brigades.length === 0) {
-            brigades.push({
-              kind: division.brigadeKind,
-              units: {},
-            });
+        const light = ArmyDeployer.screenBrigadeKind(gameDataManager, division.kind);
+        if (light !== undefined) {
+          if (division.screen.length > 0) {
+            brigades.push({ kind: light, units: ArmyDeployer.countRecruits(division.screen) });
           }
-          const weakest = brigades.reduce(
-            (best, brigade, index) =>
-              Object.values(brigade.units).reduce(
-                (sum, count) => sum + count,
-                0,
-              ) <
-              Object.values(brigades[best].units).reduce(
-                (sum, count) => sum + count,
-                0,
-              )
-                ? index
-                : best,
-            0,
-          );
-          brigades[weakest].units[recruit.type] =
-            (brigades[weakest].units[recruit.type] ?? 0) + 1;
+        } else {
+          for (const recruit of division.screen) {
+            if (brigades.length === 0) {
+              brigades.push({
+                kind: division.brigadeKind,
+                units: {},
+              });
+            }
+            const weakest = brigades.reduce(
+              (best, brigade, index) =>
+                Object.values(brigade.units).reduce(
+                  (sum, count) => sum + count,
+                  0,
+                ) <
+                Object.values(brigades[best].units).reduce(
+                  (sum, count) => sum + count,
+                  0,
+                )
+                  ? index
+                  : best,
+              0,
+            );
+            brigades[weakest].units[recruit.type] =
+              (brigades[weakest].units[recruit.type] ?? 0) + 1;
+          }
         }
 
         const support = new Map<string, Recruit[]>();
