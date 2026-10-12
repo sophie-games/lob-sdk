@@ -89,6 +89,19 @@ it("validates limits and support references", () => {
   expect(errors).toContain("support rule");
 });
 
+it("rejects a distributed brigade kind the doctrine does not label", () => {
+  const bad: OrganizationDoctrine = {
+    ...doctrine,
+    divisions: doctrine.divisions.map((d, index) =>
+      index ? d : { ...d, distributedBrigadeKind: "missing" },
+    ),
+  };
+  expect(validate({ organizationDoctrine: bad }).join()).toContain(
+    "Unknown distributed brigade kind",
+  );
+  expect(validate({ organizationDoctrine: doctrine })).toEqual([]);
+});
+
 it("rejects a type label that is not text", () => {
   const bad = structuredClone(doctrine);
   Object.assign(bad.divisions[0], { kindTitleKey: 1 });

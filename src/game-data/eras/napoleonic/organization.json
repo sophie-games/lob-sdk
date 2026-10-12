@@ -19,6 +19,7 @@
       "distributedCategories": [
         "skirmishInfantry"
       ],
+      "distributedBrigadeKind": "light",
       "row": "front",
       "position": "centre",
       "support": [
@@ -97,6 +98,9 @@
     },
     "artillery": {
       "titleKey": "orderOfBattle.divisionalArtillery"
+    },
+    "light": {
+      "titleKey": "orderOfBattle.lightBrigade"
     }
   }
 }

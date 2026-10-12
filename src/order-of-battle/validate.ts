@@ -70,6 +70,12 @@ export function validateOrganization(
         ))
     )
       errors.push(`Invalid distributedCategories in ${d.id}`);
+    if (
+      d.distributedBrigadeKind !== undefined &&
+      (typeof d.distributedBrigadeKind !== "string" ||
+        !Object.hasOwn(doctrine.brigades, d.distributedBrigadeKind))
+    )
+      errors.push(`Unknown distributed brigade kind in ${d.id}`);
     if (d.classes !== undefined) {
       if (!Array.isArray(d.classes) || !d.classes.length)
         errors.push(`Invalid classes in ${d.id}`);
