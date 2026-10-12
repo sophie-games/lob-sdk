@@ -604,6 +604,45 @@ describe("ArmyDeployer", () => {
       expect(of(screened, 1)).toEqual(of(inLine, 1));
     });
 
+    it("gives a saved light brigade the IDs of the units it screens with", () => {
+      // 7 = light infantry in both brigades: IDs go by type in organization order.
+      const units: UnitCounts = { 1: 4, 7: 4 };
+      const saved: ArmyOrganization = {
+        version: 1,
+        divisions: [
+          {
+            kind: "infantry",
+            brigades: [
+              { kind: "line", units: { 1: 4, 7: 2 } },
+              { kind: "light", units: { 7: 2 } },
+            ],
+          },
+        ],
+      };
+      const deployed = new ArmyDeployer(
+        gameDataManager,
+        units,
+        wideZone,
+        forwardZone,
+        1,
+        1,
+        "battle",
+      )
+        .deploy(saved)
+        .map((unit, id) => ({ ...unit, id }));
+      const [line, light] = materializeArmyOrganization(saved, 1, deployed)!
+        .divisions[0].brigades;
+      const ys = (unitIds: number[], type: number) =>
+        unitIds
+          .filter((id) => deployed[id].type === type)
+          .map((id) => deployed[id].pos.y);
+
+      // Team 1 faces up the map, so the screen ahead has the smaller y.
+      expect(Math.max(...ys(light.unitIds, 7))).toBeLessThan(
+        Math.min(...ys(line.unitIds, 7)),
+      );
+    });
+
     it("keeps every brigade row of a deep saved division apart in the zone", () => {
       const units: UnitCounts = { 1: 8 };
       const deployed = new ArmyDeployer(

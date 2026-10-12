@@ -64,6 +64,8 @@ interface DeployedDivision {
   brigades: Recruit[][];
   screen: Recruit[];
   guns: Recruit[];
+  /** A saved division's recruits in organization order, the order materialize gives out IDs in. */
+  saved?: Recruit[];
 }
 
 /**
@@ -206,17 +208,21 @@ export class ArmyDeployer {
           this.gameDataManager,
           division.kind,
         );
-        const isScreen = (kind: string) => light !== undefined && kind === light;
+        const brigades = division.brigades.map(({ kind, units }) => ({
+          screen: light !== undefined && kind === light,
+          recruits: this.recruitsOf(units),
+        }));
         return {
           kind: division.kind,
           brigadeKind: division.brigades[0]?.kind ?? "",
-          brigades: division.brigades
-            .filter(({ kind }) => !isScreen(kind))
-            .map(({ units }) => this.recruitsOf(units)),
-          screen: division.brigades
-            .filter(({ kind }) => isScreen(kind))
-            .flatMap(({ units }) => this.recruitsOf(units)),
+          brigades: brigades
+            .filter(({ screen }) => !screen)
+            .map(({ recruits }) => recruits),
+          screen: brigades
+            .filter(({ screen }) => screen)
+            .flatMap(({ recruits }) => recruits),
           guns: [],
+          saved: brigades.flatMap(({ recruits }) => recruits),
         };
       }),
     );
@@ -400,6 +406,7 @@ export class ArmyDeployer {
     // and leaving the other pushed off to a side. A division standing behind the
     // line keeps its guns behind it too, where the rows ahead are already taken.
     const behind = baseRow > 0;
+    const first = this.unitDtos.length;
     this.deployRow(division.screen, baseRow - 2, startX, width, spacing);
     this.deployRow(
       division.guns,
@@ -411,6 +418,12 @@ export class ArmyDeployer {
     division.brigades.forEach((brigade, index) =>
       this.deployRow(brigade, baseRow + index, startX, width, spacing),
     );
+    // A unit per recruit, in the order the rows above took them.
+    if (division.saved) {
+      const placed = [division.screen, division.guns, ...division.brigades].flat();
+      const dtoOf = new Map(placed.map((r, i) => [r, this.unitDtos[first + i]]));
+      this.unitDtos.splice(first, placed.length, ...division.saved.flatMap((r) => dtoOf.get(r) ?? []));
+    }
   }
 
   /**
