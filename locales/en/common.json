@@ -309,6 +309,16 @@
   "power": "Power",
   "units": "Units",
   "unitSkins": "Unit Skins",
+  "armySkins": {
+    "open": "Skins",
+    "composition": "Composition",
+    "help": "Equip puts a skin on every brigade with that unit in this composition. Pick skins brigade by brigade in the composition editor.",
+    "equip": "Equip",
+    "unequip": "Unequip",
+    "wornBy": "Worn by {{worn}} of {{total}} brigades",
+    "noBrigade": "No brigade in this composition has this unit",
+    "noCompositions": "Create an army composition for this battle type to equip skins."
+  },
   "objectiveSkins": "Objective Skins",
   "divisionStandards": "Division Standards",
   "avatars": "Avatars",

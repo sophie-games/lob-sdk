@@ -176,6 +176,16 @@
   "power": "Sức mạnh",
   "units": "Đơn vị",
   "unitSkins": "Giao diện đơn vị",
+  "armySkins": {
+    "open": "Giao diện",
+    "composition": "Đội hình",
+    "help": "Trang bị sẽ áp giao diện cho mọi lữ đoàn có đơn vị đó trong đội hình này. Chọn từng lữ đoàn trong trình chỉnh sửa đội hình.",
+    "equip": "Trang bị",
+    "unequip": "Gỡ",
+    "wornBy": "{{worn}}/{{total}} lữ đoàn đang dùng",
+    "noBrigade": "Không lữ đoàn nào trong đội hình này có đơn vị này",
+    "noCompositions": "Hãy tạo đội hình quân cho loại trận này để trang bị giao diện."
+  },
   "objectiveSkins": "Giao diện mục tiêu",
   "avatars": "Ảnh đại diện",
   "withdraw": "Rút lui",

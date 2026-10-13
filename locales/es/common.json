@@ -160,6 +160,16 @@
   "power": "Poder",
   "units": "Unidades",
   "unitSkins": "Aspectos de las unidades",
+  "armySkins": {
+    "open": "Aspectos",
+    "composition": "Composición",
+    "help": "Equipar pone el aspecto en cada brigada con esa unidad en esta composición. Elige aspectos brigada por brigada en el editor de la composición.",
+    "equip": "Equipar",
+    "unequip": "Quitar",
+    "wornBy": "Lo llevan {{worn}} de {{total}} brigadas",
+    "noBrigade": "Ninguna brigada de esta composición tiene esta unidad",
+    "noCompositions": "Crea una composición de ejército para este tipo de batalla para equipar aspectos."
+  },
   "objectiveSkins": "Aspectos de objetivos",
   "avatars": "Avatares",
   "withdraw": "Retirarse",

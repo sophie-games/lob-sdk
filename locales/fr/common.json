@@ -152,6 +152,16 @@
   "power": "Puissance",
   "units": "Unités",
   "unitSkins": "Cosmétiques",
+  "armySkins": {
+    "open": "Cosmétiques",
+    "composition": "Composition",
+    "help": "Équiper applique le cosmétique à chaque brigade de cette composition qui a cette unité. Choisissez-les brigade par brigade dans l'éditeur de composition.",
+    "equip": "Équiper",
+    "unequip": "Retirer",
+    "wornBy": "Porté par {{worn}} brigades sur {{total}}",
+    "noBrigade": "Aucune brigade de cette composition n'a cette unité",
+    "noCompositions": "Créez une composition d'armée pour ce type de bataille pour équiper des cosmétiques."
+  },
   "avatars": "Avatars",
   "withdraw": "Battre en retraite",
   "importScenario": "Importer un scénario",

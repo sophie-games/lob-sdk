@@ -169,6 +169,16 @@
   "power": "Poder",
   "units": "Unidades",
   "unitSkins": "Skins de Unidades",
+  "armySkins": {
+    "open": "Skins",
+    "composition": "Composição",
+    "help": "Equipar coloca a skin em cada brigada com essa unidade nesta composição. Escolha skins brigada a brigada no editor da composição.",
+    "equip": "Equipar",
+    "unequip": "Remover",
+    "wornBy": "Usada por {{worn}} de {{total}} brigadas",
+    "noBrigade": "Nenhuma brigada desta composição tem esta unidade",
+    "noCompositions": "Crie uma composição de exército para este tipo de batalha para equipar skins."
+  },
   "avatars": "Avatares",
   "withdraw": "Retirar",
   "importScenario": "Importar cenário",

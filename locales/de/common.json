@@ -169,6 +169,16 @@
   "power": "Stärke",
   "units": "Einheiten",
   "unitSkins": "Einheiten Kosmetika",
+  "armySkins": {
+    "open": "Kosmetika",
+    "composition": "Zusammensetzung",
+    "help": "Ausrüsten gibt jeder Brigade mit dieser Einheit in dieser Zusammensetzung die Kosmetik. Im Editor der Zusammensetzung wählst du sie Brigade für Brigade.",
+    "equip": "Ausrüsten",
+    "unequip": "Ablegen",
+    "wornBy": "Getragen von {{worn}} von {{total}} Brigaden",
+    "noBrigade": "Keine Brigade dieser Zusammensetzung hat diese Einheit",
+    "noCompositions": "Erstelle eine Armeezusammensetzung für diesen Schlachttyp, um Kosmetika auszurüsten."
+  },
   "avatars": "Avatare",
   "withdraw": "Zurückziehen",
   "importScenario": "Szenario importieren",

@@ -169,6 +169,16 @@
   "power": "Güç",
   "units": "Birimler",
   "unitSkins": "Birim Görünümleri",
+  "armySkins": {
+    "open": "Görünümler",
+    "composition": "Kompozisyon",
+    "help": "Kuşan, görünümü bu kompozisyonda o birliğe sahip her tugaya uygular. Tugay tugay seçim için kompozisyon düzenleyicisini kullan.",
+    "equip": "Kuşan",
+    "unequip": "Çıkar",
+    "wornBy": "{{total}} tugaydan {{worn}} tanesi kullanıyor",
+    "noBrigade": "Bu kompozisyonda bu birliğe sahip tugay yok",
+    "noCompositions": "Görünüm kuşanmak için bu savaş türü için bir ordu kompozisyonu oluştur."
+  },
   "avatars": "Avatarlar",
   "withdraw": "Çekil",
   "importScenario": "Senaryo içe aktar",

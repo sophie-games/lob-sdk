@@ -169,6 +169,16 @@
   "power": "Siła",
   "units": "Jednostki",
   "unitSkins": "Skórki Jednostek",
+  "armySkins": {
+    "open": "Skórki",
+    "composition": "Skład",
+    "help": "Wyposażenie nakłada skórkę na każdą brygadę z tą jednostką w tym składzie. Skórki dla pojedynczych brygad wybierzesz w edytorze składu.",
+    "equip": "Wyposaż",
+    "unequip": "Zdejmij",
+    "wornBy": "Nosi {{worn}} z {{total}} brygad",
+    "noBrigade": "Żadna brygada w tym składzie nie ma tej jednostki",
+    "noCompositions": "Utwórz skład armii dla tego typu bitwy, aby wyposażać skórki."
+  },
   "objectiveSkins": "Skórki celi",
   "avatars": "Avatary",
   "withdraw": "Wycofaj się",

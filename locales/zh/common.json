@@ -297,6 +297,16 @@
   "power": "军力",
   "units": "单位",
   "unitSkins": "单位皮肤",
+  "armySkins": {
+    "open": "皮肤",
+    "composition": "编制",
+    "help": "装备会把皮肤应用到此编制中含有该单位的每个旅。可在编制编辑器中逐旅选择。",
+    "equip": "装备",
+    "unequip": "卸下",
+    "wornBy": "{{total}} 个旅中有 {{worn}} 个穿戴",
+    "noBrigade": "此编制中没有旅含有该单位",
+    "noCompositions": "为此战斗类型创建军队编制后即可装备皮肤。"
+  },
   "objectiveSkins": "目标点皮肤",
   "avatars": "头像",
   "withdraw": "撤退",

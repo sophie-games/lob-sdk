@@ -169,6 +169,16 @@
   "power": "Erő",
   "units": "Egységek",
   "unitSkins": "Egység Skinek",
+  "armySkins": {
+    "open": "Skinek",
+    "composition": "Összetétel",
+    "help": "A felszerelés a skint az összetétel minden olyan dandárjára ráteszi, amelyben ez az egység van. Dandáronként az összetétel szerkesztőjében választhatsz.",
+    "equip": "Felszerelés",
+    "unequip": "Levétel",
+    "wornBy": "{{total}} dandárból {{worn}} viseli",
+    "noBrigade": "Ennek az összetételnek egyik dandárjában sincs ez az egység",
+    "noCompositions": "Hozz létre hadsereg-összetételt ehhez a csatatípushoz a skinek felszereléséhez."
+  },
   "avatars": "Profilképek",
   "withdraw": "Visszavonulás",
   "importScenario": "Pálya importálása",

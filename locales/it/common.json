@@ -169,6 +169,16 @@
   "power": "Potenza",
   "units": "Unità",
   "unitSkins": "Skin delle unità",
+  "armySkins": {
+    "open": "Skin",
+    "composition": "Composizione",
+    "help": "Equipaggia applica la skin a ogni brigata con quell'unità in questa composizione. Scegli le skin brigata per brigata nell'editor della composizione.",
+    "equip": "Equipaggia",
+    "unequip": "Rimuovi",
+    "wornBy": "Indossata da {{worn}} brigate su {{total}}",
+    "noBrigade": "Nessuna brigata di questa composizione ha questa unità",
+    "noCompositions": "Crea una composizione d'esercito per questo tipo di battaglia per equipaggiare le skin."
+  },
   "avatars": "Avatar",
   "withdraw": "Ritirati",
   "importScenario": "Importa scenario",
