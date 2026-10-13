@@ -610,6 +610,8 @@ export interface PlayerSetup {
   command?: PlayerCommand;
   /** Whoever controls this seat assigns the team's deployment positions. At most one per team. */
   commanderInChief?: boolean;
+  /** Store objective skin every point this seat holds flies, over the owner's purchased one. */
+  objectiveSkin?: number;
   /** Ammo reserve for the player. Used for preset scenarios. */
   ammoReserve?: number;
   /** Base ammo reserve before any modifications. */
