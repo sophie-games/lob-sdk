@@ -176,6 +176,16 @@
   "power": "전력",
   "units": "부대",
   "unitSkins": "부대 외형",
+  "armySkins": {
+    "open": "외형",
+    "composition": "편성",
+    "help": "장착하면 이 편성에서 해당 부대가 있는 모든 여단에 외형이 적용됩니다. 여단별 선택은 편성 편집기에서 하세요.",
+    "equip": "장착",
+    "unequip": "해제",
+    "wornBy": "{{total}}개 여단 중 {{worn}}개 착용",
+    "noBrigade": "이 편성에 이 부대가 있는 여단이 없습니다",
+    "noCompositions": "외형을 장착하려면 이 전투 유형의 군대 편성을 만드세요."
+  },
   "objectiveSkins": "지점목표 외형",
   "avatars": "아바타",
   "withdraw": "포기",

@@ -177,6 +177,16 @@
   "power": "軍事力",
   "units": "ユニット",
   "unitSkins": "ユニットスキン",
+  "armySkins": {
+    "open": "スキン",
+    "composition": "編成",
+    "help": "装備すると、この編成でそのユニットを含むすべての旅団にスキンが適用されます。旅団ごとの選択は編成エディターで行えます。",
+    "equip": "装備",
+    "unequip": "外す",
+    "wornBy": "{{total}}旅団中{{worn}}旅団が着用",
+    "noBrigade": "この編成にこのユニットを含む旅団はありません",
+    "noCompositions": "スキンを装備するには、この戦闘タイプの軍編成を作成してください。"
+  },
   "objectiveSkins": "目標のスキン",
   "avatars": "アバター",
   "withdraw": "撤退",

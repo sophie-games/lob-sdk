@@ -170,6 +170,16 @@
   "power": "Kekuatan",
   "units": "Unit",
   "unitSkins": "Unit Skins",
+  "armySkins": {
+    "open": "Skin",
+    "composition": "Komposisi",
+    "help": "Pakai memasang skin pada setiap brigade dengan unit itu di komposisi ini. Pilih skin per brigade di editor komposisi.",
+    "equip": "Pakai",
+    "unequip": "Lepas",
+    "wornBy": "Dipakai {{worn}} dari {{total}} brigade",
+    "noBrigade": "Tidak ada brigade di komposisi ini yang memiliki unit ini",
+    "noCompositions": "Buat komposisi pasukan untuk tipe pertempuran ini untuk memakai skin."
+  },
   "avatars": "Avatars",
   "withdraw": "Withdraw",
   "importScenario": "Impor skenario",
