@@ -43,6 +43,7 @@ function irregularMap(seed: number) {
     0,
     terrains,
     heightMap,
+    1,
   ).execute();
   for (const [terrain, min, index] of [
     [TerrainType.Forest, 0.6, 1],
@@ -74,11 +75,12 @@ function symmetry(
     { type: InstructionType.Symmetry, ...instruction },
     map.terrains,
     map.heightMap,
+    1,
   ).execute();
   return map;
 }
 
-/** Largest height step between 8-neighbours; the generator keeps every map at 1 or less. */
+/** Largest height step between 8-neighbours. */
 function steepestStep(heightMap: number[][]): number {
   let steepest = 0;
   for (let x = 0; x < W; x++)
@@ -105,7 +107,7 @@ describe("SymmetryExecutor", () => {
           expect(terrains[x][y]).toBe(terrains[W - 1 - x][H - 1 - y]);
           expect(heightMap[x][y]).toBe(heightMap[W - 1 - x][H - 1 - y]);
         }
-      // The seam where the halves meet keeps the one-level-per-tile slope limit.
+      // The seam where the halves meet keeps the slope limit.
       expect(steepestStep(heightMap)).toBeLessThanOrEqual(1);
     },
   );
@@ -157,6 +159,7 @@ describe("SymmetryExecutor", () => {
         { type: InstructionType.Symmetry, mode, keep: "top", heights: false },
         terrains,
         heightMap,
+        1,
         area,
       ).execute();
       let copied = 0;

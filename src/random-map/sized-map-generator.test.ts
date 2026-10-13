@@ -33,4 +33,25 @@ describe("SizedMapGenerator", () => {
     expect(sizing.battleSize).toBe("xl");
     expect(sizing.mapSizes.xl.map.tilesX).toBeGreaterThan(0);
   });
+
+  it("lets neighbouring tiles differ by up to the era's height step", () => {
+    const { maxLevelDiff } = GameDataManager.get("napoleonic").getGameRules().height!;
+    const steep = {
+      ...scenario,
+      instructions: [{ type: InstructionType.HeightNoise, noises: [{ scale: 2 }], min: 0, max: 40 }],
+    } as unknown as Scenario;
+    const { heightMap } = new RandomMapGenerator().generate({ ...props, scenario: steep }).map;
+
+    let steepest = 0;
+    for (let x = 0; x < heightMap.length - 1; x++) {
+      for (let y = 0; y < heightMap[0].length - 1; y++) {
+        steepest = Math.max(
+          steepest,
+          Math.abs(heightMap[x][y] - heightMap[x + 1][y]),
+          Math.abs(heightMap[x][y] - heightMap[x][y + 1]),
+        );
+      }
+    }
+    expect(steepest).toBe(maxLevelDiff);
+  });
 });

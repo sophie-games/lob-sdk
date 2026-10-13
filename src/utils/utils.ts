@@ -188,7 +188,8 @@ export const clamp = (value: number, min: number, max: number) => {
  * Recursively sets the height of tiles on a grid, ensuring smooth transitions between neighboring tiles.
  * The function propagates heights from a starting tile to its neighbors, adjusting heights to avoid abrupt changes.
  *
- * The propagation is controlled by limiting height differences between neighboring tiles to a maximum of 1.
+ * Neighbouring tiles may differ by at most `maxStep` whole levels (the era's height rule
+ * `maxLevelDiff`); below one level only the tile changes. `setHeight` writes each tile.
  * Each tile is processed only once to ensure consistent height adjustments across the grid.
  */
 export const setHeightRecursively = (
@@ -196,7 +197,18 @@ export const setHeightRecursively = (
   y: number,
   height: number,
   heightMap: number[][],
+  maxStep: number,
+  setHeight = (tileX: number, tileY: number, tileHeight: number) => {
+    heightMap[tileX][tileY] = tileHeight;
+  },
 ) => {
+  // Whole levels only: a step under one would flood the map, a fractional one leave half levels.
+  const step = Math.floor(maxStep);
+  if (step < 1) {
+    setHeight(x, y, height);
+    return;
+  }
+
   // Parallel arrays and numeric keys: map generation calls this once per tile.
   const queueX = [x];
   const queueY = [y];
@@ -214,7 +226,7 @@ export const setHeightRecursively = (
     }
     visited.add(tileId);
 
-    heightMap[cx][cy] = ch;
+    setHeight(cx, cy, ch);
 
     for (let n = 0; n < NEIGHBOR_OFFSETS.length; n += 2) {
       const nx = cx + NEIGHBOR_OFFSETS[n];
@@ -222,10 +234,10 @@ export const setHeightRecursively = (
       const neighborHeight = heightMap[nx]?.[ny];
       if (neighborHeight === undefined) continue;
 
-      // Within 1 of the tile the neighbour keeps its height, else it steps toward it.
+      // Within a step of the tile the neighbour keeps its height, else it steps toward it.
       const heightDiff = neighborHeight - ch;
       const newHeight =
-        heightDiff > 1 ? ch + 1 : heightDiff < -1 ? ch - 1 : neighborHeight;
+        heightDiff > step ? ch + step : heightDiff < -step ? ch - step : neighborHeight;
       if (newHeight !== neighborHeight) {
         queueX.push(nx);
         queueY.push(ny);

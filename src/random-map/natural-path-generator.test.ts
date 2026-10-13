@@ -31,7 +31,7 @@ describe("NaturalPathGenerator", () => {
     const terrains = grid(40, TerrainType.Grass);
     const points = [{ x: 3, y: 3 }, { x: 30, y: 12 }, { x: 20, y: 35 }];
 
-    new NaturalPathGenerator(seeded(3), terrains, grid(40, 0), TerrainType.Road).generatePath(points);
+    new NaturalPathGenerator(seeded(3), terrains, grid(40, 0), 1, TerrainType.Road).generatePath(points);
 
     expect(connected(terrains, TerrainType.Road, points[0], points[1])).toBe(true);
     expect(connected(terrains, TerrainType.Road, points[1], points[2])).toBe(true);
@@ -39,7 +39,7 @@ describe("NaturalPathGenerator", () => {
 
   it("settles each tile once, so a search costs no more than the map", () => {
     const size = 48;
-    const generator = new NaturalPathGenerator(seeded(5), grid(size, TerrainType.Grass), grid(size, 0), TerrainType.Road);
+    const generator = new NaturalPathGenerator(seeded(5), grid(size, TerrainType.Grass), grid(size, 0), 1, TerrainType.Road);
     const noise = jest.spyOn(generator as unknown as { generateNoise: () => number }, "generateNoise");
 
     generator.generatePath([{ x: 1, y: 1 }, { x: size - 2, y: size - 2 }]);
@@ -52,7 +52,7 @@ describe("NaturalPathGenerator", () => {
     const inside = (x: number) => x < 10;
 
     new NaturalPathGenerator(
-      seeded(7), terrains, grid(20, 0), TerrainType.Road, undefined, 1, undefined, undefined,
+      seeded(7), terrains, grid(20, 0), 1, TerrainType.Road, undefined, 1, undefined, undefined,
       5, 0.1, 1, 6, 1, 2, 1, 1, undefined, false, inside,
     ).generatePath([{ x: 2, y: 2 }, { x: 15, y: 15 }]);
 

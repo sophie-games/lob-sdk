@@ -335,6 +335,29 @@
       "curveWeight": 0.3
     },
     {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "x": 2,
+            "y": 3
+          },
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 2,
+      "max": 4,
+      "xBounds": {
+        "min": 75,
+        "max": 80
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    {
       "type": "NATURAL_PATH",
       "terrain": 3,
       "between": "top-bottom",

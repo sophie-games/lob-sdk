@@ -24,6 +24,7 @@ export class HeightNoiseExecutor {
     private index: number,
     private terrains: TerrainType[][],
     private heightMap: number[][],
+    private maxHeightStep: number,
     /** On a turned map: where the instruction works and the local coordinates it samples. */
     private area?: InstructionArea,
   ) {
@@ -156,6 +157,6 @@ export class HeightNoiseExecutor {
     heightValue = Math.floor(heightValue * (max - min)) + min;
     heightValue = clamp(heightValue, min, max);
 
-    setHeightRecursively(x | 0, y | 0, heightValue, heightMap);
+    setHeightRecursively(x | 0, y | 0, heightValue, heightMap, this.maxHeightStep);
   }
 }

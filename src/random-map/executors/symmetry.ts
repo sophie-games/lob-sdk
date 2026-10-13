@@ -6,7 +6,7 @@ import { InstructionArea } from "../frame-angle";
  * Copies one half of the map onto the other, so two armies deployed on opposite halves meet the
  * same ground. With `terrains` set, a tile is copied only when it or its source holds one of them.
  * When the relief is copied, the seam is lowered where needed so neighbouring tiles stay within
- * one height level of each other.
+ * `maxHeightStep` levels of each other.
  */
 export class SymmetryExecutor {
   private readonly tilesX: number;
@@ -16,6 +16,7 @@ export class SymmetryExecutor {
     private readonly instruction: InstructionSymmetry,
     private readonly terrains: TerrainType[][],
     private readonly heightMap: number[][],
+    private readonly maxHeightStep: number,
     /** On a turned map: the frame whose halves are kept and copied. */
     private readonly area?: InstructionArea,
   ) {
@@ -36,7 +37,7 @@ export class SymmetryExecutor {
         if (copyHeights) heightMap[x][y] = heightMap[sx][sy];
       }
     }
-    if (copyHeights) limitSlopes(heightMap);
+    if (copyHeights) limitSlopes(heightMap, this.maxHeightStep);
   }
 
   /** Whether (x, y) lies in the half that is overwritten. An odd middle line is its own image. */
