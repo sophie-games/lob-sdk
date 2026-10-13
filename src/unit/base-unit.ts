@@ -92,6 +92,8 @@ export abstract class BaseUnit extends Entity {
   abstract autofireRange: EngagementRange;
   /** The player's Fire & Advance approach tier; undefined until they pick one. */
   abstract approachRange: EngagementRange | undefined;
+  /** Holds all fire it is not ordered to give, panic fire included; `autofireRange` is kept for when it reopens. */
+  holdFire = false;
   /**
    * If true, the unit cannot change formation in the current tick.
    */
@@ -182,10 +184,11 @@ export abstract class BaseUnit extends Entity {
     return this.approachRange === undefined ? undefined : Math.min(this.approachRange, this.autofireRange);
   }
 
-  applyAutofireConfig({ autofireRange, approachRange }: UnitAutofireConfigChange): void {
+  applyAutofireConfig({ autofireRange, approachRange, holdFire }: UnitAutofireConfigChange): void {
     // Default to Max (no throttle) for submissions from clients sent before the field swap.
     this.autofireRange = autofireRange ?? EngagementRange.Max;
     this.approachRange = approachRange;
+    this.holdFire = holdFire ?? false;
   }
 
   /**
