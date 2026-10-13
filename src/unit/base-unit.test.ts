@@ -89,6 +89,21 @@ describe("BaseUnit", () => {
     });
   });
 
+  describe("hold fire", () => {
+    it("opens fire by default", () => {
+      expect(unit.holdFire).toBe(false);
+    });
+
+    it("holds fire while a config change says so and keeps its tier for when it reopens", () => {
+      unit.applyAutofireConfig({ unitId: 10, autofireRange: EngagementRange.Low, holdFire: true });
+      expect(unit.holdFire).toBe(true);
+      expect(unit.autofireRange).toBe(EngagementRange.Low);
+
+      unit.applyAutofireConfig({ unitId: 10, autofireRange: EngagementRange.Low });
+      expect(unit.holdFire).toBe(false);
+    });
+  });
+
   it("exposes its unit template charge sound", () => {
     expect(unit.chargeSound).toBe("infantry-charge");
   });
