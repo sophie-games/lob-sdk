@@ -93,6 +93,11 @@ export interface UnitDto {
   apr?: EngagementRange;
 
   /**
+   * Hold fire: no autofire or panic fire. Omitted when false.
+   */
+  hf?: boolean;
+
+  /**
    * Current formation
    */
   f?: string;
