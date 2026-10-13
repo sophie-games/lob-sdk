@@ -34,10 +34,12 @@ import { deriveSeed, generateRandomSeed, randomSeeded } from "@lob-sdk/seed";
 import type { MapSizeTemplate } from "@lob-sdk/game-data-manager";
 import { getRandomInt } from "@lob-sdk/utils";
 
-/** The battle size a generation is for, and the era's map sizes, resolved by the caller. */
+/** The battle size a generation is for, and the era's map sizes and height step, resolved by the caller. */
 export interface MapSizing {
   battleSize: Size;
   mapSizes: Record<Size, MapSizeTemplate>;
+  /** Most whole levels neighbouring tiles may differ by. */
+  maxHeightStep: number;
 }
 
 /**
@@ -55,7 +57,7 @@ export class SizedMapGenerator {
       tilesY,
       parameters,
     }: GenerateRandomMapProps,
-    { battleSize, mapSizes }: MapSizing,
+    { battleSize, mapSizes, maxHeightStep }: MapSizing,
   ): GenerateRandomMapResult {
     const { map } = mapSizes[battleSize];
 
@@ -143,6 +145,7 @@ export class SizedMapGenerator {
       heightPx,
       tileSize,
       battleSize,
+      maxHeightStep,
       instructionsToRun,
       frame,
     );
@@ -373,6 +376,7 @@ export class SizedMapGenerator {
     heightPx: number,
     tileSize: number,
     battleSize: Size,
+    maxHeightStep: number,
     instructions: AnyInstruction[],
     frame?: TurnedFrame,
   ) {
@@ -412,6 +416,7 @@ export class SizedMapGenerator {
             index,
             boundedTerrains,
             boundedHeightMap,
+            maxHeightStep,
             area,
           ).execute();
           break;
@@ -436,6 +441,7 @@ export class SizedMapGenerator {
             index,
             boundedTerrains,
             boundedHeightMap,
+            maxHeightStep,
           ).execute();
           break;
         }
@@ -459,6 +465,7 @@ export class SizedMapGenerator {
             index,
             boundedTerrains,
             boundedHeightMap,
+            maxHeightStep,
             battleSize,
             area,
           ).execute();
@@ -472,6 +479,7 @@ export class SizedMapGenerator {
             index,
             boundedTerrains,
             boundedHeightMap,
+            maxHeightStep,
           ).execute();
           break;
         }
@@ -495,6 +503,7 @@ export class SizedMapGenerator {
             index,
             boundedTerrains,
             boundedHeightMap,
+            maxHeightStep,
           ).execute();
           break;
         }
@@ -522,6 +531,7 @@ export class SizedMapGenerator {
             instruction,
             boundedTerrains,
             boundedHeightMap,
+            maxHeightStep,
             area,
           ).execute();
           break;

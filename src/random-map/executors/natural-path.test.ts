@@ -85,6 +85,7 @@ describe("NaturalPathExecutor", () => {
         0,
         mockTerrains,
         mockHeightMap,
+        1,
         Size.Medium,
       );
 
@@ -108,6 +109,7 @@ describe("NaturalPathExecutor", () => {
         0,
         mockTerrains,
         mockHeightMap,
+        1,
         Size.Medium,
       );
 
@@ -152,6 +154,7 @@ describe("NaturalPathExecutor", () => {
         0,
         mockTerrains,
         mockHeightMap,
+        1,
         Size.Medium,
       );
 
@@ -179,6 +182,7 @@ describe("NaturalPathExecutor", () => {
         0,
         mockTerrains,
         mockHeightMap,
+        1,
         Size.Medium,
       );
 
@@ -210,7 +214,7 @@ describe("NaturalPathExecutor", () => {
         ],
       });
 
-      new NaturalPathExecutor(instruction, mockScenario, 1, 0, terrains, heightMap, Size.Medium, area).execute();
+      new NaturalPathExecutor(instruction, mockScenario, 1, 0, terrains, heightMap, 1, Size.Medium, area).execute();
 
       const [endX, endY] = area.toMap(area.tilesX - 1, Math.floor((area.tilesY - 1) / 2));
       const nearEnd = terrains.some((column, x) =>

@@ -55,6 +55,8 @@ export class NaturalPathGenerator {
     private randomFn: () => number,
     private terrains: TerrainType[][],
     private heightMap: number[][],
+    /** Most whole levels the ground beside a raised path may differ by. */
+    private maxHeightStep: number,
     private pathTerrain: number,
     private pathHeight?: number,
     private width: number = 1,
@@ -308,6 +310,7 @@ export class NaturalPathGenerator {
             point.y,
             this.pathHeight,
             this.heightMap,
+            this.maxHeightStep,
           );
         }
       }

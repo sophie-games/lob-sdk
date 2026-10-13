@@ -170,7 +170,7 @@
         "min": 0,
         "max": 100
       },
-      "width": 1,
+      "width": 3,
       "height": 0.01,
       "amount": {
         "min": 1,
@@ -207,7 +207,7 @@
         "min": 0,
         "max": 100
       },
-      "width": 1,
+      "width": 3,
       "height": 0.01,
       "amount": {
         "min": 1,
@@ -244,7 +244,7 @@
         "min": 0,
         "max": 100
       },
-      "width": 1,
+      "width": 3,
       "height": 0.01,
       "amount": {
         "min": 1,
@@ -333,6 +333,35 @@
       "noiseSmoothness": 4,
       "curveLen": 8,
       "curveWeight": 0.3
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "x": 2,
+            "y": 3
+          },
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 2,
+      "max": 4,
+      "xBounds": {
+        "min": 73,
+        "max": 80
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      },
+      "ranges": [
+        {
+          "min": 3.5,
+          "max": 99
+        }
+      ]
     },
     {
       "type": "NATURAL_PATH",

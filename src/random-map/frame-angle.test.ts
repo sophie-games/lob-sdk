@@ -96,7 +96,7 @@ describe("random map angle", () => {
     const x = Math.floor(turned.terrains.length / 2);
     const y = Math.floor(turned.terrains[0].length / 2);
     expect(turned.terrains.slice(x - 3, x + 4).some((c) => c.slice(y - 3, y + 4).includes(DeepWater))).toBe(true);
-    expect(steepestStep(turned.heightMap)).toBeLessThanOrEqual(1);
+    expect(steepestStep(turned.heightMap)).toBeLessThanOrEqual(gdm.getGameRules().height!.maxLevelDiff);
   });
 
   it("holds the angle to the range the scenario accepts", () => {

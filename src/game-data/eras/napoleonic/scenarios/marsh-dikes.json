@@ -189,6 +189,100 @@
       "downHillHeightCost": 50
     },
     {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 3,
+      "height": 2.5,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 0,
+            "max": 0
+          },
+          "yRange": {
+            "min": 50,
+            "max": 50
+          }
+        },
+        {
+          "xRange": {
+            "min": 50,
+            "max": 50
+          },
+          "yRange": {
+            "min": 50,
+            "max": 50
+          }
+        }
+      ],
+      "terrainReplacements": [
+        {
+          "fromTerrain": 5,
+          "toTerrain": 5
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 5,
+          "cost": -1
+        }
+      ],
+      "noiseWeight": 0
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 5,
+      "between": "points",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "width": 1,
+      "height": 1.5,
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 0,
+            "max": 0
+          },
+          "yRange": {
+            "min": 50,
+            "max": 50
+          }
+        },
+        {
+          "xRange": {
+            "min": 50,
+            "max": 50
+          },
+          "yRange": {
+            "min": 50,
+            "max": 50
+          }
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 5,
+          "cost": -1
+        }
+      ],
+      "noiseWeight": 0
+    },
+    {
       "type": "SYMMETRY",
       "mode": "rotate",
       "keep": "left",

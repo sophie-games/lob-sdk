@@ -27,6 +27,7 @@ export class NaturalPathExecutor {
     private index: number,
     private terrains: TerrainType[][],
     private heightMap: number[][],
+    private maxHeightStep: number,
     private battleSize: Size,
     /**
      * On a turned map: the instruction's area. Its points are found in the area's local grid
@@ -68,6 +69,7 @@ export class NaturalPathExecutor {
       random,
       terrains,
       heightMap,
+      this.maxHeightStep,
       terrain,
       height,
       width,
