@@ -339,6 +339,8 @@ export interface UnitAutofireConfigChange {
   autofireRange: EngagementRange;
   /** Tier whose distance Fire & Advance closes to. Omitted, it follows `autofireRange`. */
   approachRange?: EngagementRange;
+  /** Hold all fire the unit is not ordered to give. Omitted when false. */
+  holdFire?: boolean;
 }
 
 /**

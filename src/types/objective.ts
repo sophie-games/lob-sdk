@@ -24,6 +24,14 @@ export interface ObjectiveDtoBase {
   g?: number;
   /** Victory points */
   vp?: number;
+  /** Store skins the scenario author pinned to this objective, by who holds it. */
+  skins?: ObjectiveSkins;
+}
+
+/** Objective skin ids keyed by owner. A player's entry wins over its team's. */
+export interface ObjectiveSkins {
+  players?: Record<number, number>;
+  teams?: Record<number, number>;
 }
 
 export type ObjectiveDto<T extends boolean = true> = T extends true
