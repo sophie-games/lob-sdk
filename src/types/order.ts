@@ -210,6 +210,8 @@ export interface FireAndAdvanceOnPathOrder
   path: OrderPathPoint[];
   /** Final rotation in radians after completing the path. */
   rotation?: number;
+  /** Keep clear of hard allied formations while executing this path. */
+  maintainAllySpacing?: boolean;
   /**
    * Movement units per turn a body ordered as one keeps to, so it does not
    * stretch out: each member is slowed by this over its own walk, so terrain
