@@ -161,6 +161,12 @@ describe("ScenarioFeatures.hasDeploymentPhase", () => {
     ).toBe(0);
   });
 
+  it("opens turn 0 on a zoneless map that deploys a dynamic army", () => {
+    const hybrid = scenario({ allowDynamicArmy: true, units: [] });
+    expect(ScenarioFeatures.hasDeploymentPhase(hybrid)).toBe(true);
+    expect(ScenarioFeatures.getInitialTurnNumber(hybrid, {})).toBe(0);
+  });
+
   it("keeps procedural maps at turn 0 when their default zones are generated", () => {
     expect(
       ScenarioFeatures.hasDeploymentPhase(scenario({ map: undefined })),
