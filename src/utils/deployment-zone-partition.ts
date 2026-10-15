@@ -19,21 +19,21 @@ const fromClipRing = (ring: Ring): Point2[] => {
   return points.map(([x, y]) => ({ x, y }));
 };
 
-/** Splits a shared polygon across team seats without rotating its ground. */
-export const clipDeploymentZoneToXRange = (
+const clipDeploymentZoneToRect = (
   zone: TeamDeploymentZone,
   left: number,
+  top: number,
   right: number,
+  bottom: number,
 ): TeamDeploymentZone => {
-  if (right <= left || zone.polygons.length === 0)
+  if (right <= left || bottom <= top || zone.polygons.length === 0)
     return { ...zone, polygons: [] };
-  const { top, bottom } = getDeploymentZoneBounds(zone);
-  const slab: Polygon = [
+  const rect: Polygon = [
     [
-      [left, top - 1],
-      [right, top - 1],
-      [right, bottom + 1],
-      [left, bottom + 1],
+      [left, top],
+      [right, top],
+      [right, bottom],
+      [left, bottom],
     ],
   ];
   return {
@@ -44,7 +44,7 @@ export const clipDeploymentZoneToXRange = (
         ...(holes ?? []).map(toClipRing),
       ];
       return polygonClipping
-        .intersection(subject, slab)
+        .intersection(subject, rect)
         .map(([clippedOuter, ...clippedHoles]) => ({
           outer: fromClipRing(clippedOuter),
           ...(clippedHoles.length
@@ -55,22 +55,189 @@ export const clipDeploymentZoneToXRange = (
   };
 };
 
-/** Shared ground is divided by usable area, including concavities and cutouts. */
-const divisionCache = new WeakMap<
-  TeamDeploymentZone,
-  Map<
-    number,
-    {
-      edges: Map<number, number>;
-      parts: Map<number, TeamDeploymentZone>;
+/** Splits a shared polygon across team seats without rotating its ground. */
+export const clipDeploymentZoneToXRange = (
+  zone: TeamDeploymentZone,
+  left: number,
+  right: number,
+): TeamDeploymentZone => {
+  if (zone.polygons.length === 0) return { ...zone, polygons: [] };
+  const { top, bottom } = getDeploymentZoneBounds(zone);
+  return clipDeploymentZoneToRect(zone, left, top - 1, right, bottom + 1);
+};
+
+/** A player's ground is never more than this many times deeper than it is wide. */
+const MAX_PLAYER_DEPTH_RATIO = 2;
+
+interface Cell {
+  left: number;
+  top: number;
+  right: number;
+  bottom: number;
+  firstColumn: boolean;
+  lastColumn: boolean;
+  firstRow: boolean;
+  lastRow: boolean;
+}
+
+/** Players per row, front to back: side by side until their ground turns into slivers. */
+const rowSizes = (zone: TeamDeploymentZone, count: number): number[] => {
+  const { width, height } = getDeploymentZoneBounds(zone);
+  let rows = 1;
+  while (
+    rows < count &&
+    height / rows > (width / Math.ceil(count / rows)) * MAX_PLAYER_DEPTH_RATIO
+  ) {
+    rows++;
+  }
+  return Array.from(
+    { length: rows },
+    (_, row) => Math.floor(count / rows) + (row < count % rows ? 1 : 0),
+  );
+};
+
+/** Coordinate along one axis where the clipped ground reaches the target area. */
+const cutAt = (
+  measure: (edge: number) => number,
+  low: number,
+  high: number,
+  target: number,
+): number => {
+  for (let iteration = 0; iteration < 32; iteration++) {
+    const mid = (low + high) / 2;
+    if (measure(mid) < target) low = mid;
+    else high = mid;
+  }
+  return (low + high) / 2;
+};
+
+/** Equal-area cells: rows cut across the depth, then each row across its width. */
+const gridCells = (zone: TeamDeploymentZone, count: number): Cell[] => {
+  const { left, top, right, bottom } = getDeploymentZoneBounds(zone);
+  const totalArea = getDeploymentZoneArea(zone);
+  if (totalArea <= 0) throw new Error("Cannot divide an empty deployment zone");
+  const sizes = rowSizes(zone, count);
+  const cells: Cell[] = [];
+  let rowTop = top;
+  let seated = 0;
+  sizes.forEach((size, row) => {
+    seated += size;
+    const lastRow = row === sizes.length - 1;
+    const rowBottom = lastRow
+      ? bottom
+      : cutAt(
+          (edge) =>
+            getDeploymentZoneArea(
+              clipDeploymentZoneToRect(zone, left - 1, top, right + 1, edge),
+            ),
+          top,
+          bottom,
+          (totalArea * seated) / count,
+        );
+    const band = clipDeploymentZoneToRect(
+      zone,
+      left - 1,
+      rowTop,
+      right + 1,
+      rowBottom,
+    );
+    const bandArea = getDeploymentZoneArea(band);
+    let cellLeft = left;
+    for (let column = 0; column < size; column++) {
+      const lastColumn = column === size - 1;
+      const cellRight = lastColumn
+        ? right
+        : cutAt(
+            (edge) =>
+              getDeploymentZoneArea(
+                clipDeploymentZoneToRect(band, left, rowTop, edge, rowBottom),
+              ),
+            left,
+            right,
+            (bandArea * (column + 1)) / size,
+          );
+      cells.push({
+        left: cellLeft,
+        top: rowTop,
+        right: cellRight,
+        bottom: rowBottom,
+        firstColumn: column === 0,
+        lastColumn,
+        firstRow: row === 0,
+        lastRow,
+      });
+      cellLeft = cellRight;
     }
-  >
+    rowTop = rowBottom;
+  });
+  return cells;
+};
+
+/** Whether all of `inner`'s ground lies inside `outer`. */
+const surrounds = (
+  outer: TeamDeploymentZone,
+  inner: TeamDeploymentZone,
+): boolean => {
+  const innerArea = getDeploymentZoneArea(inner);
+  const toClip = ({ polygons }: TeamDeploymentZone): Polygon[] =>
+    polygons.map(({ outer: ring, holes }) => [
+      toClipRing(ring),
+      ...(holes ?? []).map(toClipRing),
+    ]);
+  const overlap = polygonClipping
+    .intersection(toClip(outer), toClip(inner))
+    .reduce(
+      (sum, [ring, ...holes]) =>
+        sum +
+        getDeploymentZoneArea({
+          polygons: [
+            { outer: fromClipRing(ring), holes: holes.map(fromClipRing) },
+          ],
+        }),
+      0,
+    );
+  return overlap >= innerArea * (1 - 1e-9);
+};
+
+const gridCache = new WeakMap<TeamDeploymentZone, Map<number, Cell[]>>();
+const partCache = new WeakMap<
+  TeamDeploymentZone,
+  WeakMap<TeamDeploymentZone, Map<string, TeamDeploymentZone>>
+>();
+const surroundCache = new WeakMap<
+  TeamDeploymentZone,
+  WeakMap<TeamDeploymentZone, boolean>
 >();
 
+const cachedGrid = (zone: TeamDeploymentZone, count: number): Cell[] => {
+  let byCount = gridCache.get(zone);
+  if (!byCount) gridCache.set(zone, (byCount = new Map()));
+  let cells = byCount.get(count);
+  if (!cells) byCount.set(count, (cells = gridCells(zone, count)));
+  return cells;
+};
+
+const cachedSurrounds = (
+  outer: TeamDeploymentZone,
+  inner: TeamDeploymentZone,
+): boolean => {
+  let byInner = surroundCache.get(outer);
+  if (!byInner) surroundCache.set(outer, (byInner = new WeakMap()));
+  let result = byInner.get(inner);
+  if (result === undefined) byInner.set(inner, (result = surrounds(outer, inner)));
+  return result;
+};
+
+/**
+ * Shared ground is divided by usable area, including concavities and cutouts.
+ * A zone that surrounds `guide` (a forward zone around its main zone) is cut
+ * along the guide's lines, so each player's share surrounds their guide share.
+ */
 export const divideDeploymentZoneByArea = (
   zone: TeamDeploymentZone,
   index: number,
   count: number,
+  guide?: TeamDeploymentZone,
 ): TeamDeploymentZone => {
   if (
     !Number.isInteger(count) ||
@@ -86,44 +253,26 @@ export const divideDeploymentZoneByArea = (
       throw new Error("Cannot divide an empty deployment zone");
     return zone;
   }
-  let byCount = divisionCache.get(zone);
-  if (!byCount) {
-    byCount = new Map();
-    divisionCache.set(zone, byCount);
-  }
-  let cache = byCount.get(count);
-  if (cache?.parts.has(index)) return cache.parts.get(index)!;
-  if (!cache) {
-    cache = { edges: new Map(), parts: new Map() };
-    byCount.set(count, cache);
-  }
-  const { left, right } = getDeploymentZoneBounds(zone);
-  const totalArea = getDeploymentZoneArea(zone);
-  if (totalArea <= 0) throw new Error("Cannot divide an empty deployment zone");
-  const edgeAt = (share: number): number => {
-    if (share === 0) return left;
-    if (share === 1) return right;
-    const cached = cache.edges.get(share);
-    if (cached !== undefined) return cached;
-    let low = left;
-    let high = right;
-    for (let iteration = 0; iteration < 32; iteration++) {
-      const mid = (low + high) / 2;
-      const area = getDeploymentZoneArea(
-        clipDeploymentZoneToXRange(zone, left, mid),
-      );
-      if (area < totalArea * share) low = mid;
-      else high = mid;
-    }
-    const edge = (low + high) / 2;
-    cache.edges.set(share, edge);
-    return edge;
-  };
-  const part = clipDeploymentZoneToXRange(
+  const source =
+    guide && guide !== zone && cachedSurrounds(zone, guide) ? guide : zone;
+  let bySource = partCache.get(zone);
+  if (!bySource) partCache.set(zone, (bySource = new WeakMap()));
+  let parts = bySource.get(source);
+  if (!parts) bySource.set(source, (parts = new Map()));
+  const key = `${count}:${index}`;
+  const cached = parts.get(key);
+  if (cached) return cached;
+
+  const cell = cachedGrid(source, count)[index]!;
+  // The outer cells reach the edge of the surrounding zone.
+  const bounds = getDeploymentZoneBounds(zone);
+  const part = clipDeploymentZoneToRect(
     zone,
-    edgeAt(index / count),
-    edgeAt((index + 1) / count),
+    cell.firstColumn ? Math.min(cell.left, bounds.left) - 1 : cell.left,
+    cell.firstRow ? Math.min(cell.top, bounds.top) - 1 : cell.top,
+    cell.lastColumn ? Math.max(cell.right, bounds.right) + 1 : cell.right,
+    cell.lastRow ? Math.max(cell.bottom, bounds.bottom) + 1 : cell.bottom,
   );
-  cache.parts.set(index, part);
+  parts.set(key, part);
   return part;
 };

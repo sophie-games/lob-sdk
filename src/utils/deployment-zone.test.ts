@@ -1,5 +1,6 @@
 import {
   getDeploymentZoneArea,
+  getDeploymentZoneBounds,
   getClosestPointInsideDeploymentZone,
   isInsideDeploymentZone,
   isValidDeploymentPolygon,
@@ -10,6 +11,8 @@ import {
   clipDeploymentZoneToXRange,
   divideDeploymentZoneByArea,
 } from "./deployment-zone-partition";
+import polygonClipping from "polygon-clipping";
+import type { Polygon } from "polygon-clipping";
 import type { TeamDeploymentZone } from "@lob-sdk/types";
 
 const zone: TeamDeploymentZone = {
@@ -161,5 +164,79 @@ describe("polygon deployment geometry", () => {
     );
     expect(parts.every((part) => part.polygons.length > 0)).toBe(true);
     expect(divideDeploymentZoneByArea(separated, 2, 4)).toBe(parts[2]);
+  });
+
+  const squareZone = (
+    type: TeamDeploymentZone["type"],
+    left: number,
+    top: number,
+    right: number,
+    bottom: number,
+  ): TeamDeploymentZone => ({
+    team: 1,
+    type,
+    polygons: [polygonFromBounds(left, top, right, bottom)],
+  });
+  const toClip = (part: TeamDeploymentZone): Polygon[] =>
+    part.polygons.map(({ outer }) => [outer.map(({ x, y }) => [x, y])]);
+  const overlap = (a: TeamDeploymentZone, b: TeamDeploymentZone) =>
+    polygonClipping
+      .intersection(toClip(a), toClip(b))
+      .reduce(
+        (sum, [outer]) =>
+          sum +
+          getDeploymentZoneArea({
+            polygons: [{ outer: outer!.map(([x, y]) => ({ x, y })) }],
+          }),
+        0,
+      );
+
+  it("stacks a compact zone in rows instead of slicing it into slivers", () => {
+    const main = squareZone("main", 48, 1248, 352, 1552);
+    const parts = Array.from({ length: 10 }, (_, index) =>
+      divideDeploymentZoneByArea(main, index, 10),
+    );
+    parts.forEach((part) => {
+      const { width, height } = getDeploymentZoneBounds(part);
+      expect(getDeploymentZoneArea(part)).toBeCloseTo(304 * 304 / 10);
+      expect(height).toBeLessThanOrEqual(width * 2);
+    });
+  });
+
+  it("keeps a wide zone in one row of side-by-side strips", () => {
+    const main = squareZone("main", 0, 0, 1888, 160);
+    const parts = Array.from({ length: 10 }, (_, index) =>
+      divideDeploymentZoneByArea(main, index, 10),
+    );
+    parts.forEach((part, index) => {
+      const { left, top, bottom } = getDeploymentZoneBounds(part);
+      expect(top).toBe(0);
+      expect(bottom).toBe(160);
+      expect(left).toBeCloseTo(index * 188.8);
+    });
+  });
+
+  it("cuts a surrounding forward zone along its main zone's lines", () => {
+    const main = squareZone("main", 48, 1248, 352, 1552);
+    const forward = squareZone("forward", 1, 1200, 401, 1600);
+    for (let index = 0; index < 10; index++) {
+      const mainPart = divideDeploymentZoneByArea(main, index, 10);
+      const forwardPart = divideDeploymentZoneByArea(forward, index, 10, main);
+      expect(overlap(mainPart, forwardPart)).toBeCloseTo(
+        getDeploymentZoneArea(mainPart),
+      );
+    }
+    const forwardArea = Array.from({ length: 10 }, (_, index) =>
+      getDeploymentZoneArea(divideDeploymentZoneByArea(forward, index, 10, main)),
+    ).reduce((sum, area) => sum + area, 0);
+    expect(forwardArea).toBeCloseTo(400 * 400);
+  });
+
+  it("divides a forward zone on its own when it does not surround the main zone", () => {
+    const main = squareZone("main", 0, 0, 600, 100);
+    const forward = squareZone("forward", 0, 120, 600, 160);
+    expect(divideDeploymentZoneByArea(forward, 2, 6, main)).toBe(
+      divideDeploymentZoneByArea(forward, 2, 6),
+    );
   });
 });

@@ -14,11 +14,15 @@ export class ScenarioFeatures {
     return scenario.allowDynamicArmy === true;
   }
 
-  /** A generated or authored map opens at turn 0 when it contains a zone. */
+  /**
+   * A map opens at turn 0 when it contains a zone, and always for a dynamic
+   * army, which deploys on the era's default ground when the map has none.
+   */
   static hasDeploymentPhase(
     scenario: Scenario,
     resolvedMap?: Pick<GameMap, "deploymentZones">,
   ): boolean {
+    if (ScenarioFeatures.hasDynamicArmy(scenario)) return true;
     if (resolvedMap) return hasZones(resolvedMap.deploymentZones);
     if (
       hasZones(scenario.map?.deploymentZones) ||
