@@ -8,14 +8,11 @@ import fauconRiverValley from "./scenarios/faucon-river-valley.json";
 import saandLakes from "./scenarios/saand-lakes.json";
 import amnisNucum from "./scenarios/amnis-nucum.json";
 import cittaDeiFalchi from "./scenarios/citta-dei-falchi.json";
-import roadToAmnisNucum from "./scenarios/road-to-amnis-nucum.json";
 import falkenhugel from "./scenarios/falkenhugel.json";
-import grobesSchlachtfeld from "./scenarios/grobes-schlachtfeld.json";
 import mediterraneaNucum from "./scenarios/mediterranea-nucum.json";
 import riverValley from "./scenarios/river-valley.json";
 import linesOfLegends from "./scenarios/lines-of-legends.json";
 import tundra from "./scenarios/tundra.json";
-import antioch from "./scenarios/antioch.json";
 import andesAndValley from "./scenarios/andes-and-valley.json";
 import lowCountries from "./scenarios/low-countries.json";
 import hedgerows from "./scenarios/hedgerows.json";
@@ -33,6 +30,9 @@ import mantua1797 from "./scenarios/mantua-1797.json";
 import caldiero1805 from "./scenarios/caldiero-1805.json";
 import austerlitz1805 from "./scenarios/austerlitz-1805.json";
 import teugnHausen1809 from "./scenarios/teugn-hausen-1809.json";
+import hillshire from "./scenarios/hillshire.json";
+import grunlingen from "./scenarios/grunlingen.json";
+import frozenSwamp from "./scenarios/frozen-swamp.json";
 
 export const napoleonicScenarioCatalog = {
   plains,
@@ -48,12 +48,9 @@ export const napoleonicScenarioCatalog = {
   "saand-lakes": saandLakes,
   "faucon-river-valley": fauconRiverValley,
   "amnis-nucum": amnisNucum,
-  "road-to-amnis-nucum": roadToAmnisNucum,
   "citta-dei-falchi": cittaDeiFalchi,
   "mediterranea-nucum": mediterraneaNucum,
   falkenhugel,
-  "grobes-schlachtfeld": grobesSchlachtfeld,
-  antioch,
   waterloo,
   "line-of-battle": lineOfBattle,
   "war-room-50-vs-50": warRoomFiftyVsFifty,
@@ -69,4 +66,7 @@ export const napoleonicScenarioCatalog = {
   "caldiero-1805": caldiero1805,
   "austerlitz-1805": austerlitz1805,
   "teugn-hausen-1809": teugnHausen1809,
+  hillshire,
+  grunlingen,
+  "frozen-swamp": frozenSwamp,
 } as unknown as ScenarioCatalog;
