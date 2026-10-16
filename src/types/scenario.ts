@@ -26,6 +26,7 @@ import {
   ObjectiveType,
 } from "@lob-sdk/types";
 import type {
+  AmmoTypeTemplate,
   DamageTypeTemplate,
   UnitCategoryTemplate,
   GameConstants,
@@ -634,6 +635,12 @@ export interface Scenario {
    * `meleeDamageType` / `rangedDamageTypes`.
    */
   customDamageTypes?: DamageTypeTemplate[];
+
+  /**
+   * Ammo types scoped to this scenario, spent by custom damage types via
+   * `ammoType`. A built-in's id and name together override its color.
+   */
+  customAmmoTypes?: AmmoTypeTemplate[];
 
   /**
    * Additive formation templates scoped to this scenario. Ids must not

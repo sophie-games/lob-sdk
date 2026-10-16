@@ -31,6 +31,7 @@ import {
   FogOfWarMode,
 } from "@lob-sdk/types";
 import type {
+  AmmoTypeTemplate,
   DamageTypeTemplate,
   UnitCategoryTemplate,
   GameConstants,
@@ -339,6 +340,8 @@ export interface GameMetadata {
   customUnitTemplates?: UnitTemplate[];
   /** Additive damage types layered on top of the era registry for this game. */
   customDamageTypes?: DamageTypeTemplate[];
+  /** Ammo types layered on top of the era registry for this game. */
+  customAmmoTypes?: AmmoTypeTemplate[];
   /** Additive formation templates layered on top of the era registry for this game. */
   customUnitFormations?: FormationTemplate[];
   /** Additive unit categories layered on top of the era registry for this game. */
