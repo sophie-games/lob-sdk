@@ -1036,20 +1036,6 @@ function validateCustomUnitTemplates(
       }
     }
 
-    const casualtyFraction = template.casualtyFractionAtZeroHp;
-    if (
-      casualtyFraction !== undefined &&
-      (!Number.isFinite(casualtyFraction) ||
-        casualtyFraction < 0 ||
-        casualtyFraction > 1)
-    ) {
-      errors.push({
-        scope: "unitTemplate",
-        field: template.name,
-        message: "casualtyFractionAtZeroHp must be between 0 and 1",
-      });
-    }
-
     for (const message of findOutOfRangeNumbers(template, "")) {
       errors.push({ scope: "unitTemplate", field: template.name, message });
     }
