@@ -359,5 +359,9 @@
   "showGameTips": {
     "title": "Show tips",
     "description": "Short lessons that appear in battle when the situation calls for one. Each is shown only a few times."
+  },
+  "search": {
+    "placeholder": "Search settings",
+    "noResults": "No setting matches “{{query}}”."
   }
 }
