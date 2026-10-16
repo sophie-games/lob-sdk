@@ -21,6 +21,7 @@ import {
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { NO_COLLISION_LEVEL } from "@lob-sdk/constants";
 import type {
+  AmmoTypeTemplate,
   DamageTypeTemplate,
   UnitCategoryTemplate,
   GameConstants,
@@ -48,6 +49,7 @@ const MAX_FORMATION_DIMENSION = 256;
  */
 export const MAX_CUSTOM_UNIT_TEMPLATES = 100;
 export const MAX_CUSTOM_DAMAGE_TYPES = 50;
+export const MAX_CUSTOM_AMMO_TYPES = 20;
 export const MAX_CUSTOM_UNIT_FORMATIONS = 50;
 export const MAX_CUSTOM_UNIT_CATEGORIES = 50;
 export const MAX_CUSTOM_TERRAIN_CATEGORIES = 50;
@@ -73,6 +75,7 @@ export interface CustomDefValidationError {
   scope:
     | "unitTemplate"
     | "damageType"
+    | "ammoType"
     | "unitFormation"
     | "unitCategory"
     | "terrainCategory"
@@ -106,6 +109,7 @@ export function validateScenarioCustomDefs(
     Array.isArray(value) ? value : [];
   const customUnitTemplates = asArray(scenario.customUnitTemplates);
   const customDamageTypes = asArray(scenario.customDamageTypes);
+  const customAmmoTypes = asArray(scenario.customAmmoTypes);
   const customUnitFormations = asArray(scenario.customUnitFormations);
   const customUnitCategories = asArray(scenario.customUnitCategories);
   errors.push(
@@ -137,6 +141,7 @@ export function validateScenarioCustomDefs(
   > = [
     [customUnitTemplates.length, MAX_CUSTOM_UNIT_TEMPLATES, "unitTemplate", "unit templates"],
     [customDamageTypes.length, MAX_CUSTOM_DAMAGE_TYPES, "damageType", "damage types"],
+    [customAmmoTypes.length, MAX_CUSTOM_AMMO_TYPES, "ammoType", "ammo types"],
     [customUnitFormations.length, MAX_CUSTOM_UNIT_FORMATIONS, "unitFormation", "unit formations"],
     [customUnitCategories.length, MAX_CUSTOM_UNIT_CATEGORIES, "unitCategory", "unit categories"],
     [customTerrainCategories.length, MAX_CUSTOM_TERRAIN_CATEGORIES, "terrainCategory", "terrain categories"],
@@ -152,7 +157,10 @@ export function validateScenarioCustomDefs(
     }
   }
 
-  errors.push(...validateCustomDamageTypes(customDamageTypes, eraGameDataManager));
+  errors.push(...validateCustomAmmoTypes(customAmmoTypes, eraGameDataManager));
+  errors.push(
+    ...validateCustomDamageTypes(customDamageTypes, customAmmoTypes, eraGameDataManager),
+  );
   errors.push(
     ...validateCustomUnitFormations(customUnitFormations, eraGameDataManager),
   );
@@ -592,13 +600,75 @@ function validateGameRuleOverrides(
   }));
 }
 
-function validateCustomDamageTypes(
-  customDamageTypes: DamageTypeTemplate[],
+function validateCustomAmmoTypes(
+  customAmmoTypes: AmmoTypeTemplate[],
   eraGameDataManager: GameDataManager,
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
   const seenIds = new Set<number>();
   const seenNames = new Set<string>();
+  const builtIns = eraGameDataManager.getAmmoTypes();
+  const builtInById = new Map(builtIns.map((a) => [a.id, a]));
+  const builtInByName = new Map(builtIns.map((a) => [a.name, a]));
+
+  for (const ammoType of customAmmoTypes) {
+    const { id, name, color } = ammoType;
+    if (typeof id !== "number" || !Number.isInteger(id)) {
+      errors.push({ scope: "ammoType", field: name, message: "Ammo type id is required" });
+      continue;
+    }
+    if (typeof name !== "string" || name.trim() === "") {
+      errors.push({ scope: "ammoType", message: "Ammo type name is required" });
+      continue;
+    }
+    if (typeof color !== "string" || !/^#[0-9a-fA-F]{6}$/.test(color)) {
+      errors.push({
+        scope: "ammoType",
+        field: name,
+        message: `Ammo type "${name}" needs a #rrggbb color`,
+      });
+    }
+    // Lookup is by name, so overriding a built-in keeps both its id and name.
+    const builtInForId = builtInById.get(id);
+    if (builtInForId && builtInForId.name !== name) {
+      errors.push({
+        scope: "ammoType",
+        field: name,
+        message: `Custom ammo type with id ${id} renames built-in "${builtInForId.name}" to "${name}"; keep the original name when overriding.`,
+      });
+    }
+    const builtInForName = builtInByName.get(name);
+    if (builtInForName && builtInForName.id !== id) {
+      errors.push({
+        scope: "ammoType",
+        field: name,
+        message: `Ammo type name "${name}" already belongs to built-in id ${builtInForName.id}; set id to ${builtInForName.id} to override it, or pick a different name.`,
+      });
+    }
+    if (seenIds.has(id)) {
+      errors.push({ scope: "ammoType", field: name, message: `Duplicate custom ammo type id ${id}` });
+    }
+    if (seenNames.has(name)) {
+      errors.push({ scope: "ammoType", field: name, message: `Duplicate custom ammo type name "${name}"` });
+    }
+    seenIds.add(id);
+    seenNames.add(name);
+  }
+
+  return errors;
+}
+
+function validateCustomDamageTypes(
+  customDamageTypes: DamageTypeTemplate[],
+  customAmmoTypes: AmmoTypeTemplate[],
+  eraGameDataManager: GameDataManager,
+): CustomDefValidationError[] {
+  const errors: CustomDefValidationError[] = [];
+  const seenIds = new Set<number>();
+  const seenNames = new Set<string>();
+  const ammoTypeNames = new Set(
+    [...eraGameDataManager.getAmmoTypes(), ...customAmmoTypes].map((a) => a.name),
+  );
   const builtInDamageTypes = eraGameDataManager.getDamageTypes();
   const builtInById = new Map(builtInDamageTypes.map((dt) => [dt.id, dt]));
   const builtInByName = new Map(builtInDamageTypes.map((dt) => [dt.name, dt]));
@@ -695,6 +765,14 @@ function validateCustomDamageTypes(
           message: `Ranged damage type "${dt.name}" last band must reach max range (to = 1)`,
         });
       }
+    }
+    // getAmmoTypeOf throws on an unknown name the first time the weapon fires.
+    if (dt.ranged === true && dt.ammoType !== undefined && !ammoTypeNames.has(dt.ammoType)) {
+      errors.push({
+        scope: "damageType",
+        field: dt.name,
+        message: `Damage type "${dt.name}" spends unknown ammo type "${dt.ammoType}"`,
+      });
     }
     for (const message of findOutOfRangeNumbers(dt, "")) {
       errors.push({ scope: "damageType", field: dt.name, message });

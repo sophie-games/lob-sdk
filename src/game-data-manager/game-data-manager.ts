@@ -135,6 +135,7 @@ export type CustomDefs = {
   organizationDoctrine?: OrganizationDoctrine;
   customUnitTemplates?: UnitTemplate[];
   customDamageTypes?: DamageTypeTemplate[];
+  customAmmoTypes?: AmmoTypeTemplate[];
   customUnitFormations?: FormationTemplate[];
   customUnitCategories?: UnitCategoryTemplate[];
   customTerrainCategories?: CustomTerrainCategoryOverride[];
@@ -160,6 +161,7 @@ const CUSTOM_DEF_PRESENCE: Required<{
   organizationDoctrine: (d) => d.organizationDoctrine !== undefined,
   customUnitTemplates: (d) => !!d.customUnitTemplates?.length,
   customDamageTypes: (d) => !!d.customDamageTypes?.length,
+  customAmmoTypes: (d) => !!d.customAmmoTypes?.length,
   customUnitFormations: (d) => !!d.customUnitFormations?.length,
   customUnitCategories: (d) => !!d.customUnitCategories?.length,
   customTerrainCategories: (d) => !!d.customTerrainCategories?.length,
@@ -399,7 +401,7 @@ export class GameDataManager {
     this.organizationDoctrine = customDefs.organizationDoctrine;
     this._disableEraDefaultUnits = customDefs.disableEraDefaultUnits ?? false;
 
-    // Order matters: orders → categories → terrain categories → damage types →
+    // Order matters: orders → categories → terrain categories → ammo types → damage types →
     // formations → templates. Terrain categories slot in after unit
     // categories so the wildcard expansion has the full set of unit
     // category ids to populate against.
@@ -496,6 +498,22 @@ export class GameDataManager {
       // Re-expand wildcards on the (possibly overridden) maps so any newly
       // introduced category id has the right wildcard fallbacks applied.
       this.expandTerrainCategoryWildcards();
+    }
+
+    if (customDefs.customAmmoTypes?.length) {
+      // Replace-by-id (and re-key by name); the era's first entry stays the default.
+      this.ammoTypes = [...this.ammoTypes];
+      for (const ammoType of customDefs.customAmmoTypes) {
+        const existingIdx = this.ammoTypes.findIndex((a) => a.id === ammoType.id);
+        if (existingIdx >= 0) {
+          this._ammoTypeNameMap.delete(this.ammoTypes[existingIdx].name);
+          this.ammoTypes[existingIdx] = ammoType;
+        } else {
+          this.ammoTypes.push(ammoType);
+        }
+        this._ammoTypeMap.set(ammoType.id, ammoType);
+        this._ammoTypeNameMap.set(ammoType.name, ammoType);
+      }
     }
 
     if (customDefs.customDamageTypes?.length) {

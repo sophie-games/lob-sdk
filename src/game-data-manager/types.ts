@@ -595,8 +595,6 @@ export interface StaminaRule {
 export interface AmmoTypeTemplate {
   id: number;
   name: string;
-  /** Share of the unit's pool for this type that the reserve can refill per turn. */
-  refillRate: number;
   /** Bar colour, `#rrggbb`. */
   color: string;
 }

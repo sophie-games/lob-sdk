@@ -123,6 +123,62 @@ describe("GameDataManager custom defs", () => {
     });
   });
 
+  describe("loadCustomDefs: custom ammo types", () => {
+    const arrows = { id: 10001, name: "arrows", color: "#8b6b3e" };
+
+    it("makes the ammo type resolvable by id and by name", () => {
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customAmmoTypes: [arrows],
+      });
+      expect(m.getAmmoTypeById(arrows.id)).toEqual(arrows);
+      expect(m.getAmmoTypeByName(arrows.name)).toEqual(arrows);
+      expect(m.getAmmoTypes()).toContainEqual(arrows);
+    });
+
+    it("keeps the era's first ammo type as the default", () => {
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customAmmoTypes: [arrows],
+      });
+      expect(m.getDefaultAmmoType().name).toBe("round-shot");
+    });
+
+    it("overrides a built-in's color by id without duplicating it", () => {
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customAmmoTypes: [{ id: 2, name: "canister", color: "#000000" }],
+      });
+      expect(m.getAmmoTypeByName("canister").color).toBe("#000000");
+      expect(m.getAmmoTypes().filter((a) => a.name === "canister")).toHaveLength(1);
+    });
+
+    it("lets a custom damage type spend it", () => {
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customAmmoTypes: [arrows],
+        customDamageTypes: [
+          {
+            id: 10001,
+            name: "Arrow",
+            ranged: true,
+            maxRange: 100,
+            ranges: [{ from: 0, to: 1, damageModifier: { near: 1, far: 1 } }],
+            ammoType: "arrows",
+            ammoCost: 10000,
+          } as RangedDamageTypeTemplate,
+        ],
+      });
+      const arrow = m.getDamageTypeByName<RangedDamageTypeTemplate>("Arrow");
+      expect(m.getAmmoTypeOf(arrow).name).toBe("arrows");
+    });
+
+    it("keeps the era singleton clean", () => {
+      GameDataManager.createWithCustomDefs("napoleonic", {
+        customAmmoTypes: [arrows],
+      });
+      const singleton = GameDataManager.get("napoleonic");
+      expect(() => singleton.getAmmoTypeByName(arrows.name)).toThrow();
+      expect(singleton.getAmmoTypes().map((a) => a.name)).not.toContain("arrows");
+    });
+  });
+
   describe("loadCustomDefs: custom damage types", () => {
     const dt: DamageTypeTemplate = {
       id: 99001,

@@ -480,6 +480,17 @@
       "add": "Add allowed order"
     }
   },
+  "ammoTypeModal": {
+    "title": "Edit custom ammo type",
+    "fields": {
+      "name": "Name",
+      "color": "Color"
+    },
+    "errors": {
+      "nameRequired": "Name is required",
+      "nameInUse": "\"{{name}}\" is already the name of another ammo type"
+    }
+  },
   "damageTypeModal": {
     "title": "Edit custom damage type",
     "sections": {
@@ -689,6 +700,14 @@
       "deleteBlocked": "You can't delete \"{{id}}\" while {{refs}} still use it. Remove those first.",
       "addCategory": "Add unit category",
       "clonePickerTitle": "Clone a built-in unit category"
+    },
+    "ammoTypesPanel": {
+      "title": "Ammo types",
+      "description": "An ammo type is what a ranged weapon spends. Each unit carries a pool of every type its weapons use and refills it from the army's reserve each turn. Add your own, such as arrows, then pick it on a damage type.",
+      "noAmmoTypes": "None yet, so ranged weapons spend the era's own ammunition.",
+      "itemLabel": "{{name}} (id {{id}})",
+      "deleteBlocked": "You can't delete \"{{name}}\" while {{refs}} still use it. Remove those first.",
+      "addAmmoType": "Add ammo type"
     },
     "damageTypesPanel": {
       "title": "Damage types",
