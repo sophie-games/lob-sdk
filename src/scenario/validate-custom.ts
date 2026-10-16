@@ -172,6 +172,7 @@ export function validateScenarioCustomDefs(
     ...validateCustomUnitTemplates(
       customUnitTemplates,
       customDamageTypes,
+      customAmmoTypes,
       customUnitFormations,
       customUnitCategories,
       eraGameDataManager,
@@ -658,6 +659,12 @@ function validateCustomAmmoTypes(
   return errors;
 }
 
+const knownAmmoTypeNames = (
+  customAmmoTypes: AmmoTypeTemplate[],
+  eraGameDataManager: GameDataManager,
+): Set<string> =>
+  new Set([...eraGameDataManager.getAmmoTypes(), ...customAmmoTypes].map((a) => a.name));
+
 function validateCustomDamageTypes(
   customDamageTypes: DamageTypeTemplate[],
   customAmmoTypes: AmmoTypeTemplate[],
@@ -666,9 +673,7 @@ function validateCustomDamageTypes(
   const errors: CustomDefValidationError[] = [];
   const seenIds = new Set<number>();
   const seenNames = new Set<string>();
-  const ammoTypeNames = new Set(
-    [...eraGameDataManager.getAmmoTypes(), ...customAmmoTypes].map((a) => a.name),
-  );
+  const ammoTypeNames = knownAmmoTypeNames(customAmmoTypes, eraGameDataManager);
   const builtInDamageTypes = eraGameDataManager.getDamageTypes();
   const builtInById = new Map(builtInDamageTypes.map((dt) => [dt.id, dt]));
   const builtInByName = new Map(builtInDamageTypes.map((dt) => [dt.name, dt]));
@@ -959,12 +964,14 @@ function validateCustomUnitCategories(
 function validateCustomUnitTemplates(
   customUnitTemplates: UnitTemplate[],
   customDamageTypes: DamageTypeTemplate[],
+  customAmmoTypes: AmmoTypeTemplate[],
   customUnitFormations: FormationTemplate[],
   customUnitCategories: UnitCategoryTemplate[],
   eraGameDataManager: GameDataManager,
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
   const seenIds = new Set<number>();
+  const ammoTypeNames = knownAmmoTypeNames(customAmmoTypes, eraGameDataManager);
 
   const damageTypeByName = new Map<string, DamageTypeTemplate>();
   for (const dt of eraGameDataManager.getDamageTypes()) damageTypeByName.set(dt.name, dt);
@@ -1040,6 +1047,18 @@ function validateCustomUnitTemplates(
           scope: "unitTemplate",
           field: template.name,
           message: `rangedDamageType "${dtName}" references a melee damage type`,
+        });
+      }
+    }
+
+    // ammoToWire looks every pool up by name when the unit is sent.
+    const { ammo } = rangedTemplate;
+    for (const ammoType of typeof ammo === "object" && ammo !== null ? Object.keys(ammo) : []) {
+      if (!ammoTypeNames.has(ammoType)) {
+        errors.push({
+          scope: "unitTemplate",
+          field: template.name,
+          message: `ammo pool names unknown ammo type "${ammoType}"`,
         });
       }
     }

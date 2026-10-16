@@ -130,6 +130,29 @@ describe("validateScenarioCustomDefs", () => {
       ).toBe(true);
     });
 
+    it("flags a unit template carrying a pool of an ammo type that does not exist", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customUnitTemplates: [makeUnitTemplate({ ammo: { arrows: 100 } })] }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) => e.scope === "unitTemplate" && /ammo type "arrows"/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("accepts a unit template carrying a pool of the scenario's own ammo type", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customAmmoTypes: [arrows],
+          customUnitTemplates: [makeUnitTemplate({ ammo: { arrows: 100 } })],
+        }),
+        era,
+      );
+      expect(errors.filter((e) => e.scope === "unitTemplate")).toEqual([]);
+    });
+
     it.each([
       ["a missing id", { ...arrows, id: undefined }],
       ["a blank name", { ...arrows, name: " " }],
