@@ -40,10 +40,16 @@ export interface PlayerBattleMetadata {
    */
   damageHealed?: UnitCounts;
   /**
+   * HP of this player's units that shattered or fled off the map, keyed by
+   * this player's unit type: men routed from the field, not killed or wounded,
+   * so not in {@link damageTaken}.
+   */
+  hpRouted?: UnitCounts;
+  /**
    * HP this player inflicted on enemies, keyed by the enemy (victim) unit type.
    * Broadly symmetric to opposing players' damageTaken, but strictly smaller:
-   * damage with no attributed attacker (environmental, shatter) and friendly
-   * fire both count as the victim's damageTaken while being credited to nobody.
+   * damage with no attributed attacker (environmental) and friendly fire both
+   * count as the victim's damageTaken while being credited to nobody.
    */
   damageDealt?: UnitCounts;
   /**
