@@ -1373,5 +1373,16 @@
     "noLoss": "La proposition s’est terminée sans défaite. Vous pouvez relancer la recherche.",
     "failed": "La création de la bataille n’a pas pu être confirmée. Vérifiez avant de relancer la recherche.",
     "checkGame": "Vérifier la partie"
+  },
+  "postMatch": {
+    "playAnother": "Jouer une autre partie",
+    "playAnotherError": "Impossible de créer la partie suivante. Réessayez.",
+    "addTeammate": "Ajouter le coéquipier",
+    "messageTeammate": "Écrire au coéquipier",
+    "friendRequestSent": "Demande d'ami envoyée",
+    "shareReplay": "Partager le replay",
+    "shareReplayText": "Regarde ce replay de Lines of Battle",
+    "replayShared": "Replay partagé.",
+    "settingsFallback": "Cette configuration précédente n'est plus disponible, la configuration recommandée actuelle de Partie rapide a donc été sélectionnée."
   }
 }
