@@ -14,6 +14,8 @@
   "MISSING_TEAM_PLAYERS": "At least one player must have joined on each team before you can start.",
   "PLAYERS_CHOOSING_ARMIES": "All players must choose their armies before you can start.",
   "GAME_DOES_NOT_EXIST": "This game no longer exists.",
+  "MANAGED_GAME_ACCESS_DENIED": "Only members of this War Room can open it.",
+  "GAME_LOAD_FAILED": "This battle could not be loaded. Please try again.",
   "ERROR_STARTING_GAME": "Something went wrong while starting the game. Please try again.",
   "ORDERS_ALREADY_SUBMITTED": "Orders already received for this turn.",
   "ORDERS_STALE_TURN": "The turn has already advanced. Please sync the game.",
@@ -27,5 +29,12 @@
   "MAX_SLOW_QUEUE_LIMIT_REACHED": "You already have the maximum number of games waiting in the queue. Withdraw one before queueing again.",
   "USER_NOT_ADDED_TO_THE_QUEUE": "Could not add you to the queue. Please try again.",
   "INVALID_CURRENCY_TYPE": "Invalid currency selection.",
-  "INTERNAL_ERROR": "Something went wrong. Try again."
+  "INTERNAL_ERROR": "Something went wrong. Try again.",
+  "INVITE_FAILED": "The invite could not be processed. Please try again.",
+  "LEAVE_PARTY_FAILED": "Could not leave the party. Please try again.",
+  "SEND_REQUEST_FAILED": "The request could not be processed. Please try again.",
+  "Username or email already taken": "Username or email already taken.",
+  "INVALID_EMAIL": "Enter a valid email address.",
+  "DISPOSABLE_EMAIL_NOT_ALLOWED": "Temporary email addresses are not allowed.",
+  "INVALID_USERNAME": "Choose another username: 3–50 Latin letters, numbers, underscores or hyphens."
 }

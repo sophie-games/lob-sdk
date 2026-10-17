@@ -1,3 +1,5 @@
+import { validateOrganization } from "@lob-sdk/order-of-battle/validate";
+import type { ScenarioOrganization } from "@lob-sdk/order-of-battle";
 import {
   Scenario,
   UnitTemplate,
@@ -13,11 +15,13 @@ import {
   PlayerBudgetOverride,
   ArmyPanelGroup,
   UnitType,
+  isCircleCollision,
   getCollisionConfig,
 } from "@lob-sdk/types";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { NO_COLLISION_LEVEL } from "@lob-sdk/constants";
 import type {
+  AmmoTypeTemplate,
   DamageTypeTemplate,
   UnitCategoryTemplate,
   GameConstants,
@@ -45,6 +49,7 @@ const MAX_FORMATION_DIMENSION = 256;
  */
 export const MAX_CUSTOM_UNIT_TEMPLATES = 100;
 export const MAX_CUSTOM_DAMAGE_TYPES = 50;
+export const MAX_CUSTOM_AMMO_TYPES = 20;
 export const MAX_CUSTOM_UNIT_FORMATIONS = 50;
 export const MAX_CUSTOM_UNIT_CATEGORIES = 50;
 export const MAX_CUSTOM_TERRAIN_CATEGORIES = 50;
@@ -70,6 +75,7 @@ export interface CustomDefValidationError {
   scope:
     | "unitTemplate"
     | "damageType"
+    | "ammoType"
     | "unitFormation"
     | "unitCategory"
     | "terrainCategory"
@@ -79,7 +85,8 @@ export interface CustomDefValidationError {
     | "order"
     | "battleType"
     | "playerBudget"
-    | "armyPanelGroup";
+    | "armyPanelGroup"
+    | "organization";
   field?: string;
   message: string;
 }
@@ -102,8 +109,23 @@ export function validateScenarioCustomDefs(
     Array.isArray(value) ? value : [];
   const customUnitTemplates = asArray(scenario.customUnitTemplates);
   const customDamageTypes = asArray(scenario.customDamageTypes);
+  const customAmmoTypes = asArray(scenario.customAmmoTypes);
   const customUnitFormations = asArray(scenario.customUnitFormations);
   const customUnitCategories = asArray(scenario.customUnitCategories);
+  errors.push(
+    ...validateOrganization(
+      scenario,
+      eraGameDataManager.getOrganizationDoctrine(),
+      new Set(
+        [
+          ...eraGameDataManager.getUnitCategories(),
+          ...customUnitCategories,
+        ]
+          .flatMap((c) => (typeof c?.id === "string" ? [c.id] : []))
+          .concat(Object.keys(eraGameDataManager.getLegacyUnitCategoryIds())),
+      ),
+    ).map((message) => ({ scope: "organization" as const, message })),
+  );
   const customTerrainCategories = asArray(scenario.customTerrainCategories);
   const customSprites = scenario.customSprites ?? {};
   const customGameConstants = scenario.customGameConstants ?? {};
@@ -119,6 +141,7 @@ export function validateScenarioCustomDefs(
   > = [
     [customUnitTemplates.length, MAX_CUSTOM_UNIT_TEMPLATES, "unitTemplate", "unit templates"],
     [customDamageTypes.length, MAX_CUSTOM_DAMAGE_TYPES, "damageType", "damage types"],
+    [customAmmoTypes.length, MAX_CUSTOM_AMMO_TYPES, "ammoType", "ammo types"],
     [customUnitFormations.length, MAX_CUSTOM_UNIT_FORMATIONS, "unitFormation", "unit formations"],
     [customUnitCategories.length, MAX_CUSTOM_UNIT_CATEGORIES, "unitCategory", "unit categories"],
     [customTerrainCategories.length, MAX_CUSTOM_TERRAIN_CATEGORIES, "terrainCategory", "terrain categories"],
@@ -134,7 +157,10 @@ export function validateScenarioCustomDefs(
     }
   }
 
-  errors.push(...validateCustomDamageTypes(customDamageTypes, eraGameDataManager));
+  errors.push(...validateCustomAmmoTypes(customAmmoTypes, eraGameDataManager));
+  errors.push(
+    ...validateCustomDamageTypes(customDamageTypes, customAmmoTypes, eraGameDataManager),
+  );
   errors.push(
     ...validateCustomUnitFormations(customUnitFormations, eraGameDataManager),
   );
@@ -146,6 +172,7 @@ export function validateScenarioCustomDefs(
     ...validateCustomUnitTemplates(
       customUnitTemplates,
       customDamageTypes,
+      customAmmoTypes,
       customUnitFormations,
       customUnitCategories,
       eraGameDataManager,
@@ -156,6 +183,7 @@ export function validateScenarioCustomDefs(
       customSprites,
       customUnitTemplates,
       customDamageTypes,
+      asArray(scenario.organizations),
     ),
   );
   errors.push(...validateGameConstantOverrides(customGameConstants));
@@ -538,6 +566,7 @@ const POSITIVE_GAME_CONSTANT_KEYS: Array<keyof GameConstants> = [
   "TILE_SIZE",
   "TICKS_PER_TURN",
   "STAT_DISPLAY_DIVISOR",
+  "METERS_PER_PIXEL",
   "COLLISION_DETECTION_SUBTICKS",
   "DEFAULT_MAP_WIDTH",
   "DEFAULT_MAP_HEIGHT",
@@ -572,13 +601,79 @@ function validateGameRuleOverrides(
   }));
 }
 
-function validateCustomDamageTypes(
-  customDamageTypes: DamageTypeTemplate[],
+function validateCustomAmmoTypes(
+  customAmmoTypes: AmmoTypeTemplate[],
   eraGameDataManager: GameDataManager,
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
   const seenIds = new Set<number>();
   const seenNames = new Set<string>();
+  const builtIns = eraGameDataManager.getAmmoTypes();
+  const builtInById = new Map(builtIns.map((a) => [a.id, a]));
+  const builtInByName = new Map(builtIns.map((a) => [a.name, a]));
+
+  for (const ammoType of customAmmoTypes) {
+    const { id, name, color } = ammoType;
+    if (typeof id !== "number" || !Number.isInteger(id)) {
+      errors.push({ scope: "ammoType", field: name, message: "Ammo type id is required" });
+      continue;
+    }
+    if (typeof name !== "string" || name.trim() === "") {
+      errors.push({ scope: "ammoType", message: "Ammo type name is required" });
+      continue;
+    }
+    if (typeof color !== "string" || !/^#[0-9a-fA-F]{6}$/.test(color)) {
+      errors.push({
+        scope: "ammoType",
+        field: name,
+        message: `Ammo type "${name}" needs a #rrggbb color`,
+      });
+    }
+    // Lookup is by name, so overriding a built-in keeps both its id and name.
+    const builtInForId = builtInById.get(id);
+    if (builtInForId && builtInForId.name !== name) {
+      errors.push({
+        scope: "ammoType",
+        field: name,
+        message: `Custom ammo type with id ${id} renames built-in "${builtInForId.name}" to "${name}"; keep the original name when overriding.`,
+      });
+    }
+    const builtInForName = builtInByName.get(name);
+    if (builtInForName && builtInForName.id !== id) {
+      errors.push({
+        scope: "ammoType",
+        field: name,
+        message: `Ammo type name "${name}" already belongs to built-in id ${builtInForName.id}; set id to ${builtInForName.id} to override it, or pick a different name.`,
+      });
+    }
+    if (seenIds.has(id)) {
+      errors.push({ scope: "ammoType", field: name, message: `Duplicate custom ammo type id ${id}` });
+    }
+    if (seenNames.has(name)) {
+      errors.push({ scope: "ammoType", field: name, message: `Duplicate custom ammo type name "${name}"` });
+    }
+    seenIds.add(id);
+    seenNames.add(name);
+  }
+
+  return errors;
+}
+
+const knownAmmoTypeNames = (
+  customAmmoTypes: AmmoTypeTemplate[],
+  eraGameDataManager: GameDataManager,
+): Set<string> =>
+  new Set([...eraGameDataManager.getAmmoTypes(), ...customAmmoTypes].map((a) => a.name));
+
+function validateCustomDamageTypes(
+  customDamageTypes: DamageTypeTemplate[],
+  customAmmoTypes: AmmoTypeTemplate[],
+  eraGameDataManager: GameDataManager,
+): CustomDefValidationError[] {
+  const errors: CustomDefValidationError[] = [];
+  const seenIds = new Set<number>();
+  const seenNames = new Set<string>();
+  const ammoTypeNames = knownAmmoTypeNames(customAmmoTypes, eraGameDataManager);
   const builtInDamageTypes = eraGameDataManager.getDamageTypes();
   const builtInById = new Map(builtInDamageTypes.map((dt) => [dt.id, dt]));
   const builtInByName = new Map(builtInDamageTypes.map((dt) => [dt.name, dt]));
@@ -676,6 +771,14 @@ function validateCustomDamageTypes(
         });
       }
     }
+    // getAmmoTypeOf throws on an unknown name the first time the weapon fires.
+    if (dt.ranged === true && dt.ammoType !== undefined && !ammoTypeNames.has(dt.ammoType)) {
+      errors.push({
+        scope: "damageType",
+        field: dt.name,
+        message: `Damage type "${dt.name}" spends unknown ammo type "${dt.ammoType}"`,
+      });
+    }
     for (const message of findOutOfRangeNumbers(dt, "")) {
       errors.push({ scope: "damageType", field: dt.name, message });
     }
@@ -711,50 +814,40 @@ function validateCustomUnitFormations(
     const pushErr = (message: string) =>
       errors.push({ scope: "unitFormation", field: formation.id, message });
 
-    // collisionShape must resolve to a rectangle { type: Obb, frontage>0, depth>0 }.
-    // Legacy type-0 radius inputs remain readable and normalize to a square before
-    // validation. A half-specified shape would produce NaN corners that silently
-    // break collision and rendering for the whole match.
+    // collisionShape must be a circle { type: Circle, radius>=0 } or a rectangle
+    // { type: Obb, frontage>0, depth>0 }. A half-specified shape (e.g. frontage
+    // without depth) would produce NaN corners that silently break collision and
+    // rendering for the whole match.
     const shape = formation.collisionShape;
     if (shape !== undefined) {
       if (!isObject(shape)) {
-        pushErr("collisionShape must be an object { type, frontage, depth }");
-      } else {
-        const rawShape = shape as unknown as Record<string, unknown>;
-        if (rawShape.type !== CollisionShapeType.Obb && rawShape.type !== 0) {
-          pushErr("collisionShape.type must be 1 (obb)");
-        } else if (
-          rawShape.type === 0 &&
-          (typeof rawShape.radius !== "number" ||
-            !Number.isFinite(rawShape.radius) ||
-            rawShape.radius < 0)
-        ) {
+        pushErr(
+          "collisionShape must be an object { type, radius } or { type, frontage, depth }",
+        );
+      } else if (shape.type === CollisionShapeType.Circle) {
+        if (!Number.isFinite(shape.radius) || shape.radius < 0) {
           pushErr("collisionShape.radius must be a finite number >= 0");
-        } else {
-          const resolvedShape = getCollisionConfig(
-            formation as unknown as Parameters<typeof getCollisionConfig>[0],
-          );
-          const isNoCollisionShape =
-            resolvedShape.frontage === 0 && resolvedShape.depth === 0;
-          if (
-            !isNoCollisionShape &&
-            (!Number.isFinite(resolvedShape.frontage) ||
-              resolvedShape.frontage <= 0 ||
-              !Number.isFinite(resolvedShape.depth) ||
-              resolvedShape.depth <= 0)
-          ) {
-            pushErr(
-              "collisionShape must have a finite frontage and depth greater than 0",
-            );
-          } else if (
-            resolvedShape.frontage > MAX_FORMATION_DIMENSION ||
-            resolvedShape.depth > MAX_FORMATION_DIMENSION
-          ) {
-            pushErr(
-              `collisionShape frontage and depth must each be <= ${MAX_FORMATION_DIMENSION}`,
-            );
-          }
         }
+      } else if (shape.type === CollisionShapeType.Obb) {
+        if (
+          !Number.isFinite(shape.frontage) ||
+          shape.frontage <= 0 ||
+          !Number.isFinite(shape.depth) ||
+          shape.depth <= 0
+        ) {
+          pushErr(
+            "collisionShape must have a finite frontage and depth greater than 0",
+          );
+        } else if (
+          shape.frontage > MAX_FORMATION_DIMENSION ||
+          shape.depth > MAX_FORMATION_DIMENSION
+        ) {
+          pushErr(
+            `collisionShape frontage and depth must each be <= ${MAX_FORMATION_DIMENSION}`,
+          );
+        }
+      } else {
+        pushErr("collisionShape.type must be 0 (circle) or 1 (obb)");
       }
     }
 
@@ -798,6 +891,18 @@ function validateCustomUnitFormations(
             pushErr(`fireEdges[${i}].emitters must be a positive integer`);
           }
         });
+      }
+
+      // Edge-fire is gated on an OBB collision shape: a circle never fires. fireEdges on a
+      // circle formation would silently produce no ranged fire, so reject the combination.
+      if (
+        Array.isArray(formation.fireEdges) &&
+        formation.fireEdges.length > 0 &&
+        isCircleCollision(getCollisionConfig(formation))
+      ) {
+        pushErr(
+          "fireEdges require a rectangular (obb) collisionShape; a circle formation never fires",
+        );
       }
     }
   }
@@ -859,12 +964,14 @@ function validateCustomUnitCategories(
 function validateCustomUnitTemplates(
   customUnitTemplates: UnitTemplate[],
   customDamageTypes: DamageTypeTemplate[],
+  customAmmoTypes: AmmoTypeTemplate[],
   customUnitFormations: FormationTemplate[],
   customUnitCategories: UnitCategoryTemplate[],
   eraGameDataManager: GameDataManager,
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
   const seenIds = new Set<number>();
+  const ammoTypeNames = knownAmmoTypeNames(customAmmoTypes, eraGameDataManager);
 
   const damageTypeByName = new Map<string, DamageTypeTemplate>();
   for (const dt of eraGameDataManager.getDamageTypes()) damageTypeByName.set(dt.name, dt);
@@ -881,7 +988,9 @@ function validateCustomUnitTemplates(
   );
   const customCategoryIds = new Set(customUnitCategories.map((c) => c.id));
   const isKnownCategory = (id: string) =>
-    builtInCategoryIds.has(id) || customCategoryIds.has(id);
+    builtInCategoryIds.has(id) ||
+    customCategoryIds.has(id) ||
+    Object.hasOwn(eraGameDataManager.getLegacyUnitCategoryIds(), id);
 
   for (const template of customUnitTemplates) {
     // Reusing a built-in `type` id is an explicit override; CUSTOM_UNIT_TYPE_MIN
@@ -938,6 +1047,18 @@ function validateCustomUnitTemplates(
           scope: "unitTemplate",
           field: template.name,
           message: `rangedDamageType "${dtName}" references a melee damage type`,
+        });
+      }
+    }
+
+    // ammoToWire looks every pool up by name when the unit is sent.
+    const { ammo } = rangedTemplate;
+    for (const ammoType of typeof ammo === "object" && ammo !== null ? Object.keys(ammo) : []) {
+      if (!ammoTypeNames.has(ammoType)) {
+        errors.push({
+          scope: "unitTemplate",
+          field: template.name,
+          message: `ammo pool names unknown ammo type "${ammoType}"`,
         });
       }
     }
@@ -1052,6 +1173,7 @@ function validateCustomSprites(
   customSprites: Record<string, CustomSprite>,
   customUnitTemplates: UnitTemplate[],
   customDamageTypes: DamageTypeTemplate[],
+  organizations: ScenarioOrganization[],
 ): CustomDefValidationError[] {
   const errors: CustomDefValidationError[] = [];
 
@@ -1111,6 +1233,20 @@ function validateCustomSprites(
         field: damageType.name,
         message: `damage type "${damageType.name}" references missing custom sprite "${ref}"`,
       });
+    }
+  }
+
+  for (const organization of organizations) {
+    const divisions = organization?.divisions;
+    for (const division of Array.isArray(divisions) ? divisions : []) {
+      const ref = division?.banner;
+      if (ref !== undefined && !(ref in customSprites)) {
+        errors.push({
+          scope: "customSprite",
+          field: division.name,
+          message: `division banner references missing custom sprite "${ref}"`,
+        });
+      }
     }
   }
 

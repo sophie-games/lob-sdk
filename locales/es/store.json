@@ -1,7 +1,7 @@
 {
   "currencyShop": {
     "title": "Obtené <0/>",
-    "subtitle": "Usá Prestigio para conseguir cosméticos.",
+    "subtitle": "Usá Prestigio para conseguir unidades, ejércitos, Arenas, Coaliciones, cosméticos y más.",
     "unavailable": "La tienda no está disponible en este momento. Volvé a intentarlo más tarde."
   },
 
@@ -11,7 +11,7 @@
     "basic": "Florines",
     "premium": "Prestigio",
     "basicDescription": "<currency/>: Ganalos jugando partidas de emparejamiento. Usalos para reclutar unidades y armar tu ejército.",
-    "premiumDescription": "<currency/>: Usalo para conseguir cosméticos. Podés comprarlo o ganar una pequeña cantidad mientras jugás.",
+    "premiumDescription": "<currency/>: Usalo en todo el juego para conseguir unidades, ejércitos, Arenas, Coaliciones, cosméticos y más. Podés comprarlo o ganarlo jugando.",
     "rate": "{{rate}} {{currency}} por USD",
     "packageExtra": "Bonificación de {{amount}} incluida en el total",
     "purchase": "Comprar {{amount}} {{currency}}"
@@ -31,5 +31,6 @@
   },
 
   "purchaseConfirmation": "Estás seguro de que querés comprar {{item}}?",
+  "showPurchased": "Mostrar comprados",
   "offlineWarning": "Las compras solo funcionan en modo online, no en offline."
 }

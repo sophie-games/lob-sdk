@@ -1,10 +1,20 @@
 import { TurnSubmission, UnitCounts, GameUserResult } from "@lob-sdk/types";
+import type { ArmyOrganization } from "./army-organization";
 
 export enum UserTier {
   Free = "free",
   Bronze = "bronze",
   Silver = "silver",
   Gold = "gold",
+}
+
+/** Stable subscription plan identifier, independent from display names and gameplay access. */
+export enum SubscriptionPlanId {
+  None = "none",
+  Plan001 = "plan_001",
+  Plan002 = "plan_002",
+  Plan003 = "plan_003",
+  Plan004 = "plan_004",
 }
 
 export enum LostReason {
@@ -14,10 +24,12 @@ export enum LostReason {
 }
 
 /**
- * Per-battle stats persisted to `game_users.metadata` JSONB. All sub-objects
- * are HP-denominated and keyed by {@link UnitType}.
+ * Per-battle stats and departure context persisted to `game_users.metadata` JSONB.
+ * Damage sub-objects are HP-denominated and keyed by {@link UnitType}.
  */
 export interface PlayerBattleMetadata {
+  /** Persisted alongside lostReason for accepted ranked departures. */
+  rankedDeparture?: { turn: number; openingTurn: boolean };
   /** Cumulative HP this player lost, keyed by this player's unit type (the victim). */
   damageTaken?: UnitCounts;
   /**
@@ -28,10 +40,16 @@ export interface PlayerBattleMetadata {
    */
   damageHealed?: UnitCounts;
   /**
+   * HP of this player's units that shattered or fled off the map, keyed by
+   * this player's unit type: men routed from the field, not killed or wounded,
+   * so not in {@link damageTaken}.
+   */
+  hpRouted?: UnitCounts;
+  /**
    * HP this player inflicted on enemies, keyed by the enemy (victim) unit type.
    * Broadly symmetric to opposing players' damageTaken, but strictly smaller:
-   * damage with no attributed attacker (environmental, shatter) and friendly
-   * fire both count as the victim's damageTaken while being credited to nobody.
+   * damage with no attributed attacker (environmental) and friendly fire both
+   * count as the victim's damageTaken while being credited to nobody.
    */
   damageDealt?: UnitCounts;
   /**
@@ -48,6 +66,8 @@ export interface Player {
   playerNumber: number;
   username: string;
   elo: number;
+  /** Ranked games settled for this era's rating in the current season. */
+  eloGames?: number;
   team: number;
   passed: boolean;
   defeated: boolean;
@@ -57,6 +77,8 @@ export interface Player {
   turnSubmission: TurnSubmission | null;
   wantsDraw: boolean;
   armyComposition: UnitCounts | null;
+  /** Saved composition OOB snapshot, materialized into game metadata at start. */
+  armyOrganization?: ArmyOrganization | null;
   metadata: PlayerBattleMetadata | null;
   unitsGained: UnitCounts | null;
   /**
@@ -99,7 +121,8 @@ export interface PlayerInfo {
   clanTag?: string | null;
   playerNumber: number;
   team: number;
-  elo: number;
+  /** Current ELO; null while current-season placements are incomplete. */
+  elo: number | null;
   eloBefore: number | null;
   eloChange: number;
   basicCurrencyEarned: number | null;
@@ -135,6 +158,8 @@ export interface PlayerInfo {
   countryCode?: string;
   /** Whether this account carries the verified badge. */
   isVerified?: boolean;
+  /** Stable subscription plan used to select the player's public badge. */
+  subscriptionPlanId?: SubscriptionPlanId;
   /**
    * Timestamp when this player submitted their turn (seconds since epoch).
    * Used for Fischer timing. Null if player hasn't submitted.

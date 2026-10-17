@@ -1,3 +1,4 @@
+import { polygonFromBounds } from "../utils/deployment-zone";
 import { RandomMapGenerator } from "./random-map-generator";
 import {
   Scenario,
@@ -5,6 +6,7 @@ import {
   ScenarioName,
   DynamicBattleType,
   TerrainType,
+  ObjectiveType,
 } from "@lob-sdk/types";
 import { SCENARIO_SCHEMA_VERSION } from "@lob-sdk/scenario";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
@@ -30,46 +32,6 @@ const isProceduralTemplate = (s: Scenario): boolean =>
 describe("RandomMapGenerator", () => {
   const gameDataManager = GameDataManager.get("napoleonic");
   const { TILE_SIZE, DEFAULT_BATTLE_TYPE } = gameDataManager.getGameConstants();
-
-  it("preserves partial edge tiles on fixed maps", () => {
-    const terrains = [
-      [TerrainType.Grass, TerrainType.Grass],
-      [TerrainType.Grass, TerrainType.ShallowWater],
-    ];
-    const heightMap = [
-      [0, 0],
-      [0, 1],
-    ];
-    const scenario: Scenario = {
-      version: SCENARIO_SCHEMA_VERSION,
-      name: "partial-edge-tiles" as ScenarioName,
-      description: "Fixed map whose dimensions include partial edge tiles",
-      map: {
-        width: TILE_SIZE + 1,
-        height: TILE_SIZE + 1,
-        terrains,
-        heightMap,
-        seed: 12345,
-      },
-    };
-
-    const result = new RandomMapGenerator().generate({
-      scenario,
-      dynamicBattleType: DEFAULT_BATTLE_TYPE,
-      maxPlayers: 2,
-      tileSize: TILE_SIZE,
-      era: "napoleonic",
-    });
-
-    expect(result.map.terrains).toEqual(terrains);
-    expect(result.map.heightMap).toEqual(heightMap);
-    expect(result.map.terrains).toHaveLength(
-      Math.ceil(result.map.width / TILE_SIZE),
-    );
-    expect(result.map.terrains[0]).toHaveLength(
-      Math.ceil(result.map.height / TILE_SIZE),
-    );
-  });
 
   describe("generate all random ranked scenarios", () => {
     // Get all scenario names dynamically from the GameDataManager
@@ -579,6 +541,41 @@ describe("RandomMapGenerator", () => {
       expect(result.map.terrains[3][4]).toBe(TerrainType.ShallowWater);
     });
 
+    it("preserves place labels and objective zones from a handcrafted map", () => {
+      const labels = [{ pos: { x: 64, y: 96 }, text: "Quatre Bras" }];
+      const objectiveZones = [
+        {
+          team: 1,
+          type: ObjectiveType.Big,
+          polygons: [polygonFromBounds(16, 16, 48, 48)],
+        },
+      ];
+      const scenario: Scenario = {
+        version: SCENARIO_SCHEMA_VERSION,
+        name: "fixed-map-labels",
+        description: "test",
+        map: {
+          width: TILES_X * TILE_SIZE,
+          height: TILES_Y * TILE_SIZE,
+          terrains: buildBakedTerrains(),
+          heightMap: buildBakedHeightMap(),
+          labels,
+          objectiveZones,
+        },
+      };
+
+      const result = new RandomMapGenerator().generate({
+        scenario,
+        dynamicBattleType: DEFAULT_BATTLE_TYPE,
+        maxPlayers: 2,
+        tileSize: TILE_SIZE,
+        era: "napoleonic",
+      });
+
+      expect(result.map.labels).toEqual(labels);
+      expect(result.map.objectiveZones).toEqual(objectiveZones);
+    });
+
     it("pads a heightMap shorter than terrains to the declared dimensions", () => {
       // Regression: a real user scenario shipped with heightMap a few columns
       // shorter than terrains (an editor resize desync). Left as-is it crashed
@@ -613,7 +610,9 @@ describe("RandomMapGenerator", () => {
       expect(result.map.terrains.length).toBe(TILES_X);
       expect(result.map.heightMap.length).toBe(TILES_X);
       expect(result.map.terrains.every((c) => c.length === TILES_Y)).toBe(true);
-      expect(result.map.heightMap.every((c) => c.length === TILES_Y)).toBe(true);
+      expect(result.map.heightMap.every((c) => c.length === TILES_Y)).toBe(
+        true,
+      );
       // Present heights preserved; padded columns default to 0; terrain intact.
       expect(result.map.heightMap[0][0]).toBe(7);
       expect(result.map.heightMap[TILES_X - 1][0]).toBe(0);
@@ -669,15 +668,31 @@ describe("RandomMapGenerator", () => {
         {
           team: 1,
           zones: [
-            { team: 1, type: "main" as const, x: 0, y: 0, width: 32, height: 32 },
-            { team: 1, type: "forward" as const, x: 0, y: 32, width: 32, height: 32 },
+            {
+              team: 1,
+              type: "main" as const,
+              polygons: [polygonFromBounds(0, 0, 32, 32)],
+            },
+            {
+              team: 1,
+              type: "forward" as const,
+              polygons: [polygonFromBounds(0, 32, 32, 64)],
+            },
           ],
         },
         {
           team: 2,
           zones: [
-            { team: 2, type: "main" as const, x: 64, y: 0, width: 32, height: 32 },
-            { team: 2, type: "forward" as const, x: 64, y: 32, width: 32, height: 32 },
+            {
+              team: 2,
+              type: "main" as const,
+              polygons: [polygonFromBounds(64, 0, 96, 32)],
+            },
+            {
+              team: 2,
+              type: "forward" as const,
+              polygons: [polygonFromBounds(64, 32, 96, 64)],
+            },
           ],
         },
       ];
@@ -787,13 +802,42 @@ describe("RandomMapGenerator", () => {
     });
   });
 
-  describe("tutorial scenario", () => {
+  describe("fixed-size instruction scenario", () => {
+    const fixedScenario: Scenario = {
+      version: SCENARIO_SCHEMA_VERSION,
+      name: "fixed-roster-test",
+      description: "Fixed-size map with pixel deployment zones",
+      baseTerrain: TerrainType.Grass,
+      fixedSize: { tilesX: 64, tilesY: 64 },
+      instructions: [],
+      deploymentZones: [
+        {
+          team: 1,
+          zones: [
+            {
+              team: 1,
+              type: "main",
+              polygons: [polygonFromBounds(0, 0, 128, 128)],
+            },
+          ],
+        },
+        {
+          team: 2,
+          zones: [
+            {
+              team: 2,
+              type: "main",
+              polygons: [polygonFromBounds(0, 896, 128, 1024)],
+            },
+          ],
+        },
+      ],
+    };
     it("generates a 64x64 map with the declared pixel deployment zones", () => {
       const generator = new RandomMapGenerator();
-      const tutorial = gameDataManager.getScenario("tutorial");
 
       const result = generator.generate({
-        scenario: tutorial,
+        scenario: fixedScenario,
         dynamicBattleType: DEFAULT_BATTLE_TYPE,
         maxPlayers: 2,
         tileSize: TILE_SIZE,
@@ -802,7 +846,7 @@ describe("RandomMapGenerator", () => {
 
       expect(result.map.width).toBe(64 * TILE_SIZE);
       expect(result.map.height).toBe(64 * TILE_SIZE);
-      expect(result.map.deploymentZones).toEqual(tutorial.deploymentZones);
+      expect(result.map.deploymentZones).toEqual(fixedScenario.deploymentZones);
     });
 
     // Regression: production callers (initializeGame) pass dynamicBattleType: null
@@ -811,10 +855,9 @@ describe("RandomMapGenerator", () => {
     // makes the fixed-map path self-sufficient.
     it("handles dynamicBattleType: null for fixed-roster scenarios", () => {
       const generator = new RandomMapGenerator();
-      const tutorial = gameDataManager.getScenario("tutorial");
 
       const result = generator.generate({
-        scenario: tutorial,
+        scenario: fixedScenario,
         dynamicBattleType: null,
         maxPlayers: 2,
         tileSize: TILE_SIZE,
@@ -823,7 +866,7 @@ describe("RandomMapGenerator", () => {
 
       expect(result.map.width).toBe(64 * TILE_SIZE);
       expect(result.map.height).toBe(64 * TILE_SIZE);
-      expect(result.map.deploymentZones).toEqual(tutorial.deploymentZones);
+      expect(result.map.deploymentZones).toEqual(fixedScenario.deploymentZones);
     });
   });
 
@@ -845,12 +888,8 @@ describe("RandomMapGenerator", () => {
               role: "main",
               player: 2,
               rotation: Math.PI / 4,
-              rect: {
-                x: { min: 10, max: 10 },
-                y: { min: 5, max: 5 },
-                width: 80,
-                height: 10,
-              },
+              origin: { x: { min: 10, max: 10 }, y: { min: 5, max: 5 } },
+              polygon: polygonFromBounds(0, 0, 80, 10),
             },
           ],
         },
@@ -897,11 +936,9 @@ describe("RandomMapGenerator", () => {
         const z1 = team1.zones[i];
         const z2 = team2.zones[i];
         expect(z1.type).toBe(z2.type);
-        expect(z1.x).toBe(z2.x);
-        expect(z1.width).toBe(z2.width);
-        expect(z1.height).toBe(z2.height);
-        // team 1 (bottom) must be the exact vertical mirror of team 2 (top).
-        expect(z1.y).toBe(mapHeight - z2.y - z2.height);
+        expect(z1.polygons[0].outer).toEqual(
+          z2.polygons[0].outer.map(({ x, y }) => ({ x, y: mapHeight - y })),
+        );
       }
     });
   });

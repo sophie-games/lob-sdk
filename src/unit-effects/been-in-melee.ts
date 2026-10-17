@@ -43,7 +43,16 @@ export class BeenInMelee extends BaseUnitEffect {
   }
 
   getDisplayStats(unit: BaseUnit): UnitEffectDisplayStat[] {
+    const { HAS_BEEN_IN_MELEE_SPEED_MODIFIER } =
+      unit.gameDataManager.getGameConstants();
+
     return [
+      {
+        label: "movement",
+        type: "percentage",
+        value: HAS_BEEN_IN_MELEE_SPEED_MODIFIER,
+        color: HAS_BEEN_IN_MELEE_SPEED_MODIFIER < 0 ? "red" : "green",
+      },
       {
         label: "cannotChangeFormation",
         type: "text",
