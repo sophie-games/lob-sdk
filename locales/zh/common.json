@@ -1611,5 +1611,17 @@
     "noLoss": "邀请已结束，不计失败。你可以重新匹配。",
     "failed": "无法确认战斗是否已创建。再次匹配前请先检查。",
     "checkGame": "检查对局"
+  },
+  "postMatch": {
+    "title": "接下来做什么？",
+    "playAnother": "再来一局",
+    "playAnotherError": "无法创建下一场对战。请重试。",
+    "addTeammate": "添加队友",
+    "messageTeammate": "给队友发消息",
+    "friendRequestSent": "好友请求已发送",
+    "shareReplay": "分享回放",
+    "shareReplayText": "来看这场 Lines of Battle 回放",
+    "replayShared": "回放已分享。",
+    "settingsFallback": "之前的设置已不可用，因此已选择当前推荐的快速模式设置。"
   }
 }

@@ -1504,5 +1504,17 @@
     "noLoss": "敗北扱いにならずに終了しました。再度対戦を検索できます。",
     "failed": "戦闘が作成されたか確認できませんでした。再検索の前に確認してください。",
     "checkGame": "対戦を確認"
+  },
+  "postMatch": {
+    "title": "次はどうする？",
+    "playAnother": "もう一戦プレイ",
+    "playAnotherError": "次の対戦を作成できませんでした。もう一度お試しください。",
+    "addTeammate": "チームメイトを追加",
+    "messageTeammate": "チームメイトにメッセージ",
+    "friendRequestSent": "フレンド申請を送信しました",
+    "shareReplay": "リプレイを共有",
+    "shareReplayText": "このLines of Battleのリプレイを見てください",
+    "replayShared": "リプレイを共有しました。",
+    "settingsFallback": "以前の設定は利用できなくなったため、現在おすすめの高速モード設定を選択しました。"
   }
 }

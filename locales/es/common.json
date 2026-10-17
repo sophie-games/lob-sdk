@@ -1679,5 +1679,17 @@
     "noLoss": "La propuesta terminó sin derrota. Podés buscar otra partida.",
     "failed": "No pudimos confirmar si se creó la batalla. Comprobalo antes de buscar otra.",
     "checkGame": "Comprobar partida"
+  },
+  "postMatch": {
+    "title": "¿Y ahora qué?",
+    "playAnother": "Jugar otra partida",
+    "playAnotherError": "No se pudo crear la siguiente partida. Inténtalo de nuevo.",
+    "addTeammate": "Añadir compañero",
+    "messageTeammate": "Enviar mensaje al compañero",
+    "friendRequestSent": "Solicitud de amistad enviada",
+    "shareReplay": "Compartir repetición",
+    "shareReplayText": "Mira esta repetición de Lines of Battle",
+    "replayShared": "Repetición compartida.",
+    "settingsFallback": "Esa configuración anterior ya no está disponible, así que se seleccionó la configuración recomendada actual del Modo rápido."
   }
 }
