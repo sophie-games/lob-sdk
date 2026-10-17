@@ -808,31 +808,6 @@ export class ArmyDeployer {
     );
   }
 
-  /** Append doctrine divisions for the deployed units `organization` leaves unassigned. */
-  static organizeUnassignedUnits(
-    gameDataManager: GameDataManager,
-    organization: ArmyOrganization,
-    units: UnitCounts,
-    dynamicBattleType: DynamicBattleType,
-  ): ArmyOrganization {
-    const unassigned = ArmyDeployer.getUnassignedUnits(
-      gameDataManager,
-      organization,
-      units,
-      dynamicBattleType,
-    );
-    if (Object.keys(unassigned).length === 0) return organization;
-    const { divisions } = ArmyDeployer.organizeByDoctrine(
-      gameDataManager,
-      unassigned,
-      dynamicBattleType,
-    );
-    return {
-      ...organization,
-      divisions: [...organization.divisions, ...divisions],
-    };
-  }
-
   /** The deployed units `organization` does not hold. */
   private static getUnassignedUnits(
     gameDataManager: GameDataManager,

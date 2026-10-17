@@ -248,39 +248,6 @@ describe("ArmyDeployer", () => {
       }
     });
 
-    it("organizes the units a saved organization leaves unassigned by doctrine", () => {
-      const units: UnitCounts = { 1: 20, 8: 4, 12: 2 };
-      const byDoctrine = ArmyDeployer.getDefaultOrganization(
-        gameDataManager,
-        units,
-        "battle",
-      );
-      const saved = {
-        ...byDoctrine,
-        divisions: byDoctrine.divisions.slice(0, 1),
-      };
-
-      const completed = ArmyDeployer.organizeUnassignedUnits(
-        gameDataManager,
-        saved,
-        units,
-        "battle",
-      );
-
-      expect(completed.divisions[0]).toEqual(saved.divisions[0]);
-      expect(countArmyOrganizationUnits(completed)).toEqual(
-        ArmyDeployer.getDeployedUnitCounts(gameDataManager, units, "battle"),
-      );
-      expect(
-        ArmyDeployer.organizeUnassignedUnits(
-          gameDataManager,
-          { version: 1, divisions: [] },
-          units,
-          "battle",
-        ),
-      ).toEqual(byDoctrine);
-    });
-
     it("gives each division of the default organization the battery that deployed with it", () => {
       // 2 = dragoons (rear wing), 8 = cuirassiers (rear centre), 6 = horse guns,
       // which both cavalry divisions draw on.
@@ -514,16 +481,7 @@ describe("ArmyDeployer", () => {
       )
         .deploy(saved)
         .map((unit, id) => ({ ...unit, id }));
-      const organization = materializeArmyOrganization(
-        ArmyDeployer.organizeUnassignedUnits(
-          gameDataManager,
-          saved,
-          units,
-          "battle",
-        ),
-        1,
-        deployed,
-      );
+      const organization = materializeArmyOrganization(saved, 1, deployed);
       const positions = (unitIds: number[]) =>
         unitIds.map((id) => deployed[id].pos);
       const [cavalry, infantry] = organization!.divisions;
