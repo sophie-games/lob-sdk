@@ -1324,5 +1324,16 @@
     "noLoss": "Az ajánlat vereség nélkül ért véget. Újra kereshetsz.",
     "failed": "Nem sikerült megerősíteni a csata létrejöttét. Új keresés előtt ellenőrizd.",
     "checkGame": "Mérkőzés ellenőrzése"
+  },
+  "postMatch": {
+    "playAnother": "Újabb meccs",
+    "playAnotherError": "A következő meccset nem sikerült létrehozni. Próbáld újra.",
+    "addTeammate": "Csapattárs hozzáadása",
+    "messageTeammate": "Üzenet a csapattársnak",
+    "friendRequestSent": "Barátkérés elküldve",
+    "shareReplay": "Visszajátszás megosztása",
+    "shareReplayText": "Nézd meg ezt a Lines of Battle visszajátszást",
+    "replayShared": "Visszajátszás megosztva.",
+    "settingsFallback": "Az előző beállítás már nem érhető el, ezért a jelenleg ajánlott Gyors mód beállítás lett kiválasztva."
   }
 }

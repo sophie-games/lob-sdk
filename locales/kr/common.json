@@ -1490,5 +1490,16 @@
     "noLoss": "패배 없이 제안이 종료되었습니다. 다시 검색할 수 있습니다.",
     "failed": "전투 생성 여부를 확인하지 못했습니다. 다시 검색하기 전에 확인하세요.",
     "checkGame": "대전 확인"
+  },
+  "postMatch": {
+    "playAnother": "한 판 더 하기",
+    "playAnotherError": "다음 경기를 만들 수 없습니다. 다시 시도하세요.",
+    "addTeammate": "팀원 추가",
+    "messageTeammate": "팀원에게 메시지",
+    "friendRequestSent": "친구 요청 보냄",
+    "shareReplay": "리플레이 공유",
+    "shareReplayText": "이 Lines of Battle 리플레이를 확인해 보세요",
+    "replayShared": "리플레이를 공유했습니다.",
+    "settingsFallback": "이전 설정을 더 이상 사용할 수 없어 현재 추천 단기전 설정을 선택했습니다."
   }
 }
