@@ -556,10 +556,11 @@ export interface InstructionFields extends BaseInstruction {
 }
 
 /**
- * Instruction to wear high ground down the way running water does: each tile drains to its lowest
- * neighbour, and the more ground drains through a tile, the deeper it is cut. Gullies under the
- * crests join into fewer, deeper valleys lower down, leaving ridges standing between them. Lowers
- * the relief only, in whole levels and within the height rule.
+ * Instruction to wear high ground down the way running water does: each tile drains along the
+ * lowest way to the map's edge, a hollow spilling over its lowest rim, and the more ground drains
+ * through a tile, the deeper it is cut. Gullies under the crests join into fewer, deeper valleys
+ * lower down, leaving ridges standing between them. Lowers the relief only, in whole levels and
+ * within the height rule.
  */
 export interface InstructionErosion extends BaseInstruction {
   /** Instruction type is Erosion. */
