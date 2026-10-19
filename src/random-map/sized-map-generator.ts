@@ -27,6 +27,7 @@ import { ObjectiveExecutor } from "./executors/objective";
 import { ObjectiveLayerExecutor } from "./executors/objective-layer";
 import { LakeExecutor } from "./executors/lake";
 import { SymmetryExecutor } from "./executors/symmetry";
+import { ErosionExecutor } from "./executors/erosion";
 import { FieldsExecutor } from "./executors/fields";
 import { InstructionArea, TurnedFrame } from "./frame-angle";
 import { normalizeMapGrids } from "./normalize-map-grids";
@@ -543,6 +544,15 @@ export class SizedMapGenerator {
             index,
             boundedTerrains,
             boundedHeightMap,
+          ).execute();
+          break;
+        }
+        case InstructionType.Erosion: {
+          new ErosionExecutor(
+            instruction,
+            boundedHeightMap,
+            maxHeightStep,
+            randomSeeded(deriveSeed(seed, index + 1)),
           ).execute();
           break;
         }

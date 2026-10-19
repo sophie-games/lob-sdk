@@ -1085,7 +1085,10 @@
       "xl": "Très grand",
       "y": "Y",
       "yBounds": "Limites Y",
-      "yRange": "Plage Y"
+      "yRange": "Plage Y",
+      "strength": "Force",
+      "iterations": "Itérations",
+      "channelArea": "Surface de ravine"
     },
     "instructionType": {
       "terrainNoise": "Bruit de terrain",
@@ -1098,7 +1101,8 @@
       "lake": "Lac",
       "objectiveLayer": "Couche d'objectifs",
       "symmetry": "Symétrie",
-      "fields": "Champs"
+      "fields": "Champs",
+      "erosion": "Érosion"
     },
     "objectiveType": {
       "small": "Petit",

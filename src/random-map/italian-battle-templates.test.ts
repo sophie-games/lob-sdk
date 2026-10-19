@@ -272,7 +272,7 @@ describe.each(["river-crossing", "marsh-dikes"] as const)("%s is the farmed Po p
 
 describe("river-crossing", () => {
   it.each(everyMap("river-crossing"))(
-    "a deep river between the armies is crossed only at bridges and a ford a track leads to, with a village at a bridge (%s, seed %i)",
+    "a deep river between the armies is crossed only at bridges and fords tracks lead to, with a village at a bridge (%s, seed %i)",
     (size, seed) => {
       const b = battle("river-crossing", size, seed);
       // With every crossing closed the armies are cut off from each other.
@@ -281,13 +281,23 @@ describe("river-crossing", () => {
       ).toBe(false);
       expect(b.share([DeepWater], 0, 100, 30, 70)).toBeGreaterThan(0.04);
       expect(b.share([DeepWater], 0, 100, 0, 25)).toBe(0);
-      let villageAtBridge = false;
-      for (const [x, y] of b.tilesIn()) {
-        if (b.terrain(x, y) === ShallowWater && b.near(x, y, 1, [DeepWater]))
-          expect(b.near(x, y, 3, [Road])).toBe(true);
-        if (b.terrain(x, y) === Bridge && b.near(x, y, 4, [Building])) villageAtBridge = true;
+      expect(b.tilesIn().some(([x, y]) => b.terrain(x, y) === Bridge && b.near(x, y, 4, [Building]))).toBe(true);
+      // Each ford is a shoal a track runs through.
+      const seen = new Set<string>();
+      for (const [sx, sy] of b.tilesIn()) {
+        if (b.terrain(sx, sy) !== ShallowWater || seen.has(`${sx},${sy}`)) continue;
+        const shoal: Tile[] = [[sx, sy]];
+        seen.add(`${sx},${sy}`);
+        for (let head = 0; head < shoal.length; head++) {
+          const [x, y] = shoal[head];
+          for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]] as Tile[])
+            if (b.terrain(nx, ny) === ShallowWater && !seen.has(`${nx},${ny}`)) {
+              seen.add(`${nx},${ny}`);
+              shoal.push([nx, ny]);
+            }
+        }
+        expect(shoal.some(([x, y]) => b.near(x, y, 1, [Road]))).toBe(true);
       }
-      expect(villageAtBridge).toBe(true);
       // As at Lodi, Borghetto and Gradisca: one bridge carries the road, and the way round it is a
       // ford at least 500 m (10 tiles) off.
       const bridges = b.tilesIn().filter(([x, y]) => b.terrain(x, y) === Bridge);
@@ -297,6 +307,43 @@ describe("river-crossing", () => {
       expect(fords.some(([fx, fy]) => bridges.every(([bx, by]) => Math.max(Math.abs(fx - bx), Math.abs(fy - by)) >= 10))).toBe(true);
     },
   );
+
+  it.each(everyMap("river-crossing"))(
+    "the river can be crossed all along its length at bridges and wide fords, so no one crossing decides it (%s, seed %i)",
+    (size, seed) => {
+      // In 1796 the Adda, Mincio and Brenta were fordable in many places, and in 1797 the
+      // Tagliamento was forded on a broad front: an obstacle to force, not a wall to camp behind.
+      const b = battle("river-crossing", size, seed);
+      const column = (x: number) => {
+        const ys = [...Array(b.tilesY).keys()].slice(Math.floor(0.25 * b.tilesY), Math.ceil(0.75 * b.tilesY));
+        if (ys.some((y) => b.terrain(x, y) === Bridge)) return "bridge";
+        return ys.some((y) => b.terrain(x, y) === DeepWater) ? "river" : "ford";
+      };
+      // Runs of columns, each either crossable (bridge or ford) or not.
+      const runs: { crossable: boolean; ford: boolean; length: number }[] = [];
+      for (let x = 0; x < b.tilesX; x++) {
+        const kind = column(x);
+        const last = runs[runs.length - 1];
+        if (last && last.crossable === (kind !== "river")) {
+          last.length++;
+          last.ford &&= kind === "ford";
+        } else runs.push({ crossable: kind !== "river", ford: kind === "ford", length: 1 });
+      }
+      const crossings = runs.filter((r) => r.crossable);
+      expect(crossings.length).toBeGreaterThanOrEqual(4);
+      expect(Math.max(...runs.filter((r) => !r.crossable).map((r) => r.length))).toBeLessThanOrEqual(0.3 * b.tilesX);
+      for (const ford of crossings.filter((r) => r.ford)) expect(ford.length).toBeGreaterThanOrEqual(3);
+    },
+  );
+
+  it.each(everyMap("river-crossing"))("both banks are farmed, not only the one a lateral road runs through (%s, seed %i)", (size, seed) => {
+    const b = battle("river-crossing", size, seed);
+    for (const [y0, y1] of [[0, 30], [70, 100]]) {
+      const open = b.tilesIn(0, 100, y0, y1).filter(([x, y]) => [Grass, ...CROPS].includes(b.terrain(x, y)!));
+      const farmed = open.filter(([x, y]) => CROPS.includes(b.terrain(x, y)!));
+      expect(farmed.length / open.length).toBeGreaterThan(0.12);
+    }
+  });
 });
 
 describe("alpine-valley", () => {
@@ -309,17 +356,111 @@ describe("alpine-valley", () => {
       expect(b.share([Cliff, DeepWater], 35, 65)).toBeLessThan(0.1);
       expect(b.heightSpan()).toBeGreaterThanOrEqual(4);
       // Somewhere halfway down, spurs from the walls close the valley floor to a narrows.
-      const floor = (x: number, y: number) => b.passable(x, y) && b.height(x, y) <= 3;
-      let narrowest = 1;
-      for (let y = Math.floor(0.35 * b.tilesY); y < Math.floor(0.65 * b.tilesY); y++) {
-        let open = 0;
-        for (let x = 0; x < b.tilesX; x++) if (floor(x, y)) open++;
-        narrowest = Math.min(narrowest, open / b.tilesX);
+      expect(narrowest(b)).toBeLessThan(0.7 * b.shareOf(valleyFloor(b), 0, 100, 20, 30));
+    },
+  );
+
+  it.each(everyMap("alpine-valley"))(
+    "the floor is wide enough for both armies to manoeuvre, and the narrows still leaves room for a line (%s, seed %i)",
+    (size, seed) => {
+      const b = battle("alpine-valley", size, seed);
+      const open = (x: number, y: number) => valleyFloor(b)(x, y) && b.terrain(x, y) !== Forest;
+      expect(b.shareOf(open, 0, 100, 15, 30)).toBeGreaterThanOrEqual(0.5);
+      expect(narrowest(b, open)).toBeGreaterThanOrEqual(0.25);
+    },
+  );
+
+  it.each(everyMap("alpine-valley"))(
+    "the lower slopes are terraced vineyards and chestnut groves, open woodland a flank march can cross (%s, seed %i)",
+    (size, seed) => {
+      const b = battle("alpine-valley", size, seed);
+      const slopes = [...b.tilesIn(0, 30), ...b.tilesIn(70, 100)].filter(([x, y]) => b.height(x, y) > 2.9 && b.height(x, y) < 4.5);
+      const share = (terrain: TerrainType) => slopes.filter(([x, y]) => b.terrain(x, y) === terrain).length / slopes.length;
+      expect(share(LightForest)).toBeGreaterThan(0.25);
+      expect(share(Forest)).toBeLessThan(0.15);
+    },
+  );
+
+  it.each(everyMap("alpine-valley"))(
+    "the mountain walls are worn by gullies, as running water cuts them, not strewn with loose rock (%s, seed %i)",
+    (size, seed) => {
+      const b = battle("alpine-valley", size, seed);
+      for (const [x0, x1] of [[0, 0.3], [0.7, 1]]) {
+        const lo = Math.floor(x0 * b.tilesX);
+        const hi = Math.ceil(x1 * b.tilesX);
+        const cliff = (x: number, y: number) => x >= lo && x < hi && b.terrain(x, y) === Cliff;
+        // The rock stands in whole crests and spurs: hardly any of it lies in blobs of a few tiles.
+        const seen = new Set<string>();
+        let rock = 0;
+        let loose = 0;
+        for (let sx = lo; sx < hi; sx++)
+          for (let sy = 0; sy < b.tilesY; sy++) {
+            if (!cliff(sx, sy) || seen.has(`${sx},${sy}`)) continue;
+            const blob: Tile[] = [[sx, sy]];
+            seen.add(`${sx},${sy}`);
+            for (let head = 0; head < blob.length; head++) {
+              const [x, y] = blob[head];
+              for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]] as Tile[])
+                if (cliff(nx, ny) && !seen.has(`${nx},${ny}`)) {
+                  seen.add(`${nx},${ny}`);
+                  blob.push([nx, ny]);
+                }
+            }
+            rock += blob.length;
+            if (blob.length <= 3) loose += blob.length;
+          }
+        expect(loose / rock).toBeLessThan(0.02);
+        // Gullies split the crests: a line along the wall crosses several of them.
+        const gullies = (fx: number) => {
+          const x = Math.floor(fx * b.tilesX);
+          return [...Array(b.tilesY).keys()].filter((y) => !cliff(x, y) && (y === 0 || cliff(x, y - 1))).length;
+        };
+        const columns = x0 === 0 ? [0.06, 0.1, 0.14] : [0.86, 0.9, 0.94];
+        expect(Math.max(...columns.map(gullies))).toBeGreaterThanOrEqual(5);
       }
-      expect(narrowest).toBeLessThan(0.7 * b.shareOf(floor, 0, 100, 20, 30));
+    },
+  );
+
+  it.each(everyMap("alpine-valley"))(
+    "a column can march round the narrows along either slope (%s, seed %i)",
+    (size, seed) => {
+      const b = battle("alpine-valley", size, seed);
+      for (const [x0, x1] of [[0, 0.3], [0.7, 1]]) {
+        const lo = Math.floor(x0 * b.tilesX);
+        const hi = Math.ceil(x1 * b.tilesX);
+        const slope = (x: number, y: number) => x >= lo && x < hi && y >= 0 && y < b.tilesY && b.passable(x, y);
+        const start: Tile[] = [];
+        for (let x = lo; x < hi; x++) if (slope(x, Math.floor(0.2 * b.tilesY))) start.push([x, Math.floor(0.2 * b.tilesY)]);
+        const seen = new Set(start.map(([x, y]) => `${x},${y}`));
+        let reached = false;
+        for (let head = 0; head < start.length && !reached; head++) {
+          const [x, y] = start[head];
+          if (y >= Math.floor(0.8 * b.tilesY)) reached = true;
+          for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]] as Tile[])
+            if (slope(nx, ny) && !seen.has(`${nx},${ny}`)) {
+              seen.add(`${nx},${ny}`);
+              start.push([nx, ny]);
+            }
+        }
+        expect(reached).toBe(true);
+      }
     },
   );
 });
+
+/** Passable ground no higher than the valley floor. */
+const valleyFloor = (b: Battle) => (x: number, y: number) => b.passable(x, y) && b.height(x, y) <= 3;
+
+/** The narrowest the valley floor (or `floor`) gets, as a share of the map's width, across the middle of the map. */
+function narrowest(b: Battle, floor = valleyFloor(b)): number {
+  let result = 1;
+  for (let y = Math.floor(0.35 * b.tilesY); y < Math.floor(0.65 * b.tilesY); y++) {
+    let open = 0;
+    for (let x = 0; x < b.tilesX; x++) if (floor(x, y)) open++;
+    result = Math.min(result, open / b.tilesX);
+  }
+  return result;
+}
 
 describe("apennine-ridges", () => {
   it.each(everyMap("apennine-ridges"))(

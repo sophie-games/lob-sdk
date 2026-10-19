@@ -1086,7 +1086,10 @@
       "xl": "Очень большой",
       "y": "Y",
       "yBounds": "Границы Y",
-      "yRange": "Диапазон Y"
+      "yRange": "Диапазон Y",
+      "strength": "Сила",
+      "iterations": "Итерации",
+      "channelArea": "Площадь русла"
     },
     "instructionType": {
       "terrainNoise": "Шум местности",
@@ -1099,7 +1102,8 @@
       "lake": "Озеро",
       "objectiveLayer": "Слой ключевых позиций",
       "symmetry": "Симметрия",
-      "fields": "Поля"
+      "fields": "Поля",
+      "erosion": "Эрозия"
     },
     "objectiveType": {
       "small": "Малый",
