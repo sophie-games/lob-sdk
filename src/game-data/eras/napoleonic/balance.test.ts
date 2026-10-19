@@ -41,6 +41,13 @@ describe("Napoleonic balance", () => {
     });
   });
 
+  it("never turns a nearly destroyed unit's organization aura negative", () => {
+    // The aura scales by 1 - r + r * hpProportion, which stays >= 0 at 0 HP only for r <= 1.
+    expect(
+      gameDataManager.getGameRules().organization?.orgRadiusBonusHpLossReduction,
+    ).toBeLessThanOrEqual(1);
+  });
+
   it("uses a 16-tick initial rout with a -300% organization bonus modifier", () => {
     expect(gameDataManager.getGameRules().organization).toMatchObject({
       startedRoutingDuration: 16,
@@ -232,13 +239,6 @@ describe("Napoleonic balance", () => {
       .getTemplate("skirmish");
 
     expect(skirmish?.fireEdges).toEqual([{ edge: 1, arc: 150, emitters: 2 }]);
-  });
-
-  it("never turns a nearly destroyed unit's organization aura negative", () => {
-    // The aura scales by 1 - r + r * hpProportion, which stays >= 0 at 0 HP only for r <= 1.
-    expect(
-      gameDataManager.getGameRules().organization?.orgRadiusBonusHpLossReduction,
-    ).toBeLessThanOrEqual(1);
   });
 
   it("uses a 900 organization damage ratio for skirmisher and rifle fire", () => {

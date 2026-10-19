@@ -14,11 +14,11 @@ const X100_STATS = [
   "ammoCost",
 ];
 
-const fractionalStats = (entries: object[]) =>
+const fractionalStats = (entries: { name: string }[]) =>
   entries.flatMap((entry) =>
     Object.entries(entry)
       .filter(([key, value]) => X100_STATS.includes(key) && typeof value === "number" && value % 100 !== 0)
-      .map(([key, value]) => `${(entry as { name?: string }).name}.${key} = ${value}`),
+      .map(([key, value]) => `${entry.name}.${key} = ${value}`),
   );
 
 describe("Napoleonic stats stored x100", () => {
