@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "bayonet",
-    "orgDamageRatio": 32000,
+    "orgDamageRatio": 64000,
     "reorgDebuff": 1,
     "attackEffectDuration": 4,
     "cannotChargeAgainst": [
@@ -16,7 +16,7 @@
     "id": 2,
     "name": "cavalry-sabre",
     "category": "sword",
-    "orgDamageRatio": 31000,
+    "orgDamageRatio": 62000,
     "reorgDebuff": 1,
     "attackEffectDuration": 4
   },
@@ -24,7 +24,7 @@
     "id": 3,
     "name": "cavalry-sword",
     "category": "sword",
-    "orgDamageRatio": 31000,
+    "orgDamageRatio": 62000,
     "reorgDebuff": 1,
     "attackEffectDuration": 4
   },
@@ -32,7 +32,7 @@
     "id": 4,
     "name": "dragoon-sword",
     "category": "sword",
-    "orgDamageRatio": 31000,
+    "orgDamageRatio": 62000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6
   },
@@ -40,14 +40,14 @@
     "id": 5,
     "name": "artillery-sabre",
     "category": "sword",
-    "orgDamageRatio": 29000,
+    "orgDamageRatio": 58000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6
   },
   {
     "id": 6,
     "name": "cavalry-lance",
-    "orgDamageRatio": 31000,
+    "orgDamageRatio": 62000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6
   },
@@ -56,13 +56,13 @@
     "name": "musket",
     "ranged": true,
     "aimMode": 1,
-    "orgDamageRatio": 32000,
+    "orgDamageRatio": 64000,
     "reorgDebuff": 0.72,
     "attackEffectDuration": 8,
     "projectileWidth": 8,
     "damageModifierByTargetHp": {
-      "from": 0.8,
-      "to": 0.5,
+      "from": 0.9,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -122,13 +122,13 @@
     "name": "marksman-musket",
     "ranged": true,
     "aimMode": 1,
-    "orgDamageRatio": 45000,
+    "orgDamageRatio": 90000,
     "reorgDebuff": 0.72,
     "attackEffectDuration": 12,
     "projectileWidth": 6,
     "damageModifierByTargetHp": {
-      "from": 0.8,
-      "to": 0.5,
+      "from": 0.9,
+      "to": 0.75,
       "value": -0.1
     },
     "orgDamageModifierByTargetOrg": {
@@ -179,13 +179,13 @@
     "name": "rifle",
     "ranged": true,
     "aimMode": 1,
-    "orgDamageRatio": 45000,
+    "orgDamageRatio": 90000,
     "reorgDebuff": 0.72,
     "attackEffectDuration": 12,
     "projectileWidth": 6,
     "damageModifierByTargetHp": {
-      "from": 0.8,
-      "to": 0.5,
+      "from": 0.9,
+      "to": 0.75,
       "value": -0.1
     },
     "orgDamageModifierByTargetOrg": {
@@ -227,13 +227,13 @@
     "category": "cannonBall",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 22000,
+    "orgDamageRatio": 44000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -292,7 +292,7 @@
     "category": "canister",
     "imageAlias": "canister",
     "ranged": true,
-    "orgDamageRatio": 30000,
+    "orgDamageRatio": 60000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
@@ -335,13 +335,13 @@
     "category": "cannonBall",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 22000,
+    "orgDamageRatio": 44000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -428,13 +428,13 @@
     "category": "cannonBall",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 22000,
+    "orgDamageRatio": 44000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -493,7 +493,7 @@
     "category": "canister",
     "imageAlias": "canister",
     "ranged": true,
-    "orgDamageRatio": 30000,
+    "orgDamageRatio": 60000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
@@ -536,13 +536,13 @@
     "category": "cannonBall",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 22000,
+    "orgDamageRatio": 44000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -629,7 +629,7 @@
     "category": "canister",
     "imageAlias": "canister",
     "ranged": true,
-    "orgDamageRatio": 30000,
+    "orgDamageRatio": 60000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
@@ -672,13 +672,13 @@
     "category": "cannonBall",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 22000,
+    "orgDamageRatio": 44000,
     "reorgDebuff": 0.74,
     "attackEffectDuration": 16,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -765,7 +765,7 @@
     "category": "canister",
     "imageAlias": "canister",
     "ranged": true,
-    "orgDamageRatio": 30000,
+    "orgDamageRatio": 60000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
@@ -808,13 +808,13 @@
     "category": "cannonBall",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 22000,
+    "orgDamageRatio": 44000,
     "reorgDebuff": 0.74,
     "attackEffectDuration": 12,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -901,13 +901,13 @@
     "category": "explosiveShell",
     "imageAlias": "explosive-shell",
     "ranged": true,
-    "orgDamageRatio": 22500,
+    "orgDamageRatio": 45000,
     "reorgDebuff": 0.85,
     "attackEffectDuration": 10,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -956,13 +956,13 @@
     "category": "explosiveShell",
     "imageAlias": "explosive-shell",
     "ranged": true,
-    "orgDamageRatio": 22500,
+    "orgDamageRatio": 45000,
     "reorgDebuff": 0.85,
     "attackEffectDuration": 10,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -1010,13 +1010,13 @@
     "name": "explosive-shell",
     "category": "explosiveShell",
     "ranged": true,
-    "orgDamageRatio": 22500,
+    "orgDamageRatio": 45000,
     "reorgDebuff": 0.85,
     "attackEffectDuration": 10,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -1071,7 +1071,7 @@
     "category": "canister",
     "imageAlias": "canister",
     "ranged": true,
-    "orgDamageRatio": 30000,
+    "orgDamageRatio": 60000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
@@ -1114,7 +1114,7 @@
     "category": "canister",
     "imageAlias": "canister",
     "ranged": true,
-    "orgDamageRatio": 30000,
+    "orgDamageRatio": 60000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
@@ -1157,7 +1157,7 @@
     "category": "canister",
     "imageAlias": "canister",
     "ranged": true,
-    "orgDamageRatio": 30000,
+    "orgDamageRatio": 60000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
@@ -1189,13 +1189,13 @@
     "name": "horse-archer-bow",
     "ranged": true,
     "aimMode": 1,
-    "orgDamageRatio": 22500,
+    "orgDamageRatio": 45000,
     "reorgDebuff": 0.72,
     "attackEffectDuration": 12,
     "projectileWidth": 6,
     "damageModifierByTargetHp": {
-      "from": 0.8,
-      "to": 0.5,
+      "from": 0.9,
+      "to": 0.75,
       "value": -0.1
     },
     "orgDamageModifierByTargetOrg": {
@@ -1246,7 +1246,7 @@
     "id": 27,
     "name": "rocket",
     "ranged": true,
-    "orgDamageRatio": 41500,
+    "orgDamageRatio": 83000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
@@ -1322,13 +1322,13 @@
     "category": "cannonBall",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 21000,
+    "orgDamageRatio": 42000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
