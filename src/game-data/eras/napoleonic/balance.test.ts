@@ -41,6 +41,13 @@ describe("Napoleonic balance", () => {
     });
   });
 
+  it("never turns a nearly destroyed unit's organization aura negative", () => {
+    // The aura scales by 1 - r + r * hpProportion, which stays >= 0 at 0 HP only for r <= 1.
+    expect(
+      gameDataManager.getGameRules().organization?.orgRadiusBonusHpLossReduction,
+    ).toBeLessThanOrEqual(1);
+  });
+
   it("uses a 16-tick initial rout with a -300% organization bonus modifier", () => {
     expect(gameDataManager.getGameRules().organization).toMatchObject({
       startedRoutingDuration: 16,
@@ -402,7 +409,7 @@ describe("Napoleonic balance", () => {
       "6lb_artillery_horse": {
         manpower: 75,
         rangedAttack: 1400,
-        hp: 35000,
+        hp: 70000,
         runMovement: 150,
         timeToRun: 9,
         guns: 6,
@@ -415,18 +422,18 @@ describe("Napoleonic balance", () => {
       },
       "12lb_artillery": { runMovement: 80, guns: 8 },
       "4lb_artillery": { manpower: 75, rangedAttack: 1400, gold: 100, guns: 6 },
-      "6lb_artillery": { runMovement: 85, hp: 35000, guns: 8 },
+      "6lb_artillery": { runMovement: 85, hp: 70000, guns: 8 },
       rockets: { runMovement: 150, guns: 6 },
       "10lb_licorne": {
         rangedAttack: 1700,
         runMovement: 85,
-        hp: 35000,
+        hp: 70000,
         guns: 6,
       },
       "18lb_licorne": {
         rangedAttack: 1950,
         runMovement: 80,
-        hp: 40000,
+        hp: 80000,
         guns: 6,
       },
     } as const;
@@ -675,8 +682,8 @@ describe("Napoleonic balance", () => {
       grenadiers: { rangedAttack: 900, meleeAttack: 2800, chargeBonus: 3500, runMovement: 130 },
       skirmishers: {
         walkMovement: 85,
-        hp: 10000,
-        org: 105000,
+        hp: 20000,
+        org: 52500,
         rangedAttack: 567,
         meleeAttack: 750,
         chargeBonus: 250,
@@ -685,8 +692,8 @@ describe("Napoleonic balance", () => {
       },
       rifles: {
         walkMovement: 85,
-        hp: 10000,
-        org: 105000,
+        hp: 20000,
+        org: 52500,
         rangedAttack: 600,
         meleeAttack: 750,
         chargeBonus: 250,
