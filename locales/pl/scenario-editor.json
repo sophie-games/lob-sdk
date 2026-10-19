@@ -1086,7 +1086,10 @@
       "xl": "Bardzo duży",
       "y": "Y",
       "yBounds": "Granice Y",
-      "yRange": "Zakres Y"
+      "yRange": "Zakres Y",
+      "strength": "Siła",
+      "iterations": "Iteracje",
+      "channelArea": "Obszar koryta"
     },
     "instructionType": {
       "terrainNoise": "Szum terenu",
@@ -1099,7 +1102,8 @@
       "lake": "Jezioro",
       "objectiveLayer": "Warstwa celów",
       "symmetry": "Symetria",
-      "fields": "Pola"
+      "fields": "Pola",
+      "erosion": "Erozja"
     },
     "objectiveType": {
       "small": "Mały",

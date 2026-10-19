@@ -1072,7 +1072,10 @@
       "xl": "特大",
       "y": "Y",
       "yBounds": "Y 境界",
-      "yRange": "Y 範囲"
+      "yRange": "Y 範囲",
+      "strength": "強さ",
+      "iterations": "反復回数",
+      "channelArea": "流路面積"
     },
     "instructionType": {
       "terrainNoise": "地形ノイズ",
@@ -1085,7 +1088,8 @@
       "lake": "湖",
       "objectiveLayer": "目標レイヤー",
       "symmetry": "対称",
-      "fields": "畑"
+      "fields": "畑",
+      "erosion": "侵食"
     },
     "objectiveType": {
       "small": "小",

@@ -1209,7 +1209,10 @@
       "xl": "Extra large",
       "y": "Y",
       "yBounds": "Y bounds",
-      "yRange": "Y range"
+      "yRange": "Y range",
+      "strength": "Strength",
+      "iterations": "Iterations",
+      "channelArea": "Channel area"
     },
     "instructionType": {
       "terrainNoise": "Terrain noise",
@@ -1222,7 +1225,8 @@
       "lake": "Lake",
       "objectiveLayer": "Objective layer",
       "symmetry": "Symmetry",
-      "fields": "Fields"
+      "fields": "Fields",
+      "erosion": "Erosion"
     },
     "objectiveType": {
       "small": "Small",

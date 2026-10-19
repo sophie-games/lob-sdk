@@ -1072,7 +1072,10 @@
       "xl": "ใหญ่พิเศษ",
       "y": "Y",
       "yBounds": "ขอบเขต Y",
-      "yRange": "ช่วง Y"
+      "yRange": "ช่วง Y",
+      "strength": "ความแรง",
+      "iterations": "จำนวนรอบ",
+      "channelArea": "พื้นที่ร่องน้ำ"
     },
     "instructionType": {
       "terrainNoise": "นอยส์ภูมิประเทศ",
@@ -1085,7 +1088,8 @@
       "lake": "ทะเลสาบ",
       "objectiveLayer": "เลเยอร์เป้าหมาย",
       "symmetry": "สมมาตร",
-      "fields": "ทุ่งนา"
+      "fields": "ทุ่งนา",
+      "erosion": "การกัดเซาะ"
     },
     "objectiveType": {
       "small": "เล็ก",

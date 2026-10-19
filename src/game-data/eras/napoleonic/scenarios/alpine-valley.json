@@ -11,15 +11,15 @@
       "noises": [
         {
           "scale": {
-            "x": 6,
+            "x": 8,
             "y": 8
           },
           "multiplier": 0.5,
-          "offset": 0.75
+          "offset": 1.0
         }
       ],
       "mergeStrategy": "avg",
-      "min": 5,
+      "min": 6,
       "max": 7
     },
     {
@@ -27,18 +27,91 @@
       "noises": [
         {
           "scale": {
-            "x": 3,
-            "y": 5
+            "x": 8,
+            "y": 8
           },
-          "multiplier": 3
+          "multiplier": 0.5,
+          "offset": 0.9
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 5,
+      "max": 7,
+      "xBounds": {
+        "min": 10,
+        "max": 90
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "x": 8,
+            "y": 8
+          },
+          "multiplier": 0.5,
+          "offset": 0.5
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 4,
+      "max": 6,
+      "xBounds": {
+        "min": 16,
+        "max": 84
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "x": 8,
+            "y": 8
+          },
+          "multiplier": 0.5,
+          "offset": 0.5
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 3,
+      "max": 5,
+      "xBounds": {
+        "min": 21,
+        "max": 79
+      },
+      "yBounds": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "x": 8,
+            "y": 8
+          },
+          "multiplier": 0.5,
+          "offset": 0.5
         }
       ],
       "mergeStrategy": "avg",
       "min": 2,
-      "max": 7,
+      "max": 4,
       "xBounds": {
-        "min": 14,
-        "max": 86
+        "min": 26,
+        "max": 74
       },
       "yBounds": {
         "min": 0,
@@ -272,7 +345,7 @@
         "max": 100
       },
       "width": 9,
-      "height": 7,
+      "height": 4,
       "amount": {
         "min": 1,
         "max": 1
@@ -311,7 +384,7 @@
         "max": 100
       },
       "width": 5,
-      "height": 7,
+      "height": 4,
       "amount": {
         "min": 1,
         "max": 1
@@ -350,7 +423,7 @@
         "max": 100
       },
       "width": 3,
-      "height": 6,
+      "height": 4,
       "amount": {
         "min": 1,
         "max": 1
@@ -379,28 +452,6 @@
       ],
       "noiseWeight": 6,
       "noiseSmoothness": 3
-    },
-    {
-      "type": "HEIGHT_NOISE",
-      "noises": [
-        {
-          "scale": {
-            "x": 2.5,
-            "y": 2.5
-          },
-          "multiplier": 1,
-          "offset": 0.55
-        }
-      ],
-      "mergeStrategy": "avg",
-      "min": 5,
-      "max": 7,
-      "ranges": [
-        {
-          "min": 5.5,
-          "max": 7.5
-        }
-      ]
     },
     {
       "type": "HEIGHT_NOISE",
@@ -448,6 +499,13 @@
         "min": 0,
         "max": 100
       }
+    },
+    {
+      "type": "EROSION",
+      "minHeight": 4,
+      "strength": 0.1,
+      "iterations": 60,
+      "channelArea": 4
     },
     {
       "type": "SYMMETRY",
@@ -586,6 +644,25 @@
     },
     {
       "type": "TERRAIN_NOISE",
+      "terrain": 27,
+      "scale": 4,
+      "ranges": [
+        {
+          "min": 0.35,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "height": {
+        "min": 2.9,
+        "max": 4.49
+      },
+      "smoothing": {
+        "minSurrounding": 1
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
       "terrain": 1,
       "scale": 4,
       "ranges": [
@@ -596,7 +673,7 @@
       ],
       "multiplier": 1,
       "height": {
-        "min": 2.9,
+        "min": 4.5,
         "max": 5.4
       },
       "smoothing": {

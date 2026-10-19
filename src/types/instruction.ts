@@ -117,6 +117,8 @@ export enum InstructionType {
   Symmetry = "SYMMETRY",
   /** Instruction to lay out fields in strips along the roads. */
   Fields = "FIELDS",
+  /** Instruction to wear valleys into high ground the way running water does. */
+  Erosion = "EROSION",
 }
 
 /**
@@ -553,6 +555,28 @@ export interface InstructionFields extends BaseInstruction {
   minTiles?: number;
 }
 
+/**
+ * Instruction to wear high ground down the way running water does: each tile drains to its lowest
+ * neighbour, and the more ground drains through a tile, the deeper it is cut. Gullies under the
+ * crests join into fewer, deeper valleys lower down, leaving ridges standing between them. Lowers
+ * the relief only, in whole levels and within the height rule.
+ */
+export interface InstructionErosion extends BaseInstruction {
+  /** Instruction type is Erosion. */
+  type: InstructionType.Erosion;
+  /** How fast the ground is cut where one tile drains down a one-level slope. Default is 0.1. */
+  strength?: number;
+  /**
+   * Tiles of ground that must drain through a tile before it is cut: a gully starts there, and
+   * the ground above it stays a ridge or slope. Default is 4.
+   */
+  channelArea?: number;
+  /** Erosion steps; more cut deeper and reach further up. Default is 60. */
+  iterations?: number;
+  /** Only ground at or above this height is worn, and never below it. Default is 0. */
+  minHeight?: number;
+}
+
 export type AnyInstruction =
   | InstructionTerrainNoise
   | InstructionHeightNoise
@@ -564,4 +588,5 @@ export type AnyInstruction =
   | InstructionLake
   | InstructionObjectiveLayer
   | InstructionSymmetry
-  | InstructionFields;
+  | InstructionFields
+  | InstructionErosion;
