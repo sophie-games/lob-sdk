@@ -234,12 +234,12 @@ describe("Napoleonic balance", () => {
     expect(skirmish?.fireEdges).toEqual([{ edge: 1, arc: 150, emitters: 2 }]);
   });
 
-  it("uses a 450 organization damage ratio for skirmisher and rifle fire", () => {
+  it("uses a 900 organization damage ratio for skirmisher and rifle fire", () => {
     for (const damageType of ["marksman-musket", "rifle"]) {
       const { orgDamageRatio } =
         gameDataManager.getDamageTypeByName(damageType);
 
-      expect(orgDamageRatio / STAT_PRECISION_SCALE).toBe(450);
+      expect(orgDamageRatio / STAT_PRECISION_SCALE).toBe(900);
     }
   });
 
@@ -339,7 +339,7 @@ describe("Napoleonic balance", () => {
       const canister =
         gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(name);
 
-      expect(canister.orgDamageRatio / STAT_PRECISION_SCALE).toBe(300);
+      expect(canister.orgDamageRatio / STAT_PRECISION_SCALE).toBe(600);
     }
 
     for (const name of [
@@ -353,7 +353,7 @@ describe("Napoleonic balance", () => {
       const cannonBall =
         gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(name);
 
-      expect(cannonBall.orgDamageRatio / STAT_PRECISION_SCALE).toBe(220);
+      expect(cannonBall.orgDamageRatio / STAT_PRECISION_SCALE).toBe(440);
     }
 
     for (const name of [
@@ -401,32 +401,32 @@ describe("Napoleonic balance", () => {
       "8lb_artillery": { runMovement: 80, rotationSpeed: 0.26, guns: 8 },
       "6lb_artillery_horse": {
         manpower: 75,
-        rangedAttack: 2800,
-        hp: 70000,
+        rangedAttack: 1400,
+        hp: 35000,
         runMovement: 150,
         timeToRun: 9,
         guns: 6,
       },
       "6in_howitzer": {
-        rangedAttack: 2700,
+        rangedAttack: 1350,
         rotationSpeed: 0.31,
         panicFireDistance: 90,
         guns: 6,
       },
       "12lb_artillery": { runMovement: 80, guns: 8 },
-      "4lb_artillery": { manpower: 75, rangedAttack: 2800, gold: 100, guns: 6 },
-      "6lb_artillery": { runMovement: 85, hp: 70000, guns: 8 },
+      "4lb_artillery": { manpower: 75, rangedAttack: 1400, gold: 100, guns: 6 },
+      "6lb_artillery": { runMovement: 85, hp: 35000, guns: 8 },
       rockets: { runMovement: 150, guns: 6 },
       "10lb_licorne": {
-        rangedAttack: 3400,
+        rangedAttack: 1700,
         runMovement: 85,
-        hp: 70000,
+        hp: 35000,
         guns: 6,
       },
       "18lb_licorne": {
-        rangedAttack: 3900,
+        rangedAttack: 1950,
         runMovement: 80,
-        hp: 80000,
+        hp: 40000,
         guns: 6,
       },
     } as const;
@@ -526,7 +526,7 @@ describe("Napoleonic balance", () => {
         "howitzer-canister",
       );
 
-    expect(shell.orgDamageRatio / STAT_PRECISION_SCALE).toBe(225);
+    expect(shell.orgDamageRatio / STAT_PRECISION_SCALE).toBe(450);
     expect(shell.damageModifierByTargetHp).toEqual(
       licorneShell.damageModifierByTargetHp,
     );
@@ -628,7 +628,7 @@ describe("Napoleonic balance", () => {
       guards: {
         org: 950,
         chargeResistance: 0.5,
-        meleeAttack: 50,
+        meleeAttack: 25,
         orgRadiusBonus: 13,
       },
       grenadiers: { org: 725, chargeResistance: 0.55 },
@@ -661,35 +661,35 @@ describe("Napoleonic balance", () => {
       .find((template) => template.name === "light_infantry")!;
 
     expect(lightInfantry).toMatchObject({
-      rangedAttack: 20 * STAT_PRECISION_SCALE,
+      rangedAttack: 10 * STAT_PRECISION_SCALE,
       org: 725 * STAT_PRECISION_SCALE,
     });
   });
 
   it("uses the requested infantry attacks while preserving skirmisher and rifle attacks", () => {
     const expectedByName = {
-      line_infantry: { rangedAttack: 1700, meleeAttack: 4800, chargeBonus: 6000, runMovement: 125 },
-      guards: { rangedAttack: 1900, meleeAttack: 5000, chargeBonus: 6500, runMovement: 130 },
-      light_infantry: { rangedAttack: 2000, meleeAttack: 4800, chargeBonus: 6000, runMovement: 140, skirmisherRatio: 1.2, walkMovement: 85 },
-      militia: { rangedAttack: 1400, meleeAttack: 2800, chargeBonus: 6000, runMovement: 125 },
-      grenadiers: { rangedAttack: 1800, meleeAttack: 5600, chargeBonus: 7000, runMovement: 130 },
+      line_infantry: { rangedAttack: 850, meleeAttack: 2400, chargeBonus: 3000, runMovement: 125 },
+      guards: { rangedAttack: 950, meleeAttack: 2500, chargeBonus: 3250, runMovement: 130 },
+      light_infantry: { rangedAttack: 1000, meleeAttack: 2400, chargeBonus: 3000, runMovement: 140, skirmisherRatio: 1.2, walkMovement: 85 },
+      militia: { rangedAttack: 700, meleeAttack: 1400, chargeBonus: 3000, runMovement: 125 },
+      grenadiers: { rangedAttack: 900, meleeAttack: 2800, chargeBonus: 3500, runMovement: 130 },
       skirmishers: {
         walkMovement: 85,
-        hp: 20000,
-        org: 52500,
-        rangedAttack: 1133,
-        meleeAttack: 1500,
-        chargeBonus: 500,
+        hp: 10000,
+        org: 105000,
+        rangedAttack: 567,
+        meleeAttack: 750,
+        chargeBonus: 250,
         runMovement: 140,
         chargeResistance: -0.2,
       },
       rifles: {
         walkMovement: 85,
-        hp: 20000,
-        org: 52500,
-        rangedAttack: 1200,
-        meleeAttack: 1500,
-        chargeBonus: 500,
+        hp: 10000,
+        org: 105000,
+        rangedAttack: 600,
+        meleeAttack: 750,
+        chargeBonus: 250,
         runMovement: 140,
         chargeResistance: -0.2,
       },
@@ -714,23 +714,23 @@ describe("Napoleonic balance", () => {
     const expectedByName = {
       cuirassiers: {
         org: 950,
-        meleeDefense: 3000,
-        chargeBonus: 140,
+        meleeDefense: 1500,
+        chargeBonus: 70,
         chargeResistance: 0.3,
         orgRadiusBonus: 9,
         timeToRun: 5,
       },
       lancers: {
         org: 900,
-        meleeDefense: 2000,
-        chargeBonus: 140,
+        meleeDefense: 1000,
+        chargeBonus: 70,
         chargeResistance: 0.15,
         orgRadiusBonus: 6,
         timeToRun: 5,
       },
       dragoons: {
-        meleeDefense: 2800,
-        chargeBonus: 125,
+        meleeDefense: 1400,
+        chargeBonus: 62.5,
         chargeResistance: 0.25,
         orgRadiusBonus: 6,
         org: 850,
@@ -738,16 +738,16 @@ describe("Napoleonic balance", () => {
       },
       hussars: {
         org: 800,
-        meleeDefense: 2200,
-        chargeBonus: 100,
+        meleeDefense: 1100,
+        chargeBonus: 50,
         chargeResistance: 0.15,
         orgRadiusBonus: 4,
         timeToRun: 3,
       },
       horse_archers: {
         org: 400,
-        meleeDefense: 1500,
-        chargeBonus: 60,
+        meleeDefense: 750,
+        chargeBonus: 30,
         chargeResistance: 0.15,
         orgRadiusBonus: 4,
         timeToRun: 3,
@@ -773,7 +773,7 @@ describe("Napoleonic balance", () => {
 
       if (name === "horse_archers") {
         expect(unit.chargePenetration).toBe(0.3);
-        expect(unit.meleeAttack / STAT_PRECISION_SCALE).toBe(48);
+        expect(unit.meleeAttack / STAT_PRECISION_SCALE).toBe(24);
       }
 
       if ("org" in expected) {

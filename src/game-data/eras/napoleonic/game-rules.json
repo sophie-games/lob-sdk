@@ -78,7 +78,7 @@
   },
   "organization": {
     "speedModifier": -0.2,
-    "maxOrgDebuffMinHpProportion": 0.25,
+    "maxOrgDebuffMinHpProportion": 0.625,
     "maxOrgDebuffHp": 0.6,
     "maxOrgDebuffStamina": 0.3,
     "maxOrgDebuffStaminaHighProportion": 0.8,
@@ -100,14 +100,14 @@
     "startedRoutingOrgRadiusDistance": 64,
     "routingRunCostModifier": 0.1,
     "startedRoutingRunCostModifier": 1,
-    "orgRadiusBonusHpLossReduction": 0.6,
+    "orgRadiusBonusHpLossReduction": 1.2,
     "safeOrgRecoveryModifier": 0.25,
     "safeDistance": 144,
     "distantThreatOrgRecoveryModifier": 0,
     "distantThreatDistance": 80,
     "routingOrgRecoveryModifier": -0.4,
-    "maxOrgRecoveryByHpModifier": -0.99,
+    "maxOrgRecoveryByHpModifier": -1.98,
     "vpDebuffGraceZone": 0.3,
-    "vpDebuffMultiplier": 0.5
+    "vpDebuffMultiplier": 0.6
   }
 }
