@@ -41,10 +41,10 @@ export interface PlayerBattleMetadata {
   damageHealed?: UnitCounts;
   /**
    * HP of this player's units that shattered or fled off the map, keyed by
-   * this player's unit type: men routed from the field, not killed or wounded,
-   * so not in {@link damageTaken}.
+   * this player's unit type: men missing from the field (captured, deserted
+   * or scattered), not killed or wounded, so not in {@link damageTaken}.
    */
-  hpRouted?: UnitCounts;
+  hpMissing?: UnitCounts;
   /**
    * HP this player inflicted on enemies, keyed by the enemy (victim) unit type.
    * Broadly symmetric to opposing players' damageTaken, but strictly smaller:
