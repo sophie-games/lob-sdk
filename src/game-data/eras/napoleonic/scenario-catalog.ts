@@ -12,6 +12,8 @@ import falkenhugel from "./scenarios/falkenhugel.json";
 import mediterraneaNucum from "./scenarios/mediterranea-nucum.json";
 import riverValley from "./scenarios/river-valley.json";
 import linesOfLegends from "./scenarios/lines-of-legends.json";
+import combatAtMollwitz from "./scenarios/combat-at-mollwitz.json";
+import clashAtChelmnitz from "./scenarios/clash-at-chelmnitz.json";
 import tundra from "./scenarios/tundra.json";
 import andesAndValley from "./scenarios/andes-and-valley.json";
 import lowCountries from "./scenarios/low-countries.json";
@@ -52,6 +54,8 @@ export const napoleonicScenarioCatalog = {
   "mediterranea-nucum": mediterraneaNucum,
   falkenhugel,
   waterloo,
+  "combat-at-mollwitz": combatAtMollwitz,
+  "clash-at-chelmnitz": clashAtChelmnitz,
   "line-of-battle": lineOfBattle,
   "war-room-50-vs-50": warRoomFiftyVsFifty,
   "twin-river-valley": twinRiverValley,
