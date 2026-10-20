@@ -175,6 +175,9 @@ export interface GameConstants {
    */
   COLLISION_PUSH_MAX_ANGLE_RANGE_DEGREES: number;
 
+  /** How many times its HP proportion lost counts toward a unit's push strength loss. */
+  PUSH_STRENGTH_HP_LOSS_SCALE: number;
+
   TILE_SIZE: number;
 
   DEFAULT_MAX_TURN: number;
@@ -234,6 +237,9 @@ export interface GameConstants {
   MAX_HP_RANGED_ATTACK_PENALTY: number;
 
   MAX_HP_MELEE_ATTACK_PENALTY: number;
+
+  /** Melee attack lost per unit of HP proportion lost, down to MAX_HP_MELEE_ATTACK_PENALTY. */
+  HP_MELEE_ATTACK_PENALTY_SCALE: number;
 
   MAX_DAMAGE_MODIFIER_CLAMP: number;
 
