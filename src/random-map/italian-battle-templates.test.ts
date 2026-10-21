@@ -492,6 +492,10 @@ describe("apennine-ridges", () => {
 });
 
 describe("marsh-dikes", () => {
+  // The stream is the water the template lays at height 1.5; the marsh's pools lie on whole levels.
+  const inStream = (b: Battle) => (x: number, y: number) =>
+    [ShallowWater, DeepWater].includes(b.terrain(x, y)) && b.height(x, y) === 1.5;
+
   it.each(everyMap("marsh-dikes"))(
     "the marsh between the armies is crossed only on raised dikes (%s, seed %i)",
     (size, seed) => {
@@ -499,7 +503,7 @@ describe("marsh-dikes", () => {
       const road = (x: number, y: number) => b.terrain(x, y) === Road || b.terrain(x, y) === Bridge;
       const marsh = (x: number, y: number) => b.terrain(x, y) === Mud || b.terrain(x, y) === ShallowWater;
       expect(b.share([Mud, ShallowWater], 0, 100, 30, 70)).toBeGreaterThan(0.3);
-      expect(b.share([DeepWater], 0, 100, 35, 65)).toBeGreaterThan(0.01);
+      expect(b.shareOf(inStream(b), 0, 100, 35, 65)).toBeGreaterThan(0.01);
       // The marsh keeps to the middle: the ground each army deploys on stays mostly dry.
       expect(b.share([Mud, ShallowWater], 0, 100, 0, 20)).toBeLessThan(0.25);
       expect(b.meanHeight(road, 0, 100, 30, 70)).toBeGreaterThan(b.meanHeight(marsh, 0, 100, 30, 70));
@@ -508,10 +512,10 @@ describe("marsh-dikes", () => {
   );
 
   it.each(everyMap("marsh-dikes"))(
-    "as at Arcole, levees line the stream, crossed only at bridges, one village-held, and fords (%s, seed %i)",
+    "as at Arcole, levees line the stream and its bridges, one held by a village (%s, seed %i)",
     (size, seed) => {
       const b = battle("marsh-dikes", size, seed);
-      const stream = b.tilesIn().filter(([x, y]) => b.terrain(x, y) === DeepWater);
+      const stream = b.tilesIn().filter(([x, y]) => inStream(b)(x, y));
       // A dike runs along each bank: nearly every stretch of the stream has a road on both sides.
       const leveed = stream.filter(
         ([x, y]) =>
@@ -519,35 +523,27 @@ describe("marsh-dikes", () => {
           [Road, Bridge].some((t) => [b.terrain(x, y + 1), b.terrain(x - 1, y + 1), b.terrain(x + 1, y + 1)].includes(t)),
       );
       expect(leveed.length / stream.length).toBeGreaterThan(0.6);
-      // A village holds a bridge.
       const bridges = b.tilesIn().filter(([x, y]) => b.terrain(x, y) === Bridge);
       expect(bridges.some(([x, y]) => b.near(x, y, 4, [Building]))).toBe(true);
-      // The only other ways over are fords a track leads to.
-      const fords = b.tilesIn().filter(([x, y]) => b.terrain(x, y) === ShallowWater && b.near(x, y, 1, [DeepWater]) && b.near(x, y, 1, [Road]));
-      expect(fords.length).toBeGreaterThan(0);
-      const acrossStream = (x: number, y: number) => b.passable(x, y) && b.terrain(x, y) !== Bridge && !fords.some(([fx, fy]) => fx === x && fy === y);
-      expect(b.zonesConnected(acrossStream)).toBe(false);
     },
   );
 
-  // The extra maps once laid a flank ford beside a side road's bridge, merging the two.
-  it.each([...everyMap("marsh-dikes"), [Size.Small, 25], [Size.Medium, 7], [Size.ExtraLarge, 4]] as const)(
-    "the stream is crossed at several places, so no single crossing decides it (%s, seed %i)",
+  it.each(everyMap("marsh-dikes"))(
+    "the stream can be waded all along its length, its three roads still bridging it (%s, seed %i)",
     (size, seed) => {
       const b = battle("marsh-dikes", size, seed);
-      const crossingTile = (x: number, y: number) =>
-        b.terrain(x, y) === Bridge || (b.terrain(x, y) === ShallowWater && b.near(x, y, 1, [DeepWater]));
-      // Group crossing tiles lying within 3 tiles of each other into one crossing.
-      const crossings: Tile[][] = [];
-      for (const tile of b.tilesIn().filter(([x, y]) => crossingTile(x, y))) {
-        const joined = crossings.filter((c) => c.some(([x, y]) => Math.max(Math.abs(x - tile[0]), Math.abs(y - tile[1])) <= 3));
-        crossings.splice(0, crossings.length, ...crossings.filter((c) => !joined.includes(c)), [...joined.flat(), tile]);
+      expect(b.share([DeepWater])).toBe(0);
+      // The stream runs unbroken from edge to edge, under its bridges, and every tile of it is passable.
+      for (let x = 0; x < b.tilesX; x++)
+        expect([...Array(b.tilesY).keys()].some((y) => inStream(b)(x, y) || b.terrain(x, y) === Bridge)).toBe(true);
+      expect(b.tilesIn().filter(([x, y]) => inStream(b)(x, y)).every(([x, y]) => b.passable(x, y))).toBe(true);
+      // Bridges within 3 tiles of each other are one bridge.
+      const bridges: Tile[][] = [];
+      for (const tile of b.tilesIn().filter(([x, y]) => b.terrain(x, y) === Bridge)) {
+        const joined = bridges.filter((c) => c.some(([x, y]) => Math.max(Math.abs(x - tile[0]), Math.abs(y - tile[1])) <= 3));
+        bridges.splice(0, bridges.length, ...bridges.filter((c) => !joined.includes(c)), [...joined.flat(), tile]);
       }
-      // A crossing counts when it alone carries an army over the stream.
-      const usable = crossings.filter((c) =>
-        b.zonesConnected((x, y) => b.passable(x, y) && (!crossingTile(x, y) || c.some(([cx, cy]) => cx === x && cy === y))),
-      );
-      expect(usable.length).toBeGreaterThanOrEqual(4);
+      expect(bridges.length).toBeGreaterThanOrEqual(3);
     },
   );
 });
