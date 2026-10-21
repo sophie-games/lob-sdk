@@ -479,7 +479,7 @@ describe("BaseUnit", () => {
 
     // A formation change is not done until it completes: melee drops it on contact, and
     // the charge reads the held formation's resistance, so the held one decides the flank.
-    // 114deg off the facing is past a line's flank ramp but midway up a square's.
+    // 114deg off the facing is past a line's flank ramp; a square takes no flank from any angle.
     const offFacing = new Vector2(Math.cos(2), Math.sin(2)).scale(10);
     const changingFormation = (from: string, to: string): TestUnit => {
       const u = new TestUnit(21, gameDataManager);

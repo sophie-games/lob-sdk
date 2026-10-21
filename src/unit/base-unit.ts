@@ -563,7 +563,7 @@ export abstract class BaseUnit extends Entity {
   getDirectionToPoint(point: Vector2, frontBackArc?: number) {
     if (frontBackArc === undefined) {
       // effectiveFormation (pending ?? current), like the collision OBB and fire
-      // emitters, so direction/flank/FF track the formation the unit is forming into.
+      // emitters, so direction and FF track the formation the unit is forming into.
       const formation = this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
       // frontBackArc is derived from the OBB footprint (circles return 360 -> all Front).
       frontBackArc = degreesToRadians(formation ? getFrontBackArc(formation) : 90);
