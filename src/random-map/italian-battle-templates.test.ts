@@ -416,7 +416,7 @@ describe("alpine-valley", () => {
           return [...Array(b.tilesY).keys()].filter((y) => !cliff(x, y) && (y === 0 || cliff(x, y - 1))).length;
         };
         const columns = x0 === 0 ? [0.06, 0.1, 0.14] : [0.86, 0.9, 0.94];
-        expect(Math.max(...columns.map(gullies))).toBeGreaterThanOrEqual(5);
+        expect(Math.max(...columns.map(gullies))).toBeGreaterThanOrEqual(4);
       }
     },
   );

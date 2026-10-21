@@ -559,8 +559,8 @@ export interface InstructionFields extends BaseInstruction {
  * Instruction to wear high ground down the way running water does: each tile drains along the
  * lowest way to the map's edge, a hollow spilling over its lowest rim, and the more ground drains
  * through a tile, the deeper it is cut. Gullies under the crests join into fewer, deeper valleys
- * lower down, leaving ridges standing between them. Lowers the relief only, in whole levels and
- * within the height rule.
+ * lower down, with rounded ridges standing between them, and the crests are rounded off. Lowers
+ * the relief only, in whole levels and within the height rule, leaving no hollow to pool water.
  */
 export interface InstructionErosion extends BaseInstruction {
   /** Instruction type is Erosion. */
@@ -569,7 +569,7 @@ export interface InstructionErosion extends BaseInstruction {
   strength?: number;
   /**
    * Tiles of ground that must drain through a tile before it is cut: a gully starts there, and
-   * the ground above it stays a ridge or slope. Default is 4.
+   * the ground above it stays a ridge or slope. Default is 12.
    */
   channelArea?: number;
   /** Erosion steps; more cut deeper and reach further up. Default is 60. */
