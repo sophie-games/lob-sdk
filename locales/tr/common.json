@@ -35,10 +35,12 @@
   "lobopedia": "LoBopedia",
   "homeBattles": {
     "title": "Savaşların",
+    "ready_one": "{{count}} savaş emirlerini bekliyor",
     "ready_other": "{{count}} savaş emirlerini bekliyor",
     "waiting": "Emirler gönderildi. Karşı taraf bekleniyor.",
     "empty": "Aktif savaş yok. Sıradaki turun burada görünecek.",
     "offlineSaved": "Aktif çevrimiçi savaş yok. Kayıtlı alıştırma savaşın aşağıda.",
+    "more_one": "+{{count}} daha",
     "more_other": "+{{count}} daha",
     "battle": "Savaş #{{id}}",
     "against": "rakip: {{players}}",

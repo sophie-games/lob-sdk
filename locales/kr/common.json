@@ -32,10 +32,12 @@
   "lobopedia": "LoBopedia",
   "homeBattles": {
     "title": "내 전투",
+    "ready_one": "{{count}}개의 전투가 명령을 기다리고 있습니다",
     "ready_other": "{{count}}개의 전투가 명령을 기다리고 있습니다",
     "waiting": "명령을 보냈습니다. 상대를 기다리는 중입니다.",
     "empty": "진행 중인 전투가 없습니다. 다음 턴이 여기에 표시됩니다.",
     "offlineSaved": "진행 중인 온라인 전투가 없습니다. 저장된 연습 전투는 아래에 있습니다.",
+    "more_one": "+{{count}}개 더",
     "more_other": "+{{count}}개 더",
     "battle": "전투 #{{id}}",
     "against": "vs {{players}}",
