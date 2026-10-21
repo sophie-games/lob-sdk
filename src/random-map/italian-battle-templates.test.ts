@@ -508,7 +508,7 @@ describe("marsh-dikes", () => {
   );
 
   it.each(everyMap("marsh-dikes"))(
-    "as at Arcole, levees line the stream, crossed at one village-held bridge and a ford downstream (%s, seed %i)",
+    "as at Arcole, levees line the stream, crossed only at bridges, one village-held, and fords (%s, seed %i)",
     (size, seed) => {
       const b = battle("marsh-dikes", size, seed);
       const stream = b.tilesIn().filter(([x, y]) => b.terrain(x, y) === DeepWater);
@@ -519,17 +519,34 @@ describe("marsh-dikes", () => {
           [Road, Bridge].some((t) => [b.terrain(x, y + 1), b.terrain(x - 1, y + 1), b.terrain(x + 1, y + 1)].includes(t)),
       );
       expect(leveed.length / stream.length).toBeGreaterThan(0.6);
-      // One bridge, held by a village.
+      // A village holds a bridge.
       const bridges = b.tilesIn().filter(([x, y]) => b.terrain(x, y) === Bridge);
-      expect(bridges.length).toBeGreaterThan(0);
-      for (const [x, y] of bridges)
-        for (const [ox, oy] of bridges) expect(Math.max(Math.abs(x - ox), Math.abs(y - oy))).toBeLessThanOrEqual(3);
       expect(bridges.some(([x, y]) => b.near(x, y, 4, [Building]))).toBe(true);
-      // The only other way over is a ford a track leads to, well away from the bridge.
+      // The only other ways over are fords a track leads to.
       const fords = b.tilesIn().filter(([x, y]) => b.terrain(x, y) === ShallowWater && b.near(x, y, 1, [DeepWater]) && b.near(x, y, 1, [Road]));
-      expect(fords.some(([fx, fy]) => bridges.every(([bx, by]) => Math.max(Math.abs(fx - bx), Math.abs(fy - by)) >= 10))).toBe(true);
+      expect(fords.length).toBeGreaterThan(0);
       const acrossStream = (x: number, y: number) => b.passable(x, y) && b.terrain(x, y) !== Bridge && !fords.some(([fx, fy]) => fx === x && fy === y);
       expect(b.zonesConnected(acrossStream)).toBe(false);
+    },
+  );
+
+  it.each(everyMap("marsh-dikes"))(
+    "the stream is crossed at several places, so no single crossing decides it (%s, seed %i)",
+    (size, seed) => {
+      const b = battle("marsh-dikes", size, seed);
+      const crossingTile = (x: number, y: number) =>
+        b.terrain(x, y) === Bridge || (b.terrain(x, y) === ShallowWater && b.near(x, y, 1, [DeepWater]));
+      // Group crossing tiles lying within 3 tiles of each other into one crossing.
+      const crossings: Tile[][] = [];
+      for (const tile of b.tilesIn().filter(([x, y]) => crossingTile(x, y))) {
+        const joined = crossings.filter((c) => c.some(([x, y]) => Math.max(Math.abs(x - tile[0]), Math.abs(y - tile[1])) <= 3));
+        crossings.splice(0, crossings.length, ...crossings.filter((c) => !joined.includes(c)), [...joined.flat(), tile]);
+      }
+      // A crossing counts when it alone carries an army over the stream.
+      const usable = crossings.filter((c) =>
+        b.zonesConnected((x, y) => b.passable(x, y) && (!crossingTile(x, y) || c.some(([cx, cy]) => cx === x && cy === y))),
+      );
+      expect(usable.length).toBeGreaterThanOrEqual(4);
     },
   );
 });
