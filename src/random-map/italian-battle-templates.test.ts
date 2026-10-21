@@ -528,7 +528,8 @@ describe("marsh-dikes", () => {
     },
   );
 
-  it.each(everyMap("marsh-dikes"))(
+  // Small seeds 2 and 22 end the dikes on the stream at the centre, raising two of its tiles to the dikes' height.
+  it.each([...everyMap("marsh-dikes"), [Size.Small, 2], [Size.Small, 22]] as const)(
     "the stream can be waded all along its length, its three roads still bridging it (%s, seed %i)",
     (size, seed) => {
       const b = battle("marsh-dikes", size, seed);
