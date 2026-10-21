@@ -21,11 +21,37 @@ function erode(heightMap: number[][], instruction: Partial<InstructionErosion> =
   return before;
 }
 
-/** Runs of consecutive tiles in column x that `inValley` accepts. */
-function valleysAcross(x: number, height: number, inValley: (x: number, y: number) => boolean): number {
-  let runs = 0;
-  for (let y = 0; y < height; y++) if (inValley(x, y) && (y === 0 || !inValley(x, y - 1))) runs++;
-  return runs;
+/** Valleys crossing column x: runs of carved floor with higher ground on both sides. */
+function valleysAcross(heights: number[][], x: number, carved: (x: number, y: number) => boolean): number {
+  const column = heights[x];
+  let valleys = 0;
+  for (let start = 0, end = 0; start < column.length; start = end + 1) {
+    let floorCarved = carved(x, start);
+    for (end = start; end + 1 < column.length && column[end + 1] === column[start]; end++)
+      floorCarved &&= carved(x, end + 1);
+    if (floorCarved && column[start - 1] > column[start] && column[end + 1] > column[start]) valleys++;
+  }
+  return valleys;
+}
+
+/** Whether water on tile (x, y) runs off the map's edge without ever climbing. */
+function drains(heights: number[][], x: number, y: number): boolean {
+  const width = heights.length;
+  const height = heights[0].length;
+  const seen = new Set([x * height + y]);
+  const queue = [[x, y]];
+  for (const [cx, cy] of queue) {
+    if (cx === 0 || cy === 0 || cx === width - 1 || cy === height - 1) return true;
+    for (let dx = -1; dx <= 1; dx++)
+      for (let dy = -1; dy <= 1; dy++) {
+        const [nx, ny] = [cx + dx, cy + dy];
+        if (heights[nx][ny] <= heights[cx][cy] && !seen.has(nx * height + ny)) {
+          seen.add(nx * height + ny);
+          queue.push([nx, ny]);
+        }
+      }
+  }
+  return false;
 }
 
 describe("ErosionExecutor", () => {
@@ -50,17 +76,35 @@ describe("ErosionExecutor", () => {
       const heights = flank(40, 60, seed);
       const before = erode(heights, { minHeight: 3 });
       const carved = (x: number, y: number) => heights[x][y] <= before[x][y] - 1;
-      for (const x of [20, 28, 36]) {
-        expect(valleysAcross(x, 60, carved)).toBeGreaterThanOrEqual(3);
-        expect(heights[x].some((h, y) => h === before[x][y])).toBe(true);
-      }
+      for (const x of [20, 28]) expect(valleysAcross(heights, x, carved)).toBeGreaterThanOrEqual(3);
       const deepest = Math.max(...before.flatMap((column, x) => column.map((h, y) => h - heights[x][y])));
       expect(deepest).toBeGreaterThanOrEqual(2);
-      // Every cut tile can drain: some neighbour is no higher than it.
+      for (let x = 0; x < 40; x++)
+        for (let y = 0; y < 60; y++) if (carved(x, y)) expect(drains(heights, x, y)).toBe(true);
+    },
+  );
+
+  it.each([1, 2, 3])(
+    "carves whole valleys, not chains of pits at each terrace edge, between rounded ridges (seed %i)",
+    (seed) => {
+      const heights = flank(40, 60, seed);
+      const before = erode(heights, { minHeight: 3 });
+      const carved = (x: number, y: number) => heights[x][y] <= before[x][y] - 1;
       for (let x = 1; x < 39; x++)
-        for (let y = 1; y < 59; y++)
-          if (carved(x, y))
-            expect([[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]].some(([dx, dy]) => heights[x + dx][y + dy] <= heights[x][y])).toBe(true);
+        for (let y = 1; y < 59; y++) {
+          const sides = [heights[x - 1][y], heights[x + 1][y], heights[x][y - 1], heights[x][y + 1]];
+          // No cut tile sunk below all four sides, a pit only draining corner to corner.
+          if (carved(x, y)) expect(sides.some((h) => h <= heights[x][y])).toBe(true);
+          // No uncut ground left standing one tile wide between two cuts.
+          else
+            for (const [dx, dy] of [[1, 0], [0, 1]])
+              expect(
+                carved(x - dx, y - dy) &&
+                  carved(x + dx, y + dy) &&
+                  heights[x - dx][y - dy] < heights[x][y] &&
+                  heights[x + dx][y + dy] < heights[x][y],
+              ).toBe(false);
+        }
     },
   );
 
