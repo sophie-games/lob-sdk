@@ -28,6 +28,7 @@ import {
   UnitCategoryTemplate,
 } from "@lob-sdk/game-data-manager";
 import { MIN_COLLISION_LEVEL } from "@lob-sdk/constants";
+import { AmmoWire, ammoToWire } from "@lob-sdk/unit/ammo-wire";
 import { standoffDistance as computeStandoffDistance } from "@lob-sdk/unit/weapon-range";
 import {
   checkCollision,
@@ -265,6 +266,18 @@ export abstract class BaseUnit extends Entity {
       effectDtos.push(effect.toDto());
     }
     return effectDtos;
+  }
+
+  /** The pools that are not full, in wire form; an absent pool reads back as full. */
+  getAmmoDto(): AmmoWire {
+    const capacity = this.ammoCapacity;
+    if (this.ammo === null || !capacity) return {};
+
+    const partial: AmmoPools = {};
+    for (const [ammoType, value] of Object.entries(this.ammo)) {
+      if (value !== capacity[ammoType]) partial[ammoType] = value;
+    }
+    return ammoToWire(partial, this.gameDataManager);
   }
 
   /**
