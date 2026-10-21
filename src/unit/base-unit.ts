@@ -28,6 +28,7 @@ import {
   UnitCategoryTemplate,
 } from "@lob-sdk/game-data-manager";
 import { MIN_COLLISION_LEVEL } from "@lob-sdk/constants";
+import { AmmoWire, ammoToWire } from "@lob-sdk/unit/ammo-wire";
 import { standoffDistance as computeStandoffDistance } from "@lob-sdk/unit/weapon-range";
 import {
   checkCollision,
@@ -265,6 +266,18 @@ export abstract class BaseUnit extends Entity {
       effectDtos.push(effect.toDto());
     }
     return effectDtos;
+  }
+
+  /** The pools that are not full, in wire form; an absent pool reads back as full. */
+  getAmmoDto(): AmmoWire {
+    const capacity = this.ammoCapacity;
+    if (this.ammo === null || !capacity) return {};
+
+    const partial: AmmoPools = {};
+    for (const [ammoType, value] of Object.entries(this.ammo)) {
+      if (value !== capacity[ammoType]) partial[ammoType] = value;
+    }
+    return ammoToWire(partial, this.gameDataManager);
   }
 
   /**
@@ -550,7 +563,7 @@ export abstract class BaseUnit extends Entity {
   getDirectionToPoint(point: Vector2, frontBackArc?: number) {
     if (frontBackArc === undefined) {
       // effectiveFormation (pending ?? current), like the collision OBB and fire
-      // emitters, so direction/flank/FF track the formation the unit is forming into.
+      // emitters, so direction and FF track the formation the unit is forming into.
       const formation = this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
       // frontBackArc is derived from the OBB footprint (circles return 360 -> all Front).
       frontBackArc = degreesToRadians(formation ? getFrontBackArc(formation) : 90);
@@ -559,7 +572,9 @@ export abstract class BaseUnit extends Entity {
   }
 
   getFlankMod(attackerPoint: Vector2) {
-    const formation = this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
+    // The formation held, not the one being formed: melee cancels the change on contact, and
+    // a charge prices the held formation's resistance.
+    const formation = this.gameDataManager.getFormationManager().getTemplate(this.currentFormation);
     if (!formation) return 0;
     // Unflankable formations (square, artillery, skirmishers, dispersed, ship) and circles
     // (WW2, no facing) take no flank from any angle. Otherwise the flank ramp is derived
