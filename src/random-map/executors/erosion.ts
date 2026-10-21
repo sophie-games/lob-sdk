@@ -77,7 +77,7 @@ export class ErosionExecutor {
       for (let i = 0; i < cutting.length; i++) {
         const tile = cutting[i];
         const outlet = ground[drainsTo[tile]];
-        if (ground[tile] <= outlet) continue;
+        if (ground[tile] <= Math.max(outlet, minHeight)) continue;
         ground[tile] = Math.max(minHeight, (ground[tile] + rates[i] * outlet) / (1 + rates[i]));
       }
     widenFloors(ground, uncut, width, height, minHeight, erodes);
@@ -158,7 +158,7 @@ function widenFloors(
         const ny = y + DY[n];
         if (nx >= 0 && ny >= 0 && nx < width && ny < height) deepest = Math.max(deepest, depth[nx * height + ny]);
       }
-      ground[tile] = Math.max(minHeight, Math.min(ground[tile], uncut[tile] - deepest));
+      ground[tile] = Math.min(ground[tile], Math.max(minHeight, uncut[tile] - deepest));
     }
 }
 

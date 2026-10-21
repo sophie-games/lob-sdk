@@ -108,6 +108,18 @@ describe("ErosionExecutor", () => {
     },
   );
 
+  it.each([1, 2, 3])(
+    "where no water gathers to cut, rounds the crests above minHeight as it would without the floor (seed %i)",
+    (seed) => {
+      const floored = flank(40, 60, seed);
+      const before = erode(floored, { minHeight: 5, channelArea: Infinity });
+      const unfloored = before.map((column) => [...column]);
+      erode(unfloored, { minHeight: 0, channelArea: Infinity });
+      for (let x = 0; x < 40; x++)
+        for (let y = 0; y < 60; y++) if (before[x][y] >= 5) expect(floored[x][y]).toBe(Math.max(5, unfloored[x][y]));
+    },
+  );
+
   it("leaves flat ground as it is", () => {
     const heights = Array.from({ length: 20 }, () => Array.from({ length: 20 }, () => 5));
     erode(heights, { minHeight: 3 });
