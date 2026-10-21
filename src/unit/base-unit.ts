@@ -572,7 +572,9 @@ export abstract class BaseUnit extends Entity {
   }
 
   getFlankMod(attackerPoint: Vector2) {
-    const formation = this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
+    // The formation held, not the one being formed: melee cancels the change on contact, and
+    // a charge prices the held formation's resistance.
+    const formation = this.gameDataManager.getFormationManager().getTemplate(this.currentFormation);
     if (!formation) return 0;
     // Unflankable formations (square, artillery, skirmishers, dispersed, ship) and circles
     // (WW2, no facing) take no flank from any angle. Otherwise the flank ramp is derived

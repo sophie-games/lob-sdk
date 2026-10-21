@@ -476,5 +476,26 @@ describe("BaseUnit", () => {
       const u = makeFlankUnit({ ...obb16, disablesFlankMelee: true });
       expect(u.getFlankMod(new Vector2(-10, 0))).toBe(0);
     });
+
+    // A formation change is not done until it completes: melee drops it on contact, and
+    // the charge reads the held formation's resistance, so the held one decides the flank.
+    // 114deg off the facing is past a line's flank ramp but midway up a square's.
+    const offFacing = new Vector2(Math.cos(2), Math.sin(2)).scale(10);
+    const changingFormation = (from: string, to: string): TestUnit => {
+      const u = new TestUnit(21, gameDataManager);
+      u.currentFormation = from;
+      u.pendingFormationId = to;
+      u.position = new Vector2(0, 0);
+      u.rotation = 0;
+      return u;
+    };
+
+    it("flanks a line from behind while it is still forming square", () => {
+      expect(changingFormation("line", "square").getFlankMod(offFacing)).toBe(1);
+    });
+
+    it("gives no flank to a square still forming line", () => {
+      expect(changingFormation("square", "line").getFlankMod(offFacing)).toBe(0);
+    });
   });
 });
