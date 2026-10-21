@@ -530,7 +530,8 @@ describe("marsh-dikes", () => {
     },
   );
 
-  it.each(everyMap("marsh-dikes"))(
+  // The extra maps once laid a flank ford beside a side road's bridge, merging the two.
+  it.each([...everyMap("marsh-dikes"), [Size.Small, 25], [Size.Medium, 7], [Size.ExtraLarge, 4]] as const)(
     "the stream is crossed at several places, so no single crossing decides it (%s, seed %i)",
     (size, seed) => {
       const b = battle("marsh-dikes", size, seed);
