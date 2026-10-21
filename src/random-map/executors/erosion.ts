@@ -63,18 +63,19 @@ export class ErosionExecutor {
     }
     // The tiles that cut, outlets first, so each is cut toward the height its outlet already has
     // (implicit, stable), with its cutting rate.
-    const cutting: number[] = [];
-    const rates: number[] = [];
+    const cutting = new Int32Array(tiles);
+    const rates = new Float64Array(tiles);
+    let count = 0;
     const threshold = Math.sqrt(channelArea);
     for (let i = 0; i < tiles; i++) {
       const tile = order[i];
       const excess = Math.sqrt(area[tile]) - threshold;
       if (drainsTo[tile] < 0 || excess <= 0 || !erodes(tile)) continue;
-      cutting.push(tile);
-      rates.push((strength * excess) / distance[tile]);
+      cutting[count] = tile;
+      rates[count++] = (strength * excess) / distance[tile];
     }
     for (let step = 0; step < iterations; step++)
-      for (let i = 0; i < cutting.length; i++) {
+      for (let i = 0; i < count; i++) {
         const tile = cutting[i];
         const outlet = ground[drainsTo[tile]];
         if (ground[tile] <= Math.max(outlet, minHeight)) continue;
@@ -152,12 +153,11 @@ function widenFloors(
     for (let y = 0; y < height; y++) {
       const tile = x * height + y;
       if (!erodes(tile)) continue;
+      const inside = x > 0 && y > 0 && x < width - 1 && y < height - 1;
       let deepest = depth[tile];
-      for (let n = 0; n < 8; n++) {
-        const nx = x + DX[n];
-        const ny = y + DY[n];
-        if (nx >= 0 && ny >= 0 && nx < width && ny < height) deepest = Math.max(deepest, depth[nx * height + ny]);
-      }
+      for (let n = 0; n < 8; n++)
+        if (inside || onMap(x + DX[n], y + DY[n], width, height))
+          deepest = Math.max(deepest, depth[tile + DX[n] * height + DY[n]]);
       ground[tile] = Math.min(ground[tile], Math.max(minHeight, uncut[tile] - deepest));
     }
 }
@@ -192,20 +192,24 @@ function widenValleys(ground: Float64Array, uncut: Float64Array, width: number, 
  * neighbouring valleys meet in a rounded ridge rather than a knife edge.
  */
 function trimRidges(levels: Float64Array, original: Float64Array, width: number, height: number) {
-  const cut = (tile: number) => levels[tile] < original[tile];
   // Bringing a tile down can leave the next one standing alone.
   for (let trimmed = true; trimmed; ) {
     trimmed = false;
     for (let x = 1; x < width - 1; x++)
       for (let y = 1; y < height - 1; y++) {
         const tile = x * height + y;
-        for (const [a, b] of [[tile - height, tile + height], [tile - 1, tile + 1]])
-          if (cut(a) && cut(b) && levels[a] < levels[tile] && levels[b] < levels[tile]) {
-            levels[tile] = Math.max(levels[a], levels[b]);
-            trimmed = true;
-          }
+        if (trimBetween(levels, original, tile, tile - height, tile + height)) trimmed = true;
+        if (trimBetween(levels, original, tile, tile - 1, tile + 1)) trimmed = true;
       }
   }
+}
+
+/** Brings `tile` down to the higher of `a` and `b` if it stands above both and both are cut. */
+function trimBetween(levels: Float64Array, original: Float64Array, tile: number, a: number, b: number): boolean {
+  if (levels[a] >= original[a] || levels[b] >= original[b] || levels[a] >= levels[tile] || levels[b] >= levels[tile])
+    return false;
+  levels[tile] = Math.max(levels[a], levels[b]);
+  return true;
 }
 
 /** `passes` of a 3x3 box blur, the map's edge repeating outward. */
@@ -216,12 +220,20 @@ function blur(field: Float64Array, width: number, height: number, passes: number
     for (let x = 0; x < width; x++)
       for (let y = 0; y < height; y++) {
         let sum = 0;
-        for (let dx = -1; dx <= 1; dx++)
-          for (let dy = -1; dy <= 1; dy++) {
-            const nx = Math.min(width - 1, Math.max(0, x + dx));
-            const ny = Math.min(height - 1, Math.max(0, y + dy));
-            sum += current[nx * height + ny];
+        if (x > 0 && y > 0 && x < width - 1 && y < height - 1) {
+          // Summed in the same order as the edge case below, so both round alike.
+          for (let column = (x - 1) * height + y; column <= (x + 1) * height + y; column += height) {
+            sum += current[column - 1];
+            sum += current[column];
+            sum += current[column + 1];
           }
+        } else
+          for (let dx = -1; dx <= 1; dx++)
+            for (let dy = -1; dy <= 1; dy++) {
+              const nx = Math.min(width - 1, Math.max(0, x + dx));
+              const ny = Math.min(height - 1, Math.max(0, y + dy));
+              sum += current[nx * height + ny];
+            }
         next[x * height + y] = sum / 9;
       }
     current = next;
@@ -235,7 +247,7 @@ function blur(field: Float64Array, width: number, height: number, passes: number
  * hollow the ground already had.
  */
 function drainHollows(levels: Float64Array, original: Float64Array, width: number, height: number) {
-  const { spill } = traceDrainage(levels, width, height);
+  const spill = spillLevels(levels, width, height);
   for (let tile = 0; tile < levels.length; tile++)
     levels[tile] = Math.max(levels[tile], Math.min(original[tile], spill[tile]));
 }
@@ -243,7 +255,7 @@ function drainHollows(levels: Float64Array, original: Float64Array, width: numbe
 /**
  * Where water drains, traced by flooding from the map's edges lowest first: each tile drains to
  * the neighbour it was reached from (-1 at the edge), so a hollow spills over its lowest rim, and
- * `order` lists the tiles from the outlets up. `spill` is the level water stands at on each tile.
+ * `order` lists the tiles from the outlets up.
  */
 function traceDrainage(ground: Float64Array, width: number, height: number) {
   const tiles = width * height;
@@ -252,62 +264,130 @@ function traceDrainage(ground: Float64Array, width: number, height: number) {
   const order = new Int32Array(tiles);
   const reached = new Uint8Array(tiles);
   const level = new Float64Array(tiles);
-  // Binary min-heap of tiles keyed by `level`.
-  const heap = new Int32Array(tiles);
-  let size = 0;
-  const push = (tile: number) => {
-    let i = size++;
-    while (i > 0) {
-      const parent = (i - 1) >> 1;
-      if (level[heap[parent]] <= level[tile]) break;
-      heap[i] = heap[parent];
-      i = parent;
-    }
-    heap[i] = tile;
-  };
-  const pop = () => {
-    const top = heap[0];
-    const last = heap[--size];
-    let i = 0;
-    for (;;) {
-      const left = 2 * i + 1;
-      if (left >= size) break;
-      const right = left + 1;
-      const child = right < size && level[heap[right]] < level[heap[left]] ? right : left;
-      if (level[heap[child]] >= level[last]) break;
-      heap[i] = heap[child];
-      i = child;
-    }
-    heap[i] = last;
-    return top;
-  };
-
-  for (let x = 0; x < width; x++)
-    for (let y = 0; y < height; y++)
-      if (x === 0 || y === 0 || x === width - 1 || y === height - 1) {
-        const tile = x * height + y;
-        reached[tile] = 1;
-        drainsTo[tile] = -1;
-        level[tile] = ground[tile];
-        push(tile);
-      }
-  for (let count = 0; size > 0; count++) {
-    const tile = pop();
+  const heap = new TileHeap(tiles);
+  forEachEdgeTile(width, height, (tile) => {
+    reached[tile] = 1;
+    drainsTo[tile] = -1;
+    level[tile] = ground[tile];
+    heap.push(tile, level[tile]);
+  });
+  const offsets = DX.map((dx, n) => dx * height + DY[n]);
+  for (let count = 0; heap.size > 0; count++) {
+    const tile = heap.pop();
     order[count] = tile;
     const x = Math.floor(tile / height);
     const y = tile - x * height;
+    const inside = x > 0 && y > 0 && x < width - 1 && y < height - 1;
     for (let n = 0; n < 8; n++) {
-      const nx = x + DX[n];
-      const ny = y + DY[n];
-      if (nx < 0 || ny < 0 || nx >= width || ny >= height) continue;
-      const next = nx * height + ny;
+      if (!inside && !onMap(x + DX[n], y + DY[n], width, height)) continue;
+      const next = tile + offsets[n];
       if (reached[next]) continue;
       reached[next] = 1;
       drainsTo[next] = tile;
       distance[next] = DISTANCE[n];
       level[next] = Math.max(ground[next], level[tile]);
-      push(next);
+      heap.push(next, level[next]);
     }
   }
-  return { drainsTo, distance, order, spill: level };
+  return { drainsTo, distance, order };
+}
+
+/**
+ * The level water stands at on each tile, flooding from the map's edges lowest first. Ground the
+ * water already covers is flooded through a plain queue rather than the heap (Priority-Flood+), so
+ * the flats of whole-level ground cost next to nothing.
+ */
+function spillLevels(ground: Float64Array, width: number, height: number): Float64Array {
+  const tiles = width * height;
+  const spill = new Float64Array(tiles);
+  const reached = new Uint8Array(tiles);
+  const heap = new TileHeap(tiles);
+  const covered = new Int32Array(tiles);
+  let head = 0;
+  let tail = 0;
+  forEachEdgeTile(width, height, (tile) => {
+    reached[tile] = 1;
+    spill[tile] = ground[tile];
+    heap.push(tile, spill[tile]);
+  });
+  const offsets = DX.map((dx, n) => dx * height + DY[n]);
+  while (head < tail || heap.size > 0) {
+    const tile = head < tail ? covered[head++] : heap.pop();
+    const x = Math.floor(tile / height);
+    const y = tile - x * height;
+    const inside = x > 0 && y > 0 && x < width - 1 && y < height - 1;
+    for (let n = 0; n < 8; n++) {
+      if (!inside && !onMap(x + DX[n], y + DY[n], width, height)) continue;
+      const next = tile + offsets[n];
+      if (reached[next]) continue;
+      reached[next] = 1;
+      if (ground[next] <= spill[tile]) {
+        spill[next] = spill[tile];
+        covered[tail++] = next;
+      } else {
+        spill[next] = ground[next];
+        heap.push(next, spill[next]);
+      }
+    }
+  }
+  return spill;
+}
+
+function onMap(x: number, y: number, width: number, height: number): boolean {
+  return x >= 0 && y >= 0 && x < width && y < height;
+}
+
+function forEachEdgeTile(width: number, height: number, visit: (tile: number) => void) {
+  for (let x = 0; x < width; x++)
+    for (let y = 0; y < height; y++)
+      if (x === 0 || y === 0 || x === width - 1 || y === height - 1) visit(x * height + y);
+}
+
+/** Binary min-heap of tiles, each with its key alongside so sifting reads one array. */
+class TileHeap {
+  private readonly tiles: Int32Array;
+  private readonly keys: Float64Array;
+  size = 0;
+
+  constructor(capacity: number) {
+    this.tiles = new Int32Array(capacity);
+    this.keys = new Float64Array(capacity);
+  }
+
+  push(tile: number, key: number) {
+    const { tiles, keys } = this;
+    let i = this.size++;
+    while (i > 0) {
+      const parent = (i - 1) >> 1;
+      if (keys[parent] <= key) break;
+      tiles[i] = tiles[parent];
+      keys[i] = keys[parent];
+      i = parent;
+    }
+    tiles[i] = tile;
+    keys[i] = key;
+  }
+
+  /** Takes out the tile with the lowest key. */
+  pop(): number {
+    const { tiles, keys } = this;
+    const top = tiles[0];
+    const size = --this.size;
+    const last = tiles[size];
+    const key = keys[size];
+    let i = 0;
+    for (;;) {
+      const left = 2 * i + 1;
+      if (left >= size) break;
+      const right = left + 1;
+      const child = right < size && keys[right] < keys[left] ? right : left;
+      if (keys[child] >= key) break;
+      tiles[i] = tiles[child];
+      keys[i] = keys[child];
+      i = child;
+    }
+    tiles[i] = last;
+    keys[i] = key;
+    return top;
+  }
 }
