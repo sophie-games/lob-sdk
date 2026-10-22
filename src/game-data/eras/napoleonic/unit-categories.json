@@ -5,7 +5,7 @@
     "chargeBacklashMultiplier": 1.5,
     "runChargeBacklashMultiplier": 0.75,
     "deploymentSection": "center",
-    "firingAltitude": 0.98,
+    "firingAltitude": 0.58,
     "captureSpeed": 2.0,
     "routingBehavior": {
       "baseSpeed": "run"
@@ -17,8 +17,8 @@
     "rearFire": {
       "orgModifier": 1.5
     },
-    "impactAltitude": 0.99,
-    "grazingAltitude": 1.99,
+    "impactAltitude": 0.59,
+    "grazingAltitude": 1.19,
     "allowedOrders": [
       "walk",
       "run",
@@ -35,7 +35,7 @@
     "chargeBacklashMultiplier": 1.5,
     "runChargeBacklashMultiplier": 0.75,
     "deploymentSection": "center",
-    "firingAltitude": 0.98,
+    "firingAltitude": 0.58,
     "captureSpeed": 4.0,
     "routingBehavior": {
       "baseSpeed": "run"
@@ -47,8 +47,8 @@
     "rearFire": {
       "orgModifier": 1.5
     },
-    "impactAltitude": 0.99,
-    "grazingAltitude": 1.99,
+    "impactAltitude": 0.59,
+    "grazingAltitude": 1.19,
     "allowedOrders": [
       "walk",
       "run",
@@ -65,7 +65,7 @@
     "chargeBacklashMultiplier": 0.75,
     "uphillSlowdownMultiplier": 1.25,
     "deploymentSection": "front",
-    "firingAltitude": 0.98,
+    "firingAltitude": 0.58,
     "routingBehavior": {
       "baseSpeed": "run"
     },
@@ -95,8 +95,8 @@
       "cavalry-sword": 0,
       "dragoon-sword": 0
     },
-    "impactAltitude": 0.99,
-    "grazingAltitude": 1.99,
+    "impactAltitude": 0.59,
+    "grazingAltitude": 1.19,
     "allowedOrders": [
       "walk",
       "run",
@@ -117,7 +117,7 @@
     "uphillSlowdownMultiplier": 1.5,
     "runChargeBacklashMultiplier": 0.75,
     "deploymentSection": "front",
-    "firingAltitude": 0.98,
+    "firingAltitude": 0.58,
     "routingBehavior": {
       "fleeWhenRouted": false
     },
@@ -152,8 +152,8 @@
       "artillery": -1,
       "skirmishInfantry": -2
     },
-    "impactAltitude": 0.99,
-    "grazingAltitude": 1.99,
+    "impactAltitude": 0.59,
+    "grazingAltitude": 1.19,
     "allowedOrders": [
       "walk",
       "run",
@@ -170,7 +170,7 @@
     "chargeBacklashMultiplier": 0.75,
     "uphillSlowdownMultiplier": 1.25,
     "deploymentSection": "front",
-    "firingAltitude": 0.98,
+    "firingAltitude": 0.58,
     "routingBehavior": {
       "baseSpeed": "run"
     },
@@ -199,8 +199,8 @@
       "howitzer-canister": -0.35,
       "cavalry-sabre": 0
     },
-    "impactAltitude": 0.99,
-    "grazingAltitude": 1.99,
+    "impactAltitude": 0.59,
+    "grazingAltitude": 1.19,
     "allowedOrders": [
       "walk",
       "run",
@@ -217,7 +217,7 @@
     "chargeBacklashMultiplier": 0.75,
     "uphillSlowdownMultiplier": 1.25,
     "deploymentSection": "front",
-    "firingAltitude": 0.98,
+    "firingAltitude": 0.58,
     "routingBehavior": {
       "baseSpeed": "run"
     },
@@ -246,8 +246,8 @@
       "4lb-canister-fire": -0.35,
       "howitzer-canister": -0.35
     },
-    "impactAltitude": 0.99,
-    "grazingAltitude": 1.99,
+    "impactAltitude": 0.59,
+    "grazingAltitude": 1.19,
     "allowedOrders": [
       "walk",
       "run",
@@ -264,7 +264,7 @@
     "chargeBacklashMultiplier": 0.75,
     "uphillSlowdownMultiplier": 1.25,
     "deploymentSection": "front",
-    "firingAltitude": 0.98,
+    "firingAltitude": 0.58,
     "routingBehavior": {
       "baseSpeed": "run"
     },
@@ -293,8 +293,8 @@
       "howitzer-canister": -0.35,
       "cavalry-sword": 0
     },
-    "impactAltitude": 0.99,
-    "grazingAltitude": 1.99,
+    "impactAltitude": 0.59,
+    "grazingAltitude": 1.19,
     "allowedOrders": [
       "walk",
       "run",
@@ -317,7 +317,7 @@
       "dragoon-sword": -0.5,
       "cavalry-sword": -0.5
     },
-    "firingAltitude": 0.98,
+    "firingAltitude": 0.58,
     "captureSpeed": 2.0,
     "routingBehavior": {
       "baseSpeed": "run"
@@ -333,8 +333,8 @@
       "artillery": 1,
       "skirmishInfantry": -1
     },
-    "impactAltitude": 0.99,
-    "grazingAltitude": 1.99,
+    "impactAltitude": 0.59,
+    "grazingAltitude": 1.19,
     "allowedOrders": [
       "walk",
       "run",
@@ -351,7 +351,7 @@
     "chargeBacklashMultiplier": 0,
     "uphillSlowdownMultiplier": 0.5,
     "deploymentSection": "front",
-    "firingAltitude": 0.98,
+    "firingAltitude": 0.58,
     "routingBehavior": {
       "baseSpeed": "run"
     },
@@ -387,8 +387,8 @@
       "artillery": 2,
       "skirmishInfantry": 1
     },
-    "impactAltitude": 0.99,
-    "grazingAltitude": 1.99,
+    "impactAltitude": 0.59,
+    "grazingAltitude": 1.19,
     "allowedOrders": [
       "walk",
       "run",
@@ -404,12 +404,12 @@
     "chargeStaminaCost": 10000,
     "chargeBacklashMultiplier": 0.75,
     "deploymentSection": "front",
-    "firingAltitude": 0.98,
+    "firingAltitude": 0.58,
     "routingBehavior": {
       "fleeWhenRouted": false
     },
-    "impactAltitude": 0.99,
-    "grazingAltitude": 1.99,
+    "impactAltitude": 0.59,
+    "grazingAltitude": 1.19,
     "enfiladeFire": {
       "damageModifier": 0.5,
       "orgModifier": 0.5
