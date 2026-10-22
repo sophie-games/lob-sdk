@@ -413,6 +413,7 @@ describe("normalizeScenario", () => {
     it("no fixedArmy => allowDynamicArmy:true (deployment phase)", () => {
       const result = normalizeScenario(buildHybrid());
       expect(result.allowDynamicArmy).toBe(true);
+      expect(ScenarioFeatures.hasDeploymentPhase(result)).toBe(true);
     });
 
     it("fixedArmy:false => allowDynamicArmy:true", () => {
@@ -420,9 +421,11 @@ describe("normalizeScenario", () => {
       expect(result.allowDynamicArmy).toBe(true);
     });
 
-    it("legacy hybrids without zones start at turn 1", () => {
+    it("legacy fixed-army hybrids without zones start at turn 1", () => {
       expect(
-        ScenarioFeatures.hasDeploymentPhase(normalizeScenario(buildHybrid())),
+        ScenarioFeatures.hasDeploymentPhase(
+          normalizeScenario(buildHybrid({ fixedArmy: true })),
+        ),
       ).toBe(false);
     });
 
