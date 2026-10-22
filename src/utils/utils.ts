@@ -188,7 +188,8 @@ export const clamp = (value: number, min: number, max: number) => {
  * Recursively sets the height of tiles on a grid, ensuring smooth transitions between neighboring tiles.
  * The function propagates heights from a starting tile to its neighbors, adjusting heights to avoid abrupt changes.
  *
- * The propagation is controlled by limiting height differences between neighboring tiles to a maximum of 1.
+ * Neighbouring tiles may differ by at most `maxStep` whole levels (the era's height rule
+ * `maxLevelDiff`); below one level only the tile changes. `setHeight` writes each tile.
  * Each tile is processed only once to ensure consistent height adjustments across the grid.
  */
 export const setHeightRecursively = (
@@ -196,104 +197,75 @@ export const setHeightRecursively = (
   y: number,
   height: number,
   heightMap: number[][],
+  maxStep: number,
+  setHeight = (tileX: number, tileY: number, tileHeight: number) => {
+    heightMap[tileX][tileY] = tileHeight;
+  },
 ) => {
-  const queue: { x: number; y: number; height: number }[] = [{ x, y, height }];
-  const visited: Set<string> = new Set();
+  // Whole levels only: a step under one would flood the map, a fractional one leave half levels.
+  const step = Math.floor(maxStep);
+  if (step < 1) {
+    setHeight(x, y, height);
+    return;
+  }
 
-  while (queue.length) {
-    const currentTile = queue.shift()!;
-    const { x: cx, y: cy, height: ch } = currentTile;
+  // Parallel arrays and numeric keys: map generation calls this once per tile.
+  const queueX = [x];
+  const queueY = [y];
+  const queueHeight = [height];
+  const visited = new Set<number>();
 
-    // Create a unique identifier for the tile
-    const tileId = `${cx},${cy}`;
+  for (let head = 0; head < queueX.length; head++) {
+    const cx = queueX[head];
+    const cy = queueY[head];
+    const ch = queueHeight[head];
 
+    const tileId = pack2D(cx, cy);
     if (visited.has(tileId)) {
       continue; // Skip if the tile has already been processed
     }
-
     visited.add(tileId);
 
-    // Set the height for the current tile
-    heightMap[cx][cy] = ch;
+    setHeight(cx, cy, ch);
 
-    const neighbors = getNeighborHeights(cx, cy, heightMap);
+    for (let n = 0; n < NEIGHBOR_OFFSETS.length; n += 2) {
+      const nx = cx + NEIGHBOR_OFFSETS[n];
+      const ny = cy + NEIGHBOR_OFFSETS[n + 1];
+      const neighborHeight = heightMap[nx]?.[ny];
+      if (neighborHeight === undefined) continue;
 
-    for (const neighbor of neighbors.values()) {
-      const heightDiff = neighbor.height - ch;
-
-      // Determine the correct height for the neighbor
-      let newHeight = ch;
-
-      if (heightDiff > 1) {
-        newHeight += 1; // Increase by 1 if the neighbor is higher by more than 1
-      } else if (heightDiff < -1) {
-        newHeight -= 1; // Decrease by 1 if the neighbor is lower by more than 1
-      } else {
-        newHeight = neighbor.height; // Keep the neighbor's height if within 1 difference
-      }
-
-      // If the height has changed, add the neighbor to the queue
-      if (newHeight !== neighbor.height) {
-        queue.push({
-          x: neighbor.x,
-          y: neighbor.y,
-          height: newHeight,
-        });
+      // Within a step of the tile the neighbour keeps its height, else it steps toward it.
+      const heightDiff = neighborHeight - ch;
+      const newHeight =
+        heightDiff > step ? ch + step : heightDiff < -step ? ch - step : neighborHeight;
+      if (newHeight !== neighborHeight) {
+        queueX.push(nx);
+        queueY.push(ny);
+        queueHeight.push(newHeight);
       }
     }
   }
 };
 
-const getNeighborHeights = (
-  tileX: number,
-  tileY: number,
-  heightMap: number[][],
-) => {
-  const neighborHeights: { x: number; y: number; height: number }[] = [];
+/** The eight neighbour offsets, as (dx, dy) pairs, top-left to bottom-right. */
+const NEIGHBOR_OFFSETS = [-1, -1, 0, -1, 1, -1, -1, 0, 1, 0, -1, 1, 0, 1, 1, 1];
 
-  const offsets: [number, number][] = [
-    [-1, -1], // Top-left
-    [0, -1], // Top
-    [1, -1], // Top-right
-    [-1, 0], // Left
-    [1, 0], // Right
-    [-1, 1], // Bottom-left
-    [0, 1], // Bottom
-    [1, 1], // Bottom-right
-  ];
-
-  for (const [dx, dy] of offsets) {
-    const neighborX = tileX + dx;
-    const neighborY = tileY + dy;
-
-    const neighborHeight = heightMap[neighborX]?.[neighborY];
-
-    if (neighborHeight === undefined) {
-      continue;
-    }
-
-    neighborHeights.push({
-      x: neighborX,
-      y: neighborY,
-      height: neighborHeight,
-    });
-  }
-
-  return neighborHeights;
-};
+/** Offset that lets `pack2D` take negative coordinates (a neighbour just off the map). */
+const PACK_OFFSET = 0x8000;
+const PACK_STRIDE = 0x10000;
 
 /**
- * Packs two 8-bit coordinates (x, y) into a single 16-bit number.
- * Useful for indexing maps up to 256x256 tiles.
+ * Packs tile coordinates in -32768..32767 into one number, for use as a Set/Map key.
  */
-export const pack2D = (x: number, y: number) => (x << 8) | (y & 0xff);
+export const pack2D = (x: number, y: number) =>
+  (x + PACK_OFFSET) * PACK_STRIDE + (y + PACK_OFFSET);
 
 /**
- * Unpacks a 16-bit key generated by `pack2D` back into its original (x, y) coordinates.
+ * Unpacks a key generated by `pack2D` back into its original (x, y) coordinates.
  */
 export const unpack2D = (key: number) => ({
-  x: (key >> 8) & 0xff,
-  y: key & 0xff,
+  x: Math.floor(key / PACK_STRIDE) - PACK_OFFSET,
+  y: (key % PACK_STRIDE) - PACK_OFFSET,
 });
 
 export const nowInSeconds = () => Math.floor(Date.now() / 1000);

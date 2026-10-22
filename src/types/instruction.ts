@@ -36,6 +36,17 @@ export interface GenerateRandomMapProps {
    * `battleSize` flows (dimensions, instruction scaling, deployment zones).
    */
   mapSize?: Size;
+  /**
+   * Values the caller passes to the generation. `angle` turns a procedural map's terrain that
+   * many degrees clockwise; it applies only within the range the scenario's `parameters` accept.
+   */
+  parameters?: RandomMapParameters;
+}
+
+/** Values a caller may pass to procedural map generation. */
+export interface RandomMapParameters {
+  /** Degrees clockwise to turn the terrain, so a river or ridge runs at that angle to the armies' line. */
+  angle?: number;
 }
 
 /**
@@ -102,6 +113,12 @@ export enum InstructionType {
   Lake = "LAKE",
   /** Instruction to place an objective layer. */
   ObjectiveLayer = "OBJECTIVE_LAYER",
+  /** Instruction to copy one half of the map onto the other. */
+  Symmetry = "SYMMETRY",
+  /** Instruction to lay out fields in strips along the roads. */
+  Fields = "FIELDS",
+  /** Instruction to wear valleys into high ground the way running water does. */
+  Erosion = "EROSION",
 }
 
 /**
@@ -127,8 +144,11 @@ export interface InstructionTerrainNoise extends BaseInstruction {
   terrain: TerrainType;
   /** Scale of the noise (smaller = more detail, larger = smoother). Can be a single number or [x, y] for different scales per axis. */
   scale: number | Point2;
-  /** Ranges of noise values that will place this terrain. */
-  ranges: Array<Range>;
+  /**
+   * Ranges of noise values that will place this terrain. A range's own `terrain` paints that
+   * instead, from the same noise: a wood's dense core and its open fringe in one field.
+   */
+  ranges: Array<Range & { terrain?: TerrainType }>;
   /** Optional multiplier for noise values. */
   multiplier?: number;
   /** Optional offset for noise values. */
@@ -255,6 +275,8 @@ export interface InstructionTerrainRectangle extends BaseInstruction {
     maxHeight?: number;
     /** Rotation: fixed number or {min, max} range for random rotation. */
     rotation?: number | Range;
+    /** With `skipBlocked`: places tried per rectangle before it is dropped. Default 20. */
+    tries?: number;
     /** Fixed height value for scattered rectangles. */
     height?: number;
     /** Minimum height value for scattered rectangles. */
@@ -262,6 +284,20 @@ export interface InstructionTerrainRectangle extends BaseInstruction {
     /** Maximum height value for scattered rectangles. */
     maxHeightValue?: number;
   };
+  /**
+   * Places the rectangle (and each scattered copy) centred on a tile the filter accepts, inside
+   * `position` when it is a range: a village beside a bridge, a redoubt on a crest. Nothing is
+   * drawn when no tile matches.
+   */
+  terrainFilter?: TerrainFilter;
+  /** Terrain types the fill and border leave as they are, such as a bridge under a village. */
+  excludeTerrains?: TerrainType[];
+  /**
+   * Draw a rectangle only whole: one that would cover an `excludeTerrains` tile or touch its own
+   * terrain is skipped, and a scattered copy is tried elsewhere instead. Keeps scattered fields
+   * from merging into one stretched shape.
+   */
+  skipBlocked?: boolean;
 }
 
 export interface ScalingFactor extends Record<Size, number> {}
@@ -385,7 +421,7 @@ export interface InstructionObjective extends BaseInstruction {
   team?: number;
   /** Optional objective type (Small or Big). Defaults to Small. */
   objectiveType?: ObjectiveType;
-  /** Optional name used to reference this objective from tutorials/triggers. */
+  /** Optional name used to reference this objective from triggers. */
   name?: string;
 }
 
@@ -420,15 +456,15 @@ export interface InstructionLake extends BaseInstruction {
   position: PositionData;
 }
 
-interface TerrainFilter {
+export interface TerrainFilter {
   /** Terrain type to filter. */
   terrains?: TerrainType[];
   /** Search radius. Default is 0. */
   searchRadius?: number;
   /** Minimum amount of terrains to filter. Default is 1. */
   minAmount?: number;
-  /** Heights that this objective layer can be placed on. */
-  heights?: [Range];
+  /** Heights that the feature can be placed on. */
+  heights?: Range[];
 }
 
 /**
@@ -461,8 +497,87 @@ export interface InstructionObjectiveLayer extends BaseInstruction {
 }
 
 /**
+ * Copies one half of the map onto the other, so two armies deployed on opposite halves meet
+ * the same ground. Relief and obstacles can be made fair while woods and villages stay irregular.
+ */
+export interface InstructionSymmetry extends BaseInstruction {
+  /** Instruction type is Symmetry. */
+  type: InstructionType.Symmetry;
+  /**
+   * `mirror` reflects the kept half across the middle; `rotate` turns it 180 degrees, which keeps
+   * the two ends fair while the map's left and right still differ.
+   */
+  mode: "mirror" | "rotate";
+  /** The half that is kept and copied. Default is "top". */
+  keep?: "top" | "bottom" | "left" | "right";
+  /** Copy the relief. Default is true. */
+  heights?: boolean;
+  /**
+   * Copy only these terrain types: a tile is overwritten when it or its source holds one of
+   * them. All terrain is copied when absent.
+   */
+  terrains?: TerrainType[];
+}
+
+/**
  * Union type representing any valid procedural generation instruction.
  */
+/**
+ * Instruction to lay out fields the way farmland grows along roads: the grass beside each road,
+ * past a verge, is cut into strips that run parallel to it, and each strip is sown with
+ * one crop or left as meadow. Neighbouring strips never share a crop, so each reads as its own
+ * field, and a sliver where a strip is cut short stays meadow. Only grass is sown.
+ */
+export interface InstructionFields extends BaseInstruction {
+  /** Instruction type is Fields. */
+  type: InstructionType.Fields;
+  /** Crops to sow, one per strip. */
+  terrains: TerrainType[];
+  /** Terrains the strips run along. Default: road. */
+  along?: TerrainType[];
+  /** How far from the road, in tiles, the fields reach. */
+  maxDistance: number;
+  /** Width of a strip across the road, in tiles. */
+  width: Range;
+  /** Length of a strip along the road, in tiles. */
+  size: Range;
+  /** Share of strips that are sown; the rest stay meadow. */
+  chance: number;
+  /** Optional line of this terrain (a hedge or tree row) between strips, drawn with `chance`. */
+  border?: { terrain: TerrainType; chance: number };
+  /** Heights the fields may be sown on. */
+  heights?: Range[];
+  /** Grass left unsown along the road, in tiles. Default 1. */
+  verge?: number;
+  /** Strip directions are rounded to multiples of this many degrees. Default 22.5. */
+  directionStep?: number;
+  /** Parcels smaller than this many tiles stay meadow. Default: half the smallest strip. */
+  minTiles?: number;
+}
+
+/**
+ * Instruction to wear high ground down the way running water does: each tile drains along the
+ * lowest way to the map's edge, a hollow spilling over its lowest rim, and the more ground drains
+ * through a tile, the deeper it is cut. Gullies under the crests join into fewer, deeper valleys
+ * lower down, with rounded ridges standing between them, and the crests are rounded off. Lowers
+ * the relief only, in whole levels and within the height rule, leaving no hollow to pool water.
+ */
+export interface InstructionErosion extends BaseInstruction {
+  /** Instruction type is Erosion. */
+  type: InstructionType.Erosion;
+  /** How fast the ground is cut where one tile drains down a one-level slope. Default is 0.1. */
+  strength?: number;
+  /**
+   * Tiles of ground that must drain through a tile before it is cut: a gully starts there, and
+   * the ground above it stays a ridge or slope. Default is 12.
+   */
+  channelArea?: number;
+  /** Erosion steps; more cut deeper and reach further up. Default is 60. */
+  iterations?: number;
+  /** Only ground at or above this height is worn, and never below it. Default is 0. */
+  minHeight?: number;
+}
+
 export type AnyInstruction =
   | InstructionTerrainNoise
   | InstructionHeightNoise
@@ -472,4 +587,7 @@ export type AnyInstruction =
   | InstructionConnectClusters
   | InstructionObjective
   | InstructionLake
-  | InstructionObjectiveLayer;
+  | InstructionObjectiveLayer
+  | InstructionSymmetry
+  | InstructionFields
+  | InstructionErosion;

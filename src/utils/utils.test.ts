@@ -3,6 +3,7 @@ import {
   checkCollision,
   degreesToRadians,
   getClosestPointInsideZone,
+  setHeightRecursively,
   getDirectionToPoint,
   getFlankingPercent,
   getMaxOrgProportionDebuff,
@@ -968,5 +969,76 @@ describe("getFlankingPercent", () => {
       maxAngle,
     );
     expect(result).toBe(0);
+  });
+});
+
+describe("setHeightRecursively", () => {
+  /** The breadth-first reference the function must keep matching, tile for tile. */
+  const reference = (x: number, y: number, height: number, heightMap: number[][], step: number) => {
+    const queue = [{ x, y, height }];
+    const visited = new Set<string>();
+    while (queue.length) {
+      const { x: cx, y: cy, height: ch } = queue.shift()!;
+      if (visited.has(`${cx},${cy}`)) continue;
+      visited.add(`${cx},${cy}`);
+      heightMap[cx][cy] = ch;
+      for (const [dx, dy] of [[-1, -1], [0, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1]]) {
+        const h = heightMap[cx + dx]?.[cy + dy];
+        if (h === undefined) continue;
+        const diff = h - ch;
+        const next = diff > step ? ch + step : diff < -step ? ch - step : h;
+        if (next !== h) queue.push({ x: cx + dx, y: cy + dy, height: next });
+      }
+    }
+  };
+
+  it.each([1, 4])("smooths the ground around an edit exactly as the breadth-first reference does, step %i", (step) => {
+    let seed = 9;
+    const random = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const make = () => Array.from({ length: 30 }, () => Array.from({ length: 24 }, () => Math.floor(random() * 3)));
+    for (let run = 0; run < 40; run++) {
+      const actual = make();
+      const expected = actual.map((column) => [...column]);
+      const x = Math.floor(random() * 30);
+      const y = Math.floor(random() * 24);
+      const height = Math.floor(random() * 12 * step) - 2;
+
+      setHeightRecursively(x, y, height, actual, step);
+      reference(x, y, height, expected, step);
+
+      expect(actual).toEqual(expected);
+    }
+  });
+
+  it("lets neighbouring tiles differ by up to the given step", () => {
+    const heightMap = Array.from({ length: 9 }, () => new Array(9).fill(0));
+    setHeightRecursively(4, 4, 10, heightMap, 4);
+
+    expect([heightMap[4][4], heightMap[3][4], heightMap[2][4], heightMap[1][4]]).toEqual([10, 6, 2, 0]);
+  });
+
+  it("only sets the tile when the step is below one level", () => {
+    for (const step of [0, 0.5]) {
+      const heightMap = Array.from({ length: 3 }, () => new Array(3).fill(0));
+      setHeightRecursively(1, 1, 9, heightMap, step);
+      expect(heightMap[1][1]).toBe(9);
+      expect(heightMap.flat().filter((h) => h === 0)).toHaveLength(8);
+    }
+  });
+
+  it("steps whole levels when the step is fractional", () => {
+    const heightMap = [[0], [0], [0]];
+    setHeightRecursively(2, 0, 6, heightMap, 2.5);
+    expect(heightMap.map((column) => column[0])).toEqual([2, 4, 6]);
+  });
+
+  it("reports every tile it changes through the given setter", () => {
+    const heightMap = [[0], [0], [0]];
+    const set: number[][] = [];
+    setHeightRecursively(2, 0, 6, heightMap, 2, (x, y, height) => {
+      set.push([x, y, height]);
+      heightMap[x][y] = height;
+    });
+    expect(set).toEqual([[2, 0, 6], [1, 0, 4], [0, 0, 2]]);
   });
 });

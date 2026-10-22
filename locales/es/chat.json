@@ -1,9 +1,16 @@
 {
-  "warning": "Para mantener este espacio seguro y respetuoso para todos, los mensajes pueden ser revisados si se identifican como agresivos o dañinos.",
   "rateLimitWarning": "Estás enviando mensajes demasiado rápido. Por favor, espera un momento (máx {{count}} mensajes cada {{seconds}} segundos).",
   "placeholderAllies": "Mensaje a los aliados...",
   "placeholderAll": "Mensaje a todos...",
   "scopeAll": "Todos",
+  "muteUsage": "Usa /mute <usuario> o /mute all.",
+  "muteUnknown": "No se encontró ningún jugador llamado {{username}}.",
+  "muteAmbiguous": "Hay más de un jugador llamado {{username}}.",
+  "muteSelf": "No puedes silenciarte a ti mismo.",
+  "playerMuted": "Silenciaste a {{username}}. Escribe /mute {{username}} para volver a ver sus mensajes.",
+  "playerUnmuted": "Volverás a ver los mensajes de {{username}}.",
+  "allMuted": "Silenciaste a todos los demás. Escribe /mute all para volver a ver sus mensajes.",
+  "allUnmuted": "Volverás a ver los mensajes de todos.",
   "userConnected": "{{username}} se ha conectado",
   "userDisconnected": "{{username}} se ha desconectado",
   "profanityWarning": "Se detectó lenguaje inapropiado: \"{{word}}\""

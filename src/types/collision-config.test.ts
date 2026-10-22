@@ -1,5 +1,6 @@
 import {
   getCollisionConfig,
+  isCircleCollision,
   getFrontBackArc,
   getFlankAngles,
 } from "./collision-config";
@@ -9,15 +10,22 @@ const obb = (frontage: number, depth: number) => ({
   collisionShape: { type: CollisionShapeType.Obb as const, frontage, depth },
 });
 
-describe("getCollisionConfig", () => {
-  it("upgrades a legacy circle config to an equal-diameter Obb", () => {
+describe("isCircleCollision", () => {
+  it("distinguishes a circle from a rectangle by its type", () => {
     expect(
-      getCollisionConfig({
-        collisionShape: { type: 0, radius: 16 },
+      isCircleCollision({ type: CollisionShapeType.Circle, radius: 16 }),
+    ).toBe(true);
+    expect(
+      isCircleCollision({
+        type: CollisionShapeType.Obb,
+        frontage: 40,
+        depth: 10,
       }),
-    ).toEqual({ type: CollisionShapeType.Obb, frontage: 32, depth: 32 });
+    ).toBe(false);
   });
+});
 
+describe("getCollisionConfig", () => {
   it("returns the nested collisionShape field as-is", () => {
     expect(
       getCollisionConfig({
@@ -28,6 +36,11 @@ describe("getCollisionConfig", () => {
         },
       }),
     ).toEqual({ type: CollisionShapeType.Obb, frontage: 40, depth: 10 });
+    expect(
+      getCollisionConfig({
+        collisionShape: { type: CollisionShapeType.Circle, radius: 16 },
+      }),
+    ).toEqual({ type: CollisionShapeType.Circle, radius: 16 });
   });
 
   it("synthesises an Obb from legacy frontage/depth", () => {
@@ -38,10 +51,10 @@ describe("getCollisionConfig", () => {
     });
   });
 
-  it("synthesises a square Obb from a single legacy collision circle", () => {
+  it("synthesises a circle from a single legacy collision circle", () => {
     expect(
       getCollisionConfig({ collisionCircles: 1, collisionCircleSize: 32 }),
-    ).toEqual({ type: CollisionShapeType.Obb, frontage: 32, depth: 32 });
+    ).toEqual({ type: CollisionShapeType.Circle, radius: 16 });
   });
 
   it("synthesises an Obb spanning a legacy multi-circle layout (matching old dimensions)", () => {
@@ -59,13 +72,13 @@ describe("getCollisionConfig", () => {
     ).toEqual({ type: CollisionShapeType.Obb, frontage: 12, depth: 24 });
   });
 
-  it("maps a legacy no-collision formation (0 circles or 0 size) to a zero-size Obb", () => {
+  it("maps a legacy no-collision formation (0 circles or 0 size) to a zero-radius circle", () => {
     expect(
       getCollisionConfig({ collisionCircles: 0, collisionCircleSize: 16 }),
-    ).toEqual({ type: CollisionShapeType.Obb, frontage: 0, depth: 0 });
+    ).toEqual({ type: CollisionShapeType.Circle, radius: 0 });
     expect(
       getCollisionConfig({ collisionCircles: 2, collisionCircleSize: 0 }),
-    ).toEqual({ type: CollisionShapeType.Obb, frontage: 0, depth: 0 });
+    ).toEqual({ type: CollisionShapeType.Circle, radius: 0 });
   });
 });
 
@@ -76,10 +89,14 @@ describe("getFrontBackArc", () => {
   });
 
   it("is wider for a shallow wide line than a deep narrow column", () => {
-    expect(getFrontBackArc(obb(32, 8))).toBeGreaterThan(
-      getFrontBackArc(obb(14, 14)),
-    );
+    expect(getFrontBackArc(obb(32, 8))).toBeGreaterThan(getFrontBackArc(obb(14, 14)));
     expect(getFrontBackArc(obb(14, 14))).toBeCloseTo(90); // 14x14 column
+  });
+
+  it("returns 360 for a circle (no facing -> every hit classifies as front)", () => {
+    expect(
+      getFrontBackArc({ collisionShape: { type: CollisionShapeType.Circle, radius: 8 } }),
+    ).toBe(360);
   });
 });
 

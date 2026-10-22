@@ -1,5 +1,6 @@
 import {
   CUSTOM_UNIT_TYPE_MIN,
+  MAX_CUSTOM_AMMO_TYPES,
   MAX_CUSTOM_ARMY_PANEL_GROUPS,
   MAX_CUSTOM_SPRITES,
   MAX_CUSTOM_TERRAIN_CATEGORIES,
@@ -79,6 +80,106 @@ function makeUnitTemplate(
 describe("validateScenarioCustomDefs", () => {
   it("returns no errors for an empty scenario", () => {
     expect(validateScenarioCustomDefs(makeScenario({}), era)).toEqual([]);
+  });
+
+  describe("custom ammo types", () => {
+    const arrows = { id: 10001, name: "arrows", color: "#8b6b3e" };
+    const arrowShot = (ammoType: string) =>
+      ({
+        id: 10001,
+        name: "Arrow",
+        ranged: true,
+        orgDamageRatio: 0.5,
+        maxRange: 100,
+        ranges: [{ from: 0, to: 1, damageModifier: { near: 1, far: 1 } }],
+        ammoType,
+        ammoCost: 10000,
+      }) as DamageTypeTemplate;
+    const ammoErrors = (partial: Partial<Scenario>) =>
+      validateScenarioCustomDefs(makeScenario(partial), era).filter(
+        (e) => e.scope === "ammoType",
+      );
+
+    it("accepts a new ammo type spent by a custom damage type", () => {
+      expect(
+        validateScenarioCustomDefs(
+          makeScenario({
+            customAmmoTypes: [arrows],
+            customDamageTypes: [arrowShot("arrows")],
+          }),
+          era,
+        ),
+      ).toEqual([]);
+    });
+
+    it("accepts a built-in override that keeps its id and name", () => {
+      expect(
+        ammoErrors({ customAmmoTypes: [{ id: 2, name: "canister", color: "#000000" }] }),
+      ).toEqual([]);
+    });
+
+    it("flags a damage type spending an ammo type that does not exist", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customDamageTypes: [arrowShot("arrows")] }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) => e.scope === "damageType" && /ammo type "arrows"/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("flags a unit template carrying a pool of an ammo type that does not exist", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customUnitTemplates: [makeUnitTemplate({ ammo: { arrows: 100 } })] }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) => e.scope === "unitTemplate" && /ammo type "arrows"/.test(e.message),
+        ),
+      ).toBe(true);
+    });
+
+    it("accepts a unit template carrying a pool of the scenario's own ammo type", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customAmmoTypes: [arrows],
+          customUnitTemplates: [makeUnitTemplate({ ammo: { arrows: 100 } })],
+        }),
+        era,
+      );
+      expect(errors.filter((e) => e.scope === "unitTemplate")).toEqual([]);
+    });
+
+    it.each([
+      ["a missing id", { ...arrows, id: undefined }],
+      ["a blank name", { ...arrows, name: " " }],
+      ["a color that is not #rrggbb", { ...arrows, color: "brown" }],
+      ["a built-in name under another id", { ...arrows, name: "canister" }],
+      ["a built-in id under another name", { ...arrows, id: 2 }],
+    ])("flags %s", (_, ammoType) => {
+      expect(
+        ammoErrors({ customAmmoTypes: [ammoType as typeof arrows] }),
+      ).not.toEqual([]);
+    });
+
+    it("flags duplicate ids and names", () => {
+      expect(ammoErrors({ customAmmoTypes: [arrows, arrows] })).toHaveLength(2);
+    });
+
+    it("flags too many custom ammo types", () => {
+      const customAmmoTypes = Array.from(
+        { length: MAX_CUSTOM_AMMO_TYPES + 1 },
+        (_, i) => ({ id: 10001 + i, name: `ammo-${i}`, color: "#000000" }),
+      );
+      expect(
+        ammoErrors({ customAmmoTypes }).some((e) =>
+          /Too many custom ammo types/.test(e.message),
+        ),
+      ).toBe(true);
+    });
   });
 
   describe("abuse count caps", () => {
@@ -361,10 +462,12 @@ describe("validateScenarioCustomDefs", () => {
       const errors = formationErrors({
         collisionShape: JSON.parse('{"type":5,"radius":8}'),
       });
-      expect(errors.some((e) => /type must be 1 \(obb\)/.test(e.message))).toBe(true);
+      expect(
+        errors.some((e) => /type must be 0 \(circle\) or 1 \(obb\)/.test(e.message)),
+      ).toBe(true);
     });
 
-    it("rejects a negative radius in a legacy circle config", () => {
+    it("rejects a negative radius", () => {
       const errors = formationErrors({
         collisionShape: JSON.parse('{"type":0,"radius":-4}'),
       });
@@ -372,20 +475,6 @@ describe("validateScenarioCustomDefs", () => {
         errors.some((e) => /radius must be a finite number >= 0/.test(e.message)),
       ).toBe(true);
     });
-
-    it.each(['"8"', "null", "true"])(
-      "rejects a non-numeric legacy circle radius %s",
-      (radius) => {
-        const errors = formationErrors({
-          collisionShape: JSON.parse(`{"type":0,"radius":${radius}}`),
-        });
-        expect(
-          errors.some((e) =>
-            /radius must be a finite number >= 0/.test(e.message),
-          ),
-        ).toBe(true);
-      },
-    );
 
     it("rejects a fire edge without an explicit emitter count", () => {
       const errors = formationErrors({
@@ -417,23 +506,14 @@ describe("validateScenarioCustomDefs", () => {
       expect(errors).toEqual([]);
     });
 
-    it("accepts a zero-size rectangle as a no-collision formation", () => {
+    it("rejects fire edges on a circle collision shape (a circle never fires)", () => {
       const errors = formationErrors({
-        collisionShape: {
-          type: CollisionShapeType.Obb,
-          frontage: 0,
-          depth: 0,
-        },
-      });
-      expect(errors).toEqual([]);
-    });
-
-    it("accepts fire edges on a legacy circle config after rectangular normalization", () => {
-      const errors = formationErrors({
-        collisionShape: { type: 0, radius: 16 } as never,
+        collisionShape: { type: CollisionShapeType.Circle, radius: 16 },
         fireEdges: [{ edge: 1, arc: 40, emitters: 2 }],
       });
-      expect(errors).toEqual([]);
+      expect(
+        errors.some((e) => /fireEdges require a rectangular \(obb\)/.test(e.message)),
+      ).toBe(true);
     });
 
     it("rejects a non-object collisionShape instead of throwing", () => {
@@ -456,9 +536,9 @@ describe("validateScenarioCustomDefs", () => {
       ).toBe(true);
     });
 
-    it("accepts a valid legacy circle radius and normalizes it later", () => {
+    it("accepts a valid circle radius with no fire edges", () => {
       const errors = formationErrors({
-        collisionShape: { type: 0, radius: 16 } as never,
+        collisionShape: { type: CollisionShapeType.Circle, radius: 16 },
       });
       expect(errors).toEqual([]);
     });
@@ -948,6 +1028,21 @@ describe("validateScenarioCustomDefs", () => {
       expect(errors.filter((e) => e.scope === "unitTemplate")).toEqual([]);
     });
 
+    it("accepts a saved unit and doctrine still naming the retired horse artillery category", () => {
+      const doctrine = structuredClone(era.getOrganizationDoctrine());
+      doctrine.divisions
+        .find((d) => d.categories.includes("artillery"))!
+        .categories.push("horseArtillery");
+      const errors = validateScenarioCustomDefs(
+        makeScenario({
+          customUnitTemplates: [makeUnitTemplate({ category: "horseArtillery" })],
+          organizationDoctrine: doctrine,
+        }),
+        era,
+      );
+      expect(errors).toEqual([]);
+    });
+
     it("flags unknown meleeDamageType cross-ref", () => {
       const errors = validateScenarioCustomDefs(
         makeScenario({
@@ -1246,6 +1341,33 @@ describe("validateCustomSprites", () => {
         (e) =>
           e.field === "custom-melee" &&
           /damage type .* references missing custom sprite/.test(e.message),
+      ),
+    ).toBe(true);
+  });
+
+  it("accepts a division banner referencing an embedded custom sprite", () => {
+    expect(
+      spriteErrors({
+        organizations: [
+          { player: 1, divisions: [{ name: "Guard", banner: "cs_eagle", brigades: [] }] },
+        ],
+        customSprites: { cs_eagle: validSprite },
+      }),
+    ).toEqual([]);
+  });
+
+  it("flags a division banner referencing a missing custom sprite", () => {
+    const errors = spriteErrors({
+      organizations: [
+        { player: 1, divisions: [{ name: "Guard", banner: "cs_missing", brigades: [] }] },
+      ],
+      customSprites: {},
+    });
+    expect(
+      errors.some(
+        (e) =>
+          e.field === "Guard" &&
+          /division banner references missing custom sprite "cs_missing"/.test(e.message),
       ),
     ).toBe(true);
   });
