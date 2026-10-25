@@ -185,7 +185,10 @@
     "unassigned": "Unassigned",
     "mixed": "Several brigades",
     "newBrigadeOption": "New brigade",
-    "newDivisionOption": "New division"
+    "newDivisionOption": "New division",
+    "banner": "Banner",
+    "defaultBanner": "Default banner",
+    "uploadBanner": "Upload image"
   },
   "terrainPanel": {
     "brush": "Brush",
@@ -658,7 +661,7 @@
     },
     "spritesPanel": {
       "title": "Unit sprites",
-      "description": "A sprite is the picture a unit wears on the field. Upload your own and you can pick them when you set up a unit's formations. They ride inside the scenario file itself, so each one has to stay under {{kb}}KB. A division in the scenario's organizations can fly one as its banner too: set the division's \"banner\" to the sprite's name. Upload one below.",
+      "description": "A sprite is the picture a unit wears on the field. Upload your own and you can pick them when you set up a unit's formations. They ride inside the scenario file itself, so each one has to stay under {{kb}}KB. A division can fly one as its banner too: pick it on the division's card in the Divisions tab. Upload one below.",
       "yourSprites": "Your sprites",
       "noSprites": "None yet, so your units wear the pictures the era already provides.",
       "uploadSprite": "Upload sprite",
@@ -670,6 +673,7 @@
       "invalidImageAlert": "Could not read the image. Use a PNG or WebP file.",
       "deleteBlockedAlert": "You can't delete this sprite while {{where}} still use it. Change those references first.",
       "divisionBannerRef": "{{name}} (division banner)",
+      "unnamedDivision": "Player {{player}}, division {{n}}",
       "libraryTitle": "Sprite library",
       "libraryDescription": "Every sprite the era already provides, free for you to use. Have a look before you make your own.",
       "filterPlaceholder": "Filter by name...",
