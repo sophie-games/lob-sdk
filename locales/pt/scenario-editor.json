@@ -1075,7 +1075,8 @@
       "yRange": "Intervalo de Y",
       "strength": "Força",
       "iterations": "Iterações",
-      "channelArea": "Área do canal"
+      "channelArea": "Área do canal",
+      "maxSize": "Tamanho máx."
     },
     "instructionType": {
       "terrainNoise": "Ruído de terreno",
@@ -1089,7 +1090,8 @@
       "objectiveLayer": "Camada de objetivos",
       "symmetry": "Simetria",
       "fields": "Campos",
-      "erosion": "Erosão"
+      "erosion": "Erosão",
+      "replaceSmallClusters": "Substituir pequenos grupos"
     },
     "objectiveType": {
       "small": "Pequeno",

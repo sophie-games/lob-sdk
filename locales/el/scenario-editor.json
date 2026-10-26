@@ -1075,7 +1075,8 @@
       "yRange": "Εύρος Y",
       "strength": "Ένταση",
       "iterations": "Επαναλήψεις",
-      "channelArea": "Έκταση κοίτης"
+      "channelArea": "Έκταση κοίτης",
+      "maxSize": "Μέγ. μέγεθος"
     },
     "instructionType": {
       "terrainNoise": "Θόρυβος εδάφους",
@@ -1089,7 +1090,8 @@
       "objectiveLayer": "Στρώμα στόχων",
       "symmetry": "Συμμετρία",
       "fields": "Χωράφια",
-      "erosion": "Διάβρωση"
+      "erosion": "Διάβρωση",
+      "replaceSmallClusters": "Αντικατάσταση μικρών συστάδων"
     },
     "objectiveType": {
       "small": "Μικρός",

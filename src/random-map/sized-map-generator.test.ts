@@ -54,4 +54,23 @@ describe("SizedMapGenerator", () => {
     }
     expect(steepest).toBe(maxLevelDiff);
   });
+
+  it("clears the forest's small clusters with REPLACE_SMALL_CLUSTERS", () => {
+    const forestTiles = (instructions: unknown[]) =>
+      new RandomMapGenerator()
+        .generate({ ...props, scenario: { ...scenario, instructions } as Scenario })
+        .map.terrains.flat()
+        .filter((terrain) => terrain === TerrainType.Forest).length;
+    const replace = {
+      type: InstructionType.ReplaceSmallClusters,
+      fromTerrain: TerrainType.Forest,
+      toTerrain: TerrainType.Grass,
+      maxSize: 1_000_000,
+    };
+
+    const forest = scenario.instructions!;
+
+    expect(forestTiles(forest)).toBeGreaterThan(0);
+    expect(forestTiles([...forest, replace])).toBe(0);
+  });
 });

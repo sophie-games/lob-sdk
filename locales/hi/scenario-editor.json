@@ -1075,7 +1075,8 @@
       "yRange": "Y रेंज",
       "strength": "तीव्रता",
       "iterations": "पुनरावृत्तियाँ",
-      "channelArea": "धारा क्षेत्र"
+      "channelArea": "धारा क्षेत्र",
+      "maxSize": "अधिकतम आकार"
     },
     "instructionType": {
       "terrainNoise": "भूभाग नॉइज़",
@@ -1089,7 +1090,8 @@
       "objectiveLayer": "उद्देश्य परत",
       "symmetry": "समरूपता",
       "fields": "खेत",
-      "erosion": "अपरदन"
+      "erosion": "अपरदन",
+      "replaceSmallClusters": "छोटे समूह बदलें"
     },
     "objectiveType": {
       "small": "छोटा",

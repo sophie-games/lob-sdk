@@ -1068,7 +1068,8 @@
       "yRange": "Y 범위",
       "strength": "강도",
       "iterations": "반복 횟수",
-      "channelArea": "수로 면적"
+      "channelArea": "수로 면적",
+      "maxSize": "최대 크기"
     },
     "instructionType": {
       "terrainNoise": "지형 노이즈",
@@ -1082,7 +1083,8 @@
       "objectiveLayer": "지점목표 레이어",
       "symmetry": "대칭",
       "fields": "밭",
-      "erosion": "침식"
+      "erosion": "침식",
+      "replaceSmallClusters": "작은 군집 교체"
     },
     "objectiveType": {
       "small": "소형",

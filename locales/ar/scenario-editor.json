@@ -1103,7 +1103,8 @@
       "yRange": "نطاق Y",
       "strength": "القوة",
       "iterations": "التكرارات",
-      "channelArea": "مساحة المجرى"
+      "channelArea": "مساحة المجرى",
+      "maxSize": "الحجم الأقصى"
     },
     "instructionType": {
       "terrainNoise": "ضجيج التضاريس",
@@ -1117,7 +1118,8 @@
       "objectiveLayer": "طبقة أهداف",
       "symmetry": "تناظر",
       "fields": "حقول",
-      "erosion": "تعرية"
+      "erosion": "تعرية",
+      "replaceSmallClusters": "استبدال التجمعات الصغيرة"
     },
     "objectiveType": {
       "small": "صغير",

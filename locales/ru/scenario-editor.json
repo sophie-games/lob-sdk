@@ -1089,7 +1089,8 @@
       "yRange": "Диапазон Y",
       "strength": "Сила",
       "iterations": "Итерации",
-      "channelArea": "Площадь русла"
+      "channelArea": "Площадь русла",
+      "maxSize": "Макс. размер"
     },
     "instructionType": {
       "terrainNoise": "Шум местности",
@@ -1103,7 +1104,8 @@
       "objectiveLayer": "Слой ключевых позиций",
       "symmetry": "Симметрия",
       "fields": "Поля",
-      "erosion": "Эрозия"
+      "erosion": "Эрозия",
+      "replaceSmallClusters": "Заменить мелкие скопления"
     },
     "objectiveType": {
       "small": "Малый",

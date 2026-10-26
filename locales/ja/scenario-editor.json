@@ -1075,7 +1075,8 @@
       "yRange": "Y 範囲",
       "strength": "強さ",
       "iterations": "反復回数",
-      "channelArea": "流路面積"
+      "channelArea": "流路面積",
+      "maxSize": "最大サイズ"
     },
     "instructionType": {
       "terrainNoise": "地形ノイズ",
@@ -1089,7 +1090,8 @@
       "objectiveLayer": "目標レイヤー",
       "symmetry": "対称",
       "fields": "畑",
-      "erosion": "侵食"
+      "erosion": "侵食",
+      "replaceSmallClusters": "小さな塊を置換"
     },
     "objectiveType": {
       "small": "小",

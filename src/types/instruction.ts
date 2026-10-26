@@ -119,6 +119,8 @@ export enum InstructionType {
   Fields = "FIELDS",
   /** Instruction to wear valleys into high ground the way running water does. */
   Erosion = "EROSION",
+  /** Instruction to turn small patches of one terrain into another. */
+  ReplaceSmallClusters = "REPLACE_SMALL_CLUSTERS",
 }
 
 /**
@@ -578,6 +580,22 @@ export interface InstructionErosion extends BaseInstruction {
   minHeight?: number;
 }
 
+/**
+ * Instruction to clean up stray patches: every cluster of `fromTerrain` (tiles joined along an
+ * edge, not a corner) of at most `maxSize` tiles becomes `toTerrain`, so isolated dots and thin
+ * slivers left by earlier instructions are painted over and larger areas stay.
+ */
+export interface InstructionReplaceSmallClusters extends BaseInstruction {
+  /** Instruction type is ReplaceSmallClusters. */
+  type: InstructionType.ReplaceSmallClusters;
+  /** Terrain whose small clusters are replaced. */
+  fromTerrain: TerrainType;
+  /** Terrain the replaced tiles become. */
+  toTerrain: TerrainType;
+  /** Largest cluster, in tiles, that is replaced. */
+  maxSize: number;
+}
+
 export type AnyInstruction =
   | InstructionTerrainNoise
   | InstructionHeightNoise
@@ -590,4 +608,5 @@ export type AnyInstruction =
   | InstructionObjectiveLayer
   | InstructionSymmetry
   | InstructionFields
-  | InstructionErosion;
+  | InstructionErosion
+  | InstructionReplaceSmallClusters;

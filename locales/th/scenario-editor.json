@@ -1075,7 +1075,8 @@
       "yRange": "ช่วง Y",
       "strength": "ความแรง",
       "iterations": "จำนวนรอบ",
-      "channelArea": "พื้นที่ร่องน้ำ"
+      "channelArea": "พื้นที่ร่องน้ำ",
+      "maxSize": "ขนาดสูงสุด"
     },
     "instructionType": {
       "terrainNoise": "นอยส์ภูมิประเทศ",
@@ -1089,7 +1090,8 @@
       "objectiveLayer": "เลเยอร์เป้าหมาย",
       "symmetry": "สมมาตร",
       "fields": "ทุ่งนา",
-      "erosion": "การกัดเซาะ"
+      "erosion": "การกัดเซาะ",
+      "replaceSmallClusters": "แทนที่กลุ่มเล็ก"
     },
     "objectiveType": {
       "small": "เล็ก",

@@ -1216,7 +1216,8 @@
       "yRange": "Y range",
       "strength": "Strength",
       "iterations": "Iterations",
-      "channelArea": "Channel area"
+      "channelArea": "Channel area",
+      "maxSize": "Max size"
     },
     "instructionType": {
       "terrainNoise": "Terrain noise",
@@ -1230,7 +1231,8 @@
       "objectiveLayer": "Objective layer",
       "symmetry": "Symmetry",
       "fields": "Fields",
-      "erosion": "Erosion"
+      "erosion": "Erosion",
+      "replaceSmallClusters": "Replace small clusters"
     },
     "objectiveType": {
       "small": "Small",

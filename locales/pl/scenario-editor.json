@@ -1089,7 +1089,8 @@
       "yRange": "Zakres Y",
       "strength": "Siła",
       "iterations": "Iteracje",
-      "channelArea": "Obszar koryta"
+      "channelArea": "Obszar koryta",
+      "maxSize": "Maks. rozmiar"
     },
     "instructionType": {
       "terrainNoise": "Szum terenu",
@@ -1103,7 +1104,8 @@
       "objectiveLayer": "Warstwa celów",
       "symmetry": "Symetria",
       "fields": "Pola",
-      "erosion": "Erozja"
+      "erosion": "Erozja",
+      "replaceSmallClusters": "Zastąp małe skupiska"
     },
     "objectiveType": {
       "small": "Mały",

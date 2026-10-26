@@ -1075,7 +1075,8 @@
       "yRange": "Y-Bereich",
       "strength": "Stärke",
       "iterations": "Iterationen",
-      "channelArea": "Rinnenfläche"
+      "channelArea": "Rinnenfläche",
+      "maxSize": "Max. Größe"
     },
     "instructionType": {
       "terrainNoise": "Geländerauschen",
@@ -1089,7 +1090,8 @@
       "objectiveLayer": "Zielebene",
       "symmetry": "Symmetrie",
       "fields": "Felder",
-      "erosion": "Erosion"
+      "erosion": "Erosion",
+      "replaceSmallClusters": "Kleine Flächen ersetzen"
     },
     "objectiveType": {
       "small": "Klein",
