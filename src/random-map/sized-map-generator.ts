@@ -28,6 +28,7 @@ import { ObjectiveLayerExecutor } from "./executors/objective-layer";
 import { LakeExecutor } from "./executors/lake";
 import { SymmetryExecutor } from "./executors/symmetry";
 import { ErosionExecutor } from "./executors/erosion";
+import { ReplaceSmallClustersExecutor } from "./executors/replace-small-clusters";
 import { FieldsExecutor } from "./executors/fields";
 import { InstructionArea, TurnedFrame } from "./frame-angle";
 import { normalizeMapGrids } from "./normalize-map-grids";
@@ -554,6 +555,10 @@ export class SizedMapGenerator {
             maxHeightStep,
             randomSeeded(deriveSeed(seed, index + 1)),
           ).execute();
+          break;
+        }
+        case InstructionType.ReplaceSmallClusters: {
+          new ReplaceSmallClustersExecutor(instruction, boundedTerrains).execute();
           break;
         }
         default: {

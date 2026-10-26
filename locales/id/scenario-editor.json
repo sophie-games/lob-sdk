@@ -1068,7 +1068,8 @@
       "yRange": "Rentang Y",
       "strength": "Kekuatan",
       "iterations": "Iterasi",
-      "channelArea": "Luas alur"
+      "channelArea": "Luas alur",
+      "maxSize": "Ukuran maks."
     },
     "instructionType": {
       "terrainNoise": "Noise medan",
@@ -1082,7 +1083,8 @@
       "objectiveLayer": "Lapisan objektif",
       "symmetry": "Simetri",
       "fields": "Ladang",
-      "erosion": "Erosi"
+      "erosion": "Erosi",
+      "replaceSmallClusters": "Ganti klaster kecil"
     },
     "objectiveType": {
       "small": "Kecil",

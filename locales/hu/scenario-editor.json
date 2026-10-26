@@ -1075,7 +1075,8 @@
       "yRange": "Y tartomány",
       "strength": "Erősség",
       "iterations": "Iterációk",
-      "channelArea": "Mederterület"
+      "channelArea": "Mederterület",
+      "maxSize": "Max. méret"
     },
     "instructionType": {
       "terrainNoise": "Terepzaj",
@@ -1089,7 +1090,8 @@
       "objectiveLayer": "Objektíva-réteg",
       "symmetry": "Szimmetria",
       "fields": "Mezők",
-      "erosion": "Erózió"
+      "erosion": "Erózió",
+      "replaceSmallClusters": "Kis foltok cseréje"
     },
     "objectiveType": {
       "small": "Kicsi",

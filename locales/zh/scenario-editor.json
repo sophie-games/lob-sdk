@@ -1084,7 +1084,8 @@
       "yRange": "Y 范围",
       "strength": "强度",
       "iterations": "迭代次数",
-      "channelArea": "河道面积"
+      "channelArea": "河道面积",
+      "maxSize": "最大尺寸"
     },
     "instructionType": {
       "terrainNoise": "地形噪声",
@@ -1098,7 +1099,8 @@
       "objectiveLayer": "目标点层",
       "symmetry": "对称",
       "fields": "田地",
-      "erosion": "侵蚀"
+      "erosion": "侵蚀",
+      "replaceSmallClusters": "替换小块区域"
     },
     "objectiveType": {
       "small": "小",

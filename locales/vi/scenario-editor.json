@@ -1068,7 +1068,8 @@
       "yRange": "Khoảng Y",
       "strength": "Cường độ",
       "iterations": "Số lần lặp",
-      "channelArea": "Diện tích lòng suối"
+      "channelArea": "Diện tích lòng suối",
+      "maxSize": "Kích thước tối đa"
     },
     "instructionType": {
       "terrainNoise": "Nhiễu địa hình",
@@ -1082,7 +1083,8 @@
       "objectiveLayer": "Lớp mục tiêu",
       "symmetry": "Đối xứng",
       "fields": "Ruộng",
-      "erosion": "Xói mòn"
+      "erosion": "Xói mòn",
+      "replaceSmallClusters": "Thay thế cụm nhỏ"
     },
     "objectiveType": {
       "small": "Nhỏ",

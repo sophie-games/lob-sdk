@@ -1088,7 +1088,8 @@
       "yRange": "Plage Y",
       "strength": "Force",
       "iterations": "Itérations",
-      "channelArea": "Surface de ravine"
+      "channelArea": "Surface de ravine",
+      "maxSize": "Taille max."
     },
     "instructionType": {
       "terrainNoise": "Bruit de terrain",
@@ -1102,7 +1103,8 @@
       "objectiveLayer": "Couche d'objectifs",
       "symmetry": "Symétrie",
       "fields": "Champs",
-      "erosion": "Érosion"
+      "erosion": "Érosion",
+      "replaceSmallClusters": "Remplacer les petits amas"
     },
     "objectiveType": {
       "small": "Petit",
