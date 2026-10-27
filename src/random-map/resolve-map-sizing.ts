@@ -3,8 +3,9 @@ import { GenerateRandomMapProps } from "@lob-sdk/types";
 import { getMapSizeIndex } from "./map-size";
 import type { MapSizing } from "./sized-map-generator";
 
-/** The battle size, map sizes and height step a generation uses, from the era's game data. */
+/** The battle size, map sizes and height step a generation uses, from the era's game data and the scenario. */
 export const resolveMapSizing = ({
+  scenario,
   era,
   dynamicBattleType,
   maxPlayers,
@@ -25,6 +26,7 @@ export const resolveMapSizing = ({
     battleSize: mapSize ?? battleType.mapSize[mapSizeIndex],
     mapSizes: gameDataManager.getMapSizes(),
     // Eras without a height rule keep the one-level smoothing they were made with.
-    maxHeightStep: gameDataManager.getGameRules().height?.maxLevelDiff ?? 1,
+    maxHeightStep:
+      scenario.maxHeightStep ?? gameDataManager.getGameRules().height?.maxLevelDiff ?? 1,
   };
 };
