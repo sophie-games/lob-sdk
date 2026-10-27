@@ -498,4 +498,40 @@ describe("BaseUnit", () => {
       expect(changingFormation("square", "line").getFlankMod(offFacing)).toBe(0);
     });
   });
+
+  // Every client and replay draws the held formation until the change completes, so the body
+  // that touches enemies is the held one too.
+  describe("while changing formation", () => {
+    const changing = (from: string, to: string | null): TestUnit => {
+      const u = new TestUnit(21, gameDataManager);
+      u.currentFormation = from;
+      u.pendingFormationId = to;
+      u.position = new Vector2(100, 100);
+      u.rotation = 0.5;
+      return u;
+    };
+
+    it("keeps the held formation's footprint", () => {
+      const held = changing("column", null);
+      const forming = changing("column", "line");
+      expect(forming.calculateObbCorners()).toEqual(held.calculateObbCorners());
+      expect(forming.getCollisionBoundingRadius()).toBe(held.getCollisionBoundingRadius());
+    });
+
+    it("keeps the held formation's collision levels", () => {
+      const held = changing("dispersed", null);
+      const forming = changing("dispersed", "line");
+      expect(forming.enemyCollisionLevel).toBe(held.enemyCollisionLevel);
+      expect(forming.allyCollisionLevel).toBe(held.allyCollisionLevel);
+    });
+
+    it("keeps the held formation's front and back arcs", () => {
+      const directions = (u: TestUnit) =>
+        Array.from({ length: 32 }, (_, i) => {
+          const angle = 0.5 + (i * Math.PI) / 16;
+          return u.getDirectionToPoint(new Vector2(100 + Math.cos(angle), 100 + Math.sin(angle)));
+        });
+      expect(directions(changing("column", "line"))).toEqual(directions(changing("column", null)));
+    });
+  });
 });
