@@ -214,11 +214,15 @@ export abstract class BaseUnit extends Entity {
 
   // --- Category Statistics ---
   get captureSpeed(): number { return this.categoryTemplate.captureSpeed ?? 0; }
-  // Collision levels are formation-derived (see FormationTemplate); default solid.
-  get allyCollisionLevel(): number { return this.effectiveFormationTemplate?.allyCollisionLevel ?? MIN_COLLISION_LEVEL; }
-  get enemyCollisionLevel(): number { return this.effectiveFormationTemplate?.enemyCollisionLevel ?? MIN_COLLISION_LEVEL; }
+  // Collision levels are formation-derived (see FormationTemplate); default solid. Like the
+  // footprint, they stay the held formation's until a change completes.
+  get allyCollisionLevel(): number { return this.currentFormationTemplate?.allyCollisionLevel ?? MIN_COLLISION_LEVEL; }
+  get enemyCollisionLevel(): number { return this.currentFormationTemplate?.enemyCollisionLevel ?? MIN_COLLISION_LEVEL; }
   private get effectiveFormationTemplate() {
     return this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
+  }
+  private get currentFormationTemplate() {
+    return this.gameDataManager.getFormationManager().getTemplate(this.currentFormation);
   }
   get firingAltitude(): number { return this.categoryTemplate.firingAltitude ?? 0; }
   get meleeFireRatio(): number { return Math.max(0, Math.min(1, this.categoryTemplate.meleeFireRatio ?? 0)); }
@@ -365,6 +369,7 @@ export abstract class BaseUnit extends Entity {
   /**
    * World-space corners of the unit's oriented bounding box (rotated rectangle)
    * at the given position and rotation. Front is the +X edge; height spans the frontage.
+   * The held formation's box until a change completes, which is what every client draws.
    */
   calculateObbCorners(
     position: Point2 = this.position,
@@ -372,7 +377,7 @@ export abstract class BaseUnit extends Entity {
   ): Point2[] {
     const dimensions = this.gameDataManager.getUnitDimensions(
       this.type,
-      this.effectiveFormation,
+      this.currentFormation,
     );
     const sinAngle = Math.sin(rotation);
     const cosAngle = Math.cos(rotation);
@@ -392,9 +397,7 @@ export abstract class BaseUnit extends Entity {
    * has no formation template. The single source of the null-formation fallback.
    */
   private resolveCollisionConfig(): CollisionShapeConfig {
-    const formation = this.gameDataManager
-      .getFormationManager()
-      .getTemplate(this.effectiveFormation);
+    const formation = this.currentFormationTemplate;
     return formation
       ? getCollisionConfig(formation)
       : { type: CollisionShapeType.Circle, radius: 8 };
@@ -562,9 +565,8 @@ export abstract class BaseUnit extends Entity {
 
   getDirectionToPoint(point: Vector2, frontBackArc?: number) {
     if (frontBackArc === undefined) {
-      // effectiveFormation (pending ?? current), like the collision OBB and fire
-      // emitters, so direction and FF track the formation the unit is forming into.
-      const formation = this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
+      // The held formation, like the collision OBB, so direction matches the body that touches.
+      const formation = this.currentFormationTemplate;
       // frontBackArc is derived from the OBB footprint (circles return 360 -> all Front).
       frontBackArc = degreesToRadians(formation ? getFrontBackArc(formation) : 90);
     }
