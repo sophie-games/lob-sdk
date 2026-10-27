@@ -533,5 +533,10 @@ describe("BaseUnit", () => {
         });
       expect(directions(changing("column", "line"))).toEqual(directions(changing("column", null)));
     });
+
+    it("keeps the held formation's friendly-fire immunity", () => {
+      expect(changing("skirmish", "line").isFriendlyFireImmune("musket")).toBe(true);
+      expect(changing("line", "skirmish").isFriendlyFireImmune("musket")).toBe(false);
+    });
   });
 });

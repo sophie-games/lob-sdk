@@ -601,8 +601,8 @@ export abstract class BaseUnit extends Entity {
   }
 
   isFriendlyFireImmune(damageType: string): boolean {
-    const formationTemplate = this.gameDataManager.getFormationManager().getTemplate(this.effectiveFormation);
-    return formationTemplate?.friendlyFireImmuneDamageTypes?.includes(damageType) ?? false;
+    // The held formation, like the body a shot passes through, until a change completes.
+    return this.currentFormationTemplate?.friendlyFireImmuneDamageTypes?.includes(damageType) ?? false;
   }
 
   hasBeenAttacked() {
