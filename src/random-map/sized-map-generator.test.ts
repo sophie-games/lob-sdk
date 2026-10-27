@@ -34,14 +34,8 @@ describe("SizedMapGenerator", () => {
     expect(sizing.mapSizes.xl.map.tilesX).toBeGreaterThan(0);
   });
 
-  it("lets neighbouring tiles differ by up to the era's height step", () => {
-    const { maxLevelDiff } = GameDataManager.get("napoleonic").getGameRules().height!;
-    const steep = {
-      ...scenario,
-      instructions: [{ type: InstructionType.HeightNoise, noises: [{ scale: 2 }], min: 0, max: 40 }],
-    } as unknown as Scenario;
-    const { heightMap } = new RandomMapGenerator().generate({ ...props, scenario: steep }).map;
-
+  const steepestStep = (generated: Scenario) => {
+    const { heightMap } = new RandomMapGenerator().generate({ ...props, scenario: generated }).map;
     let steepest = 0;
     for (let x = 0; x < heightMap.length - 1; x++) {
       for (let y = 0; y < heightMap[0].length - 1; y++) {
@@ -52,7 +46,28 @@ describe("SizedMapGenerator", () => {
         );
       }
     }
-    expect(steepest).toBe(maxLevelDiff);
+    return steepest;
+  };
+  const steep = {
+    ...scenario,
+    instructions: [{ type: InstructionType.HeightNoise, noises: [{ scale: 2 }], min: 0, max: 40 }],
+  } as unknown as Scenario;
+
+  it("lets neighbouring tiles differ by up to the era's height step", () => {
+    const { maxLevelDiff } = GameDataManager.get("napoleonic").getGameRules().height!;
+    expect(steepestStep(steep)).toBe(maxLevelDiff);
+  });
+
+  it("lets a scenario's maxHeightStep override the era's height step", () => {
+    expect(steepestStep({ ...steep, maxHeightStep: 1 })).toBe(1);
+  });
+
+  it.each(["plains", "iberia"])("sows %s's farmland, which its height markers grow from", (name) => {
+    const terrains = new RandomMapGenerator()
+      .generate({ ...props, scenario: GameDataManager.get("napoleonic").getScenario(name) })
+      .map.terrains.flat();
+    const farmland = [TerrainType.Farm, TerrainType.FarmGrowing, TerrainType.FarmUnplanted];
+    expect(terrains.filter((terrain) => farmland.includes(terrain)).length).toBeGreaterThan(0);
   });
 
   it("clears the forest's small clusters with REPLACE_SMALL_CLUSTERS", () => {

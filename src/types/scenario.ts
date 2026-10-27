@@ -490,6 +490,12 @@ export interface Scenario {
   baseTerrain?: TerrainType;
 
   /**
+   * Most whole levels neighbouring tiles may differ by while {@link instructions} run. Defaults to
+   * the era's height rule; 1 keeps templates whose height markers rely on one-level smoothing.
+   */
+  maxHeightStep?: number;
+
+  /**
    * Pins map dimensions for procedural generation (ignored when {@link map} is
    * set). Use to get deterministic pixel-based {@link deploymentZones}
    * independent of the matchmaking-derived battle type.
