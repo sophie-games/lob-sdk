@@ -75,6 +75,25 @@ describe("BaseUnit", () => {
     unit = new TestUnit(id, gameDataManager);
   });
 
+  describe("getPower()", () => {
+    const basePower = BaseUnit.getBasePower(template);
+
+    it("loses its power for victory points by the time it is spent, as when 1.7 wiped it out", () => {
+      unit.hp = unit.maxHp * 0.75;
+      expect(unit.getPower()).toBeCloseTo(basePower * 0.5);
+      unit.hp = unit.maxHp * 0.5;
+      expect(unit.getPower()).toBe(0);
+      unit.hp = unit.maxHp * 0.3;
+      expect(unit.getPower()).toBe(0);
+    });
+
+    it("halves a routing unit's power", () => {
+      unit.hp = unit.maxHp * 0.75;
+      unit.status = UnitStatus.Routing;
+      expect(unit.getPower()).toBeCloseTo(basePower * 0.25);
+    });
+  });
+
   describe("approach tier", () => {
     it("has no tier until the player picks one", () => {
       expect(unit.effectiveApproachRange).toBeUndefined();

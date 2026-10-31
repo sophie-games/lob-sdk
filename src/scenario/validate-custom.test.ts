@@ -1424,6 +1424,19 @@ describe("validateCustomSprites", () => {
         ),
       ).toBe(true);
     });
+
+    it("rejects a unit that is spent before losing any HP", () => {
+      const errors = validateScenarioCustomDefs(
+        makeScenario({ customGameConstants: { SPENT_HP_LOSS_PROPORTION: 0 } }),
+        era,
+      );
+      expect(
+        errors.some(
+          (e) =>
+            e.scope === "gameConstants" && e.field === "SPENT_HP_LOSS_PROPORTION",
+        ),
+      ).toBe(true);
+    });
   });
 
   describe("custom orders", () => {

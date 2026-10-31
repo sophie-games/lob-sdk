@@ -36,6 +36,7 @@ import {
   getDirectionToPoint,
   getFlankingPercent,
   getMaxOrgProportionDebuff,
+  getSpentProportion,
 } from "@lob-sdk/utils";
 import { Circle } from "@lob-sdk/shapes/circle";
 import {
@@ -318,7 +319,9 @@ export abstract class BaseUnit extends Entity {
    * Returns the power of the unit (float).
    */
   getPower() {
-    const basePower = BaseUnit.getBasePower(this.template) * this.getHpProportion();
+    const basePower =
+      BaseUnit.getBasePower(this.template) *
+      (1 - getSpentProportion(this.gameDataManager, this.getHpProportion()));
     if (this.isRouting()) {
       return basePower * 0.5;
     }
