@@ -603,6 +603,8 @@ export interface AmmoTypeTemplate {
   name: string;
   /** Bar colour, `#rrggbb`. */
   color: string;
+  /** Share of capacity a pool may refill per turn; refills in full when unset. */
+  refillRate?: number;
 }
 
 export interface AmmoRule {
