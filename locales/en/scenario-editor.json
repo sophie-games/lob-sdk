@@ -487,11 +487,14 @@
     "title": "Edit custom ammo type",
     "fields": {
       "name": "Name",
-      "color": "Color"
+      "color": "Color",
+      "refill": "Refill per turn (%)"
     },
     "errors": {
       "nameRequired": "Name is required",
-      "nameInUse": "\"{{name}}\" is already the name of another ammo type"
+      "nameInUse": "\"{{name}}\" is already the name of another ammo type",
+      "keepBuiltInName": "An override keeps the built-in's name, \"{{name}}\"",
+      "refillRange": "Refill per turn must be between 1% and 100%"
     }
   },
   "damageTypeModal": {
@@ -707,11 +710,12 @@
     },
     "ammoTypesPanel": {
       "title": "Ammo types",
-      "description": "An ammo type is what a ranged weapon spends. Each unit carries a pool of every type its weapons use and refills it from the army's reserve each turn. Add your own, such as arrows, then pick it on a damage type.",
+      "description": "An ammo type is what a ranged weapon spends. Each unit carries a pool of every type its weapons use and refills it from the army's reserve each turn, in full unless the type caps its refill per turn. Clone a built-in to make your own, such as arrows, then pick it on a damage type, or override one to change it in this scenario.",
       "noAmmoTypes": "None yet, so ranged weapons spend the era's own ammunition.",
       "itemLabel": "{{name}} (id {{id}})",
       "deleteBlocked": "You can't delete \"{{name}}\" while {{refs}} still use it. Remove those first.",
-      "addAmmoType": "Add ammo type"
+      "addAmmoType": "Add ammo type",
+      "clonePickerTitle": "Clone a built-in ammo type"
     },
     "damageTypesPanel": {
       "title": "Damage types",

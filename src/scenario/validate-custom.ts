@@ -613,7 +613,7 @@ function validateCustomAmmoTypes(
   const builtInByName = new Map(builtIns.map((a) => [a.name, a]));
 
   for (const ammoType of customAmmoTypes) {
-    const { id, name, color } = ammoType;
+    const { id, name, color, refillRate } = ammoType;
     if (typeof id !== "number" || !Number.isInteger(id)) {
       errors.push({ scope: "ammoType", field: name, message: "Ammo type id is required" });
       continue;
@@ -627,6 +627,13 @@ function validateCustomAmmoTypes(
         scope: "ammoType",
         field: name,
         message: `Ammo type "${name}" needs a #rrggbb color`,
+      });
+    }
+    if (refillRate !== undefined && !(refillRate > 0 && refillRate <= 1)) {
+      errors.push({
+        scope: "ammoType",
+        field: name,
+        message: `Ammo type "${name}" needs a refill rate above 0 and up to 1`,
       });
     }
     // Lookup is by name, so overriding a built-in keeps both its id and name.
