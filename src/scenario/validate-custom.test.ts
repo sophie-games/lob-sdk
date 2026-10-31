@@ -118,6 +118,17 @@ describe("validateScenarioCustomDefs", () => {
       ).toEqual([]);
     });
 
+    it("accepts a refill rate above 0 and up to 1", () => {
+      expect(ammoErrors({ customAmmoTypes: [{ ...arrows, refillRate: 0.25 }] })).toEqual([]);
+      expect(ammoErrors({ customAmmoTypes: [{ ...arrows, refillRate: 1 }] })).toEqual([]);
+    });
+
+    it.each([0, -0.1, 1.5, Number.NaN])("flags a refill rate of %p", (refillRate) => {
+      expect(ammoErrors({ customAmmoTypes: [{ ...arrows, refillRate }] })).toEqual([
+        expect.objectContaining({ field: "arrows", message: expect.stringMatching(/refill/i) }),
+      ]);
+    });
+
     it("flags a damage type spending an ammo type that does not exist", () => {
       const errors = validateScenarioCustomDefs(
         makeScenario({ customDamageTypes: [arrowShot("arrows")] }),
