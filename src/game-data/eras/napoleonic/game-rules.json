@@ -4,17 +4,17 @@
     "rangedTurnCost": 3300,
     "hasRanMeleeStaminaCostModifier": 0,
     "regainRates": {
-      "range1": 5000,
-      "range2": 7500,
-      "range3": 8750,
-      "range4": 7500,
-      "range5": 3750
+      "range1": 4000,
+      "range2": 6000,
+      "range3": 7000,
+      "range4": 6000,
+      "range5": 3000
     },
     "upperModifierLimit": 0.85,
     "lowerModifierLimit": 0.4,
     "chargeResistanceModifier": -0.5,
     "runningMovementPenalty": -0.8,
-    "rangedAttackPenalty": -0.3,
+    "rangedAttackPenalty": -0.15,
     "meleeAttackPenalty": -0.4,
     "meleeDefensePenalty": -0.2
   },
@@ -28,7 +28,7 @@
       "clash": 100000,
       "combat": 200000,
       "battle": 300000,
-      "grand_battle": 500000
+      "grand_battle": 480000
     },
     "goldToAmmoRate": {
       "micro": 1200,
@@ -97,17 +97,17 @@
     "nearbyUnitsOrgDamageModifierCap": 0.5,
     "nearbyUnitsOrgDamageModifierPenaltyCap": -0.1,
     "routingUnitNearbyUnitsOrgBonus": 5,
-    "startedRoutingDuration": 16,
-    "startedRoutingOrgRadiusModifier": -3,
+    "startedRoutingDuration": 32,
+    "startedRoutingOrgRadiusModifier": -2,
     "startedRoutingOrgRadiusDistance": 64,
     "routingRunCostModifier": 0.1,
     "startedRoutingRunCostModifier": 1,
     "orgRadiusBonusHpLossReduction": 0.6,
-    "safeOrgRecoveryModifier": 0.25,
+    "safeOrgRecoveryModifier": 0.3,
     "safeDistance": 144,
-    "distantThreatOrgRecoveryModifier": 0,
-    "distantThreatDistance": 80,
-    "routingOrgRecoveryModifier": -0.4,
+    "distantThreatOrgRecoveryModifier": 0.2,
+    "distantThreatDistance": 72,
+    "routingOrgRecoveryModifier": -0.3,
     "maxOrgRecoveryByHpModifier": -0.99,
     "vpDebuffGraceZone": 0.3,
     "vpDebuffMultiplier": 0.5
