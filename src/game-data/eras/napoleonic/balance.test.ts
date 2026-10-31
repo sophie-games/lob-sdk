@@ -41,8 +41,20 @@ describe("Napoleonic balance", () => {
     });
   });
 
-  it("never turns a nearly destroyed unit's organization aura negative", () => {
-    // The aura scales by 1 - r + r * hpProportion, which stays >= 0 at 0 HP only for r <= 1.
+  it("spends a unit at half its men, the casualties that wiped it out in 1.7", () => {
+    expect(gameDataManager.getGameConstants().SPENT_HP_LOSS_PROPORTION).toBe(0.5);
+  });
+
+  it("keeps 1.7's full HP penalties, reached once a unit is spent", () => {
+    expect(gameDataManager.getGameConstants().MAX_HP_RANGED_ATTACK_PENALTY).toBe(-0.5);
+    expect(gameDataManager.getGameRules().organization).toMatchObject({
+      orgRadiusBonusHpLossReduction: 0.6,
+      maxOrgRecoveryByHpModifier: -0.99,
+    });
+  });
+
+  it("never turns a spent unit's organization aura negative", () => {
+    // The aura scales by 1 - r * spentProportion, which stays >= 0 for a spent unit only for r <= 1.
     expect(
       gameDataManager.getGameRules().organization?.orgRadiusBonusHpLossReduction,
     ).toBeLessThanOrEqual(1);

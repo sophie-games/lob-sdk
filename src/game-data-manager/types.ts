@@ -175,9 +175,6 @@ export interface GameConstants {
    */
   COLLISION_PUSH_MAX_ANGLE_RANGE_DEGREES: number;
 
-  /** How many times its HP proportion lost counts toward a unit's push strength loss. */
-  PUSH_STRENGTH_HP_LOSS_SCALE: number;
-
   TILE_SIZE: number;
 
   DEFAULT_MAX_TURN: number;
@@ -234,12 +231,15 @@ export interface GameConstants {
 
   CHARGE_RESISTANCE_LOSS_BY_ORG: number;
 
+  /**
+   * Share of its HP a unit loses before it is spent: each penalty that grows with
+   * lost HP is at its full value from there on, and victory points count it as lost.
+   */
+  SPENT_HP_LOSS_PROPORTION: number;
+
   MAX_HP_RANGED_ATTACK_PENALTY: number;
 
   MAX_HP_MELEE_ATTACK_PENALTY: number;
-
-  /** Melee attack lost per unit of HP proportion lost, down to MAX_HP_MELEE_ATTACK_PENALTY. */
-  HP_MELEE_ATTACK_PENALTY_SCALE: number;
 
   MAX_DAMAGE_MODIFIER_CLAMP: number;
 
@@ -849,7 +849,7 @@ export interface OrganizationRule {
   routingRunCostModifier: number;
   /** Run cost modifier when a unit starts routing: 1 turns off the function */
   startedRoutingRunCostModifier: number;
-  /** HP loss reduction factor for organization radius bonus (0-1, where 1 = full reduction at 0% HP) */
+  /** HP loss reduction factor for organization radius bonus (0-1, where 1 = full reduction once spent) */
   orgRadiusBonusHpLossReduction: number;
   /** Organization recovery modifier when unit is in a safe area (no nearby enemies) */
   safeOrgRecoveryModifier: number;
@@ -861,7 +861,7 @@ export interface OrganizationRule {
   distantThreatDistance: number;
   /** Organization recovery modifier when unit is routing */
   routingOrgRecoveryModifier: number;
-  /** Maximum organization recovery modifier based on HP proportion (negative value reduces recovery at low HP) */
+  /** Organization recovery modifier once the unit is spent, scaling with HP lost until then (negative value reduces recovery) */
   maxOrgRecoveryByHpModifier: number;
   /**
    * Maximum allowed VP ratio deviation from the average of all teams

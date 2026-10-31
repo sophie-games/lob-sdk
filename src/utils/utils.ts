@@ -354,6 +354,16 @@ export function getFlankingPercent(
   return (theta - minAngle) / (maxAngle - minAngle);
 }
 
+/** How far a unit is toward spent: 0 at full HP, 1 once it has lost `SPENT_HP_LOSS_PROPORTION` of it. */
+export function getSpentProportion(
+  gameDataManager: GameDataManager,
+  hpProportion: number,
+): number {
+  const { SPENT_HP_LOSS_PROPORTION } = gameDataManager.getGameConstants();
+
+  return clamp((1 - hpProportion) / SPENT_HP_LOSS_PROPORTION, 0, 1);
+}
+
 export function getMaxOrgProportionDebuff(
   gameDataManager: GameDataManager,
   hpProportion: number,

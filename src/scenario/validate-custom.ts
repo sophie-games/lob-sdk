@@ -570,6 +570,7 @@ const POSITIVE_GAME_CONSTANT_KEYS: Array<keyof GameConstants> = [
   "COLLISION_DETECTION_SUBTICKS",
   "DEFAULT_MAP_WIDTH",
   "DEFAULT_MAP_HEIGHT",
+  "SPENT_HP_LOSS_PROPORTION",
 ];
 
 function validateGameConstantOverrides(

@@ -7,6 +7,7 @@ import {
   getDirectionToPoint,
   getFlankingPercent,
   getMaxOrgProportionDebuff,
+  getSpentProportion,
 } from "./utils";
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { TWO_PI } from "@lob-sdk/constants";
@@ -35,6 +36,23 @@ const { organization } = gameDataManager.getGameRules();
 if (!organization) {
   throw new Error("Organization rules are not defined");
 }
+
+describe("getSpentProportion()", () => {
+  it("reaches 1 once a Napoleonic unit has lost half its men, where 1.7 had wiped it out", () => {
+    expect(getSpentProportion(gameDataManager, 1)).toBe(0);
+    expect(getSpentProportion(gameDataManager, 0.75)).toBeCloseTo(0.5);
+    expect(getSpentProportion(gameDataManager, 0.5)).toBe(1);
+    expect(getSpentProportion(gameDataManager, 0.2)).toBe(1);
+  });
+
+  it("is the HP lost in WW2, whose HP was never doubled", () => {
+    expect(getSpentProportion(GameDataManager.get("ww2"), 0.75)).toBeCloseTo(0.25);
+  });
+
+  it("reads HP above the maximum as no loss", () => {
+    expect(getSpentProportion(gameDataManager, 1.5)).toBe(0);
+  });
+});
 
 describe("getMaxOrgProportionDebuff()", () => {
   // HP Debuff Tests
