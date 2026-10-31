@@ -212,6 +212,20 @@
     "title": "Scala dell'HUD",
     "description": "Ridimensiona l'HUD di gioco: pulsanti azione, pulsanti in alto, indicatore del turno e barra della vittoria."
   },
+  "battleControls": "Comandi di battaglia",
+  "hudKeySize": {
+    "title": "Dimensione dei tasti",
+    "description": "Quanto sono grandi i tasti di battaglia su un telefono.",
+    "compact": "Compatta",
+    "normal": "Normale",
+    "large": "Grande"
+  },
+  "hudKeys": {
+    "description": "Un tasto disattivato aspetta in Strumenti. Invia ordini, Strumenti e Menu restano sempre sullo schermo.",
+    "orderModes": "Modalità di ordine",
+    "ping": "Ping"
+  },
+  "restoreDefaults": "Ripristina predefiniti",
   "groundQuality": {
     "title": "Qualità del terreno",
     "description": "Controlla la qualità delle texture del terreno. Una qualità più alta fornisce migliori dettagli visivi ma può influire sulle prestazioni. Richiede di aggiornare la mappa."

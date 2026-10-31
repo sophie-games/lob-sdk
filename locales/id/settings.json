@@ -212,6 +212,20 @@
     "title": "Skala HUD",
     "description": "Mengubah ukuran HUD dalam permainan: tombol aksi, tombol atas, indikator giliran, dan bilah kemenangan."
   },
+  "battleControls": "Kontrol pertempuran",
+  "hudKeySize": {
+    "title": "Ukuran tombol",
+    "description": "Seberapa besar tombol pertempuran di ponsel.",
+    "compact": "Ringkas",
+    "normal": "Normal",
+    "large": "Besar"
+  },
+  "hudKeys": {
+    "description": "Tombol yang dimatikan menunggu di Alat. Laksanakan Perintah, Alat, dan Menu Utama selalu tetap di layar.",
+    "orderModes": "Mode perintah",
+    "ping": "Ping"
+  },
+  "restoreDefaults": "Pulihkan bawaan",
   "groundQuality": {
     "title": "Kualitas tanah",
     "description": "Mengontrol kualitas tekstur tanah. Kualitas yang lebih tinggi memberikan detail visual yang lebih baik tetapi dapat mempengaruhi kinerja. Memerlukan penyegaran peta."

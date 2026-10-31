@@ -271,6 +271,20 @@
     "title": "HUD scale",
     "description": "Resize the in-game HUD: the action buttons, top buttons, turn indicator and victory bar."
   },
+  "battleControls": "Battle controls",
+  "hudKeySize": {
+    "title": "Key size",
+    "description": "How large the battle keys are on a phone.",
+    "compact": "Compact",
+    "normal": "Normal",
+    "large": "Large"
+  },
+  "hudKeys": {
+    "description": "A key that is off waits in Tools. Submit orders, Tools and Menu always stay on screen.",
+    "orderModes": "Order modes",
+    "ping": "Ping"
+  },
+  "restoreDefaults": "Restore defaults",
   "groundQuality": {
     "title": "Ground Quality",
     "description": "Controls the quality of ground textures. Higher quality provides better visual detail but may impact performance. Requires refreshing the map."

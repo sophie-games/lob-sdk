@@ -212,6 +212,20 @@
     "title": "HUDのスケール",
     "description": "ゲーム中のHUDのサイズを変更します：アクションボタン、上部ボタン、ターン表示、勝利バー。"
   },
+  "battleControls": "戦闘操作",
+  "hudKeySize": {
+    "title": "ボタンの大きさ",
+    "description": "スマートフォンでの戦闘ボタンの大きさ。",
+    "compact": "小",
+    "normal": "標準",
+    "large": "大"
+  },
+  "hudKeys": {
+    "description": "オフにしたボタンはツールの中にあります。命令を提出、ツール、メニューは常に画面に表示されます。",
+    "orderModes": "命令モード",
+    "ping": "ping"
+  },
+  "restoreDefaults": "初期設定に戻す",
   "groundQuality": {
     "title": "地形品質",
     "description": "地形テクスチャの品質を制御します。より高い品質はより良い視覚的詳細を提供しますが、パフォーマンスに影響を与える可能性があります。マップの更新が必要です。"
