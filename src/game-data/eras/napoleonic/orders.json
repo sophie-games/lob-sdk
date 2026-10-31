@@ -13,11 +13,12 @@
     },
     "allowFireWhenMoving": true,
     "orgRegainModifier": -0.15,
+    "rangedDamageModifier": -0.2,
     "rangedDamageModifierByCategory": {
       "infantry": -0.2,
       "guardsInfantry": -0.2,
       "artillery": -0.4,
-      "militiaInfantry": -0.2,
+      "militiaInfantry": -0.35,
       "skirmishInfantry": -0.2
     }
   },

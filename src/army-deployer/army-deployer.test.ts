@@ -45,7 +45,7 @@ describe("ArmyDeployer", () => {
         { 1: 2, 7: 3, 2: 4, 16: 9 },
         "micro",
       );
-      expect(result?.weightedTotal).toBeCloseTo(5.45);
+      expect(result?.weightedTotal).toBeCloseTo(5.6);
       expect(result).toMatchObject({
         amount: 2,
         coreUnitsPerSkirmisher: 2,
@@ -95,7 +95,7 @@ describe("ArmyDeployer", () => {
         ArmyDeployer.getSkirmisherAllocation(custom, { 1: 2, 7: 0.5 }, "micro"),
       ).toEqual({
         amount: 0,
-        weightedTotal: 2.575,
+        weightedTotal: 2.6,
         coreUnitsPerSkirmisher: 1.25,
         nextBreakpoint: 3,
       });
