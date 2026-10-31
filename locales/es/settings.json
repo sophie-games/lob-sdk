@@ -202,6 +202,20 @@
     "title": "Escala del HUD",
     "description": "Cambia el tamaño del HUD en partida: los botones de acción, los botones superiores, el indicador de turno y la barra de victoria."
   },
+  "battleControls": "Controles de batalla",
+  "hudKeySize": {
+    "title": "Tamaño de los botones",
+    "description": "Qué tan grandes son los botones de batalla en un teléfono.",
+    "compact": "Compacto",
+    "normal": "Normal",
+    "large": "Grande"
+  },
+  "hudKeys": {
+    "description": "Un botón desactivado espera en Herramientas. Enviar órdenes, Herramientas y Menú siempre quedan en pantalla.",
+    "orderModes": "Modos de orden",
+    "ping": "Ping"
+  },
+  "restoreDefaults": "Restablecer valores predeterminados",
   "groundQuality": {
     "title": "Calidad del Terreno",
     "description": "Controla la calidad de las texturas del terreno. Mayor calidad proporciona mejor detalle visual pero puede afectar el rendimiento. Requiere refrescar el mapa."

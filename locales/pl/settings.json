@@ -212,6 +212,20 @@
     "title": "Skala HUD",
     "description": "Zmienia rozmiar HUD w grze: przyciski akcji, górne przyciski, wskaźnik tury i pasek zwycięstwa."
   },
+  "battleControls": "Sterowanie w bitwie",
+  "hudKeySize": {
+    "title": "Rozmiar przycisków",
+    "description": "Jak duże są przyciski bitwy na telefonie.",
+    "compact": "Kompaktowy",
+    "normal": "Normalny",
+    "large": "Duży"
+  },
+  "hudKeys": {
+    "description": "Wyłączony przycisk czeka w Narzędziach. Zatwierdź Rozkazy, Narzędzia i Menu zawsze zostają na ekranie.",
+    "orderModes": "Tryby rozkazów",
+    "ping": "Ping"
+  },
+  "restoreDefaults": "Przywróć domyślne",
   "groundQuality": {
     "title": "Jakość terenu",
     "description": "Kontroluje jakość tekstur terenu. Wyższa jakość zapewnia lepsze szczegóły wizualne, ale może wpływać na wydajność. Wymaga odświeżenia mapy."

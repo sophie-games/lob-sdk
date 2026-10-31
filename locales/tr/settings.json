@@ -212,6 +212,20 @@
     "title": "HUD ölçeği",
     "description": "Oyun içi HUD'u yeniden boyutlandırır: eylem düğmeleri, üst düğmeler, tur göstergesi ve zafer çubuğu."
   },
+  "battleControls": "Savaş kontrolleri",
+  "hudKeySize": {
+    "title": "Tuş boyutu",
+    "description": "Savaş tuşlarının telefonda ne kadar büyük olduğu.",
+    "compact": "Küçük",
+    "normal": "Normal",
+    "large": "Büyük"
+  },
+  "hudKeys": {
+    "description": "Kapalı bir tuş Araçlar içinde bekler. Emirleri gönder, Araçlar ve Menü her zaman ekranda kalır.",
+    "orderModes": "Emir modları",
+    "ping": "Ping"
+  },
+  "restoreDefaults": "Varsayılanlara dön",
   "groundQuality": {
     "title": "Arazi kalitesi",
     "description": "Arazi dokularının kalitesini kontrol eder. Daha yüksek kalite daha iyi görsel detaylar sağlar ancak performansı etkileyebilir. Haritanın yenilenmesini gerektirir."

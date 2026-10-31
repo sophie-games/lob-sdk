@@ -199,6 +199,20 @@
     "title": "Échelle du HUD",
     "description": "Redimensionne le HUD en jeu : boutons d'action, boutons du haut, indicateur de tour et barre de victoire."
   },
+  "battleControls": "Commandes de bataille",
+  "hudKeySize": {
+    "title": "Taille des boutons",
+    "description": "La taille des boutons de bataille sur un téléphone.",
+    "compact": "Compacte",
+    "normal": "Normale",
+    "large": "Grande"
+  },
+  "hudKeys": {
+    "description": "Un bouton désactivé attend dans Outils. Soumettre les ordres, Outils et Menu restent toujours à l'écran.",
+    "orderModes": "Modes d'ordre",
+    "ping": "Ping"
+  },
+  "restoreDefaults": "Rétablir les valeurs par défaut",
   "groundQuality": {
     "title": "Qualité du terrain",
     "description": "Contrôle la qualité des textures du terrain. Une qualité plus élevée fournit de meilleurs détails visuels mais peut affecter les performances. Nécessite de rafraîchir la carte."

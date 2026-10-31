@@ -212,6 +212,20 @@
     "title": "HUD méretezése",
     "description": "Átméretezi a játékon belüli HUD-ot: műveletgombok, felső gombok, körjelző és győzelmi sáv."
   },
+  "battleControls": "Csatavezérlők",
+  "hudKeySize": {
+    "title": "Gombméret",
+    "description": "Mekkorák a csatagombok telefonon.",
+    "compact": "Kompakt",
+    "normal": "Normál",
+    "large": "Nagy"
+  },
+  "hudKeys": {
+    "description": "A kikapcsolt gomb az Eszközök alatt vár. Az Utasítások beküldése, az Eszközök és a Menü mindig a képernyőn marad.",
+    "orderModes": "Utasítási módok",
+    "ping": "Jelölés"
+  },
+  "restoreDefaults": "Alapértékek visszaállítása",
   "groundQuality": {
     "title": "Terep minősége",
     "description": "Szabályozza a terep textúrák minőségét. A magasabb minőség jobb vizuális részleteket biztosít, de befolyásolhatja a teljesítményt. Megköveteli a térkép frissítését."
