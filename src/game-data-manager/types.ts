@@ -239,6 +239,7 @@ export interface GameConstants {
 
   MAX_HP_RANGED_ATTACK_PENALTY: number;
 
+  MAX_HP_MELEE_ATTACK_BONUS: number;
   MAX_HP_MELEE_ATTACK_PENALTY: number;
 
   MAX_DAMAGE_MODIFIER_CLAMP: number;
@@ -596,6 +597,7 @@ export interface StaminaRule {
   runningMovementPenalty: number;
   rangedAttackPenalty: number;
   meleeAttackPenalty: number;
+  meleeDefensePenalty: number; // lashback damage penalty
 }
 
 export interface AmmoTypeTemplate {
@@ -813,6 +815,8 @@ export interface OrganizationRule {
   maxOrgDebuffStaminaLowProportion: number;
   /** Maximum ranged attack penalty when organization is low */
   maxOrgRangedAttackPenalty: number;
+  /** Maximum melee attack bonus when organization is high */
+  maxOrgMeleeAttackBonus: number;
   /** Maximum melee attack penalty when organization is low */
   maxOrgMeleeAttackPenalty: number;
   /** Non-positive melee defense penalty at the lower organization threshold; defaults to zero. */
