@@ -599,7 +599,7 @@ describe("Napoleonic balance", () => {
       runMovementModifier: -0.75,
       pushStrengthModifier: 0.5,
       receivedMeleeDamageModifier: 0,
-      chargeResistanceModifier: 0.25,
+      chargeResistanceModifier: 0.5,
     });
     expect(square?.rangedAttackModifier).toBe(1.5);
     expect(square?.rangedDamageResistance).toBe(-0.3);
