@@ -121,6 +121,8 @@ export enum InstructionType {
   Erosion = "EROSION",
   /** Instruction to turn small patches of one terrain into another. */
   ReplaceSmallClusters = "REPLACE_SMALL_CLUSTERS",
+  /** Instruction to name villages, woods and other terrain patches. */
+  PlaceNames = "PLACE_NAMES",
 }
 
 /**
@@ -596,6 +598,22 @@ export interface InstructionReplaceSmallClusters extends BaseInstruction {
   maxSize: number;
 }
 
+/**
+ * Gives each edge-connected cluster of `terrains` with at least `minSize` tiles a map label drawn
+ * from `names`, largest cluster first, each name used once; clusters left when the names run out
+ * stay unnamed. Run it after the instructions that draw the terrain it names.
+ */
+export interface InstructionPlaceNames extends BaseInstruction {
+  /** Instruction type is PlaceNames. */
+  type: InstructionType.PlaceNames;
+  /** Terrains whose clusters are named; tiles of any of them join one cluster. */
+  terrains: TerrainType[];
+  /** Names to draw from, in a seeded random order. */
+  names: string[];
+  /** Smallest cluster, in tiles, that gets a name. */
+  minSize: number;
+}
+
 export type AnyInstruction =
   | InstructionTerrainNoise
   | InstructionHeightNoise
@@ -609,4 +627,5 @@ export type AnyInstruction =
   | InstructionSymmetry
   | InstructionFields
   | InstructionErosion
-  | InstructionReplaceSmallClusters;
+  | InstructionReplaceSmallClusters
+  | InstructionPlaceNames;

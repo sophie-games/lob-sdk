@@ -1069,7 +1069,9 @@
       "strength": "Kekuatan",
       "iterations": "Iterasi",
       "channelArea": "Luas alur",
-      "maxSize": "Ukuran maks."
+      "maxSize": "Ukuran maks.",
+      "names": "Nama",
+      "minSize": "Ukuran minimum"
     },
     "instructionType": {
       "terrainNoise": "Noise medan",
@@ -1084,7 +1086,8 @@
       "symmetry": "Simetri",
       "fields": "Ladang",
       "erosion": "Erosi",
-      "replaceSmallClusters": "Ganti klaster kecil"
+      "replaceSmallClusters": "Ganti klaster kecil",
+      "placeNames": "Nama tempat"
     },
     "objectiveType": {
       "small": "Kecil",
