@@ -555,6 +555,11 @@ export interface GameState<UsePartialIds extends boolean = false> {
     team: number;
     /** Total army power of the team. */
     armyPower: number;
+    /**
+     * Power the team fielded at battle start plus each reinforcement's power on
+     * arrival: the loss-ratio baseline. Absent on older saves.
+     */
+    initialArmyPower?: number;
   }[];
   /** All units in the game. */
   units: UsePartialIds extends true ? UnitDtoPartialId[] : UnitDto[];
