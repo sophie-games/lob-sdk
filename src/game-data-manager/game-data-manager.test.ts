@@ -35,9 +35,10 @@ describe("GameDataManager", () => {
     const shown = gameDataManager.getScenarios();
     const ranked = shown.filter((name) => gameDataManager.getScenario(name).ranked);
 
-    it("offers every random map", () => {
-      const random = shown.filter((name) => "instructions" in gameDataManager.getScenario(name));
-      expect(ranked).toEqual(expect.arrayContaining(random));
+    it("offers seven maps", () => {
+      expect([...ranked].sort()).toEqual(
+        ["city", "hedgerows", "hills", "iberia", "plains", "river-crossing", "tundra"],
+      );
     });
 
     // Half plus one: any two players' selections always share a map.

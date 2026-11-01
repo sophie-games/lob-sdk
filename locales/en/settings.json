@@ -153,6 +153,13 @@
     "description": "Toggle full screen mode for the application",
     "toggle": "Toggle Full Screen"
   },
+  "transferSettings": {
+    "title": "Export or Import Settings",
+    "description": "Save your settings, colors and keybindings to a file, or load them from one to use them on another device.",
+    "export": "Export",
+    "import": "Import",
+    "error": "This file is not a Lines of Battle settings file."
+  },
   "resetSettings": {
     "title": "Reset Settings",
     "description": "Restore all settings to their default values. This action will overwrite any customizations you have made."
@@ -187,6 +194,10 @@
   "applyOrderTypeToSelection": {
     "title": "Order type applies to selection",
     "description": "On: changing the movement type also retypes the selected units' current orders. Off: it only sets the type for the next order you draw (classic)."
+  },
+  "doubleClickRun": {
+    "title": "Double right-click runs",
+    "description": "On desktop, double right-clicking the ground, an ally or an enemy gives the selected units that order at a run."
   },
   "chatVisibility": {
     "title": "Chat",
@@ -282,8 +293,9 @@
   "hudBarPosition": {
     "title": "Key layout",
     "description": "Where the battle keys stand on a phone held upright.",
-    "bottom": "Bottom bar",
-    "sides": "Sides"
+    "bottom": "Two rows",
+    "sides": "Sides",
+    "oneRow": "One row"
   },
   "hudKeys": {
     "description": "A key that is off waits in Tools. Submit orders, Tools and Menu always stay on screen.",
