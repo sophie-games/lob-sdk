@@ -153,6 +153,13 @@
     "description": "Toggle full screen mode for the application",
     "toggle": "Toggle Full Screen"
   },
+  "transferSettings": {
+    "title": "Export or Import Settings",
+    "description": "Save your settings, colors and keybindings to a file, or load them from one to use them on another device.",
+    "export": "Export",
+    "import": "Import",
+    "error": "This file is not a Lines of Battle settings file."
+  },
   "resetSettings": {
     "title": "Reset Settings",
     "description": "Restore all settings to their default values. This action will overwrite any customizations you have made."
