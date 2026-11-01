@@ -1,0 +1,583 @@
+{
+  "version": 2,
+  "name": "name",
+  "description": "description",
+  "ranked": true,
+  "units": [],
+  "objectives": [],
+  "triggers": [],
+  "instructions": [
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "y": 45,
+            "x": 15
+          },
+          "multiplier": 2.5,
+          "offset": -0.4,
+          "reverse": true
+        },
+        {
+          "scale": {
+            "y": 15,
+            "x": 15
+          },
+          "multiplier": 1,
+          "offset": 0
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 0,
+      "max": 6
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 4,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "height": {
+        "min": 6,
+        "max": 6
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 1,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "height": {
+        "min": 3,
+        "max": 5
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 27,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "height": {
+        "min": 1,
+        "max": 2
+      }
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "top-bottom",
+      "range": {
+        "min": 0,
+        "max": 40
+      },
+      "amount": {
+        "min": 1,
+        "max": 1,
+        "min_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 2,
+          "xl": 3
+        },
+        "max_scaling_factor": {
+          "s": 1,
+          "m": 2,
+          "l": 3,
+          "xl": 4
+        }
+      },
+      "width": 2,
+      "height": 6,
+      "startHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "endHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": 1
+        },
+        {
+          "terrain": 0,
+          "cost": 50
+        },
+        {
+          "terrain": 1,
+          "cost": 100
+        },
+        {
+          "terrain": 2,
+          "cost": 200
+        }
+      ],
+      "distance weight": 0.25,
+      "curveLen": 1,
+      "curveWeight": 0,
+      "noiseWeight": 0,
+      "noiseSmoothness": 1
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 0,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0.4,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "height": {
+        "min": 1,
+        "max": 5
+      }
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 2,
+      "max": 2,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 1,
+      "max": 1,
+      "ranges": [
+        {
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 1,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 3,
+      "max": 3,
+      "ranges": [
+        {
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 20,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 0,
+      "max": 0,
+      "ranges": [
+        {
+          "min": 3,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 2,
+      "scale": {
+        "y": 45,
+        "x": 15
+      },
+      "ranges": [
+        {
+          "min": 0.9,
+          "max": 0.91
+        },
+        {
+          "min": 0.92,
+          "max": 0.94
+        },
+        {
+          "min": 0.95,
+          "max": 1
+        }
+      ],
+      "height": {
+        "min": 2,
+        "max": 2
+      },
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        1
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "left-right",
+      "amount": {
+        "min": 1,
+        "max": 3
+      },
+      "range": {
+        "min": 0,
+        "max": 40
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 100
+        },
+        {
+          "terrain": 100,
+          "cost": 5
+        },
+        {
+          "terrain": 2,
+          "cost": 1
+        },
+        {
+          "terrain": 4,
+          "cost": 2000
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "left-right",
+      "amount": {
+        "min": 1,
+        "max": 3
+      },
+      "range": {
+        "min": 60,
+        "max": 100
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 100
+        },
+        {
+          "terrain": 100,
+          "cost": 5
+        },
+        {
+          "terrain": 2,
+          "cost": 1
+        },
+        {
+          "terrain": 4,
+          "cost": 2000
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "left-right",
+      "amount": {
+        "min": 1,
+        "max": 3
+      },
+      "range": {
+        "min": 30,
+        "max": 70
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 100
+        },
+        {
+          "terrain": 100,
+          "cost": 5
+        },
+        {
+          "terrain": 2,
+          "cost": 1
+        },
+        {
+          "terrain": 4,
+          "cost": 2000
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 3
+      },
+      "range": {
+        "min": 0,
+        "max": 40
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 100
+        },
+        {
+          "terrain": 100,
+          "cost": 5
+        },
+        {
+          "terrain": 2,
+          "cost": 1
+        },
+        {
+          "terrain": 4,
+          "cost": 2000
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "left-right",
+      "amount": {
+        "min": 1,
+        "max": 3
+      },
+      "range": {
+        "min": 60,
+        "max": 100
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 100
+        },
+        {
+          "terrain": 100,
+          "cost": 5
+        },
+        {
+          "terrain": 2,
+          "cost": 1
+        },
+        {
+          "terrain": 4,
+          "cost": 2000
+        }
+      ]
+    }
+  ],
+  "allowDynamicArmy": true,
+  "placeableObjectives": true,
+  "locales": {
+    "en": {
+      "name": "Masurian Lakes",
+      "description": "A picturesque area full of lakes and wild forests."
+    },
+    "es": {
+      "name": "Lagos de Masuria",
+      "description": "Una zona pintoresca llena de lagos y bosques salvajes."
+    },
+    "fr": {
+      "name": "Lacs de Mazurie",
+      "description": "Une région pittoresque pleine de lacs et de forêts sauvages."
+    },
+    "de": {
+      "name": "Masurische Seen",
+      "description": "Eine malerische Gegend voller Seen und wilder Wälder."
+    },
+    "it": {
+      "name": "Laghi Masuri",
+      "description": "Una zona pittoresca ricca di laghi e foreste selvagge."
+    },
+    "pt": {
+      "name": "Lagos da Masúria",
+      "description": "Uma região pitoresca cheia de lagos e florestas selvagens."
+    },
+    "ru": {
+      "name": "Мазурские озёра",
+      "description": "Живописный край, полный озёр и диких лесов."
+    },
+    "uk": {
+      "name": "Мазурські озера",
+      "description": "Мальовничий край, повний озер і диких лісів."
+    },
+    "pl": {
+      "name": "Jeziora Mazurskie",
+      "description": "Malownicza kraina pełna jezior i dzikich lasów."
+    },
+    "hu": {
+      "name": "Mazúri-tóvidék",
+      "description": "Festői vidék, tele tavakkal és vad erdőkkel."
+    },
+    "el": {
+      "name": "Λίμνες της Μαζουρίας",
+      "description": "Μια γραφική περιοχή γεμάτη λίμνες και άγρια δάση."
+    },
+    "tr": {
+      "name": "Mazurya Gölleri",
+      "description": "Göller ve vahşi ormanlarla dolu pitoresk bir bölge."
+    },
+    "ar": {
+      "name": "بحيرات ماسوريا",
+      "description": "منطقة خلابة مليئة بالبحيرات والغابات البرية."
+    },
+    "hi": {
+      "name": "मज़ूरियाई झीलें",
+      "description": "झीलों और घने जंगलों से भरा एक मनोरम इलाका।"
+    },
+    "id": {
+      "name": "Danau Masuria",
+      "description": "Kawasan indah yang penuh danau dan hutan liar."
+    },
+    "th": {
+      "name": "ทะเลสาบมาซูเรีย",
+      "description": "ดินแดนงดงามที่เต็มไปด้วยทะเลสาบและป่าดิบ"
+    },
+    "vi": {
+      "name": "Hồ Masuria",
+      "description": "Một vùng đẹp như tranh với nhiều hồ nước và rừng hoang."
+    },
+    "ja": {
+      "name": "マズーリ湖水地方",
+      "description": "湖と原生林に満ちた風光明媚な地域。"
+    },
+    "kr": {
+      "name": "마주리 호수 지대",
+      "description": "호수와 야생 숲으로 가득한 그림 같은 지역입니다."
+    },
+    "zh": {
+      "name": "马祖里湖区",
+      "description": "一片风景如画、遍布湖泊与原始森林的地区。"
+    }
+  }
+}

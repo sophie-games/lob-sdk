@@ -35,9 +35,21 @@ describe("GameDataManager", () => {
     const shown = gameDataManager.getScenarios();
     const ranked = shown.filter((name) => gameDataManager.getScenario(name).ranked);
 
-    it("offers seven maps", () => {
-      expect([...ranked].sort()).toEqual(
-        ["city", "hedgerows", "hills", "iberia", "plains", "river-crossing", "tundra"],
+    it("offers every random map", () => {
+      const random = shown.filter((name) => "instructions" in gameDataManager.getScenario(name));
+      expect([...ranked].sort()).toEqual([...random].sort());
+    });
+
+    it("offers the community random maps", () => {
+      expect(ranked).toEqual(
+        expect.arrayContaining([
+          "walled-city",
+          "farmlands",
+          "central-river",
+          "moravian-valley",
+          "rolling-hills",
+          "masurian-lakes",
+        ]),
       );
     });
 
