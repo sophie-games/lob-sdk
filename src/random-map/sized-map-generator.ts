@@ -1,6 +1,7 @@
 import { getDeploymentZonesByMapSize } from "./map-size";
 import {
   GameMap,
+  MapLabel,
   RandomDeploymentZone,
   RandomDeploymentZones,
   Size,
@@ -30,6 +31,7 @@ import { SymmetryExecutor } from "./executors/symmetry";
 import { ErosionExecutor } from "./executors/erosion";
 import { ReplaceSmallClustersExecutor } from "./executors/replace-small-clusters";
 import { FieldsExecutor } from "./executors/fields";
+import { PlaceNamesExecutor } from "./executors/place-names";
 import { InstructionArea, TurnedFrame } from "./frame-angle";
 import { normalizeMapGrids } from "./normalize-map-grids";
 import { deriveSeed, generateRandomSeed, randomSeeded } from "@lob-sdk/seed";
@@ -136,6 +138,8 @@ export class SizedMapGenerator {
     }
 
     const instructionsToRun: AnyInstruction[] = scenario.instructions ?? [];
+    // PlaceNames instructions append to the handcrafted map's own labels.
+    const labels: MapLabel[] = [...(fixedMap?.labels ?? [])];
 
     this.executeInstructions(
       scenario,
@@ -143,6 +147,7 @@ export class SizedMapGenerator {
       terrains,
       heightMap,
       objectives,
+      labels,
       widthPx,
       heightPx,
       tileSize,
@@ -171,7 +176,7 @@ export class SizedMapGenerator {
         terrains,
         heightMap,
         ...(deploymentZones ? { deploymentZones } : {}),
-        ...(fixedMap?.labels !== undefined ? { labels: fixedMap.labels } : {}),
+        ...(fixedMap?.labels !== undefined || labels.length > 0 ? { labels } : {}),
         ...(fixedMap?.objectiveZones !== undefined
           ? { objectiveZones: fixedMap.objectiveZones }
           : {}),
@@ -374,6 +379,7 @@ export class SizedMapGenerator {
     terrains: TerrainType[][],
     heightMap: number[][],
     objectives: ObjectiveDto<false>[],
+    labels: MapLabel[],
     widthPx: number,
     heightPx: number,
     tileSize: number,
@@ -559,6 +565,21 @@ export class SizedMapGenerator {
         }
         case InstructionType.ReplaceSmallClusters: {
           new ReplaceSmallClustersExecutor(instruction, boundedTerrains).execute();
+          break;
+        }
+        case InstructionType.PlaceNames: {
+          // The slice proxy starts where create2DSliceProxy cuts it.
+          const bounded = boundedTerrains !== terrains;
+          new PlaceNamesExecutor(
+            instruction,
+            seed,
+            index,
+            boundedTerrains,
+            tileSize,
+            bounded ? Math.floor(((instruction.xBounds?.min ?? 0) / 100) * terrains.length) : 0,
+            bounded ? Math.floor(((instruction.yBounds?.min ?? 0) / 100) * terrains[0].length) : 0,
+            labels,
+          ).execute();
           break;
         }
         default: {

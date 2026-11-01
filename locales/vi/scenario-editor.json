@@ -1069,7 +1069,9 @@
       "strength": "Cường độ",
       "iterations": "Số lần lặp",
       "channelArea": "Diện tích lòng suối",
-      "maxSize": "Kích thước tối đa"
+      "maxSize": "Kích thước tối đa",
+      "names": "Tên",
+      "minSize": "Kích thước tối thiểu"
     },
     "instructionType": {
       "terrainNoise": "Nhiễu địa hình",
@@ -1084,7 +1086,8 @@
       "symmetry": "Đối xứng",
       "fields": "Ruộng",
       "erosion": "Xói mòn",
-      "replaceSmallClusters": "Thay thế cụm nhỏ"
+      "replaceSmallClusters": "Thay thế cụm nhỏ",
+      "placeNames": "Địa danh"
     },
     "objectiveType": {
       "small": "Nhỏ",

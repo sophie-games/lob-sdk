@@ -1090,7 +1090,9 @@
       "strength": "Siła",
       "iterations": "Iteracje",
       "channelArea": "Obszar koryta",
-      "maxSize": "Maks. rozmiar"
+      "maxSize": "Maks. rozmiar",
+      "names": "Nazwy",
+      "minSize": "Minimalny rozmiar"
     },
     "instructionType": {
       "terrainNoise": "Szum terenu",
@@ -1105,7 +1107,8 @@
       "symmetry": "Symetria",
       "fields": "Pola",
       "erosion": "Erozja",
-      "replaceSmallClusters": "Zastąp małe skupiska"
+      "replaceSmallClusters": "Zastąp małe skupiska",
+      "placeNames": "Nazwy miejsc"
     },
     "objectiveType": {
       "small": "Mały",
