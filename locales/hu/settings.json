@@ -222,9 +222,10 @@
   },
   "hudBarPosition": {
     "title": "Gombelrendezés",
-    "description": "Hol állnak a csatagombok álló helyzetű telefonon.",
+    "description": "Hol állnak a csatagombok a telefonon. Az alsó sáv és az oldalak csak az álló helyzetű telefont változtatják meg.",
     "bottom": "Alsó sáv",
-    "sides": "Oldalak"
+    "sides": "Oldalak",
+    "classic": "Klasszikus (1.7)"
   },
   "hudKeys": {
     "description": "A kikapcsolt gomb az Eszközök alatt vár. Az Utasítások beküldése, az Eszközök és a Menü mindig a képernyőn marad.",

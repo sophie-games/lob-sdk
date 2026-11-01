@@ -222,9 +222,10 @@
   },
   "hudBarPosition": {
     "title": "Disposizione dei tasti",
-    "description": "Dove stanno i tasti di battaglia su un telefono in verticale.",
+    "description": "Dove stanno i tasti di battaglia sul telefono. Barra in basso e Lati cambiano solo il telefono in verticale.",
     "bottom": "Barra in basso",
-    "sides": "Lati"
+    "sides": "Lati",
+    "classic": "Classica (1.7)"
   },
   "hudKeys": {
     "description": "Un tasto disattivato aspetta in Strumenti. Invia ordini, Strumenti e Menu restano sempre sullo schermo.",

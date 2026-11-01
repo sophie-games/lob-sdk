@@ -222,9 +222,10 @@
   },
   "hudBarPosition": {
     "title": "Tuş düzeni",
-    "description": "Dik tutulan bir telefonda savaş tuşlarının nerede durduğu.",
+    "description": "Telefonda savaş tuşlarının nerede durduğu. Alt çubuk ve Kenarlar yalnızca dik tutulan telefonu değiştirir.",
     "bottom": "Alt çubuk",
-    "sides": "Kenarlar"
+    "sides": "Kenarlar",
+    "classic": "Klasik (1.7)"
   },
   "hudKeys": {
     "description": "Kapalı bir tuş Araçlar içinde bekler. Emirleri gönder, Araçlar ve Menü her zaman ekranda kalır.",

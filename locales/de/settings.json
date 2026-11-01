@@ -212,9 +212,10 @@
   },
   "hudBarPosition": {
     "title": "Tastenanordnung",
-    "description": "Wo die Kampftasten auf einem hochkant gehaltenen Handy stehen.",
+    "description": "Wo die Kampftasten auf einem Handy stehen. Leiste unten und Seiten ändern nur ein hochkant gehaltenes Handy.",
     "bottom": "Leiste unten",
-    "sides": "Seiten"
+    "sides": "Seiten",
+    "classic": "Klassisch (1.7)"
   },
   "hudKeys": {
     "description": "Eine ausgeschaltete Taste wartet unter Werkzeuge. Befehle einreichen, Werkzeuge und Menü bleiben immer auf dem Bildschirm.",

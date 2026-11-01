@@ -209,9 +209,10 @@
   },
   "hudBarPosition": {
     "title": "Disposition des boutons",
-    "description": "L'emplacement des boutons de bataille sur un téléphone tenu à la verticale.",
+    "description": "L'emplacement des boutons de bataille sur un téléphone. Barre en bas et Côtés ne changent que le téléphone tenu à la verticale.",
     "bottom": "Barre en bas",
-    "sides": "Côtés"
+    "sides": "Côtés",
+    "classic": "Classique (1.7)"
   },
   "hudKeys": {
     "description": "Un bouton désactivé attend dans Outils. Soumettre les ordres, Outils et Menu restent toujours à l'écran.",

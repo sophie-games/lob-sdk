@@ -212,9 +212,10 @@
   },
   "hudBarPosition": {
     "title": "Disposición de los botones",
-    "description": "Dónde se colocan los botones de batalla en un teléfono en vertical.",
+    "description": "Dónde se colocan los botones de batalla en un teléfono. Barra inferior y Laterales solo cambian el teléfono en vertical.",
     "bottom": "Barra inferior",
-    "sides": "Laterales"
+    "sides": "Laterales",
+    "classic": "Clásica (1.7)"
   },
   "hudKeys": {
     "description": "Un botón desactivado espera en Herramientas. Enviar órdenes, Herramientas y Menú siempre quedan en pantalla.",

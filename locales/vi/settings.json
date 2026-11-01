@@ -241,9 +241,10 @@
   },
   "hudBarPosition": {
     "title": "Bố cục nút",
-    "description": "Vị trí các nút trận đánh trên điện thoại cầm dọc.",
+    "description": "Vị trí các nút trận đánh trên điện thoại. Thanh dưới và Hai bên chỉ thay đổi khi cầm dọc.",
     "bottom": "Thanh dưới",
-    "sides": "Hai bên"
+    "sides": "Hai bên",
+    "classic": "Cổ điển (1.7)"
   },
   "hudKeys": {
     "description": "Nút đã tắt nằm trong Công cụ. Gửi lệnh, Công cụ và Menu luôn ở trên màn hình.",

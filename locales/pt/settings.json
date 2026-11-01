@@ -222,9 +222,10 @@
   },
   "hudBarPosition": {
     "title": "Disposição dos botões",
-    "description": "Onde ficam os botões de batalha em um celular na vertical.",
+    "description": "Onde ficam os botões de batalha no celular. Barra inferior e Laterais só mudam o celular na vertical.",
     "bottom": "Barra inferior",
-    "sides": "Laterais"
+    "sides": "Laterais",
+    "classic": "Clássica (1.7)"
   },
   "hudKeys": {
     "description": "Um botão desligado fica em Ferramentas. Enviar ordens, Ferramentas e Menu ficam sempre na tela.",
