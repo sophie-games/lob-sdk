@@ -1,0 +1,690 @@
+{
+  "version": 2,
+  "name": "name",
+  "description": "description",
+  "ranked": true,
+  "units": [],
+  "objectives": [],
+  "triggers": [],
+  "instructions": [
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "x": 50,
+            "y": 40
+          },
+          "multiplier": 1,
+          "offset": 0.25
+        },
+        {
+          "scale": {
+            "x": 30,
+            "y": 10
+          },
+          "multiplier": 0.5,
+          "offset": 0
+        },
+        {
+          "scale": 10,
+          "multiplier": 0.25,
+          "offset": 0
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 0,
+      "max": 32,
+      "ranges": []
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "left-right",
+      "heightDiffCost": 10000,
+      "range": {
+        "min": 25,
+        "max": 75
+      },
+      "amount": {
+        "min": 1,
+        "max": 1,
+        "min_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1,
+          "xl": 1
+        },
+        "max_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1,
+          "xl": 2
+        }
+      },
+      "width": 2,
+      "height": -8,
+      "startHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "endHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": 1
+        },
+        {
+          "terrain": 0,
+          "cost": 5
+        },
+        {
+          "terrain": 1,
+          "cost": 10
+        },
+        {
+          "terrain": 2,
+          "cost": 20
+        }
+      ],
+      "distance weight": 0.1,
+      "curveLen": 5,
+      "curveWeight": 0.1,
+      "noiseWeight": 0.5,
+      "noiseSmoothness": 0.5
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "top-bottom",
+      "heightDiffCost": 10000,
+      "range": {
+        "min": 5,
+        "max": 45
+      },
+      "amount": {
+        "min": 1,
+        "max": 1,
+        "min_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1,
+          "xl": 1
+        },
+        "max_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1,
+          "xl": 2
+        }
+      },
+      "width": 1,
+      "height": -4,
+      "startHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "endHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": -10
+        },
+        {
+          "terrain": 0,
+          "cost": 10
+        }
+      ],
+      "distance weight": 0.1,
+      "curveLen": 5,
+      "curveWeight": 0.1,
+      "noiseWeight": 0.5,
+      "noiseSmoothness": 0.5
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "top-bottom",
+      "heightDiffCost": 10000,
+      "range": {
+        "min": 95,
+        "max": 55
+      },
+      "amount": {
+        "min": 1,
+        "max": 1,
+        "min_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1,
+          "xl": 1
+        },
+        "max_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1,
+          "xl": 2
+        }
+      },
+      "width": 1,
+      "height": -4,
+      "startHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "endHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": -10
+        },
+        {
+          "terrain": 0,
+          "cost": 10
+        }
+      ],
+      "distance weight": 0.1,
+      "curveLen": 5,
+      "curveWeight": 0.1,
+      "noiseWeight": 0.5,
+      "noiseSmoothness": 0.5
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "left-right",
+      "heightDiffCost": 10000,
+      "range": {
+        "min": 5,
+        "max": 45
+      },
+      "amount": {
+        "min": 1,
+        "max": 1,
+        "min_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1,
+          "xl": 1
+        },
+        "max_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1,
+          "xl": 2
+        }
+      },
+      "width": 1,
+      "height": -4,
+      "startHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "endHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": -10
+        },
+        {
+          "terrain": 0,
+          "cost": 10
+        }
+      ],
+      "distance weight": 0.1,
+      "curveLen": 5,
+      "curveWeight": 0.1,
+      "noiseWeight": 0.5,
+      "noiseSmoothness": 0.5
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "left-right",
+      "heightDiffCost": 10000,
+      "range": {
+        "min": 55,
+        "max": 95
+      },
+      "amount": {
+        "min": 1,
+        "max": 1,
+        "min_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1,
+          "xl": 1
+        },
+        "max_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1,
+          "xl": 2
+        }
+      },
+      "width": 1,
+      "height": -4,
+      "startHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "endHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": -10
+        },
+        {
+          "terrain": 0,
+          "cost": 10
+        }
+      ],
+      "distance weight": 0.1,
+      "curveLen": 5,
+      "curveWeight": 0.1,
+      "noiseWeight": 0.5,
+      "noiseSmoothness": 0.5
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 11,
+      "scale": {
+        "x": 40,
+        "y": 20
+      },
+      "ranges": [
+        {
+          "min": 0.9,
+          "max": 1
+        }
+      ],
+      "multiplier": 2,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 0,
+        "max": 0
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 2,
+      "scale": {
+        "x": 30,
+        "y": 10
+      },
+      "ranges": [
+        {
+          "min": 0.9,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 0,
+        "max": 0
+      }
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 0,
+          "multiplier": 0
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 0,
+      "max": 0,
+      "ranges": [
+        {
+          "min": -8,
+          "max": 0
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 0,
+          "multiplier": 0
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 0,
+      "max": 0,
+      "ranges": [
+        {
+          "min": -8,
+          "max": 0
+        }
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 1,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 7,
+        "max": 32
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 27,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 6,
+        "max": 6
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 0,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0.6,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 6,
+        "max": 32
+      }
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 3
+      },
+      "range": {
+        "min": 5,
+        "max": 45
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 100
+        },
+        {
+          "terrain": 100,
+          "cost": 5
+        },
+        {
+          "terrain": 2,
+          "cost": 1
+        },
+        {
+          "terrain": 3,
+          "cost": 0
+        },
+        {
+          "terrain": 4,
+          "cost": 2000
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 3
+      },
+      "range": {
+        "min": 55,
+        "max": 95
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 100
+        },
+        {
+          "terrain": 100,
+          "cost": 5
+        },
+        {
+          "terrain": 2,
+          "cost": 1
+        },
+        {
+          "terrain": 3,
+          "cost": 0
+        },
+        {
+          "terrain": 4,
+          "cost": 2000
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "left-right",
+      "amount": {
+        "min": 2,
+        "max": 3
+      },
+      "range": {
+        "min": 30,
+        "max": 70
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 100
+        },
+        {
+          "terrain": 100,
+          "cost": 5
+        },
+        {
+          "terrain": 2,
+          "cost": 1
+        },
+        {
+          "terrain": 3,
+          "cost": 0
+        },
+        {
+          "terrain": 4,
+          "cost": 2000
+        }
+      ]
+    }
+  ],
+  "allowDynamicArmy": true,
+  "placeableObjectives": true,
+  "locales": {
+    "en": {
+      "name": "Moravian Valley",
+      "description": "A river passing through forested hills."
+    },
+    "es": {
+      "name": "Valle de Moravia",
+      "description": "Un río que atraviesa colinas boscosas."
+    },
+    "fr": {
+      "name": "Vallée morave",
+      "description": "Une rivière qui traverse des collines boisées."
+    },
+    "de": {
+      "name": "Mährisches Tal",
+      "description": "Ein Fluss, der durch bewaldete Hügel fließt."
+    },
+    "it": {
+      "name": "Valle morava",
+      "description": "Un fiume che attraversa colline boscose."
+    },
+    "pt": {
+      "name": "Vale da Morávia",
+      "description": "Um rio que atravessa colinas arborizadas."
+    },
+    "ru": {
+      "name": "Моравская долина",
+      "description": "Река, текущая среди лесистых холмов."
+    },
+    "uk": {
+      "name": "Моравська долина",
+      "description": "Річка, що тече серед лісистих пагорбів."
+    },
+    "pl": {
+      "name": "Dolina morawska",
+      "description": "Rzeka płynąca przez zalesione wzgórza."
+    },
+    "hu": {
+      "name": "Morva-völgy",
+      "description": "Erdős dombok között kanyargó folyó."
+    },
+    "el": {
+      "name": "Κοιλάδα της Μοραβίας",
+      "description": "Ένα ποτάμι που διασχίζει δασωμένους λόφους."
+    },
+    "tr": {
+      "name": "Moravya Vadisi",
+      "description": "Ormanlık tepelerin arasından geçen bir nehir."
+    },
+    "ar": {
+      "name": "وادي مورافيا",
+      "description": "نهر يشق طريقه بين تلال مكسوة بالغابات."
+    },
+    "hi": {
+      "name": "मोरावियाई घाटी",
+      "description": "जंगली पहाड़ियों से होकर बहती एक नदी।"
+    },
+    "id": {
+      "name": "Lembah Moravia",
+      "description": "Sungai yang melintasi perbukitan berhutan."
+    },
+    "th": {
+      "name": "หุบเขาโมราเวีย",
+      "description": "แม่น้ำที่ไหลผ่านเนินเขาที่เต็มไปด้วยป่า"
+    },
+    "vi": {
+      "name": "Thung lũng Moravia",
+      "description": "Một con sông chảy qua những ngọn đồi rừng."
+    },
+    "ja": {
+      "name": "モラヴィアの谷",
+      "description": "森の丘の間を流れる川。"
+    },
+    "kr": {
+      "name": "모라비아 계곡",
+      "description": "숲이 우거진 언덕 사이를 흐르는 강입니다."
+    },
+    "zh": {
+      "name": "摩拉维亚河谷",
+      "description": "一条河流穿过林木茂密的丘陵。"
+    }
+  }
+}

@@ -943,3 +943,31 @@ describe("RandomMapGenerator", () => {
     });
   });
 });
+
+describe("community random maps", () => {
+  const gameDataManager = GameDataManager.get("napoleonic");
+  const { TILE_SIZE, DEFAULT_BATTLE_TYPE } = gameDataManager.getGameConstants();
+
+  it.each([
+    "walled-city",
+    "farmlands",
+    "central-river",
+    "moravian-valley",
+    "rolling-hills",
+    "masurian-lakes",
+  ])("generates %s", (scenarioName) => {
+    const result = new RandomMapGenerator().generate({
+      scenario: gameDataManager.getScenario(scenarioName),
+      dynamicBattleType: DEFAULT_BATTLE_TYPE,
+      maxPlayers: 2,
+      tileSize: TILE_SIZE,
+      era: "napoleonic",
+    });
+    const tilesX = Math.floor(result.map.width / TILE_SIZE);
+    const tilesY = Math.floor(result.map.height / TILE_SIZE);
+    expect(tilesX).toBeGreaterThan(0);
+    expect(result.map.terrains).toHaveLength(tilesX);
+    expect(result.map.heightMap).toHaveLength(tilesX);
+    expect(result.map.terrains[0]).toHaveLength(tilesY);
+  });
+});
