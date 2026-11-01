@@ -836,9 +836,9 @@ describe("Napoleonic balance", () => {
         ["scoutCavalry", 0.3, 0.1],
         ["heavyCavalry", 0.3, 0.1],
         ["artillery", 0.6, 0.6],
-        ["infantry", 0.6, 0.03],
-        ["guardsInfantry", 0.6, 0.03],
-        ["militiaInfantry", 0.6, 0.03],
+        ["infantry", 0.6, 0.3],
+        ["guardsInfantry", 0.6, 0.3],
+        ["militiaInfantry", 0.6, 0.3],
         ["skirmishInfantry", 0.6, 0.2],
       ] as const) {
         expect(gameDataManager.getMovementModifier(terrain, category)).toBe(movement);
