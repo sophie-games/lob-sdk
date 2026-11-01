@@ -195,6 +195,10 @@
     "title": "Order type applies to selection",
     "description": "On: changing the movement type also retypes the selected units' current orders. Off: it only sets the type for the next order you draw (classic)."
   },
+  "doubleClickRun": {
+    "title": "Double right-click runs",
+    "description": "On desktop, double right-clicking the ground, an ally or an enemy gives the selected units that order at a run."
+  },
   "chatVisibility": {
     "title": "Chat",
     "description": "Team only hides the messages sent to all players.",

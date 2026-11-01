@@ -1085,7 +1085,9 @@
       "strength": "强度",
       "iterations": "迭代次数",
       "channelArea": "河道面积",
-      "maxSize": "最大尺寸"
+      "maxSize": "最大尺寸",
+      "names": "名称",
+      "minSize": "最小尺寸"
     },
     "instructionType": {
       "terrainNoise": "地形噪声",
@@ -1100,7 +1102,8 @@
       "symmetry": "对称",
       "fields": "田地",
       "erosion": "侵蚀",
-      "replaceSmallClusters": "替换小块区域"
+      "replaceSmallClusters": "替换小块区域",
+      "placeNames": "地名"
     },
     "objectiveType": {
       "small": "小",

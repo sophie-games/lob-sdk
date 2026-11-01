@@ -88,4 +88,24 @@ describe("SizedMapGenerator", () => {
     expect(forestTiles(forest)).toBeGreaterThan(0);
     expect(forestTiles([...forest, replace])).toBe(0);
   });
+
+  it("names the forests with PLACE_NAMES, on forest tiles", () => {
+    const placeNames = {
+      type: InstructionType.PlaceNames,
+      terrains: [TerrainType.Forest],
+      names: ["Hollwald", "Bois de Vernay"],
+      minSize: 1,
+    };
+    const { map } = new RandomMapGenerator().generate({
+      ...props,
+      scenario: { ...scenario, instructions: [...scenario.instructions!, placeNames] } as Scenario,
+    });
+
+    expect(map.labels!.map((label) => label.text).sort()).toEqual(["Bois de Vernay", "Hollwald"]);
+    for (const { pos } of map.labels!) {
+      expect(map.terrains[Math.floor(pos.x / props.tileSize)][Math.floor(pos.y / props.tileSize)]).toBe(
+        TerrainType.Forest,
+      );
+    }
+  });
 });
