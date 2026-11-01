@@ -222,10 +222,10 @@
   },
   "hudBarPosition": {
     "title": "Układ przycisków",
-    "description": "Gdzie stoją przyciski bitwy na telefonie. Pasek na dole i Boki zmieniają tylko telefon trzymany pionowo.",
-    "bottom": "Pasek na dole",
+    "description": "Gdzie stoją przyciski bitwy na telefonie trzymanym pionowo.",
+    "bottom": "Dwa rzędy",
     "sides": "Boki",
-    "classic": "Klasyczny (1.7)"
+    "oneRow": "Jeden rząd"
   },
   "hudKeys": {
     "description": "Wyłączony przycisk czeka w Narzędziach. Zatwierdź Rozkazy, Narzędzia i Menu zawsze zostają na ekranie.",

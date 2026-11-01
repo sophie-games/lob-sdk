@@ -245,10 +245,10 @@
   },
   "hudBarPosition": {
     "title": "按键布局",
-    "description": "手机上战斗按键的位置。底部栏和两侧只改变竖握时的布局。",
-    "bottom": "底部栏",
+    "description": "竖握手机时战斗按键的位置。",
+    "bottom": "两排",
     "sides": "两侧",
-    "classic": "经典 (1.7)"
+    "oneRow": "一排"
   },
   "hudKeys": {
     "description": "关闭的按键会放在工具中。提交所有指令、工具和菜单始终显示在屏幕上。",
