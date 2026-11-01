@@ -223,8 +223,9 @@
   "hudBarPosition": {
     "title": "ボタンの配置",
     "description": "縦持ちのスマートフォンでの戦闘ボタンの位置。",
-    "bottom": "下部バー",
-    "sides": "左右"
+    "bottom": "2段",
+    "sides": "左右",
+    "oneRow": "1段"
   },
   "hudKeys": {
     "description": "オフにしたボタンはツールの中にあります。命令を提出、ツール、メニューは常に画面に表示されます。",

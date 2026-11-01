@@ -293,8 +293,9 @@
   "hudBarPosition": {
     "title": "Key layout",
     "description": "Where the battle keys stand on a phone held upright.",
-    "bottom": "Bottom bar",
-    "sides": "Sides"
+    "bottom": "Two rows",
+    "sides": "Sides",
+    "oneRow": "One row"
   },
   "hudKeys": {
     "description": "A key that is off waits in Tools. Submit orders, Tools and Menu always stay on screen.",
