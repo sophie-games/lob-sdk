@@ -19,7 +19,7 @@ describe("Napoleonic balance", () => {
       );
     }
     expect(gameDataManager.getRotationSpeedModifier(TerrainType.Road)).toBe(0.75);
-    expect(gameDataManager.getGameConstants().HAS_TAKEN_FIRE_SPEED_MODIFIER).toBe(-0.15);
+    expect(gameDataManager.getGameConstants().HAS_TAKEN_FIRE_SPEED_MODIFIER).toBe(-0.05);
     expect(gameDataManager.getGameRules().organization?.routingOrgRecoveryModifier).toBe(-0.4);
     for (const category of ["midCavalry", "lightCavalry", "scoutCavalry", "heavyCavalry"] as const) {
       expect(gameDataManager.getRunSpeedModifier(TerrainType.Forest, category)).toBe(0);
