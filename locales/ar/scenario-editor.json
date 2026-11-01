@@ -1104,7 +1104,9 @@
       "strength": "القوة",
       "iterations": "التكرارات",
       "channelArea": "مساحة المجرى",
-      "maxSize": "الحجم الأقصى"
+      "maxSize": "الحجم الأقصى",
+      "names": "الأسماء",
+      "minSize": "الحجم الأدنى"
     },
     "instructionType": {
       "terrainNoise": "ضجيج التضاريس",
@@ -1119,7 +1121,8 @@
       "symmetry": "تناظر",
       "fields": "حقول",
       "erosion": "تعرية",
-      "replaceSmallClusters": "استبدال التجمعات الصغيرة"
+      "replaceSmallClusters": "استبدال التجمعات الصغيرة",
+      "placeNames": "أسماء الأماكن"
     },
     "objectiveType": {
       "small": "صغير",

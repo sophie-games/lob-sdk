@@ -1076,7 +1076,9 @@
       "strength": "ความแรง",
       "iterations": "จำนวนรอบ",
       "channelArea": "พื้นที่ร่องน้ำ",
-      "maxSize": "ขนาดสูงสุด"
+      "maxSize": "ขนาดสูงสุด",
+      "names": "ชื่อ",
+      "minSize": "ขนาดขั้นต่ำ"
     },
     "instructionType": {
       "terrainNoise": "นอยส์ภูมิประเทศ",
@@ -1091,7 +1093,8 @@
       "symmetry": "สมมาตร",
       "fields": "ทุ่งนา",
       "erosion": "การกัดเซาะ",
-      "replaceSmallClusters": "แทนที่กลุ่มเล็ก"
+      "replaceSmallClusters": "แทนที่กลุ่มเล็ก",
+      "placeNames": "ชื่อสถานที่"
     },
     "objectiveType": {
       "small": "เล็ก",

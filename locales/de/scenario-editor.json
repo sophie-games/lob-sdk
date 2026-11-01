@@ -1076,7 +1076,9 @@
       "strength": "Stärke",
       "iterations": "Iterationen",
       "channelArea": "Rinnenfläche",
-      "maxSize": "Max. Größe"
+      "maxSize": "Max. Größe",
+      "names": "Namen",
+      "minSize": "Mindestgröße"
     },
     "instructionType": {
       "terrainNoise": "Geländerauschen",
@@ -1091,7 +1093,8 @@
       "symmetry": "Symmetrie",
       "fields": "Felder",
       "erosion": "Erosion",
-      "replaceSmallClusters": "Kleine Flächen ersetzen"
+      "replaceSmallClusters": "Kleine Flächen ersetzen",
+      "placeNames": "Ortsnamen"
     },
     "objectiveType": {
       "small": "Klein",

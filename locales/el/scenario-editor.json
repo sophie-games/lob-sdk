@@ -1076,7 +1076,9 @@
       "strength": "Ένταση",
       "iterations": "Επαναλήψεις",
       "channelArea": "Έκταση κοίτης",
-      "maxSize": "Μέγ. μέγεθος"
+      "maxSize": "Μέγ. μέγεθος",
+      "names": "Ονόματα",
+      "minSize": "Ελάχιστο μέγεθος"
     },
     "instructionType": {
       "terrainNoise": "Θόρυβος εδάφους",
@@ -1091,7 +1093,8 @@
       "symmetry": "Συμμετρία",
       "fields": "Χωράφια",
       "erosion": "Διάβρωση",
-      "replaceSmallClusters": "Αντικατάσταση μικρών συστάδων"
+      "replaceSmallClusters": "Αντικατάσταση μικρών συστάδων",
+      "placeNames": "Τοπωνύμια"
     },
     "objectiveType": {
       "small": "Μικρός",

@@ -1076,7 +1076,9 @@
       "strength": "तीव्रता",
       "iterations": "पुनरावृत्तियाँ",
       "channelArea": "धारा क्षेत्र",
-      "maxSize": "अधिकतम आकार"
+      "maxSize": "अधिकतम आकार",
+      "names": "नाम",
+      "minSize": "न्यूनतम आकार"
     },
     "instructionType": {
       "terrainNoise": "भूभाग नॉइज़",
@@ -1091,7 +1093,8 @@
       "symmetry": "समरूपता",
       "fields": "खेत",
       "erosion": "अपरदन",
-      "replaceSmallClusters": "छोटे समूह बदलें"
+      "replaceSmallClusters": "छोटे समूह बदलें",
+      "placeNames": "स्थानों के नाम"
     },
     "objectiveType": {
       "small": "छोटा",

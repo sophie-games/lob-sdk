@@ -1076,7 +1076,9 @@
       "strength": "強さ",
       "iterations": "反復回数",
       "channelArea": "流路面積",
-      "maxSize": "最大サイズ"
+      "maxSize": "最大サイズ",
+      "names": "名前",
+      "minSize": "最小サイズ"
     },
     "instructionType": {
       "terrainNoise": "地形ノイズ",
@@ -1091,7 +1093,8 @@
       "symmetry": "対称",
       "fields": "畑",
       "erosion": "侵食",
-      "replaceSmallClusters": "小さな塊を置換"
+      "replaceSmallClusters": "小さな塊を置換",
+      "placeNames": "地名"
     },
     "objectiveType": {
       "small": "小",

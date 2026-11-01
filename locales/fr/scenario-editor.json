@@ -1089,7 +1089,9 @@
       "strength": "Force",
       "iterations": "Itérations",
       "channelArea": "Surface de ravine",
-      "maxSize": "Taille max."
+      "maxSize": "Taille max.",
+      "names": "Noms",
+      "minSize": "Taille minimale"
     },
     "instructionType": {
       "terrainNoise": "Bruit de terrain",
@@ -1104,7 +1106,8 @@
       "symmetry": "Symétrie",
       "fields": "Champs",
       "erosion": "Érosion",
-      "replaceSmallClusters": "Remplacer les petits amas"
+      "replaceSmallClusters": "Remplacer les petits amas",
+      "placeNames": "Noms de lieux"
     },
     "objectiveType": {
       "small": "Petit",
