@@ -575,6 +575,8 @@ export interface GameState<UsePartialIds extends boolean = false> {
   pendingTriggerOrders?: TriggerOrderSpec[];
   /** Trigger variables carried from planning into resolution; authoritative state only. */
   triggerVars?: Record<string, number>;
+  /** Unit HP is on 1.8's Napoleonic scale. Absent on 1.7 saves, which are rescaled on load. */
+  hpRescaled?: true;
 }
 
 /**
