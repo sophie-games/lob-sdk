@@ -99,6 +99,30 @@ describe("PlaceNamesExecutor", () => {
     expect(name(terrains, { names }, { seed: 7 })).toEqual(name(terrains, { names }, { seed: 7 }));
   });
 
+  it("joins patches up to maxDistance tiles apart into one place", () => {
+    // Two hamlets either side of a two-tile road: their nearest tiles are 3 apart.
+    const terrains = grid([[B, B, G, G, B, B]]);
+    const names = ["Aubach", "Celle"];
+
+    expect(name(terrains, { names })).toHaveLength(2);
+    expect(name(terrains, { names, maxDistance: 2 })).toHaveLength(2);
+    const joined = name(terrains, { names, maxDistance: 3 });
+    expect(joined).toHaveLength(1);
+    expect(terrains[Math.floor(joined[0].pos.x / TILE)][0]).toBe(B);
+  });
+
+  it("measures maxDistance across a diagonal as a straight line", () => {
+    const terrains = grid([
+      [B, G, G],
+      [G, G, G],
+      [G, G, B],
+    ]);
+
+    // The two tiles are 2.83 tiles apart, centre to centre.
+    expect(name(terrains, { names: ["Aubach", "Celle"], maxDistance: 2 })).toHaveLength(2);
+    expect(name(terrains, { names: ["Aubach", "Celle"], maxDistance: 3 })).toHaveLength(1);
+  });
+
   it("places labels in whole-map pixels when the instruction is bounded", () => {
     expect(name(grid([[B]]), {}, { offsetX: 3, offsetY: 2 })).toEqual([
       { text: "Aubach", pos: { x: 35, y: 25 } },
