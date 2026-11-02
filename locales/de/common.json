@@ -492,15 +492,15 @@
   "gameTips": {
     "victoryPoints": {
       "title": "Siegpunkte",
-      "description": "Verluste und Ziele beeinflussen die Siegpunkte. Schütze deine Truppen und kämpfe um Ziele, um aufzuholen."
+      "description": "Du fällst bei den Siegpunkten zurück. Jeder Verlust, den du erleidest, und jedes Ziel, das der Feind hält, kostet dich Punkte. Öffne die Schlachtübersicht, um zu sehen, woher der Rückstand kommt."
     },
     "blockedFire": {
       "title": "Feuer blockiert",
       "description": "Deine Truppen blockieren die Schüsse dieser Batterie. Räume ihre Schusslinie frei, damit sie feuern kann."
     },
     "organization": {
-      "title": "Organisation",
-      "description": "Desorganisierte Einheiten können fliehen. Ziehe sie aus dem Kampf zurück, damit sie sich vor dem nächsten Angriff erholen."
+      "title": "Erschütterte Einheit",
+      "description": "Die Organisation dieser Einheit ist niedrig. Sie kämpft schlechter, und eine Einheit ohne Organisation flieht. Halte sie aus dem stärksten Feuer heraus und im Organisationsradius einer standfesten befreundeten Einheit, bis sie sich erholt hat."
     },
     "range": {
       "title": "Schussweite",
@@ -537,7 +537,19 @@
     },
     "terrain": {
       "title": "Nutze das Gelände",
-      "description": "Gelände verändert Bewegung und Kampf. Unter <info>Info</info> siehst du die aktuellen Modifikatoren einer Einheit und kannst passendes Gelände wählen."
+      "description": "Der Boden unter dieser Einheit verändert, wie sie sich bewegt und kämpft. Wälder, Gebäude und Felder bremsen sie, geben ihr aber Deckung; offenes Gelände ist schneller. Öffne <info>Info</info>, um genau zu sehen, was gilt."
+    },
+    "howToWin": {
+      "title": "Wie eine Schlacht gewonnen wird",
+      "description": "Der Balken oben wiegt die Siegpunkte beider Seiten gegeneinander ab. Ziele zu halten und dem Feind Verluste zuzufügen neigt ihn zu deinen Gunsten, und die Seite, der die Punkte ausgehen, ist geschlagen. Klicke auf den Balken, um zu sehen, woher die Punkte kommen."
+    },
+    "flags": {
+      "title": "Fahnen auf dem Feld",
+      "description": "Die auf dem Feld aufgepflanzten Fahnen sind Ziele: grau, solange niemand sie hält, danach in der Farbe der Seite, die sie hält. Die Standarte hinter jeder deiner Divisionen gehört zu dieser Division: Ein Klick darauf wählt die ganze Division aus, außer eine Einheit steht direkt darunter, denn dann bekommt sie den Klick."
+    },
+    "findTroops": {
+      "title": "Finde deine Truppen",
+      "description": "Die Kamera bleibt, wo du sie lässt, daher kann deine Linie aus dem Bild geraten, während sich die Schlacht verlagert. Doppelklicke auf die Kachel einer Division unten am Bildschirm oder auf ihre Zeile in der Schlachtordnung, um die Kamera zu diesen Truppen zurückzubringen."
     },
     "basicsSelect": {
       "title": "Befehle geben",
@@ -549,7 +561,7 @@
     },
     "basicsFormations": {
       "title": "Formationen",
-      "description": "Die Formation bestimmt Frontbreite und Feuerkraft. Die <column>Kolonne</column> marschiert schnell, die <line>Linie</line> richtet die meisten Musketen nach vorn, das <square>Karree</square> schützt jede Seite vor Kavallerie."
+      "description": "Die Formation bestimmt Frontbreite und Feuerkraft. Die <column>Kolonne</column> marschiert schnell, die <line>Linie</line> bringt die meisten Musketen nach vorn, das <square>Karree</square> schützt jede Seite, wenn Kavallerie eine Flanke oder den Rücken bedroht."
     },
     "basicsSubmit": {
       "title": "Runde abschicken",
@@ -561,95 +573,95 @@
     },
     "skirmisherVsArtillery": {
       "title": "Schützen gegen Artillerie",
-      "description": "Feindbatterie in Reichweite deines Plänklers. Feuer auf die Bedienung. Plänkler zermalmen ungeschützte Artillerie, bevor sie antwortet."
+      "description": "Eine feindliche Batterie ist in Reichweite deiner Plänkler. Feuere auf ihre Bedienung: Plänkler reiben ungeschützte Geschütze auf, bevor diese antworten können."
     },
     "skirmisherVsCavalry": {
       "title": "Kavallerie nahe deinen Schützen",
-      "description": "Feindkavallerie vernichtet deinen Plänkler, wenn er bleibt. <fallback>Rückzug</fallback> und Deckung."
+      "description": "Feindliche Kavallerie kann deine Plänkler erreichen, und im offenen Gelände überleben sie keinen Sturmangriff. Zieh sie in Deckung oder zu deinen eigenen Linien <fallback>zurück</fallback>."
     },
     "skirmisherVsInfantry": {
       "title": "Infanterie nahe deinen Schützen",
-      "description": "Feindinfanterie auf deinem Plänkler. Plänkler brechen im Nahkampf. Weg vor den Bajonetten."
+      "description": "Feindliche Infanterie rückt auf deine Plänkler vor, und Plänkler sind im Nahkampf schwach. Zieh sie zurück, bevor die Bajonette sie erreichen."
     },
     "infantryFormLine": {
       "title": "Linie formieren",
-      "description": "Stelle diese Einheiten in <line>Linie</line>. Bei Feindinfanterie in Musketenreichweite oder Kavallerie von vorn gibt Linie meiste Musketen nach vorn und beste Abwehr gegen Salven. Kein Karree gegen Frontsturm, du verlierst Feuerkraft."
+      "description": "Stelle diese Einheiten in <line>Linie</line> auf. Mit feindlicher Infanterie in Musketenreichweite oder Kavallerie, die frontal anrückt, bringt die Linie die meisten Musketen nach vorn und hält Salven am besten stand. Gegen einen Frontalangriff ist die Linie besser als das Karree, das die Hälfte seiner Feuerkraft verlieren würde."
     },
     "infantryVsCavalryFrontal": {
       "title": "Die Linie halten",
-      "description": "Feindliche Kavallerie greift die Front deiner Infanterie an, aber sie haben Befehle in der Warteschlange. <removeOrders>Lösche</removeOrders> sie, damit die Linie steht und feuert, statt unter die Hufe zu laufen."
+      "description": "Feindliche Kavallerie greift die Front deiner Infanterie an, aber deine Infanterie hat noch Befehle in der Warteschlange. <removeOrders>Lösche</removeOrders> sie, damit die Linie steht und feuert, statt in den Angriff hineinzumarschieren."
     },
     "infantryVsCavalryFlank": {
       "title": "Karree bilden",
-      "description": "Kavallerie an Flanke oder Rücken deiner Infanterie. Eine Linie wird von der Seite überrollt. Forme <square>Karree</square> auf jeder markierten Einheit, damit jede Seite Musketen hat."
+      "description": "Feindliche Kavallerie kommt auf die Flanke oder den Rücken deiner Infanterie zu, und eine von der Seite getroffene Linie wird niedergeritten. Bilde ein <square>Karree</square>, damit jede Seite Musketen nach außen hat."
     },
     "infantryBayonetCharge": {
       "title": "Bajonettangriff",
-      "description": "Schwache Feindinfanterie in Angriffsreichweite. <column>Kolonne</column> formen und <run>hineinlaufen</run>. Bajonett in Kolonne beim Kontakt bricht sie."
+      "description": "Schwache feindliche Infanterie ist in Angriffsreichweite. Bilde eine <column>Kolonne</column> und <run>lauf</run> in sie hinein: Ein Bajonettangriff in Kolonne bricht sie beim Aufprall."
     },
     "infantryFallback": {
       "title": "Diese Einheit zurückziehen",
-      "description": "Zusammenhalt dieser Einheit gebrochen, eine Salve mehr und sie flieht. Zieh sie raus, bevor die Linie reißt."
+      "description": "Diese Einheit steht kurz vor dem Zusammenbruch: Eine weitere Salve könnte sie in die Flucht schlagen. Zieh sie jetzt aus der Linie, bevor ihre Flucht die Einheiten neben ihr erschüttert."
     },
     "infantryVsSkirmishers": {
       "title": "Infanterie gegen Schützen",
-      "description": "Feindliche Plänkler sind nah und keine Kavallerie ist verfügbar. Rücke <walk>im Schritt</walk> vor und zwinge sie in den Nahkampf, wo sie am schwächsten sind."
+      "description": "Feindliche Plänkler sind nah, und du hast keine Kavallerie, die du schicken kannst. Rücke <walk>im Schritt</walk> vor und zwinge sie in den Nahkampf, wo Plänkler am schwächsten sind."
     },
     "infantryVsArtillery": {
       "title": "Infanterie gegen Artillerie",
-      "description": "Feindliche Geschütze sind nah und ungedeckt. <run>Laufe</run> direkt in die Bedienung, bevor sie schwenken und Kartätsche feuern kann."
+      "description": "Feindliche Geschütze sind nah, und nichts schirmt sie ab. <run>Lauf</run> direkt auf die Bedienung zu, bevor sie schwenken und Kartätschen feuern kann."
     },
     "infantryColumnMarch": {
       "title": "In Kolonne marschieren",
-      "description": "Keine Feinde sind in der Nähe dieser Einheit. Wechsle für schnelleres Marschieren in <column>Kolonne</column> und bilde vor Feindkontakt <line>Linie</line>."
+      "description": "Kein Feind ist in der Nähe dieser Einheit. Wechsle in <column>Kolonne</column>, um schneller zu marschieren, und bilde vor dem Kontakt wieder <line>Linie</line>."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Kavallerie gegen schwächere Kavallerie",
-      "description": "Feindkavallerie in Angriffsreichweite und erschüttert, deine Pferde frischer. Nutze es: stürme, bevor sie sich fängt."
+      "description": "Die feindliche Kavallerie in Angriffsreichweite ist erschüttert, und deine Reiter sind frischer. Greif jetzt an, bevor sie sich erholt."
     },
     "cavalryVsEqualCavalry": {
       "title": "Kavallerie gegen ebenbürtige Kavallerie",
-      "description": "Feindkavallerie im Kontakt und ähnlich fest wie deine. Verschwende keine Ausdauer auf eine aussichtslose Attacke. <walk>Im Schritt</walk> nähern und im Nahkampf ausgleichen."
+      "description": "Die feindliche Kavallerie im Kontakt ist etwa so standfest wie deine, also würde ein Angriff Ausdauer kosten, ohne etwas zu gewinnen. Nähere dich <walk>im Schritt</walk> und kämpfe es zu gleichen Bedingungen aus."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Kavallerie gegen stärkere Kavallerie",
-      "description": "Feindkavallerie im Kontakt und fester als deine, Nahkampf hier verloren. Abbrechen und neu formieren, bevor sie sich festbeißt."
+      "description": "Die feindliche Kavallerie im Kontakt ist standfester als deine, und ein Nahkampf hier wäre verloren. Löse dich vom Feind und formiere dich neu, bevor er den Angriff fortsetzt."
     },
     "cavalryVsInfantryFlank": {
       "title": "Die Flanke angreifen",
-      "description": "Flanke der Feindinfanterie offen und ähnlich fest wie du. Jetzt zählt ein sauberer Sturm. Seite treffen, nicht die Front."
+      "description": "Die Flanke der feindlichen Infanterie ist offen, und sie ist nicht standfester als deine Reiter. Ein Angriff in die Seite bricht sie, ein Angriff in die Front nicht."
     },
     "cavalryVsShakenInfantry": {
       "title": "Kavallerie gegen erschütterte Infanterie",
-      "description": "Feindinfanterie hält kaum noch, Zusammenhalt gebrochen. Ein sauberer Sturm walzt sie weg, bevor sie sich sammelt."
+      "description": "Die Organisation dieser feindlichen Infanterie ist fast aufgebraucht. Ein sauberer Angriff reitet sie nieder, bevor sie sich sammeln kann."
     },
     "cavalryVsSkirmishers": {
       "title": "Kavallerie gegen Schützen",
-      "description": "Plänkler im Freien mit freier Bahn zu deinen Pferden. Sie brechen im Nahkampf und entkommen keiner Attacke. Überrolle sie vor der Deckung."
+      "description": "Feindliche Plänkler stehen ungedeckt im offenen Gelände, mit freier Bahn für deine Reiter. Sie sind im Nahkampf schwach und können einem Angriff nicht davonlaufen, also reite sie nieder, bevor sie Deckung erreichen."
     },
     "cavalryVsArtillery": {
       "title": "Kavallerie gegen Artillerie",
-      "description": "Feindgeschütze ohne Schirm dazwischen. Sturm auf offene Bedienung beendet sie sofort. Freundliche Linie dazwischen und du blutest gegen sie."
+      "description": "Feindliche Geschütze stehen da, ohne dass etwas sie vor deinen Reitern abschirmt. Ein Angriff auf eine ungeschützte Bedienung vernichtet die Batterie, aber wenn eine Linie ihrer Infanterie dazwischentritt, bricht sich der Angriff stattdessen an ihr."
     },
     "cavalryPursueRouter": {
       "title": "Fliehende verfolgen",
-      "description": "Feind bricht und flieht, ohne Unterstützung, die die Verfolgung stoppt. Kavallerie verfolgt endgültig. Erledige ihn, bevor er sich sammelt."
+      "description": "Diese feindliche Einheit ist gebrochen und flieht, ohne Unterstützung, die nah genug ist, um eine Verfolgung aufzuhalten. Verfolge sie mit Kavallerie, um sie zu erledigen, bevor sie sich neu formiert."
     },
     "cavalryFallbackFromInfantry": {
       "title": "Kavallerie im Musketenfeuer",
-      "description": "Deine Kavallerie sitzt in Musketenreichweite gesunder Linie. Weg, bevor sie deine Pferde zermahlt; suche erschütterte Ziele oder offene Flanken."
+      "description": "Deine Kavallerie ist in Musketenreichweite standfester Linieninfanterie, die sie aufreiben wird. Zieh dich zurück und suche stattdessen erschütterte Einheiten oder offene Flanken."
     },
     "enemyInfantrySquare": {
       "title": "Feindliches Karree",
-      "description": "Die feindliche Infanterie hat Karree gebildet. Jede Seite hat Musketen draußen. Halte deine Kavallerie fern und suche nach Linien- oder Kolonnenzielen mit einer offenen Flanke."
+      "description": "Die feindliche Infanterie hat ein Karree gebildet, mit Musketen auf jeder Seite. Halte deine Kavallerie davon fern und suche Infanterie in Linie oder Kolonne mit einer offenen Flanke."
     },
     "artilleryFireAndAdvance": {
       "title": "Feuern und vorrücken",
-      "description": "Feind weit genug, dass du beim Feuern vorgehen kannst. Stelle diese Artillerie auf <fireAndAdvance>Feuern und Vorrücken</fireAndAdvance>."
+      "description": "Der Feind ist weit genug entfernt, dass diese Batterie beim Feuern weiter vorrücken kann. Stelle sie auf <fireAndAdvance>Feuern und Vorrücken</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "Halten und feuern",
-      "description": "Feind nah, dein Geschütz hat freien Schuss, marschiert aber noch. Marsch stoppen und Einheit drehen für Autofeuer."
+      "description": "Der Feind ist nah und diese Batterie hat freies Schussfeld, aber sie bewegt sich noch. Halte sie an und richte sie auf das Ziel aus, damit das <autofire>automatische Feuern</autofire> greifen kann."
     },
     "artilleryCanisterRange": {
       "title": "Fast in Kartätschenreichweite",
@@ -657,15 +669,15 @@
     },
     "pushObjective": {
       "title": "Nutze deinen Vorsprung",
-      "description": "Du führst. Drücke zum feindlichen Ziel mit allem Gelernten. Es zu nehmen verhindert jedes Comeback."
+      "description": "Du führst. Stoße zum feindlichen Ziel vor: Es einzunehmen vergrößert den Abstand und lässt dem Feind wenig Raum für eine Aufholjagd."
     },
     "holdObjective": {
-      "title": "Halte dein Ziel",
-      "description": "Du liegst zurück. Zieh zu deinem Ziel und halte es mit dem Gelernten. Verteidigen ist günstiger als Rückeroberung."
+      "title": "Sichere dein Ziel",
+      "description": "Du liegst nach Punkten zurück, und auch noch dieses Ziel zu verlieren würde den Abstand vergrößern. Lass Truppen darauf stehen und suche dann ein feindliches Ziel oder eine ungedeckte Einheit, um die Punkte zurückzuholen."
     },
     "runWithoutStamina": {
-      "title": "Lass sie laufen",
-      "description": "Diese Einheit hat keine Ausdauer, also kostet sie <run>Laufen</run> nichts. Lass sie auf einem langen Weg ohne Feind in der Nähe laufen. Direkt nach dem Laufen kann sie nicht feuern, und in Bewegung ist sie leichte Beute für einen Sturmangriff."
+      "title": "Laufen ohne Ermüdung",
+      "description": "Diese Art Einheit ermüdet nicht, also kostet sie <run>Laufen</run> nichts. Lass sie auf einem langen Weg ohne Feind in der Nähe laufen. Direkt nach dem Laufen kann sie nicht feuern, und in Bewegung ist sie leichte Beute für einen Sturmangriff."
     },
     "routing": {
       "title": "Eine Einheit ist gebrochen",
@@ -704,7 +716,7 @@
       "description": "Eine feindliche Einheit steht im Bereich dieses Ziels. Solange beide Seiten dort Truppen haben, kommt die Eroberung nicht voran und der Fortschritt geht verloren. Vertreibe oder breche sie, um das Ziel einzunehmen."
     },
     "lineOnRoad": {
-      "title": "In Kolonne marschieren",
+      "title": "Kolonne auf der Straße",
       "description": "Dieses Bataillon marschiert in <line>Linie</line> eine Straße entlang. Eine Straße beschleunigt nur eine Einheit, die auf ihr steht, und eine Linie ist zu breit dafür. Wechsle für den Marsch in <column>Kolonne</column>."
     },
     "garrisonStrongpoint": {

@@ -491,15 +491,15 @@
   "gameTips": {
     "victoryPoints": {
       "title": "Poin kemenangan",
-      "description": "Korban dan sasaran memengaruhi poin kemenangan. Lindungi pasukan dan perebutkan sasaran untuk mengejar ketertinggalan."
+      "description": "Anda tertinggal dalam poin kemenangan. Setiap korban yang Anda derita dan setiap sasaran yang dikuasai musuh mengurangi poin Anda. Buka Ringkasan Pertempuran untuk melihat dari mana selisih itu berasal."
     },
     "blockedFire": {
       "title": "Tembakan terhalang",
       "description": "Pasukanmu menghalangi tembakan baterai ini. Kosongkan jalur tembaknya agar dapat menembak."
     },
     "organization": {
-      "title": "Organisasi",
-      "description": "Unit yang kacau dapat melarikan diri. Tarik dari pertempuran agar pulih sebelum menyerang lagi."
+      "title": "Unit goyah",
+      "description": "Organisasi unit ini rendah. Ia bertempur lebih buruk, dan unit yang kehabisan organisasi akan melarikan diri. Jauhkan dari tembakan paling sengit dan tetap di dalam radius organisasi unit kawan yang kokoh sampai ia pulih."
     },
     "range": {
       "title": "Jarak tembak",
@@ -536,7 +536,19 @@
     },
     "terrain": {
       "title": "Manfaatkan medan",
-      "description": "Medan mengubah pergerakan dan pertempuran. Buka <info>Info</info> untuk melihat pengubah unit saat ini dan memilih medan yang sesuai."
+      "description": "Medan di bawah unit ini memengaruhi cara ia bergerak dan bertempur. Hutan, bangunan, dan ladang memperlambatnya tetapi memberi perlindungan; medan terbuka lebih cepat. Buka <info>Info</info> untuk melihat apa saja yang berlaku."
+    },
+    "howToWin": {
+      "title": "Cara memenangkan pertempuran",
+      "description": "Bilah di bagian atas menimbang poin kemenangan kedua pihak. Menguasai sasaran dan menimbulkan korban membuatnya condong ke pihak Anda, dan pihak yang kehabisan poin akan kalah. Klik bilah itu untuk melihat dari mana poin tersebut berasal."
+    },
+    "flags": {
+      "title": "Bendera di medan",
+      "description": "Bendera yang tertancap di medan adalah sasaran: abu-abu selama belum dikuasai siapa pun, lalu berwarna seperti pihak yang menguasainya. Panji di belakang setiap divisi Anda adalah milik divisi itu sendiri: mengekliknya memilih seluruh divisi, kecuali ada unit tepat di bawahnya, yang akan menerima klik tersebut."
+    },
+    "findTroops": {
+      "title": "Temukan pasukan Anda",
+      "description": "Kamera tetap berada di tempat Anda meninggalkannya, sehingga barisan Anda bisa bergeser keluar layar seiring jalannya pertempuran. Klik ganda kartu sebuah divisi di bagian bawah layar, atau barisnya dalam susunan tempur, untuk membawa kamera kembali ke pasukan tersebut."
     },
     "basicsSelect": {
       "title": "Memberi perintah",
@@ -548,7 +560,7 @@
     },
     "basicsFormations": {
       "title": "Formasi",
-      "description": "Formasi menentukan lebar depan dan daya tembak. <column>Kolom</column> berbaris cepat, <line>baris</line> mengarahkan paling banyak musket ke depan, <square>kotak</square> melindungi semua sisi dari kavaleri."
+      "description": "Formasi menentukan lebar depan dan daya tembak. <column>Kolom</column> berbaris cepat, <line>baris</line> mengarahkan paling banyak musket ke depan, <square>kotak</square> melindungi semua sisi saat kavaleri mengancam sayap atau bagian belakang."
     },
     "basicsSubmit": {
       "title": "Mengirim giliran",
@@ -560,95 +572,95 @@
     },
     "skirmisherVsArtillery": {
       "title": "Penembak lawan artileri",
-      "description": "Baterai musuh dalam jangkauan skirmisher Anda. Tuangkan api ke kru senjata. Para skirmisher menghancurkan artileri yang tidak terlindungi sebelum dapat menjawab."
+      "description": "Sebuah baterai musuh berada dalam jangkauan skirmisher Anda. Tembaki awaknya: skirmisher menggerus meriam yang tidak terlindungi sebelum meriam itu sempat membalas."
     },
     "skirmisherVsCavalry": {
       "title": "Kavaleri dekat penembak Anda",
-      "description": "Skirmisher Anda akan dihancurkan oleh kavaleri musuh jika mempertahankan posisi tersebut. <fallback>Mundur</fallback> dan cari perlindungan."
+      "description": "Kavaleri musuh dapat mencapai skirmisher Anda, dan mereka tidak akan selamat dari serbuan di tempat terbuka. <fallback>Mundur</fallback> ke perlindungan atau ke barisan Anda sendiri."
     },
     "skirmisherVsInfantry": {
       "title": "Infanteri dekat penembak Anda",
-      "description": "Infanteri musuh di atas skirmisher Anda. Skirmishers melipat dalam jarak dekat. Tarik kembali sebelum bayonet mencapainya."
+      "description": "Infanteri musuh mendekati skirmisher Anda, dan skirmisher lemah dalam pertarungan jarak dekat. Tarik mereka mundur sebelum bayonet mencapai mereka."
     },
     "infantryFormLine": {
       "title": "Bentuk baris",
-      "description": "Ganti satuan-satuan ini menjadi <line>garis</line>. Dengan infanteri musuh dalam jangkauan musket atau kavaleri yang datang di depan, garis memberi Anda musket paling banyak diarahkan ke depan dan pertahanan terbaik terhadap tembakan yang datang. Jangan membentuk persegi melawan serangan frontal, Anda akan kehilangan setengah daya tembak Anda."
+      "description": "Ubah unit-unit ini ke formasi <line>baris</line>. Dengan infanteri musuh dalam jangkauan musket atau kavaleri yang datang dari depan, formasi baris mengarahkan paling banyak musket ke depan dan paling tahan terhadap tembakan salvo. Melawan serbuan dari depan, baris lebih baik daripada kotak, yang akan kehilangan separuh daya tembaknya."
     },
     "infantryVsCavalryFrontal": {
       "title": "Pertahankan baris",
-      "description": "Kavaleri musuh menyerbu depan infanterimu, tapi mereka punya perintah antri. <removeOrders>Hapus</removeOrders> agar barisan berdiri menembak, bukan berjalan ke kaki kuda."
+      "description": "Kavaleri musuh menyerbu bagian depan infanteri Anda, tetapi infanteri Anda masih punya perintah dalam antrean. <removeOrders>Hapus</removeOrders> perintah itu agar barisan tetap berdiri dan menembak alih-alih berjalan ke arah serbuan."
     },
     "infantryVsCavalryFlank": {
       "title": "Bentuk kotak",
-      "description": "Kavaleri datang dari sisi atau belakang infanteri Anda. Sebuah garis dilewati dari samping. Bentuk <square>persegi</square> pada setiap unit yang disorot sehingga setiap mukanya memiliki senapan."
+      "description": "Kavaleri musuh datang dari sisi atau belakang infanteri Anda, dan barisan yang diserang dari samping akan dilindas. Bentuk <square>kotak</square> agar setiap sisinya menghadapkan musket."
     },
     "infantryBayonetCharge": {
       "title": "Serbuan bayonet",
-      "description": "Infanteri musuh yang lemah dalam jangkauan serangan. Bentuk <column>kolom</column> dan <run>berlari</run> ke arah mereka. Bayonet yang bersentuhan di kolom mematahkannya."
+      "description": "Infanteri musuh yang lemah berada dalam jangkauan serbuan. Bentuk <column>kolom</column> dan <run>berlari</run> ke arah mereka: serbuan bayonet dalam kolom mematahkan mereka saat bersentuhan."
     },
     "infantryFallback": {
       "title": "Tarik mundur pasukan ini",
-      "description": "Organisasi unit ini telah retak, satu tembakan lagi dan rutenya. Tarik keluar sebelum garis putus."
+      "description": "Unit ini hampir patah: satu salvo lagi bisa membuatnya melarikan diri. Tarik keluar dari barisan sekarang, sebelum pelariannya mengguncang unit-unit di sebelahnya."
     },
     "infantryVsSkirmishers": {
       "title": "Infanteri lawan penembak",
-      "description": "Skirmisher musuh berada di dekat Anda dan tidak ada kavaleri yang tersedia. Maju dengan <walk>berjalan</walk> kaki dan paksa mereka bertarung jarak dekat, tempat mereka paling lemah."
+      "description": "Skirmisher musuh berada di dekat Anda dan Anda tidak punya kavaleri untuk dikirim. Maju dengan <walk>berjalan</walk> dan paksa mereka bertarung jarak dekat, tempat skirmisher paling lemah."
     },
     "infantryVsArtillery": {
       "title": "Infanteri lawan artileri",
-      "description": "Meriam musuh berada dekat dan tanpa perlindungan. <run>Berlari</run> langsung ke awaknya sebelum mereka sempat berputar dan menembakkan peluru canister."
+      "description": "Meriam musuh berada dekat dan tidak ada yang melindunginya. <run>Berlari</run> langsung ke arah awaknya sebelum mereka sempat berputar dan menembakkan peluru canister."
     },
     "infantryColumnMarch": {
       "title": "Berbaris dalam kolom",
-      "description": "Tidak ada musuh di dekat unit ini. Beralih ke formasi <column>kolom</column> untuk bergerak lebih cepat, lalu bentuk formasi <line>garis</line> sebelum kontak."
+      "description": "Tidak ada musuh di dekat unit ini. Beralih ke <column>kolom</column> untuk berbaris lebih cepat, lalu bentuk <line>baris</line> lagi sebelum kontak."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Kavaleri lawan kavaleri lebih lemah",
-      "description": "Kavaleri musuh dalam jangkauan serangan dan terguncang, kudamu lebih segar. Tekan keuntungannya: isi daya sebelum pulih."
+      "description": "Kavaleri musuh dalam jangkauan serbuan sedang goyah, dan pasukan berkuda Anda lebih segar. Serbu sekarang, sebelum mereka pulih."
     },
     "cavalryVsEqualCavalry": {
       "title": "Kavaleri lawan kavaleri seimbang",
-      "description": "Kavaleri musuh saling bersentuhan dan kira-kira sama stabilnya dengan milik Anda. Jangan buang stamina pada serangan yang tidak bisa Anda menangkan. Dekati dengan <walk>berjalan</walk> dan bertarunglah secara seimbang."
+      "description": "Kavaleri musuh yang bersentuhan kira-kira sama kokohnya dengan milik Anda, jadi serbuan hanya akan menghabiskan stamina tanpa membawa kemenangan. Dekati dengan <walk>berjalan</walk> dan bertarunglah secara seimbang."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Kavaleri lawan kavaleri lebih kuat",
-      "description": "Kavaleri musuh bersentuhan dan lebih mantap dari milikmu, kalah dalam pertarungan jarak dekat di sini. Putuskan dan setel ulang sebelum berkomitmen."
+      "description": "Kavaleri musuh yang bersentuhan lebih kokoh daripada milik Anda, dan pertarungan jarak dekat di sini akan kalah. Lepaskan diri dan susun ulang sebelum mereka melanjutkan serangan."
     },
     "cavalryVsInfantryFlank": {
       "title": "Serang sisi",
-      "description": "Sisi infanteri musuh terbuka dan mereka sama stabilnya dengan Anda. Saat itulah muatan bersih menghancurkannya. Pukul bagian samping, bukan bagian depan."
+      "description": "Sayap infanteri musuh terbuka, dan mereka tidak lebih kokoh daripada pasukan berkuda Anda. Serbuan ke sisi mematahkan mereka; serbuan ke depan tidak."
     },
     "cavalryVsShakenInfantry": {
       "title": "Kavaleri lawan infanteri goyah",
-      "description": "Infanteri musuh nyaris tidak bisa bersatu, organisasi mereka telah retak. Satu serangan bersih akan menjatuhkan mereka sebelum mereka bisa bersatu."
+      "description": "Organisasi infanteri musuh ini hampir habis. Satu serbuan bersih akan melindas mereka sebelum mereka sempat berkumpul kembali."
     },
     "cavalryVsSkirmishers": {
       "title": "Kavaleri lawan penembak",
-      "description": "Skirmisher terjebak di tempat terbuka dengan jalur yang jelas menuju kuda Anda. Mereka terlipat dalam jarak dekat dan tidak bisa berlari lebih cepat dari serangan. Tunggangi mereka sebelum mereka mencapai perlindungan."
+      "description": "Skirmisher musuh terjebak di tempat terbuka dengan jalur bebas menuju pasukan berkuda Anda. Mereka lemah dalam pertarungan jarak dekat dan tidak bisa lolos dari serbuan, jadi lindas mereka sebelum mencapai perlindungan."
     },
     "cavalryVsArtillery": {
       "title": "Kavaleri lawan artileri",
-      "description": "Senjata musuh tanpa layar antara Anda dan mereka. Tuduhan terhadap kru yang tidak disaring akan mengakhiri mereka dalam satu ketukan. Tetapi jika garis persahabatan menghalangi Anda, Anda malah akan melawannya."
+      "description": "Meriam musuh berdiri tanpa apa pun yang melindunginya dari pasukan berkuda Anda. Serbuan ke awak yang tidak terlindungi menghancurkan baterai itu, tetapi jika barisan infanteri mereka menghadang di antaranya, serbuan Anda justru akan patah di sana."
     },
     "cavalryPursueRouter": {
       "title": "Kejar yang kabur",
-      "description": "Musuh itu rusak dan lari, tanpa dukungan untuk menghentikan pengejaran. Pengejaran oleh kavaleri menghancurkan mereka selamanya. Selesaikan mereka sebelum mereka direformasi."
+      "description": "Unit musuh itu sudah patah dan melarikan diri, tanpa dukungan yang cukup dekat untuk menghentikan pengejaran. Kejar dengan kavaleri untuk menghabisinya sebelum ia menyusun diri kembali."
     },
     "cavalryFallbackFromInfantry": {
       "title": "Kavaleri dalam jangkauan musket",
-      "description": "Kavaleri Anda berada dalam jangkauan senapan infanteri garis yang sehat. Tarik mundur sebelum mereka menumpas kudamu, carilah target yang terguncang atau sayap yang terbuka."
+      "description": "Kavaleri Anda berada dalam jangkauan musket infanteri baris yang kokoh, yang akan menggerusnya. Tarik mundur dan carilah unit yang goyah atau sayap yang terbuka."
     },
     "enemyInfantrySquare": {
       "title": "Kotak musuh",
-      "description": "Infanteri musuh sudah membentuk kotak. Tiap sisi punya muskets siap. Jauhkan kavaleri dan cari target garis atau kolom dengan sayap terbuka."
+      "description": "Infanteri musuh telah membentuk kotak, dengan musket di setiap sisi. Jauhkan kavaleri Anda darinya dan carilah infanteri dalam baris atau kolom dengan sayap terbuka."
     },
     "artilleryFireAndAdvance": {
       "title": "Tembak dan maju",
-      "description": "Musuh berada cukup jauh sehingga Anda bisa terus mendekat sambil menembak. Ganti unit artileri ini ke <fireAndAdvance>Tembak dan Maju</fireAndAdvance>."
+      "description": "Musuh cukup jauh sehingga baterai ini bisa terus mendekat sambil menembak. Ganti ke <fireAndAdvance>Tembak dan Maju</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "Berhenti untuk menembak",
-      "description": "Musuh sudah dekat dan meriam Anda mempunyai tembakan yang bersih tetapi masih bergerak. Hentikan pawai dan putar unit untuk menembak otomatis."
+      "description": "Musuh sudah dekat dan baterai ini punya tembakan yang jelas, tetapi masih bergerak. Hentikan dan putar menghadap target agar <autofire>tembak otomatis</autofire> bisa bekerja."
     },
     "artilleryCanisterRange": {
       "title": "Hampir dalam jangkauan peluru kaleng",
@@ -656,15 +668,15 @@
     },
     "pushObjective": {
       "title": "Manfaatkan keunggulan",
-      "description": "Anda yang memimpin. Dorong menuju tujuan musuh dengan apa yang telah Anda pelajari. Menutupnya akan membuat mereka tidak bisa kembali lagi."
+      "description": "Anda memimpin. Dorong menuju sasaran musuh: merebutnya memperlebar selisih dan hanya menyisakan sedikit peluang bagi musuh untuk bangkit."
     },
     "holdObjective": {
-      "title": "Pertahankan tujuan Anda",
-      "description": "Anda ketinggalan poin. Tarik kembali ke tujuan Anda dan pertahankan dengan apa yang telah Anda pelajari. Mempertahankan lebih murah daripada merebut kembali."
+      "title": "Jaga sasaran Anda",
+      "description": "Anda tertinggal poin, dan kehilangan sasaran ini juga akan memperlebar selisih. Tempatkan pasukan di sana, lalu cari sasaran musuh atau unit yang terbuka untuk merebut kembali poin."
     },
     "runWithoutStamina": {
-      "title": "Larikan ke sana",
-      "description": "Unit ini tidak punya stamina, jadi <run>berlari</run> tidak merugikannya sama sekali. Dalam perjalanan jauh tanpa musuh di dekatnya, suruh ia berlari. Ia tidak bisa menembak tepat setelah berlari dan mudah menjadi mangsa serbuan saat bergerak."
+      "title": "Bebas berlari",
+      "description": "Jenis unit ini tidak mengenal lelah, jadi <run>berlari</run> tidak merugikannya sama sekali. Dalam perjalanan jauh tanpa musuh di dekatnya, suruh ia berlari. Ia tidak bisa menembak tepat setelah berlari dan mudah menjadi mangsa serbuan saat bergerak."
     },
     "routing": {
       "title": "Sebuah unit patah",
@@ -703,7 +715,7 @@
       "description": "Ada unit musuh di dalam zona tujuan ini. Selama kedua pihak punya pasukan di sana, perebutan tidak maju dan kemajuannya hilang. Usir atau patahkan unit itu untuk merebut tujuan."
     },
     "lineOnRoad": {
-      "title": "Berbaris dalam kolom",
+      "title": "Kolom di jalan",
       "description": "Batalion ini berbaris di jalan dalam formasi <line>baris</line>. Jalan hanya mempercepat unit yang berada di atasnya, dan formasi baris terlalu lebar untuk muat. Ganti ke <column>kolom</column> selama berbaris."
     },
     "garrisonStrongpoint": {

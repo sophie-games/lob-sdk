@@ -492,15 +492,15 @@
   "gameTips": {
     "victoryPoints": {
       "title": "Győzelmi pontok",
-      "description": "A veszteségek és a célpontok befolyásolják a győzelmi pontokat. Védd a csapataidat és harcolj a célpontokért a felzárkózáshoz."
+      "description": "Lemaradsz a győzelmi pontokban. Minden veszteség, amit elszenvedsz, és minden célpont, amit az ellenség tart, pontokba kerül. Nyisd meg a csataelemzést, hogy lásd, honnan ered a különbség."
     },
     "blockedFire": {
       "title": "Blokkolt tüzelés",
       "description": "Saját csapataid akadályozzák az üteg lövéseit. Tedd szabaddá a tűzvonalát, hogy tüzelhessen."
     },
     "organization": {
-      "title": "Szervezettség",
-      "description": "A rendezetlen egységek megfutamodhatnak. Vond ki őket a harcból, hogy új támadás előtt helyrejöjjenek."
+      "title": "Megrendült egység",
+      "description": "Ennek az egységnek alacsony a szervezettsége. Rosszabbul harcol, és az az egység, amelynek elfogy a szervezettsége, megfutamodik. Tartsd távol a legerősebb tűztől és egy szilárd baráti egység szervezettségi sugarán belül, amíg helyre nem jön."
     },
     "range": {
       "title": "Lőtávolság",
@@ -537,7 +537,19 @@
     },
     "terrain": {
       "title": "Használd a terepet",
-      "description": "A terep módosítja a mozgást és a harcot. Az <info>Infóban</info> láthatod az egység aktuális módosítóit, és kiválaszthatod a megfelelő terepet."
+      "description": "Az egység alatti terep megváltoztatja, hogyan mozog és harcol. Az erdők, az épületek és a vetések lassítják, de fedezéket adnak; a nyílt terep gyorsabb. Nyisd meg az <info>Infót</info>, hogy pontosan lásd, mi érvényes rá."
+    },
+    "howToWin": {
+      "title": "Hogyan nyerj meg egy csatát",
+      "description": "A felső sáv a két fél győzelmi pontjait méri össze. A célpontok megtartása és az ellenségnek okozott veszteségek feléd billentik, és az a fél, amelyiknek elfogynak a pontjai, vereséget szenved. Kattints a sávra, hogy lásd, honnan származnak a pontok."
+    },
+    "flags": {
+      "title": "Zászlók a csatatéren",
+      "description": "A csatatérre tűzött zászlók célpontok: szürkék, amíg senki sem tartja őket, utána annak a félnek a színét viselik, amelyik tartja. A hadosztályaid mögött álló lobogó mindig az adott hadosztályé: ha rákattintasz, az egész hadosztályt kijelöli, kivéve ha közvetlenül alatta egy egység áll, mert akkor az kapja a kattintást."
+    },
+    "findTroops": {
+      "title": "Találd meg a csapataidat",
+      "description": "A kamera ott marad, ahol hagyod, így a vonalad kicsúszhat a képből, ahogy a csata halad. Kattints duplán egy hadosztály kártyájára a képernyő alján vagy a sorára a hadrendben, és a kamera visszatér azokhoz a csapatokhoz."
     },
     "basicsSelect": {
       "title": "Parancsok kiadása",
@@ -549,7 +561,7 @@
     },
     "basicsFormations": {
       "title": "Alakzatok",
-      "description": "Az alakzat dönti el az arcvonal szélességét és a tűzerőt. Az <column>oszlop</column> gyorsan menetel, a <line>sor</line> a legtöbb muskétát fordítja előre, a <square>négyzet</square> pedig minden oldalt véd a lovasságtól."
+      "description": "Az alakzat dönti el az arcvonal szélességét és a tűzerőt. Az <column>oszlop</column> gyorsan menetel, a <line>sor</line> a legtöbb muskétát fordítja előre, a <square>négyzet</square> pedig minden oldalt véd, amikor lovasság fenyegeti az oldalát vagy a hátát."
     },
     "basicsSubmit": {
       "title": "A kör beküldése",
@@ -561,95 +573,95 @@
     },
     "skirmisherVsArtillery": {
       "title": "Felderítők a tüzérség ellen",
-      "description": "Ellenséges üteg a csatár kezében. Önts tüzet a fegyveres legénységbe. A csetepaté felaprítja a védtelen tüzérséget, mielőtt az válaszolhatna."
+      "description": "Egy ellenséges üteg a csatáraid lőtávolságán belül van. Lőj a kezelőire: a csatárok felőrlik a védtelen ágyúkat, mielőtt azok válaszolhatnának."
     },
     "skirmisherVsCavalry": {
       "title": "Lovasság a felderítőid közelében",
-      "description": "Az ellenséges lovasság megsemmisíti a csetepatéját, ha megtartja ezt a pozíciót. <fallback>Húzódj vissza</fallback>, és keress fedezéket."
+      "description": "Az ellenséges lovasság elérheti a csatáraidat, és nyílt terepen nem élnek túl egy rohamot. <fallback>Húzódj vissza</fallback> fedezékbe vagy a saját vonalaid mögé."
     },
     "skirmisherVsInfantry": {
       "title": "Gyalogság a felderítőid közelében",
-      "description": "Ellenséges gyalogság a csatározód tetején. A Skirmishers bedobja a közelharcot. Húzza vissza, mielőtt a bajonettek elérnék."
+      "description": "Ellenséges gyalogság közeledik a csatáraidhoz, a csatárok pedig gyengék közelharcban. Vond vissza őket, mielőtt a szuronyok elérnék őket."
     },
     "infantryFormLine": {
       "title": "Sorba állás",
-      "description": "Kapcsolja ezeket az egységeket <line>vonalra</line>. Ha az ellenséges gyalogság muskétás lőtérben van, vagy lovasság érkezik a frontra, a vonal a legtöbb muskétát nyújtja előre, és a legjobb védelmet nyújtja a bejövő röplabda ellen. Ne alakíts négyzetet frontális töltéssel szemben, mert elveszíted a tűzerőd felét."
+      "description": "Állítsd ezeket az egységeket <line>sorba</line>. Ha ellenséges gyalogság van muskétalőtávolságon belül, vagy lovasság jön szemből, a sor a legtöbb muskétát fordítja előre, és a legjobban állja a sortüzeket. Frontális roham ellen a sor jobb a négyzetnél, amely tűzerejének felét elveszítené."
     },
     "infantryVsCavalryFrontal": {
       "title": "Tartsd a sort",
-      "description": "Az ellenséges lovasság a gyalogságod elejét rohanja meg, de utasítások várakoznak. <removeOrders>Töröld</removeOrders> őket, hogy a sor álljon és tüzeljen, ne sétáljon a paták alá."
+      "description": "Az ellenséges lovasság a gyalogságod arcvonalát rohamozza, de a gyalogságodnak még vannak várakozó parancsai. <removeOrders>Töröld</removeOrders> őket, hogy a sor álljon és tüzeljen, ahelyett hogy belemenetelne a rohamba."
     },
     "infantryVsCavalryFlank": {
       "title": "Négyzetbe állás",
-      "description": "A lovasság a gyalogságod oldalán vagy hátulján érkezik. Egy vonalat oldalról átlovagolnak. Alakíts <square>négyzetet</square> minden egyes kiemelt egységen, hogy minden arcból legyen muskétás."
+      "description": "Az ellenséges lovasság a gyalogságod oldalába vagy hátába érkezik, és az oldalról eltalált sort letiporják. Alakíts <square>négyzetet</square>, hogy minden oldalon kifelé nézzenek a muskéták."
     },
     "infantryBayonetCharge": {
       "title": "Szuronyroham",
-      "description": "Gyenge ellenséges gyalogság a támadási tartományon belül. Formálj <column>oszlopot</column>, és <run>fuss</run> nekik. Az oszlopban érintkező bajonett eltöri őket."
+      "description": "Gyenge ellenséges gyalogság van rohamtávolságon belül. Alakíts <column>oszlopot</column>, és <run>fuss</run> nekik: egy oszlopban végrehajtott szuronyroham az ütközéskor megtöri őket."
     },
     "infantryFallback": {
       "title": "Vond ki ezt az egységet",
-      "description": "Ennek az egységnek a szervezete megrepedt, még egy röplabda, és elrepül. Húzza ki, mielőtt a vonal elszakadna."
+      "description": "Ez az egység a megtörés szélén áll: még egy sortűz megfutamíthatja. Vond ki most a sorból, mielőtt a futása megrendítené a mellette álló egységeket."
     },
     "infantryVsSkirmishers": {
       "title": "Gyalogság a felderítők ellen",
-      "description": "Az ellenséges könnyűgyalogság közel van, és nincs bevethető lovasságod. <walk>Lépésben</walk> nyomulj előre, és kényszerítsd őket közelharcra, ahol a leggyengébbek."
+      "description": "Ellenséges csatárok vannak a közelben, és nincs lovasságod, amit küldhetnél. Nyomulj előre <walk>lépésben</walk>, és kényszerítsd őket közelharcra, ahol a csatárok a leggyengébbek."
     },
     "infantryVsArtillery": {
       "title": "Gyalogság a tüzérség ellen",
-      "description": "Az ellenséges ágyúk közel vannak és fedezetlenek. <run>Fuss</run> egyenesen a kezelőszemélyzetre, mielőtt elfordulhatnak és kartácsot lőhetnek."
+      "description": "Ellenséges ágyúk vannak a közelben, és semmi sem fedezi őket. <run>Fuss</run> egyenesen a kezelőkre, mielőtt megfordulhatnának, és kartáccsal lőhetnének."
     },
     "infantryColumnMarch": {
       "title": "Menetelés oszlopban",
-      "description": "Nincs ellenség ennek az egységnek a közelében. A gyorsabb menethez válts <column>oszlopra</column>, majd az érintkezés előtt állj <line>vonalba</line>."
+      "description": "Nincs ellenség az egység közelében. Válts <column>oszlopra</column>, hogy gyorsabban meneteljen, és az érintkezés előtt alakíts újra <line>sort</line>."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Lovasság gyengébb lovasság ellen",
-      "description": "Az ellenséges lovasság támadási hatótávolságon belül és megrázva, a lovad frissebb. Használja ki az előnyt: töltse fel, mielőtt helyreállna."
+      "description": "A rohamtávolságon belüli ellenséges lovasság megrendült, a lovasaid pedig frissebbek. Rohamozz most, mielőtt összeszedné magát."
     },
     "cavalryVsEqualCavalry": {
       "title": "Lovasság egyenrangú lovasság ellen",
-      "description": "Az ellenséges lovasság kapcsolatban van, és nagyjából olyan stabil, mint a tiéd. Ne pazarolja ki állóképességét olyan díjra, amelyet nem nyerhet. Közelíts <walk>lépésben</walk>, és harcolj egyenlő feltételekkel."
+      "description": "Az érintkezésben lévő ellenséges lovasság nagyjából olyan szilárd, mint a tiéd, így egy roham állóképességet emésztene fel győzelem nélkül. Közelíts <walk>lépésben</walk>, és harcolj egyenlő feltételekkel."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Lovasság erősebb lovasság ellen",
-      "description": "Az ellenséges lovasság kapcsolatban áll, és stabilabb, mint a tiéd, a közelharc itt veszít. Szüntesse meg és állítsa vissza, mielőtt elköveti."
+      "description": "Az érintkezésben lévő ellenséges lovasság szilárdabb a tiédnél, és itt a közelharcot elveszítenéd. Szakadj el, és rendeződj újra, mielőtt folytatnák a támadást."
     },
     "cavalryVsInfantryFlank": {
       "title": "Csapj az oldalba",
-      "description": "Az ellenséges gyalogság szárnya nyitva van, és nagyjából olyan stabilak, mint te. Ez az a pillanat, amikor egy tiszta töltés megtöri őket. Oldalt üss, ne elöl."
+      "description": "Az ellenséges gyalogság oldala nyitott, és nem szilárdabb a lovasaidnál. Egy oldalba indított roham megtöri őket, egy szemből indított nem."
     },
     "cavalryVsShakenInfantry": {
       "title": "Lovasság megingott gyalogság ellen",
-      "description": "Az ellenséges gyalogság alig tartja össze, szervezetük megrepedt. Egy tiszta töltéssel lefutják őket, mielőtt összeállnának."
+      "description": "Ennek az ellenséges gyalogságnak a szervezettsége szinte elfogyott. Egyetlen tiszta roham letiporja őket, mielőtt újra gyülekezhetnének."
     },
     "cavalryVsSkirmishers": {
       "title": "Lovasság a felderítők ellen",
-      "description": "A szabadban elkapott csetepaték szabad sávval a lovad felé. Közelharcban bedobják magukat, és nem tudják lehagyni a töltést. Lovagolja le őket, mielőtt elérnék a fedezéket."
+      "description": "Ellenséges csatárok rekedtek nyílt terepen, és semmi sincs köztük és a lovasaid között. Gyengék közelharcban, és nem tudnak elfutni egy roham elől, ezért tiporld le őket, mielőtt fedezékbe érnének."
     },
     "cavalryVsArtillery": {
       "title": "Lovasság a tüzérség ellen",
-      "description": "Ellenséges fegyverek képernyő nélkül közted és közöttük. Az át nem vizsgált legénység elleni támadás egy ütemben véget vet nekik. De ha egy barátságos vonal akadályozza az utat, akkor inkább elvérzed ellene."
+      "description": "Ellenséges ágyúk állnak ott úgy, hogy semmi sem védi őket a lovasaidtól. Egy védtelen kezelőszemélyzet elleni roham megsemmisíti az üteget, de ha a gyalogságuk egy sora közéjük lép, a roham inkább azon törik meg."
     },
     "cavalryPursueRouter": {
       "title": "Üldözd a menekülőket",
-      "description": "Az ellenség megtört és fut, nincs támogatás, ami megszakíthatná az üldözést. A lovasság üldözése végleg megtöri őket. Fejezze be őket, mielőtt megreformálják."
+      "description": "Az az ellenséges egység megtört és menekül, és nincs elég közel támogatás, hogy megállítsa az üldözést. Üldözd lovassággal, hogy végezz vele, mielőtt újrarendeződik."
     },
     "cavalryFallbackFromInfantry": {
       "title": "Lovasság muskétatűzben",
-      "description": "A lovasságod az egészséges vonalú gyalogság muskétás tartományában ül. Húzódjon hátra, mielőtt ledarálják a lovat, inkább keressen megrázott célpontokat vagy nyitott szárnyakat."
+      "description": "A lovasságod szilárd sorgyalogság muskétalőtávolságán belül van, amely felőrli. Húzódj vissza, és inkább megrendült egységeket vagy nyitott oldalakat keress."
     },
     "enemyInfantrySquare": {
       "title": "Ellenséges négyzet",
-      "description": "Az ellenséges gyalogság négyzetet vett fel. Minden oldalon muskéták. Tartsd távol a lovasságot és keress sor- vagy oszlopcélpontot kihasználható oldallal."
+      "description": "Az ellenséges gyalogság négyzetbe állt, minden oldalán muskétákkal. Tartsd távol tőle a lovasságodat, és keress sorban vagy oszlopban álló, nyitott oldalú gyalogságot."
     },
     "artilleryFireAndAdvance": {
       "title": "Mozgás közben lő",
-      "description": "Az ellenség elég messze van ahhoz, hogy lövés közben folyamatosan zárhass. Állítsa át ezt a tüzérségi egységet a következőre: <fireAndAdvance>Mozgás közben lő</fireAndAdvance>."
+      "description": "Az ellenség elég messze van ahhoz, hogy ez az üteg tüzelés közben is közeledjen. Állítsd át erre: <fireAndAdvance>Mozgás közben lő</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "Állj meg a tüzeléshez",
-      "description": "Az ellenség közel van, és az ágyúd tiszta lövéssel rendelkezik, de még mindig mozog. Állítsa le a menetet, és forgassa el az egységet az automatikus tüzeléshez."
+      "description": "Az ellenség közel van, és az ütegnek szabad a lőiránya, de még mozog. Állítsd meg, és fordítsd a célpont felé, hogy az <autofire>automatikus tüzelés</autofire> működhessen."
     },
     "artilleryCanisterRange": {
       "title": "Majdnem kartácslőtávon",
@@ -657,15 +669,15 @@
     },
     "pushObjective": {
       "title": "Használd ki az előnyt",
-      "description": "Te tartod a vezetést. Lépj az ellenséges cél felé azzal, amit megtanultál. A lezárás megtagadja tőlük a visszatérést."
+      "description": "Te vezetsz. Nyomulj az ellenséges célpont felé: ha elfoglalod, nő a különbség, és az ellenségnek kevés esélye marad a visszatérésre."
     },
     "holdObjective": {
-      "title": "Tartsd a célodat",
-      "description": "Lemaradtál a pontokkal. Húzzon vissza a célhoz, és tartsa azt a tanultakkal. A védekezés olcsóbb, mint a visszakapás."
+      "title": "Védd a célpontodat",
+      "description": "Le vagy maradva a pontokban, és ha ezt a célpontot is elveszíted, tovább nő a különbség. Tarts rajta csapatokat, aztán keress egy ellenséges célpontot vagy egy kitett egységet, hogy visszaszerezd a pontokat."
     },
     "runWithoutStamina": {
-      "title": "Futtasd oda",
-      "description": "Ennek az egységnek nincs állóképessége, így a <run>futás</run> semmibe sem kerül neki. Hosszú úton, ha nincs közel ellenség, futtasd. Futás után közvetlenül nem tud tüzelni, és mozgás közben könnyű préda egy rohamnak."
+      "title": "Szabadon futhat",
+      "description": "Ez az egységtípus nem fárad el, így a <run>futás</run> semmibe sem kerül neki. Hosszú úton, ha nincs közel ellenség, futtasd. Futás után közvetlenül nem tud tüzelni, és mozgás közben könnyű préda egy rohamnak."
     },
     "routing": {
       "title": "Egy egység megtört",
@@ -704,7 +716,7 @@
       "description": "Ellenséges egység áll ennek a célpontnak a zónájában. Amíg mindkét félnek vannak ott csapatai, az elfoglalás nem halad, és az előrehaladás elvész. Űzd ki vagy törd meg, hogy elfoglald a célpontot."
     },
     "lineOnRoad": {
-      "title": "Menetelj oszlopban",
+      "title": "Oszlop az úton",
       "description": "Ez a zászlóalj <line>vonalban</line> halad egy úton. Az út csak a rajta álló egységet gyorsítja, a vonal pedig túl széles ahhoz, hogy elférjen rajta. Válts <column>oszlopra</column> a menethez."
     },
     "garrisonStrongpoint": {

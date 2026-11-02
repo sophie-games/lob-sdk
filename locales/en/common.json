@@ -645,15 +645,15 @@
   "gameTips": {
     "victoryPoints": {
       "title": "Victory points",
-      "description": "Casualties and objectives affect victory points. Protect your troops and contest objectives to catch up."
+      "description": "You are falling behind on victory points. Every loss you take and every objective the enemy holds costs you points. Open the battle overview to see where the gap comes from."
     },
     "blockedFire": {
       "title": "Blocked fire",
       "description": "Your troops are blocking this battery’s shots. Clear its line of fire so it can shoot."
     },
     "organization": {
-      "title": "Organization",
-      "description": "Disorganized units can rout. Pull them out of combat to recover before attacking again."
+      "title": "Shaken unit",
+      "description": "This unit's organization is low. It fights worse, and a unit that runs out of organization routs. Keep it out of the heaviest fire and inside a steady friendly unit's org radius until it recovers."
     },
     "range": {
       "title": "Firing range",
@@ -690,7 +690,19 @@
     },
     "terrain": {
       "title": "Use the ground",
-      "description": "Terrain changes movement and combat. Open <info>Info</info> to see a unit's current modifiers and choose suitable ground."
+      "description": "The ground under this unit is changing how it moves and fights. Woods, buildings and crops slow it down but give it cover; open ground is faster. Open <info>Info</info> to see exactly what applies."
+    },
+    "howToWin": {
+      "title": "How a battle is won",
+      "description": "The bar at the top weighs both sides' victory points. Holding objectives and inflicting losses tips it your way, and the side whose points run out is beaten. Click the bar to see where the points come from."
+    },
+    "flags": {
+      "title": "Flags on the field",
+      "description": "The flags planted on the field are objectives: grey while nobody holds them, then in the colour of the side that does. The banner behind each of your divisions is that division's own: a click on it selects the whole division, unless a unit stands right under it, which takes the click."
+    },
+    "findTroops": {
+      "title": "Find your troops",
+      "description": "The camera stays where you leave it, so your line can drift off screen as the battle moves. Double-click a division's chip at the bottom of the screen, or its row in the order of battle, to bring the camera back to those troops."
     },
     "basicsSelect": {
       "title": "Giving orders",
@@ -702,7 +714,7 @@
     },
     "basicsFormations": {
       "title": "Formations",
-      "description": "Formation sets frontage and firepower. <column>Column</column> marches fast, <line>line</line> puts the most muskets forward, <square>square</square> guards every face against cavalry."
+      "description": "Formation sets frontage and firepower. <column>Column</column> marches fast, <line>line</line> puts the most muskets forward, <square>square</square> guards every face when cavalry threatens a flank or the rear."
     },
     "basicsSubmit": {
       "title": "Submitting the turn",
@@ -710,95 +722,95 @@
     },
     "skirmisherVsArtillery": {
       "title": "Skirmishers against artillery",
-      "description": "Enemy battery in your skirmisher's reach. Pour fire into the gun crew. Skirmishers shred unprotected artillery before it can answer."
+      "description": "An enemy battery is within your skirmishers' reach. Fire on its crew: skirmishers wear down unprotected guns before they can answer."
     },
     "skirmisherVsCavalry": {
       "title": "Cavalry near your skirmishers",
-      "description": "Your skirmisher will be destroyed by enemy cavalry if it keeps that position. <fallback>Fall back</fallback> and seek cover."
+      "description": "Enemy cavalry can reach your skirmishers, and they will not survive a charge in the open. <fallback>Fall back</fallback> toward cover or your own lines."
     },
     "skirmisherVsInfantry": {
       "title": "Infantry near your skirmishers",
-      "description": "Enemy infantry on top of your skirmisher. Skirmishers fold in melee. Pull back before bayonets reach."
+      "description": "Enemy infantry is closing on your skirmishers, and skirmishers are weak in melee. Pull them back before the bayonets reach them."
     },
     "infantryFormLine": {
       "title": "Form line",
-      "description": "Switch these units to <line>line</line>. With enemy infantry in musket range or cavalry coming at the front, line gives you the most muskets pointed forward and the best defence against incoming volleys. Don't form square against a frontal charge, you would lose half your firepower."
+      "description": "Switch these units to <line>line</line>. With enemy infantry in musket range or cavalry coming at the front, line puts the most muskets forward and stands up best to incoming volleys. Against a frontal charge, line is better than square, which would lose half its firepower."
     },
     "infantryVsCavalryFrontal": {
       "title": "Hold the line",
-      "description": "Enemy cavalry is charging the front of your infantry, but they have orders queued. <removeOrders>Clear</removeOrders> them so the line stands and fires instead of walking into the hooves."
+      "description": "Enemy cavalry is charging the front of your infantry, but your infantry still has orders queued. <removeOrders>Clear</removeOrders> them so the line stands and fires instead of marching into the charge."
     },
     "infantryVsCavalryFlank": {
       "title": "Form square",
-      "description": "Cavalry coming at the flank or rear of your infantry. A line gets ridden over from the side. Form <square>square</square> so every face has muskets out."
+      "description": "Enemy cavalry is coming at the flank or rear of your infantry, and a line hit from the side is ridden down. Form <square>square</square> so every face has muskets out."
     },
     "infantryBayonetCharge": {
       "title": "Bayonet charge",
-      "description": "Weak enemy infantry within charge range. Form <column>column</column> and <run>run</run> into them. Bayonet on contact in column breaks them."
+      "description": "Weak enemy infantry is within charge range. Form <column>column</column> and <run>run</run> into them: a bayonet charge in column breaks them on contact."
     },
     "infantryFallback": {
       "title": "Withdraw this unit",
-      "description": "This unit's organization has cracked, one more volley and it routes. Pull it out before the line breaks."
+      "description": "This unit is about to break: one more volley could rout it. Pull it out of the line now, before its rout shakes the units beside it."
     },
     "infantryVsSkirmishers": {
       "title": "Infantry against skirmishers",
-      "description": "Skirmishers are close and no cavalry is available. Advance at a <walk>walk</walk> and force them into melee, where skirmishers are weakest."
+      "description": "Enemy skirmishers are close and you have no cavalry to send. Advance at a <walk>walk</walk> and force them into melee, where skirmishers are weakest."
     },
     "infantryVsArtillery": {
       "title": "Infantry against artillery",
-      "description": "Enemy guns are close and unscreened. <run>Run</run> straight into the crew before they can turn and fire canister."
+      "description": "Enemy guns are close and nothing screens them. <run>Run</run> straight at the crew before they can turn and fire canister."
     },
     "infantryColumnMarch": {
       "title": "March in column",
-      "description": "No enemies are near this unit. Switch to <column>column</column> for faster marching, then form <line>line</line> before contact."
+      "description": "No enemy is near this unit. Switch to <column>column</column> to march faster, and form <line>line</line> again before contact."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Cavalry against weaker cavalry",
-      "description": "Enemy cavalry within charge range and shaken, your horse is fresher. Press the advantage: charge before they recover."
+      "description": "Enemy cavalry within charge range is shaken, and your horsemen are fresher. Charge now, before they recover."
     },
     "cavalryVsEqualCavalry": {
       "title": "Cavalry against equal cavalry",
-      "description": "Enemy cavalry in contact and roughly as steady as yours. Don't waste stamina on a charge you can't win. Close at a <walk>walk</walk> and brawl on even footing."
+      "description": "Enemy cavalry in contact is about as steady as yours, so a charge would spend stamina without winning. Close at a <walk>walk</walk> and fight it out on even terms."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Cavalry against stronger cavalry",
-      "description": "Enemy cavalry in contact and steadier than yours, a melee here loses. Break off and reset before they commit."
+      "description": "Enemy cavalry in contact is steadier than yours, and a melee here would be lost. Break off and re-form before they press the attack."
     },
     "cavalryVsInfantryFlank": {
       "title": "Charge the flank",
-      "description": "Enemy infantry's flank is open and they're roughly as steady as you. That's the moment a clean charge breaks them. Hit the side, not the front."
+      "description": "The enemy infantry's flank is open, and they are no steadier than your horsemen. A charge into the side breaks them; a charge into the front does not."
     },
     "cavalryVsShakenInfantry": {
       "title": "Cavalry against shaken infantry",
-      "description": "Enemy infantry is barely holding together, their organization has cracked. One clean charge runs them down before they can rally."
+      "description": "This enemy infantry's organization is almost gone. One clean charge runs them down before they can rally."
     },
     "cavalryVsSkirmishers": {
       "title": "Cavalry against skirmishers",
-      "description": "Skirmishers caught in the open with a clear lane to your horse. They fold in melee and can't outrun a charge. Ride them down before they reach cover."
+      "description": "Enemy skirmishers are caught in the open with a clear path to your horsemen. They are weak in melee and cannot outrun a charge, so ride them down before they reach cover."
     },
     "cavalryVsArtillery": {
       "title": "Cavalry against artillery",
-      "description": "Enemy guns with no screen between you and them. A charge into unscreened crew ends them in one beat. But if a friendly line steps in the way you'll bleed against it instead."
+      "description": "Enemy guns stand with nothing screening them from your horsemen. A charge into an unprotected crew destroys the battery, but if a line of their infantry steps in between, the charge will break against it instead."
     },
     "cavalryPursueRouter": {
       "title": "Pursue the routed",
-      "description": "That enemy is broken and running, with no support to interrupt the chase. A pursuit by cavalry breaks them for good. Finish them before they reform."
+      "description": "That enemy unit is broken and running, with no support close enough to stop a chase. Pursue it with cavalry to finish it before it re-forms."
     },
     "cavalryFallbackFromInfantry": {
       "title": "Cavalry under musket fire",
-      "description": "Your cavalry is sitting in musket range of healthy line infantry. Pull back before they grind down your horse, look for shaken targets or open flanks instead."
+      "description": "Your cavalry is within musket range of steady line infantry, which will wear it down. Pull back and look for shaken units or open flanks instead."
     },
     "enemyInfantrySquare": {
       "title": "Enemy square",
-      "description": "Enemy infantry has formed square. Every face has muskets out. Keep your cavalry away and look for line or column targets with a flank to exploit."
+      "description": "Enemy infantry has formed square, with muskets on every face. Keep your cavalry away from it and look for infantry in line or column with an open flank."
     },
     "artilleryFireAndAdvance": {
       "title": "Fire and advance",
-      "description": "The enemy is far enough away that you can keep closing while you fire. Switch this artillery to <fireAndAdvance>Fire and Advance</fireAndAdvance>."
+      "description": "The enemy is far enough away for this battery to keep closing while it fires. Switch it to <fireAndAdvance>Fire and Advance</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "Stop to fire",
-      "description": "The enemy is close and your cannon has a clean shot, but it is still moving. Stop the march and rotate the unit onto the target so autofire can work."
+      "description": "The enemy is close and this battery has a clear shot, but it is still moving. Stop it and turn it to face the target so <autofire>autofire</autofire> can work."
     },
     "artilleryCanisterRange": {
       "title": "Close to canister range",
@@ -810,15 +822,15 @@
     },
     "pushObjective": {
       "title": "Press your lead",
-      "description": "You hold the lead. Push toward the enemy objective. Closing it out denies them any comeback."
+      "description": "You hold the lead. Push toward the enemy objective: taking it widens the gap and leaves the enemy little room to come back."
     },
     "holdObjective": {
-      "title": "Hold your objective",
-      "description": "You're behind on points. Pull back to your objective and hold it. Defending is cheaper than retaking."
+      "title": "Guard your objective",
+      "description": "You are behind on points, and losing this objective as well would widen the gap. Keep troops on it, then look for an enemy objective or an exposed unit to win the points back."
     },
     "runWithoutStamina": {
-      "title": "Run it there",
-      "description": "This unit has no stamina, so <run>running</run> costs it nothing. On a long move with no enemy close, run it. It cannot fire right after running and is easy prey for a charge while it moves."
+      "title": "Free to run",
+      "description": "This kind of unit does not tire, so <run>running</run> costs it nothing. On a long move with no enemy close, run it. It cannot fire right after running, and it is easy prey for a charge while it moves."
     },
     "routing": {
       "title": "A unit has broken",
@@ -857,7 +869,7 @@
       "description": "An enemy unit is inside this objective's zone. While both sides have troops there, the capture does not advance and any progress is lost. Drive it out or break it to take the objective."
     },
     "lineOnRoad": {
-      "title": "March in column",
+      "title": "Column on the road",
       "description": "This battalion is marching along a road in <line>line</line>. A road only speeds up a unit that is on it, and a line is too wide to fit on one. Switch to <column>column</column> for the march."
     },
     "garrisonStrongpoint": {
