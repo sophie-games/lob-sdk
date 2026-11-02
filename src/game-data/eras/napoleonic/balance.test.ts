@@ -161,13 +161,13 @@ describe("Napoleonic balance", () => {
     const expectedByName = {
       hussars: {
         rotationSpeed: 0.37,
-        runRotationSpeed: 0.34,
+        runRotationSpeed: 0.29,
         pushStrength: 14,
         pushDistance: 0.8,
       },
       lancers: {
         rotationSpeed: 0.37,
-        runRotationSpeed: 0.3,
+        runRotationSpeed: 0.26,
         pushStrength: 14,
         pushDistance: 0.8,
       },
@@ -179,13 +179,13 @@ describe("Napoleonic balance", () => {
       },
       dragoons: {
         rotationSpeed: 0.35,
-        runRotationSpeed: 0.27,
+        runRotationSpeed: 0.23,
         pushStrength: 16,
         pushDistance: 1,
       },
       cuirassiers: {
         rotationSpeed: 0.33,
-        runRotationSpeed: 0.25,
+        runRotationSpeed: 0.21,
         pushStrength: 18,
         pushDistance: 1.2,
       },
@@ -733,35 +733,43 @@ describe("Napoleonic balance", () => {
     const expectedByName = {
       cuirassiers: {
         org: 950,
-        meleeDefense: 3000,
-        chargeBonus: 140,
+        meleeDefense: 3600,
+        chargeBonus: 126,
         chargeResistance: 0.3,
-        orgRadiusBonus: 9,
+        orgRadiusBonus: 14,
         timeToRun: 5,
+        chargePenetration: 0.75,
+        stamina: 1080,
       },
       lancers: {
         org: 900,
-        meleeDefense: 2000,
-        chargeBonus: 140,
+        meleeDefense: 2600,
+        chargeBonus: 126,
         chargeResistance: 0.15,
-        orgRadiusBonus: 6,
+        orgRadiusBonus: 8,
         timeToRun: 5,
+        chargePenetration: 0.9,
+        stamina: 1305,
       },
       dragoons: {
-        meleeDefense: 2800,
-        chargeBonus: 125,
+        meleeDefense: 3400,
+        chargeBonus: 113,
         chargeResistance: 0.25,
-        orgRadiusBonus: 6,
+        orgRadiusBonus: 9,
         org: 850,
         timeToRun: 4,
+        chargePenetration: 0.65,
+        stamina: 1215,
       },
       hussars: {
         org: 800,
-        meleeDefense: 2200,
-        chargeBonus: 100,
+        meleeDefense: 2800,
+        chargeBonus: 90,
         chargeResistance: 0.15,
-        orgRadiusBonus: 4,
+        orgRadiusBonus: 5,
         timeToRun: 3,
+        chargePenetration: 0.5,
+        stamina: 1440,
       },
       horse_archers: {
         org: 400,
@@ -789,6 +797,11 @@ describe("Napoleonic balance", () => {
       expect(unit.orgRadius).toBe(64);
       expect(unit.timeToRun).toBe(expected.timeToRun);
       expect(unit.chargeResistance).toBe(expected.chargeResistance);
+
+      if ("chargePenetration" in expected) {
+        expect(unit.chargePenetration).toBe(expected.chargePenetration);
+        expect(unit.stamina! / STAT_PRECISION_SCALE).toBe(expected.stamina);
+      }
 
       if (name === "horse_archers") {
         expect(unit.chargePenetration).toBe(0.3);
@@ -1087,7 +1100,10 @@ describe("Napoleonic balance", () => {
 
       expect(cavalry.damageTypeResistances?.bayonet).toBe(-0.3);
       expect(cavalry.chargeStaminaCost! / STAT_PRECISION_SCALE).toBe(25);
+      expect(cavalry.chainsCharges).toBe(true);
     }
+
+    expect(gameDataManager.getUnitCategoryTemplate("infantry").chainsCharges).toBeUndefined();
   });
 
   it("uses the requested militia resistance to cavalry melee", () => {
