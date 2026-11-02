@@ -1,8 +1,8 @@
 import { InstructionPlaceNames, MapLabel, TerrainType } from "@lob-sdk/types";
 import { deriveSeed, randomSeeded } from "@lob-sdk/seed";
-import { findEdgeClusters } from "../edge-clusters";
+import { findTerrainClusters } from "../terrain-clusters";
 
-/** Flood-fills each edge-connected cluster of the instruction's terrains and labels the large ones. */
+/** Flood-fills each cluster of the instruction's terrains (see `maxDistance`) and labels the large ones. */
 export class PlaceNamesExecutor {
   private readonly random: () => number;
 
@@ -21,8 +21,8 @@ export class PlaceNamesExecutor {
   }
 
   execute() {
-    const { minSize } = this.instruction;
-    const clusters = findEdgeClusters(this.terrains, new Set(this.instruction.terrains))
+    const { terrains, minSize, maxDistance } = this.instruction;
+    const clusters = findTerrainClusters(this.terrains, new Set(terrains), maxDistance)
       .filter((cluster) => cluster.length >= minSize)
       .sort((a, b) => b.length - a.length);
     const names = this.shuffledNames();

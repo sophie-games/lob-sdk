@@ -599,7 +599,7 @@ export interface InstructionReplaceSmallClusters extends BaseInstruction {
 }
 
 /**
- * Gives each edge-connected cluster of `terrains` with at least `minSize` tiles a map label drawn
+ * Gives each cluster of `terrains` (see `maxDistance`) with at least `minSize` tiles a map label drawn
  * from `names`, largest cluster first, each name used once; clusters left when the names run out
  * stay unnamed. Run it after the instructions that draw the terrain it names.
  */
@@ -612,6 +612,11 @@ export interface InstructionPlaceNames extends BaseInstruction {
   names: string[];
   /** Smallest cluster, in tiles, that gets a name. */
   minSize: number;
+  /**
+   * Furthest apart, in tiles centre to centre, two tiles may be and still belong to one place, so
+   * a village split by a road gets one name. Default 1: only tiles sharing an edge join.
+   */
+  maxDistance?: number;
 }
 
 export type AnyInstruction =
