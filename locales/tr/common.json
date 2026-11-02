@@ -492,15 +492,15 @@
   "gameTips": {
     "victoryPoints": {
       "title": "Zafer puanları",
-      "description": "Kayıplar ve hedefler zafer puanlarını etkiler. Farkı kapatmak için askerlerini koru ve hedefler için mücadele et."
+      "description": "Zafer puanlarında geride kalıyorsun. Verdiğin her kayıp ve düşmanın elinde tuttuğu her hedef sana puan kaybettirir. Farkın nereden geldiğini görmek için savaş genel bakış ekranını aç."
     },
     "blockedFire": {
       "title": "Atış engellendi",
       "description": "Askerlerin bu bataryanın atışlarını engelliyor. Ateş edebilmesi için atış hattını aç."
     },
     "organization": {
-      "title": "Organizasyon",
-      "description": "Düzensiz birlikler kaçabilir. Yeniden saldırmadan önce toparlanmaları için onları çatışmadan çek."
+      "title": "Sarsılmış birlik",
+      "description": "Bu birliğin organizasyonu düşük. Daha kötü savaşır ve organizasyonu tükenen bir birlik bozguna uğrar. Toparlanana kadar onu en yoğun ateşten uzak ve sağlam bir dost birliğin organizasyon yarıçapı içinde tut."
     },
     "range": {
       "title": "Atış mesafesi",
@@ -537,7 +537,19 @@
     },
     "terrain": {
       "title": "Araziyi kullan",
-      "description": "Arazi hareketi ve çatışmayı değiştirir. Birliğin güncel değiştiricilerini görmek ve uygun araziyi seçmek için <info>Bilgi</info>'yi aç."
+      "description": "Bu birliğin altındaki arazi, nasıl hareket edip savaştığını değiştiriyor. Ormanlar, binalar ve ekinler onu yavaşlatır ama siper sağlar; açık arazi daha hızlıdır. Tam olarak neyin geçerli olduğunu görmek için <info>Bilgi</info>'yi aç."
+    },
+    "howToWin": {
+      "title": "Bir savaş nasıl kazanılır",
+      "description": "Üstteki çubuk iki tarafın zafer puanlarını tartar. Hedefleri elinde tutmak ve düşmana kayıp verdirmek onu senin lehine eğer, son tur bittiğinde puanda geride kalan taraf yenilir. Puanların nereden geldiğini görmek için çubuğa tıkla."
+    },
+    "flags": {
+      "title": "Sahadaki bayraklar",
+      "description": "Sahaya dikilmiş bayraklar hedeflerdir: kimse tutmadığı sürece gridir, sonra onları tutan tarafın rengini alır. Her tümeninin arkasındaki sancak o tümenin kendi sancağıdır: ona tıklamak tüm tümeni seçer, ancak hemen altında bir birlik duruyorsa tıklamayı o birlik alır."
+    },
+    "findTroops": {
+      "title": "Birliklerini bul",
+      "description": "Kamera onu bıraktığın yerde kalır, bu yüzden savaş ilerledikçe hattın ekranın dışına kayabilir. Kamerayı o birliklere geri getirmek için ekranın altındaki tümen simgesine ya da savaş düzenindeki satırına çift tıkla."
     },
     "basicsSelect": {
       "title": "Emir vermek",
@@ -549,7 +561,7 @@
     },
     "basicsFormations": {
       "title": "Düzenler",
-      "description": "Düzen cephe genişliğini ve ateş gücünü belirler. <column>Sütun</column> hızlı yürür, <line>hat</line> en çok tüfeği öne çevirir, <square>kare</square> her yönü süvariye karşı korur."
+      "description": "Düzen cephe genişliğini ve ateş gücünü belirler. <column>Kol</column> hızlı yürür, <line>hat</line> en çok tüfeği öne çıkarır, <square>kare</square> süvari bir kanadı ya da arkayı tehdit ettiğinde her yönü korur."
     },
     "basicsSubmit": {
       "title": "Turu gönderme",
@@ -561,95 +573,95 @@
     },
     "skirmisherVsArtillery": {
       "title": "Avcı piyade topçuya karşı",
-      "description": "Düşman bataryası avcı uçağınızın ulaşabileceği yerde. Silah mürettebatına ateş dökün. Avcılar, korumasız topçuları cevap veremeden parçaladılar."
+      "description": "Bir düşman bataryası avcı erlerinin menzilinde. Mürettebatına ateş aç: avcı erleri korumasız topları onlar karşılık veremeden yıpratır."
     },
     "skirmisherVsCavalry": {
       "title": "Avcı piyadenizin yakınında süvari",
-      "description": "Avcı eriniz bu konumu korursa düşman süvarileri tarafından yok edilecek. <fallback>Geri çekilin</fallback> ve siper alın."
+      "description": "Düşman süvarisi avcı erlerine ulaşabilir ve onlar açık arazide bir hücumdan sağ çıkamaz. Sipere ya da kendi hatlarına doğru <fallback>geri çekil</fallback>."
     },
     "skirmisherVsInfantry": {
       "title": "Avcı piyadenizin yakınında piyade",
-      "description": "Düşman piyadeleri avcı uçağının üstünde. Avcı erleri yakın dövüşte geri çekilir. Süngüler ulaşmadan geri çekilin."
+      "description": "Düşman piyadesi avcı erlerine yaklaşıyor ve avcı erleri yakın dövüşte zayıftır. Süngüler onlara ulaşmadan onları geri çek."
     },
     "infantryFormLine": {
       "title": "Hat düzenine geç",
-      "description": "Bu birimleri <line>hatta</line> geçirin. Tüfek menzilindeki düşman piyadeleri veya süvarilerin önden gelmesiyle, hat size en fazla tüfeğin öne doğru yönlendirilmesini ve gelen yaylım ateşlerine karşı en iyi savunmayı sağlar. Önden hücuma karşı hizalanmayın, ateş gücünüzün yarısını kaybedersiniz."
+      "description": "Bu birlikleri <line>hat</line> düzenine geçir. Düşman piyadesi tüfek menzilindeyken ya da süvari önden gelirken, hat en çok tüfeği öne çıkarır ve gelen yaylım ateşlerine en iyi dayanır. Önden bir hücuma karşı hat, ateş gücünün yarısını kaybedecek olan kareden daha iyidir."
     },
     "infantryVsCavalryFrontal": {
       "title": "Hattı koru",
-      "description": "Düşman süvarisi piyadenin önüne saldırıyor ama emir sırası var. Onları <removeOrders>temizle</removeOrders> ki hat yerinde dursun ve toynaklara yürümek yerine ateş etsin."
+      "description": "Düşman süvarisi piyadene önden hücum ediyor ama piyadenin hâlâ sırada bekleyen emirleri var. Hat hücuma doğru yürümek yerine yerinde durup ateş etsin diye onları <removeOrders>temizle</removeOrders>."
     },
     "infantryVsCavalryFlank": {
       "title": "Kare düzenine geç",
-      "description": "Süvariler piyadenizin yan veya arka kısmından geliyor. Yan taraftan bir sıra geçiliyor. Vurgulanan her birimde <square>kare</square> oluşturun, böylece her yüzde tüfekler çıkar."
+      "description": "Düşman süvarisi piyadenin kanadına ya da arkasına geliyor ve yandan vurulan bir hat ezilip geçilir. Her yüzde tüfekler dışarı baksın diye <square>kare</square> düzenine geç."
     },
     "infantryBayonetCharge": {
       "title": "Süngü hücumu",
-      "description": "Hücum menzilindeki düşman piyadeleri zayıf. <column>Sütun</column> oluşturun ve üzerlerine <run>koşun</run>. Sütunla temas eden süngü onları kırar."
+      "description": "Zayıf düşman piyadesi hücum menzilinde. <column>Kol</column> düzenine geç ve üzerlerine <run>koş</run>: kol düzeninde bir süngü hücumu onları temas anında kırar."
     },
     "infantryFallback": {
       "title": "Bu birliği geri çek",
-      "description": "Bu birimin organizasyonu çatladı, bir yaylım ateşi daha açılır ve bozulur. Hat kopmadan önce onu dışarı çekin."
+      "description": "Bu birlik dağılmak üzere: bir yaylım ateşi daha onu bozguna uğratabilir. Bozgunu yanındaki birlikleri sarsmadan önce onu şimdi hattan çek."
     },
     "infantryVsSkirmishers": {
       "title": "Piyade avcı piyadeye karşı",
-      "description": "Yakında düşman avcıları var ve kullanabileceğiniz süvari yok. <walk>Yürüyerek</walk> ilerleyin ve en zayıf oldukları yakın dövüşe zorlayın."
+      "description": "Düşman avcı erleri yakında ve gönderecek süvarin yok. <walk>Yürüyerek</walk> ilerle ve onları avcı erlerinin en zayıf olduğu yakın dövüşe zorla."
     },
     "infantryVsArtillery": {
       "title": "Piyade topçuya karşı",
-      "description": "Yakındaki düşman topları korumasız. Dönüp misket ateşi açamadan doğrudan top mürettebatına <run>koşun</run>."
+      "description": "Düşman topları yakında ve onları perdeleyen hiçbir şey yok. Dönüp misket ateşi açamadan mürettebatın üzerine doğrudan <run>koş</run>."
     },
     "infantryColumnMarch": {
       "title": "Sütun düzeninde yürü",
-      "description": "Bu birimin yakınında düşman yok. Daha hızlı ilerlemek için <column>kol</column> düzenine geçin, temastan önce <line>hat</line> düzeni alın."
+      "description": "Bu birliğin yakınında düşman yok. Daha hızlı yürümek için <column>kol</column> düzenine geç ve temastan önce yeniden <line>hat</line> düzeni al."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Süvari daha zayıf süvariye karşı",
-      "description": "Düşman süvarileri hücum menzilinde ve sarsılmış durumda, atınız daha taze. Avantajı yakalayın: onlar iyileşmeden şarj edin."
+      "description": "Hücum menzilindeki düşman süvarisi sarsılmış ve senin atlıların daha dinç. Onlar toparlanmadan şimdi hücum et."
     },
     "cavalryVsEqualCavalry": {
       "title": "Süvari denk süvariye karşı",
-      "description": "Düşman süvarileri temas halinde ve kabaca sizinkiler kadar istikrarlı. Kazanamayacağınız bir görev için dayanıklılığınızı boşa harcamayın. <walk>Yürüyerek</walk> yaklaşın ve eşit şartlarda çarpışın."
+      "description": "Temas halindeki düşman süvarisi seninki kadar sağlam, bu yüzden bir hücum kazandırmadan dayanıklılık harcar. <walk>Yürüyerek</walk> yaklaş ve eşit şartlarda çarpış."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Süvari daha güçlü süvariye karşı",
-      "description": "Düşman süvarileri temas halinde ve sizinkinden daha istikrarlı, burada yakın dövüşçü kaybeder. Taahhüt etmeden önce kesip sıfırlayın."
+      "description": "Temas halindeki düşman süvarisi seninkinden daha sağlam ve burada bir yakın dövüş kaybedilir. Onlar saldırıyı sürdürmeden temastan çık ve yeniden düzen al."
     },
     "cavalryVsInfantryFlank": {
       "title": "Kanada hücum et",
-      "description": "Düşman piyadelerinin kanadı açık ve kabaca sizin kadar sağlamlar. İşte o an, temiz bir saldırı onları kırıyor. Öne değil yandan vurun."
+      "description": "Düşman piyadesinin kanadı açık ve senin atlılarından daha sağlam değiller. Yana yapılan bir hücum onları kırar; önden yapılan kırmaz."
     },
     "cavalryVsShakenInfantry": {
       "title": "Süvari sarsılmış piyadeye karşı",
-      "description": "Düşman piyadeleri zar zor bir arada duruyor, teşkilatları çatlamış durumda. Temiz bir saldırı, toparlanmadan önce onları eziyor."
+      "description": "Bu düşman piyadesinin organizasyonu neredeyse tükendi. Temiz bir hücum, toparlanamadan onları ezip geçer."
     },
     "cavalryVsSkirmishers": {
       "title": "Süvari avcı piyadeye karşı",
-      "description": "Avcı erleri, atınıza giden açık bir şeritle açıkta yakalandı. Yakın dövüşte pas geçerler ve hücumdan kaçamazlar. Korunmaya ulaşmadan onları aşağıya sürün."
+      "description": "Düşman avcı erleri açıkta yakalandı ve atlılarının önündeki yol açık. Yakın dövüşte zayıftırlar ve bir hücumdan kaçamazlar, bu yüzden sipere ulaşmadan onları ezip geç."
     },
     "cavalryVsArtillery": {
       "title": "Süvari topçuya karşı",
-      "description": "Sizinle onlar arasında perde olmayan düşman silahları. Korumasız mürettebata yapılan saldırı onları tek seferde bitirir. Ama eğer dost bir hat önünüze çıkarsa onun yerine kan kaybedersiniz."
+      "description": "Düşman topları, onları atlılarından koruyacak hiçbir şey olmadan duruyor. Korumasız bir mürettebata hücum bataryayı yok eder, ama araya bir piyade hattı girerse hücum onun karşısında kırılır."
     },
     "cavalryPursueRouter": {
       "title": "Kaçanları kovala",
-      "description": "Bu düşman, kovalamacayı kesintiye uğratacak hiçbir destek olmadan kırılmış ve koşuyor. Süvarilerin takibi onları tamamen bozar. Reform yapmadan önce onları bitirin."
+      "description": "O düşman birliği bozuldu ve kaçıyor, yakında kovalamayı durduracak destek yok. Yeniden düzen almadan onu bitirmek için süvariyle takip et."
     },
     "cavalryFallbackFromInfantry": {
       "title": "Tüfek ateşi altındaki süvari",
-      "description": "Süvarileriniz sağlıklı hat piyadelerinin tüfek menzilinde oturuyor. Atınızı ezmeden önce geri çekilin, sarsılmış hedefleri arayın veya kanatları açın."
+      "description": "Süvarin, onu yıpratacak sağlam hat piyadesinin tüfek menzilinde. Geri çek ve bunun yerine sarsılmış birlikler ya da açık kanatlar ara."
     },
     "enemyInfantrySquare": {
       "title": "Düşman karesi",
-      "description": "Düşman piyade kare aldı. Her cephe de tüfekler hazır. Süvarini uzak tut ve kanadı açık hat ya da kolon hedefler ara."
+      "description": "Düşman piyadesi kare düzeni aldı, her yüzünde tüfekler var. Süvarini ondan uzak tut ve kanadı açık, hat ya da kol düzenindeki piyadeyi ara."
     },
     "artilleryFireAndAdvance": {
       "title": "Ateş ve ilerle",
-      "description": "Düşman, ateş ederken yaklaşmaya devam edebileceğiniz kadar uzakta. Bu topçu birimini <fireAndAdvance>Ateş ve İlerle</fireAndAdvance> olarak değiştirin."
+      "description": "Düşman, bu bataryanın ateş ederken yaklaşmayı sürdürebileceği kadar uzakta. Onu <fireAndAdvance>Ateş ve İlerle</fireAndAdvance> moduna geçir."
     },
     "artilleryRotateToFire": {
       "title": "Ateş için dur",
-      "description": "Düşman yakında ve topunuz temiz bir atış yapıyor ama hâlâ hareket ediyor. Yürüyüşü durdurun ve otomatik ateşleme için üniteyi döndürün."
+      "description": "Düşman yakında ve bu bataryanın temiz bir atış hattı var, ama hâlâ hareket ediyor. <autofire>Otomatik ateş</autofire> çalışabilsin diye onu durdur ve hedefe çevir."
     },
     "artilleryCanisterRange": {
       "title": "Misket menziline yakın",
@@ -657,15 +669,15 @@
     },
     "pushObjective": {
       "title": "Üstünlüğünü kullan",
-      "description": "Liderlik sende. Öğrendiklerinizle düşman hedefine doğru ilerleyin. Kapatmak onların herhangi bir geri dönüşünü engelliyor."
+      "description": "Öndesin. Düşman hedefine doğru ilerle: onu almak farkı açar ve düşmana geri dönmek için çok az şans bırakır."
     },
     "holdObjective": {
-      "title": "Hedefini tut",
-      "description": "Puan bakımından geridesin. Hedefinize geri çekilin ve öğrendiklerinizle onu koruyun. Savunmak, tekrar almaktan daha ucuzdur."
+      "title": "Hedefini koru",
+      "description": "Puanda geridesin ve bu hedefi de kaybetmek farkı daha da açar. Üzerinde birlik tut, sonra puanları geri kazanmak için bir düşman hedefi ya da açıkta kalmış bir birlik ara."
     },
     "runWithoutStamina": {
-      "title": "Koşarak götür",
-      "description": "Bu birliğin dayanıklılığı yok, bu yüzden <run>koşmak</run> ona hiçbir şeye mal olmaz. Yakında düşman yokken uzun bir yolda onu koştur. Koştuktan hemen sonra ateş edemez ve hareket halindeyken bir hücum için kolay avdır."
+      "title": "Rahatça koşabilir",
+      "description": "Bu tür birlik yorulmaz, bu yüzden <run>koşmak</run> ona hiçbir şeye mal olmaz. Yakında düşman yokken uzun bir yolda onu koştur. Koştuktan hemen sonra ateş edemez ve hareket halindeyken bir hücum için kolay avdır."
     },
     "routing": {
       "title": "Bir birlik bozuldu",
@@ -704,7 +716,7 @@
       "description": "Bu hedefin bölgesinde bir düşman birliği var. İki tarafın da orada birliği olduğu sürece ele geçirme ilerlemez ve ilerleme kaybolur. Hedefi almak için onu dışarı sür ya da boz."
     },
     "lineOnRoad": {
-      "title": "Kol düzeninde yürü",
+      "title": "Yolda kol düzeni",
       "description": "Bu tabur bir yol boyunca <line>hat</line> düzeninde yürüyor. Yol yalnızca üzerindeki birliği hızlandırır ve hat, yola sığmayacak kadar geniştir. Yürüyüş için <column>kol</column> düzenine geç."
     },
     "garrisonStrongpoint": {

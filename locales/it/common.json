@@ -492,15 +492,15 @@
   "gameTips": {
     "victoryPoints": {
       "title": "Punti vittoria",
-      "description": "Le perdite e gli obiettivi influenzano i punti vittoria. Proteggi le tue truppe e contendi gli obiettivi per rimontare."
+      "description": "Stai restando indietro nei punti vittoria. Ogni perdita che subisci e ogni obiettivo tenuto dal nemico ti costa punti. Apri la panoramica della battaglia per vedere da dove nasce il distacco."
     },
     "blockedFire": {
       "title": "Tiro bloccato",
       "description": "Le tue truppe bloccano i colpi di questa batteria. Libera la sua linea di tiro perché possa sparare."
     },
     "organization": {
-      "title": "Organizzazione",
-      "description": "Le unità disorganizzate possono fuggire. Ritirale dal combattimento per recuperare prima di attaccare di nuovo."
+      "title": "Unità scossa",
+      "description": "L'organizzazione di questa unità è bassa. Combatte peggio, e un'unità che esaurisce l'organizzazione va in rotta. Tienila lontana dal fuoco più intenso e dentro il raggio di organizzazione di un'unità amica salda finché non si riprende."
     },
     "range": {
       "title": "Distanza di tiro",
@@ -537,7 +537,19 @@
     },
     "terrain": {
       "title": "Sfrutta il terreno",
-      "description": "Il terreno modifica movimento e combattimento. Apri <info>Info</info> per vedere i modificatori attuali di un'unità e scegliere il terreno adatto."
+      "description": "Il terreno sotto questa unità cambia il modo in cui si muove e combatte. Boschi, edifici e coltivazioni la rallentano ma le danno copertura; il terreno aperto è più veloce. Apri <info>Info</info> per vedere esattamente cosa si applica."
+    },
+    "howToWin": {
+      "title": "Come si vince una battaglia",
+      "description": "La barra in alto pesa i punti vittoria di entrambe le parti. Tenere gli obiettivi e infliggere perdite la fa pendere dalla tua parte, e alla fine dell'ultimo turno chi è indietro nei punti è sconfitto. Fai clic sulla barra per vedere da dove vengono i punti."
+    },
+    "flags": {
+      "title": "Bandiere sul campo",
+      "description": "Le bandiere piantate sul campo sono obiettivi: grigie finché nessuno le tiene, poi del colore della parte che le tiene. Lo stendardo dietro ciascuna delle tue divisioni appartiene a quella divisione: un clic su di esso seleziona l'intera divisione, a meno che un'unità non si trovi proprio sotto, nel qual caso il clic va all'unità."
+    },
+    "findTroops": {
+      "title": "Trova le tue truppe",
+      "description": "La telecamera resta dove la lasci, quindi la tua linea può uscire dallo schermo mentre la battaglia si sposta. Fai doppio clic sulla scheda di una divisione in basso sullo schermo, o sulla sua riga nell'ordine di battaglia, per riportare la telecamera su quelle truppe."
     },
     "basicsSelect": {
       "title": "Dare ordini",
@@ -549,7 +561,7 @@
     },
     "basicsFormations": {
       "title": "Formazioni",
-      "description": "La formazione decide il fronte e la potenza di fuoco. La <column>colonna</column> marcia veloce, la <line>linea</line> punta più moschetti in avanti, il <square>quadrato</square> protegge ogni lato dalla cavalleria."
+      "description": "La formazione decide il fronte e la potenza di fuoco. La <column>colonna</column> marcia veloce, la <line>linea</line> punta più moschetti in avanti, il <square>quadrato</square> protegge ogni lato quando la cavalleria minaccia un fianco o le spalle."
     },
     "basicsSubmit": {
       "title": "Invia il turno",
@@ -561,95 +573,95 @@
     },
     "skirmisherVsArtillery": {
       "title": "Schermagliatori contro artiglieria",
-      "description": "Batteria nemica alla portata del tuo schermagliatore. Sparate al fuoco sulla squadra armata. Gli schermagliatori fanno a pezzi l'artiglieria non protetta prima che possa rispondere."
+      "description": "Una batteria nemica è a portata dei tuoi schermagliatori. Fai fuoco sui serventi: gli schermagliatori logorano i cannoni senza protezione prima che possano rispondere."
     },
     "skirmisherVsCavalry": {
       "title": "Cavalleria vicino ai tuoi schermagliatori",
-      "description": "Il tuo schermagliatore verrà distrutto dalla cavalleria nemica se mantiene quella posizione. <fallback>Ripiega</fallback> e cerca copertura."
+      "description": "La cavalleria nemica può raggiungere i tuoi schermagliatori, che non sopravvivrebbero a una carica in campo aperto. <fallback>Ripiega</fallback> verso una copertura o verso le tue linee."
     },
     "skirmisherVsInfantry": {
       "title": "Fanteria vicino ai tuoi schermagliatori",
-      "description": "Fanteria nemica sopra il tuo schermagliatore. Gli schermagliatori si piegano in mischia. Tiratevi indietro prima che raggiungano le baionette."
+      "description": "La fanteria nemica si sta avvicinando ai tuoi schermagliatori, che sono deboli in mischia. Ritirali prima che arrivino le baionette."
     },
     "infantryFormLine": {
       "title": "Formare la linea",
-      "description": "Metti queste unità in <line>linea</line>. Con la fanteria nemica a portata di moschetto o la cavalleria che arriva in prima linea, la linea ti offre il maggior numero di moschetti puntati in avanti e la migliore difesa contro le raffiche in arrivo. Non formare squadra contro una carica frontale, perderesti metà della tua potenza di fuoco."
+      "description": "Metti queste unità in <line>linea</line>. Con la fanteria nemica a portata di moschetto o la cavalleria che arriva di fronte, la linea porta avanti più moschetti e resiste meglio alle scariche. Contro una carica frontale la linea è migliore del quadrato, che perderebbe metà della sua potenza di fuoco."
     },
     "infantryVsCavalryFrontal": {
       "title": "Tenere la linea",
-      "description": "Cavalleria nemica carica il fronte della tua fanteria, ma hanno ordini in coda. <removeOrders>Cancellali</removeOrders> così la linea resta ferma e spara invece di camminare sotto gli zoccoli."
+      "description": "La cavalleria nemica carica il fronte della tua fanteria, ma la tua fanteria ha ancora ordini in coda. <removeOrders>Cancellali</removeOrders> così la linea resta ferma e spara invece di marciare incontro alla carica."
     },
     "infantryVsCavalryFlank": {
       "title": "Formare il quadrato",
-      "description": "La cavalleria arriva sul fianco o sul retro della tua fanteria. Una linea viene superata lateralmente. Forma un <square>quadrato</square> su ciascuna unità evidenziata in modo che ogni faccia abbia i moschetti fuori."
+      "description": "La cavalleria nemica arriva sul fianco o alle spalle della tua fanteria, e una linea colpita di lato viene travolta. Forma il <square>quadrato</square> perché ogni lato abbia i moschetti puntati."
     },
     "infantryBayonetCharge": {
       "title": "Carica alla baionetta",
-      "description": "Fanteria nemica debole nel raggio di carica. Forma una <column>colonna</column> e <run>corri</run> contro di loro. La baionetta al contatto nella colonna li rompe."
+      "description": "Della fanteria nemica debole è a portata di carica. Forma la <column>colonna</column> e <run>corri</run> contro di lei: una carica alla baionetta in colonna la spezza al contatto."
     },
     "infantryFallback": {
       "title": "Ritirare questa unità",
-      "description": "L'organizzazione di questa unità ha ceduto, un'altra raffica e va in rotta. Tiratelo fuori prima che la linea si rompa."
+      "description": "Questa unità sta per cedere: un'altra scarica potrebbe mandarla in rotta. Toglila dalla linea adesso, prima che la sua rotta scuota le unità accanto."
     },
     "infantryVsSkirmishers": {
       "title": "Fanteria contro schermagliatori",
-      "description": "Ci sono schermagliatori nemici vicini e non hai cavalleria disponibile. Avanza <walk>al passo</walk> e costringili al corpo a corpo, dove sono più deboli."
+      "description": "Ci sono schermagliatori nemici vicini e non hai cavalleria da mandare. Avanza <walk>al passo</walk> e costringili al corpo a corpo, dove gli schermagliatori sono più deboli."
     },
     "infantryVsArtillery": {
       "title": "Fanteria contro artiglieria",
-      "description": "I cannoni nemici sono vicini e senza protezione. <run>Corri</run> dritto sui serventi prima che possano ruotare e sparare a mitraglia."
+      "description": "I cannoni nemici sono vicini e niente li protegge. <run>Corri</run> dritto sui serventi prima che possano girarsi e sparare a mitraglia."
     },
     "infantryColumnMarch": {
       "title": "Marciare in colonna",
-      "description": "Non ci sono nemici vicini a questa unità. Passa alla <column>colonna</column> per marciare più velocemente, poi forma la <line>linea</line> prima del contatto."
+      "description": "Non ci sono nemici vicini a questa unità. Passa alla <column>colonna</column> per marciare più veloce, e torna in <line>linea</line> prima del contatto."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Cavalleria contro cavalleria più debole",
-      "description": "Cavalleria nemica nel raggio di carica e scossa, il tuo cavallo è più fresco. Sfrutta il vantaggio: carica prima di recuperare."
+      "description": "La cavalleria nemica a portata di carica è scossa, e i tuoi cavalieri sono più freschi. Carica ora, prima che si riprenda."
     },
     "cavalryVsEqualCavalry": {
       "title": "Cavalleria contro cavalleria pari",
-      "description": "Cavalleria nemica in contatto e più o meno stabile come la tua. Non sprecare resistenza per una carica che non puoi vincere. Avvicinarsi <walk>al passo</walk> e rissa ad armi pari."
+      "description": "La cavalleria nemica a contatto è salda quanto la tua, quindi una carica consumerebbe resistenza senza vincere. Avvicinati <walk>al passo</walk> e combatti ad armi pari."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Cavalleria contro cavalleria più forte",
-      "description": "La cavalleria nemica in contatto e più stabile della tua, un corpo a corpo qui perde. Interrompi e ripristina prima di impegnarsi."
+      "description": "La cavalleria nemica a contatto è più salda della tua, e una mischia qui sarebbe persa. Sganciati e riordinati prima che incalzino con l'attacco."
     },
     "cavalryVsInfantryFlank": {
       "title": "Caricare il fianco",
-      "description": "Il fianco della fanteria nemica è aperto e sono stabili quanto te. È quello il momento in cui una carica pulita li spezza. Colpisci lateralmente, non frontalmente."
+      "description": "Il fianco della fanteria nemica è scoperto, e non è più salda dei tuoi cavalieri. Una carica sul fianco la spezza; una carica frontale no."
     },
     "cavalryVsShakenInfantry": {
       "title": "Cavalleria contro fanteria scossa",
-      "description": "La fanteria nemica riesce a malapena a resistere, la loro organizzazione si è incrinata. Una carica pulita li abbatte prima che possano riprendersi."
+      "description": "L'organizzazione di questa fanteria nemica è quasi esaurita. Una carica pulita la travolge prima che possa riorganizzarsi."
     },
     "cavalryVsSkirmishers": {
       "title": "Cavalleria contro schermagliatori",
-      "description": "Schermagliatori catturati all'aperto con una corsia libera verso il tuo cavallo. Si piegano in mischia e non possono superare una carica. Abbattili prima che raggiungano la copertura."
+      "description": "Degli schermagliatori nemici sono sorpresi allo scoperto, con la strada libera verso i tuoi cavalieri. Sono deboli in mischia e non possono sfuggire a una carica, quindi travolgili prima che raggiungano una copertura."
     },
     "cavalryVsArtillery": {
       "title": "Cavalleria contro artiglieria",
-      "description": "Armi nemiche senza schermo tra te e loro. Una carica contro un equipaggio non schermato li mette fine in un colpo. Ma se una linea amica si intromette, invece, sanguinerai contro di essa."
+      "description": "I cannoni nemici non hanno nulla che li protegga dai tuoi cavalieri. Una carica contro serventi senza protezione distrugge la batteria, ma se una linea della loro fanteria si mette in mezzo, la carica si infrangerà contro di essa."
     },
     "cavalryPursueRouter": {
       "title": "Inseguire chi fugge",
-      "description": "Quel nemico è distrutto e corre, senza alcun supporto che possa interrompere l'inseguimento. Un inseguimento da parte della cavalleria li distrugge definitivamente. Finiscili prima che si riformino."
+      "description": "Quell'unità nemica è in rotta e fugge, senza supporto abbastanza vicino da fermare un inseguimento. Inseguila con la cavalleria per finirla prima che si riformi."
     },
     "cavalryFallbackFromInfantry": {
       "title": "Cavalleria sotto il fuoco dei moschetti",
-      "description": "La tua cavalleria è a portata di moschetto di una fanteria di linea sana. Tirati indietro prima che abbattano il tuo cavallo, cerca invece bersagli scossi o fianchi aperti."
+      "description": "La tua cavalleria è a portata di moschetto di fanteria di linea salda, che la logorerà. Ritirala e cerca invece unità scosse o fianchi scoperti."
     },
     "enemyInfantrySquare": {
       "title": "Quadrato nemico",
-      "description": "La fanteria nemica si è messa in quadrato. Ogni lato ha moschetti pronti. Tieni lontana la tua cavalleria e cerca bersagli in linea o colonna con un fianco esposto."
+      "description": "La fanteria nemica si è disposta in quadrato, con moschetti su ogni lato. Tieni la tua cavalleria lontana e cerca fanteria in linea o in colonna con un fianco scoperto."
     },
     "artilleryFireAndAdvance": {
       "title": "Fuoco e avanza",
-      "description": "Il nemico è abbastanza lontano da poter continuare ad avvicinarsi mentre spari. Cambia questa unità di artiglieria in <fireAndAdvance>Fuoco e Avanza</fireAndAdvance>."
+      "description": "Il nemico è abbastanza lontano perché questa batteria continui ad avvicinarsi mentre spara. Passala a <fireAndAdvance>Fuoco e Avanza</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "Fermarsi per sparare",
-      "description": "Il nemico è vicino e il tuo cannone ha un tiro pulito ma è ancora in movimento. Interrompi la marcia e ruota l'unità in modalità fuoco automatico."
+      "description": "Il nemico è vicino e questa batteria ha un tiro libero, ma è ancora in movimento. Fermala e girala verso il bersaglio perché il <autofire>fuoco automatico</autofire> possa funzionare."
     },
     "artilleryCanisterRange": {
       "title": "Quasi a tiro di mitraglia",
@@ -657,15 +669,15 @@
     },
     "pushObjective": {
       "title": "Sfrutta il vantaggio",
-      "description": "Tu sei al comando. Spingi verso l'obiettivo nemico con ciò che hai imparato. Chiuderlo nega loro qualsiasi rimonta."
+      "description": "Sei in vantaggio. Spingi verso l'obiettivo nemico: prenderlo allarga il distacco e lascia al nemico poco margine per rimontare."
     },
     "holdObjective": {
-      "title": "Tieni il tuo obiettivo",
-      "description": "Sei indietro ai punti. Torna al tuo obiettivo e mantienilo con ciò che hai imparato. Difendere è più economico che riprendere."
+      "title": "Difendi il tuo obiettivo",
+      "description": "Sei indietro ai punti, e perdere anche questo obiettivo allargherebbe il distacco. Tieni delle truppe su di esso, poi cerca un obiettivo nemico o un'unità esposta per recuperare i punti."
     },
     "runWithoutStamina": {
-      "title": "Falla correre",
-      "description": "Questa unità non ha resistenza, quindi <run>correre</run> non le costa nulla. In uno spostamento lungo senza nemici vicini, falla correre. Non può sparare subito dopo aver corso ed è una preda facile per una carica mentre si muove."
+      "title": "Libera di correre",
+      "description": "Questo tipo di unità non si stanca, quindi <run>correre</run> non le costa nulla. In uno spostamento lungo senza nemici vicini, falla correre. Non può sparare subito dopo aver corso ed è una preda facile per una carica mentre si muove."
     },
     "routing": {
       "title": "Un'unità ha ceduto",
@@ -704,7 +716,7 @@
       "description": "Un'unità nemica è dentro la zona di questo obiettivo. Finché entrambe le parti vi hanno truppe, la conquista non avanza e il progresso va perso. Scacciala o spezzala per prendere l'obiettivo."
     },
     "lineOnRoad": {
-      "title": "Marcia in colonna",
+      "title": "Colonna sulla strada",
       "description": "Questo battaglione marcia lungo una strada in <line>linea</line>. Una strada accelera solo l'unità che vi si trova sopra, e una linea è troppo larga per starci. Passa in <column>colonna</column> per la marcia."
     },
     "garrisonStrongpoint": {

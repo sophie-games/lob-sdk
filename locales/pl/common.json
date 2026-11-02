@@ -497,15 +497,15 @@
   "gameTips": {
     "victoryPoints": {
       "title": "Punkty zwycięstwa",
-      "description": "Straty i cele wpływają na punkty zwycięstwa. Chroń wojska i walcz o cele, aby odrobić straty."
+      "description": "Zostajesz w tyle w punktach zwycięstwa. Każda twoja strata i każdy cel w rękach wroga kosztują cię punkty. Otwórz podsumowanie bitwy, aby zobaczyć, skąd bierze się różnica."
     },
     "blockedFire": {
       "title": "Zablokowany ogień",
       "description": "Twoje wojska blokują strzały tej baterii. Odsłoń jej linię ognia, aby mogła strzelać."
     },
     "organization": {
-      "title": "Organizacja",
-      "description": "Zdezorganizowane jednostki mogą uciec. Wycofaj je z walki, by odzyskały siły przed kolejnym atakiem."
+      "title": "Zachwiany oddział",
+      "description": "Organizacja tego oddziału jest niska. Walczy gorzej, a oddział, któremu skończy się organizacja, ucieka. Trzymaj go z dala od najcięższego ognia i w promieniu organizacji pewnego sojuszniczego oddziału, dopóki nie dojdzie do siebie."
     },
     "range": {
       "title": "Zasięg ognia",
@@ -542,7 +542,19 @@
     },
     "terrain": {
       "title": "Wykorzystuj teren",
-      "description": "Teren zmienia ruch i walkę. Otwórz <info>Informacje</info>, aby zobaczyć bieżące modyfikatory jednostki i wybrać odpowiedni teren."
+      "description": "Teren pod tym oddziałem zmienia sposób, w jaki się porusza i walczy. Lasy, budynki i uprawy go spowalniają, ale dają osłonę; otwarty teren jest szybszy. Otwórz <info>Informacje</info>, aby zobaczyć dokładnie, co obowiązuje."
+    },
+    "howToWin": {
+      "title": "Jak wygrywa się bitwę",
+      "description": "Pasek u góry waży punkty zwycięstwa obu stron. Utrzymywanie celów i zadawanie strat przechyla go na twoją korzyść, a gdy kończy się ostatnia tura, przegrywa strona, która ma mniej punktów. Kliknij pasek, aby zobaczyć, skąd biorą się punkty."
+    },
+    "flags": {
+      "title": "Flagi na polu bitwy",
+      "description": "Flagi wbite w pole bitwy to cele: szare, dopóki nikt ich nie trzyma, a potem w kolorze strony, która je trzyma. Sztandar za każdą twoją dywizją należy do tej dywizji: kliknięcie go zaznacza całą dywizję, chyba że tuż pod nim stoi oddział, który wtedy przejmuje kliknięcie."
+    },
+    "findTroops": {
+      "title": "Znajdź swoje wojska",
+      "description": "Kamera zostaje tam, gdzie ją zostawisz, więc w miarę rozwoju bitwy twoja linia może zniknąć z ekranu. Kliknij dwukrotnie żeton dywizji na dole ekranu albo jej wiersz w ordre de bataille, aby przenieść kamerę z powrotem do tych wojsk."
     },
     "basicsSelect": {
       "title": "Wydawanie rozkazów",
@@ -554,7 +566,7 @@
     },
     "basicsFormations": {
       "title": "Szyki",
-      "description": "Szyk decyduje o szerokości frontu i sile ognia. <column>Kolumna</column> maszeruje szybko, <line>linia</line> kieruje najwięcej muszkietów do przodu, a <square>czworobok</square> osłania każdy bok przed kawalerią."
+      "description": "Szyk decyduje o szerokości frontu i sile ognia. <column>Kolumna</column> maszeruje szybko, <line>linia</line> kieruje najwięcej muszkietów do przodu, a <square>czworobok</square> osłania każdy bok, gdy kawaleria zagraża flance lub tyłom."
     },
     "basicsSubmit": {
       "title": "Zatwierdzenie tury",
@@ -566,95 +578,95 @@
     },
     "skirmisherVsArtillery": {
       "title": "Strzelcy przeciw artylerii",
-      "description": "Bateria wroga w zasięgu twojego harcownika. Wlej ogień do załogi działa. Harcownicy niszczą niechronioną artylerię, zanim zdąży odpowiedzieć."
+      "description": "Bateria wroga jest w zasięgu twoich harcowników. Ostrzeliwuj jej obsługę: harcownicy wykruszają nieosłonięte działa, zanim te zdążą odpowiedzieć."
     },
     "skirmisherVsCavalry": {
       "title": "Kawaleria blisko twoich strzelców",
-      "description": "Twój harcownik zostanie zniszczony przez kawalerię wroga, jeśli utrzyma tę pozycję. <fallback>Cofnij się</fallback> i szukaj osłony."
+      "description": "Wroga kawaleria może dosięgnąć twoich harcowników, a ci nie przetrwają szarży na otwartym terenie. <fallback>Cofnij się</fallback> w stronę osłony albo własnych linii."
     },
     "skirmisherVsInfantry": {
       "title": "Piechota blisko twoich strzelców",
-      "description": "Piechota wroga na szczycie twojego harcownika. Harcownicy poddają się w walce wręcz. Cofnij się, zanim dosięgną bagnety."
+      "description": "Wroga piechota zbliża się do twoich harcowników, a harcownicy są słabi w walce wręcz. Wycofaj ich, zanim dosięgną ich bagnety."
     },
     "infantryFormLine": {
       "title": "Uformuj linię",
-      "description": "Przełącz te jednostki na <line>linię</line>. Kiedy wroga piechota jest w zasięgu muszkietów, a kawaleria zbliża się z przodu, linia zapewnia najwięcej muszkietów skierowanych do przodu i najlepszą obronę przed nadlatującymi salwami. Nie twórzcie szyku przeciwko szarży frontalnej, stracicie połowę swojej siły ognia."
+      "description": "Przełącz te oddziały na <line>linię</line>. Gdy wroga piechota jest w zasięgu muszkietów albo kawaleria nadciąga od czoła, linia kieruje najwięcej muszkietów do przodu i najlepiej znosi salwy. Przeciw szarży od czoła linia jest lepsza niż czworobok, który straciłby połowę siły ognia."
     },
     "infantryVsCavalryFrontal": {
       "title": "Utrzymaj linię",
-      "description": "Wroga kawaleria szarżuje na front twojej piechoty, ale mają kolejkę rozkazów. <removeOrders>Wyczyść</removeOrders> je, by linia stała i strzelała zamiast iść pod kopyta."
+      "description": "Wroga kawaleria szarżuje na czoło twojej piechoty, ale twoja piechota wciąż ma rozkazy w kolejce. <removeOrders>Wyczyść</removeOrders> je, by linia stała i strzelała, zamiast maszerować prosto na szarżę."
     },
     "infantryVsCavalryFlank": {
       "title": "Uformuj czworobok",
-      "description": "Kawaleria nadchodząca z flanki lub z tyłu twojej piechoty. Lina jest przejeżdżana z boku. Uformuj <square>kwadrat</square> na każdej wyróżnionej jednostce, tak aby każda twarz miała wystawione muszkiety."
+      "description": "Wroga kawaleria nadciąga na flankę lub tyły twojej piechoty, a linia zaatakowana z boku zostaje rozjechana. Uformuj <square>czworobok</square>, by każdy bok miał wystawione muszkiety."
     },
     "infantryBayonetCharge": {
       "title": "Szarża na bagnety",
-      "description": "Słaba piechota wroga w zasięgu szarży. Utwórz <column>kolumnę</column> i <run>wbiegnij</run> na nie. Bagnet przy kontakcie w kolumnie łamie je."
+      "description": "Słaba wroga piechota jest w zasięgu szarży. Uformuj <column>kolumnę</column> i <run>biegnij</run> na nią: szarża na bagnety w kolumnie łamie ją przy zetknięciu."
     },
     "infantryFallback": {
       "title": "Wycofaj tę jednostkę",
-      "description": "Organizacja tej jednostki pękła, jeszcze jedna salwa i ucieka. Wyciągnij go, zanim linka się zerwie."
+      "description": "Ten oddział zaraz się załamie: jeszcze jedna salwa może zmusić go do ucieczki. Wycofaj go z linii teraz, zanim jego ucieczka wstrząśnie sąsiednimi oddziałami."
     },
     "infantryVsSkirmishers": {
       "title": "Piechota przeciw strzelcom",
-      "description": "Wrodzy harcownicy są blisko, a kawaleria nie jest dostępna. Podejdź <walk>krokiem</walk> i zmuś ich do walki wręcz, w której są najsłabsi."
+      "description": "Wrodzy harcownicy są blisko, a nie masz kawalerii, którą można by wysłać. Ruszaj <walk>krokiem</walk> i zmuś ich do walki wręcz, w której harcownicy są najsłabsi."
     },
     "infantryVsArtillery": {
       "title": "Piechota przeciw artylerii",
-      "description": "Wrogie działa są blisko i bez osłony. <run>Biegnij</run> prosto na obsługę, zanim zdąży obrócić działa i wystrzelić kartaczem."
+      "description": "Wrogie działa są blisko i nic ich nie osłania. <run>Biegnij</run> prosto na obsługę, zanim zdąży obrócić działa i wystrzelić kartaczami."
     },
     "infantryColumnMarch": {
       "title": "Marsz w kolumnie",
-      "description": "W pobliżu tej jednostki nie ma wrogów. Przejdź do <column>kolumny</column>, aby maszerować szybciej, a przed kontaktem uformuj <line>linię</line>."
+      "description": "W pobliżu tego oddziału nie ma wroga. Przejdź do <column>kolumny</column>, by maszerować szybciej, a przed kontaktem znów uformuj <line>linię</line>."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Kawaleria przeciw słabszej kawalerii",
-      "description": "Kawaleria wroga w zasięgu szarży i wstrząśnięta, twój koń jest świeższy. Wykorzystaj przewagę: ładuj, zanim odzyskają siły."
+      "description": "Wroga kawaleria w zasięgu szarży jest zachwiana, a twoi jeźdźcy są świeżsi. Szarżuj teraz, zanim dojdzie do siebie."
     },
     "cavalryVsEqualCavalry": {
       "title": "Kawaleria przeciw równej kawalerii",
-      "description": "Kawaleria wroga w kontakcie i mniej więcej tak stabilna jak twoja. Nie marnuj wytrzymałości na szarżę, której nie możesz wygrać. Zbliż się <walk>krokiem</walk> i walcz na równych warunkach."
+      "description": "Wroga kawaleria w kontakcie jest mniej więcej tak pewna jak twoja, więc szarża zużyłaby wytrzymałość bez zwycięstwa. Zbliż się <walk>krokiem</walk> i walcz na równych warunkach."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Kawaleria przeciw silniejszej kawalerii",
-      "description": "Kawaleria wroga w kontakcie i stabilniejsza niż twoja, walka wręcz tutaj przegrywa. Zerwij i zresetuj, zanim się zatwierdzą."
+      "description": "Wroga kawaleria w kontakcie jest pewniejsza niż twoja i walka wręcz byłaby tu przegrana. Oderwij się i przegrupuj, zanim wróg ponowi natarcie."
     },
     "cavalryVsInfantryFlank": {
       "title": "Uderz w skrzydło",
-      "description": "Flanka wrogiej piechoty jest otwarta, a oni są mniej więcej tak stabilni jak ty. To jest moment, w którym czysty ładunek je rozbija. Uderzaj w bok, a nie w przód."
+      "description": "Flanka wrogiej piechoty jest odsłonięta, a piechota ta nie jest pewniejsza od twoich jeźdźców. Szarża w bok ją łamie; szarża od czoła nie."
     },
     "cavalryVsShakenInfantry": {
       "title": "Kawaleria przeciw zachwianej piechocie",
-      "description": "Wroga piechota ledwo się trzyma, ich orga jest popękana. Jeden czysty ładunek powali ich, zanim zdążą się zebrać."
+      "description": "Organizacja tej wrogiej piechoty jest prawie wyczerpana. Jedna czysta szarża rozniesie ją, zanim zdąży się zebrać."
     },
     "cavalryVsSkirmishers": {
       "title": "Kawaleria przeciw strzelcom",
-      "description": "Harcownicy złapani na otwartej przestrzeni, mając wolną drogę do konia. Składają się do walki wręcz i nie mogą prześcignąć szarży. Zjedź na nich, zanim dotrą do osłony."
+      "description": "Wrodzy harcownicy zostali przyłapani na otwartym terenie, z wolną drogą do twoich jeźdźców. Są słabi w walce wręcz i nie uciekną przed szarżą, więc rozjedź ich, zanim dotrą do osłony."
     },
     "cavalryVsArtillery": {
       "title": "Kawaleria przeciw artylerii",
-      "description": "Broń wroga bez ekranu między tobą a nimi. Szarża na nieosłoniętą załogę kończy się jednym uderzeniem. Ale jeśli przyjazna linia stanie ci na drodze, zamiast tego krwawisz przeciwko niej."
+      "description": "Wrogie działa stoją bez żadnej osłony przed twoimi jeźdźcami. Szarża na nieosłoniętą obsługę niszczy baterię, ale jeśli między was wejdzie linia ich piechoty, szarża rozbije się o nią."
     },
     "cavalryPursueRouter": {
       "title": "Ścigaj uciekających",
-      "description": "Ten wróg jest złamany i ucieka, bez wsparcia, które mogłoby przerwać pościg. Pościg kawalerii rozbija ich na dobre. Skończcie z nimi, zanim się zreformują."
+      "description": "Ten wrogi oddział jest rozbity i ucieka, bez wsparcia na tyle blisko, by powstrzymać pościg. Ścigaj go kawalerią, by go dobić, zanim się przegrupuje."
     },
     "cavalryFallbackFromInfantry": {
       "title": "Kawaleria pod ogniem muszkietów",
-      "description": "Twoja kawaleria znajduje się w zasięgu muszkietów zdrowej piechoty liniowej. Odsuń się, zanim zmiażdżą twojego konia, zamiast tego szukaj wstrząśniętych celów lub otwartych flanek."
+      "description": "Twoja kawaleria jest w zasięgu muszkietów pewnej piechoty liniowej, która będzie ją wykrwawiać. Wycofaj się i szukaj zamiast tego zachwianych oddziałów albo odsłoniętych flank."
     },
     "enemyInfantrySquare": {
       "title": "Czworobok wroga",
-      "description": "Wroga piechota uformowała czworobok. Każda strona ma muszkiety gotowe. Trzymaj kawalerię z dala i szukaj celów w linii lub kolumnie z odkrytym skrzydłem."
+      "description": "Wroga piechota uformowała czworobok, z muszkietami na każdym boku. Trzymaj od niego kawalerię z dala i szukaj piechoty w linii lub kolumnie z odsłoniętą flanką."
     },
     "artilleryFireAndAdvance": {
       "title": "Natarcie z ostrzałem",
-      "description": "Wróg jest na tyle daleko, że możesz się zbliżać podczas strzelania. Zmień tę jednostkę artylerii na <fireAndAdvance>Natarcie z ostrzałem</fireAndAdvance>."
+      "description": "Wróg jest na tyle daleko, że ta bateria może się zbliżać, strzelając. Przełącz ją na <fireAndAdvance>Natarcie z ostrzałem</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "Zatrzymaj się, by strzelać",
-      "description": "Wróg jest blisko, a twoje działo ma czysty strzał, ale wciąż się porusza. Zatrzymaj marsz i obróć jednostkę, aby uruchomiła automatyczny ogień."
+      "description": "Wróg jest blisko, a ta bateria ma czyste pole ostrzału, ale wciąż jest w ruchu. Zatrzymaj ją i obróć w stronę wroga, by <autofire>automatyczny ogień</autofire> mógł działać."
     },
     "artilleryCanisterRange": {
       "title": "Prawie w zasięgu kartaczy",
@@ -662,15 +674,15 @@
     },
     "pushObjective": {
       "title": "Wykorzystaj przewagę",
-      "description": "Trzymasz prowadzenie. Ruszaj w stronę wrogiego celu, korzystając z wiedzy, jaką zdobyłeś. Zamknięcie go pozbawia ich możliwości powrotu."
+      "description": "Prowadzisz. Naciskaj na cel wroga: jego zdobycie powiększy różnicę i zostawi wrogowi niewiele szans na odrobienie strat."
     },
     "holdObjective": {
-      "title": "Utrzymaj swój cel",
-      "description": "Jesteś opóźniony w zdobywaniu punktów. Powróć do celu i trzymaj się tego, czego się nauczyłeś. Obrona jest tańsza niż odzyskanie."
+      "title": "Pilnuj swojego celu",
+      "description": "Przegrywasz na punkty, a utrata także tego celu jeszcze powiększyłaby różnicę. Trzymaj na nim wojska, a potem szukaj celu wroga albo odsłoniętego oddziału, by odrobić punkty."
     },
     "runWithoutStamina": {
-      "title": "Niech biegnie",
-      "description": "Ten oddział nie ma wytrzymałości, więc <run>bieg</run> nic go nie kosztuje. Na długim przemarszu bez wroga w pobliżu każ mu biec. Zaraz po biegu nie może strzelać, a w ruchu jest łatwym łupem dla szarży."
+      "title": "Biegnie bez zmęczenia",
+      "description": "Ten rodzaj oddziału się nie męczy, więc <run>bieg</run> nic go nie kosztuje. Na długim przemarszu bez wroga w pobliżu każ mu biec. Zaraz po biegu nie może strzelać, a w ruchu jest łatwym łupem dla szarży."
     },
     "routing": {
       "title": "Oddział się załamał",
@@ -709,7 +721,7 @@
       "description": "W strefie tego celu stoi wrogi oddział. Dopóki obie strony mają tam wojska, zdobywanie nie postępuje, a postęp przepada. Wypchnij go lub złam, aby zająć cel."
     },
     "lineOnRoad": {
-      "title": "Maszeruj w kolumnie",
+      "title": "Kolumna na drodze",
       "description": "Ten batalion maszeruje drogą w <line>linii</line>. Droga przyspiesza tylko oddział, który na niej stoi, a linia jest za szeroka, by się na niej zmieścić. Na czas marszu przejdź do <column>kolumny</column>."
     },
     "garrisonStrongpoint": {

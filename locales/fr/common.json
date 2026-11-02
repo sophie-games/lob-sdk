@@ -475,15 +475,15 @@
   "gameTips": {
     "victoryPoints": {
       "title": "Points de victoire",
-      "description": "Les pertes et les objectifs influencent les points de victoire. Protégez vos troupes et disputez les objectifs pour remonter."
+      "description": "Vous prenez du retard aux points de victoire. Chaque perte que vous subissez et chaque objectif que tient l'ennemi vous coûtent des points. Ouvrez le résumé de la bataille pour voir d'où vient l'écart."
     },
     "blockedFire": {
       "title": "Tir bloqué",
       "description": "Vos troupes bloquent les tirs de cette batterie. Dégagez sa ligne de tir pour qu’elle puisse tirer."
     },
     "organization": {
-      "title": "Organisation",
-      "description": "Les unités désorganisées peuvent fuir. Retirez-les du combat pour les laisser récupérer avant de réattaquer."
+      "title": "Unité ébranlée",
+      "description": "L'organisation de cette unité est basse. Elle combat moins bien, et une unité qui n'a plus d'organisation se débande. Gardez-la à l'écart du feu le plus nourri et dans le rayon d'organisation d'une unité amie solide jusqu'à ce qu'elle se reprenne."
     },
     "range": {
       "title": "Portée de tir",
@@ -520,7 +520,19 @@
     },
     "terrain": {
       "title": "Utilisez le terrain",
-      "description": "Le terrain modifie le mouvement et le combat. Ouvrez <info>Infos</info> pour voir les modificateurs actuels d'une unité et choisir un terrain adapté."
+      "description": "Le terrain sous cette unité modifie sa façon de se déplacer et de combattre. Les bois, les bâtiments et les cultures la ralentissent mais lui offrent un couvert ; le terrain dégagé est plus rapide. Ouvrez <info>Infos</info> pour voir exactement ce qui s'applique."
+    },
+    "howToWin": {
+      "title": "Comment gagner une bataille",
+      "description": "La barre en haut de l'écran met en balance les points de victoire des deux camps. Tenir des objectifs et infliger des pertes la fait pencher de votre côté, et à la fin du dernier tour, le camp en retard aux points est battu. Cliquez sur la barre pour voir d'où viennent les points."
+    },
+    "flags": {
+      "title": "Drapeaux sur le champ de bataille",
+      "description": "Les drapeaux plantés sur le champ de bataille sont des objectifs : gris tant que personne ne les tient, puis aux couleurs du camp qui les tient. L'étendard derrière chacune de vos divisions est celui de cette division : un clic dessus sélectionne toute la division, sauf si une unité se trouve juste en dessous, auquel cas c'est elle qui reçoit le clic."
+    },
+    "findTroops": {
+      "title": "Retrouvez vos troupes",
+      "description": "La caméra reste là où vous la laissez, si bien que votre ligne peut sortir de l'écran à mesure que la bataille se déplace. Double-cliquez sur la vignette d'une division en bas de l'écran, ou sur sa ligne dans l'ordre de bataille, pour ramener la caméra sur ces troupes."
     },
     "basicsSelect": {
       "title": "Donner des ordres",
@@ -532,7 +544,7 @@
     },
     "basicsFormations": {
       "title": "Formations",
-      "description": "La formation définit le front et la puissance de feu. La <column>colonne</column> marche vite, la <line>ligne</line> pointe le plus de mousquets vers l'avant, le <square>carré</square> protège tous les côtés de la cavalerie."
+      "description": "La formation détermine le front et la puissance de feu. La <column>colonne</column> marche vite, la <line>ligne</line> présente le plus de mousquets, le <square>carré</square> protège chaque face quand la cavalerie menace un flanc ou l'arrière."
     },
     "basicsSubmit": {
       "title": "Valider le tour",
@@ -544,95 +556,95 @@
     },
     "skirmisherVsArtillery": {
       "title": "Tirailleurs contre artillerie",
-      "description": "Batterie ennemie à portée de votre tirailleur. Versez le feu sur l'équipage. Les tirailleurs broient l'artillerie découverte avant qu'elle ne réponde."
+      "description": "Une batterie ennemie est à portée de vos tirailleurs. Tirez sur ses servants : les tirailleurs usent les pièces sans protection avant qu'elles puissent répondre."
     },
     "skirmisherVsCavalry": {
       "title": "Cavalerie près de vos tirailleurs",
-      "description": "Votre tirailleur sera détruit par la cavalerie ennemie s'il reste là. <fallback>Reculez</fallback> et cherchez une couverture."
+      "description": "La cavalerie ennemie peut atteindre vos tirailleurs, et ils ne survivront pas à une charge en terrain découvert. <fallback>Reculez</fallback> vers un couvert ou vers vos propres lignes."
     },
     "skirmisherVsInfantry": {
       "title": "Infanterie près de vos tirailleurs",
-      "description": "Infanterie ennemie sur votre tirailleur. Les tirailleurs plient au corps à corps. Reculez avant les baïonnettes."
+      "description": "L'infanterie ennemie se rapproche de vos tirailleurs, et les tirailleurs sont faibles au corps à corps. Repliez-les avant que les baïonnettes ne les atteignent."
     },
     "infantryFormLine": {
       "title": "Former la ligne",
-      "description": "Passez ces unités en <line>ligne</line>. Avec l'infanterie ennemie à portée de mousquet ou la cavalerie de face, la ligne aligne le plus de mousquets et défend le mieux les volées. Ne formez pas le carré contre une charge frontale: vous perdriez la moitié de votre feu."
+      "description": "Passez ces unités en <line>ligne</line>. Avec de l'infanterie ennemie à portée de mousquet ou de la cavalerie qui arrive de front, la ligne présente le plus de mousquets et encaisse le mieux les salves. Face à une charge frontale, la ligne vaut mieux que le carré, qui perdrait la moitié de sa puissance de feu."
     },
     "infantryVsCavalryFrontal": {
       "title": "Tenir la ligne",
-      "description": "La cavalerie ennemie charge le front de ton infanterie, mais des ordres sont en file. <removeOrders>Annule-les</removeOrders> pour que la ligne tienne et tire au lieu de marcher sous les sabots."
+      "description": "La cavalerie ennemie charge le front de votre infanterie, mais votre infanterie a encore des ordres en file. <removeOrders>Annulez-les</removeOrders> pour que la ligne tienne et tire au lieu de marcher au-devant de la charge."
     },
     "infantryVsCavalryFlank": {
       "title": "Former le carré",
-      "description": "Cavalerie sur le flanc ou l'arrière de votre infanterie. Une ligne se fait rouler sur le côté. Formez le <square>carré</square> sur chaque unité surlignée pour avoir des mousquets de tous côtés."
+      "description": "La cavalerie ennemie arrive sur le flanc ou l'arrière de votre infanterie, et une ligne prise de côté se fait sabrer. Formez le <square>carré</square> pour présenter des mousquets sur chaque face."
     },
     "infantryBayonetCharge": {
       "title": "Charge à la baïonnette",
-      "description": "Infanterie ennemie faible à portée de charge. Formez <column>colonne</column> et <run>courez</run> dedans. La baïonnette en colonne au contact les brise."
+      "description": "Une infanterie ennemie affaiblie est à portée de charge. Formez la <column>colonne</column> et <run>courez</run> sur elle : une charge à la baïonnette en colonne la brise au contact."
     },
     "infantryFallback": {
       "title": "Retirer cette unité",
-      "description": "La cohésion de cette unité est fissurée, une volée de plus et elle fuit. Sortez-la avant que la ligne ne casse."
+      "description": "Cette unité est sur le point de céder : une salve de plus pourrait la mettre en déroute. Retirez-la de la ligne maintenant, avant que sa déroute n'ébranle les unités voisines."
     },
     "infantryVsSkirmishers": {
       "title": "Infanterie contre tirailleurs",
-      "description": "Des tirailleurs ennemis sont tout proches et aucune cavalerie n'est disponible. Avancez <walk>au pas</walk> et forcez-les au corps à corps, où ils sont les plus faibles."
+      "description": "Des tirailleurs ennemis sont proches et vous n'avez pas de cavalerie à envoyer. Avancez <walk>au pas</walk> et forcez-les au corps à corps, là où les tirailleurs sont le plus faibles."
     },
     "infantryVsArtillery": {
       "title": "Infanterie contre artillerie",
-      "description": "Les canons ennemis sont proches et sans protection. <run>Courez</run> droit sur les servants avant qu'ils puissent pivoter et tirer à mitraille."
+      "description": "Des canons ennemis sont proches et rien ne les couvre. <run>Courez</run> droit sur les servants avant qu'ils puissent pivoter et tirer à mitraille."
     },
     "infantryColumnMarch": {
       "title": "Marcher en colonne",
-      "description": "Aucun ennemi n'est près de cette unité. Passez en <column>colonne</column> pour accélérer la marche, puis formez la <line>ligne</line> avant le contact."
+      "description": "Aucun ennemi n'est près de cette unité. Passez en <column>colonne</column> pour marcher plus vite, et reformez la <line>ligne</line> avant le contact."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Cavalerie contre cavalerie plus faible",
-      "description": "Cavalerie ennemie à portée de charge et ébranlée, vos chevaux sont plus frais. Profitez: chargez avant qu'elle ne se remette."
+      "description": "La cavalerie ennemie à portée de charge est ébranlée, et vos cavaliers sont plus frais. Chargez maintenant, avant qu'elle ne se reprenne."
     },
     "cavalryVsEqualCavalry": {
       "title": "Cavalerie contre cavalerie égale",
-      "description": "Cavalerie ennemie au contact et aussi ferme que la vôtre. Ne gaspillez pas l'endurance sur une charge perdue d'avance. Approchez <walk>au pas</walk> et battez-vous à armes égales."
+      "description": "La cavalerie ennemie au contact est à peu près aussi solide que la vôtre, donc une charge dépenserait de l'endurance sans l'emporter. Approchez <walk>au pas</walk> et battez-vous à armes égales."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Cavalerie contre cavalerie plus forte",
-      "description": "Cavalerie ennemie au contact et plus ferme que la vôtre, un mêlée ici est perdu. Rompez avant qu'elle s'engage."
+      "description": "La cavalerie ennemie au contact est plus solide que la vôtre, et une mêlée ici serait perdue. Rompez le contact et reformez-vous avant qu'elle ne pousse son attaque."
     },
     "cavalryVsInfantryFlank": {
       "title": "Charger le flanc",
-      "description": "Le flanc de l'infanterie ennemie est ouvert et elle est à peu près aussi ferme que vous. C'est le moment d'une charge nette. Frappez le côté, pas le front."
+      "description": "Le flanc de l'infanterie ennemie est découvert, et elle n'est pas plus solide que vos cavaliers. Une charge de flanc la brise ; une charge de front, non."
     },
     "cavalryVsShakenInfantry": {
       "title": "Cavalerie contre infanterie ébranlée",
-      "description": "L'infanterie ennemie tient à peine, sa cohésion est fissurée. Une charge nette l'écrase avant qu'elle ne se rallie."
+      "description": "L'organisation de cette infanterie ennemie est presque épuisée. Une seule charge nette la balaie avant qu'elle puisse se rallier."
     },
     "cavalryVsSkirmishers": {
       "title": "Cavalerie contre tirailleurs",
-      "description": "Tirailleurs pris à découvert avec une ligne claire vers vos chevaux. Ils plient au corps à corps et ne peuvent distancer une charge. Roulez-les avant qu'ils n'atteignent la couverture."
+      "description": "Des tirailleurs ennemis sont pris à découvert, sans rien entre eux et vos cavaliers. Ils sont faibles au corps à corps et ne peuvent pas distancer une charge : sabrez-les avant qu'ils n'atteignent un couvert."
     },
     "cavalryVsArtillery": {
       "title": "Cavalerie contre artillerie",
-      "description": "Canons ennemis sans écran entre vous et eux. Une charge dans l'équipage à découvert les achève d'un coup. Mais si une ligne amie s'interpose, vous saignerez contre elle."
+      "description": "Des canons ennemis se trouvent sans rien pour les protéger de vos cavaliers. Une charge sur des servants sans protection détruit la batterie, mais si une ligne de leur infanterie s'interpose, c'est contre elle que la charge se brisera."
     },
     "cavalryPursueRouter": {
       "title": "Poursuivre les fuyards",
-      "description": "Cet ennemi est en déroute, sans soutien pour couper la poursuite. Une poursuite de cavalerie l'achève. Finissez-le avant qu'il ne se reforme."
+      "description": "Cette unité ennemie est rompue et s'enfuit, sans soutien assez proche pour arrêter une poursuite. Poursuivez-la avec de la cavalerie pour l'achever avant qu'elle ne se reforme."
     },
     "cavalryFallbackFromInfantry": {
       "title": "Cavalerie sous le feu des mousquets",
-      "description": "Votre cavalerie est à portée de mousquet d'une infanterie de ligne saine. Reculez avant qu'elle n'use vos chevaux; cherchez des cibles ébranlées ou des flancs ouverts."
+      "description": "Votre cavalerie est à portée de mousquet d'une infanterie de ligne solide, qui va l'user. Repliez-vous et cherchez plutôt des unités ébranlées ou des flancs découverts."
     },
     "enemyInfantrySquare": {
       "title": "Carré ennemi",
-      "description": "L'infanterie ennemie a formé le carré. Chaque face présente des mousquets. Garde ta cavalerie à distance et cherche des cibles en ligne ou colonne avec un flanc à exploiter."
+      "description": "L'infanterie ennemie a formé le carré, avec des mousquets sur chaque face. Tenez votre cavalerie à distance et cherchez de l'infanterie en ligne ou en colonne avec un flanc découvert."
     },
     "artilleryFireAndAdvance": {
       "title": "Tirer en avançant",
-      "description": "L'ennemi est assez loin pour que vous puissiez continuer à vous rapprocher en tirant. Passez cette pièce en <fireAndAdvance>Tirer en avançant</fireAndAdvance>."
+      "description": "L'ennemi est assez loin pour que cette batterie continue d'avancer tout en tirant. Passez-la en <fireAndAdvance>Tirer en avançant</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "S'arrêter pour tirer",
-      "description": "L'ennemi est proche et votre canon a un tir dégagé mais il bouge encore. Arrêtez la marche et faites pivoter l'unité pour le tir automatique."
+      "description": "L'ennemi est proche et cette batterie a un tir dégagé, mais elle est encore en mouvement. Arrêtez-la et tournez-la face à la cible pour que le <autofire>tir automatique</autofire> puisse agir."
     },
     "artilleryCanisterRange": {
       "title": "Presque à portée de mitraille",
@@ -640,15 +652,15 @@
     },
     "pushObjective": {
       "title": "Exploitez votre avance",
-      "description": "Vous menez. Poussez vers l'objectif ennemi avec ce que vous avez appris. Le clore leur enlève tout retour."
+      "description": "Vous menez. Poussez vers l'objectif ennemi : le prendre creuse l'écart et laisse peu de chances à l'ennemi de revenir."
     },
     "holdObjective": {
-      "title": "Tenez votre objectif",
-      "description": "Vous êtes derrière aux points. Reculez vers votre objectif et tenez-le avec ce que vous avez appris. Défendre coûte moins que reprendre."
+      "title": "Gardez votre objectif",
+      "description": "Vous êtes en retard aux points, et perdre aussi cet objectif creuserait l'écart. Laissez des troupes dessus, puis cherchez un objectif ennemi ou une unité exposée pour regagner des points."
     },
     "runWithoutStamina": {
-      "title": "Faites-la courir",
-      "description": "Cette unité n'a pas d'endurance, donc <run>courir</run> ne lui coûte rien. Pour un long trajet sans ennemi proche, faites-la courir. Elle ne peut pas tirer juste après avoir couru et c'est une proie facile pour une charge pendant qu'elle se déplace."
+      "title": "Libre de courir",
+      "description": "Ce type d'unité ne se fatigue pas, donc <run>courir</run> ne lui coûte rien. Pour un long trajet sans ennemi à proximité, faites-la courir. Elle ne peut pas tirer juste après avoir couru, et c'est une proie facile pour une charge pendant qu'elle se déplace."
     },
     "routing": {
       "title": "Une unité a rompu",
@@ -687,7 +699,7 @@
       "description": "Une unité ennemie se trouve dans la zone de cet objectif. Tant que les deux camps y ont des troupes, la capture n'avance pas et la progression est perdue. Chassez-la ou brisez-la pour prendre l'objectif."
     },
     "lineOnRoad": {
-      "title": "Marchez en colonne",
+      "title": "Colonne sur la route",
       "description": "Ce bataillon suit une route en <line>ligne</line>. Une route n'accélère qu'une unité qui est dessus, et une ligne est trop large pour y tenir. Passez en <column>colonne</column> pour la marche."
     },
     "garrisonStrongpoint": {

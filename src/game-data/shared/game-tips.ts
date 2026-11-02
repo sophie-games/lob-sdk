@@ -7,6 +7,38 @@ const TACTICAL_SHOWS = 3;
 // Catalog order is priority: one lesson is queued per evaluation, so the
 // basics come before the mechanics and the mechanics before tactical reads.
 export const gameTips: readonly GameTipDefinition[] = [
+  // What the field shows and how it is won, one at a time once the battle has
+  // started, so they never compete with deployment.
+  {
+    id: "howToWin",
+    battleOnly: true,
+    on: ["stateUpdated"],
+    condition: {
+      kind: "always",
+    },
+    titleKey: "gameTips.howToWin.title",
+    descriptionKey: "gameTips.howToWin.description",
+  },
+  {
+    id: "flags",
+    battleOnly: true,
+    on: ["stateUpdated"],
+    condition: {
+      kind: "always",
+    },
+    titleKey: "gameTips.flags.title",
+    descriptionKey: "gameTips.flags.description",
+  },
+  {
+    id: "findTroops",
+    battleOnly: true,
+    on: ["stateUpdated"],
+    condition: {
+      kind: "always",
+    },
+    titleKey: "gameTips.findTroops.title",
+    descriptionKey: "gameTips.findTroops.description",
+  },
   {
     id: "basicsSelect",
     battleOnly: false,

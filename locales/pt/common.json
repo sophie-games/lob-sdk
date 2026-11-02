@@ -492,15 +492,15 @@
   "gameTips": {
     "victoryPoints": {
       "title": "Pontos de vitória",
-      "description": "As baixas e os objetivos influenciam os pontos de vitória. Proteja suas tropas e dispute objetivos para se recuperar."
+      "description": "Você está ficando para trás em pontos de vitória. Cada baixa que você sofre e cada objetivo que o inimigo controla custam pontos. Abra a visão geral da batalha para ver de onde vem a diferença."
     },
     "blockedFire": {
       "title": "Tiro bloqueado",
       "description": "Suas tropas bloqueiam os tiros desta bateria. Libere sua linha de tiro para que ela possa disparar."
     },
     "organization": {
-      "title": "Organização",
-      "description": "Unidades desorganizadas podem fugir. Retire-as do combate para se recuperarem antes de atacar novamente."
+      "title": "Unidade abalada",
+      "description": "A organização desta unidade está baixa. Ela combate pior, e uma unidade que fica sem organização debanda. Mantenha-a longe do fogo mais pesado e dentro do raio de organização de uma unidade aliada firme até que se recupere."
     },
     "range": {
       "title": "Distância de tiro",
@@ -537,7 +537,19 @@
     },
     "terrain": {
       "title": "Use o terreno",
-      "description": "O terreno altera o movimento e o combate. Abra <info>Informações</info> para ver os modificadores atuais de uma unidade e escolher o terreno adequado."
+      "description": "O terreno sob esta unidade muda a forma como ela se move e combate. Bosques, edifícios e plantações a desaceleram, mas lhe dão cobertura; terreno aberto é mais rápido. Abra <info>Informações</info> para ver exatamente o que se aplica."
+    },
+    "howToWin": {
+      "title": "Como se vence uma batalha",
+      "description": "A barra no topo pesa os pontos de vitória dos dois lados. Manter objetivos e infligir baixas a inclina a seu favor, e, ao fim do último turno, o lado que está atrás nos pontos é derrotado. Clique na barra para ver de onde vêm os pontos."
+    },
+    "flags": {
+      "title": "Bandeiras no campo",
+      "description": "As bandeiras fincadas no campo são objetivos: cinza enquanto ninguém as controla, e depois na cor do lado que as controla. O estandarte atrás de cada uma das suas divisões pertence a essa divisão: um clique nele seleciona a divisão inteira, a menos que haja uma unidade logo abaixo, que fica com o clique."
+    },
+    "findTroops": {
+      "title": "Encontre suas tropas",
+      "description": "A câmera fica onde você a deixa, então sua linha pode sair da tela conforme a batalha avança. Clique duas vezes na ficha de uma divisão na parte de baixo da tela, ou na entrada dela na ordem de batalha, para levar a câmera de volta a essas tropas."
     },
     "basicsSelect": {
       "title": "Dar ordens",
@@ -549,7 +561,7 @@
     },
     "basicsFormations": {
       "title": "Formações",
-      "description": "A formação define a frente e o poder de fogo. A <column>coluna</column> marcha rápido, a <line>linha</line> aponta mais mosquetes à frente e o <square>quadrado</square> protege todos os lados da cavalaria."
+      "description": "A formação define a frente e o poder de fogo. A <column>coluna</column> marcha rápido, a <line>linha</line> aponta mais mosquetes à frente e o <square>quadrado</square> protege todas as faces quando a cavalaria ameaça um flanco ou a retaguarda."
     },
     "basicsSubmit": {
       "title": "Enviar o turno",
@@ -561,95 +573,95 @@
     },
     "skirmisherVsArtillery": {
       "title": "Escaramuçadores contra artilharia",
-      "description": "Bateria inimiga ao alcance do seu escaramuçador. Despeje fogo na tripulação do canhão. Os escaramuçadores destroem a artilharia desprotegida antes que ela possa responder."
+      "description": "Uma bateria inimiga está ao alcance dos seus escaramuçadores. Atire na guarnição: os escaramuçadores desgastam canhões desprotegidos antes que eles possam responder."
     },
     "skirmisherVsCavalry": {
       "title": "Cavalaria perto dos seus escaramuçadores",
-      "description": "Seu escaramuçador será destruído pela cavalaria inimiga se mantiver essa posição. <fallback>Recuem</fallback> e procurem cobertura."
+      "description": "A cavalaria inimiga pode alcançar seus escaramuçadores, e eles não sobreviveriam a uma carga em campo aberto. <fallback>Recue</fallback> em direção à cobertura ou às suas próprias linhas."
     },
     "skirmisherVsInfantry": {
       "title": "Infantaria perto dos seus escaramuçadores",
-      "description": "Infantaria inimiga em cima do seu escaramuçador. Os escaramuçadores se dobram em combate corpo a corpo. Recue antes que as baionetas cheguem."
+      "description": "A infantaria inimiga está se aproximando dos seus escaramuçadores, que são fracos no corpo a corpo. Recue-os antes que as baionetas cheguem."
     },
     "infantryFormLine": {
       "title": "Formar linha",
-      "description": "Mude essas unidades para <line>linha</line>. Com a infantaria inimiga ao alcance dos mosquetes ou a cavalaria vindo na frente, a linha oferece o maior número de mosquetes apontados para a frente e a melhor defesa contra saraivadas. Não forme quadrado contra um ataque frontal, você perderia metade do seu poder de fogo."
+      "description": "Mude estas unidades para <line>linha</line>. Com infantaria inimiga ao alcance dos mosquetes ou cavalaria vindo pela frente, a linha põe mais mosquetes à frente e resiste melhor às saraivadas. Contra uma carga frontal, a linha é melhor que o quadrado, que perderia metade do seu poder de fogo."
     },
     "infantryVsCavalryFrontal": {
       "title": "Manter a linha",
-      "description": "A cavalaria inimiga ataca a frente da tua infantaria, mas têm ordens em fila. <removeOrders>Limpa-as</removeOrders> para que a linha pare e dispare em vez de marchar para os cascos."
+      "description": "A cavalaria inimiga está carregando contra a frente da sua infantaria, mas sua infantaria ainda tem ordens na fila. <removeOrders>Limpe</removeOrders> essas ordens para que a linha fique firme e atire em vez de marchar contra a carga."
     },
     "infantryVsCavalryFlank": {
       "title": "Formar quadrado",
-      "description": "Cavalaria vindo no flanco ou na retaguarda de sua infantaria. Uma linha é ultrapassada pela lateral. Forme um <square>quadrado</square> em cada unidade destacada para que cada face tenha mosquetes."
+      "description": "A cavalaria inimiga está vindo pelo flanco ou pela retaguarda da sua infantaria, e uma linha atingida pelo lado é atropelada. Forme <square>quadrado</square> para que todas as faces tenham mosquetes apontados."
     },
     "infantryBayonetCharge": {
       "title": "Carga de baioneta",
-      "description": "Infantaria inimiga fraca dentro do alcance de ataque. Forme <column>coluna</column> e <run>corra</run> contra eles. A baioneta em contato na coluna os quebra."
+      "description": "Há infantaria inimiga fraca ao alcance de uma carga. Forme <column>coluna</column> e <run>corra</run> contra ela: uma carga de baioneta em coluna a quebra no contato."
     },
     "infantryFallback": {
       "title": "Recuar esta unidade",
-      "description": "A organização desta unidade quebrou, mais uma saraivada e ela encaminha. Retire-o antes que a linha se quebre."
+      "description": "Esta unidade está prestes a ceder: mais uma saraivada pode fazê-la debandar. Tire-a da linha agora, antes que a debandada abale as unidades ao lado."
     },
     "infantryVsSkirmishers": {
       "title": "Infantaria contra escaramuçadores",
-      "description": "Há escaramuçadores inimigos próximos e nenhuma cavalaria disponível. Avance <walk>ao passo</walk> e force o combate corpo a corpo, onde eles são mais fracos."
+      "description": "Há escaramuçadores inimigos por perto e você não tem cavalaria para enviar. Avance <walk>ao passo</walk> e force-os ao corpo a corpo, onde os escaramuçadores são mais fracos."
     },
     "infantryVsArtillery": {
       "title": "Infantaria contra artilharia",
-      "description": "Os canhões inimigos estão próximos e sem proteção. <run>Corra</run> direto até a guarnição antes que ela possa girar e disparar metralha."
+      "description": "Os canhões inimigos estão perto e nada os protege. <run>Corra</run> direto até a guarnição antes que ela possa girar e disparar metralha."
     },
     "infantryColumnMarch": {
       "title": "Marchar em coluna",
-      "description": "Não há inimigos perto desta unidade. Mude para <column>coluna</column> para marchar mais rápido e forme <line>linha</line> antes do contato."
+      "description": "Não há inimigos perto desta unidade. Mude para <column>coluna</column> para marchar mais rápido e volte a formar <line>linha</line> antes do contato."
     },
     "cavalryVsWeakerCavalry": {
       "title": "Cavalaria contra cavalaria mais fraca",
-      "description": "Cavalaria inimiga dentro do alcance de ataque e abalada, seu cavalo está mais fresco. Aproveite a vantagem: carregue antes que eles se recuperem."
+      "description": "A cavalaria inimiga ao alcance da sua carga está abalada, e seus cavaleiros estão mais descansados. Carregue agora, antes que ela se recupere."
     },
     "cavalryVsEqualCavalry": {
       "title": "Cavalaria contra cavalaria igual",
-      "description": "Cavalaria inimiga em contato e quase tão estável quanto a sua. Não desperdice energia em uma investida que você não pode vencer. Aproxime-se <walk>caminhando</walk> e brigue em pé de igualdade."
+      "description": "A cavalaria inimiga em contato está mais ou menos tão firme quanto a sua, então uma carga gastaria vigor sem vencer. Aproxime-se <walk>ao passo</walk> e lute em pé de igualdade."
     },
     "cavalryVsStrongerCavalry": {
       "title": "Cavalaria contra cavalaria mais forte",
-      "description": "Cavalaria inimiga em contato e mais estável que a sua, um corpo a corpo aqui perde. Interrompa e reinicie antes de se comprometerem."
+      "description": "A cavalaria inimiga em contato está mais firme que a sua, e um corpo a corpo aqui seria perdido. Desengaje e reorganize-se antes que ela pressione o ataque."
     },
     "cavalryVsInfantryFlank": {
       "title": "Carregar o flanco",
-      "description": "O flanco da infantaria inimiga está aberto e eles estão quase tão firmes quanto você. É nesse momento que uma carga limpa os quebra. Bata na lateral, não na frente."
+      "description": "O flanco da infantaria inimiga está aberto, e ela não está mais firme que seus cavaleiros. Uma carga pelo lado a quebra; uma carga pela frente, não."
     },
     "cavalryVsShakenInfantry": {
       "title": "Cavalaria contra infantaria abalada",
-      "description": "A infantaria inimiga mal consegue se manter unida, sua organização quebrou. Uma carga limpa os derruba antes que eles possam se recuperar."
+      "description": "A organização desta infantaria inimiga está quase esgotada. Uma carga limpa a atropela antes que ela possa se reagrupar."
     },
     "cavalryVsSkirmishers": {
       "title": "Cavalaria contra escaramuçadores",
-      "description": "Escaramuçadores pegos em campo aberto com um caminho livre até seu cavalo. Eles desistem em combate corpo a corpo e não podem fugir de uma investida. Monte-os antes que eles alcancem a cobertura."
+      "description": "Escaramuçadores inimigos foram pegos em campo aberto, com caminho livre até seus cavaleiros. Eles são fracos no corpo a corpo e não conseguem fugir de uma carga, então atropele-os antes que alcancem cobertura."
     },
     "cavalryVsArtillery": {
       "title": "Cavalaria contra artilharia",
-      "description": "Armas inimigas sem tela entre você e eles. Um ataque à tripulação não blindada acaba com eles em um piscar de olhos. Mas se uma linha amigável atrapalhar, você sangrará contra ela."
+      "description": "Os canhões inimigos estão sem nada que os proteja dos seus cavaleiros. Uma carga contra uma guarnição desprotegida destrói a bateria, mas se uma linha da infantaria deles se interpuser, a carga vai se quebrar contra ela."
     },
     "cavalryPursueRouter": {
       "title": "Perseguir os que fogem",
-      "description": "Esse inimigo está quebrado e correndo, sem apoio para interromper a perseguição. Uma perseguição da cavalaria os quebra para sempre. Termine-os antes que eles se reformem."
+      "description": "Aquela unidade inimiga está desfeita e fugindo, sem apoio perto o bastante para deter uma perseguição. Persiga-a com cavalaria para acabar com ela antes que se reorganize."
     },
     "cavalryFallbackFromInfantry": {
       "title": "Cavalaria sob fogo de mosquete",
-      "description": "Sua cavalaria está posicionada no alcance dos mosquetes da infantaria de linha saudável. Recue antes que eles destruam seu cavalo, procure alvos abalados ou flancos abertos."
+      "description": "Sua cavalaria está ao alcance dos mosquetes de infantaria de linha firme, que vai desgastá-la. Recue e procure, em vez disso, unidades abaladas ou flancos abertos."
     },
     "enemyInfantrySquare": {
       "title": "Quadrado inimigo",
-      "description": "A infantaria inimiga formou quadrado. Cada face tem mosquetes prontos. Mantém a tua cavalaria afastada e procura alvos em linha ou coluna com um flanco a explorar."
+      "description": "A infantaria inimiga formou quadrado, com mosquetes em todas as faces. Mantenha sua cavalaria longe dele e procure infantaria em linha ou em coluna com um flanco aberto."
     },
     "artilleryFireAndAdvance": {
       "title": "Fogo e avanço",
-      "description": "O inimigo está longe o suficiente para que você possa continuar se aproximando enquanto atira. Mude esta unidade de artilharia para <fireAndAdvance>Fogo e Avanço</fireAndAdvance>."
+      "description": "O inimigo está longe o bastante para que esta bateria continue se aproximando enquanto dispara. Mude-a para <fireAndAdvance>Fogo e Avanço</fireAndAdvance>."
     },
     "artilleryRotateToFire": {
       "title": "Parar para atirar",
-      "description": "O inimigo está próximo e seu canhão dispara certeiro, mas ainda está em movimento. Pare a marcha e gire a unidade para disparo automático."
+      "description": "O inimigo está perto e esta bateria tem linha de tiro livre, mas ainda está em movimento. Pare-a e vire-a para o alvo para que o <autofire>tiro automático</autofire> funcione."
     },
     "artilleryCanisterRange": {
       "title": "Quase no alcance da metralha",
@@ -657,15 +669,15 @@
     },
     "pushObjective": {
       "title": "Aproveite a vantagem",
-      "description": "Você mantém a liderança. Avance em direção ao objetivo inimigo com o que você aprendeu. Fechar nega-lhes qualquer retorno."
+      "description": "Você está na frente. Avance sobre o objetivo inimigo: tomá-lo amplia a diferença e deixa ao inimigo pouca margem para reagir."
     },
     "holdObjective": {
-      "title": "Mantenha o seu objetivo",
-      "description": "Você está atrás em pontos. Volte ao seu objetivo e mantenha-o com o que aprendeu. Defender é mais barato do que retomar."
+      "title": "Proteja seu objetivo",
+      "description": "Você está atrás em pontos, e perder também este objetivo ampliaria a diferença. Mantenha tropas nele e depois procure um objetivo inimigo ou uma unidade exposta para recuperar os pontos."
     },
     "runWithoutStamina": {
-      "title": "Leve-a correndo",
-      "description": "Esta unidade não tem vigor, então <run>correr</run> não lhe custa nada. Num deslocamento longo sem inimigos perto, faça-a correr. Ela não pode disparar logo depois de correr e é presa fácil para uma carga enquanto se move."
+      "title": "Livre para correr",
+      "description": "Este tipo de unidade não se cansa, então <run>correr</run> não lhe custa nada. Num deslocamento longo sem inimigos perto, faça-a correr. Ela não pode disparar logo depois de correr e é presa fácil para uma carga enquanto se move."
     },
     "routing": {
       "title": "Uma unidade debandou",
@@ -704,7 +716,7 @@
       "description": "Uma unidade inimiga está dentro da zona deste objetivo. Enquanto os dois lados tiverem tropas ali, a captura não avança e o progresso é perdido. Expulse-a ou quebre-a para tomar o objetivo."
     },
     "lineOnRoad": {
-      "title": "Marche em coluna",
+      "title": "Coluna na estrada",
       "description": "Este batalhão marcha por uma estrada em <line>linha</line>. Uma estrada só acelera a unidade que está sobre ela, e uma linha é larga demais para caber. Mude para <column>coluna</column> durante a marcha."
     },
     "garrisonStrongpoint": {
