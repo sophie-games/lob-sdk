@@ -62,6 +62,7 @@
   {
     "id": "midCavalry",
     "chainsCharges": true,
+    "hasRanMeleeAttackModifier": 0.25,
     "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
     "uphillSlowdownMultiplier": 1.25,
@@ -168,6 +169,7 @@
   {
     "id": "scoutCavalry",
     "chainsCharges": true,
+    "hasRanMeleeAttackModifier": 0.25,
     "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
     "uphillSlowdownMultiplier": 1.25,
@@ -216,6 +218,7 @@
   {
     "id": "lightCavalry",
     "chainsCharges": true,
+    "hasRanMeleeAttackModifier": 0.25,
     "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
     "uphillSlowdownMultiplier": 1.25,
@@ -264,6 +267,7 @@
   {
     "id": "heavyCavalry",
     "chainsCharges": true,
+    "hasRanMeleeAttackModifier": 0.25,
     "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
     "uphillSlowdownMultiplier": 1.25,

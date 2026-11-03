@@ -805,7 +805,7 @@ describe("Napoleonic balance", () => {
 
       if (name === "horse_archers") {
         expect(unit.chargePenetration).toBe(0.3);
-        expect(unit.meleeAttack / STAT_PRECISION_SCALE).toBe(48);
+        expect(unit.meleeAttack / STAT_PRECISION_SCALE).toBe(38);
       }
 
       if ("org" in expected) {
@@ -1081,6 +1081,24 @@ describe("Napoleonic balance", () => {
       const unit = unitTemplates.find((template) => template.name === name);
 
       expect(unit?.flankChargePenBonus).toBe(0.1);
+    }
+
+    const cavalryMeleeAttack = {
+      hussars: 4000,
+      lancers: 3800,
+      dragoons: 4300,
+      cuirassiers: 4600,
+      horse_archers: 3800,
+    };
+
+    for (const [name, meleeAttack] of Object.entries(cavalryMeleeAttack)) {
+      const unit = unitTemplates.find((template) => template.name === name)!;
+
+      expect(unit.meleeAttack).toBe(meleeAttack);
+      expect(
+        gameDataManager.getUnitCategoryTemplate(unit.category)
+          .hasRanMeleeAttackModifier,
+      ).toBe(0.25);
     }
 
     expect(
