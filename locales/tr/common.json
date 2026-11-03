@@ -729,7 +729,7 @@
     },
     "closeToApproach": {
       "title": "Ne kadar yaklaşmalı",
-      "description": "<fireAndAdvance>Ateş ve İlerle</fireAndAdvance>, bu birliği silahlarının en iyi işlediği yerde durdurur. <autofire>Otomatik ateş</autofire> ayarlarındaki \"Ateş ve İlerle şurada durur\" seçeneği, ateş ederken yaklaşmayı sürdürmesini sağlar; böylece uzaktan ateş açıp ilerlemeyi yine de yakında bitirebilir."
+      "description": "<fireAndAdvance>Ateş ve İlerle</fireAndAdvance>, bu birliği silahlarının en iyi işlediği yerde durdurur. Emir listesinde <fireAndAdvance>Ateş ve İlerle</fireAndAdvance> altındaki \"Ateş ve İlerle şurada durur\" seçeneği, ateş ederken yaklaşmayı sürdürmesini sağlar; böylece uzaktan ateş açıp ilerlemeyi yine de yakında bitirebilir."
     },
     "roundShotHeight": {
       "title": "Dolu gülle ve yamaçlar",
@@ -768,6 +768,8 @@
   "autofireMaxAmmoWarning": "Uzun menzilde hasar çok azdır ama yine de cephane harcarsın. Yalnızca ne yaptığını biliyorsan kullan.",
   "autofireRange": "Otomatik ateş menzili",
   "approachRange": "Ateş ve İlerle şurada durur",
+  "approachRangeDefault": "Varsayılan",
+  "approachRangeDefaultHint": "Silahının savaşmak için tasarlandığı yerde durur.",
   "allowFireWhenMoving": "Hareket ederken ateşe izin ver",
   "meleeDamage": "Yakın dövüş hasarı",
   "rangedDamage": "Uzak mesafe hasarı",

@@ -740,7 +740,7 @@
     },
     "closeToApproach": {
       "title": "Tiến gần đến đâu",
-      "description": "Lệnh <fireAndAdvance>Bắn và tiến</fireAndAdvance> dừng đơn vị này ở nơi vũ khí của nó hiệu quả nhất. Tùy chọn \"Bắn và tiến dừng ở\" trong <autofire>tự động khai hỏa</autofire> cho phép nó tiếp tục áp sát trong khi bắn, để khai hỏa từ xa mà vẫn hoàn tất cuộc tiến công ở cự ly gần."
+      "description": "Lệnh <fireAndAdvance>Bắn và tiến</fireAndAdvance> dừng đơn vị này ở nơi vũ khí của nó hiệu quả nhất. Tùy chọn \"Bắn và tiến dừng ở\" bên dưới <fireAndAdvance>Bắn và tiến</fireAndAdvance> trong danh sách mệnh lệnh cho phép nó tiếp tục áp sát trong khi bắn, để khai hỏa từ xa mà vẫn hoàn tất cuộc tiến công ở cự ly gần."
     },
     "roundShotHeight": {
       "title": "Đạn đặc và sườn dốc",
@@ -780,6 +780,8 @@
   "autofireMaxAmmoWarning": "Ở tầm xa sát thương rất thấp nhưng vẫn tốn đạn. Chỉ dùng nếu bạn biết mình đang làm gì.",
   "autofireRange": "Tầm bắn tự động",
   "approachRange": "Bắn và tiến dừng ở",
+  "approachRangeDefault": "Mặc định",
+  "approachRangeDefaultHint": "Dừng ở nơi vũ khí của nó được thiết kế để chiến đấu.",
   "allowFireWhenMoving": "Cho phép bắn khi di chuyển",
   "meleeDamage": "Sát thương cận chiến",
   "rangedDamage": "Sát thương tầm xa",
