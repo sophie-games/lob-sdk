@@ -1077,6 +1077,12 @@ describe("Napoleonic balance", () => {
       expect(unit?.flankChargePenBonus).toBe(0.25);
     }
 
+    for (const name of ["hussars", "lancers", "dragoons", "cuirassiers"]) {
+      const unit = unitTemplates.find((template) => template.name === name);
+
+      expect(unit?.flankChargePenBonus).toBe(0.1);
+    }
+
     expect(
       unitTemplates.find((template) => template.name === "grenadiers")
         ?.chargePenetration,
