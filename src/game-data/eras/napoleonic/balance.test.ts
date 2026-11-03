@@ -161,13 +161,13 @@ describe("Napoleonic balance", () => {
     const expectedByName = {
       hussars: {
         rotationSpeed: 0.37,
-        runRotationSpeed: 0.29,
+        runRotationSpeed: 0.26,
         pushStrength: 14,
         pushDistance: 0.8,
       },
       lancers: {
         rotationSpeed: 0.37,
-        runRotationSpeed: 0.26,
+        runRotationSpeed: 0.23,
         pushStrength: 14,
         pushDistance: 0.8,
       },
@@ -179,13 +179,13 @@ describe("Napoleonic balance", () => {
       },
       dragoons: {
         rotationSpeed: 0.35,
-        runRotationSpeed: 0.23,
+        runRotationSpeed: 0.21,
         pushStrength: 16,
         pushDistance: 1,
       },
       cuirassiers: {
         rotationSpeed: 0.33,
-        runRotationSpeed: 0.21,
+        runRotationSpeed: 0.19,
         pushStrength: 18,
         pushDistance: 1.2,
       },
