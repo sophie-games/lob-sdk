@@ -161,13 +161,13 @@ describe("Napoleonic balance", () => {
     const expectedByName = {
       hussars: {
         rotationSpeed: 0.37,
-        runRotationSpeed: 0.29,
+        runRotationSpeed: 0.17,
         pushStrength: 14,
         pushDistance: 0.8,
       },
       lancers: {
         rotationSpeed: 0.37,
-        runRotationSpeed: 0.26,
+        runRotationSpeed: 0.15,
         pushStrength: 14,
         pushDistance: 0.8,
       },
@@ -179,13 +179,13 @@ describe("Napoleonic balance", () => {
       },
       dragoons: {
         rotationSpeed: 0.35,
-        runRotationSpeed: 0.23,
+        runRotationSpeed: 0.135,
         pushStrength: 16,
         pushDistance: 1,
       },
       cuirassiers: {
         rotationSpeed: 0.33,
-        runRotationSpeed: 0.21,
+        runRotationSpeed: 0.125,
         pushStrength: 18,
         pushDistance: 1.2,
       },
@@ -805,7 +805,7 @@ describe("Napoleonic balance", () => {
 
       if (name === "horse_archers") {
         expect(unit.chargePenetration).toBe(0.3);
-        expect(unit.meleeAttack / STAT_PRECISION_SCALE).toBe(48);
+        expect(unit.meleeAttack / STAT_PRECISION_SCALE).toBe(38);
       }
 
       if ("org" in expected) {
@@ -1075,6 +1075,30 @@ describe("Napoleonic balance", () => {
       const unit = unitTemplates.find((template) => template.name === name);
 
       expect(unit?.flankChargePenBonus).toBe(0.25);
+    }
+
+    for (const name of ["hussars", "lancers", "dragoons", "cuirassiers"]) {
+      const unit = unitTemplates.find((template) => template.name === name);
+
+      expect(unit?.flankChargePenBonus).toBe(0.1);
+    }
+
+    const cavalryMeleeAttack = {
+      hussars: 4000,
+      lancers: 3800,
+      dragoons: 4300,
+      cuirassiers: 4600,
+      horse_archers: 3800,
+    };
+
+    for (const [name, meleeAttack] of Object.entries(cavalryMeleeAttack)) {
+      const unit = unitTemplates.find((template) => template.name === name)!;
+
+      expect(unit.meleeAttack).toBe(meleeAttack);
+      expect(
+        gameDataManager.getUnitCategoryTemplate(unit.category)
+          .hasRanMeleeAttackModifier,
+      ).toBe(0.25);
     }
 
     expect(

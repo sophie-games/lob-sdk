@@ -479,6 +479,14 @@ export abstract class BaseUnit extends Entity {
     return this.hasEffect(HasRan.id) ? this.runChargeResistanceModifier : 0;
   }
 
+  getHasRanMeleeAttackModifier(): number {
+    if (!this.hasEffect(HasRan.id)) return 0;
+    return (
+      this.gameDataManager.getUnitCategoryTemplate(this.category)
+        .hasRanMeleeAttackModifier ?? 0
+    );
+  }
+
   static getBasePower(template: UnitTemplate) {
     return template.manpower + template.gold;
   }
