@@ -46,6 +46,8 @@ export enum TerrainCategoryType {
   Cliff = "cliff",
   Mud = "mud",
   SunkenRoad = "sunkenRoad",
+  Trench = "trench",
+  Redoubt = "redoubt",
   Railway = "railway",
   RailwayRoad = "railwayRoad",
 }
