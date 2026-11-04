@@ -627,35 +627,35 @@
       "ship": true
     },
     "color": "#A9866D",
-    "hitboxHeight": 0.99,
-    "projectileAbsorption": {
-      "musket": 0.4,
-      "marksman-musket": 0.25,
-      "horse-archer-bow": 1,
-      "rifle": 0.2,
-      "18lb-explosive-shell": 0.05,
-      "18lb-cannon-ball": 0.25,
-      "18lb-canister-fire": 0.35,
-      "12lb-cannon-ball": 0.25,
-      "12lb-canister-fire": 0.35,
-      "10lb-explosive-shell": 0.05,
-      "10lb-cannon-ball": 0.3,
-      "10lb-canister-fire": 0.35,
-      "8lb-cannon-ball": 0.3,
-      "8lb-canister-fire": 0.35,
-      "6lb-cannon-ball": 0.35,
-      "6lb-canister-fire": 0.35,
-      "4lb-cannon-ball": 0.35,
-      "4lb-canister-fire": 0.35,
-      "explosive-shell": -0.05,
-      "howitzer-canister": 0.3
+    "hitboxHeight": 0.983,
+    "staminaCostModifier": -0.75,
+    "movementModifier": {
+      "*": 0.3,
+      "midCavalry": 0.2,
+      "lightCavalry": 0.2,
+      "scoutCavalry": 0.2,
+      "heavyCavalry": 0.2
     },
-    "defenseModifier": {
-      "infantry": 0.5,
-      "guardsInfantry": 0.5,
-      "militiaInfantry": 0.5,
-      "skirmishInfantry": 1,
-      "artillery": 3
+    "projectileAbsorption": {
+      "musket": 0.15,
+      "marksman-musket": 0.12,
+      "rifle": 0.1,
+      "18lb-explosive-shell": 0.05,
+      "18lb-cannon-ball": 0.1,
+      "18lb-canister-fire": 0.15,
+      "12lb-cannon-ball": 0.1,
+      "12lb-canister-fire": 0.15,
+      "10lb-explosive-shell": 0.05,
+      "10lb-cannon-ball": 0.2,
+      "10lb-canister-fire": 0.15,
+      "8lb-cannon-ball": 0.2,
+      "8lb-canister-fire": 0.15,
+      "6lb-cannon-ball": 0.25,
+      "6lb-canister-fire": 0.15,
+      "4lb-cannon-ball": 0.25,
+      "4lb-canister-fire": 0.15,
+      "explosive-shell": 0.05,
+      "howitzer-canister": 0.15
     },
     "chargeBonusModifier": {
       "infantry": -0.8,
@@ -668,13 +668,11 @@
       "heavyCavalry": -0.8
     },
     "chargeResistanceModifier": {
-      "infantry": 0.25,
-      "guardsInfantry": 0.25,
-      "militiaInfantry": 0.25,
-      "skirmishInfantry": 0.8,
-      "artillery": 1.5
-    },
-    "fixedEnemyCollisionLevel": 2
+      "infantry": 0.05,
+      "guardsInfantry": 0.05,
+      "militiaInfantry": 0.05,
+      "skirmishInfantry": 0.2
+    }
   },
 
   "trench": {
@@ -683,26 +681,34 @@
     },
     "color": "#A9866D",
     "hitboxHeight": 0.983,
+    "staminaCostModifier": -0.75,
+    "movementModifier": {
+      "*": 0.3,
+      "midCavalry": 0.2,
+      "lightCavalry": 0.2,
+      "scoutCavalry": 0.2,
+      "heavyCavalry": 0.2
+    },
     "projectileAbsorption": {
-      "musket": 0.35,
-      "marksman-musket": 0.15,
+      "musket": 0.15,
+      "marksman-musket": 0.12,
       "rifle": 0.1,
-      "18lb-explosive-shell": 0.1,
-      "18lb-cannon-ball": 0.25,
-      "18lb-canister-fire": 0.35,
-      "12lb-cannon-ball": 0.25,
-      "12lb-canister-fire": 0.35,
-      "10lb-explosive-shell": 0.15,
-      "10lb-cannon-ball": 0.3,
-      "10lb-canister-fire": 0.35,
-      "8lb-cannon-ball": 0.3,
-      "8lb-canister-fire": 0.35,
-      "6lb-cannon-ball": 0.35,
-      "6lb-canister-fire": 0.35,
-      "4lb-cannon-ball": 0.35,
-      "4lb-canister-fire": 0.35,
-      "explosive-shell": -0.05,
-      "howitzer-canister": 0.3
+      "18lb-explosive-shell": 0.05,
+      "18lb-cannon-ball": 0.1,
+      "18lb-canister-fire": 0.15,
+      "12lb-cannon-ball": 0.1,
+      "12lb-canister-fire": 0.15,
+      "10lb-explosive-shell": 0.05,
+      "10lb-cannon-ball": 0.2,
+      "10lb-canister-fire": 0.15,
+      "8lb-cannon-ball": 0.2,
+      "8lb-canister-fire": 0.15,
+      "6lb-cannon-ball": 0.25,
+      "6lb-canister-fire": 0.15,
+      "4lb-cannon-ball": 0.25,
+      "4lb-canister-fire": 0.15,
+      "explosive-shell": 0.05,
+      "howitzer-canister": 0.15
     },
     "chargeBonusModifier": {
       "infantry": -0.8,
@@ -715,10 +721,10 @@
       "heavyCavalry": -0.8
     },
     "chargeResistanceModifier": {
-      "infantry": 0.1,
-      "guardsInfantry": 0.1,
-      "militiaInfantry": 0.1,
-      "skirmishInfantry": 0.4
+      "infantry": 0.05,
+      "guardsInfantry": 0.05,
+      "militiaInfantry": 0.05,
+      "skirmishInfantry": 0.2
     }
   },
 
