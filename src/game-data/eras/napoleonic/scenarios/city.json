@@ -861,7 +861,19 @@
       "startHeightRanges": [{ "min": 0, "max": 2.28 }],
       "endHeightRanges": [{ "min": 0, "max": 2.28 }],
       "heightDiffCost": 10
-    }
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [11, 18, 17],
+      "maxDistance": 10,
+      "width": { "min": 3, "max": 4 },
+      "size": { "min": 6, "max": 12 },
+      "chance": 0.8
+    },
+    { "type": "REPLACE_SMALL_CLUSTERS", "fromTerrain": 11, "toTerrain": 0, "maxSize": 2 },
+    { "type": "REPLACE_SMALL_CLUSTERS", "fromTerrain": 17, "toTerrain": 0, "maxSize": 2 },
+    { "type": "REPLACE_SMALL_CLUSTERS", "fromTerrain": 18, "toTerrain": 0, "maxSize": 2 }
   ],
-  "allowDynamicArmy": true
+  "allowDynamicArmy": true,
+  "placeableObjectives": true
 }

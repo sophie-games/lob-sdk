@@ -971,4 +971,18 @@ describe("community random maps", () => {
     expect(result.map.heightMap).toHaveLength(tilesX);
     expect(result.map.terrains[0]).toHaveLength(tilesY);
   });
+
+  it("grows farm fields around City", () => {
+    const result = new RandomMapGenerator().generate({
+      scenario: gameDataManager.getScenario("city"),
+      dynamicBattleType: DEFAULT_BATTLE_TYPE,
+      maxPlayers: 2,
+      tileSize: TILE_SIZE,
+      era: "napoleonic",
+    });
+    const terrains = new Set(result.map.terrains.flat());
+    expect(terrains).toContain(TerrainType.Farm);
+    expect(terrains).toContain(TerrainType.FarmGrowing);
+    expect(terrains).toContain(TerrainType.FarmUnplanted);
+  });
 });
