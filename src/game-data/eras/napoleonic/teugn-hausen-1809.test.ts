@@ -9,6 +9,21 @@ describe("Battle of Teugn-Hausen scenario", () => {
     expect(scenario.players!.filter(({ team }) => team === 2)).toHaveLength(10);
   });
 
+  // Each side's division seats come first, so a part-filled lobby seats
+  // division heads and the empty brigade seats pass to them. Counts identify
+  // the seats of Daluven's order-of-battle sheet.
+  it("seats each side's division heads before its brigades", () => {
+    const unitsOf = (player: number) =>
+      scenario.units!.filter((unit) => unit.player === player).length;
+    expect(scenario.players!.map(({ player }) => unitsOf(player))).toEqual([
+      7, 8, 5, 7, 8, 8, 10, 9,
+      6, 6, 7, 9, 4, 6, 7, 7, 6, 6,
+    ]);
+    expect(scenario.players!.map(({ player }) => player)).toEqual(
+      Array.from({ length: 18 }, (_, index) => index + 1),
+    );
+  });
+
   it("fields only the era's own units, each owned by a seat", () => {
     const seats = new Set(scenario.players!.map(({ player }) => player));
     const templates = manager.getUnitTemplateManager();
