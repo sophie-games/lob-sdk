@@ -43,7 +43,6 @@ describe("GameDataManager", () => {
     it("offers the community random maps", () => {
       expect(ranked).toEqual(
         expect.arrayContaining([
-          "walled-city",
           "farmlands",
           "central-river",
           "moravian-valley",
@@ -52,6 +51,11 @@ describe("GameDataManager", () => {
           "frozen-swamp-random",
         ]),
       );
+    });
+
+    it("retires Walled City while still loading it for older games", () => {
+      expect(shown).not.toContain("walled-city");
+      expect(gameDataManager.getScenario("walled-city").hidden).toBe(true);
     });
 
     // Half plus one: any two players' selections always share a map.
