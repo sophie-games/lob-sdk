@@ -5,6 +5,7 @@
   "ranked": true,
   "units": [],
   "objectives": [],
+  "triggers": [],
   "instructions": [
     {
       "type": "HEIGHT_NOISE",
@@ -499,7 +500,7 @@
       "between": "left-right",
       "amount": {
         "min": 1,
-        "max": 1
+        "max": 2
       },
       "range": {
         "min": 10,
@@ -554,7 +555,7 @@
       "between": "left-right",
       "amount": {
         "min": 1,
-        "max": 1
+        "max": 2
       },
       "range": {
         "min": 55,
@@ -611,22 +612,160 @@
       "maxDistance": 1,
       "width": {
         "min": 1,
-        "max": 1
+        "max": 2
       },
       "size": {
-        "min": 4,
-        "max": 12
+        "min": 6,
+        "max": 8
       },
-      "chance": 0.1,
+      "chance": 0.07,
       "along": [
         3
       ],
       "verge": 0,
       "heights": [
         {
-          "min": 6,
+          "min": 4,
           "max": 6
         }
+      ]
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 2,
+      "toTerrain": 0,
+      "maxSize": 4
+    },
+    {
+      "type": "PLACE_NAMES",
+      "terrains": [
+        2
+      ],
+      "names": [
+        "Krasymivsk",
+        "Novoalynsk",
+        "Zhydalych",
+        "Kremetyn",
+        "Karlizna",
+        "Zolovary",
+        "Berdyvodske",
+        "Luhatechko",
+        "Zymody",
+        "Haikva",
+        "Alcheshyn",
+        "Konotorsk",
+        "Sarrivka",
+        "Valkoy",
+        "Vynotivka",
+        "Solekhiv",
+        "Komsozansk",
+        "Rodyntorsk",
+        "Melihirsk",
+        "Tarazivka",
+        "Karlikivka",
+        "Bilbotyn",
+        "Terechach",
+        "Molotivka",
+        "Baramove",
+        "Krasnobotyn",
+        "Buhodar",
+        "Radoman",
+        "Ostrosaray",
+        "Krasyhachi",
+        "Zelenozerske",
+        "Ternichuk",
+        "Zvenyzan",
+        "Shepetyn",
+        "Sieveronov",
+        "Zdolnobyl",
+        "Bilohorod",
+        "Mukativka",
+        "Alchelynska",
+        "Tiashivka",
+        "Shepelynska",
+        "Batukivka",
+        "Irvary",
+        "Bilkopsk",
+        "Skalivka",
+        "Rovenvylib",
+        "Aluvary",
+        "Vuhlenov",
+        "Chukhiv",
+        "Mukanov",
+        "Sieverorovsk",
+        "Bohosiivka",
+        "Lysyslav",
+        "Chernyliany",
+        "Verkhiruch",
+        "Aluvaisk",
+        "Novoadiach",
+        "Haitopol",
+        "Shoschach",
+        "Hrehovka",
+        "Pryzna",
+        "Molomyshl",
+        "Krasnoavan",
+        "Zbospil",
+        "Teploromyl",
+        "Kivertarsk",
+        "Lutushyn",
+        "Khoromyl",
+        "Chulynska",
+        "Molodok",
+        "Molonobyl",
+        "Bolediach",
+        "Volovary",
+        "Vovlyna",
+        "Synechyn",
+        "Vashvuta",
+        "Rovenchyn",
+        "Apochesk",
+        "Enerlyna",
+        "Mykoryska",
+        "Turvalsk",
+        "Khorta",
+        "Zaporlaiv",
+        "Sartarsk",
+        "Sverspil",
+        "Koriuriv",
+        "Zhokhiv",
+        "Vozneryska",
+        "Turchevsk",
+        "Svitrivka",
+        "Bobroshivka",
+        "Armiabotyn",
+        "Rozshyn",
+        "Ternihovka",
+        "Luhabyl",
+        "Borynov",
+        "Shosnov",
+        "Druzshivka",
+        "Novoudysche",
+        "Tatardriia",
+        "Novomohorod",
+        "Dokutechko",
+        "Yavotechko"
+      ],
+      "minSize": 4,
+      "maxDistance": 5
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 27,
+      "scale": 2,
+      "ranges": [
+        {
+          "min": 0.9,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        0,
+        1,
+        3,
+        4
       ]
     },
     {
@@ -696,8 +835,6 @@
       "verge": 0
     }
   ],
-  "allowDynamicArmy": true,
-  "placeableObjectives": true,
   "locales": {
     "en": {
       "name": "Farmlands",
@@ -779,5 +916,7 @@
       "name": "农田",
       "description": "一片靠近大河的农业区。"
     }
-  }
+  },
+  "allowDynamicArmy": true,
+  "placeableObjectives": true
 }

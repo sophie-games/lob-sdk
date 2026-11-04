@@ -240,7 +240,7 @@
       "between": "left-right",
       "amount": {
         "min": 1,
-        "max": 1
+        "max": 2
       },
       "range": {
         "min": 5,
@@ -295,7 +295,7 @@
       "between": "left-right",
       "amount": {
         "min": 1,
-        "max": 1
+        "max": 2
       },
       "range": {
         "min": 45,
@@ -350,7 +350,7 @@
       "between": "left-right",
       "amount": {
         "min": 1,
-        "max": 1
+        "max": 2
       },
       "range": {
         "min": 75,
@@ -405,11 +405,66 @@
       "between": "top-bottom",
       "amount": {
         "min": 1,
-        "max": 1
+        "max": 2
       },
       "range": {
-        "min": 75,
+        "min": 60,
         "max": 95
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 2,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 1
+        },
+        {
+          "terrain": 17,
+          "cost": 2
+        },
+        {
+          "terrain": 18,
+          "cost": 4
+        },
+        {
+          "terrain": 1,
+          "cost": 6
+        },
+        {
+          "terrain": 4,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "range": {
+        "min": 5,
+        "max": 40
       },
       "width": 1,
       "terrainReplacements": [
@@ -481,13 +536,13 @@
       "maxDistance": 2,
       "width": {
         "min": 1,
-        "max": 1
+        "max": 2
       },
       "size": {
-        "min": 4,
+        "min": 6,
         "max": 8
       },
-      "chance": 0.1,
+      "chance": 0.05,
       "along": [
         3
       ],
@@ -495,9 +550,137 @@
       "heights": [
         {
           "min": 3,
-          "max": 4
+          "max": 6
         }
       ]
+    },
+    {
+      "type": "PLACE_NAMES",
+      "terrains": [
+        2
+      ],
+      "names": [
+        "Amkirchen",
+        "Oldenwald",
+        "Vilsfurt",
+        "Hollastein",
+        "Ebreichfelden",
+        "Pfullenrode",
+        "Stühlug",
+        "Lustenrau",
+        "Terstatt",
+        "Großenrath",
+        "Neunberg",
+        "Maustadt",
+        "Hallenlohn",
+        "Grünbrück",
+        "Lustenheim",
+        "Auerland",
+        "Großhöring",
+        "Vöcklading",
+        "Innsfelden",
+        "Maudenz",
+        "Baumschau",
+        "Eppelnau",
+        "Salzstein",
+        "Salzbruck",
+        "Baumlingen",
+        "Ebennitz",
+        "Fellschau",
+        "Stockdenz",
+        "Lengendorf",
+        "Mauberg",
+        "Feldzing",
+        "Eberwagen",
+        "Blomkastel",
+        "Großenbüren",
+        "Lenbach",
+        "Schärbach",
+        "Mittermarkt",
+        "Richtenkau",
+        "Boizenscheid",
+        "Maukirch",
+        "Oderbog",
+        "Drolsschau",
+        "Mühlhan",
+        "Hallten",
+        "Bernhude",
+        "Fellbruck",
+        "Landnitz",
+        "Hartweil",
+        "Gladenroda",
+        "Harhofen",
+        "Landkreis",
+        "Walsheim",
+        "Neubüren",
+        "Gailwig",
+        "Innsben",
+        "Goldlug",
+        "Enneschau",
+        "Götfeld",
+        "Schärhaus",
+        "Schwarzenbeck",
+        "Kirchstatt",
+        "Eisenkirchen",
+        "Lennau",
+        "Kufrau",
+        "Dornsten",
+        "Immenmölsen",
+        "Cloppenhude",
+        "Eisenben",
+        "Gladending",
+        "Freudenstein",
+        "Allenstadt",
+        "Dietenhal",
+        "Blaubog",
+        "Amberg",
+        "Marchein",
+        "Tangerhan",
+        "Allburg",
+        "Knitteltal",
+        "Blaulingen",
+        "Elmsten",
+        "Benscheid",
+        "Gerasnitz",
+        "Stockhaus",
+        "Hartberg",
+        "Baumbach",
+        "Wittenholz",
+        "Vohennau",
+        "Landtal",
+        "Saalkreis",
+        "Saalbruck",
+        "Adelswig",
+        "Vellwald",
+        "Sachsenwig",
+        "Vilsee",
+        "Eibenhal",
+        "Auerkamp",
+        "Dettelräschen",
+        "Lustenein",
+        "Eisenweg",
+        "Friedfurt",
+        "Dettelborn",
+        "Clausloh",
+        "Herfingen",
+        "Braunitz",
+        "Trohofen",
+        "Lenweil",
+        "Claumölsen",
+        "Kapfenstein",
+        "Zierenhal",
+        "Obernbrück",
+        "Baumlingen",
+        "Ebentetten",
+        "Knittelbruck",
+        "Thannwig",
+        "Dornnitz",
+        "Stralfurt",
+        "Isselhan",
+        "Hartsill"
+      ],
+      "minSize": 3,
+      "maxDistance": 5
     },
     {
       "type": "FIELDS",
@@ -530,14 +713,14 @@
       "terrains": [
         11
       ],
-      "maxDistance": 6,
+      "maxDistance": 8,
       "width": {
-        "min": 3,
+        "min": 2,
         "max": 4
       },
       "size": {
         "min": 4,
-        "max": 8
+        "max": 6
       },
       "chance": 1,
       "verge": 0,
@@ -572,10 +755,10 @@
     {
       "type": "TERRAIN_NOISE",
       "terrain": 27,
-      "scale": 5,
+      "scale": 2,
       "ranges": [
         {
-          "min": 0.6,
+          "min": 0.8,
           "max": 1
         }
       ],
@@ -592,8 +775,6 @@
       ]
     }
   ],
-  "allowDynamicArmy": true,
-  "placeableObjectives": true,
   "locales": {
     "en": {
       "name": "Central River",
@@ -675,5 +856,7 @@
       "name": "中央河流",
       "description": "一条河流穿过中央，四周是林木茂密的丘陵。"
     }
-  }
+  },
+  "allowDynamicArmy": true,
+  "placeableObjectives": true
 }
