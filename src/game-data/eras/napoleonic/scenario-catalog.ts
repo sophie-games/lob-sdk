@@ -41,6 +41,7 @@ import centralRiver from "./scenarios/central-river.json";
 import moravianValley from "./scenarios/moravian-valley.json";
 import rollingHills from "./scenarios/rolling-hills.json";
 import masurianLakes from "./scenarios/masurian-lakes.json";
+import frozenSwampRandom from "./scenarios/frozen-swamp-random.json";
 
 export const napoleonicScenarioCatalog = {
   plains,
@@ -85,4 +86,5 @@ export const napoleonicScenarioCatalog = {
   "moravian-valley": moravianValley,
   "rolling-hills": rollingHills,
   "masurian-lakes": masurianLakes,
+  "frozen-swamp-random": frozenSwampRandom,
 } as unknown as ScenarioCatalog;

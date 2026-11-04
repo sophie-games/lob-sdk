@@ -49,6 +49,7 @@ describe("GameDataManager", () => {
           "moravian-valley",
           "rolling-hills",
           "masurian-lakes",
+          "frozen-swamp-random",
         ]),
       );
     });

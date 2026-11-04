@@ -11,7 +11,7 @@
       "position": {
         "type": "exact",
         "coords": [
-          50,
+          30,
           50
         ]
       },
@@ -93,6 +93,65 @@
         "min": 25,
         "max": 64
       }
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "range": {
+        "min": 5,
+        "max": 5
+      },
+      "width": 3,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 0,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 1,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 100
+        },
+        {
+          "terrain": 4,
+          "cost": 100
+        },
+        {
+          "terrain": 12,
+          "cost": 5000
+        },
+        {
+          "terrain": 14,
+          "cost": 5000
+        },
+        {
+          "terrain": 20,
+          "cost": 5000
+        }
+      ]
     },
     {
       "type": "TERRAIN_NOISE",
@@ -216,8 +275,8 @@
         "max": 1
       },
       "range": {
-        "min": 30,
-        "max": 45
+        "min": 10,
+        "max": 25
       },
       "width": 1,
       "terrainReplacements": [
@@ -271,8 +330,8 @@
         "max": 1
       },
       "range": {
-        "min": 55,
-        "max": 70
+        "min": 35,
+        "max": 50
       },
       "width": 1,
       "terrainReplacements": [
@@ -354,6 +413,8 @@
       "multiplier": 1,
       "offset": 0,
       "excludeTerrains": [
+        4,
+        7,
         20
       ],
       "height": {
@@ -599,8 +660,8 @@
         "max": 1
       },
       "range": {
-        "min": 5,
-        "max": 25
+        "min": 50,
+        "max": 70
       },
       "width": 1,
       "terrainReplacements": [
@@ -655,11 +716,11 @@
       "between": "top-bottom",
       "amount": {
         "min": 1,
-        "max": 1
+        "max": 2
       },
       "range": {
-        "min": 76,
-        "max": 95
+        "min": 70,
+        "max": 90
       },
       "width": 1,
       "terrainReplacements": [
@@ -755,7 +816,7 @@
       "scale": 20,
       "ranges": [
         {
-          "min": 0.8,
+          "min": 0.9,
           "max": 1
         }
       ],
@@ -765,7 +826,7 @@
         2,
         3,
         4,
-        11,
+        711,
         12,
         14,
         17,
@@ -789,6 +850,7 @@
         0,
         3,
         4,
+        7,
         11,
         12,
         14,
@@ -845,10 +907,195 @@
       "min": 0,
       "max": 16,
       "ranges": []
+    },
+    {
+      "type": "PLACE_NAMES",
+      "terrains": [
+        12,
+        3
+      ],
+      "names": [
+        "Resi",
+        "Navigo",
+        "Altalia",
+        "Tabasso",
+        "Trapasello",
+        "Trevara",
+        "Persa",
+        "Guidovigo",
+        "Cunia",
+        "Avesi",
+        "Brerese",
+        "Viadua",
+        "Altamezia",
+        "Casorta",
+        "Ancoliari",
+        "Bricino",
+        "Secino",
+        "Caltaneo",
+        "Scafame",
+        "Collelvano",
+        "Crerence",
+        "Pravona",
+        "Tuceno",
+        "Picellino",
+        "Pesaci",
+        "Scaggia",
+        "Basenza",
+        "Vatina",
+        "Bocce",
+        "Pescana",
+        "Lapoli",
+        "Ascomona",
+        "Flonia",
+        "Mazandria",
+        "Guinzio",
+        "Bolzamura",
+        "Chierona",
+        "Ancoggia",
+        "Fosa",
+        "Altavecchia",
+        "Matri"
+      ],
+      "minSize": 4,
+      "maxDistance": 4
+    },
+    {
+      "type": "PLACE_NAMES",
+      "terrains": [
+        2
+      ],
+      "names": [
+        "Civizia",
+        "Civireggio",
+        "Scafasto",
+        "Sevecchia",
+        "Tivome",
+        "Pevigo",
+        "Bustoia",
+        "Bolvano",
+        "Ragullo",
+        "Rovici",
+        "Sanregna",
+        "Picessa",
+        "Crescia",
+        "Teragliano",
+        "Norate",
+        "Veniscia",
+        "Salezio",
+        "Tevento",
+        "Pomelzano",
+        "Maraci",
+        "Bullino",
+        "Avessari",
+        "Naramo",
+        "Bredena",
+        "Rimicuse",
+        "Acemola",
+        "Cuvoli",
+        "Bagola",
+        "Trevirese",
+        "Bagheggio",
+        "Monteranto",
+        "Viazio",
+        "Portinice",
+        "Tavento",
+        "Sevano",
+        "Aprizio",
+        "Brirano",
+        "Pradena",
+        "Ferratri",
+        "Sanza",
+        "Casovara",
+        "Cosellino",
+        "Trato",
+        "Civitarli",
+        "Catarletta",
+        "Treviso",
+        "Ercogliari",
+        "Scancona",
+        "Trandria",
+        "Asconoa",
+        "Ercortu",
+        "Catasello",
+        "Battirsa",
+        "Venisello",
+        "Bergali",
+        "Salesi",
+        "Ercovento",
+        "Modessina",
+        "Acinoa",
+        "Fale",
+        "Masto",
+        "Roviggio",
+        "Pimura",
+        "Trevidica",
+        "Vitemura",
+        "Cosenzio",
+        "Legnagliano",
+        "Messiceno",
+        "Flovoli",
+        "Tascia",
+        "Crotoligno",
+        "Boloneo",
+        "Rerreni",
+        "Cresoria",
+        "Geste",
+        "Bollegno",
+        "Caserno",
+        "Rana",
+        "Racino",
+        "Ascomo",
+        "Guidona",
+        "Fiugola",
+        "Pomenoa",
+        "Messilogna",
+        "Vellenice",
+        "Taravorno",
+        "Brenoa",
+        "Pomeliari",
+        "Caselvano",
+        "Ercocce",
+        "Trecchia",
+        "Bolocuse",
+        "Velleria",
+        "Ravesena",
+        "Vittocino",
+        "Ferrasseto",
+        "Sassane",
+        "Acesto",
+        "Siera",
+        "Altarno",
+        "Collereggio",
+        "Pescasso",
+        "Piascia",
+        "Portimona",
+        "Pevano",
+        "Ancoste",
+        "Tivognano",
+        "Ascoviso",
+        "Fallegno",
+        "Gertici",
+        "Civitaranto",
+        "Terdenone",
+        "Imoggia",
+        "Caserma",
+        "Potencona",
+        "Agritone",
+        "Lamelia",
+        "Giuvia",
+        "Cataserta",
+        "Casela",
+        "Perusello",
+        "Resi",
+        "Altalia",
+        "Viteci",
+        "Navigo"
+      ],
+      "minSize": 4,
+      "maxDistance": 4
     }
   ],
-  "allowDynamicArmy": true,
-  "placeableObjectives": true,
   "locales": {
     "en": {
       "name": "Walled City",
@@ -930,5 +1177,7 @@
       "name": "城墙都市",
       "description": "一座拥有石砌城墙和狭窄街道的城市，四周环绕着村庄和田野。"
     }
-  }
+  },
+  "allowDynamicArmy": true,
+  "placeableObjectives": true
 }
