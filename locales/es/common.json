@@ -723,7 +723,7 @@
     },
     "closeToApproach": {
       "title": "Hasta dónde avanzar",
-      "description": "<fireAndAdvance>Disparar y Avanzar</fireAndAdvance> detiene a esta unidad donde sus armas rinden mejor. El ajuste \"Disparar y Avanzar se detiene a\" bajo <fireAndAdvance>Disparar y Avanzar</fireAndAdvance> en la lista de órdenes le permite seguir acercándose mientras dispara, para abrir fuego a larga distancia y aun así terminar el avance de cerca."
+      "description": "<fireAndAdvance>Disparar y Avanzar</fireAndAdvance> detiene a esta unidad donde sus armas rinden mejor. El ajuste \"Disparar y Avanzar se detiene a\" bajo el <autofire>fuego automático</autofire> le permite seguir acercándose mientras dispara, para abrir fuego a larga distancia y aun así terminar el avance de cerca."
     },
     "roundShotHeight": {
       "title": "Bala rasa y pendientes",
@@ -763,8 +763,6 @@
   "autofireMaxAmmoWarning": "A larga distancia el daño es mínimo pero igual gastas munición. Úsalo solo si sabes lo que haces.",
   "autofireRange": "Alcance de fuego automático",
   "approachRange": "Disparar y Avanzar se detiene a",
-  "approachRangeDefault": "Predeterminado",
-  "approachRangeDefaultHint": "Se detiene donde su arma está hecha para combatir.",
   "allowFireWhenMoving": "Permite disparar mientras te movés",
   "meleeDamage": "Daño cuerpo a cuerpo",
   "rangedDamage": "Daño a distancia",
