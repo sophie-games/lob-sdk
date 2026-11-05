@@ -642,6 +642,12 @@ describe("Napoleonic balance", () => {
     ).toMatchObject({ minMovementModifier: -0.5 });
   });
 
+  it("forms line in 4 ticks and unforms it in 8", () => {
+    expect(
+      gameDataManager.getFormationManager().getTemplate("line"),
+    ).toMatchObject({ timeToForm: 4, timeToUnform: 8 });
+  });
+
   it("uses the requested elite infantry balance", () => {
     const expectedByName = {
       guards: {
