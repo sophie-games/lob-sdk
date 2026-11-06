@@ -27,3 +27,17 @@ export function limitSlopes(heightMap: number[][], maxStep: number): void {
       }
   }
 }
+
+/**
+ * Multiplies every height by `scale`, then turns each step this makes into a slope of one level
+ * a tile: the midpoint between the relief lowered and raised to that slope.
+ */
+export function scaleIntoSlopes(heightMap: number[][], scale: number): void {
+  const lowered = heightMap.map((column) => column.map((height) => height * scale));
+  const raised = lowered.map((column) => column.map((height) => -height));
+  limitSlopes(lowered, 1);
+  limitSlopes(raised, 1);
+  for (let x = 0; x < heightMap.length; x++)
+    for (let y = 0; y < heightMap[x].length; y++)
+      heightMap[x][y] = Math.round((lowered[x][y] - raised[x][y]) / 2);
+}

@@ -1,6 +1,7 @@
 {
   "version": 2,
   "maxHeightStep": 1,
+  "heightScale": 4,
   "name": "name",
   "description": "description",
   "baseTerrain": 0,
@@ -131,13 +132,15 @@
           "s": 1,
           "m": 1,
           "l": 2,
-          "xl": 3
+          "xl": 3,
+          "xxl": 3
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 2,
           "l": 3,
-          "xl": 4
+          "xl": 4,
+          "xxl": 4
         }
       },
       "width": 1,
@@ -170,13 +173,15 @@
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 2
+          "xl": 2,
+          "xxl": 2
         }
       },
       "width": 1,
@@ -209,13 +214,15 @@
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 2
+          "xl": 2,
+          "xxl": 2
         }
       },
       "width": 1,
@@ -248,13 +255,15 @@
           "s": 0,
           "m": 0,
           "l": 0,
-          "xl": 0
+          "xl": 0,
+          "xxl": 0
         },
         "max_scaling_factor": {
           "s": 0,
           "m": 1,
           "l": 1,
-          "xl": 2
+          "xl": 2,
+          "xxl": 2
         }
       },
       "width": 1,
@@ -1141,13 +1150,15 @@
           "s": 1,
           "m": 2,
           "l": 2,
-          "xl": 2
+          "xl": 2,
+          "xxl": 2
         },
         "max_scaling_factor": {
           "s": 2,
           "m": 3,
           "l": 4,
-          "xl": 4
+          "xl": 4,
+          "xxl": 4
         }
       },
       "width": 1,

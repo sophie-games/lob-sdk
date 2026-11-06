@@ -1,6 +1,7 @@
 {
   "version": 2,
   "maxHeightStep": 1,
+  "heightScale": 4,
   "name": "name",
   "description": "description",
   "baseTerrain": 0,
@@ -85,13 +86,15 @@
           "s": 1,
           "m": 1,
           "l": 0,
-          "xl": 0
+          "xl": 0,
+          "xxl": 0
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 1,
           "l": 0,
-          "xl": 0
+          "xl": 0,
+          "xxl": 0
         }
       },
       "height": 2,
@@ -120,13 +123,15 @@
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         }
       },
       "height": 2,
@@ -155,13 +160,15 @@
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         }
       },
       "height": 2,
@@ -190,13 +197,15 @@
           "s": 1,
           "m": 1,
           "l": 0,
-          "xl": 0
+          "xl": 0,
+          "xxl": 0
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 1,
           "l": 0,
-          "xl": 0
+          "xl": 0,
+          "xxl": 0
         }
       },
       "height": 2,
@@ -225,13 +234,15 @@
           "s": 0,
           "m": 0,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 0,
           "m": 0,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         }
       },
       "height": 2,
@@ -260,13 +271,15 @@
           "s": 0,
           "m": 0,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 0,
           "m": 0,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         }
       },
       "height": 2,
@@ -295,13 +308,15 @@
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 2,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         }
       },
       "height": 2,
@@ -561,13 +576,15 @@
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         }
       },
       "height": 2,
@@ -596,13 +613,15 @@
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         }
       },
       "height": 2,
@@ -631,13 +650,15 @@
           "s": 0,
           "m": 0,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         }
       },
       "height": 2,
@@ -1208,13 +1229,15 @@
           "s": 0,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 1,
           "l": 2,
-          "xl": 2
+          "xl": 2,
+          "xxl": 2
         }
       },
       "height": 1,
@@ -1276,13 +1299,15 @@
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 1,
           "l": 2,
-          "xl": 3
+          "xl": 3,
+          "xxl": 3
         }
       },
       "height": 0.9,

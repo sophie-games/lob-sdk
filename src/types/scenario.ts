@@ -496,6 +496,12 @@ export interface Scenario {
   maxHeightStep?: number;
 
   /**
+   * Multiplies every height once {@link instructions} have run, so a template written for
+   * one-level steps reaches the era's height scale.
+   */
+  heightScale?: number;
+
+  /**
    * Pins map dimensions for procedural generation (ignored when {@link map} is
    * set). Use to get deterministic pixel-based {@link deploymentZones}
    * independent of the matchmaking-derived battle type.

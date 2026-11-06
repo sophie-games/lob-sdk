@@ -7,6 +7,7 @@ import {
   getCollisionConfig,
   isCircleCollision,
   CollisionShapeType,
+  Size,
 } from "@lob-sdk/types";
 import { DamageTypeTemplate, GameEra } from "@lob-sdk/game-data-manager";
 import { generateDefaultArmy } from "@lob-sdk/army-deployer";
@@ -271,6 +272,19 @@ describe("GameDataManager", () => {
           expect(battleType).toBeDefined();
         });
       });
+    });
+
+    it("gives each napoleonic battle type room for cavalry, grand battle a quarter wider than battle", () => {
+      const napoleonic = GameDataManager.get("napoleonic");
+      const sizeOf = (battleType: string) => napoleonic.getBattleType(battleType).mapSize;
+      expect(sizeOf("micro")).toEqual([Size.Small]);
+      expect(sizeOf("clash")).toEqual([Size.Medium]);
+      expect(sizeOf("combat")).toEqual([Size.Large]);
+      expect(sizeOf("battle")).toEqual([Size.ExtraLarge]);
+      expect(sizeOf("grand_battle")).toEqual([Size.XXLarge]);
+
+      const { xl, xxl } = napoleonic.getMapSizes();
+      expect(xxl.map).toEqual({ tilesX: Math.round(xl.map.tilesX * 1.25), tilesY: xl.map.tilesY });
     });
 
     describe("all mapSizes in battle types exist in mapSizes", () => {
