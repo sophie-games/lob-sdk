@@ -684,8 +684,11 @@ export interface HeightRule {
   meleeDefenseBonusPerLevel: number;
   /** Charge damage per level the charger is above (bonus) or below (penalty) its target. */
   chargeBonusPerLevel: number;
-  /** Speed change per level the ground rises over one tile of travel (negative = slower). */
-  uphillSpeedModifierPerLevel: number;
+  /**
+   * Speed lost climbing a slope of 1, 2, 3... levels per tile (0.25 = 25% slower),
+   * interpolated between levels and held past the last one.
+   */
+  uphillSlowdownByLevel: number[];
   /** Speed change at run pace per level the ground falls over one tile of travel. */
   downhillRunSpeedModifierPerLevel: number;
   /** Level difference (or levels per tile of slope) beyond which the modifiers stop growing. */
