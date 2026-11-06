@@ -70,6 +70,42 @@ describe("SizedMapGenerator", () => {
     expect(terrains.filter((terrain) => farmland.includes(terrain)).length).toBeGreaterThan(0);
   });
 
+  const highest = (generated: Scenario) =>
+    Math.max(...new RandomMapGenerator().generate({ ...props, scenario: generated }).map.heightMap.flat());
+
+  it("scales the finished heights by heightScale into slopes of a level a tile, leaving the terrain", () => {
+    const oneLevel = { ...steep, maxHeightStep: 1 };
+    const scaled = { ...oneLevel, heightScale: 4 };
+    expect(steepestStep(scaled)).toBe(1);
+    expect(highest(scaled)).toBeGreaterThan(2 * highest(oneLevel));
+    const terrains = (generated: Scenario) =>
+      new RandomMapGenerator().generate({ ...props, scenario: generated }).map.terrains;
+    expect(terrains(scaled)).toEqual(terrains(oneLevel));
+  });
+
+  it("leaves a baked map's heights as they were baked, whatever its heightScale", () => {
+    const { map } = new RandomMapGenerator().generate({ ...props, scenario: steep });
+    const baked = { ...steep, map, instructions: [], heightScale: 4 } as Scenario;
+    expect(new RandomMapGenerator().generate({ ...props, scenario: baked }).map.heightMap).toEqual(map.heightMap);
+  });
+
+  it.each(["plains", "tundra", "low-countries", "city", "hedgerows"])(
+    "keeps %s flat, within two levels",
+    (name) => {
+      expect(highest(GameDataManager.get("napoleonic").getScenario(name))).toBeLessThanOrEqual(2);
+    },
+  );
+
+  it.each(["hills", "iberia"])(
+    "raises %s's relief to the era's height scale on gradual slopes",
+    (name) => {
+      const template = GameDataManager.get("napoleonic").getScenario(name);
+      const unscaled = { ...template, heightScale: undefined };
+      expect(highest(template)).toBeGreaterThan(2 * highest(unscaled));
+      expect(steepestStep(template)).toBe(1);
+    },
+  );
+
   it("clears the forest's small clusters with REPLACE_SMALL_CLUSTERS", () => {
     const forestTiles = (instructions: unknown[]) =>
       new RandomMapGenerator()

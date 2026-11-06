@@ -272,6 +272,7 @@ describe("normalizeScenario", () => {
             [Size.Medium]: zones,
             [Size.Large]: zones,
             [Size.ExtraLarge]: zones,
+            [Size.XXLarge]: zones,
           },
         }),
       );
@@ -320,6 +321,7 @@ describe("normalizeScenario", () => {
             [Size.Medium]: scaled,
             [Size.Large]: scaled,
             [Size.ExtraLarge]: scaled,
+            [Size.XXLarge]: scaled,
           },
         }),
       );

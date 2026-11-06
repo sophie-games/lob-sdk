@@ -34,6 +34,7 @@ import { FieldsExecutor } from "./executors/fields";
 import { PlaceNamesExecutor } from "./executors/place-names";
 import { InstructionArea, TurnedFrame } from "./frame-angle";
 import { normalizeMapGrids } from "./normalize-map-grids";
+import { scaleIntoSlopes } from "./slopes";
 import { deriveSeed, generateRandomSeed, randomSeeded } from "@lob-sdk/seed";
 import type { MapSizeTemplate } from "@lob-sdk/game-data-manager";
 import { getRandomInt } from "@lob-sdk/utils";
@@ -156,6 +157,10 @@ export class SizedMapGenerator {
       instructionsToRun,
       frame,
     );
+
+    // A baked map was scaled when it was generated.
+    const { heightScale = 1 } = scenario;
+    if (!fixedMap && heightScale !== 1) scaleIntoSlopes(heightMap, heightScale);
 
     const deploymentZones = this.resolveDeploymentZones(
       scenario,
