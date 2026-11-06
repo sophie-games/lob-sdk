@@ -1,0 +1,864 @@
+{
+  "version": 2,
+  "name": "name",
+  "description": "description",
+  "ranked": true,
+  "units": [],
+  "objectives": [],
+  "triggers": [],
+  "instructions": [
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 14,
+      "max": 18,
+      "ranges": []
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 10,
+      "scale": 4,
+      "ranges": [
+        {
+          "min": 0.5,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": []
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "top-bottom",
+      "range": {
+        "min": 45,
+        "max": 55
+      },
+      "amount": {
+        "min": 1,
+        "max": 1,
+        "min_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 2,
+          "xl": 3,
+          "xxl": 3
+        },
+        "max_scaling_factor": {
+          "s": 1,
+          "m": 2,
+          "l": 3,
+          "xl": 4,
+          "xxl": 4
+        }
+      },
+      "width": 2,
+      "height": 1,
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": 1
+        },
+        {
+          "terrain": 0,
+          "cost": 50
+        },
+        {
+          "terrain": 1,
+          "cost": 100
+        },
+        {
+          "terrain": 2,
+          "cost": 200
+        },
+        {
+          "terrain": 10,
+          "cost": 10
+        }
+      ],
+      "distance weight": 0.25,
+      "curveLen": 1,
+      "curveWeight": 0,
+      "noiseWeight": 0,
+      "noiseSmoothness": 1
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 0,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        4
+      ]
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 10,
+      "minHeight": 1
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 10,
+      "minHeight": 2
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 10,
+      "minHeight": 4
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 10,
+      "minHeight": 6
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 10,
+      "minHeight": 8
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 10,
+      "minHeight": 10
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 12,
+      "minHeight": 7
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 10,
+      "minHeight": 14
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 10,
+      "minHeight": 16
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 3,
+      "max": 3,
+      "ranges": [
+        {
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 1,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 14,
+        "max": 20
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 17,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        4
+      ],
+      "height": {
+        "min": 6,
+        "max": 8
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 18,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        4
+      ],
+      "height": {
+        "min": 9,
+        "max": 11
+      }
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "left-right",
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "range": {
+        "min": 5,
+        "max": 25
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 2,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 1
+        },
+        {
+          "terrain": 17,
+          "cost": 2
+        },
+        {
+          "terrain": 18,
+          "cost": 4
+        },
+        {
+          "terrain": 1,
+          "cost": 6
+        },
+        {
+          "terrain": 4,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 1
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "left-right",
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "range": {
+        "min": 45,
+        "max": 55
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 2,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 1
+        },
+        {
+          "terrain": 17,
+          "cost": 2
+        },
+        {
+          "terrain": 18,
+          "cost": 4
+        },
+        {
+          "terrain": 1,
+          "cost": 6
+        },
+        {
+          "terrain": 4,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 1
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "left-right",
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "range": {
+        "min": 75,
+        "max": 95
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 2,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 1
+        },
+        {
+          "terrain": 17,
+          "cost": 2
+        },
+        {
+          "terrain": 18,
+          "cost": 4
+        },
+        {
+          "terrain": 1,
+          "cost": 6
+        },
+        {
+          "terrain": 4,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 1
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "range": {
+        "min": 60,
+        "max": 95
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 2,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 1
+        },
+        {
+          "terrain": 17,
+          "cost": 2
+        },
+        {
+          "terrain": 18,
+          "cost": 4
+        },
+        {
+          "terrain": 1,
+          "cost": 6
+        },
+        {
+          "terrain": 4,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "range": {
+        "min": 5,
+        "max": 40
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 2,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 1
+        },
+        {
+          "terrain": 17,
+          "cost": 2
+        },
+        {
+          "terrain": 18,
+          "cost": 4
+        },
+        {
+          "terrain": 1,
+          "cost": 6
+        },
+        {
+          "terrain": 4,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 0,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        1,
+        3,
+        4,
+        7
+      ]
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        2
+      ],
+      "maxDistance": 2,
+      "width": {
+        "min": 1,
+        "max": 2
+      },
+      "size": {
+        "min": 6,
+        "max": 8
+      },
+      "chance": 0.05,
+      "along": [
+        3
+      ],
+      "verge": 0,
+      "heights": [
+        {
+          "min": 3,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "type": "PLACE_NAMES",
+      "terrains": [
+        2
+      ],
+      "names": [
+        "Amkirchen",
+        "Oldenwald",
+        "Vilsfurt",
+        "Hollastein",
+        "Ebreichfelden",
+        "Pfullenrode",
+        "Stühlug",
+        "Lustenrau",
+        "Terstatt",
+        "Großenrath",
+        "Neunberg",
+        "Maustadt",
+        "Hallenlohn",
+        "Grünbrück",
+        "Lustenheim",
+        "Auerland",
+        "Großhöring",
+        "Vöcklading",
+        "Innsfelden",
+        "Maudenz",
+        "Baumschau",
+        "Eppelnau",
+        "Salzstein",
+        "Salzbruck",
+        "Baumlingen",
+        "Ebennitz",
+        "Fellschau",
+        "Stockdenz",
+        "Lengendorf",
+        "Mauberg",
+        "Feldzing",
+        "Eberwagen",
+        "Blomkastel",
+        "Großenbüren",
+        "Lenbach",
+        "Schärbach",
+        "Mittermarkt",
+        "Richtenkau",
+        "Boizenscheid",
+        "Maukirch",
+        "Oderbog",
+        "Drolsschau",
+        "Mühlhan",
+        "Hallten",
+        "Bernhude",
+        "Fellbruck",
+        "Landnitz",
+        "Hartweil",
+        "Gladenroda",
+        "Harhofen",
+        "Landkreis",
+        "Walsheim",
+        "Neubüren",
+        "Gailwig",
+        "Innsben",
+        "Goldlug",
+        "Enneschau",
+        "Götfeld",
+        "Schärhaus",
+        "Schwarzenbeck",
+        "Kirchstatt",
+        "Eisenkirchen",
+        "Lennau",
+        "Kufrau",
+        "Dornsten",
+        "Immenmölsen",
+        "Cloppenhude",
+        "Eisenben",
+        "Gladending",
+        "Freudenstein",
+        "Allenstadt",
+        "Dietenhal",
+        "Blaubog",
+        "Amberg",
+        "Marchein",
+        "Tangerhan",
+        "Allburg",
+        "Knitteltal",
+        "Blaulingen",
+        "Elmsten",
+        "Benscheid",
+        "Gerasnitz",
+        "Stockhaus",
+        "Hartberg",
+        "Baumbach",
+        "Wittenholz",
+        "Vohennau",
+        "Landtal",
+        "Saalkreis",
+        "Saalbruck",
+        "Adelswig",
+        "Vellwald",
+        "Sachsenwig",
+        "Vilsee",
+        "Eibenhal",
+        "Auerkamp",
+        "Dettelräschen",
+        "Lustenein",
+        "Eisenweg",
+        "Friedfurt",
+        "Dettelborn",
+        "Clausloh",
+        "Herfingen",
+        "Braunitz",
+        "Trohofen",
+        "Lenweil",
+        "Claumölsen",
+        "Kapfenstein",
+        "Zierenhal",
+        "Obernbrück",
+        "Baumlingen",
+        "Ebentetten",
+        "Knittelbruck",
+        "Thannwig",
+        "Dornnitz",
+        "Stralfurt",
+        "Isselhan",
+        "Hartsill"
+      ],
+      "minSize": 3,
+      "maxDistance": 5
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        18
+      ],
+      "maxDistance": 2,
+      "width": {
+        "min": 2,
+        "max": 3
+      },
+      "size": {
+        "min": 2,
+        "max": 4
+      },
+      "chance": 1,
+      "along": [
+        4
+      ],
+      "verge": 0,
+      "heights": [
+        {
+          "min": 3,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        11
+      ],
+      "maxDistance": 8,
+      "width": {
+        "min": 2,
+        "max": 4
+      },
+      "size": {
+        "min": 4,
+        "max": 6
+      },
+      "chance": 1,
+      "verge": 0,
+      "heights": [
+        {
+          "min": 3,
+          "max": 4
+        }
+      ],
+      "along": [
+        3
+      ]
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 11,
+      "toTerrain": 0,
+      "maxSize": 6
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 18,
+      "toTerrain": 27,
+      "maxSize": 1
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 2,
+      "toTerrain": 27,
+      "maxSize": 1
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 27,
+      "scale": 2,
+      "ranges": [
+        {
+          "min": 0.8,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        0,
+        1,
+        3,
+        4,
+        7,
+        11,
+        18
+      ]
+    }
+  ],
+  "locales": {
+    "en": {
+      "name": "Central River",
+      "description": "A river passing through the center, surrounded by forested hills."
+    },
+    "es": {
+      "name": "Río central",
+      "description": "Un río que atraviesa el centro, rodeado de colinas boscosas."
+    },
+    "fr": {
+      "name": "Rivière centrale",
+      "description": "Une rivière traverse le centre, entourée de collines boisées."
+    },
+    "de": {
+      "name": "Zentraler Fluss",
+      "description": "Ein Fluss fließt durch die Mitte, umgeben von bewaldeten Hügeln."
+    },
+    "it": {
+      "name": "Fiume centrale",
+      "description": "Un fiume attraversa il centro, circondato da colline boscose."
+    },
+    "pt": {
+      "name": "Rio Central",
+      "description": "Um rio que atravessa o centro, cercado por colinas arborizadas."
+    },
+    "ru": {
+      "name": "Центральная река",
+      "description": "Река, протекающая через центр, в окружении лесистых холмов."
+    },
+    "uk": {
+      "name": "Центральна річка",
+      "description": "Річка, що тече через центр, в оточенні лісистих пагорбів."
+    },
+    "pl": {
+      "name": "Rzeka centralna",
+      "description": "Rzeka płynąca przez środek, otoczona zalesionymi wzgórzami."
+    },
+    "hu": {
+      "name": "Középső folyó",
+      "description": "A középen átfolyó folyó, erdős dombokkal körülvéve."
+    },
+    "el": {
+      "name": "Κεντρικό ποτάμι",
+      "description": "Ένα ποτάμι που διασχίζει το κέντρο, περιτριγυρισμένο από δασωμένους λόφους."
+    },
+    "tr": {
+      "name": "Merkez Nehir",
+      "description": "Ortasından geçen, ormanlık tepelerle çevrili bir nehir."
+    },
+    "ar": {
+      "name": "النهر الأوسط",
+      "description": "نهر يمر عبر الوسط، تحيط به تلال مكسوة بالغابات."
+    },
+    "hi": {
+      "name": "मध्य नदी",
+      "description": "बीच से गुज़रती एक नदी, जो जंगली पहाड़ियों से घिरी है।"
+    },
+    "id": {
+      "name": "Sungai Tengah",
+      "description": "Sungai yang melintasi bagian tengah, dikelilingi bukit-bukit berhutan."
+    },
+    "th": {
+      "name": "แม่น้ำใจกลาง",
+      "description": "แม่น้ำที่ไหลผ่านใจกลาง ล้อมรอบด้วยเนินเขาที่เต็มไปด้วยป่า"
+    },
+    "vi": {
+      "name": "Dòng sông trung tâm",
+      "description": "Một con sông chảy qua trung tâm, bao quanh bởi những ngọn đồi rừng."
+    },
+    "ja": {
+      "name": "中央の川",
+      "description": "中央を流れる川と、それを囲む森の丘。"
+    },
+    "kr": {
+      "name": "중앙의 강",
+      "description": "중앙을 가로지르는 강과 그 주위를 둘러싼 숲이 우거진 언덕입니다."
+    },
+    "zh": {
+      "name": "中央河流",
+      "description": "一条河流穿过中央，四周是林木茂密的丘陵。"
+    }
+  },
+  "allowDynamicArmy": true,
+  "placeableObjectives": true
+}

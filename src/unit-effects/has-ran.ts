@@ -25,6 +25,17 @@ export class HasRan extends BaseUnitEffect {
       },
     ];
 
+    const meleeAttackModifier = unit.getHasRanMeleeAttackModifier();
+    if (meleeAttackModifier) {
+      stats.push({
+        label: "unitStat.meleeAttack",
+        type: "percentage",
+        signed: true,
+        value: meleeAttackModifier,
+        color: meleeAttackModifier > 0 ? "green" : "red",
+      });
+    }
+
     if (stamina) {
       stats.push({
         label: "meleeStaminaCost",

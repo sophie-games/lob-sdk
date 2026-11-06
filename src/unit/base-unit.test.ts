@@ -1,6 +1,7 @@
 import { BaseUnit } from "./base-unit";
 import { Vector2 } from "@lob-sdk/vector";
 import {
+  AmmoPools,
   CollisionShapeType,
   OrderType,
   UnitCategoryId,
@@ -30,7 +31,7 @@ describe("BaseUnit", () => {
     hp: number = 800;
     org: number = 500;
     stamina: number | null = template.stamina ?? null;
-    ammo: number = 0;
+    ammo: AmmoPools | null = null;
     supply: number | null = null;
     position: Vector2 = new Vector2(0, 0);
     category: UnitCategoryId = "infantry";
@@ -43,6 +44,7 @@ describe("BaseUnit", () => {
     hardAllyOverlap: number = 0;
     softAllyOverlap: number = 0;
     autofireRange: EngagementRange = EngagementRange.Max;
+    approachRange: EngagementRange | undefined = undefined;
     entrenchment: number = 0;
     status = UnitStatus.Standing;
     currentFormation: string = "column";
@@ -73,6 +75,54 @@ describe("BaseUnit", () => {
     unit = new TestUnit(id, gameDataManager);
   });
 
+  describe("getPower()", () => {
+    const basePower = BaseUnit.getBasePower(template);
+
+    it("loses its power for victory points by the time it is spent, as when 1.7 wiped it out", () => {
+      unit.hp = unit.maxHp * 0.75;
+      expect(unit.getPower()).toBeCloseTo(basePower * 0.5);
+      unit.hp = unit.maxHp * 0.5;
+      expect(unit.getPower()).toBe(0);
+      unit.hp = unit.maxHp * 0.3;
+      expect(unit.getPower()).toBe(0);
+    });
+
+    it("halves a routing unit's power", () => {
+      unit.hp = unit.maxHp * 0.75;
+      unit.status = UnitStatus.Routing;
+      expect(unit.getPower()).toBeCloseTo(basePower * 0.25);
+    });
+  });
+
+  describe("approach tier", () => {
+    it("has no tier until the player picks one", () => {
+      expect(unit.effectiveApproachRange).toBeUndefined();
+    });
+
+    it("keeps far as a choice of its own, never a fire tier it cannot reach", () => {
+      unit.applyAutofireConfig({ unitId: 10, autofireRange: EngagementRange.Max, approachRange: EngagementRange.Max });
+      expect(unit.effectiveApproachRange).toBe(EngagementRange.Max);
+
+      unit.applyAutofireConfig({ unitId: 10, autofireRange: EngagementRange.Low, approachRange: EngagementRange.Max });
+      expect(unit.effectiveApproachRange).toBe(EngagementRange.Low);
+    });
+  });
+
+  describe("hold fire", () => {
+    it("opens fire by default", () => {
+      expect(unit.holdFire).toBe(false);
+    });
+
+    it("holds fire while a config change says so and keeps its tier for when it reopens", () => {
+      unit.applyAutofireConfig({ unitId: 10, autofireRange: EngagementRange.Low, holdFire: true });
+      expect(unit.holdFire).toBe(true);
+      expect(unit.autofireRange).toBe(EngagementRange.Low);
+
+      unit.applyAutofireConfig({ unitId: 10, autofireRange: EngagementRange.Low });
+      expect(unit.holdFire).toBe(false);
+    });
+  });
+
   it("exposes its unit template charge sound", () => {
     expect(unit.chargeSound).toBe("infantry-charge");
   });
@@ -88,6 +138,41 @@ describe("BaseUnit", () => {
     };
 
     expect(unit.runMovementSound).toBe("infantry-running");
+  });
+
+  it("walks at its formation's share of its walk, which is what its body's pace measures", () => {
+    expect(unit.formationWalkMovement).toBe(unit.walkMovement);
+    unit.currentFormation = "line";
+    expect(unit.formationWalkMovement).toBeCloseTo(unit.walkMovement * 0.75);
+    unit.pendingFormationId = "column";
+    expect(unit.formationWalkMovement).toBe(unit.walkMovement);
+  });
+
+  it("sets its body's pace unless its category lists the order as exempt", () => {
+    expect(unit.isExemptFromBodyPace(OrderType.FireAndAdvance)).toBe(false);
+    (unit as unknown as { categoryTemplate: unknown }).categoryTemplate = {
+      ...categoryTemplate,
+      ordersExemptFromBodyPace: [OrderType.FireAndAdvance],
+    };
+    expect(unit.isExemptFromBodyPace(OrderType.FireAndAdvance)).toBe(true);
+    expect(unit.isExemptFromBodyPace(OrderType.Run)).toBe(false);
+  });
+
+  describe("rotation thresholds", () => {
+    it("falls back to the walk threshold when no run threshold is configured", () => {
+      expect(unit.runRotationMaxThreshold).toBe(unit.rotationMaxThreshold);
+    });
+
+    it("exposes a separately configured run threshold", () => {
+      unit.template = {
+        ...template,
+        runRotationMaxThreshold: template.rotationMaxThreshold * 2,
+      };
+
+      expect(unit.runRotationMaxThreshold).toBe(
+        template.rotationMaxThreshold * 2,
+      );
+    });
   });
 
   describe("hasEffect()", () => {
@@ -251,26 +336,23 @@ describe("BaseUnit", () => {
       );
     });
 
-    it("treats a legacy circle formation as a facing square", () => {
+    it("returns Front from any angle for a circle formation (no facing/rear)", () => {
       const customManager = GameDataManager.createWithCustomDefs("napoleonic", {
         customUnitFormations: [
           {
             id: "test-circle",
             baseSprite: "infantry/line",
-            collisionShape: { type: 0, radius: 8 },
+            collisionShape: { type: CollisionShapeType.Circle, radius: 8 },
           } as never,
         ],
       });
-      const unit = new TestUnit(22, customManager);
-      unit.currentFormation = "test-circle";
-      unit.position = new Vector2(0, 0);
-      unit.rotation = 0;
-      expect(unit.getDirectionToPoint(new Vector2(-10, 0))).toBe(
-        Direction.Back,
-      );
-      expect(unit.getDirectionToPoint(new Vector2(10, 0))).toBe(
-        Direction.Front,
-      );
+      const circle = new TestUnit(22, customManager);
+      circle.currentFormation = "test-circle";
+      circle.position = new Vector2(0, 0);
+      circle.rotation = 0;
+      // No explicit arc -> derived from the formation; a circle classifies every hit as Front.
+      expect(circle.getDirectionToPoint(new Vector2(-10, 0))).toBe(Direction.Front);
+      expect(circle.getDirectionToPoint(new Vector2(0, 10))).toBe(Direction.Front);
     });
   });
 
@@ -336,28 +418,6 @@ describe("BaseUnit", () => {
       return u;
     };
 
-    it("uses the same 16px fallback square for every collision calculation", () => {
-      unit.currentFormation = "missing-formation";
-      unit.position = new Vector2(10, 20);
-      unit.rotation = 0;
-
-      const corners = [
-        { x: 2, y: 12 },
-        { x: 18, y: 12 },
-        { x: 18, y: 28 },
-        { x: 2, y: 28 },
-      ];
-      expect(unit.calculateObbCorners()).toEqual(corners);
-      expect(unit.getCollisionShape().corners).toEqual(corners);
-      expect(unit.getCollisionBoundingRadius()).toBeCloseTo(Math.hypot(8, 8));
-      expect(unit.calculateCollisionShapes()).toEqual([
-        expect.objectContaining({
-          position: expect.objectContaining({ x: 10, y: 20 }),
-          radius: 8,
-        }),
-      ]);
-    });
-
     it("puts the front on +X (depth) and the frontage on Y at rotation 0", () => {
       const u = makeObbUnit();
       u.rotation = 0;
@@ -390,8 +450,8 @@ describe("BaseUnit", () => {
 
   describe("getFlankMod()", () => {
     // getFlankMod derives the flank ramp from the formation's OBB footprint (getFlankAngles):
-    // no flank within the front face, full once the rear face begins. Formations flagged
-    // disablesFlankMelee take no flank from any angle.
+    // no flank within the front face, full once the rear face begins. Circles (no facing) and
+    // formations flagged disablesFlankMelee take no flank from any angle.
     const makeFlankUnit = (formation: object): TestUnit => {
       const customManager = GameDataManager.createWithCustomDefs("napoleonic", {
         customUnitFormations: [
@@ -424,16 +484,78 @@ describe("BaseUnit", () => {
       expect(mod).toBe(1);
     });
 
-    it("upgrades a legacy circle formation to a flankable square", () => {
+    it("returns 0 for a circle formation (no facing)", () => {
       const u = makeFlankUnit({
-        collisionShape: { type: 0, radius: 4 },
+        collisionShape: { type: CollisionShapeType.Circle, radius: 4 },
       });
-      expect(u.getFlankMod(new Vector2(-10, 0))).toBe(1);
+      expect(u.getFlankMod(new Vector2(-10, 0))).toBe(0);
     });
 
     it("returns 0 for an unflankable formation (disablesFlankMelee)", () => {
       const u = makeFlankUnit({ ...obb16, disablesFlankMelee: true });
       expect(u.getFlankMod(new Vector2(-10, 0))).toBe(0);
+    });
+
+    // A formation change is not done until it completes: melee drops it on contact, and
+    // the charge reads the held formation's resistance, so the held one decides the flank.
+    // 114deg off the facing is past a line's flank ramp; a square takes no flank from any angle.
+    const offFacing = new Vector2(Math.cos(2), Math.sin(2)).scale(10);
+    const changingFormation = (from: string, to: string): TestUnit => {
+      const u = new TestUnit(21, gameDataManager);
+      u.currentFormation = from;
+      u.pendingFormationId = to;
+      u.position = new Vector2(0, 0);
+      u.rotation = 0;
+      return u;
+    };
+
+    it("flanks a line from behind while it is still forming square", () => {
+      expect(changingFormation("line", "square").getFlankMod(offFacing)).toBe(1);
+    });
+
+    it("gives no flank to a square still forming line", () => {
+      expect(changingFormation("square", "line").getFlankMod(offFacing)).toBe(0);
+    });
+  });
+
+  // Every client and replay draws the held formation until the change completes, so the body
+  // that touches enemies is the held one too.
+  describe("while changing formation", () => {
+    const changing = (from: string, to: string | null): TestUnit => {
+      const u = new TestUnit(21, gameDataManager);
+      u.currentFormation = from;
+      u.pendingFormationId = to;
+      u.position = new Vector2(100, 100);
+      u.rotation = 0.5;
+      return u;
+    };
+
+    it("keeps the held formation's footprint", () => {
+      const held = changing("column", null);
+      const forming = changing("column", "line");
+      expect(forming.calculateObbCorners()).toEqual(held.calculateObbCorners());
+      expect(forming.getCollisionBoundingRadius()).toBe(held.getCollisionBoundingRadius());
+    });
+
+    it("keeps the held formation's collision levels", () => {
+      const held = changing("dispersed", null);
+      const forming = changing("dispersed", "line");
+      expect(forming.enemyCollisionLevel).toBe(held.enemyCollisionLevel);
+      expect(forming.allyCollisionLevel).toBe(held.allyCollisionLevel);
+    });
+
+    it("keeps the held formation's front and back arcs", () => {
+      const directions = (u: TestUnit) =>
+        Array.from({ length: 32 }, (_, i) => {
+          const angle = 0.5 + (i * Math.PI) / 16;
+          return u.getDirectionToPoint(new Vector2(100 + Math.cos(angle), 100 + Math.sin(angle)));
+        });
+      expect(directions(changing("column", "line"))).toEqual(directions(changing("column", null)));
+    });
+
+    it("keeps the held formation's friendly-fire immunity", () => {
+      expect(changing("skirmish", "line").isFriendlyFireImmune("musket")).toBe(true);
+      expect(changing("line", "skirmish").isFriendlyFireImmune("musket")).toBe(false);
     });
   });
 });

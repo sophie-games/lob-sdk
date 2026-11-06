@@ -18,7 +18,8 @@ export class TerrainCircleExecutor {
     private seed: number,
     private index: number,
     private terrains: TerrainType[][],
-    private heightMap: number[][]
+    private heightMap: number[][],
+    private maxHeightStep: number,
   ) {
     const derivedSeed = deriveSeed(seed, index + 1);
     this.random = randomSeeded(derivedSeed);
@@ -135,7 +136,7 @@ export class TerrainCircleExecutor {
               const newHeight = Math.floor(
                 currentHeight * (1 - influence) + targetHeight * influence
               );
-              setHeightRecursively(x, y, newHeight, heightMap);
+              setHeightRecursively(x, y, newHeight, heightMap, this.maxHeightStep);
             }
           }
         }

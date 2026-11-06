@@ -1,5 +1,6 @@
 {
-  "version": 1,
+  "version": 2,
+  "maxHeightStep": 1,
   "name": "name",
   "description": "description",
   "ranked": true,
@@ -8,21 +9,11 @@
     "top": [
       {
         "role": "main",
-        "rect": {
-          "x": { "min": 5, "max": 5 },
-          "y": { "min": 3, "max": 3 },
-          "width": 90,
-          "height": 10
-        }
+        "origin":{"x":{"min":5,"max":5},"y":{"min":3,"max":3}}, "polygon":{"outer":[{"x":0,"y":0},{"x":90,"y":0},{"x":90,"y":10},{"x":0,"y":10}]}
       },
       {
         "role": "forward",
-        "rect": {
-          "x": { "min": 5, "max": 5 },
-          "y": { "min": 13, "max": 13 },
-          "width": 90,
-          "height": 10
-        }
+        "origin":{"x":{"min":5,"max":5},"y":{"min":13,"max":13}}, "polygon":{"outer":[{"x":0,"y":0},{"x":90,"y":0},{"x":90,"y":10},{"x":0,"y":10}]}
       }
     ]
   },
@@ -364,13 +355,15 @@
           "s": 0,
           "m": 1,
           "l": 2,
-          "xl": 3
+          "xl": 3,
+          "xxl": 3
         },
         "max_scaling_factor": {
           "s": 0,
           "m": 2,
           "l": 3,
-          "xl": 5
+          "xl": 5,
+          "xxl": 5
         }
       },
       "height": -0.2,
@@ -403,13 +396,15 @@
           "s": 1,
           "m": 1,
           "l": 2,
-          "xl": 2
+          "xl": 2,
+          "xxl": 2
         },
         "max_scaling_factor": {
           "s": 2,
           "m": 2,
           "l": 3,
-          "xl": 3
+          "xl": 3,
+          "xxl": 3
         }
       },
       "height": -0.21,
@@ -441,13 +436,15 @@
           "s": 1,
           "m": 1,
           "l": 2,
-          "xl": 2
+          "xl": 2,
+          "xxl": 2
         },
         "max_scaling_factor": {
           "s": 2,
           "m": 2,
           "l": 3,
-          "xl": 3
+          "xl": 3,
+          "xxl": 3
         }
       },
       "height": -0.21,
@@ -479,13 +476,15 @@
           "s": 1,
           "m": 1,
           "l": 2,
-          "xl": 2
+          "xl": 2,
+          "xxl": 2
         },
         "max_scaling_factor": {
           "s": 2,
           "m": 2,
           "l": 3,
-          "xl": 3
+          "xl": 3,
+          "xxl": 3
         }
       },
       "height": -0.21,
@@ -610,12 +609,12 @@
       "terrain": 13,
       "scale": { "x": 49, "y": 21 },
       "ranges": [
-        { "min": 0.91, "max": 0.925 },
-        { "min": 0.9175, "max": 0.92 },
+        { "min": 0.91, "max": 0.925, "terrain": 28 },
+        { "min": 0.9175, "max": 0.92, "terrain": 28 },
         { "min": 0.9215, "max": 1 },
         { "min": 0, "max": 0.05 },
-        { "min": 0.0525, "max": 0.055 },
-        { "min": 0.0575, "max": 0.06 }
+        { "min": 0.0525, "max": 0.055, "terrain": 28 },
+        { "min": 0.0575, "max": 0.06, "terrain": 28 }
       ],
       "multiplier": 1.03,
       "height": {
@@ -654,13 +653,15 @@
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 1,
           "l": 2,
-          "xl": 2
+          "xl": 2,
+          "xxl": 2
         }
       },
       "xBounds": { "min": 10, "max": 50 },
@@ -697,13 +698,15 @@
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 1,
           "l": 2,
-          "xl": 2
+          "xl": 2,
+          "xxl": 2
         }
       },
       "xBounds": { "min": 50, "max": 90 },
@@ -740,13 +743,15 @@
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 1,
           "l": 2,
-          "xl": 2
+          "xl": 2,
+          "xxl": 2
         }
       },
       "xBounds": { "min": 0, "max": 100 },
@@ -791,13 +796,15 @@
           "s": 1,
           "m": 1,
           "l": 1,
-          "xl": 1
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 1,
           "l": 2,
-          "xl": 2
+          "xl": 2,
+          "xxl": 2
         }
       },
       "xBounds": { "min": 0, "max": 100 },
@@ -842,13 +849,15 @@
           "s": 1,
           "m": 1,
           "l": 2,
-          "xl": 2
+          "xl": 2,
+          "xxl": 2
         },
         "max_scaling_factor": {
           "s": 1,
           "m": 1,
           "l": 2,
-          "xl": 3
+          "xl": 3,
+          "xxl": 3
         }
       },
       "startHeightRanges": [

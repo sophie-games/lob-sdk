@@ -13,6 +13,8 @@ export abstract class BaseVpService {
   abstract getPlayerTicksUnderPressure(playerNumber: number): number;
   abstract getPlayerBaseArmyPower(playerNumber: number): number;
   abstract getTeamArmyPower(team: number): number;
+  /** The team's snapshotted starting power, or null for a save that predates it. */
+  abstract getTeamInitialArmyPower(team: number): number | null;
 
   clearTurnCache() {
     this.cachedArmiesPower.clear();
@@ -66,7 +68,7 @@ export abstract class BaseVpService {
   }
 
   protected _getTeamVictoryStats(
-    players: Player[],
+    players: Pick<Player, "playerNumber" | "team">[],
     team: number,
     objectiveVps: number
   ): GetVictoryPointsTeam {
@@ -95,7 +97,7 @@ export abstract class BaseVpService {
 
     return {
       team,
-      initialArmyPower: initialArmyPower,
+      initialArmyPower: this.getTeamInitialArmyPower(team) ?? initialArmyPower,
       currentArmyPower: this.getTeamArmyPower(team),
       ticksUnderPressure: ticksUnderPressure,
       objectiveVps,

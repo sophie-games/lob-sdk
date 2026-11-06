@@ -1,0 +1,1125 @@
+{
+  "version": 2,
+  "name": "name",
+  "description": "description",
+  "ranked": true,
+  "units": [],
+  "objectives": [],
+  "triggers": [],
+  "instructions": [
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "x": 50,
+            "y": 40
+          },
+          "multiplier": 1,
+          "offset": 0.25
+        },
+        {
+          "scale": {
+            "x": 30,
+            "y": 10
+          },
+          "multiplier": 0.5,
+          "offset": 0
+        },
+        {
+          "scale": 10,
+          "multiplier": 0.25,
+          "offset": 0
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 0,
+      "max": 64,
+      "ranges": []
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 30,
+      "minHeight": 0,
+      "channelArea": 24
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 10,
+      "scale": 5,
+      "ranges": [
+        {
+          "min": 0.7,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": []
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "left-right",
+      "heightDiffCost": 10000,
+      "range": {
+        "min": 30,
+        "max": 70
+      },
+      "amount": {
+        "min": 1,
+        "max": 1,
+        "min_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1,
+          "xl": 1,
+          "xxl": 1
+        },
+        "max_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1,
+          "xl": 2,
+          "xxl": 2
+        }
+      },
+      "width": 1,
+      "height": -8,
+      "startHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "endHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": 1
+        },
+        {
+          "terrain": 0,
+          "cost": 5
+        },
+        {
+          "terrain": 10,
+          "cost": 1
+        }
+      ],
+      "distance weight": 0.1,
+      "curveLen": 5,
+      "curveWeight": 0.1,
+      "noiseWeight": 0.5,
+      "noiseSmoothness": 0.5
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": -4,
+      "max": -4,
+      "ranges": [
+        {
+          "min": -8,
+          "max": -5
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "top-bottom",
+      "heightDiffCost": 10000,
+      "range": {
+        "min": 5,
+        "max": 95
+      },
+      "amount": {
+        "min": 1,
+        "max": 1,
+        "min_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1,
+          "xl": 1,
+          "xxl": 1
+        },
+        "max_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1,
+          "xl": 2,
+          "xxl": 2
+        }
+      },
+      "width": 1,
+      "height": -4,
+      "startHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "endHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": 1
+        },
+        {
+          "terrain": 0,
+          "cost": 5
+        },
+        {
+          "terrain": 10,
+          "cost": 1
+        }
+      ],
+      "distance weight": 0.1,
+      "curveLen": 5,
+      "curveWeight": 0.1,
+      "noiseWeight": 0.5,
+      "noiseSmoothness": 0.5
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "left-right",
+      "heightDiffCost": 10000,
+      "range": {
+        "min": 5,
+        "max": 95
+      },
+      "amount": {
+        "min": 1,
+        "max": 1,
+        "min_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1,
+          "xl": 1,
+          "xxl": 1
+        },
+        "max_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 1,
+          "xl": 2,
+          "xxl": 2
+        }
+      },
+      "width": 1,
+      "height": -4,
+      "startHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "endHeightRanges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": 1
+        },
+        {
+          "terrain": 0,
+          "cost": 5
+        },
+        {
+          "terrain": 10,
+          "cost": 1
+        }
+      ],
+      "distance weight": 0.1,
+      "curveLen": 5,
+      "curveWeight": 0.1,
+      "noiseWeight": 0.5,
+      "noiseSmoothness": 0.5
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 0,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        4
+      ]
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 30,
+      "minHeight": 0,
+      "channelArea": 24
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 0,
+          "multiplier": 0
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 0,
+      "max": 0,
+      "ranges": [
+        {
+          "min": -8,
+          "max": 0
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 0,
+          "multiplier": 0
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 0,
+      "max": 0,
+      "ranges": [
+        {
+          "min": -8,
+          "max": 0
+        }
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 1,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 7,
+        "max": 32
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 27,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 6,
+        "max": 6
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 0,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0.6,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 6,
+        "max": 32
+      }
+    },
+    {
+      "type": "PLACE_NAMES",
+      "terrains": [
+        1,
+        27
+      ],
+      "names": [
+        "Březový les",
+        "Černý hvozd",
+        "Borový háj",
+        "Smrkovec",
+        "Jedlovské polesí",
+        "Hluboký les",
+        "Vlčí hřeben",
+        "Dubina",
+        "Mračný hvozd",
+        "Buková hora",
+        "Černá obora",
+        "Borová stráň",
+        "Háj pod Javorem",
+        "Smrčiny",
+        "Vraní les",
+        "Březinské polesí",
+        "Dubový vrch",
+        "Jedlový hřeben",
+        "Vlčí doubrava",
+        "Čertův les",
+        "Háj u Studánky",
+        "Borový vrch",
+        "Bukové údolí",
+        "Černá paseka",
+        "Javorový les",
+        "Vysoké smrčiny",
+        "Háj nad Potokem",
+        "Tichý hvozd",
+        "Borová hora",
+        "Březová stráň",
+        "Kamenité polesí",
+        "Vraní háj",
+        "Dubské lesy",
+        "Jedlová stráň",
+        "Vlčí rokle",
+        "Hluboké smrčiny",
+        "Černoborský les",
+        "Bukový hřeben",
+        "Jelení háj",
+        "Borová doubrava",
+        "Staré polesí",
+        "Mokřadní les",
+        "Háj pod Skálou",
+        "Smrková hora",
+        "Březový hřeben",
+        "Čertova doubrava",
+        "Vysoký háj",
+        "Javorové polesí",
+        "Křížový les",
+        "Háj u Borovic",
+        "Černá stráň",
+        "Vlčí háj",
+        "Dubový důl",
+        "Jedlový les",
+        "Buková stráň",
+        "Vraní hřeben",
+        "Hluboká doubrava",
+        "Borovské polesí",
+        "Myslivecký les",
+        "Starý hvozd",
+        "Kamenný háj",
+        "Březinská hora",
+        "Smrkový vrch",
+        "Jelení polesí",
+        "Černá rokle",
+        "Dubová paseka",
+        "Háj u Kamenice",
+        "Bukovské lesy",
+        "Vysoká doubrava",
+        "Borový důl",
+        "Tajemný hvozd",
+        "Javorová stráň",
+        "Vlčí vrch",
+        "Jedlovské lesy",
+        "Černý háj",
+        "Březová doubrava",
+        "Háj nad Údolím",
+        "Smrková paseka",
+        "Vraní doubrava",
+        "Dubový hvozd",
+        "Kamenická obora",
+        "Bukový důl",
+        "Jelení stráň",
+        "Hluboký háj",
+        "Starobřezské polesí",
+        "Borová rokle",
+        "Čertovský hřeben",
+        "Jedlová hora",
+        "Tichá doubrava",
+        "Vysoké polesí",
+        "Háj u Jeleního potoka",
+        "Černoleský vrch",
+        "Smrčinová hora",
+        "Dubová stráň",
+        "Březový důl",
+        "Vlčí doubrava",
+        "Bukový hvozd",
+        "Javorový hřeben",
+        "Starý bor"
+      ],
+      "minSize": 16
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 3
+      },
+      "range": {
+        "min": 5,
+        "max": 40
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 4,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 1,
+          "cost": 25
+        },
+        {
+          "terrain": 4,
+          "cost": 100
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 3
+      },
+      "range": {
+        "min": 60,
+        "max": 95
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 4,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 1,
+          "cost": 25
+        },
+        {
+          "terrain": 4,
+          "cost": 100
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 3
+      },
+      "range": {
+        "min": 35,
+        "max": 75
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 4,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 1,
+          "cost": 25
+        },
+        {
+          "terrain": 4,
+          "cost": 100
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "left-right",
+      "amount": {
+        "min": 1,
+        "max": 3
+      },
+      "range": {
+        "min": 5,
+        "max": 45
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 4,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 1,
+          "cost": 25
+        },
+        {
+          "terrain": 4,
+          "cost": 100
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "left-right",
+      "amount": {
+        "min": 1,
+        "max": 3
+      },
+      "range": {
+        "min": 55,
+        "max": 95
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 4,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 1,
+          "cost": 25
+        },
+        {
+          "terrain": 4,
+          "cost": 100
+        }
+      ]
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        2
+      ],
+      "maxDistance": 1,
+      "width": {
+        "min": 2,
+        "max": 3
+      },
+      "size": {
+        "min": 6,
+        "max": 12
+      },
+      "chance": 0.1,
+      "along": [
+        3
+      ],
+      "verge": 0
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 2,
+      "toTerrain": 0,
+      "maxSize": 3
+    },
+    {
+      "type": "PLACE_NAMES",
+      "terrains": [
+        2
+      ],
+      "names": [
+        "Třiblonec",
+        "Sokodim",
+        "Hravice",
+        "Mlalín",
+        "Teplidá",
+        "Noměřice",
+        "Těvy",
+        "Sázavice",
+        "Chruclav",
+        "Libeslav",
+        "Bolepa",
+        "Trubice",
+        "Havívy",
+        "Litvíwaldov",
+        "Břepava",
+        "Vamo",
+        "Prorov",
+        "Hratovy",
+        "Břelava",
+        "Plvířov",
+        "Homín",
+        "Přímutov",
+        "Brčín",
+        "Náchopa",
+        "Břetov",
+        "Jišín",
+        "Břerov",
+        "Hatín",
+        "Vyšnice",
+        "Valava",
+        "Jirkolov",
+        "Tázavou",
+        "Kopnín",
+        "Chekov",
+        "Havíblonec",
+        "Třeník",
+        "Litvíkonice",
+        "Poanín",
+        "Mezichův",
+        "Jirdřichův",
+        "Bolevice",
+        "Krbíč",
+        "Ostraviná",
+        "Litwaldov",
+        "Boleny",
+        "Meziměřice",
+        "Vyšměřice",
+        "Tábova",
+        "Hoblonec",
+        "Tábokov",
+        "Chedonín",
+        "Teplitovy",
+        "Chomujov",
+        "Líplice",
+        "Jihviná",
+        "Kodov",
+        "Prový",
+        "Teříčí",
+        "Třelovy",
+        "Mělvá",
+        "Karbíč",
+        "Mesou",
+        "Metek",
+        "Mezavou",
+        "Ostrokosou",
+        "Parmo",
+        "Frýha",
+        "Sázastek",
+        "Orlochod",
+        "Strarec",
+        "Metín",
+        "Chomuslav",
+        "Mlakov",
+        "Litokonice",
+        "Tědá",
+        "Jindřidek",
+        "Mezipava",
+        "Přírec",
+        "Litvíperk",
+        "Mezisek",
+        "Havy",
+        "Šumdá",
+        "Ostrokoclav",
+        "Valavý",
+        "Třerov",
+        "Ostrastějov",
+        "Strapava",
+        "Parvou",
+        "Ostrony",
+        "Moříž",
+        "Havlísko",
+        "Paperk",
+        "Tělava",
+        "Hrakovice",
+        "Pabíč",
+        "Děhumín",
+        "Blaměřice",
+        "Meské",
+        "Plště",
+        "Nočín",
+        "Jihbor",
+        "Havíříž",
+        "Kroslav",
+        "Pravý",
+        "Kutkonice",
+        "Hoříčí",
+        "Krstějov",
+        "Břetovy",
+        "Uherpava",
+        "Míschův",
+        "Píva",
+        "Tepliva",
+        "Kopřivdubice",
+        "Jirříž",
+        "Parchův",
+        "Břebram",
+        "Kroměřice",
+        "Hradiná",
+        "Kartek",
+        "Pardutín",
+        "Jablová",
+        "Chewaldov",
+        "Kopřivlava",
+        "Jirplice",
+        "Šumtov",
+        "Havlíva",
+        "Tábokonice",
+        "Jirdá",
+        "Olodřichův",
+        "Jablotec",
+        "Břevou",
+        "Vyškolov",
+        "Vsenín",
+        "Vasko",
+        "Olobem",
+        "Hokolov",
+        "Strakobice",
+        "Ostrokodim",
+        "Tádá",
+        "Ostrabor",
+        "Jindřidá",
+        "Valašdov",
+        "Karřov",
+        "Mevy",
+        "Tředřichův",
+        "Táwaldov",
+        "Tetov",
+        "Kladvý",
+        "Hradichod",
+        "Násou",
+        "Brva",
+        "Plslav",
+        "Havístek",
+        "Frýjovice",
+        "Modonín",
+        "Jizavou",
+        "Modonín",
+        "Jizavou",
+        "Třiště",
+        "Přívice",
+        "Jablopa",
+        "Litvíkov",
+        "Kroměslav",
+        "Zlavice",
+        "Námenec",
+        "Valatec",
+        "Sokovířov",
+        "Jirlová",
+        "Prolín",
+        "Jihnice",
+        "Mělwaldov",
+        "Koná",
+        "Žaberec",
+        "Plmín",
+        "Kopmín",
+        "Horov",
+        "Ostrovice",
+        "Třilín",
+        "Plvý",
+        "Břetov",
+        "Náclav",
+        "Noperk",
+        "Třitín",
+        "Straviná",
+        "Pídek",
+        "Frýpava",
+        "Náberec",
+        "Třinec",
+        "Píhumín",
+        "Havlínín",
+        "Sázadek",
+        "Tánov",
+        "Olová",
+        "Táboblonec",
+        "Chomuclav",
+        "Mělrov",
+        "Chruříž",
+        "Krtec",
+        "Orlošín",
+        "Olovou",
+        "Bohulov"
+      ],
+      "minSize": 4,
+      "maxDistance": 3
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 27,
+      "scale": 2,
+      "ranges": [
+        {
+          "min": 0.9,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        0,
+        1,
+        3,
+        4,
+        7
+      ]
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        27
+      ],
+      "maxDistance": 1,
+      "width": {
+        "min": 1,
+        "max": 4
+      },
+      "size": {
+        "min": 1,
+        "max": 4
+      },
+      "chance": 0.2,
+      "along": [
+        4
+      ],
+      "heights": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "verge": 0
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        18
+      ],
+      "maxDistance": 1,
+      "width": {
+        "min": 2,
+        "max": 4
+      },
+      "size": {
+        "min": 2,
+        "max": 4
+      },
+      "chance": 0.2,
+      "along": [
+        4
+      ],
+      "heights": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "verge": 0
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        11
+      ],
+      "maxDistance": 8,
+      "width": {
+        "min": 3,
+        "max": 4
+      },
+      "size": {
+        "min": 4,
+        "max": 8
+      },
+      "chance": 1,
+      "along": [
+        3
+      ],
+      "heights": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "verge": 0
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 11,
+      "toTerrain": 0,
+      "maxSize": 5
+    }
+  ],
+  "locales": {
+    "en": {
+      "name": "Bohemian Hills",
+      "description": "A river passing through forested hills."
+    },
+    "es": {
+      "name": "Colinas de Bohemia",
+      "description": "Un río que atraviesa colinas boscosas."
+    },
+    "fr": {
+      "name": "Collines de Bohême",
+      "description": "Une rivière qui traverse des collines boisées."
+    },
+    "de": {
+      "name": "Böhmische Hügel",
+      "description": "Ein Fluss, der durch bewaldete Hügel fließt."
+    },
+    "it": {
+      "name": "Colline boeme",
+      "description": "Un fiume che attraversa colline boscose."
+    },
+    "pt": {
+      "name": "Colinas da Boêmia",
+      "description": "Um rio que atravessa colinas arborizadas."
+    },
+    "ru": {
+      "name": "Богемские холмы",
+      "description": "Река, текущая среди лесистых холмов."
+    },
+    "uk": {
+      "name": "Богемські пагорби",
+      "description": "Річка, що тече серед лісистих пагорбів."
+    },
+    "pl": {
+      "name": "Wzgórza czeskie",
+      "description": "Rzeka płynąca przez zalesione wzgórza."
+    },
+    "hu": {
+      "name": "Cseh-dombság",
+      "description": "Erdős dombok között kanyargó folyó."
+    },
+    "el": {
+      "name": "Λόφοι της Βοημίας",
+      "description": "Ένα ποτάμι που διασχίζει δασωμένους λόφους."
+    },
+    "tr": {
+      "name": "Bohemya Tepeleri",
+      "description": "Ormanlık tepelerin arasından geçen bir nehir."
+    },
+    "ar": {
+      "name": "تلال بوهيميا",
+      "description": "نهر يشق طريقه بين تلال مكسوة بالغابات."
+    },
+    "hi": {
+      "name": "बोहेमियाई पहाड़ियाँ",
+      "description": "जंगली पहाड़ियों से होकर बहती एक नदी।"
+    },
+    "id": {
+      "name": "Perbukitan Bohemia",
+      "description": "Sungai yang melintasi perbukitan berhutan."
+    },
+    "th": {
+      "name": "เนินเขาโบฮีเมีย",
+      "description": "แม่น้ำที่ไหลผ่านเนินเขาที่เต็มไปด้วยป่า"
+    },
+    "vi": {
+      "name": "Đồi Bohemia",
+      "description": "Một con sông chảy qua những ngọn đồi rừng."
+    },
+    "ja": {
+      "name": "ボヘミアの丘陵",
+      "description": "森の丘の間を流れる川。"
+    },
+    "kr": {
+      "name": "보헤미아 구릉",
+      "description": "숲이 우거진 언덕 사이를 흐르는 강입니다."
+    },
+    "zh": {
+      "name": "波希米亚丘陵",
+      "description": "一条河流穿过林木茂密的丘陵。"
+    }
+  },
+  "allowDynamicArmy": true,
+  "placeableObjectives": true
+}
