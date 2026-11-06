@@ -65,7 +65,7 @@
     "hasRanMeleeAttackModifier": 0.25,
     "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
-    "uphillSlowdownMultiplier": 1.25,
+    "uphillSlowdownByLevel": [0.15, 0.3, 0.6, 0.8],
     "deploymentSection": "front",
     "firingAltitude": 0.58,
     "routingBehavior": {
@@ -116,7 +116,7 @@
     "ordersExemptFromBodyPace": [4, 6],
     "chargeStaminaCost": 10000,
     "chargeBacklashMultiplier": 1.5,
-    "uphillSlowdownMultiplier": 1.5,
+    "uphillSlowdownByLevel": [0.15, 0.4, 0.75, 0.8],
     "runChargeBacklashMultiplier": 0.75,
     "deploymentSection": "front",
     "firingAltitude": 0.58,
@@ -172,7 +172,7 @@
     "hasRanMeleeAttackModifier": 0.25,
     "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
-    "uphillSlowdownMultiplier": 1.25,
+    "uphillSlowdownByLevel": [0.15, 0.3, 0.6, 0.8],
     "deploymentSection": "front",
     "firingAltitude": 0.58,
     "routingBehavior": {
@@ -221,7 +221,7 @@
     "hasRanMeleeAttackModifier": 0.25,
     "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
-    "uphillSlowdownMultiplier": 1.25,
+    "uphillSlowdownByLevel": [0.15, 0.3, 0.6, 0.8],
     "deploymentSection": "front",
     "firingAltitude": 0.58,
     "routingBehavior": {
@@ -270,7 +270,7 @@
     "hasRanMeleeAttackModifier": 0.25,
     "chargeStaminaCost": 2500,
     "chargeBacklashMultiplier": 0.75,
-    "uphillSlowdownMultiplier": 1.25,
+    "uphillSlowdownByLevel": [0.15, 0.3, 0.6, 0.8],
     "deploymentSection": "front",
     "firingAltitude": 0.58,
     "routingBehavior": {
@@ -357,7 +357,7 @@
     "id": "skirmishInfantry",
     "chargeStaminaCost": 10000,
     "chargeBacklashMultiplier": 0,
-    "uphillSlowdownMultiplier": 0.5,
+    "uphillSlowdownByLevel": [0.05, 0.15, 0.25, 0.4],
     "deploymentSection": "front",
     "firingAltitude": 0.58,
     "routingBehavior": {

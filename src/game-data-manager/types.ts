@@ -124,8 +124,8 @@ export interface UnitCategoryTemplate {
   runChargeBacklashMultiplier?: number;
   /** Melee attack modifier while the unit has run (HasRan), so cavalry fights best straight off a charge. Defaults to 0. */
   hasRanMeleeAttackModifier?: number;
-  /** Scales the height rule's uphill slowdown for this category, e.g. above 1 for guns and horses. Defaults to 1. */
-  uphillSlowdownMultiplier?: number;
+  /** This category's own {@link HeightRule.uphillSlowdownByLevel}, e.g. steeper for guns and horses. Defaults to the rule's. */
+  uphillSlowdownByLevel?: number[];
   /** Max stamina a charge drains from this category (scaled by STAT_PRECISION_SCALE), floored at 25%: the charger pays it head-on, a defender when flanked. Defaults to 0 (no cost) when unset. */
   chargeStaminaCost?: number;
   /** If true, a charge that routs or destroys every unit it hit keeps the charger running into the next. */
@@ -684,8 +684,12 @@ export interface HeightRule {
   meleeDefenseBonusPerLevel: number;
   /** Charge damage per level the charger is above (bonus) or below (penalty) its target. */
   chargeBonusPerLevel: number;
-  /** Speed change per level the ground rises over one tile of travel (negative = slower). */
-  uphillSpeedModifierPerLevel: number;
+  /**
+   * Speed lost climbing a slope of 1, 2, 3... levels per tile (0.25 = 25% slower),
+   * interpolated between levels and held past the last one. A unit category may
+   * set its own.
+   */
+  uphillSlowdownByLevel: number[];
   /** Speed change at run pace per level the ground falls over one tile of travel. */
   downhillRunSpeedModifierPerLevel: number;
   /** Level difference (or levels per tile of slope) beyond which the modifiers stop growing. */

@@ -42,7 +42,7 @@
     "meleeAttackBonusPerLevel": 0,
     "meleeDefenseBonusPerLevel": 0,
     "chargeBonusPerLevel": 0.1,
-    "uphillSpeedModifierPerLevel": -0.2,
+    "uphillSlowdownByLevel": [0.1, 0.25, 0.5, 0.75],
     "downhillRunSpeedModifierPerLevel": 0.1,
     "maxLevelDiff": 4
   },
