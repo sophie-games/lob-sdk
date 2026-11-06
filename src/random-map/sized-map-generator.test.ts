@@ -89,7 +89,14 @@ describe("SizedMapGenerator", () => {
     expect(new RandomMapGenerator().generate({ ...props, scenario: baked }).map.heightMap).toEqual(map.heightMap);
   });
 
-  it.each(["plains", "hills", "iberia", "tundra", "low-countries", "city", "hedgerows"])(
+  it.each(["plains", "tundra", "low-countries", "city", "hedgerows"])(
+    "keeps %s flat, within two levels",
+    (name) => {
+      expect(highest(GameDataManager.get("napoleonic").getScenario(name))).toBeLessThanOrEqual(2);
+    },
+  );
+
+  it.each(["hills", "iberia"])(
     "raises %s's relief to the era's height scale on gradual slopes",
     (name) => {
       const template = GameDataManager.get("napoleonic").getScenario(name);
