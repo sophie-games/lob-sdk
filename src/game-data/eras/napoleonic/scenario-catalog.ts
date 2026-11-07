@@ -25,7 +25,6 @@ import laMeuse from "./scenarios/la-meuse.json";
 import twinRiverValley from "./scenarios/twin-river-valley.json";
 import riverCrossing from "./scenarios/river-crossing.json";
 import alpineValley from "./scenarios/alpine-valley.json";
-import apennineRidges from "./scenarios/apennine-ridges.json";
 import marshDikes from "./scenarios/marsh-dikes.json";
 import rivoliPlateau from "./scenarios/rivoli-plateau.json";
 import mantua1797 from "./scenarios/mantua-1797.json";
@@ -51,6 +50,17 @@ export const napoleonicScenarioCatalog = {
   city,
   hedgerows,
   "low-countries": lowCountries,
+  "river-crossing": riverCrossing,
+  "alpine-valley": alpineValley,
+  "marsh-dikes": marshDikes,
+  "rivoli-plateau": rivoliPlateau,
+  "walled-city": walledCity,
+  farmlands,
+  "central-river": centralRiver,
+  "moravian-valley": moravianValley,
+  "rolling-hills": rollingHills,
+  "masurian-lakes": masurianLakes,
+  "frozen-swamp-random": frozenSwampRandom,
   "andes-and-valley": andesAndValley,
   "lines-of-legends": linesOfLegends,
   "river-valley": riverValley,
@@ -68,11 +78,6 @@ export const napoleonicScenarioCatalog = {
   "twin-river-valley": twinRiverValley,
   "la-meuse": laMeuse,
   "road-to-pressburg": roadToPressburg,
-  "river-crossing": riverCrossing,
-  "alpine-valley": alpineValley,
-  "apennine-ridges": apennineRidges,
-  "marsh-dikes": marshDikes,
-  "rivoli-plateau": rivoliPlateau,
   "mantua-1797": mantua1797,
   "caldiero-1805": caldiero1805,
   "austerlitz-1805": austerlitz1805,
@@ -80,11 +85,4 @@ export const napoleonicScenarioCatalog = {
   hillshire,
   grunlingen,
   "frozen-swamp": frozenSwamp,
-  "walled-city": walledCity,
-  farmlands,
-  "central-river": centralRiver,
-  "moravian-valley": moravianValley,
-  "rolling-hills": rollingHills,
-  "masurian-lakes": masurianLakes,
-  "frozen-swamp-random": frozenSwampRandom,
 } as unknown as ScenarioCatalog;
