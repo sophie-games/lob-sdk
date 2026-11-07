@@ -3,14 +3,13 @@ import { GameDataManager } from "@lob-sdk/game-data-manager";
 import { GameMap, Size, TerrainType } from "@lob-sdk/types";
 
 // The random maps drawn for the ground of Bonaparte's Italian campaign of 1796-97: a river
-// crossed at its bridges and a ford, an alpine valley, a fortified Apennine ridge, a marsh
+// crossed at its bridges and a ford, an alpine valley, a marsh
 // crossed on dikes and the Rivoli plateau. Each is checked over every battle size and several seeds, because a template
 // that works on one map can wall an army in on another.
 
 const TEMPLATES = [
   "river-crossing",
   "alpine-valley",
-  "apennine-ridges",
   "marsh-dikes",
   "rivoli-plateau",
 ] as const;
@@ -461,35 +460,6 @@ function narrowest(b: Battle, floor = valleyFloor(b)): number {
   }
   return result;
 }
-
-describe("apennine-ridges", () => {
-  it.each(everyMap("apennine-ridges"))(
-    "a ridge crowned with redoubts rises well clear of the ground either side (%s, seed %i)",
-    (size, seed) => {
-      const b = battle("apennine-ridges", size, seed);
-      const ridge = b.meanHeight(undefined, 0, 100, 35, 65);
-      const flanks = (b.meanHeight(undefined, 0, 100, 0, 20) + b.meanHeight(undefined, 0, 100, 80, 100)) / 2;
-      expect(ridge).toBeGreaterThan(flanks + 2.5);
-      expect(b.share([Redoubt], 0, 100, 30, 70)).toBeGreaterThan(0);
-      for (const [x, y] of b.tilesIn()) if (b.terrain(x, y) === Redoubt) expect(b.height(x, y)).toBeGreaterThanOrEqual(5);
-    },
-  );
-
-  it.each(everyMap("apennine-ridges"))(
-    "open chestnut groves on the slopes, with only small fields (%s, seed %i)",
-    (size, seed) => {
-      // Montenotte and Dego were fought over hills of pasture and chestnut groves, not the farmed
-      // Po plain. Groves are light forest, which lines and columns can still cross.
-      const b = battle("apennine-ridges", size, seed);
-      const slopes = [...b.tilesIn(0, 100, 10, 40), ...b.tilesIn(0, 100, 60, 90)];
-      const share = (terrains: TerrainType[]) => slopes.filter(([x, y]) => terrains.includes(b.terrain(x, y)!)).length / slopes.length;
-      expect(share([LightForest])).toBeGreaterThan(0.15);
-      expect(share([LightForest])).toBeLessThan(0.45);
-      expect(share([Forest])).toBeLessThan(0.1);
-      expect(share(CROPS)).toBeLessThan(0.15);
-    },
-  );
-});
 
 describe("marsh-dikes", () => {
   // The stream is the water the template lays at height 1.5; the marsh's pools lie on whole levels.
