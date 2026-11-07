@@ -1028,15 +1028,24 @@
     "ranges": [
       {
         "from": 0.2647,
+        "to": 0.5588,
+        "damageModifier": {
+          "near": 0.05,
+          "far": 0
+        },
+        "engagementTier": 1
+      },
+      {
+        "from": 0.5588,
         "to": 1,
         "damageModifier": {
           "near": 0,
           "far": -0.3
         },
-        "engagementTier": 1
+        "engagementTier": 2
       }
     ],
-    "arcHeight": 4.5,
+    "arcHeight": 6,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.8,
     "areaOfEffect": {

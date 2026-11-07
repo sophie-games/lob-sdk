@@ -552,10 +552,18 @@ describe("Napoleonic balance", () => {
     expect(shell.orgDamageModifierByTargetOrg).toEqual(
       licorneShell.orgDamageModifierByTargetOrg,
     );
-    expect(shell.ranges).toHaveLength(1);
+    expect(shell.arcHeight).toBe(6);
+    expect(shell.ranges).toHaveLength(2);
     expect(shell.ranges[0]).toMatchObject({
+      to: 0.5588,
+      damageModifier: { near: 0.05, far: 0 },
+      engagementTier: 1,
+    });
+    expect(shell.ranges[1]).toMatchObject({
+      from: 0.5588,
       to: 1,
       damageModifier: { near: 0, far: -0.3 },
+      engagementTier: 2,
     });
     expect(shell.ranges[0].from * shell.maxRange).toBeCloseTo(90, 1);
     expect(shell.ranges[0].name).toBeUndefined();
