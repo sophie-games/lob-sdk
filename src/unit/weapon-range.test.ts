@@ -4,6 +4,7 @@ import {
   RangedDamageTypeTemplate,
 } from "@lob-sdk/game-data-manager";
 import {
+  effectiveApproachTier,
   bindingWeapon,
   standoffDistance,
   usableMaxRange,
@@ -45,6 +46,15 @@ describe("bindingWeapon", () => {
 
   it("is null for a unit with nothing to fire", () => {
     expect(bindingWeapon([], EngagementRange.Max, gameDataManager)).toBeNull();
+  });
+});
+
+describe("effectiveApproachTier", () => {
+  it("closes to Medium until one is picked, never past the fire tier", () => {
+    expect(effectiveApproachTier(undefined, EngagementRange.Max)).toBe(EngagementRange.Medium);
+    expect(effectiveApproachTier(undefined, EngagementRange.Low)).toBe(EngagementRange.Low);
+    expect(effectiveApproachTier(EngagementRange.Max, EngagementRange.Medium)).toBe(EngagementRange.Medium);
+    expect(effectiveApproachTier(EngagementRange.Low, EngagementRange.Max)).toBe(EngagementRange.Low);
   });
 });
 

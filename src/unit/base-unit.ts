@@ -29,7 +29,7 @@ import {
 } from "@lob-sdk/game-data-manager";
 import { MIN_COLLISION_LEVEL } from "@lob-sdk/constants";
 import { AmmoWire, ammoToWire } from "@lob-sdk/unit/ammo-wire";
-import { standoffDistance as computeStandoffDistance } from "@lob-sdk/unit/weapon-range";
+import { effectiveApproachTier, standoffDistance as computeStandoffDistance } from "@lob-sdk/unit/weapon-range";
 import {
   checkCollision,
   degreesToRadians,
@@ -183,7 +183,7 @@ export abstract class BaseUnit extends Entity {
   get fireWhileMoving(): boolean { return (this.template as RangeUnitTemplate).fireWhileMoving ?? false; }
   /** The approach tier the player picked, else Medium, never further out than the fire tier, so the unit never halts out of range. */
   get effectiveApproachRange(): EngagementRange {
-    return Math.min(this.approachRange ?? EngagementRange.Medium, this.autofireRange);
+    return effectiveApproachTier(this.approachRange, this.autofireRange);
   }
 
   applyAutofireConfig({ autofireRange, approachRange, holdFire }: UnitAutofireConfigChange): void {

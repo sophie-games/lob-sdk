@@ -47,6 +47,12 @@ export const bindingWeapon = (
   return binding;
 };
 
+/** The tier Fire and Advance closes to: the one picked, else Medium, never past the fire tier. */
+export const effectiveApproachTier = (
+  approachRange: EngagementRange | undefined,
+  fireTier: EngagementRange,
+): EngagementRange => Math.min(approachRange ?? EngagementRange.Medium, fireTier);
+
 /**
  * How close a unit closes on its target before it stops and fights: where its approach tier
  * reaches, the nearest among the weapons that fire at that tier, so each tier closes in further

@@ -1,5 +1,5 @@
 import { EngagementRange, GameDataManager } from "@lob-sdk/game-data-manager";
-import { standoffDistance } from "@lob-sdk/unit/weapon-range";
+import { effectiveApproachTier, standoffDistance } from "@lob-sdk/unit/weapon-range";
 import { RangeUnitTemplate } from "@lob-sdk/types";
 
 const gameDataManager = GameDataManager.get("napoleonic");
@@ -16,7 +16,7 @@ const standoffAt = (name: string, approachTier?: EngagementRange) => {
     EngagementRange.Max;
   return standoffDistance({
     rangedDamageTypes: unit.rangedDamageTypes ?? [],
-    approachTier: approachTier ?? Math.min(EngagementRange.Medium, fireTier),
+    approachTier: approachTier ?? effectiveApproachTier(undefined, fireTier),
     legacyStandoff: unit.minDistanceToFAA,
     gameDataManager,
   });
