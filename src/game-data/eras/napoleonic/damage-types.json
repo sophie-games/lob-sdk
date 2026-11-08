@@ -303,8 +303,8 @@
         "from": 0,
         "to": 0.47,
         "damageModifier": {
-          "near": 4,
-          "far": 2.7
+          "near": 2.5,
+          "far": 1.5
         },
         "name": "close",
         "engagementTier": 0
@@ -313,8 +313,8 @@
         "from": 0.47,
         "to": 1,
         "damageModifier": {
-          "near": 2.2,
-          "far": 1
+          "near": 1.5,
+          "far": 0.45
         },
         "name": "long",
         "engagementTier": 0
@@ -355,22 +355,26 @@
         "from": 0.29,
         "to": 0.56,
         "damageModifier": {
-          "near": 1,
-          "far": 0.55
+          "near": 0.45,
+          "far": 0
         },
-        "engagementTier": 1
+        "engagementTier": 1,
+        "orgDamageModifier": {
+          "near": 0,
+          "far": 0.15
+        }
       },
       {
         "from": 0.56,
         "to": 1,
         "damageModifier": {
-          "near": 0.25,
-          "far": -0.65
+          "near": 0,
+          "far": -0.8
         },
         "name": "long",
         "orgDamageModifier": {
-          "near": 0.24,
-          "far": 0.31
+          "near": 0.15,
+          "far": 0.3
         },
         "orgDamageModifierByTargetOrg": {
           "from": 0.9,
@@ -504,8 +508,8 @@
         "from": 0,
         "to": 0.51,
         "damageModifier": {
-          "near": 4,
-          "far": 2.7
+          "near": 2.5,
+          "far": 1.5
         },
         "name": "close",
         "engagementTier": 0
@@ -514,8 +518,8 @@
         "from": 0.51,
         "to": 1,
         "damageModifier": {
-          "near": 2.2,
-          "far": 1
+          "near": 1.5,
+          "far": 0.45
         },
         "name": "long",
         "engagementTier": 0
@@ -556,22 +560,26 @@
         "from": 0.31,
         "to": 0.5747,
         "damageModifier": {
-          "near": 1,
-          "far": 0.55
+          "near": 0.45,
+          "far": 0
         },
-        "engagementTier": 1
+        "engagementTier": 1,
+        "orgDamageModifier": {
+          "near": 0,
+          "far": 0.15
+        }
       },
       {
         "from": 0.5747,
         "to": 1,
         "damageModifier": {
-          "near": 0.25,
-          "far": -0.65
+          "near": 0,
+          "far": -0.8
         },
         "name": "long",
         "orgDamageModifier": {
-          "near": 0.24,
-          "far": 0.31
+          "near": 0.15,
+          "far": 0.3
         },
         "orgDamageModifierByTargetOrg": {
           "from": 0.9,
@@ -640,8 +648,8 @@
         "from": 0,
         "to": 0.57,
         "damageModifier": {
-          "near": 4,
-          "far": 2.7
+          "near": 2.5,
+          "far": 1.5
         },
         "name": "close",
         "engagementTier": 0
@@ -650,8 +658,8 @@
         "from": 0.57,
         "to": 1,
         "damageModifier": {
-          "near": 2.2,
-          "far": 1
+          "near": 1.5,
+          "far": 0.45
         },
         "name": "long",
         "engagementTier": 0
@@ -692,22 +700,26 @@
         "from": 0.3,
         "to": 0.55,
         "damageModifier": {
-          "near": 1,
-          "far": 0.55
+          "near": 0.45,
+          "far": 0
         },
-        "engagementTier": 1
+        "engagementTier": 1,
+        "orgDamageModifier": {
+          "near": 0,
+          "far": 0.15
+        }
       },
       {
         "from": 0.55,
         "to": 1,
         "damageModifier": {
-          "near": 0.25,
-          "far": -0.65
+          "near": 0,
+          "far": -0.8
         },
         "name": "long",
         "orgDamageModifier": {
-          "near": 0.24,
-          "far": 0.31
+          "near": 0.15,
+          "far": 0.3
         },
         "orgDamageModifierByTargetOrg": {
           "from": 0.9,
@@ -776,8 +788,8 @@
         "from": 0,
         "to": 0.63,
         "damageModifier": {
-          "near": 4,
-          "far": 2.7
+          "near": 2.5,
+          "far": 1.5
         },
         "name": "close",
         "engagementTier": 0
@@ -786,8 +798,8 @@
         "from": 0.63,
         "to": 1,
         "damageModifier": {
-          "near": 2.2,
-          "far": 1
+          "near": 1.5,
+          "far": 0.45
         },
         "name": "long",
         "engagementTier": 0
@@ -828,22 +840,26 @@
         "from": 0.29,
         "to": 0.5333,
         "damageModifier": {
-          "near": 1,
-          "far": 0.55
+          "near": 0.45,
+          "far": 0
         },
-        "engagementTier": 1
+        "engagementTier": 1,
+        "orgDamageModifier": {
+          "near": 0,
+          "far": 0.15
+        }
       },
       {
         "from": 0.5333,
         "to": 1,
         "damageModifier": {
-          "near": 0.25,
-          "far": -0.65
+          "near": 0,
+          "far": -0.8
         },
         "name": "long",
         "orgDamageModifier": {
-          "near": 0.24,
-          "far": 0.31
+          "near": 0.15,
+          "far": 0.3
         },
         "orgDamageModifierByTargetOrg": {
           "from": 0.9,
