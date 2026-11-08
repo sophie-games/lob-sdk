@@ -387,11 +387,11 @@ describe("Napoleonic balance", () => {
       expect(canister.ranges).toMatchObject([
         {
           name: "close",
-          damageModifier: { near: 4, far: 2.7 },
+          damageModifier: { near: 2.5, far: 1.5 },
         },
         {
           name: "long",
-          damageModifier: { near: 2.2, far: 1 },
+          damageModifier: { near: 1.5, far: 0.45 },
         },
       ]);
     }
@@ -404,23 +404,32 @@ describe("Napoleonic balance", () => {
     ]) {
       const cannonBall =
         gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>(name);
-      const longRange = cannonBall.ranges.find(
-        (range) => range.name === "long",
-      );
 
-      expect(longRange).toMatchObject({
-        damageModifier: { near: 0.25, far: -0.65 },
-        orgDamageModifier: { near: 0.24, far: 0.31 },
-      });
+      expect(cannonBall.ranges).toMatchObject([
+        {
+          damageModifier: { near: 0.45, far: 0 },
+          orgDamageModifier: { near: 0, far: 0.15 },
+        },
+        {
+          name: "long",
+          damageModifier: { near: 0, far: -0.8 },
+          orgDamageModifier: { near: 0.15, far: 0.3 },
+        },
+      ]);
     }
   });
 
   it("uses the requested 1.8 artillery unit balance", () => {
     const expectedByName = {
-      "8lb_artillery": { runMovement: 80, rotationSpeed: 0.26, guns: 8 },
+      "8lb_artillery": {
+        rangedAttack: 4900,
+        runMovement: 80,
+        rotationSpeed: 0.26,
+        guns: 8,
+      },
       "6lb_artillery_horse": {
         manpower: 75,
-        rangedAttack: 2800,
+        rangedAttack: 3900,
         hp: 140000,
         runMovement: 150,
         timeToRun: 9,
@@ -432,9 +441,14 @@ describe("Napoleonic balance", () => {
         panicFireDistance: 90,
         guns: 6,
       },
-      "12lb_artillery": { runMovement: 80, guns: 8 },
-      "4lb_artillery": { manpower: 75, rangedAttack: 2800, gold: 100, guns: 6 },
-      "6lb_artillery": { runMovement: 85, hp: 140000, guns: 8 },
+      "12lb_artillery": { rangedAttack: 5500, runMovement: 80, guns: 8 },
+      "4lb_artillery": { manpower: 75, rangedAttack: 3900, gold: 100, guns: 6 },
+      "6lb_artillery": {
+        rangedAttack: 4300,
+        runMovement: 85,
+        hp: 140000,
+        guns: 8,
+      },
       rockets: { runMovement: 150, guns: 6 },
       "10lb_licorne": {
         rangedAttack: 3400,
