@@ -181,9 +181,9 @@ export abstract class BaseUnit extends Entity {
   get supplyConsumptionCombating(): number | undefined { return this.template.supplyConsumptionCombating; }
 
   get fireWhileMoving(): boolean { return (this.template as RangeUnitTemplate).fireWhileMoving ?? false; }
-  /** The approach tier the player picked, never further out than the fire tier, so the unit never halts out of range. */
-  get effectiveApproachRange(): EngagementRange | undefined {
-    return this.approachRange === undefined ? undefined : Math.min(this.approachRange, this.autofireRange);
+  /** The approach tier the player picked, else Medium, never further out than the fire tier, so the unit never halts out of range. */
+  get effectiveApproachRange(): EngagementRange {
+    return Math.min(this.approachRange ?? EngagementRange.Medium, this.autofireRange);
   }
 
   applyAutofireConfig({ autofireRange, approachRange, holdFire }: UnitAutofireConfigChange): void {
@@ -194,14 +194,12 @@ export abstract class BaseUnit extends Entity {
   }
 
   /**
-   * How close this unit closes on a target before it stops and fights: where its picked
-   * approach tier reaches, or else the nearest `preferredRange` among the weapons it fires.
-   * Fire and advance stops here.
+   * How close this unit closes on a target before it stops and fights: where its approach
+   * tier reaches. Fire and advance stops here.
    */
   get standoffDistance(): number {
     return computeStandoffDistance({
       rangedDamageTypes: this.rangedDamageTypes ?? [],
-      tier: this.autofireRange,
       approachTier: this.effectiveApproachRange,
       legacyStandoff: (this.template as RangeUnitTemplate).minDistanceToFAA,
       gameDataManager: this.gameDataManager,

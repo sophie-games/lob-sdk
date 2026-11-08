@@ -339,7 +339,7 @@ export interface UnitAutofireConfigChange {
   unitId: EntityId;
   /** Autofire engagement-range tier to apply to the unit. */
   autofireRange: EngagementRange;
-  /** Tier whose distance Fire & Advance closes to. Omitted, it follows `autofireRange`. */
+  /** Tier whose distance Fire & Advance closes to. Omitted, it closes to Medium, never past `autofireRange`. */
   approachRange?: EngagementRange;
   /** Hold all fire the unit is not ordered to give. Omitted when false. */
   holdFire?: boolean;

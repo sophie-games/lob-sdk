@@ -321,7 +321,7 @@ export interface RangeUnitTemplate extends BaseUnitTemplate {
   rangedDamageTypes: string[];
   fireWhileMoving?: boolean;
   /**
-   * @deprecated Absolute stand-off in px. Superseded by the weapons' own `preferredRange`;
+   * @deprecated Absolute stand-off in px. Superseded by the approach tier;
    * still honoured (and clamped to what the unit can reach) so custom scenarios saved with it
    * keep their behaviour.
    */
