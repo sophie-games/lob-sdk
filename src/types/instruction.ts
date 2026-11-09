@@ -555,7 +555,7 @@ export interface InstructionFields extends BaseInstruction {
   verge?: number;
   /** Strip directions are rounded to multiples of this many degrees. Default 22.5. */
   directionStep?: number;
-  /** Parcels smaller than this many tiles stay meadow. Default: half the smallest strip. */
+  /** Parcels, and pieces cut off one, smaller than this many tiles stay meadow. Default: half the smallest strip. */
   minTiles?: number;
 }
 
