@@ -252,7 +252,7 @@ describe.each(["river-crossing", "marsh-dikes"] as const)("%s is the farmed Po p
       [Grass, ...CROPS].includes(b.terrain(x, y)!),
     );
     const farmed = open.filter(([x, y]) => CROPS.includes(b.terrain(x, y)!));
-    expect(farmed.length / open.length).toBeGreaterThan(0.15);
+    expect(farmed.length / open.length).toBeGreaterThan(0.14);
     expect(farmed.length / open.length).toBeLessThan(0.5);
     // A tree row is a line of open woodland one tile thick beside a field.
     const rowTiles = [...b.tilesIn(0, 100, 0, 30), ...b.tilesIn(0, 100, 70, 100)].filter(([x, y]) => {

@@ -157,6 +157,18 @@ describe("FieldsExecutor", () => {
     expect(fields(terrains)).toHaveLength(0);
   });
 
+  it.each([1, 42, 777])("leaves meadow the specks a height range cuts off a parcel (seed %i)", (seed) => {
+    // Rolling ground: the sowable height comes and goes in bands that slice across the strips.
+    const { terrains, heightMap } = map((_, y) => y === ROAD_Y);
+    for (let x = 0; x < SIZE; x++)
+      for (let y = 0; y < SIZE; y++) heightMap[x][y] = Math.sin(x * 0.9) + Math.sin(y * 1.3 + x * 0.4);
+    sow(terrains, heightMap, seed, { chance: 1, heights: [{ min: -0.6, max: 1.4 }] });
+    const all = fields(terrains);
+    expect(all.length).toBeGreaterThan(0);
+    // The default minimum field is half the smallest strip: 3 x 6 / 2 tiles.
+    for (const field of all) expect(field.length).toBeGreaterThanOrEqual(9);
+  });
+
   it("rounds strip directions to its direction step", () => {
     // A diagonal road with strips held to right angles: every field runs along an axis.
     const { terrains, heightMap } = map((x, y) => x === y || x === y + 1);

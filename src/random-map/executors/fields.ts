@@ -88,17 +88,56 @@ export class FieldsExecutor {
         if (band > 0 && d === edges[band]) rowTile[i] = 1;
       }
 
-    const crops = this.sowParcels(keys.size, parcelOf);
+    const smallest = this.smallestField();
+    const crops = this.sowParcels(keys.size, parcelOf, smallest);
     const rowDrawn = Array.from({ length: keys.size }, () => !!border && this.random() < border.chance);
 
+    const sown = new Int32Array(tilesX * tilesY).fill(-1);
     for (let x = 0; x < tilesX; x++)
       for (let y = 0; y < tilesY; y++) {
         const i = x * tilesY + y;
         const parcel = parcelOf[i];
         if (parcel < 0) continue;
         if (rowTile[i] && rowDrawn[parcel]) terrains[x][y] = border!.terrain;
-        else if (crops[parcel] !== null) terrains[x][y] = crops[parcel]!;
+        else if (crops[parcel] !== null) sown[i] = parcel;
       }
+    this.sowPieces(sown, crops, smallest);
+  }
+
+  /** Parcels, and pieces of one cut apart, smaller than this many tiles stay meadow. */
+  private smallestField(): number {
+    const { instruction } = this;
+    return instruction.minTiles ?? Math.ceil((instruction.width.min * instruction.size.min) / 2);
+  }
+
+  /**
+   * Sows each 4-connected piece of a parcel with its crop. A height range or another terrain can
+   * cut a parcel apart, and a piece too small to read as a field stays meadow.
+   */
+  private sowPieces(sown: Int32Array, crops: (TerrainType | null)[], smallest: number): void {
+    const { terrains, tilesX, tilesY } = this;
+    const seen = new Uint8Array(tilesX * tilesY);
+    for (let start = 0; start < sown.length; start++) {
+      const parcel = sown[start];
+      if (parcel < 0 || seen[start]) continue;
+      seen[start] = 1;
+      const piece = [start];
+      for (let head = 0; head < piece.length; head++) {
+        const i = piece[head];
+        const x = Math.floor(i / tilesY);
+        const y = i % tilesY;
+        for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]]) {
+          if (nx < 0 || ny < 0 || nx >= tilesX || ny >= tilesY) continue;
+          const n = nx * tilesY + ny;
+          if (!seen[n] && sown[n] === parcel) {
+            seen[n] = 1;
+            piece.push(n);
+          }
+        }
+      }
+      if (piece.length < smallest) continue;
+      for (const i of piece) terrains[Math.floor(i / tilesY)][i % tilesY] = crops[parcel]!;
+    }
   }
 
   /** Distance from the nearest `along` tile, in 8-connected steps, and which tile that is. */
@@ -188,7 +227,7 @@ export class FieldsExecutor {
    * A crop for each parcel, or null for meadow. A parcel takes a crop none of its sown neighbours
    * has, and stays meadow when there is none left, so two strips never merge into one field.
    */
-  private sowParcels(count: number, parcelOf: Int32Array): (TerrainType | null)[] {
+  private sowParcels(count: number, parcelOf: Int32Array, smallest: number): (TerrainType | null)[] {
     const { tilesX, tilesY, instruction } = this;
     const neighbours = Array.from({ length: count }, () => new Set<number>());
     for (let x = 0; x < tilesX; x++)
@@ -207,8 +246,6 @@ export class FieldsExecutor {
     // A sliver left where a strip is cut short stays meadow rather than read as a field.
     const tiles = new Int32Array(count);
     for (const parcel of parcelOf) if (parcel >= 0) tiles[parcel]++;
-    const smallest =
-      instruction.minTiles ?? Math.ceil((instruction.width.min * instruction.size.min) / 2);
     const crops: (TerrainType | null)[] = Array(count).fill(null);
     for (let p = 0; p < count; p++) {
       if (this.random() >= instruction.chance || tiles[p] < smallest) continue;
