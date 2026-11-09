@@ -19,6 +19,7 @@ function basePlayer(overrides: Partial<PlayerInfo> = {}): PlayerInfo {
     passed: false,
     defeated: false,
     consecutiveUnplayedTurns: 0,
+    turnsActed: 0,
     ticksUnderPressure: null,
     userTier: UserTier.Free,
     turnSubmission: null,
