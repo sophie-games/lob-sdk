@@ -519,13 +519,13 @@
   "usernameOrEmail": "Felhasználónév vagy Email",
   "continueWithGoogle": "Folytatás Google fiókkal",
   "continueWithApple": "Folytatás Apple fiókkal",
-  "continueWithSteam": "Folytatás Steam fiókkal",
-  "steamLoginError": "Hiba történt a Steam-bejelentkezés közben. Kérjük, próbáld újra.",
-  "signingYouIn": "Bejelentkezés folyamatban...",
-  "addEmail": "E-mail hozzáadása",
-  "addEmailBanner": {
-    "title": "Adj meg egy e-mail-címet a fiókodhoz",
-    "description": "Így visszaszerezheted a fiókodat, ha elveszíted a hozzáférést a Steamhez."
+  "steamAccount": {
+    "title": "Steam-fiók",
+    "description": "Kapcsold össze a Steam-fiókodat a fiókoddal.",
+    "link": "Steam összekapcsolása",
+    "unlink": "Steam leválasztása",
+    "linked": "Steam-fiók összekapcsolva.",
+    "linkError": "Nem sikerült összekapcsolni ezt a Steam-fiókot. Lehet, hogy már egy másik fiókhoz tartozik."
   },
   "appleSignInFailed": "Az Apple bejelentkezés sikertelen. Kérjük, próbáld újra.",
   "resetPassword": "Jelszó visszaállítása",

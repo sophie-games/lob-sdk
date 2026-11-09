@@ -519,13 +519,13 @@
   "usernameOrEmail": "Benutzername oder Email",
   "continueWithGoogle": "Mit Google fortfahren",
   "continueWithApple": "Mit Apple fortfahren",
-  "continueWithSteam": "Mit Steam fortfahren",
-  "steamLoginError": "Bei der Anmeldung mit Steam ist ein Fehler aufgetreten. Bitte versuche es erneut.",
-  "signingYouIn": "Du wirst angemeldet...",
-  "addEmail": "E-Mail hinzufügen",
-  "addEmailBanner": {
-    "title": "Füge deinem Konto eine E-Mail hinzu",
-    "description": "Damit kannst du dein Konto wiederherstellen, falls du keinen Zugriff mehr auf Steam hast."
+  "steamAccount": {
+    "title": "Steam-Konto",
+    "description": "Verknüpfe dein Steam-Konto mit deinem Konto.",
+    "link": "Steam verknüpfen",
+    "unlink": "Steam trennen",
+    "linked": "Steam-Konto verknüpft.",
+    "linkError": "Dieses Steam-Konto konnte nicht verknüpft werden. Es ist vielleicht schon mit einem anderen Konto verknüpft."
   },
   "appleSignInFailed": "Apple-Anmeldung fehlgeschlagen. Bitte versuche es erneut.",
   "resetPassword": "Passwort zurücksetzen",

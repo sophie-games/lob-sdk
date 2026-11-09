@@ -541,13 +541,13 @@
   "usernameOrEmail": "ユーザー名またはメール",
   "continueWithGoogle": "Googleで続ける",
   "continueWithApple": "Appleで続ける",
-  "continueWithSteam": "Steamで続ける",
-  "steamLoginError": "Steamでのサインイン中にエラーが発生しました。もう一度お試しください。",
-  "signingYouIn": "サインインしています...",
-  "addEmail": "メールを追加",
-  "addEmailBanner": {
-    "title": "アカウントにメールアドレスを追加",
-    "description": "Steamにアクセスできなくなっても、アカウントを復旧できます。"
+  "steamAccount": {
+    "title": "Steamアカウント",
+    "description": "Steamアカウントをこのアカウントに連携します。",
+    "link": "Steamを連携",
+    "unlink": "Steamの連携を解除",
+    "linked": "Steamアカウントを連携しました。",
+    "linkError": "このSteamアカウントを連携できませんでした。すでに別のアカウントに連携されている可能性があります。"
   },
   "appleSignInFailed": "Appleでのサインインに失敗しました。もう一度お試しください。",
   "resetPassword": "パスワードをリセット",

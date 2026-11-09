@@ -667,13 +667,13 @@
   "usernameOrEmail": "用户名或电子邮箱",
   "continueWithGoogle": "通过谷歌登录",
   "continueWithApple": "通过 Apple 登录",
-  "continueWithSteam": "使用 Steam 继续",
-  "steamLoginError": "使用 Steam 登录时出错，请重试。",
-  "signingYouIn": "正在登录...",
-  "addEmail": "添加邮箱",
-  "addEmailBanner": {
-    "title": "为你的账号添加邮箱",
-    "description": "如果你无法访问 Steam，可以用它找回账号。"
+  "steamAccount": {
+    "title": "Steam 账号",
+    "description": "将你的 Steam 账号关联到此账号。",
+    "link": "关联 Steam",
+    "unlink": "取消关联 Steam",
+    "linked": "Steam 账号已关联。",
+    "linkError": "无法关联此 Steam 账号，它可能已关联到其他账号。"
   },
   "appleSignInFailed": "Apple 登录失败，请重试。",
   "resetPassword": "重置密码",

@@ -491,13 +491,13 @@
   "usernameOrEmail": "ชื่อผู้ใช้หรืออีเมล",
   "continueWithGoogle": "ดำเนินการต่อด้วย Google",
   "continueWithApple": "ดำเนินการต่อด้วย Apple",
-  "continueWithSteam": "ดำเนินการต่อด้วย Steam",
-  "steamLoginError": "เกิดข้อผิดพลาดขณะลงชื่อเข้าใช้ด้วย Steam โปรดลองอีกครั้ง",
-  "signingYouIn": "กำลังลงชื่อเข้าใช้...",
-  "addEmail": "เพิ่มอีเมล",
-  "addEmailBanner": {
-    "title": "เพิ่มอีเมลในบัญชีของคุณ",
-    "description": "ช่วยให้คุณกู้คืนบัญชีได้หากเข้าถึง Steam ไม่ได้"
+  "steamAccount": {
+    "title": "บัญชี Steam",
+    "description": "เชื่อมบัญชี Steam เข้ากับบัญชีของคุณ",
+    "link": "เชื่อม Steam",
+    "unlink": "ยกเลิกการเชื่อม Steam",
+    "linked": "เชื่อมบัญชี Steam แล้ว",
+    "linkError": "ไม่สามารถเชื่อมบัญชี Steam นี้ได้ อาจเชื่อมกับบัญชีอื่นอยู่แล้ว"
   },
   "appleSignInFailed": "การเข้าสู่ระบบด้วย Apple ล้มเหลว โปรดลองอีกครั้ง",
   "resetPassword": "รีเซ็ตรหัสผ่าน",

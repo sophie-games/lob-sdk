@@ -540,13 +540,13 @@
   "usernameOrEmail": "Имя пользователя или электронная почта",
   "continueWithGoogle": "Продолжить, используя Google",
   "continueWithApple": "Продолжить с Apple",
-  "continueWithSteam": "Продолжить, используя Steam",
-  "steamLoginError": "Ошибка при входе через Steam. Попробуйте ещё раз.",
-  "signingYouIn": "Выполняется вход...",
-  "addEmail": "Добавить почту",
-  "addEmailBanner": {
-    "title": "Добавьте почту к своему аккаунту",
-    "description": "Она позволит восстановить аккаунт, если вы потеряете доступ к Steam."
+  "steamAccount": {
+    "title": "Аккаунт Steam",
+    "description": "Привяжите аккаунт Steam к своему аккаунту.",
+    "link": "Привязать Steam",
+    "unlink": "Отвязать Steam",
+    "linked": "Аккаунт Steam привязан.",
+    "linkError": "Не удалось привязать этот аккаунт Steam. Возможно, он уже привязан к другому аккаунту."
   },
   "appleSignInFailed": "Не удалось войти через Apple. Попробуйте ещё раз.",
   "resetPassword": "Сбросить пароль",
