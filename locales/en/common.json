@@ -668,13 +668,13 @@
   "usernameOrEmail": "Username or Email",
   "continueWithGoogle": "Continue with Google",
   "continueWithApple": "Continue with Apple",
-  "continueWithSteam": "Continue with Steam",
-  "steamLoginError": "Error while signing you in with Steam. Please try again.",
-  "signingYouIn": "Signing you in...",
-  "addEmail": "Add email",
-  "addEmailBanner": {
-    "title": "Add an email to your account",
-    "description": "It lets you recover your account if you lose access to Steam."
+  "steamAccount": {
+    "title": "Steam account",
+    "description": "Link your Steam account to your Lines of Battle account.",
+    "link": "Link Steam",
+    "unlink": "Unlink Steam",
+    "linked": "Steam account linked.",
+    "linkError": "Couldn't link this Steam account. It may already be linked to another account."
   },
   "appleSignInFailed": "Apple sign-in failed. Please try again.",
   "resetPassword": "Reset password",

@@ -519,13 +519,13 @@
   "usernameOrEmail": "Nome utente o Email",
   "continueWithGoogle": "Continua con Google",
   "continueWithApple": "Continua con Apple",
-  "continueWithSteam": "Continua con Steam",
-  "steamLoginError": "Errore durante l'accesso con Steam. Riprova.",
-  "signingYouIn": "Accesso in corso...",
-  "addEmail": "Aggiungi email",
-  "addEmailBanner": {
-    "title": "Aggiungi un'email al tuo account",
-    "description": "Ti permette di recuperare l'account se perdi l'accesso a Steam."
+  "steamAccount": {
+    "title": "Account Steam",
+    "description": "Collega il tuo account Steam al tuo account.",
+    "link": "Collega Steam",
+    "unlink": "Scollega Steam",
+    "linked": "Account Steam collegato.",
+    "linkError": "Impossibile collegare questo account Steam. Potrebbe essere già collegato a un altro account."
   },
   "appleSignInFailed": "Accesso con Apple non riuscito. Riprova.",
   "resetPassword": "Reimposta password",

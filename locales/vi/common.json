@@ -537,13 +537,13 @@
   "usernameOrEmail": "Tên người dùng hoặc Email",
   "continueWithGoogle": "Tiếp tục với Google",
   "continueWithApple": "Tiếp tục với Apple",
-  "continueWithSteam": "Tiếp tục với Steam",
-  "steamLoginError": "Lỗi khi đăng nhập bằng Steam. Vui lòng thử lại.",
-  "signingYouIn": "Đang đăng nhập...",
-  "addEmail": "Thêm email",
-  "addEmailBanner": {
-    "title": "Thêm email vào tài khoản của bạn",
-    "description": "Giúp bạn khôi phục tài khoản nếu mất quyền truy cập Steam."
+  "steamAccount": {
+    "title": "Tài khoản Steam",
+    "description": "Liên kết tài khoản Steam với tài khoản của bạn.",
+    "link": "Liên kết Steam",
+    "unlink": "Hủy liên kết Steam",
+    "linked": "Đã liên kết tài khoản Steam.",
+    "linkError": "Không thể liên kết tài khoản Steam này. Có thể nó đã được liên kết với tài khoản khác."
   },
   "appleSignInFailed": "Đăng nhập bằng Apple không thành công. Vui lòng thử lại.",
   "resetPassword": "Đặt lại mật khẩu",

@@ -538,13 +538,13 @@
   "usernameOrEmail": "उपयोगकर्ता नाम या ईमेल",
   "continueWithGoogle": "गूगल के साथ जारी रखें",
   "continueWithApple": "Apple के साथ जारी रखें",
-  "continueWithSteam": "Steam के साथ जारी रखें",
-  "steamLoginError": "Steam से साइन इन करते समय त्रुटि हुई। कृपया पुनः प्रयास करें।",
-  "signingYouIn": "आपको साइन इन किया जा रहा है...",
-  "addEmail": "ईमेल जोड़ें",
-  "addEmailBanner": {
-    "title": "अपने खाते में ईमेल जोड़ें",
-    "description": "Steam तक पहुँच खोने पर इससे आप अपना खाता वापस पा सकते हैं।"
+  "steamAccount": {
+    "title": "Steam खाता",
+    "description": "अपना Steam खाता अपने खाते से जोड़ें।",
+    "link": "Steam जोड़ें",
+    "unlink": "Steam हटाएँ",
+    "linked": "Steam खाता जुड़ गया।",
+    "linkError": "यह Steam खाता नहीं जोड़ा जा सका। हो सकता है यह पहले से किसी दूसरे खाते से जुड़ा हो।"
   },
   "appleSignInFailed": "Apple साइन-इन विफल रहा। कृपया पुनः प्रयास करें।",
   "resetPassword": "पासवर्ड रीसेट करें",
