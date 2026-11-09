@@ -522,6 +522,18 @@
   "continueWithSteam": "Folytatás Steam fiókkal",
   "steamLoginError": "Hiba történt a Steam-bejelentkezés közben. Kérjük, próbáld újra.",
   "signingYouIn": "Bejelentkezés folyamatban...",
+  "steamNotLinked": "Ez a Steam-fiók még nincs Lines of Battle-fiókhoz kapcsolva.",
+  "steamHaveAccount": "Már van fiókom",
+  "steamCreateAccount": "Új fiók létrehozása",
+  "steamSignInToLink": "Jelentkezz be a Steam-fiókod összekapcsolásához.",
+  "steamAccount": {
+    "title": "Steam-fiók",
+    "description": "Kapcsold össze a fiókodat, hogy Steammel jelentkezhess be.",
+    "link": "Steam összekapcsolása",
+    "unlink": "Steam leválasztása",
+    "linked": "Összekapcsolva. Steammel jelentkezel be.",
+    "linkError": "Nem sikerült összekapcsolni ezt a Steam-fiókot. Lehet, hogy már egy másik fiókhoz tartozik."
+  },
   "addEmail": "E-mail hozzáadása",
   "addEmailBanner": {
     "title": "Adj meg egy e-mail-címet a fiókodhoz",

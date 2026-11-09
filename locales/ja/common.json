@@ -544,6 +544,18 @@
   "continueWithSteam": "Steamで続ける",
   "steamLoginError": "Steamでのサインイン中にエラーが発生しました。もう一度お試しください。",
   "signingYouIn": "サインインしています...",
+  "steamNotLinked": "このSteamアカウントはまだLines of Battleのアカウントに連携されていません。",
+  "steamHaveAccount": "すでにアカウントを持っています",
+  "steamCreateAccount": "新しいアカウントを作成",
+  "steamSignInToLink": "Steamアカウントを連携するにはサインインしてください。",
+  "steamAccount": {
+    "title": "Steamアカウント",
+    "description": "Steamでサインインできるようにアカウントを連携します。",
+    "link": "Steamを連携",
+    "unlink": "Steamの連携を解除",
+    "linked": "連携済み。Steamでサインインします。",
+    "linkError": "このSteamアカウントを連携できませんでした。すでに別のアカウントに連携されている可能性があります。"
+  },
   "addEmail": "メールを追加",
   "addEmailBanner": {
     "title": "アカウントにメールアドレスを追加",

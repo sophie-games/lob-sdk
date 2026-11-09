@@ -522,6 +522,18 @@
   "continueWithSteam": "Continua con Steam",
   "steamLoginError": "Errore durante l'accesso con Steam. Riprova.",
   "signingYouIn": "Accesso in corso...",
+  "steamNotLinked": "Questo account Steam non è ancora collegato a un account di Lines of Battle.",
+  "steamHaveAccount": "Ho già un account",
+  "steamCreateAccount": "Crea un nuovo account",
+  "steamSignInToLink": "Accedi per collegare il tuo account Steam.",
+  "steamAccount": {
+    "title": "Account Steam",
+    "description": "Collega il tuo account per accedere con Steam.",
+    "link": "Collega Steam",
+    "unlink": "Scollega Steam",
+    "linked": "Collegato. Accedi con Steam.",
+    "linkError": "Impossibile collegare questo account Steam. Potrebbe essere già collegato a un altro account."
+  },
   "addEmail": "Aggiungi email",
   "addEmailBanner": {
     "title": "Aggiungi un'email al tuo account",

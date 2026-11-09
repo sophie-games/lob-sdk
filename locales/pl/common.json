@@ -528,6 +528,18 @@
   "continueWithSteam": "Kontynuuj kontem Steam",
   "steamLoginError": "Błąd podczas logowania przez Steam. Spróbuj ponownie.",
   "signingYouIn": "Trwa logowanie...",
+  "steamNotLinked": "To konto Steam nie jest jeszcze połączone z kontem Lines of Battle.",
+  "steamHaveAccount": "Mam już konto",
+  "steamCreateAccount": "Utwórz nowe konto",
+  "steamSignInToLink": "Zaloguj się, aby połączyć konto Steam.",
+  "steamAccount": {
+    "title": "Konto Steam",
+    "description": "Połącz konto, aby logować się przez Steam.",
+    "link": "Połącz Steam",
+    "unlink": "Odłącz Steam",
+    "linked": "Połączone. Logujesz się przez Steam.",
+    "linkError": "Nie udało się połączyć tego konta Steam. Może być już połączone z innym kontem."
+  },
   "addEmail": "Dodaj e-mail",
   "addEmailBanner": {
     "title": "Dodaj e-mail do swojego konta",

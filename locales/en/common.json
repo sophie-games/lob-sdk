@@ -671,6 +671,18 @@
   "continueWithSteam": "Continue with Steam",
   "steamLoginError": "Error while signing you in with Steam. Please try again.",
   "signingYouIn": "Signing you in...",
+  "steamNotLinked": "This Steam account isn't linked to a Lines of Battle account yet.",
+  "steamHaveAccount": "I already have an account",
+  "steamCreateAccount": "Create a new account",
+  "steamSignInToLink": "Sign in to link your Steam account.",
+  "steamAccount": {
+    "title": "Steam account",
+    "description": "Link your account to sign in with Steam.",
+    "link": "Link Steam",
+    "unlink": "Unlink Steam",
+    "linked": "Linked. You sign in with Steam.",
+    "linkError": "Couldn't link this Steam account. It may already be linked to another account."
+  },
   "addEmail": "Add email",
   "addEmailBanner": {
     "title": "Add an email to your account",

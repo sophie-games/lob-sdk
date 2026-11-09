@@ -521,6 +521,18 @@
   "continueWithSteam": "Продовжити через Steam",
   "steamLoginError": "Помилка під час входу через Steam. Спробуйте ще раз.",
   "signingYouIn": "Виконується вхід...",
+  "steamNotLinked": "Цей акаунт Steam ще не прив'язаний до акаунта Lines of Battle.",
+  "steamHaveAccount": "У мене вже є акаунт",
+  "steamCreateAccount": "Створити новий акаунт",
+  "steamSignInToLink": "Увійдіть, щоб прив'язати акаунт Steam.",
+  "steamAccount": {
+    "title": "Акаунт Steam",
+    "description": "Прив'яжіть акаунт, щоб входити через Steam.",
+    "link": "Прив'язати Steam",
+    "unlink": "Відв'язати Steam",
+    "linked": "Прив'язано. Ви входите через Steam.",
+    "linkError": "Не вдалося прив'язати цей акаунт Steam. Можливо, він уже прив'язаний до іншого акаунта."
+  },
   "addEmail": "Додати пошту",
   "addEmailBanner": {
     "title": "Додайте пошту до свого акаунта",

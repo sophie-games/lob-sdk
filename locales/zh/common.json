@@ -670,6 +670,18 @@
   "continueWithSteam": "使用 Steam 继续",
   "steamLoginError": "使用 Steam 登录时出错，请重试。",
   "signingYouIn": "正在登录...",
+  "steamNotLinked": "此 Steam 账号尚未关联 Lines of Battle 账号。",
+  "steamHaveAccount": "我已有账号",
+  "steamCreateAccount": "创建新账号",
+  "steamSignInToLink": "登录以关联你的 Steam 账号。",
+  "steamAccount": {
+    "title": "Steam 账号",
+    "description": "关联账号后即可用 Steam 登录。",
+    "link": "关联 Steam",
+    "unlink": "取消关联 Steam",
+    "linked": "已关联。你使用 Steam 登录。",
+    "linkError": "无法关联此 Steam 账号，它可能已关联到其他账号。"
+  },
   "addEmail": "添加邮箱",
   "addEmailBanner": {
     "title": "为你的账号添加邮箱",

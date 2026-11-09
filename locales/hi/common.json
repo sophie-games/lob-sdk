@@ -541,6 +541,18 @@
   "continueWithSteam": "Steam के साथ जारी रखें",
   "steamLoginError": "Steam से साइन इन करते समय त्रुटि हुई। कृपया पुनः प्रयास करें।",
   "signingYouIn": "आपको साइन इन किया जा रहा है...",
+  "steamNotLinked": "यह Steam खाता अभी किसी Lines of Battle खाते से जुड़ा नहीं है।",
+  "steamHaveAccount": "मेरे पास पहले से खाता है",
+  "steamCreateAccount": "नया खाता बनाएँ",
+  "steamSignInToLink": "अपना Steam खाता जोड़ने के लिए साइन इन करें।",
+  "steamAccount": {
+    "title": "Steam खाता",
+    "description": "Steam से साइन इन करने के लिए अपना खाता जोड़ें।",
+    "link": "Steam जोड़ें",
+    "unlink": "Steam हटाएँ",
+    "linked": "जुड़ा हुआ। आप Steam से साइन इन करते हैं।",
+    "linkError": "यह Steam खाता नहीं जोड़ा जा सका। हो सकता है यह पहले से किसी दूसरे खाते से जुड़ा हो।"
+  },
   "addEmail": "ईमेल जोड़ें",
   "addEmailBanner": {
     "title": "अपने खाते में ईमेल जोड़ें",

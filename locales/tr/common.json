@@ -523,6 +523,18 @@
   "continueWithSteam": "Steam ile Devam Et",
   "steamLoginError": "Steam ile giriş yapılırken bir hata oluştu. Lütfen tekrar deneyin.",
   "signingYouIn": "Giriş yapılıyor...",
+  "steamNotLinked": "Bu Steam hesabı henüz bir Lines of Battle hesabına bağlı değil.",
+  "steamHaveAccount": "Zaten bir hesabım var",
+  "steamCreateAccount": "Yeni hesap oluştur",
+  "steamSignInToLink": "Steam hesabını bağlamak için giriş yap.",
+  "steamAccount": {
+    "title": "Steam hesabı",
+    "description": "Steam ile giriş yapmak için hesabını bağla.",
+    "link": "Steam'i bağla",
+    "unlink": "Steam bağlantısını kaldır",
+    "linked": "Bağlı. Steam ile giriş yapıyorsun.",
+    "linkError": "Bu Steam hesabı bağlanamadı. Başka bir hesaba bağlı olabilir."
+  },
   "addEmail": "E-posta ekle",
   "addEmailBanner": {
     "title": "Hesabına bir e-posta ekle",

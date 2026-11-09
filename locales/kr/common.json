@@ -536,6 +536,18 @@
   "continueWithSteam": "Steam으로 계속",
   "steamLoginError": "Steam으로 로그인하는 중 오류가 발생했습니다. 다시 시도해 주세요.",
   "signingYouIn": "로그인하는 중...",
+  "steamNotLinked": "이 Steam 계정은 아직 Lines of Battle 계정에 연결되지 않았습니다.",
+  "steamHaveAccount": "이미 계정이 있습니다",
+  "steamCreateAccount": "새 계정 만들기",
+  "steamSignInToLink": "Steam 계정을 연결하려면 로그인하세요.",
+  "steamAccount": {
+    "title": "Steam 계정",
+    "description": "Steam으로 로그인하려면 계정을 연결하세요.",
+    "link": "Steam 연결",
+    "unlink": "Steam 연결 해제",
+    "linked": "연결됨. Steam으로 로그인합니다.",
+    "linkError": "이 Steam 계정을 연결할 수 없습니다. 이미 다른 계정에 연결되어 있을 수 있습니다."
+  },
   "addEmail": "이메일 추가",
   "addEmailBanner": {
     "title": "계정에 이메일을 추가하세요",
