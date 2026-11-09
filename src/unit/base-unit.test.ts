@@ -95,8 +95,12 @@ describe("BaseUnit", () => {
   });
 
   describe("approach tier", () => {
-    it("has no tier until the player picks one", () => {
-      expect(unit.effectiveApproachRange).toBeUndefined();
+    it("closes to Medium until the player picks one, never past the fire tier", () => {
+      unit.applyAutofireConfig({ unitId: 10, autofireRange: EngagementRange.Max });
+      expect(unit.effectiveApproachRange).toBe(EngagementRange.Medium);
+
+      unit.applyAutofireConfig({ unitId: 10, autofireRange: EngagementRange.Low });
+      expect(unit.effectiveApproachRange).toBe(EngagementRange.Low);
     });
 
     it("keeps far as a choice of its own, never a fire tier it cannot reach", () => {

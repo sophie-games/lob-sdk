@@ -47,34 +47,31 @@ export const bindingWeapon = (
   return binding;
 };
 
+/** The tier Fire and Advance closes to: the one picked, else Medium, never past the fire tier. */
+export const effectiveApproachTier = (
+  approachRange: EngagementRange | undefined,
+  fireTier: EngagementRange,
+): EngagementRange => Math.min(approachRange ?? EngagementRange.Medium, fireTier);
+
 /**
- * How close a unit closes on its target before it stops and fights: the nearest `preferredRange`
- * among the weapons it is actually firing at this tier, never further out than that weapon can
- * reach. Unpicked, a weapon with no preference (round shot, a shell) gives no reason to close
- * and has no say; a unit whose weapons all decline closes to contact.
- *
- * Being derived, it follows the player's engagement-range setting and cannot leave a unit
- * holding outside the range it is firing at. An `approachTier` the player picked instead stops
- * where that tier reaches for every weapon it fires, so each one closes in further than
- * the one above it.
+ * How close a unit closes on its target before it stops and fights: where its approach tier
+ * reaches, the nearest among the weapons that fire at that tier, so each tier closes in further
+ * than the one above it. A unit with nothing firing at the tier closes to contact.
  */
 export const standoffDistance = ({
   rangedDamageTypes,
-  tier,
   approachTier,
   legacyStandoff,
   gameDataManager,
 }: {
   rangedDamageTypes: readonly string[];
-  tier: EngagementRange;
-  /** The approach tier the player picked, never past `tier`; unset closes to the preferred range. */
-  approachTier?: EngagementRange;
+  approachTier: EngagementRange;
   /** A template's deprecated absolute `minDistanceToFAA`; still wins, still clamped. */
   legacyStandoff?: number;
   gameDataManager: GameDataManager;
 }): number => {
   if (legacyStandoff !== undefined) {
-    const binding = bindingWeapon(rangedDamageTypes, approachTier ?? tier, gameDataManager);
+    const binding = bindingWeapon(rangedDamageTypes, approachTier, gameDataManager);
     return binding === null
       ? legacyStandoff
       : Math.min(legacyStandoff, binding.reach);
@@ -82,17 +79,9 @@ export const standoffDistance = ({
 
   let standoff: number | null = null;
   for (const weapon of rangedWeapons(rangedDamageTypes, gameDataManager)) {
-    // A picked tier binds every weapon it fires; unpicked, only one that wants to close.
-    const { preferredRange } = weapon;
-    if (approachTier === undefined && preferredRange === undefined) continue;
-    const reach = usableMaxRange(weapon, approachTier ?? tier);
-    if (reach === null) continue;
-
-    const preferred = preferredRange === undefined || approachTier !== undefined
-      ? reach
-      : Math.min(preferredRange * weapon.maxRange, reach);
-    if (standoff === null || preferred < standoff) {
-      standoff = preferred;
+    const reach = usableMaxRange(weapon, approachTier);
+    if (reach !== null && (standoff === null || reach < standoff)) {
+      standoff = reach;
     }
   }
   return standoff ?? 0;
