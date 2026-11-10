@@ -236,7 +236,7 @@ export abstract class BaseUnit extends Entity {
   get defaultAutofireRange(): EngagementRange { return this.categoryTemplate.defaultAutofireRange ?? EngagementRange.Max; }
   /** Whether the autofire selector should warn that the `Max` tier wastes ammo for this category. */
   get warnsOnMaxAutofire(): boolean { return this.categoryTemplate.warnOnMaxAutofire === true; }
-  /** Whether drawing this unit's move shows what it would see from where the order ends. */
+  /** Whether this unit, selected alone with a move, shows which ground in its range it would see from where the order ends. */
   get showsDestinationSight(): boolean { return this.categoryTemplate.showDestinationSight === true; }
   /** Whether, under this order, the unit leaves its body's pace to the other members. */
   isExemptFromBodyPace(order: OrderType): boolean { return this.categoryTemplate.ordersExemptFromBodyPace?.includes(order) === true; }

@@ -443,7 +443,7 @@
       "legend": "Movement and display",
       "forwardOnlyMovement": "Forward-only movement (ships)",
       "destinationSight": "Show line of sight at order destination",
-      "destinationSightHint": "While a move or Fire and Advance order is drawn for one unit of this category, shows what it would see from where the order ends. Useful for artillery.",
+      "destinationSightHint": "While one unit of this category is selected with a move or Fire and Advance order, shows which ground in its range it would see from where the order ends. Useful for artillery.",
       "portraitRotation": "Portrait rotation (deg)",
       "uphillSlowdownByLevel": "Uphill slowdown by level"
     },

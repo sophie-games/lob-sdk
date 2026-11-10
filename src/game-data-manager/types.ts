@@ -109,8 +109,9 @@ export interface UnitCategoryTemplate {
    */
   warnOnMaxAutofire?: boolean;
   /**
-   * When true, drawing a move or Fire and Advance order for one unit of this
-   * category shows what it would see from where the order ends (e.g. artillery).
+   * When true, one unit of this category selected with a move or Fire and Advance
+   * order shows which ground in its range it would see from where the order ends
+   * (e.g. artillery).
    */
   showDestinationSight?: boolean;
   /**
