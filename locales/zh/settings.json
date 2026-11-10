@@ -7,6 +7,10 @@
     "title": "未选命令不透明度",
     "description": "选择单位时，其他单位的箭头和目的地预览的不透明度。设为0%时隐藏。"
   },
+  "destinationSightOpacity": {
+    "title": "命令终点视线",
+    "description": "单独选中且有移动或移动射击命令的火炮，为其从命令终点能看到的射程内地形着色的浓度。设为0%时隐藏。"
+  },
   "gameplay": "游戏性",
   "graphics": "画面",
   "camera": "镜头",

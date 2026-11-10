@@ -7,6 +7,10 @@
     "title": "Nem kijelölt parancsok átlátszatlansága",
     "description": "A többi egység nyilainak és célpozíció-előnézeteinek átlátszatlansága, amikor vannak kijelölt egységek. A 0% elrejti őket."
   },
+  "destinationSightOpacity": {
+    "title": "Látóvonal a parancs célpontjában",
+    "description": "Milyen erősen színezi egy egyedül kijelölt, mozgás- vagy Mozgás közben lő paranccsal rendelkező löveg a lőtávolságán belüli terepet, amelyet onnan látna, ahol a parancs véget ér. A 0% elrejti."
+  },
   "gameplay": "Gameplay",
   "graphics": "Grafika",
   "camera": "Kamera",

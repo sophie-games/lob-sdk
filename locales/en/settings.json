@@ -7,6 +7,10 @@
     "title": "Unselected order opacity",
     "description": "Opacity of other units’ arrows and destination previews while units are selected. 0% hides them."
   },
+  "destinationSightOpacity": {
+    "title": "Line of sight at order destination",
+    "description": "How strongly a lone gun selected with a move or Fire and Advance order tints the ground in its range it would see from where the order ends. 0% hides it."
+  },
   "gameplay": "Gameplay",
   "graphics": "Graphics",
   "camera": "Camera",

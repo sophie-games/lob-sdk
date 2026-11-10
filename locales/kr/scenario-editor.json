@@ -359,6 +359,8 @@
     "movement": {
       "legend": "이동 및 표시",
       "forwardOnlyMovement": "전진 전용 이동 (함선)",
+      "destinationSight": "명령 목적지에서 시야선 표시",
+      "destinationSightHint": "이 분류의 유닛 하나가 이동 또는 사격 및 전진 명령을 가진 채 선택되어 있는 동안, 명령이 끝나는 곳에서 사거리 안의 어느 지형이 보이는지 표시합니다. 포병에 유용합니다.",
       "portraitRotation": "초상화 회전 (deg)"
     },
     "routing": {

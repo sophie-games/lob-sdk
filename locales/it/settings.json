@@ -7,6 +7,10 @@
     "title": "Opacità degli ordini non selezionati",
     "description": "Opacità delle frecce e delle anteprime di destinazione delle altre unità quando ci sono unità selezionate. Lo 0% le nasconde."
   },
+  "destinationSightOpacity": {
+    "title": "Linea di vista alla destinazione dell'ordine",
+    "description": "Quanto intensamente un cannone selezionato da solo, con un ordine di movimento o di Fuoco e Avanza, colora il terreno nella sua gittata che vedrebbe dal punto in cui l'ordine termina. Lo 0% la nasconde."
+  },
   "gameplay": "Giocabilità",
   "graphics": "Grafica",
   "camera": "Fotocamera",

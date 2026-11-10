@@ -361,6 +361,8 @@
     "movement": {
       "legend": "Movimento e visualizzazione",
       "forwardOnlyMovement": "Movimento solo in avanti (navi)",
+      "destinationSight": "Mostra la linea di vista alla destinazione dell'ordine",
+      "destinationSightHint": "Mentre una sola unità di questa categoria è selezionata con un ordine di movimento o di Fuoco e Avanza, mostra quale terreno nella sua gittata vedrebbe dal punto in cui l'ordine termina. Utile per l'artiglieria.",
       "portraitRotation": "Rotazione ritratto (deg)"
     },
     "routing": {

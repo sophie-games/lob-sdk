@@ -109,6 +109,12 @@ export interface UnitCategoryTemplate {
    */
   warnOnMaxAutofire?: boolean;
   /**
+   * When true, one unit of this category selected with a move or Fire and Advance
+   * order shows which ground in its range it would see from where the order ends
+   * (e.g. artillery).
+   */
+  showDestinationSight?: boolean;
+  /**
    * Orders under which a unit of this category does not set the pace of the
    * division or brigade it is ordered with, e.g. a battery on Fire and Advance,
    * so the body marches on at its other members' pace.

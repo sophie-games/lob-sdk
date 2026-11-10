@@ -361,6 +361,8 @@
     "movement": {
       "legend": "移動と表示",
       "forwardOnlyMovement": "前進のみの移動（艦船）",
+      "destinationSight": "命令の目的地で視線を表示",
+      "destinationSightHint": "このカテゴリのユニット1つが移動または前進射撃の命令を持って選択されている間、命令の終点から射程内のどの地形が見えるかを表示します。砲兵に便利です。",
       "portraitRotation": "ポートレート回転（deg）"
     },
     "routing": {

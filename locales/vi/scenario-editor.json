@@ -359,6 +359,8 @@
     "movement": {
       "legend": "Di chuyển và hiển thị",
       "forwardOnlyMovement": "Chỉ di chuyển tiến (tàu)",
+      "destinationSight": "Hiển thị đường ngắm tại đích của lệnh",
+      "destinationSightHint": "Khi một đơn vị thuộc loại này được chọn với lệnh di chuyển hoặc Bắn và tiến, hiển thị vùng đất trong tầm bắn mà đơn vị sẽ thấy từ nơi lệnh kết thúc. Hữu ích cho pháo binh.",
       "portraitRotation": "Xoay chân dung (deg)"
     },
     "routing": {

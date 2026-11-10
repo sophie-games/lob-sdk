@@ -7,6 +7,10 @@
     "title": "Opacidade das ordens não selecionadas",
     "description": "Opacidade das setas e prévias de destino das outras unidades enquanto há unidades selecionadas. 0% as oculta."
   },
+  "destinationSightOpacity": {
+    "title": "Linha de visão no destino da ordem",
+    "description": "Com que intensidade um canhão selecionado sozinho, com uma ordem de movimento ou de Fogo e Avanço, tinge o terreno ao seu alcance que veria de onde a ordem termina. 0% a oculta."
+  },
   "gameplay": "Jogabilidade",
   "graphics": "Gráficos",
   "camera": "Câmera",

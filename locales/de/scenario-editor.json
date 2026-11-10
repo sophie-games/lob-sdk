@@ -361,6 +361,8 @@
     "movement": {
       "legend": "Bewegung und Darstellung",
       "forwardOnlyMovement": "Nur Vorwärtsbewegung (Schiffe)",
+      "destinationSight": "Sichtlinie am Befehlsziel anzeigen",
+      "destinationSightHint": "Solange eine einzelne Einheit dieser Kategorie mit einem Bewegungs- oder Feuern-und-Vorrücken-Befehl ausgewählt ist, zeigt es, welches Gelände in ihrer Reichweite sie vom Endpunkt des Befehls aus sehen würde. Nützlich für Artillerie.",
       "portraitRotation": "Porträtdrehung (deg)"
     },
     "routing": {

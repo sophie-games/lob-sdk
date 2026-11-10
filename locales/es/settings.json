@@ -7,6 +7,10 @@
     "title": "Opacidad de órdenes no seleccionadas",
     "description": "Opacidad de las flechas y vistas previas de destino de las demás unidades mientras hay unidades seleccionadas. El 0% las oculta."
   },
+  "destinationSightOpacity": {
+    "title": "Línea de visión en el destino de la orden",
+    "description": "Con qué intensidad un cañón seleccionado solo, con una orden de movimiento o de Disparar y Avanzar, tiñe el terreno a su alcance que vería desde donde termina la orden. El 0% la oculta."
+  },
   "gameplay": "Jugabilidad",
   "graphics": "Gráficos",
   "camera": "Cámara",
