@@ -7,6 +7,10 @@
     "title": "Unselected order opacity",
     "description": "Opacity of other units’ arrows and destination previews while units are selected. 0% hides them."
   },
+  "showDestinationSight": {
+    "title": "Show line of sight at order destination",
+    "description": "While one gun alone is selected with a move or Fire and Advance order, shows which ground in its range it would see from where the order ends."
+  },
   "gameplay": "Gameplay",
   "graphics": "Graphics",
   "camera": "Camera",
