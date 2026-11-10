@@ -7,9 +7,9 @@
     "title": "Nieprzezroczystość pozostałych rozkazów",
     "description": "Nieprzezroczystość strzałek i podglądów pozycji docelowych pozostałych jednostek, gdy jakieś jednostki są wybrane. 0% je ukrywa."
   },
-  "showDestinationSight": {
-    "title": "Pokaż linię wzroku w miejscu docelowym rozkazu",
-    "description": "Gdy zaznaczone jest tylko jedno działo z rozkazem ruchu lub Natarcia z ostrzałem, pokazuje, który teren w jego zasięgu widziałoby z miejsca, w którym kończy się rozkaz."
+  "destinationSightOpacity": {
+    "title": "Linia wzroku w miejscu docelowym rozkazu",
+    "description": "Jak mocno działo zaznaczone samodzielnie, z rozkazem ruchu lub Natarcia z ostrzałem, barwi teren w swoim zasięgu, który widziałoby z miejsca, w którym kończy się rozkaz. 0% ją ukrywa."
   },
   "gameplay": "Rozgrywka",
   "graphics": "Grafika",

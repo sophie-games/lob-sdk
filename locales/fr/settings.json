@@ -7,9 +7,9 @@
     "title": "Opacité des ordres non sélectionnés",
     "description": "Opacité des flèches et des aperçus de destination des autres unités lorsque des unités sont sélectionnées. 0% les masque."
   },
-  "showDestinationSight": {
-    "title": "Afficher la ligne de vue à la destination de l'ordre",
-    "description": "Tant qu'un seul canon est sélectionné avec un ordre de mouvement ou de Tirer en avançant, montre quel terrain à sa portée il verrait depuis la fin de l'ordre."
+  "destinationSightOpacity": {
+    "title": "Ligne de vue à la destination de l'ordre",
+    "description": "Intensité avec laquelle un canon sélectionné seul, avec un ordre de mouvement ou de Tirer en avançant, teinte le terrain à sa portée qu'il verrait depuis la fin de l'ordre. 0% la masque."
   },
   "gameplay": "Jouabilité",
   "graphics": "Graphismes",

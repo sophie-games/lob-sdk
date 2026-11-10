@@ -7,9 +7,9 @@
     "title": "Deckkraft nicht ausgewählter Befehle",
     "description": "Deckkraft der Pfeile und Zielvorschauen anderer Einheiten, solange Einheiten ausgewählt sind. 0% blendet sie aus."
   },
-  "showDestinationSight": {
-    "title": "Sichtlinie am Befehlsziel anzeigen",
-    "description": "Solange ein einzelnes Geschütz mit einem Bewegungs- oder Feuern-und-Vorrücken-Befehl ausgewählt ist, zeigt es, welches Gelände in seiner Reichweite es vom Endpunkt des Befehls aus sehen würde."
+  "destinationSightOpacity": {
+    "title": "Sichtlinie am Befehlsziel",
+    "description": "Wie stark ein allein ausgewähltes Geschütz mit einem Bewegungs- oder Feuern-und-Vorrücken-Befehl das Gelände in seiner Reichweite einfärbt, das es vom Endpunkt des Befehls aus sehen würde. 0% blendet sie aus."
   },
   "gameplay": "Gameplay",
   "graphics": "Grafik",
