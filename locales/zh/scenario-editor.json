@@ -362,6 +362,8 @@
     "movement": {
       "legend": "移动与显示",
       "forwardOnlyMovement": "仅向前移动（舰船）",
+      "destinationSight": "在命令终点显示视线",
+      "destinationSightHint": "为此类别的单个单位绘制移动或移动射击命令时，显示其在命令终点能看到的范围。适用于炮兵。",
       "portraitRotation": "立绘旋转（deg）"
     },
     "routing": {

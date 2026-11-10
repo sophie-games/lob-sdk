@@ -113,6 +113,7 @@
     "id": "artillery",
     "defaultAutofireRange": 1,
     "warnOnMaxAutofire": true,
+    "showDestinationSight": true,
     "ordersExemptFromBodyPace": [4, 6],
     "chargeStaminaCost": 10000,
     "chargeBacklashMultiplier": 1.5,

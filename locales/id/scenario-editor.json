@@ -359,6 +359,8 @@
     "movement": {
       "legend": "Pergerakan dan tampilan",
       "forwardOnlyMovement": "Pergerakan maju saja (kapal)",
+      "destinationSight": "Tampilkan garis pandang di tujuan perintah",
+      "destinationSightHint": "Saat perintah gerak atau Tembak dan Maju digambar untuk satu unit dari kategori ini, menampilkan apa yang akan dilihatnya dari titik akhir perintah. Berguna untuk artileri.",
       "portraitRotation": "Rotasi potret (deg)"
     },
     "routing": {

@@ -365,6 +365,8 @@
     "movement": {
       "legend": "Ruch i wyświetlanie",
       "forwardOnlyMovement": "Ruch tylko do przodu (statki)",
+      "destinationSight": "Pokaż linię wzroku w miejscu docelowym rozkazu",
+      "destinationSightHint": "Podczas rysowania rozkazu ruchu lub Natarcia z ostrzałem dla jednej jednostki tej kategorii pokazuje, co widziałaby z miejsca, w którym kończy się rozkaz. Przydatne dla artylerii.",
       "portraitRotation": "Obrót portretu (deg)"
     },
     "routing": {

@@ -361,6 +361,8 @@
     "movement": {
       "legend": "Movimento e exibição",
       "forwardOnlyMovement": "Movimento só para frente (navios)",
+      "destinationSight": "Mostrar linha de visão no destino da ordem",
+      "destinationSightHint": "Ao traçar uma ordem de movimento ou de Fogo e Avanço para uma única unidade desta categoria, mostra o que ela veria de onde a ordem termina. Útil para a artilharia.",
       "portraitRotation": "Rotação do retrato (deg)"
     },
     "routing": {
