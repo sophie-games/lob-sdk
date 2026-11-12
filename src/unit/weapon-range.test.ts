@@ -7,6 +7,7 @@ import {
   effectiveApproachTier,
   bindingWeapon,
   standoffDistance,
+  standoffWeapon,
   usableMaxRange,
 } from "./weapon-range";
 
@@ -55,6 +56,23 @@ describe("effectiveApproachTier", () => {
     expect(effectiveApproachTier(undefined, EngagementRange.Low)).toBe(EngagementRange.Low);
     expect(effectiveApproachTier(EngagementRange.Max, EngagementRange.Medium)).toBe(EngagementRange.Medium);
     expect(effectiveApproachTier(EngagementRange.Low, EngagementRange.Max)).toBe(EngagementRange.Low);
+  });
+});
+
+describe("standoffWeapon", () => {
+  it("is the nearest-reaching weapon firing at the tier", () => {
+    expect(
+      standoffWeapon(["musket", "12lb-canister-fire"], EngagementRange.Max, gameDataManager)
+        ?.weapon.name,
+    ).toBe("musket");
+    expect(
+      standoffWeapon(["12lb-canister-fire", "12lb-cannon-ball"], EngagementRange.Medium, gameDataManager)
+        ?.weapon.name,
+    ).toBe("12lb-canister-fire");
+  });
+
+  it("is null when nothing fires at the tier", () => {
+    expect(standoffWeapon(["12lb-cannon-ball"], EngagementRange.Low, gameDataManager)).toBeNull();
   });
 });
 
