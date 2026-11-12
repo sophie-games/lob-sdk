@@ -26,6 +26,9 @@ export const usableMaxRange = (
   return max;
 };
 
+/** A ranged weapon and how far it reaches at some engagement tier. */
+type WeaponReach = { weapon: RangedDamageTypeTemplate; reach: number };
+
 /**
  * The weapon whose reach gates the unit's autofire at this tier: the longest-reaching one still
  * firing. It sets both how far the unit engages and how range is measured (see `aimMode`).
@@ -35,9 +38,8 @@ export const bindingWeapon = (
   rangedDamageTypes: readonly string[],
   tier: EngagementRange,
   gameDataManager: GameDataManager,
-): { weapon: RangedDamageTypeTemplate; reach: number } | null => {
-  let binding: { weapon: RangedDamageTypeTemplate; reach: number } | null =
-    null;
+): WeaponReach | null => {
+  let binding: WeaponReach | null = null;
   for (const weapon of rangedWeapons(rangedDamageTypes, gameDataManager)) {
     const reach = usableMaxRange(weapon, tier);
     if (reach !== null && (binding === null || reach > binding.reach)) {
@@ -77,14 +79,26 @@ export const standoffDistance = ({
       : Math.min(legacyStandoff, binding.reach);
   }
 
-  let standoff: number | null = null;
+  return standoffWeapon(rangedDamageTypes, approachTier, gameDataManager)?.reach ?? 0;
+};
+
+/**
+ * The weapon whose reach sets the stand-off at this approach tier: the nearest-reaching one
+ * firing there. Its `aimMode` says which point of the target the halt measures to.
+ */
+export const standoffWeapon = (
+  rangedDamageTypes: readonly string[],
+  approachTier: EngagementRange,
+  gameDataManager: GameDataManager,
+): WeaponReach | null => {
+  let standoff: WeaponReach | null = null;
   for (const weapon of rangedWeapons(rangedDamageTypes, gameDataManager)) {
     const reach = usableMaxRange(weapon, approachTier);
-    if (reach !== null && (standoff === null || reach < standoff)) {
-      standoff = reach;
+    if (reach !== null && (standoff === null || reach < standoff.reach)) {
+      standoff = { weapon, reach };
     }
   }
-  return standoff ?? 0;
+  return standoff;
 };
 
 function* rangedWeapons(
