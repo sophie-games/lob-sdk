@@ -22,7 +22,7 @@ describe("Napoleonic balance", () => {
     expect(gameDataManager.getGameConstants().HAS_TAKEN_FIRE_SPEED_MODIFIER).toBe(-0.05);
     expect(gameDataManager.getGameRules().organization?.routingOrgRecoveryModifier).toBe(-0.4);
     for (const category of ["midCavalry", "lightCavalry", "scoutCavalry", "heavyCavalry"] as const) {
-      expect(gameDataManager.getRunSpeedModifier(TerrainType.Forest, category)).toBe(0);
+      expect(gameDataManager.getRunSpeedModifier(TerrainType.Forest, category)).toBe(-0.75);
     }
   });
 
@@ -889,7 +889,7 @@ describe("Napoleonic balance", () => {
     }
   });
 
-  it("uses the final forest height and neutral run modifiers for every category", () => {
+  it("uses the final forest height and slows a run as much as a walk for every category", () => {
     expect(gameDataManager.getTerrainHitboxHeight(TerrainType.Forest)).toBe(1.5);
     for (const category of [
       "infantry",
@@ -905,7 +905,7 @@ describe("Napoleonic balance", () => {
     ]) {
       expect(
         gameDataManager.getRunSpeedModifier(TerrainType.Forest, category),
-      ).toBe(0);
+      ).toBe(gameDataManager.getMovementModifier(TerrainType.Forest, category));
     }
   });
 
@@ -960,7 +960,7 @@ describe("Napoleonic balance", () => {
     ] as const) {
       expect(
         gameDataManager.getRunSpeedModifier(TerrainType.Forest, category),
-      ).toBe(0);
+      ).toBe(gameDataManager.getMovementModifier(TerrainType.Forest, category));
     }
     for (const category of [
       "midCavalry",

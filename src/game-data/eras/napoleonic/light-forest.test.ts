@@ -25,11 +25,10 @@ describe("light forest", () => {
     expect(light).toBeGreaterThan(gdm.getMovementModifier(Forest, category));
   });
 
-  // Forest takes nothing off a run, so neither may the thinner wood.
-  it.each(["infantry", "lightCavalry", "artillery"])("slows a running %s no more than forest does", (category) => {
-    expect(gdm.getRunSpeedModifier(LightForest, category)).toBeGreaterThanOrEqual(
-      gdm.getRunSpeedModifier(Forest, category),
-    );
+  it.each(["infantry", "lightCavalry", "artillery"])("slows a running %s less than forest does", (category) => {
+    const light = gdm.getRunSpeedModifier(LightForest, category);
+    expect(light).toBeLessThan(0);
+    expect(light).toBeGreaterThan(gdm.getRunSpeedModifier(Forest, category));
   });
 
   it("stops less musketry than forest does", () => {
