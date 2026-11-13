@@ -1,0 +1,928 @@
+{
+  "version": 2,
+  "name": "name",
+  "description": "description",
+  "ranked": true,
+  "units": [],
+  "objectives": [],
+  "triggers": [],
+  "instructions": [
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 6,
+      "max": 6,
+      "ranges": []
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 10,
+      "scale": 10,
+      "ranges": [
+        {
+          "min": 0.5,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": []
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "top-bottom",
+      "range": {
+        "min": 0,
+        "max": 5
+      },
+      "amount": {
+        "min": 1,
+        "max": 1,
+        "min_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 2,
+          "xl": 3,
+          "xxl": 3
+        },
+        "max_scaling_factor": {
+          "s": 1,
+          "m": 2,
+          "l": 3,
+          "xl": 4,
+          "xxl": 4
+        }
+      },
+      "width": 3,
+      "height": 1,
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": 1
+        },
+        {
+          "terrain": 0,
+          "cost": 50
+        },
+        {
+          "terrain": 1,
+          "cost": 100
+        },
+        {
+          "terrain": 2,
+          "cost": 200
+        },
+        {
+          "terrain": 10,
+          "cost": 10
+        }
+      ],
+      "distance weight": 0.25,
+      "curveLen": 1,
+      "curveWeight": 0,
+      "noiseWeight": 0,
+      "noiseSmoothness": 1
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 8,
+      "minHeight": 1
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 4,
+      "minHeight": 2
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 4,
+      "minHeight": 4
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 4,
+      "minHeight": 5
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "left-right",
+      "range": {
+        "min": 0,
+        "max": 40
+      },
+      "amount": {
+        "min": 1,
+        "max": 2,
+        "min_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 2,
+          "xl": 3,
+          "xxl": 3
+        },
+        "max_scaling_factor": {
+          "s": 1,
+          "m": 2,
+          "l": 3,
+          "xl": 4,
+          "xxl": 4
+        }
+      },
+      "width": 1,
+      "height": 1,
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": 1
+        },
+        {
+          "terrain": 0,
+          "cost": 50
+        },
+        {
+          "terrain": 1,
+          "cost": 100
+        },
+        {
+          "terrain": 2,
+          "cost": 200
+        },
+        {
+          "terrain": 10,
+          "cost": 10
+        }
+      ],
+      "distance weight": 0.25,
+      "curveLen": 1,
+      "curveWeight": 0,
+      "noiseWeight": 0,
+      "noiseSmoothness": 1
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "left-right",
+      "range": {
+        "min": 60,
+        "max": 100
+      },
+      "amount": {
+        "min": 1,
+        "max": 2,
+        "min_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 2,
+          "xl": 3,
+          "xxl": 3
+        },
+        "max_scaling_factor": {
+          "s": 1,
+          "m": 2,
+          "l": 3,
+          "xl": 4,
+          "xxl": 4
+        }
+      },
+      "width": 1,
+      "height": 1,
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": 1
+        },
+        {
+          "terrain": 0,
+          "cost": 50
+        },
+        {
+          "terrain": 1,
+          "cost": 100
+        },
+        {
+          "terrain": 2,
+          "cost": 200
+        },
+        {
+          "terrain": 10,
+          "cost": 10
+        }
+      ],
+      "distance weight": 0.25,
+      "curveLen": 1,
+      "curveWeight": 0,
+      "noiseWeight": 0,
+      "noiseSmoothness": 1
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 8,
+      "minHeight": 1
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 8,
+      "minHeight": 2
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 8,
+      "minHeight": 3
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 0,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        4
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 27,
+      "scale": 2,
+      "ranges": [
+        {
+          "min": 0.4,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        4
+      ],
+      "height": {
+        "min": 1,
+        "max": 1
+      }
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "range": {
+        "min": 10,
+        "max": 15
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 2,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 1
+        },
+        {
+          "terrain": 17,
+          "cost": 2
+        },
+        {
+          "terrain": 18,
+          "cost": 4
+        },
+        {
+          "terrain": 1,
+          "cost": 6
+        },
+        {
+          "terrain": 4,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "range": {
+        "min": 20,
+        "max": 40
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 2,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 1
+        },
+        {
+          "terrain": 17,
+          "cost": 2
+        },
+        {
+          "terrain": 18,
+          "cost": 4
+        },
+        {
+          "terrain": 1,
+          "cost": 6
+        },
+        {
+          "terrain": 4,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "range": {
+        "min": 45,
+        "max": 65
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 2,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 1
+        },
+        {
+          "terrain": 17,
+          "cost": 2
+        },
+        {
+          "terrain": 18,
+          "cost": 4
+        },
+        {
+          "terrain": 1,
+          "cost": 6
+        },
+        {
+          "terrain": 4,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "range": {
+        "min": 70,
+        "max": 90
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 2,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 1
+        },
+        {
+          "terrain": 17,
+          "cost": 2
+        },
+        {
+          "terrain": 18,
+          "cost": 4
+        },
+        {
+          "terrain": 1,
+          "cost": 6
+        },
+        {
+          "terrain": 4,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "left-right",
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "range": {
+        "min": 10,
+        "max": 45
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 2,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 1
+        },
+        {
+          "terrain": 17,
+          "cost": 2
+        },
+        {
+          "terrain": 18,
+          "cost": 4
+        },
+        {
+          "terrain": 1,
+          "cost": 6
+        },
+        {
+          "terrain": 4,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 3,
+      "between": "left-right",
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "range": {
+        "min": 55,
+        "max": 90
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 2,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 1
+        },
+        {
+          "terrain": 17,
+          "cost": 2
+        },
+        {
+          "terrain": 18,
+          "cost": 4
+        },
+        {
+          "terrain": 1,
+          "cost": 6
+        },
+        {
+          "terrain": 4,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        2
+      ],
+      "maxDistance": 1,
+      "width": {
+        "min": 1,
+        "max": 2
+      },
+      "size": {
+        "min": 6,
+        "max": 8
+      },
+      "chance": 0.07,
+      "along": [
+        3
+      ],
+      "verge": 0,
+      "heights": [
+        {
+          "min": 4,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 2,
+      "toTerrain": 0,
+      "maxSize": 4
+    },
+    {
+      "type": "PLACE_NAMES",
+      "terrains": [
+        2
+      ],
+      "names": [
+        "Krasymivsk",
+        "Novoalynsk",
+        "Zhydalych",
+        "Kremetyn",
+        "Karlizna",
+        "Zolovary",
+        "Berdyvodske",
+        "Luhatechko",
+        "Zymody",
+        "Haikva",
+        "Alcheshyn",
+        "Konotorsk",
+        "Sarrivka",
+        "Valkoy",
+        "Vynotivka",
+        "Solekhiv",
+        "Komsozansk",
+        "Rodyntorsk",
+        "Melihirsk",
+        "Tarazivka",
+        "Karlikivka",
+        "Bilbotyn",
+        "Terechach",
+        "Molotivka",
+        "Baramove",
+        "Krasnobotyn",
+        "Buhodar",
+        "Radoman",
+        "Ostrosaray",
+        "Krasyhachi",
+        "Zelenozerske",
+        "Ternichuk",
+        "Zvenyzan",
+        "Shepetyn",
+        "Sieveronov",
+        "Zdolnobyl",
+        "Bilohorod",
+        "Mukativka",
+        "Alchelynska",
+        "Tiashivka",
+        "Shepelynska",
+        "Batukivka",
+        "Irvary",
+        "Bilkopsk",
+        "Skalivka",
+        "Rovenvylib",
+        "Aluvary",
+        "Vuhlenov",
+        "Chukhiv",
+        "Mukanov",
+        "Sieverorovsk",
+        "Bohosiivka",
+        "Lysyslav",
+        "Chernyliany",
+        "Verkhiruch",
+        "Aluvaisk",
+        "Novoadiach",
+        "Haitopol",
+        "Shoschach",
+        "Hrehovka",
+        "Pryzna",
+        "Molomyshl",
+        "Krasnoavan",
+        "Zbospil",
+        "Teploromyl",
+        "Kivertarsk",
+        "Lutushyn",
+        "Khoromyl",
+        "Chulynska",
+        "Molodok",
+        "Molonobyl",
+        "Bolediach",
+        "Volovary",
+        "Vovlyna",
+        "Synechyn",
+        "Vashvuta",
+        "Rovenchyn",
+        "Apochesk",
+        "Enerlyna",
+        "Mykoryska",
+        "Turvalsk",
+        "Khorta",
+        "Zaporlaiv",
+        "Sartarsk",
+        "Sverspil",
+        "Koriuriv",
+        "Zhokhiv",
+        "Vozneryska",
+        "Turchevsk",
+        "Svitrivka",
+        "Bobroshivka",
+        "Armiabotyn",
+        "Rozshyn",
+        "Ternihovka",
+        "Luhabyl",
+        "Borynov",
+        "Shosnov",
+        "Druzshivka",
+        "Novoudysche",
+        "Tatardriia",
+        "Novomohorod",
+        "Dokutechko",
+        "Yavotechko"
+      ],
+      "minSize": 4,
+      "maxDistance": 5
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 27,
+      "scale": 2,
+      "ranges": [
+        {
+          "min": 0.9,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        0,
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        11,
+        17,
+        18
+      ],
+      "maxDistance": 10,
+      "width": {
+        "min": 2,
+        "max": 3
+      },
+      "size": {
+        "min": 4,
+        "max": 8
+      },
+      "chance": 0.9,
+      "along": [
+        3
+      ],
+      "verge": 0,
+      "heights": [
+        {
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 11,
+      "toTerrain": 0,
+      "maxSize": 5
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 18,
+      "toTerrain": 0,
+      "maxSize": 5
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 17,
+      "toTerrain": 0,
+      "maxSize": 5
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        27
+      ],
+      "maxDistance": 1,
+      "width": {
+        "min": 1,
+        "max": 1
+      },
+      "size": {
+        "min": 1,
+        "max": 1
+      },
+      "chance": 0.1,
+      "along": [
+        4
+      ],
+      "verge": 0
+    }
+  ],
+  "locales": {
+    "en": {
+      "name": "Farmlands",
+      "description": "An agricultural area near a big river."
+    },
+    "es": {
+      "name": "Tierras de cultivo",
+      "description": "Una zona agrícola junto a un gran río."
+    },
+    "fr": {
+      "name": "Terres agricoles",
+      "description": "Une région agricole près d'un grand fleuve."
+    },
+    "de": {
+      "name": "Ackerland",
+      "description": "Ein landwirtschaftliches Gebiet nahe einem großen Fluss."
+    },
+    "it": {
+      "name": "Terre coltivate",
+      "description": "Una zona agricola vicino a un grande fiume."
+    },
+    "pt": {
+      "name": "Terras Agrícolas",
+      "description": "Uma região agrícola perto de um grande rio."
+    },
+    "ru": {
+      "name": "Пашни",
+      "description": "Сельскохозяйственный край у большой реки."
+    },
+    "uk": {
+      "name": "Ниви",
+      "description": "Сільськогосподарський край біля великої річки."
+    },
+    "pl": {
+      "name": "Pola uprawne",
+      "description": "Rolniczy teren w pobliżu dużej rzeki."
+    },
+    "hu": {
+      "name": "Termőföldek",
+      "description": "Mezőgazdasági vidék egy nagy folyó közelében."
+    },
+    "el": {
+      "name": "Αγροκτήματα",
+      "description": "Μια αγροτική περιοχή κοντά σε ένα μεγάλο ποτάμι."
+    },
+    "tr": {
+      "name": "Tarım Arazileri",
+      "description": "Büyük bir nehrin yakınında tarım arazisi."
+    },
+    "ar": {
+      "name": "الأراضي الزراعية",
+      "description": "منطقة زراعية بالقرب من نهر كبير."
+    },
+    "hi": {
+      "name": "खेतिहर भूमि",
+      "description": "एक बड़ी नदी के पास का कृषि क्षेत्र।"
+    },
+    "id": {
+      "name": "Lahan Pertanian",
+      "description": "Kawasan pertanian di dekat sungai besar."
+    },
+    "th": {
+      "name": "ไร่นา",
+      "description": "พื้นที่เกษตรกรรมใกล้แม่น้ำสายใหญ่"
+    },
+    "vi": {
+      "name": "Đồng ruộng",
+      "description": "Một vùng nông nghiệp gần một con sông lớn."
+    },
+    "ja": {
+      "name": "農地",
+      "description": "大河のそばに広がる農業地帯。"
+    },
+    "kr": {
+      "name": "농경지",
+      "description": "큰 강 근처의 농업 지대입니다."
+    },
+    "zh": {
+      "name": "农田",
+      "description": "一片靠近大河的农业区。"
+    }
+  },
+  "allowDynamicArmy": true,
+  "placeableObjectives": true
+}

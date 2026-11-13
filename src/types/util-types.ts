@@ -4,6 +4,7 @@ export enum Size {
   Medium = "m",
   Large = "l",
   ExtraLarge = "xl",
+  XXLarge = "xxl",
 }
 
 export enum TeamSize {

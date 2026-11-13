@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "bayonet",
-    "orgDamageRatio": 32000,
+    "orgDamageRatio": 64000,
     "reorgDebuff": 1,
     "attackEffectDuration": 4,
     "cannotChargeAgainst": [
@@ -15,35 +15,39 @@
   {
     "id": 2,
     "name": "cavalry-sabre",
-    "orgDamageRatio": 31000,
+    "category": "sword",
+    "orgDamageRatio": 62000,
     "reorgDebuff": 1,
     "attackEffectDuration": 4
   },
   {
     "id": 3,
     "name": "cavalry-sword",
-    "orgDamageRatio": 31000,
+    "category": "sword",
+    "orgDamageRatio": 62000,
     "reorgDebuff": 1,
     "attackEffectDuration": 4
   },
   {
     "id": 4,
     "name": "dragoon-sword",
-    "orgDamageRatio": 31000,
+    "category": "sword",
+    "orgDamageRatio": 62000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6
   },
   {
     "id": 5,
     "name": "artillery-sabre",
-    "orgDamageRatio": 29000,
+    "category": "sword",
+    "orgDamageRatio": 58000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6
   },
   {
     "id": 6,
     "name": "cavalry-lance",
-    "orgDamageRatio": 31000,
+    "orgDamageRatio": 62000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6
   },
@@ -52,13 +56,13 @@
     "name": "musket",
     "ranged": true,
     "aimMode": 1,
-    "orgDamageRatio": 32000,
+    "orgDamageRatio": 64000,
     "reorgDebuff": 0.72,
     "attackEffectDuration": 8,
     "projectileWidth": 8,
     "damageModifierByTargetHp": {
-      "from": 0.8,
-      "to": 0.5,
+      "from": 0.9,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -72,7 +76,7 @@
         "from": 0,
         "to": 0.26,
         "damageModifier": {
-          "near": 6,
+          "near": 7,
           "far": 4
         },
         "name": "pointBlank",
@@ -93,14 +97,14 @@
         "to": 0.71,
         "damageModifier": {
           "near": 1.5,
-          "far": -0.5
+          "far": 0
         }
       },
       {
         "from": 0.71,
         "to": 1,
         "damageModifier": {
-          "near": -0.5,
+          "near": 0,
           "far": -0.8
         },
         "name": "long"
@@ -117,13 +121,13 @@
     "name": "marksman-musket",
     "ranged": true,
     "aimMode": 1,
-    "orgDamageRatio": 45000,
+    "orgDamageRatio": 90000,
     "reorgDebuff": 0.72,
     "attackEffectDuration": 12,
     "projectileWidth": 6,
     "damageModifierByTargetHp": {
-      "from": 0.8,
-      "to": 0.5,
+      "from": 0.9,
+      "to": 0.75,
       "value": -0.1
     },
     "orgDamageModifierByTargetOrg": {
@@ -173,13 +177,13 @@
     "name": "rifle",
     "ranged": true,
     "aimMode": 1,
-    "orgDamageRatio": 45000,
+    "orgDamageRatio": 90000,
     "reorgDebuff": 0.72,
     "attackEffectDuration": 12,
     "projectileWidth": 6,
     "damageModifierByTargetHp": {
-      "from": 0.8,
-      "to": 0.5,
+      "from": 0.9,
+      "to": 0.75,
       "value": -0.1
     },
     "orgDamageModifierByTargetOrg": {
@@ -217,15 +221,16 @@
   {
     "id": 10,
     "name": "18lb-cannon-ball",
+    "category": "cannonBall",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 21000,
+    "orgDamageRatio": 44000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -266,23 +271,25 @@
       "absorptionModifier": 2,
       "offset": 0.625,
       "elevationModifiers": {
-        "heightModifierPerLevel": -0.15,
-        "damageModifierPerLevel": -0.05,
-        "maxElevationDiff": 4
+        "heightModifierPerLevel": -0.075,
+        "damageModifierPerLevel": -0.025,
+        "maxElevationDiff": 8
       }
     },
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 10300,
+    "ammoCost": 10000,
+    "ammoType": "round-shot",
     "extendRange": false
   },
   {
     "id": 20,
     "name": "12lb-canister-fire",
+    "category": "canister",
     "imageAlias": "canister",
     "ranged": true,
-    "orgDamageRatio": 28500,
+    "orgDamageRatio": 60000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
@@ -292,8 +299,8 @@
         "from": 0,
         "to": 0.47,
         "damageModifier": {
-          "near": 3.5,
-          "far": 2.7
+          "near": 2.5,
+          "far": 1.5
         },
         "name": "close",
         "engagementTier": 0
@@ -302,8 +309,8 @@
         "from": 0.47,
         "to": 1,
         "damageModifier": {
-          "near": 2.2,
-          "far": 1
+          "near": 1.5,
+          "far": 0.45
         },
         "name": "long",
         "engagementTier": 0
@@ -314,21 +321,23 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 19300,
+    "ammoCost": 20000,
+    "ammoType": "canister",
     "extendRange": true
   },
   {
     "id": 11,
     "name": "12lb-cannon-ball",
+    "category": "cannonBall",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 21000,
+    "orgDamageRatio": 44000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -342,22 +351,26 @@
         "from": 0.29,
         "to": 0.56,
         "damageModifier": {
-          "near": 1,
-          "far": 0.55
+          "near": 0.45,
+          "far": 0
         },
-        "engagementTier": 1
+        "engagementTier": 1,
+        "orgDamageModifier": {
+          "near": 0,
+          "far": 0.15
+        }
       },
       {
         "from": 0.56,
         "to": 1,
         "damageModifier": {
-          "near": 0.25,
-          "far": -0.65
+          "near": 0,
+          "far": -0.8
         },
         "name": "long",
         "orgDamageModifier": {
-          "near": 0.24,
-          "far": 0.31
+          "near": 0.15,
+          "far": 0.3
         },
         "orgDamageModifierByTargetOrg": {
           "from": 0.9,
@@ -397,29 +410,31 @@
       "absorptionModifier": 2,
       "offset": 0.625,
       "elevationModifiers": {
-        "heightModifierPerLevel": -0.15,
-        "damageModifierPerLevel": -0.05,
-        "maxElevationDiff": 4
+        "heightModifierPerLevel": -0.075,
+        "damageModifierPerLevel": -0.025,
+        "maxElevationDiff": 8
       }
     },
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
     "ammoCost": 10000,
+    "ammoType": "round-shot",
     "extendRange": false
   },
   {
     "id": 12,
     "name": "10lb-cannon-ball",
+    "category": "cannonBall",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 21000,
+    "orgDamageRatio": 44000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -460,23 +475,25 @@
       "absorptionModifier": 2,
       "offset": 0.625,
       "elevationModifiers": {
-        "heightModifierPerLevel": -0.15,
-        "damageModifierPerLevel": -0.05,
-        "maxElevationDiff": 4
+        "heightModifierPerLevel": -0.075,
+        "damageModifierPerLevel": -0.025,
+        "maxElevationDiff": 8
       }
     },
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 10300,
+    "ammoCost": 10000,
+    "ammoType": "round-shot",
     "extendRange": false
   },
   {
     "id": 22,
     "name": "8lb-canister-fire",
+    "category": "canister",
     "imageAlias": "canister",
     "ranged": true,
-    "orgDamageRatio": 28500,
+    "orgDamageRatio": 60000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
@@ -486,8 +503,8 @@
         "from": 0,
         "to": 0.51,
         "damageModifier": {
-          "near": 3.5,
-          "far": 2.7
+          "near": 2.5,
+          "far": 1.5
         },
         "name": "close",
         "engagementTier": 0
@@ -496,8 +513,8 @@
         "from": 0.51,
         "to": 1,
         "damageModifier": {
-          "near": 2.2,
-          "far": 1
+          "near": 1.5,
+          "far": 0.45
         },
         "name": "long",
         "engagementTier": 0
@@ -508,21 +525,23 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 18700,
+    "ammoCost": 20000,
+    "ammoType": "canister",
     "extendRange": true
   },
   {
     "id": 13,
     "name": "8lb-cannon-ball",
+    "category": "cannonBall",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 21000,
+    "orgDamageRatio": 44000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -536,22 +555,26 @@
         "from": 0.31,
         "to": 0.5747,
         "damageModifier": {
-          "near": 1,
-          "far": 0.55
+          "near": 0.45,
+          "far": 0
         },
-        "engagementTier": 1
+        "engagementTier": 1,
+        "orgDamageModifier": {
+          "near": 0,
+          "far": 0.15
+        }
       },
       {
         "from": 0.5747,
         "to": 1,
         "damageModifier": {
-          "near": 0.25,
-          "far": -0.65
+          "near": 0,
+          "far": -0.8
         },
         "name": "long",
         "orgDamageModifier": {
-          "near": 0.24,
-          "far": 0.31
+          "near": 0.15,
+          "far": 0.3
         },
         "orgDamageModifierByTargetOrg": {
           "from": 0.9,
@@ -591,23 +614,25 @@
       "absorptionModifier": 2,
       "offset": 0.625,
       "elevationModifiers": {
-        "heightModifierPerLevel": -0.15,
-        "damageModifierPerLevel": -0.05,
-        "maxElevationDiff": 4
+        "heightModifierPerLevel": -0.075,
+        "damageModifierPerLevel": -0.025,
+        "maxElevationDiff": 8
       }
     },
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 10300,
+    "ammoCost": 10000,
+    "ammoType": "round-shot",
     "extendRange": false
   },
   {
     "id": 23,
     "name": "6lb-canister-fire",
+    "category": "canister",
     "imageAlias": "canister",
     "ranged": true,
-    "orgDamageRatio": 28500,
+    "orgDamageRatio": 60000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
@@ -617,8 +642,8 @@
         "from": 0,
         "to": 0.57,
         "damageModifier": {
-          "near": 3.5,
-          "far": 2.7
+          "near": 2.5,
+          "far": 1.5
         },
         "name": "close",
         "engagementTier": 0
@@ -627,8 +652,8 @@
         "from": 0.57,
         "to": 1,
         "damageModifier": {
-          "near": 2.2,
-          "far": 1
+          "near": 1.5,
+          "far": 0.45
         },
         "name": "long",
         "engagementTier": 0
@@ -639,21 +664,23 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 18000,
+    "ammoCost": 18500,
+    "ammoType": "canister",
     "extendRange": true
   },
   {
     "id": 14,
     "name": "6lb-cannon-ball",
+    "category": "cannonBall",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 21000,
+    "orgDamageRatio": 44000,
     "reorgDebuff": 0.74,
     "attackEffectDuration": 16,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -667,22 +694,26 @@
         "from": 0.3,
         "to": 0.55,
         "damageModifier": {
-          "near": 1,
-          "far": 0.55
+          "near": 0.45,
+          "far": 0
         },
-        "engagementTier": 1
+        "engagementTier": 1,
+        "orgDamageModifier": {
+          "near": 0,
+          "far": 0.15
+        }
       },
       {
         "from": 0.55,
         "to": 1,
         "damageModifier": {
-          "near": 0.25,
-          "far": -0.65
+          "near": 0,
+          "far": -0.8
         },
         "name": "long",
         "orgDamageModifier": {
-          "near": 0.24,
-          "far": 0.31
+          "near": 0.15,
+          "far": 0.3
         },
         "orgDamageModifierByTargetOrg": {
           "from": 0.9,
@@ -722,23 +753,25 @@
       "absorptionModifier": 2,
       "offset": 0.625,
       "elevationModifiers": {
-        "heightModifierPerLevel": -0.15,
-        "damageModifierPerLevel": -0.05,
-        "maxElevationDiff": 4
+        "heightModifierPerLevel": -0.075,
+        "damageModifierPerLevel": -0.025,
+        "maxElevationDiff": 8
       }
     },
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
     "ammoCost": 10000,
+    "ammoType": "round-shot",
     "extendRange": false
   },
   {
     "id": 24,
     "name": "4lb-canister-fire",
+    "category": "canister",
     "imageAlias": "canister",
     "ranged": true,
-    "orgDamageRatio": 28500,
+    "orgDamageRatio": 60000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
@@ -748,8 +781,8 @@
         "from": 0,
         "to": 0.63,
         "damageModifier": {
-          "near": 3.5,
-          "far": 2.7
+          "near": 2.5,
+          "far": 1.5
         },
         "name": "close",
         "engagementTier": 0
@@ -758,8 +791,8 @@
         "from": 0.63,
         "to": 1,
         "damageModifier": {
-          "near": 2.2,
-          "far": 1
+          "near": 1.5,
+          "far": 0.45
         },
         "name": "long",
         "engagementTier": 0
@@ -770,21 +803,23 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 17500,
+    "ammoCost": 18500,
+    "ammoType": "canister",
     "extendRange": true
   },
   {
     "id": 15,
     "name": "4lb-cannon-ball",
+    "category": "cannonBall",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 21000,
+    "orgDamageRatio": 44000,
     "reorgDebuff": 0.74,
     "attackEffectDuration": 12,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -798,22 +833,26 @@
         "from": 0.29,
         "to": 0.5333,
         "damageModifier": {
-          "near": 1,
-          "far": 0.55
+          "near": 0.45,
+          "far": 0
         },
-        "engagementTier": 1
+        "engagementTier": 1,
+        "orgDamageModifier": {
+          "near": 0,
+          "far": 0.15
+        }
       },
       {
         "from": 0.5333,
         "to": 1,
         "damageModifier": {
-          "near": 0.25,
-          "far": -0.65
+          "near": 0,
+          "far": -0.8
         },
         "name": "long",
         "orgDamageModifier": {
-          "near": 0.24,
-          "far": 0.31
+          "near": 0.15,
+          "far": 0.3
         },
         "orgDamageModifierByTargetOrg": {
           "from": 0.9,
@@ -853,29 +892,31 @@
       "absorptionModifier": 2,
       "offset": 0.625,
       "elevationModifiers": {
-        "heightModifierPerLevel": -0.15,
-        "damageModifierPerLevel": -0.05,
-        "maxElevationDiff": 4
+        "heightModifierPerLevel": -0.075,
+        "damageModifierPerLevel": -0.025,
+        "maxElevationDiff": 8
       }
     },
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 10300,
+    "ammoCost": 10000,
+    "ammoType": "round-shot",
     "extendRange": false
   },
   {
     "id": 16,
     "name": "18lb-explosive-shell",
+    "category": "explosiveShell",
     "imageAlias": "explosive-shell",
     "ranged": true,
-    "orgDamageRatio": 22500,
+    "orgDamageRatio": 45000,
     "reorgDebuff": 0.85,
     "attackEffectDuration": 10,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -914,21 +955,23 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 10300,
+    "ammoCost": 10000,
+    "ammoType": "shell",
     "extendRange": false
   },
   {
     "id": 17,
     "name": "10lb-explosive-shell",
+    "category": "explosiveShell",
     "imageAlias": "explosive-shell",
     "ranged": true,
-    "orgDamageRatio": 22500,
+    "orgDamageRatio": 45000,
     "reorgDebuff": 0.85,
     "attackEffectDuration": 10,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -967,58 +1010,60 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 10300,
+    "ammoCost": 10000,
+    "ammoType": "shell",
     "extendRange": false
   },
   {
     "id": 18,
     "name": "explosive-shell",
+    "category": "explosiveShell",
     "ranged": true,
-    "orgDamageRatio": 22500,
+    "orgDamageRatio": 45000,
     "reorgDebuff": 0.85,
     "attackEffectDuration": 10,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
-      "value": -0.1
+      "from": 0.95,
+      "to": 0.75,
+      "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
       "from": 0.9,
-      "to": 0.6,
-      "value": -0.15
+      "to": 0.65,
+      "value": -0.35
     },
     "maxRange": 340,
     "ranges": [
       {
-        "from": 0.2,
-        "to": 0.5882,
+        "from": 0.2647,
+        "to": 0.5588,
         "damageModifier": {
-          "near": 0.15,
+          "near": 0.05,
           "far": 0
         },
         "engagementTier": 1
       },
       {
-        "from": 0.5882,
+        "from": 0.5588,
         "to": 1,
         "damageModifier": {
           "near": 0,
           "far": -0.3
         },
-        "name": "long"
+        "engagementTier": 2
       }
     ],
-    "arcHeight": 4.5,
+    "arcHeight": 6,
     "cannotUseAfterRun": true,
     "projectilePenetration": 0.8,
     "areaOfEffect": {
       "type": "circular",
       "ranges": [
         {
-          "start": 69,
+          "start": 90,
           "end": 200,
-          "startRadius": 30,
+          "startRadius": 29,
           "endRadius": 32
         },
         {
@@ -1029,20 +1074,22 @@
         }
       ],
       "edgeDamageModifier": -0.6,
-      "absorptionModifier": 0
+      "absorptionModifier": 1.25
     },
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "shellImpact",
-    "ammoCost": 12000,
+    "ammoCost": 10000,
+    "ammoType": "shell",
     "extendRange": false
   },
   {
     "id": 19,
     "name": "18lb-canister-fire",
+    "category": "canister",
     "imageAlias": "canister",
     "ranged": true,
-    "orgDamageRatio": 28500,
+    "orgDamageRatio": 60000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
@@ -1052,8 +1099,8 @@
         "from": 0,
         "to": 0.63,
         "damageModifier": {
-          "near": 3.5,
-          "far": 2.8
+          "near": 4,
+          "far": 2.9
         },
         "name": "close",
         "engagementTier": 0
@@ -1062,8 +1109,8 @@
         "from": 0.63,
         "to": 1,
         "damageModifier": {
-          "near": 2.2,
-          "far": 1.8
+          "near": 2.4,
+          "far": 1.9
         },
         "name": "long",
         "engagementTier": 0
@@ -1074,15 +1121,17 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 19300,
+    "ammoCost": 20000,
+    "ammoType": "canister",
     "extendRange": true
   },
   {
     "id": 21,
     "name": "10lb-canister-fire",
+    "category": "canister",
     "imageAlias": "canister",
     "ranged": true,
-    "orgDamageRatio": 28500,
+    "orgDamageRatio": 60000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
@@ -1092,8 +1141,8 @@
         "from": 0,
         "to": 0.76,
         "damageModifier": {
-          "near": 3.5,
-          "far": 2.8
+          "near": 4,
+          "far": 2.9
         },
         "name": "close",
         "engagementTier": 0
@@ -1102,8 +1151,8 @@
         "from": 0.76,
         "to": 1,
         "damageModifier": {
-          "near": 2.2,
-          "far": 1.8
+          "near": 2.4,
+          "far": 1.9
         },
         "name": "long",
         "engagementTier": 0
@@ -1114,26 +1163,28 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 18700,
+    "ammoCost": 20000,
+    "ammoType": "canister",
     "extendRange": true
   },
   {
     "id": 25,
     "name": "howitzer-canister",
+    "category": "canister",
     "imageAlias": "canister",
     "ranged": true,
-    "orgDamageRatio": 32000,
+    "orgDamageRatio": 60000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
-    "maxRange": 69,
+    "maxRange": 90,
     "ranges": [
       {
         "from": 0,
         "to": 1,
         "damageModifier": {
-          "near": 8,
-          "far": 6.65
+          "near": 6,
+          "far": 2
         },
         "name": "close",
         "engagementTier": 0
@@ -1144,7 +1195,8 @@
     "projectilePenetration": 0.1,
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
-    "ammoCost": 19700,
+    "ammoCost": 20000,
+    "ammoType": "canister",
     "extendRange": true
   },
   {
@@ -1152,13 +1204,13 @@
     "name": "horse-archer-bow",
     "ranged": true,
     "aimMode": 1,
-    "orgDamageRatio": 22500,
+    "orgDamageRatio": 45000,
     "reorgDebuff": 0.72,
     "attackEffectDuration": 12,
     "projectileWidth": 6,
     "damageModifierByTargetHp": {
-      "from": 0.8,
-      "to": 0.5,
+      "from": 0.9,
+      "to": 0.75,
       "value": -0.1
     },
     "orgDamageModifierByTargetOrg": {
@@ -1173,7 +1225,7 @@
         "to": 0.39,
         "damageModifier": {
           "near": 2.5,
-          "far": 1.5
+          "far": 1.25
         },
         "name": "close",
         "engagementTier": 0
@@ -1182,8 +1234,8 @@
         "from": 0.39,
         "to": 0.72,
         "damageModifier": {
-          "near": 1.5,
-          "far": 1
+          "near": 1.25,
+          "far": 0.5
         },
         "engagementTier": 1
       },
@@ -1191,8 +1243,8 @@
         "from": 0.72,
         "to": 1,
         "damageModifier": {
-          "near": 1,
-          "far": 0.5
+          "near": 0.5,
+          "far": 0
         },
         "name": "long"
       }
@@ -1208,7 +1260,7 @@
     "id": 27,
     "name": "rocket",
     "ranged": true,
-    "orgDamageRatio": 41500,
+    "orgDamageRatio": 83000,
     "reorgDebuff": 1,
     "attackEffectDuration": 6,
     "projectileWidth": 22,
@@ -1250,7 +1302,7 @@
     ],
     "arcHeight": 4.5,
     "cannotUseAfterRun": true,
-    "projectilePenetration": 0.4,
+    "projectilePenetration": 0.8,
     "areaOfEffect": {
       "type": "circular",
       "ranges": [
@@ -1267,27 +1319,29 @@
           "endRadius": 50
         }
       ],
-      "edgeDamageModifier": 0.8,
-      "absorptionModifier": 1.25
+      "edgeDamageModifier": -0.4,
+      "absorptionModifier": 0
     },
     "shotSound": "rocket-volley",
     "shotAnim": "rocketVolley",
     "shotImpactAnim": "shellImpact",
     "ammoCost": 10000,
+    "ammoType": "rocket",
     "extendRange": false
   },
   {
     "id": 33,
     "name": "ship-cannon",
+    "category": "cannonBall",
     "imageAlias": "cannon-ball",
     "ranged": true,
-    "orgDamageRatio": 21000,
+    "orgDamageRatio": 42000,
     "reorgDebuff": 0.76,
     "attackEffectDuration": 16,
     "projectileWidth": 22,
     "damageModifierByTargetHp": {
-      "from": 0.9,
-      "to": 0.5,
+      "from": 0.95,
+      "to": 0.75,
       "value": -0.15
     },
     "orgDamageModifierByTargetOrg": {
@@ -1321,7 +1375,8 @@
     "shotSound": "artillery-fire",
     "shotAnim": "cannonVolley",
     "shotImpactAnim": "cannonBallImpact",
-    "ammoCost": 9670,
+    "ammoCost": 9700,
+    "ammoType": "round-shot",
     "extendRange": false
   }
 ]

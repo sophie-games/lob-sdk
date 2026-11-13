@@ -1,0 +1,597 @@
+{
+  "version": 2,
+  "name": "name",
+  "description": "description",
+  "ranked": true,
+  "units": [],
+  "objectives": [],
+  "instructions": [
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": {
+            "x": 64,
+            "y": 32
+          },
+          "multiplier": 0.5,
+          "offset": 0.5
+        },
+        {
+          "scale": {
+            "x": 64,
+            "y": 32
+          },
+          "multiplier": 0.5,
+          "offset": 0.5
+        },
+        {
+          "scale": {
+            "x": 64,
+            "y": 32
+          },
+          "multiplier": 0.5,
+          "offset": 0.5
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 0,
+      "max": 32,
+      "ranges": []
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 0,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 30,
+      "max": 30,
+      "ranges": [
+        {
+          "min": 32,
+          "max": 33
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 20,
+      "between": "left-right",
+      "range": {
+        "min": 5,
+        "max": 30
+      },
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "width": 1,
+      "heightDiffCost": 50,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 20,
+          "cost": 2
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 20,
+      "between": "left-right",
+      "range": {
+        "min": 70,
+        "max": 95
+      },
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "width": 1,
+      "heightDiffCost": 50,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 20,
+          "cost": 5
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 20,
+      "between": "left-right",
+      "range": {
+        "min": 35,
+        "max": 65
+      },
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "width": 1,
+      "heightDiffCost": 50,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 20,
+          "cost": 5
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 20,
+      "between": "top-bottom",
+      "range": {
+        "min": 5,
+        "max": 30
+      },
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "width": 1,
+      "heightDiffCost": 50,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 20,
+          "cost": 5
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 20,
+      "between": "top-bottom",
+      "range": {
+        "min": 35,
+        "max": 65
+      },
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "width": 1,
+      "heightDiffCost": 50,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 20,
+          "cost": 5
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 20,
+      "between": "top-bottom",
+      "range": {
+        "min": 70,
+        "max": 95
+      },
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "width": 1,
+      "heightDiffCost": 50,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 20,
+          "cost": 5
+        }
+      ]
+    },
+    {
+      "type": "CONNECT_CLUSTERS",
+      "terrain": 20,
+      "fromTerrain": 20,
+      "pathTerrain": 20,
+      "minGroupSize": 1,
+      "maxDistance": 50,
+      "heightDiffCost": 10,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 20,
+          "cost": 200
+        }
+      ]
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        11,
+        18
+      ],
+      "maxDistance": 4,
+      "width": {
+        "min": 2,
+        "max": 2
+      },
+      "size": {
+        "min": 4,
+        "max": 6
+      },
+      "chance": 0.7,
+      "along": [
+        20
+      ],
+      "verge": 0,
+      "minTiles": 5
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 0,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        0,
+        1,
+        20
+      ]
+    },
+    {
+      "type": "TERRAIN_CIRCLE",
+      "position": {
+        "type": "range",
+        "min": [
+          0,
+          0
+        ],
+        "max": [
+          124,
+          124
+        ]
+      },
+      "radius": 3,
+      "falloff": 1,
+      "terrain": 2
+    },
+    {
+      "type": "TERRAIN_CIRCLE",
+      "position": {
+        "type": "range",
+        "min": [
+          0,
+          0
+        ],
+        "max": [
+          124,
+          124
+        ]
+      },
+      "radius": 2,
+      "falloff": 1,
+      "terrain": 2
+    },
+    {
+      "type": "TERRAIN_CIRCLE",
+      "position": {
+        "type": "range",
+        "min": [
+          0,
+          0
+        ],
+        "max": [
+          124,
+          124
+        ]
+      },
+      "radius": 2,
+      "falloff": 1,
+      "terrain": 2
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        2
+      ],
+      "maxDistance": 1,
+      "width": {
+        "min": 1,
+        "max": 2
+      },
+      "size": {
+        "min": 6,
+        "max": 8
+      },
+      "chance": 0.1,
+      "along": [
+        20
+      ],
+      "verge": 0
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 2,
+      "toTerrain": 27,
+      "maxSize": 1
+    },
+    {
+      "type": "PLACE_NAMES",
+      "terrains": [
+        2,
+        12
+      ],
+      "names": [
+        "Everton",
+        "Larnwick",
+        "Bellmare",
+        "Orkney",
+        "Norwich",
+        "Paethsmouth",
+        "Cullfield",
+        "Keld",
+        "Lundy",
+        "Baerney",
+        "Guthram",
+        "Edinburgh",
+        "Arcton",
+        "Ruthorham",
+        "Gramsby",
+        "Erast",
+        "Barnsley",
+        "Broughton",
+        "Wallowdale",
+        "Lybster",
+        "Martslock",
+        "Linemell",
+        "Blancathey",
+        "Graycott",
+        "Ferncombe",
+        "Mirstone",
+        "Wolford",
+        "Warlington",
+        "Crasmere",
+        "Eldham",
+        "Solime",
+        "Glaenarm",
+        "Bullmar",
+        "Abingdon",
+        "Merton",
+        "Colchester",
+        "Draycott",
+        "Bradford",
+        "Longdale",
+        "Cirencester",
+        "Hwen",
+        "Aethelney",
+        "Arcton",
+        "Solime",
+        "Penshaw",
+        "Redwater",
+        "Walden",
+        "Norton",
+        "Clacton",
+        "Hampstead",
+        "Dawsbury",
+        "Aelinmiley",
+        "Lancaster",
+        "Erostey",
+        "Lingmell",
+        "Kincardine",
+        "Cromer",
+        "Sheffield",
+        "Padstow",
+        "Norwich",
+        "Watford",
+        "Tenby",
+        "Dalry",
+        "Keld",
+        "Warcester",
+        "Penkurth",
+        "Aysgarth",
+        "Orrinshire",
+        "Fernsworth",
+        "Stratham",
+        "Arbington",
+        "Landow",
+        "Caelfall",
+        "Arkmunster",
+        "Grasmere",
+        "Lerwick",
+        "Barmwich",
+        "Alnerwick",
+        "Achnasheen",
+        "Glenarm",
+        "Carningsby",
+        "Glenarm",
+        "Westray",
+        "Gillamoor",
+        "Larcbost",
+        "Dunwich",
+        "Durmchapel",
+        "Farncombe",
+        "Ascot",
+        "Auctermunty",
+        "Taewe",
+        "Stanlow",
+        "Rochdale",
+        "Bullmar",
+        "Mirfield",
+        "Penketh",
+        "Bardford",
+        "Damerel",
+        "Peterbrugh",
+        "Bredon",
+        "Wakefield",
+        "Swindon",
+        "Pirn"
+      ],
+      "minSize": 3,
+      "maxDistance": 5
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 27,
+      "scale": 1,
+      "ranges": [
+        {
+          "min": 0.9,
+          "max": 1
+        }
+      ],
+      "multiplier": 10,
+      "offset": 0,
+      "excludeTerrains": [
+        0,
+        11,
+        18,
+        17,
+        20
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 27,
+      "scale": 5,
+      "ranges": [
+        {
+          "min": 0.95,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        2,
+        11,
+        17,
+        18,
+        20
+      ]
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 11,
+      "toTerrain": 0,
+      "maxSize": 1
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 18,
+      "toTerrain": 0,
+      "maxSize": 1
+    }
+  ],
+  "locales": {
+    "en": {
+      "name": "Rolling Hills",
+      "description": "British countryside."
+    },
+    "es": {
+      "name": "Colinas onduladas",
+      "description": "Campiña británica."
+    },
+    "fr": {
+      "name": "Collines ondulantes",
+      "description": "Campagne britannique."
+    },
+    "de": {
+      "name": "Sanfte Hügel",
+      "description": "Britische Landschaft."
+    },
+    "it": {
+      "name": "Colline ondulate",
+      "description": "Campagna britannica."
+    },
+    "pt": {
+      "name": "Colinas Ondulantes",
+      "description": "Campo britânico."
+    },
+    "ru": {
+      "name": "Пологие холмы",
+      "description": "Британская сельская местность."
+    },
+    "uk": {
+      "name": "Пологі пагорби",
+      "description": "Британська сільська місцевість."
+    },
+    "pl": {
+      "name": "Łagodne wzgórza",
+      "description": "Brytyjska wieś."
+    },
+    "hu": {
+      "name": "Lankás dombok",
+      "description": "Brit vidék."
+    },
+    "el": {
+      "name": "Κυματιστοί λόφοι",
+      "description": "Βρετανική ύπαιθρος."
+    },
+    "tr": {
+      "name": "İnişli Çıkışlı Tepeler",
+      "description": "İngiliz kırsalı."
+    },
+    "ar": {
+      "name": "التلال المتموجة",
+      "description": "الريف البريطاني."
+    },
+    "hi": {
+      "name": "लहरदार पहाड़ियाँ",
+      "description": "ब्रिटिश ग्रामीण इलाका।"
+    },
+    "id": {
+      "name": "Perbukitan Bergelombang",
+      "description": "Pedesaan Inggris."
+    },
+    "th": {
+      "name": "เนินเขาลูกคลื่น",
+      "description": "ชนบทอังกฤษ"
+    },
+    "vi": {
+      "name": "Đồi nhấp nhô",
+      "description": "Vùng nông thôn nước Anh."
+    },
+    "ja": {
+      "name": "なだらかな丘陵",
+      "description": "イギリスの田園地帯。"
+    },
+    "kr": {
+      "name": "완만한 언덕",
+      "description": "영국의 시골 풍경입니다."
+    },
+    "zh": {
+      "name": "起伏丘陵",
+      "description": "英国乡村。"
+    }
+  },
+  "allowDynamicArmy": true,
+  "placeableObjectives": true
+}

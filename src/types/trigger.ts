@@ -11,7 +11,7 @@ import {
  * Type of event that can trigger game triggers.
  */
 export enum GameTriggerEventType {
-  /** Trigger fires at the start of a turn. */
+  /** Trigger fires before players plan orders for the turn. */
   OnTurnStart = "onTurnStart",
   /** Trigger fires at the end of a turn. */
   OnTurnEnd = "onTurnEnd",
