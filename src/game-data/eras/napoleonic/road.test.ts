@@ -19,3 +19,8 @@ describe("road", () => {
     expect(firstTurnRun).toBeGreaterThan(walk * TICKS_PER_TURN);
   });
 });
+
+// Every road a column marches along takes a Follow Road click.
+it.each([TerrainType.Road, TerrainType.SunkenRoad, TerrainType.RailwayRoad])("follows terrain type %i on click", (terrain) => {
+  expect(gdm.isFollowedOnClick(terrain)).toBe(true);
+});
