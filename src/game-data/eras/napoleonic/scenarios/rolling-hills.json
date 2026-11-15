@@ -35,7 +35,7 @@
         }
       ],
       "mergeStrategy": "max",
-      "min": 0,
+      "min": 16,
       "max": 32,
       "ranges": []
     },
@@ -63,11 +63,27 @@
       "between": "left-right",
       "range": {
         "min": 5,
-        "max": 30
+        "max": 45
       },
       "amount": {
         "min": 1,
-        "max": 1
+        "max": 1,
+        "min_scaling_factor": {
+          "xs": 1,
+          "s": 1,
+          "m": 2,
+          "l": 2,
+          "xl": 3,
+          "xxl": 3
+        },
+        "max_scaling_factor": {
+          "xs": 1,
+          "s": 1,
+          "m": 2,
+          "l": 2,
+          "xl": 3,
+          "xxl": 3
+        }
       },
       "width": 1,
       "heightDiffCost": 50,
@@ -78,7 +94,7 @@
         },
         {
           "terrain": 20,
-          "cost": 2
+          "cost": 8
         }
       ]
     },
@@ -87,37 +103,28 @@
       "terrain": 20,
       "between": "left-right",
       "range": {
-        "min": 70,
+        "min": 55,
         "max": 95
       },
       "amount": {
         "min": 1,
-        "max": 1
-      },
-      "width": 1,
-      "heightDiffCost": 50,
-      "terrainCosts": [
-        {
-          "terrain": 0,
-          "cost": 10
+        "max": 1,
+        "min_scaling_factor": {
+          "xs": 1,
+          "s": 1,
+          "m": 2,
+          "l": 2,
+          "xl": 3,
+          "xxl": 3
         },
-        {
-          "terrain": 20,
-          "cost": 5
+        "max_scaling_factor": {
+          "xs": 1,
+          "s": 1,
+          "m": 2,
+          "l": 2,
+          "xl": 3,
+          "xxl": 3
         }
-      ]
-    },
-    {
-      "type": "NATURAL_PATH",
-      "terrain": 20,
-      "between": "left-right",
-      "range": {
-        "min": 35,
-        "max": 65
-      },
-      "amount": {
-        "min": 1,
-        "max": 1
       },
       "width": 1,
       "heightDiffCost": 50,
@@ -128,7 +135,7 @@
         },
         {
           "terrain": 20,
-          "cost": 5
+          "cost": 8
         }
       ]
     },
@@ -142,7 +149,23 @@
       },
       "amount": {
         "min": 1,
-        "max": 1
+        "max": 1,
+        "min_scaling_factor": {
+          "xs": 1,
+          "s": 1,
+          "m": 1,
+          "l": 2,
+          "xl": 2,
+          "xxl": 2
+        },
+        "max_scaling_factor": {
+          "xs": 1,
+          "s": 2,
+          "m": 2,
+          "l": 3,
+          "xl": 3,
+          "xxl": 3
+        }
       },
       "width": 1,
       "heightDiffCost": 50,
@@ -153,7 +176,19 @@
         },
         {
           "terrain": 20,
-          "cost": 5
+          "cost": 8
+        }
+      ],
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 5,
+            "max": 30
+          },
+          "yRange": {
+            "min": 40,
+            "max": 60
+          }
         }
       ]
     },
@@ -167,7 +202,23 @@
       },
       "amount": {
         "min": 1,
-        "max": 1
+        "max": 1,
+        "min_scaling_factor": {
+          "xs": 1,
+          "s": 1,
+          "m": 1,
+          "l": 2,
+          "xl": 2,
+          "xxl": 2
+        },
+        "max_scaling_factor": {
+          "xs": 1,
+          "s": 1,
+          "m": 1,
+          "l": 2,
+          "xl": 2,
+          "xxl": 2
+        }
       },
       "width": 1,
       "heightDiffCost": 50,
@@ -178,7 +229,19 @@
         },
         {
           "terrain": 20,
-          "cost": 5
+          "cost": 8
+        }
+      ],
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 35,
+            "max": 65
+          },
+          "yRange": {
+            "min": 40,
+            "max": 60
+          }
         }
       ]
     },
@@ -192,7 +255,23 @@
       },
       "amount": {
         "min": 1,
-        "max": 1
+        "max": 1,
+        "min_scaling_factor": {
+          "xs": 1,
+          "s": 1,
+          "m": 1,
+          "l": 2,
+          "xl": 2,
+          "xxl": 2
+        },
+        "max_scaling_factor": {
+          "xs": 1,
+          "s": 1,
+          "m": 1,
+          "l": 2,
+          "xl": 2,
+          "xxl": 2
+        }
       },
       "width": 1,
       "heightDiffCost": 50,
@@ -203,7 +282,19 @@
         },
         {
           "terrain": 20,
-          "cost": 5
+          "cost": 8
+        }
+      ],
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 70,
+            "max": 95
+          },
+          "yRange": {
+            "min": 40,
+            "max": 60
+          }
         }
       ]
     },
@@ -593,5 +684,75 @@
     }
   },
   "allowDynamicArmy": true,
-  "placeableObjectives": true
+  "placeableObjectives": true,
+  "randomDeploymentZones": {
+    "top": [
+      {
+        "role": "main",
+        "origin": {
+          "x": {
+            "min": 5,
+            "max": 5
+          },
+          "y": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "polygon": {
+          "outer": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 90,
+              "y": 0
+            },
+            {
+              "x": 90,
+              "y": 10
+            },
+            {
+              "x": 0,
+              "y": 10
+            }
+          ]
+        }
+      },
+      {
+        "role": "forward",
+        "origin": {
+          "x": {
+            "min": 5,
+            "max": 5
+          },
+          "y": {
+            "min": 5,
+            "max": 5
+          }
+        },
+        "polygon": {
+          "outer": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 90,
+              "y": 0
+            },
+            {
+              "x": 90,
+              "y": 20
+            },
+            {
+              "x": 0,
+              "y": 20
+            }
+          ]
+        }
+      }
+    ]
+  }
 }
