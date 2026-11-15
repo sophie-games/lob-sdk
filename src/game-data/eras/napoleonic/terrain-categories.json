@@ -729,6 +729,7 @@
     "color": "#A9866D",
     "hitboxHeight": 0.585,
     "staminaCostModifier": -0.75,
+    "followedOnClick": true,
     "movementModifier": {
       "*": 0.3,
       "midCavalry": 0.2,
