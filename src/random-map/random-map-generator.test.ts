@@ -956,6 +956,7 @@ describe("community random maps", () => {
     "rolling-hills",
     "masurian-lakes",
     "frozen-swamp-random",
+    "mountain-pass",
   ])("generates %s", (scenarioName) => {
     const result = new RandomMapGenerator().generate({
       scenario: gameDataManager.getScenario(scenarioName),

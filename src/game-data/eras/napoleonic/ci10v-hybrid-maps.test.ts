@@ -1,9 +1,17 @@
 import { GameDataManager } from "@lob-sdk/game-data-manager";
 
+const HYBRID_MAPS = [
+  "hillshire",
+  "grunlingen",
+  "frozen-swamp",
+  "rasputitsa",
+  "la-meuse-hybrid",
+];
+
 describe("ci10v's hybrid maps", () => {
   const manager = GameDataManager.get("napoleonic");
 
-  it.each(["hillshire", "grunlingen", "frozen-swamp"])(
+  it.each(HYBRID_MAPS)(
     "offers %s with a height for every terrain tile",
     (name) => {
       expect(manager.getScenarios()).toContain(name);
@@ -17,7 +25,7 @@ describe("ci10v's hybrid maps", () => {
 
   // Seat numbers per side vary with team size: in Micro 10v10 player 2 is on
   // team 1, and an objective's DTO keeps only its player, so it would switch sides.
-  it.each(["hillshire", "grunlingen", "frozen-swamp"])(
+  it.each(HYBRID_MAPS)(
     "gives %s's objectives a side by team, not by player number",
     (name) => {
       const { objectives = [] } = manager.getScenario(name);

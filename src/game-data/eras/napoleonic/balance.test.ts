@@ -98,6 +98,12 @@ describe("Napoleonic balance", () => {
     }
   });
 
+  it("caps the charge resistance neighbours add at 0.1", () => {
+    expect(
+      gameDataManager.getGameConstants().NEARBY_UNITS_CHARGE_RESISTANCE_MODIFIER_CAP,
+    ).toBe(0.1);
+  });
+
   it("uses the requested cavalry cannonball and shell resistances and artillery shell resistances", () => {
     const shells = ["explosive-shell", "10lb-explosive-shell", "18lb-explosive-shell"];
     const cannonballs = ["4lb", "6lb", "8lb", "10lb", "12lb", "18lb"].map(
@@ -1150,7 +1156,7 @@ describe("Napoleonic balance", () => {
     ]) {
       const cavalry = gameDataManager.getUnitCategoryTemplate(category);
 
-      expect(cavalry.damageTypeResistances?.bayonet).toBe(-0.3);
+      expect(cavalry.damageTypeResistances?.bayonet).toBe(0);
       expect(cavalry.chargeStaminaCost! / STAT_PRECISION_SCALE).toBe(25);
       expect(cavalry.chainsCharges).toBe(true);
     }

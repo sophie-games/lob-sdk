@@ -41,6 +41,9 @@ import moravianValley from "./scenarios/moravian-valley.json";
 import rollingHills from "./scenarios/rolling-hills.json";
 import masurianLakes from "./scenarios/masurian-lakes.json";
 import frozenSwampRandom from "./scenarios/frozen-swamp-random.json";
+import mountainPass from "./scenarios/mountain-pass.json";
+import rasputitsa from "./scenarios/rasputitsa.json";
+import laMeuseHybrid from "./scenarios/la-meuse-hybrid.json";
 
 export const napoleonicScenarioCatalog = {
   plains,
@@ -61,6 +64,7 @@ export const napoleonicScenarioCatalog = {
   "rolling-hills": rollingHills,
   "masurian-lakes": masurianLakes,
   "frozen-swamp-random": frozenSwampRandom,
+  "mountain-pass": mountainPass,
   "andes-and-valley": andesAndValley,
   "lines-of-legends": linesOfLegends,
   "river-valley": riverValley,
@@ -85,4 +89,6 @@ export const napoleonicScenarioCatalog = {
   hillshire,
   grunlingen,
   "frozen-swamp": frozenSwamp,
+  rasputitsa,
+  "la-meuse-hybrid": laMeuseHybrid,
 } as unknown as ScenarioCatalog;

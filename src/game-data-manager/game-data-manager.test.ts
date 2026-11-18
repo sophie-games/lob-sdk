@@ -50,6 +50,7 @@ describe("GameDataManager", () => {
           "rolling-hills",
           "masurian-lakes",
           "frozen-swamp-random",
+          "mountain-pass",
         ]),
       );
     });

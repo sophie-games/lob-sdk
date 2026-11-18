@@ -48,16 +48,16 @@
         "min_scaling_factor": {
           "s": 1,
           "m": 1,
-          "l": 2,
-          "xl": 3,
-          "xxl": 3
+          "l": 1,
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
           "s": 1,
-          "m": 2,
-          "l": 3,
-          "xl": 4,
-          "xxl": 4
+          "m": 1,
+          "l": 1,
+          "xl": 1,
+          "xxl": 1
         }
       },
       "width": 3,
@@ -88,7 +88,39 @@
       "curveLen": 1,
       "curveWeight": 0,
       "noiseWeight": 0,
-      "noiseSmoothness": 1
+      "noiseSmoothness": 1,
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 0,
+            "max": 10
+          },
+          "yRange": {
+            "min": 20,
+            "max": 30
+          }
+        },
+        {
+          "xRange": {
+            "min": 0,
+            "max": 10
+          },
+          "yRange": {
+            "min": 40,
+            "max": 50
+          }
+        },
+        {
+          "xRange": {
+            "min": 0,
+            "max": 10
+          },
+          "yRange": {
+            "min": 60,
+            "max": 70
+          }
+        }
+      ]
     },
     {
       "type": "EROSION",
@@ -120,24 +152,24 @@
       "between": "left-right",
       "range": {
         "min": 0,
-        "max": 40
+        "max": 25
       },
       "amount": {
         "min": 1,
-        "max": 2,
+        "max": 1,
         "min_scaling_factor": {
           "s": 1,
           "m": 1,
-          "l": 2,
-          "xl": 3,
-          "xxl": 3
+          "l": 1,
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
-          "s": 1,
+          "s": 2,
           "m": 2,
-          "l": 3,
-          "xl": 4,
-          "xxl": 4
+          "l": 2,
+          "xl": 2,
+          "xxl": 2
         }
       },
       "width": 1,
@@ -175,25 +207,25 @@
       "terrain": 4,
       "between": "left-right",
       "range": {
-        "min": 60,
+        "min": 75,
         "max": 100
       },
       "amount": {
         "min": 1,
-        "max": 2,
+        "max": 1,
         "min_scaling_factor": {
           "s": 1,
           "m": 1,
-          "l": 2,
-          "xl": 3,
-          "xxl": 3
+          "l": 1,
+          "xl": 1,
+          "xxl": 1
         },
         "max_scaling_factor": {
-          "s": 1,
+          "s": 2,
           "m": 2,
-          "l": 3,
-          "xl": 4,
-          "xxl": 4
+          "l": 2,
+          "xl": 2,
+          "xxl": 2
         }
       },
       "width": 1,
@@ -224,7 +256,39 @@
       "curveLen": 1,
       "curveWeight": 0,
       "noiseWeight": 0,
-      "noiseSmoothness": 1
+      "noiseSmoothness": 1,
+      "midPoints": [
+        {
+          "xRange": {
+            "min": 20,
+            "max": 30
+          },
+          "yRange": {
+            "min": 75,
+            "max": 100
+          }
+        },
+        {
+          "xRange": {
+            "min": 40,
+            "max": 50
+          },
+          "yRange": {
+            "min": 75,
+            "max": 100
+          }
+        },
+        {
+          "xRange": {
+            "min": 60,
+            "max": 70
+          },
+          "yRange": {
+            "min": 75,
+            "max": 100
+          }
+        }
+      ]
     },
     {
       "type": "EROSION",
@@ -331,7 +395,7 @@
         },
         {
           "terrain": 3,
-          "cost": 0
+          "cost": 1
         }
       ]
     },
@@ -341,11 +405,27 @@
       "between": "top-bottom",
       "amount": {
         "min": 1,
-        "max": 1
+        "max": 1,
+        "min_scaling_factor": {
+          "xs": 1,
+          "s": 1,
+          "m": 2,
+          "l": 2,
+          "xl": 3,
+          "xxl": 3
+        },
+        "max_scaling_factor": {
+          "xs": 1,
+          "s": 2,
+          "m": 2,
+          "l": 3,
+          "xl": 3,
+          "xxl": 4
+        }
       },
       "range": {
         "min": 20,
-        "max": 40
+        "max": 50
       },
       "width": 1,
       "terrainReplacements": [
@@ -386,62 +466,7 @@
         },
         {
           "terrain": 3,
-          "cost": 0
-        }
-      ]
-    },
-    {
-      "type": "NATURAL_PATH",
-      "terrain": 3,
-      "between": "top-bottom",
-      "amount": {
-        "min": 1,
-        "max": 2
-      },
-      "range": {
-        "min": 45,
-        "max": 65
-      },
-      "width": 1,
-      "terrainReplacements": [
-        {
-          "fromTerrain": 3,
-          "toTerrain": 3
-        },
-        {
-          "fromTerrain": 4,
-          "toTerrain": 7
-        },
-        {
-          "fromTerrain": 7,
-          "toTerrain": 7
-        }
-      ],
-      "heightDiffCost": 2,
-      "terrainCosts": [
-        {
-          "terrain": 0,
           "cost": 1
-        },
-        {
-          "terrain": 17,
-          "cost": 2
-        },
-        {
-          "terrain": 18,
-          "cost": 4
-        },
-        {
-          "terrain": 1,
-          "cost": 6
-        },
-        {
-          "terrain": 4,
-          "cost": 25
-        },
-        {
-          "terrain": 3,
-          "cost": 0
         }
       ]
     },
@@ -451,10 +476,26 @@
       "between": "top-bottom",
       "amount": {
         "min": 1,
-        "max": 2
+        "max": 1,
+        "min_scaling_factor": {
+          "xs": 1,
+          "s": 1,
+          "m": 2,
+          "l": 2,
+          "xl": 3,
+          "xxl": 3
+        },
+        "max_scaling_factor": {
+          "xs": 1,
+          "s": 2,
+          "m": 2,
+          "l": 3,
+          "xl": 3,
+          "xxl": 4
+        }
       },
       "range": {
-        "min": 70,
+        "min": 60,
         "max": 90
       },
       "width": 1,
@@ -496,7 +537,7 @@
         },
         {
           "terrain": 3,
-          "cost": 0
+          "cost": 1
         }
       ]
     },
@@ -551,7 +592,7 @@
         },
         {
           "terrain": 3,
-          "cost": 0
+          "cost": 1
         }
       ]
     },
@@ -606,7 +647,7 @@
         },
         {
           "terrain": 3,
-          "cost": 0
+          "cost": 1
         }
       ]
     },
