@@ -1,11 +1,33 @@
 import {
+  ELO_K_FACTOR_FLOORS,
+  ELO_PLACEMENT_GAMES,
   getEloAboveTopLeague,
   getLeagueBounds,
   getLeagueByElo,
   getLeagueProgress,
   hasReachedLeague,
+  hasCompletedEloPlacements,
   LeagueType,
 } from "./league";
+
+describe("ELO_K_FACTOR_FLOORS", () => {
+  it("owns the adaptive rating policy as ordered SDK data", () => {
+    expect(ELO_K_FACTOR_FLOORS).toEqual([
+      { maxSettledRankedGamesExclusive: 5, minimumKFactor: 64 },
+      { maxSettledRankedGamesExclusive: 30, minimumKFactor: 40 },
+      { maxSettledRankedGamesExclusive: 100, minimumKFactor: 32 },
+    ]);
+  });
+});
+
+describe("hasCompletedEloPlacements()", () => {
+  it("reveals the rating after five settled ranked games", () => {
+    expect(ELO_PLACEMENT_GAMES).toBe(5);
+    expect(hasCompletedEloPlacements(4)).toBe(false);
+    expect(hasCompletedEloPlacements(5)).toBe(true);
+    expect(hasCompletedEloPlacements(6)).toBe(true);
+  });
+});
 
 describe("getLeagueByElo()", () => {
   it("maps elo to the correct league at band boundaries", () => {

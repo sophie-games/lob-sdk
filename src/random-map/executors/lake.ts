@@ -28,7 +28,8 @@ export class LakeExecutor {
     private seed: number,
     private index: number,
     private terrains: TerrainType[][],
-    private heightMap: number[][]
+    private heightMap: number[][],
+    private maxHeightStep: number,
   ) {
     this.tilesX = this.terrains.length;
     this.tilesY = this.terrains[0].length;
@@ -132,7 +133,7 @@ export class LakeExecutor {
 
         if (distance <= organicRadius) {
           this.terrains[x][y] = this.instruction.terrains.deep;
-          setHeightRecursively(x, y, 0, this.heightMap);
+          setHeightRecursively(x, y, 0, this.heightMap, this.maxHeightStep);
           deepTiles.add(x, y);
         }
       }
@@ -145,7 +146,7 @@ export class LakeExecutor {
         }
 
         this.terrains[dx][dy] = this.instruction.terrains.shallow;
-        setHeightRecursively(dx, dy, 0, this.heightMap);
+        setHeightRecursively(dx, dy, 0, this.heightMap, this.maxHeightStep);
         shallowTiles.add(dx, dy);
       });
     }
@@ -157,7 +158,7 @@ export class LakeExecutor {
         }
 
         this.terrains[dx][dy] = this.instruction.terrains.shore;
-        setHeightRecursively(dx, dy, 0, this.heightMap);
+        setHeightRecursively(dx, dy, 0, this.heightMap, this.maxHeightStep);
       });
     }
   }

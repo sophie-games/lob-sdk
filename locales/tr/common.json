@@ -1,4 +1,11 @@
 {
+  "orderUndo": {
+    "title": "Son emri geri al",
+    "description": "Önceki emirleri geri yükle. Etkilenen birimler: {{count}}.",
+    "empty": "Geri alınacak emir yok."
+  },
+  "otherGameModes": "Diğer oyun modları",
+  "partyWaitingForTeammate": "Takım arkadaşı bekleniyor",
   "orderSpeed": "Emir",
   "orderChargeResistance": "Emir",
   "shooting": "Ateş",
@@ -11,26 +18,55 @@
   "verified": "Doğrulanmış hesap",
   "tools": "Araçlar",
   "rotateCamera": "Döndür",
+  "lineOfSight": "Görüş hattı",
+  "appLoadingMessage": "Savaş Çizgilerine Hoş Geldiniz!",
   "skip": "Atla",
   "home": "Ana Sayfa",
+  "homeStartBattle": "Bir savaş başlat ya da sürdür",
+  "homeBrowseStore": "Birlikler, avatarlar ve ekstralar",
+  "homeCreateBattles": "Kendi senaryolarını oluştur",
+  "homeWinTogether": "Haftalık ligde oyna",
+  "homeCheckRanking": "Lider tablosunu gör",
+  "homeBuildArmies": "Ordularını kur",
+  "homeWatchBattles": "Biten oyunlar ve tekrarlar",
+  "homeExploreGuide": "Her birlik, emir, arazi ve düzen",
+  "homeDiscordPrompt": "Bir savaştan sonra diğer oyuncular seni bulabilsin.",
+  "viewGame": "Oyunu görüntüle",
+  "lobopedia": "LoBopedia",
+  "homeBattles": {
+    "title": "Savaşların",
+    "ready_one": "{{count}} savaş emirlerini bekliyor",
+    "ready_other": "{{count}} savaş emirlerini bekliyor",
+    "waiting": "Emirler gönderildi. Karşı taraf bekleniyor.",
+    "empty": "Aktif savaş yok. Sıradaki turun burada görünecek.",
+    "offlineSaved": "Aktif çevrimiçi savaş yok. Kayıtlı alıştırma savaşın aşağıda.",
+    "more_one": "+{{count}} daha",
+    "more_other": "+{{count}} daha",
+    "battle": "Savaş #{{id}}",
+    "against": "rakip: {{players}}",
+    "matchFound": "Maç bulundu",
+    "deploy": "Konuşlan",
+    "yourTurn": "Sıra sende",
+    "continueBattle": "Savaşa devam et"
+  },
   "admin": "Yönetici",
   "analytics": "Analitik",
   "language": "Dil",
-  "tutorial": "Eğitim",
-  "skipTutorialTitle": "Eğitimi atla",
-  "skipTutorialMessage": "Eğitimin geri kalanını atlayıp menüye dönmek ister misin? Tamamlaman tekrar istenmeyecek.",
-  "goToTutorial": "Eğitime git",
-  "tutorials": "Öğreticiler",
   "play": "Oyna",
   "ranking": "Sıralama",
   "profile": "Profil",
   "history": "Geçmiş",
   "store": "Mağaza",
-  "supporters": "Destekçiler",
   "elo": "Elo",
   "level": "Seviye",
   "baseLevelExperience": "Temel seviye deneyimi",
   "experience": "Deneyim",
+  "coalitionProgression": {
+    "title": "Koalisyon seviyesi",
+    "fixedCapacity": "{{count}} üye · sabit kapasite",
+    "contribute": "{{amount}} Florin katkıda bulun",
+    "completeWithPrestige": "{{amount}} Prestij ile tamamla"
+  },
   "nextLevelExperience": "Sonraki seviye deneyimi",
   "season": "Sezon",
   "time": "Süre",
@@ -59,6 +95,7 @@
     "turn": "Tur {{turnNumber}}/{{maxTurn}}"
   },
   "withdrawMessage": "Bu oyundan çekilirseniz bu bir kayıp olarak sayılacak ve Elo'nuz düşecektir, çekilmek istediğinizden emin misiniz?",
+  "withdrawUnrankedMessage": "Bu oyundan çekilirseniz yenilmiş sayılırsınız. Çekilmek istediğinizden emin misiniz?",
   "loading": "Yükleniyor...",
   "yes": "Evet",
   "no": "Hayır",
@@ -159,6 +196,16 @@
   "power": "Güç",
   "units": "Birimler",
   "unitSkins": "Birim Görünümleri",
+  "armySkins": {
+    "open": "Görünümler",
+    "composition": "Kompozisyon",
+    "help": "Kuşan, görünümü bu kompozisyonda o birliğe sahip her tugaya uygular. Tugay tugay seçim için kompozisyon düzenleyicisini kullan.",
+    "equip": "Kuşan",
+    "unequip": "Çıkar",
+    "wornBy": "{{total}} tugaydan {{worn}} tanesi kullanıyor",
+    "noBrigade": "Bu kompozisyonda bu birliğe sahip tugay yok",
+    "noCompositions": "Görünüm kuşanmak için bu savaş türü için bir ordu kompozisyonu oluştur."
+  },
   "avatars": "Avatarlar",
   "withdraw": "Çekil",
   "importScenario": "Senaryo içe aktar",
@@ -169,8 +216,7 @@
   },
   "scenarioEditorTags": {
     "tutorialMessage": "Nasıl kullanılacağını bilmiyor musunuz? Endişelenmeyin, size yardımcı olacağız! <tutorialLink>Burada eğitimi izleyin.</tutorialLink>",
-    "randomGuide": "Rastgele haritalar oluşturmayı öğrenmek ister misiniz? <0>Bu kılavuzu</0> okuyun.",
-    "baleriiMessage": "Oyuncular Balerii ve Nytka kendi harita editörlerini oluşturdular! Nasıl çalıştığını görmek için YouTube kanallarına göz atın:"
+    "randomGuide": "Rastgele haritalar oluşturmayı öğrenmek ister misiniz? <0>Bu kılavuzu</0> okuyun."
   },
   "scenarioEditorAutosave": {
     "title": "Otomatik Kaydedilmiş Senaryo",
@@ -228,10 +274,14 @@
   "purchase": "Satın Al",
   "purchased": "Satın Alındı",
   "forUnit": "{{unit}} için",
-  "maxUnitSkinsSelected": "Tür başına en fazla {{max}} skin",
   "select": "Seç",
   "edit": "Düzenle",
   "selectAll": "Tümünü Seç",
+  "unitContextMenu": {
+    "follow": "Takip et",
+    "addToSelection": "Seçime ekle",
+    "removeFromSelection": "Seçimden çıkar"
+  },
   "deselect": "Seçimi Kaldır",
   "removeFromSelectionTooltip": "Seçimden çıkar – çıkarmak için birliğe tıklayın",
   "keepOnlyThese": "Sadece bunları tut – tutulacak birlikleri seçin",
@@ -242,6 +292,7 @@
   "combating": "Savaş",
   "unitStat": {
     "hp": "Can",
+    "men": "Erkekler",
     "org": "Organizasyon",
     "stamina": "Dayanıklılık",
     "movement": "Hareket",
@@ -306,6 +357,7 @@
   "height": "Yükseklik",
   "orgDamageModifierByTargetOrg": "Hedef Organizasyonuna Göre Azalt",
   "damageModifierByTargetHp": "Hedef HP'ye Göre Hasar Modifikatörü",
+  "damageModifierByTargetMen": "Hedefin Asker Sayısına Göre Hasar Değiştirici",
   "heightModifierPerLevel": "Seviye Başına Yükseklik Değiştirici",
   "damageModifierPerLevel": "Seviye Başına Hasar Değiştirici",
   "maxElevationDiff": "Maksimum Yükselti Farkı",
@@ -343,7 +395,11 @@
     "22": "Tabya",
     "23": "Demiryolu",
     "24": "Demiryolu/Yol",
-    "25": "Kamp"
+    "25": "Kamp",
+    "26": "Tahkimli çiftlik",
+    "27": "Seyrek orman",
+    "28": "Seyrek orman, Kış",
+    "29": "Sur"
   },
   "clearPlayerUnits": "Oyuncu birimlerini temizle",
   "clearBotUnits": "Bot birimlerini temizle",
@@ -418,12 +474,270 @@
       }
     }
   },
-  "welcomeModal": {
-    "title": "Savaş Çizgilerine Hoş Geldiniz 👋",
-    "thanks": "Katıldığınız için teşekkürler, {{name}}!",
-    "p1": "<b>Lines of Battle</b>'da yeni misin? İlk savaşından önce temel mekanikleri öğrenmek için <tutorialLink>eğitimle</tutorialLink> başla."
+  "combatWhy": {
+    "chargeRepelled": "{{unit}}: hücum püskürtüldü ({{reasons}})",
+    "chargeRepelledPlain": "{{unit}}: hücum püskürtüldü",
+    "brokenByCharge": "{{unit}} bir hücum karşısında dağıldı ({{reasons}})",
+    "brokenByChargePlain": "{{unit}} bir hücum karşısında dağıldı",
+    "reason": {
+      "targetFormation": "hedef {{formation}} düzeninde",
+      "targetGround": "hedef {{terrain}} arazisinde",
+      "slowContact": "temas anında %{{percent}} hız",
+      "frontal": "cepheye çarptı",
+      "tired": "yorgun birlikler",
+      "disordered": "düzensiz birlikler",
+      "flanked": "kanattan vuruldu"
+    }
+  },
+  "gameTips": {
+    "victoryPoints": {
+      "title": "Zafer puanları",
+      "description": "Zafer puanlarında geride kalıyorsun. Verdiğin her kayıp ve düşmanın elinde tuttuğu her hedef sana puan kaybettirir. Farkın nereden geldiğini görmek için savaş genel bakış ekranını aç."
+    },
+    "blockedFire": {
+      "title": "Atış engellendi",
+      "description": "Askerlerin bu bataryanın atışlarını engelliyor. Ateş edebilmesi için atış hattını aç."
+    },
+    "organization": {
+      "title": "Sarsılmış birlik",
+      "description": "Bu birliğin organizasyonu düşük. Daha kötü savaşır ve organizasyonu tükenen bir birlik bozguna uğrar. Toparlanana kadar onu en yoğun ateşten uzak ve sağlam bir dost birliğin organizasyon yarıçapı içinde tut."
+    },
+    "range": {
+      "title": "Atış mesafesi",
+      "description": "Uzak atışlar daha az hasar verir. Yaklaş veya daha etkili atışlar için <autofire>otomatik ateşi</autofire> sınırla."
+    },
+    "flanks": {
+      "title": "Kanatlarını koru",
+      "description": "Yandan gelen ateş daha çok hasar verir. Tehdide dön ve yanlarını diğer birliklerle koru."
+    },
+    "charge": {
+      "title": "Hücumlarını seç",
+      "description": "Düzenli birliklere önden hücum risklidir. Ateşle zayıflat veya bir kanada saldır."
+    },
+    "slowCharge": {
+      "title": "Yavaş hücum",
+      "description": "Hücum, temas anında ne kadar hızlıysa o kadar sert vurur; engebeli arazi ve kalabalık rotalar onu yavaşlatır. Tam hızla vurmak için açık araziden hücum et."
+    },
+    "objectives": {
+      "title": "Küçük hedefler",
+      "description": "Küçük yıldızlar mühimmat rezervini yenilemeye yardım eder. Ordunun ateşi sürdürmesi için onları ele geçir."
+    },
+    "ammo": {
+      "view": "Mühimmatı gör",
+      "title": "Mühimmat",
+      "description": "Topçu, her tur yenilenen mühimmat rezervini tüketir. Mühimmat olmadan ateş edemez. Mühimmat tasarrufu için <autofire>otomatik ateşi</autofire> ayarla."
+    },
+    "running": {
+      "title": "Amaca yönelik koş",
+      "description": "Çoğu birlikte <run>koşmak</run> dayanıklılık harcar ve ardından bir hücuma uğrarlarsa daha kolay bozulmalarına yol açar. Hıza ihtiyacın veya hücum niyetin olana kadar <walk>yürü</walk>."
+    },
+    "overlap": {
+      "title": "Birlikleri üst üste bindirme",
+      "description": "Üst üste binen müttefikler daha yavaş hareket eder, yakın dövüşte daha az etkili savaşır, birbirini daha az destekler ve daha fazla organizasyon hasarı alır."
+    },
+    "terrain": {
+      "title": "Araziyi kullan",
+      "description": "Bu birliğin altındaki arazi, nasıl hareket edip savaştığını değiştiriyor. Ormanlar, binalar ve ekinler onu yavaşlatır ama siper sağlar; açık arazi daha hızlıdır. Tam olarak neyin geçerli olduğunu görmek için <info>Bilgi</info>'yi aç."
+    },
+    "howToWin": {
+      "title": "Bir savaş nasıl kazanılır",
+      "description": "Üstteki çubuk iki tarafın zafer puanlarını tartar. Hedefleri elinde tutmak ve düşmana kayıp verdirmek onu senin lehine eğer, son tur bittiğinde puanda geride kalan taraf yenilir. Puanların nereden geldiğini görmek için çubuğa tıkla."
+    },
+    "flags": {
+      "title": "Sahadaki bayraklar",
+      "description": "Sahaya dikilmiş bayraklar hedeflerdir: kimse tutmadığı sürece gridir, sonra onları tutan tarafın rengini alır. Her tümeninin arkasındaki sancak o tümenin kendi sancağıdır: ona tıklamak tüm tümeni seçer, ancak hemen altında bir birlik duruyorsa tıklamayı o birlik alır."
+    },
+    "findTroops": {
+      "title": "Birliklerini bul",
+      "description": "Kamera onu bıraktığın yerde kalır, bu yüzden savaş ilerledikçe hattın ekranın dışına kayabilir. Kamerayı o birliklere geri getirmek için ekranın altındaki tümen simgesine ya da savaş düzenindeki satırına çift tıkla."
+    },
+    "basicsSelect": {
+      "title": "Emir vermek",
+      "description": "Birliklerinizin üzerine bir kutu sürükleyerek onları seçin, sonra seçimden sürükleyerek gidecekleri yolu çizin. Tur çözülene kadar hiçbir şey hareket etmez."
+    },
+    "basicsOrderTypes": {
+      "title": "Emir türleri",
+      "description": "Her hareketin bir temposu var. <walk>Yürüyüş</walk> dayanıklılığı korur, <run>Koşu</run> daha hızlıdır ama yorar, <fireAndAdvance>Ateş ve İlerle</fireAndAdvance> yaklaşırken ateş eder. Değiştirmek için emir menüsünü açın."
+    },
+    "basicsFormations": {
+      "title": "Düzenler",
+      "description": "Düzen cephe genişliğini ve ateş gücünü belirler. <column>Kol</column> hızlı yürür, <line>hat</line> en çok tüfeği öne çıkarır, <square>kare</square> süvari bir kanadı ya da arkayı tehdit ettiğinde her yönü korur."
+    },
+    "basicsSubmit": {
+      "title": "Turu gönderme",
+      "description": "Emirler siz turu <submitOrders>gönderene</submitOrders> kadar bekler. İki ordu aynı anda çözülür, bu yüzden düşmanın nerede olacağını planlayın, nerede olduğunu değil."
+    },
+    "idleUnits": {
+      "title": "Emirsiz birlikler",
+      "description": "Bazı birlikleriniz bu turda emir almadı. Onlara emir verin, yoksa hattın geri kalanı ilerlerken yerlerinde kalırlar."
+    },
+    "skirmisherVsArtillery": {
+      "title": "Avcı piyade topçuya karşı",
+      "description": "Bir düşman bataryası avcı erlerinin menzilinde. Mürettebatına ateş aç: avcı erleri korumasız topları onlar karşılık veremeden yıpratır."
+    },
+    "skirmisherVsCavalry": {
+      "title": "Avcı piyadenizin yakınında süvari",
+      "description": "Düşman süvarisi avcı erlerine ulaşabilir ve onlar açık arazide bir hücumdan sağ çıkamaz. Sipere ya da kendi hatlarına doğru <fallback>geri çekil</fallback>."
+    },
+    "skirmisherVsInfantry": {
+      "title": "Avcı piyadenizin yakınında piyade",
+      "description": "Düşman piyadesi avcı erlerine yaklaşıyor ve avcı erleri yakın dövüşte zayıftır. Süngüler onlara ulaşmadan onları geri çek."
+    },
+    "infantryFormLine": {
+      "title": "Hat düzenine geç",
+      "description": "Bu birlikleri <line>hat</line> düzenine geçir. Düşman piyadesi tüfek menzilindeyken ya da süvari önden gelirken, hat en çok tüfeği öne çıkarır ve gelen yaylım ateşlerine en iyi dayanır. Önden bir hücuma karşı hat, ateş gücünün yarısını kaybedecek olan kareden daha iyidir."
+    },
+    "infantryVsCavalryFrontal": {
+      "title": "Hattı koru",
+      "description": "Düşman süvarisi piyadene önden hücum ediyor ama piyadenin hâlâ sırada bekleyen emirleri var. Hat hücuma doğru yürümek yerine yerinde durup ateş etsin diye onları <removeOrders>temizle</removeOrders>."
+    },
+    "infantryVsCavalryFlank": {
+      "title": "Kare düzenine geç",
+      "description": "Düşman süvarisi piyadenin kanadına ya da arkasına geliyor ve yandan vurulan bir hat ezilip geçilir. Her yüzde tüfekler dışarı baksın diye <square>kare</square> düzenine geç."
+    },
+    "infantryBayonetCharge": {
+      "title": "Süngü hücumu",
+      "description": "Zayıf düşman piyadesi hücum menzilinde. <column>Kol</column> düzenine geç ve üzerlerine <run>koş</run>: kol düzeninde bir süngü hücumu onları temas anında kırar."
+    },
+    "infantryFallback": {
+      "title": "Bu birliği geri çek",
+      "description": "Bu birlik dağılmak üzere: bir yaylım ateşi daha onu bozguna uğratabilir. Bozgunu yanındaki birlikleri sarsmadan önce onu şimdi hattan çek."
+    },
+    "infantryVsSkirmishers": {
+      "title": "Piyade avcı piyadeye karşı",
+      "description": "Düşman avcı erleri yakında ve gönderecek süvarin yok. <walk>Yürüyerek</walk> ilerle ve onları avcı erlerinin en zayıf olduğu yakın dövüşe zorla."
+    },
+    "infantryVsArtillery": {
+      "title": "Piyade topçuya karşı",
+      "description": "Düşman topları yakında ve onları perdeleyen hiçbir şey yok. Dönüp misket ateşi açamadan mürettebatın üzerine doğrudan <run>koş</run>."
+    },
+    "infantryColumnMarch": {
+      "title": "Sütun düzeninde yürü",
+      "description": "Bu birliğin yakınında düşman yok. Daha hızlı yürümek için <column>kol</column> düzenine geç ve temastan önce yeniden <line>hat</line> düzeni al."
+    },
+    "cavalryVsWeakerCavalry": {
+      "title": "Süvari daha zayıf süvariye karşı",
+      "description": "Hücum menzilindeki düşman süvarisi sarsılmış ve senin atlıların daha dinç. Onlar toparlanmadan şimdi hücum et."
+    },
+    "cavalryVsEqualCavalry": {
+      "title": "Süvari denk süvariye karşı",
+      "description": "Temas halindeki düşman süvarisi seninki kadar sağlam, bu yüzden bir hücum kazandırmadan dayanıklılık harcar. <walk>Yürüyerek</walk> yaklaş ve eşit şartlarda çarpış."
+    },
+    "cavalryVsStrongerCavalry": {
+      "title": "Süvari daha güçlü süvariye karşı",
+      "description": "Temas halindeki düşman süvarisi seninkinden daha sağlam ve burada bir yakın dövüş kaybedilir. Onlar saldırıyı sürdürmeden temastan çık ve yeniden düzen al."
+    },
+    "cavalryVsInfantryFlank": {
+      "title": "Kanada hücum et",
+      "description": "Düşman piyadesinin kanadı açık ve senin atlılarından daha sağlam değiller. Yana yapılan bir hücum onları kırar; önden yapılan kırmaz."
+    },
+    "cavalryVsShakenInfantry": {
+      "title": "Süvari sarsılmış piyadeye karşı",
+      "description": "Bu düşman piyadesinin organizasyonu neredeyse tükendi. Temiz bir hücum, toparlanamadan onları ezip geçer."
+    },
+    "cavalryVsSkirmishers": {
+      "title": "Süvari avcı piyadeye karşı",
+      "description": "Düşman avcı erleri açıkta yakalandı ve atlılarının önündeki yol açık. Yakın dövüşte zayıftırlar ve bir hücumdan kaçamazlar, bu yüzden sipere ulaşmadan onları ezip geç."
+    },
+    "cavalryVsArtillery": {
+      "title": "Süvari topçuya karşı",
+      "description": "Düşman topları, onları atlılarından koruyacak hiçbir şey olmadan duruyor. Korumasız bir mürettebata hücum bataryayı yok eder, ama araya bir piyade hattı girerse hücum onun karşısında kırılır."
+    },
+    "cavalryPursueRouter": {
+      "title": "Kaçanları kovala",
+      "description": "O düşman birliği bozuldu ve kaçıyor, yakında kovalamayı durduracak destek yok. Yeniden düzen almadan onu bitirmek için süvariyle takip et."
+    },
+    "cavalryFallbackFromInfantry": {
+      "title": "Tüfek ateşi altındaki süvari",
+      "description": "Süvarin, onu yıpratacak sağlam hat piyadesinin tüfek menzilinde. Geri çek ve bunun yerine sarsılmış birlikler ya da açık kanatlar ara."
+    },
+    "enemyInfantrySquare": {
+      "title": "Düşman karesi",
+      "description": "Düşman piyadesi kare düzeni aldı, her yüzünde tüfekler var. Süvarini ondan uzak tut ve kanadı açık, hat ya da kol düzenindeki piyadeyi ara."
+    },
+    "artilleryFireAndAdvance": {
+      "title": "Ateş ve ilerle",
+      "description": "Düşman, bu bataryanın ateş ederken yaklaşmayı sürdürebileceği kadar uzakta. Onu <fireAndAdvance>Ateş ve İlerle</fireAndAdvance> moduna geçir."
+    },
+    "artilleryRotateToFire": {
+      "title": "Ateş için dur",
+      "description": "Düşman yakında ve bu bataryanın temiz bir atış hattı var, ama hâlâ hareket ediyor. <autofire>Otomatik ateş</autofire> çalışabilsin diye onu durdur ve hedefe çevir."
+    },
+    "artilleryCanisterRange": {
+      "title": "Misket menziline yakın",
+      "description": "Düşman, bu bataryanın misket menzilinin hemen dışında. Biraz yaklaş ve yakından çok daha ağır hasar veren misket atmaya başlasın."
+    },
+    "pushObjective": {
+      "title": "Üstünlüğünü kullan",
+      "description": "Öndesin. Düşman hedefine doğru ilerle: onu almak farkı açar ve düşmana geri dönmek için çok az şans bırakır."
+    },
+    "holdObjective": {
+      "title": "Hedefini koru",
+      "description": "Puanda geridesin ve bu hedefi de kaybetmek farkı daha da açar. Üzerinde birlik tut, sonra puanları geri kazanmak için bir düşman hedefi ya da açıkta kalmış bir birlik ara."
+    },
+    "runWithoutStamina": {
+      "title": "Rahatça koşabilir",
+      "description": "Bu tür birlik yorulmaz, bu yüzden <run>koşmak</run> ona hiçbir şeye mal olmaz. Yakında düşman yokken uzun bir yolda onu koştur. Koştuktan hemen sonra ateş edemez ve hareket halindeyken bir hücum için kolay avdır."
+    },
+    "routing": {
+      "title": "Bir birlik bozuldu",
+      "description": "Bu birlik bozgunda. Yeni bozulmuş bir birlik çevresindeki dost birliklerin organizasyonunu düşürür. Sarsılmış birlikleri ondan uzak tut ve boşluğu taze bir yedekle kapat."
+    },
+    "stamina": {
+      "title": "Yorgun birlikler",
+      "description": "Bu birliğin dayanıklılığı düşük. Yorgun birlikler daha kötü hareket eder, ateş eder ve savaşır, dayanıklılık da yavaş geri gelir. Koşmak yerine <walk>yürü</walk> ve tekrar savaşa sokmadan önce dinlendir."
+    },
+    "rearFire": {
+      "title": "Arkadan ateş",
+      "description": "Menzildeki bir düşman bu birliğe sırtını dönmüş. Arkadan gelen ateş ona çok daha fazla organizasyona mal olur, o dönmeden bundan yararlan."
+    },
+    "orgRadius": {
+      "title": "Organizasyon yarıçapı",
+      "description": "Mavi daire bu birliğin organizasyon yarıçapıdır. İçindeki dost birlikler organizasyon kazanır, düşmanlar ise kaybeder. Bu birliğinki özellikle güçlüdür, onu ihtiyacı olan birliklerin yakınında tut."
+    },
+    "leaveSquare": {
+      "title": "Kareyi boz",
+      "description": "Görünürde düşman süvarisi yok. Bir <square>kare</square> neredeyse hiç hareket etmez ve ateşten ek hasar alır, bu yüzden süvari tekrar tehdit edene kadar <line>hat</line> ya da <column>kol</column> düzenine dön."
+    },
+    "shellsVsCover": {
+      "title": "Siper karşısında humbara",
+      "description": "Menzildeki bir düşman siperde. Patlayıcı humbaralar ormanlarda, binalarda ve toprak tabyalarda dolu güllelerden çok daha az etki kaybeder, bu yüzden siperdeki birliklere karşı doğru top budur."
+    },
+    "infoPanel": {
+      "title": "Birlik ayrıntıları",
+      "description": "Seçili bir birliğin silahlarını ve menzillerini, her düzenin neyi değiştirdiğini ve şu anda ona etki eden tüm değiştiricileri görmek için <info>Bilgi</info>'yi aç."
+    },
+    "uphillCharge": {
+      "title": "Yokuş yukarı hücum",
+      "description": "Bu hücum hedefine yokuş yukarı çıkıyor. Bir hücum tırmandığı her yükseklik seviyesinde güç kaybeder ve yamaç onu yavaşlatır. Düz ya da daha yüksek araziden hücum et veya önce hedefi yıprat."
+    },
+    "contestedCapture": {
+      "title": "Çekişmeli hedef",
+      "description": "Bu hedefin bölgesinde bir düşman birliği var. İki tarafın da orada birliği olduğu sürece ele geçirme ilerlemez ve ilerleme kaybolur. Hedefi almak için onu dışarı sür ya da boz."
+    },
+    "lineOnRoad": {
+      "title": "Yolda kol düzeni",
+      "description": "Bu tabur bir yol boyunca <line>hat</line> düzeninde yürüyor. Yol yalnızca üzerindeki birliği hızlandırır ve hat, yola sığmayacak kadar geniştir. Yürüyüş için <column>kol</column> düzenine geç."
+    },
+    "garrisonStrongpoint": {
+      "title": "Tahkimatı tut",
+      "description": "Bu taburun yakınındaki tahkimli çiftlik ya da sur boş görünüyor. İçindeki piyadeye ateşle, yakın dövüşte ya da hücumla zarar vermek çok daha zordur, ancak içeri girmek yavaştır. Düşmandan önce al."
+    },
+    "blockedSight": {
+      "title": "Bu birliğin görüşü dışında",
+      "description": "Ordunun gördüğü bir düşman bu birlikten gizli. Tepeler görüşü keser, ormanlar, binalar ve ekinler de görüş içlerinden geçtiğinde keser, yüksek yerden ise üstlerinden görülür. Oraya gitmeden önce bir noktadan neyin görüldüğünü <lineOfSight>Görüş hattı</lineOfSight> ile kontrol et."
+    },
+    "closeToApproach": {
+      "title": "Ne kadar yaklaşmalı",
+      "description": "<fireAndAdvance>Ateş ve İlerle</fireAndAdvance>, bu birliği silahlarının en iyi işlediği yerde durdurur. <autofire>Otomatik ateş</autofire> ayarlarındaki \"Ateş ve İlerle şurada durur\" seçeneği, ateş ederken yaklaşmayı sürdürmesini sağlar; böylece uzaktan ateş açıp ilerlemeyi yine de yakında bitirebilir."
+    },
+    "roundShotHeight": {
+      "title": "Dolu gülle ve yamaçlar",
+      "description": "Menzildeki bir düşman bu bataryanın epey üstünde ya da altında. Dolu gülle yerde seker, bu yüzden yokuş yukarı ya da aşağı ateş etmek sekmesini kısaltır ve her isabeti zayıflatır. Mümkünse topları hedefleriyle aynı seviyeye yerleştir. Humbara ve misket bundan etkilenmez."
+    }
   },
   "turn": "Tur",
+  "battleDay": "Gün {{day}}",
   "bank": "Rezerv",
   "cap": "Limit",
   "deploy": "Yerleşim",
@@ -442,8 +756,10 @@
     "3": "Ateş",
     "4": "Ateş ve İlerle",
     "6": "Geri Çekil",
-    "7": "Yüzleş"
+    "7": "Yüzleş",
+    "mixed": "Karma"
   },
+  "mixedOrderDescription": "Her birlik kendi emir türünü korur.",
   "selectOrder": "Emir Seç",
   "orderType": "Emir türü",
   "autofire": "Otomatik ateş",
@@ -451,6 +767,7 @@
   "autofireEffective": "Etkili menzil",
   "autofireMaxAmmoWarning": "Uzun menzilde hasar çok azdır ama yine de cephane harcarsın. Yalnızca ne yaptığını biliyorsan kullan.",
   "autofireRange": "Otomatik ateş menzili",
+  "approachRange": "Ateş ve İlerle şurada durur",
   "allowFireWhenMoving": "Hareket ederken ateşe izin ver",
   "meleeDamage": "Yakın dövüş hasarı",
   "rangedDamage": "Uzak mesafe hasarı",
@@ -562,6 +879,7 @@
   },
   "strength": "Güç",
   "casualties": "Kayıplar",
+  "missing": "Kaybolanlar",
   "kills": "Öldürmeler",
   "rewards": "Ödüller",
   "clan": "Koalisyon",
@@ -605,16 +923,6 @@
   "kick": "At",
   "noDescription": "Açıklama yok",
   "save": "Kaydet",
-  "ordersSubmittedDialog": {
-    "p1": {
-      "sent": "Emirler sunucuya gönderildi.",
-      "received": "Emirler sunucu tarafından alındı.",
-      "processed": "Emirler sunucu tarafından işlendi."
-    },
-    "p2": "{{value}} saniye içinde güncellemeler kontrol ediliyor",
-    "b": "Şimdi Kontrol Et",
-    "playersSubmitted": "oyuncu gönderdi"
-  },
   "search": {
     "clans": "Koalisyonları ara",
     "lob": "Lines of Battle'da ara"
@@ -678,6 +986,8 @@
     "hostWithLobby": "Lobiyle ev sahipliği yap",
     "allowUnbalancedTeams": "Dengesiz takımlara izin ver",
     "joinSlot": "Oyuncu {{slot}} olarak katıl",
+    "controlledBy": "{{controller}} tarafından yönetiliyor",
+    "controlledByLabel": "Yöneten",
     "slotTaken": "Yer alındı",
     "slotClosed": "Kapalı",
     "closeSlot": "Kapat",
@@ -698,6 +1008,7 @@
   },
   "limitedMode": {
     "title": "{{playersPerTeam}} vs {{playersPerTeam}} {{battleTypeName}}",
+    "asymmetricTitle": "{{team1}} vs {{team2}} {{battleTypeName}}",
     "sectionTitle": "Etkinlikler",
     "featured": "Öne çıkan",
     "largeScale": "Büyük ölçekli",
@@ -742,10 +1053,6 @@
     "scriptedEvents": "Senaryolu olaylar"
   },
   "academy": "Akademi",
-  "encyclopedia": "Ansiklopedi",
-  "tutorialTips": "Eğitim İpuçları",
-  "loadingScreenTips": "Yükleme Ekranı İpuçları",
-  "gameConstants": "Oyun Sabitleri",
   "ammo": "Cephane",
   "ammoConsumption": "Cephane Tüketimi",
   "arenas": "Arenalar",
@@ -763,6 +1070,7 @@
     "failedToRejoin": "Yeniden katılım başarısız",
     "failedToJoin": "Katılım başarısız",
     "arenaError": "Arena hatası",
+    "createdBy": "Oluşturan: <0>{{username}}</0>",
     "full": "Bu arena dolu. Başka bir arena deneyin veya daha sonra tekrar gelin.",
     "playersCount": "Oyuncular: {{current}}/{{max}}",
     "userLabel": "Kullanıcı {{id}}",
@@ -828,6 +1136,9 @@
   "baseAmmo": "Temel cephane",
   "range": "Menzil",
   "discord": {
+    "communityTitle": "Discord'da bize katıl",
+    "communityDescription": "Birlikte oynayacak kişiler bul, geri bildirim paylaş ya da üzerinde çalıştıklarımızı gör.",
+    "joinCommunity": "Discord'a katıl",
     "link": "Discord Bağla",
     "unlink": "Discord Bağlantısını Kes",
     "confirmMessage": "Discord hesabınızın bağlantısını kesmek istediğinizden emin misiniz?",
@@ -903,6 +1214,9 @@
   },
   "league": {
     "title": "Lig",
+    "placementTitle": "Yerleştirme savaşları",
+    "placementProgress": "{{completed}} / {{total}}",
+    "placementDescription": "Elo'nu ve ligini ortaya çıkarmak için {{total}} dereceli savaşı tamamla. Her sonuç seni açıklamaya bir adım daha yaklaştırır.",
     "emperor": "İmparator",
     "diamond-3": "Elmas III",
     "diamond-2": "Elmas II",
@@ -924,13 +1238,6 @@
     "iron-1": "Demir I",
     "unranked": "Derecesiz"
   },
-  "tutorialSummary": {
-    "heading": "Eğitim özeti",
-    "count": "{{total}} dersten {{seen}} tanesi gösterildi",
-    "description": "Her ders bilmeye değer bir durumu kapsar.",
-    "allSeen": "Eğitimdeki tüm dersleri gördün.",
-    "viewMissed": "Kaçırılan dersleri gör"
-  },
   "matchFoundModal": {
     "title": "Maç bulundu!",
     "message": "Yavaş maçın oynamaya hazır.",
@@ -938,7 +1245,6 @@
     "ignore": "Yoksay"
   },
   "max": "Maksimum",
-  "noAmmoRegain": "Cephane yenilenmez",
   "flankMeleeOrgModifier": "Flank yakın dövüş org değiştirici",
   "rearCharge": "Arkadan hücum",
   "deleteAccount": "Hesabı sil",
@@ -959,6 +1265,7 @@
   "cannotUseAfterRun": "Koştuktan sonra kullanılamaz",
   "copied": "Kopyalandı!",
   "skirmisherRatio": "Avcı Oranı",
+  "skirmisherNextBreakpoint": "Sonraki eşik",
   "projectileWidth": "Mermi Genişliği",
   "allyCollisionLevel": "Dost Çarpışma Seviyesi",
   "enemyCollisionLevel": "Düşman Çarpışma Seviyesi",
@@ -966,7 +1273,6 @@
   "back": "Geri",
   "autofirePriority": "Otomatik Ateş Önceliği",
   "heightOffset": "Yükseklik Ofseti",
-  "minDistanceToFAA": "Ateş ve İlerle için min. mesafe",
   "big": "Büyük",
   "small": "Küçük",
   "rotationSpeed": "Dönüş Hızı",
@@ -989,7 +1295,7 @@
   "setClanTag": "Etiketi ayarla",
   "kickClanMemberConfirmation": "{{username}} koalisyondan atılsın mı?",
   "coalition": "Coalition",
-  "coalitions": "Coalitions",
+  "coalitions": "Koalisyonlar",
   "coalitionUx": {
     "nameInvalid": "Koalisyon adı için 3–64 karakter kullan.",
     "namePlaceholder": "Koalisyon adı",
@@ -1004,12 +1310,120 @@
   "clanLeagueEnds": "Ends {{date}}",
   "reigningChampion": "Reigning champion",
   "noClanLeagueScores": "No coalition has scored this week yet.",
-  "weeklyGames": "games this week",
+  "weeklyGames": "games",
   "scoringMember": "scoring",
   "alreadyScoredThisWeek": "This player has already scored for another coalition this week and cannot switch until Monday.",
   "clanChat": "Coalition chat",
   "clanChatPlaceholder": "Message your coalition…",
   "clanChatWarning": "Coalition chat is private and persistent. Community rules still apply.",
   "chatSendFailed": "Failed to send message.",
-  "challengeClan": "Challenge"
+  "challengeClan": "Challenge",
+  "hideReplayInterface": "Arayüzü gizle",
+  "replayInterfaceKeyboardHint": "H: gizle/göster · Esc: göster",
+  "replayInterfaceTouchHint": "Arayüzü göstermek için haritaya iki kez dokunun.",
+  "filters": "Filtreler",
+  "minTurn": "En az tur",
+  "reset": "Sıfırla",
+  "applyFilters": "Filtreleri uygula",
+  "gameSearchAnyPlayerCount": "Herhangi bir sayı",
+  "gameSearchFinishedFrom": "Bitiş tarihi başlangıcı",
+  "gameSearchFinishedTo": "Bitiş tarihi sonu",
+  "gameSearchEmptyDescription": "Daha fazla tekrar bulmak için filtreleri genişletin.",
+  "firstSession": {
+    "title": "İlk savaşın",
+    "description": "Bota karşı kendi hızında emir vermeyi öğren. Harita ve ordular hazır.",
+    "startPractice": "Alıştırmaya başla",
+    "continuePractice": "Alıştırmaya devam et",
+    "customize": "Savaşı özelleştir",
+    "playOnline": "Çevrimiçi oyna"
+  },
+  "replaceOfflineGameWarning": "Yeni bir savaş, kayıtlı çevrimdışı oyununuzun ve ilerlemenizin yerini alır.",
+  "returnToMenu": "Menüye dön",
+  "exitGameHint": "Menüye dönmek savaşı duraklatmaz.",
+  "openReplayFile": "Tekrar dosyası aç",
+  "failedToLoadClans": "Koalisyonlar yüklenemedi. Tekrar deneyin.",
+  "emailConfirmation": {
+    "title": "E-postanızı doğrulayın",
+    "confirmed": "E-posta doğrulandı. Artık giriş yapabilirsiniz.",
+    "error": "E-posta doğrulanamadı. Bağlantı geçersiz veya süresi dolmuş olabilir."
+  },
+  "watchBattles": "Savaşları izle",
+  "offlineSetup": {
+    "title": "Antrenman savaşı nasıl kurulur",
+    "step1": "Savaşın ne kadar süreceğini ve düşmanı ne kadar görebileceğinizi seçin.",
+    "step2": "Bir senaryo ve savaş türü seçin ya da varsayılanları bırakın.",
+    "step3": "Aşağıdan orduları kurun, sonra savaşı oluşturun. Bu cihazda çalışır, yani durup geri dönebilirsiniz."
+  },
+  "unitComparison": {
+    "stop": "Karşılaştırmayı bitir",
+    "baseLabel": "Temel değerler",
+    "title": "Birimleri karşılaştır",
+    "choose": "Şununla karşılaştır…",
+    "sameCategory": "Aynı kategori",
+    "otherCategories": "Diğer kategoriler",
+    "gold": "Altın maliyeti",
+    "manpower": "İnsan gücü maliyeti",
+    "baseValues": "Arazi, düzen ve durum değiştiricilerinden önceki temel değerlerdir; çatışma tahmini değildir.",
+    "relativeTo": "Yüzdeler bu birimin {{unit}} birimine göre farkını gösterir.",
+    "stat": "Özellik",
+    "unavailable": "— değerin mevcut olmadığını veya uygulanamadığını belirtir."
+  },
+  "battleContinuation": {
+    "exports": "Kaydet veya dışa aktar",
+    "continueOffline": "Çevrimdışı devam et",
+    "replaceTitle": "Kayıtlı savaş değiştirilsin mi?",
+    "replace": "Değiştir ve devam et",
+    "noUnits": "Hayatta kalan birlik yok",
+    "title": "Savaşa devam et",
+    "description": "Bu konumdan yeni bir çevrimdışı savaş başlatın. Puanlar sıfırlanır; tam tekrar önceki eylemleri korur.",
+    "additionalTurns": "Ek turlar",
+    "download": "Savaşı indir",
+    "exportScenario": "Senaryoyu dışa aktar",
+    "scenarioHint": "Senaryo düzenlenebilir. Savaş dosyası tekrarı da korur.",
+    "chooseHuman": "Hayatta kalan birimleri olan bir insan oyuncu seçin.",
+    "error": "Bu savaş yüklenemedi veya kaydedilemedi. Tekrar deneyin.",
+    "import": "Savaş içe aktar"
+  },
+  "turnRecovery": {
+    "pending": "Savaş güncelleniyor…",
+    "failed": "Savaş güncellenemedi."
+  },
+  "orderOfBattle": {
+    "showArmy": "Orduyu göster",
+    "hideArmy": "Orduyu gizle"
+  },
+  "matchAcceptance": {
+    "firstRejection": "Yenilgi veya Elo kaybı yok. 24 saat içinde başka bir teklifi reddetmek veya kaçırmak hızlı dereceli eşleşmeyi 2 dakika kısıtlar.",
+    "restrictionTitle": "Eşleştirme geçici olarak kısıtlandı",
+    "restriction": "Birden fazla teklif reddedildi veya kaçırıldı. Hızlı dereceli eşleşme {{minutes}} dakika daha kısıtlı. Özel ve çevrimdışı oyunlar kullanılabilir.",
+    "restrictionEnded": "Kısıtlama sona erdi. Yeniden arayabilirsin.",
+    "rulesTitle": "Dereceli kuralları",
+    "rules": "Hızlı dereceli savaş, tüm oyuncular kabul edince başlar. Sonrasında ayrılmak ilk turda bile normal yenilgi sayılır; ek otomatik yasak uygulanmaz. 24 saat içinde alınan teklifleri reddetmek veya kaçırmak önce uyarı, sonra 2, 10 ve 60 dakikalık kısıtlamalar getirir; üst sınır 60 dakikadır. Reddetmek Elo düşürmez.",
+
+    "ready": "Dereceli · Hızlı",
+    "accept": "Maçı kabul et",
+    "decline": "Reddet",
+    "timeRemaining": "Kalan süre: {{count}} sn",
+    "sending": "Yanıtın onaylanıyor…",
+    "waiting": "Kabul ettin. Diğer oyuncular bekleniyor…",
+    "creating": "Tüm oyuncular kabul etti. Savaş hazırlanıyor…",
+    "reconnecting": "Yeniden bağlanılıyor…",
+    "error": "Yanıtın onaylanamadı. Tekrar dene.",
+    "ended": "Maç teklifi sona erdi",
+    "requeued": "Başka bir oyuncu onaylamadı. Bekleme önceliğin korunarak sıraya döndün.",
+    "noLoss": "Teklif yenilgi olmadan sona erdi. Yeniden arayabilirsin.",
+    "failed": "Savaşın oluşturulduğu doğrulanamadı. Yeniden aramadan önce kontrol et.",
+    "checkGame": "Maçı kontrol et"
+  },
+  "postMatch": {
+    "playAnother": "Bir Maç Daha Oyna",
+    "playAnotherError": "Sonraki maç oluşturulamadı. Tekrar dene.",
+    "addTeammate": "Takım Arkadaşını Ekle",
+    "messageTeammate": "Takım Arkadaşına Mesaj Gönder",
+    "friendRequestSent": "Arkadaşlık İsteği Gönderildi",
+    "shareReplay": "Tekrarı Paylaş",
+    "shareReplayText": "Bu Lines of Battle tekrarını izle",
+    "replayShared": "Tekrar paylaşıldı.",
+    "settingsFallback": "Önceki ayar artık mevcut değil, bu yüzden şu anda önerilen Hızlı Mod ayarı seçildi."
+  }
 }

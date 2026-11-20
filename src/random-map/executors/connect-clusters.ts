@@ -18,6 +18,7 @@ export class ConnectClustersExecutor {
     private index: number,
     private terrains: TerrainType[][],
     private heightMap: number[][],
+    private maxHeightStep: number,
   ) {
     this.random = randomSeeded(deriveSeed(seed, index + 1));
   }
@@ -58,6 +59,7 @@ export class ConnectClustersExecutor {
       random,
       terrains,
       heightMap,
+      this.maxHeightStep,
       terrain ?? pathTerrain,
       height,
       width,

@@ -9,6 +9,7 @@ import {
   NoiseFunction2D,
 } from "simplex-noise";
 import { clamp, getRandomFloat, setHeightRecursively } from "@lob-sdk/utils";
+import { InstructionArea } from "../frame-angle";
 
 export class HeightNoiseExecutor {
   private noiseFns: NoiseFunction2D[];
@@ -22,7 +23,10 @@ export class HeightNoiseExecutor {
     private seed: number,
     private index: number,
     private terrains: TerrainType[][],
-    private heightMap: number[][]
+    private heightMap: number[][],
+    private maxHeightStep: number,
+    /** On a turned map: where the instruction works and the local coordinates it samples. */
+    private area?: InstructionArea,
   ) {
     this.noiseFns = [];
     this.randomFns = [];
@@ -54,6 +58,10 @@ export class HeightNoiseExecutor {
   }
 
   execute() {
+    if (this.area) {
+      for (const [x, y, u, v] of this.area.tiles()) this.setTileBaseHeight(x, y, u, v);
+      return;
+    }
     const tilesX = this.terrains.length;
     const tilesY = this.terrains[0].length;
 
@@ -65,7 +73,8 @@ export class HeightNoiseExecutor {
     }
   }
 
-  private setTileBaseHeight(x: number, y: number) {
+  /** Sets tile (x, y) from the noise sampled at (u, v), which is the tile itself unless turned. */
+  private setTileBaseHeight(x: number, y: number, u = x, v = y) {
     const { noiseFns, randomFns, heightMap } = this;
 
     if (noiseFns.length === 0) {
@@ -110,7 +119,7 @@ export class HeightNoiseExecutor {
       } = noises[n];
 
       let value =
-        noiseFn(x / this.scalesX[n], y / this.scalesY[n]) * multiplier + offset;
+        noiseFn(u / this.scalesX[n], v / this.scalesY[n]) * multiplier + offset;
 
       if (randomness > 0) {
         value += getRandomFloat(-randomness, randomness, randomFn);
@@ -148,6 +157,6 @@ export class HeightNoiseExecutor {
     heightValue = Math.floor(heightValue * (max - min)) + min;
     heightValue = clamp(heightValue, min, max);
 
-    setHeightRecursively(x | 0, y | 0, heightValue, heightMap);
+    setHeightRecursively(x | 0, y | 0, heightValue, heightMap, this.maxHeightStep);
   }
 }

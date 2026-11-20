@@ -1,0 +1,1184 @@
+{
+  "version": 2,
+  "name": "name",
+  "description": "description",
+  "ranked": true,
+  "hidden": true,
+  "units": [],
+  "objectives": [],
+  "instructions": [
+    {
+      "type": "TERRAIN_CIRCLE",
+      "position": {
+        "type": "exact",
+        "coords": [
+          30,
+          50
+        ]
+      },
+      "radius": 12,
+      "falloff": 4,
+      "terrain": 0,
+      "height": 64
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 12,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 21,
+        "max": 24
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 3,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 25,
+        "max": 28
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 3,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 33,
+        "max": 36
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 12,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        3
+      ],
+      "height": {
+        "min": 25,
+        "max": 64
+      }
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "range": {
+        "min": 5,
+        "max": 5
+      },
+      "width": 3,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 0,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 1,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 100
+        },
+        {
+          "terrain": 4,
+          "cost": 100
+        },
+        {
+          "terrain": 12,
+          "cost": 5000
+        },
+        {
+          "terrain": 14,
+          "cost": 5000
+        },
+        {
+          "terrain": 20,
+          "cost": 5000
+        }
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 3,
+      "scale": 1,
+      "ranges": [
+        {
+          "min": 0.7,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 29,
+        "max": 32
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 3,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 41,
+        "max": 44
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 3,
+      "scale": 1,
+      "ranges": [
+        {
+          "min": 0.7,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 37,
+        "max": 40
+      }
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 20,
+      "between": "left-right",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "range": {
+        "min": 50,
+        "max": 50
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 0,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 100
+        },
+        {
+          "terrain": 1,
+          "cost": 250
+        },
+        {
+          "terrain": 3,
+          "cost": 1
+        },
+        {
+          "terrain": 4,
+          "cost": 100
+        },
+        {
+          "terrain": 12,
+          "cost": 500
+        },
+        {
+          "terrain": 14,
+          "cost": 500
+        },
+        {
+          "terrain": 20,
+          "cost": 2000
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 20,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "range": {
+        "min": 10,
+        "max": 25
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 0,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 1,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 1
+        },
+        {
+          "terrain": 4,
+          "cost": 100
+        },
+        {
+          "terrain": 12,
+          "cost": 50
+        },
+        {
+          "terrain": 14,
+          "cost": 50
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 20,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "range": {
+        "min": 35,
+        "max": 50
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 0,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 1,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 1
+        },
+        {
+          "terrain": 4,
+          "cost": 100
+        },
+        {
+          "terrain": 12,
+          "cost": 50
+        },
+        {
+          "terrain": 14,
+          "cost": 50
+        },
+        {
+          "terrain": 20,
+          "cost": 500
+        }
+      ]
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        2
+      ],
+      "maxDistance": 2,
+      "width": {
+        "min": 1,
+        "max": 2
+      },
+      "size": {
+        "min": 6,
+        "max": 12
+      },
+      "chance": 1,
+      "along": [
+        20
+      ],
+      "verge": 0
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 0,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        4,
+        7,
+        20
+      ],
+      "height": {
+        "min": 0,
+        "max": 0
+      }
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 44,
+      "max": 44,
+      "ranges": [
+        {
+          "min": 45,
+          "max": 48
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 40,
+      "max": 40,
+      "ranges": [
+        {
+          "min": 41,
+          "max": 44
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 36,
+      "max": 36,
+      "ranges": [
+        {
+          "min": 37,
+          "max": 40
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 32,
+      "max": 32,
+      "ranges": [
+        {
+          "min": 33,
+          "max": 36
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 28,
+      "max": 28,
+      "ranges": [
+        {
+          "min": 29,
+          "max": 32
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 24,
+      "max": 24,
+      "ranges": [
+        {
+          "min": 25,
+          "max": 28
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 20,
+      "max": 20,
+      "ranges": [
+        {
+          "min": 21,
+          "max": 24
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 16,
+      "max": 16,
+      "ranges": [
+        {
+          "min": 17,
+          "max": 20
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 12,
+      "max": 12,
+      "ranges": [
+        {
+          "min": 13,
+          "max": 16
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 8,
+      "max": 8,
+      "ranges": [
+        {
+          "min": 9,
+          "max": 12
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 4,
+      "max": 4,
+      "ranges": [
+        {
+          "min": 5,
+          "max": 8
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 0,
+      "max": 0,
+      "ranges": [
+        {
+          "min": 1,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 10,
+      "max": 10,
+      "ranges": []
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 20,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 1
+      },
+      "range": {
+        "min": 50,
+        "max": 70
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 0,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 1,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 100
+        },
+        {
+          "terrain": 4,
+          "cost": 100
+        },
+        {
+          "terrain": 12,
+          "cost": 100
+        },
+        {
+          "terrain": 14,
+          "cost": 100
+        },
+        {
+          "terrain": 20,
+          "cost": 5
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 20,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "range": {
+        "min": 70,
+        "max": 90
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 4,
+          "toTerrain": 7
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 0,
+      "terrainCosts": [
+        {
+          "terrain": 0,
+          "cost": 10
+        },
+        {
+          "terrain": 1,
+          "cost": 25
+        },
+        {
+          "terrain": 3,
+          "cost": 100
+        },
+        {
+          "terrain": 4,
+          "cost": 100
+        },
+        {
+          "terrain": 12,
+          "cost": 100
+        },
+        {
+          "terrain": 20,
+          "cost": 5
+        },
+        {
+          "terrain": 14,
+          "cost": 100
+        }
+      ]
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        2
+      ],
+      "maxDistance": 1,
+      "width": {
+        "min": 1,
+        "max": 2
+      },
+      "size": {
+        "min": 4,
+        "max": 8
+      },
+      "chance": 0.05,
+      "along": [
+        20
+      ],
+      "verge": 0
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        11,
+        18,
+        17
+      ],
+      "maxDistance": 10,
+      "width": {
+        "min": 2,
+        "max": 3
+      },
+      "size": {
+        "min": 4,
+        "max": 8
+      },
+      "chance": 0.8,
+      "along": [
+        20
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 1,
+      "scale": 20,
+      "ranges": [
+        {
+          "min": 0.9,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        2,
+        3,
+        4,
+        711,
+        12,
+        14,
+        17,
+        18,
+        20
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 27,
+      "scale": 1,
+      "ranges": [
+        {
+          "min": 0.7,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        0,
+        3,
+        4,
+        7,
+        11,
+        12,
+        14,
+        17,
+        18,
+        20
+      ]
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 11,
+      "toTerrain": 0,
+      "maxSize": 5
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 18,
+      "toTerrain": 0,
+      "maxSize": 5
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 17,
+      "toTerrain": 0,
+      "maxSize": 5
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 60,
+      "minHeight": 5,
+      "channelArea": 24
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 128,
+          "multiplier": 0.5,
+          "offset": 0.4
+        },
+        {
+          "scale": 64,
+          "multiplier": 0.25,
+          "offset": 0.2
+        },
+        {
+          "scale": 32,
+          "multiplier": 0.1,
+          "offset": 0.05
+        }
+      ],
+      "mergeStrategy": "avg",
+      "min": 0,
+      "max": 16,
+      "ranges": []
+    },
+    {
+      "type": "PLACE_NAMES",
+      "terrains": [
+        12,
+        3
+      ],
+      "names": [
+        "Resi",
+        "Navigo",
+        "Altalia",
+        "Tabasso",
+        "Trapasello",
+        "Trevara",
+        "Persa",
+        "Guidovigo",
+        "Cunia",
+        "Avesi",
+        "Brerese",
+        "Viadua",
+        "Altamezia",
+        "Casorta",
+        "Ancoliari",
+        "Bricino",
+        "Secino",
+        "Caltaneo",
+        "Scafame",
+        "Collelvano",
+        "Crerence",
+        "Pravona",
+        "Tuceno",
+        "Picellino",
+        "Pesaci",
+        "Scaggia",
+        "Basenza",
+        "Vatina",
+        "Bocce",
+        "Pescana",
+        "Lapoli",
+        "Ascomona",
+        "Flonia",
+        "Mazandria",
+        "Guinzio",
+        "Bolzamura",
+        "Chierona",
+        "Ancoggia",
+        "Fosa",
+        "Altavecchia",
+        "Matri"
+      ],
+      "minSize": 4,
+      "maxDistance": 4
+    },
+    {
+      "type": "PLACE_NAMES",
+      "terrains": [
+        2
+      ],
+      "names": [
+        "Civizia",
+        "Civireggio",
+        "Scafasto",
+        "Sevecchia",
+        "Tivome",
+        "Pevigo",
+        "Bustoia",
+        "Bolvano",
+        "Ragullo",
+        "Rovici",
+        "Sanregna",
+        "Picessa",
+        "Crescia",
+        "Teragliano",
+        "Norate",
+        "Veniscia",
+        "Salezio",
+        "Tevento",
+        "Pomelzano",
+        "Maraci",
+        "Bullino",
+        "Avessari",
+        "Naramo",
+        "Bredena",
+        "Rimicuse",
+        "Acemola",
+        "Cuvoli",
+        "Bagola",
+        "Trevirese",
+        "Bagheggio",
+        "Monteranto",
+        "Viazio",
+        "Portinice",
+        "Tavento",
+        "Sevano",
+        "Aprizio",
+        "Brirano",
+        "Pradena",
+        "Ferratri",
+        "Sanza",
+        "Casovara",
+        "Cosellino",
+        "Trato",
+        "Civitarli",
+        "Catarletta",
+        "Treviso",
+        "Ercogliari",
+        "Scancona",
+        "Trandria",
+        "Asconoa",
+        "Ercortu",
+        "Catasello",
+        "Battirsa",
+        "Venisello",
+        "Bergali",
+        "Salesi",
+        "Ercovento",
+        "Modessina",
+        "Acinoa",
+        "Fale",
+        "Masto",
+        "Roviggio",
+        "Pimura",
+        "Trevidica",
+        "Vitemura",
+        "Cosenzio",
+        "Legnagliano",
+        "Messiceno",
+        "Flovoli",
+        "Tascia",
+        "Crotoligno",
+        "Boloneo",
+        "Rerreni",
+        "Cresoria",
+        "Geste",
+        "Bollegno",
+        "Caserno",
+        "Rana",
+        "Racino",
+        "Ascomo",
+        "Guidona",
+        "Fiugola",
+        "Pomenoa",
+        "Messilogna",
+        "Vellenice",
+        "Taravorno",
+        "Brenoa",
+        "Pomeliari",
+        "Caselvano",
+        "Ercocce",
+        "Trecchia",
+        "Bolocuse",
+        "Velleria",
+        "Ravesena",
+        "Vittocino",
+        "Ferrasseto",
+        "Sassane",
+        "Acesto",
+        "Siera",
+        "Altarno",
+        "Collereggio",
+        "Pescasso",
+        "Piascia",
+        "Portimona",
+        "Pevano",
+        "Ancoste",
+        "Tivognano",
+        "Ascoviso",
+        "Fallegno",
+        "Gertici",
+        "Civitaranto",
+        "Terdenone",
+        "Imoggia",
+        "Caserma",
+        "Potencona",
+        "Agritone",
+        "Lamelia",
+        "Giuvia",
+        "Cataserta",
+        "Casela",
+        "Perusello",
+        "Resi",
+        "Altalia",
+        "Viteci",
+        "Navigo"
+      ],
+      "minSize": 4,
+      "maxDistance": 4
+    }
+  ],
+  "locales": {
+    "en": {
+      "name": "Walled City",
+      "description": "A city with stone walls and narrow streets, surrounded by villages and fields."
+    },
+    "es": {
+      "name": "Ciudad amurallada",
+      "description": "Una ciudad con murallas de piedra y calles estrechas, rodeada de aldeas y campos."
+    },
+    "fr": {
+      "name": "Ville fortifiée",
+      "description": "Une ville aux murailles de pierre et aux rues étroites, entourée de villages et de champs."
+    },
+    "de": {
+      "name": "Ummauerte Stadt",
+      "description": "Eine Stadt mit Steinmauern und engen Gassen, umgeben von Dörfern und Feldern."
+    },
+    "it": {
+      "name": "Città murata",
+      "description": "Una città con mura di pietra e strade strette, circondata da villaggi e campi."
+    },
+    "pt": {
+      "name": "Cidade Murada",
+      "description": "Uma cidade com muralhas de pedra e ruas estreitas, cercada por aldeias e campos."
+    },
+    "ru": {
+      "name": "Город-крепость",
+      "description": "Город с каменными стенами и узкими улицами, окружённый деревнями и полями."
+    },
+    "uk": {
+      "name": "Місто-фортеця",
+      "description": "Місто з кам'яними стінами та вузькими вулицями, оточене селами й полями."
+    },
+    "pl": {
+      "name": "Miasto warowne",
+      "description": "Miasto z kamiennymi murami i wąskimi uliczkami, otoczone wioskami i polami."
+    },
+    "hu": {
+      "name": "Fallal körülvett város",
+      "description": "Kőfalakkal és szűk utcákkal teli város, körülötte falvak és mezők."
+    },
+    "el": {
+      "name": "Τειχισμένη πόλη",
+      "description": "Μια πόλη με πέτρινα τείχη και στενά δρομάκια, περιτριγυρισμένη από χωριά και χωράφια."
+    },
+    "tr": {
+      "name": "Surlu Şehir",
+      "description": "Taş surları ve dar sokakları olan, köyler ve tarlalarla çevrili bir şehir."
+    },
+    "ar": {
+      "name": "المدينة المسوّرة",
+      "description": "مدينة ذات أسوار حجرية وشوارع ضيقة، تحيط بها القرى والحقول."
+    },
+    "hi": {
+      "name": "परकोटे वाला शहर",
+      "description": "पत्थर की दीवारों और संकरी गलियों वाला शहर, जो गाँवों और खेतों से घिरा है।"
+    },
+    "id": {
+      "name": "Kota Bertembok",
+      "description": "Kota bertembok batu dengan jalan-jalan sempit, dikelilingi desa dan ladang."
+    },
+    "th": {
+      "name": "เมืองกำแพง",
+      "description": "เมืองที่มีกำแพงหินและถนนแคบ ล้อมรอบด้วยหมู่บ้านและทุ่งนา"
+    },
+    "vi": {
+      "name": "Thành phố có tường thành",
+      "description": "Một thành phố với tường đá và những con phố hẹp, bao quanh bởi làng mạc và đồng ruộng."
+    },
+    "ja": {
+      "name": "城壁都市",
+      "description": "石の城壁と狭い路地を持つ都市。周囲には村と畑が広がる。"
+    },
+    "kr": {
+      "name": "성곽 도시",
+      "description": "돌 성벽과 좁은 골목을 지닌 도시로, 마을과 들판에 둘러싸여 있습니다."
+    },
+    "zh": {
+      "name": "城墙都市",
+      "description": "一座拥有石砌城墙和狭窄街道的城市，四周环绕着村庄和田野。"
+    }
+  },
+  "allowDynamicArmy": true,
+  "placeableObjectives": true
+}

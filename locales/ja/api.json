@@ -21,5 +21,9 @@
   "MAX_SLOW_QUEUE_LIMIT_REACHED": "キューで待機中のゲームがすでに上限に達しています。再度キューに入る前に1つ取り下げてください。",
   "USER_NOT_ADDED_TO_THE_QUEUE": "キューに追加できませんでした。もう一度お試しください。",
   "INVALID_CURRENCY_TYPE": "通貨の選択が無効です。",
-  "INTERNAL_ERROR": "問題が発生しました。再試行してください。"
+  "INTERNAL_ERROR": "問題が発生しました。再試行してください。",
+  "Username or email already taken": "ユーザー名またはメールアドレスは既に使用されています。",
+  "INVALID_EMAIL": "有効なメールアドレスを入力してください。",
+  "DISPOSABLE_EMAIL_NOT_ALLOWED": "一時的なメールアドレスは使用できません。",
+  "INVALID_USERNAME": "別の名前を選んでください：半角英数字、アンダースコア、ハイフンで3～50文字。"
 }

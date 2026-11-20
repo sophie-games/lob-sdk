@@ -1,7 +1,7 @@
 {
   "currencyShop": {
     "title": "<0/> Münzen bekommen",
-    "subtitle": "Schalte unglaubliche Kosmetikartikel frei und stich aus der Menge hervor!",
+    "subtitle": "Gib Prestige für Einheiten, Armeen, Arenen, Coalitions, Kosmetik und mehr aus.",
     "unavailable": "Der Shop ist derzeit nicht verfügbar. Bitte versuche es später erneut."
   },
 
@@ -11,7 +11,7 @@
     "basic": "Gulden",
     "premium": "Prestige",
     "basicDescription": "<currency/>: Verdiene diese, in dem Sie Partien spielen. Benutzen Sie es, um Einheiten auszubilden und eine Armee aufzubauen.",
-    "premiumDescription": "<currency/>: Für den Kauf von Kosmetikartikeln, um mit Ihrem Style anzugeben. Wird hauptsächlich durch das Ausgeben von Echtgeld erstanden, da dies ein kostenloses Spiel ist.",
+    "premiumDescription": "<currency/>: Gib es im ganzen Spiel für Einheiten, Armeen, Arenen, Coalitions, Kosmetik und mehr aus. Kaufe es oder verdiene es durch Spielen.",
     "rate": "{{rate}} {{currency}} pro USD",
     "purchase": "Kaufe {{amount}} {{currency}}"
   },
@@ -29,5 +29,6 @@
   },
 
   "purchaseConfirmation": "Sind Sie sicher, dass Sie {{item}} kaufen wollen?",
+  "showPurchased": "Gekaufte anzeigen",
   "offlineWarning": "Gekaufte Artikel funktionieren nur im Online-Modus, nicht offline."
 }

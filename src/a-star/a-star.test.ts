@@ -370,26 +370,19 @@ describe("AStar", () => {
     it("should benefit from caching on repeated queries", () => {
       const width = 50;
       const height = 50;
-      const getStepCost = () => 1;
+      const getStepCost = jest.fn(() => 1);
       const aStar = new AStar(width, height, getStepCost);
 
       const start: Point2 = { x: 0, y: 0 };
       const end: Point2 = { x: 49, y: 49 };
 
-      // First call (no cache)
-      const firstStart = performance.now();
-      aStar.findPath(start, end);
-      const firstEnd = performance.now();
-      const firstTime = firstEnd - firstStart;
+      const first = aStar.findPath(start, end);
+      expect(getStepCost).toHaveBeenCalled();
+      getStepCost.mockClear();
 
-      // Second call (cached)
-      const secondStart = performance.now();
-      aStar.findPath(start, end);
-      const secondEnd = performance.now();
-      const secondTime = secondEnd - secondStart;
-
-      // Cached call should be significantly faster
-      expect(secondTime).toBeLessThan(firstTime / 10); // At least 10x faster
+      // Counting the search's work instead of timing it, which a GC pause can upset.
+      expect(aStar.findPath(start, end)).toEqual(first);
+      expect(getStepCost).not.toHaveBeenCalled();
     });
 
     it("should handle complex obstacle mazes efficiently", () => {

@@ -67,6 +67,49 @@
     "fixedEnemyCollisionLevel": 2
   },
 
+  "lightForest": {
+    "color": "#344c1c",
+    "staminaCostModifier": 0.75,
+    "hitboxHeight": 1.3,
+    "visionAbsorption": 32,
+    "movementModifier": {
+      "infantry": -0.4,
+      "armored": -0.7,
+      "motorized": -0.7
+    },
+    "attackModifier": {
+      "infantry": 0.4
+    },
+    "defenseModifier": {
+      "infantry": 0.5
+    },
+    "rangedAttackModifier": {
+      "infantry": -0.1
+    },
+    "projectileAbsorption": {
+      "musket": 0.3,
+      "marksman-musket": 0.12,
+      "rifle": 0.08,
+      "explosive-shell": 0.02,
+      "12lb-cannon-ball": 0.15,
+      "8lb-cannon-ball": 0.18,
+      "6lb-cannon-ball": 0.2,
+      "4lb-cannon-ball": 0.2,
+      "8lb-canister-fire": 0.2,
+      "12lb-canister-fire": 0.2,
+      "6lb-canister-fire": 0.2,
+      "4lb-canister-fire": 0.2,
+      "howitzer-canister": 0.2
+    },
+    "chargeResistanceModifier": {
+      "infantry": 0.5
+    },
+    "chargeBonusModifier": {
+      "infantry": -0.9
+    },
+    "fixedEnemyCollisionLevel": 2
+  },
+
   "building": {
     "color": "#9a8a70",
     "staminaCostModifier": 0.5,
@@ -114,7 +157,8 @@
   "path": {
     "color": "#c9be98",
     "staminaCostModifier": -0.5,
-    "prioritizeMovement": true,
+    "followedOnClick": true,
+    "takesOverAt": { "*": 0.5 },
     "movementModifier": {
       "infantry": 0.3
     }
@@ -130,7 +174,8 @@
   "railwayRoad": {
     "color": "#a68b6b",
     "staminaCostModifier": -0.5,
-    "prioritizeMovement": true,
+    "followedOnClick": true,
+    "takesOverAt": { "*": 0.5 },
     "canPlaceObjectives": true,
     "supplyRoute": true,
     "movementModifier": {
@@ -289,5 +334,84 @@
     "chargeResistanceModifier": {
       "infantry": 0.15
     }
+  },
+
+  "fortifiedFarm": {
+    "obstructsMovement": true,
+    "impassable": {
+      "*": true,
+      "infantry": false
+    },
+    "color": "#9a5a46",
+    "hitboxHeight": 1.3,
+    "visionAbsorption": 32,
+    "staminaCostModifier": 1,
+    "movementModifier": {
+      "infantry": -0.75
+    },
+    "defenseModifier": {
+      "infantry": 1
+    },
+    "projectileAbsorption": {
+      "musket": 0.8,
+      "marksman-musket": 0.55,
+      "rifle": 0.5,
+      "explosive-shell": 0.15,
+      "12lb-cannon-ball": 0.4,
+      "8lb-cannon-ball": 0.45,
+      "6lb-cannon-ball": 0.5,
+      "4lb-cannon-ball": 0.5,
+      "12lb-canister-fire": 0.6,
+      "8lb-canister-fire": 0.6,
+      "6lb-canister-fire": 0.6,
+      "4lb-canister-fire": 0.6,
+      "howitzer-canister": 0.6
+    },
+    "chargeResistanceModifier": {
+      "infantry": 0.9
+    },
+    "chargeBonusModifier": {
+      "infantry": -0.9
+    },
+    "fixedEnemyCollisionLevel": 2
+  },
+  "rampart": {
+    "obstructsMovement": true,
+    "impassable": {
+      "*": true,
+      "infantry": false
+    },
+    "color": "#8a7458",
+    "hitboxHeight": 1.3,
+    "visionAbsorption": 32,
+    "staminaCostModifier": 1,
+    "movementModifier": {
+      "infantry": -0.75
+    },
+    "defenseModifier": {
+      "infantry": 0.85
+    },
+    "projectileAbsorption": {
+      "musket": 0.8,
+      "marksman-musket": 0.55,
+      "rifle": 0.5,
+      "explosive-shell": 0.15,
+      "12lb-cannon-ball": 0.4,
+      "8lb-cannon-ball": 0.45,
+      "6lb-cannon-ball": 0.5,
+      "4lb-cannon-ball": 0.5,
+      "12lb-canister-fire": 0.6,
+      "8lb-canister-fire": 0.6,
+      "6lb-canister-fire": 0.6,
+      "4lb-canister-fire": 0.6,
+      "howitzer-canister": 0.6
+    },
+    "chargeResistanceModifier": {
+      "infantry": 0.8
+    },
+    "chargeBonusModifier": {
+      "infantry": -0.9
+    },
+    "fixedEnemyCollisionLevel": 2
   }
 }

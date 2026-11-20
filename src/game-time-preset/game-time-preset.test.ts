@@ -3,6 +3,12 @@ import { GameTimePresetManager } from "./game-time-preset";
 describe("GameTimePresetManager", () => {
   const manager = GameTimePresetManager.getInstance();
 
+  it("gives fast presets enough deployment time", () => {
+    expect(manager.get("bullet").deploymentTimeSeconds).toBe(120);
+    expect(manager.get("standard").deploymentTimeSeconds).toBe(240);
+    expect(manager.get("classic").deploymentTimeSeconds).toBe(360);
+  });
+
   describe("calculateTimeRemaining", () => {
     it("should return Infinity if id is missing", () => {
       expect(manager.calculateTimeRemaining(undefined, 1000, 1000)).toBe(Infinity);
