@@ -19,12 +19,13 @@ describe("ammo types", () => {
   });
 
   it("resolves a damage type's ammo type, falling back to the default", () => {
-    const canister = gdm.getDamageTypeByName<RangedDamageTypeTemplate>(
+    const base = gdm.getDamageTypeByName<RangedDamageTypeTemplate>(
       "12lb-canister-fire",
     );
+    const canister: RangedDamageTypeTemplate = { ...base, ammoType: "canister" };
     expect(gdm.getAmmoTypeOf(canister).name).toBe("canister");
 
-    const legacy: RangedDamageTypeTemplate = { ...canister, ammoType: undefined };
+    const legacy: RangedDamageTypeTemplate = { ...base, ammoType: undefined };
     expect(gdm.getAmmoTypeOf(legacy).name).toBe("round-shot");
   });
 
@@ -45,9 +46,13 @@ describe("ammo types", () => {
         .getUnitTemplateManager()
         .getTemplates()
         .find((t) => t.name === "12lb_artillery")!;
-      const legacy: UnitTemplate = { ...battery, ammo: 20000 };
+      const legacy: UnitTemplate = {
+        ...battery,
+        rangedDamageTypes: ["12lb-cannon-ball", "rocket"],
+        ammo: 20000,
+      };
       expect(gdm.getAmmoCapacity(legacy)).toEqual({
-        canister: 20000,
+        rocket: 20000,
         "round-shot": 20000,
       });
     });
@@ -91,12 +96,12 @@ describe("ammo types", () => {
     expect(failing).toEqual([]);
   });
 
-  it("splits canister and round shot into separate pools on a foot battery", () => {
-    const battery = gdm
+  it("gives every napoleonic unit with ammo a single pool", () => {
+    const multiPool = gdm
       .getUnitTemplateManager()
       .getTemplates()
-      .find((t) => t.name === "12lb_artillery")!;
-    const capacity = gdm.getAmmoCapacity(battery)!;
-    expect(Object.keys(capacity).sort()).toEqual(["canister", "round-shot"]);
+      .filter((t) => Object.keys(gdm.getAmmoCapacity(t) ?? {}).length > 1)
+      .map((t) => t.name);
+    expect(multiPool).toEqual([]);
   });
 });
