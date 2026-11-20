@@ -723,7 +723,7 @@ describe("Napoleonic balance", () => {
     const expectedByName = {
       line_infantry: { rangedAttack: 1700, meleeAttack: 4800, chargeBonus: 6000, runMovement: 125 },
       guards: { rangedAttack: 1900, meleeAttack: 5000, chargeBonus: 6500, runMovement: 130 },
-      light_infantry: { rangedAttack: 2000, meleeAttack: 4800, chargeBonus: 6000, runMovement: 140, skirmisherRatio: 1.2, walkMovement: 85 },
+      light_infantry: { rangedAttack: 2000, meleeAttack: 4800, chargeBonus: 6000, runMovement: 140, walkMovement: 85 },
       militia: { rangedAttack: 1400, meleeAttack: 2800, chargeBonus: 6000, runMovement: 125 },
       grenadiers: { rangedAttack: 1800, meleeAttack: 5600, chargeBonus: 7000, runMovement: 130 },
       skirmishers: {
@@ -761,6 +761,19 @@ describe("Napoleonic balance", () => {
       gameDataManager.getDamageTypeByName<RangedDamageTypeTemplate>("musket")
         .ranges[0].damageModifier.near,
     ).toBe(7);
+  });
+
+  it("sets infantry skirmisher ratios by cost to the nearest 0.05, gold worth two manpower", () => {
+    const templates = gameDataManager.getUnitTemplateManager().getTemplates();
+    const cost = (name: string) => {
+      const { manpower = 0, gold = 0 } = templates.find(t => t.name === name)!;
+      return manpower + 2 * gold;
+    };
+
+    for (const name of ["line_infantry", "grenadiers", "light_infantry", "guards", "militia"]) {
+      const ratio = templates.find(t => t.name === name)!.skirmisherRatio;
+      expect(ratio).toBeCloseTo(Math.round((cost(name) / cost("line_infantry")) * 20) / 20, 10);
+    }
   });
 
   it("uses the requested cavalry charge and organization balance", () => {
