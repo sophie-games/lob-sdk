@@ -951,7 +951,6 @@ describe("community random maps", () => {
   it.each([
     "walled-city",
     "farmlands",
-    "central-river",
     "moravian-valley",
     "rolling-hills",
     "masurian-lakes",

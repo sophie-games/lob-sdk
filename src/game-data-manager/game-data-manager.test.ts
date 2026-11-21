@@ -54,13 +54,14 @@ describe("GameDataManager", () => {
       );
     });
 
-    it.each(["walled-city", "central-river"])(
-      "retires %s while still loading it for older games",
-      (name) => {
-        expect(shown).not.toContain(name);
-        expect(gameDataManager.getScenario(name).hidden).toBe(true);
-      },
-    );
+    it("retires Walled City while still loading it for older games", () => {
+      expect(shown).not.toContain("walled-city");
+      expect(gameDataManager.getScenario("walled-city").hidden).toBe(true);
+    });
+
+    it("no longer ships Central River", () => {
+      expect(gameDataManager.getScenarioNames()).not.toContain("central-river");
+    });
 
     // The bottom side mirrors the top one, so a top zone facing down puts both armies face to face.
     it.each(ranked)("deploys %s's top side facing the enemy", (name) => {
