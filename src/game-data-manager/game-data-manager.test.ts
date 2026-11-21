@@ -45,7 +45,6 @@ describe("GameDataManager", () => {
       expect(ranked).toEqual(
         expect.arrayContaining([
           "farmlands",
-          "central-river",
           "moravian-valley",
           "rolling-hills",
           "masurian-lakes",
@@ -55,9 +54,20 @@ describe("GameDataManager", () => {
       );
     });
 
-    it("retires Walled City while still loading it for older games", () => {
-      expect(shown).not.toContain("walled-city");
-      expect(gameDataManager.getScenario("walled-city").hidden).toBe(true);
+    it.each(["walled-city", "central-river"])(
+      "retires %s while still loading it for older games",
+      (name) => {
+        expect(shown).not.toContain(name);
+        expect(gameDataManager.getScenario(name).hidden).toBe(true);
+      },
+    );
+
+    // The bottom side mirrors the top one, so a top zone facing down puts both armies face to face.
+    it.each(ranked)("deploys %s's top side facing the enemy", (name) => {
+      const { randomDeploymentZones } = gameDataManager.getScenario(name);
+      for (const { rotation } of randomDeploymentZones?.top ?? []) {
+        expect([undefined, Math.PI / 2]).toContain(rotation);
+      }
     });
 
     // Half plus one: any two players' selections always share a map.
