@@ -36,7 +36,6 @@ import grunlingen from "./scenarios/grunlingen.json";
 import frozenSwamp from "./scenarios/frozen-swamp.json";
 import walledCity from "./scenarios/walled-city.json";
 import farmlands from "./scenarios/farmlands.json";
-import centralRiver from "./scenarios/central-river.json";
 import moravianValley from "./scenarios/moravian-valley.json";
 import rollingHills from "./scenarios/rolling-hills.json";
 import masurianLakes from "./scenarios/masurian-lakes.json";
@@ -59,7 +58,6 @@ export const napoleonicScenarioCatalog = {
   "rivoli-plateau": rivoliPlateau,
   "walled-city": walledCity,
   farmlands,
-  "central-river": centralRiver,
   "moravian-valley": moravianValley,
   "rolling-hills": rollingHills,
   "masurian-lakes": masurianLakes,
