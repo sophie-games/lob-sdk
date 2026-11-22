@@ -216,6 +216,7 @@ describe("GameDataManager", () => {
       expect(factorsByEra).toEqual({
         napoleonic: {
           micro: 16,
+          micro_2v2: 16,
           clash: 24,
           combat: 32,
           battle: 40,

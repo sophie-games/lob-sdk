@@ -213,6 +213,11 @@ export interface BattleTypeTemplate {
    * Defaults to 1v1 when omitted; read via GameDataManager.getBattleTypeTeamSize.
    */
   teamSize?: TeamSize;
+  /**
+   * The battle type this one is a team-size variant of. Matchmaking shows it as
+   * a team-size option on that battle type's card rather than a card of its own.
+   */
+  variantOf?: DynamicBattleType;
 }
 
 /**

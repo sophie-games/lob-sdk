@@ -26,7 +26,37 @@
     "premiumCurrencyChance": 2,
     "maxTurn": 32,
     "ranked": true,
+    "vpTicksUnderPressureBase": 5
+  },
+  "micro_2v2": {
+    "manpower": 1600,
+    "gold": 750,
+    "skirmisherRatio": [1, 2],
+    "unitCaps": {
+      "17": 2,
+      "19": 1
+    },
+    "kFactor": 16,
+    "ticksToCaptureSmall": 64,
+    "ticksToCaptureBig": 64,
+    "vpBigDefaultPoints": 60,
+    "vpSmallDefaultPoints": 15,
+    "objectiveSpacing": 256,
+    "smallObjectivesPerSide": 1,
+    "centralNeutralObjectives": 2,
+    "neutralObjectiveSpacing": 448,
+    "defaultArmy": {
+      "1": 4,
+      "14": 2,
+      "2": 2,
+      "18": 2
+    },
+    "mapSize": ["s"],
+    "premiumCurrencyChance": 2,
+    "maxTurn": 32,
+    "ranked": true,
     "teamSize": "2v2",
+    "variantOf": "micro",
     "vpTicksUnderPressureBase": 5
   },
   "clash": {

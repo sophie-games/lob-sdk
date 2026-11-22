@@ -25,6 +25,7 @@
     "maxHpConsumptionReduction": -0.5,
     "ammoReserve": {
       "micro": 50000,
+      "micro_2v2": 50000,
       "clash": 100000,
       "combat": 200000,
       "battle": 300000,
@@ -32,6 +33,7 @@
     },
     "goldToAmmoRate": {
       "micro": 1200,
+      "micro_2v2": 1200,
       "clash": 1100,
       "combat": 1000,
       "battle": 900,
