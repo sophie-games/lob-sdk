@@ -1279,6 +1279,14 @@
   "special": "พิเศษ",
   "academy": "สถาบัน",
   "ammo": "กระสุน",
+  "ammoTypeOut": "{{ammoType}}หมด",
+  "ammoTypes": {
+    "round-shot": "กระสุน",
+    "canister": "กระสุนลูกปราย",
+    "shell": "กระสุนระเบิด",
+    "rocket": "จรวด",
+    "ammo": "กระสุน"
+  },
   "ammoConsumption": "การใช้กระสุน",
   "allowsCharging": "อนุญาตให้บุกประชิด",
   "limbersArtillery": "ใช้รถลากปืนใหญ่",

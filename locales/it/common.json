@@ -1118,6 +1118,14 @@
   },
   "academy": "Accademia",
   "ammo": "Munizioni",
+  "ammoTypeOut": "Senza {{ammoType}}",
+  "ammoTypes": {
+    "round-shot": "Munizioni",
+    "canister": "Mitraglia",
+    "shell": "Granate",
+    "rocket": "Razzi",
+    "ammo": "Munizioni"
+  },
   "ammoConsumption": "Consumo Munizioni",
   "allowsCharging": "Permette di caricare",
   "limbersArtillery": "Smonta l'artiglieria",

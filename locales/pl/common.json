@@ -1269,6 +1269,14 @@
   "special": "Specjalne",
   "academy": "Akademia",
   "ammo": "Amunicja",
+  "ammoTypeOut": "Brak: {{ammoType}}",
+  "ammoTypes": {
+    "round-shot": "Amunicja",
+    "canister": "Kartacze",
+    "shell": "Granaty",
+    "rocket": "Rakiety",
+    "ammo": "Amunicja"
+  },
   "ammoConsumption": "Zużycie Amunicji",
   "allowsCharging": "Pozwala na szarżę",
   "limbersArtillery": "Rozkłada artylerię",

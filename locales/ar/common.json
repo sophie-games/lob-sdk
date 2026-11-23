@@ -1334,6 +1334,14 @@
   "special": "خاص",
   "academy": "الأكاديمية",
   "ammo": "ذخيرة",
+  "ammoTypeOut": "نفدت: {{ammoType}}",
+  "ammoTypes": {
+    "round-shot": "ذخيرة",
+    "canister": "قذائف العلب",
+    "shell": "قذائف متفجرة",
+    "rocket": "صواريخ",
+    "ammo": "ذخيرة"
+  },
   "ammoConsumption": "استهلاك الذخيرة",
   "allowsCharging": "يسمح بالهجوم",
   "limbersArtillery": "مدفعية عجلات",

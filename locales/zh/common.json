@@ -1456,6 +1456,14 @@
   "special": "特殊",
   "academy": "学院",
   "ammo": "弹药",
+  "ammoTypeOut": "{{ammoType}}耗尽",
+  "ammoTypes": {
+    "round-shot": "弹药",
+    "canister": "霰弹",
+    "shell": "榴弹",
+    "rocket": "火箭",
+    "ammo": "弹药"
+  },
   "ammoConsumption": "弹药消耗",
   "allowsCharging": "允许冲锋",
   "limbersArtillery": "牵引火炮",

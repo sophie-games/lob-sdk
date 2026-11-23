@@ -1002,6 +1002,14 @@
   },
   "academy": "Akadémia",
   "ammo": "Lőszer",
+  "ammoTypeOut": "Elfogyott: {{ammoType}}",
+  "ammoTypes": {
+    "round-shot": "Lőszer",
+    "canister": "Kartács",
+    "shell": "Gránát",
+    "rocket": "Rakéták",
+    "ammo": "Lőszer"
+  },
   "ammoConsumption": "Lőszer Fogyasztás",
   "allowsCharging": "Lehetővé teszi a rohamot",
   "limbersArtillery": "Szétszereli az tüzérséget",

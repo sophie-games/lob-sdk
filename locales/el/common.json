@@ -1291,6 +1291,14 @@
   "special": "Ειδικό",
   "academy": "Ακαδημία",
   "ammo": "Μουντια",
+  "ammoTypeOut": "Εξαντλήθηκαν: {{ammoType}}",
+  "ammoTypes": {
+    "round-shot": "Πυρομαχικά",
+    "canister": "Χαλαζοβόλα",
+    "shell": "Οβίδες",
+    "rocket": "Ρουκέτες",
+    "ammo": "Πυρομαχικά"
+  },
   "ammoConsumption": "Κατανάλωση Μουντιας",
   "allowsCharging": "Επιτρέπει επίθεση",
   "limbersArtillery": "Αποσυναρμολογεί πυροβολικό",

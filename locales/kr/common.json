@@ -1321,6 +1321,14 @@
   "special": "특수",
   "academy": "학술원",
   "ammo": "탄약",
+  "ammoTypeOut": "{{ammoType}} 소진",
+  "ammoTypes": {
+    "round-shot": "탄약",
+    "canister": "산탄",
+    "shell": "유탄",
+    "rocket": "로켓",
+    "ammo": "탄약"
+  },
   "ammoConsumption": "탄약 소비량",
   "allowsCharging": "돌격 허용",
   "limbersArtillery": "화포 분가",

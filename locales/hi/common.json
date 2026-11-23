@@ -1326,6 +1326,14 @@
   "special": "विशेष",
   "academy": "अकादमी",
   "ammo": "गोला-बारूद",
+  "ammoTypeOut": "{{ammoType}} खत्म",
+  "ammoTypes": {
+    "round-shot": "गोला-बारूद",
+    "canister": "कनस्तर गोले",
+    "shell": "विस्फोटक गोले",
+    "rocket": "रॉकेट",
+    "ammo": "गोला-बारूद"
+  },
   "ammoConsumption": "गोला-बारूद खपत",
   "allowsCharging": "चार्जिंग की अनुमति देता है",
   "limbersArtillery": "लिम्बर तोपखाना",

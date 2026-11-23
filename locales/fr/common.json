@@ -1130,6 +1130,14 @@
   },
   "academy": "Académie",
   "ammo": "Munitions",
+  "ammoTypeOut": "À court : {{ammoType}}",
+  "ammoTypes": {
+    "round-shot": "Munitions",
+    "canister": "Mitraille",
+    "shell": "Obus",
+    "rocket": "Fusées",
+    "ammo": "Munitions"
+  },
   "ammoConsumption": "Consommation de Munitions",
   "allowsCharging": "Permet de charger",
   "limbersArtillery": "Limite l'artillerie",

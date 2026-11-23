@@ -1117,6 +1117,14 @@
   },
   "academy": "Akademie",
   "ammo": "Munition",
+  "ammoTypeOut": "{{ammoType}} aufgebraucht",
+  "ammoTypes": {
+    "round-shot": "Munition",
+    "canister": "Kartätschen",
+    "shell": "Granaten",
+    "rocket": "Raketen",
+    "ammo": "Munition"
+  },
   "ammoConsumption": "Munitionsverbrauch",
   "allowsCharging": "Ermöglicht Laden",
   "limbersArtillery": "Geschütze werden eingefahren",

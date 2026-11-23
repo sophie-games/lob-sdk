@@ -1333,6 +1333,14 @@
   "special": "Особые отряды",
   "academy": "Академия",
   "ammo": "Боеприпасы",
+  "ammoTypeOut": "Закончились: {{ammoType}}",
+  "ammoTypes": {
+    "round-shot": "Боеприпасы",
+    "canister": "Картечь",
+    "shell": "Гранаты",
+    "rocket": "Ракеты",
+    "ammo": "Боеприпасы"
+  },
   "ammoConsumption": "Расход боеприпасов",
   "allowsCharging": "Активирует натиск",
   "limbersArtillery": "Режим перемещения (Артиллерия)",
