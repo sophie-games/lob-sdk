@@ -1330,6 +1330,14 @@
   "special": "特殊",
   "academy": "アカデミー",
   "ammo": "弾薬",
+  "ammoTypeOut": "{{ammoType}}切れ",
+  "ammoTypes": {
+    "round-shot": "弾薬",
+    "canister": "散弾",
+    "shell": "榴弾",
+    "rocket": "ロケット",
+    "ammo": "弾薬"
+  },
   "ammoConsumption": "弾薬消費",
   "allowsCharging": "突撃を可能にする",
   "limbersArtillery": "大砲を牽引する",
