@@ -93,6 +93,12 @@
     "skirmishInfantry": "Skirmish Infantry",
     "ship": "Navy"
   },
+  "damageTypeCategory": {
+    "cannonBall": "Cannon Ball",
+    "canister": "Canister",
+    "explosiveShell": "Explosive Shell",
+    "sword": "Sword"
+  },
   "damageType": {
     "musket": "Musket",
     "light-musket": "Light Musket",
@@ -147,6 +153,7 @@
   },
   "dynamicBattleType": {
     "micro": "Micro",
+    "micro_2v2": "Micro 2v2",
     "clash": "Clash",
     "combat": "Combat",
     "battle": "Battle",

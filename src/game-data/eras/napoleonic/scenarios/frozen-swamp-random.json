@@ -1,0 +1,1028 @@
+{
+  "version": 2,
+  "name": "name",
+  "description": "description",
+  "ranked": true,
+  "units": [],
+  "objectives": [],
+  "instructions": [
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 256,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 11,
+      "max": 12,
+      "ranges": []
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 10,
+      "scale": 4,
+      "ranges": [
+        {
+          "min": 0.5,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": []
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 4,
+      "between": "edges",
+      "range": {
+        "min": 0,
+        "max": 100
+      },
+      "amount": {
+        "min": 1,
+        "max": 2,
+        "min_scaling_factor": {
+          "s": 1,
+          "m": 1,
+          "l": 2,
+          "xl": 3,
+          "xxl": 3
+        },
+        "max_scaling_factor": {
+          "s": 1,
+          "m": 2,
+          "l": 3,
+          "xl": 4,
+          "xxl": 4
+        }
+      },
+      "width": 2,
+      "height": 1,
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": 1
+        },
+        {
+          "terrain": 0,
+          "cost": 50
+        },
+        {
+          "terrain": 1,
+          "cost": 100
+        },
+        {
+          "terrain": 2,
+          "cost": 200
+        },
+        {
+          "terrain": 10,
+          "cost": 10
+        }
+      ],
+      "distance weight": 0.25,
+      "curveLen": 1,
+      "curveWeight": 0,
+      "noiseWeight": 0,
+      "noiseSmoothness": 1
+    },
+    {
+      "type": "TERRAIN_RECTANGLE",
+      "position": {
+        "type": "range",
+        "min": [
+          0,
+          0
+        ],
+        "max": [
+          100,
+          100
+        ]
+      },
+      "width": 1,
+      "height": 1,
+      "rotation": 0,
+      "terrain": 4,
+      "scatter": {
+        "count": 16,
+        "minWidth": 1,
+        "maxWidth": 1,
+        "minHeight": 1,
+        "maxHeight": 1,
+        "tries": 5
+      },
+      "excludeTerrains": [
+        4
+      ]
+    },
+    {
+      "type": "CONNECT_CLUSTERS",
+      "terrain": 4,
+      "fromTerrain": 4,
+      "pathTerrain": 4,
+      "minGroupSize": 1,
+      "maxDistance": 250,
+      "height": 1,
+      "width": 1,
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": 1
+        },
+        {
+          "terrain": 0,
+          "cost": 50
+        },
+        {
+          "terrain": 1,
+          "cost": 100
+        },
+        {
+          "terrain": 2,
+          "cost": 200
+        },
+        {
+          "terrain": 10,
+          "cost": 10
+        }
+      ]
+    },
+    {
+      "type": "CONNECT_CLUSTERS",
+      "terrain": 4,
+      "fromTerrain": 4,
+      "pathTerrain": 4,
+      "minGroupSize": 1,
+      "maxDistance": 250,
+      "height": 1,
+      "width": 1,
+      "terrainCosts": [
+        {
+          "terrain": 4,
+          "cost": 1
+        },
+        {
+          "terrain": 0,
+          "cost": 50
+        },
+        {
+          "terrain": 1,
+          "cost": 100
+        },
+        {
+          "terrain": 2,
+          "cost": 200
+        },
+        {
+          "terrain": 10,
+          "cost": 10
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 3,
+      "max": 3,
+      "ranges": [
+        {
+          "min": 1,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 60,
+      "minHeight": 1,
+      "channelArea": 64
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 60,
+      "minHeight": 2,
+      "channelArea": 64
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 60,
+      "minHeight": 3,
+      "channelArea": 128
+    },
+    {
+      "type": "EROSION",
+      "strength": 0.1,
+      "iterations": 60,
+      "minHeight": 4,
+      "channelArea": 128
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 8,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        4
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 16,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        8
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 7,
+      "max": 7,
+      "ranges": [
+        {
+          "min": 7,
+          "max": 8
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 8,
+      "max": 8,
+      "ranges": [
+        {
+          "min": 9,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 9,
+      "max": 9,
+      "ranges": [
+        {
+          "min": 11,
+          "max": 12
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 6,
+      "max": 6,
+      "ranges": [
+        {
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 5,
+      "max": 5,
+      "ranges": [
+        {
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "type": "HEIGHT_NOISE",
+      "noises": [
+        {
+          "scale": 40,
+          "multiplier": 1
+        }
+      ],
+      "mergeStrategy": "max",
+      "min": 4,
+      "max": 4,
+      "ranges": [
+        {
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 16,
+      "scale": 5,
+      "ranges": [
+        {
+          "min": 0.7,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 5,
+        "max": 5
+      }
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 16,
+      "toTerrain": 8,
+      "maxSize": 5
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 21,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 6,
+        "max": 7
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 22,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [],
+      "height": {
+        "min": 8,
+        "max": 9
+      }
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 15,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "range": {
+        "min": 35,
+        "max": 55
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "terrain": 15,
+          "cost": 5
+        },
+        {
+          "terrain": 8,
+          "cost": 30
+        },
+        {
+          "terrain": 16,
+          "cost": 80
+        },
+        {
+          "terrain": 21,
+          "cost": 20
+        },
+        {
+          "terrain": 22,
+          "cost": 10
+        }
+      ],
+      "heightDiffCost": 5,
+      "terrainCosts": [
+        {
+          "terrain": 8,
+          "cost": 30
+        },
+        {
+          "terrain": 16,
+          "cost": 80
+        },
+        {
+          "terrain": 21,
+          "cost": 20
+        },
+        {
+          "terrain": 22,
+          "cost": 10
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 15,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "range": {
+        "min": 5,
+        "max": 25
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 16,
+          "toTerrain": 15
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 5,
+      "terrainCosts": [
+        {
+          "terrain": 15,
+          "cost": 5
+        },
+        {
+          "terrain": 8,
+          "cost": 30
+        },
+        {
+          "terrain": 16,
+          "cost": 80
+        },
+        {
+          "terrain": 21,
+          "cost": 20
+        },
+        {
+          "terrain": 22,
+          "cost": 10
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 15,
+      "between": "top-bottom",
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "range": {
+        "min": 65,
+        "max": 95
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 16,
+          "toTerrain": 15
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 5,
+      "terrainCosts": [
+        {
+          "terrain": 15,
+          "cost": 5
+        },
+        {
+          "terrain": 8,
+          "cost": 30
+        },
+        {
+          "terrain": 16,
+          "cost": 80
+        },
+        {
+          "terrain": 21,
+          "cost": 20
+        },
+        {
+          "terrain": 22,
+          "cost": 10
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 15,
+      "between": "left-right",
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "range": {
+        "min": 5,
+        "max": 45
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 16,
+          "toTerrain": 15
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 5,
+      "terrainCosts": [
+        {
+          "terrain": 15,
+          "cost": 5
+        },
+        {
+          "terrain": 8,
+          "cost": 30
+        },
+        {
+          "terrain": 16,
+          "cost": 80
+        },
+        {
+          "terrain": 21,
+          "cost": 20
+        },
+        {
+          "terrain": 22,
+          "cost": 10
+        }
+      ]
+    },
+    {
+      "type": "NATURAL_PATH",
+      "terrain": 15,
+      "between": "left-right",
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "range": {
+        "min": 55,
+        "max": 95
+      },
+      "width": 1,
+      "terrainReplacements": [
+        {
+          "fromTerrain": 3,
+          "toTerrain": 3
+        },
+        {
+          "fromTerrain": 16,
+          "toTerrain": 15
+        },
+        {
+          "fromTerrain": 7,
+          "toTerrain": 7
+        }
+      ],
+      "heightDiffCost": 5,
+      "terrainCosts": [
+        {
+          "terrain": 15,
+          "cost": 5
+        },
+        {
+          "terrain": 8,
+          "cost": 30
+        },
+        {
+          "terrain": 16,
+          "cost": 80
+        },
+        {
+          "terrain": 21,
+          "cost": 20
+        },
+        {
+          "terrain": 22,
+          "cost": 10
+        }
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 8,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        15,
+        16
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 28,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0.7,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        15,
+        16
+      ],
+      "height": {
+        "min": 5,
+        "max": 6
+      }
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 0,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        13,
+        15,
+        16,
+        28
+      ]
+    },
+    {
+      "type": "FIELDS",
+      "terrains": [
+        2
+      ],
+      "maxDistance": 2,
+      "width": {
+        "min": 1,
+        "max": 2
+      },
+      "size": {
+        "min": 6,
+        "max": 10
+      },
+      "chance": 0.05,
+      "along": [
+        15
+      ],
+      "verge": 0,
+      "heights": [
+        {
+          "min": 7,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 8,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        2,
+        13,
+        15,
+        16,
+        28
+      ]
+    },
+    {
+      "type": "REPLACE_SMALL_CLUSTERS",
+      "fromTerrain": 2,
+      "toTerrain": 8,
+      "maxSize": 5
+    },
+    {
+      "type": "TERRAIN_NOISE",
+      "terrain": 13,
+      "scale": 30,
+      "ranges": [
+        {
+          "min": 0.8,
+          "max": 1
+        }
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "excludeTerrains": [
+        15
+      ],
+      "height": {
+        "min": 9,
+        "max": 9
+      }
+    },
+    {
+      "type": "PLACE_NAMES",
+      "terrains": [
+        2
+      ],
+      "names": [
+        "Tychowice",
+        "Świętochłystok",
+        "Stawałki",
+        "Tarłystok",
+        "Kanin",
+        "Suwatom",
+        "Gnieworzno",
+        "Ryzierzyn",
+        "Stalonica",
+        "Zielowa",
+        "Pinin",
+        "Szczecitów",
+        "Myschowice",
+        "Jawokary",
+        "Tynów",
+        "Kalizów",
+        "Przemnowice",
+        "Sosnokary",
+        "Pioła",
+        "Ryblenia",
+        "Pułale",
+        "Zawienów",
+        "Gnieworzno",
+        "Gorchowa",
+        "Jawostok",
+        "Sosnonin",
+        "Siery",
+        "Dąchatów",
+        "Jawobrzeg",
+        "Wałzyn",
+        "Zamonów",
+        "Biaskie",
+        "Kachatów",
+        "Dąbroków",
+        "Bieldańsk",
+        "Świdsko",
+        "Siecin",
+        "Legiobunalski",
+        "Słupnowice",
+        "Piełystok",
+        "Łocin",
+        "Płocie",
+        "Oswice",
+        "Bycław",
+        "Rybkary",
+        "Jazno",
+        "Opochy",
+        "Łolin",
+        "Płokary",
+        "Krachatów",
+        "Katole",
+        "Prusznowo",
+        "Gnielowa",
+        "Świękary",
+        "Noziądz",
+        "Ziechowice",
+        "Bynin",
+        "Świdzin",
+        "Biatów",
+        "Sosnola",
+        "Zamonowice",
+        "Myszów",
+        "Konowo",
+        "Suruń",
+        "Lubnice",
+        "Kanin",
+        "Lunice",
+        "Ostrochy",
+        "Jeletyn",
+        "Elska",
+        "Kostok",
+        "Torułowice",
+        "Jawotów",
+        "Płonowiec",
+        "Gnielowa",
+        "Kędnice",
+        "Kiemyśl",
+        "Święwy",
+        "Pruszcin",
+        "Elchowice",
+        "Wodziławy",
+        "Kędzierzyn",
+        "Stawek",
+        "Gliwichy",
+        "Włołęka",
+        "Wartów",
+        "Głozyn",
+        "Elbrzych",
+        "Soruń",
+        "Ostronin",
+        "Inosko",
+        "Kralec",
+        "Grudnice",
+        "Gruchowice",
+        "Tyła",
+        "Suwacin",
+        "Ziebórz",
+        "Toruwice",
+        "Świdsko",
+        "Pułamża",
+        "Świdkrzyski",
+        "Lubchowice",
+        "Tarchowa",
+        "Jelenowice",
+        "Płoska",
+        "Jawołowice",
+        "Piołowice",
+        "Przemkary",
+        "Gniechowice",
+        "Piry",
+        "Ostrochatów",
+        "Przemry",
+        "Rzeszbrzych"
+      ],
+      "minSize": 4,
+      "maxDistance": 4
+    }
+  ],
+  "triggers": [],
+  "locales": {
+    "en": {
+      "name": "Frozen Swamp",
+      "description": "A winter map."
+    },
+    "es": {
+      "name": "Pantano helado",
+      "description": "Un mapa invernal."
+    },
+    "fr": {
+      "name": "Marais gelé",
+      "description": "Une carte hivernale."
+    },
+    "de": {
+      "name": "Gefrorener Sumpf",
+      "description": "Eine Winterkarte."
+    },
+    "it": {
+      "name": "Palude ghiacciata",
+      "description": "Una mappa invernale."
+    },
+    "pt": {
+      "name": "Pântano congelado",
+      "description": "Um mapa de inverno."
+    },
+    "ru": {
+      "name": "Замёрзшее болото",
+      "description": "Зимняя карта."
+    },
+    "uk": {
+      "name": "Замерзле болото",
+      "description": "Зимова мапа."
+    },
+    "pl": {
+      "name": "Zamarznięte bagno",
+      "description": "Zimowa mapa."
+    },
+    "hu": {
+      "name": "Befagyott mocsár",
+      "description": "Téli térkép."
+    },
+    "el": {
+      "name": "Παγωμένος βάλτος",
+      "description": "Ένας χειμερινός χάρτης."
+    },
+    "tr": {
+      "name": "Donmuş Bataklık",
+      "description": "Bir kış haritası."
+    },
+    "ar": {
+      "name": "المستنقع المتجمد",
+      "description": "خريطة شتوية."
+    },
+    "hi": {
+      "name": "जमा हुआ दलदल",
+      "description": "एक शीतकालीन नक्शा।"
+    },
+    "id": {
+      "name": "Rawa Beku",
+      "description": "Peta musim dingin."
+    },
+    "th": {
+      "name": "หนองน้ำเยือกแข็ง",
+      "description": "แผนที่ฤดูหนาว"
+    },
+    "vi": {
+      "name": "Đầm lầy băng giá",
+      "description": "Một bản đồ mùa đông."
+    },
+    "ja": {
+      "name": "凍てつく沼地",
+      "description": "冬のマップ。"
+    },
+    "kr": {
+      "name": "얼어붙은 늪",
+      "description": "겨울 지도입니다."
+    },
+    "zh": {
+      "name": "冰封沼泽",
+      "description": "一张冬季地图。"
+    }
+  },
+  "allowDynamicArmy": true,
+  "placeableObjectives": true
+}

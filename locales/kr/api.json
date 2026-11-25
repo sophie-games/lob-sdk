@@ -27,5 +27,9 @@
   "MAX_SLOW_QUEUE_LIMIT_REACHED": "대기열에서 기다리는 게임이 이미 최대치입니다. 다시 대기열에 참가하려면 하나를 철회하세요.",
   "USER_NOT_ADDED_TO_THE_QUEUE": "대기열에 추가하지 못했습니다. 다시 시도해 주세요.",
   "INVALID_CURRENCY_TYPE": "잘못된 통화 선택입니다.",
-  "INTERNAL_ERROR": "문제가 발생했습니다. 다시 시도하세요."
+  "INTERNAL_ERROR": "문제가 발생했습니다. 다시 시도하세요.",
+  "Username or email already taken": "이미 사용 중인 사용자 이름 또는 이메일입니다.",
+  "INVALID_EMAIL": "유효한 이메일 주소를 입력하세요.",
+  "DISPOSABLE_EMAIL_NOT_ALLOWED": "임시 이메일 주소는 사용할 수 없습니다.",
+  "INVALID_USERNAME": "다른 이름을 선택하세요: 영문자, 숫자, 밑줄 또는 하이픈으로 3~50자."
 }

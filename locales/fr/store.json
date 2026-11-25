@@ -1,7 +1,7 @@
 {
   "currencyShop": {
     "title": "Obtenir des <0/>",
-    "subtitle": "Débloquez des cosmétiques incroyables et démarquez-vous de la foule !",
+    "subtitle": "Dépensez du Prestige en unités, armées, Arènes, Coalitions, cosmétiques et plus encore.",
     "unavailable": "La boutique est indisponible pour le moment. Veuillez réessayer plus tard."
   },
 
@@ -11,7 +11,7 @@
     "basic": "Florins",
     "premium": "Prestige",
     "basicDescription": "<currency/> : Gagnez ceci en jouant des matchs dans la file d'attente. Utilisez-le pour débloquer des unités et diversifier votre armée.",
-    "premiumDescription": "<currency/> : Celle-ci sert à acheter des cosmétiques pour afficher votre style. Elle provient principalement de l'argent réel, car le jeu est gratuit.",
+    "premiumDescription": "<currency/> : Dépensez-le dans tout le jeu en unités, armées, Arènes, Coalitions, cosmétiques et plus encore. Achetez-en ou gagnez-en en jouant.",
     "rate": "{{rate}} {{currency}} par USD",
     "purchase": "Acheter {{amount}} {{currency}}"
   },
@@ -29,5 +29,6 @@
   },
 
   "purchaseConfirmation": "Êtes-vous sûr de vouloir acheter {{item}} ?",
+  "showPurchased": "Afficher les articles achetés",
   "offlineWarning": "Les achats ne fonctionnent qu'en mode en ligne, pas hors ligne."
 }

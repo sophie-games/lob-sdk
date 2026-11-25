@@ -7,6 +7,36 @@
       "17": 2,
       "19": 1
     },
+    "kFactor": 16,
+    "ticksToCaptureSmall": 64,
+    "ticksToCaptureBig": 64,
+    "vpBigDefaultPoints": 60,
+    "vpSmallDefaultPoints": 15,
+    "objectiveSpacing": 256,
+    "smallObjectivesPerSide": 1,
+    "centralNeutralObjectives": 2,
+    "neutralObjectiveSpacing": 448,
+    "defaultArmy": {
+      "1": 4,
+      "14": 2,
+      "2": 2,
+      "18": 2
+    },
+    "mapSize": ["s"],
+    "premiumCurrencyChance": 2,
+    "maxTurn": 32,
+    "ranked": true,
+    "vpTicksUnderPressureBase": 5
+  },
+  "micro_2v2": {
+    "manpower": 1600,
+    "gold": 750,
+    "skirmisherRatio": [1, 2],
+    "unitCaps": {
+      "17": 2,
+      "19": 1
+    },
+    "kFactor": 16,
     "ticksToCaptureSmall": 64,
     "ticksToCaptureBig": 64,
     "vpBigDefaultPoints": 60,
@@ -26,6 +56,7 @@
     "maxTurn": 32,
     "ranked": true,
     "teamSize": "2v2",
+    "variantOf": "micro",
     "vpTicksUnderPressureBase": 5
   },
   "clash": {
@@ -36,6 +67,7 @@
       "17": 2,
       "19": 1
     },
+    "kFactor": 24,
     "ticksToCaptureSmall": 64,
     "ticksToCaptureBig": 64,
     "vpBigDefaultPoints": 60,
@@ -52,7 +84,7 @@
       "12": 1,
       "18": 2
     },
-    "mapSize": ["s"],
+    "mapSize": ["m"],
     "premiumCurrencyChance": 4,
     "maxTurn": 32,
     "ranked": true,
@@ -66,6 +98,7 @@
       "17": 4,
       "19": 1
     },
+    "kFactor": 32,
     "ticksToCaptureSmall": 128,
     "ticksToCaptureBig": 128,
     "vpBigDefaultPoints": 60,
@@ -82,7 +115,7 @@
       "12": 3,
       "18": 4
     },
-    "mapSize": ["m"],
+    "mapSize": ["l"],
     "premiumCurrencyChance": 8,
     "maxTurn": 40,
     "ranked": true,
@@ -96,6 +129,7 @@
       "17": 6,
       "19": 2
     },
+    "kFactor": 40,
     "ticksToCaptureSmall": 128,
     "ticksToCaptureBig": 128,
     "vpBigDefaultPoints": 60,
@@ -112,7 +146,7 @@
       "12": 4,
       "18": 7
     },
-    "mapSize": ["l"],
+    "mapSize": ["xl"],
     "premiumCurrencyChance": 12,
     "maxTurn": 44,
     "ranked": true,
@@ -126,6 +160,7 @@
       "17": 8,
       "19": 2
     },
+    "kFactor": 48,
     "ticksToCaptureSmall": 128,
     "ticksToCaptureBig": 128,
     "vpBigDefaultPoints": 60,
@@ -142,7 +177,7 @@
       "12": 10,
       "18": 10
     },
-    "mapSize": ["xl"],
+    "mapSize": ["xxl"],
     "premiumCurrencyChance": 16,
     "maxTurn": 48,
     "ranked": true,

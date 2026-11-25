@@ -85,6 +85,29 @@ describe("GameDataManager custom defs", () => {
       expect(allowed.length).toBe(1);
     });
 
+    it.each(["napoleonic", "ww2"] as const)(
+      "loads legacy replay order names in %s without changing the saved definitions",
+      (era) => {
+        const category = {
+          id: "legacy-infantry",
+          firingAltitude: 0,
+          allowedOrders: ["walk", "fireAndAdvance", "advance"],
+        };
+        const manager = GameDataManager.createWithCustomDefs(era, {
+          customUnitCategories: [category],
+        });
+        expect(manager.getUnitCategoryAllowedOrders(category.id)).toEqual([
+          OrderType.Walk,
+          ...(era === "napoleonic" ? [OrderType.FireAndAdvance] : []),
+        ]);
+        expect(category.allowedOrders).toEqual(["walk", "fireAndAdvance", "advance"]);
+        expect(manager.getOrderTemplate(OrderType.Walk).name).toBe("walk");
+        if (era === "napoleonic") {
+          expect(manager.getOrderTemplate(OrderType.FireAndAdvance).name).toBe("fireAndAdvance");
+        }
+      },
+    );
+
     it("throws at load time if an allowedOrder name is unknown", () => {
       expect(() =>
         GameDataManager.createWithCustomDefs("napoleonic", {
@@ -97,6 +120,62 @@ describe("GameDataManager custom defs", () => {
           ],
         }),
       ).toThrow(/Order no-such-order not found/);
+    });
+  });
+
+  describe("loadCustomDefs: custom ammo types", () => {
+    const arrows = { id: 10001, name: "arrows", color: "#8b6b3e" };
+
+    it("makes the ammo type resolvable by id and by name", () => {
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customAmmoTypes: [arrows],
+      });
+      expect(m.getAmmoTypeById(arrows.id)).toEqual(arrows);
+      expect(m.getAmmoTypeByName(arrows.name)).toEqual(arrows);
+      expect(m.getAmmoTypes()).toContainEqual(arrows);
+    });
+
+    it("keeps the era's first ammo type as the default", () => {
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customAmmoTypes: [arrows],
+      });
+      expect(m.getDefaultAmmoType().name).toBe("round-shot");
+    });
+
+    it("overrides a built-in's color by id without duplicating it", () => {
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customAmmoTypes: [{ id: 2, name: "canister", color: "#000000" }],
+      });
+      expect(m.getAmmoTypeByName("canister").color).toBe("#000000");
+      expect(m.getAmmoTypes().filter((a) => a.name === "canister")).toHaveLength(1);
+    });
+
+    it("lets a custom damage type spend it", () => {
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customAmmoTypes: [arrows],
+        customDamageTypes: [
+          {
+            id: 10001,
+            name: "Arrow",
+            ranged: true,
+            maxRange: 100,
+            ranges: [{ from: 0, to: 1, damageModifier: { near: 1, far: 1 } }],
+            ammoType: "arrows",
+            ammoCost: 10000,
+          } as RangedDamageTypeTemplate,
+        ],
+      });
+      const arrow = m.getDamageTypeByName<RangedDamageTypeTemplate>("Arrow");
+      expect(m.getAmmoTypeOf(arrow).name).toBe("arrows");
+    });
+
+    it("keeps the era singleton clean", () => {
+      GameDataManager.createWithCustomDefs("napoleonic", {
+        customAmmoTypes: [arrows],
+      });
+      const singleton = GameDataManager.get("napoleonic");
+      expect(() => singleton.getAmmoTypeByName(arrows.name)).toThrow();
+      expect(singleton.getAmmoTypes().map((a) => a.name)).not.toContain("arrows");
     });
   });
 
@@ -457,6 +536,29 @@ describe("GameDataManager custom defs", () => {
   });
 
   describe("loadCustomDefs: custom terrain categories", () => {
+    it("reads a road's click-following and per-formation take-over coverage", () => {
+      const m = GameDataManager.get("napoleonic");
+      expect(m.isFollowedOnClick(TerrainType.Road)).toBe(true);
+      expect(m.isFollowedOnClick(TerrainType.Grass)).toBe(false);
+      expect(m.getTakeOverAt(TerrainType.Road, "column")).toBe(0.65);
+      expect(m.getTakeOverAt(TerrainType.Road, "line")).toBe(1);
+      expect(m.getTakeOverAt(TerrainType.Road, "someCustomFormation")).toBe(0.5);
+      expect(m.getTakeOverAt(TerrainType.Grass, "column")).toBeUndefined();
+    });
+
+    it("migrates a saved override's prioritizeMovement to click-following with the built-in's take-over", () => {
+      const m = GameDataManager.createWithCustomDefs("napoleonic", {
+        customTerrainCategories: [
+          { id: "path", config: { prioritizeMovement: true, movementModifier: { "*": 0.5 } } },
+          { id: "forest", config: { prioritizeMovement: true } },
+        ],
+      });
+      expect(m.isFollowedOnClick(TerrainType.Road)).toBe(true);
+      expect(m.getTakeOverAt(TerrainType.Road, "column")).toBe(0.65);
+      expect(m.isFollowedOnClick(TerrainType.Forest)).toBe(true);
+      expect(m.getTakeOverAt(TerrainType.Forest, "column")).toBe(0.5);
+    });
+
     it("overrides an existing terrain category config", () => {
       const m = GameDataManager.createWithCustomDefs("napoleonic", {
         customTerrainCategories: [
